@@ -31,6 +31,8 @@ jobs:
         run: |
           test -f client/src/app.js
           test -f tools/build-standalone.py
+          test -f shared/v69-approved.json
+          test -f client/src/organic-art-v69.js
           test -f ci/signing/35k-alchemy-debug-keystore.b64
       - uses: actions/setup-node@v4
         with:
