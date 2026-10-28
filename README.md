@@ -1,23 +1,25 @@
-# 35K Alchemy
+# 35K Alchemy — V68 (source migration + Android)
 
-Repositório oficial do projeto 35K Alchemy.
+Official repository for **35K Alchemy**.
 
-**Estado da migração:** as instruções e a configuração Android foram publicadas. O pacote integral V67 (jogo + milhares de SVGs + testes) ainda precisa de ser importado para esta branch; o simples facto de este README existir **não significa** que o jogo completo já esteja no GitHub.
+**Migration status:** The Android build configuration and the one-archive V68 import workflow are ready. The **full V68 sources are not in this branch until the one-archive import workflow succeeds**. Do not mistake scaffolding for a successful migration.
 
-## Base verificada
+## Verified V68 source
 
-- V67: **5.162 elementos**, **13.499 receitas**.
-- Localmente: **248/248 testes Node** e reconstrução HTML validada.
-- Código: `client/`, `shared/`, `tools/` e `docs/`.
-- Android: Capacitor 8; API 36, JDK 21 e Node 22.
-- APK debug via GitHub Actions **depois** de importar as fontes.
+- 5,172 distinct elements and 13,509 fixed unordered recipes.
+- 252/252 Node tests passed on the V68 source archive.
+- Original standalone HTML was reproduced byte-for-byte after importing the archive locally.
+- Full source includes `client/`, `shared/`, `tools/`, `docs/`, asset history, test fixtures and reference plugin code in `native-reference/`.
+- Capacitor 8, Android API 36, Node 22 and JDK 21 prepare a **debug APK** in GitHub Actions; native build has **not** been verified until Actions passes.
 
-## Importar o projeto
+## Complete the import from your phone or computer
 
-Descarregar o pacote «35K Alchemy Repository Import» entregue nesta conversa, descompactar e usar `IMPORT_TO_GITHUB.sh` num computador com Git e acesso de escrita a este repositório. O script clona esta branch e adiciona todo o código sem sobrescrever o histórico remoto.
+1. Download `35K_Alchemy_V68_GitHub_Import.tar.xz` from the V68 migration handoff in ChatGPT.
+2. In this repository, choose **Add file → Upload files**, select the archive, and **Commit directly to `main`**. Do not extract the archive on GitHub manually.
+3. Open **Actions → Import full V68 source and build APK → Run workflow**.
+4. After a successful run, open that workflow run and download the `35K-Alchemy-V68-debug-APK` artifact.
+5. For future builds after import, use **Actions → Build Android debug APK**. No further archive uploads are needed.
 
-## Regras
+Read [the import guide](docs/IMPORT_ONE_ARCHIVE.md), [Android packaging](docs/ANDROID_BUILD.md) and [permanent rules](docs/WORKING_RULES_PT.md).
 
-Ler [regras de trabalho](docs/WORKING_RULES_PT.md), [migração Android](docs/ANDROID_BUILD.md) e [instruções de agentes](AGENTS.md).
-
-**AdMob:** o jogo HTML não pode inventar anúncios nem conceder recompensas. SDK Android real, consentimento UMP e validação de recompensas ainda estão pendentes.
+**Important:** The repository is public; source code and assets become public after import. A debug APK is for testing, not a signed Play Store release AAB. The rewarded-ad bridge, UMP consent and SSV are **not integrated**; the offline build must never simulate ad rewards.
