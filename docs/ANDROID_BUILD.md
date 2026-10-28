@@ -52,3 +52,37 @@ Generated folders `android/` and `www/` are ignored; Capacitor recreates Android
 - Do not distribute an unsigned or debug APK as a release build.
 
 Official docs: https://capacitorjs.com/docs/getting-started ; https://capacitorjs.com/docs/android ; https://capacitorjs.com/docs/updating/8-0
+
+
+## Android 16/17 status-bar overlap (Capacitor 8 / API 36)
+
+On 28 October 2026, the first physical Android screenshot showed the Android
+notification icons drawn over the game's header and blocking its buttons.
+This was an edge-to-edge window-insets bug, not a catalog or gameplay issue.
+
+The Android build now:
+- Declares `plugins.SystemBars.insetsHandling = "css"` and
+  `initialViewportFitValueHint = "cover"` in `capacitor.config.json`.
+- Uses the injected `--safe-area-inset-*` variables (with standard CSS
+  `env(safe-area-inset-*)` fallback) to pad the app's top and side edges,
+  while preserving bottom safe-area spacing in the navigation bar.
+- Runs `python tools/configure-android-edge-to-edge.py` **after** generating
+  the Capacitor project. Android 11+ calls `EdgeToEdge.enable(this)`;
+  older Android versions keep the default window layout.
+- Syncs the system status/navigation icon color when the user switches
+  between Light, Dark and System themes.
+- Adds `client/test/android-system-bars.test.mjs` regression checks.
+- Retains the app ID, dedicated stable test signature, versionCode progression
+  and the `35K-Alchemy.apk` GitHub Release filename.
+
+Do not use `StatusBar.overlaysWebView = false` as a fix: it cannot opt out
+of mandatory edge-to-edge for Android API 36. Avoid hardcoded 24/32/48px
+status-bar offsets, because they break under display cutouts, font scaling,
+landscape or newer WebView versions.
+
+**Device QA still required:** install the newest GitHub Release APK, check
+the main header no longer touches the system clock/notifications, tap Settings
+and Classic, switch Light/Dark, test portrait/landscape where applicable,
+scroll the inventory, use search/keyboard and confirm bottom navigation is
+never obscured. Passing CI proves compilation, not physical screen geometry.
+
