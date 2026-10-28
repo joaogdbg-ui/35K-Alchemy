@@ -1,0 +1,8 @@
+{
+  "count": 76,
+  "identical_svg_sha256": 0,
+  "perceptual_pairs_at_distance_le_8": [],
+  "actual_motif_composites_still_queued": 14,
+  "review_method": "Full gallery and actual 35px sheets in dark and light; visually inspect each item",
+  "limitations": "Automated pHash tests do not prove subjective meaning, recognizability or originality"
+}

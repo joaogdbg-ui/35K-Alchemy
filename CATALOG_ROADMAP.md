@@ -21,3 +21,10 @@ Current: 5,106 elements, 13,443 recipes. The first art-gated batch adds 35 genui
 - +12 new elements / +12 recipes / 24 V61 redraws = **5,162 elements / 13,499 recipes**.
 - **100 identified V61 generic icons remain** after this release.
 - Continue diversity of silhouettes, not motif permutations. Review at 35 px, not only in SVG source.
+
+## V69 — 76 art-only replacements (no added recipes)
+
+- Stable total: **5,172 unique elements / 13,509 fixed recipes**.
+- Created 76 subject-specific V61 legacy redraws with 35px Light/Dark reviews and checksummed runtime SVGs.
+- Historical count correction: the V68 "76 pending" note included 14 previously redrawn items already marked art-directed; 90 motif-composite entries were still pending before V69, **14 after V69**.
+- Do not treat pHash/hash uniqueness as proof of artistic or semantic quality; inspect each icon and the remaining 14 before resuming ~200-new-element batches.

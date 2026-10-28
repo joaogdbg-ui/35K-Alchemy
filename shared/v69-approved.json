@@ -1,0 +1,618 @@
+{
+  "version": 69,
+  "new_items": [],
+  "redrawn_v61": [
+    {
+      "name": "Cloud Shadow Garden",
+      "id": "organic61:cloud-shadow-garden",
+      "path": "client/assets/v69/redrawn-v61/cloud-shadow-garden.svg",
+      "sha256": "e0c4956a68cedeb638287021abbc17fce38ca0d15c4d6babb7ab12217b742d95",
+      "art_mode": "bespoke-silhouette",
+      "source": "hand-drawn-subject-v69"
+    },
+    {
+      "name": "Warm Front Garden",
+      "id": "organic61:warm-front-garden",
+      "path": "client/assets/v69/redrawn-v61/warm-front-garden.svg",
+      "sha256": "4f8b877b7f0a314991f35be9fa5616060ad55c6edd4a33920a21f326d820ff99",
+      "art_mode": "bespoke-silhouette",
+      "source": "hand-drawn-subject-v69"
+    },
+    {
+      "name": "Morning Fog Meadow",
+      "id": "organic61:morning-fog-meadow",
+      "path": "client/assets/v69/redrawn-v61/morning-fog-meadow.svg",
+      "sha256": "c50c372e28454c4d425f6bd18223e194236ae1e899cd91e78db913df19826177",
+      "art_mode": "bespoke-silhouette",
+      "source": "hand-drawn-subject-v69"
+    },
+    {
+      "name": "Volcanic Cloud Glare",
+      "id": "organic61:volcanic-cloud-glare",
+      "path": "client/assets/v69/redrawn-v61/volcanic-cloud-glare.svg",
+      "sha256": "1683efe9084e0551669ef9adb8fec0676eb717d7522e003b1f89852f9779c7b3",
+      "art_mode": "bespoke-silhouette",
+      "source": "hand-drawn-subject-v69"
+    },
+    {
+      "name": "Drought Resistant Garden",
+      "id": "organic61:drought-resistant-garden",
+      "path": "client/assets/v69/redrawn-v61/drought-resistant-garden.svg",
+      "sha256": "9ba8abd2d9f16261ca193f637795c4c00f142831a66a5aa4d12b459c82fe905f",
+      "art_mode": "bespoke-silhouette",
+      "source": "hand-drawn-subject-v69"
+    },
+    {
+      "name": "Mountain Frost Chart",
+      "id": "organic61:mountain-frost-chart",
+      "path": "client/assets/v69/redrawn-v61/mountain-frost-chart.svg",
+      "sha256": "42cc4924749986f5aa6504d6f46e727d4f1dff46d65a313ff511fd2a9dd0f694",
+      "art_mode": "bespoke-silhouette",
+      "source": "hand-drawn-subject-v69"
+    },
+    {
+      "name": "Cloud Observation Lens",
+      "id": "organic61:cloud-observation-lens",
+      "path": "client/assets/v69/redrawn-v61/cloud-observation-lens.svg",
+      "sha256": "52aeda19d8cb5fcb445a24bc65a4b126a6ec29d5e50fafc1b7c9fb30d0f2ce95",
+      "art_mode": "bespoke-silhouette",
+      "source": "hand-drawn-subject-v69"
+    },
+    {
+      "name": "Distant Thunder Journal",
+      "id": "organic61:distant-thunder-journal",
+      "path": "client/assets/v69/redrawn-v61/distant-thunder-journal.svg",
+      "sha256": "a19b63d24fef9e54c524722affc2594194693e0e17c542ade833237f4378506f",
+      "art_mode": "bespoke-silhouette",
+      "source": "hand-drawn-subject-v69"
+    },
+    {
+      "name": "Heatwave Garden Thermometer",
+      "id": "organic61:heatwave-garden-thermometer",
+      "path": "client/assets/v69/redrawn-v61/heatwave-garden-thermometer.svg",
+      "sha256": "7794276ad9ba7f3feaa44dc0f613a5989cc7b7c3a43c2721abb553101000a82d",
+      "art_mode": "bespoke-silhouette",
+      "source": "hand-drawn-subject-v69"
+    },
+    {
+      "name": "Salted Cocoa Truffle",
+      "id": "organic61:salted-cocoa-truffle",
+      "path": "client/assets/v69/redrawn-v61/salted-cocoa-truffle.svg",
+      "sha256": "69ef25f4fa567327b6ae627fa190010e7bedec00550c1cb37f2fa558a87d8f0e",
+      "art_mode": "bespoke-silhouette",
+      "source": "hand-drawn-subject-v69"
+    },
+    {
+      "name": "Cinnamon Honey Biscuit",
+      "id": "organic61:cinnamon-honey-biscuit",
+      "path": "client/assets/v69/redrawn-v61/cinnamon-honey-biscuit.svg",
+      "sha256": "81277fefeff1de7b3facdc8871307131c66389cea0546db883e8f0835da05654",
+      "art_mode": "bespoke-silhouette",
+      "source": "hand-drawn-subject-v69"
+    },
+    {
+      "name": "Berry Cream Pancake",
+      "id": "organic61:berry-cream-pancake",
+      "path": "client/assets/v69/redrawn-v61/berry-cream-pancake.svg",
+      "sha256": "8a001a41edfddf57383efb9cd2ec425bb4eda60202a9cde13820dbfa6ab3301d",
+      "art_mode": "bespoke-silhouette",
+      "source": "hand-drawn-subject-v69"
+    },
+    {
+      "name": "Apple Honey Crumble",
+      "id": "organic61:apple-honey-crumble",
+      "path": "client/assets/v69/redrawn-v61/apple-honey-crumble.svg",
+      "sha256": "d58cb67abd7e5a7fcab2222dad173b37c592d5297ce00d4787e58e7b3f38befd",
+      "art_mode": "bespoke-silhouette",
+      "source": "hand-drawn-subject-v69"
+    },
+    {
+      "name": "Carrot Herb Flatbread",
+      "id": "organic61:carrot-herb-flatbread",
+      "path": "client/assets/v69/redrawn-v61/carrot-herb-flatbread.svg",
+      "sha256": "e6baa4e2ea18ef51cedc8984735087989eeaafcc1c7eeb1f14989b7fc40fef86",
+      "art_mode": "bespoke-silhouette",
+      "source": "hand-drawn-subject-v69"
+    },
+    {
+      "name": "Cinnamon Apple Cupcake",
+      "id": "organic61:cinnamon-apple-cupcake",
+      "path": "client/assets/v69/redrawn-v61/cinnamon-apple-cupcake.svg",
+      "sha256": "8d33b8bf41f7c54a276a6cf7ce0c3cd7baebeefa703c440b2dec16f75b7356cb",
+      "art_mode": "bespoke-silhouette",
+      "source": "hand-drawn-subject-v69"
+    },
+    {
+      "name": "Cheese Mushroom Toast",
+      "id": "organic61:cheese-mushroom-toast",
+      "path": "client/assets/v69/redrawn-v61/cheese-mushroom-toast.svg",
+      "sha256": "9bd8f7d5ea0eadee329d0b638d74b4d0c0d0159956c67cdde1e754fe55662ea3",
+      "art_mode": "bespoke-silhouette",
+      "source": "hand-drawn-subject-v69"
+    },
+    {
+      "name": "Honey Cream Pudding",
+      "id": "organic61:honey-cream-pudding",
+      "path": "client/assets/v69/redrawn-v61/honey-cream-pudding.svg",
+      "sha256": "e04b408c023171de973edc5d6a53a40456ca0547b4692b5dee5481f745e5731e",
+      "art_mode": "bespoke-silhouette",
+      "source": "hand-drawn-subject-v69"
+    },
+    {
+      "name": "Herbal Tea Syrup",
+      "id": "organic61:herbal-tea-syrup",
+      "path": "client/assets/v69/redrawn-v61/herbal-tea-syrup.svg",
+      "sha256": "ff656ac8b8548854fd34823c10fc1c142548836994c5b054bf44152679ba2ed4",
+      "art_mode": "bespoke-silhouette",
+      "source": "hand-drawn-subject-v69"
+    },
+    {
+      "name": "Roasted Vegetable Tart",
+      "id": "organic61:roasted-vegetable-tart",
+      "path": "client/assets/v69/redrawn-v61/roasted-vegetable-tart.svg",
+      "sha256": "d7a9453f0deabe951bd39c569d413b7328ee569e3ae71976399be6ba869456b0",
+      "art_mode": "bespoke-silhouette",
+      "source": "hand-drawn-subject-v69"
+    },
+    {
+      "name": "Botanical Dye Print",
+      "id": "organic61:botanical-dye-print",
+      "path": "client/assets/v69/redrawn-v61/botanical-dye-print.svg",
+      "sha256": "59827445b0a5a473102f13bae68a86a2f3730c910bc289b697025fb54c609f23",
+      "art_mode": "bespoke-silhouette",
+      "source": "hand-drawn-subject-v69"
+    },
+    {
+      "name": "Crystal Copper Pendant",
+      "id": "organic61:crystal-copper-pendant",
+      "path": "client/assets/v69/redrawn-v61/crystal-copper-pendant.svg",
+      "sha256": "c47b4c5ac41111ee4034066010529fe222a1b9563583560927d2d4b7b59d545f",
+      "art_mode": "bespoke-silhouette",
+      "source": "hand-drawn-subject-v69"
+    },
+    {
+      "name": "Copper Art Stamp",
+      "id": "organic61:copper-art-stamp",
+      "path": "client/assets/v69/redrawn-v61/copper-art-stamp.svg",
+      "sha256": "db0f8219d29d0f06dd9c71860a330e2afda00fcb3aea20d4cb4fa5eb99d808ea",
+      "art_mode": "bespoke-silhouette",
+      "source": "hand-drawn-subject-v69"
+    },
+    {
+      "name": "Ceramic Herb Bowl",
+      "id": "organic61:ceramic-herb-bowl",
+      "path": "client/assets/v69/redrawn-v61/ceramic-herb-bowl.svg",
+      "sha256": "9a86a019524fc285c666bc6138f22e55d621afa2b6dba285f259bf9d44d8dd78",
+      "art_mode": "bespoke-silhouette",
+      "source": "hand-drawn-subject-v69"
+    },
+    {
+      "name": "Stone Garden Mosaic",
+      "id": "organic61:stone-garden-mosaic",
+      "path": "client/assets/v69/redrawn-v61/stone-garden-mosaic.svg",
+      "sha256": "a3b34e1889823239081b44bc4f165ec433ad3efbe4006efb20321a78ef238fb3",
+      "art_mode": "bespoke-silhouette",
+      "source": "hand-drawn-subject-v69"
+    },
+    {
+      "name": "Honeycomb Wax Art",
+      "id": "organic61:honeycomb-wax-art",
+      "path": "client/assets/v69/redrawn-v61/honeycomb-wax-art.svg",
+      "sha256": "447a10824b501c87b43c220c97e4f6830c6498cd2e0767dfeed7467a7aa92efe",
+      "art_mode": "bespoke-silhouette",
+      "source": "hand-drawn-subject-v69"
+    },
+    {
+      "name": "Crushed Shell Path",
+      "id": "organic61:crushed-shell-path",
+      "path": "client/assets/v69/redrawn-v61/crushed-shell-path.svg",
+      "sha256": "c9e91d482fadf3d386b7f0a7d8fa01031cf3add583beb52a2c3735163f297c3b",
+      "art_mode": "bespoke-silhouette",
+      "source": "hand-drawn-subject-v69"
+    },
+    {
+      "name": "Sea Glass Sun Catcher",
+      "id": "organic61:sea-glass-sun-catcher",
+      "path": "client/assets/v69/redrawn-v61/sea-glass-sun-catcher.svg",
+      "sha256": "e2a67b71184396a2e45f47b8015c8f39fe948294d8bd0ea07870a9c96c4e924f",
+      "art_mode": "bespoke-silhouette",
+      "source": "hand-drawn-subject-v69"
+    },
+    {
+      "name": "Mushroom Spore Paper",
+      "id": "organic61:mushroom-spore-paper",
+      "path": "client/assets/v69/redrawn-v61/mushroom-spore-paper.svg",
+      "sha256": "8253cb7c513f290c693e1910fa131efb5ea34fe08a8e2475f220bbda3de0878c",
+      "art_mode": "bespoke-silhouette",
+      "source": "hand-drawn-subject-v69"
+    },
+    {
+      "name": "Nature Collage Card",
+      "id": "organic61:nature-collage-card",
+      "path": "client/assets/v69/redrawn-v61/nature-collage-card.svg",
+      "sha256": "5ac7a054837a5ba5549c4f4c66beacd3ff4163505b506fe4a4e0d4b1397344c6",
+      "art_mode": "bespoke-silhouette",
+      "source": "hand-drawn-subject-v69"
+    },
+    {
+      "name": "Water Level Alarm",
+      "id": "organic61:water-level-alarm",
+      "path": "client/assets/v69/redrawn-v61/water-level-alarm.svg",
+      "sha256": "8888cc1d3aea3cb452744e8eb545eb1b9b08f855cd08fe3d0ab941ddc309ebac",
+      "art_mode": "bespoke-silhouette",
+      "source": "hand-drawn-subject-v69"
+    },
+    {
+      "name": "Greenhouse Thermostat",
+      "id": "organic61:greenhouse-thermostat",
+      "path": "client/assets/v69/redrawn-v61/greenhouse-thermostat.svg",
+      "sha256": "28a2a50480c02feb49333097d2c297ff231c489681d69ff259cbf0c452db0bcf",
+      "art_mode": "bespoke-silhouette",
+      "source": "hand-drawn-subject-v69"
+    },
+    {
+      "name": "Solar Powered Field Radio",
+      "id": "organic61:solar-powered-field-radio",
+      "path": "client/assets/v69/redrawn-v61/solar-powered-field-radio.svg",
+      "sha256": "a89eccd6779ee754708b0a8b770dd07e8213b09fd610140e5e8195b9fae8e0b8",
+      "art_mode": "bespoke-silhouette",
+      "source": "hand-drawn-subject-v69"
+    },
+    {
+      "name": "Thermal Window Film",
+      "id": "organic61:thermal-window-film",
+      "path": "client/assets/v69/redrawn-v61/thermal-window-film.svg",
+      "sha256": "1ee15ce43f2c7ad04f181c5ed73f55e3fbbbe519c521f691137957c5ed9a6459",
+      "art_mode": "bespoke-silhouette",
+      "source": "hand-drawn-subject-v69"
+    },
+    {
+      "name": "Optical Lens Workshop",
+      "id": "organic61:optical-lens-workshop",
+      "path": "client/assets/v69/redrawn-v61/optical-lens-workshop.svg",
+      "sha256": "ef795ad3d31662b65c6e0ed4f9071610985b908ac1e497356932ae5347b01248",
+      "art_mode": "bespoke-silhouette",
+      "source": "hand-drawn-subject-v69"
+    },
+    {
+      "name": "Wireless Garden Sensor",
+      "id": "organic61:wireless-garden-sensor",
+      "path": "client/assets/v69/redrawn-v61/wireless-garden-sensor.svg",
+      "sha256": "670cf8c2b8dd55dd144337ddc5a652d337647160ecc0e7de10d6b675afb0c2ee",
+      "art_mode": "bespoke-silhouette",
+      "source": "hand-drawn-subject-v69"
+    },
+    {
+      "name": "Weatherproof Camera Housing",
+      "id": "organic61:weatherproof-camera-housing",
+      "path": "client/assets/v69/redrawn-v61/weatherproof-camera-housing.svg",
+      "sha256": "aacc3cb4b2753d1e52795c02fd74c2a64236ba0d3eedc4883fac763e042d50c5",
+      "art_mode": "bespoke-silhouette",
+      "source": "hand-drawn-subject-v69"
+    },
+    {
+      "name": "Solar Powered Music Box",
+      "id": "organic61:solar-powered-music-box",
+      "path": "client/assets/v69/redrawn-v61/solar-powered-music-box.svg",
+      "sha256": "38ae108deb139c900498ce640e664d27662460edf8489772a339cd88d1072a31",
+      "art_mode": "bespoke-silhouette",
+      "source": "hand-drawn-subject-v69"
+    },
+    {
+      "name": "Robot Lab Notebook",
+      "id": "organic61:robot-lab-notebook",
+      "path": "client/assets/v69/redrawn-v61/robot-lab-notebook.svg",
+      "sha256": "a837866a673013bae0339c7cd99fe10ce6502d4095904e3cf942da801c8c5576",
+      "art_mode": "bespoke-silhouette",
+      "source": "hand-drawn-subject-v69"
+    },
+    {
+      "name": "Garden Solar Clock",
+      "id": "organic61:garden-solar-clock",
+      "path": "client/assets/v69/redrawn-v61/garden-solar-clock.svg",
+      "sha256": "e5ed2e0d5eebb64eb7d4d40d9158bb4bc0d7cf7a59ed2d3ef820acd63bd87259",
+      "art_mode": "bespoke-silhouette",
+      "source": "hand-drawn-subject-v69"
+    },
+    {
+      "name": "River Flood Detector",
+      "id": "organic61:river-flood-detector",
+      "path": "client/assets/v69/redrawn-v61/river-flood-detector.svg",
+      "sha256": "423bd468b51628eae6b472b09c9b2ec1467617d0c0dedb10012196e97943a7d0",
+      "art_mode": "bespoke-silhouette",
+      "source": "hand-drawn-subject-v69"
+    },
+    {
+      "name": "Robotic Plant Waterer",
+      "id": "organic61:robotic-plant-waterer",
+      "path": "client/assets/v69/redrawn-v61/robotic-plant-waterer.svg",
+      "sha256": "a5e8866b504babda6577f726c80127b72fedc325bd8e624d327a97a43fa8356a",
+      "art_mode": "bespoke-silhouette",
+      "source": "hand-drawn-subject-v69"
+    },
+    {
+      "name": "Aquarium Temperature Monitor",
+      "id": "organic61:aquarium-temperature-monitor",
+      "path": "client/assets/v69/redrawn-v61/aquarium-temperature-monitor.svg",
+      "sha256": "de1b5d76026949f3c50948c6be91d1914dff7df6c792af02813de8c68b792d45",
+      "art_mode": "bespoke-silhouette",
+      "source": "hand-drawn-subject-v69"
+    },
+    {
+      "name": "Solar Powered Book Light",
+      "id": "organic61:solar-powered-book-light",
+      "path": "client/assets/v69/redrawn-v61/solar-powered-book-light.svg",
+      "sha256": "0e9177f721e4e70e42bed5ac6f835e0c8300527e44bf8e1e761afa902679a609",
+      "art_mode": "bespoke-silhouette",
+      "source": "hand-drawn-subject-v69"
+    },
+    {
+      "name": "Space Weather Station",
+      "id": "organic61:space-weather-station",
+      "path": "client/assets/v69/redrawn-v61/space-weather-station.svg",
+      "sha256": "fc4699232592296bec9f04a5dde43105fd8fecd66011f5a3be80f959d681a88a",
+      "art_mode": "bespoke-silhouette",
+      "source": "hand-drawn-subject-v69"
+    },
+    {
+      "name": "Solar Flare Detector",
+      "id": "organic61:solar-flare-detector",
+      "path": "client/assets/v69/redrawn-v61/solar-flare-detector.svg",
+      "sha256": "25b59744d01988042cbe098d22e4f4604315060209205984e37ddb6dc8ff1336",
+      "art_mode": "bespoke-silhouette",
+      "source": "hand-drawn-subject-v69"
+    },
+    {
+      "name": "Moonlight Observatory Garden",
+      "id": "organic61:moonlight-observatory-garden",
+      "path": "client/assets/v69/redrawn-v61/moonlight-observatory-garden.svg",
+      "sha256": "12fb7a8c2dbb7183b5bc51ea78190c24a801d5de9160983bd3d30cfe3437b310",
+      "art_mode": "bespoke-silhouette",
+      "source": "hand-drawn-subject-v69"
+    },
+    {
+      "name": "Planetary Shadow Model",
+      "id": "organic61:planetary-shadow-model",
+      "path": "client/assets/v69/redrawn-v61/planetary-shadow-model.svg",
+      "sha256": "230d309f50128ca8ef8543830d340c03a4941d60dc8cda9c27487fb312ddba3f",
+      "art_mode": "bespoke-silhouette",
+      "source": "hand-drawn-subject-v69"
+    },
+    {
+      "name": "Galaxy Wall Mural",
+      "id": "organic61:galaxy-wall-mural",
+      "path": "client/assets/v69/redrawn-v61/galaxy-wall-mural.svg",
+      "sha256": "e4cecb5e22688f973859e07a3f711033c812c14f2167cf20b03766fe047c82c7",
+      "art_mode": "bespoke-silhouette",
+      "source": "hand-drawn-subject-v69"
+    },
+    {
+      "name": "Star Cluster Diorama",
+      "id": "organic61:star-cluster-diorama",
+      "path": "client/assets/v69/redrawn-v61/star-cluster-diorama.svg",
+      "sha256": "54edba8e1d22dcb9c824760dc111f00c6ea1c3b287be1f5080f461f48474732d",
+      "art_mode": "bespoke-silhouette",
+      "source": "hand-drawn-subject-v69"
+    },
+    {
+      "name": "Comet Ice Core",
+      "id": "organic61:comet-ice-core",
+      "path": "client/assets/v69/redrawn-v61/comet-ice-core.svg",
+      "sha256": "ec1b1c54a2b8e8b2338eccb9959ed06425d8dcd3bd729ced02ac02bd8fd3c972",
+      "art_mode": "bespoke-silhouette",
+      "source": "hand-drawn-subject-v69"
+    },
+    {
+      "name": "Meteor Crater Garden",
+      "id": "organic61:meteor-crater-garden",
+      "path": "client/assets/v69/redrawn-v61/meteor-crater-garden.svg",
+      "sha256": "e8745c9942bae95a39d58cfe2d4e10021e53ab2a30fefa9310a227db9d950d1d",
+      "art_mode": "bespoke-silhouette",
+      "source": "hand-drawn-subject-v69"
+    },
+    {
+      "name": "Solar Eclipse Poster",
+      "id": "organic61:solar-eclipse-poster",
+      "path": "client/assets/v69/redrawn-v61/solar-eclipse-poster.svg",
+      "sha256": "3eb0a697addc5a3c6a6c04ac5027bac79b393a144a5f51675b7b6ad2ae7abb95",
+      "art_mode": "bespoke-silhouette",
+      "source": "hand-drawn-subject-v69"
+    },
+    {
+      "name": "Stellar Nursery Exhibit",
+      "id": "organic61:stellar-nursery-exhibit",
+      "path": "client/assets/v69/redrawn-v61/stellar-nursery-exhibit.svg",
+      "sha256": "e71ce3f55843f7d56c8199084d43152766c4dc63462839945a8f8ac15e1dfcc8",
+      "art_mode": "bespoke-silhouette",
+      "source": "hand-drawn-subject-v69"
+    },
+    {
+      "name": "Solar System Wall Chart",
+      "id": "organic61:solar-system-wall-chart",
+      "path": "client/assets/v69/redrawn-v61/solar-system-wall-chart.svg",
+      "sha256": "7a0c94f0e41e4d16f358bf9c09f278744f13e83caedb376212da556a27700cba",
+      "art_mode": "bespoke-silhouette",
+      "source": "hand-drawn-subject-v69"
+    },
+    {
+      "name": "Lunar Eclipse Photo",
+      "id": "organic61:lunar-eclipse-photo",
+      "path": "client/assets/v69/redrawn-v61/lunar-eclipse-photo.svg",
+      "sha256": "5bc71c4da348681b43e676cd11910c034b72b3495a990da81eeec40def35b497",
+      "art_mode": "bespoke-silhouette",
+      "source": "hand-drawn-subject-v69"
+    },
+    {
+      "name": "Moonlit Forest Observatory",
+      "id": "organic61:moonlit-forest-observatory",
+      "path": "client/assets/v69/redrawn-v61/moonlit-forest-observatory.svg",
+      "sha256": "52bb757660429ba05a5948c2d6b63af9b5b06a893d07ec08c363d5b326eb3e16",
+      "art_mode": "bespoke-silhouette",
+      "source": "hand-drawn-subject-v69"
+    },
+    {
+      "name": "Meteor Trail Camera",
+      "id": "organic61:meteor-trail-camera",
+      "path": "client/assets/v69/redrawn-v61/meteor-trail-camera.svg",
+      "sha256": "879ec6ac4488e4664f2d82a2e805971463a2385cbaa326891fcb93ce8bef5322",
+      "art_mode": "bespoke-silhouette",
+      "source": "hand-drawn-subject-v69"
+    },
+    {
+      "name": "Seaside Craft Market",
+      "id": "organic61:seaside-craft-market",
+      "path": "client/assets/v69/redrawn-v61/seaside-craft-market.svg",
+      "sha256": "1e81a6dee9bd23ec5a3f5eb3e8a9998d105cab3c57e5f8e19c682f7dccaa843d",
+      "art_mode": "bespoke-silhouette",
+      "source": "hand-drawn-subject-v69"
+    },
+    {
+      "name": "Coastal Village Gallery",
+      "id": "organic61:coastal-village-gallery",
+      "path": "client/assets/v69/redrawn-v61/coastal-village-gallery.svg",
+      "sha256": "74b1193b835d6fc93f2d6f20e8ad9cffe65cc620aecbb77bd101b5455905a924",
+      "art_mode": "bespoke-silhouette",
+      "source": "hand-drawn-subject-v69"
+    },
+    {
+      "name": "Harbor Craft Workshop",
+      "id": "organic61:harbor-craft-workshop",
+      "path": "client/assets/v69/redrawn-v61/harbor-craft-workshop.svg",
+      "sha256": "564f8b80f263a79a4874c01fa8da922ef68ee2952cc76e2d7102b2a4e8320ee4",
+      "art_mode": "bespoke-silhouette",
+      "source": "hand-drawn-subject-v69"
+    },
+    {
+      "name": "Botanical Museum Hall",
+      "id": "organic61:botanical-museum-hall",
+      "path": "client/assets/v69/redrawn-v61/botanical-museum-hall.svg",
+      "sha256": "827c82dce503a0c5d61126fd4c8aa5880ebf1cf11ae602e6fe99d971a70e4400",
+      "art_mode": "bespoke-silhouette",
+      "source": "hand-drawn-subject-v69"
+    },
+    {
+      "name": "Open Air Concert",
+      "id": "organic61:open-air-concert",
+      "path": "client/assets/v69/redrawn-v61/open-air-concert.svg",
+      "sha256": "3092b6ec5c08559f3be58652e20e46b65234ce5e7efd7092c66cf3413bc488e0",
+      "art_mode": "bespoke-silhouette",
+      "source": "hand-drawn-subject-v69"
+    },
+    {
+      "name": "Children's Science Corner",
+      "id": "organic61:children-s-science-corner",
+      "path": "client/assets/v69/redrawn-v61/children-s-science-corner.svg",
+      "sha256": "500fe676f500e7f88c4ab4d9d1e6d9faee9c1ccd3bc71560a886eb66c2861963",
+      "art_mode": "bespoke-silhouette",
+      "source": "hand-drawn-subject-v69"
+    },
+    {
+      "name": "Village Harvest Table",
+      "id": "organic61:village-harvest-table",
+      "path": "client/assets/v69/redrawn-v61/village-harvest-table.svg",
+      "sha256": "fdcdb68b38d836021b6616a1d294f43a14ab845d755c4423ca82405ff60caa4c",
+      "art_mode": "bespoke-silhouette",
+      "source": "hand-drawn-subject-v69"
+    },
+    {
+      "name": "Botanical Craft Fair",
+      "id": "organic61:botanical-craft-fair",
+      "path": "client/assets/v69/redrawn-v61/botanical-craft-fair.svg",
+      "sha256": "27268cdc235017c9b29c826ae9c4216237ce249a99e95ad781f73c7fc11f56ba",
+      "art_mode": "bespoke-silhouette",
+      "source": "hand-drawn-subject-v69"
+    },
+    {
+      "name": "Photography Nature Walk",
+      "id": "organic61:photography-nature-walk",
+      "path": "client/assets/v69/redrawn-v61/photography-nature-walk.svg",
+      "sha256": "6bd3975c09016d8bbcae1a4aa9136e03ad66b13ea4eecaf5086888111e7c8fa0",
+      "art_mode": "bespoke-silhouette",
+      "source": "hand-drawn-subject-v69"
+    },
+    {
+      "name": "History Museum Audio Guide",
+      "id": "organic61:history-museum-audio-guide",
+      "path": "client/assets/v69/redrawn-v61/history-museum-audio-guide.svg",
+      "sha256": "ca3b9a5fa1aa5c3b37ee5943bba49ccbc82fb608d95fe517ad9f06cbf816f8fa",
+      "art_mode": "bespoke-silhouette",
+      "source": "hand-drawn-subject-v69"
+    },
+    {
+      "name": "Village Orchard Picnic",
+      "id": "organic61:village-orchard-picnic",
+      "path": "client/assets/v69/redrawn-v61/village-orchard-picnic.svg",
+      "sha256": "07ea6b08edec2e085eb57aa4bafedfb61fb9cfadba584d98f3dc3340d18a8bb4",
+      "art_mode": "bespoke-silhouette",
+      "source": "hand-drawn-subject-v69"
+    },
+    {
+      "name": "Local Art Market",
+      "id": "organic61:local-art-market",
+      "path": "client/assets/v69/redrawn-v61/local-art-market.svg",
+      "sha256": "cd886b988e07460f929bfd8489ca00fa57d925952e64bc9c875e21aa7bd3fae3",
+      "art_mode": "bespoke-silhouette",
+      "source": "hand-drawn-subject-v69"
+    },
+    {
+      "name": "Handmade Paper Workshop",
+      "id": "organic61:handmade-paper-workshop",
+      "path": "client/assets/v69/redrawn-v61/handmade-paper-workshop.svg",
+      "sha256": "3da231d7662e9740c4ec95c09cb74cc8a9a1ecae0add530c17d324899fcde8e9",
+      "art_mode": "bespoke-silhouette",
+      "source": "hand-drawn-subject-v69"
+    },
+    {
+      "name": "Garden Craft Journal",
+      "id": "organic61:garden-craft-journal",
+      "path": "client/assets/v69/redrawn-v61/garden-craft-journal.svg",
+      "sha256": "5a1a367eaabd21e049eb2950090acd61519503a6eae009c7f1b87e127cfa2d7e",
+      "art_mode": "bespoke-silhouette",
+      "source": "hand-drawn-subject-v69"
+    },
+    {
+      "name": "Local Museum Bookshop",
+      "id": "organic61:local-museum-bookshop",
+      "path": "client/assets/v69/redrawn-v61/local-museum-bookshop.svg",
+      "sha256": "2baed62251d8bc6f4014d9eba11c964e19f620b0816e1806849c0e249392d57e",
+      "art_mode": "bespoke-silhouette",
+      "source": "hand-drawn-subject-v69"
+    },
+    {
+      "name": "Community Art Gallery",
+      "id": "organic61:community-art-gallery",
+      "path": "client/assets/v69/redrawn-v61/community-art-gallery.svg",
+      "sha256": "5805ce231cd61e0847f5806577d1f945174ab8656450f9051296afae64c31ec1",
+      "art_mode": "bespoke-silhouette",
+      "source": "hand-drawn-subject-v69"
+    },
+    {
+      "name": "Riverfront Reading Bench",
+      "id": "organic61:riverfront-reading-bench",
+      "path": "client/assets/v69/redrawn-v61/riverfront-reading-bench.svg",
+      "sha256": "bf74482846017539352c0c2bdc4d47b6cb75cf6bb388f4eaa1d1acf5516b7d7a",
+      "art_mode": "bespoke-silhouette",
+      "source": "hand-drawn-subject-v69"
+    },
+    {
+      "name": "Honeybee Swarm Cluster",
+      "id": "organic61:honeybee-swarm-cluster",
+      "path": "client/assets/v69/redrawn-v61/honeybee-swarm-cluster.svg",
+      "sha256": "4ea39807503f7affd4bfca2d88915d5a4ce76bcb214cc81b788edccab9e3b7b5",
+      "art_mode": "bespoke-silhouette",
+      "source": "hand-drawn-subject-v69"
+    },
+    {
+      "name": "Desert Burrow",
+      "id": "organic61:desert-burrow",
+      "path": "client/assets/v69/redrawn-v61/desert-burrow.svg",
+      "sha256": "b95b4991678dd97c38333a028075c2284f9cc5ae6ff293d2ecc27180f4c605ae",
+      "art_mode": "bespoke-silhouette",
+      "source": "hand-drawn-subject-v69"
+    }
+  ],
+  "previously_claimed_backlog": 76,
+  "actual_legacy_motif_backlog_before": 90,
+  "remaining_motif_composites": 14,
+  "count": 76
+}

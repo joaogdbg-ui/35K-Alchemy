@@ -61,6 +61,7 @@ import { ORGANIC_ART_V65 } from './organic-art-v65.js';
 import { ORGANIC_ART_V66 } from './organic-art-v66.js';
 import { ORGANIC_ART_V67 } from './organic-art-v67.js';
 import { ORGANIC_ART_V68 } from './organic-art-v68.js';
+import { ORGANIC_ART_V69 } from './organic-art-v69.js';
 import { ORGANIC_ART_V57 } from './organic-art-v57.js';
 import { ORGANIC_ART_V32 } from './organic-art-v32.js';
 import { GAMEVERSE_ART_V23 } from './gameverse-art-v23.js';
@@ -736,7 +737,7 @@ function staticArt(item){
  // V30 highest-priority semantic art: only exact canonical names are eligible.
  // A sky is never rendered as a sword just because its name contains "sky".
  const itemName=String(item.name||'').toLowerCase();
- const newArt=ORGANIC_ART_V68[itemName]||ORGANIC_ART_V67[itemName]||ORGANIC_ART_V66[itemName]||ORGANIC_ART_V65[itemName]||ORGANIC_ART_V63[itemName]||ORGANIC_ART_V62[itemName]||ORGANIC_ART_V61[itemName]||ORGANIC_ART_V59[itemName]||ORGANIC_ART_V58[itemName]||ORGANIC_ART_V57[itemName]||ORGANIC_ART_V56[itemName]||ORGANIC_ART_V55[itemName]||ORGANIC_ART_V53[itemName]||ORGANIC_ART_V52[itemName]||ORGANIC_ART_V50[itemName]||ORGANIC_ART_V47[itemName]||ORGANIC_ART_V46[itemName]||ORGANIC_ART_V45[itemName]||ORGANIC_ART_V44[itemName]||ORGANIC_ART_V43[itemName]||ORGANIC_ART_V42[itemName]||ORGANIC_ART_V41[itemName]||ORGANIC_ART_V40[itemName]||ORGANIC_ART_V38[itemName]||ORGANIC_ART_V37[itemName]||ORGANIC_ART_V34[itemName]||ORGANIC_ART_V32[itemName];if(newArt)return newArt;
+ const newArt=ORGANIC_ART_V69[itemName]||ORGANIC_ART_V68[itemName]||ORGANIC_ART_V67[itemName]||ORGANIC_ART_V66[itemName]||ORGANIC_ART_V65[itemName]||ORGANIC_ART_V63[itemName]||ORGANIC_ART_V62[itemName]||ORGANIC_ART_V61[itemName]||ORGANIC_ART_V59[itemName]||ORGANIC_ART_V58[itemName]||ORGANIC_ART_V57[itemName]||ORGANIC_ART_V56[itemName]||ORGANIC_ART_V55[itemName]||ORGANIC_ART_V53[itemName]||ORGANIC_ART_V52[itemName]||ORGANIC_ART_V50[itemName]||ORGANIC_ART_V47[itemName]||ORGANIC_ART_V46[itemName]||ORGANIC_ART_V45[itemName]||ORGANIC_ART_V44[itemName]||ORGANIC_ART_V43[itemName]||ORGANIC_ART_V42[itemName]||ORGANIC_ART_V41[itemName]||ORGANIC_ART_V40[itemName]||ORGANIC_ART_V38[itemName]||ORGANIC_ART_V37[itemName]||ORGANIC_ART_V34[itemName]||ORGANIC_ART_V32[itemName];if(newArt)return newArt;
  const semantic=GAMEVERSE_ART_V30_SEMANTIC[itemName];
  if(semantic)return semantic;
  const v27=v27StaticArt(item);

@@ -1,0 +1,40 @@
+import {readFileSync} from 'node:fs';
+import {createHash} from 'node:crypto';
+import {DATA} from '../client/src/legacy-data.js';
+import {PACK} from '../client/src/creative-pack.js';
+import {buildCatalog} from '../client/src/catalog-integrity.js';
+import {ORGANIC_V65} from '../client/src/organic-pack-v65.js';
+import {ORGANIC_V66} from '../client/src/organic-pack-v66.js';
+import {ORGANIC_V67} from '../client/src/organic-pack-v67.js';
+import {ORGANIC_V68} from '../client/src/organic-pack-v68.js';
+import {ORGANIC_ART_V69} from '../client/src/organic-art-v69.js';
+const assert=(ok,msg)=>{if(!ok)throw Error('V69: '+msg)};
+const manifest=JSON.parse(readFileSync('shared/v69-approved.json','utf8'));
+const orig=JSON.parse(readFileSync('shared/v61-art-manifest.json','utf8')).icons;
+const used=new Set();for(const v of [63,65,66,67,68])for(const e of JSON.parse(readFileSync(`shared/v${v}-approved.json`,'utf8')).redrawn_v61)used.add(e.name);
+const outstanding=orig.filter(e=>e.art_mode==='motif-composite'&&!used.has(e.name));
+assert(outstanding.length===90,'legacy audit count changed unexpectedly');
+assert(manifest.redrawn_v61.length===76,'exactly 76 new bespoke icons');
+assert(manifest.new_items.length===0,'this release must be art-only');
+const originalMap=new Map(outstanding.map(e=>[e.name,e]));
+const seen=new Set(), hashes=new Set();
+for(const e of manifest.redrawn_v61){
+ assert(!seen.has(e.name),'duplicate name');seen.add(e.name);
+ assert(originalMap.get(e.name)?.id===e.id,'legacy item identity replaced: '+e.name);
+ const svg=readFileSync(e.path,'utf8');
+ assert(createHash('sha256').update(svg).digest('hex')===e.sha256,'SHA mismatch: '+e.name);
+ assert(!hashes.has(e.sha256),'exact duplicated SVG: '+e.name);hashes.add(e.sha256);
+ assert(e.art_mode==='bespoke-silhouette','generic art: '+e.name);
+ assert(ORGANIC_ART_V69[e.name.toLowerCase()]===svg,'embedded game art not equal to asset: '+e.name);
+ assert(svg.includes('viewBox="0 0 100 100"')&&!/<script|<image\b|<text\b|<foreignObject|onload\s*=|href\s*=|<animate/i.test(svg),'unsafe SVG: '+e.name);
+}
+assert(outstanding.length-seen.size===14,'correct actual backlog');
+const packs=[PACK];for(const n of ['gaming-v22','gaming-v23','gaming-v24','gaming-v26','gaming-v27','gaming-v30','organic-v32','organic-v34','organic-v37','organic-v38','organic-v40','organic-v41','organic-v42','organic-v43','organic-v44','organic-v45','organic-v46','organic-v47','organic-v50','organic-v52','organic-v53','organic-v55','organic-v56','organic-v57','organic-v58','organic-v59','organic-v61','organic-v62','organic-v63']){const f=n.replace('gaming','gaming-pack').replace('organic','organic-pack'); const mod=await import('../client/src/'+f+'.js');packs.push(Object.values(mod)[0]);}
+const current=buildCatalog(DATA,[...packs,ORGANIC_V65,ORGANIC_V66,ORGANIC_V67,ORGANIC_V68]);
+assert(current.items.length===5172&&current.recipes.size===13509,'catalog totals changed');
+const app=readFileSync('client/src/app.js','utf8');
+assert(app.includes('ORGANIC_ART_V69[itemName]||ORGANIC_ART_V68[itemName]'),'V69 image priority lost');
+assert(app.includes('ORGANIC_V67,ORGANIC_V68])'),'catalog recipe chain unexpectedly changed');
+const build=readFileSync('tools/build-standalone.py','utf8');
+assert(build.includes('window.__gameverseOrganicArt69')&&build.includes("35K_Alchemy_V69_Offline.html"),'offline build missing V69');
+if(!process.argv.includes('--quiet'))console.log('V69 VALID: 76 bespoke redraws, 5,172 elements, 13,509 immutable recipes; 14 additional V61 motifs flagged.');
