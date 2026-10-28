@@ -35,3 +35,20 @@
 - Inspect the 76 images in game on actual Android phone; refine any semantic confusion identified visually (the pHash test alone is insufficient).
 - Redraw the **14** genuinely remaining V61 motif-composite cases. No additional redesigns should be counted as completed simply because an existing art-directed icon was replaced.
 - Only after the legacy art cleanup should we resume batches of new meaningful elements, with separately verified intuitive recipes, original art and 35px legibility.
+
+### Remaining 14 subject names (audited 90 minus 76 V69)
+
+- Floating Reed Bed
+- Riverbank Beetle
+- Coastal Dune Wildflower
+- Rainforest Mist Basin
+- Mangrove Bird Perch
+- Underwater Reef Shelter
+- Sandbar Fish Nursery
+- Forest Stream Fish Pool
+- Butterfly Meadow Window
+- Firefly Garden Lantern
+- Mossy Cave Pool
+- Heron Wetland Nest
+- Pine Forest Birdsong
+- Fox Woodland Track
