@@ -11,6 +11,14 @@ Repositório oficial do jogo **35K Alchemy**, incluindo o código-fonte completo
 - **APK debug Android compilado com sucesso** pelo GitHub Actions em [Build Android debug APK #1](https://github.com/joaogdbg-ui/35K-Alchemy/actions/runs/40782252239), em 28/10/2026.
 - Artefacto: **35K-Alchemy-V68-debug-APK**, disponível no separador **Artifacts** da execução até 11/11/2026. O ficheiro ZIP contém `app-debug.apk`.
 
+## Instalar Android (link permanente)
+
+- **[Descarregar APK direto](https://github.com/joaogdbg-ui/35K-Alchemy/releases/download/latest/app-debug.apk)**.
+- **[Página da versão Android mais recente](https://github.com/joaogdbg-ui/35K-Alchemy/releases/tag/latest)**.
+- A publicação é uma GitHub **pré-release** de testes: não se trata de um AAB assinado para a Play Store.
+- Quando o workflow de compilação Android termina com sucesso, atualiza a Release `latest` e substitui o ficheiro `app-debug.apk`. A URL mantém-se.
+- **Atenção aos dados guardados:** a assinatura debug por defeito pode mudar entre builds realizados em runners diferentes. Não presumir que APKs futuros atualizam a instalação anterior sem perda de dados. Guardar/exportar o progresso antes de reinstalar. É necessário fixar uma chave de assinatura para atualizações Android fiáveis.
+
 ## Construir novos APKs
 
 Em [GitHub Actions](https://github.com/joaogdbg-ui/35K-Alchemy/actions), selecionar **Build Android debug APK → Run workflow**. O workflow usa Node 22, Python 3.12 (com dependências de auditoria), JDK 21, Android API 36 e Capacitor 8. Compila e valida o projeto a partir do código atual da branch `main`.
