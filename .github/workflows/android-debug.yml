@@ -78,8 +78,8 @@ jobs:
           original = path.read_text(encoding='utf-8')
           code = int(os.environ['BUILD_NUMBER'])
           name = json.loads(Path('package.json').read_text(encoding='utf-8'))['version'] + '.' + str(code)
-          updated, ncode = re.subn(r'(?m)^(\s*)versionCode\s+\d+(\s*)$', lambda m: m.group(1) + 'versionCode ' + str(code), original, count=1)
-          updated, nname = re.subn(r'(?m)^(\s*)versionName\s+["\'][^"\']+["\'](\s*)$', lambda m: m.group(1) + 'versionName "' + name + '"', updated, count=1)
+          updated, ncode = re.subn(r'(?m)^([ \t]*versionCode[ \t]+)\d+', lambda m: m.group(1) + str(code), original, count=1)
+          updated, nname = re.subn(r'(?m)^([ \t]*versionName[ \t]+)["\'][^"\']+["\']', lambda m: m.group(1) + '"' + name + '"', updated, count=1)
           if ncode != 1 or nname != 1:
               raise SystemExit('Expected exactly one versionCode/versionName in android/app/build.gradle')
           path.write_text(updated, encoding='utf-8')
