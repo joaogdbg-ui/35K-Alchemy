@@ -23,7 +23,7 @@ jobs:
         shell: bash
         run: |
           set -euo pipefail
-          tar -xJf 35K_Alchemy_GitHub_Source_V67.tar.xz
+          tar -xJf 35K_Alchemy_GitHub_Source_V67.tar.xz --exclude='./.github/workflows/*'
           rm 35K_Alchemy_GitHub_Source_V67.tar.xz
           test -f client/src/app.js
           test -f tools/build-standalone.py
