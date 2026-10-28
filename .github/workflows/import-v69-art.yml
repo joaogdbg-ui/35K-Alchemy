@@ -1,0 +1,74 @@
+name: Import verified V69 artwork
+on:
+  push:
+    branches: [main]
+    paths:
+      - '35K_Alchemy_V69_GitHub_Patch.tar.xz'
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+concurrency:
+  group: v69-art-import
+  cancel-in-progress: false
+
+jobs:
+  import-art:
+    runs-on: ubuntu-latest
+    timeout-minutes: 60
+    steps:
+      - uses: actions/checkout@v4
+      - name: Verify pinned V69 patch and safe paths
+        shell: bash
+        run: |
+          set -euo pipefail
+          test -f 35K_Alchemy_V69_GitHub_Patch.tar.xz
+          echo 'c06e5f45d30be358e5de0cabed53accdb1cda29e554c13285c89bff245401097  35K_Alchemy_V69_GitHub_Patch.tar.xz' | sha256sum -c -
+          tar -tJf 35K_Alchemy_V69_GitHub_Patch.tar.xz | while IFS= read -r entry; do
+            case "$entry" in .|./* ) ;; * ) echo "Unsafe archive path: $entry"; exit 1;; esac
+            case "$entry" in *'../'*|*'/..' ) echo "Traversal rejected: $entry"; exit 1;; esac
+          done
+      - name: Restore authored SVGs and integration files
+        shell: bash
+        run: |
+          set -euo pipefail
+          tar -xJf 35K_Alchemy_V69_GitHub_Patch.tar.xz
+          test -f client/src/organic-art-v69.js
+          test -f client/test/v69-art-integrity.test.mjs
+          test -f tools/validate-v69.mjs
+          test -f tools/audit-v69-art.py
+          test -f tools/prepare-android-web.py
+          test -f shared/v69-approved.json
+          test -f HANDOFF_V69.md
+          test "$(find client/assets/v69/redrawn-v61 -name '*.svg' | wc -l)" -eq 76
+          grep -q 'Capacitor?.Plugins?.SystemBars' client/src/app.js
+          grep -q 'window.__gameverseOrganicArt69' tools/build-standalone.py
+          sed -i 's/"version": "0.68.0"/"version": "0.69.0"/' package.json
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Install art QA dependencies
+        run: python -m pip install --disable-pip-version-check numpy opencv-python-headless cairosvg pillow
+      - name: Node regressions and V69 source consistency
+        run: |
+          node --test client/test/*.test.mjs
+          node tools/validate-v69.mjs
+      - name: Rebuild single-file HTML and native payload
+        run: python tools/build-standalone.py && python tools/prepare-android-web.py
+      - name: Commit validated source only (never generated HTML)
+        shell: bash
+        run: |
+          set -euo pipefail
+          git config user.name 'github-actions[bot]'
+          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          git rm 35K_Alchemy_V69_GitHub_Patch.tar.xz
+          git add client/assets/v69/redrawn-v61/ client/src/organic-art-v69.js client/src/app.js client/index.html client/test/v69-art-integrity.test.mjs
+          git add shared/v69-approved.json docs/V69_ART_QA.json tools/validate-v69.mjs tools/audit-v69-art.py tools/prepare-android-web.py tools/build-standalone.py
+          git add HANDOFF_V69.md CATALOG_ROADMAP.md package.json
+          git diff --cached --stat
+          git commit -m 'V69: integrate 76 original subject-directed V61 redraws, preserve recipes and Android setup'
+          git push origin HEAD:main
