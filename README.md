@@ -1,6 +1,6 @@
-# 35K Alchemy — V68
+# 35K Alchemy — V69
 
-Repositório oficial do jogo **35K Alchemy**, incluindo o código-fonte completo da V68 e o pipeline Android.
+Repositório oficial do jogo **35K Alchemy**, incluindo o código-fonte completo da V69 e o pipeline Android.
 
 ## Estado verificado — 28 de outubro de 2026
 
@@ -10,6 +10,16 @@ Repositório oficial do jogo **35K Alchemy**, incluindo o código-fonte completo
 - **HTML V68, validadores de catálogo e auditorias de arte aprovados**.
 - **APK Android de testes compilado com sucesso** pelo GitHub Actions em [Build Android debug APK #1](https://github.com/joaogdbg-ui/35K-Alchemy/actions/runs/40782252239), em 28/10/2026.
 - Artefacto: **35K-Alchemy-V68-debug-APK**, disponível no separador **Artifacts** da execução até 11/11/2026. O ficheiro ZIP contém `app-debug.apk`.
+
+
+## V69 — 76 desenhos originais, sem alterar as receitas
+
+- 76 ícones antigos redesenhados individualmente em SVG, com arte específica do objeto, paleta pastel e visualização a 35 px em temas claro e escuro.
+- **Os 5.172 elementos e as 13.509 receitas da V68 permanecem inalterados**; não foram criados novos elementos nem alterados IDs ou saves.
+- Os desenhos estão em `client/assets/v69/redrawn-v61/`, integrados na prioridade de arte por `client/src/organic-art-v69.js`.
+- `shared/v69-approved.json` fixa IDs e hashes SVG; `tools/validate-v69.mjs` e `tools/audit-v69-art.py` validam o lote.
+- Correção da dívida gráfica: o handoff V68 contava 76 pendentes, mas os manifestos mostraram 90 composições genéricas efetivamente ainda por substituir. Após a V69 **restam 14**, não zero.
+- [Handoff da V69](HANDOFF_V69.md) e [auditoria visual](docs/V69_ART_QA.json).
 
 ## Instalar Android (link permanente)
 
@@ -28,7 +38,7 @@ A importação V68 por arquivo foi **executada e concluída**. **Não é necess�
 
 ## Limites antes de lançamento comercial
 
-O APK produzido é **debug para testes**: ainda não foi testado num aparelho Android real. AdMob recompensado, UMP, validação das recompensas (SSV), migração de saves existentes, assinatura release e AAB Google Play continuam por implementar e validar. O HTML offline não pode simular anúncios nem conceder recompensas fictícias.
+O APK produzido continua a ser **debug para testes**: ainda não foi testado num aparelho Android real. AdMob recompensado, UMP, validação das recompensas (SSV), migração de saves existentes, assinatura release e AAB Google Play continuam por implementar e validar. O HTML offline não pode simular anúncios nem conceder recompensas fictícias.
 
 Ler [regras permanentes](docs/WORKING_RULES_PT.md), [guia Android](docs/ANDROID_BUILD.md) e [instruções de desenvolvimento](AGENTS.md).
 
