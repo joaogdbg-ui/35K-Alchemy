@@ -1,0 +1,66 @@
+name: Import full V67 source and build APK
+on:
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  import-and-build:
+    runs-on: ubuntu-latest
+    timeout-minutes: 50
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Verify one-file source archive
+        shell: bash
+        run: |
+          set -euo pipefail
+          test -f 35K_Alchemy_GitHub_Source_V67.tar.xz || (echo "Upload 35K_Alchemy_GitHub_Source_V67.tar.xz to repository root first"; exit 1)
+          echo "5633f9b127a08f6c1f8f35f76fad1241ab1952832f1702ce9f1e468885362421  35K_Alchemy_GitHub_Source_V67.tar.xz" | sha256sum -c -
+
+      - name: Import project and preserve GitHub metadata
+        shell: bash
+        run: |
+          set -euo pipefail
+          tar -xJf 35K_Alchemy_GitHub_Source_V67.tar.xz
+          rm 35K_Alchemy_GitHub_Source_V67.tar.xz
+          test -f client/src/app.js
+          test -f tools/build-standalone.py
+          test -f docs/WORKING_RULES_PT.md
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add -A
+          git commit -m "Import complete 35K Alchemy V67 game, assets and docs"
+          git push origin HEAD:main
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - uses: actions/setup-java@v4
+        with:
+          distribution: temurin
+          java-version: '21'
+      - uses: android-actions/setup-android@v3
+      - name: Install Android API 36
+        run: sdkmanager 'platforms;android-36' 'build-tools;36.0.0' 'platform-tools'
+      - name: Install Capacitor 8 dependencies
+        run: npm install --no-audit --no-fund
+      - name: Run full game tests
+        run: npm test
+      - name: Bundle validated standalone HTML
+        run: npm run web:build
+      - name: Generate native Capacitor Android project
+        run: npx cap add android && npx cap sync android
+      - name: Build Android debug APK
+        working-directory: android
+        run: chmod +x gradlew && ./gradlew --no-daemon assembleDebug
+      - uses: actions/upload-artifact@v4
+        with:
+          name: 35K-Alchemy-V67-debug-APK
+          path: android/app/build/outputs/apk/debug/app-debug.apk
+          retention-days: 14
+          if-no-files-found: error
