@@ -1,4 +1,4 @@
-# 35K Alchemy — V69
+# 35K Alchemy — V70
 
 Repositório oficial do jogo **35K Alchemy**, incluindo o código-fonte completo da V69 e o pipeline Android.
 
@@ -20,6 +20,15 @@ Repositório oficial do jogo **35K Alchemy**, incluindo o código-fonte completo
 - `shared/v69-approved.json` fixa IDs e hashes SVG; `tools/validate-v69.mjs` e `tools/audit-v69-art.py` validam o lote.
 - Correção da dívida gráfica: o handoff V68 contava 76 pendentes, mas os manifestos mostraram 90 composições genéricas efetivamente ainda por substituir. Após a V69 **restam 14**, não zero.
 - [Handoff da V69](HANDOFF_V69.md) e [auditoria visual](docs/V69_ART_QA.json).
+
+
+## V70 — fecho de 14 desenhos e correção do espaço superior
+
+- 14 SVGs individuais: fecha o total de **90** casos genéricos efetivamente pendentes após a V68 (76 redesenhados na V69 e 14 na V70). A classificação original `motif-composite` da V61 fica com **zero** elementos sem redesenho.
+- Manifesto: `shared/v70-approved.json`, validação `tools/validate-v70.mjs` e auditoria `tools/audit-v70-art.py`.
+- UI: reduz o espaço vazio acima do cabeçalho em Android imersivo e aproxima a zona de combinação da barra superior, sem remover controlos nem alterar os layouts desktop.
+- Mantém 5.172 elementos e 13.509 receitas, sem alterar IDs, modos, saves, monetização ou a assinatura Android.
+- Próximo ciclo **V71**: expansão de **até 200 elementos novos**, condicionada a receitas orgânicas, SVG específico por objeto, legibilidade a 35 px e validação das campanhas.
 
 ## Instalar Android (link permanente)
 

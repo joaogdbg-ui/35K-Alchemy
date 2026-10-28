@@ -1,0 +1,119 @@
+{
+  "version": 70,
+  "new_items": [],
+  "redrawn_v61": [
+    {
+      "name": "Floating Reed Bed",
+      "id": "organic61:floating-reed-bed",
+      "path": "client/assets/v70/redrawn-v61/floating-reed-bed.svg",
+      "sha256": "6ccc0570a6db62a14605a0273825a967a7333505923e72d4fb85ae76b504aab9",
+      "art_mode": "bespoke-silhouette",
+      "source": "subject-drawn-v70"
+    },
+    {
+      "name": "Riverbank Beetle",
+      "id": "organic61:riverbank-beetle",
+      "path": "client/assets/v70/redrawn-v61/riverbank-beetle.svg",
+      "sha256": "032bb8424d58c3b2688789ff800aecb9e5dd85130fd81e3381c881c355fdef5f",
+      "art_mode": "bespoke-silhouette",
+      "source": "subject-drawn-v70"
+    },
+    {
+      "name": "Coastal Dune Wildflower",
+      "id": "organic61:coastal-dune-wildflower",
+      "path": "client/assets/v70/redrawn-v61/coastal-dune-wildflower.svg",
+      "sha256": "aeeb52e444b648740f48902a984c4dea2d655de613967449d67d20868c626d33",
+      "art_mode": "bespoke-silhouette",
+      "source": "subject-drawn-v70"
+    },
+    {
+      "name": "Rainforest Mist Basin",
+      "id": "organic61:rainforest-mist-basin",
+      "path": "client/assets/v70/redrawn-v61/rainforest-mist-basin.svg",
+      "sha256": "781a485fb47d4bec21ad684be994b556d21b27460d4d98b21e799c0d12d99e52",
+      "art_mode": "bespoke-silhouette",
+      "source": "subject-drawn-v70"
+    },
+    {
+      "name": "Mangrove Bird Perch",
+      "id": "organic61:mangrove-bird-perch",
+      "path": "client/assets/v70/redrawn-v61/mangrove-bird-perch.svg",
+      "sha256": "c938fe6d8996fba2a4ad0623ae753e69f62d48cd262363fee305ac0a1d00d2a3",
+      "art_mode": "bespoke-silhouette",
+      "source": "subject-drawn-v70"
+    },
+    {
+      "name": "Underwater Reef Shelter",
+      "id": "organic61:underwater-reef-shelter",
+      "path": "client/assets/v70/redrawn-v61/underwater-reef-shelter.svg",
+      "sha256": "c7bd71a7532860b7655f47f92e1cd06f3e8c384a0930bde22d13a39c48a82a92",
+      "art_mode": "bespoke-silhouette",
+      "source": "subject-drawn-v70"
+    },
+    {
+      "name": "Sandbar Fish Nursery",
+      "id": "organic61:sandbar-fish-nursery",
+      "path": "client/assets/v70/redrawn-v61/sandbar-fish-nursery.svg",
+      "sha256": "0f314899d84d146801afb5b800c63f030ba8c584ab4d40a48b2287bd1b663afd",
+      "art_mode": "bespoke-silhouette",
+      "source": "subject-drawn-v70"
+    },
+    {
+      "name": "Forest Stream Fish Pool",
+      "id": "organic61:forest-stream-fish-pool",
+      "path": "client/assets/v70/redrawn-v61/forest-stream-fish-pool.svg",
+      "sha256": "d13329ee230aaa73cd8d7974815157b8fcc75638cd9362540a1f6113af1fbe5b",
+      "art_mode": "bespoke-silhouette",
+      "source": "subject-drawn-v70"
+    },
+    {
+      "name": "Butterfly Meadow Window",
+      "id": "organic61:butterfly-meadow-window",
+      "path": "client/assets/v70/redrawn-v61/butterfly-meadow-window.svg",
+      "sha256": "9efdbd48f4943ee484c92dab80302409b0a07893203ca08edffbd57c9c099cca",
+      "art_mode": "bespoke-silhouette",
+      "source": "subject-drawn-v70"
+    },
+    {
+      "name": "Firefly Garden Lantern",
+      "id": "organic61:firefly-garden-lantern",
+      "path": "client/assets/v70/redrawn-v61/firefly-garden-lantern.svg",
+      "sha256": "c1515b627dbcc75d56341b95b2836b5eda794a0d593096d02e6e8b088cdd1be5",
+      "art_mode": "bespoke-silhouette",
+      "source": "subject-drawn-v70"
+    },
+    {
+      "name": "Mossy Cave Pool",
+      "id": "organic61:mossy-cave-pool",
+      "path": "client/assets/v70/redrawn-v61/mossy-cave-pool.svg",
+      "sha256": "4f49c70d9caea55b8627c6085cbb3bbb61253152f17eec37fa3186e6ba8470d0",
+      "art_mode": "bespoke-silhouette",
+      "source": "subject-drawn-v70"
+    },
+    {
+      "name": "Heron Wetland Nest",
+      "id": "organic61:heron-wetland-nest",
+      "path": "client/assets/v70/redrawn-v61/heron-wetland-nest.svg",
+      "sha256": "38878405fae6b88b762da4eb89ffb90c02500a8f03bb5470d1b1c1dcc3185907",
+      "art_mode": "bespoke-silhouette",
+      "source": "subject-drawn-v70"
+    },
+    {
+      "name": "Pine Forest Birdsong",
+      "id": "organic61:pine-forest-birdsong",
+      "path": "client/assets/v70/redrawn-v61/pine-forest-birdsong.svg",
+      "sha256": "b3d7ffffc7983f62bc03be7dab1e7ac485cf648ef59482db81c7766752010ae0",
+      "art_mode": "bespoke-silhouette",
+      "source": "subject-drawn-v70"
+    },
+    {
+      "name": "Fox Woodland Track",
+      "id": "organic61:fox-woodland-track",
+      "path": "client/assets/v70/redrawn-v61/fox-woodland-track.svg",
+      "sha256": "11d942640b2a432d634cf8a17f6380d9e52a4d32f98f438207664c3c3d2fba1f",
+      "art_mode": "bespoke-silhouette",
+      "source": "subject-drawn-v70"
+    }
+  ],
+  "remaining_v61_motif_composites": 0
+}
