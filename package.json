@@ -1,0 +1,17 @@
+{
+  "name": "35k-alchemy",
+  "version": "0.67.0",
+  "private": true,
+  "scripts": {
+    "test": "node --test client/test/*.test.mjs",
+    "web:build": "python tools/build-standalone.py && python tools/prepare-android-web.py",
+    "android:sync": "npm run web:build && npx cap sync android"
+  },
+  "dependencies": {
+    "@capacitor/core": "8.5.3",
+    "@capacitor/android": "8.5.3"
+  },
+  "devDependencies": {
+    "@capacitor/cli": "8.5.3"
+  }
+}
