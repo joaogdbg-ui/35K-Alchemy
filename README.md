@@ -8,20 +8,21 @@ Repositório oficial do jogo **35K Alchemy**, incluindo o código-fonte completo
 - **5.172 elementos**, **13.509 receitas** globalmente determinísticas.
 - **252 testes Node aprovados** na compilação Android.
 - **HTML V68, validadores de catálogo e auditorias de arte aprovados**.
-- **APK debug Android compilado com sucesso** pelo GitHub Actions em [Build Android debug APK #1](https://github.com/joaogdbg-ui/35K-Alchemy/actions/runs/40782252239), em 28/10/2026.
+- **APK Android de testes compilado com sucesso** pelo GitHub Actions em [Build Android debug APK #1](https://github.com/joaogdbg-ui/35K-Alchemy/actions/runs/40782252239), em 28/10/2026.
 - Artefacto: **35K-Alchemy-V68-debug-APK**, disponível no separador **Artifacts** da execução até 11/11/2026. O ficheiro ZIP contém `app-debug.apk`.
 
 ## Instalar Android (link permanente)
 
-- **[Descarregar APK direto](https://github.com/joaogdbg-ui/35K-Alchemy/releases/download/latest/app-debug.apk)**.
+- **[Descarregar 35K-Alchemy.apk](https://github.com/joaogdbg-ui/35K-Alchemy/releases/download/latest/35K-Alchemy.apk)**.
 - **[Página da versão Android mais recente](https://github.com/joaogdbg-ui/35K-Alchemy/releases/tag/latest)**.
-- A publicação é uma GitHub **pré-release** de testes: não se trata de um AAB assinado para a Play Store.
-- Quando o workflow de compilação Android termina com sucesso, atualiza a Release `latest` e substitui o ficheiro `app-debug.apk`. A URL mantém-se.
-- **Atenção aos dados guardados:** a assinatura debug por defeito pode mudar entre builds realizados em runners diferentes. Não presumir que APKs futuros atualizam a instalação anterior sem perda de dados. Guardar/exportar o progresso antes de reinstalar. É necessário fixar uma chave de assinatura para atualizações Android fiáveis.
+- A publicação é uma **pré-release de testes**, assinada com o certificado próprio do 35K Alchemy. Não partilha assinatura com o Virtual Spectre.
+- O workflow publica sempre o nome `35K-Alchemy.apk` e um `versionCode` crescente, permitindo atualizações subsequentes com o mesmo certificado de testes.
+- **Primeira mudança de assinatura:** se já instalaste `app-debug.apk` (assinado anteriormente com a chave aleatória do runner), a próxima versão poderá exigir desinstalação. **Exporta/guarda os saves primeiro**.
+- **Segurança:** o certificado de testes é público no repositório e **não deve ser usado para Google Play nem distribuição comercial**. A assinatura de produção deve ter uma chave privada exclusiva, guardada em GitHub Secrets ou num serviço seguro; nunca a publicar no repositório.
 
 ## Construir novos APKs
 
-Em [GitHub Actions](https://github.com/joaogdbg-ui/35K-Alchemy/actions), selecionar **Build Android debug APK → Run workflow**. O workflow usa Node 22, Python 3.12 (com dependências de auditoria), JDK 21, Android API 36 e Capacitor 8. Compila e valida o projeto a partir do código atual da branch `main`.
+Em [GitHub Actions](https://github.com/joaogdbg-ui/35K-Alchemy/actions), selecionar **Build 35K Alchemy APK → Run workflow**. O workflow usa Node 22, Python 3.12 (com dependências de auditoria), JDK 21, Android API 36 e Capacitor 8. Compila e valida o projeto a partir do código atual da branch `main`.
 
 A importação V68 por arquivo foi **executada e concluída**. **Não é necessário voltar a carregar o arquivo** nem executar `Import full V68 source and build APK`. Este workflow inicial serviu apenas para importar o projeto.
 
