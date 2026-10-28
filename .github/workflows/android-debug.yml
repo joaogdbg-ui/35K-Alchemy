@@ -54,6 +54,8 @@ jobs:
       - run: npm run web:build
       - name: Create Capacitor project
         run: npx cap add android && npx cap sync android
+      - name: Configure Android 16+ window insets and SystemBars
+        run: python tools/configure-android-edge-to-edge.py
 
       - name: Install persistent ALCH-ONLY test signing key
         shell: bash
