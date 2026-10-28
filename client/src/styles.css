@@ -537,3 +537,12 @@ html[data-theme="dark"] .sound-settings-toggle[aria-pressed="false"]{background:
   padding-left: var(--safe-area-inset-left, env(safe-area-inset-left, 0px));
   padding-right: var(--safe-area-inset-right, env(safe-area-inset-right, 0px));
 }
+
+/* V70 · Android immersive fullscreen: hidden bars may leave stale top inset
+   on API 36+, creating an oversized empty strip over the header. */
+html.alchemy-android-immersive .app{
+  padding-top:clamp(8px, env(safe-area-inset-top, 0px), 14px);
+}
+@media(max-width:849px){.workspace{flex-basis:clamp(176px,22dvh,190px)}}
+@media(max-width:849px) and (max-height:680px){.workspace{flex-basis:170px}}
+@media(max-width:849px) and (max-height:560px){.workspace{flex-basis:153px}}
