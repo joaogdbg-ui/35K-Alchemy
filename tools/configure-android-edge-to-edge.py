@@ -32,7 +32,7 @@ src = src.replace(
 )
 pattern = r"(public\s+class\s+MainActivity\s+extends\s+BridgeActivity\s*\{)"
 replacement = (
-    r"\1\n"
+    "\n"
     "    @Override\n"
     "    public void onCreate(Bundle savedInstanceState) {\n"
     "        super.onCreate(savedInstanceState);\n"
@@ -44,7 +44,7 @@ replacement = (
     "        }\n"
     "    }\n"
 )
-src, count = re.subn(pattern, lambda m: m.group(0) + replacement.split(r"\1", 1)[1], src, count=1)
+src, count = re.subn(pattern, lambda m: m.group(0) + replacement, src, count=1)
 if count != 1:
     raise SystemExit("Failed to insert Android window-insets support")
 path.write_text(src, encoding="utf-8")
