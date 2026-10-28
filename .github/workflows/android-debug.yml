@@ -1,23 +1,37 @@
-name: Build Android debug APK
+name: Build 35K Alchemy APK
 on:
   workflow_dispatch:
   push:
     branches: [main]
     paths:
       - '.github/workflows/android-debug.yml'
+      - 'ci/signing/**'
+      - 'client/**'
+      - 'shared/**'
+      - 'tools/**'
+      - 'assets/**'
+      - 'package.json'
+      - 'capacitor.config.json'
+      - '35K_Alchemy_V*_Offline.html'
+
 permissions:
   contents: write
+
+concurrency:
+  group: alchemy-apk-${{ github.ref }}
+  cancel-in-progress: true
+
 jobs:
   android:
     runs-on: ubuntu-latest
     timeout-minutes: 60
     steps:
       - uses: actions/checkout@v4
-      - name: Require the complete V68 project
+      - name: Require complete game source
         run: |
-          test -f client/src/app.js || (echo "Run Import full V68 source and build APK first"; exit 1)
+          test -f client/src/app.js
           test -f tools/build-standalone.py
-          test -f shared/v68-approved.json
+          test -f ci/signing/35k-alchemy-debug-keystore.b64
       - uses: actions/setup-node@v4
         with:
           node-version: '22'
@@ -31,38 +45,89 @@ jobs:
       - uses: android-actions/setup-android@v3
         with:
           packages: 'platform-tools'
-      - run: sdkmanager 'platforms;android-36' 'build-tools;36.0.0' 'platform-tools'
-      - name: Install art audit Python dependencies
+      - name: Install Android API 36
+        run: sdkmanager 'platforms;android-36' 'build-tools;36.0.0' 'platform-tools'
+      - name: Install image QA dependencies
         run: python -m pip install --disable-pip-version-check numpy opencv-python-headless cairosvg pillow
       - run: npm install --no-audit --no-fund
       - run: npm test
       - run: npm run web:build
-      - run: npx cap add android && npx cap sync android
-      - name: Assemble debug APK
+      - name: Create Capacitor project
+        run: npx cap add android && npx cap sync android
+
+      - name: Install persistent ALCH-ONLY test signing key
+        shell: bash
+        run: |
+          set -euo pipefail
+          mkdir -p "$HOME/.android"
+          grep -v '^#' ci/signing/35k-alchemy-debug-keystore.b64 | tr -d '\n\r' | base64 --decode > "$HOME/.android/debug.keystore"
+          chmod 600 "$HOME/.android/debug.keystore"
+          keytool -list -v -keystore "$HOME/.android/debug.keystore" -storepass android -alias androiddebugkey > /tmp/alchemy-key.txt
+          grep -Fq 'B4:58:9E:5E:A8:9D:7B:0D:38:97:08:AA:F6:3D:D2:B3:88:B9:36:5F:0B:66:D2:AA:7C:BC:E4:00:47:DA:D5:2A' /tmp/alchemy-key.txt
+          echo 'Verified dedicated 35K Alchemy DEBUG-only signing key'
+
+      - name: Set increasing Android versionCode
+        env:
+          BUILD_NUMBER: ${{ github.run_number }}
+        shell: bash
+        run: |
+          python3 - <<'PY'
+          import json, os, re
+          from pathlib import Path
+          path = Path('android/app/build.gradle')
+          original = path.read_text(encoding='utf-8')
+          code = int(os.environ['BUILD_NUMBER'])
+          name = json.loads(Path('package.json').read_text(encoding='utf-8'))['version'] + '.' + str(code)
+          updated, ncode = re.subn(r'(?m)^(\s*)versionCode\s+\d+(\s*)$', lambda m: m.group(1) + 'versionCode ' + str(code), original, count=1)
+          updated, nname = re.subn(r'(?m)^(\s*)versionName\s+["\'][^"\']+["\'](\s*)$', lambda m: m.group(1) + 'versionName "' + name + '"', updated, count=1)
+          if ncode != 1 or nname != 1:
+              raise SystemExit('Expected exactly one versionCode/versionName in android/app/build.gradle')
+          path.write_text(updated, encoding='utf-8')
+          print('Android versionCode:', code, 'versionName:', name)
+          PY
+
+      - name: Compile signed Android APK
         working-directory: android
         run: chmod +x gradlew && ./gradlew --no-daemon assembleDebug
+      - name: Check signature and package, rename distributable APK
+        shell: bash
+        run: |
+          set -euo pipefail
+          APK='android/app/build/outputs/apk/debug/app-debug.apk'
+          test -s "$APK"
+          APKSIGNER="${ANDROID_HOME:-$ANDROID_SDK_ROOT}/build-tools/36.0.0/apksigner"
+          "$APKSIGNER" verify --verbose --print-certs "$APK" | tee /tmp/alchemy-apk-signature.txt
+          grep -Fqi 'b4589e5ea89d7b0d389708aaf63dd2b388b9365f0b66d2aa7cbce40047dad52a' /tmp/alchemy-apk-signature.txt
+          mkdir -p dist
+          cp "$APK" dist/35K-Alchemy.apk
+          test -s dist/35K-Alchemy.apk
       - uses: actions/upload-artifact@v4
         with:
-          name: 35K-Alchemy-V68-debug-APK
-          path: android/app/build/outputs/apk/debug/app-debug.apk
+          name: 35K-Alchemy-Android
+          path: dist/35K-Alchemy.apk
           retention-days: 14
           if-no-files-found: error
-      - name: Publish tested APK at the stable latest release URL
+      - name: Publish APK to stable latest URL
         uses: softprops/action-gh-release@v2
         with:
           tag_name: latest
-          name: 35K Alchemy — Latest Android APK (debug)
+          name: 35K Alchemy — Android APK (latest)
           prerelease: true
           make_latest: false
+          overwrite_files: true
           fail_on_unmatched_files: true
           body: |
-            Automatic Android debug build of 35K Alchemy.
-            Source commit: ${{ github.sha }}
-            
-            For Android: download **app-debug.apk** below, then open it to install.
-            
-            This is a testing APK, not a signed Play Store release.
-            Rewarded AdMob ads and server-side reward verification are not implemented.
-            Preserve/export your saved progress before replacing or reinstalling this build.
-          files: android/app/build/outputs/apk/debug/app-debug.apk
+            Official 35K Alchemy TEST build from commit ${{ github.sha }}.
+            Download **35K-Alchemy.apk** and open it on your Android device.
 
+            Package: com.joaogdbg.alchemy35k.
+            Dedicated, stable 35K Alchemy debug-test certificate (NOT the Virtual Spectre certificate).
+            VersionCode: ${{ github.run_number }}.
+            This public debug signing key is NOT a production signing key.
+            Native rewarded ads and verified rewards are not implemented.
+            The first switch from the previous random debug-signed build may require reinstalling: back up saves first.
+          files: dist/35K-Alchemy.apk
+      - name: Remove obsolete app-debug.apk asset after publishing the new file
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: gh release delete-asset latest app-debug.apk --yes || true
