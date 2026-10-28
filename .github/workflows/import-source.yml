@@ -1,4 +1,4 @@
-name: Import full V67 source and build APK
+name: Import full V68 source and build APK
 on:
   workflow_dispatch:
 
@@ -8,32 +8,30 @@ permissions:
 jobs:
   import-and-build:
     runs-on: ubuntu-latest
-    timeout-minutes: 50
+    timeout-minutes: 60
     steps:
       - uses: actions/checkout@v4
-
-      - name: Verify one-file source archive
+      - name: Verify pinned V68 source archive
         shell: bash
         run: |
           set -euo pipefail
-          test -f 35K_Alchemy_GitHub_Source_V67.tar.xz || (echo "Upload 35K_Alchemy_GitHub_Source_V67.tar.xz to repository root first"; exit 1)
-          echo "5633f9b127a08f6c1f8f35f76fad1241ab1952832f1702ce9f1e468885362421  35K_Alchemy_GitHub_Source_V67.tar.xz" | sha256sum -c -
-
-      - name: Import project and preserve GitHub metadata
+          test -f 35K_Alchemy_V68_GitHub_Import.tar.xz || (echo "Upload 35K_Alchemy_V68_GitHub_Import.tar.xz to repository root first"; exit 1)
+          echo "24f348a349d0b5b8f26ebf99f12662bf17163e57cb6866287c2d35572c425c92  35K_Alchemy_V68_GitHub_Import.tar.xz" | sha256sum -c -
+      - name: Import V68 source, preserving Git metadata and workflow
         shell: bash
         run: |
           set -euo pipefail
-          tar -xJf 35K_Alchemy_GitHub_Source_V67.tar.xz --exclude='./.github/workflows/*'
-          rm 35K_Alchemy_GitHub_Source_V67.tar.xz
+          tar -xJf 35K_Alchemy_V68_GitHub_Import.tar.xz
+          rm 35K_Alchemy_V68_GitHub_Import.tar.xz
           test -f client/src/app.js
           test -f tools/build-standalone.py
-          test -f docs/WORKING_RULES_PT.md
+          test -f shared/v68-approved.json
+          test ! -d android
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
           git add -A
-          git commit -m "Import complete 35K Alchemy V67 game, assets and docs"
+          git commit -m "Import 35K Alchemy V68 game, assets, tests and history"
           git push origin HEAD:main
-
       - uses: actions/setup-node@v4
         with:
           node-version: '22'
@@ -47,20 +45,20 @@ jobs:
       - uses: android-actions/setup-android@v3
       - name: Install Android API 36
         run: sdkmanager 'platforms;android-36' 'build-tools;36.0.0' 'platform-tools'
-      - name: Install Capacitor 8 dependencies
+      - name: Install Capacitor dependencies
         run: npm install --no-audit --no-fund
-      - name: Run full game tests
+      - name: Run V68 regression suite
         run: npm test
-      - name: Bundle validated standalone HTML
+      - name: Bundle and validate V68 HTML for Android
         run: npm run web:build
-      - name: Generate native Capacitor Android project
+      - name: Create native Capacitor Android project
         run: npx cap add android && npx cap sync android
-      - name: Build Android debug APK
+      - name: Assemble Android debug APK
         working-directory: android
         run: chmod +x gradlew && ./gradlew --no-daemon assembleDebug
       - uses: actions/upload-artifact@v4
         with:
-          name: 35K-Alchemy-V67-debug-APK
+          name: 35K-Alchemy-V68-debug-APK
           path: android/app/build/outputs/apk/debug/app-debug.apk
           retention-days: 14
           if-no-files-found: error
