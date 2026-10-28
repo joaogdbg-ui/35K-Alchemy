@@ -1,0 +1,8 @@
+{
+  "appId": "com.joaogdbg.alchemy35k",
+  "appName": "35K Alchemy",
+  "webDir": "www",
+  "server": {
+    "androidScheme": "https"
+  }
+}
