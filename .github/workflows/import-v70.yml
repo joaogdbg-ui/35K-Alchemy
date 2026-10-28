@@ -1,0 +1,70 @@
+name: Import V70 subject-drawn artwork
+on:
+  push:
+    branches: [main]
+    paths:
+      - 'ci/v70-import-scripts.tar.xz'
+      - '.github/workflows/import-v70.yml'
+  workflow_dispatch:
+
+permissions:
+  contents: write
+  actions: write
+
+jobs:
+  import:
+    runs-on: ubuntu-latest
+    timeout-minutes: 25
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Verify exact reviewed V70 source
+        run: |
+          set -euo pipefail
+          echo "e0ca4b3052865dfee7264b5237f09b628e4b4240e0ae01ddf0eecefe6fb6ed90  ci/v70-import-scripts.tar.xz" | sha256sum -c -
+      - name: Import fourteen bespoke SVGs without overwriting Android layout
+        shell: bash
+        run: |
+          set -euo pipefail
+          tar -xJf ci/v70-import-scripts.tar.xz
+          python tools/create-v70-art.py
+          python - <<'PY'
+          from pathlib import Path
+          p=Path('tools/apply-v70-core.py')
+          s=p.read_text()
+          s=s.replace("if marker not in css:", "if marker not in css and '/* V70 · Android immersive fullscreen:' not in css:")
+          p.write_text(s)
+          PY
+          python tools/apply-v70-core.py
+          test -f client/src/organic-art-v70.js
+          test -f shared/v70-approved.json
+      - name: Verify new art, immutable recipes, original V69 and UI guards
+        run: |
+          node tools/validate-v69.mjs
+          node tools/validate-v70.mjs
+          node --test client/test/*.test.mjs
+      - name: Verify SVG rendering and rebuilt standalone HTML
+        run: |
+          python -m pip install --disable-pip-version-check numpy opencv-python-headless cairosvg pillow
+          python tools/build-standalone.py
+          python tools/prepare-android-web.py
+          test -s 35K_Alchemy_V70_Offline.html
+      - name: Commit V70 assets and remove transfer archive
+        shell: bash
+        run: |
+          set -euo pipefail
+          rm ci/v70-import-scripts.tar.xz
+          git config user.name 'github-actions[bot]'
+          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          git add -A
+          git commit -m 'V70: finish final 14 distinct SVGs and compact Android game header'
+          git push origin HEAD:main
+      - name: Build and publish signed 35K Alchemy APK
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: gh workflow run android-debug.yml --ref main
