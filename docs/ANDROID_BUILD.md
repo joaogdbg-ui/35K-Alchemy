@@ -1,12 +1,16 @@
-# Android — preparação para APK
+# Android — V68 debug APK pipeline
 
-**Estado:** Capacitor 8 configurado, mas o SDK Android, o plugin de AdMob e o APK **ainda não foram compilados neste ambiente**. O pipeline só funciona depois de importar o jogo completo.
+**State:** Source archive verified locally and Capacitor CI configured; no Android APK is claimed until the GitHub Actions build completes.
 
-- Node 22+, Python 3, Java 21 e Android SDK API 36.
-- Identificador provisório: `com.joaogdbg.alchemy35k` — confirmar **antes de publicar**.
-- Capacitor 8 suporta target SDK 36, necessário para novas apps submetidas à Google Play em outubro de 2026.
+**Prerequisites in CI:** Node 22, Python 3.12, Java 21, Android SDK API 36, Capacitor 8. App ID is provisional: `com.joaogdbg.alchemy35k`. Capacitor 8 targets Android API 36.
 
-## Compilação após importar a fonte
+## First run
+
+Use [V68 single archive import](IMPORT_ONE_ARCHIVE.md). That workflow imports and commits the source, then builds the first debug APK.
+
+## Later debug builds
+
+From **Actions → Build Android debug APK → Run workflow**. Conceptually, the pipeline runs:
 
 ```bash
 npm install
@@ -14,17 +18,20 @@ npm test
 npm run web:build
 npx cap add android
 npx cap sync android
-cd android && ./gradlew assembleDebug
+cd android && ./gradlew --no-daemon assembleDebug
 ```
 
-O APK debug fica normalmente em `android/app/build/outputs/apk/debug/app-debug.apk`. O workflow do GitHub Actions pode fazê-lo num runner com SDK. **Debug APK não é AAB assinado para Google Play.**
+Successful result: `android/app/build/outputs/apk/debug/app-debug.apk`, uploaded as a GitHub Actions artifact.
 
-## Antes de lançar
+Generated folders `android/` and `www/` are ignored; Capacitor recreates Android from scratch for CI. The Kotlin rewarded-ad prototype is stored under `native-reference/rewarded-ads/`, **not** the generated project.
 
-- Implementar AdMob recompensado real, consentimento UMP e idealmente SSV para recompensas; sem simulação em produção.
-- Rever o adaptador Kotlin de referência e alinhar o namespace do plugin com o appId.
-- Confirmar persitência: `content://` do navegador e a origem do WebView Capacitor têm armazenamento diferente; importar saves explicitamente.
-- Criar chave de assinatura e protegê-la em segredos, gerar release AAB, testar em Android físico e testar políticas Google Play.
-- Auditar a propriedade intelectual de nomes, personagens, marcas e imagens.
+## Release blockers
 
-Fontes: https://capacitorjs.com/docs/getting-started ; https://capacitorjs.com/docs/android ; https://support.google.com/googleplay/android-developer/answer/11926878
+- Android build and physical-device QA, particularly 35 px icon legibility, offline startup, memory/performance, family merges and orientation.
+- An existing browser/file-based save does **not automatically move** to Capacitor WebView storage; implement and test explicit backup/import.
+- Rewarded adverts: native AdMob SDK, UMP consent, verified reward callbacks and preferably server-side verification; no fake reward success.
+- Permanent signing keystore saved privately, release AAB and Play Console compliance.
+- IP/name/rights review; check privacy disclosures and app content.
+- Do not distribute an unsigned or debug APK as a release build.
+
+Official docs: https://capacitorjs.com/docs/getting-started ; https://capacitorjs.com/docs/android ; https://capacitorjs.com/docs/updating/8-0
