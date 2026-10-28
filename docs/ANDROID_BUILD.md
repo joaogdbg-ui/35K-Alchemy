@@ -86,3 +86,29 @@ and Classic, switch Light/Dark, test portrait/landscape where applicable,
 scroll the inventory, use search/keyboard and confirm bottom navigation is
 never obscured. Passing CI proves compilation, not physical screen geometry.
 
+
+
+## Modo imersivo fullscreen — Android 16/17
+
+O 35K Alchemy abre **sem a barra de estado nem a barra de navegação
+permanentes**. A configuração do Capacitor 8 usa
+`plugins.SystemBars.hidden = true` e mantém
+`insetsHandling = "css"` para proteger o conteúdo contra o recorte
+da câmara e ajustar a interface nos aparelhos diferentes.
+
+A atividade nativa criada por `tools/configure-android-edge-to-edge.py`
+usa `WindowInsetsController` em Android 11+ e o modo immersive-sticky
+nas versões anteriores. As barras do Android podem ser reveladas
+**temporariamente ao deslizar a partir da margem superior/inferior**;
+não removemos os gestos de sistema nem bloqueamos a saída da aplicação.
+Após regressar ao jogo, a interface volta ao ecrã imersivo.
+
+Os testes em `client/test/android-system-bars.test.mjs` verificam esta
+configuração. A confirmação da ergonomia (gestos, notch/câmara, teclado,
+botões Settings e Classic, barra inferior e alteração de tema) requer
+teste no telefone. No modo janela/multijanela, o Android pode impor
+controlos do sistema.
+
+Esta configuração **substitui**, sem eliminar, a correção anterior de
+safe-area que evitava a sobreposição da barra de estado. A assinatura
+exclusiva do Alchemy e o ficheiro `35K-Alchemy.apk` mantêm-se.
