@@ -10,7 +10,7 @@
       "insetsHandling": "css",
       "initialViewportFitValueHint": "cover",
       "style": "LIGHT",
-      "hidden": false
+      "hidden": true
     }
   }
 }
