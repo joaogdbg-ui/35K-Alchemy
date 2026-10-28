@@ -6,13 +6,14 @@ permissions:
 jobs:
   android:
     runs-on: ubuntu-latest
-    timeout-minutes: 45
+    timeout-minutes: 60
     steps:
       - uses: actions/checkout@v4
-      - name: Require complete game source
+      - name: Require the complete V68 project
         run: |
-          test -f client/src/app.js || (echo "Import the V67 source ZIP before building"; exit 1)
-          test -f tools/build-standalone.py || exit 1
+          test -f client/src/app.js || (echo "Run Import full V68 source and build APK first"; exit 1)
+          test -f tools/build-standalone.py
+          test -f shared/v68-approved.json
       - uses: actions/setup-node@v4
         with:
           node-version: '22'
@@ -29,11 +30,12 @@ jobs:
       - run: npm test
       - run: npm run web:build
       - run: npx cap add android && npx cap sync android
-      - name: Assemble APK debug
+      - name: Assemble debug APK
         working-directory: android
         run: chmod +x gradlew && ./gradlew --no-daemon assembleDebug
       - uses: actions/upload-artifact@v4
         with:
-          name: 35K-Alchemy-debug-APK
+          name: 35K-Alchemy-V68-debug-APK
           path: android/app/build/outputs/apk/debug/app-debug.apk
+          retention-days: 14
           if-no-files-found: error
