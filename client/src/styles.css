@@ -522,3 +522,18 @@ html[data-theme="dark"] .sound-settings-toggle[aria-pressed="false"]{background:
 @media(max-width:849px){.workspace-content{gap:13px;padding-block:14px}.workspace{flex-basis:clamp(190px,25.5dvh,225px)}.combine-feedback{min-height:36px}.craft-actions .batch-open,.craft-actions .compass-mini{min-height:34px}}
 @media(max-width:849px) and (max-height:680px){.workspace{flex-basis:177px}.workspace-content{gap:6px;padding-block:8px}.combine-feedback{min-height:30px;padding:4px 7px}.craft-actions .batch-open,.craft-actions .compass-mini{min-height:30px;padding-block:5px}}
 @media(max-width:849px) and (max-height:560px){.workspace{flex-basis:153px}.workspace-content{gap:3px;padding-block:4px}.combine-feedback{min-height:26px;font-size:10px}.craft-actions .batch-open,.craft-actions .compass-mini{min-height:27px;padding-block:4px}}
+
+
+/* 35K Android SystemBars safe-area fix (API 36 / Android 16+, including
+   Android 17). Chromium >=140 exposes env() while Capacitor 8's
+   SystemBars.insetsHandling=css supplies --safe-area-inset-*.
+   Older WebViews receive native padding and zero CSS insets: do not
+   introduce any fixed pixel status-bar offset or double-padding. */
+:root {
+  --safe: var(--safe-area-inset-bottom, env(safe-area-inset-bottom, 0px));
+}
+.app {
+  padding-top: var(--safe-area-inset-top, env(safe-area-inset-top, 0px));
+  padding-left: var(--safe-area-inset-left, env(safe-area-inset-left, 0px));
+  padding-right: var(--safe-area-inset-right, env(safe-area-inset-right, 0px));
+}
