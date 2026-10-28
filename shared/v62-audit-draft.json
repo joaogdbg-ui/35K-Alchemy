@@ -1,0 +1,441 @@
+{
+  "valid": [
+    [
+      "Marine",
+      "Tidepool Starfish",
+      "Tide Pool",
+      "Star"
+    ],
+    [
+      "Marine",
+      "Nautilus Shell",
+      "Sea",
+      "Fossil"
+    ],
+    [
+      "Marine",
+      "Reef Seahorse",
+      "Reef",
+      "Horse"
+    ],
+    [
+      "Marine",
+      "Pearl Oyster",
+      "Sea",
+      "Pearl"
+    ],
+    [
+      "Marine",
+      "Crimson Sea Fan",
+      "Sea Fan",
+      "Coral"
+    ],
+    [
+      "Marine",
+      "Kelp Ribbon",
+      "Kelp",
+      "Wind"
+    ],
+    [
+      "Botany",
+      "Fir Cone",
+      "Pine Forest",
+      "Seed"
+    ],
+    [
+      "Botany",
+      "Fiddlehead Fern",
+      "Fern",
+      "Sprout"
+    ],
+    [
+      "Geology",
+      "Obsidian Blade",
+      "Lava",
+      "Tool"
+    ],
+    [
+      "Geology",
+      "Sulfur Crystal",
+      "Volcano",
+      "Crystal"
+    ],
+    [
+      "Geology",
+      "Amber Inclusion",
+      "Amber",
+      "Insect"
+    ],
+    [
+      "Food",
+      "Butter Croissant",
+      "Bread",
+      "Butter"
+    ],
+    [
+      "Food",
+      "Golden Waffle",
+      "Flour",
+      "Honey"
+    ],
+    [
+      "Food",
+      "Rice Ball",
+      "Rice",
+      "Salt"
+    ],
+    [
+      "Food",
+      "Honeycomb Toffee",
+      "Caramel",
+      "Honey"
+    ],
+    [
+      "Wildlife",
+      "Emerald Tree Frog",
+      "Frog",
+      "Tree"
+    ],
+    [
+      "Wildlife",
+      "Spiny Hedgehog",
+      "Hedgehog",
+      "Forest"
+    ],
+    [
+      "Wildlife",
+      "Kingfisher Bird",
+      "Bird",
+      "River"
+    ],
+    [
+      "Wildlife",
+      "Blue Dragonfly",
+      "Dragonfly",
+      "Pond"
+    ],
+    [
+      "Wildlife",
+      "Arctic Fox",
+      "Animal",
+      "Snow"
+    ],
+    [
+      "Wildlife",
+      "Red Panda",
+      "Panda",
+      "Forest"
+    ],
+    [
+      "Wildlife",
+      "Snowy Owl",
+      "Owl",
+      "Snow"
+    ],
+    [
+      "Tools",
+      "Soldering Iron",
+      "Iron",
+      "Circuit"
+    ],
+    [
+      "Tools",
+      "Adjustable Wrench",
+      "Tool",
+      "Gear"
+    ],
+    [
+      "Tools",
+      "Garden Trowel",
+      "Garden",
+      "Metal"
+    ],
+    [
+      "Culture",
+      "Ceramic Teapot",
+      "Tea",
+      "Ceramic"
+    ],
+    [
+      "Culture",
+      "Violin Case",
+      "Violin",
+      "Wood"
+    ],
+    [
+      "Culture",
+      "Hand Loom",
+      "Thread",
+      "Tool"
+    ],
+    [
+      "Technology",
+      "Satellite Dish",
+      "Satellite",
+      "Metal"
+    ],
+    [
+      "Technology",
+      "Robot Vacuum Cleaner",
+      "Robot",
+      "Dust"
+    ],
+    [
+      "Technology",
+      "Digital Microscope",
+      "Microscope",
+      "Computer"
+    ],
+    [
+      "Astronomy",
+      "Lunar Lander",
+      "Moon",
+      "Spaceship"
+    ],
+    [
+      "Astronomy",
+      "Lunar Eclipse",
+      "Moon",
+      "Eclipse"
+    ],
+    [
+      "Astronomy",
+      "Rocket Booster",
+      "Rocket",
+      "Fuel"
+    ],
+    [
+      "Astronomy",
+      "Interplanetary Probe",
+      "Robot",
+      "Space"
+    ]
+  ],
+  "invalid": [
+    [
+      "Marine",
+      "Hermit Crab",
+      "DUPLICATE NAME"
+    ],
+    [
+      "Marine",
+      "Barnacle Colony",
+      "occupied or absent [('Rock', 'Shell'), ('Stone', 'Sea')]"
+    ],
+    [
+      "Botany",
+      "Venus Flytrap",
+      "occupied or absent [('Plant', 'Fly'), ('Plant', 'Insect')]"
+    ],
+    [
+      "Botany",
+      "Lotus Bloom",
+      "occupied or absent [('Flower', 'Pond'), ('Water Lily', 'Sun')]"
+    ],
+    [
+      "Botany",
+      "Sunflower Head",
+      "occupied or absent [('Flower', 'Sun'), ('Flower', 'Seed')]"
+    ],
+    [
+      "Botany",
+      "Cattail Reed",
+      "occupied or absent [('Reed', 'Pond'), ('Grass', 'Pond')]"
+    ],
+    [
+      "Botany",
+      "Dandelion Clock",
+      "occupied or absent [('Dandelion', 'Wind'), ('Flower', 'Wind')]"
+    ],
+    [
+      "Botany",
+      "Pitcher Plant",
+      "occupied or absent [('Plant', 'Insect'), ('Plant', 'Rain')]"
+    ],
+    [
+      "Geology",
+      "Amethyst Geode",
+      "occupied or absent [('Crystal', 'Cave'), ('Quartz', 'Cave')]"
+    ],
+    [
+      "Geology",
+      "Basalt Column",
+      "DUPLICATE NAME"
+    ],
+    [
+      "Geology",
+      "Agate Slice",
+      "occupied or absent [('Agate', 'Stone'), ('Crystal', 'Sand')]"
+    ],
+    [
+      "Geology",
+      "Pumice Stone",
+      "occupied or absent [('Lava', 'Foam'), ('Lava', 'Stone')]"
+    ],
+    [
+      "Geology",
+      "Crystal Cavern",
+      "occupied or absent [('Cave', 'Crystal'), ('Cave', 'Gem')]"
+    ],
+    [
+      "Food",
+      "Cinnamon Roll",
+      "DUPLICATE NAME"
+    ],
+    [
+      "Food",
+      "Salted Pretzel",
+      "occupied or absent [('Dough', 'Salt'), ('Bread', 'Salt')]"
+    ],
+    [
+      "Food",
+      "Steamed Dumpling",
+      "occupied or absent [('Dough', 'Steam'), ('Dough', 'Soup')]"
+    ],
+    [
+      "Food",
+      "Strawberry Tart",
+      "occupied or absent [('Strawberry', 'Pastry'), ('Fruit', 'Tart')]"
+    ],
+    [
+      "Wildlife",
+      "Seven Spot Ladybird",
+      "occupied or absent [('Ladybug', 'Leaf'), ('Beetle', 'Leaf')]"
+    ],
+    [
+      "Atmosphere",
+      "Double Rainbow",
+      "DUPLICATE NAME"
+    ],
+    [
+      "Atmosphere",
+      "Sun Dog Halo",
+      "occupied or absent [('Ice', 'Sun'), ('Halo', 'Sun')]"
+    ],
+    [
+      "Atmosphere",
+      "Dust Devil",
+      "DUPLICATE NAME"
+    ],
+    [
+      "Atmosphere",
+      "Ocean Waterspout",
+      "occupied or absent [('Sea', 'Tornado'), ('Sea', 'Storm')]"
+    ],
+    [
+      "Atmosphere",
+      "Frost Flower",
+      "DUPLICATE NAME"
+    ],
+    [
+      "Atmosphere",
+      "Aurora Curtain",
+      "DUPLICATE NAME"
+    ],
+    [
+      "Atmosphere",
+      "Cloudburst",
+      "DUPLICATE NAME"
+    ],
+    [
+      "Atmosphere",
+      "Virga Rain",
+      "occupied or absent [('Cloud', 'Heat'), ('Rain', 'Heat')]"
+    ],
+    [
+      "Tools",
+      "Hand Drill",
+      "occupied or absent [('Tool', 'Wood'), ('Drill', 'Wood')]"
+    ],
+    [
+      "Tools",
+      "Measuring Tape",
+      "occupied or absent [('Tool', 'Ruler'), ('Tool', 'Measure')]"
+    ],
+    [
+      "Tools",
+      "Pruning Shears",
+      "occupied or absent [('Tool', 'Garden'), ('Tool', 'Plant')]"
+    ],
+    [
+      "Tools",
+      "Paint Roller",
+      "occupied or absent [('Paint', 'Tool'), ('Art', 'Tool')]"
+    ],
+    [
+      "Tools",
+      "Carpenter Plane",
+      "occupied or absent [('Wood', 'Tool'), ('Carpenter', 'Wood')]"
+    ],
+    [
+      "Culture",
+      "Garden Sundial",
+      "occupied or absent [('Sun', 'Clock'), ('Sun', 'Garden')]"
+    ],
+    [
+      "Culture",
+      "Stone Windmill",
+      "occupied or absent [('Wind', 'House'), ('Wind', 'Stone')]"
+    ],
+    [
+      "Culture",
+      "Coastal Lighthouse",
+      "occupied or absent [('Sea', 'Light'), ('Coast', 'Light')]"
+    ],
+    [
+      "Culture",
+      "Paper Kite",
+      "occupied or absent [('Paper', 'Wind'), ('Paper', 'String')]"
+    ],
+    [
+      "Culture",
+      "Town Fountain",
+      "occupied or absent [('City', 'Water'), ('Stone', 'Water')]"
+    ],
+    [
+      "Technology",
+      "Pocket Radio",
+      "occupied or absent [('Radio', 'Battery'), ('Sound', 'Circuit')]"
+    ],
+    [
+      "Technology",
+      "Solar Cooker",
+      "occupied or absent [('Sun', 'Cooking'), ('Sun', 'Oven')]"
+    ],
+    [
+      "Technology",
+      "Weather Balloon",
+      "DUPLICATE NAME"
+    ],
+    [
+      "Technology",
+      "Circuit Probe",
+      "occupied or absent [('Circuit', 'Tool'), ('Electricity', 'Tool')]"
+    ],
+    [
+      "Technology",
+      "Handheld Navigator",
+      "occupied or absent [('Map', 'Computer'), ('GPS', 'Map')]"
+    ],
+    [
+      "Astronomy",
+      "Orbiting Satellite",
+      "DUPLICATE NAME"
+    ],
+    [
+      "Astronomy",
+      "Comet Tail",
+      "DUPLICATE NAME"
+    ],
+    [
+      "Astronomy",
+      "Saturn Ring Model",
+      "occupied or absent [('Planet', 'Ring'), ('Space', 'Ring')]"
+    ],
+    [
+      "Astronomy",
+      "Open Star Cluster",
+      "occupied or absent [('Star', 'Cluster'), ('Galaxy', 'Star')]"
+    ]
+  ]
+}

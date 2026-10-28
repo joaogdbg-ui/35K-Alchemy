@@ -1,0 +1,276 @@
+# domain|name|category|recipe|motifs
+Marine|Coral Polyp|life|Coral + Animal|coral+fish
+Marine|Marine Snow|nature|Sea + Snow|snow+wave
+Marine|Seagrass Meadow|nature|Sea + Grass|grass+wave
+Marine|Rockweed|life|Seaweed + Rock|kelp+mountain
+Marine|Saltwater Pool|nature|Salt + Pond|pool+shell
+Marine|Sea Foam|nature|Sea + Bubble|wave+cloud
+Marine|Oyster Bed|nature|Oyster + Sand|shell+mountain
+Marine|Crab Burrow|nature|Crab + Sand|crab+mountain
+Marine|Sea Cave|nature|Sea + Cave|wave+mountain
+Marine|Flotsam|material|Sea + Wood|wave+branch
+Marine|Algal Bloom|nature|Algae + Sun|kelp+sun
+Marine|Coral Bleaching|nature|Coral + Heat|coral+sun
+Marine|Deep Sea Vent|nature|Sea + Geyser|geyser+wave
+Marine|Reef Fish|life|Reef + Fish|coral+fish
+Marine|Bioluminescent Plankton|life|Plankton + Light|fish+halo
+Marine|Salt Spray|nature|Sea + Wind|wave+wind
+Marine|Sandbar|nature|Sand + River|mountain+wave
+Marine|Brackish Water|nature|River + Salt|droplet+shell
+Marine|Marine Current|nature|Sea + Motion|wave+wind
+Marine|Saltwater Lagoon|nature|Sea + Lake|pool+wave
+Marine|Coral Spawning|life|Coral + Seed|coral+flower
+Marine|Ocean Trench|nature|Sea + Canyon|wave+mountain
+Marine|Sea Glass Pebble|material|Sea Glass + Stone|ice+wave
+Marine|Kelp Raft|nature|Kelp + Wood|kelp+branch
+Marine|Whale Song|nature|Whale + Song|fish+halo
+Marine|Seabird Colony|life|Bird + Reef|tree+coral
+Marine|Seashell Mosaic|culture|Seashell + Art|shell+frame
+Marine|Coastal Erosion|nature|Wave + Rock|wave+mountain
+Marine|Tidal Mudflat|nature|Tide + Mud|pool+mountain
+Marine|Undersea Garden|nature|Sea + Garden|coral+flower
+Weather|Cloudburst|nature|Cloud + Rain|cloud+rain
+Weather|Sun Halo|nature|Sun + Halo|sun+halo
+Weather|Ground Fog|nature|Fog + Earth|fog+mountain
+Weather|Thundercloud|nature|Thunder + Cloud|cloud+lightning
+Weather|Snowdrift|nature|Snow + Wind|snow+wind
+Weather|Ice Storm|nature|Ice + Storm|ice+cloud
+Weather|Frost Pattern|nature|Frost + Glass|ice+frame
+Weather|Mist Droplet|nature|Fog + Dew|fog+droplet
+Weather|Rainshadow|nature|Mountain + Rain|mountain+rain
+Weather|Mountain Mist|nature|Mountain + Fog|mountain+fog
+Weather|Heat Mirage|nature|Heat + Desert|sun+fog
+Weather|Lightning Rod|technology|Lightning + Metal|lightning+mountain
+Weather|Cloud Chamber|science|Cloud + Science|cloud+frame
+Weather|Thunder Echo|nature|Thunder + Echo|lightning+halo
+Weather|Wind Gust|nature|Wind + Speed|wind+halo
+Weather|Pollen Storm|nature|Pollen + Storm|flower+wind
+Weather|Dewy Window|culture|Dew + Glass|droplet+frame
+Weather|Icy Roof|culture|Ice + House|house+ice
+Weather|Rainy Window|culture|Rain + Glass|rain+frame
+Weather|Hailstone|nature|Hail + Stone|ice+mountain
+Weather|Frosted Leaf|nature|Frost + Leaf|ice+leaf
+Weather|Cloud Reflection|nature|Cloud + Lake|cloud+pool
+Weather|Snow Crust|nature|Snow + Ice|snow+ice
+Weather|Summer Haze|nature|Summer + Fog|sun+fog
+Weather|Winter Sunrise|nature|Winter + Sunrise|snow+sun
+Weather|Rainwater Reservoir|technology|Rain + Reservoir|rain+pool
+Weather|Windblown Sand|nature|Sand + Wind|mountain+wind
+Weather|Thermal Updraft|science|Heat + Wind|sun+wind
+Weather|Distant Thunder|nature|Thunder + Mountain|lightning+mountain
+Weather|Fog Bank|nature|Fog + Sea|fog+wave
+Plants|Fern Canopy|nature|Fern + Forest|leaf+tree
+Plants|Mushroom Spore|life|Mushroom + Wind|mushroom+wind
+Plants|Seed Dispersal|nature|Seed + Wind|flower+wind
+Plants|Woodland Clearing|nature|Forest + Sun|tree+sun
+Plants|Lichen Rock|life|Lichen + Rock|leaf+mountain
+Plants|Tree Hollow|nature|Tree + Cave|tree+mountain
+Plants|River Moss|nature|Moss + River|grass+wave
+Plants|Bark Shelter|culture|Tree Bark + House|branch+house
+Plants|Forest Nursery|nature|Forest + Seedling|tree+flowerpot
+Plants|Herbal Poultice|culture|Herbs + Medicine|herbs+pot
+Plants|Sunflower Patch|nature|Sunflower + Garden|flower+grass
+Plants|Pollinator Garden|nature|Bee + Garden|flower+fish
+Plants|Fern Ravine|nature|Fern + Canyon|leaf+mountain
+Plants|Pine Resin|material|Pine Tree + Heat|tree+droplet
+Plants|Seed Bank Vault|culture|Seed Bank + House|basket+house
+Plants|Tree Ring Sample|science|Tree Ring + Science|tree+frame
+Plants|Mushroom Log|nature|Mushroom + Wood|mushroom+branch
+Plants|Fallen Leaves|nature|Autumn + Tree|leaf+tree
+Plants|Sunlit Canopy|nature|Sun + Tree Canopy|sun+tree
+Plants|Orchid Greenhouse|culture|Orchid + Greenhouse|flower+house
+Plants|Wildflower Strip|nature|Wildflower + Field|flower+grass
+Plants|Forest Understory|nature|Forest + Grass|tree+grass
+Plants|Floating Water Lily|nature|Water Lily + Pond|flower+pool
+Plants|Bonsai Pot|culture|Bonsai + Pottery|tree+pot
+Plants|Moss Terrarium|nature|Moss + Terrarium|grass+frame
+Plants|Clover Meadow|nature|Clover + Meadow|grass+flower
+Plants|Cactus Flower|nature|Cactus + Flower|flower+branch
+Plants|Leaf Skeleton|nature|Leaf + Fossil|leaf+ice
+Plants|Orchard Blossom|nature|Orchard + Flower|apple+flower
+Plants|Mushroom Mycelium|nature|Mushroom + Root|mushroom+roots
+Wildlife|Deer Tracks|nature|Deer + Mud|people+mountain
+Wildlife|Bird Feather|material|Bird + Wind|tree+wind
+Wildlife|Fox Den|nature|Fox + Cave|house+mountain
+Wildlife|Owl Pellet|nature|Owl + Fossil|tree+paper
+Wildlife|Ant Tunnel|nature|Ant + Earth|roots+mountain
+Wildlife|Bee Pollen Basket|life|Bee + Pollen|basket+flower
+Wildlife|Butterfly Chrysalis|life|Butterfly + Cocoon|flower+shell
+Wildlife|Spider Egg Sac|life|Spider + Egg|roots+shell
+Wildlife|Frog Spawn|life|Frog + Egg|pool+fish
+Wildlife|Dolphin Pod|life|Dolphin + Family|fish+people
+Wildlife|Fish Shoal|life|Fish + School|fish+pool
+Wildlife|Coral Crab|life|Crab + Coral|crab+coral
+Wildlife|Moth Dust|nature|Moth + Dust|flower+fog
+Wildlife|Firefly Lantern|culture|Firefly + Lantern|sun+flower
+Wildlife|Woodpecker Hole|nature|Bird + Tree Bark|tree+roots
+Wildlife|Winter Nest|nature|Bird Nest + Winter|tree+snow
+Wildlife|River Otter Den|nature|Otter + Riverbank|house+wave
+Wildlife|Migratory Bird|life|Bird + Migration|tree+wind
+Wildlife|Bee Swarm|life|Bee + Wind|flower+wind
+Wildlife|Crab Shell Molt|life|Crab + Shell|crab+shell
+Wildlife|Mushroom Beetle|life|Beetle + Mushroom|mushroom+leaf
+Wildlife|Birdsong Chorus|nature|Birdsong + Choir|tree+halo
+Wildlife|Moonlit Owl|life|Owl + Moon|tree+halo
+Wildlife|Forest Animal Tracks|nature|Animal + Forest Floor|people+tree
+Wildlife|Sand Crab Trail|nature|Crab + Beach|crab+mountain
+Geology|Crystal Geode|material|Crystal + Cave|ice+mountain
+Geology|Basalt Cliff|nature|Basalt + Mountain|mountain+ice
+Geology|Rock Strata|nature|Rock + Time|mountain+frame
+Geology|River Pebble|material|River + Stone|wave+mountain
+Geology|Volcanic Ash Cloud|nature|Volcano + Cloud|cloud+mountain
+Geology|Magma Chamber|nature|Lava + Cave|mountain+sun
+Geology|Cave Drip|nature|Cave + Water|droplet+mountain
+Geology|Salt Cavern|nature|Salt + Cave|shell+mountain
+Geology|Glacial Moraine|nature|Glacier + Rock|ice+mountain
+Geology|Quartz Vein|material|Quartz + Mountain|ice+mountain
+Geology|Petrified Branch|material|Wood + Fossil|branch+ice
+Geology|Sandy Sediment|material|Sand + River|mountain+pool
+Geology|Clay Deposit|material|Clay + Mountain|pot+mountain
+Geology|Lava Fountain|nature|Lava + Geyser|geyser+sun
+Geology|Canyon Shadow|nature|Canyon + Shadow|mountain+halo
+Geology|Underground Spring|nature|Cave + Spring|pool+mountain
+Geology|Water Worn Stone|material|Water + Rock|droplet+mountain
+Geology|Crystal Cavern Pool|nature|Crystal + Pond|ice+pool
+Geology|Stone Arch|culture|Stone + Bridge|mountain+house
+Geology|Fossil Imprint|material|Fossil + Clay|paper+mountain
+Geology|Glacier Meltwater|nature|Glacier + River|ice+wave
+Geology|Mineral Spring|nature|Mineral + Spring|geyser+pool
+Geology|Obsidian Edge|material|Obsidian + Tool|ice+paper
+Geology|Cinder Cone|nature|Volcano + Ash|mountain+fog
+Geology|Mineral Streak|material|Mineral + Rock|ice+mountain
+Food|Lemon Glaze|culture|Lemon + Sugar|apple+droplet
+Food|Honey Bread|culture|Honey + Bread|bread+flower
+Food|Cinnamon Roll|culture|Cinnamon + Dough|bread+flower
+Food|Herb Butter|culture|Herbs + Butter|pot+herbs
+Food|Apple Compote|culture|Apple + Sugar|apple+pot
+Food|Roasted Chestnut|culture|Chestnut + Fire|apple+sun
+Food|Rice Porridge|culture|Rice + Milk|pot+cup
+Food|Mushroom Risotto|culture|Mushroom + Rice|mushroom+pot
+Food|Berry Tart|culture|Berry + Pastry|apple+bread
+Food|Pear Jam|culture|Pear + Sugar|apple+pot
+Food|Orange Marmalade|culture|Orange + Sugar|apple+pot
+Food|Honey Tea|culture|Honey + Tea|cup+flower
+Food|Chocolate Sauce|culture|Chocolate + Milk|cup+pot
+Food|Baked Apple|culture|Apple + Oven|apple+sun
+Food|Herbal Bread|culture|Herbs + Bread|bread+herbs
+Food|Cheese Toast|culture|Cheese + Bread|bread+pot
+Food|Egg Custard|culture|Egg + Milk|cup+pot
+Food|Fruit Skewer|culture|Fruit + Stick|apple+branch
+Food|Garden Salad Bowl|culture|Garden + Salad|food+grass
+Food|Warm Apple Cider|culture|Apple + Heat|cup+apple
+Food|Crispy Potato|culture|Potato + Fire|apple+sun
+Food|Seaweed Broth|culture|Seaweed + Soup|kelp+pot
+Food|Mushroom Gravy|culture|Mushroom + Sauce|mushroom+pot
+Food|Lavender Honey|culture|Lavender + Honey|flower+pot
+Food|Berry Smoothie|culture|Berry + Milk|cup+apple
+Food|Caramel Apple|culture|Apple + Caramel|apple+sun
+Food|Pine Nut Pesto|culture|Pine Nut + Herbs|pot+herbs
+Food|Wheat Crackers|culture|Wheat + Oven|bread+sun
+Food|Ginger Tea|culture|Ginger + Tea|cup+herbs
+Food|Cocoa Biscuit|culture|Cocoa + Flour|bread+cup
+Culture|Community Garden Gate|culture|Garden + Gate|house+flower
+Culture|Village Bread Market|culture|Village + Bread|shop+bread
+Culture|Riverside Market|culture|River + Market|shop+wave
+Culture|Street Mural|culture|Street + Art|frame+pencil
+Culture|Town Clockwork|culture|Town + Clock|house+halo
+Culture|Library Bookmark|culture|Library + Paper|book+paper
+Culture|Glassblowing Studio|culture|Glass + Workshop|house+ice
+Culture|Pottery Showcase|culture|Pottery + Market|pot+shop
+Culture|Cultural Festival Poster|culture|Festival + Paper|frame+paper
+Culture|Village Lantern Festival|culture|Village + Lantern|house+sun
+Culture|Public Art Statue|culture|Art + Statue|statue+frame
+Culture|Community Herb Garden|culture|Community + Herbs|people+herbs
+Culture|Seaside Market Stall|culture|Market Stall + Sea|shop+wave
+Culture|Storytelling Circle|culture|Story + Family|people+book
+Culture|Wooden Town Sign|culture|Wood + Town|house+paper
+Culture|Garden Reading Corner|culture|Garden + Book|flower+book
+Culture|Heritage Walking Tour|culture|History + Map|book+paper
+Culture|School Greenhouse|culture|School + Greenhouse|house+flowerpot
+Culture|Amphitheater Stage|culture|Theater + Stone|statue+mountain
+Culture|Concert Poster|culture|Concert + Paper|paper+halo
+Culture|Musical Street Parade|culture|Music + Street|people+halo
+Culture|Night Market Lantern|culture|Market + Lantern|shop+sun
+Culture|Neighborhood Library|culture|Library + House|book+house
+Culture|Bookbinding Workshop|culture|Book + Workshop|book+house
+Culture|Stone Fountain Plaza|culture|Fountain + Town|pool+house
+Culture|Photo Exhibition|culture|Photography + Gallery|camera+frame
+Culture|Handmade Flower Wreath|culture|Flower + Craft|wreath+flower
+Culture|Artisan Pottery Shop|culture|Pottery + Shop|pot+shop
+Culture|City Rooftop Garden|culture|City + Garden|house+grass
+Culture|Moonlight Theater|culture|Moon + Theater|halo+frame
+Technology|Rain Gauge|technology|Rain + Measurement|rain+frame
+Technology|Solar Charger|technology|Sun + Battery|sun+frame
+Technology|Plant Moisture Sensor|technology|Plant + Sensor|leaf+droplet
+Technology|Smart Bird Feeder|technology|Bird + Computer|tree+frame
+Technology|Wind Speed Meter|technology|Wind + Measurement|wind+frame
+Technology|Digital Weather Station|technology|Weather + Computer|cloud+frame
+Technology|Aquarium Water Filter|technology|Aquarium + Filter|fish+pool
+Technology|Solar Water Pump|technology|Solar Power + Pump|sun+pool
+Technology|Garden Irrigation Timer|technology|Garden + Clock|flower+halo
+Technology|Pocket Telescope|technology|Telescope + Portable|halo+frame
+Technology|Digital Field Notebook|technology|Notebook + Computer|book+frame
+Technology|Compact Solar Lamp|technology|Sun + Lamp|sun+halo
+Technology|Electronic Soil Meter|technology|Soil + Sensor|mountain+frame
+Technology|Glass Solar Panel|technology|Glass + Solar Power|ice+sun
+Technology|Thermal Camera Lens|technology|Camera + Heat|camera+sun
+Technology|Remote Rain Sensor|technology|Rain + Sensor|rain+frame
+Technology|Wildlife Motion Detector|technology|Animal + Motion Sensor|people+frame
+Technology|Smart Plant Pot|technology|Plant + Microchip|flowerpot+frame
+Technology|Digital Compass Screen|technology|Compass + Screen|frame+mountain
+Technology|Portable Science Kit|technology|Science + Portable|basket+ice
+Technology|Underwater Microphone|technology|Sea + Microphone|wave+halo
+Technology|Solar Clock Face|technology|Clock + Solar Power|halo+sun
+Technology|Microclimate Sensor|technology|Climate + Sensor|cloud+frame
+Technology|Wind Powered Pump|technology|Wind + Pump|wind+pool
+Technology|Battery Lantern|technology|Battery + Lantern|sun+frame
+Technology|Forest Audio Recorder|technology|Forest + Recorder|tree+halo
+Technology|Digital Herbarium|technology|Herbarium + Computer|herbs+frame
+Technology|Recycled Glass Lamp|technology|Recycled Glass + Lamp|ice+sun
+Technology|Handheld Microscope|technology|Microscope + Portable|frame+ice
+Technology|Solar Greenhouse Fan|technology|Greenhouse + Fan|house+wind
+Astronomy|Moon Crater Shadow|nature|Moon + Shadow|halo+mountain
+Astronomy|Star Trail Photograph|science|Star + Photography|sun+camera
+Astronomy|Solar Flare Glow|science|Solar Flare + Light|sun+halo
+Astronomy|Planetary Ring Dust|science|Planet + Dust|halo+fog
+Astronomy|Comet Tail Ice|nature|Comet + Ice|ice+halo
+Astronomy|Meteorite Fragment|material|Meteorite + Stone|mountain+ice
+Astronomy|Lunar Dust Cloud|nature|Moon + Dust|halo+fog
+Astronomy|Spacecraft Window|technology|Spacecraft + Glass|frame+halo
+Astronomy|Telescope Star Chart|science|Telescope + Map|halo+paper
+Astronomy|Moonrise Reflection|nature|Moon + Lake|halo+pool
+Astronomy|Solar Eclipse Shadow|nature|Eclipse + Shadow|halo+sun
+Astronomy|Observatory Notebook|culture|Observatory + Book|book+halo
+Astronomy|Planetary Weather|science|Planet + Storm|halo+cloud
+Astronomy|Space Rock Sample|science|Asteroid + Science|mountain+frame
+Astronomy|Meteor Shower Calendar|culture|Meteor Shower + Calendar|paper+sun
+Astronomy|Star Cluster Sketch|culture|Star Cluster + Art|frame+sun
+Astronomy|Night Sky Photograph|culture|Night Sky + Camera|camera+halo
+Astronomy|Comet Observation Log|culture|Comet + Writing|book+halo
+Astronomy|Moonlit Mountain Ridge|nature|Moon + Mountain|halo+mountain
+Astronomy|Stargazing Blanket|culture|Star + Blanket|blanket+sun
+Crafts|Herbal Soap Bar|culture|Herbs + Soap|herbs+pot
+Crafts|Recycled Paper Notebook|culture|Recycled Paper + Book|paper+book
+Crafts|Pressed Flower Card|culture|Flower + Paper|flower+paper
+Crafts|Wooden Candle Holder|culture|Wood + Candle|branch+sun
+Crafts|Clay Plant Pot|culture|Clay + Plant|flowerpot+pot
+Crafts|Glass Mosaic Tile|material|Glass + Mosaic|ice+frame
+Crafts|Copper Jewelry Wire|material|Copper + Wire|branch+sun
+Crafts|Woven Basket Liner|culture|Basket + Fabric|basket+blanket
+Crafts|Hand Carved Spoon|culture|Wood + Spoon|branch+pot
+Crafts|Painted Ceramic Mug|culture|Ceramic + Paint|cup+frame
+Crafts|Leaf Print Fabric|culture|Leaf + Fabric|leaf+blanket
+Crafts|Mushroom Illustration|culture|Mushroom + Drawing|mushroom+pencil
+Crafts|Nature Photography Frame|culture|Nature + Photography|camera+leaf
+Crafts|Stone Garden Marker|culture|Stone + Garden|mountain+flower
+Crafts|Pinecone Decoration|culture|Pinecone + Art|branch+wreath
+Crafts|Seashell Pendant|culture|Seashell + Jewelry|shell+sun
+Crafts|Handwoven Grass Mat|culture|Grass + Weaving|grass+blanket
+Crafts|Botanical Watercolor|culture|Botany + Painting|flower+frame
+Crafts|Clay Bird Whistle|culture|Clay + Bird|pot+tree
+Crafts|Dried Flower Bouquet|culture|Flower + Drying|flower+wreath
+Crafts|Salt Dough Ornament|culture|Salt + Dough|bread+sun
+Crafts|Glass Terrarium Dome|culture|Terrarium + Glass|ice+flowerpot
+Crafts|Stone Mosaic Path|culture|Stone + Mosaic|mountain+frame
+Crafts|Handmade Herb Bookmark|culture|Herbs + Bookmark|paper+herbs
+Crafts|Pressed Leaf Journal|culture|Leaf + Journal|leaf+book

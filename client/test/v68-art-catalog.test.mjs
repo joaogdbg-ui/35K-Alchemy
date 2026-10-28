@@ -1,0 +1,11 @@
+import test from 'node:test';
+import assert from 'node:assert/strict';
+import {readFileSync} from 'node:fs';
+import {createHash} from 'node:crypto';
+import {ORGANIC_V68} from '../src/organic-pack-v68.js';
+import {ORGANIC_ART_V68} from '../src/organic-art-v68.js';
+const manifest=JSON.parse(readFileSync('shared/v68-approved.json','utf8'));
+test('V68 adds ten distinct discoverable new elements',()=>{assert.equal(ORGANIC_V68.items.length,10);assert.equal(ORGANIC_V68.recipes.length,10);assert.equal(new Set(ORGANIC_V68.items.map(e=>e.id)).size,10);assert.equal(new Set(ORGANIC_V68.recipes.map(e=>e.slice(0,2).sort().join('|'))).size,10);});
+test('V68 art includes 34 distinct approved standalone SVGs, exactly mirrored by runtime',()=>{assert.equal(manifest.new_items.length,10);assert.equal(manifest.redrawn_v61.length,24);const hashes=new Set();for(const e of [...manifest.new_items,...manifest.redrawn_v61]){const source=readFileSync(e.path,'utf8');const h=createHash('sha256').update(source).digest('hex');assert.equal(h,e.sha256);assert.ok(!hashes.has(h));hashes.add(h);assert.equal(ORGANIC_ART_V68[e.name.toLowerCase()],source);}});
+test('V68 keeps historical IDs for the 24 redrawn subjects',()=>{const old=new Map(JSON.parse(readFileSync('shared/v61-art-manifest.json','utf8')).icons.map(e=>[e.name,e.id]));for(const e of manifest.redrawn_v61)assert.equal(e.id,old.get(e.name));});
+test('V68 uses the latest approved art in preference to V67',()=>{const app=readFileSync('client/src/app.js','utf8');assert.ok(app.includes('ORGANIC_ART_V68[itemName]||ORGANIC_ART_V67[itemName]'));});

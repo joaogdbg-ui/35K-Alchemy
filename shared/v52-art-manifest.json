@@ -1,0 +1,485 @@
+{
+  "version": 52,
+  "icons": [
+    {
+      "id": "organic52:virga",
+      "name": "Virga",
+      "path": "client/assets/v52/virga.svg",
+      "sha256": "1ac6cf11efadf7dfd8bc54e9ec38946906ca052bc483359f713ff206bcc98197",
+      "motifs": [
+        "cloud",
+        "rain"
+      ]
+    },
+    {
+      "id": "organic52:rime-ice",
+      "name": "Rime Ice",
+      "path": "client/assets/v52/rime-ice.svg",
+      "sha256": "3be2982b7c402408d2876e1b562b8532aa48cb2cb33a04874cc19aaa5abc14f5",
+      "motifs": [
+        "ice",
+        "fog"
+      ]
+    },
+    {
+      "id": "organic52:graupel",
+      "name": "Graupel",
+      "path": "client/assets/v52/graupel.svg",
+      "sha256": "21354ddfca1f128ec94a33706909ca96dc52a0202eb96ee1982f112e40d1f3d7",
+      "motifs": [
+        "snow",
+        "cloud"
+      ]
+    },
+    {
+      "id": "organic52:hoarfrost",
+      "name": "Hoarfrost",
+      "path": "client/assets/v52/hoarfrost.svg",
+      "sha256": "1ae33a83b7ac52c34c8ceae5a35bf0aed58d478816a2250e8a076726a1ad951c",
+      "motifs": [
+        "branch",
+        "ice"
+      ]
+    },
+    {
+      "id": "organic52:parhelion",
+      "name": "Parhelion",
+      "path": "client/assets/v52/parhelion.svg",
+      "sha256": "79fce038ecccdca08a26cd581ab24ec36954846422991939259f453f49d417cd",
+      "motifs": [
+        "halo",
+        "sun"
+      ]
+    },
+    {
+      "id": "organic52:rain-shadow",
+      "name": "Rain Shadow",
+      "path": "client/assets/v52/rain-shadow.svg",
+      "sha256": "465d39e3f87232fcb38cc5f3b3f0103512f4252d3b07b9f03f707f4d124a34d3",
+      "motifs": [
+        "mountain",
+        "cloud"
+      ]
+    },
+    {
+      "id": "organic52:sea-breeze",
+      "name": "Sea Breeze",
+      "path": "client/assets/v52/sea-breeze.svg",
+      "sha256": "567f60db1de8fef1652eea3b91e2c6ce0b81c07d860785cb478364cfdda3ce29",
+      "motifs": [
+        "wave",
+        "wind"
+      ]
+    },
+    {
+      "id": "organic52:thermal-plume",
+      "name": "Thermal Plume",
+      "path": "client/assets/v52/thermal-plume.svg",
+      "sha256": "8232c8ec0a0c8bf0e5b2695b84aeadfed8ea1e1265c3eb6dbfe50c46fbb48058",
+      "motifs": [
+        "geyser",
+        "cloud"
+      ]
+    },
+    {
+      "id": "organic52:anvil-cloud",
+      "name": "Anvil Cloud",
+      "path": "client/assets/v52/anvil-cloud.svg",
+      "sha256": "64e99b14c4f69f341fed7bcdc56d7a37021b58724f1fb08304e12ddc6f184b26",
+      "motifs": [
+        "cloud",
+        "lightning"
+      ]
+    },
+    {
+      "id": "organic52:snow-cornice",
+      "name": "Snow Cornice",
+      "path": "client/assets/v52/snow-cornice.svg",
+      "sha256": "a7c55e7f6820977b9e94910c239696a764483ee8c5c24cb507aef83c00ca2253",
+      "motifs": [
+        "mountain",
+        "snow"
+      ]
+    },
+    {
+      "id": "organic52:heat-shimmer",
+      "name": "Heat Shimmer",
+      "path": "client/assets/v52/heat-shimmer.svg",
+      "sha256": "b55f1aab55ec8cec6e745d74c0caade779756d8c868c06e12f85dc0f2166ea21",
+      "motifs": [
+        "sun",
+        "wave"
+      ]
+    },
+    {
+      "id": "organic52:ice-floe",
+      "name": "Ice Floe",
+      "path": "client/assets/v52/ice-floe.svg",
+      "sha256": "871fe1b34c2e39b6876087d7f2fef451c5607bd00955f05080670f0f97ef9513",
+      "motifs": [
+        "ice",
+        "wave"
+      ]
+    },
+    {
+      "id": "organic52:tidal-stream",
+      "name": "Tidal Stream",
+      "path": "client/assets/v52/tidal-stream.svg",
+      "sha256": "da7be6b4a091305bddf30ff00f18dcfa53fb5538854463e2d3279d84b00df910",
+      "motifs": [
+        "wave",
+        "droplet"
+      ]
+    },
+    {
+      "id": "organic52:windbreak",
+      "name": "Windbreak",
+      "path": "client/assets/v52/windbreak.svg",
+      "sha256": "affbdbd73293ce2d5793f9cd4d55adc9bfd1a3281a90f2ec656968f1ba14feee",
+      "motifs": [
+        "tree",
+        "wind"
+      ]
+    },
+    {
+      "id": "organic52:dewdrop",
+      "name": "Dewdrop",
+      "path": "client/assets/v52/dewdrop.svg",
+      "sha256": "21a849a8ee3402e6ba54301f698c00719cea696ef7dbb9d901239098b5e569ff",
+      "motifs": [
+        "droplet",
+        "leaf"
+      ]
+    },
+    {
+      "id": "organic52:fog-bank",
+      "name": "Fog Bank",
+      "path": "client/assets/v52/fog-bank.svg",
+      "sha256": "c9fcb1298a88a6f6bde06909c55bea54118184aaa56b87482c5dc2a90aa0aab1",
+      "motifs": [
+        "fog",
+        "wave"
+      ]
+    },
+    {
+      "id": "organic52:rock-pool-nursery",
+      "name": "Rock Pool Nursery",
+      "path": "client/assets/v52/rock-pool-nursery.svg",
+      "sha256": "cda7649747b99bc75749f47b491b04938a18ce4d29685ef9681226fb03926689",
+      "motifs": [
+        "pool",
+        "crab"
+      ]
+    },
+    {
+      "id": "organic52:coral-garden",
+      "name": "Coral Garden",
+      "path": "client/assets/v52/coral-garden.svg",
+      "sha256": "f5b5da259e117434498e5831e5db6cddd300af9ad4059c68cdc11488e4fdf8d6",
+      "motifs": [
+        "coral",
+        "flower"
+      ]
+    },
+    {
+      "id": "organic52:kelp-nursery",
+      "name": "Kelp Nursery",
+      "path": "client/assets/v52/kelp-nursery.svg",
+      "sha256": "57773f1c4ed9681084e1ce5e54b21648615ba57c6b7641d2153e3b5843b8d3b7",
+      "motifs": [
+        "kelp",
+        "fish"
+      ]
+    },
+    {
+      "id": "organic52:oyster-bed",
+      "name": "Oyster Bed",
+      "path": "client/assets/v52/oyster-bed.svg",
+      "sha256": "b54f53dc0b999a4526507279af9c2f919025a6d39c2f6b9f88d1b8c3a459f328",
+      "motifs": [
+        "shell",
+        "pool"
+      ]
+    },
+    {
+      "id": "organic52:seagrass-bed",
+      "name": "Seagrass Bed",
+      "path": "client/assets/v52/seagrass-bed.svg",
+      "sha256": "a802986db2be459e14fbe79dfe15f27b1ec1588f50a800778b451905c7a37cca",
+      "motifs": [
+        "grass",
+        "wave"
+      ]
+    },
+    {
+      "id": "organic52:reef-fish",
+      "name": "Reef Fish",
+      "path": "client/assets/v52/reef-fish.svg",
+      "sha256": "8fd154c43fa4255de5957697c4b572f892b33e8842e4ee090d20be044fdbaba4",
+      "motifs": [
+        "fish",
+        "coral"
+      ]
+    },
+    {
+      "id": "organic52:root-mat",
+      "name": "Root Mat",
+      "path": "client/assets/v52/root-mat.svg",
+      "sha256": "595ee153b62c9476a27028e32f6dc1c41370d3be6e0913d24a6d86b2572e284a",
+      "motifs": [
+        "roots",
+        "grass"
+      ]
+    },
+    {
+      "id": "organic52:fungal-network",
+      "name": "Fungal Network",
+      "path": "client/assets/v52/fungal-network.svg",
+      "sha256": "810e372f46c17147456d418c3665b8c7bfbd2bd0fd172aaaa6e5e70633e89fb1",
+      "motifs": [
+        "mushroom",
+        "roots"
+      ]
+    },
+    {
+      "id": "organic52:leaf-mold",
+      "name": "Leaf Mold",
+      "path": "client/assets/v52/leaf-mold.svg",
+      "sha256": "d4676857f0dcd35f175da51883efcdc2ba9a3e1340ba6eec341626439f184562",
+      "motifs": [
+        "leaf",
+        "roots"
+      ]
+    },
+    {
+      "id": "organic52:woodland-spring",
+      "name": "Woodland Spring",
+      "path": "client/assets/v52/woodland-spring.svg",
+      "sha256": "ce9b163c2359f9619308afca68c97245c2455adf7915ea221d576dcb63e9171f",
+      "motifs": [
+        "pool",
+        "tree"
+      ]
+    },
+    {
+      "id": "organic52:bread-basket",
+      "name": "Bread Basket",
+      "path": "client/assets/v52/bread-basket.svg",
+      "sha256": "7424dadb71372ae296b27638611f5a55633aa752c338f1951f6b83591d98aac1",
+      "motifs": [
+        "basket",
+        "bread"
+      ]
+    },
+    {
+      "id": "organic52:street-bakery",
+      "name": "Street Bakery",
+      "path": "client/assets/v52/street-bakery.svg",
+      "sha256": "00a4e8dd9e23641babf9013b3f833971e2ca80481d53aadf1cdeff3beb596871",
+      "motifs": [
+        "shop",
+        "bread"
+      ]
+    },
+    {
+      "id": "organic52:market-square",
+      "name": "Market Square",
+      "path": "client/assets/v52/market-square.svg",
+      "sha256": "9de3c62243fd077a69b1ba75ebdac08857851099ec91599ac40bd14e85d3390d",
+      "motifs": [
+        "shop",
+        "people"
+      ]
+    },
+    {
+      "id": "organic52:picnic-lunch",
+      "name": "Picnic Lunch",
+      "path": "client/assets/v52/picnic-lunch.svg",
+      "sha256": "be043084f1db49e21450ed2cf5ebad34756aca304b3533d6929fa8f4c9fb295b",
+      "motifs": [
+        "blanket",
+        "basket"
+      ]
+    },
+    {
+      "id": "organic52:tea-ceremony",
+      "name": "Tea Ceremony",
+      "path": "client/assets/v52/tea-ceremony.svg",
+      "sha256": "d52c7e753cdec23e36741c8c18ab91850eaee3378271640474cb4b4bf49095e7",
+      "motifs": [
+        "kettle",
+        "cup"
+      ]
+    },
+    {
+      "id": "organic52:recipe-card",
+      "name": "Recipe Card",
+      "path": "client/assets/v52/recipe-card.svg",
+      "sha256": "ba8aa38f1e2cc1d1547887921d63a165edbe0fbe140aeae81e471815aec12171",
+      "motifs": [
+        "paper",
+        "pencil"
+      ]
+    },
+    {
+      "id": "organic52:food-stall",
+      "name": "Food Stall",
+      "path": "client/assets/v52/food-stall.svg",
+      "sha256": "640e9774db69885bb72c0864f7bf8fe75b63eccc15d576264503392bc77f1202",
+      "motifs": [
+        "shop",
+        "food"
+      ]
+    },
+    {
+      "id": "organic52:craft-fair",
+      "name": "Craft Fair",
+      "path": "client/assets/v52/craft-fair.svg",
+      "sha256": "3426f20124f8559de88fa2a6d372b5d16df608681ef75110c0980bcba9cb1755",
+      "motifs": [
+        "shop",
+        "pot"
+      ]
+    },
+    {
+      "id": "organic52:photo-exhibition",
+      "name": "Photo Exhibition",
+      "path": "client/assets/v52/photo-exhibition.svg",
+      "sha256": "8ac0b2cb1dcf611a5c7bc59b9145a32df25cc1be874c224f87324138dd551a5d",
+      "motifs": [
+        "frame",
+        "camera"
+      ]
+    },
+    {
+      "id": "organic52:sculpture-garden",
+      "name": "Sculpture Garden",
+      "path": "client/assets/v52/sculpture-garden.svg",
+      "sha256": "065b78f616d94a390e9e2ef0d1ec25183ffc584383eed451f03bc0661d343284",
+      "motifs": [
+        "statue",
+        "tree"
+      ]
+    },
+    {
+      "id": "organic52:community-kitchen",
+      "name": "Community Kitchen",
+      "path": "client/assets/v52/community-kitchen.svg",
+      "sha256": "36f15aa743feb00467633447397dad5430d2e7dab2de8a5d91a394c462276065",
+      "motifs": [
+        "food",
+        "people"
+      ]
+    },
+    {
+      "id": "organic52:herb-shop",
+      "name": "Herb Shop",
+      "path": "client/assets/v52/herb-shop.svg",
+      "sha256": "a9d764e30a7036e0febeff425b225325c0c32efcacca2c58c5316b53d47d381e",
+      "motifs": [
+        "shop",
+        "herbs"
+      ]
+    },
+    {
+      "id": "organic52:story-circle",
+      "name": "Story Circle",
+      "path": "client/assets/v52/story-circle.svg",
+      "sha256": "7f87f764e9d5a0ec00fbe5166dbffe4f27c986ffaf6fa14baade26ebc41c4046",
+      "motifs": [
+        "book",
+        "people"
+      ]
+    },
+    {
+      "id": "organic52:village-feast",
+      "name": "Village Feast",
+      "path": "client/assets/v52/village-feast.svg",
+      "sha256": "998d2c9ed1e591a0bc86b3b71c81e91396054e2338361c31531fefe57e240423",
+      "motifs": [
+        "food",
+        "house"
+      ]
+    },
+    {
+      "id": "organic52:seedling-pot",
+      "name": "Seedling Pot",
+      "path": "client/assets/v52/seedling-pot.svg",
+      "sha256": "d3a84cb6df07b9d872cec0cff8533b667f5e3c8fde53442e1f06dae06f80b44b",
+      "motifs": [
+        "pot",
+        "leaf"
+      ]
+    },
+    {
+      "id": "organic52:botanical-sketch",
+      "name": "Botanical Sketch",
+      "path": "client/assets/v52/botanical-sketch.svg",
+      "sha256": "451f60dc81aa2c8812259ae1584b1bbf33cbefb6442f7b74d1ef9ed2856a269e",
+      "motifs": [
+        "paper",
+        "leaf"
+      ]
+    },
+    {
+      "id": "organic52:terrarium-display",
+      "name": "Terrarium Display",
+      "path": "client/assets/v52/terrarium-display.svg",
+      "sha256": "147e1bbe1cfaa9c2e5aa20190ff681baa6bbc453988b07740a1168a767d3f1ff",
+      "motifs": [
+        "pot",
+        "frame"
+      ]
+    },
+    {
+      "id": "organic52:orchard-basket",
+      "name": "Orchard Basket",
+      "path": "client/assets/v52/orchard-basket.svg",
+      "sha256": "64aa51e28e3472152e243dd1a77211aef8717da8bb88755620f9b6fca1d12a5a",
+      "motifs": [
+        "basket",
+        "apple"
+      ]
+    },
+    {
+      "id": "organic52:floral-wreath",
+      "name": "Floral Wreath",
+      "path": "client/assets/v52/floral-wreath.svg",
+      "sha256": "1033a64b257cf901549e91ea6c937fe5609da773309b531527a1788c677ecb95",
+      "motifs": [
+        "wreath",
+        "flower"
+      ]
+    },
+    {
+      "id": "organic52:botanical-walk",
+      "name": "Botanical Walk",
+      "path": "client/assets/v52/botanical-walk.svg",
+      "sha256": "63940b73cf13ffaccfa715728d552b4c22573caeb52f773c400c0a24c1010773",
+      "motifs": [
+        "people",
+        "flower"
+      ]
+    },
+    {
+      "id": "organic52:nature-journal",
+      "name": "Nature Journal",
+      "path": "client/assets/v52/nature-journal.svg",
+      "sha256": "df97cbe4c11b0e7dd674ec061e725eeda1c1ddb50384463f404e1a48629a5043",
+      "motifs": [
+        "book",
+        "leaf"
+      ]
+    },
+    {
+      "id": "organic52:herbal-infusion",
+      "name": "Herbal Infusion",
+      "path": "client/assets/v52/herbal-infusion.svg",
+      "sha256": "01d97bfe19b2c0665af18eec045fd408dc092891e440cc9b095270e1b0b4d776",
+      "motifs": [
+        "cup",
+        "herbs"
+      ]
+    }
+  ]
+}

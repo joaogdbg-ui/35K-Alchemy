@@ -1,0 +1,104 @@
+{
+  "release": "V44",
+  "previous_elements": 3778,
+  "new_elements": 13,
+  "previous_recipes": 10275,
+  "new_recipes": 836,
+  "total_elements": 3791,
+  "total_recipes": 11111,
+  "global_possible": 7187736,
+  "cohorts": [
+    {
+      "depth": 0,
+      "elements": 4,
+      "possible": 10,
+      "before": 10,
+      "after": 10,
+      "before_pct": 100.0,
+      "after_pct": 100.0,
+      "added": 0
+    },
+    {
+      "depth": 1,
+      "elements": 14,
+      "possible": 105,
+      "before": 105,
+      "after": 105,
+      "before_pct": 100.0,
+      "after_pct": 100.0,
+      "added": 0
+    },
+    {
+      "depth": 2,
+      "elements": 55,
+      "possible": 1540,
+      "before": 346,
+      "after": 410,
+      "before_pct": 22.47,
+      "after_pct": 26.62,
+      "added": 64
+    },
+    {
+      "depth": 3,
+      "elements": 132,
+      "possible": 8778,
+      "before": 761,
+      "after": 979,
+      "before_pct": 8.67,
+      "after_pct": 11.15,
+      "added": 218
+    },
+    {
+      "depth": 4,
+      "elements": 228,
+      "possible": 26106,
+      "before": 1082,
+      "after": 1467,
+      "before_pct": 4.14,
+      "after_pct": 5.62,
+      "added": 385
+    },
+    {
+      "depth": 5,
+      "elements": 326,
+      "possible": 53301,
+      "before": 1374,
+      "after": 1913,
+      "before_pct": 2.58,
+      "after_pct": 3.59,
+      "added": 539
+    },
+    {
+      "depth": 6,
+      "elements": 452,
+      "possible": 102378,
+      "before": 1677,
+      "after": 2360,
+      "before_pct": 1.64,
+      "after_pct": 2.31,
+      "added": 683
+    },
+    {
+      "depth": 7,
+      "elements": 580,
+      "possible": 168490,
+      "before": 1902,
+      "after": 2625,
+      "before_pct": 1.13,
+      "after_pct": 1.56,
+      "added": 723
+    },
+    {
+      "depth": 8,
+      "elements": 718,
+      "possible": 258121,
+      "before": 2138,
+      "after": 2905,
+      "before_pct": 0.83,
+      "after_pct": 1.13,
+      "added": 767
+    }
+  ],
+  "definition": "Success includes existing-element results, not just unique unlocks. V43 reached-element cohorts fixed for apples-to-apples comparisons.",
+  "global_coverage_pct": 0.1546
+}

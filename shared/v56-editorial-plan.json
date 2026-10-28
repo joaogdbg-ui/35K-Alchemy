@@ -1,0 +1,2556 @@
+{
+  "version": 56,
+  "items": [
+    {
+      "id": "organic56:tidal-ripple",
+      "name": "Tidal Ripple",
+      "category": "nature",
+      "summary": "Discover tidal ripple by combining related ingredients.",
+      "iconFamily": "organic"
+    },
+    {
+      "id": "organic56:sandy-footprint",
+      "name": "Sandy Footprint",
+      "category": "nature",
+      "summary": "Discover sandy footprint by combining related ingredients.",
+      "iconFamily": "organic"
+    },
+    {
+      "id": "organic56:seaside-rock-pool",
+      "name": "Seaside Rock Pool",
+      "category": "nature",
+      "summary": "Discover seaside rock pool by combining related ingredients.",
+      "iconFamily": "organic"
+    },
+    {
+      "id": "organic56:salt-crystals",
+      "name": "Salt Crystals",
+      "category": "material",
+      "summary": "Discover salt crystals by combining related ingredients.",
+      "iconFamily": "organic"
+    },
+    {
+      "id": "organic56:coastal-rainfall",
+      "name": "Coastal Rainfall",
+      "category": "nature",
+      "summary": "Discover coastal rainfall by combining related ingredients.",
+      "iconFamily": "organic"
+    },
+    {
+      "id": "organic56:dune-ridge",
+      "name": "Dune Ridge",
+      "category": "nature",
+      "summary": "Discover dune ridge by combining related ingredients.",
+      "iconFamily": "organic"
+    },
+    {
+      "id": "organic56:coral-nursery",
+      "name": "Coral Nursery",
+      "category": "nature",
+      "summary": "Discover coral nursery by combining related ingredients.",
+      "iconFamily": "organic"
+    },
+    {
+      "id": "organic56:seaweed-basket",
+      "name": "Seaweed Basket",
+      "category": "culture",
+      "summary": "Discover seaweed basket by combining related ingredients.",
+      "iconFamily": "organic"
+    },
+    {
+      "id": "organic56:reef-shadows",
+      "name": "Reef Shadows",
+      "category": "nature",
+      "summary": "Discover reef shadows by combining related ingredients.",
+      "iconFamily": "organic"
+    },
+    {
+      "id": "organic56:coastal-sunrise",
+      "name": "Coastal Sunrise",
+      "category": "nature",
+      "summary": "Discover coastal sunrise by combining related ingredients.",
+      "iconFamily": "organic"
+    },
+    {
+      "id": "organic56:sea-breeze-chime",
+      "name": "Sea Breeze Chime",
+      "category": "culture",
+      "summary": "Discover sea breeze chime by combining related ingredients.",
+      "iconFamily": "organic"
+    },
+    {
+      "id": "organic56:beach-bonfire",
+      "name": "Beach Bonfire",
+      "category": "culture",
+      "summary": "Discover beach bonfire by combining related ingredients.",
+      "iconFamily": "organic"
+    },
+    {
+      "id": "organic56:shell-collector",
+      "name": "Shell Collector",
+      "category": "culture",
+      "summary": "Discover shell collector by combining related ingredients.",
+      "iconFamily": "organic"
+    },
+    {
+      "id": "organic56:tide-calendar",
+      "name": "Tide Calendar",
+      "category": "culture",
+      "summary": "Discover tide calendar by combining related ingredients.",
+      "iconFamily": "organic"
+    },
+    {
+      "id": "organic56:harbor-bell",
+      "name": "Harbor Bell",
+      "category": "culture",
+      "summary": "Discover harbor bell by combining related ingredients.",
+      "iconFamily": "organic"
+    },
+    {
+      "id": "organic56:fisherman-s-lantern",
+      "name": "Fisherman's Lantern",
+      "category": "culture",
+      "summary": "Discover fisherman's lantern by combining related ingredients.",
+      "iconFamily": "organic"
+    },
+    {
+      "id": "organic56:riverbank-reeds",
+      "name": "Riverbank Reeds",
+      "category": "nature",
+      "summary": "Discover riverbank reeds by combining related ingredients.",
+      "iconFamily": "organic"
+    },
+    {
+      "id": "organic56:salt-meadow",
+      "name": "Salt Meadow",
+      "category": "nature",
+      "summary": "Discover salt meadow by combining related ingredients.",
+      "iconFamily": "organic"
+    },
+    {
+      "id": "organic56:floating-leaf",
+      "name": "Floating Leaf",
+      "category": "nature",
+      "summary": "Discover floating leaf by combining related ingredients.",
+      "iconFamily": "organic"
+    },
+    {
+      "id": "organic56:pine-grove-shade",
+      "name": "Pine Grove Shade",
+      "category": "nature",
+      "summary": "Discover pine grove shade by combining related ingredients.",
+      "iconFamily": "organic"
+    },
+    {
+      "id": "organic56:mossy-boulder",
+      "name": "Mossy Boulder",
+      "category": "nature",
+      "summary": "Discover mossy boulder by combining related ingredients.",
+      "iconFamily": "organic"
+    },
+    {
+      "id": "organic56:fern-dew",
+      "name": "Fern Dew",
+      "category": "nature",
+      "summary": "Discover fern dew by combining related ingredients.",
+      "iconFamily": "organic"
+    },
+    {
+      "id": "organic56:forest-path-marker",
+      "name": "Forest Path Marker",
+      "category": "culture",
+      "summary": "Discover forest path marker by combining related ingredients.",
+      "iconFamily": "organic"
+    },
+    {
+      "id": "organic56:fallen-pinecone",
+      "name": "Fallen Pinecone",
+      "category": "nature",
+      "summary": "Discover fallen pinecone by combining related ingredients.",
+      "iconFamily": "organic"
+    },
+    {
+      "id": "organic56:bird-nest-lining",
+      "name": "Bird Nest Lining",
+      "category": "nature",
+      "summary": "Discover bird nest lining by combining related ingredients.",
+      "iconFamily": "organic"
+    },
+    {
+      "id": "organic56:wild-mushroom-soup",
+      "name": "Wild Mushroom Soup",
+      "category": "culture",
+      "summary": "Discover wild mushroom soup by combining related ingredients.",
+      "iconFamily": "organic"
+    },
+    {
+      "id": "organic56:root-cellar",
+      "name": "Root Cellar",
+      "category": "culture",
+      "summary": "Discover root cellar by combining related ingredients.",
+      "iconFamily": "organic"
+    },
+    {
+      "id": "organic56:forest-stream-pebble",
+      "name": "Forest Stream Pebble",
+      "category": "nature",
+      "summary": "Discover forest stream pebble by combining related ingredients.",
+      "iconFamily": "organic"
+    },
+    {
+      "id": "organic56:wildflower-pollen",
+      "name": "Wildflower Pollen",
+      "category": "nature",
+      "summary": "Discover wildflower pollen by combining related ingredients.",
+      "iconFamily": "organic"
+    },
+    {
+      "id": "organic56:bee-garden",
+      "name": "Bee Garden",
+      "category": "nature",
+      "summary": "Discover bee garden by combining related ingredients.",
+      "iconFamily": "organic"
+    },
+    {
+      "id": "organic56:honeycomb-frame",
+      "name": "Honeycomb Frame",
+      "category": "culture",
+      "summary": "Discover honeycomb frame by combining related ingredients.",
+      "iconFamily": "organic"
+    },
+    {
+      "id": "organic56:leaf-press",
+      "name": "Leaf Press",
+      "category": "culture",
+      "summary": "Discover leaf press by combining related ingredients.",
+      "iconFamily": "organic"
+    },
+    {
+      "id": "organic56:seedling-tray",
+      "name": "Seedling Tray",
+      "category": "culture",
+      "summary": "Discover seedling tray by combining related ingredients.",
+      "iconFamily": "organic"
+    },
+    {
+      "id": "organic56:terrarium-moss",
+      "name": "Terrarium Moss",
+      "category": "nature",
+      "summary": "Discover terrarium moss by combining related ingredients.",
+      "iconFamily": "organic"
+    },
+    {
+      "id": "organic56:woodland-lantern",
+      "name": "Woodland Lantern",
+      "category": "culture",
+      "summary": "Discover woodland lantern by combining related ingredients.",
+      "iconFamily": "organic"
+    },
+    {
+      "id": "organic56:bark-texture",
+      "name": "Bark Texture",
+      "category": "nature",
+      "summary": "Discover bark texture by combining related ingredients.",
+      "iconFamily": "organic"
+    },
+    {
+      "id": "organic56:forest-whisper",
+      "name": "Forest Whisper",
+      "category": "nature",
+      "summary": "Discover forest whisper by combining related ingredients.",
+      "iconFamily": "organic"
+    },
+    {
+      "id": "organic56:birdwatching-hide",
+      "name": "Birdwatching Hide",
+      "category": "culture",
+      "summary": "Discover birdwatching hide by combining related ingredients.",
+      "iconFamily": "organic"
+    },
+    {
+      "id": "organic56:mushroom-basket",
+      "name": "Mushroom Basket",
+      "category": "culture",
+      "summary": "Discover mushroom basket by combining related ingredients.",
+      "iconFamily": "organic"
+    },
+    {
+      "id": "organic56:morning-dewdrop",
+      "name": "Morning Dewdrop",
+      "category": "nature",
+      "summary": "Discover morning dewdrop by combining related ingredients.",
+      "iconFamily": "organic"
+    },
+    {
+      "id": "organic56:sunlit-fog",
+      "name": "Sunlit Fog",
+      "category": "nature",
+      "summary": "Discover sunlit fog by combining related ingredients.",
+      "iconFamily": "organic"
+    },
+    {
+      "id": "organic56:frozen-puddle",
+      "name": "Frozen Puddle",
+      "category": "nature",
+      "summary": "Discover frozen puddle by combining related ingredients.",
+      "iconFamily": "organic"
+    },
+    {
+      "id": "organic56:snow-covered-branch",
+      "name": "Snow-Covered Branch",
+      "category": "nature",
+      "summary": "Discover snow-covered branch by combining related ingredients.",
+      "iconFamily": "organic"
+    },
+    {
+      "id": "organic56:windblown-leaves",
+      "name": "Windblown Leaves",
+      "category": "nature",
+      "summary": "Discover windblown leaves by combining related ingredients.",
+      "iconFamily": "organic"
+    },
+    {
+      "id": "organic56:rain-darkened-stone",
+      "name": "Rain-Darkened Stone",
+      "category": "nature",
+      "summary": "Discover rain-darkened stone by combining related ingredients.",
+      "iconFamily": "organic"
+    },
+    {
+      "id": "organic56:thunderstorm-rain",
+      "name": "Thunderstorm Rain",
+      "category": "nature",
+      "summary": "Discover thunderstorm rain by combining related ingredients.",
+      "iconFamily": "organic"
+    },
+    {
+      "id": "organic56:double-rainbow",
+      "name": "Double Rainbow",
+      "category": "nature",
+      "summary": "Discover double rainbow by combining related ingredients.",
+      "iconFamily": "organic"
+    },
+    {
+      "id": "organic56:cloudbreak",
+      "name": "Cloudbreak",
+      "category": "nature",
+      "summary": "Discover cloudbreak by combining related ingredients.",
+      "iconFamily": "organic"
+    },
+    {
+      "id": "organic56:frosted-windowpane",
+      "name": "Frosted Windowpane",
+      "category": "material",
+      "summary": "Discover frosted windowpane by combining related ingredients.",
+      "iconFamily": "organic"
+    },
+    {
+      "id": "organic56:dawn-chorus",
+      "name": "Dawn Chorus",
+      "category": "nature",
+      "summary": "Discover dawn chorus by combining related ingredients.",
+      "iconFamily": "organic"
+    },
+    {
+      "id": "organic56:night-sky-map",
+      "name": "Night Sky Map",
+      "category": "culture",
+      "summary": "Discover night sky map by combining related ingredients.",
+      "iconFamily": "organic"
+    },
+    {
+      "id": "organic56:constellation-card",
+      "name": "Constellation Card",
+      "category": "culture",
+      "summary": "Discover constellation card by combining related ingredients.",
+      "iconFamily": "organic"
+    },
+    {
+      "id": "organic56:star-tracker",
+      "name": "Star Tracker",
+      "category": "technology",
+      "summary": "Discover star tracker by combining related ingredients.",
+      "iconFamily": "organic"
+    },
+    {
+      "id": "organic56:moonlight-photograph",
+      "name": "Moonlight Photograph",
+      "category": "culture",
+      "summary": "Discover moonlight photograph by combining related ingredients.",
+      "iconFamily": "organic"
+    },
+    {
+      "id": "organic56:night-camp",
+      "name": "Night Camp",
+      "category": "culture",
+      "summary": "Discover night camp by combining related ingredients.",
+      "iconFamily": "organic"
+    },
+    {
+      "id": "organic56:solar-sundial",
+      "name": "Solar Sundial",
+      "category": "technology",
+      "summary": "Discover solar sundial by combining related ingredients.",
+      "iconFamily": "organic"
+    },
+    {
+      "id": "organic56:rainfall-chart",
+      "name": "Rainfall Chart",
+      "category": "science",
+      "summary": "Discover rainfall chart by combining related ingredients.",
+      "iconFamily": "organic"
+    },
+    {
+      "id": "organic56:wind-speed-meter",
+      "name": "Wind Speed Meter",
+      "category": "technology",
+      "summary": "Discover wind speed meter by combining related ingredients.",
+      "iconFamily": "organic"
+    },
+    {
+      "id": "organic56:storm-journal",
+      "name": "Storm Journal",
+      "category": "culture",
+      "summary": "Discover storm journal by combining related ingredients.",
+      "iconFamily": "organic"
+    },
+    {
+      "id": "organic56:frost-pattern",
+      "name": "Frost Pattern",
+      "category": "nature",
+      "summary": "Discover frost pattern by combining related ingredients.",
+      "iconFamily": "organic"
+    },
+    {
+      "id": "organic56:cave-echo",
+      "name": "Cave Echo",
+      "category": "nature",
+      "summary": "Discover cave echo by combining related ingredients.",
+      "iconFamily": "organic"
+    },
+    {
+      "id": "organic56:quartz-vein",
+      "name": "Quartz Vein",
+      "category": "material",
+      "summary": "Discover quartz vein by combining related ingredients.",
+      "iconFamily": "organic"
+    },
+    {
+      "id": "organic56:river-sediment",
+      "name": "River Sediment",
+      "category": "nature",
+      "summary": "Discover river sediment by combining related ingredients.",
+      "iconFamily": "organic"
+    },
+    {
+      "id": "organic56:cliffside-spring",
+      "name": "Cliffside Spring",
+      "category": "nature",
+      "summary": "Discover cliffside spring by combining related ingredients.",
+      "iconFamily": "organic"
+    },
+    {
+      "id": "organic56:stone-cairn",
+      "name": "Stone Cairn",
+      "category": "culture",
+      "summary": "Discover stone cairn by combining related ingredients.",
+      "iconFamily": "organic"
+    },
+    {
+      "id": "organic56:cave-lantern",
+      "name": "Cave Lantern",
+      "category": "culture",
+      "summary": "Discover cave lantern by combining related ingredients.",
+      "iconFamily": "organic"
+    },
+    {
+      "id": "organic56:geology-notebook",
+      "name": "Geology Notebook",
+      "category": "culture",
+      "summary": "Discover geology notebook by combining related ingredients.",
+      "iconFamily": "organic"
+    },
+    {
+      "id": "organic56:crystal-display",
+      "name": "Crystal Display",
+      "category": "culture",
+      "summary": "Discover crystal display by combining related ingredients.",
+      "iconFamily": "organic"
+    },
+    {
+      "id": "organic56:rock-garden-path",
+      "name": "Rock Garden Path",
+      "category": "culture",
+      "summary": "Discover rock garden path by combining related ingredients.",
+      "iconFamily": "organic"
+    },
+    {
+      "id": "organic56:mineral-sample",
+      "name": "Mineral Sample",
+      "category": "science",
+      "summary": "Discover mineral sample by combining related ingredients.",
+      "iconFamily": "organic"
+    },
+    {
+      "id": "organic56:fresh-fruit-salad",
+      "name": "Fresh Fruit Salad",
+      "category": "culture",
+      "summary": "Discover fresh fruit salad by combining related ingredients.",
+      "iconFamily": "organic"
+    },
+    {
+      "id": "organic56:honey-lemon-tea",
+      "name": "Honey Lemon Tea",
+      "category": "culture",
+      "summary": "Discover honey lemon tea by combining related ingredients.",
+      "iconFamily": "organic"
+    },
+    {
+      "id": "organic56:garden-herb-soup",
+      "name": "Garden Herb Soup",
+      "category": "culture",
+      "summary": "Discover garden herb soup by combining related ingredients.",
+      "iconFamily": "organic"
+    },
+    {
+      "id": "organic56:baked-tomato",
+      "name": "Baked Tomato",
+      "category": "culture",
+      "summary": "Discover baked tomato by combining related ingredients.",
+      "iconFamily": "organic"
+    },
+    {
+      "id": "organic56:apple-jam",
+      "name": "Apple Jam",
+      "category": "culture",
+      "summary": "Discover apple jam by combining related ingredients.",
+      "iconFamily": "organic"
+    },
+    {
+      "id": "organic56:berry-pancake",
+      "name": "Berry Pancake",
+      "category": "culture",
+      "summary": "Discover berry pancake by combining related ingredients.",
+      "iconFamily": "organic"
+    },
+    {
+      "id": "organic56:cinnamon-swirl-bun",
+      "name": "Cinnamon Swirl Bun",
+      "category": "culture",
+      "summary": "Discover cinnamon swirl bun by combining related ingredients.",
+      "iconFamily": "organic"
+    },
+    {
+      "id": "organic56:warm-bread-basket",
+      "name": "Warm Bread Basket",
+      "category": "culture",
+      "summary": "Discover warm bread basket by combining related ingredients.",
+      "iconFamily": "organic"
+    },
+    {
+      "id": "organic56:farmers-soup",
+      "name": "Farmers' Soup",
+      "category": "culture",
+      "summary": "Discover farmers' soup by combining related ingredients.",
+      "iconFamily": "organic"
+    },
+    {
+      "id": "organic56:orchard-picnic-basket",
+      "name": "Orchard Picnic Basket",
+      "category": "culture",
+      "summary": "Discover orchard picnic basket by combining related ingredients.",
+      "iconFamily": "organic"
+    },
+    {
+      "id": "organic56:clay-cooking-pot",
+      "name": "Clay Cooking Pot",
+      "category": "culture",
+      "summary": "Discover clay cooking pot by combining related ingredients.",
+      "iconFamily": "organic"
+    },
+    {
+      "id": "organic56:tea-ceremony-tray",
+      "name": "Tea Ceremony Tray",
+      "category": "culture",
+      "summary": "Discover tea ceremony tray by combining related ingredients.",
+      "iconFamily": "organic"
+    },
+    {
+      "id": "organic56:cottage-herb-rack",
+      "name": "Cottage Herb Rack",
+      "category": "culture",
+      "summary": "Discover cottage herb rack by combining related ingredients.",
+      "iconFamily": "organic"
+    },
+    {
+      "id": "organic56:kitchen-timer",
+      "name": "Kitchen Timer",
+      "category": "technology",
+      "summary": "Discover kitchen timer by combining related ingredients.",
+      "iconFamily": "organic"
+    },
+    {
+      "id": "organic56:seed-packet",
+      "name": "Seed Packet",
+      "category": "culture",
+      "summary": "Discover seed packet by combining related ingredients.",
+      "iconFamily": "organic"
+    },
+    {
+      "id": "organic56:gardening-gloves",
+      "name": "Gardening Gloves",
+      "category": "culture",
+      "summary": "Discover gardening gloves by combining related ingredients.",
+      "iconFamily": "organic"
+    },
+    {
+      "id": "organic56:community-noticeboard",
+      "name": "Community Noticeboard",
+      "category": "culture",
+      "summary": "Discover community noticeboard by combining related ingredients.",
+      "iconFamily": "organic"
+    },
+    {
+      "id": "organic56:town-market-stall",
+      "name": "Town Market Stall",
+      "category": "culture",
+      "summary": "Discover town market stall by combining related ingredients.",
+      "iconFamily": "organic"
+    },
+    {
+      "id": "organic56:pottery-demonstration",
+      "name": "Pottery Demonstration",
+      "category": "culture",
+      "summary": "Discover pottery demonstration by combining related ingredients.",
+      "iconFamily": "organic"
+    },
+    {
+      "id": "organic56:village-reading-room",
+      "name": "Village Reading Room",
+      "category": "culture",
+      "summary": "Discover village reading room by combining related ingredients.",
+      "iconFamily": "organic"
+    },
+    {
+      "id": "organic56:street-photography",
+      "name": "Street Photography",
+      "category": "culture",
+      "summary": "Discover street photography by combining related ingredients.",
+      "iconFamily": "organic"
+    },
+    {
+      "id": "organic56:museum-sketch",
+      "name": "Museum Sketch",
+      "category": "culture",
+      "summary": "Discover museum sketch by combining related ingredients.",
+      "iconFamily": "organic"
+    },
+    {
+      "id": "organic56:painted-flowerpot",
+      "name": "Painted Flowerpot",
+      "category": "culture",
+      "summary": "Discover painted flowerpot by combining related ingredients.",
+      "iconFamily": "organic"
+    },
+    {
+      "id": "organic56:handmade-bookmark",
+      "name": "Handmade Bookmark",
+      "category": "culture",
+      "summary": "Discover handmade bookmark by combining related ingredients.",
+      "iconFamily": "organic"
+    },
+    {
+      "id": "organic56:solar-garden-light",
+      "name": "Solar Garden Light",
+      "category": "technology",
+      "summary": "Discover solar garden light by combining related ingredients.",
+      "iconFamily": "organic"
+    },
+    {
+      "id": "organic56:weather-sensor-network",
+      "name": "Weather Sensor Network",
+      "category": "technology",
+      "summary": "Discover weather sensor network by combining related ingredients.",
+      "iconFamily": "organic"
+    },
+    {
+      "id": "organic56:smart-irrigation-timer",
+      "name": "Smart Irrigation Timer",
+      "category": "technology",
+      "summary": "Discover smart irrigation timer by combining related ingredients.",
+      "iconFamily": "organic"
+    },
+    {
+      "id": "organic56:portable-power-meter",
+      "name": "Portable Power Meter",
+      "category": "technology",
+      "summary": "Discover portable power meter by combining related ingredients.",
+      "iconFamily": "organic"
+    },
+    {
+      "id": "organic56:camera-lens-filter",
+      "name": "Camera Lens Filter",
+      "category": "technology",
+      "summary": "Discover camera lens filter by combining related ingredients.",
+      "iconFamily": "organic"
+    },
+    {
+      "id": "organic56:nature-audio-recorder",
+      "name": "Nature Audio Recorder",
+      "category": "technology",
+      "summary": "Discover nature audio recorder by combining related ingredients.",
+      "iconFamily": "organic"
+    }
+  ],
+  "recipes": [
+    [
+      "organic34:tide",
+      "organic38:pond",
+      "organic56:tidal-ripple"
+    ],
+    [
+      "legacy:10",
+      "organic55:forest-pond",
+      "organic56:tidal-ripple"
+    ],
+    [
+      "legacy:16",
+      "legacy:28",
+      "organic56:sandy-footprint"
+    ],
+    [
+      "organic55:rocky-shore",
+      "organic38:pond",
+      "organic56:seaside-rock-pool"
+    ],
+    [
+      "organic38:tide-pool",
+      "legacy:14",
+      "organic56:seaside-rock-pool"
+    ],
+    [
+      "organic38:salt",
+      "legacy:34",
+      "organic56:salt-crystals"
+    ],
+    [
+      "legacy:10",
+      "organic47:calcite-crystal",
+      "organic56:salt-crystals"
+    ],
+    [
+      "legacy:7",
+      "organic52:sea-breeze",
+      "organic56:coastal-rainfall"
+    ],
+    [
+      "legacy:17",
+      "organic47:coastal-fog",
+      "organic56:coastal-rainfall"
+    ],
+    [
+      "organic47:coastal-dune",
+      "legacy:38",
+      "organic56:dune-ridge"
+    ],
+    [
+      "legacy:16",
+      "organic55:rocky-shore",
+      "organic56:dune-ridge"
+    ],
+    [
+      "organic42:coral",
+      "legacy:592",
+      "organic56:coral-nursery"
+    ],
+    [
+      "organic34:coral-reef",
+      "organic55:seed-bank",
+      "organic56:coral-nursery"
+    ],
+    [
+      "organic38:seaweed",
+      "organic47:market-stall",
+      "organic56:seaweed-basket"
+    ],
+    [
+      "organic34:coral-reef",
+      "legacy:66",
+      "organic56:reef-shadows"
+    ],
+    [
+      "organic42:reef",
+      "organic55:cloud-shadow",
+      "organic56:reef-shadows"
+    ],
+    [
+      "legacy:141",
+      "organic55:coastal-haze",
+      "organic56:coastal-sunrise"
+    ],
+    [
+      "organic52:sea-breeze",
+      "organic44:wind-chime",
+      "organic56:sea-breeze-chime"
+    ],
+    [
+      "organic37:seashell",
+      "organic44:wind-chime",
+      "organic56:sea-breeze-chime"
+    ],
+    [
+      "organic47:coastal-dune",
+      "organic44:campfire",
+      "organic56:beach-bonfire"
+    ],
+    [
+      "organic37:seashell",
+      "organic41:explorer",
+      "organic56:shell-collector"
+    ],
+    [
+      "organic37:seashell",
+      "legacy:28",
+      "organic56:shell-collector"
+    ],
+    [
+      "organic34:tide",
+      "legacy:51",
+      "organic56:tide-calendar"
+    ],
+    [
+      "organic34:tide",
+      "legacy:50",
+      "organic56:tide-calendar"
+    ],
+    [
+      "organic41:harbor",
+      "legacy:62",
+      "organic56:harbor-bell"
+    ],
+    [
+      "organic41:harbor",
+      "organic55:clock-tower",
+      "organic56:harbor-bell"
+    ],
+    [
+      "legacy:27",
+      "organic50:solar-lantern",
+      "organic56:fisherman-s-lantern"
+    ],
+    [
+      "organic42:reed",
+      "organic53:riverbank",
+      "organic56:riverbank-reeds"
+    ],
+    [
+      "organic42:reed",
+      "organic38:pond",
+      "organic56:riverbank-reeds"
+    ],
+    [
+      "organic42:salt-marsh",
+      "organic55:flowering-field",
+      "organic56:salt-meadow"
+    ],
+    [
+      "organic42:salt-marsh",
+      "organic42:reed",
+      "organic56:salt-meadow"
+    ],
+    [
+      "organic46:leaf-litter",
+      "organic38:pond",
+      "organic56:floating-leaf"
+    ],
+    [
+      "organic55:leaf-canopy",
+      "legacy:39",
+      "organic56:floating-leaf"
+    ],
+    [
+      "organic53:pine-forest",
+      "legacy:66",
+      "organic56:pine-grove-shade"
+    ],
+    [
+      "organic53:pine-forest",
+      "organic55:cloud-shadow",
+      "organic56:pine-grove-shade"
+    ],
+    [
+      "organic55:moss-carpet",
+      "pack:rock",
+      "organic56:mossy-boulder"
+    ],
+    [
+      "pack:fern",
+      "organic38:dew",
+      "organic56:fern-dew"
+    ],
+    [
+      "organic55:woodland-trail",
+      "organic46:wooden-plank",
+      "organic56:forest-path-marker"
+    ],
+    [
+      "organic40:pinecone",
+      "organic46:forest-floor",
+      "organic56:fallen-pinecone"
+    ],
+    [
+      "organic40:pinecone",
+      "legacy:12",
+      "organic56:fallen-pinecone"
+    ],
+    [
+      "organic37:bird-nest",
+      "organic40:feather",
+      "organic56:bird-nest-lining"
+    ],
+    [
+      "legacy:542",
+      "organic37:soup",
+      "organic56:wild-mushroom-soup"
+    ],
+    [
+      "organic53:mushroom-patch",
+      "organic55:soup-pot",
+      "organic56:wild-mushroom-soup"
+    ],
+    [
+      "organic37:vegetable",
+      "legacy:37",
+      "organic56:root-cellar"
+    ],
+    [
+      "organic53:forest-stream",
+      "legacy:14",
+      "organic56:forest-stream-pebble"
+    ],
+    [
+      "legacy:39",
+      "organic47:beach-pebble",
+      "organic56:forest-stream-pebble"
+    ],
+    [
+      "organic55:flowering-field",
+      "organic37:pollen",
+      "organic56:wildflower-pollen"
+    ],
+    [
+      "organic47:bee-colony",
+      "organic34:flower",
+      "organic56:bee-garden"
+    ],
+    [
+      "organic37:honeycomb",
+      "legacy:24",
+      "organic56:honeycomb-frame"
+    ],
+    [
+      "organic37:beekeeper",
+      "legacy:24",
+      "organic56:honeycomb-frame"
+    ],
+    [
+      "organic46:leaf-litter",
+      "legacy:106",
+      "organic56:leaf-press"
+    ],
+    [
+      "organic55:leaf-canopy",
+      "legacy:51",
+      "organic56:leaf-press"
+    ],
+    [
+      "organic52:seedling-pot",
+      "organic55:workshop-bench",
+      "organic56:seedling-tray"
+    ],
+    [
+      "organic55:moss-carpet",
+      "legacy:23",
+      "organic56:terrarium-moss"
+    ],
+    [
+      "legacy:20",
+      "organic50:solar-lantern",
+      "organic56:woodland-lantern"
+    ],
+    [
+      "organic55:tree-bark-strips",
+      "legacy:207",
+      "organic56:bark-texture"
+    ],
+    [
+      "legacy:12",
+      "organic46:forest-floor",
+      "organic56:forest-whisper"
+    ],
+    [
+      "organic44:birdsong",
+      "organic46:wooden-plank",
+      "organic56:birdwatching-hide"
+    ],
+    [
+      "organic53:mushroom-patch",
+      "legacy:61",
+      "organic56:mushroom-basket"
+    ],
+    [
+      "organic38:dew",
+      "organic55:sunbeam",
+      "organic56:morning-dewdrop"
+    ],
+    [
+      "organic41:fog",
+      "organic55:sunbeam",
+      "organic56:sunlit-fog"
+    ],
+    [
+      "organic53:morning-mist",
+      "legacy:63",
+      "organic56:sunlit-fog"
+    ],
+    [
+      "organic43:puddle",
+      "organic52:hoarfrost",
+      "organic56:frozen-puddle"
+    ],
+    [
+      "organic38:frost",
+      "organic55:fallen-log",
+      "organic56:snow-covered-branch"
+    ],
+    [
+      "legacy:12",
+      "organic46:leaf-litter",
+      "organic56:windblown-leaves"
+    ],
+    [
+      "organic55:rocky-shore",
+      "legacy:7",
+      "organic56:rain-darkened-stone"
+    ],
+    [
+      "organic55:thundercloud",
+      "legacy:7",
+      "organic56:thunderstorm-rain"
+    ],
+    [
+      "organic41:storm",
+      "organic44:rain-gauge",
+      "organic56:thunderstorm-rain"
+    ],
+    [
+      "organic34:rainbow",
+      "legacy:7",
+      "organic56:double-rainbow"
+    ],
+    [
+      "organic34:rainbow",
+      "organic55:rainbow-arc",
+      "organic56:double-rainbow"
+    ],
+    [
+      "legacy:17",
+      "organic55:sunbeam",
+      "organic56:cloudbreak"
+    ],
+    [
+      "organic55:cloud-shadow",
+      "legacy:141",
+      "organic56:cloudbreak"
+    ],
+    [
+      "legacy:23",
+      "organic55:ice-fog",
+      "organic56:frosted-windowpane"
+    ],
+    [
+      "organic44:birdsong",
+      "organic53:morning-mist",
+      "organic56:dawn-chorus"
+    ],
+    [
+      "legacy:354",
+      "organic55:starlight",
+      "organic56:night-sky-map"
+    ],
+    [
+      "legacy:355",
+      "legacy:612",
+      "organic56:night-sky-map"
+    ],
+    [
+      "organic40:constellation",
+      "legacy:106",
+      "organic56:constellation-card"
+    ],
+    [
+      "organic32:telescope",
+      "legacy:70",
+      "organic56:star-tracker"
+    ],
+    [
+      "organic40:moonlight",
+      "legacy:647",
+      "organic56:moonlight-photograph"
+    ],
+    [
+      "pack:moon",
+      "legacy:85",
+      "organic56:moonlight-photograph"
+    ],
+    [
+      "legacy:142",
+      "organic44:campfire",
+      "organic56:night-camp"
+    ],
+    [
+      "organic32:telescope",
+      "organic44:campfire",
+      "organic56:night-camp"
+    ],
+    [
+      "legacy:141",
+      "legacy:211",
+      "organic56:solar-sundial"
+    ],
+    [
+      "organic55:sunbeam",
+      "legacy:14",
+      "organic56:solar-sundial"
+    ],
+    [
+      "organic44:rain-gauge",
+      "legacy:106",
+      "organic56:rainfall-chart"
+    ],
+    [
+      "legacy:12",
+      "organic50:weather-sensor",
+      "organic56:wind-speed-meter"
+    ],
+    [
+      "organic41:storm",
+      "pack:notebook",
+      "organic56:storm-journal"
+    ],
+    [
+      "organic32:weather-forecast",
+      "legacy:51",
+      "organic56:storm-journal"
+    ],
+    [
+      "organic46:ground-frost",
+      "legacy:23",
+      "organic56:frost-pattern"
+    ],
+    [
+      "legacy:37",
+      "legacy:62",
+      "organic56:cave-echo"
+    ],
+    [
+      "legacy:37",
+      "legacy:139",
+      "organic56:cave-echo"
+    ],
+    [
+      "organic47:calcite-crystal",
+      "pack:rock",
+      "organic56:quartz-vein"
+    ],
+    [
+      "legacy:34",
+      "organic47:flowstone",
+      "organic56:quartz-vein"
+    ],
+    [
+      "organic47:river-delta",
+      "organic34:soil",
+      "organic56:river-sediment"
+    ],
+    [
+      "legacy:38",
+      "organic52:woodland-spring",
+      "organic56:cliffside-spring"
+    ],
+    [
+      "pack:rock",
+      "organic55:woodland-trail",
+      "organic56:stone-cairn"
+    ],
+    [
+      "legacy:14",
+      "legacy:354",
+      "organic56:stone-cairn"
+    ],
+    [
+      "legacy:37",
+      "organic50:solar-lantern",
+      "organic56:cave-lantern"
+    ],
+    [
+      "legacy:37",
+      "organic47:street-lantern",
+      "organic56:cave-lantern"
+    ],
+    [
+      "legacy:14",
+      "pack:notebook",
+      "organic56:geology-notebook"
+    ],
+    [
+      "legacy:34",
+      "organic41:museum",
+      "organic56:crystal-display"
+    ],
+    [
+      "legacy:14",
+      "legacy:592",
+      "organic56:rock-garden-path"
+    ],
+    [
+      "pack:rock",
+      "organic41:museum",
+      "organic56:mineral-sample"
+    ],
+    [
+      "organic47:calcite-crystal",
+      "organic55:field-notebook",
+      "organic56:mineral-sample"
+    ],
+    [
+      "organic37:fruit",
+      "organic37:salad",
+      "organic56:fresh-fruit-salad"
+    ],
+    [
+      "organic55:fruit-bowl",
+      "organic55:garden-salad",
+      "organic56:fresh-fruit-salad"
+    ],
+    [
+      "organic55:herbal-tea-cup",
+      "organic38:lemon",
+      "organic56:honey-lemon-tea"
+    ],
+    [
+      "organic53:herb-garden",
+      "organic37:soup",
+      "organic56:garden-herb-soup"
+    ],
+    [
+      "organic38:herb",
+      "organic55:vegetable-stew",
+      "organic56:garden-herb-soup"
+    ],
+    [
+      "organic38:tomato",
+      "legacy:1",
+      "organic56:baked-tomato"
+    ],
+    [
+      "legacy:271",
+      "organic37:jam",
+      "organic56:apple-jam"
+    ],
+    [
+      "organic55:wild-berry",
+      "organic42:pancake",
+      "organic56:berry-pancake"
+    ],
+    [
+      "organic55:berry-jam-jar",
+      "organic42:pancake",
+      "organic56:berry-pancake"
+    ],
+    [
+      "organic47:cinnamon-roll",
+      "organic34:honey",
+      "organic56:cinnamon-swirl-bun"
+    ],
+    [
+      "organic47:cinnamon-roll",
+      "organic38:butter",
+      "organic56:cinnamon-swirl-bun"
+    ],
+    [
+      "organic52:bread-basket",
+      "legacy:1",
+      "organic56:warm-bread-basket"
+    ],
+    [
+      "legacy:578",
+      "organic37:soup",
+      "organic56:farmers-soup"
+    ],
+    [
+      "organic37:vegetable",
+      "organic52:community-kitchen",
+      "organic56:farmers-soup"
+    ],
+    [
+      "organic53:orchard-picnic",
+      "organic55:fruit-bowl",
+      "organic56:orchard-picnic-basket"
+    ],
+    [
+      "organic41:clay",
+      "organic55:soup-pot",
+      "organic56:clay-cooking-pot"
+    ],
+    [
+      "organic40:pottery",
+      "legacy:593",
+      "organic56:clay-cooking-pot"
+    ],
+    [
+      "organic55:herbal-tea-cup",
+      "organic52:craft-fair",
+      "organic56:tea-ceremony-tray"
+    ],
+    [
+      "organic53:herb-garden",
+      "organic55:workshop-bench",
+      "organic56:cottage-herb-rack"
+    ],
+    [
+      "legacy:211",
+      "legacy:593",
+      "organic56:kitchen-timer"
+    ],
+    [
+      "organic34:seed",
+      "legacy:106",
+      "organic56:seed-packet"
+    ],
+    [
+      "legacy:592",
+      "organic55:workshop-bench",
+      "organic56:gardening-gloves"
+    ],
+    [
+      "legacy:48",
+      "legacy:106",
+      "organic56:community-noticeboard"
+    ],
+    [
+      "legacy:61",
+      "organic55:workshop-bench",
+      "organic56:town-market-stall"
+    ],
+    [
+      "organic47:market-stall",
+      "legacy:24",
+      "organic56:town-market-stall"
+    ],
+    [
+      "organic40:pottery",
+      "organic41:museum",
+      "organic56:pottery-demonstration"
+    ],
+    [
+      "organic41:library",
+      "legacy:46",
+      "organic56:village-reading-room"
+    ],
+    [
+      "legacy:51",
+      "organic53:village-theater",
+      "organic56:village-reading-room"
+    ],
+    [
+      "legacy:647",
+      "organic46:town-square",
+      "organic56:street-photography"
+    ],
+    [
+      "organic41:museum",
+      "organic53:garden-sketchbook",
+      "organic56:museum-sketch"
+    ],
+    [
+      "organic40:pottery",
+      "legacy:208",
+      "organic56:painted-flowerpot"
+    ],
+    [
+      "legacy:106",
+      "organic53:art-workshop",
+      "organic56:handmade-bookmark"
+    ],
+    [
+      "organic32:solar-panel",
+      "legacy:592",
+      "organic56:solar-garden-light"
+    ],
+    [
+      "organic50:solar-lantern",
+      "legacy:592",
+      "organic56:solar-garden-light"
+    ],
+    [
+      "organic50:weather-sensor",
+      "legacy:70",
+      "organic56:weather-sensor-network"
+    ],
+    [
+      "organic34:weather-station",
+      "legacy:91",
+      "organic56:weather-sensor-network"
+    ],
+    [
+      "organic37:irrigation",
+      "legacy:211",
+      "organic56:smart-irrigation-timer"
+    ],
+    [
+      "legacy:0",
+      "organic50:smart-greenhouse",
+      "organic56:smart-irrigation-timer"
+    ],
+    [
+      "legacy:67",
+      "organic46:light-meter",
+      "organic56:portable-power-meter"
+    ],
+    [
+      "organic42:lens",
+      "legacy:140",
+      "organic56:camera-lens-filter"
+    ],
+    [
+      "organic42:lens",
+      "organic46:light-meter",
+      "organic56:camera-lens-filter"
+    ],
+    [
+      "organic44:birdsong",
+      "legacy:91",
+      "organic56:nature-audio-recorder"
+    ],
+    [
+      "legacy:62",
+      "organic50:wildlife-camera",
+      "organic56:nature-audio-recorder"
+    ]
+  ],
+  "review": [
+    {
+      "name": "Tidal Ripple",
+      "id": "organic56:tidal-ripple",
+      "accepted": [
+        "Tide + Pond",
+        "Sea + Forest Pond"
+      ],
+      "rejected": []
+    },
+    {
+      "name": "Sandy Footprint",
+      "id": "organic56:sandy-footprint",
+      "accepted": [
+        "Sand + Human"
+      ],
+      "rejected": [
+        {
+          "recipe": "Sand + Animal",
+          "reason": "pair already taken"
+        }
+      ]
+    },
+    {
+      "name": "Seaside Rock Pool",
+      "id": "organic56:seaside-rock-pool",
+      "accepted": [
+        "Rocky Shore + Pond",
+        "Tide Pool + Stone"
+      ],
+      "rejected": []
+    },
+    {
+      "name": "Salt Crystals",
+      "id": "organic56:salt-crystals",
+      "accepted": [
+        "Salt + Crystal",
+        "Sea + Calcite Crystal"
+      ],
+      "rejected": []
+    },
+    {
+      "name": "Coastal Rainfall",
+      "id": "organic56:coastal-rainfall",
+      "accepted": [
+        "Rain + Sea Breeze",
+        "Cloud + Coastal Fog"
+      ],
+      "rejected": []
+    },
+    {
+      "name": "Dune Ridge",
+      "id": "organic56:dune-ridge",
+      "accepted": [
+        "Coastal Dune + Mountain",
+        "Sand + Rocky Shore"
+      ],
+      "rejected": []
+    },
+    {
+      "name": "Coral Nursery",
+      "id": "organic56:coral-nursery",
+      "accepted": [
+        "Coral + Garden",
+        "Coral Reef + Seed Bank"
+      ],
+      "rejected": []
+    },
+    {
+      "name": "Seaweed Basket",
+      "id": "organic56:seaweed-basket",
+      "accepted": [
+        "Seaweed + Market Stall"
+      ],
+      "rejected": [
+        {
+          "recipe": "Seaweed + Basket",
+          "reason": "unknown ingredient"
+        }
+      ]
+    },
+    {
+      "name": "Reef Shadows",
+      "id": "organic56:reef-shadows",
+      "accepted": [
+        "Coral Reef + Shadow",
+        "Reef + Cloud Shadow"
+      ],
+      "rejected": []
+    },
+    {
+      "name": "Coastal Sunrise",
+      "id": "organic56:coastal-sunrise",
+      "accepted": [
+        "Sun + Coastal Haze"
+      ],
+      "rejected": [
+        {
+          "recipe": "Sunrise + Sea",
+          "reason": "unknown ingredient"
+        }
+      ]
+    },
+    {
+      "name": "Sea Breeze Chime",
+      "id": "organic56:sea-breeze-chime",
+      "accepted": [
+        "Sea Breeze + Wind Chime",
+        "Seashell + Wind Chime"
+      ],
+      "rejected": []
+    },
+    {
+      "name": "Beach Bonfire",
+      "id": "organic56:beach-bonfire",
+      "accepted": [
+        "Coastal Dune + Campfire"
+      ],
+      "rejected": [
+        {
+          "recipe": "Beach + Campfire",
+          "reason": "unknown ingredient"
+        }
+      ]
+    },
+    {
+      "name": "Shell Collector",
+      "id": "organic56:shell-collector",
+      "accepted": [
+        "Seashell + Explorer",
+        "Seashell + Human"
+      ],
+      "rejected": []
+    },
+    {
+      "name": "Tide Calendar",
+      "id": "organic56:tide-calendar",
+      "accepted": [
+        "Tide + Book",
+        "Tide + Writing"
+      ],
+      "rejected": []
+    },
+    {
+      "name": "Harbor Bell",
+      "id": "organic56:harbor-bell",
+      "accepted": [
+        "Harbor + Sound",
+        "Harbor + Clock Tower"
+      ],
+      "rejected": []
+    },
+    {
+      "name": "Fisherman's Lantern",
+      "id": "organic56:fisherman-s-lantern",
+      "accepted": [
+        "Fish + Solar Lantern"
+      ],
+      "rejected": [
+        {
+          "recipe": "Fishing Net + Lantern",
+          "reason": "unknown ingredient"
+        }
+      ]
+    },
+    {
+      "name": "Riverbank Reeds",
+      "id": "organic56:riverbank-reeds",
+      "accepted": [
+        "Reed + Riverbank",
+        "Reed + Pond"
+      ],
+      "rejected": []
+    },
+    {
+      "name": "Salt Meadow",
+      "id": "organic56:salt-meadow",
+      "accepted": [
+        "Salt Marsh + Flowering Field",
+        "Salt Marsh + Reed"
+      ],
+      "rejected": []
+    },
+    {
+      "name": "Floating Leaf",
+      "id": "organic56:floating-leaf",
+      "accepted": [
+        "Leaf Litter + Pond",
+        "Leaf Canopy + River"
+      ],
+      "rejected": []
+    },
+    {
+      "name": "Pine Grove Shade",
+      "id": "organic56:pine-grove-shade",
+      "accepted": [
+        "Pine Forest + Shadow",
+        "Pine Forest + Cloud Shadow"
+      ],
+      "rejected": []
+    },
+    {
+      "name": "Mossy Boulder",
+      "id": "organic56:mossy-boulder",
+      "accepted": [
+        "Moss Carpet + Rock"
+      ],
+      "rejected": [
+        {
+          "recipe": "Moss + Rock",
+          "reason": "pair already taken"
+        }
+      ]
+    },
+    {
+      "name": "Fern Dew",
+      "id": "organic56:fern-dew",
+      "accepted": [
+        "Fern + Dew"
+      ],
+      "rejected": [
+        {
+          "recipe": "Fern Frond + Rain",
+          "reason": "pair already taken"
+        }
+      ]
+    },
+    {
+      "name": "Forest Path Marker",
+      "id": "organic56:forest-path-marker",
+      "accepted": [
+        "Woodland Trail + Wooden Plank"
+      ],
+      "rejected": [
+        {
+          "recipe": "Forest + Map",
+          "reason": "pair already taken"
+        }
+      ]
+    },
+    {
+      "name": "Fallen Pinecone",
+      "id": "organic56:fallen-pinecone",
+      "accepted": [
+        "Pinecone + Forest Floor",
+        "Pinecone + Wind"
+      ],
+      "rejected": []
+    },
+    {
+      "name": "Bird Nest Lining",
+      "id": "organic56:bird-nest-lining",
+      "accepted": [
+        "Bird Nest + Feather"
+      ],
+      "rejected": [
+        {
+          "recipe": "Bird Nest + Grass",
+          "reason": "unknown ingredient"
+        }
+      ]
+    },
+    {
+      "name": "Wild Mushroom Soup",
+      "id": "organic56:wild-mushroom-soup",
+      "accepted": [
+        "Mushroom + Soup",
+        "Mushroom Patch + Soup Pot"
+      ],
+      "rejected": []
+    },
+    {
+      "name": "Root Cellar",
+      "id": "organic56:root-cellar",
+      "accepted": [
+        "Vegetable + Cave"
+      ],
+      "rejected": [
+        {
+          "recipe": "Root + House",
+          "reason": "pair already taken"
+        }
+      ]
+    },
+    {
+      "name": "Forest Stream Pebble",
+      "id": "organic56:forest-stream-pebble",
+      "accepted": [
+        "Forest Stream + Stone",
+        "River + Beach Pebble"
+      ],
+      "rejected": []
+    },
+    {
+      "name": "Wildflower Pollen",
+      "id": "organic56:wildflower-pollen",
+      "accepted": [
+        "Flowering Field + Pollen"
+      ],
+      "rejected": [
+        {
+          "recipe": "Flower + Pollen",
+          "reason": "pair already taken"
+        }
+      ]
+    },
+    {
+      "name": "Bee Garden",
+      "id": "organic56:bee-garden",
+      "accepted": [
+        "Bee Colony + Flower"
+      ],
+      "rejected": [
+        {
+          "recipe": "Bee + Garden",
+          "reason": "pair already taken"
+        }
+      ]
+    },
+    {
+      "name": "Honeycomb Frame",
+      "id": "organic56:honeycomb-frame",
+      "accepted": [
+        "Honeycomb + Wood",
+        "Beekeeper + Wood"
+      ],
+      "rejected": []
+    },
+    {
+      "name": "Leaf Press",
+      "id": "organic56:leaf-press",
+      "accepted": [
+        "Leaf Litter + Paper",
+        "Leaf Canopy + Book"
+      ],
+      "rejected": []
+    },
+    {
+      "name": "Seedling Tray",
+      "id": "organic56:seedling-tray",
+      "accepted": [
+        "Seedling Pot + Workshop Bench"
+      ],
+      "rejected": [
+        {
+          "recipe": "Seedling + Pottery",
+          "reason": "unknown ingredient"
+        }
+      ]
+    },
+    {
+      "name": "Terrarium Moss",
+      "id": "organic56:terrarium-moss",
+      "accepted": [
+        "Moss Carpet + Glass"
+      ],
+      "rejected": [
+        {
+          "recipe": "Terrarium + Moss",
+          "reason": "pair already taken"
+        }
+      ]
+    },
+    {
+      "name": "Woodland Lantern",
+      "id": "organic56:woodland-lantern",
+      "accepted": [
+        "Forest + Solar Lantern"
+      ],
+      "rejected": [
+        {
+          "recipe": "Woodland Trail + Lantern",
+          "reason": "unknown ingredient"
+        }
+      ]
+    },
+    {
+      "name": "Bark Texture",
+      "id": "organic56:bark-texture",
+      "accepted": [
+        "Tree Bark Strips + Art"
+      ],
+      "rejected": [
+        {
+          "recipe": "Birch Bark + Paper",
+          "reason": "unknown ingredient"
+        }
+      ]
+    },
+    {
+      "name": "Forest Whisper",
+      "id": "organic56:forest-whisper",
+      "accepted": [
+        "Wind + Forest Floor"
+      ],
+      "rejected": [
+        {
+          "recipe": "Forest + Sound",
+          "reason": "pair already taken"
+        }
+      ]
+    },
+    {
+      "name": "Birdwatching Hide",
+      "id": "organic56:birdwatching-hide",
+      "accepted": [
+        "Birdsong + Wooden Plank"
+      ],
+      "rejected": [
+        {
+          "recipe": "Bird + Cabin",
+          "reason": "unknown ingredient"
+        }
+      ]
+    },
+    {
+      "name": "Mushroom Basket",
+      "id": "organic56:mushroom-basket",
+      "accepted": [
+        "Mushroom Patch + Market"
+      ],
+      "rejected": [
+        {
+          "recipe": "Mushroom + Basket",
+          "reason": "unknown ingredient"
+        }
+      ]
+    },
+    {
+      "name": "Morning Dewdrop",
+      "id": "organic56:morning-dewdrop",
+      "accepted": [
+        "Dew + Sunbeam"
+      ],
+      "rejected": [
+        {
+          "recipe": "Dew + Sunrise",
+          "reason": "unknown ingredient"
+        }
+      ]
+    },
+    {
+      "name": "Sunlit Fog",
+      "id": "organic56:sunlit-fog",
+      "accepted": [
+        "Fog + Sunbeam",
+        "Morning Mist + Light"
+      ],
+      "rejected": []
+    },
+    {
+      "name": "Frozen Puddle",
+      "id": "organic56:frozen-puddle",
+      "accepted": [
+        "Puddle + Hoarfrost"
+      ],
+      "rejected": [
+        {
+          "recipe": "Puddle + Snow",
+          "reason": "pair already taken"
+        }
+      ]
+    },
+    {
+      "name": "Snow-Covered Branch",
+      "id": "organic56:snow-covered-branch",
+      "accepted": [
+        "Frost + Fallen Log"
+      ],
+      "rejected": [
+        {
+          "recipe": "Snow + Branch",
+          "reason": "unknown ingredient"
+        }
+      ]
+    },
+    {
+      "name": "Windblown Leaves",
+      "id": "organic56:windblown-leaves",
+      "accepted": [
+        "Wind + Leaf Litter"
+      ],
+      "rejected": [
+        {
+          "recipe": "Forest + Wind",
+          "reason": "pair already taken"
+        }
+      ]
+    },
+    {
+      "name": "Rain-Darkened Stone",
+      "id": "organic56:rain-darkened-stone",
+      "accepted": [
+        "Rocky Shore + Rain"
+      ],
+      "rejected": [
+        {
+          "recipe": "Stone + Rain",
+          "reason": "pair already taken"
+        }
+      ]
+    },
+    {
+      "name": "Thunderstorm Rain",
+      "id": "organic56:thunderstorm-rain",
+      "accepted": [
+        "Thundercloud + Rain",
+        "Storm + Rain Gauge"
+      ],
+      "rejected": []
+    },
+    {
+      "name": "Double Rainbow",
+      "id": "organic56:double-rainbow",
+      "accepted": [
+        "Rainbow + Rain",
+        "Rainbow + Rainbow Arc"
+      ],
+      "rejected": []
+    },
+    {
+      "name": "Cloudbreak",
+      "id": "organic56:cloudbreak",
+      "accepted": [
+        "Cloud + Sunbeam",
+        "Cloud Shadow + Sun"
+      ],
+      "rejected": []
+    },
+    {
+      "name": "Frosted Windowpane",
+      "id": "organic56:frosted-windowpane",
+      "accepted": [
+        "Glass + Ice Fog"
+      ],
+      "rejected": [
+        {
+          "recipe": "Frost + Window",
+          "reason": "unknown ingredient"
+        }
+      ]
+    },
+    {
+      "name": "Dawn Chorus",
+      "id": "organic56:dawn-chorus",
+      "accepted": [
+        "Birdsong + Morning Mist"
+      ],
+      "rejected": [
+        {
+          "recipe": "Birdsong + Sunrise",
+          "reason": "unknown ingredient"
+        }
+      ]
+    },
+    {
+      "name": "Night Sky Map",
+      "id": "organic56:night-sky-map",
+      "accepted": [
+        "Map + Starlight",
+        "World Map + Star"
+      ],
+      "rejected": []
+    },
+    {
+      "name": "Constellation Card",
+      "id": "organic56:constellation-card",
+      "accepted": [
+        "Constellation + Paper"
+      ],
+      "rejected": [
+        {
+          "recipe": "Stars + Library Card",
+          "reason": "unknown ingredient"
+        }
+      ]
+    },
+    {
+      "name": "Star Tracker",
+      "id": "organic56:star-tracker",
+      "accepted": [
+        "Telescope + Circuit"
+      ],
+      "rejected": [
+        {
+          "recipe": "Astronomy + Digital Compass",
+          "reason": "unknown ingredient"
+        }
+      ]
+    },
+    {
+      "name": "Moonlight Photograph",
+      "id": "organic56:moonlight-photograph",
+      "accepted": [
+        "Moonlight + Photography",
+        "Moon + Camera"
+      ],
+      "rejected": []
+    },
+    {
+      "name": "Night Camp",
+      "id": "organic56:night-camp",
+      "accepted": [
+        "Night + Campfire",
+        "Telescope + Campfire"
+      ],
+      "rejected": []
+    },
+    {
+      "name": "Solar Sundial",
+      "id": "organic56:solar-sundial",
+      "accepted": [
+        "Sun + Clock",
+        "Sunbeam + Stone"
+      ],
+      "rejected": []
+    },
+    {
+      "name": "Rainfall Chart",
+      "id": "organic56:rainfall-chart",
+      "accepted": [
+        "Rain Gauge + Paper"
+      ],
+      "rejected": [
+        {
+          "recipe": "Weather Station + Graph",
+          "reason": "unknown ingredient"
+        }
+      ]
+    },
+    {
+      "name": "Wind Speed Meter",
+      "id": "organic56:wind-speed-meter",
+      "accepted": [
+        "Wind + Weather Sensor"
+      ],
+      "rejected": [
+        {
+          "recipe": "Wind + Measuring Tool",
+          "reason": "unknown ingredient"
+        }
+      ]
+    },
+    {
+      "name": "Storm Journal",
+      "id": "organic56:storm-journal",
+      "accepted": [
+        "Storm + Notebook",
+        "Weather Forecast + Book"
+      ],
+      "rejected": []
+    },
+    {
+      "name": "Frost Pattern",
+      "id": "organic56:frost-pattern",
+      "accepted": [
+        "Ground Frost + Glass"
+      ],
+      "rejected": [
+        {
+          "recipe": "Ice Fog + Glass",
+          "reason": "pair already taken"
+        }
+      ]
+    },
+    {
+      "name": "Cave Echo",
+      "id": "organic56:cave-echo",
+      "accepted": [
+        "Cave + Sound",
+        "Cave + Music"
+      ],
+      "rejected": []
+    },
+    {
+      "name": "Quartz Vein",
+      "id": "organic56:quartz-vein",
+      "accepted": [
+        "Calcite Crystal + Rock",
+        "Crystal + Flowstone"
+      ],
+      "rejected": []
+    },
+    {
+      "name": "River Sediment",
+      "id": "organic56:river-sediment",
+      "accepted": [
+        "River Delta + Soil"
+      ],
+      "rejected": [
+        {
+          "recipe": "River + Mud",
+          "reason": "pair already taken"
+        }
+      ]
+    },
+    {
+      "name": "Cliffside Spring",
+      "id": "organic56:cliffside-spring",
+      "accepted": [
+        "Mountain + Woodland Spring"
+      ],
+      "rejected": [
+        {
+          "recipe": "Coastal Cliff + Spring",
+          "reason": "unknown ingredient"
+        }
+      ]
+    },
+    {
+      "name": "Stone Cairn",
+      "id": "organic56:stone-cairn",
+      "accepted": [
+        "Rock + Woodland Trail",
+        "Stone + Map"
+      ],
+      "rejected": []
+    },
+    {
+      "name": "Cave Lantern",
+      "id": "organic56:cave-lantern",
+      "accepted": [
+        "Cave + Solar Lantern",
+        "Cave + Street Lantern"
+      ],
+      "rejected": []
+    },
+    {
+      "name": "Geology Notebook",
+      "id": "organic56:geology-notebook",
+      "accepted": [
+        "Stone + Notebook"
+      ],
+      "rejected": [
+        {
+          "recipe": "Geology + Field Notebook",
+          "reason": "unknown ingredient"
+        }
+      ]
+    },
+    {
+      "name": "Crystal Display",
+      "id": "organic56:crystal-display",
+      "accepted": [
+        "Crystal + Museum"
+      ],
+      "rejected": [
+        {
+          "recipe": "Crystal + Exhibition",
+          "reason": "unknown ingredient"
+        }
+      ]
+    },
+    {
+      "name": "Rock Garden Path",
+      "id": "organic56:rock-garden-path",
+      "accepted": [
+        "Stone + Garden"
+      ],
+      "rejected": [
+        {
+          "recipe": "Pebble + Garden",
+          "reason": "unknown ingredient"
+        }
+      ]
+    },
+    {
+      "name": "Mineral Sample",
+      "id": "organic56:mineral-sample",
+      "accepted": [
+        "Rock + Museum",
+        "Calcite Crystal + Field Notebook"
+      ],
+      "rejected": []
+    },
+    {
+      "name": "Fresh Fruit Salad",
+      "id": "organic56:fresh-fruit-salad",
+      "accepted": [
+        "Fruit + Salad",
+        "Fruit Bowl + Garden Salad"
+      ],
+      "rejected": []
+    },
+    {
+      "name": "Honey Lemon Tea",
+      "id": "organic56:honey-lemon-tea",
+      "accepted": [
+        "Herbal Tea Cup + Lemon"
+      ],
+      "rejected": [
+        {
+          "recipe": "Honey + Lemon",
+          "reason": "pair already taken"
+        }
+      ]
+    },
+    {
+      "name": "Garden Herb Soup",
+      "id": "organic56:garden-herb-soup",
+      "accepted": [
+        "Herb Garden + Soup",
+        "Herb + Vegetable Stew"
+      ],
+      "rejected": []
+    },
+    {
+      "name": "Baked Tomato",
+      "id": "organic56:baked-tomato",
+      "accepted": [
+        "Tomato + Fire"
+      ],
+      "rejected": [
+        {
+          "recipe": "Tomato + Oven",
+          "reason": "unknown ingredient"
+        }
+      ]
+    },
+    {
+      "name": "Apple Jam",
+      "id": "organic56:apple-jam",
+      "accepted": [
+        "Apple + Jam"
+      ],
+      "rejected": [
+        {
+          "recipe": "Apple + Sugar",
+          "reason": "pair already taken"
+        }
+      ]
+    },
+    {
+      "name": "Berry Pancake",
+      "id": "organic56:berry-pancake",
+      "accepted": [
+        "Wild Berry + Pancake",
+        "Berry Jam Jar + Pancake"
+      ],
+      "rejected": []
+    },
+    {
+      "name": "Cinnamon Swirl Bun",
+      "id": "organic56:cinnamon-swirl-bun",
+      "accepted": [
+        "Cinnamon Roll + Honey",
+        "Cinnamon Roll + Butter"
+      ],
+      "rejected": []
+    },
+    {
+      "name": "Warm Bread Basket",
+      "id": "organic56:warm-bread-basket",
+      "accepted": [
+        "Bread Basket + Fire"
+      ],
+      "rejected": [
+        {
+          "recipe": "Bread + Basket",
+          "reason": "unknown ingredient"
+        }
+      ]
+    },
+    {
+      "name": "Farmers' Soup",
+      "id": "organic56:farmers-soup",
+      "accepted": [
+        "Farm + Soup",
+        "Vegetable + Community Kitchen"
+      ],
+      "rejected": []
+    },
+    {
+      "name": "Orchard Picnic Basket",
+      "id": "organic56:orchard-picnic-basket",
+      "accepted": [
+        "Orchard Picnic + Fruit Bowl"
+      ],
+      "rejected": [
+        {
+          "recipe": "Picnic + Basket",
+          "reason": "unknown ingredient"
+        }
+      ]
+    },
+    {
+      "name": "Clay Cooking Pot",
+      "id": "organic56:clay-cooking-pot",
+      "accepted": [
+        "Clay + Soup Pot",
+        "Pottery + Cooking"
+      ],
+      "rejected": []
+    },
+    {
+      "name": "Tea Ceremony Tray",
+      "id": "organic56:tea-ceremony-tray",
+      "accepted": [
+        "Herbal Tea Cup + Craft Fair"
+      ],
+      "rejected": [
+        {
+          "recipe": "Tea + Tray",
+          "reason": "unknown ingredient"
+        }
+      ]
+    },
+    {
+      "name": "Cottage Herb Rack",
+      "id": "organic56:cottage-herb-rack",
+      "accepted": [
+        "Herb Garden + Workshop Bench"
+      ],
+      "rejected": [
+        {
+          "recipe": "Herb + Shelf",
+          "reason": "unknown ingredient"
+        }
+      ]
+    },
+    {
+      "name": "Kitchen Timer",
+      "id": "organic56:kitchen-timer",
+      "accepted": [
+        "Clock + Cooking"
+      ],
+      "rejected": [
+        {
+          "recipe": "Time + Kitchen",
+          "reason": "unknown ingredient"
+        }
+      ]
+    },
+    {
+      "name": "Seed Packet",
+      "id": "organic56:seed-packet",
+      "accepted": [
+        "Seed + Paper"
+      ],
+      "rejected": [
+        {
+          "recipe": "Garden + Envelope",
+          "reason": "unknown ingredient"
+        }
+      ]
+    },
+    {
+      "name": "Gardening Gloves",
+      "id": "organic56:gardening-gloves",
+      "accepted": [
+        "Garden + Workshop Bench"
+      ],
+      "rejected": [
+        {
+          "recipe": "Garden + Clothing",
+          "reason": "unknown ingredient"
+        }
+      ]
+    },
+    {
+      "name": "Community Noticeboard",
+      "id": "organic56:community-noticeboard",
+      "accepted": [
+        "Society + Paper"
+      ],
+      "rejected": [
+        {
+          "recipe": "Village + Signpost",
+          "reason": "unknown ingredient"
+        }
+      ]
+    },
+    {
+      "name": "Town Market Stall",
+      "id": "organic56:town-market-stall",
+      "accepted": [
+        "Market + Workshop Bench",
+        "Market Stall + Wood"
+      ],
+      "rejected": []
+    },
+    {
+      "name": "Pottery Demonstration",
+      "id": "organic56:pottery-demonstration",
+      "accepted": [
+        "Pottery + Museum"
+      ],
+      "rejected": [
+        {
+          "recipe": "Pottery + Exhibition",
+          "reason": "unknown ingredient"
+        }
+      ]
+    },
+    {
+      "name": "Village Reading Room",
+      "id": "organic56:village-reading-room",
+      "accepted": [
+        "Library + Village",
+        "Book + Village Theater"
+      ],
+      "rejected": []
+    },
+    {
+      "name": "Street Photography",
+      "id": "organic56:street-photography",
+      "accepted": [
+        "Photography + Town Square"
+      ],
+      "rejected": [
+        {
+          "recipe": "Street + Camera",
+          "reason": "unknown ingredient"
+        }
+      ]
+    },
+    {
+      "name": "Museum Sketch",
+      "id": "organic56:museum-sketch",
+      "accepted": [
+        "Museum + Garden Sketchbook"
+      ],
+      "rejected": [
+        {
+          "recipe": "Museum + Drawing",
+          "reason": "unknown ingredient"
+        }
+      ]
+    },
+    {
+      "name": "Painted Flowerpot",
+      "id": "organic56:painted-flowerpot",
+      "accepted": [
+        "Pottery + Painting"
+      ],
+      "rejected": [
+        {
+          "recipe": "Flowerpot + Paint",
+          "reason": "unknown ingredient"
+        }
+      ]
+    },
+    {
+      "name": "Handmade Bookmark",
+      "id": "organic56:handmade-bookmark",
+      "accepted": [
+        "Paper + Art Workshop"
+      ],
+      "rejected": [
+        {
+          "recipe": "Book + Craft",
+          "reason": "unknown ingredient"
+        }
+      ]
+    },
+    {
+      "name": "Solar Garden Light",
+      "id": "organic56:solar-garden-light",
+      "accepted": [
+        "Solar Panel + Garden",
+        "Solar Lantern + Garden"
+      ],
+      "rejected": []
+    },
+    {
+      "name": "Weather Sensor Network",
+      "id": "organic56:weather-sensor-network",
+      "accepted": [
+        "Weather Sensor + Circuit",
+        "Weather Station + Computer"
+      ],
+      "rejected": []
+    },
+    {
+      "name": "Smart Irrigation Timer",
+      "id": "organic56:smart-irrigation-timer",
+      "accepted": [
+        "Irrigation + Clock",
+        "Water + Smart Greenhouse"
+      ],
+      "rejected": []
+    },
+    {
+      "name": "Portable Power Meter",
+      "id": "organic56:portable-power-meter",
+      "accepted": [
+        "Electricity + Light Meter"
+      ],
+      "rejected": [
+        {
+          "recipe": "Battery + Measuring Tool",
+          "reason": "unknown ingredient"
+        }
+      ]
+    },
+    {
+      "name": "Camera Lens Filter",
+      "id": "organic56:camera-lens-filter",
+      "accepted": [
+        "Lens + Color",
+        "Lens + Light Meter"
+      ],
+      "rejected": []
+    },
+    {
+      "name": "Nature Audio Recorder",
+      "id": "organic56:nature-audio-recorder",
+      "accepted": [
+        "Birdsong + Computer",
+        "Sound + Wildlife Camera"
+      ],
+      "rejected": []
+    }
+  ]
+}

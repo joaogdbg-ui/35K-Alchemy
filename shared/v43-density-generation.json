@@ -1,0 +1,1630 @@
+{
+  "edition": "V43",
+  "scope": "Curated early-game and semantic cross-family coverage",
+  "old_recipes": 9414,
+  "new_recipe_pairs": 861,
+  "new_elements": 12,
+  "total_recipes": 10275,
+  "items": 3778,
+  "rules": 95,
+  "stats": {
+    "first-14": {
+      "added": 92,
+      "preserved_legacy": 4,
+      "same_new_pair": 1
+    },
+    "evaporation": {
+      "preserved_legacy": 9,
+      "same_new_pair": 3,
+      "added": 26,
+      "overlapping_rule": 2
+    },
+    "melting": {
+      "added": 24
+    },
+    "freezing": {
+      "added": 17,
+      "preserved_legacy": 1,
+      "overlapping_rule": 1,
+      "same_new_pair": 1
+    },
+    "condensation": {
+      "preserved_legacy": 3,
+      "same_new_pair": 2,
+      "added": 10
+    },
+    "cloud-forming": {
+      "added": 14,
+      "overlapping_rule": 1,
+      "preserved_legacy": 1
+    },
+    "fog-forming": {
+      "overlapping_rule": 5,
+      "preserved_legacy": 1,
+      "added": 18
+    },
+    "mist-forming": {
+      "preserved_legacy": 7,
+      "overlapping_rule": 7,
+      "added": 4
+    },
+    "groundwater": {
+      "preserved_legacy": 2,
+      "overlapping_rule": 1,
+      "added": 21
+    },
+    "storm-wind": {
+      "overlapping_rule": 3,
+      "added": 7,
+      "preserved_legacy": 2
+    },
+    "rainbow": {
+      "preserved_legacy": 4,
+      "added": 5,
+      "overlapping_rule": 1
+    },
+    "sunshower": {
+      "preserved_legacy": 2,
+      "same_new_pair": 3,
+      "added": 1
+    },
+    "sunlight-haze": {
+      "overlapping_rule": 5,
+      "added": 13,
+      "preserved_legacy": 1,
+      "same_new_pair": 1
+    },
+    "wind-blown-sand": {
+      "same_new_pair": 2,
+      "added": 14
+    },
+    "wind-blown-sea": {
+      "preserved_legacy": 4,
+      "overlapping_rule": 2,
+      "added": 10
+    },
+    "tides": {
+      "preserved_legacy": 3,
+      "added": 5
+    },
+    "ice-storm": {
+      "preserved_legacy": 5,
+      "added": 7
+    },
+    "wet-snow": {
+      "same_new_pair": 1,
+      "overlapping_rule": 7,
+      "added": 7,
+      "preserved_legacy": 1
+    },
+    "mudslides": {
+      "same_new_pair": 10,
+      "added": 13,
+      "overlapping_rule": 4,
+      "preserved_legacy": 3
+    },
+    "floods": {
+      "preserved_legacy": 2,
+      "added": 22,
+      "overlapping_rule": 1
+    },
+    "droughts": {
+      "added": 15,
+      "overlapping_rule": 1,
+      "preserved_legacy": 4
+    },
+    "erosion": {
+      "preserved_legacy": 11,
+      "overlapping_rule": 7,
+      "added": 17,
+      "same_new_pair": 1
+    },
+    "sediment": {
+      "added": 11,
+      "preserved_legacy": 6,
+      "overlapping_rule": 7
+    },
+    "silt-mud": {
+      "preserved_legacy": 4,
+      "same_new_pair": 3,
+      "overlapping_rule": 7,
+      "added": 16
+    },
+    "clay-from-mud": {
+      "overlapping_rule": 6,
+      "preserved_legacy": 5,
+      "added": 1
+    },
+    "mineral-stone": {
+      "preserved_legacy": 2,
+      "same_new_pair": 2,
+      "overlapping_rule": 5,
+      "added": 6
+    },
+    "volcanic-ash": {
+      "added": 7,
+      "preserved_legacy": 3,
+      "overlapping_rule": 2
+    },
+    "geyser": {
+      "preserved_legacy": 5,
+      "overlapping_rule": 9,
+      "added": 6
+    },
+    "pumice": {
+      "preserved_legacy": 4,
+      "overlapping_rule": 2,
+      "added": 2
+    },
+    "obsidian": {
+      "overlapping_rule": 3,
+      "preserved_legacy": 4,
+      "added": 1
+    },
+    "sea-salt": {
+      "overlapping_rule": 3,
+      "preserved_legacy": 4,
+      "added": 3
+    },
+    "salty-ocean": {
+      "same_new_pair": 3,
+      "added": 6,
+      "preserved_legacy": 5,
+      "overlapping_rule": 2
+    },
+    "pond-water": {
+      "added": 6,
+      "overlapping_rule": 1,
+      "preserved_legacy": 1
+    },
+    "burning-wood": {
+      "preserved_legacy": 4,
+      "overlapping_rule": 4,
+      "added": 24
+    },
+    "burning-plant": {
+      "preserved_legacy": 4,
+      "added": 11,
+      "overlapping_rule": 5,
+      "same_new_pair": 1
+    },
+    "smoke-residue": {
+      "added": 11,
+      "overlapping_rule": 1
+    },
+    "smog": {
+      "same_new_pair": 1,
+      "added": 11
+    },
+    "wildfire": {
+      "same_new_pair": 2,
+      "preserved_legacy": 5,
+      "overlapping_rule": 6,
+      "added": 5
+    },
+    "charcoal": {
+      "same_new_pair": 1,
+      "added": 3,
+      "preserved_legacy": 2,
+      "overlapping_rule": 3
+    },
+    "smoke-cloud": {
+      "overlapping_rule": 3,
+      "preserved_legacy": 1,
+      "same_new_pair": 2
+    },
+    "smoky-haze": {
+      "added": 11,
+      "same_new_pair": 4,
+      "overlapping_rule": 1
+    },
+    "fire-intensity": {
+      "overlapping_rule": 9,
+      "preserved_legacy": 4,
+      "same_new_pair": 2
+    },
+    "fire-energy": {
+      "overlapping_rule": 7,
+      "preserved_legacy": 2,
+      "added": 3
+    },
+    "watering-plant": {
+      "preserved_legacy": 7,
+      "added": 13
+    },
+    "growth-sprout": {
+      "preserved_legacy": 8
+    },
+    "plant-growth": {
+      "preserved_legacy": 10,
+      "overlapping_rule": 1,
+      "added": 1
+    },
+    "forest": {
+      "preserved_legacy": 8,
+      "added": 6,
+      "overlapping_rule": 1
+    },
+    "garden": {
+      "added": 7,
+      "preserved_legacy": 7,
+      "overlapping_rule": 2
+    },
+    "rainforest": {
+      "preserved_legacy": 3,
+      "added": 4,
+      "overlapping_rule": 1
+    },
+    "compost": {
+      "preserved_legacy": 12,
+      "added": 5,
+      "same_new_pair": 2,
+      "overlapping_rule": 1
+    },
+    "mushrooms": {
+      "preserved_legacy": 1,
+      "added": 12,
+      "overlapping_rule": 3
+    },
+    "moss": {
+      "preserved_legacy": 4,
+      "added": 8,
+      "overlapping_rule": 4
+    },
+    "algae": {
+      "preserved_legacy": 10,
+      "overlapping_rule": 3,
+      "added": 2
+    },
+    "plankton": {
+      "preserved_legacy": 5,
+      "overlapping_rule": 4,
+      "added": 3
+    },
+    "fish": {
+      "preserved_legacy": 8,
+      "overlapping_rule": 6,
+      "added": 6
+    },
+    "coral-reef": {
+      "added": 8,
+      "preserved_legacy": 3,
+      "overlapping_rule": 1
+    },
+    "bee-pollen": {
+      "preserved_legacy": 4,
+      "added": 8
+    },
+    "honey": {
+      "preserved_legacy": 4,
+      "overlapping_rule": 2,
+      "added": 2
+    },
+    "flower-fruit": {
+      "preserved_legacy": 6,
+      "added": 4,
+      "overlapping_rule": 2
+    },
+    "wetland": {
+      "preserved_legacy": 9,
+      "added": 10,
+      "same_new_pair": 4,
+      "overlapping_rule": 2
+    },
+    "mangrove": {
+      "overlapping_rule": 1,
+      "added": 8,
+      "preserved_legacy": 6
+    },
+    "life-ground": {
+      "overlapping_rule": 10,
+      "preserved_legacy": 5,
+      "same_new_pair": 2,
+      "added": 1
+    },
+    "fossil": {
+      "preserved_legacy": 8,
+      "added": 17
+    },
+    "sand-glass": {
+      "added": 11,
+      "preserved_legacy": 1
+    },
+    "clay-brick": {
+      "preserved_legacy": 4,
+      "added": 3,
+      "overlapping_rule": 1
+    },
+    "clay-ceramic": {
+      "preserved_legacy": 5,
+      "overlapping_rule": 3,
+      "added": 1
+    },
+    "metal-iron": {
+      "preserved_legacy": 4,
+      "added": 4
+    },
+    "electric-wires": {
+      "preserved_legacy": 5,
+      "added": 4
+    },
+    "electric-circuit": {
+      "preserved_legacy": 2,
+      "added": 4
+    },
+    "battery": {
+      "preserved_legacy": 4,
+      "added": 4
+    },
+    "solar-power": {
+      "added": 4,
+      "preserved_legacy": 2
+    },
+    "wind-power": {
+      "added": 5,
+      "preserved_legacy": 2,
+      "same_new_pair": 1
+    },
+    "motor": {
+      "preserved_legacy": 6,
+      "added": 4,
+      "overlapping_rule": 2
+    },
+    "factory": {
+      "preserved_legacy": 2,
+      "added": 10
+    },
+    "grain-flour": {
+      "added": 6,
+      "same_new_pair": 10
+    },
+    "mixing-dough": {
+      "preserved_legacy": 2,
+      "added": 2
+    },
+    "baking-bread": {
+      "preserved_legacy": 2,
+      "added": 7,
+      "same_new_pair": 3
+    },
+    "food-cooking": {
+      "added": 16,
+      "same_new_pair": 4
+    },
+    "sugar-syrup": {
+      "preserved_legacy": 3,
+      "added": 6
+    },
+    "honey-tea": {
+      "preserved_legacy": 7,
+      "overlapping_rule": 2,
+      "added": 6
+    },
+    "soup": {
+      "preserved_legacy": 4,
+      "overlapping_rule": 3,
+      "added": 13
+    },
+    "jam": {
+      "preserved_legacy": 6,
+      "added": 3
+    },
+    "cake": {
+      "preserved_legacy": 6,
+      "added": 5,
+      "overlapping_rule": 1
+    },
+    "dessert": {
+      "added": 15,
+      "preserved_legacy": 1
+    },
+    "camera-photo": {
+      "preserved_legacy": 2,
+      "added": 14
+    },
+    "light-prism": {
+      "added": 9,
+      "preserved_legacy": 3
+    },
+    "science-optics": {
+      "preserved_legacy": 6,
+      "overlapping_rule": 1,
+      "added": 2
+    },
+    "film-development": {
+      "added": 5,
+      "preserved_legacy": 1
+    },
+    "map-direction": {
+      "preserved_legacy": 5,
+      "added": 5,
+      "same_new_pair": 2
+    },
+    "star-navigation": {
+      "preserved_legacy": 3,
+      "added": 12,
+      "overlapping_rule": 1
+    },
+    "lighthouse": {
+      "preserved_legacy": 3,
+      "added": 9
+    },
+    "music-rhythm": {
+      "preserved_legacy": 2,
+      "added": 10
+    },
+    "melody": {
+      "added": 10,
+      "preserved_legacy": 2
+    },
+    "story-book": {
+      "added": 8,
+      "same_new_pair": 2,
+      "preserved_legacy": 2
+    },
+    "city-architecture": {
+      "added": 6,
+      "preserved_legacy": 4,
+      "same_new_pair": 2
+    },
+    "stone-building": {
+      "added": 7,
+      "same_new_pair": 4,
+      "preserved_legacy": 1
+    }
+  },
+  "competing_new_rule_proposals": [
+    {
+      "pair": "legacy:7|legacy:8",
+      "first": "legacy:14",
+      "competing": "legacy:4",
+      "rule": "evaporation"
+    },
+    {
+      "pair": "legacy:10|legacy:8",
+      "first": "legacy:14",
+      "competing": "legacy:4",
+      "rule": "evaporation"
+    },
+    {
+      "pair": "legacy:0|legacy:36",
+      "first": "organic43:slush",
+      "competing": "legacy:35",
+      "rule": "freezing"
+    },
+    {
+      "pair": "legacy:17|legacy:4",
+      "first": "legacy:17",
+      "competing": "legacy:7",
+      "rule": "cloud-forming"
+    },
+    {
+      "pair": "legacy:0|organic38:frost",
+      "first": "legacy:35",
+      "competing": "organic41:fog",
+      "rule": "fog-forming"
+    },
+    {
+      "pair": "legacy:10|legacy:3",
+      "first": "organic38:wave",
+      "competing": "organic41:fog",
+      "rule": "fog-forming"
+    },
+    {
+      "pair": "legacy:10|organic41:mist",
+      "first": "legacy:17",
+      "competing": "organic41:fog",
+      "rule": "fog-forming"
+    },
+    {
+      "pair": "legacy:40|organic38:frost",
+      "first": "legacy:35",
+      "competing": "organic41:fog",
+      "rule": "fog-forming"
+    },
+    {
+      "pair": "organic38:frost|organic38:pond",
+      "first": "legacy:35",
+      "competing": "organic41:fog",
+      "rule": "fog-forming"
+    },
+    {
+      "pair": "legacy:12|legacy:4",
+      "first": "legacy:17",
+      "competing": "organic41:mist",
+      "rule": "mist-forming"
+    },
+    {
+      "pair": "legacy:17|legacy:4",
+      "first": "legacy:17",
+      "competing": "organic41:mist",
+      "rule": "mist-forming"
+    },
+    {
+      "pair": "legacy:0|legacy:17",
+      "first": "legacy:7",
+      "competing": "organic41:mist",
+      "rule": "mist-forming"
+    },
+    {
+      "pair": "legacy:10|legacy:3",
+      "first": "organic38:wave",
+      "competing": "organic41:mist",
+      "rule": "mist-forming"
+    },
+    {
+      "pair": "legacy:3|legacy:40",
+      "first": "organic41:fog",
+      "competing": "organic41:mist",
+      "rule": "mist-forming"
+    },
+    {
+      "pair": "legacy:3|legacy:591",
+      "first": "organic41:fog",
+      "competing": "organic41:mist",
+      "rule": "mist-forming"
+    },
+    {
+      "pair": "legacy:3|legacy:39",
+      "first": "organic41:fog",
+      "competing": "organic41:mist",
+      "rule": "mist-forming"
+    },
+    {
+      "pair": "legacy:7|organic34:soil",
+      "first": "legacy:6",
+      "competing": "organic43:puddle",
+      "rule": "groundwater"
+    },
+    {
+      "pair": "legacy:12|legacy:5",
+      "first": "organic32:wind-turbine",
+      "competing": "organic41:storm",
+      "rule": "storm-wind"
+    },
+    {
+      "pair": "legacy:5|legacy:7",
+      "first": "legacy:18",
+      "competing": "organic41:storm",
+      "rule": "storm-wind"
+    },
+    {
+      "pair": "legacy:10|legacy:5",
+      "first": "organic38:wave",
+      "competing": "organic41:storm",
+      "rule": "storm-wind"
+    },
+    {
+      "pair": "legacy:141|organic41:drizzle",
+      "first": "organic43:sunshower",
+      "competing": "organic34:rainbow",
+      "rule": "rainbow"
+    },
+    {
+      "pair": "legacy:11|legacy:3",
+      "first": "organic41:heatwave",
+      "competing": "organic43:haze",
+      "rule": "sunlight-haze"
+    },
+    {
+      "pair": "legacy:11|legacy:12",
+      "first": "organic41:heatwave",
+      "competing": "organic43:haze",
+      "rule": "sunlight-haze"
+    },
+    {
+      "pair": "legacy:1|legacy:12",
+      "first": "organic43:wildfire",
+      "competing": "organic43:haze",
+      "rule": "sunlight-haze"
+    },
+    {
+      "pair": "organic41:fog|organic43:smoke",
+      "first": "organic43:smog",
+      "competing": "organic43:haze",
+      "rule": "sunlight-haze"
+    },
+    {
+      "pair": "legacy:12|legacy:9",
+      "first": "organic43:sandstorm",
+      "competing": "organic43:haze",
+      "rule": "sunlight-haze"
+    },
+    {
+      "pair": "legacy:12|legacy:40",
+      "first": "organic41:mist",
+      "competing": "organic38:wave",
+      "rule": "wind-blown-sea"
+    },
+    {
+      "pair": "legacy:0|organic41:storm",
+      "first": "legacy:7",
+      "competing": "organic38:wave",
+      "rule": "wind-blown-sea"
+    },
+    {
+      "pair": "legacy:36|legacy:7",
+      "first": "legacy:35",
+      "competing": "organic43:slush",
+      "rule": "wet-snow"
+    },
+    {
+      "pair": "legacy:11|legacy:36",
+      "first": "legacy:0",
+      "competing": "organic43:slush",
+      "rule": "wet-snow"
+    },
+    {
+      "pair": "legacy:0|legacy:35",
+      "first": "legacy:35",
+      "competing": "organic43:slush",
+      "rule": "wet-snow"
+    },
+    {
+      "pair": "legacy:11|legacy:35",
+      "first": "legacy:0",
+      "competing": "organic43:slush",
+      "rule": "wet-snow"
+    },
+    {
+      "pair": "legacy:0|organic38:frost",
+      "first": "legacy:35",
+      "competing": "organic43:slush",
+      "rule": "wet-snow"
+    },
+    {
+      "pair": "legacy:7|organic38:frost",
+      "first": "legacy:35",
+      "competing": "organic43:slush",
+      "rule": "wet-snow"
+    },
+    {
+      "pair": "legacy:11|organic38:frost",
+      "first": "legacy:0",
+      "competing": "organic43:slush",
+      "rule": "wet-snow"
+    },
+    {
+      "pair": "legacy:2|legacy:6",
+      "first": "organic34:soil",
+      "competing": "organic43:mudslide",
+      "rule": "mudslides"
+    },
+    {
+      "pair": "legacy:7|organic34:soil",
+      "first": "legacy:6",
+      "competing": "organic43:mudslide",
+      "rule": "mudslides"
+    },
+    {
+      "pair": "legacy:2|organic41:monsoon",
+      "first": "organic43:puddle",
+      "competing": "organic43:mudslide",
+      "rule": "mudslides"
+    },
+    {
+      "pair": "organic34:soil|organic41:monsoon",
+      "first": "organic43:puddle",
+      "competing": "organic43:mudslide",
+      "rule": "mudslides"
+    },
+    {
+      "pair": "legacy:40|organic41:storm",
+      "first": "organic38:wave",
+      "competing": "organic41:flood",
+      "rule": "floods"
+    },
+    {
+      "pair": "legacy:11|legacy:2",
+      "first": "legacy:1048",
+      "competing": "organic38:drought",
+      "rule": "droughts"
+    },
+    {
+      "pair": "legacy:7|pack:rock",
+      "first": "organic43:puddle",
+      "competing": "organic42:erosion",
+      "rule": "erosion"
+    },
+    {
+      "pair": "legacy:7|organic38:canyon",
+      "first": "organic43:mudslide",
+      "competing": "organic42:erosion",
+      "rule": "erosion"
+    },
+    {
+      "pair": "legacy:12|legacy:16",
+      "first": "organic43:sandstorm",
+      "competing": "organic42:erosion",
+      "rule": "erosion"
+    },
+    {
+      "pair": "legacy:2|organic41:storm",
+      "first": "organic43:mudslide",
+      "competing": "organic42:erosion",
+      "rule": "erosion"
+    },
+    {
+      "pair": "legacy:38|organic41:storm",
+      "first": "organic43:mudslide",
+      "competing": "organic42:erosion",
+      "rule": "erosion"
+    },
+    {
+      "pair": "organic38:canyon|organic41:storm",
+      "first": "organic43:mudslide",
+      "competing": "organic42:erosion",
+      "rule": "erosion"
+    },
+    {
+      "pair": "legacy:16|organic41:storm",
+      "first": "organic43:sandstorm",
+      "competing": "organic42:erosion",
+      "rule": "erosion"
+    },
+    {
+      "pair": "legacy:0|pack:rock",
+      "first": "organic42:erosion",
+      "competing": "organic42:sediment",
+      "rule": "sediment"
+    },
+    {
+      "pair": "legacy:0|legacy:16",
+      "first": "organic42:erosion",
+      "competing": "organic42:sediment",
+      "rule": "sediment"
+    },
+    {
+      "pair": "legacy:0|legacy:9",
+      "first": "legacy:6",
+      "competing": "organic42:sediment",
+      "rule": "sediment"
+    },
+    {
+      "pair": "legacy:0|legacy:6",
+      "first": "legacy:6",
+      "competing": "organic42:sediment",
+      "rule": "sediment"
+    },
+    {
+      "pair": "legacy:14|organic38:wave",
+      "first": "organic42:erosion",
+      "competing": "organic42:sediment",
+      "rule": "sediment"
+    },
+    {
+      "pair": "organic38:wave|pack:rock",
+      "first": "organic42:erosion",
+      "competing": "organic42:sediment",
+      "rule": "sediment"
+    },
+    {
+      "pair": "legacy:16|organic38:wave",
+      "first": "organic42:erosion",
+      "competing": "organic42:sediment",
+      "rule": "sediment"
+    },
+    {
+      "pair": "legacy:16|legacy:7",
+      "first": "organic42:erosion",
+      "competing": "legacy:6",
+      "rule": "silt-mud"
+    },
+    {
+      "pair": "legacy:2|organic41:drizzle",
+      "first": "organic43:puddle",
+      "competing": "legacy:6",
+      "rule": "silt-mud"
+    },
+    {
+      "pair": "organic34:soil|organic41:drizzle",
+      "first": "organic43:puddle",
+      "competing": "legacy:6",
+      "rule": "silt-mud"
+    },
+    {
+      "pair": "legacy:0|organic34:soil",
+      "first": "organic42:sediment",
+      "competing": "legacy:6",
+      "rule": "silt-mud"
+    },
+    {
+      "pair": "legacy:0|legacy:16",
+      "first": "organic42:erosion",
+      "competing": "legacy:6",
+      "rule": "silt-mud"
+    },
+    {
+      "pair": "legacy:2|legacy:39",
+      "first": "organic42:erosion",
+      "competing": "legacy:6",
+      "rule": "silt-mud"
+    },
+    {
+      "pair": "legacy:39|organic34:soil",
+      "first": "organic42:sediment",
+      "competing": "legacy:6",
+      "rule": "silt-mud"
+    },
+    {
+      "pair": "legacy:0|legacy:6",
+      "first": "legacy:6",
+      "competing": "organic41:clay",
+      "rule": "clay-from-mud"
+    },
+    {
+      "pair": "legacy:6|legacy:7",
+      "first": "legacy:6",
+      "competing": "organic41:clay",
+      "rule": "clay-from-mud"
+    },
+    {
+      "pair": "legacy:0|organic34:soil",
+      "first": "organic42:sediment",
+      "competing": "organic41:clay",
+      "rule": "clay-from-mud"
+    },
+    {
+      "pair": "legacy:7|organic34:soil",
+      "first": "legacy:6",
+      "competing": "organic41:clay",
+      "rule": "clay-from-mud"
+    },
+    {
+      "pair": "legacy:39|organic34:soil",
+      "first": "organic42:sediment",
+      "competing": "organic41:clay",
+      "rule": "clay-from-mud"
+    },
+    {
+      "pair": "legacy:2|legacy:39",
+      "first": "organic42:erosion",
+      "competing": "organic41:clay",
+      "rule": "clay-from-mud"
+    },
+    {
+      "pair": "legacy:591|legacy:8",
+      "first": "legacy:4",
+      "competing": "legacy:14",
+      "rule": "mineral-stone"
+    },
+    {
+      "pair": "legacy:8|organic38:frost",
+      "first": "legacy:0",
+      "competing": "legacy:14",
+      "rule": "mineral-stone"
+    },
+    {
+      "pair": "legacy:7|organic38:volcano",
+      "first": "legacy:4",
+      "competing": "legacy:14",
+      "rule": "mineral-stone"
+    },
+    {
+      "pair": "legacy:10|organic38:volcano",
+      "first": "legacy:4",
+      "competing": "legacy:14",
+      "rule": "mineral-stone"
+    },
+    {
+      "pair": "legacy:591|organic38:volcano",
+      "first": "legacy:4",
+      "competing": "legacy:14",
+      "rule": "mineral-stone"
+    },
+    {
+      "pair": "legacy:12|legacy:8",
+      "first": "organic42:pumice",
+      "competing": "organic43:ash",
+      "rule": "volcanic-ash"
+    },
+    {
+      "pair": "legacy:0|organic42:magma-chamber",
+      "first": "legacy:14",
+      "competing": "organic43:ash",
+      "rule": "volcanic-ash"
+    },
+    {
+      "pair": "legacy:10|legacy:8",
+      "first": "legacy:14",
+      "competing": "organic38:geyser",
+      "rule": "geyser"
+    },
+    {
+      "pair": "legacy:39|legacy:8",
+      "first": "legacy:4",
+      "competing": "organic38:geyser",
+      "rule": "geyser"
+    },
+    {
+      "pair": "legacy:40|legacy:8",
+      "first": "legacy:4",
+      "competing": "organic38:geyser",
+      "rule": "geyser"
+    },
+    {
+      "pair": "legacy:10|organic38:volcano",
+      "first": "legacy:4",
+      "competing": "organic38:geyser",
+      "rule": "geyser"
+    },
+    {
+      "pair": "legacy:40|organic38:volcano",
+      "first": "legacy:4",
+      "competing": "organic38:geyser",
+      "rule": "geyser"
+    },
+    {
+      "pair": "legacy:10|legacy:11",
+      "first": "legacy:4",
+      "competing": "organic38:geyser",
+      "rule": "geyser"
+    },
+    {
+      "pair": "legacy:11|legacy:40",
+      "first": "legacy:4",
+      "competing": "organic38:geyser",
+      "rule": "geyser"
+    },
+    {
+      "pair": "legacy:0|organic42:magma-chamber",
+      "first": "legacy:14",
+      "competing": "organic38:geyser",
+      "rule": "geyser"
+    },
+    {
+      "pair": "legacy:10|organic42:magma-chamber",
+      "first": "legacy:14",
+      "competing": "organic38:geyser",
+      "rule": "geyser"
+    },
+    {
+      "pair": "legacy:4|legacy:8",
+      "first": "organic38:geyser",
+      "competing": "organic42:pumice",
+      "rule": "pumice"
+    },
+    {
+      "pair": "legacy:3|organic38:volcano",
+      "first": "organic43:ash",
+      "competing": "organic42:pumice",
+      "rule": "pumice"
+    },
+    {
+      "pair": "legacy:35|legacy:8",
+      "first": "legacy:0",
+      "competing": "organic42:obsidian",
+      "rule": "obsidian"
+    },
+    {
+      "pair": "legacy:10|legacy:8",
+      "first": "legacy:14",
+      "competing": "organic42:obsidian",
+      "rule": "obsidian"
+    },
+    {
+      "pair": "legacy:10|organic38:volcano",
+      "first": "legacy:4",
+      "competing": "organic42:obsidian",
+      "rule": "obsidian"
+    },
+    {
+      "pair": "legacy:10|legacy:11",
+      "first": "legacy:4",
+      "competing": "organic38:salt",
+      "rule": "sea-salt"
+    },
+    {
+      "pair": "legacy:10|legacy:4",
+      "first": "legacy:17",
+      "competing": "organic38:salt",
+      "rule": "sea-salt"
+    },
+    {
+      "pair": "legacy:1|legacy:591",
+      "first": "legacy:4",
+      "competing": "organic38:salt",
+      "rule": "sea-salt"
+    },
+    {
+      "pair": "legacy:0|legacy:40",
+      "first": "organic41:flood",
+      "competing": "legacy:591",
+      "rule": "salty-ocean"
+    },
+    {
+      "pair": "legacy:0|legacy:39",
+      "first": "organic41:flood",
+      "competing": "legacy:591",
+      "rule": "salty-ocean"
+    },
+    {
+      "pair": "legacy:0|legacy:7",
+      "first": "legacy:39",
+      "competing": "organic38:pond",
+      "rule": "pond-water"
+    },
+    {
+      "pair": "legacy:1|legacy:20",
+      "first": "organic43:wildfire",
+      "competing": "organic43:smoke",
+      "rule": "burning-wood"
+    },
+    {
+      "pair": "legacy:1|legacy:106",
+      "first": "organic43:ash",
+      "competing": "organic43:smoke",
+      "rule": "burning-wood"
+    },
+    {
+      "pair": "legacy:1|organic43:charcoal",
+      "first": "legacy:11",
+      "competing": "organic43:smoke",
+      "rule": "burning-wood"
+    },
+    {
+      "pair": "legacy:11|legacy:24",
+      "first": "organic43:charcoal",
+      "competing": "organic43:smoke",
+      "rule": "burning-wood"
+    },
+    {
+      "pair": "legacy:1|legacy:20",
+      "first": "organic43:wildfire",
+      "competing": "organic43:ash",
+      "rule": "burning-plant"
+    },
+    {
+      "pair": "legacy:19|organic43:wildfire",
+      "first": "organic43:smoke",
+      "competing": "organic43:ash",
+      "rule": "burning-plant"
+    },
+    {
+      "pair": "legacy:20|organic43:wildfire",
+      "first": "organic43:smoke",
+      "competing": "organic43:ash",
+      "rule": "burning-plant"
+    },
+    {
+      "pair": "legacy:106|organic43:wildfire",
+      "first": "organic43:smoke",
+      "competing": "organic43:ash",
+      "rule": "burning-plant"
+    },
+    {
+      "pair": "legacy:24|organic43:wildfire",
+      "first": "organic43:smoke",
+      "competing": "organic43:ash",
+      "rule": "burning-plant"
+    },
+    {
+      "pair": "legacy:106|organic43:wildfire",
+      "first": "organic43:smoke",
+      "competing": "organic43:soot",
+      "rule": "smoke-residue"
+    },
+    {
+      "pair": "legacy:1|legacy:559",
+      "first": "organic38:drought",
+      "competing": "organic43:wildfire",
+      "rule": "wildfire"
+    },
+    {
+      "pair": "legacy:11|legacy:20",
+      "first": "organic43:smoke",
+      "competing": "organic43:wildfire",
+      "rule": "wildfire"
+    },
+    {
+      "pair": "legacy:11|legacy:19",
+      "first": "organic43:smoke",
+      "competing": "organic43:wildfire",
+      "rule": "wildfire"
+    },
+    {
+      "pair": "legacy:11|legacy:559",
+      "first": "organic38:drought",
+      "competing": "organic43:wildfire",
+      "rule": "wildfire"
+    },
+    {
+      "pair": "legacy:18|legacy:20",
+      "first": "organic43:smoke",
+      "competing": "organic43:wildfire",
+      "rule": "wildfire"
+    },
+    {
+      "pair": "legacy:18|legacy:19",
+      "first": "organic43:smoke",
+      "competing": "organic43:wildfire",
+      "rule": "wildfire"
+    },
+    {
+      "pair": "legacy:11|legacy:19",
+      "first": "organic43:smoke",
+      "competing": "organic43:charcoal",
+      "rule": "charcoal"
+    },
+    {
+      "pair": "legacy:11|legacy:25",
+      "first": "organic43:smoke",
+      "competing": "organic43:charcoal",
+      "rule": "charcoal"
+    },
+    {
+      "pair": "legacy:1|legacy:25",
+      "first": "organic43:smoke",
+      "competing": "organic43:charcoal",
+      "rule": "charcoal"
+    },
+    {
+      "pair": "legacy:3|organic43:smoke",
+      "first": "organic43:haze",
+      "competing": "legacy:17",
+      "rule": "smoke-cloud"
+    },
+    {
+      "pair": "legacy:17|organic43:smoke",
+      "first": "organic43:haze",
+      "competing": "legacy:17",
+      "rule": "smoke-cloud"
+    },
+    {
+      "pair": "legacy:12|organic43:smoke",
+      "first": "organic43:haze",
+      "competing": "legacy:17",
+      "rule": "smoke-cloud"
+    },
+    {
+      "pair": "legacy:12|legacy:9",
+      "first": "organic43:sandstorm",
+      "competing": "organic43:haze",
+      "rule": "smoky-haze"
+    },
+    {
+      "pair": "legacy:1|legacy:25",
+      "first": "organic43:smoke",
+      "competing": "legacy:11",
+      "rule": "fire-intensity"
+    },
+    {
+      "pair": "legacy:1|legacy:43",
+      "first": "organic43:smoke",
+      "competing": "legacy:11",
+      "rule": "fire-intensity"
+    },
+    {
+      "pair": "legacy:1|legacy:25",
+      "first": "organic43:smoke",
+      "competing": "legacy:11",
+      "rule": "fire-intensity"
+    },
+    {
+      "pair": "legacy:1|legacy:43",
+      "first": "organic43:smoke",
+      "competing": "legacy:11",
+      "rule": "fire-intensity"
+    },
+    {
+      "pair": "legacy:25|organic43:wildfire",
+      "first": "organic43:smoke",
+      "competing": "legacy:11",
+      "rule": "fire-intensity"
+    },
+    {
+      "pair": "legacy:42|organic43:wildfire",
+      "first": "organic43:smoke",
+      "competing": "legacy:11",
+      "rule": "fire-intensity"
+    },
+    {
+      "pair": "legacy:43|organic43:wildfire",
+      "first": "organic43:smoke",
+      "competing": "legacy:11",
+      "rule": "fire-intensity"
+    },
+    {
+      "pair": "organic43:charcoal|organic43:wildfire",
+      "first": "organic43:smoke",
+      "competing": "legacy:11",
+      "rule": "fire-intensity"
+    },
+    {
+      "pair": "legacy:24|organic43:wildfire",
+      "first": "organic43:smoke",
+      "competing": "legacy:11",
+      "rule": "fire-intensity"
+    },
+    {
+      "pair": "legacy:11|legacy:25",
+      "first": "organic43:smoke",
+      "competing": "legacy:5",
+      "rule": "fire-energy"
+    },
+    {
+      "pair": "legacy:11|legacy:43",
+      "first": "organic43:smoke",
+      "competing": "legacy:5",
+      "rule": "fire-energy"
+    },
+    {
+      "pair": "legacy:1|legacy:25",
+      "first": "organic43:smoke",
+      "competing": "legacy:5",
+      "rule": "fire-energy"
+    },
+    {
+      "pair": "legacy:1|legacy:43",
+      "first": "organic43:smoke",
+      "competing": "legacy:5",
+      "rule": "fire-energy"
+    },
+    {
+      "pair": "legacy:18|legacy:25",
+      "first": "organic43:smoke",
+      "competing": "legacy:5",
+      "rule": "fire-energy"
+    },
+    {
+      "pair": "legacy:18|legacy:43",
+      "first": "organic43:smoke",
+      "competing": "legacy:5",
+      "rule": "fire-energy"
+    },
+    {
+      "pair": "legacy:18|legacy:42",
+      "first": "organic43:smoke",
+      "competing": "legacy:5",
+      "rule": "fire-energy"
+    },
+    {
+      "pair": "legacy:0|organic34:sprout",
+      "first": "legacy:15",
+      "competing": "organic34:flower",
+      "rule": "plant-growth"
+    },
+    {
+      "pair": "legacy:7|organic38:sapling",
+      "first": "legacy:15",
+      "competing": "legacy:20",
+      "rule": "forest"
+    },
+    {
+      "pair": "legacy:15|legacy:559",
+      "first": "legacy:20",
+      "competing": "legacy:592",
+      "rule": "garden"
+    },
+    {
+      "pair": "legacy:0|organic34:sprout",
+      "first": "legacy:15",
+      "competing": "legacy:592",
+      "rule": "garden"
+    },
+    {
+      "pair": "legacy:19|legacy:7",
+      "first": "legacy:20",
+      "competing": "organic32:rainforest",
+      "rule": "rainforest"
+    },
+    {
+      "pair": "legacy:0|legacy:19",
+      "first": "organic32:rainforest",
+      "competing": "organic34:compost",
+      "rule": "compost"
+    },
+    {
+      "pair": "legacy:19|legacy:7",
+      "first": "legacy:20",
+      "competing": "legacy:542",
+      "rule": "mushrooms"
+    },
+    {
+      "pair": "legacy:7|organic34:soil",
+      "first": "legacy:6",
+      "competing": "legacy:542",
+      "rule": "mushrooms"
+    },
+    {
+      "pair": "legacy:6|organic34:soil",
+      "first": "organic43:mudslide",
+      "competing": "legacy:542",
+      "rule": "mushrooms"
+    },
+    {
+      "pair": "legacy:0|pack:rock",
+      "first": "organic42:erosion",
+      "competing": "organic38:moss",
+      "rule": "moss"
+    },
+    {
+      "pair": "legacy:7|pack:rock",
+      "first": "organic43:puddle",
+      "competing": "organic38:moss",
+      "rule": "moss"
+    },
+    {
+      "pair": "legacy:0|legacy:19",
+      "first": "organic32:rainforest",
+      "competing": "organic38:moss",
+      "rule": "moss"
+    },
+    {
+      "pair": "legacy:19|legacy:7",
+      "first": "legacy:20",
+      "competing": "organic38:moss",
+      "rule": "moss"
+    },
+    {
+      "pair": "legacy:141|legacy:591",
+      "first": "organic38:salt",
+      "competing": "organic37:algae",
+      "rule": "algae"
+    },
+    {
+      "pair": "legacy:15|legacy:40",
+      "first": "legacy:15",
+      "competing": "organic37:algae",
+      "rule": "algae"
+    },
+    {
+      "pair": "legacy:0|legacy:141",
+      "first": "organic34:rainbow",
+      "competing": "organic37:algae",
+      "rule": "algae"
+    },
+    {
+      "pair": "legacy:10|legacy:7",
+      "first": "legacy:591",
+      "competing": "organic37:plankton",
+      "rule": "plankton"
+    },
+    {
+      "pair": "legacy:141|legacy:591",
+      "first": "organic38:salt",
+      "competing": "organic37:plankton",
+      "rule": "plankton"
+    },
+    {
+      "pair": "legacy:0|legacy:141",
+      "first": "organic34:rainbow",
+      "competing": "organic37:plankton",
+      "rule": "plankton"
+    },
+    {
+      "pair": "legacy:0|legacy:7",
+      "first": "legacy:39",
+      "competing": "organic37:plankton",
+      "rule": "plankton"
+    },
+    {
+      "pair": "legacy:0|legacy:10",
+      "first": "legacy:591",
+      "competing": "legacy:27",
+      "rule": "fish"
+    },
+    {
+      "pair": "legacy:0|legacy:591",
+      "first": "legacy:591",
+      "competing": "legacy:27",
+      "rule": "fish"
+    },
+    {
+      "pair": "legacy:0|legacy:39",
+      "first": "organic41:flood",
+      "competing": "legacy:27",
+      "rule": "fish"
+    },
+    {
+      "pair": "legacy:21|legacy:40",
+      "first": "organic37:algae",
+      "competing": "legacy:27",
+      "rule": "fish"
+    },
+    {
+      "pair": "legacy:0|legacy:40",
+      "first": "organic41:flood",
+      "competing": "legacy:27",
+      "rule": "fish"
+    },
+    {
+      "pair": "legacy:0|organic38:pond",
+      "first": "organic41:flood",
+      "competing": "legacy:27",
+      "rule": "fish"
+    },
+    {
+      "pair": "legacy:10|legacy:591",
+      "first": "legacy:591",
+      "competing": "organic34:coral-reef",
+      "rule": "coral-reef"
+    },
+    {
+      "pair": "organic34:bee|organic37:pollen",
+      "first": "organic34:pollination",
+      "competing": "organic34:honey",
+      "rule": "honey"
+    },
+    {
+      "pair": "legacy:592|organic34:bee",
+      "first": "organic34:pollination",
+      "competing": "organic34:honey",
+      "rule": "honey"
+    },
+    {
+      "pair": "legacy:19|legacy:7",
+      "first": "legacy:20",
+      "competing": "organic37:fruit",
+      "rule": "flower-fruit"
+    },
+    {
+      "pair": "legacy:0|legacy:19",
+      "first": "organic32:rainforest",
+      "competing": "organic37:fruit",
+      "rule": "flower-fruit"
+    },
+    {
+      "pair": "legacy:0|legacy:19",
+      "first": "organic32:rainforest",
+      "competing": "organic40:wetland",
+      "rule": "wetland"
+    },
+    {
+      "pair": "legacy:0|organic34:soil",
+      "first": "organic42:sediment",
+      "competing": "organic40:wetland",
+      "rule": "wetland"
+    },
+    {
+      "pair": "legacy:19|organic42:marsh",
+      "first": "organic40:wetland",
+      "competing": "organic42:mangrove",
+      "rule": "mangrove"
+    },
+    {
+      "pair": "legacy:0|legacy:5",
+      "first": "legacy:67",
+      "competing": "legacy:21",
+      "rule": "life-ground"
+    },
+    {
+      "pair": "legacy:0|legacy:141",
+      "first": "organic34:rainbow",
+      "competing": "legacy:21",
+      "rule": "life-ground"
+    },
+    {
+      "pair": "legacy:5|legacy:7",
+      "first": "legacy:18",
+      "competing": "legacy:21",
+      "rule": "life-ground"
+    },
+    {
+      "pair": "legacy:11|legacy:7",
+      "first": "legacy:4",
+      "competing": "legacy:21",
+      "rule": "life-ground"
+    },
+    {
+      "pair": "legacy:10|legacy:5",
+      "first": "organic38:wave",
+      "competing": "legacy:21",
+      "rule": "life-ground"
+    },
+    {
+      "pair": "legacy:10|legacy:11",
+      "first": "legacy:4",
+      "competing": "legacy:21",
+      "rule": "life-ground"
+    },
+    {
+      "pair": "legacy:141|legacy:591",
+      "first": "organic38:salt",
+      "competing": "legacy:21",
+      "rule": "life-ground"
+    },
+    {
+      "pair": "legacy:141|legacy:2",
+      "first": "organic38:drought",
+      "competing": "legacy:21",
+      "rule": "life-ground"
+    },
+    {
+      "pair": "legacy:11|legacy:2",
+      "first": "legacy:1048",
+      "competing": "legacy:21",
+      "rule": "life-ground"
+    },
+    {
+      "pair": "legacy:11|legacy:6",
+      "first": "organic41:clay",
+      "competing": "legacy:21",
+      "rule": "life-ground"
+    },
+    {
+      "pair": "legacy:11|legacy:6",
+      "first": "organic41:clay",
+      "competing": "organic41:brick",
+      "rule": "clay-brick"
+    },
+    {
+      "pair": "legacy:11|organic41:clay",
+      "first": "organic41:brick",
+      "competing": "organic40:ceramic",
+      "rule": "clay-ceramic"
+    },
+    {
+      "pair": "organic40:kiln|organic41:clay",
+      "first": "organic41:brick",
+      "competing": "organic40:ceramic",
+      "rule": "clay-ceramic"
+    },
+    {
+      "pair": "legacy:11|legacy:6",
+      "first": "organic41:clay",
+      "competing": "organic40:ceramic",
+      "rule": "clay-ceramic"
+    },
+    {
+      "pair": "legacy:29|legacy:5",
+      "first": "legacy:69",
+      "competing": "organic40:motor",
+      "rule": "motor"
+    },
+    {
+      "pair": "legacy:5|legacy:68",
+      "first": "legacy:70",
+      "competing": "organic40:motor",
+      "rule": "motor"
+    },
+    {
+      "pair": "legacy:11|legacy:7",
+      "first": "legacy:4",
+      "competing": "organic37:tea",
+      "rule": "honey-tea"
+    },
+    {
+      "pair": "legacy:1|legacy:7",
+      "first": "legacy:4",
+      "competing": "organic37:tea",
+      "rule": "honey-tea"
+    },
+    {
+      "pair": "legacy:11|organic37:vegetable",
+      "first": "legacy:593",
+      "competing": "organic37:soup",
+      "rule": "soup"
+    },
+    {
+      "pair": "legacy:1|organic37:vegetable",
+      "first": "legacy:593",
+      "competing": "organic37:soup",
+      "rule": "soup"
+    },
+    {
+      "pair": "organic37:chef|organic37:vegetable",
+      "first": "legacy:593",
+      "competing": "organic37:soup",
+      "rule": "soup"
+    },
+    {
+      "pair": "legacy:11|organic37:flour",
+      "first": "organic37:bread",
+      "competing": "organic42:cake",
+      "rule": "cake"
+    },
+    {
+      "pair": "legacy:63|organic42:prism",
+      "first": "organic34:rainbow",
+      "competing": "organic42:optics",
+      "rule": "science-optics"
+    },
+    {
+      "pair": "legacy:141|legacy:591",
+      "first": "organic38:salt",
+      "competing": "organic41:navigation",
+      "rule": "star-navigation"
+    }
+  ]
+}

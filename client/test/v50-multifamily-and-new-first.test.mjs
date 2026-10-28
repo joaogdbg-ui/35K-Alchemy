@@ -1,0 +1,21 @@
+import test from 'node:test';import assert from 'node:assert/strict';
+import {FAMILY_CAMPAIGNS} from '../src/family-mode-v50-campaigns.js';
+import {FAMILIES,familiesFor,groupFamilies} from '../src/discoveries.js';
+import {ORGANIC_V50} from '../src/organic-pack-v50.js';import {ORGANIC_ART_V50} from '../src/organic-art-v50.js';
+import {buildCatalog} from '../src/catalog-integrity.js';import {DATA} from '../src/legacy-data.js';import {PACK} from '../src/creative-pack.js';
+import {readFileSync} from 'node:fs';
+const packs=[PACK];for(const v of ['gaming-v22','gaming-v23','gaming-v24','gaming-v26','gaming-v27','gaming-v30','organic-v32','organic-v34','organic-v37','organic-v38','organic-v40','organic-v41','organic-v42','organic-v43','organic-v44','organic-v45','organic-v46','organic-v47']){const mod=await import(`../src/${v.replace('gaming','gaming-pack').replace('organic','organic-pack')}.js`);packs.push(Object.values(mod)[0]);}
+const prev=buildCatalog(DATA,packs),now=buildCatalog(DATA,[...packs,ORGANIC_V50]);
+const byName=new Map(now.items.map(x=>[x.name,x]));
+const recipeMap=now.recipes;const key=(a,b)=>[a,b].sort().join('|');
+const nature=FAMILY_CAMPAIGNS.families.find(c=>c.id==='nature'),people=FAMILY_CAMPAIGNS.families.find(c=>c.id==='people');
+const verifyReachability=(c)=>{const seen=new Set(c.starters);for(let n=0;n<=c.items.length;n++){const old=seen.size;for(const [p,id] of c.recipes){const [a,b]=p.split('|');if(seen.has(a)&&seen.has(b))seen.add(id);}if(seen.size===old)break;}return seen;};
+test('V50 Classic catalog increases only with 12 uniquely illustrated discoveries',()=>{assert.equal(prev.items.length,3963);assert.equal(prev.recipes.size,12069);assert.equal(now.items.length,3975);assert.equal(now.recipes.size,12093);assert.equal(new Set(ORGANIC_V50.items.map(x=>x.name)).size,12);assert.equal(new Set(Object.values(ORGANIC_ART_V50)).size,12);});
+test('All 24 new Classic recipes give a V50 discovery, never a repeat',()=>{for(const [a,b,c] of ORGANIC_V50.recipes){assert.equal(recipeMap.get(key(a,b)),c);assert.ok(c.startsWith('organic50:'));}});
+test('V50 Classic retains all old results and unordered uniqueness',()=>{for(const [k,out] of prev.recipes)assert.equal(recipeMap.get(k),out);const pairs=ORGANIC_V50.recipes.map(([a,b])=>key(a,b));assert.equal(new Set(pairs).size,24);});
+test('Both campaigns independently complete from four unique starters',()=>{for(const c of [nature,people]){assert.equal(new Set(c.starters).size,4);assert.deepEqual(verifyReachability(c),new Set(c.items));assert.equal(new Set(c.recipes.map(([k])=>k)).size,c.recipes.length);}});
+test('15 shared catalog IDs really belong to both campaigns',()=>{const shared=people.items.filter(id=>nature.items.includes(id));assert.equal(shared.length,15);for(const id of shared){const it=now.items.find(x=>x.id===id);assert.deepEqual(familiesFor(it),['people','nature']);}});
+test('Shared items keep one catalog ID and SVG artwork across families',()=>{for(const id of people.items.filter(id=>nature.items.includes(id))){assert.equal(now.items.filter(x=>x.id===id).length,1);}});
+test('Every family recipe has a single output and cannot contradict Classic',()=>{for(const c of [people,nature]){const allowed=new Set(c.items);for(const [pair,out] of c.recipes){const [a,b]=pair.split('|');assert.deepEqual([a,b].sort(),[a,b]);assert.ok(allowed.has(a)&&allowed.has(b)&&allowed.has(out));if(recipeMap.has(pair))assert.equal(recipeMap.get(pair),out);}}});
+test('People & Culture is enabled without changing first-launch/free or rewarded switching',()=>{const app=readFileSync(new URL('../src/app.js',import.meta.url),'utf8');assert.match(app,/family-mode-v(?:50|52|53)-campaigns\.js/);assert.match(app,/familyCardArtwork\(f\)/);assert.match(app,/if\(result\?\.earned!==true\)/);assert.match(app,/showRewarded\(\{kind:'mode_switch'/);});
+test('Multi-family filter lists shared members in both groups',()=>{const groups=groupFamilies(now.items,new Set());assert.equal(groups.nature.total,408);assert.equal(groups.people.total,167);});

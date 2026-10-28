@@ -1,0 +1,1744 @@
+{
+  "version": 52,
+  "items": [
+    {
+      "id": "organic52:virga",
+      "name": "Virga",
+      "category": "nature",
+      "summary": "A veil of rain that disappears before touching the ground.",
+      "iconFamily": "organic"
+    },
+    {
+      "id": "organic52:rime-ice",
+      "name": "Rime Ice",
+      "category": "nature",
+      "summary": "Frost feathering the cold side of a foggy morning.",
+      "iconFamily": "organic"
+    },
+    {
+      "id": "organic52:graupel",
+      "name": "Graupel",
+      "category": "nature",
+      "summary": "Soft pellets of snow rolled in the clouds.",
+      "iconFamily": "organic"
+    },
+    {
+      "id": "organic52:hoarfrost",
+      "name": "Hoarfrost",
+      "category": "nature",
+      "summary": "Delicate ice crystals clinging to cold surfaces.",
+      "iconFamily": "organic"
+    },
+    {
+      "id": "organic52:parhelion",
+      "name": "Parhelion",
+      "category": "nature",
+      "summary": "A bright false sun born from ice crystals.",
+      "iconFamily": "organic"
+    },
+    {
+      "id": "organic52:rain-shadow",
+      "name": "Rain Shadow",
+      "category": "nature",
+      "summary": "A dry region sheltered behind a mountain.",
+      "iconFamily": "organic"
+    },
+    {
+      "id": "organic52:sea-breeze",
+      "name": "Sea Breeze",
+      "category": "nature",
+      "summary": "Cool marine air drifting inland.",
+      "iconFamily": "organic"
+    },
+    {
+      "id": "organic52:thermal-plume",
+      "name": "Thermal Plume",
+      "category": "nature",
+      "summary": "A column of warm vapor rising into cooler air.",
+      "iconFamily": "organic"
+    },
+    {
+      "id": "organic52:anvil-cloud",
+      "name": "Anvil Cloud",
+      "category": "nature",
+      "summary": "A towering storm cloud spreading into an anvil crown.",
+      "iconFamily": "organic"
+    },
+    {
+      "id": "organic52:snow-cornice",
+      "name": "Snow Cornice",
+      "category": "nature",
+      "summary": "An overhanging shelf sculpted by mountain winds.",
+      "iconFamily": "organic"
+    },
+    {
+      "id": "organic52:heat-shimmer",
+      "name": "Heat Shimmer",
+      "category": "nature",
+      "summary": "Hot air bending the view into a mirage.",
+      "iconFamily": "organic"
+    },
+    {
+      "id": "organic52:ice-floe",
+      "name": "Ice Floe",
+      "category": "nature",
+      "summary": "A drifting raft of frozen sea water.",
+      "iconFamily": "organic"
+    },
+    {
+      "id": "organic52:tidal-stream",
+      "name": "Tidal Stream",
+      "category": "nature",
+      "summary": "A swift flow shaped by the pull of the tide.",
+      "iconFamily": "organic"
+    },
+    {
+      "id": "organic52:windbreak",
+      "name": "Windbreak",
+      "category": "nature",
+      "summary": "A line of trees giving shelter from the wind.",
+      "iconFamily": "organic"
+    },
+    {
+      "id": "organic52:dewdrop",
+      "name": "Dewdrop",
+      "category": "nature",
+      "summary": "A perfect little lens resting on a leaf.",
+      "iconFamily": "organic"
+    },
+    {
+      "id": "organic52:fog-bank",
+      "name": "Fog Bank",
+      "category": "nature",
+      "summary": "A low moving wall of coastal mist.",
+      "iconFamily": "organic"
+    },
+    {
+      "id": "organic52:rock-pool-nursery",
+      "name": "Rock Pool Nursery",
+      "category": "nature",
+      "summary": "A tiny sheltered home for young sea creatures.",
+      "iconFamily": "organic"
+    },
+    {
+      "id": "organic52:coral-garden",
+      "name": "Coral Garden",
+      "category": "nature",
+      "summary": "An underwater patchwork of living branches.",
+      "iconFamily": "organic"
+    },
+    {
+      "id": "organic52:kelp-nursery",
+      "name": "Kelp Nursery",
+      "category": "nature",
+      "summary": "A young kelp forest swaying with the tide.",
+      "iconFamily": "organic"
+    },
+    {
+      "id": "organic52:oyster-bed",
+      "name": "Oyster Bed",
+      "category": "nature",
+      "summary": "Shellfish clustered on a sandy seabed.",
+      "iconFamily": "organic"
+    },
+    {
+      "id": "organic52:seagrass-bed",
+      "name": "Seagrass Bed",
+      "category": "nature",
+      "summary": "An underwater meadow that shelters sea life.",
+      "iconFamily": "organic"
+    },
+    {
+      "id": "organic52:reef-fish",
+      "name": "Reef Fish",
+      "category": "nature",
+      "summary": "A colorful resident of the coral reef.",
+      "iconFamily": "organic"
+    },
+    {
+      "id": "organic52:root-mat",
+      "name": "Root Mat",
+      "category": "nature",
+      "summary": "Roots and moss holding the forest floor together.",
+      "iconFamily": "organic"
+    },
+    {
+      "id": "organic52:fungal-network",
+      "name": "Fungal Network",
+      "category": "nature",
+      "summary": "An underground web linking roots and fungi.",
+      "iconFamily": "organic"
+    },
+    {
+      "id": "organic52:leaf-mold",
+      "name": "Leaf Mold",
+      "category": "nature",
+      "summary": "Woodland leaves returning their nutrients to the soil.",
+      "iconFamily": "organic"
+    },
+    {
+      "id": "organic52:woodland-spring",
+      "name": "Woodland Spring",
+      "category": "nature",
+      "summary": "Fresh water bubbling out beneath the trees.",
+      "iconFamily": "organic"
+    },
+    {
+      "id": "organic52:bread-basket",
+      "name": "Bread Basket",
+      "category": "culture",
+      "summary": "Freshly baked loaves, ready to share.",
+      "iconFamily": "organic"
+    },
+    {
+      "id": "organic52:street-bakery",
+      "name": "Street Bakery",
+      "category": "culture",
+      "summary": "The warmest corner on a busy town street.",
+      "iconFamily": "organic"
+    },
+    {
+      "id": "organic52:market-square",
+      "name": "Market Square",
+      "category": "culture",
+      "summary": "A lively meeting place surrounded by stalls.",
+      "iconFamily": "organic"
+    },
+    {
+      "id": "organic52:picnic-lunch",
+      "name": "Picnic Lunch",
+      "category": "culture",
+      "summary": "A portable meal with a view.",
+      "iconFamily": "organic"
+    },
+    {
+      "id": "organic52:tea-ceremony",
+      "name": "Tea Ceremony",
+      "category": "culture",
+      "summary": "A quiet tradition brewed one cup at a time.",
+      "iconFamily": "organic"
+    },
+    {
+      "id": "organic52:recipe-card",
+      "name": "Recipe Card",
+      "category": "culture",
+      "summary": "A favorite meal saved in a few handwritten lines.",
+      "iconFamily": "organic"
+    },
+    {
+      "id": "organic52:food-stall",
+      "name": "Food Stall",
+      "category": "culture",
+      "summary": "Something delicious is always cooking behind the counter.",
+      "iconFamily": "organic"
+    },
+    {
+      "id": "organic52:craft-fair",
+      "name": "Craft Fair",
+      "category": "culture",
+      "summary": "A neighborhood showcase of handmade treasures.",
+      "iconFamily": "organic"
+    },
+    {
+      "id": "organic52:photo-exhibition",
+      "name": "Photo Exhibition",
+      "category": "culture",
+      "summary": "A gallery of moments worth remembering.",
+      "iconFamily": "organic"
+    },
+    {
+      "id": "organic52:sculpture-garden",
+      "name": "Sculpture Garden",
+      "category": "culture",
+      "summary": "An outdoor gallery where art meets greenery.",
+      "iconFamily": "organic"
+    },
+    {
+      "id": "organic52:community-kitchen",
+      "name": "Community Kitchen",
+      "category": "culture",
+      "summary": "A place where everyone brings something to the table.",
+      "iconFamily": "organic"
+    },
+    {
+      "id": "organic52:herb-shop",
+      "name": "Herb Shop",
+      "category": "culture",
+      "summary": "Shelves of fragrant leaves, teas, and garden wisdom.",
+      "iconFamily": "organic"
+    },
+    {
+      "id": "organic52:story-circle",
+      "name": "Story Circle",
+      "category": "culture",
+      "summary": "Good stories become better when shared.",
+      "iconFamily": "organic"
+    },
+    {
+      "id": "organic52:village-feast",
+      "name": "Village Feast",
+      "category": "culture",
+      "summary": "An entire village gathering around a long table.",
+      "iconFamily": "organic"
+    },
+    {
+      "id": "organic52:seedling-pot",
+      "name": "Seedling Pot",
+      "category": "culture",
+      "summary": "A young plant finding its first proper home.",
+      "iconFamily": "organic"
+    },
+    {
+      "id": "organic52:botanical-sketch",
+      "name": "Botanical Sketch",
+      "category": "culture",
+      "summary": "A plant captured with ink and careful observation.",
+      "iconFamily": "organic"
+    },
+    {
+      "id": "organic52:terrarium-display",
+      "name": "Terrarium Display",
+      "category": "culture",
+      "summary": "A miniature ecosystem ready for an exhibition.",
+      "iconFamily": "organic"
+    },
+    {
+      "id": "organic52:orchard-basket",
+      "name": "Orchard Basket",
+      "category": "culture",
+      "summary": "A basket brimming with freshly gathered fruit.",
+      "iconFamily": "organic"
+    },
+    {
+      "id": "organic52:floral-wreath",
+      "name": "Floral Wreath",
+      "category": "culture",
+      "summary": "Flowers and greenery woven into a circle.",
+      "iconFamily": "organic"
+    },
+    {
+      "id": "organic52:botanical-walk",
+      "name": "Botanical Walk",
+      "category": "culture",
+      "summary": "A stroll full of leaves, flowers, and small discoveries.",
+      "iconFamily": "organic"
+    },
+    {
+      "id": "organic52:nature-journal",
+      "name": "Nature Journal",
+      "category": "culture",
+      "summary": "Field notes for a curious naturalist.",
+      "iconFamily": "organic"
+    },
+    {
+      "id": "organic52:herbal-infusion",
+      "name": "Herbal Infusion",
+      "category": "culture",
+      "summary": "A gentle brew made from aromatic leaves.",
+      "iconFamily": "organic"
+    }
+  ],
+  "recipes": [
+    [
+      "legacy:17",
+      "organic38:drought",
+      "organic52:virga"
+    ],
+    [
+      "legacy:7",
+      "organic38:drought",
+      "organic52:virga"
+    ],
+    [
+      "organic41:fog",
+      "legacy:35",
+      "organic52:rime-ice"
+    ],
+    [
+      "legacy:35",
+      "organic41:humidity",
+      "organic52:rime-ice"
+    ],
+    [
+      "organic38:hail",
+      "legacy:36",
+      "organic52:graupel"
+    ],
+    [
+      "organic38:hail",
+      "legacy:35",
+      "organic52:graupel"
+    ],
+    [
+      "organic38:dew",
+      "legacy:36",
+      "organic52:hoarfrost"
+    ],
+    [
+      "organic38:frost",
+      "organic46:cold-front",
+      "organic52:hoarfrost"
+    ],
+    [
+      "organic42:prism",
+      "legacy:65",
+      "organic52:parhelion"
+    ],
+    [
+      "organic46:ice-halo",
+      "legacy:65",
+      "organic52:parhelion"
+    ],
+    [
+      "legacy:38",
+      "legacy:17",
+      "organic52:rain-shadow"
+    ],
+    [
+      "organic38:drought",
+      "legacy:38",
+      "organic52:rain-shadow"
+    ],
+    [
+      "legacy:10",
+      "organic46:jet-stream",
+      "organic52:sea-breeze"
+    ],
+    [
+      "organic42:lagoon",
+      "legacy:12",
+      "organic52:sea-breeze"
+    ],
+    [
+      "organic38:geyser",
+      "legacy:17",
+      "organic52:thermal-plume"
+    ],
+    [
+      "organic38:hot-spring",
+      "legacy:3",
+      "organic52:thermal-plume"
+    ],
+    [
+      "legacy:17",
+      "organic41:heatwave",
+      "organic52:anvil-cloud"
+    ],
+    [
+      "legacy:17",
+      "organic41:hurricane",
+      "organic52:anvil-cloud"
+    ],
+    [
+      "organic41:blizzard",
+      "legacy:14",
+      "organic52:snow-cornice"
+    ],
+    [
+      "organic41:blizzard",
+      "legacy:38",
+      "organic52:snow-cornice"
+    ],
+    [
+      "organic38:mirage",
+      "legacy:141",
+      "organic52:heat-shimmer"
+    ],
+    [
+      "organic41:heatwave",
+      "legacy:65",
+      "organic52:heat-shimmer"
+    ],
+    [
+      "organic38:iceberg",
+      "organic38:wave",
+      "organic52:ice-floe"
+    ],
+    [
+      "legacy:35",
+      "organic38:current",
+      "organic52:ice-floe"
+    ],
+    [
+      "organic34:tide",
+      "organic42:lagoon",
+      "organic52:tidal-stream"
+    ],
+    [
+      "organic34:tide",
+      "organic38:delta",
+      "organic52:tidal-stream"
+    ],
+    [
+      "legacy:19",
+      "legacy:12",
+      "organic52:windbreak"
+    ],
+    [
+      "legacy:20",
+      "organic41:storm",
+      "organic52:windbreak"
+    ],
+    [
+      "organic38:dew",
+      "organic34:flower",
+      "organic52:dewdrop"
+    ],
+    [
+      "organic38:dew",
+      "organic46:leaf-litter",
+      "organic52:dewdrop"
+    ],
+    [
+      "organic41:fog",
+      "legacy:39",
+      "organic52:fog-bank"
+    ],
+    [
+      "organic41:fog",
+      "organic42:lagoon",
+      "organic52:fog-bank"
+    ],
+    [
+      "organic38:tide-pool",
+      "organic38:crab",
+      "organic52:rock-pool-nursery"
+    ],
+    [
+      "organic38:tide-pool",
+      "organic38:seaweed",
+      "organic52:rock-pool-nursery"
+    ],
+    [
+      "organic42:coral",
+      "organic42:reef",
+      "organic52:coral-garden"
+    ],
+    [
+      "organic34:coral-reef",
+      "legacy:141",
+      "organic52:coral-garden"
+    ],
+    [
+      "organic42:kelp",
+      "legacy:10",
+      "organic52:kelp-nursery"
+    ],
+    [
+      "organic42:kelp",
+      "organic37:algae",
+      "organic52:kelp-nursery"
+    ],
+    [
+      "organic37:oyster",
+      "organic42:sediment",
+      "organic52:oyster-bed"
+    ],
+    [
+      "organic37:oyster",
+      "organic37:seashell",
+      "organic52:oyster-bed"
+    ],
+    [
+      "organic42:kelp",
+      "organic42:lagoon",
+      "organic52:seagrass-bed"
+    ],
+    [
+      "organic38:seaweed",
+      "organic42:lagoon",
+      "organic52:seagrass-bed"
+    ],
+    [
+      "legacy:27",
+      "organic38:sea-anemone",
+      "organic52:reef-fish"
+    ],
+    [
+      "legacy:27",
+      "organic38:seaweed",
+      "organic52:reef-fish"
+    ],
+    [
+      "legacy:19",
+      "organic34:mycelium",
+      "organic52:root-mat"
+    ],
+    [
+      "organic38:moss",
+      "organic46:forest-floor",
+      "organic52:root-mat"
+    ],
+    [
+      "organic34:mycelium",
+      "organic46:forest-floor",
+      "organic52:fungal-network"
+    ],
+    [
+      "organic34:mycelium",
+      "organic38:moss",
+      "organic52:fungal-network"
+    ],
+    [
+      "organic46:leaf-litter",
+      "legacy:0",
+      "organic52:leaf-mold"
+    ],
+    [
+      "organic34:compost",
+      "organic46:forest-floor",
+      "organic52:leaf-mold"
+    ],
+    [
+      "organic46:forest-floor",
+      "legacy:0",
+      "organic52:woodland-spring"
+    ],
+    [
+      "legacy:39",
+      "organic40:canopy",
+      "organic52:woodland-spring"
+    ],
+    [
+      "organic37:bakery",
+      "legacy:61",
+      "organic52:bread-basket"
+    ],
+    [
+      "organic37:bakery",
+      "organic47:market-stall",
+      "organic52:bread-basket"
+    ],
+    [
+      "organic37:bakery",
+      "legacy:46",
+      "organic52:street-bakery"
+    ],
+    [
+      "organic37:bakery",
+      "organic46:street-market",
+      "organic52:street-bakery"
+    ],
+    [
+      "legacy:61",
+      "organic41:plaza",
+      "organic52:market-square"
+    ],
+    [
+      "organic46:town-square",
+      "legacy:60",
+      "organic52:market-square"
+    ],
+    [
+      "organic38:sandwich",
+      "organic37:salad",
+      "organic52:picnic-lunch"
+    ],
+    [
+      "organic38:sandwich",
+      "organic47:fruit-sorbet",
+      "organic52:picnic-lunch"
+    ],
+    [
+      "organic37:tea",
+      "legacy:48",
+      "organic52:tea-ceremony"
+    ],
+    [
+      "organic37:tea",
+      "legacy:64",
+      "organic52:tea-ceremony"
+    ],
+    [
+      "organic37:recipe-book",
+      "legacy:50",
+      "organic52:recipe-card"
+    ],
+    [
+      "organic37:recipe-book",
+      "legacy:51",
+      "organic52:recipe-card"
+    ],
+    [
+      "organic47:market-stall",
+      "organic37:chef",
+      "organic52:food-stall"
+    ],
+    [
+      "legacy:60",
+      "organic37:pastry",
+      "organic52:food-stall"
+    ],
+    [
+      "organic40:workshop",
+      "legacy:61",
+      "organic52:craft-fair"
+    ],
+    [
+      "organic40:pottery",
+      "organic41:plaza",
+      "organic52:craft-fair"
+    ],
+    [
+      "organic42:photograph",
+      "organic41:museum",
+      "organic52:photo-exhibition"
+    ],
+    [
+      "organic47:photo-album",
+      "organic41:museum",
+      "organic52:photo-exhibition"
+    ],
+    [
+      "organic41:monument",
+      "organic38:bonsai",
+      "organic52:sculpture-garden"
+    ],
+    [
+      "organic40:pottery",
+      "organic38:terrarium",
+      "organic52:sculpture-garden"
+    ],
+    [
+      "organic37:chef",
+      "legacy:46",
+      "organic52:community-kitchen"
+    ],
+    [
+      "organic37:soup",
+      "legacy:48",
+      "organic52:community-kitchen"
+    ],
+    [
+      "legacy:60",
+      "organic37:tea",
+      "organic52:herb-shop"
+    ],
+    [
+      "legacy:60",
+      "organic38:bonsai",
+      "organic52:herb-shop"
+    ],
+    [
+      "legacy:50",
+      "legacy:46",
+      "organic52:story-circle"
+    ],
+    [
+      "legacy:51",
+      "legacy:46",
+      "organic52:story-circle"
+    ],
+    [
+      "organic37:harvest",
+      "legacy:48",
+      "organic52:village-feast"
+    ],
+    [
+      "organic37:chef",
+      "legacy:61",
+      "organic52:village-feast"
+    ],
+    [
+      "organic38:sapling",
+      "organic41:clay",
+      "organic52:seedling-pot"
+    ],
+    [
+      "organic38:bonsai",
+      "organic40:pottery",
+      "organic52:seedling-pot"
+    ],
+    [
+      "legacy:15",
+      "organic38:ink",
+      "organic52:botanical-sketch"
+    ],
+    [
+      "organic42:portrait",
+      "organic38:bonsai",
+      "organic52:botanical-sketch"
+    ],
+    [
+      "organic38:terrarium",
+      "organic38:moss",
+      "organic52:terrarium-display"
+    ],
+    [
+      "organic38:terrarium",
+      "organic41:museum",
+      "organic52:terrarium-display"
+    ],
+    [
+      "organic34:orchard",
+      "organic34:seed",
+      "organic52:orchard-basket"
+    ],
+    [
+      "organic37:harvest",
+      "legacy:61",
+      "organic52:orchard-basket"
+    ],
+    [
+      "organic34:flower",
+      "organic38:vine",
+      "organic52:floral-wreath"
+    ],
+    [
+      "organic38:bonsai",
+      "organic41:museum",
+      "organic52:floral-wreath"
+    ],
+    [
+      "legacy:28",
+      "legacy:20",
+      "organic52:botanical-walk"
+    ],
+    [
+      "organic38:bonsai",
+      "organic41:plaza",
+      "organic52:botanical-walk"
+    ],
+    [
+      "organic38:ink",
+      "legacy:20",
+      "organic52:nature-journal"
+    ],
+    [
+      "organic47:photo-album",
+      "legacy:51",
+      "organic52:nature-journal"
+    ],
+    [
+      "organic38:herb",
+      "organic37:tea",
+      "organic52:herbal-infusion"
+    ],
+    [
+      "organic37:tea",
+      "organic37:recipe-book",
+      "organic52:herbal-infusion"
+    ]
+  ],
+  "editorial": [
+    {
+      "name": "Virga",
+      "id": "organic52:virga",
+      "family": "nature",
+      "recipes": [
+        [
+          "nature",
+          "Cloud",
+          "Drought",
+          "legacy:17|organic38:drought"
+        ],
+        [
+          "nature",
+          "Rain",
+          "Drought",
+          "legacy:7|organic38:drought"
+        ]
+      ]
+    },
+    {
+      "name": "Rime Ice",
+      "id": "organic52:rime-ice",
+      "family": "nature",
+      "recipes": [
+        [
+          "nature",
+          "Fog",
+          "Ice",
+          "legacy:35|organic41:fog"
+        ],
+        [
+          "nature",
+          "Ice",
+          "Humidity",
+          "legacy:35|organic41:humidity"
+        ]
+      ]
+    },
+    {
+      "name": "Graupel",
+      "id": "organic52:graupel",
+      "family": "nature",
+      "recipes": [
+        [
+          "nature",
+          "Hail",
+          "Snow",
+          "legacy:36|organic38:hail"
+        ],
+        [
+          "nature",
+          "Hail",
+          "Ice",
+          "legacy:35|organic38:hail"
+        ]
+      ]
+    },
+    {
+      "name": "Hoarfrost",
+      "id": "organic52:hoarfrost",
+      "family": "nature",
+      "recipes": [
+        [
+          "nature",
+          "Dew",
+          "Snow",
+          "legacy:36|organic38:dew"
+        ],
+        [
+          "nature",
+          "Frost",
+          "Cold Front",
+          "organic38:frost|organic46:cold-front"
+        ]
+      ]
+    },
+    {
+      "name": "Parhelion",
+      "id": "organic52:parhelion",
+      "family": "nature",
+      "recipes": [
+        [
+          "nature",
+          "Prism",
+          "Sky",
+          "legacy:65|organic42:prism"
+        ],
+        [
+          "nature",
+          "Ice Halo",
+          "Sky",
+          "legacy:65|organic46:ice-halo"
+        ]
+      ]
+    },
+    {
+      "name": "Rain Shadow",
+      "id": "organic52:rain-shadow",
+      "family": "nature",
+      "recipes": [
+        [
+          "nature",
+          "Mountain",
+          "Cloud",
+          "legacy:17|legacy:38"
+        ],
+        [
+          "nature",
+          "Drought",
+          "Mountain",
+          "legacy:38|organic38:drought"
+        ]
+      ]
+    },
+    {
+      "name": "Sea Breeze",
+      "id": "organic52:sea-breeze",
+      "family": "nature",
+      "recipes": [
+        [
+          "nature",
+          "Sea",
+          "Jet Stream",
+          "legacy:10|organic46:jet-stream"
+        ],
+        [
+          "nature",
+          "Lagoon",
+          "Wind",
+          "legacy:12|organic42:lagoon"
+        ]
+      ]
+    },
+    {
+      "name": "Thermal Plume",
+      "id": "organic52:thermal-plume",
+      "family": "nature",
+      "recipes": [
+        [
+          "nature",
+          "Geyser",
+          "Cloud",
+          "legacy:17|organic38:geyser"
+        ],
+        [
+          "nature",
+          "Hot Spring",
+          "Air",
+          "legacy:3|organic38:hot-spring"
+        ]
+      ]
+    },
+    {
+      "name": "Anvil Cloud",
+      "id": "organic52:anvil-cloud",
+      "family": "nature",
+      "recipes": [
+        [
+          "nature",
+          "Cloud",
+          "Heatwave",
+          "legacy:17|organic41:heatwave"
+        ],
+        [
+          "nature",
+          "Cloud",
+          "Hurricane",
+          "legacy:17|organic41:hurricane"
+        ]
+      ]
+    },
+    {
+      "name": "Snow Cornice",
+      "id": "organic52:snow-cornice",
+      "family": "nature",
+      "recipes": [
+        [
+          "nature",
+          "Blizzard",
+          "Stone",
+          "legacy:14|organic41:blizzard"
+        ],
+        [
+          "nature",
+          "Blizzard",
+          "Mountain",
+          "legacy:38|organic41:blizzard"
+        ]
+      ]
+    },
+    {
+      "name": "Heat Shimmer",
+      "id": "organic52:heat-shimmer",
+      "family": "nature",
+      "recipes": [
+        [
+          "nature",
+          "Mirage",
+          "Sun",
+          "legacy:141|organic38:mirage"
+        ],
+        [
+          "nature",
+          "Heatwave",
+          "Sky",
+          "legacy:65|organic41:heatwave"
+        ]
+      ]
+    },
+    {
+      "name": "Ice Floe",
+      "id": "organic52:ice-floe",
+      "family": "nature",
+      "recipes": [
+        [
+          "nature",
+          "Iceberg",
+          "Wave",
+          "organic38:iceberg|organic38:wave"
+        ],
+        [
+          "nature",
+          "Ice",
+          "Current",
+          "legacy:35|organic38:current"
+        ]
+      ]
+    },
+    {
+      "name": "Tidal Stream",
+      "id": "organic52:tidal-stream",
+      "family": "nature",
+      "recipes": [
+        [
+          "nature",
+          "Tide",
+          "Lagoon",
+          "organic34:tide|organic42:lagoon"
+        ],
+        [
+          "nature",
+          "Tide",
+          "Delta",
+          "organic34:tide|organic38:delta"
+        ]
+      ]
+    },
+    {
+      "name": "Windbreak",
+      "id": "organic52:windbreak",
+      "family": "nature",
+      "recipes": [
+        [
+          "nature",
+          "Tree",
+          "Wind",
+          "legacy:12|legacy:19"
+        ],
+        [
+          "nature",
+          "Forest",
+          "Storm",
+          "legacy:20|organic41:storm"
+        ]
+      ]
+    },
+    {
+      "name": "Dewdrop",
+      "id": "organic52:dewdrop",
+      "family": "nature",
+      "recipes": [
+        [
+          "nature",
+          "Dew",
+          "Flower",
+          "organic34:flower|organic38:dew"
+        ],
+        [
+          "nature",
+          "Dew",
+          "Leaf Litter",
+          "organic38:dew|organic46:leaf-litter"
+        ]
+      ]
+    },
+    {
+      "name": "Fog Bank",
+      "id": "organic52:fog-bank",
+      "family": "nature",
+      "recipes": [
+        [
+          "nature",
+          "Fog",
+          "River",
+          "legacy:39|organic41:fog"
+        ],
+        [
+          "nature",
+          "Fog",
+          "Lagoon",
+          "organic41:fog|organic42:lagoon"
+        ]
+      ]
+    },
+    {
+      "name": "Rock Pool Nursery",
+      "id": "organic52:rock-pool-nursery",
+      "family": "nature",
+      "recipes": [
+        [
+          "nature",
+          "Tide Pool",
+          "Crab",
+          "organic38:crab|organic38:tide-pool"
+        ],
+        [
+          "nature",
+          "Tide Pool",
+          "Seaweed",
+          "organic38:seaweed|organic38:tide-pool"
+        ]
+      ]
+    },
+    {
+      "name": "Coral Garden",
+      "id": "organic52:coral-garden",
+      "family": "nature",
+      "recipes": [
+        [
+          "nature",
+          "Coral",
+          "Reef",
+          "organic42:coral|organic42:reef"
+        ],
+        [
+          "nature",
+          "Coral Reef",
+          "Sun",
+          "legacy:141|organic34:coral-reef"
+        ]
+      ]
+    },
+    {
+      "name": "Kelp Nursery",
+      "id": "organic52:kelp-nursery",
+      "family": "nature",
+      "recipes": [
+        [
+          "nature",
+          "Kelp",
+          "Sea",
+          "legacy:10|organic42:kelp"
+        ],
+        [
+          "nature",
+          "Kelp",
+          "Algae",
+          "organic37:algae|organic42:kelp"
+        ]
+      ]
+    },
+    {
+      "name": "Oyster Bed",
+      "id": "organic52:oyster-bed",
+      "family": "nature",
+      "recipes": [
+        [
+          "nature",
+          "Oyster",
+          "Sediment",
+          "organic37:oyster|organic42:sediment"
+        ],
+        [
+          "nature",
+          "Oyster",
+          "Seashell",
+          "organic37:oyster|organic37:seashell"
+        ]
+      ]
+    },
+    {
+      "name": "Seagrass Bed",
+      "id": "organic52:seagrass-bed",
+      "family": "nature",
+      "recipes": [
+        [
+          "nature",
+          "Kelp",
+          "Lagoon",
+          "organic42:kelp|organic42:lagoon"
+        ],
+        [
+          "nature",
+          "Seaweed",
+          "Lagoon",
+          "organic38:seaweed|organic42:lagoon"
+        ]
+      ]
+    },
+    {
+      "name": "Reef Fish",
+      "id": "organic52:reef-fish",
+      "family": "nature",
+      "recipes": [
+        [
+          "nature",
+          "Fish",
+          "Sea Anemone",
+          "legacy:27|organic38:sea-anemone"
+        ],
+        [
+          "nature",
+          "Fish",
+          "Seaweed",
+          "legacy:27|organic38:seaweed"
+        ]
+      ]
+    },
+    {
+      "name": "Root Mat",
+      "id": "organic52:root-mat",
+      "family": "nature",
+      "recipes": [
+        [
+          "nature",
+          "Tree",
+          "Mycelium",
+          "legacy:19|organic34:mycelium"
+        ],
+        [
+          "nature",
+          "Moss",
+          "Forest Floor",
+          "organic38:moss|organic46:forest-floor"
+        ]
+      ]
+    },
+    {
+      "name": "Fungal Network",
+      "id": "organic52:fungal-network",
+      "family": "nature",
+      "recipes": [
+        [
+          "nature",
+          "Mycelium",
+          "Forest Floor",
+          "organic34:mycelium|organic46:forest-floor"
+        ],
+        [
+          "nature",
+          "Mycelium",
+          "Moss",
+          "organic34:mycelium|organic38:moss"
+        ]
+      ]
+    },
+    {
+      "name": "Leaf Mold",
+      "id": "organic52:leaf-mold",
+      "family": "nature",
+      "recipes": [
+        [
+          "nature",
+          "Leaf Litter",
+          "Water",
+          "legacy:0|organic46:leaf-litter"
+        ],
+        [
+          "nature",
+          "Compost",
+          "Forest Floor",
+          "organic34:compost|organic46:forest-floor"
+        ]
+      ]
+    },
+    {
+      "name": "Woodland Spring",
+      "id": "organic52:woodland-spring",
+      "family": "nature",
+      "recipes": [
+        [
+          "nature",
+          "Forest Floor",
+          "Water",
+          "legacy:0|organic46:forest-floor"
+        ],
+        [
+          "nature",
+          "River",
+          "Canopy",
+          "legacy:39|organic40:canopy"
+        ]
+      ]
+    },
+    {
+      "name": "Bread Basket",
+      "id": "organic52:bread-basket",
+      "family": "people",
+      "recipes": [
+        [
+          "people",
+          "Bakery",
+          "Market",
+          "legacy:61|organic37:bakery"
+        ],
+        [
+          "people",
+          "Bakery",
+          "Market Stall",
+          "organic37:bakery|organic47:market-stall"
+        ]
+      ]
+    },
+    {
+      "name": "Street Bakery",
+      "id": "organic52:street-bakery",
+      "family": "people",
+      "recipes": [
+        [
+          "people",
+          "Bakery",
+          "Village",
+          "legacy:46|organic37:bakery"
+        ],
+        [
+          "people",
+          "Bakery",
+          "Street Market",
+          "organic37:bakery|organic46:street-market"
+        ]
+      ]
+    },
+    {
+      "name": "Market Square",
+      "id": "organic52:market-square",
+      "family": "people",
+      "recipes": [
+        [
+          "people",
+          "Market",
+          "Plaza",
+          "legacy:61|organic41:plaza"
+        ],
+        [
+          "people",
+          "Town Square",
+          "Shop",
+          "legacy:60|organic46:town-square"
+        ]
+      ]
+    },
+    {
+      "name": "Picnic Lunch",
+      "id": "organic52:picnic-lunch",
+      "family": "people",
+      "recipes": [
+        [
+          "people",
+          "Sandwich",
+          "Salad",
+          "organic37:salad|organic38:sandwich"
+        ],
+        [
+          "people",
+          "Sandwich",
+          "Fruit Sorbet",
+          "organic38:sandwich|organic47:fruit-sorbet"
+        ]
+      ]
+    },
+    {
+      "name": "Tea Ceremony",
+      "id": "organic52:tea-ceremony",
+      "family": "people",
+      "recipes": [
+        [
+          "people",
+          "Tea",
+          "Society",
+          "legacy:48|organic37:tea"
+        ],
+        [
+          "people",
+          "Tea",
+          "History",
+          "legacy:64|organic37:tea"
+        ]
+      ]
+    },
+    {
+      "name": "Recipe Card",
+      "id": "organic52:recipe-card",
+      "family": "people",
+      "recipes": [
+        [
+          "people",
+          "Recipe Book",
+          "Writing",
+          "legacy:50|organic37:recipe-book"
+        ],
+        [
+          "people",
+          "Recipe Book",
+          "Book",
+          "legacy:51|organic37:recipe-book"
+        ]
+      ]
+    },
+    {
+      "name": "Food Stall",
+      "id": "organic52:food-stall",
+      "family": "people",
+      "recipes": [
+        [
+          "people",
+          "Market Stall",
+          "Chef",
+          "organic37:chef|organic47:market-stall"
+        ],
+        [
+          "people",
+          "Shop",
+          "Pastry",
+          "legacy:60|organic37:pastry"
+        ]
+      ]
+    },
+    {
+      "name": "Craft Fair",
+      "id": "organic52:craft-fair",
+      "family": "people",
+      "recipes": [
+        [
+          "people",
+          "Workshop",
+          "Market",
+          "legacy:61|organic40:workshop"
+        ],
+        [
+          "people",
+          "Pottery",
+          "Plaza",
+          "organic40:pottery|organic41:plaza"
+        ]
+      ]
+    },
+    {
+      "name": "Photo Exhibition",
+      "id": "organic52:photo-exhibition",
+      "family": "people",
+      "recipes": [
+        [
+          "people",
+          "Photograph",
+          "Museum",
+          "organic41:museum|organic42:photograph"
+        ],
+        [
+          "people",
+          "Photo Album",
+          "Museum",
+          "organic41:museum|organic47:photo-album"
+        ]
+      ]
+    },
+    {
+      "name": "Sculpture Garden",
+      "id": "organic52:sculpture-garden",
+      "family": "people",
+      "recipes": [
+        [
+          "people",
+          "Monument",
+          "Bonsai",
+          "organic38:bonsai|organic41:monument"
+        ],
+        [
+          "people",
+          "Pottery",
+          "Terrarium",
+          "organic38:terrarium|organic40:pottery"
+        ]
+      ]
+    },
+    {
+      "name": "Community Kitchen",
+      "id": "organic52:community-kitchen",
+      "family": "people",
+      "recipes": [
+        [
+          "people",
+          "Chef",
+          "Village",
+          "legacy:46|organic37:chef"
+        ],
+        [
+          "people",
+          "Soup",
+          "Society",
+          "legacy:48|organic37:soup"
+        ]
+      ]
+    },
+    {
+      "name": "Herb Shop",
+      "id": "organic52:herb-shop",
+      "family": "people",
+      "recipes": [
+        [
+          "people",
+          "Shop",
+          "Tea",
+          "legacy:60|organic37:tea"
+        ],
+        [
+          "people",
+          "Shop",
+          "Bonsai",
+          "legacy:60|organic38:bonsai"
+        ]
+      ]
+    },
+    {
+      "name": "Story Circle",
+      "id": "organic52:story-circle",
+      "family": "people",
+      "recipes": [
+        [
+          "people",
+          "Writing",
+          "Village",
+          "legacy:46|legacy:50"
+        ],
+        [
+          "people",
+          "Book",
+          "Village",
+          "legacy:46|legacy:51"
+        ]
+      ]
+    },
+    {
+      "name": "Village Feast",
+      "id": "organic52:village-feast",
+      "family": "people",
+      "recipes": [
+        [
+          "people",
+          "Harvest",
+          "Society",
+          "legacy:48|organic37:harvest"
+        ],
+        [
+          "people",
+          "Chef",
+          "Market",
+          "legacy:61|organic37:chef"
+        ]
+      ]
+    },
+    {
+      "name": "Seedling Pot",
+      "id": "organic52:seedling-pot",
+      "family": "shared",
+      "recipes": [
+        [
+          "nature",
+          "Sapling",
+          "Clay",
+          "organic38:sapling|organic41:clay"
+        ],
+        [
+          "people",
+          "Bonsai",
+          "Pottery",
+          "organic38:bonsai|organic40:pottery"
+        ]
+      ]
+    },
+    {
+      "name": "Botanical Sketch",
+      "id": "organic52:botanical-sketch",
+      "family": "shared",
+      "recipes": [
+        [
+          "nature",
+          "Plant",
+          "Ink",
+          "legacy:15|organic38:ink"
+        ],
+        [
+          "people",
+          "Portrait",
+          "Bonsai",
+          "organic38:bonsai|organic42:portrait"
+        ]
+      ]
+    },
+    {
+      "name": "Terrarium Display",
+      "id": "organic52:terrarium-display",
+      "family": "shared",
+      "recipes": [
+        [
+          "nature",
+          "Terrarium",
+          "Moss",
+          "organic38:moss|organic38:terrarium"
+        ],
+        [
+          "people",
+          "Terrarium",
+          "Museum",
+          "organic38:terrarium|organic41:museum"
+        ]
+      ]
+    },
+    {
+      "name": "Orchard Basket",
+      "id": "organic52:orchard-basket",
+      "family": "shared",
+      "recipes": [
+        [
+          "nature",
+          "Orchard",
+          "Seed",
+          "organic34:orchard|organic34:seed"
+        ],
+        [
+          "people",
+          "Harvest",
+          "Market",
+          "legacy:61|organic37:harvest"
+        ]
+      ]
+    },
+    {
+      "name": "Floral Wreath",
+      "id": "organic52:floral-wreath",
+      "family": "shared",
+      "recipes": [
+        [
+          "nature",
+          "Flower",
+          "Vine",
+          "organic34:flower|organic38:vine"
+        ],
+        [
+          "people",
+          "Bonsai",
+          "Museum",
+          "organic38:bonsai|organic41:museum"
+        ]
+      ]
+    },
+    {
+      "name": "Botanical Walk",
+      "id": "organic52:botanical-walk",
+      "family": "shared",
+      "recipes": [
+        [
+          "nature",
+          "Human",
+          "Forest",
+          "legacy:20|legacy:28"
+        ],
+        [
+          "people",
+          "Bonsai",
+          "Plaza",
+          "organic38:bonsai|organic41:plaza"
+        ]
+      ]
+    },
+    {
+      "name": "Nature Journal",
+      "id": "organic52:nature-journal",
+      "family": "shared",
+      "recipes": [
+        [
+          "nature",
+          "Ink",
+          "Forest",
+          "legacy:20|organic38:ink"
+        ],
+        [
+          "people",
+          "Photo Album",
+          "Book",
+          "legacy:51|organic47:photo-album"
+        ]
+      ]
+    },
+    {
+      "name": "Herbal Infusion",
+      "id": "organic52:herbal-infusion",
+      "family": "shared",
+      "recipes": [
+        [
+          "nature",
+          "Herb",
+          "Tea",
+          "organic37:tea|organic38:herb"
+        ],
+        [
+          "people",
+          "Tea",
+          "Recipe Book",
+          "organic37:recipe-book|organic37:tea"
+        ]
+      ]
+    }
+  ],
+  "counts": {
+    "items": 48,
+    "recipes": 96,
+    "nature_only": 26,
+    "people_only": 14,
+    "shared": 8
+  }
+}

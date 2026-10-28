@@ -1,0 +1,1427 @@
+{
+  "release": "V47",
+  "priority": "new-first",
+  "new_elements": 80,
+  "new_recipes": 222,
+  "new_output_recipes": 222,
+  "editorial_routes": [
+    {
+      "name": "Sea Foam",
+      "category": "nature",
+      "routes": [
+        "Wave + Air",
+        "Wave + Wind",
+        "Tide + Air"
+      ]
+    },
+    {
+      "name": "Rip Current",
+      "category": "nature",
+      "routes": [
+        "Tide + Wave",
+        "Tide + Sea Foam",
+        "Current + Tidal Channel"
+      ]
+    },
+    {
+      "name": "Salt Spray",
+      "category": "nature",
+      "routes": [
+        "Salt + Mist",
+        "Salt + Air"
+      ]
+    },
+    {
+      "name": "Sea Stack",
+      "category": "nature",
+      "routes": [
+        "Sea + Basalt Column",
+        "Stone + Rip Current",
+        "Rock + Coastal Fog"
+      ]
+    },
+    {
+      "name": "Coastal Dune",
+      "category": "nature",
+      "routes": [
+        "Sand + Tide",
+        "Sand + Salt Spray",
+        "Sand + Coastal Fog"
+      ]
+    },
+    {
+      "name": "Tidal Channel",
+      "category": "nature",
+      "routes": [
+        "Tide + Coastal Dune",
+        "Wave + Coastal Dune",
+        "Ocean + Sediment Layer"
+      ]
+    },
+    {
+      "name": "Seagrass Meadow",
+      "category": "life",
+      "routes": [
+        "Seaweed + Sand",
+        "Kelp + Sand",
+        "Seaweed + Soil"
+      ]
+    },
+    {
+      "name": "Wave Crest",
+      "category": "nature",
+      "routes": [
+        "Wave + Light",
+        "Wave + Storm"
+      ]
+    },
+    {
+      "name": "Coastal Fog",
+      "category": "nature",
+      "routes": [
+        "Tide + Mist",
+        "Sea + Cold Front",
+        "Ocean + Cold Front"
+      ]
+    },
+    {
+      "name": "Beach Pebble",
+      "category": "material",
+      "routes": [
+        "Rock + Sand",
+        "Sea Stack + Wave",
+        "Stone + Sea Foam"
+      ]
+    },
+    {
+      "name": "Caterpillar Cocoon",
+      "category": "life",
+      "routes": [
+        "Caterpillar + Silk",
+        "Caterpillar + Nest",
+        "Moth + Silk"
+      ]
+    },
+    {
+      "name": "Butterfly Chrysalis",
+      "category": "life",
+      "routes": [
+        "Butterfly + Caterpillar",
+        "Butterfly + Time"
+      ]
+    },
+    {
+      "name": "Ant Trail",
+      "category": "life",
+      "routes": [
+        "Ant + Sand",
+        "Ant + Soil",
+        "Ant + Forest"
+      ]
+    },
+    {
+      "name": "Nectar Drop",
+      "category": "material",
+      "routes": [
+        "Nectar + Water",
+        "Nectar + Rain",
+        "Flower + Honey"
+      ]
+    },
+    {
+      "name": "Pollen Basket",
+      "category": "life",
+      "routes": [
+        "Bee + Nectar Drop",
+        "Bee Colony + Pollen",
+        "Bee + Bee Colony"
+      ]
+    },
+    {
+      "name": "Bee Colony",
+      "category": "life",
+      "routes": [
+        "Bee + Nest",
+        "Bee + Forest"
+      ]
+    },
+    {
+      "name": "Firefly Glow",
+      "category": "nature",
+      "routes": [
+        "Firefly + Light",
+        "Firefly + Night",
+        "Firefly + Energy"
+      ]
+    },
+    {
+      "name": "Leaf Vein",
+      "category": "life",
+      "routes": [
+        "Fern Frond + Water",
+        "Fern Frond + Light",
+        "Fern Frond + Rain"
+      ]
+    },
+    {
+      "name": "Bark Beetle",
+      "category": "life",
+      "routes": [
+        "Beetle + Tree",
+        "Beetle + Wood",
+        "Beetle + Forest"
+      ]
+    },
+    {
+      "name": "Moth Wing",
+      "category": "life",
+      "routes": [
+        "Moth + Wind",
+        "Moth + Air",
+        "Moth + Dust"
+      ]
+    },
+    {
+      "name": "Cave Pool",
+      "category": "nature",
+      "routes": [
+        "Cave + River",
+        "Stalagmite + Water"
+      ]
+    },
+    {
+      "name": "Flowstone",
+      "category": "material",
+      "routes": [
+        "Limestone + Water",
+        "Cave + Limestone",
+        "Stalactite + Water"
+      ]
+    },
+    {
+      "name": "Calcite Crystal",
+      "category": "material",
+      "routes": [
+        "Limestone + Crystal",
+        "Stalactite + Crystal",
+        "Stalagmite + Crystal"
+      ]
+    },
+    {
+      "name": "Volcanic Bomb",
+      "category": "material",
+      "routes": [
+        "Volcano + Explosion",
+        "Lava + Storm"
+      ]
+    },
+    {
+      "name": "Basalt Column",
+      "category": "material",
+      "routes": [
+        "Lava + Time",
+        "Lava + Cold Front",
+        "Lava + Ground Frost"
+      ]
+    },
+    {
+      "name": "Pumice Raft",
+      "category": "nature",
+      "routes": [
+        "Lava + Sea Foam",
+        "Volcanic Bomb + Sea",
+        "Volcanic Bomb + Water"
+      ]
+    },
+    {
+      "name": "River Delta",
+      "category": "nature",
+      "routes": [
+        "River + Sediment Layer",
+        "River + Coastal Dune",
+        "Sea + Sediment Layer"
+      ]
+    },
+    {
+      "name": "Oxbow Lake",
+      "category": "nature",
+      "routes": [
+        "River + Lake",
+        "River + Time"
+      ]
+    },
+    {
+      "name": "Fossil Imprint",
+      "category": "science",
+      "routes": [
+        "Fossil + Clay",
+        "Fossil + Mud",
+        "Fossil + Sand"
+      ]
+    },
+    {
+      "name": "Sediment Layer",
+      "category": "material",
+      "routes": [
+        "Sand + Time",
+        "Mud + Time"
+      ]
+    },
+    {
+      "name": "Circuit Trace",
+      "category": "technology",
+      "routes": [
+        "Circuit + Wire",
+        "Wire + Electronics",
+        "Microcontroller + Wire"
+      ]
+    },
+    {
+      "name": "Capacitor Bank",
+      "category": "technology",
+      "routes": [
+        "Microcontroller + Battery",
+        "Battery + Photodiode"
+      ]
+    },
+    {
+      "name": "Optical Switch",
+      "category": "technology",
+      "routes": [
+        "Photodiode + Circuit",
+        "Photodiode + Microcontroller",
+        "Sensor + Photodiode"
+      ]
+    },
+    {
+      "name": "LED Array",
+      "category": "technology",
+      "routes": [
+        "Circuit Trace + Light",
+        "Light + Optical Switch",
+        "Light Meter + Circuit Trace"
+      ]
+    },
+    {
+      "name": "Electric Relay",
+      "category": "technology",
+      "routes": [
+        "Motor + Circuit",
+        "Electricity + Microcontroller",
+        "Circuit + Thermostat"
+      ]
+    },
+    {
+      "name": "Solar Inverter",
+      "category": "technology",
+      "routes": [
+        "Solar Panel + Electronics",
+        "Solar Panel + Circuit",
+        "Solar Charger + Motor"
+      ]
+    },
+    {
+      "name": "Temperature Probe",
+      "category": "technology",
+      "routes": [
+        "Thermometer + Sensor",
+        "Thermostat + Sensor",
+        "Sensor + Metal"
+      ]
+    },
+    {
+      "name": "Robot Gripper",
+      "category": "technology",
+      "routes": [
+        "Robot Arm + Tongs",
+        "Robot Arm + Tool",
+        "Robot Arm + Metal"
+      ]
+    },
+    {
+      "name": "Weather Node",
+      "category": "technology",
+      "routes": [
+        "Weather Station + Microcontroller",
+        "Rain Gauge + Microcontroller",
+        "Thermostat + Weather"
+      ]
+    },
+    {
+      "name": "Electronic Compass",
+      "category": "technology",
+      "routes": [
+        "Compass + Microcontroller",
+        "Compass + Circuit",
+        "Compass + Sensor"
+      ]
+    },
+    {
+      "name": "Herb Butter",
+      "category": "culture",
+      "routes": [
+        "Butter + Herb",
+        "Butter + Plant",
+        "Butter + Spice"
+      ]
+    },
+    {
+      "name": "Garlic Bread",
+      "category": "culture",
+      "routes": [
+        "Bread + Garlic",
+        "Garlic + Butter",
+        "Bread + Herb Butter"
+      ]
+    },
+    {
+      "name": "Apple Turnover",
+      "category": "culture",
+      "routes": [
+        "Apple + Pastry",
+        "Apple + Dough",
+        "Apple + Pie"
+      ]
+    },
+    {
+      "name": "Fruit Compote",
+      "category": "culture",
+      "routes": [
+        "Fruit + Jam",
+        "Fruit + Cinnamon",
+        "Fruit + Honey Glaze"
+      ]
+    },
+    {
+      "name": "Cinnamon Roll",
+      "category": "culture",
+      "routes": [
+        "Cinnamon + Dough",
+        "Cinnamon + Bread",
+        "Cinnamon + Sugar"
+      ]
+    },
+    {
+      "name": "Honey Glaze",
+      "category": "culture",
+      "routes": [
+        "Honey + Butter",
+        "Honey + Syrup"
+      ]
+    },
+    {
+      "name": "Cheese Pastry",
+      "category": "culture",
+      "routes": [
+        "Cheese + Pastry",
+        "Cheese + Butter"
+      ]
+    },
+    {
+      "name": "Chocolate Truffle",
+      "category": "culture",
+      "routes": [
+        "Chocolate + Sugar",
+        "Chocolate + Custard",
+        "Chocolate + Honey"
+      ]
+    },
+    {
+      "name": "Fruit Sorbet",
+      "category": "culture",
+      "routes": [
+        "Fruit + Snowdrift",
+        "Fruit + Ground Frost",
+        "Apple + Snow"
+      ]
+    },
+    {
+      "name": "Toasted Seeds",
+      "category": "culture",
+      "routes": [
+        "Seed + Coal",
+        "Seed + Bread"
+      ]
+    },
+    {
+      "name": "Rain Gutter",
+      "category": "technology",
+      "routes": [
+        "Rooftop Garden + Rain",
+        "Rain Barrel + House"
+      ]
+    },
+    {
+      "name": "Tram Stop",
+      "category": "culture",
+      "routes": [
+        "Train + Town Square",
+        "Train + Street Market",
+        "Train + Village"
+      ]
+    },
+    {
+      "name": "Street Lantern",
+      "category": "technology",
+      "routes": [
+        "Light + Town Square",
+        "Light + Street Market",
+        "Lighthouse Beam + City"
+      ]
+    },
+    {
+      "name": "Pedestrian Bridge",
+      "category": "technology",
+      "routes": [
+        "Bridge + Human",
+        "Bridge + Park",
+        "Bridge + Village"
+      ]
+    },
+    {
+      "name": "Public Fountain",
+      "category": "culture",
+      "routes": [
+        "Water + Town Square",
+        "Water + Park",
+        "Water Tower + Town Square"
+      ]
+    },
+    {
+      "name": "Green Roof",
+      "category": "nature",
+      "routes": [
+        "Rooftop Garden + House",
+        "Rooftop Garden + Rain Garden"
+      ]
+    },
+    {
+      "name": "Urban Orchard",
+      "category": "life",
+      "routes": [
+        "Apple + City",
+        "Fruit + City",
+        "Tree + Town Square"
+      ]
+    },
+    {
+      "name": "Market Stall",
+      "category": "culture",
+      "routes": [
+        "Street Market + Wood",
+        "Street Market + Tool",
+        "Market + Wooden Plank"
+      ]
+    },
+    {
+      "name": "Town Clock",
+      "category": "technology",
+      "routes": [
+        "Time + Tower",
+        "Time + Town Square",
+        "Gear + Watchtower"
+      ]
+    },
+    {
+      "name": "Cobblestone Lane",
+      "category": "culture",
+      "routes": [
+        "Cobblestone + Village",
+        "Cobblestone + Street Market",
+        "Cobblestone + Town Square"
+      ]
+    },
+    {
+      "name": "Photo Negative",
+      "category": "technology",
+      "routes": [
+        "Negative + Film",
+        "Photograph + Film",
+        "Photography + Negative"
+      ]
+    },
+    {
+      "name": "Long Exposure",
+      "category": "science",
+      "routes": [
+        "Camera + Night",
+        "Exposure + Night",
+        "Light Meter + Night"
+      ]
+    },
+    {
+      "name": "Photo Album",
+      "category": "culture",
+      "routes": [
+        "Photograph + Book",
+        "Photograph + Paper",
+        "Album + Camera"
+      ]
+    },
+    {
+      "name": "Contact Sheet",
+      "category": "technology",
+      "routes": [
+        "Film + Paper",
+        "Negative + Paper",
+        "Photo Negative + Paper"
+      ]
+    },
+    {
+      "name": "Film Canister",
+      "category": "technology",
+      "routes": [
+        "Film + Metal",
+        "Film + Wood"
+      ]
+    },
+    {
+      "name": "Studio Light",
+      "category": "technology",
+      "routes": [
+        "Light Meter + Photography",
+        "Photography + LED Array",
+        "Camera + LED Array"
+      ]
+    },
+    {
+      "name": "Tripod Head",
+      "category": "technology",
+      "routes": [
+        "Tripod + Gear",
+        "Tripod + Camera",
+        "Tripod + Metal"
+      ]
+    },
+    {
+      "name": "Macro Lens",
+      "category": "technology",
+      "routes": [
+        "Lens + Insect",
+        "Lens + Flower",
+        "Camera + Insect"
+      ]
+    },
+    {
+      "name": "Star Trail",
+      "category": "science",
+      "routes": [
+        "Camera + Constellation",
+        "Long Exposure + Star"
+      ]
+    },
+    {
+      "name": "Photo Collage",
+      "category": "culture",
+      "routes": [
+        "Photograph + Album",
+        "Photo Album + Art"
+      ]
+    },
+    {
+      "name": "Planetary Ring",
+      "category": "nature",
+      "routes": [
+        "Planet + Ice",
+        "Planet + Dust",
+        "Planet + Asteroid"
+      ]
+    },
+    {
+      "name": "Cosmic Dust",
+      "category": "material",
+      "routes": [
+        "Galaxy + Dust",
+        "Nebula + Dust",
+        "Star + Dust"
+      ]
+    },
+    {
+      "name": "Solar Wind",
+      "category": "science",
+      "routes": [
+        "Sunspot + Wind",
+        "Sun + Jet Stream",
+        "Solar Flare + Air"
+      ]
+    },
+    {
+      "name": "Moonrise",
+      "category": "nature",
+      "routes": [
+        "Moon + Mountain",
+        "Moon + Coastal Fog",
+        "Moon + Star Trail"
+      ]
+    },
+    {
+      "name": "Aurora Curtain",
+      "category": "nature",
+      "routes": [
+        "Aurora + Wind",
+        "Aurora + Night",
+        "Aurora + Solar Wind"
+      ]
+    },
+    {
+      "name": "Comet Tail",
+      "category": "nature",
+      "routes": [
+        "Comet + Wind",
+        "Comet + Sun",
+        "Comet + Dust"
+      ]
+    },
+    {
+      "name": "Orbiting Satellite",
+      "category": "technology",
+      "routes": [
+        "Space + Solar Panel",
+        "Space + Camera",
+        "Planet + Radio"
+      ]
+    },
+    {
+      "name": "Impact Crater",
+      "category": "nature",
+      "routes": [
+        "Meteorite + Earth",
+        "Meteorite + Rock",
+        "Meteorite + Sand"
+      ]
+    },
+    {
+      "name": "Stellar Nursery",
+      "category": "nature",
+      "routes": [
+        "Nebula + Life",
+        "Star Cluster + Nebula"
+      ]
+    },
+    {
+      "name": "Space Weather",
+      "category": "science",
+      "routes": [
+        "Solar Flare + Earth",
+        "Sunspot + Storm",
+        "Solar Wind + Earth"
+      ]
+    }
+  ],
+  "rejected_candidates": [
+    [
+      "Sea Foam",
+      "Sea",
+      "Air",
+      "pair occupied or trivial self-result"
+    ],
+    [
+      "Sea Foam",
+      "Ocean",
+      "Air",
+      "pair occupied or trivial self-result"
+    ],
+    [
+      "Rip Current",
+      "Tide",
+      "Current",
+      "pair occupied or trivial self-result"
+    ],
+    [
+      "Rip Current",
+      "Wave",
+      "Current",
+      "pair occupied or trivial self-result"
+    ],
+    [
+      "Rip Current",
+      "Ocean",
+      "Current",
+      "pair occupied or trivial self-result"
+    ],
+    [
+      "Salt Spray",
+      "Sea",
+      "Wind",
+      "pair occupied or trivial self-result"
+    ],
+    [
+      "Salt Spray",
+      "Ocean",
+      "Wind",
+      "pair occupied or trivial self-result"
+    ],
+    [
+      "Salt Spray",
+      "Wave",
+      "Wind",
+      "pair occupied or trivial self-result"
+    ],
+    [
+      "Sea Stack",
+      "Rock",
+      "Wave",
+      "pair occupied or trivial self-result"
+    ],
+    [
+      "Sea Stack",
+      "Stone",
+      "Sea",
+      "pair occupied or trivial self-result"
+    ],
+    [
+      "Sea Stack",
+      "Rock",
+      "Tide",
+      "pair occupied or trivial self-result"
+    ],
+    [
+      "Sea Stack",
+      "Stone",
+      "Tide",
+      "pair occupied or trivial self-result"
+    ],
+    [
+      "Coastal Dune",
+      "Sand",
+      "Wind",
+      "pair occupied or trivial self-result"
+    ],
+    [
+      "Coastal Dune",
+      "Sand",
+      "Sea",
+      "pair occupied or trivial self-result"
+    ],
+    [
+      "Coastal Dune",
+      "Sand",
+      "Storm",
+      "pair occupied or trivial self-result"
+    ],
+    [
+      "Tidal Channel",
+      "Tide",
+      "River",
+      "pair occupied or trivial self-result"
+    ],
+    [
+      "Tidal Channel",
+      "Tide",
+      "Sand",
+      "pair occupied or trivial self-result"
+    ],
+    [
+      "Tidal Channel",
+      "Tide",
+      "Water",
+      "pair occupied or trivial self-result"
+    ],
+    [
+      "Tidal Channel",
+      "River",
+      "Ocean",
+      "pair occupied or trivial self-result"
+    ],
+    [
+      "Wave Crest",
+      "Wave",
+      "Wind",
+      "pair occupied or trivial self-result"
+    ],
+    [
+      "Wave Crest",
+      "Wave",
+      "Air",
+      "pair occupied or trivial self-result"
+    ],
+    [
+      "Coastal Fog",
+      "Sea",
+      "Fog",
+      "pair occupied or trivial self-result"
+    ],
+    [
+      "Coastal Fog",
+      "Ocean",
+      "Mist",
+      "pair occupied or trivial self-result"
+    ],
+    [
+      "Coastal Fog",
+      "Sea",
+      "Mist",
+      "pair occupied or trivial self-result"
+    ],
+    [
+      "Beach Pebble",
+      "Stone",
+      "Wave",
+      "pair occupied or trivial self-result"
+    ],
+    [
+      "Beach Pebble",
+      "Stone",
+      "Tide",
+      "pair occupied or trivial self-result"
+    ],
+    [
+      "Beach Pebble",
+      "Rock",
+      "Sea",
+      "pair occupied or trivial self-result"
+    ],
+    [
+      "Caterpillar Cocoon",
+      "Caterpillar",
+      "Time",
+      "pair occupied or trivial self-result"
+    ],
+    [
+      "Butterfly Chrysalis",
+      "Caterpillar",
+      "Plant",
+      "pair occupied or trivial self-result"
+    ],
+    [
+      "Butterfly Chrysalis",
+      "Caterpillar",
+      "Flower",
+      "pair occupied or trivial self-result"
+    ],
+    [
+      "Nectar Drop",
+      "Nectar",
+      "Flower",
+      "pair occupied or trivial self-result"
+    ],
+    [
+      "Pollen Basket",
+      "Bee",
+      "Pollen",
+      "pair occupied or trivial self-result"
+    ],
+    [
+      "Pollen Basket",
+      "Bee",
+      "Flower",
+      "pair occupied or trivial self-result"
+    ],
+    [
+      "Pollen Basket",
+      "Bee",
+      "Nectar",
+      "pair occupied or trivial self-result"
+    ],
+    [
+      "Pollen Basket",
+      "Bee",
+      "Honey",
+      "pair occupied or trivial self-result"
+    ],
+    [
+      "Pollen Basket",
+      "Honey",
+      "Pollen",
+      "pair occupied or trivial self-result"
+    ],
+    [
+      "Bee Colony",
+      "Bee",
+      "Garden",
+      "pair occupied or trivial self-result"
+    ],
+    [
+      "Bee Colony",
+      "Bee",
+      "Society",
+      "pair occupied or trivial self-result"
+    ],
+    [
+      "Firefly Glow",
+      "Firefly",
+      "Glow",
+      "unknown"
+    ],
+    [
+      "Leaf Vein",
+      "Tree",
+      "River",
+      "pair occupied or trivial self-result"
+    ],
+    [
+      "Cave Pool",
+      "Cave",
+      "Water",
+      "pair occupied or trivial self-result"
+    ],
+    [
+      "Cave Pool",
+      "Cave",
+      "Rain",
+      "pair occupied or trivial self-result"
+    ],
+    [
+      "Flowstone",
+      "Stalagmite",
+      "Water",
+      "pair occupied or trivial self-result"
+    ],
+    [
+      "Volcanic Bomb",
+      "Lava",
+      "Air",
+      "pair occupied or trivial self-result"
+    ],
+    [
+      "Volcanic Bomb",
+      "Volcano",
+      "Stone",
+      "pair occupied or trivial self-result"
+    ],
+    [
+      "Volcanic Bomb",
+      "Lava",
+      "Rock",
+      "pair occupied or trivial self-result"
+    ],
+    [
+      "Volcanic Bomb",
+      "Volcano",
+      "Air",
+      "pair occupied or trivial self-result"
+    ],
+    [
+      "Volcanic Bomb",
+      "Lava",
+      "Wind",
+      "pair occupied or trivial self-result"
+    ],
+    [
+      "Volcanic Bomb",
+      "Volcano",
+      "Wind",
+      "pair occupied or trivial self-result"
+    ],
+    [
+      "Basalt Column",
+      "Lava",
+      "Stone",
+      "pair occupied or trivial self-result"
+    ],
+    [
+      "Basalt Column",
+      "Volcano",
+      "Rock",
+      "pair occupied or trivial self-result"
+    ],
+    [
+      "Basalt Column",
+      "Lava",
+      "Ice",
+      "pair occupied or trivial self-result"
+    ],
+    [
+      "Pumice Raft",
+      "Lava",
+      "Water",
+      "pair occupied or trivial self-result"
+    ],
+    [
+      "Pumice Raft",
+      "Volcano",
+      "Sea",
+      "pair occupied or trivial self-result"
+    ],
+    [
+      "Pumice Raft",
+      "Lava",
+      "Sea",
+      "pair occupied or trivial self-result"
+    ],
+    [
+      "Pumice Raft",
+      "Volcano",
+      "Ocean",
+      "pair occupied or trivial self-result"
+    ],
+    [
+      "Pumice Raft",
+      "Volcano",
+      "Wave",
+      "pair occupied or trivial self-result"
+    ],
+    [
+      "River Delta",
+      "River",
+      "Sea",
+      "pair occupied or trivial self-result"
+    ],
+    [
+      "River Delta",
+      "River",
+      "Sand",
+      "pair occupied or trivial self-result"
+    ],
+    [
+      "River Delta",
+      "River",
+      "Ocean",
+      "pair occupied or trivial self-result"
+    ],
+    [
+      "River Delta",
+      "River",
+      "Tide",
+      "pair occupied or trivial self-result"
+    ],
+    [
+      "Oxbow Lake",
+      "River",
+      "Mud",
+      "pair occupied or trivial self-result"
+    ],
+    [
+      "Oxbow Lake",
+      "River",
+      "Earth",
+      "pair occupied or trivial self-result"
+    ],
+    [
+      "Fossil Imprint",
+      "Fossil",
+      "Stone",
+      "pair occupied or trivial self-result"
+    ],
+    [
+      "Sediment Layer",
+      "Soil",
+      "Water",
+      "pair occupied or trivial self-result"
+    ],
+    [
+      "Sediment Layer",
+      "River",
+      "Dust",
+      "pair occupied or trivial self-result"
+    ],
+    [
+      "Circuit Trace",
+      "Circuit",
+      "Metal",
+      "pair occupied or trivial self-result"
+    ],
+    [
+      "Capacitor Bank",
+      "Battery",
+      "Circuit",
+      "pair occupied or trivial self-result"
+    ],
+    [
+      "Capacitor Bank",
+      "Electricity",
+      "Battery",
+      "pair occupied or trivial self-result"
+    ],
+    [
+      "Optical Switch",
+      "Light",
+      "Microcontroller",
+      "pair occupied or trivial self-result"
+    ],
+    [
+      "LED Array",
+      "Light",
+      "Circuit",
+      "pair occupied or trivial self-result"
+    ],
+    [
+      "LED Array",
+      "Light",
+      "Electronics",
+      "pair occupied or trivial self-result"
+    ],
+    [
+      "LED Array",
+      "Circuit",
+      "Glass",
+      "pair occupied or trivial self-result"
+    ],
+    [
+      "LED Array",
+      "Photodiode",
+      "Light",
+      "pair occupied or trivial self-result"
+    ],
+    [
+      "Fruit Compote",
+      "Fruit",
+      "Sugar",
+      "pair occupied or trivial self-result"
+    ],
+    [
+      "Fruit Compote",
+      "Fruit",
+      "Water",
+      "pair occupied or trivial self-result"
+    ],
+    [
+      "Fruit Compote",
+      "Fruit",
+      "Heat",
+      "pair occupied or trivial self-result"
+    ],
+    [
+      "Fruit Compote",
+      "Apple",
+      "Sugar",
+      "pair occupied or trivial self-result"
+    ],
+    [
+      "Honey Glaze",
+      "Honey",
+      "Heat",
+      "pair occupied or trivial self-result"
+    ],
+    [
+      "Honey Glaze",
+      "Honey",
+      "Sugar",
+      "pair occupied or trivial self-result"
+    ],
+    [
+      "Cheese Pastry",
+      "Cheese",
+      "Dough",
+      "pair occupied or trivial self-result"
+    ],
+    [
+      "Cheese Pastry",
+      "Cheese",
+      "Bread",
+      "pair occupied or trivial self-result"
+    ],
+    [
+      "Chocolate Truffle",
+      "Chocolate",
+      "Cream",
+      "pair occupied or trivial self-result"
+    ],
+    [
+      "Chocolate Truffle",
+      "Chocolate",
+      "Butter",
+      "pair occupied or trivial self-result"
+    ],
+    [
+      "Chocolate Truffle",
+      "Chocolate",
+      "Milk",
+      "pair occupied or trivial self-result"
+    ],
+    [
+      "Fruit Sorbet",
+      "Fruit",
+      "Ice",
+      "pair occupied or trivial self-result"
+    ],
+    [
+      "Fruit Sorbet",
+      "Fruit",
+      "Snow",
+      "pair occupied or trivial self-result"
+    ],
+    [
+      "Fruit Sorbet",
+      "Fruit",
+      "Cold",
+      "unknown"
+    ],
+    [
+      "Fruit Sorbet",
+      "Fruit",
+      "Water",
+      "pair occupied or trivial self-result"
+    ],
+    [
+      "Toasted Seeds",
+      "Seed",
+      "Fire",
+      "pair occupied or trivial self-result"
+    ],
+    [
+      "Toasted Seeds",
+      "Seed",
+      "Heat",
+      "pair occupied or trivial self-result"
+    ],
+    [
+      "Rain Gutter",
+      "Rain",
+      "House",
+      "pair occupied or trivial self-result"
+    ],
+    [
+      "Rain Gutter",
+      "House",
+      "Water",
+      "pair occupied or trivial self-result"
+    ],
+    [
+      "Tram Stop",
+      "Train",
+      "City",
+      "pair occupied or trivial self-result"
+    ],
+    [
+      "Street Lantern",
+      "Light",
+      "City",
+      "pair occupied or trivial self-result"
+    ],
+    [
+      "Green Roof",
+      "Garden",
+      "Tower",
+      "pair occupied or trivial self-result"
+    ],
+    [
+      "Green Roof",
+      "Rain Garden",
+      "House",
+      "pair occupied or trivial self-result"
+    ],
+    [
+      "Urban Orchard",
+      "Garden",
+      "Fruit",
+      "pair occupied or trivial self-result"
+    ],
+    [
+      "Photo Negative",
+      "Film",
+      "Exposure",
+      "pair occupied or trivial self-result"
+    ],
+    [
+      "Long Exposure",
+      "Camera",
+      "Time",
+      "pair occupied or trivial self-result"
+    ],
+    [
+      "Film Canister",
+      "Film",
+      "Glass",
+      "pair occupied or trivial self-result"
+    ],
+    [
+      "Film Canister",
+      "Film",
+      "Box",
+      "unknown"
+    ],
+    [
+      "Studio Light",
+      "Light",
+      "Photography",
+      "pair occupied or trivial self-result"
+    ],
+    [
+      "Studio Light",
+      "Camera",
+      "Light",
+      "pair occupied or trivial self-result"
+    ],
+    [
+      "Studio Light",
+      "Flash",
+      "Camera",
+      "pair occupied or trivial self-result"
+    ],
+    [
+      "Star Trail",
+      "Star",
+      "Time",
+      "pair occupied or trivial self-result"
+    ],
+    [
+      "Star Trail",
+      "Camera",
+      "Night",
+      "pair occupied or trivial self-result"
+    ],
+    [
+      "Photo Collage",
+      "Photograph",
+      "Art",
+      "pair occupied or trivial self-result"
+    ],
+    [
+      "Photo Collage",
+      "Photograph",
+      "Paper",
+      "pair occupied or trivial self-result"
+    ],
+    [
+      "Planetary Ring",
+      "Planet",
+      "Gravity",
+      "pair occupied or trivial self-result"
+    ],
+    [
+      "Cosmic Dust",
+      "Space",
+      "Dust",
+      "pair occupied or trivial self-result"
+    ],
+    [
+      "Solar Wind",
+      "Sun",
+      "Wind",
+      "pair occupied or trivial self-result"
+    ],
+    [
+      "Moonrise",
+      "Moon",
+      "Night",
+      "pair occupied or trivial self-result"
+    ],
+    [
+      "Moonrise",
+      "Moon",
+      "Sea",
+      "pair occupied or trivial self-result"
+    ],
+    [
+      "Moonrise",
+      "Moon",
+      "Sun",
+      "pair occupied or trivial self-result"
+    ],
+    [
+      "Orbiting Satellite",
+      "Space",
+      "Radio",
+      "pair occupied or trivial self-result"
+    ],
+    [
+      "Impact Crater",
+      "Asteroid",
+      "Earth",
+      "pair occupied or trivial self-result"
+    ],
+    [
+      "Stellar Nursery",
+      "Nebula",
+      "Star",
+      "pair occupied or trivial self-result"
+    ],
+    [
+      "Stellar Nursery",
+      "Nebula",
+      "Dust",
+      "pair occupied or trivial self-result"
+    ]
+  ]
+}

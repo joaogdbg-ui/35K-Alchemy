@@ -1,0 +1,55 @@
+{
+  "edition": "V43",
+  "catalog_elements": 3778,
+  "catalog_recipes": 10275,
+  "total_possible_unordered_pairs": 7138531,
+  "global_coverage_pct": 0.1439,
+  "cohorts": [
+    {
+      "cohort_from_V42": 0,
+      "available_elements": 4,
+      "possible_unordered_pairs": 10,
+      "V42_pairs_with_results": 10,
+      "V43_pairs_with_results": 10,
+      "V42_coverage_pct": 100.0,
+      "V43_coverage_pct": 100.0
+    },
+    {
+      "cohort_from_V42": 1,
+      "available_elements": 14,
+      "possible_unordered_pairs": 105,
+      "V42_pairs_with_results": 28,
+      "V43_pairs_with_results": 105,
+      "V42_coverage_pct": 26.67,
+      "V43_coverage_pct": 100.0
+    },
+    {
+      "cohort_from_V42": 2,
+      "available_elements": 30,
+      "possible_unordered_pairs": 465,
+      "V42_pairs_with_results": 69,
+      "V43_pairs_with_results": 181,
+      "V42_coverage_pct": 14.84,
+      "V43_coverage_pct": 38.92
+    },
+    {
+      "cohort_from_V42": 3,
+      "available_elements": 67,
+      "possible_unordered_pairs": 2278,
+      "V42_pairs_with_results": 152,
+      "V43_pairs_with_results": 376,
+      "V42_coverage_pct": 6.67,
+      "V43_coverage_pct": 16.51
+    },
+    {
+      "cohort_from_V42": 4,
+      "available_elements": 123,
+      "possible_unordered_pairs": 7626,
+      "V42_pairs_with_results": 280,
+      "V43_pairs_with_results": 635,
+      "V42_coverage_pct": 3.67,
+      "V43_coverage_pct": 8.33
+    }
+  ],
+  "definition": "Successful pair: a pair mapping to any valid result, including repeats. Cohorts are fixed by V42 recipes; adding results is not the same as creating a unique discovery."
+}

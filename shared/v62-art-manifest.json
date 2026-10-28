@@ -1,0 +1,285 @@
+{
+  "version": 62,
+  "icons": [
+    {
+      "id": "organic62:tidepool-starfish",
+      "name": "Tidepool Starfish",
+      "path": "client/assets/v62/tidepool-starfish.svg",
+      "sha256": "d7ecd04431fcf6bd403c4f7ab124f671ea09923a682899a552746adf968ec611",
+      "art_mode": "bespoke-silhouette",
+      "motifs": []
+    },
+    {
+      "id": "organic62:nautilus-shell",
+      "name": "Nautilus Shell",
+      "path": "client/assets/v62/nautilus-shell.svg",
+      "sha256": "d36db7dfe04aa33e85fb121c47aee6e0813b949bfc11b18e0d34181ee02a558a",
+      "art_mode": "bespoke-silhouette",
+      "motifs": []
+    },
+    {
+      "id": "organic62:reef-seahorse",
+      "name": "Reef Seahorse",
+      "path": "client/assets/v62/reef-seahorse.svg",
+      "sha256": "9dcc8b549615be30276c1995b0fbc496bfeeaad718e102c4234319b335cff4a7",
+      "art_mode": "bespoke-silhouette",
+      "motifs": []
+    },
+    {
+      "id": "organic62:pearl-oyster",
+      "name": "Pearl Oyster",
+      "path": "client/assets/v62/pearl-oyster.svg",
+      "sha256": "a35d79066db4f3a0a30a62da3e947fe89e55566bc060555573ce2ee0c520d1da",
+      "art_mode": "bespoke-silhouette",
+      "motifs": []
+    },
+    {
+      "id": "organic62:crimson-sea-fan",
+      "name": "Crimson Sea Fan",
+      "path": "client/assets/v62/crimson-sea-fan.svg",
+      "sha256": "e3441b1541aaad15a4d09f266de3db86c4fe05ffb631f20f9d6a3b7be4ffc960",
+      "art_mode": "bespoke-silhouette",
+      "motifs": []
+    },
+    {
+      "id": "organic62:kelp-ribbon",
+      "name": "Kelp Ribbon",
+      "path": "client/assets/v62/kelp-ribbon.svg",
+      "sha256": "589a7a316730a581c3d7695117de16c7a6024bf429df39f114c0830b66e7186c",
+      "art_mode": "bespoke-silhouette",
+      "motifs": []
+    },
+    {
+      "id": "organic62:fir-cone",
+      "name": "Fir Cone",
+      "path": "client/assets/v62/fir-cone.svg",
+      "sha256": "2cb6f961d3d81d7358442b3152b747b8cdade722b3432b70e22c6505cdf1b143",
+      "art_mode": "bespoke-silhouette",
+      "motifs": []
+    },
+    {
+      "id": "organic62:fiddlehead-fern",
+      "name": "Fiddlehead Fern",
+      "path": "client/assets/v62/fiddlehead-fern.svg",
+      "sha256": "9944c5c16fc51512eba916d35b2443be184677dcd6b1a68118914d9dc11b4a2c",
+      "art_mode": "bespoke-silhouette",
+      "motifs": []
+    },
+    {
+      "id": "organic62:obsidian-blade",
+      "name": "Obsidian Blade",
+      "path": "client/assets/v62/obsidian-blade.svg",
+      "sha256": "e62d9685667dbbb5255f1bca67883dc8ef890a480b8fcf0b81679fb531a634ce",
+      "art_mode": "bespoke-silhouette",
+      "motifs": []
+    },
+    {
+      "id": "organic62:sulfur-crystal",
+      "name": "Sulfur Crystal",
+      "path": "client/assets/v62/sulfur-crystal.svg",
+      "sha256": "66f62db131246fb213bda14d2c14de6ebbe20f6712a86fa86827817f70f152a1",
+      "art_mode": "bespoke-silhouette",
+      "motifs": []
+    },
+    {
+      "id": "organic62:amber-inclusion",
+      "name": "Amber Inclusion",
+      "path": "client/assets/v62/amber-inclusion.svg",
+      "sha256": "1e08b4e266bff4589f25f9e2dbc96d966cf4a784868f1f1cccd595a3ae7cecdc",
+      "art_mode": "bespoke-silhouette",
+      "motifs": []
+    },
+    {
+      "id": "organic62:butter-croissant",
+      "name": "Butter Croissant",
+      "path": "client/assets/v62/butter-croissant.svg",
+      "sha256": "d81ce1ab8920c9b9636f011be190487690459a62ddd8dc526a530c5237fb18c3",
+      "art_mode": "bespoke-silhouette",
+      "motifs": []
+    },
+    {
+      "id": "organic62:golden-waffle",
+      "name": "Golden Waffle",
+      "path": "client/assets/v62/golden-waffle.svg",
+      "sha256": "2d6429b0835a54ac211957abd19b25d927646262d641f8c7ad123a56d66feeee",
+      "art_mode": "bespoke-silhouette",
+      "motifs": []
+    },
+    {
+      "id": "organic62:rice-ball",
+      "name": "Rice Ball",
+      "path": "client/assets/v62/rice-ball.svg",
+      "sha256": "cd118bbee1d3a86b4d93dd48a8aa00172c1febbaf2ce79e0c8d53f55e24dc283",
+      "art_mode": "bespoke-silhouette",
+      "motifs": []
+    },
+    {
+      "id": "organic62:honeycomb-toffee",
+      "name": "Honeycomb Toffee",
+      "path": "client/assets/v62/honeycomb-toffee.svg",
+      "sha256": "b2245e6afde6ac6f562edcc6204054fc8bb7c9271dbd577e92624d5b2078d530",
+      "art_mode": "bespoke-silhouette",
+      "motifs": []
+    },
+    {
+      "id": "organic62:emerald-tree-frog",
+      "name": "Emerald Tree Frog",
+      "path": "client/assets/v62/emerald-tree-frog.svg",
+      "sha256": "872860e3ed3a1767927845da9acdf5e35f519cd8ca082997dd445701da2c4b15",
+      "art_mode": "bespoke-silhouette",
+      "motifs": []
+    },
+    {
+      "id": "organic62:spiny-hedgehog",
+      "name": "Spiny Hedgehog",
+      "path": "client/assets/v62/spiny-hedgehog.svg",
+      "sha256": "0cb6e677af712b315f96ada468824e0b3e04e8e44d1a6d8257fc3c9f923924dc",
+      "art_mode": "bespoke-silhouette",
+      "motifs": []
+    },
+    {
+      "id": "organic62:kingfisher-bird",
+      "name": "Kingfisher Bird",
+      "path": "client/assets/v62/kingfisher-bird.svg",
+      "sha256": "ee62ffd58f8951f5b369db158f9f71a7fce039b76233394e67db7769366e18dd",
+      "art_mode": "bespoke-silhouette",
+      "motifs": []
+    },
+    {
+      "id": "organic62:blue-dragonfly",
+      "name": "Blue Dragonfly",
+      "path": "client/assets/v62/blue-dragonfly.svg",
+      "sha256": "83ff19841cd3d2368d35dd75aaea7415d054e68b4b61a5389c78ef04a6455870",
+      "art_mode": "bespoke-silhouette",
+      "motifs": []
+    },
+    {
+      "id": "organic62:arctic-fox",
+      "name": "Arctic Fox",
+      "path": "client/assets/v62/arctic-fox.svg",
+      "sha256": "7b9baf2c33e055092ef9df7235ede7c9eb9ad278820574ab5a2cec7cc523879c",
+      "art_mode": "bespoke-silhouette",
+      "motifs": []
+    },
+    {
+      "id": "organic62:red-panda",
+      "name": "Red Panda",
+      "path": "client/assets/v62/red-panda.svg",
+      "sha256": "877e2ea4cd1879f83482a301dad8b0857d7fe9a2c3ebaba5fb4ec91d33127db1",
+      "art_mode": "bespoke-silhouette",
+      "motifs": []
+    },
+    {
+      "id": "organic62:snowy-owl",
+      "name": "Snowy Owl",
+      "path": "client/assets/v62/snowy-owl.svg",
+      "sha256": "b4c1c27e6c08ffe243b6f424b65914c278ccda00c9946ac5b4d30a39637b1c1c",
+      "art_mode": "bespoke-silhouette",
+      "motifs": []
+    },
+    {
+      "id": "organic62:soldering-iron",
+      "name": "Soldering Iron",
+      "path": "client/assets/v62/soldering-iron.svg",
+      "sha256": "6de1d92a770bfa10abf15e2b77e730089006ba150dc662718911dcf9261cbbc0",
+      "art_mode": "bespoke-silhouette",
+      "motifs": []
+    },
+    {
+      "id": "organic62:adjustable-wrench",
+      "name": "Adjustable Wrench",
+      "path": "client/assets/v62/adjustable-wrench.svg",
+      "sha256": "c30154d2b99d516748cdce145749ceaa289b646101d4d02cd3f7efdb3e8bdcfc",
+      "art_mode": "bespoke-silhouette",
+      "motifs": []
+    },
+    {
+      "id": "organic62:garden-trowel",
+      "name": "Garden Trowel",
+      "path": "client/assets/v62/garden-trowel.svg",
+      "sha256": "295294b9a3d77e709a1436f8be17f43eecf036dff4f7f633387bbd011b3d6499",
+      "art_mode": "bespoke-silhouette",
+      "motifs": []
+    },
+    {
+      "id": "organic62:ceramic-teapot",
+      "name": "Ceramic Teapot",
+      "path": "client/assets/v62/ceramic-teapot.svg",
+      "sha256": "d32fd4d2cc42fd3c2864b12525665bb967b82490a45de34df8e141428c86a096",
+      "art_mode": "bespoke-silhouette",
+      "motifs": []
+    },
+    {
+      "id": "organic62:violin-case",
+      "name": "Violin Case",
+      "path": "client/assets/v62/violin-case.svg",
+      "sha256": "1e345ed81530fdeb06e9329bd1145dcbaec55dab24a5f674126289721096dcf2",
+      "art_mode": "bespoke-silhouette",
+      "motifs": []
+    },
+    {
+      "id": "organic62:hand-loom",
+      "name": "Hand Loom",
+      "path": "client/assets/v62/hand-loom.svg",
+      "sha256": "548536f486abac8bb48a8000a9c2a9504825bcee7026b9999cb52554281e8c8e",
+      "art_mode": "bespoke-silhouette",
+      "motifs": []
+    },
+    {
+      "id": "organic62:satellite-dish",
+      "name": "Satellite Dish",
+      "path": "client/assets/v62/satellite-dish.svg",
+      "sha256": "438d24bff0b16d97b159de44f69bfbdaf244f8e565dd78572f0fe0fba8d057bb",
+      "art_mode": "bespoke-silhouette",
+      "motifs": []
+    },
+    {
+      "id": "organic62:robot-vacuum-cleaner",
+      "name": "Robot Vacuum Cleaner",
+      "path": "client/assets/v62/robot-vacuum-cleaner.svg",
+      "sha256": "683aa60f23ddcfa472fcd8a2c08a6c7bf4b31ff3f1cee26d7cc5b85b8132b93f",
+      "art_mode": "bespoke-silhouette",
+      "motifs": []
+    },
+    {
+      "id": "organic62:digital-microscope",
+      "name": "Digital Microscope",
+      "path": "client/assets/v62/digital-microscope.svg",
+      "sha256": "134df3e06165572c21e8d2e8370b78d99d0ba804da0812caf0bcfcedd4f40ddf",
+      "art_mode": "bespoke-silhouette",
+      "motifs": []
+    },
+    {
+      "id": "organic62:lunar-lander",
+      "name": "Lunar Lander",
+      "path": "client/assets/v62/lunar-lander.svg",
+      "sha256": "af00f139b16fbfb320faf45c22707063f76ab6d356a5e7af0013818b46e28c5a",
+      "art_mode": "bespoke-silhouette",
+      "motifs": []
+    },
+    {
+      "id": "organic62:lunar-eclipse",
+      "name": "Lunar Eclipse",
+      "path": "client/assets/v62/lunar-eclipse.svg",
+      "sha256": "75203797953a128ae87b5daf344c69315c434f88bf223ae1827f093503b21f14",
+      "art_mode": "bespoke-silhouette",
+      "motifs": []
+    },
+    {
+      "id": "organic62:rocket-booster",
+      "name": "Rocket Booster",
+      "path": "client/assets/v62/rocket-booster.svg",
+      "sha256": "c42ebc6c7a6ff2666954b27a6e557ade4818c3190b5b6be060d68b3321f7abcc",
+      "art_mode": "bespoke-silhouette",
+      "motifs": []
+    },
+    {
+      "id": "organic62:interplanetary-probe",
+      "name": "Interplanetary Probe",
+      "path": "client/assets/v62/interplanetary-probe.svg",
+      "sha256": "84b97551a62cf428da0fffd65fe6fcb64ac52545a6ca673865d0f7e8ce602213",
+      "art_mode": "bespoke-silhouette",
+      "motifs": []
+    }
+  ]
+}

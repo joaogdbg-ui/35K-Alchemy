@@ -1,0 +1,420 @@
+{
+  "addedItems": 26,
+  "addedRecipes": 48,
+  "conflictsSkipped": [
+    [
+      "existing_pair",
+      "Wind",
+      "Metal",
+      "Wind Turbine",
+      "Airplane"
+    ],
+    [
+      "existing_pair",
+      "Space",
+      "Metal",
+      "Space Station",
+      "Star Forge"
+    ],
+    [
+      "existing_pair",
+      "Space",
+      "Computer",
+      "Space Station",
+      "Digital World"
+    ],
+    [
+      "unknown",
+      "Arcade",
+      "Handheld",
+      "Portable Arcade"
+    ],
+    [
+      "existing_pair",
+      "Computer",
+      "Art",
+      "Computer Graphics",
+      "Graphics"
+    ],
+    [
+      "existing_pair",
+      "Human",
+      "Game",
+      "Game Designer",
+      null
+    ],
+    [
+      "existing_pair",
+      "Human",
+      "Video Game",
+      "Game Designer",
+      "Fun"
+    ],
+    [
+      "existing_pair",
+      "Video Game",
+      "Music",
+      "Game Soundtrack",
+      "Music Game"
+    ],
+    [
+      "unknown",
+      "Tool",
+      "Idea",
+      "Prototype"
+    ],
+    [
+      "existing_pair",
+      "Game",
+      "Memory Card",
+      "Save Point",
+      null
+    ],
+    [
+      "existing_pair",
+      "Code",
+      "Game",
+      "Game Engine",
+      null
+    ]
+  ],
+  "reachable": true,
+  "recipes": [
+    {
+      "ingredients": [
+        "Sun",
+        "Circuit"
+      ],
+      "result": "Solar Panel"
+    },
+    {
+      "ingredients": [
+        "Sun",
+        "Electricity"
+      ],
+      "result": "Solar Power"
+    },
+    {
+      "ingredients": [
+        "Solar Panel",
+        "Battery"
+      ],
+      "result": "Solar Power"
+    },
+    {
+      "ingredients": [
+        "Wind",
+        "Electricity"
+      ],
+      "result": "Wind Turbine"
+    },
+    {
+      "ingredients": [
+        "Cloud",
+        "Electricity"
+      ],
+      "result": "Thunderstorm"
+    },
+    {
+      "ingredients": [
+        "Rain",
+        "Lightning"
+      ],
+      "result": "Thunderstorm"
+    },
+    {
+      "ingredients": [
+        "Rain",
+        "Forest"
+      ],
+      "result": "Rainforest"
+    },
+    {
+      "ingredients": [
+        "Forest",
+        "Cloud"
+      ],
+      "result": "Rainforest"
+    },
+    {
+      "ingredients": [
+        "Glass",
+        "Space"
+      ],
+      "result": "Telescope"
+    },
+    {
+      "ingredients": [
+        "Glass",
+        "Star"
+      ],
+      "result": "Telescope"
+    },
+    {
+      "ingredients": [
+        "Glass",
+        "Life"
+      ],
+      "result": "Microscope"
+    },
+    {
+      "ingredients": [
+        "Glass",
+        "Science"
+      ],
+      "result": "Microscope"
+    },
+    {
+      "ingredients": [
+        "Music",
+        "Pixel"
+      ],
+      "result": "Chiptune"
+    },
+    {
+      "ingredients": [
+        "Music",
+        "Game Boy"
+      ],
+      "result": "Chiptune"
+    },
+    {
+      "ingredients": [
+        "Arcade",
+        "Game Boy"
+      ],
+      "result": "Portable Arcade"
+    },
+    {
+      "ingredients": [
+        "Game",
+        "Time"
+      ],
+      "result": "Game Jam"
+    },
+    {
+      "ingredients": [
+        "Game",
+        "Code"
+      ],
+      "result": "Game Jam"
+    },
+    {
+      "ingredients": [
+        "Cloud",
+        "Memory Card"
+      ],
+      "result": "Cloud Save"
+    },
+    {
+      "ingredients": [
+        "Internet",
+        "Memory Card"
+      ],
+      "result": "Cloud Save"
+    },
+    {
+      "ingredients": [
+        "Screen",
+        "Time"
+      ],
+      "result": "Loading Screen"
+    },
+    {
+      "ingredients": [
+        "Computer",
+        "Time"
+      ],
+      "result": "Loading Screen"
+    },
+    {
+      "ingredients": [
+        "Human",
+        "Game"
+      ],
+      "result": "Gameplay"
+    },
+    {
+      "ingredients": [
+        "Game",
+        "Controller"
+      ],
+      "result": "Gameplay"
+    },
+    {
+      "ingredients": [
+        "Computer",
+        "Pixel"
+      ],
+      "result": "Computer Graphics"
+    },
+    {
+      "ingredients": [
+        "Cloud",
+        "Computer"
+      ],
+      "result": "Weather Forecast"
+    },
+    {
+      "ingredients": [
+        "Rain",
+        "Computer"
+      ],
+      "result": "Weather Forecast"
+    },
+    {
+      "ingredients": [
+        "Clock",
+        "Metal"
+      ],
+      "result": "Mechanical Clock"
+    },
+    {
+      "ingredients": [
+        "Clock",
+        "Tool"
+      ],
+      "result": "Mechanical Clock"
+    },
+    {
+      "ingredients": [
+        "Camera",
+        "Computer"
+      ],
+      "result": "Digital Camera"
+    },
+    {
+      "ingredients": [
+        "Camera",
+        "Pixel"
+      ],
+      "result": "Digital Camera"
+    },
+    {
+      "ingredients": [
+        "Arcade",
+        "Computer"
+      ],
+      "result": "Virtual Arcade"
+    },
+    {
+      "ingredients": [
+        "Arcade",
+        "Software"
+      ],
+      "result": "Virtual Arcade"
+    },
+    {
+      "ingredients": [
+        "Game",
+        "Plastic"
+      ],
+      "result": "Game Cartridge"
+    },
+    {
+      "ingredients": [
+        "Game",
+        "Memory Card"
+      ],
+      "result": "Game Cartridge"
+    },
+    {
+      "ingredients": [
+        "Game",
+        "Music"
+      ],
+      "result": "Game Soundtrack"
+    },
+    {
+      "ingredients": [
+        "Screen",
+        "Camera"
+      ],
+      "result": "Screenshot"
+    },
+    {
+      "ingredients": [
+        "Screen",
+        "Digital Camera"
+      ],
+      "result": "Screenshot"
+    },
+    {
+      "ingredients": [
+        "Software",
+        "Paper"
+      ],
+      "result": "Patch Notes"
+    },
+    {
+      "ingredients": [
+        "Code",
+        "Paper"
+      ],
+      "result": "Patch Notes"
+    },
+    {
+      "ingredients": [
+        "Tool",
+        "Code"
+      ],
+      "result": "Prototype"
+    },
+    {
+      "ingredients": [
+        "Circuit",
+        "Computer"
+      ],
+      "result": "Circuit Board"
+    },
+    {
+      "ingredients": [
+        "Circuit",
+        "Metal"
+      ],
+      "result": "Circuit Board"
+    },
+    {
+      "ingredients": [
+        "Game",
+        "Clock"
+      ],
+      "result": "Save Point"
+    },
+    {
+      "ingredients": [
+        "Game",
+        "Book"
+      ],
+      "result": "Game Manual"
+    },
+    {
+      "ingredients": [
+        "Video Game",
+        "Paper"
+      ],
+      "result": "Game Manual"
+    },
+    {
+      "ingredients": [
+        "Arcade",
+        "Controller"
+      ],
+      "result": "Joystick"
+    },
+    {
+      "ingredients": [
+        "Game",
+        "History"
+      ],
+      "result": "Retro gaming"
+    },
+    {
+      "ingredients": [
+        "Stone",
+        "Life"
+      ],
+      "result": "Fossil"
+    }
+  ]
+}

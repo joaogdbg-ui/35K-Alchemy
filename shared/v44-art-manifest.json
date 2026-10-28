@@ -1,0 +1,83 @@
+{
+  "release": "V44",
+  "icons": [
+    {
+      "id": "organic44:balloon",
+      "name": "Balloon",
+      "path": "client/assets/v44/balloon.svg",
+      "sha256": "160cdbe66c1a31c9e20f1e55a50ab52c03893ec69921730ace7f884ef62f430d"
+    },
+    {
+      "id": "organic44:campfire",
+      "name": "Campfire",
+      "path": "client/assets/v44/campfire.svg",
+      "sha256": "36833039b35ecd7be9a853487147a99bacebb043fbef8291c3ca97449c0f9caa"
+    },
+    {
+      "id": "organic44:sandcastle",
+      "name": "Sandcastle",
+      "path": "client/assets/v44/sandcastle.svg",
+      "sha256": "a9f01ff6d5fd5fd90a5e52417b65b9cd0721a88e32fcda114697b9fca05bcfd0"
+    },
+    {
+      "id": "organic44:wind-chime",
+      "name": "Wind Chime",
+      "path": "client/assets/v44/wind-chime.svg",
+      "sha256": "bc363d9899fa7738dfcfce9dadc4631eb4d5976567b0738091692387af577501"
+    },
+    {
+      "id": "organic44:driftwood",
+      "name": "Driftwood",
+      "path": "client/assets/v44/driftwood.svg",
+      "sha256": "32c8e6e6d10d4c13dfae5cb8ec8e38c9f6217116688da34c809c62cd1ac6e416"
+    },
+    {
+      "id": "organic44:rain-gauge",
+      "name": "Rain Gauge",
+      "path": "client/assets/v44/rain-gauge.svg",
+      "sha256": "e0be89ebf02906224342d9b3d8ccc54634cedede871c956162a051440597f1dc"
+    },
+    {
+      "id": "organic44:lightning-rod",
+      "name": "Lightning Rod",
+      "path": "client/assets/v44/lightning-rod.svg",
+      "sha256": "be6a8f7e23c3326d2ab1eeed76cff69a11a1333e04a8a216e66231720c64b0bc"
+    },
+    {
+      "id": "organic44:water-filter",
+      "name": "Water Filter",
+      "path": "client/assets/v44/water-filter.svg",
+      "sha256": "fe35d0979033aa33f7d4bd015aa0684aea8a299a98f5ed3c6c34155a14253938"
+    },
+    {
+      "id": "organic44:birdsong",
+      "name": "Birdsong",
+      "path": "client/assets/v44/birdsong.svg",
+      "sha256": "efd34c28604d166020606e4f8ae90e03dd480f6899ad8030bf73ea6b04bdb295"
+    },
+    {
+      "id": "organic44:hot-air-balloon",
+      "name": "Hot Air Balloon",
+      "path": "client/assets/v44/hot-air-balloon.svg",
+      "sha256": "4d3ad314befd579f3bca0cbffeee0972098d5cde8805c5ed4a38e6ef71f51a3e"
+    },
+    {
+      "id": "organic44:terracotta",
+      "name": "Terracotta",
+      "path": "client/assets/v44/terracotta.svg",
+      "sha256": "1cd6d84b4c81edd019aaaf317f0f34b6794ff25b7d7b41786b26ee6d166bf52a"
+    },
+    {
+      "id": "organic44:smoke-signal",
+      "name": "Smoke Signal",
+      "path": "client/assets/v44/smoke-signal.svg",
+      "sha256": "d57ee09850f41299253e230fac0acdd11041818c7106aa2036e613805407e543"
+    },
+    {
+      "id": "organic44:weather-vane",
+      "name": "Weather Vane",
+      "path": "client/assets/v44/weather-vane.svg",
+      "sha256": "09693e4855a78cc665972a5c3f1b79b6b40117e54ed6782b53773a20615a9beb"
+    }
+  ]
+}

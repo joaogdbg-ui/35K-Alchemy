@@ -1,0 +1,9 @@
+import test from 'node:test';import assert from 'node:assert/strict';
+import {readFileSync} from 'node:fs';import {createHash} from 'node:crypto';
+import {ORGANIC_V65} from '../src/organic-pack-v65.js';import {ORGANIC_ART_V65} from '../src/organic-art-v65.js';
+const manifest=JSON.parse(readFileSync('shared/v65-approved.json','utf8'));
+test('V65: every new element has a unique ID and a distinct name',()=>{assert.equal(ORGANIC_V65.items.length,12);assert.equal(new Set(ORGANIC_V65.items.map(x=>x.id)).size,12);assert.equal(new Set(ORGANIC_V65.items.map(x=>x.name.toLowerCase())).size,12);});
+test('V65: exactly one recipe per new discovery with no repeated pairs',()=>{assert.equal(ORGANIC_V65.recipes.length,12);assert.equal(new Set(ORGANIC_V65.recipes.map(x=>x.slice(0,2).sort().join('|'))).size,12);const ids=new Set(ORGANIC_V65.items.map(x=>x.id));assert.ok(ORGANIC_V65.recipes.every(x=>ids.has(x[2])));});
+test('V65: source artwork matches all 32 runtime icons byte for byte',()=>{const e=[...manifest.new_items,...manifest.redrawn_v61];assert.equal(e.length,32);assert.equal(new Set(e.map(x=>x.sha256)).size,32);for(const x of e){const svg=readFileSync(x.path,'utf8');assert.equal(ORGANIC_ART_V65[x.name.toLowerCase()],svg);assert.equal(createHash('sha256').update(svg).digest('hex'),x.sha256);assert.equal(x.art_mode,'bespoke-silhouette');}});
+test('V65: legacy redraws preserve existing identifiers',()=>{const old=JSON.parse(readFileSync('shared/v61-art-manifest.json','utf8')).icons;for(const e of manifest.redrawn_v61){assert.equal(old.find(x=>x.name===e.name)?.id,e.id);}});
+test('V65: app selects V65 artwork before previous artwork',()=>{const code=readFileSync('client/src/app.js','utf8');assert.ok(code.includes('ORGANIC_ART_V65[itemName]||ORGANIC_ART_V63[itemName]'));assert.ok(code.includes('ORGANIC_V63,ORGANIC_V65'));});

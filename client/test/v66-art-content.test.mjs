@@ -1,0 +1,11 @@
+import test from 'node:test';import assert from 'node:assert/strict';
+import {readFileSync} from 'node:fs';
+import {createHash} from 'node:crypto';
+import {ORGANIC_V66} from '../src/organic-pack-v66.js';
+import {ORGANIC_ART_V66} from '../src/organic-art-v66.js';
+const manifest=JSON.parse(readFileSync('shared/v66-approved.json','utf8'));
+test('V66 distinct new names and IDs',()=>{assert.equal(ORGANIC_V66.items.length,14);assert.equal(new Set(ORGANIC_V66.items.map(x=>x.name.toLowerCase())).size,14);assert.equal(new Set(ORGANIC_V66.items.map(x=>x.id)).size,14);});
+test('V66 unique unordered pairs with new outputs',()=>{assert.equal(ORGANIC_V66.recipes.length,14);assert.equal(new Set(ORGANIC_V66.recipes.map(x=>x.slice(0,2).sort().join('|'))).size,14);const names=new Set(ORGANIC_V66.items.map(x=>x.id));assert.ok(ORGANIC_V66.recipes.every(x=>names.has(x[2])));});
+test('V66 34 approved subject images match runtime and sources',()=>{const all=[...manifest.new_items,...manifest.redrawn_v61];assert.equal(all.length,34);assert.equal(new Set(all.map(x=>x.sha256)).size,34);for(const e of all){const svg=readFileSync(e.path,'utf8');assert.equal(createHash('sha256').update(svg).digest('hex'),e.sha256);assert.equal(ORGANIC_ART_V66[e.name.toLowerCase()],svg);}});
+test('V66 redraws keep V61 IDs and never redraw already approved V63/V65 items',()=>{const old=JSON.parse(readFileSync('shared/v61-art-manifest.json','utf8')).icons;const earlier=new Set([...JSON.parse(readFileSync('shared/v63-approved.json','utf8')).redrawn_v61,...JSON.parse(readFileSync('shared/v65-approved.json','utf8')).redrawn_v61].map(x=>x.name));for(const e of manifest.redrawn_v61){assert.equal(old.find(x=>x.name===e.name)?.id,e.id);assert.ok(!earlier.has(e.name));}});
+test('V66 new pack and prioritized art connected to game',()=>{const app=readFileSync('client/src/app.js','utf8');assert.ok(app.includes('ORGANIC_V65,ORGANIC_V66,'));assert.ok(app.includes('ORGANIC_ART_V66[itemName]||ORGANIC_ART_V65[itemName]'));});

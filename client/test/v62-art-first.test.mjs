@@ -1,0 +1,11 @@
+import test from 'node:test';import assert from 'node:assert/strict';
+import {DATA} from '../src/legacy-data.js';import {PACK} from '../src/creative-pack.js';
+import {buildCatalog} from '../src/catalog-integrity.js';
+import {ORGANIC_V61} from '../src/organic-pack-v61.js';import {ORGANIC_V62} from '../src/organic-pack-v62.js';import {ORGANIC_ART_V62} from '../src/organic-art-v62.js';
+const pk=['gaming-v22','gaming-v23','gaming-v24','gaming-v26','gaming-v27','gaming-v30','organic-v32','organic-v34','organic-v37','organic-v38','organic-v40','organic-v41','organic-v42','organic-v43','organic-v44','organic-v45','organic-v46','organic-v47','organic-v50','organic-v52','organic-v53','organic-v55','organic-v56','organic-v57','organic-v58','organic-v59'];
+const packs=[PACK];for(const n of pk)packs.push(Object.values(await import('../src/'+n.replace('gaming','gaming-pack').replace('organic','organic-pack')+'.js'))[0]);
+const pre=buildCatalog(DATA,[...packs,ORGANIC_V61]);const post=buildCatalog(DATA,[...packs,ORGANIC_V61,ORGANIC_V62]);
+test('V62 adds 35 new reachable elements with fixed unordered recipes',()=>{assert.equal(ORGANIC_V62.items.length,35);assert.equal(post.items.length,5106);assert.equal(post.recipes.size,13443);});
+test('all V61 recipes preserved in V62',()=>{for(const [key,value] of pre.recipes)assert.equal(post.recipes.get(key),value,key);});
+test('each V62 recipe produces exactly one new element',()=>{const ids=new Set(ORGANIC_V62.items.map(e=>e.id));for(const [a,b,c] of ORGANIC_V62.recipes){assert.ok(ids.has(c));assert.equal(post.recipes.get([a,b].sort().join('|')),c);}});
+test('artwork is unique and matched to every element',()=>{assert.equal(Object.keys(ORGANIC_ART_V62).length,35);assert.equal(new Set(Object.values(ORGANIC_ART_V62)).size,35);for(const item of ORGANIC_V62.items)assert.match(ORGANIC_ART_V62[item.name.toLowerCase()],/^<svg /);});

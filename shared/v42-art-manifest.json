@@ -1,0 +1,389 @@
+{
+  "version": 42,
+  "icons": [
+    {
+      "id": "organic42:stalactite",
+      "name": "Stalactite",
+      "path": "client/assets/v42/stalactite.svg",
+      "sha256": "19d3198bd9027faa150374c0b8cbba6eabdd09b6b27b766fb71853c086efd0fe"
+    },
+    {
+      "id": "organic42:stalagmite",
+      "name": "Stalagmite",
+      "path": "client/assets/v42/stalagmite.svg",
+      "sha256": "fd9d6c692e2c82548598e02deaa90f28cb98dd76cb7f20641bcff4476026258d"
+    },
+    {
+      "id": "organic42:geode",
+      "name": "Geode",
+      "path": "client/assets/v42/geode.svg",
+      "sha256": "2b2dcf9f2cd6a386cd4a18edba95613d88b3b7ebf67c7c6cc09c7993b645a15b"
+    },
+    {
+      "id": "organic42:obsidian",
+      "name": "Obsidian",
+      "path": "client/assets/v42/obsidian.svg",
+      "sha256": "8e37d13c7ed3b32da665b30fee61ecdf737ed35d15d18df3a63f335eb1468aaa"
+    },
+    {
+      "id": "organic42:basalt",
+      "name": "Basalt",
+      "path": "client/assets/v42/basalt.svg",
+      "sha256": "b7ebe286be6d8315eb4ac63bda79d306f075326b1c0b487a00729a6fefc8c90c"
+    },
+    {
+      "id": "organic42:granite",
+      "name": "Granite",
+      "path": "client/assets/v42/granite.svg",
+      "sha256": "2c06896a3fb25115a4accdc94098494edba65ffe7c1a7984925ba75d67d6947b"
+    },
+    {
+      "id": "organic42:limestone",
+      "name": "Limestone",
+      "path": "client/assets/v42/limestone.svg",
+      "sha256": "e0f6f6ce8a03c1a2fa944a68b3e60969160a4a8b814ab3b4948eaf0f5ce9612c"
+    },
+    {
+      "id": "organic42:marble",
+      "name": "Marble",
+      "path": "client/assets/v42/marble.svg",
+      "sha256": "fac06a1f77c2068a1478848810629f0f344cd171c43ed75d87ec66550638ae11"
+    },
+    {
+      "id": "organic42:erosion",
+      "name": "Erosion",
+      "path": "client/assets/v42/erosion.svg",
+      "sha256": "70320b433070f601850d36a7c6692b49cc662d669d5f042b4f4facf96f7749ed"
+    },
+    {
+      "id": "organic42:sediment",
+      "name": "Sediment",
+      "path": "client/assets/v42/sediment.svg",
+      "sha256": "e7683c937cfcacef94d57c1b122f4de45e5f6384dc4699afec770c61ba64a964"
+    },
+    {
+      "id": "organic42:amber",
+      "name": "Amber",
+      "path": "client/assets/v42/amber.svg",
+      "sha256": "e355bad422eb44ccabd63ab82ce6ea24dc6cd6e87a4962a050820aedc98e20ba"
+    },
+    {
+      "id": "organic42:quartzite",
+      "name": "Quartzite",
+      "path": "client/assets/v42/quartzite.svg",
+      "sha256": "d877cf075c9df30f98ffc3541734a5012bfb20cd9ce33394e7c87a3ca4a38c8e"
+    },
+    {
+      "id": "organic42:pumice",
+      "name": "Pumice",
+      "path": "client/assets/v42/pumice.svg",
+      "sha256": "9dc413b182424cb9c1a62edd778e1afdb91e29afe77500ca7f8eb35980185c60"
+    },
+    {
+      "id": "organic42:magma-chamber",
+      "name": "Magma Chamber",
+      "path": "client/assets/v42/magma-chamber.svg",
+      "sha256": "cf1919d31b8c090d8a8becfa8d2a022a632b801cf9cbded6844a3d11c62c79bf"
+    },
+    {
+      "id": "organic42:fault-line",
+      "name": "Fault Line",
+      "path": "client/assets/v42/fault-line.svg",
+      "sha256": "45833227b2ec916d8b75c649841b13f338215cc29ef5971b9ed5374fa6d3cd02"
+    },
+    {
+      "id": "organic42:rock-cycle",
+      "name": "Rock Cycle",
+      "path": "client/assets/v42/rock-cycle.svg",
+      "sha256": "6d80ae6d9d4229434126b48a0db02b8ec23ff60ae4d1af74afd62bda96bed88c"
+    },
+    {
+      "id": "organic42:mangrove",
+      "name": "Mangrove",
+      "path": "client/assets/v42/mangrove.svg",
+      "sha256": "efdde8f6ab12bccb8ce7e7aae44a9e348acc516b38d03a19965aa6dd2ce72908"
+    },
+    {
+      "id": "organic42:otter",
+      "name": "Otter",
+      "path": "client/assets/v42/otter.svg",
+      "sha256": "bece2f7898241d7db329240d556f92b94cc4654b58f8466c9f441ec8e61fd583"
+    },
+    {
+      "id": "organic42:heron",
+      "name": "Heron",
+      "path": "client/assets/v42/heron.svg",
+      "sha256": "6626808fd99a845d8f2fbf6e5805825e0de0e0f7aa5b32aef43a8c7b6a129227"
+    },
+    {
+      "id": "organic42:tadpole",
+      "name": "Tadpole",
+      "path": "client/assets/v42/tadpole.svg",
+      "sha256": "d10f03068f9b583539c6e730a25713bbff3e1a66599f05432fa6d2eab49f3769"
+    },
+    {
+      "id": "organic42:newt",
+      "name": "Newt",
+      "path": "client/assets/v42/newt.svg",
+      "sha256": "b993153fdb4dc0b028bbba0aab0eee1d2be467270ebf840b0add9801ed549933"
+    },
+    {
+      "id": "organic42:marsh",
+      "name": "Marsh",
+      "path": "client/assets/v42/marsh.svg",
+      "sha256": "415b599393d73cd935eb508eb57fa89b0e8fae9aa68baf4229732cd4629d4fe9"
+    },
+    {
+      "id": "organic42:bog",
+      "name": "Bog",
+      "path": "client/assets/v42/bog.svg",
+      "sha256": "65191c987d74b1bdb795e688870b3814c2d179a5f037951135cc9b626cd31b7e"
+    },
+    {
+      "id": "organic42:lagoon",
+      "name": "Lagoon",
+      "path": "client/assets/v42/lagoon.svg",
+      "sha256": "ecc015e451e106237a6177c10d1b91152ff9a3729f16894c56bdbd65fd883f10"
+    },
+    {
+      "id": "organic42:clam",
+      "name": "Clam",
+      "path": "client/assets/v42/clam.svg",
+      "sha256": "fb061807a0c7c2dca6f506111936ebfdcc229a7cd7f9720d549682534cda7280"
+    },
+    {
+      "id": "organic42:mussel",
+      "name": "Mussel",
+      "path": "client/assets/v42/mussel.svg",
+      "sha256": "9c5453e6a0a6ff931f053791e06be1d9e48726d3e7e7807a19afff43f2c23d28"
+    },
+    {
+      "id": "organic42:kelp",
+      "name": "Kelp",
+      "path": "client/assets/v42/kelp.svg",
+      "sha256": "b63b225452c45154557a11b206e5c646778916514b9ae292442b86afdc2bcc5e"
+    },
+    {
+      "id": "organic42:reef",
+      "name": "Reef",
+      "path": "client/assets/v42/reef.svg",
+      "sha256": "b517be85d578143a0ca2379e212af1073e9a3f64cd5c9d242d52c5f3c5124010"
+    },
+    {
+      "id": "organic42:coral",
+      "name": "Coral",
+      "path": "client/assets/v42/coral.svg",
+      "sha256": "745a7d84377ce46eb28e6d6fd703e70b3e2e20b681576271862469f4553fce14"
+    },
+    {
+      "id": "organic42:lily-pad",
+      "name": "Lily Pad",
+      "path": "client/assets/v42/lily-pad.svg",
+      "sha256": "c2dd668288e77de1da76a6454030fab4f16e8a59229da7b55bed62dd3d45b727"
+    },
+    {
+      "id": "organic42:reed",
+      "name": "Reed",
+      "path": "client/assets/v42/reed.svg",
+      "sha256": "6e4360bb65f12ff27cbad39e5f8a7a25e73b21cfbe084681ca650bf572f2d1c6"
+    },
+    {
+      "id": "organic42:salt-marsh",
+      "name": "Salt Marsh",
+      "path": "client/assets/v42/salt-marsh.svg",
+      "sha256": "428d383f7cd9d20fff494fb64a1dfa5c3eada4ac6083fb45441070fecddc8a0f"
+    },
+    {
+      "id": "organic42:yeast",
+      "name": "Yeast",
+      "path": "client/assets/v42/yeast.svg",
+      "sha256": "691e9240413b0c891bf11c2bd63769e197b2183c91ab55dadbaa63374c868129"
+    },
+    {
+      "id": "organic42:croissant",
+      "name": "Croissant",
+      "path": "client/assets/v42/croissant.svg",
+      "sha256": "80731f63b167ac6176f856eeb1109e5b56c2d656832fbb20b9d2a533d54a5877"
+    },
+    {
+      "id": "organic42:bagel",
+      "name": "Bagel",
+      "path": "client/assets/v42/bagel.svg",
+      "sha256": "ce339df88a0be0b5425af6731be3a8612731d55839a1a9e023bcdff5cf76f5c2"
+    },
+    {
+      "id": "organic42:pretzel",
+      "name": "Pretzel",
+      "path": "client/assets/v42/pretzel.svg",
+      "sha256": "83b3b9213dafdbe650ef93a8e509a553ac6ce8e21f6ad4cbc0949893e01506c5"
+    },
+    {
+      "id": "organic42:pancake",
+      "name": "Pancake",
+      "path": "client/assets/v42/pancake.svg",
+      "sha256": "d43f63cb89087df2c0c3f077422574991336e3ee17820174d062b540c4baf64f"
+    },
+    {
+      "id": "organic42:waffle",
+      "name": "Waffle",
+      "path": "client/assets/v42/waffle.svg",
+      "sha256": "9626b3dd31ff0bcd35d3bae28e29083c023f9e2ab5891522d4bf8744326b6265"
+    },
+    {
+      "id": "organic42:cinnamon",
+      "name": "Cinnamon",
+      "path": "client/assets/v42/cinnamon.svg",
+      "sha256": "10496412087052f3d71724fae71f6671c22842d5ef48ac6612c8462ea3d90333"
+    },
+    {
+      "id": "organic42:vanilla",
+      "name": "Vanilla",
+      "path": "client/assets/v42/vanilla.svg",
+      "sha256": "84301cdd16c154a07853e724d3dafc35fece2db7dfb1f7f5c0c5c6dd0121f7d6"
+    },
+    {
+      "id": "organic42:cake",
+      "name": "Cake",
+      "path": "client/assets/v42/cake.svg",
+      "sha256": "78fbb59c981ce213b66f37d4d1dbed046f2420d6de2d7608fd9d53a13bf9f7e2"
+    },
+    {
+      "id": "organic42:caramel",
+      "name": "Caramel",
+      "path": "client/assets/v42/caramel.svg",
+      "sha256": "057aa40321469f8b6d2ecbcb50be5b8550a001cfa394ac1cea879b115ab20c60"
+    },
+    {
+      "id": "organic42:popcorn",
+      "name": "Popcorn",
+      "path": "client/assets/v42/popcorn.svg",
+      "sha256": "41f2b7fe6159c51734efc23828cb410fef1fb5326dd03b4a262ccd13a906a441"
+    },
+    {
+      "id": "organic42:rice",
+      "name": "Rice",
+      "path": "client/assets/v42/rice.svg",
+      "sha256": "6aa33af13ed93f7d488b0b9aa652a9daf314c2a8943f58ece34481a708d74c77"
+    },
+    {
+      "id": "organic42:noodles",
+      "name": "Noodles",
+      "path": "client/assets/v42/noodles.svg",
+      "sha256": "8cb34458377dbd3a49c9e4a77b1f7611ec593713ba0420c0b568a8993d35924a"
+    },
+    {
+      "id": "organic42:dumpling",
+      "name": "Dumpling",
+      "path": "client/assets/v42/dumpling.svg",
+      "sha256": "f2c32ea05d89cfdee996b0107332bd153ade06a01a02e2a990b8f3d5998b27aa"
+    },
+    {
+      "id": "organic42:syrup",
+      "name": "Syrup",
+      "path": "client/assets/v42/syrup.svg",
+      "sha256": "5eeec9a066e65ce8ee0b78050f65ffd99e17bd161979ef5e9daaafffa1fb7d62"
+    },
+    {
+      "id": "organic42:pie",
+      "name": "Pie",
+      "path": "client/assets/v42/pie.svg",
+      "sha256": "58c141052fa89e3314cf7a678177a680631c6cc285d6080b15adc9c20c84c0c5"
+    },
+    {
+      "id": "organic42:lens",
+      "name": "Lens",
+      "path": "client/assets/v42/lens.svg",
+      "sha256": "8390811b478b55d8cb2e4dc7ff4b7b1747ab6610adffd30c1af0cb50a88bd7d7"
+    },
+    {
+      "id": "organic42:prism",
+      "name": "Prism",
+      "path": "client/assets/v42/prism.svg",
+      "sha256": "e95887119aa47881f2e7a51eb06e7595c38c77a50ca6894dd16001e4bab7af1b"
+    },
+    {
+      "id": "organic42:optics",
+      "name": "Optics",
+      "path": "client/assets/v42/optics.svg",
+      "sha256": "0e0b532a2c3377c2590eed49712ea9ab9e9cf9cc1d0afc34c5b3fed2a689ecda"
+    },
+    {
+      "id": "organic42:film",
+      "name": "Film",
+      "path": "client/assets/v42/film.svg",
+      "sha256": "2fb1d380ba3985bfcacaa2eefe873658f21ce0984400043fec8e6eb7a7a91893"
+    },
+    {
+      "id": "organic42:photograph",
+      "name": "Photograph",
+      "path": "client/assets/v42/photograph.svg",
+      "sha256": "259d890687aa9b1f8fc354acd007eb53d1d1cd68e3ec13428608998baa004051"
+    },
+    {
+      "id": "organic42:negative",
+      "name": "Negative",
+      "path": "client/assets/v42/negative.svg",
+      "sha256": "a2db02b896feafc0c1827ab53135981491a269dfe621fc9235998fcb5beb9134"
+    },
+    {
+      "id": "organic42:darkroom",
+      "name": "Darkroom",
+      "path": "client/assets/v42/darkroom.svg",
+      "sha256": "264de8feec9a63b8f3418155c69d3db61e48fceff3988e3c78bbca6efcb7ff52"
+    },
+    {
+      "id": "organic42:flash",
+      "name": "Flash",
+      "path": "client/assets/v42/flash.svg",
+      "sha256": "d425d1d2c53ef1b0f523ed98a8eb77db666fc8307b6f501118e6f56cb6c86983"
+    },
+    {
+      "id": "organic42:tripod",
+      "name": "Tripod",
+      "path": "client/assets/v42/tripod.svg",
+      "sha256": "220612a609f19949dd332600cdcb0069bfd450472b4cab2b8b99675536a394e1"
+    },
+    {
+      "id": "organic42:shutter",
+      "name": "Shutter",
+      "path": "client/assets/v42/shutter.svg",
+      "sha256": "0aeb28ac1bddaef7de3b8c2c3fec15b978da519f9cdf052c5bbdc1025a651d22"
+    },
+    {
+      "id": "organic42:projector",
+      "name": "Projector",
+      "path": "client/assets/v42/projector.svg",
+      "sha256": "10190d87e3658fd2064ff283ac6b69c17188cf55f44ea89c9b5f3016794b6f86"
+    },
+    {
+      "id": "organic42:slide",
+      "name": "Slide",
+      "path": "client/assets/v42/slide.svg",
+      "sha256": "cb92e61495e620298cf80ca4a6960ec3bcae199874a67804cb0eca8278aabbdf"
+    },
+    {
+      "id": "organic42:photographer",
+      "name": "Photographer",
+      "path": "client/assets/v42/photographer.svg",
+      "sha256": "82ec81a60ffbd8c18bbb9ede561f53e8292985bf6db3a0987ce9be31c3b15c70"
+    },
+    {
+      "id": "organic42:exposure",
+      "name": "Exposure",
+      "path": "client/assets/v42/exposure.svg",
+      "sha256": "5b196a9ce055b3c0506c3ddcd9243957dbeed6de75d84b830e868349004dacbe"
+    },
+    {
+      "id": "organic42:portrait",
+      "name": "Portrait",
+      "path": "client/assets/v42/portrait.svg",
+      "sha256": "1a7c3ff0771d35884bae797c9b5e8a4a20f60a482eab6305725bbd9b614585a1"
+    },
+    {
+      "id": "organic42:aperture",
+      "name": "Aperture",
+      "path": "client/assets/v42/aperture.svg",
+      "sha256": "ad1889fa192593061759d494c4bd3a32a916a02ec31b1e2fee74274b5dea1545"
+    }
+  ]
+}

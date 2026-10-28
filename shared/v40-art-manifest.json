@@ -1,0 +1,389 @@
+{
+  "version": 40,
+  "icons": [
+    {
+      "id": "organic40:comet",
+      "name": "Comet",
+      "path": "client/assets/v40/comet.svg",
+      "sha256": "77a52bf4c9d4a3e1fcd0d573eef5f8785021ab2ee9c4081960cbd691c9a338f2"
+    },
+    {
+      "id": "organic40:meteor",
+      "name": "Meteor",
+      "path": "client/assets/v40/meteor.svg",
+      "sha256": "6b4218b04c770ce937f3a94bcdd449d1853e354cea900c7c3f68f9c7f0a16e3e"
+    },
+    {
+      "id": "organic40:meteorite",
+      "name": "Meteorite",
+      "path": "client/assets/v40/meteorite.svg",
+      "sha256": "a4afec1f26ed8c445c70a9e64952cb1ab9dc4fc046367b6f515c73f7de8b07a7"
+    },
+    {
+      "id": "organic40:orbit",
+      "name": "Orbit",
+      "path": "client/assets/v40/orbit.svg",
+      "sha256": "73ac79ec9f61dab657b41bd639f408cfc07c0a6467fc75ed5450f245cdfb8293"
+    },
+    {
+      "id": "organic40:satellite",
+      "name": "Satellite",
+      "path": "client/assets/v40/satellite.svg",
+      "sha256": "ad2e0b0cc59830a57dba0aabbe8d66d72fea3c10f3530be073260dd80df668d2"
+    },
+    {
+      "id": "organic40:nebula",
+      "name": "Nebula",
+      "path": "client/assets/v40/nebula.svg",
+      "sha256": "bce0af3eef862e97bea3d5f01e48de47d4b58b37ddffcd8d8bd9fc63f0b4832b"
+    },
+    {
+      "id": "organic40:eclipse",
+      "name": "Eclipse",
+      "path": "client/assets/v40/eclipse.svg",
+      "sha256": "270b4faa37817816d3b00dcd4265c9be939f9225a6a0d57ffd6a1ddb38483ded"
+    },
+    {
+      "id": "organic40:constellation",
+      "name": "Constellation",
+      "path": "client/assets/v40/constellation.svg",
+      "sha256": "87656b6026257c7705c065812ff51b53f16c26961fae6cec40dfed16badf2f4e"
+    },
+    {
+      "id": "organic40:aurora",
+      "name": "Aurora",
+      "path": "client/assets/v40/aurora.svg",
+      "sha256": "75845723265f72935c68f0d8afbcd6e57d52f047a770b7ff5bab4ba6dec2a1d0"
+    },
+    {
+      "id": "organic40:supernova",
+      "name": "Supernova",
+      "path": "client/assets/v40/supernova.svg",
+      "sha256": "9a477c7e7cf0cc99e6c0b836ee4b1a9341e7f104d742c86097b598574b74d410"
+    },
+    {
+      "id": "organic40:asteroid",
+      "name": "Asteroid",
+      "path": "client/assets/v40/asteroid.svg",
+      "sha256": "d405335c1acf696dd87e769a2ae69f92e0b58389c98d01608b787641e1109d35"
+    },
+    {
+      "id": "organic40:observatory",
+      "name": "Observatory",
+      "path": "client/assets/v40/observatory.svg",
+      "sha256": "315502bed18100e37a77d6957b2a5589f917cfb814662c4f25217b7890f9ebf1"
+    },
+    {
+      "id": "organic40:moonlight",
+      "name": "Moonlight",
+      "path": "client/assets/v40/moonlight.svg",
+      "sha256": "526ef750060667d32b73cd8d077ee9c4bfea237bc5a1fbf77a306999283715b8"
+    },
+    {
+      "id": "organic40:solar-system",
+      "name": "Solar System",
+      "path": "client/assets/v40/solar-system.svg",
+      "sha256": "86147226a7c8d49fcdac692dfcffd24e916fe2f63fe790bc2e99c6afa9cbbc11"
+    },
+    {
+      "id": "organic40:exoplanet",
+      "name": "Exoplanet",
+      "path": "client/assets/v40/exoplanet.svg",
+      "sha256": "64ed9ab914a0561c96f413c4bdf4b13e40f423593b69d8df814b745e7acbe2aa"
+    },
+    {
+      "id": "organic40:black-hole",
+      "name": "Black Hole",
+      "path": "client/assets/v40/black-hole.svg",
+      "sha256": "cd468f3cefa4653ad320599362c919a77c87e6bd8bca520aae490c5499d1795f"
+    },
+    {
+      "id": "organic40:nest",
+      "name": "Nest",
+      "path": "client/assets/v40/nest.svg",
+      "sha256": "fda79ef5af3eee2af92d5f31c75c99178667df2b837edc0cead44554ab9383a1"
+    },
+    {
+      "id": "organic40:squirrel",
+      "name": "Squirrel",
+      "path": "client/assets/v40/squirrel.svg",
+      "sha256": "3fadbe041aeaba917838dff3cba7a6999852949300c52f9cf84505d946cb4c4f"
+    },
+    {
+      "id": "organic40:fox",
+      "name": "Fox",
+      "path": "client/assets/v40/fox.svg",
+      "sha256": "73c965b04d5ff8e93f8b9f40d2c98b6971c57cff5fbb8d188b61abeca02f63ec"
+    },
+    {
+      "id": "organic40:owl",
+      "name": "Owl",
+      "path": "client/assets/v40/owl.svg",
+      "sha256": "f3d6e5523f26ad39bddc750557ebd6affd0ffc0a53d766dda6ce654b0e1b8515"
+    },
+    {
+      "id": "organic40:hedgehog",
+      "name": "Hedgehog",
+      "path": "client/assets/v40/hedgehog.svg",
+      "sha256": "e492c51d2bb48afcf5faaaf9420baee364d027abd7e194ad2b303561659f8e93"
+    },
+    {
+      "id": "organic40:deer",
+      "name": "Deer",
+      "path": "client/assets/v40/deer.svg",
+      "sha256": "a63aca244793cf4fd082fd13180af6c0bceec93595beb366a20aa4c1ad2c948c"
+    },
+    {
+      "id": "organic40:feather",
+      "name": "Feather",
+      "path": "client/assets/v40/feather.svg",
+      "sha256": "5939413be4906304729c1af379f78cd0394b96b85a831e5011d3e85304c200ec"
+    },
+    {
+      "id": "organic40:pinecone",
+      "name": "Pinecone",
+      "path": "client/assets/v40/pinecone.svg",
+      "sha256": "434480d1bd1f5ba32cb4c45446715dd40f1de3a45a48d73f369d2471e47d9a0e"
+    },
+    {
+      "id": "organic40:woodpecker",
+      "name": "Woodpecker",
+      "path": "client/assets/v40/woodpecker.svg",
+      "sha256": "e11a28c5a7192df45b7e7e05e9d407ceb9ed5da652302c337a97d9413cc53bfd"
+    },
+    {
+      "id": "organic40:canopy",
+      "name": "Canopy",
+      "path": "client/assets/v40/canopy.svg",
+      "sha256": "4edcd98b2585a134708ca7a45ce1ffaf53fd2b5ef0b44fd3d05bf63f92ae0412"
+    },
+    {
+      "id": "organic40:burrow",
+      "name": "Burrow",
+      "path": "client/assets/v40/burrow.svg",
+      "sha256": "0fd5f45edb104350712838ac890a0b1a107f23a70ff5578cd9502bfdf33572f9"
+    },
+    {
+      "id": "organic40:spider",
+      "name": "Spider",
+      "path": "client/assets/v40/spider.svg",
+      "sha256": "fa86fd12d65ecd1e8b4e4d7a857fc9dae614d1a9d5274c51fb2f294016a9f87f"
+    },
+    {
+      "id": "organic40:spiderweb",
+      "name": "Spiderweb",
+      "path": "client/assets/v40/spiderweb.svg",
+      "sha256": "63f9ed5ca3ca9f41b76e42c6db81b7a3a94a045fe7a43ed3159e57c3ea69b0a1"
+    },
+    {
+      "id": "organic40:beaver",
+      "name": "Beaver",
+      "path": "client/assets/v40/beaver.svg",
+      "sha256": "76ab8db99e28874319dece5e46c311d77b45472dd463e25352c4028799864f79"
+    },
+    {
+      "id": "organic40:beaver-dam",
+      "name": "Beaver Dam",
+      "path": "client/assets/v40/beaver-dam.svg",
+      "sha256": "3ff7fe814889b7fce56b3a848d0012907ec0826ee0ade20b745e0c71784c67b0"
+    },
+    {
+      "id": "organic40:wetland",
+      "name": "Wetland",
+      "path": "client/assets/v40/wetland.svg",
+      "sha256": "0da5cb90d29f90a26b43585f6c51b11aac47ef1590343dae055f22fd5417a663"
+    },
+    {
+      "id": "organic40:rhythm",
+      "name": "Rhythm",
+      "path": "client/assets/v40/rhythm.svg",
+      "sha256": "d4be77bb48f5ff5f459c0dd17aaedc4ca2bf7a502c1ac031aeae5a03fd8073ff"
+    },
+    {
+      "id": "organic40:beat",
+      "name": "Beat",
+      "path": "client/assets/v40/beat.svg",
+      "sha256": "7e2e50f24ad1e5147bec219826d225b715439bfde9957e030dfe13dc8ffa8e17"
+    },
+    {
+      "id": "organic40:harmony",
+      "name": "Harmony",
+      "path": "client/assets/v40/harmony.svg",
+      "sha256": "7f3980f236d7e0b776ede015a80a134379765dd338018ccd9a3728d0938b1f44"
+    },
+    {
+      "id": "organic40:chord",
+      "name": "Chord",
+      "path": "client/assets/v40/chord.svg",
+      "sha256": "25fb71db7759a8dff7b135a508bff2c502edb7aef86b63dcc479efc4b046cf09"
+    },
+    {
+      "id": "organic40:drum",
+      "name": "Drum",
+      "path": "client/assets/v40/drum.svg",
+      "sha256": "ab36f4439d949a7fa64c5a5aa00754541e8b8cd0ed78d50824853d595b1be183"
+    },
+    {
+      "id": "organic40:violin",
+      "name": "Violin",
+      "path": "client/assets/v40/violin.svg",
+      "sha256": "589868d6f0499776b7939ca66a3394d2e8c39cb0408a4329a2e2098d3068dc5d"
+    },
+    {
+      "id": "organic40:flute",
+      "name": "Flute",
+      "path": "client/assets/v40/flute.svg",
+      "sha256": "e38275c59290197debe8394eda9579248413165df57d47446e1b3c8f023d736e"
+    },
+    {
+      "id": "organic40:harp",
+      "name": "Harp",
+      "path": "client/assets/v40/harp.svg",
+      "sha256": "075287b162bf55046f1997b86eb9bf70f3f9fd75408cd005a42f9be84fa4a6ca"
+    },
+    {
+      "id": "organic40:concert",
+      "name": "Concert",
+      "path": "client/assets/v40/concert.svg",
+      "sha256": "8b2bf8487489aec8710938b2054e872e837ea97afeebdb4aba78719fc9f62612"
+    },
+    {
+      "id": "organic40:choir",
+      "name": "Choir",
+      "path": "client/assets/v40/choir.svg",
+      "sha256": "c51edc84b4c816e06c9737594b385b305782e8d1280540a012dc0b93bc86ffd4"
+    },
+    {
+      "id": "organic40:vinyl",
+      "name": "Vinyl",
+      "path": "client/assets/v40/vinyl.svg",
+      "sha256": "06e20c36e16ab21d26f80741a1080ecf58cd0fda7b258c3be4c304b8cc23eb11"
+    },
+    {
+      "id": "organic40:amplifier",
+      "name": "Amplifier",
+      "path": "client/assets/v40/amplifier.svg",
+      "sha256": "bcbb9bc9fc318fab118996c5025d84ab626915a703281bacd1a3b26a557bcdb2"
+    },
+    {
+      "id": "organic40:synthesizer",
+      "name": "Synthesizer",
+      "path": "client/assets/v40/synthesizer.svg",
+      "sha256": "16515cfd9580f19b3385f40b4c2017f7cbee41d35e3dcd54bc04c9bd88172554"
+    },
+    {
+      "id": "organic40:metronome",
+      "name": "Metronome",
+      "path": "client/assets/v40/metronome.svg",
+      "sha256": "f613d776b1f5c184e0da272d9e6168f88d4e53239bb5c9d0a8a534c172f9dac8"
+    },
+    {
+      "id": "organic40:sheet-music",
+      "name": "Sheet Music",
+      "path": "client/assets/v40/sheet-music.svg",
+      "sha256": "15ab9be2af845250e93abed7adce1bd20d580a98e2f7348d305e28fa43c15e04"
+    },
+    {
+      "id": "organic40:music-box",
+      "name": "Music Box",
+      "path": "client/assets/v40/music-box.svg",
+      "sha256": "1aa0bfd14a5ddbf5d15779e69e8d61add458a49bbeac8c51c70a5f6cf361ed8b"
+    },
+    {
+      "id": "organic40:gear",
+      "name": "Gear",
+      "path": "client/assets/v40/gear.svg",
+      "sha256": "b69ac2ed7804dbcb64a78e1059b6f0839d8b1373adbf11d6823e8f22013d96e8"
+    },
+    {
+      "id": "organic40:motor",
+      "name": "Motor",
+      "path": "client/assets/v40/motor.svg",
+      "sha256": "c64bac686b9b44190ecc687938fc8986a75e3873ea881ff2f3456f10887eaab9"
+    },
+    {
+      "id": "organic40:generator",
+      "name": "Generator",
+      "path": "client/assets/v40/generator.svg",
+      "sha256": "a98763bc05f8992d331549d4e605d5e84310b19b86354babaabbf5215a55f41c"
+    },
+    {
+      "id": "organic40:turbine",
+      "name": "Turbine",
+      "path": "client/assets/v40/turbine.svg",
+      "sha256": "c35b92df4fbdfa99fba85b617027e5793fdce9fae87e1eed2e0bc73bfc6c6584"
+    },
+    {
+      "id": "organic40:workshop",
+      "name": "Workshop",
+      "path": "client/assets/v40/workshop.svg",
+      "sha256": "5d8ec3c024c798c38c0c3092e85c3a9051b862f6d1efe49b0b49bf932d05695e"
+    },
+    {
+      "id": "organic40:blueprint",
+      "name": "Blueprint",
+      "path": "client/assets/v40/blueprint.svg",
+      "sha256": "3c44fcf20f2b231eef02aa6098c81be91b2e9002ac20b94ef517baa6fe6200c0"
+    },
+    {
+      "id": "organic40:conveyor-belt",
+      "name": "Conveyor Belt",
+      "path": "client/assets/v40/conveyor-belt.svg",
+      "sha256": "21d26680368f0fdfd3dfa47e2f56a9d96bb8d6893a96f3487355cbef7c35ca18"
+    },
+    {
+      "id": "organic40:3d-printer",
+      "name": "3D Printer",
+      "path": "client/assets/v40/3d-printer.svg",
+      "sha256": "36b77faa905a211305a6bf2c41328a89db813f8ca5faf9bb2b1a3298c3d04b7e"
+    },
+    {
+      "id": "organic40:bicycle",
+      "name": "Bicycle",
+      "path": "client/assets/v40/bicycle.svg",
+      "sha256": "d5bffd9cfb0995aa71e50f33661d5d8945103d71313cbcd79172a6a590ab7f48"
+    },
+    {
+      "id": "organic40:windmill",
+      "name": "Windmill",
+      "path": "client/assets/v40/windmill.svg",
+      "sha256": "da59d357172f7d52795b83dc5565904d772a89485d27db7c59a4e0d87769d9f2"
+    },
+    {
+      "id": "organic40:watermill",
+      "name": "Watermill",
+      "path": "client/assets/v40/watermill.svg",
+      "sha256": "a739ab5f3d2c948492e708f4cf39c974de4414efd26c07721144d5fef4b3c2e3"
+    },
+    {
+      "id": "organic40:piston",
+      "name": "Piston",
+      "path": "client/assets/v40/piston.svg",
+      "sha256": "d6d3bb4efe994ae6043d34402d15e36f61925d4ff66ab9cbc50d22522a905ad3"
+    },
+    {
+      "id": "organic40:gearbox",
+      "name": "Gearbox",
+      "path": "client/assets/v40/gearbox.svg",
+      "sha256": "1218b5a7f06ff5e4036741f1fd560e5ff8adf15b46c9bc069a03d22008d12db1"
+    },
+    {
+      "id": "organic40:kiln",
+      "name": "Kiln",
+      "path": "client/assets/v40/kiln.svg",
+      "sha256": "06fde5c1085a2a1fa00a5ba344783b5da0769d4613fa453c71a30ddcbb7346cd"
+    },
+    {
+      "id": "organic40:pottery",
+      "name": "Pottery",
+      "path": "client/assets/v40/pottery.svg",
+      "sha256": "33e185abccb6670f07034b76b8c6da2d9cb26d708dc69960b34599242befeccd"
+    },
+    {
+      "id": "organic40:ceramic",
+      "name": "Ceramic",
+      "path": "client/assets/v40/ceramic.svg",
+      "sha256": "7171adbe9fd1502aa2854360f7af7a97f78fe936cda5b0321148252c6cc53616"
+    }
+  ]
+}

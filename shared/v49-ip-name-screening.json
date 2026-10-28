@@ -1,0 +1,3050 @@
+{
+  "version": 49,
+  "purpose": "Editorial screening of possibly protected names, NOT a definitive legal classification",
+  "catalog": {
+    "elements": 3963,
+    "recipes": 12069
+  },
+  "totalMatchedRecords": 495,
+  "warning": "These are heuristic keyword hits only: many protected names may not match, and some matches may be generic words. Review individually; do not autogenerate mock names.",
+  "policy": "Never rename IDs or recipes. Adopt fictional names only after distinctiveness and clearance review; check names AND artwork, sound, descriptions and store listing.",
+  "examples": [
+    {
+      "reference": "PlayStation",
+      "userSuggested": "PolyStation",
+      "status": "not cleared",
+      "reason": "Very similar and PolyStation is also known as a real-world clone-console label; a more independent invention is preferable."
+    },
+    {
+      "reference": "Sonic",
+      "userSuggested": "Soarnic",
+      "status": "not cleared",
+      "reason": "Phonetically and conceptually close; must be evaluated together with artwork and characterization."
+    }
+  ],
+  "countsBySignal": {
+    "PlayStation": 24,
+    "Nintendo": 35,
+    "Xbox": 17,
+    "Sonic": 42,
+    "Mario": 78,
+    "Pokemon": 70,
+    "Zelda": 20,
+    "Minecraft": 3,
+    "Star Wars": 19,
+    "Dragon Ball": 22,
+    "Final Fantasy": 24,
+    "Sega": 17,
+    "Atari": 20,
+    "Marvel": 8,
+    "Batman": 6,
+    "Spider-Man": 4,
+    "Kirby": 26,
+    "Mega Man": 24,
+    "Assassin's Creed": 13,
+    "Halo": 12,
+    "Metal Gear": 16
+  },
+  "flagged": [
+    {
+      "id": "legacy:258",
+      "name": "Nintendo",
+      "category": "brand",
+      "signal": "Nintendo"
+    },
+    {
+      "id": "legacy:259",
+      "name": "Sega",
+      "category": "brand",
+      "signal": "Sega"
+    },
+    {
+      "id": "legacy:260",
+      "name": "Atari",
+      "category": "brand",
+      "signal": "Atari"
+    },
+    {
+      "id": "legacy:368",
+      "name": "Atari 2600",
+      "category": "console",
+      "signal": "Atari"
+    },
+    {
+      "id": "legacy:369",
+      "name": "Atari 5200",
+      "category": "console",
+      "signal": "Atari"
+    },
+    {
+      "id": "legacy:370",
+      "name": "Atari 7800",
+      "category": "console",
+      "signal": "Atari"
+    },
+    {
+      "id": "legacy:371",
+      "name": "Atari XEGS",
+      "category": "console",
+      "signal": "Atari"
+    },
+    {
+      "id": "legacy:372",
+      "name": "Atari Jaguar",
+      "category": "console",
+      "signal": "Atari"
+    },
+    {
+      "id": "legacy:373",
+      "name": "Atari Jaguar CD",
+      "category": "console",
+      "signal": "Atari"
+    },
+    {
+      "id": "legacy:374",
+      "name": "Atari Flashback",
+      "category": "console",
+      "signal": "Atari"
+    },
+    {
+      "id": "legacy:375",
+      "name": "Atari VCS",
+      "category": "console",
+      "signal": "Atari"
+    },
+    {
+      "id": "legacy:386",
+      "name": "Sega Mark III",
+      "category": "console",
+      "signal": "Sega"
+    },
+    {
+      "id": "legacy:390",
+      "name": "Sega Genesis",
+      "category": "console",
+      "signal": "Sega"
+    },
+    {
+      "id": "legacy:391",
+      "name": "Sega CD",
+      "category": "console",
+      "signal": "Sega"
+    },
+    {
+      "id": "legacy:392",
+      "name": "Sega 32X",
+      "category": "console",
+      "signal": "Sega"
+    },
+    {
+      "id": "legacy:393",
+      "name": "Sega Saturn",
+      "category": "console",
+      "signal": "Sega"
+    },
+    {
+      "id": "legacy:394",
+      "name": "Sega Dreamcast",
+      "category": "console",
+      "signal": "Sega"
+    },
+    {
+      "id": "legacy:403",
+      "name": "Nintendo 64",
+      "category": "console",
+      "signal": "Nintendo"
+    },
+    {
+      "id": "legacy:404",
+      "name": "Nintendo 64DD",
+      "category": "console",
+      "signal": "Nintendo"
+    },
+    {
+      "id": "legacy:405",
+      "name": "Nintendo GameCube",
+      "category": "console",
+      "signal": "Nintendo"
+    },
+    {
+      "id": "legacy:406",
+      "name": "Nintendo Wii",
+      "category": "console",
+      "signal": "Nintendo"
+    },
+    {
+      "id": "legacy:407",
+      "name": "Nintendo Wii Mini",
+      "category": "console",
+      "signal": "Nintendo"
+    },
+    {
+      "id": "legacy:408",
+      "name": "Nintendo Wii U",
+      "category": "console",
+      "signal": "Nintendo"
+    },
+    {
+      "id": "legacy:409",
+      "name": "Nintendo Switch",
+      "category": "console",
+      "signal": "Nintendo"
+    },
+    {
+      "id": "legacy:410",
+      "name": "Nintendo Switch OLED",
+      "category": "console",
+      "signal": "Nintendo"
+    },
+    {
+      "id": "legacy:411",
+      "name": "Nintendo Switch 2",
+      "category": "console",
+      "signal": "Nintendo"
+    },
+    {
+      "id": "legacy:414",
+      "name": "PlayStation",
+      "category": "console",
+      "signal": "PlayStation"
+    },
+    {
+      "id": "legacy:416",
+      "name": "PlayStation 2",
+      "category": "console",
+      "signal": "PlayStation"
+    },
+    {
+      "id": "legacy:417",
+      "name": "PS2 Slim",
+      "category": "console",
+      "signal": "PlayStation"
+    },
+    {
+      "id": "legacy:418",
+      "name": "PlayStation 3",
+      "category": "console",
+      "signal": "PlayStation"
+    },
+    {
+      "id": "legacy:419",
+      "name": "PS3 Slim",
+      "category": "console",
+      "signal": "PlayStation"
+    },
+    {
+      "id": "legacy:420",
+      "name": "PlayStation 4",
+      "category": "console",
+      "signal": "PlayStation"
+    },
+    {
+      "id": "legacy:421",
+      "name": "PS4 Slim",
+      "category": "console",
+      "signal": "PlayStation"
+    },
+    {
+      "id": "legacy:422",
+      "name": "PS4 Pro",
+      "category": "console",
+      "signal": "PlayStation"
+    },
+    {
+      "id": "legacy:423",
+      "name": "PlayStation 5",
+      "category": "console",
+      "signal": "PlayStation"
+    },
+    {
+      "id": "legacy:424",
+      "name": "PS5 Slim",
+      "category": "console",
+      "signal": "PlayStation"
+    },
+    {
+      "id": "legacy:425",
+      "name": "PS5 Pro",
+      "category": "console",
+      "signal": "PlayStation"
+    },
+    {
+      "id": "legacy:426",
+      "name": "PlayStation Classic",
+      "category": "console",
+      "signal": "PlayStation"
+    },
+    {
+      "id": "legacy:427",
+      "name": "Xbox",
+      "category": "console",
+      "signal": "Xbox"
+    },
+    {
+      "id": "legacy:428",
+      "name": "Xbox 360",
+      "category": "console",
+      "signal": "Xbox"
+    },
+    {
+      "id": "legacy:429",
+      "name": "Xbox 360 S",
+      "category": "console",
+      "signal": "Xbox"
+    },
+    {
+      "id": "legacy:430",
+      "name": "Xbox One",
+      "category": "console",
+      "signal": "Xbox"
+    },
+    {
+      "id": "legacy:431",
+      "name": "Xbox One S",
+      "category": "console",
+      "signal": "Xbox"
+    },
+    {
+      "id": "legacy:432",
+      "name": "Xbox One X",
+      "category": "console",
+      "signal": "Xbox"
+    },
+    {
+      "id": "legacy:433",
+      "name": "Xbox Series S",
+      "category": "console",
+      "signal": "Xbox"
+    },
+    {
+      "id": "legacy:434",
+      "name": "Xbox Series X",
+      "category": "console",
+      "signal": "Xbox"
+    },
+    {
+      "id": "legacy:468",
+      "name": "Nintendo DS",
+      "category": "portable",
+      "signal": "Nintendo"
+    },
+    {
+      "id": "legacy:469",
+      "name": "Nintendo DS Lite",
+      "category": "portable",
+      "signal": "Nintendo"
+    },
+    {
+      "id": "legacy:470",
+      "name": "Nintendo DSi",
+      "category": "portable",
+      "signal": "Nintendo"
+    },
+    {
+      "id": "legacy:471",
+      "name": "Nintendo DSi XL",
+      "category": "portable",
+      "signal": "Nintendo"
+    },
+    {
+      "id": "legacy:472",
+      "name": "Nintendo 3DS",
+      "category": "portable",
+      "signal": "Nintendo"
+    },
+    {
+      "id": "legacy:473",
+      "name": "Nintendo 3DS XL",
+      "category": "portable",
+      "signal": "Nintendo"
+    },
+    {
+      "id": "legacy:474",
+      "name": "Nintendo 2DS",
+      "category": "portable",
+      "signal": "Nintendo"
+    },
+    {
+      "id": "legacy:475",
+      "name": "New Nintendo 3DS",
+      "category": "portable",
+      "signal": "Nintendo"
+    },
+    {
+      "id": "legacy:476",
+      "name": "New Nintendo 2DS XL",
+      "category": "portable",
+      "signal": "Nintendo"
+    },
+    {
+      "id": "legacy:477",
+      "name": "Nintendo Switch Lite",
+      "category": "portable",
+      "signal": "Nintendo"
+    },
+    {
+      "id": "legacy:478",
+      "name": "Atari Lynx",
+      "category": "portable",
+      "signal": "Atari"
+    },
+    {
+      "id": "legacy:479",
+      "name": "Atari Lynx II",
+      "category": "portable",
+      "signal": "Atari"
+    },
+    {
+      "id": "legacy:480",
+      "name": "Sega Game Gear",
+      "category": "portable",
+      "signal": "Sega"
+    },
+    {
+      "id": "legacy:481",
+      "name": "Sega Nomad",
+      "category": "portable",
+      "signal": "Sega"
+    },
+    {
+      "id": "legacy:482",
+      "name": "Sega VMU",
+      "category": "accessory",
+      "signal": "Sega"
+    },
+    {
+      "id": "legacy:501",
+      "name": "PlayStation Portal",
+      "category": "portable",
+      "signal": "PlayStation"
+    },
+    {
+      "id": "legacy:527",
+      "name": "Atari ST",
+      "category": "computer",
+      "signal": "Atari"
+    },
+    {
+      "id": "legacy:528",
+      "name": "Atari 800",
+      "category": "computer",
+      "signal": "Atari"
+    },
+    {
+      "id": "legacy:651",
+      "name": "Super Mario Bros.",
+      "category": "game",
+      "signal": "Mario"
+    },
+    {
+      "id": "legacy:652",
+      "name": "Super Mario Bros. 2",
+      "category": "game",
+      "signal": "Mario"
+    },
+    {
+      "id": "legacy:653",
+      "name": "Super Mario Bros. 3",
+      "category": "game",
+      "signal": "Mario"
+    },
+    {
+      "id": "legacy:654",
+      "name": "Super Mario World",
+      "category": "game",
+      "signal": "Mario"
+    },
+    {
+      "id": "legacy:655",
+      "name": "Super Mario World 2: Yoshi’s Island",
+      "category": "game",
+      "signal": "Mario"
+    },
+    {
+      "id": "legacy:656",
+      "name": "Super Mario 64",
+      "category": "game",
+      "signal": "Mario"
+    },
+    {
+      "id": "legacy:657",
+      "name": "Super Mario Sunshine",
+      "category": "game",
+      "signal": "Mario"
+    },
+    {
+      "id": "legacy:658",
+      "name": "Super Mario Galaxy",
+      "category": "game",
+      "signal": "Mario"
+    },
+    {
+      "id": "legacy:659",
+      "name": "Super Mario Galaxy 2",
+      "category": "game",
+      "signal": "Mario"
+    },
+    {
+      "id": "legacy:660",
+      "name": "Super Mario 3D Land",
+      "category": "game",
+      "signal": "Mario"
+    },
+    {
+      "id": "legacy:661",
+      "name": "Super Mario 3D World",
+      "category": "game",
+      "signal": "Mario"
+    },
+    {
+      "id": "legacy:662",
+      "name": "Super Mario Odyssey",
+      "category": "game",
+      "signal": "Mario"
+    },
+    {
+      "id": "legacy:663",
+      "name": "Super Mario Bros. Wonder",
+      "category": "game",
+      "signal": "Mario"
+    },
+    {
+      "id": "legacy:664",
+      "name": "New Super Mario Bros.",
+      "category": "game",
+      "signal": "Mario"
+    },
+    {
+      "id": "legacy:665",
+      "name": "New Super Mario Bros. Wii",
+      "category": "game",
+      "signal": "Mario"
+    },
+    {
+      "id": "legacy:666",
+      "name": "Super Mario Maker",
+      "category": "game",
+      "signal": "Mario"
+    },
+    {
+      "id": "legacy:667",
+      "name": "Super Mario Maker 2",
+      "category": "game",
+      "signal": "Mario"
+    },
+    {
+      "id": "legacy:668",
+      "name": "Mario Kart",
+      "category": "game",
+      "signal": "Mario"
+    },
+    {
+      "id": "legacy:669",
+      "name": "Mario Kart 64",
+      "category": "game",
+      "signal": "Mario"
+    },
+    {
+      "id": "legacy:670",
+      "name": "Mario Kart: Double Dash!!",
+      "category": "game",
+      "signal": "Mario"
+    },
+    {
+      "id": "legacy:671",
+      "name": "Mario Kart DS",
+      "category": "game",
+      "signal": "Mario"
+    },
+    {
+      "id": "legacy:672",
+      "name": "Mario Kart Wii",
+      "category": "game",
+      "signal": "Mario"
+    },
+    {
+      "id": "legacy:673",
+      "name": "Mario Kart 7",
+      "category": "game",
+      "signal": "Mario"
+    },
+    {
+      "id": "legacy:674",
+      "name": "Mario Kart 8",
+      "category": "game",
+      "signal": "Mario"
+    },
+    {
+      "id": "legacy:675",
+      "name": "Mario Kart 8 Deluxe",
+      "category": "game",
+      "signal": "Mario"
+    },
+    {
+      "id": "legacy:676",
+      "name": "Mario Kart World",
+      "category": "game",
+      "signal": "Mario"
+    },
+    {
+      "id": "legacy:677",
+      "name": "Super Mario RPG",
+      "category": "game",
+      "signal": "Mario"
+    },
+    {
+      "id": "legacy:678",
+      "name": "Paper Mario",
+      "category": "game",
+      "signal": "Mario"
+    },
+    {
+      "id": "legacy:679",
+      "name": "Mario & Luigi: Superstar Saga",
+      "category": "game",
+      "signal": "Mario"
+    },
+    {
+      "id": "legacy:684",
+      "name": "The Legend of Zelda",
+      "category": "game",
+      "signal": "Zelda"
+    },
+    {
+      "id": "legacy:685",
+      "name": "Zelda II: The Adventure of Link",
+      "category": "game",
+      "signal": "Zelda"
+    },
+    {
+      "id": "legacy:714",
+      "name": "Kirby’s Dream Land",
+      "category": "game",
+      "signal": "Kirby"
+    },
+    {
+      "id": "legacy:715",
+      "name": "Kirby Super Star",
+      "category": "game",
+      "signal": "Kirby"
+    },
+    {
+      "id": "legacy:716",
+      "name": "Kirby: Nightmare in Dream Land",
+      "category": "game",
+      "signal": "Kirby"
+    },
+    {
+      "id": "legacy:717",
+      "name": "Kirby and the Forgotten Land",
+      "category": "game",
+      "signal": "Kirby"
+    },
+    {
+      "id": "legacy:718",
+      "name": "Pokémon Red",
+      "category": "game",
+      "signal": "Pokemon"
+    },
+    {
+      "id": "legacy:719",
+      "name": "Pokémon Blue",
+      "category": "game",
+      "signal": "Pokemon"
+    },
+    {
+      "id": "legacy:720",
+      "name": "Pokémon Yellow",
+      "category": "game",
+      "signal": "Pokemon"
+    },
+    {
+      "id": "legacy:721",
+      "name": "Pokémon Gold",
+      "category": "game",
+      "signal": "Pokemon"
+    },
+    {
+      "id": "legacy:722",
+      "name": "Pokémon Silver",
+      "category": "game",
+      "signal": "Pokemon"
+    },
+    {
+      "id": "legacy:723",
+      "name": "Pokémon Crystal",
+      "category": "game",
+      "signal": "Pokemon"
+    },
+    {
+      "id": "legacy:724",
+      "name": "Pokémon Ruby",
+      "category": "game",
+      "signal": "Pokemon"
+    },
+    {
+      "id": "legacy:725",
+      "name": "Pokémon Sapphire",
+      "category": "game",
+      "signal": "Pokemon"
+    },
+    {
+      "id": "legacy:726",
+      "name": "Pokémon Emerald",
+      "category": "game",
+      "signal": "Pokemon"
+    },
+    {
+      "id": "legacy:727",
+      "name": "Pokémon Diamond",
+      "category": "game",
+      "signal": "Pokemon"
+    },
+    {
+      "id": "legacy:728",
+      "name": "Pokémon Pearl",
+      "category": "game",
+      "signal": "Pokemon"
+    },
+    {
+      "id": "legacy:729",
+      "name": "Pokémon Platinum",
+      "category": "game",
+      "signal": "Pokemon"
+    },
+    {
+      "id": "legacy:730",
+      "name": "Pokémon Black",
+      "category": "game",
+      "signal": "Pokemon"
+    },
+    {
+      "id": "legacy:731",
+      "name": "Pokémon White",
+      "category": "game",
+      "signal": "Pokemon"
+    },
+    {
+      "id": "legacy:732",
+      "name": "Pokémon X",
+      "category": "game",
+      "signal": "Pokemon"
+    },
+    {
+      "id": "legacy:733",
+      "name": "Pokémon Y",
+      "category": "game",
+      "signal": "Pokemon"
+    },
+    {
+      "id": "legacy:734",
+      "name": "Pokémon Sun",
+      "category": "game",
+      "signal": "Pokemon"
+    },
+    {
+      "id": "legacy:735",
+      "name": "Pokémon Moon",
+      "category": "game",
+      "signal": "Pokemon"
+    },
+    {
+      "id": "legacy:736",
+      "name": "Pokémon Sword",
+      "category": "game",
+      "signal": "Pokemon"
+    },
+    {
+      "id": "legacy:737",
+      "name": "Pokémon Shield",
+      "category": "game",
+      "signal": "Pokemon"
+    },
+    {
+      "id": "legacy:738",
+      "name": "Pokémon Scarlet",
+      "category": "game",
+      "signal": "Pokemon"
+    },
+    {
+      "id": "legacy:739",
+      "name": "Pokémon Violet",
+      "category": "game",
+      "signal": "Pokemon"
+    },
+    {
+      "id": "legacy:740",
+      "name": "Pokémon",
+      "category": "game",
+      "signal": "Pokemon"
+    },
+    {
+      "id": "legacy:741",
+      "name": "Pokémon Snap",
+      "category": "game",
+      "signal": "Pokemon"
+    },
+    {
+      "id": "legacy:742",
+      "name": "Pokémon Stadium",
+      "category": "game",
+      "signal": "Pokemon"
+    },
+    {
+      "id": "legacy:743",
+      "name": "Pokémon Pinball",
+      "category": "game",
+      "signal": "Pokemon"
+    },
+    {
+      "id": "legacy:744",
+      "name": "Pokémon GO",
+      "category": "game",
+      "signal": "Pokemon"
+    },
+    {
+      "id": "legacy:774",
+      "name": "Dr. Mario",
+      "category": "game",
+      "signal": "Mario"
+    },
+    {
+      "id": "legacy:783",
+      "name": "Sonic the Hedgehog",
+      "category": "game",
+      "signal": "Sonic"
+    },
+    {
+      "id": "legacy:784",
+      "name": "Sonic the Hedgehog 2",
+      "category": "game",
+      "signal": "Sonic"
+    },
+    {
+      "id": "legacy:785",
+      "name": "Sonic 3 & Knuckles",
+      "category": "game",
+      "signal": "Sonic"
+    },
+    {
+      "id": "legacy:786",
+      "name": "Sonic CD",
+      "category": "game",
+      "signal": "Sonic"
+    },
+    {
+      "id": "legacy:787",
+      "name": "Sonic Adventure",
+      "category": "game",
+      "signal": "Sonic"
+    },
+    {
+      "id": "legacy:788",
+      "name": "Sonic Adventure 2",
+      "category": "game",
+      "signal": "Sonic"
+    },
+    {
+      "id": "legacy:789",
+      "name": "Sonic Mania",
+      "category": "game",
+      "signal": "Sonic"
+    },
+    {
+      "id": "legacy:790",
+      "name": "Sonic Frontiers",
+      "category": "game",
+      "signal": "Sonic"
+    },
+    {
+      "id": "legacy:791",
+      "name": "Sonic Superstars",
+      "category": "game",
+      "signal": "Sonic"
+    },
+    {
+      "id": "legacy:826",
+      "name": "Sega Rally Championship",
+      "category": "game",
+      "signal": "Sega"
+    },
+    {
+      "id": "legacy:852",
+      "name": "Marvel’s Spider-Man",
+      "category": "game",
+      "signal": "Marvel"
+    },
+    {
+      "id": "legacy:852",
+      "name": "Marvel’s Spider-Man",
+      "category": "game",
+      "signal": "Spider-Man"
+    },
+    {
+      "id": "legacy:853",
+      "name": "Marvel’s Spider-Man 2",
+      "category": "game",
+      "signal": "Marvel"
+    },
+    {
+      "id": "legacy:853",
+      "name": "Marvel’s Spider-Man 2",
+      "category": "game",
+      "signal": "Spider-Man"
+    },
+    {
+      "id": "legacy:883",
+      "name": "Halo: Combat Evolved",
+      "category": "game",
+      "signal": "Halo"
+    },
+    {
+      "id": "legacy:884",
+      "name": "Halo 2",
+      "category": "game",
+      "signal": "Halo"
+    },
+    {
+      "id": "legacy:885",
+      "name": "Halo 3",
+      "category": "game",
+      "signal": "Halo"
+    },
+    {
+      "id": "legacy:886",
+      "name": "Halo: Reach",
+      "category": "game",
+      "signal": "Halo"
+    },
+    {
+      "id": "legacy:887",
+      "name": "Halo Infinite",
+      "category": "game",
+      "signal": "Halo"
+    },
+    {
+      "id": "legacy:931",
+      "name": "Minecraft",
+      "category": "game",
+      "signal": "Minecraft"
+    },
+    {
+      "id": "legacy:932",
+      "name": "Minecraft Dungeons",
+      "category": "game",
+      "signal": "Minecraft"
+    },
+    {
+      "id": "legacy:978",
+      "name": "Metal Gear",
+      "category": "game",
+      "signal": "Metal Gear"
+    },
+    {
+      "id": "legacy:979",
+      "name": "Metal Gear 2: Solid Snake",
+      "category": "game",
+      "signal": "Metal Gear"
+    },
+    {
+      "id": "legacy:980",
+      "name": "Metal Gear Solid",
+      "category": "game",
+      "signal": "Metal Gear"
+    },
+    {
+      "id": "legacy:981",
+      "name": "Metal Gear Solid 2",
+      "category": "game",
+      "signal": "Metal Gear"
+    },
+    {
+      "id": "legacy:982",
+      "name": "Metal Gear Solid 3",
+      "category": "game",
+      "signal": "Metal Gear"
+    },
+    {
+      "id": "legacy:983",
+      "name": "Metal Gear Solid 4",
+      "category": "game",
+      "signal": "Metal Gear"
+    },
+    {
+      "id": "legacy:984",
+      "name": "Metal Gear Solid: Peace Walker",
+      "category": "game",
+      "signal": "Metal Gear"
+    },
+    {
+      "id": "legacy:985",
+      "name": "Metal Gear Solid V",
+      "category": "game",
+      "signal": "Metal Gear"
+    },
+    {
+      "id": "legacy:986",
+      "name": "Final Fantasy",
+      "category": "game",
+      "signal": "Final Fantasy"
+    },
+    {
+      "id": "legacy:987",
+      "name": "Final Fantasy VI",
+      "category": "game",
+      "signal": "Final Fantasy"
+    },
+    {
+      "id": "legacy:988",
+      "name": "Final Fantasy VII",
+      "category": "game",
+      "signal": "Final Fantasy"
+    },
+    {
+      "id": "legacy:989",
+      "name": "Final Fantasy VIII",
+      "category": "game",
+      "signal": "Final Fantasy"
+    },
+    {
+      "id": "legacy:990",
+      "name": "Final Fantasy IX",
+      "category": "game",
+      "signal": "Final Fantasy"
+    },
+    {
+      "id": "legacy:991",
+      "name": "Final Fantasy X",
+      "category": "game",
+      "signal": "Final Fantasy"
+    },
+    {
+      "id": "legacy:992",
+      "name": "Final Fantasy XII",
+      "category": "game",
+      "signal": "Final Fantasy"
+    },
+    {
+      "id": "legacy:993",
+      "name": "Final Fantasy XIII",
+      "category": "game",
+      "signal": "Final Fantasy"
+    },
+    {
+      "id": "legacy:994",
+      "name": "Final Fantasy XV",
+      "category": "game",
+      "signal": "Final Fantasy"
+    },
+    {
+      "id": "legacy:995",
+      "name": "Final Fantasy XVI",
+      "category": "game",
+      "signal": "Final Fantasy"
+    },
+    {
+      "id": "legacy:996",
+      "name": "Final Fantasy VII Remake",
+      "category": "game",
+      "signal": "Final Fantasy"
+    },
+    {
+      "id": "legacy:1029",
+      "name": "Assassin’s Creed",
+      "category": "game",
+      "signal": "Assassin's Creed"
+    },
+    {
+      "id": "legacy:1030",
+      "name": "Assassin’s Creed II",
+      "category": "game",
+      "signal": "Assassin's Creed"
+    },
+    {
+      "id": "legacy:1031",
+      "name": "Assassin’s Creed IV: Black Flag",
+      "category": "game",
+      "signal": "Assassin's Creed"
+    },
+    {
+      "id": "legacy:1032",
+      "name": "Assassin’s Creed Origins",
+      "category": "game",
+      "signal": "Assassin's Creed"
+    },
+    {
+      "id": "legacy:1033",
+      "name": "Assassin’s Creed Valhalla",
+      "category": "game",
+      "signal": "Assassin's Creed"
+    },
+    {
+      "id": "legacy:1034",
+      "name": "Assassin’s Creed Shadows",
+      "category": "game",
+      "signal": "Assassin's Creed"
+    },
+    {
+      "id": "legacy:1074",
+      "name": "Pokémon Legends: Arceus",
+      "category": "game",
+      "signal": "Pokemon"
+    },
+    {
+      "id": "legacy:1088",
+      "name": "Mario Bros. (arcade)",
+      "category": "arcade",
+      "signal": "Mario"
+    },
+    {
+      "id": "legacy:1131",
+      "name": "Sega Rally (arcade)",
+      "category": "arcade",
+      "signal": "Sega"
+    },
+    {
+      "id": "legacy:1147",
+      "name": "Mega Man: The Power Battle",
+      "category": "arcade",
+      "signal": "Mega Man"
+    },
+    {
+      "id": "legacy:1148",
+      "name": "Marvel vs. Capcom",
+      "category": "arcade",
+      "signal": "Marvel"
+    },
+    {
+      "id": "legacy:1149",
+      "name": "Marvel vs. Capcom 2",
+      "category": "arcade",
+      "signal": "Marvel"
+    },
+    {
+      "id": "legacy:1255",
+      "name": "Pokémon TCG",
+      "category": "board",
+      "signal": "Pokemon"
+    },
+    {
+      "id": "legacy:1302",
+      "name": "Star Wars: Rebellion",
+      "category": "board",
+      "signal": "Star Wars"
+    },
+    {
+      "id": "legacy:1349",
+      "name": "Nintendo 64 Rumble Pak",
+      "category": "accessory",
+      "signal": "Nintendo"
+    },
+    {
+      "id": "legacy:1350",
+      "name": "Nintendo 64 Expansion Pak",
+      "category": "accessory",
+      "signal": "Nintendo"
+    },
+    {
+      "id": "legacy:1351",
+      "name": "Nintendo 64 Transfer Pak",
+      "category": "accessory",
+      "signal": "Nintendo"
+    },
+    {
+      "id": "legacy:1362",
+      "name": "Nintendo Labo",
+      "category": "accessory",
+      "signal": "Nintendo"
+    },
+    {
+      "id": "legacy:1364",
+      "name": "Nintendo Switch Pro Controller",
+      "category": "accessory",
+      "signal": "Nintendo"
+    },
+    {
+      "id": "legacy:1365",
+      "name": "Nintendo Switch Dock",
+      "category": "accessory",
+      "signal": "Nintendo"
+    },
+    {
+      "id": "legacy:1366",
+      "name": "Nintendo Switch 2 Camera",
+      "category": "accessory",
+      "signal": "Nintendo"
+    },
+    {
+      "id": "legacy:1367",
+      "name": "Nintendo Switch 2 Joy-Con",
+      "category": "accessory",
+      "signal": "Nintendo"
+    },
+    {
+      "id": "legacy:1368",
+      "name": "Sega Menacer",
+      "category": "accessory",
+      "signal": "Sega"
+    },
+    {
+      "id": "legacy:1369",
+      "name": "Sega Activator",
+      "category": "accessory",
+      "signal": "Sega"
+    },
+    {
+      "id": "legacy:1370",
+      "name": "Sega Mega Mouse",
+      "category": "accessory",
+      "signal": "Sega"
+    },
+    {
+      "id": "legacy:1371",
+      "name": "Sega Multitap",
+      "category": "accessory",
+      "signal": "Sega"
+    },
+    {
+      "id": "legacy:1377",
+      "name": "PlayStation DualShock",
+      "category": "accessory",
+      "signal": "PlayStation"
+    },
+    {
+      "id": "legacy:1383",
+      "name": "PlayStation Move",
+      "category": "accessory",
+      "signal": "PlayStation"
+    },
+    {
+      "id": "legacy:1384",
+      "name": "PlayStation Eye",
+      "category": "accessory",
+      "signal": "PlayStation"
+    },
+    {
+      "id": "legacy:1385",
+      "name": "PlayStation Camera",
+      "category": "accessory",
+      "signal": "PlayStation"
+    },
+    {
+      "id": "legacy:1386",
+      "name": "PlayStation VR",
+      "category": "accessory",
+      "signal": "PlayStation"
+    },
+    {
+      "id": "legacy:1387",
+      "name": "PlayStation VR2",
+      "category": "accessory",
+      "signal": "PlayStation"
+    },
+    {
+      "id": "legacy:1388",
+      "name": "PlayStation Multitap",
+      "category": "accessory",
+      "signal": "PlayStation"
+    },
+    {
+      "id": "legacy:1389",
+      "name": "PS2 EyeToy",
+      "category": "accessory",
+      "signal": "PlayStation"
+    },
+    {
+      "id": "legacy:1390",
+      "name": "PlayStation 2 Network Adapter",
+      "category": "accessory",
+      "signal": "PlayStation"
+    },
+    {
+      "id": "legacy:1391",
+      "name": "PlayStation 3 Move Navigation",
+      "category": "accessory",
+      "signal": "PlayStation"
+    },
+    {
+      "id": "legacy:1392",
+      "name": "Xbox Duke Controller",
+      "category": "accessory",
+      "signal": "Xbox"
+    },
+    {
+      "id": "legacy:1393",
+      "name": "Xbox 360 Kinect",
+      "category": "accessory",
+      "signal": "Xbox"
+    },
+    {
+      "id": "legacy:1394",
+      "name": "Xbox Kinect",
+      "category": "accessory",
+      "signal": "Xbox"
+    },
+    {
+      "id": "legacy:1396",
+      "name": "Xbox Elite Controller",
+      "category": "accessory",
+      "signal": "Xbox"
+    },
+    {
+      "id": "legacy:1397",
+      "name": "Xbox Wireless Controller",
+      "category": "accessory",
+      "signal": "Xbox"
+    },
+    {
+      "id": "legacy:1398",
+      "name": "Xbox Chatpad",
+      "category": "accessory",
+      "signal": "Xbox"
+    },
+    {
+      "id": "legacy:1399",
+      "name": "Xbox HD DVD Player",
+      "category": "accessory",
+      "signal": "Xbox"
+    },
+    {
+      "id": "legacy:1400",
+      "name": "Xbox Memory Unit",
+      "category": "accessory",
+      "signal": "Xbox"
+    },
+    {
+      "id": "legacy:1401",
+      "name": "Atari Paddle Controller",
+      "category": "accessory",
+      "signal": "Atari"
+    },
+    {
+      "id": "legacy:1402",
+      "name": "Atari 2600 Joystick",
+      "category": "accessory",
+      "signal": "Atari"
+    },
+    {
+      "id": "legacy:1403",
+      "name": "Atari Trackball",
+      "category": "accessory",
+      "signal": "Atari"
+    },
+    {
+      "id": "legacy:1410",
+      "name": "PlayStation Portal Remote Play",
+      "category": "accessory",
+      "signal": "PlayStation"
+    },
+    {
+      "id": "legacy:1416",
+      "name": "Atari 2600+",
+      "category": "accessory",
+      "signal": "Atari"
+    },
+    {
+      "id": "legacy:1417",
+      "name": "Atari 7800+",
+      "category": "accessory",
+      "signal": "Atari"
+    },
+    {
+      "id": "legacy:1437",
+      "name": "Xbox Adaptive Controller",
+      "category": "accessory",
+      "signal": "Xbox"
+    },
+    {
+      "id": "legacy:1475",
+      "name": "Sega Rally 2",
+      "category": "arcade",
+      "signal": "Sega"
+    },
+    {
+      "id": "legacy:1478",
+      "name": "Sonic Rush",
+      "category": "game",
+      "signal": "Sonic"
+    },
+    {
+      "id": "legacy:1479",
+      "name": "Sonic Colors",
+      "category": "game",
+      "signal": "Sonic"
+    },
+    {
+      "id": "legacy:1480",
+      "name": "Sonic Unleashed",
+      "category": "game",
+      "signal": "Sonic"
+    },
+    {
+      "id": "legacy:1481",
+      "name": "Sonic Generations",
+      "category": "game",
+      "signal": "Sonic"
+    },
+    {
+      "id": "legacy:1482",
+      "name": "Sonic Forces",
+      "category": "game",
+      "signal": "Sonic"
+    },
+    {
+      "id": "legacy:1483",
+      "name": "Sonic Lost World",
+      "category": "game",
+      "signal": "Sonic"
+    },
+    {
+      "id": "legacy:1484",
+      "name": "Sonic Heroes",
+      "category": "game",
+      "signal": "Sonic"
+    },
+    {
+      "id": "legacy:1485",
+      "name": "Sonic Riders",
+      "category": "game",
+      "signal": "Sonic"
+    },
+    {
+      "id": "legacy:1486",
+      "name": "Sonic Drift",
+      "category": "game",
+      "signal": "Sonic"
+    },
+    {
+      "id": "legacy:1487",
+      "name": "Sonic Chaos",
+      "category": "game",
+      "signal": "Sonic"
+    },
+    {
+      "id": "legacy:1488",
+      "name": "Sonic Triple Trouble",
+      "category": "game",
+      "signal": "Sonic"
+    },
+    {
+      "id": "legacy:1489",
+      "name": "Sonic Advance",
+      "category": "game",
+      "signal": "Sonic"
+    },
+    {
+      "id": "legacy:1490",
+      "name": "Sonic Advance 2",
+      "category": "game",
+      "signal": "Sonic"
+    },
+    {
+      "id": "legacy:1491",
+      "name": "Sonic Advance 3",
+      "category": "game",
+      "signal": "Sonic"
+    },
+    {
+      "id": "legacy:1492",
+      "name": "Mario Party",
+      "category": "game",
+      "signal": "Mario"
+    },
+    {
+      "id": "legacy:1493",
+      "name": "Mario Party 2",
+      "category": "game",
+      "signal": "Mario"
+    },
+    {
+      "id": "legacy:1494",
+      "name": "Mario Party 3",
+      "category": "game",
+      "signal": "Mario"
+    },
+    {
+      "id": "legacy:1495",
+      "name": "Mario Party 4",
+      "category": "game",
+      "signal": "Mario"
+    },
+    {
+      "id": "legacy:1496",
+      "name": "Mario Party 8",
+      "category": "game",
+      "signal": "Mario"
+    },
+    {
+      "id": "legacy:1497",
+      "name": "Super Mario Party",
+      "category": "game",
+      "signal": "Mario"
+    },
+    {
+      "id": "legacy:1498",
+      "name": "Mario Party Superstars",
+      "category": "game",
+      "signal": "Mario"
+    },
+    {
+      "id": "legacy:1499",
+      "name": "Super Mario Party Jamboree",
+      "category": "game",
+      "signal": "Mario"
+    },
+    {
+      "id": "legacy:1504",
+      "name": "New Pokémon Snap",
+      "category": "game",
+      "signal": "Pokemon"
+    },
+    {
+      "id": "legacy:1505",
+      "name": "Pokémon Mystery Dungeon",
+      "category": "game",
+      "signal": "Pokemon"
+    },
+    {
+      "id": "legacy:1506",
+      "name": "Pokémon Mystery Dungeon: Explorers of Sky",
+      "category": "game",
+      "signal": "Pokemon"
+    },
+    {
+      "id": "legacy:1507",
+      "name": "Pokémon Legends: Z-A",
+      "category": "game",
+      "signal": "Pokemon"
+    },
+    {
+      "id": "legacy:1509",
+      "name": "Pokémon Unite",
+      "category": "game",
+      "signal": "Pokemon"
+    },
+    {
+      "id": "legacy:1510",
+      "name": "Pokémon Café ReMix",
+      "category": "game",
+      "signal": "Pokemon"
+    },
+    {
+      "id": "legacy:1511",
+      "name": "Pokémon Sleep",
+      "category": "game",
+      "signal": "Pokemon"
+    },
+    {
+      "id": "legacy:1512",
+      "name": "Pokémon Rumble",
+      "category": "game",
+      "signal": "Pokemon"
+    },
+    {
+      "id": "legacy:1513",
+      "name": "Pokémon Battle Revolution",
+      "category": "game",
+      "signal": "Pokemon"
+    },
+    {
+      "id": "legacy:1514",
+      "name": "Mario Tennis",
+      "category": "game",
+      "signal": "Mario"
+    },
+    {
+      "id": "legacy:1515",
+      "name": "Mario Golf",
+      "category": "game",
+      "signal": "Mario"
+    },
+    {
+      "id": "legacy:1516",
+      "name": "Mario Strikers",
+      "category": "game",
+      "signal": "Mario"
+    },
+    {
+      "id": "legacy:1517",
+      "name": "Mario Strikers: Battle League",
+      "category": "game",
+      "signal": "Mario"
+    },
+    {
+      "id": "legacy:1518",
+      "name": "Mario Hoops 3-on-3",
+      "category": "game",
+      "signal": "Mario"
+    },
+    {
+      "id": "legacy:1519",
+      "name": "Mario + Rabbids Kingdom Battle",
+      "category": "game",
+      "signal": "Mario"
+    },
+    {
+      "id": "legacy:1520",
+      "name": "Mario + Rabbids Sparks of Hope",
+      "category": "game",
+      "signal": "Mario"
+    },
+    {
+      "id": "legacy:1521",
+      "name": "Super Mario 3D All-Stars",
+      "category": "game",
+      "signal": "Mario"
+    },
+    {
+      "id": "legacy:1531",
+      "name": "The Legend of Zelda: Oracle of Ages",
+      "category": "game",
+      "signal": "Zelda"
+    },
+    {
+      "id": "legacy:1532",
+      "name": "The Legend of Zelda: Oracle of Seasons",
+      "category": "game",
+      "signal": "Zelda"
+    },
+    {
+      "id": "legacy:1533",
+      "name": "The Legend of Zelda: Phantom Hourglass",
+      "category": "game",
+      "signal": "Zelda"
+    },
+    {
+      "id": "legacy:1534",
+      "name": "The Legend of Zelda: Spirit Tracks",
+      "category": "game",
+      "signal": "Zelda"
+    },
+    {
+      "id": "legacy:1535",
+      "name": "The Legend of Zelda: Four Swords",
+      "category": "game",
+      "signal": "Zelda"
+    },
+    {
+      "id": "legacy:1536",
+      "name": "The Legend of Zelda: Tri Force Heroes",
+      "category": "game",
+      "signal": "Zelda"
+    },
+    {
+      "id": "legacy:1537",
+      "name": "Nintendo Land",
+      "category": "game",
+      "signal": "Nintendo"
+    },
+    {
+      "id": "legacy:1538",
+      "name": "Nintendo Switch Sports",
+      "category": "game",
+      "signal": "Nintendo"
+    },
+    {
+      "id": "legacy:1542",
+      "name": "Nintendo Badge Arcade",
+      "category": "game",
+      "signal": "Nintendo"
+    },
+    {
+      "id": "legacy:1575",
+      "name": "Star Wars: Rogue Squadron",
+      "category": "game",
+      "signal": "Star Wars"
+    },
+    {
+      "id": "legacy:1577",
+      "name": "Star Wars: Knights of the Old Republic",
+      "category": "game",
+      "signal": "Star Wars"
+    },
+    {
+      "id": "legacy:1578",
+      "name": "Star Wars Jedi: Fallen Order",
+      "category": "game",
+      "signal": "Star Wars"
+    },
+    {
+      "id": "legacy:1579",
+      "name": "Star Wars Jedi: Survivor",
+      "category": "game",
+      "signal": "Star Wars"
+    },
+    {
+      "id": "legacy:1580",
+      "name": "Star Wars Outlaws",
+      "category": "game",
+      "signal": "Star Wars"
+    },
+    {
+      "id": "legacy:1581",
+      "name": "Star Wars Battlefront",
+      "category": "game",
+      "signal": "Star Wars"
+    },
+    {
+      "id": "legacy:1582",
+      "name": "Star Wars Battlefront II",
+      "category": "game",
+      "signal": "Star Wars"
+    },
+    {
+      "id": "legacy:1583",
+      "name": "Star Wars: Squadrons",
+      "category": "game",
+      "signal": "Star Wars"
+    },
+    {
+      "id": "legacy:1584",
+      "name": "LEGO Star Wars",
+      "category": "game",
+      "signal": "Star Wars"
+    },
+    {
+      "id": "legacy:1585",
+      "name": "LEGO Star Wars II",
+      "category": "game",
+      "signal": "Star Wars"
+    },
+    {
+      "id": "legacy:1587",
+      "name": "LEGO Batman",
+      "category": "game",
+      "signal": "Batman"
+    },
+    {
+      "id": "legacy:1588",
+      "name": "LEGO Marvel Super Heroes",
+      "category": "game",
+      "signal": "Marvel"
+    },
+    {
+      "id": "pack:dragon-ball",
+      "name": "Dragon Ball",
+      "category": "anime",
+      "signal": "Dragon Ball"
+    },
+    {
+      "id": "pack:dragon-ball-super",
+      "name": "Dragon Ball Super",
+      "category": "anime",
+      "signal": "Dragon Ball"
+    },
+    {
+      "id": "pack:dragon-ball-gt",
+      "name": "Dragon Ball GT",
+      "category": "anime",
+      "signal": "Dragon Ball"
+    },
+    {
+      "id": "pack:pokemon-trainer",
+      "name": "Pokémon Trainer",
+      "category": "object",
+      "signal": "Pokemon"
+    },
+    {
+      "id": "pack:pokemon-league",
+      "name": "Pokémon League",
+      "category": "object",
+      "signal": "Pokemon"
+    },
+    {
+      "id": "pack:star-wars",
+      "name": "Star Wars",
+      "category": "film",
+      "signal": "Star Wars"
+    },
+    {
+      "id": "pack:spider-man",
+      "name": "Spider-Man",
+      "category": "character",
+      "signal": "Spider-Man"
+    },
+    {
+      "id": "pack:batman",
+      "name": "Batman",
+      "category": "film",
+      "signal": "Batman"
+    },
+    {
+      "id": "pack:sonic-screwdriver",
+      "name": "Sonic Screwdriver",
+      "category": "object",
+      "signal": "Sonic"
+    },
+    {
+      "id": "pack:dragon-ball-game",
+      "name": "Dragon Ball Game",
+      "category": "game",
+      "signal": "Dragon Ball"
+    },
+    {
+      "id": "pack:pokemon-game",
+      "name": "Pokémon Game",
+      "category": "game",
+      "signal": "Pokemon"
+    },
+    {
+      "id": "pack:dragon-ball-soundtrack",
+      "name": "Dragon Ball Soundtrack",
+      "category": "music",
+      "signal": "Dragon Ball"
+    },
+    {
+      "id": "pack:pokemon-soundtrack",
+      "name": "Pokémon Soundtrack",
+      "category": "music",
+      "signal": "Pokemon"
+    },
+    {
+      "id": "pack:dragon-ball-manga",
+      "name": "Dragon Ball Manga",
+      "category": "music",
+      "signal": "Dragon Ball"
+    },
+    {
+      "id": "pack:star-wars-game",
+      "name": "Star Wars Game",
+      "category": "game",
+      "signal": "Star Wars"
+    },
+    {
+      "id": "pack:star-wars-soundtrack",
+      "name": "Star Wars Soundtrack",
+      "category": "music",
+      "signal": "Star Wars"
+    },
+    {
+      "id": "pack:dragon-ball-z-budokai-3",
+      "name": "Dragon Ball Z: Budokai 3",
+      "category": "game",
+      "signal": "Dragon Ball"
+    },
+    {
+      "id": "pack:dragon-ball-raging-blast-2",
+      "name": "Dragon Ball: Raging Blast 2",
+      "category": "game",
+      "signal": "Dragon Ball"
+    },
+    {
+      "id": "pack:dragon-ball-z-kakarot",
+      "name": "Dragon Ball Z: Kakarot",
+      "category": "game",
+      "signal": "Dragon Ball"
+    },
+    {
+      "id": "pack:dragon-ball-sparking-zero",
+      "name": "Dragon Ball: Sparking! ZERO",
+      "category": "game",
+      "signal": "Dragon Ball"
+    },
+    {
+      "id": "pack:dragon-ball-fighterz",
+      "name": "Dragon Ball FighterZ",
+      "category": "game",
+      "signal": "Dragon Ball"
+    },
+    {
+      "id": "pack:dragon-ball-z-the-legacy-of-goku",
+      "name": "Dragon Ball Z: The Legacy of Goku",
+      "category": "game",
+      "signal": "Dragon Ball"
+    },
+    {
+      "id": "pack:dragon-ball-z-shin-budokai",
+      "name": "Dragon Ball Z: Shin Budokai",
+      "category": "game",
+      "signal": "Dragon Ball"
+    },
+    {
+      "id": "pack:dragon-ball-z-budokai-tenkaichi-3",
+      "name": "Dragon Ball Z: Budokai Tenkaichi 3",
+      "category": "game",
+      "signal": "Dragon Ball"
+    },
+    {
+      "id": "pack:dragon-ball-z-budokai-2",
+      "name": "Dragon Ball Z: Budokai 2",
+      "category": "game",
+      "signal": "Dragon Ball"
+    },
+    {
+      "id": "pack:dragon-ball-raging-blast",
+      "name": "Dragon Ball: Raging Blast",
+      "category": "game",
+      "signal": "Dragon Ball"
+    },
+    {
+      "id": "pack:pok-mon-let-s-go-pikachu",
+      "name": "Pokémon: Let's Go, Pikachu!",
+      "category": "game",
+      "signal": "Pokemon"
+    },
+    {
+      "id": "pack:sonic-adventure-2-battle",
+      "name": "Sonic Adventure 2: Battle",
+      "category": "game",
+      "signal": "Sonic"
+    },
+    {
+      "id": "pack:lego-star-wars-the-skywalker-saga",
+      "name": "LEGO Star Wars: The Skywalker Saga",
+      "category": "game",
+      "signal": "Star Wars"
+    },
+    {
+      "id": "pack:batman-arkham-city",
+      "name": "Batman: Arkham City",
+      "category": "game",
+      "signal": "Batman"
+    },
+    {
+      "id": "pack:batman-arkham-knight",
+      "name": "Batman: Arkham Knight",
+      "category": "game",
+      "signal": "Batman"
+    },
+    {
+      "id": "gaming22:megaman2",
+      "name": "Mega Man 2",
+      "category": "game",
+      "signal": "Mega Man"
+    },
+    {
+      "id": "gaming22:megaman3",
+      "name": "Mega Man 3",
+      "category": "game",
+      "signal": "Mega Man"
+    },
+    {
+      "id": "gaming22:kirbysadventure",
+      "name": "Kirby’s Adventure",
+      "category": "game",
+      "signal": "Kirby"
+    },
+    {
+      "id": "gaming22:megamanx",
+      "name": "Mega Man X",
+      "category": "game",
+      "signal": "Mega Man"
+    },
+    {
+      "id": "gaming22:megamanx2",
+      "name": "Mega Man X2",
+      "category": "game",
+      "signal": "Mega Man"
+    },
+    {
+      "id": "gaming22:supermariokart",
+      "name": "Super Mario Kart",
+      "category": "game",
+      "signal": "Mario"
+    },
+    {
+      "id": "gaming22:papermariothethousandyeardoor",
+      "name": "Paper Mario: The Thousand-Year Door",
+      "category": "game",
+      "signal": "Mario"
+    },
+    {
+      "id": "gaming22:pokemoncolosseum",
+      "name": "Pokémon Colosseum",
+      "category": "game",
+      "signal": "Pokemon"
+    },
+    {
+      "id": "gaming22:kirbyairride",
+      "name": "Kirby Air Ride",
+      "category": "game",
+      "signal": "Kirby"
+    },
+    {
+      "id": "gaming22:supermarioland",
+      "name": "Super Mario Land",
+      "category": "game",
+      "signal": "Mario"
+    },
+    {
+      "id": "gaming22:supermarioland26goldencoins",
+      "name": "Super Mario Land 2: 6 Golden Coins",
+      "category": "game",
+      "signal": "Mario"
+    },
+    {
+      "id": "gaming22:kirbysdreamland2",
+      "name": "Kirby’s Dream Land 2",
+      "category": "game",
+      "signal": "Kirby"
+    },
+    {
+      "id": "gaming22:metalgearsolidghostbabel",
+      "name": "Metal Gear Solid: Ghost Babel",
+      "category": "game",
+      "signal": "Metal Gear"
+    },
+    {
+      "id": "gaming22:thelegendofzeldalinksawakeningdx",
+      "name": "The Legend of Zelda: Link’s Awakening DX",
+      "category": "game",
+      "signal": "Zelda"
+    },
+    {
+      "id": "gaming22:supermariobrosdeluxe",
+      "name": "Super Mario Bros. Deluxe",
+      "category": "game",
+      "signal": "Mario"
+    },
+    {
+      "id": "gaming22:mariokartsupercircuit",
+      "name": "Mario Kart: Super Circuit",
+      "category": "game",
+      "signal": "Mario"
+    },
+    {
+      "id": "gaming22:finalfantasytacticsadvance",
+      "name": "Final Fantasy Tactics Advance",
+      "category": "game",
+      "signal": "Final Fantasy"
+    },
+    {
+      "id": "gaming22:pokemonfirered",
+      "name": "Pokémon FireRed",
+      "category": "game",
+      "signal": "Pokemon"
+    },
+    {
+      "id": "gaming22:pokemonleafgreen",
+      "name": "Pokémon LeafGreen",
+      "category": "game",
+      "signal": "Pokemon"
+    },
+    {
+      "id": "gaming22:kirbycanvascurse",
+      "name": "Kirby: Canvas Curse",
+      "category": "game",
+      "signal": "Kirby"
+    },
+    {
+      "id": "gaming22:marioluigibowsersinsidestory",
+      "name": "Mario & Luigi: Bowser’s Inside Story",
+      "category": "game",
+      "signal": "Mario"
+    },
+    {
+      "id": "gaming22:pokemonomegaruby",
+      "name": "Pokémon Omega Ruby",
+      "category": "game",
+      "signal": "Pokemon"
+    },
+    {
+      "id": "gaming22:pokemonalphasapphire",
+      "name": "Pokémon Alpha Sapphire",
+      "category": "game",
+      "signal": "Pokemon"
+    },
+    {
+      "id": "gaming22:supersmashbrosfornintendo3ds",
+      "name": "Super Smash Bros. for Nintendo 3DS",
+      "category": "game",
+      "signal": "Nintendo"
+    },
+    {
+      "id": "gaming22:superpapermario",
+      "name": "Super Paper Mario",
+      "category": "game",
+      "signal": "Mario"
+    },
+    {
+      "id": "gaming22:kirbysepicyarn",
+      "name": "Kirby’s Epic Yarn",
+      "category": "game",
+      "signal": "Kirby"
+    },
+    {
+      "id": "gaming22:newsupermariobrosu",
+      "name": "New Super Mario Bros. U",
+      "category": "game",
+      "signal": "Mario"
+    },
+    {
+      "id": "gaming22:kirbyairriders",
+      "name": "Kirby Air Riders",
+      "category": "game",
+      "signal": "Kirby"
+    },
+    {
+      "id": "gaming22:nintendoswitch2welcometour",
+      "name": "Nintendo Switch 2 Welcome Tour",
+      "category": "game",
+      "signal": "Nintendo"
+    },
+    {
+      "id": "gaming22:marvelsspidermanmilesmorales",
+      "name": "Marvel’s Spider-Man: Miles Morales",
+      "category": "game",
+      "signal": "Marvel"
+    },
+    {
+      "id": "gaming22:marvelsspidermanmilesmorales",
+      "name": "Marvel’s Spider-Man: Miles Morales",
+      "category": "game",
+      "signal": "Spider-Man"
+    },
+    {
+      "id": "gaming22:finalfantasyviirebirth",
+      "name": "Final Fantasy VII Rebirth",
+      "category": "game",
+      "signal": "Final Fantasy"
+    },
+    {
+      "id": "gaming22:crisiscorefinalfantasyvii",
+      "name": "Crisis Core: Final Fantasy VII",
+      "category": "game",
+      "signal": "Final Fantasy"
+    },
+    {
+      "id": "gaming22:dissidiafinalfantasy",
+      "name": "Dissidia Final Fantasy",
+      "category": "game",
+      "signal": "Final Fantasy"
+    },
+    {
+      "id": "gaming22:sonicspinball",
+      "name": "Sonic Spinball",
+      "category": "game",
+      "signal": "Sonic"
+    },
+    {
+      "id": "gaming22:megamanthewilywars",
+      "name": "Mega Man: The Wily Wars",
+      "category": "game",
+      "signal": "Mega Man"
+    },
+    {
+      "id": "gaming22:sonicr",
+      "name": "Sonic R",
+      "category": "game",
+      "signal": "Sonic"
+    },
+    {
+      "id": "gaming22:adventureatari2600",
+      "name": "Adventure (Atari 2600)",
+      "category": "game",
+      "signal": "Atari"
+    },
+    {
+      "id": "gaming22:combatatari2600",
+      "name": "Combat (Atari 2600)",
+      "category": "game",
+      "signal": "Atari"
+    },
+    {
+      "id": "gaming23:mariotennisaces",
+      "name": "Mario Tennis Aces",
+      "category": "game",
+      "signal": "Mario"
+    },
+    {
+      "id": "gaming23:mariogolfsuperrush",
+      "name": "Mario Golf: Super Rush",
+      "category": "game",
+      "signal": "Mario"
+    },
+    {
+      "id": "gaming23:mariovsdonkeykongswitch",
+      "name": "Mario vs. Donkey Kong (Switch)",
+      "category": "game",
+      "signal": "Mario"
+    },
+    {
+      "id": "gaming23:thelegendofzeldaechoesofwisdom",
+      "name": "The Legend of Zelda: Echoes of Wisdom",
+      "category": "game",
+      "signal": "Zelda"
+    },
+    {
+      "id": "gaming23:kirbystarallies",
+      "name": "Kirby Star Allies",
+      "category": "game",
+      "signal": "Kirby"
+    },
+    {
+      "id": "gaming23:kirbysreturntodreamlanddeluxe",
+      "name": "Kirby's Return to Dream Land Deluxe",
+      "category": "game",
+      "signal": "Kirby"
+    },
+    {
+      "id": "gaming23:kirbyfighters2",
+      "name": "Kirby Fighters 2",
+      "category": "game",
+      "signal": "Kirby"
+    },
+    {
+      "id": "gaming23:pokemonmysterydungeonrescueteamdx",
+      "name": "Pokémon Mystery Dungeon: Rescue Team DX",
+      "category": "game",
+      "signal": "Pokemon"
+    },
+    {
+      "id": "gaming23:pokemonletsgoeevee",
+      "name": "Pokémon Let's Go, Eevee!",
+      "category": "game",
+      "signal": "Pokemon"
+    },
+    {
+      "id": "gaming23:pokemonultrasun",
+      "name": "Pokémon Ultra Sun",
+      "category": "game",
+      "signal": "Pokemon"
+    },
+    {
+      "id": "gaming23:pokemonultramoon",
+      "name": "Pokémon Ultra Moon",
+      "category": "game",
+      "signal": "Pokemon"
+    },
+    {
+      "id": "gaming23:kirbytripledeluxe",
+      "name": "Kirby: Triple Deluxe",
+      "category": "game",
+      "signal": "Kirby"
+    },
+    {
+      "id": "gaming23:kirbyplanetrobobot",
+      "name": "Kirby: Planet Robobot",
+      "category": "game",
+      "signal": "Kirby"
+    },
+    {
+      "id": "gaming23:marioluigidreamteam",
+      "name": "Mario & Luigi: Dream Team",
+      "category": "game",
+      "signal": "Mario"
+    },
+    {
+      "id": "gaming23:marioluigipaperjam",
+      "name": "Mario & Luigi: Paper Jam",
+      "category": "game",
+      "signal": "Mario"
+    },
+    {
+      "id": "gaming23:pokemonheartgold",
+      "name": "Pokémon HeartGold",
+      "category": "game",
+      "signal": "Pokemon"
+    },
+    {
+      "id": "gaming23:pokemonsoulsilver",
+      "name": "Pokémon SoulSilver",
+      "category": "game",
+      "signal": "Pokemon"
+    },
+    {
+      "id": "gaming23:pokemonmysterydungeonexplorersoftime",
+      "name": "Pokémon Mystery Dungeon: Explorers of Time",
+      "category": "game",
+      "signal": "Pokemon"
+    },
+    {
+      "id": "gaming23:pokemonmysterydungeonexplorersofdarkness",
+      "name": "Pokémon Mystery Dungeon: Explorers of Darkness",
+      "category": "game",
+      "signal": "Pokemon"
+    },
+    {
+      "id": "gaming23:marioluigipartnersintime",
+      "name": "Mario & Luigi: Partners in Time",
+      "category": "game",
+      "signal": "Mario"
+    },
+    {
+      "id": "gaming23:kirbysuperstarultra",
+      "name": "Kirby Super Star Ultra",
+      "category": "game",
+      "signal": "Kirby"
+    },
+    {
+      "id": "gaming23:kirbymassattack",
+      "name": "Kirby Mass Attack",
+      "category": "game",
+      "signal": "Kirby"
+    },
+    {
+      "id": "gaming23:kirbytheamazingmirror",
+      "name": "Kirby & the Amazing Mirror",
+      "category": "game",
+      "signal": "Kirby"
+    },
+    {
+      "id": "gaming23:mariovsdonkeykong",
+      "name": "Mario vs. Donkey Kong",
+      "category": "game",
+      "signal": "Mario"
+    },
+    {
+      "id": "gaming23:mariostrikerscharged",
+      "name": "Mario Strikers Charged",
+      "category": "game",
+      "signal": "Mario"
+    },
+    {
+      "id": "gaming23:mariosonicattheolympicgames",
+      "name": "Mario & Sonic at the Olympic Games",
+      "category": "game",
+      "signal": "Sonic"
+    },
+    {
+      "id": "gaming23:mariosonicattheolympicgames",
+      "name": "Mario & Sonic at the Olympic Games",
+      "category": "game",
+      "signal": "Mario"
+    },
+    {
+      "id": "gaming23:supermariostrikers",
+      "name": "Super Mario Strikers",
+      "category": "game",
+      "signal": "Mario"
+    },
+    {
+      "id": "gaming23:mariopowertennis",
+      "name": "Mario Power Tennis",
+      "category": "game",
+      "signal": "Mario"
+    },
+    {
+      "id": "gaming23:mariogolftoadstooltour",
+      "name": "Mario Golf: Toadstool Tour",
+      "category": "game",
+      "signal": "Mario"
+    },
+    {
+      "id": "gaming23:pokemonxdgaleofdarkness",
+      "name": "Pokémon XD: Gale of Darkness",
+      "category": "game",
+      "signal": "Pokemon"
+    },
+    {
+      "id": "gaming23:marioparty5",
+      "name": "Mario Party 5",
+      "category": "game",
+      "signal": "Mario"
+    },
+    {
+      "id": "gaming23:marioparty6",
+      "name": "Mario Party 6",
+      "category": "game",
+      "signal": "Mario"
+    },
+    {
+      "id": "gaming23:marioparty7",
+      "name": "Mario Party 7",
+      "category": "game",
+      "signal": "Mario"
+    },
+    {
+      "id": "gaming23:mariogolfnintendo64",
+      "name": "Mario Golf (Nintendo 64)",
+      "category": "game",
+      "signal": "Nintendo"
+    },
+    {
+      "id": "gaming23:mariogolfnintendo64",
+      "name": "Mario Golf (Nintendo 64)",
+      "category": "game",
+      "signal": "Mario"
+    },
+    {
+      "id": "gaming23:kirby64thecrystalshards",
+      "name": "Kirby 64: The Crystal Shards",
+      "category": "game",
+      "signal": "Kirby"
+    },
+    {
+      "id": "gaming23:megamanx3",
+      "name": "Mega Man X3",
+      "category": "game",
+      "signal": "Mega Man"
+    },
+    {
+      "id": "gaming23:finalfantasyxiii2",
+      "name": "Final Fantasy XIII-2",
+      "category": "game",
+      "signal": "Final Fantasy"
+    },
+    {
+      "id": "gaming23:lightningreturnsfinalfantasyxiii",
+      "name": "Lightning Returns: Final Fantasy XIII",
+      "category": "game",
+      "signal": "Final Fantasy"
+    },
+    {
+      "id": "gaming23:dissidia012finalfantasy",
+      "name": "Dissidia 012 Final Fantasy",
+      "category": "game",
+      "signal": "Final Fantasy"
+    },
+    {
+      "id": "gaming23:finalfantasytactics",
+      "name": "Final Fantasy Tactics",
+      "category": "game",
+      "signal": "Final Fantasy"
+    },
+    {
+      "id": "gaming23:sonicshuffle",
+      "name": "Sonic Shuffle",
+      "category": "game",
+      "signal": "Sonic"
+    },
+    {
+      "id": "gaming23:sonicthehedgehog3",
+      "name": "Sonic the Hedgehog 3",
+      "category": "game",
+      "signal": "Sonic"
+    },
+    {
+      "id": "gaming23:sonicknuckles",
+      "name": "Sonic & Knuckles",
+      "category": "game",
+      "signal": "Sonic"
+    },
+    {
+      "id": "gaming23:sonic3dblast",
+      "name": "Sonic 3D Blast",
+      "category": "game",
+      "signal": "Sonic"
+    },
+    {
+      "id": "gaming23:sonicblast",
+      "name": "Sonic Blast",
+      "category": "game",
+      "signal": "Sonic"
+    },
+    {
+      "id": "gaming23:halo3odst",
+      "name": "Halo 3: ODST",
+      "category": "game",
+      "signal": "Halo"
+    },
+    {
+      "id": "gaming23:halo4",
+      "name": "Halo 4",
+      "category": "game",
+      "signal": "Halo"
+    },
+    {
+      "id": "gaming23:halo5guardians",
+      "name": "Halo 5: Guardians",
+      "category": "game",
+      "signal": "Halo"
+    },
+    {
+      "id": "gaming23:halowars2",
+      "name": "Halo Wars 2",
+      "category": "game",
+      "signal": "Halo"
+    },
+    {
+      "id": "gaming23:assassinscreedodyssey",
+      "name": "Assassin's Creed Odyssey",
+      "category": "game",
+      "signal": "Assassin's Creed"
+    },
+    {
+      "id": "gaming23:assassinscreedmirage",
+      "name": "Assassin's Creed Mirage",
+      "category": "game",
+      "signal": "Assassin's Creed"
+    },
+    {
+      "id": "gaming24:mariotennisfever",
+      "name": "Mario Tennis Fever",
+      "category": "game",
+      "signal": "Mario"
+    },
+    {
+      "id": "gaming24:pokemonpokopia",
+      "name": "Pokémon Pokopia",
+      "category": "game",
+      "signal": "Pokemon"
+    },
+    {
+      "id": "gaming24:papermariotheorigamiking",
+      "name": "Paper Mario: The Origami King",
+      "category": "game",
+      "signal": "Mario"
+    },
+    {
+      "id": "gaming24:papermariothethousandyeardoorswitch",
+      "name": "Paper Mario: The Thousand-Year Door (Switch)",
+      "category": "game",
+      "signal": "Mario"
+    },
+    {
+      "id": "gaming24:nintendolabovarietykit",
+      "name": "Nintendo Labo Variety Kit",
+      "category": "game",
+      "signal": "Nintendo"
+    },
+    {
+      "id": "gaming24:thelegendofzeldaalinkbetweenworlds",
+      "name": "The Legend of Zelda: A Link Between Worlds",
+      "category": "game",
+      "signal": "Zelda"
+    },
+    {
+      "id": "gaming24:pokemonblack2",
+      "name": "Pokémon Black 2",
+      "category": "game",
+      "signal": "Pokemon"
+    },
+    {
+      "id": "gaming24:pokemonwhite2",
+      "name": "Pokémon White 2",
+      "category": "game",
+      "signal": "Pokemon"
+    },
+    {
+      "id": "gaming24:thelegendofzeldatwilightprincess",
+      "name": "The Legend of Zelda: Twilight Princess",
+      "category": "game",
+      "signal": "Zelda"
+    },
+    {
+      "id": "gaming24:thelegendofzeldaskywardsword",
+      "name": "The Legend of Zelda: Skyward Sword",
+      "category": "game",
+      "signal": "Zelda"
+    },
+    {
+      "id": "gaming24:kirbysreturntodreamland",
+      "name": "Kirby's Return to Dream Land",
+      "category": "game",
+      "signal": "Kirby"
+    },
+    {
+      "id": "gaming24:thelegendofzeldathewindwaker",
+      "name": "The Legend of Zelda: The Wind Waker",
+      "category": "game",
+      "signal": "Zelda"
+    },
+    {
+      "id": "gaming24:thelegendofzeldafourswordsadventures",
+      "name": "The Legend of Zelda: Four Swords Adventures",
+      "category": "game",
+      "signal": "Zelda"
+    },
+    {
+      "id": "gaming24:thelegendofzeldamajorasmask",
+      "name": "The Legend of Zelda: Majora's Mask",
+      "category": "game",
+      "signal": "Zelda"
+    },
+    {
+      "id": "gaming24:kirbysdreamcourse",
+      "name": "Kirby's Dream Course",
+      "category": "game",
+      "signal": "Kirby"
+    },
+    {
+      "id": "gaming24:kirbysdreamland3",
+      "name": "Kirby's Dream Land 3",
+      "category": "game",
+      "signal": "Kirby"
+    },
+    {
+      "id": "gaming24:dragonballzbudokaitenkaichi",
+      "name": "Dragon Ball Z: Budokai Tenkaichi",
+      "category": "game",
+      "signal": "Dragon Ball"
+    },
+    {
+      "id": "gaming24:dragonballzbudokaitenkaichi2",
+      "name": "Dragon Ball Z: Budokai Tenkaichi 2",
+      "category": "game",
+      "signal": "Dragon Ball"
+    },
+    {
+      "id": "gaming24:metalgearacid",
+      "name": "Metal Gear Acid",
+      "category": "game",
+      "signal": "Metal Gear"
+    },
+    {
+      "id": "gaming24:metalgearacid2",
+      "name": "Metal Gear Acid 2",
+      "category": "game",
+      "signal": "Metal Gear"
+    },
+    {
+      "id": "gaming24:minecraftlegends",
+      "name": "Minecraft Legends",
+      "category": "game",
+      "signal": "Minecraft"
+    },
+    {
+      "id": "gaming26:kirbyandtherainbowcurse",
+      "name": "Kirby and the Rainbow Curse",
+      "category": "game",
+      "signal": "Kirby"
+    },
+    {
+      "id": "gaming26:kirbytiltntumble",
+      "name": "Kirby Tilt 'n' Tumble",
+      "category": "game",
+      "signal": "Kirby"
+    },
+    {
+      "id": "gaming26:kirbysdreamcollection",
+      "name": "Kirby's Dream Collection",
+      "category": "game",
+      "signal": "Kirby"
+    },
+    {
+      "id": "gaming26:sonicdrift2",
+      "name": "Sonic Drift 2",
+      "category": "game",
+      "signal": "Sonic"
+    },
+    {
+      "id": "gaming26:soniclabyrinth",
+      "name": "Sonic Labyrinth",
+      "category": "game",
+      "signal": "Sonic"
+    },
+    {
+      "id": "gaming26:sonicandthesecretrings",
+      "name": "Sonic and the Secret Rings",
+      "category": "game",
+      "signal": "Sonic"
+    },
+    {
+      "id": "gaming26:sonicandtheblackknight",
+      "name": "Sonic and the Black Knight",
+      "category": "game",
+      "signal": "Sonic"
+    },
+    {
+      "id": "gaming26:sonicrushadventure",
+      "name": "Sonic Rush Adventure",
+      "category": "game",
+      "signal": "Sonic"
+    },
+    {
+      "id": "gaming26:sonicchroniclesthedarkbrotherhood",
+      "name": "Sonic Chronicles: The Dark Brotherhood",
+      "category": "game",
+      "signal": "Sonic"
+    },
+    {
+      "id": "gaming26:sonicboomshatteredcrystal",
+      "name": "Sonic Boom: Shattered Crystal",
+      "category": "game",
+      "signal": "Sonic"
+    },
+    {
+      "id": "gaming26:sonicboomfireice",
+      "name": "Sonic Boom: Fire & Ice",
+      "category": "game",
+      "signal": "Sonic"
+    },
+    {
+      "id": "gaming26:thelegendofzeldathewindwakerhd",
+      "name": "The Legend of Zelda: The Wind Waker HD",
+      "category": "game",
+      "signal": "Zelda"
+    },
+    {
+      "id": "gaming26:thelegendofzeldatwilightprincesshd",
+      "name": "The Legend of Zelda: Twilight Princess HD",
+      "category": "game",
+      "signal": "Zelda"
+    },
+    {
+      "id": "gaming26:pokemonranger",
+      "name": "Pokémon Ranger",
+      "category": "game",
+      "signal": "Pokemon"
+    },
+    {
+      "id": "gaming26:pokemonrangershadowsofalmia",
+      "name": "Pokémon Ranger: Shadows of Almia",
+      "category": "game",
+      "signal": "Pokemon"
+    },
+    {
+      "id": "gaming26:pokemonrangerguardiansigns",
+      "name": "Pokémon Ranger: Guardian Signs",
+      "category": "game",
+      "signal": "Pokemon"
+    },
+    {
+      "id": "gaming26:pokemonsupermysterydungeon",
+      "name": "Pokémon Super Mystery Dungeon",
+      "category": "game",
+      "signal": "Pokemon"
+    },
+    {
+      "id": "gaming26:pokemonrumbleworld",
+      "name": "Pokémon Rumble World",
+      "category": "game",
+      "signal": "Pokemon"
+    },
+    {
+      "id": "gaming26:pokemonbattletrozei",
+      "name": "Pokémon Battle Trozei",
+      "category": "game",
+      "signal": "Pokemon"
+    },
+    {
+      "id": "gaming26:pokemonchannel",
+      "name": "Pokémon Channel",
+      "category": "game",
+      "signal": "Pokemon"
+    },
+    {
+      "id": "gaming26:pokemonquest",
+      "name": "Pokémon Quest",
+      "category": "game",
+      "signal": "Pokemon"
+    },
+    {
+      "id": "gaming26:pokemonpinballrubysapphire",
+      "name": "Pokémon Pinball: Ruby & Sapphire",
+      "category": "game",
+      "signal": "Pokemon"
+    },
+    {
+      "id": "gaming26:pokemonmysterydungeonredrescueteam",
+      "name": "Pokémon Mystery Dungeon: Red Rescue Team",
+      "category": "game",
+      "signal": "Pokemon"
+    },
+    {
+      "id": "gaming26:finalfantasyxiithezodiacage",
+      "name": "Final Fantasy XII: The Zodiac Age",
+      "category": "game",
+      "signal": "Final Fantasy"
+    },
+    {
+      "id": "gaming26:finalfantasypixelremaster",
+      "name": "Final Fantasy Pixel Remaster",
+      "category": "game",
+      "signal": "Final Fantasy"
+    },
+    {
+      "id": "gaming26:worldoffinalfantasy",
+      "name": "World of Final Fantasy",
+      "category": "game",
+      "signal": "Final Fantasy"
+    },
+    {
+      "id": "gaming26:dissidiafinalfantasynt",
+      "name": "Dissidia Final Fantasy NT",
+      "category": "game",
+      "signal": "Final Fantasy"
+    },
+    {
+      "id": "gaming26:megamanzero",
+      "name": "Mega Man Zero",
+      "category": "game",
+      "signal": "Mega Man"
+    },
+    {
+      "id": "gaming26:megamanzero2",
+      "name": "Mega Man Zero 2",
+      "category": "game",
+      "signal": "Mega Man"
+    },
+    {
+      "id": "gaming26:megamanzero3",
+      "name": "Mega Man Zero 3",
+      "category": "game",
+      "signal": "Mega Man"
+    },
+    {
+      "id": "gaming26:megamanzero4",
+      "name": "Mega Man Zero 4",
+      "category": "game",
+      "signal": "Mega Man"
+    },
+    {
+      "id": "gaming26:megamanbattlenetwork",
+      "name": "Mega Man Battle Network",
+      "category": "game",
+      "signal": "Mega Man"
+    },
+    {
+      "id": "gaming26:megamanbattlenetwork2",
+      "name": "Mega Man Battle Network 2",
+      "category": "game",
+      "signal": "Mega Man"
+    },
+    {
+      "id": "gaming26:megamanbattlenetwork3",
+      "name": "Mega Man Battle Network 3",
+      "category": "game",
+      "signal": "Mega Man"
+    },
+    {
+      "id": "gaming26:megamanzx",
+      "name": "Mega Man ZX",
+      "category": "game",
+      "signal": "Mega Man"
+    },
+    {
+      "id": "gaming26:megamanzxadvent",
+      "name": "Mega Man ZX Advent",
+      "category": "game",
+      "signal": "Mega Man"
+    },
+    {
+      "id": "gaming26:megamanstarforce",
+      "name": "Mega Man Star Force",
+      "category": "game",
+      "signal": "Mega Man"
+    },
+    {
+      "id": "gaming26:megamanstarforce2",
+      "name": "Mega Man Star Force 2",
+      "category": "game",
+      "signal": "Mega Man"
+    },
+    {
+      "id": "gaming26:megamanstarforce3",
+      "name": "Mega Man Star Force 3",
+      "category": "game",
+      "signal": "Mega Man"
+    },
+    {
+      "id": "gaming26:megaman9",
+      "name": "Mega Man 9",
+      "category": "game",
+      "signal": "Mega Man"
+    },
+    {
+      "id": "gaming26:megaman10",
+      "name": "Mega Man 10",
+      "category": "game",
+      "signal": "Mega Man"
+    },
+    {
+      "id": "gaming26:halocombatevolvedanniversary",
+      "name": "Halo: Combat Evolved Anniversary",
+      "category": "game",
+      "signal": "Halo"
+    },
+    {
+      "id": "gaming26:halothemasterchiefcollection",
+      "name": "Halo: The Master Chief Collection",
+      "category": "game",
+      "signal": "Halo"
+    },
+    {
+      "id": "gaming26:assassinscreedunity",
+      "name": "Assassin's Creed Unity",
+      "category": "game",
+      "signal": "Assassin's Creed"
+    },
+    {
+      "id": "gaming26:assassinscreedsyndicate",
+      "name": "Assassin's Creed Syndicate",
+      "category": "game",
+      "signal": "Assassin's Creed"
+    },
+    {
+      "id": "gaming26:assassinscreedbrotherhood",
+      "name": "Assassin's Creed Brotherhood",
+      "category": "game",
+      "signal": "Assassin's Creed"
+    },
+    {
+      "id": "gaming26:assassinscreedrevelations",
+      "name": "Assassin's Creed Revelations",
+      "category": "game",
+      "signal": "Assassin's Creed"
+    },
+    {
+      "id": "gaming26:assassinscreediii",
+      "name": "Assassin's Creed III",
+      "category": "game",
+      "signal": "Assassin's Creed"
+    },
+    {
+      "id": "gaming26:metalgearsolidvgroundzeroes",
+      "name": "Metal Gear Solid V: Ground Zeroes",
+      "category": "game",
+      "signal": "Metal Gear"
+    },
+    {
+      "id": "gaming26:metalgearsolidvthephantompain",
+      "name": "Metal Gear Solid V: The Phantom Pain",
+      "category": "game",
+      "signal": "Metal Gear"
+    },
+    {
+      "id": "gaming26:metalgearsolid4gunsofthepatriots",
+      "name": "Metal Gear Solid 4: Guns of the Patriots",
+      "category": "game",
+      "signal": "Metal Gear"
+    },
+    {
+      "id": "gaming26:metalgearrisingrevengeance",
+      "name": "Metal Gear Rising: Revengeance",
+      "category": "game",
+      "signal": "Metal Gear"
+    },
+    {
+      "id": "gaming26:metalgearsolidportableops",
+      "name": "Metal Gear Solid: Portable Ops",
+      "category": "game",
+      "signal": "Metal Gear"
+    },
+    {
+      "id": "gaming26:legostarwarsthecompletesaga",
+      "name": "LEGO Star Wars: The Complete Saga",
+      "category": "game",
+      "signal": "Star Wars"
+    },
+    {
+      "id": "gaming26:legostarwarsiiitheclonewars",
+      "name": "LEGO Star Wars III: The Clone Wars",
+      "category": "game",
+      "signal": "Star Wars"
+    },
+    {
+      "id": "gaming26:legobatman2dcsuperheroes",
+      "name": "LEGO Batman 2: DC Super Heroes",
+      "category": "game",
+      "signal": "Batman"
+    },
+    {
+      "id": "gaming26:legobatman3beyondgotham",
+      "name": "LEGO Batman 3: Beyond Gotham",
+      "category": "game",
+      "signal": "Batman"
+    },
+    {
+      "id": "gaming26:legomarvelsuperheroes2",
+      "name": "LEGO Marvel Super Heroes 2",
+      "category": "game",
+      "signal": "Marvel"
+    },
+    {
+      "id": "gaming26:legomarvelsavengers",
+      "name": "LEGO Marvel's Avengers",
+      "category": "game",
+      "signal": "Marvel"
+    },
+    {
+      "id": "gaming26:starwarsbattlefront2015",
+      "name": "Star Wars Battlefront (2015)",
+      "category": "game",
+      "signal": "Star Wars"
+    },
+    {
+      "id": "gaming26:starwarsbattlefrontii2017",
+      "name": "Star Wars Battlefront II (2017)",
+      "category": "game",
+      "signal": "Star Wars"
+    },
+    {
+      "id": "gaming26:dragonballzinfiniteworld",
+      "name": "Dragon Ball Z: Infinite World",
+      "category": "game",
+      "signal": "Dragon Ball"
+    },
+    {
+      "id": "gaming26:dragonballzbattleofz",
+      "name": "Dragon Ball Z: Battle of Z",
+      "category": "game",
+      "signal": "Dragon Ball"
+    },
+    {
+      "id": "gaming26:dragonballxenoverse",
+      "name": "Dragon Ball Xenoverse",
+      "category": "game",
+      "signal": "Dragon Ball"
+    },
+    {
+      "id": "gaming26:thelegendofzeldaalinktothepast",
+      "name": "The Legend of Zelda: A Link to the Past",
+      "category": "game",
+      "signal": "Zelda"
+    },
+    {
+      "id": "gaming30:megamanbattlenetwork3blue",
+      "name": "Mega Man Battle Network 3 Blue",
+      "category": "game",
+      "signal": "Mega Man"
+    },
+    {
+      "id": "gaming30:kirbysqueaksquad",
+      "name": "Kirby: Squeak Squad",
+      "category": "game",
+      "signal": "Kirby"
+    },
+    {
+      "id": "gaming30:sonicxshadowgenerations",
+      "name": "Sonic X Shadow Generations",
+      "category": "game",
+      "signal": "Sonic"
+    },
+    {
+      "id": "gaming30:newsupermariobrosudeluxe",
+      "name": "New Super Mario Bros. U Deluxe",
+      "category": "game",
+      "signal": "Mario"
+    },
+    {
+      "id": "gaming30:megamannetworktransmission",
+      "name": "Mega Man Network Transmission",
+      "category": "game",
+      "signal": "Mega Man"
+    },
+    {
+      "id": "gaming30:megamanstarforcedragon",
+      "name": "Mega Man Star Force: Dragon",
+      "category": "game",
+      "signal": "Mega Man"
+    },
+    {
+      "id": "gaming30:thelegendofzeldatheminishcap",
+      "name": "The Legend of Zelda: The Minish Cap",
+      "category": "game",
+      "signal": "Zelda"
+    },
+    {
+      "id": "gaming30:mariovsdonkeykong2marchoftheminis",
+      "name": "Mario vs. Donkey Kong 2: March of the Minis",
+      "category": "game",
+      "signal": "Mario"
+    },
+    {
+      "id": "gaming30:finalfantasytacticsthewarofthelions",
+      "name": "Final Fantasy Tactics: The War of the Lions",
+      "category": "game",
+      "signal": "Final Fantasy"
+    },
+    {
+      "id": "gaming30:dragonballzshinbudokaianotherroad",
+      "name": "Dragon Ball Z: Shin Budokai - Another Road",
+      "category": "game",
+      "signal": "Dragon Ball"
+    },
+    {
+      "id": "gaming30:mariopartyds",
+      "name": "Mario Party DS",
+      "category": "game",
+      "signal": "Mario"
+    },
+    {
+      "id": "organic46:ice-halo",
+      "name": "Ice Halo",
+      "category": "nature",
+      "signal": "Halo"
+    }
+  ]
+}

@@ -1,0 +1,818 @@
+{
+  "accepted": [
+    {
+      "pair": "legacy:21|legacy:67",
+      "out": "legacy:53",
+      "ingredients": [
+        "Electricity",
+        "Life"
+      ],
+      "name": "Science"
+    },
+    {
+      "pair": "legacy:16|legacy:34",
+      "out": "legacy:218",
+      "ingredients": [
+        "Sand",
+        "Crystal"
+      ],
+      "name": "Geometry"
+    },
+    {
+      "pair": "legacy:218|legacy:53",
+      "out": "legacy:145",
+      "ingredients": [
+        "Geometry",
+        "Science"
+      ],
+      "name": "Mathematics"
+    },
+    {
+      "pair": "legacy:145|legacy:71",
+      "out": "legacy:97",
+      "ingredients": [
+        "Mathematics",
+        "Silicon"
+      ],
+      "name": "Binary"
+    },
+    {
+      "pair": "legacy:23|legacy:31",
+      "out": "legacy:98",
+      "ingredients": [
+        "Glass",
+        "Iron"
+      ],
+      "name": "Disc"
+    },
+    {
+      "pair": "legacy:32|legacy:33",
+      "out": "legacy:108",
+      "ingredients": [
+        "Copper",
+        "Gold"
+      ],
+      "name": "Coin"
+    },
+    {
+      "pair": "legacy:14|organic38:egg",
+      "out": "legacy:109",
+      "ingredients": [
+        "Egg",
+        "Stone"
+      ],
+      "name": "Ball"
+    },
+    {
+      "pair": "legacy:67|legacy:97",
+      "out": "legacy:117",
+      "ingredients": [
+        "Binary",
+        "Electricity"
+      ],
+      "name": "Byte"
+    },
+    {
+      "pair": "legacy:145|legacy:97",
+      "out": "legacy:216",
+      "ingredients": [
+        "Mathematics",
+        "Binary"
+      ],
+      "name": "Algorithm"
+    },
+    {
+      "pair": "legacy:3|legacy:67",
+      "out": "organic34:weather-station",
+      "ingredients": [
+        "Air",
+        "Electricity"
+      ],
+      "name": "Weather Station"
+    },
+    {
+      "pair": "legacy:7|organic34:weather-station",
+      "out": "organic32:weather-forecast",
+      "ingredients": [
+        "Weather Station",
+        "Rain"
+      ],
+      "name": "Weather Forecast"
+    },
+    {
+      "pair": "legacy:20|organic34:compost",
+      "out": "organic34:mycelium",
+      "ingredients": [
+        "Forest",
+        "Compost"
+      ],
+      "name": "Mycelium"
+    },
+    {
+      "pair": "legacy:10|legacy:65",
+      "out": "organic34:tide",
+      "ingredients": [
+        "Sea",
+        "Sky"
+      ],
+      "name": "Tide"
+    },
+    {
+      "pair": "legacy:15|organic34:compost",
+      "out": "organic37:vegetable",
+      "ingredients": [
+        "Plant",
+        "Compost"
+      ],
+      "name": "Vegetable"
+    },
+    {
+      "pair": "legacy:0|legacy:25",
+      "out": "organic38:ink",
+      "ingredients": [
+        "Water",
+        "Coal"
+      ],
+      "name": "Ink"
+    },
+    {
+      "pair": "organic34:soil|organic38:herb",
+      "out": "organic38:basil",
+      "ingredients": [
+        "Herb",
+        "Soil"
+      ],
+      "name": "Basil"
+    },
+    {
+      "pair": "legacy:141|organic37:vegetable",
+      "out": "organic38:tomato",
+      "ingredients": [
+        "Vegetable",
+        "Sun"
+      ],
+      "name": "Tomato"
+    },
+    {
+      "pair": "organic34:soil|organic37:vegetable",
+      "out": "organic38:potato",
+      "ingredients": [
+        "Soil",
+        "Vegetable"
+      ],
+      "name": "Potato"
+    },
+    {
+      "pair": "legacy:2|organic34:seed",
+      "out": "organic38:carrot",
+      "ingredients": [
+        "Earth",
+        "Seed"
+      ],
+      "name": "Carrot"
+    },
+    {
+      "pair": "legacy:12|organic37:vegetable",
+      "out": "organic38:onion",
+      "ingredients": [
+        "Vegetable",
+        "Wind"
+      ],
+      "name": "Onion"
+    },
+    {
+      "pair": "organic34:soil|organic38:onion",
+      "out": "organic38:garlic",
+      "ingredients": [
+        "Onion",
+        "Soil"
+      ],
+      "name": "Garlic"
+    },
+    {
+      "pair": "legacy:35|legacy:65",
+      "out": "organic40:comet",
+      "ingredients": [
+        "Ice",
+        "Sky"
+      ],
+      "name": "Comet"
+    },
+    {
+      "pair": "legacy:1|organic40:comet",
+      "out": "organic40:meteor",
+      "ingredients": [
+        "Comet",
+        "Fire"
+      ],
+      "name": "Meteor"
+    },
+    {
+      "pair": "legacy:14|organic40:meteor",
+      "out": "organic40:meteorite",
+      "ingredients": [
+        "Meteor",
+        "Stone"
+      ],
+      "name": "Meteorite"
+    },
+    {
+      "pair": "legacy:2|pack:moon",
+      "out": "organic40:orbit",
+      "ingredients": [
+        "Moon",
+        "Earth"
+      ],
+      "name": "Orbit"
+    },
+    {
+      "pair": "legacy:142|legacy:17",
+      "out": "organic40:nebula",
+      "ingredients": [
+        "Cloud",
+        "Night"
+      ],
+      "name": "Nebula"
+    },
+    {
+      "pair": "legacy:141|legacy:142",
+      "out": "organic40:eclipse",
+      "ingredients": [
+        "Sun",
+        "Night"
+      ],
+      "name": "Eclipse"
+    },
+    {
+      "pair": "legacy:1|legacy:612",
+      "out": "organic40:supernova",
+      "ingredients": [
+        "Star",
+        "Fire"
+      ],
+      "name": "Supernova"
+    },
+    {
+      "pair": "legacy:14|legacy:65",
+      "out": "organic40:asteroid",
+      "ingredients": [
+        "Stone",
+        "Sky"
+      ],
+      "name": "Asteroid"
+    },
+    {
+      "pair": "legacy:65|pack:moon",
+      "out": "organic40:moonlight",
+      "ingredients": [
+        "Moon",
+        "Sky"
+      ],
+      "name": "Moonlight"
+    },
+    {
+      "pair": "legacy:141|organic40:orbit",
+      "out": "organic40:solar-system",
+      "ingredients": [
+        "Sun",
+        "Orbit"
+      ],
+      "name": "Solar System"
+    },
+    {
+      "pair": "legacy:612|organic40:solar-system",
+      "out": "organic40:exoplanet",
+      "ingredients": [
+        "Solar System",
+        "Star"
+      ],
+      "name": "Exoplanet"
+    },
+    {
+      "pair": "legacy:66|organic40:supernova",
+      "out": "organic40:black-hole",
+      "ingredients": [
+        "Supernova",
+        "Shadow"
+      ],
+      "name": "Black Hole"
+    },
+    {
+      "pair": "legacy:26|organic40:pinecone",
+      "out": "organic40:squirrel",
+      "ingredients": [
+        "Animal",
+        "Pinecone"
+      ],
+      "name": "Squirrel"
+    },
+    {
+      "pair": "legacy:37|organic38:insect",
+      "out": "organic40:spider",
+      "ingredients": [
+        "Insect",
+        "Cave"
+      ],
+      "name": "Spider"
+    },
+    {
+      "pair": "legacy:15|organic40:spider",
+      "out": "organic41:silk",
+      "ingredients": [
+        "Spider",
+        "Plant"
+      ],
+      "name": "Silk"
+    },
+    {
+      "pair": "organic40:spider|organic41:silk",
+      "out": "organic40:spiderweb",
+      "ingredients": [
+        "Spider",
+        "Silk"
+      ],
+      "name": "Spiderweb"
+    },
+    {
+      "pair": "legacy:1|organic44:terracotta",
+      "out": "organic40:ceramic",
+      "ingredients": [
+        "Terracotta",
+        "Fire"
+      ],
+      "name": "Ceramic"
+    },
+    {
+      "pair": "legacy:14|legacy:3",
+      "out": "organic41:pressure",
+      "ingredients": [
+        "Air",
+        "Stone"
+      ],
+      "name": "Pressure"
+    },
+    {
+      "pair": "organic38:insect|organic46:leaf-litter",
+      "out": "organic41:praying-mantis",
+      "ingredients": [
+        "Insect",
+        "Leaf Litter"
+      ],
+      "name": "Praying Mantis"
+    },
+    {
+      "pair": "legacy:1|organic42:limestone",
+      "out": "organic41:cement",
+      "ingredients": [
+        "Limestone",
+        "Fire"
+      ],
+      "name": "Cement"
+    },
+    {
+      "pair": "legacy:14|organic41:cement",
+      "out": "organic41:concrete",
+      "ingredients": [
+        "Cement",
+        "Stone"
+      ],
+      "name": "Concrete"
+    },
+    {
+      "pair": "legacy:39|pack:moon",
+      "out": "organic41:navigation",
+      "ingredients": [
+        "Moon",
+        "River"
+      ],
+      "name": "Navigation"
+    },
+    {
+      "pair": "legacy:2|legacy:37",
+      "out": "organic41:excavation",
+      "ingredients": [
+        "Earth",
+        "Cave"
+      ],
+      "name": "Excavation"
+    },
+    {
+      "pair": "organic41:pressure|organic42:granite",
+      "out": "organic42:quartzite",
+      "ingredients": [
+        "Granite",
+        "Pressure"
+      ],
+      "name": "Quartzite"
+    },
+    {
+      "pair": "legacy:2|organic42:erosion",
+      "out": "organic42:fault-line",
+      "ingredients": [
+        "Earth",
+        "Erosion"
+      ],
+      "name": "Fault Line"
+    },
+    {
+      "pair": "organic38:frog|organic40:wetland",
+      "out": "organic42:newt",
+      "ingredients": [
+        "Frog",
+        "Wetland"
+      ],
+      "name": "Newt"
+    },
+    {
+      "pair": "legacy:10|organic38:pond",
+      "out": "organic42:lagoon",
+      "ingredients": [
+        "Sea",
+        "Pond"
+      ],
+      "name": "Lagoon"
+    },
+    {
+      "pair": "organic42:clam|organic42:rock-cycle",
+      "out": "organic42:mussel",
+      "ingredients": [
+        "Clam",
+        "Rock Cycle"
+      ],
+      "name": "Mussel"
+    },
+    {
+      "pair": "legacy:114|legacy:53",
+      "out": "organic42:optics",
+      "ingredients": [
+        "Vision",
+        "Science"
+      ],
+      "name": "Optics"
+    },
+    {
+      "pair": "legacy:63|legacy:99",
+      "out": "organic42:film",
+      "ingredients": [
+        "Light",
+        "Plastic"
+      ],
+      "name": "Film"
+    },
+    {
+      "pair": "legacy:65|organic42:film",
+      "out": "organic42:exposure",
+      "ingredients": [
+        "Film",
+        "Sky"
+      ],
+      "name": "Exposure"
+    },
+    {
+      "pair": "legacy:3|organic41:forecast",
+      "out": "organic45:weather-balloon",
+      "ingredients": [
+        "Air",
+        "Forecast"
+      ],
+      "name": "Weather Balloon"
+    },
+    {
+      "pair": "organic38:sea-anemone|organic38:tide-pool",
+      "out": "organic46:tidepool-anemone",
+      "ingredients": [
+        "Sea Anemone",
+        "Tide Pool"
+      ],
+      "name": "Tidepool Anemone"
+    },
+    {
+      "pair": "legacy:20|organic38:sapling",
+      "out": "organic46:oak-sapling",
+      "ingredients": [
+        "Sapling",
+        "Forest"
+      ],
+      "name": "Oak Sapling"
+    },
+    {
+      "pair": "legacy:24|organic40:squirrel",
+      "out": "organic46:squirrel-drey",
+      "ingredients": [
+        "Squirrel",
+        "Wood"
+      ],
+      "name": "Squirrel Drey"
+    },
+    {
+      "pair": "organic38:moss|organic46:leaf-litter",
+      "out": "organic46:fern-frond",
+      "ingredients": [
+        "Moss",
+        "Leaf Litter"
+      ],
+      "name": "Fern Frond"
+    },
+    {
+      "pair": "legacy:19|legacy:53",
+      "out": "organic46:tree-rings",
+      "ingredients": [
+        "Tree",
+        "Science"
+      ],
+      "name": "Tree Rings"
+    },
+    {
+      "pair": "legacy:106|organic34:mycelium",
+      "out": "organic46:spore-print",
+      "ingredients": [
+        "Mycelium",
+        "Paper"
+      ],
+      "name": "Spore Print"
+    },
+    {
+      "pair": "legacy:612|organic40:meteor",
+      "out": "organic46:meteor-shower",
+      "ingredients": [
+        "Meteor",
+        "Star"
+      ],
+      "name": "Meteor Shower"
+    },
+    {
+      "pair": "legacy:14|pack:moon",
+      "out": "organic46:lunar-crater",
+      "ingredients": [
+        "Moon",
+        "Stone"
+      ],
+      "name": "Lunar Crater"
+    },
+    {
+      "pair": "organic42:sediment|pack:moon",
+      "out": "organic46:lunar-dust",
+      "ingredients": [
+        "Moon",
+        "Sediment"
+      ],
+      "name": "Lunar Dust"
+    },
+    {
+      "pair": "legacy:612|legacy:65",
+      "out": "organic46:star-cluster",
+      "ingredients": [
+        "Star",
+        "Sky"
+      ],
+      "name": "Star Cluster"
+    },
+    {
+      "pair": "legacy:141|legacy:612",
+      "out": "organic46:red-giant",
+      "ingredients": [
+        "Star",
+        "Sun"
+      ],
+      "name": "Red Giant"
+    },
+    {
+      "pair": "legacy:35|organic46:red-giant",
+      "out": "organic46:white-dwarf",
+      "ingredients": [
+        "Red Giant",
+        "Ice"
+      ],
+      "name": "White Dwarf"
+    },
+    {
+      "pair": "organic37:bread|organic38:bird",
+      "out": "organic46:bread-crumbs",
+      "ingredients": [
+        "Bread",
+        "Bird"
+      ],
+      "name": "Bread Crumbs"
+    },
+    {
+      "pair": "organic41:silk|organic41:silk",
+      "out": "organic46:yarn",
+      "ingredients": [
+        "Silk",
+        "Silk"
+      ],
+      "name": "Yarn"
+    },
+    {
+      "pair": "legacy:63|organic41:fog",
+      "out": "organic46:lighthouse-beam",
+      "ingredients": [
+        "Light",
+        "Fog"
+      ],
+      "name": "Lighthouse Beam"
+    },
+    {
+      "pair": "legacy:15|organic41:brick",
+      "out": "organic46:rooftop-garden",
+      "ingredients": [
+        "Plant",
+        "Brick"
+      ],
+      "name": "Rooftop Garden"
+    },
+    {
+      "pair": "legacy:10|organic38:whirlpool",
+      "out": "organic47:rip-current",
+      "ingredients": [
+        "Whirlpool",
+        "Sea"
+      ],
+      "name": "Rip Current"
+    },
+    {
+      "pair": "legacy:114|legacy:15",
+      "out": "organic47:leaf-vein",
+      "ingredients": [
+        "Plant",
+        "Vision"
+      ],
+      "name": "Leaf Vein"
+    },
+    {
+      "pair": "legacy:14|organic42:sediment",
+      "out": "organic47:sediment-layer",
+      "ingredients": [
+        "Sediment",
+        "Stone"
+      ],
+      "name": "Sediment Layer"
+    },
+    {
+      "pair": "organic38:moss|organic46:rooftop-garden",
+      "out": "organic47:green-roof",
+      "ingredients": [
+        "Rooftop Garden",
+        "Moss"
+      ],
+      "name": "Green Roof"
+    },
+    {
+      "pair": "legacy:14|organic34:orchard",
+      "out": "organic47:urban-orchard",
+      "ingredients": [
+        "Orchard",
+        "Stone"
+      ],
+      "name": "Urban Orchard"
+    },
+    {
+      "pair": "organic40:moonlight|organic42:exposure",
+      "out": "organic47:long-exposure",
+      "ingredients": [
+        "Exposure",
+        "Moonlight"
+      ],
+      "name": "Long Exposure"
+    },
+    {
+      "pair": "legacy:142|organic47:long-exposure",
+      "out": "organic47:star-trail",
+      "ingredients": [
+        "Long Exposure",
+        "Night"
+      ],
+      "name": "Star Trail"
+    },
+    {
+      "pair": "legacy:14|organic40:orbit",
+      "out": "organic47:planetary-ring",
+      "ingredients": [
+        "Orbit",
+        "Stone"
+      ],
+      "name": "Planetary Ring"
+    },
+    {
+      "pair": "legacy:9|organic40:orbit",
+      "out": "organic47:cosmic-dust",
+      "ingredients": [
+        "Dust",
+        "Orbit"
+      ],
+      "name": "Cosmic Dust"
+    },
+    {
+      "pair": "legacy:65|organic40:moonlight",
+      "out": "organic47:moonrise",
+      "ingredients": [
+        "Moonlight",
+        "Sky"
+      ],
+      "name": "Moonrise"
+    },
+    {
+      "pair": "legacy:63|organic40:comet",
+      "out": "organic47:comet-tail",
+      "ingredients": [
+        "Comet",
+        "Light"
+      ],
+      "name": "Comet Tail"
+    },
+    {
+      "pair": "legacy:38|organic40:meteorite",
+      "out": "organic47:impact-crater",
+      "ingredients": [
+        "Meteorite",
+        "Mountain"
+      ],
+      "name": "Impact Crater"
+    },
+    {
+      "pair": "legacy:63|organic40:nebula",
+      "out": "organic47:stellar-nursery",
+      "ingredients": [
+        "Nebula",
+        "Light"
+      ],
+      "name": "Stellar Nursery"
+    },
+    {
+      "pair": "legacy:65|organic40:nebula",
+      "out": "legacy:548",
+      "ingredients": [
+        "Sky",
+        "Nebula"
+      ],
+      "name": "Space"
+    }
+  ],
+  "rejected": [
+    "Science: pair occupied Life + Energy",
+    "Geometry: pair occupied Crystal + Stone",
+    "Geometry: pair occupied Stone + Light",
+    "Disc: pair occupied Glass + Stone",
+    "Weather Station: pair occupied Rain + Electricity",
+    "Mycelium: pair occupied Forest + Moss",
+    "Mycelium: pair occupied Moss + Soil",
+    "Tide: pair occupied Sea + Moon",
+    "Tide: pair occupied Sea + Sun",
+    "Vegetable: pair occupied Plant + Soil",
+    "Current: pair occupied Sea + Wind",
+    "Current: pair occupied River + Wind",
+    "Current: pair occupied Sea + Electricity",
+    "Basil: pair occupied Herb + Sun",
+    "Potato: pair occupied Vegetable + Earth",
+    "Carrot: pair occupied Vegetable + Soil",
+    "Onion: pair occupied Vegetable + Water",
+    "Nebula: pair occupied Cloud + Star",
+    "Eclipse: pair occupied Sun + Moon",
+    "Moonlight: pair occupied Moon + Light",
+    "Moonlight: pair occupied Night + Moon",
+    "Exoplanet: pair occupied Star + Orbit",
+    "Squirrel: pair occupied Animal + Forest",
+    "Squirrel: pair occupied Animal + Tree",
+    "Spider: pair occupied Insect + Forest",
+    "Ceramic: pair occupied Clay + Fire",
+    "Ceramic: pair occupied Clay + Heat",
+    "Concrete: pair occupied Cement + Water",
+    "Navigation: pair occupied Star + Sea",
+    "Navigation: pair occupied Sea + Sky",
+    "Excavation: pair occupied Stone + Earth",
+    "Excavation: pair occupied Stone + Cave",
+    "Quartzite: pair occupied Crystal + Pressure",
+    "Quartzite: self-dependency Quartzite + Stone",
+    "Newt: pair occupied Frog + Pond",
+    "Lagoon: pair occupied Sea + Lake",
+    "Mussel: pair occupied Clam + Sea",
+    "Exposure: pair occupied Light + Film",
+    "Exposure: pair occupied Film + Sun",
+    "Squirrel Drey: pair occupied Squirrel + Nest",
+    "Squirrel Drey: pair occupied Squirrel + Tree",
+    "Tree Rings: pair occupied Tree + Fossil",
+    "Meteor Shower: pair occupied Meteor + Rain",
+    "Lunar Crater: pair occupied Moon + Meteorite",
+    "Star Cluster: pair occupied Star + Nebula",
+    "Star Cluster: pair occupied Star + Star",
+    "Red Giant: pair occupied Star + Heat",
+    "Lighthouse Beam: pair occupied Light + Sea",
+    "Rooftop Garden: pair occupied Plant + Stone",
+    "Rip Current: pair occupied Tide + Current",
+    "Long Exposure: pair occupied Exposure + Night",
+    "Star Trail: pair occupied Long Exposure + Star",
+    "Cosmic Dust: pair occupied Dust + Nebula",
+    "Cosmic Dust: pair occupied Dust + Star",
+    "Comet Tail: pair occupied Comet + Wind",
+    "Comet Tail: pair occupied Comet + Sun",
+    "Impact Crater: pair occupied Meteorite + Sand",
+    "Stellar Nursery: pair occupied Nebula + Star Cluster",
+    "Stellar Nursery: pair occupied Nebula + Energy"
+  ],
+  "unresolved": [
+    "Current"
+  ],
+  "excluded": [],
+  "reachable": 393,
+  "familySize": 393
+}

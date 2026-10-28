@@ -1,0 +1,485 @@
+{
+  "version": 41,
+  "icons": [
+    {
+      "id": "organic41:storm",
+      "name": "Storm",
+      "path": "client/assets/v41/storm.svg",
+      "sha256": "e9e4bcf2c6fa416b7e8d17e6ad2901060a5e9545dd4e5e58ed6b5f9098899c60"
+    },
+    {
+      "id": "organic41:thunder",
+      "name": "Thunder",
+      "path": "client/assets/v41/thunder.svg",
+      "sha256": "fc7199036faa1b57b4890edfe1bfe87b97afc6eed98303c402d91dae8b16f7b8"
+    },
+    {
+      "id": "organic41:fog",
+      "name": "Fog",
+      "path": "client/assets/v41/fog.svg",
+      "sha256": "a848013c501c5d405e307908dd79861e97577cf0af930cb0bb95e50cf4f8dddf"
+    },
+    {
+      "id": "organic41:mist",
+      "name": "Mist",
+      "path": "client/assets/v41/mist.svg",
+      "sha256": "6fba23ad1e9ab1c2bbdd7bbe3086fa3aac8625c5104318485ee6d078ad3dc872"
+    },
+    {
+      "id": "organic41:blizzard",
+      "name": "Blizzard",
+      "path": "client/assets/v41/blizzard.svg",
+      "sha256": "cbeb5611fa487b31d8bced31d65a57d638a8daa07c065aea26c1c842922f8fe6"
+    },
+    {
+      "id": "organic41:tornado",
+      "name": "Tornado",
+      "path": "client/assets/v41/tornado.svg",
+      "sha256": "764cb0746ffef1e854b4bd1b796765da0323f25355d9f0db9f68a527ace282f4"
+    },
+    {
+      "id": "organic41:hurricane",
+      "name": "Hurricane",
+      "path": "client/assets/v41/hurricane.svg",
+      "sha256": "95c0048caa9b38d6168b568807b97bc5c6dddc18ebd9ab0b61bc044a19e8d358"
+    },
+    {
+      "id": "organic41:monsoon",
+      "name": "Monsoon",
+      "path": "client/assets/v41/monsoon.svg",
+      "sha256": "dd4db31435ca790c1c38e252f38c6ca3ea874990fa894e6243dfefa2968d669f"
+    },
+    {
+      "id": "organic41:drizzle",
+      "name": "Drizzle",
+      "path": "client/assets/v41/drizzle.svg",
+      "sha256": "b3332db397ce12e2231f156c6f6e2766f5bc95281f63f6c3f304a863cf80ed61"
+    },
+    {
+      "id": "organic41:flood",
+      "name": "Flood",
+      "path": "client/assets/v41/flood.svg",
+      "sha256": "0d51229b95e8a1c6269d9b0026bac905e2d2eae8bad82da87a25153088140e86"
+    },
+    {
+      "id": "organic41:pressure",
+      "name": "Pressure",
+      "path": "client/assets/v41/pressure.svg",
+      "sha256": "d66dc5579b865b00fa066524b1abea63339ced72b8f64c699b07f792ab70adfc"
+    },
+    {
+      "id": "organic41:humidity",
+      "name": "Humidity",
+      "path": "client/assets/v41/humidity.svg",
+      "sha256": "a05a976cfe1fdad24ed3929b85380b0db38552a76e7ca0783a08315359679d07"
+    },
+    {
+      "id": "organic41:forecast",
+      "name": "Forecast",
+      "path": "client/assets/v41/forecast.svg",
+      "sha256": "260f424dfb6070fc0fd2e8316be61da6dcb046c8a4953d1b99883a20249af68f"
+    },
+    {
+      "id": "organic41:barometer",
+      "name": "Barometer",
+      "path": "client/assets/v41/barometer.svg",
+      "sha256": "6b11c1038dbd7fe860f07a5972e1b978f27489a688699ba9696271518db2f633"
+    },
+    {
+      "id": "organic41:thermometer",
+      "name": "Thermometer",
+      "path": "client/assets/v41/thermometer.svg",
+      "sha256": "199689919f3c683ca6fc232102b4329cb266960943743ce3d81647bcffb2620d"
+    },
+    {
+      "id": "organic41:heatwave",
+      "name": "Heatwave",
+      "path": "client/assets/v41/heatwave.svg",
+      "sha256": "63402c279de8f75fea9a1933ca675910de45cadf6630ef10e4c3cbdb9cc65d55"
+    },
+    {
+      "id": "organic41:ant",
+      "name": "Ant",
+      "path": "client/assets/v41/ant.svg",
+      "sha256": "1bd0d2cf69d418350aad31a6a17b5d46433ba73c41ecd68e11fcbca67889978d"
+    },
+    {
+      "id": "organic41:anthill",
+      "name": "Anthill",
+      "path": "client/assets/v41/anthill.svg",
+      "sha256": "f723377b7635209962076a4194d99c7085c0e03118b3f84e14d0eb43bbefffa6"
+    },
+    {
+      "id": "organic41:beetle",
+      "name": "Beetle",
+      "path": "client/assets/v41/beetle.svg",
+      "sha256": "162ce8e43b2b3c8bb00b665a04b4ea9b364ecb78fed814ee278035d3b31b5c43"
+    },
+    {
+      "id": "organic41:ladybug",
+      "name": "Ladybug",
+      "path": "client/assets/v41/ladybug.svg",
+      "sha256": "c3d7924f369b1acbc5fafd851bc3866fa64d3307cfc190bb2592382c1ab06609"
+    },
+    {
+      "id": "organic41:wasp",
+      "name": "Wasp",
+      "path": "client/assets/v41/wasp.svg",
+      "sha256": "97b7637e31884f40dda4efc55ce5a10422561b859f895de1704bb2061caac61a"
+    },
+    {
+      "id": "organic41:mosquito",
+      "name": "Mosquito",
+      "path": "client/assets/v41/mosquito.svg",
+      "sha256": "be0039b9d431dc03b08bc44ced8b18c4e7fa50e045a2aa53041c17579ecc2d58"
+    },
+    {
+      "id": "organic41:moth",
+      "name": "Moth",
+      "path": "client/assets/v41/moth.svg",
+      "sha256": "8f457a08d0120bed8e0cfda71f739a7f8599fe374a433f9a8a8783dcabb5eaaa"
+    },
+    {
+      "id": "organic41:grasshopper",
+      "name": "Grasshopper",
+      "path": "client/assets/v41/grasshopper.svg",
+      "sha256": "78ffaa229b64ff3e081a7f73c15ead71720ccf11e45b08061a3a75e1c505769b"
+    },
+    {
+      "id": "organic41:cricket",
+      "name": "Cricket",
+      "path": "client/assets/v41/cricket.svg",
+      "sha256": "13427149e073015352d23af45f67d8827c63f8ede9e981ddc74038c627e28db7"
+    },
+    {
+      "id": "organic41:silk",
+      "name": "Silk",
+      "path": "client/assets/v41/silk.svg",
+      "sha256": "f9daeefa09c7f22b6f5fe7847f8cdc1e0dd10223ca48f7296da8ca0ce58a9880"
+    },
+    {
+      "id": "organic41:bee-bread",
+      "name": "Bee Bread",
+      "path": "client/assets/v41/bee-bread.svg",
+      "sha256": "c8aeffc61d78ad4037bd6e9abbff56962ba920cb2c6ed5e1986b14fed25075ca"
+    },
+    {
+      "id": "organic41:insect-hotel",
+      "name": "Insect Hotel",
+      "path": "client/assets/v41/insect-hotel.svg",
+      "sha256": "a8f437d3d2cd52e32b4eb1d3d944639b048b79861039978de655648f154f9402"
+    },
+    {
+      "id": "organic41:aphid",
+      "name": "Aphid",
+      "path": "client/assets/v41/aphid.svg",
+      "sha256": "ec770cbf05455cbfe20987a8fbe441f529cb53f48b51bd9b6efff03f6cdd547e"
+    },
+    {
+      "id": "organic41:termite",
+      "name": "Termite",
+      "path": "client/assets/v41/termite.svg",
+      "sha256": "f4df4f349a7f7be37d238b0c744134309a6cff5c880773adf54604c83d8cdf9d"
+    },
+    {
+      "id": "organic41:swarm",
+      "name": "Swarm",
+      "path": "client/assets/v41/swarm.svg",
+      "sha256": "89ce1d4a05e819b16a3001cd2271b784490015c31d4ad32408bb75814021e834"
+    },
+    {
+      "id": "organic41:praying-mantis",
+      "name": "Praying Mantis",
+      "path": "client/assets/v41/praying-mantis.svg",
+      "sha256": "4ffd85bce781190f94759f8daf8a490b7c193315d015172331a1965938a0241b"
+    },
+    {
+      "id": "organic41:brick",
+      "name": "Brick",
+      "path": "client/assets/v41/brick.svg",
+      "sha256": "e3f5f3ccbd7a8d1fa58a940566e799772a4f5884e0d339754646f490e3cdfe90"
+    },
+    {
+      "id": "organic41:clay",
+      "name": "Clay",
+      "path": "client/assets/v41/clay.svg",
+      "sha256": "d8f06fcfeb175523b9dfc56ca7e738e8d62bd8d2cd1735a0634f4caf7cbb95da"
+    },
+    {
+      "id": "organic41:cement",
+      "name": "Cement",
+      "path": "client/assets/v41/cement.svg",
+      "sha256": "9197ccef34460f18bcbbaba7532165f98d11e05ea1d1eb65dc32950df92053aa"
+    },
+    {
+      "id": "organic41:concrete",
+      "name": "Concrete",
+      "path": "client/assets/v41/concrete.svg",
+      "sha256": "1fb690778b7b8a361dbcd57a2b9755032038829b9ab8349dfb83b3011e53a743"
+    },
+    {
+      "id": "organic41:arch",
+      "name": "Arch",
+      "path": "client/assets/v41/arch.svg",
+      "sha256": "a15edefa730231910ee5b5554a62cc57e8eca85e1ed26a04c548aa1a0e50ebe4"
+    },
+    {
+      "id": "organic41:column",
+      "name": "Column",
+      "path": "client/assets/v41/column.svg",
+      "sha256": "9f4964763c771b9f5980e63730a8440966a915646cf90992efbd59ac7dd62ff4"
+    },
+    {
+      "id": "organic41:tower",
+      "name": "Tower",
+      "path": "client/assets/v41/tower.svg",
+      "sha256": "557e3aabd83efa5598d7b09b14fb5c0fa130d989fa958e57c5236b89193f2acd"
+    },
+    {
+      "id": "organic41:cathedral",
+      "name": "Cathedral",
+      "path": "client/assets/v41/cathedral.svg",
+      "sha256": "f4f6e571bb892bb1638074bf08211df956f3b67ddea14d9ef71233487e55f7a9"
+    },
+    {
+      "id": "organic41:ruins",
+      "name": "Ruins",
+      "path": "client/assets/v41/ruins.svg",
+      "sha256": "fea3673710eadd73cd2e1f4c5a0546b56469b43da0eb867f3a84f04061e4e75d"
+    },
+    {
+      "id": "organic41:monument",
+      "name": "Monument",
+      "path": "client/assets/v41/monument.svg",
+      "sha256": "fc61d81acd43b93c07f12c0220ddb49517287fa84e37a269dbbd0f971400585e"
+    },
+    {
+      "id": "organic41:plaza",
+      "name": "Plaza",
+      "path": "client/assets/v41/plaza.svg",
+      "sha256": "03aff5d3a78579eb4ccd2d6cb2c0d6fce835cebc71e6ec5493101ac6ecaf244e"
+    },
+    {
+      "id": "organic41:museum",
+      "name": "Museum",
+      "path": "client/assets/v41/museum.svg",
+      "sha256": "103ab0a568f8841a300ddc7600d5110e6f5e84eb9a8888d8306602bf2487fa31"
+    },
+    {
+      "id": "organic41:library",
+      "name": "Library",
+      "path": "client/assets/v41/library.svg",
+      "sha256": "35f423c77403f3bf29b4017b8147d050ab082c2fa518186a2da2e2a4dd931db0"
+    },
+    {
+      "id": "organic41:canal",
+      "name": "Canal",
+      "path": "client/assets/v41/canal.svg",
+      "sha256": "ddd71093ea7f6607a68eaa35e2ba9aa264287d7856c4b85d25a22bffb5712551"
+    },
+    {
+      "id": "organic41:aqueduct",
+      "name": "Aqueduct",
+      "path": "client/assets/v41/aqueduct.svg",
+      "sha256": "5ee021b6645644311f66c31d4e0df4b4ca9dd0b5612d1bbec2f4246dd899a08d"
+    },
+    {
+      "id": "organic41:scaffold",
+      "name": "Scaffold",
+      "path": "client/assets/v41/scaffold.svg",
+      "sha256": "58ab3d9ee282a6e1e4f2de7a66f3b6b20990a2525ae455081eaec31132308e99"
+    },
+    {
+      "id": "organic41:harbor",
+      "name": "Harbor",
+      "path": "client/assets/v41/harbor.svg",
+      "sha256": "c36b59b6b802832f46c0df1f95d6ff184a13cda7231361a93e4dbda3f1a98d69"
+    },
+    {
+      "id": "organic41:compass",
+      "name": "Compass",
+      "path": "client/assets/v41/compass.svg",
+      "sha256": "6460f84855762a03d4a7aefe0ff16941c8b0abd38901baf6ba9e4b2f4f7d2fe7"
+    },
+    {
+      "id": "organic41:navigation",
+      "name": "Navigation",
+      "path": "client/assets/v41/navigation.svg",
+      "sha256": "821239abbd4b2122a65959578470c767fee87abaf8ac923d20a4548dfac684a0"
+    },
+    {
+      "id": "organic41:anchor",
+      "name": "Anchor",
+      "path": "client/assets/v41/anchor.svg",
+      "sha256": "8529c71982d580d56638614a36aa9c42307262bcfb14f973bd8c40f59445166b"
+    },
+    {
+      "id": "organic41:rudder",
+      "name": "Rudder",
+      "path": "client/assets/v41/rudder.svg",
+      "sha256": "035af0456fd0bbabc519ee80ed3f3c58942a02c0784a6b114aedef4425490322"
+    },
+    {
+      "id": "organic41:mast",
+      "name": "Mast",
+      "path": "client/assets/v41/mast.svg",
+      "sha256": "674dab9847b9fc86cd9ad4b5c286855e2303688720f0028924bb488730586349"
+    },
+    {
+      "id": "organic41:keel",
+      "name": "Keel",
+      "path": "client/assets/v41/keel.svg",
+      "sha256": "dd7423809563e4bf77c0c41b612185126dbae0be5f3ef7206f16c04fa7f7eb30"
+    },
+    {
+      "id": "organic41:sail",
+      "name": "Sail",
+      "path": "client/assets/v41/sail.svg",
+      "sha256": "86f88905be2c4f52e19c33101246dc9f462fe228b6bb24bae7175d8eecf1b457"
+    },
+    {
+      "id": "organic41:port",
+      "name": "Port",
+      "path": "client/assets/v41/port.svg",
+      "sha256": "80d2d6c4842a21928ba62bbc1b510f664baafdd43558d9a5da67faccffcd57e8"
+    },
+    {
+      "id": "organic41:buoy",
+      "name": "Buoy",
+      "path": "client/assets/v41/buoy.svg",
+      "sha256": "2699a66158c1e3e214313b213e5c5ba41241e9be1995f368b31d7886dbd90504"
+    },
+    {
+      "id": "organic41:fishing-net",
+      "name": "Fishing Net",
+      "path": "client/assets/v41/fishing-net.svg",
+      "sha256": "8dbba2d12844a9d11f00622b5fe887f9a5ef2ce0dbe044a3dd97475cdb36a80b"
+    },
+    {
+      "id": "organic41:lifeboat",
+      "name": "Lifeboat",
+      "path": "client/assets/v41/lifeboat.svg",
+      "sha256": "10f2af2dd7873b7198a8b0e94059bc6fa0cd54b5ad20bbb825c9383ae4527b77"
+    },
+    {
+      "id": "organic41:cargo-ship",
+      "name": "Cargo Ship",
+      "path": "client/assets/v41/cargo-ship.svg",
+      "sha256": "b0c2147bf6b6113fdc30a4953f1df78639f71f8d0a457599274789024ab7c99c"
+    },
+    {
+      "id": "organic41:shipyard",
+      "name": "Shipyard",
+      "path": "client/assets/v41/shipyard.svg",
+      "sha256": "e89d5b23a6a8a16485efb508326af34cafa17b7ea9ee498a10fec7e03b5d5ddf"
+    },
+    {
+      "id": "organic41:sonar",
+      "name": "Sonar",
+      "path": "client/assets/v41/sonar.svg",
+      "sha256": "62a6162d56e1f88db4efe6a7af1758de10a4a365b1ea83d4f5707edab311af91"
+    },
+    {
+      "id": "organic41:sextant",
+      "name": "Sextant",
+      "path": "client/assets/v41/sextant.svg",
+      "sha256": "eb10cea37f693027ca969bbabf080b33be23c87792cc3feb94ed7ed760948b92"
+    },
+    {
+      "id": "organic41:artifact",
+      "name": "Artifact",
+      "path": "client/assets/v41/artifact.svg",
+      "sha256": "4e22f52d13580b18c5e922faa02cfde6641dd01d12534cd2bf9837842aacdb86"
+    },
+    {
+      "id": "organic41:relic",
+      "name": "Relic",
+      "path": "client/assets/v41/relic.svg",
+      "sha256": "b7c0bf2e990195ae47406c23f574febbe5d892a38276b1c268d0a1873d7e9cb0"
+    },
+    {
+      "id": "organic41:excavation",
+      "name": "Excavation",
+      "path": "client/assets/v41/excavation.svg",
+      "sha256": "6794dc44565ac38ba0d94b199fe1807c093ae068d9d893edb37b1f34d3fcf517"
+    },
+    {
+      "id": "organic41:pyramid",
+      "name": "Pyramid",
+      "path": "client/assets/v41/pyramid.svg",
+      "sha256": "f5ab2f159aba293a3b0dc1c7d596d5e3dbbf0e099d1a7c7a9b46616c3ead7c4f"
+    },
+    {
+      "id": "organic41:mummy",
+      "name": "Mummy",
+      "path": "client/assets/v41/mummy.svg",
+      "sha256": "66c49cd61d00d0232d2a803767c54c59387f8a04afbe0e165dae5056bba13aa5"
+    },
+    {
+      "id": "organic41:hieroglyphics",
+      "name": "Hieroglyphics",
+      "path": "client/assets/v41/hieroglyphics.svg",
+      "sha256": "2fe2880e6c56c2f0372bba477190e227fe5d0755c7700ac67889bca0704021eb"
+    },
+    {
+      "id": "organic41:explorer",
+      "name": "Explorer",
+      "path": "client/assets/v41/explorer.svg",
+      "sha256": "c40cb1cb3c96ad7bdcecbbf3119d0495aaf55b211b15f21df937fcc2104902fc"
+    },
+    {
+      "id": "organic41:expedition",
+      "name": "Expedition",
+      "path": "client/assets/v41/expedition.svg",
+      "sha256": "c8b0386193b5ace0611dd13f7dd38fca7390410eb71d3d7f53d1463307b17b35"
+    },
+    {
+      "id": "organic41:landmark",
+      "name": "Landmark",
+      "path": "client/assets/v41/landmark.svg",
+      "sha256": "e9507ad18c0b0f7a32e0072a7957223995e4359b9ae3c42800a86d7e2f985978"
+    },
+    {
+      "id": "organic41:rock-art",
+      "name": "Rock Art",
+      "path": "client/assets/v41/rock-art.svg",
+      "sha256": "f06deef95ecabcd9fd5b3dd31c979094519773dcf6c24e0b63f8cd98d087bf4f"
+    },
+    {
+      "id": "organic41:tomb",
+      "name": "Tomb",
+      "path": "client/assets/v41/tomb.svg",
+      "sha256": "6231f836584d81d9b2a204e211be2a13fb7e58dd352445430cfe39c0d0fb08a8"
+    },
+    {
+      "id": "organic41:archaeologist",
+      "name": "Archaeologist",
+      "path": "client/assets/v41/archaeologist.svg",
+      "sha256": "5f42a9f33dc0a1c543d694117293e9e20bbcc2fc70a319d1ad0492c30e3400e0"
+    },
+    {
+      "id": "organic41:treasure-map",
+      "name": "Treasure Map",
+      "path": "client/assets/v41/treasure-map.svg",
+      "sha256": "cac59871d0a0e492321d6b3fc9e8fc9dd8e944f85ec41bb8153a155d21e641f9"
+    },
+    {
+      "id": "organic41:ancient-city",
+      "name": "Ancient City",
+      "path": "client/assets/v41/ancient-city.svg",
+      "sha256": "779a30ddcdebbed89b87503767e416d8811472753ad0d9648ec45e9422ed81a2"
+    },
+    {
+      "id": "organic41:cave-painting",
+      "name": "Cave Painting",
+      "path": "client/assets/v41/cave-painting.svg",
+      "sha256": "f921e968206a0f94a759a03045c0ac1ed3a8cf5f182d05631472831e5c3e143a"
+    },
+    {
+      "id": "organic41:sarcophagus",
+      "name": "Sarcophagus",
+      "path": "client/assets/v41/sarcophagus.svg",
+      "sha256": "1f2e37f4af731b7a885b7be1d02b03879f26333dbcfc758f4aade257e2c9bda6"
+    }
+  ]
+}

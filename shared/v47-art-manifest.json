@@ -1,0 +1,405 @@
+{
+  "release": "V47",
+  "icons": [
+    {
+      "id": "organic47:sea-foam",
+      "path": "client/assets/v47/sea-foam.svg",
+      "sha256": "db98f46516a8010a3366fd0519f532815ce5e0421da4415a314d2edc999221c9"
+    },
+    {
+      "id": "organic47:rip-current",
+      "path": "client/assets/v47/rip-current.svg",
+      "sha256": "38fbaa0cef34b3f3e12bad699f0031f144c65fd5e6e17c2455a5315f70ac7e9a"
+    },
+    {
+      "id": "organic47:salt-spray",
+      "path": "client/assets/v47/salt-spray.svg",
+      "sha256": "a5b8110257208f76e517bbd37d387a611e3c83d121f4aafe310aeab6e447fe03"
+    },
+    {
+      "id": "organic47:sea-stack",
+      "path": "client/assets/v47/sea-stack.svg",
+      "sha256": "2addc507b949791aa4d9aacb448cabea133f528f15f2e22a1737e288f8a9a1e2"
+    },
+    {
+      "id": "organic47:coastal-dune",
+      "path": "client/assets/v47/coastal-dune.svg",
+      "sha256": "fe245bb6e248e2b73c89c3eaa15e92608c95360d1402d4c10849b8e136e09732"
+    },
+    {
+      "id": "organic47:tidal-channel",
+      "path": "client/assets/v47/tidal-channel.svg",
+      "sha256": "a114e589a5e5acdc83c3a4658d9057d3e14fbed901076b4224a99cc6ccccc776"
+    },
+    {
+      "id": "organic47:seagrass-meadow",
+      "path": "client/assets/v47/seagrass-meadow.svg",
+      "sha256": "c67b33d07b51a2a753473c080aba64ba9aa3e33288ac7e6036ad1fc204cd1a70"
+    },
+    {
+      "id": "organic47:wave-crest",
+      "path": "client/assets/v47/wave-crest.svg",
+      "sha256": "eb724491d3913f94ce7753318c2a9f5744c44de771d138851e3111c3f9f59ce2"
+    },
+    {
+      "id": "organic47:coastal-fog",
+      "path": "client/assets/v47/coastal-fog.svg",
+      "sha256": "2b137badbcaf27ff8dae906999d605c55082edaf7c47aa52dedb79f589ef558a"
+    },
+    {
+      "id": "organic47:beach-pebble",
+      "path": "client/assets/v47/beach-pebble.svg",
+      "sha256": "cdc4f75d5a6806006bed31b1ff059c575f886cf67b6de858f12c6d4d92069290"
+    },
+    {
+      "id": "organic47:caterpillar-cocoon",
+      "path": "client/assets/v47/caterpillar-cocoon.svg",
+      "sha256": "8646a540835dcff5be76b6850306c93b826b8752101ab53ff5a414e8da2d323f"
+    },
+    {
+      "id": "organic47:butterfly-chrysalis",
+      "path": "client/assets/v47/butterfly-chrysalis.svg",
+      "sha256": "57e8f3292ce3a314303f24ed321a1f916368ca9aa78ccef6508c4a55b7abb2a7"
+    },
+    {
+      "id": "organic47:ant-trail",
+      "path": "client/assets/v47/ant-trail.svg",
+      "sha256": "8875aa2e2b279fff884b3c57110c540a72e505fe5e7685c2fd1cd85d438eecee"
+    },
+    {
+      "id": "organic47:nectar-drop",
+      "path": "client/assets/v47/nectar-drop.svg",
+      "sha256": "a9485bdb1ca92372735b7699ad16865c0ae91bb8e8cef563afe543cbf6b3839d"
+    },
+    {
+      "id": "organic47:pollen-basket",
+      "path": "client/assets/v47/pollen-basket.svg",
+      "sha256": "08ecd1ae61c1642661cff8fdb89b1c59ac75fe897a6222dd427ada662e2ea62f"
+    },
+    {
+      "id": "organic47:bee-colony",
+      "path": "client/assets/v47/bee-colony.svg",
+      "sha256": "d8d959fd97d0bc6b6380748a0bcddb996b65fe7ee99508a7a405cc5373bf5188"
+    },
+    {
+      "id": "organic47:firefly-glow",
+      "path": "client/assets/v47/firefly-glow.svg",
+      "sha256": "e2c41071e0efc6863d373bcc7a13ca86f4502be2fe7d4131efba993103ec65ea"
+    },
+    {
+      "id": "organic47:leaf-vein",
+      "path": "client/assets/v47/leaf-vein.svg",
+      "sha256": "f47786c6932860fca08bd8042ad3ad4565c2f5e48695bb077fa3b86a8eb1c93d"
+    },
+    {
+      "id": "organic47:bark-beetle",
+      "path": "client/assets/v47/bark-beetle.svg",
+      "sha256": "2d1d05d947b910174a662e07f7dd37b2d820071ae9499cde4b59317152388471"
+    },
+    {
+      "id": "organic47:moth-wing",
+      "path": "client/assets/v47/moth-wing.svg",
+      "sha256": "a1aa51ff9ca2493821b10147c5dd040f903fc7d3f0b59f4700d43c69b86a6b33"
+    },
+    {
+      "id": "organic47:cave-pool",
+      "path": "client/assets/v47/cave-pool.svg",
+      "sha256": "903941549c9acc70e089f135140d1905fb3ce65df7edf1e053968acd6c1a37a3"
+    },
+    {
+      "id": "organic47:flowstone",
+      "path": "client/assets/v47/flowstone.svg",
+      "sha256": "b323076e13297ca99625f2e7276ab5ca428c02c7762b8eed8a5b4eea21634457"
+    },
+    {
+      "id": "organic47:calcite-crystal",
+      "path": "client/assets/v47/calcite-crystal.svg",
+      "sha256": "64963ae0e5fd7b3e81ddbdce70d944244d1f09e40478239741cd47a212a1b0e9"
+    },
+    {
+      "id": "organic47:volcanic-bomb",
+      "path": "client/assets/v47/volcanic-bomb.svg",
+      "sha256": "fbcb2f88fbf4c4a332ace7cc82c2a869066d4a96564a9f5f1bed65150df0613f"
+    },
+    {
+      "id": "organic47:basalt-column",
+      "path": "client/assets/v47/basalt-column.svg",
+      "sha256": "7a02fbe55fd7ddb04ba7ee80d55d76b063848683b64b0c54f2290509c82c8718"
+    },
+    {
+      "id": "organic47:pumice-raft",
+      "path": "client/assets/v47/pumice-raft.svg",
+      "sha256": "91742c318803d5dffdd38a0d6698598a9d34a90608fd61fa7746a62c81e43640"
+    },
+    {
+      "id": "organic47:river-delta",
+      "path": "client/assets/v47/river-delta.svg",
+      "sha256": "d6a5f13c1260da57f0e1b933b76386a815c54fe78694dfe6affd2154272b509b"
+    },
+    {
+      "id": "organic47:oxbow-lake",
+      "path": "client/assets/v47/oxbow-lake.svg",
+      "sha256": "b4f483dd41cf12c87f6a0b4ceac8599ad7411441bf554bc8b947831e3751c91a"
+    },
+    {
+      "id": "organic47:fossil-imprint",
+      "path": "client/assets/v47/fossil-imprint.svg",
+      "sha256": "11b967aa531a520b5c4fd954148ce61bbc168efc5ec1bf57203d256c6f29230d"
+    },
+    {
+      "id": "organic47:sediment-layer",
+      "path": "client/assets/v47/sediment-layer.svg",
+      "sha256": "1ecb6b3d480c500a2b01860e8263d2e3a063e306d16e6a805cad73a6f8417b8f"
+    },
+    {
+      "id": "organic47:circuit-trace",
+      "path": "client/assets/v47/circuit-trace.svg",
+      "sha256": "5ced14b9e9f7fca27f11169025ac680e9789489895106645af6798a062b1f66d"
+    },
+    {
+      "id": "organic47:capacitor-bank",
+      "path": "client/assets/v47/capacitor-bank.svg",
+      "sha256": "b076392a21fd573f64d6a9e8324f24a6ac8c230d8367c053bfa9e9a97b765f32"
+    },
+    {
+      "id": "organic47:optical-switch",
+      "path": "client/assets/v47/optical-switch.svg",
+      "sha256": "395b1f833c7ae5543b5e59ce1235d6d7a4ed95363b0425155e0617525254334d"
+    },
+    {
+      "id": "organic47:led-array",
+      "path": "client/assets/v47/led-array.svg",
+      "sha256": "c9c242a4ebdc12c3862a2d2e2b8ab98c5fb5f25290fd8b5b5b4ae85679549466"
+    },
+    {
+      "id": "organic47:electric-relay",
+      "path": "client/assets/v47/electric-relay.svg",
+      "sha256": "7deaf742715fc8dd1bc262909fc6fab37ac39f9e7ce547803bd082c606a7125d"
+    },
+    {
+      "id": "organic47:solar-inverter",
+      "path": "client/assets/v47/solar-inverter.svg",
+      "sha256": "cfb45809a1e91e64f1dc6e729774b65c9381b0ecf1820020f4be63cf213452e3"
+    },
+    {
+      "id": "organic47:temperature-probe",
+      "path": "client/assets/v47/temperature-probe.svg",
+      "sha256": "43bd767dbbc0607f1318db3dff2efe7461e5b21db9745019eca283b95f33b919"
+    },
+    {
+      "id": "organic47:robot-gripper",
+      "path": "client/assets/v47/robot-gripper.svg",
+      "sha256": "408ce8930613f374405c1e96f21b49ce415b4450f60ab0a94912e1546c51a35b"
+    },
+    {
+      "id": "organic47:weather-node",
+      "path": "client/assets/v47/weather-node.svg",
+      "sha256": "c8f3eb40c15ad40f5db1c638910fa012248bcb56181d8a59f83bf9c2bfa7461e"
+    },
+    {
+      "id": "organic47:electronic-compass",
+      "path": "client/assets/v47/electronic-compass.svg",
+      "sha256": "d243885e27e8ed355551f52cbb8afad40dce3a2c38562113fe4161d4e94a9787"
+    },
+    {
+      "id": "organic47:herb-butter",
+      "path": "client/assets/v47/herb-butter.svg",
+      "sha256": "6380e8ce80434d72ebfdb55a15f9d4a54f2baf1ae6a232d0e581718904e03dfc"
+    },
+    {
+      "id": "organic47:garlic-bread",
+      "path": "client/assets/v47/garlic-bread.svg",
+      "sha256": "14594fb5a873b81f27d1e13121148d068040c1ecf2f7412c5dde80db80c3924b"
+    },
+    {
+      "id": "organic47:apple-turnover",
+      "path": "client/assets/v47/apple-turnover.svg",
+      "sha256": "a2ad8281352200d62cc4e8477710ca7829ed999379db5d6a61ecb40256159871"
+    },
+    {
+      "id": "organic47:fruit-compote",
+      "path": "client/assets/v47/fruit-compote.svg",
+      "sha256": "5856a321bffccbff11de10549a3c56b43e0cb05fc4a54f9413a3b68b116771e1"
+    },
+    {
+      "id": "organic47:cinnamon-roll",
+      "path": "client/assets/v47/cinnamon-roll.svg",
+      "sha256": "43c176b1625993f31430ea9c11b8301bd614e90b10e03268616ce2da56b8fb5a"
+    },
+    {
+      "id": "organic47:honey-glaze",
+      "path": "client/assets/v47/honey-glaze.svg",
+      "sha256": "6290cfe8a0adc4572066bdfc4aed661f2fd2ebaf332195d828a1651f538c5937"
+    },
+    {
+      "id": "organic47:cheese-pastry",
+      "path": "client/assets/v47/cheese-pastry.svg",
+      "sha256": "8f3a1138325767c700e62bbb06f7d1ef4080ab4f556a8a5d7eba6ff924b774ce"
+    },
+    {
+      "id": "organic47:chocolate-truffle",
+      "path": "client/assets/v47/chocolate-truffle.svg",
+      "sha256": "bb438adb8a9fb3274e52f0bde301052faba1745d55165f7c1dab931b24a1f1ce"
+    },
+    {
+      "id": "organic47:fruit-sorbet",
+      "path": "client/assets/v47/fruit-sorbet.svg",
+      "sha256": "440e5dbbac41e83b671681b697a735d658b654ec993625cdccca6b7a777bb50f"
+    },
+    {
+      "id": "organic47:toasted-seeds",
+      "path": "client/assets/v47/toasted-seeds.svg",
+      "sha256": "39db69dd719a63d005100f5a58fbd8c376ff2f48e8baec4a25603228e947b98d"
+    },
+    {
+      "id": "organic47:rain-gutter",
+      "path": "client/assets/v47/rain-gutter.svg",
+      "sha256": "20b558fb6222537220c04fe3f581c4aae2124c4fb8c49d5c4c7f728a1e320b4c"
+    },
+    {
+      "id": "organic47:tram-stop",
+      "path": "client/assets/v47/tram-stop.svg",
+      "sha256": "ee0721acf29aecb16f6cb479666bb30320c66e0ca96cebff597eb883b4c459df"
+    },
+    {
+      "id": "organic47:street-lantern",
+      "path": "client/assets/v47/street-lantern.svg",
+      "sha256": "b65bfd24bfe585e44021ac020908e77e6dc87566858089f0edbd00d6970400ed"
+    },
+    {
+      "id": "organic47:pedestrian-bridge",
+      "path": "client/assets/v47/pedestrian-bridge.svg",
+      "sha256": "f9b94b096f3a8fb1667b1a75b9ad640c1f7e11b7ba63bc174a4d71026b3bec98"
+    },
+    {
+      "id": "organic47:public-fountain",
+      "path": "client/assets/v47/public-fountain.svg",
+      "sha256": "2fd3eb33ccf528bc0807f987962908bd2a403c439f90eb4692e400668eaa477a"
+    },
+    {
+      "id": "organic47:green-roof",
+      "path": "client/assets/v47/green-roof.svg",
+      "sha256": "61dfefd3f990f9185899e8dae59bf4dc1da5dbeaa05ca07dd1666fbe9238f1d4"
+    },
+    {
+      "id": "organic47:urban-orchard",
+      "path": "client/assets/v47/urban-orchard.svg",
+      "sha256": "e017c721ab79acc6e1ad207cfae20fc468c0bc04b8d48d6fa39457131b452364"
+    },
+    {
+      "id": "organic47:market-stall",
+      "path": "client/assets/v47/market-stall.svg",
+      "sha256": "08299a7243dfb8a6d03ef539875a4b399de0dca9373d3d7d027bc8ab0d335690"
+    },
+    {
+      "id": "organic47:town-clock",
+      "path": "client/assets/v47/town-clock.svg",
+      "sha256": "4bea3de53acb4a3c8d70b65b038abffd8d63adf182178fcf5c3396b6531473a4"
+    },
+    {
+      "id": "organic47:cobblestone-lane",
+      "path": "client/assets/v47/cobblestone-lane.svg",
+      "sha256": "9c460d315aa8074527921dbc4822a4a7530853a429ef0684feaefefe441e9f22"
+    },
+    {
+      "id": "organic47:photo-negative",
+      "path": "client/assets/v47/photo-negative.svg",
+      "sha256": "568cff696ab79dcfae6cf83bd7ead0ae63cab89af376b80c1790780c0565517e"
+    },
+    {
+      "id": "organic47:long-exposure",
+      "path": "client/assets/v47/long-exposure.svg",
+      "sha256": "ab2eedcffd34db343e4a45bd14fc2985261860bb6277eeadf705f77984b10f7d"
+    },
+    {
+      "id": "organic47:photo-album",
+      "path": "client/assets/v47/photo-album.svg",
+      "sha256": "b0931a77401b61f0cc4bd00feeccc6d6bd9478396d008aa87d6b7f3256353c81"
+    },
+    {
+      "id": "organic47:contact-sheet",
+      "path": "client/assets/v47/contact-sheet.svg",
+      "sha256": "225c434de1e04222e213da4c9b178a7b97275528c5bbb518ac7a7ce7b4e403f0"
+    },
+    {
+      "id": "organic47:film-canister",
+      "path": "client/assets/v47/film-canister.svg",
+      "sha256": "c335593f757d615b41a28ddfd1b29ffc6b3b2e36a5ebb0b2fa342b9c5e2d1950"
+    },
+    {
+      "id": "organic47:studio-light",
+      "path": "client/assets/v47/studio-light.svg",
+      "sha256": "ed274f5c3e9c65a1e94b004aa6ff81cb4ead851e55cf9685769d7021f50263bb"
+    },
+    {
+      "id": "organic47:tripod-head",
+      "path": "client/assets/v47/tripod-head.svg",
+      "sha256": "e1fbb3adcca7e24e1997a0df8ab7dd6deb640a19a9f850ab101a85dbdf29b4e4"
+    },
+    {
+      "id": "organic47:macro-lens",
+      "path": "client/assets/v47/macro-lens.svg",
+      "sha256": "8421309be65157872e8291a1599b879a000ee0018ad1a7e28f11159cc0bb8bec"
+    },
+    {
+      "id": "organic47:star-trail",
+      "path": "client/assets/v47/star-trail.svg",
+      "sha256": "929476b5384b524d992937920a164de7e2b5bfa27ffdb95cf2bcc7a6ae170b7d"
+    },
+    {
+      "id": "organic47:photo-collage",
+      "path": "client/assets/v47/photo-collage.svg",
+      "sha256": "49856d436995d8c0cd69853a1026e41e32be64ce714e36985f91c743d3662b50"
+    },
+    {
+      "id": "organic47:planetary-ring",
+      "path": "client/assets/v47/planetary-ring.svg",
+      "sha256": "a9cc0519d4df7d29d359d1b4043d0c51ccb45c8fa62037edf738e75b6998ff2f"
+    },
+    {
+      "id": "organic47:cosmic-dust",
+      "path": "client/assets/v47/cosmic-dust.svg",
+      "sha256": "45331caa8bdc37c2a9c2085b0d20eaa4c6f936f563efb9dd16a0d6aa95932a17"
+    },
+    {
+      "id": "organic47:solar-wind",
+      "path": "client/assets/v47/solar-wind.svg",
+      "sha256": "ecb8293088b3eff8c847fa58e618f918fe51ce199b2187d2a4f9ec5e9b647033"
+    },
+    {
+      "id": "organic47:moonrise",
+      "path": "client/assets/v47/moonrise.svg",
+      "sha256": "b1b61f9865eafc03b22ce04d501cc244e68c8ec2af5881570e4317fc73788bf0"
+    },
+    {
+      "id": "organic47:aurora-curtain",
+      "path": "client/assets/v47/aurora-curtain.svg",
+      "sha256": "7b2213a9dafaffead534e9e49ce76a2d3b5c5f086cc5d3a449ab2e300ac46ea0"
+    },
+    {
+      "id": "organic47:comet-tail",
+      "path": "client/assets/v47/comet-tail.svg",
+      "sha256": "13a5ab5cdc6ebcafa9a809bbd21963dc78c2e9f9b2d7a44a3d63e21c3755c614"
+    },
+    {
+      "id": "organic47:orbiting-satellite",
+      "path": "client/assets/v47/orbiting-satellite.svg",
+      "sha256": "b085a5733d5deeea57e15314c369414bc3831f457e04e5758e6453a0fc0a1f94"
+    },
+    {
+      "id": "organic47:impact-crater",
+      "path": "client/assets/v47/impact-crater.svg",
+      "sha256": "739f59c0ac99ed7983a0bf978fe90f05b464ec1617221055bb67fe373dab5932"
+    },
+    {
+      "id": "organic47:stellar-nursery",
+      "path": "client/assets/v47/stellar-nursery.svg",
+      "sha256": "b9e4f2fd8fef17da593e405165a6cba06c8aeaa49be021816ea425b0d9b55700"
+    },
+    {
+      "id": "organic47:space-weather",
+      "path": "client/assets/v47/space-weather.svg",
+      "sha256": "dc3076c6ae8f6eb3c21bd5484a4c80f1bab8fdbaef26cc1ca982de53be0b0582"
+    }
+  ]
+}

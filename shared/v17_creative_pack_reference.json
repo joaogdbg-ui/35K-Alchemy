@@ -1,0 +1,926 @@
+{
+  "version": 14,
+  "items": [
+    {
+      "id": "pack:mecha-samurai",
+      "name": "Mecha Samurai",
+      "category": "fantasy",
+      "summary": "Original Gameverse fantasy concept derived from Robot and Samurai.",
+      "iconFamily": "samurai",
+      "paletteVariant": "cool",
+      "accentOverlay": "samurai"
+    },
+    {
+      "id": "pack:cyber-dragon",
+      "name": "Cyber Dragon",
+      "category": "fantasy",
+      "summary": "Original Gameverse fantasy concept derived from Dragon and Circuit.",
+      "iconFamily": "dragon",
+      "paletteVariant": "cool",
+      "accentOverlay": "dragon"
+    },
+    {
+      "id": "pack:pixel-wizard",
+      "name": "Pixel Wizard",
+      "category": "fantasy",
+      "summary": "Original Gameverse fantasy concept derived from Pixel and Book.",
+      "iconFamily": "pixel",
+      "paletteVariant": "spectral",
+      "accentOverlay": "spark"
+    },
+    {
+      "id": "pack:neon-forest",
+      "name": "Neon Forest",
+      "category": "fantasy",
+      "summary": "Original Gameverse fantasy concept derived from Forest and Neon.",
+      "iconFamily": "forest",
+      "paletteVariant": "spectral",
+      "accentOverlay": "spark"
+    },
+    {
+      "id": "pack:crystal-robot",
+      "name": "Crystal Robot",
+      "category": "fantasy",
+      "summary": "Original Gameverse fantasy concept derived from Crystal and Robot.",
+      "iconFamily": "robot",
+      "paletteVariant": "cool",
+      "accentOverlay": "robot"
+    },
+    {
+      "id": "pack:steam-golem",
+      "name": "Steam Golem",
+      "category": "fantasy",
+      "summary": "Original Gameverse fantasy concept derived from Steam and Robot.",
+      "iconFamily": "robot",
+      "paletteVariant": "warm",
+      "accentOverlay": "robot"
+    },
+    {
+      "id": "pack:digital-myth",
+      "name": "Digital Myth",
+      "category": "concept",
+      "summary": "Original Gameverse fantasy concept derived from History and Computer.",
+      "iconFamily": "book",
+      "paletteVariant": "cool",
+      "accentOverlay": "spark"
+    },
+    {
+      "id": "pack:arcade-phantom",
+      "name": "Arcade Phantom",
+      "category": "fantasy",
+      "summary": "Original Gameverse fantasy concept derived from Arcade and Shadow.",
+      "iconFamily": "arcade",
+      "paletteVariant": "spectral",
+      "accentOverlay": "arcade"
+    },
+    {
+      "id": "pack:star-forge",
+      "name": "Star Forge",
+      "category": "fantasy",
+      "summary": "Original Gameverse fantasy concept derived from Space and Metal.",
+      "iconFamily": "metal",
+      "paletteVariant": "warm",
+      "accentOverlay": "spark"
+    },
+    {
+      "id": "pack:lava-sentinel",
+      "name": "Lava Sentinel",
+      "category": "fantasy",
+      "summary": "Original Gameverse fantasy concept derived from Lava and Robot.",
+      "iconFamily": "robot",
+      "paletteVariant": "warm",
+      "accentOverlay": "robot"
+    },
+    {
+      "id": "pack:frost-circuit",
+      "name": "Frost Circuit",
+      "category": "technology",
+      "summary": "Original Gameverse fantasy concept derived from Ice and Circuit.",
+      "iconFamily": "circuit",
+      "paletteVariant": "cool",
+      "accentOverlay": "circuit"
+    },
+    {
+      "id": "pack:clockwork-dragon",
+      "name": "Clockwork Dragon",
+      "category": "fantasy",
+      "summary": "Original Gameverse fantasy concept derived from Clock and Dragon.",
+      "iconFamily": "dragon",
+      "paletteVariant": "warm",
+      "accentOverlay": "dragon"
+    },
+    {
+      "id": "pack:neon-samurai",
+      "name": "Neon Samurai",
+      "category": "fantasy",
+      "summary": "Original Gameverse fantasy concept derived from Neon and Samurai.",
+      "iconFamily": "samurai",
+      "paletteVariant": "spectral",
+      "accentOverlay": "samurai"
+    },
+    {
+      "id": "pack:forest-guardian",
+      "name": "Forest Guardian",
+      "category": "fantasy",
+      "summary": "Original Gameverse fantasy concept derived from Forest and Robot.",
+      "iconFamily": "robot",
+      "paletteVariant": "emerald",
+      "accentOverlay": "robot"
+    },
+    {
+      "id": "pack:crystal-dragon",
+      "name": "Crystal Dragon",
+      "category": "fantasy",
+      "summary": "Original Gameverse fantasy concept derived from Crystal and Dragon.",
+      "iconFamily": "dragon",
+      "paletteVariant": "spectral",
+      "accentOverlay": "dragon"
+    },
+    {
+      "id": "pack:pixel-dragon",
+      "name": "Pixel Dragon",
+      "category": "fantasy",
+      "summary": "Original Gameverse fantasy concept derived from Pixel and Dragon.",
+      "iconFamily": "dragon",
+      "paletteVariant": "cool",
+      "accentOverlay": "dragon"
+    },
+    {
+      "id": "pack:electric-samurai",
+      "name": "Electric Samurai",
+      "category": "fantasy",
+      "summary": "Original Gameverse fantasy concept derived from Electricity and Samurai.",
+      "iconFamily": "samurai",
+      "paletteVariant": "cool",
+      "accentOverlay": "samurai"
+    },
+    {
+      "id": "pack:prism-circuit",
+      "name": "Prism Circuit",
+      "category": "technology",
+      "summary": "Original Gameverse fantasy concept derived from Glass and Circuit.",
+      "iconFamily": "circuit",
+      "paletteVariant": "spectral",
+      "accentOverlay": "circuit"
+    },
+    {
+      "id": "pack:electric-forest",
+      "name": "Electric Forest",
+      "category": "fantasy",
+      "summary": "Original Gameverse fantasy concept derived from Forest and Electricity.",
+      "iconFamily": "forest",
+      "paletteVariant": "cool",
+      "accentOverlay": "spark"
+    },
+    {
+      "id": "pack:arcade-golem",
+      "name": "Arcade Golem",
+      "category": "fantasy",
+      "summary": "Original Gameverse fantasy concept derived from Arcade and Robot.",
+      "iconFamily": "arcade",
+      "paletteVariant": "warm",
+      "accentOverlay": "arcade"
+    },
+    {
+      "id": "pack:ocean-engine",
+      "name": "Ocean Engine",
+      "category": "fantasy",
+      "summary": "Original Gameverse fantasy concept derived from Sea and Robot.",
+      "iconFamily": "robot",
+      "paletteVariant": "cool",
+      "accentOverlay": "robot"
+    },
+    {
+      "id": "pack:shadow-circuit",
+      "name": "Shadow Circuit",
+      "category": "technology",
+      "summary": "Original Gameverse fantasy concept derived from Shadow and Circuit.",
+      "iconFamily": "circuit",
+      "paletteVariant": "shadow",
+      "accentOverlay": "circuit"
+    },
+    {
+      "id": "pack:crystal-arcade",
+      "name": "Crystal Arcade",
+      "category": "arcade",
+      "summary": "Original Gameverse fantasy concept derived from Crystal and Arcade.",
+      "iconFamily": "arcade",
+      "paletteVariant": "spectral",
+      "accentOverlay": "arcade"
+    },
+    {
+      "id": "pack:solar-arcade",
+      "name": "Solar Arcade",
+      "category": "arcade",
+      "summary": "Original Gameverse fantasy concept derived from Light and Arcade.",
+      "iconFamily": "arcade",
+      "paletteVariant": "warm",
+      "accentOverlay": "arcade"
+    },
+    {
+      "id": "pack:mechanical-forest",
+      "name": "Mechanical Forest",
+      "category": "fantasy",
+      "summary": "Original Gameverse fantasy concept derived from Forest and Factory.",
+      "iconFamily": "forest",
+      "paletteVariant": "cool",
+      "accentOverlay": "spark"
+    },
+    {
+      "id": "pack:steam-arcade",
+      "name": "Steam Arcade",
+      "category": "arcade",
+      "summary": "Original Gameverse fantasy concept derived from Steam and Arcade.",
+      "iconFamily": "arcade",
+      "paletteVariant": "warm",
+      "accentOverlay": "arcade"
+    },
+    {
+      "id": "pack:lava-dragon",
+      "name": "Lava Dragon",
+      "category": "fantasy",
+      "summary": "Original Gameverse fantasy concept derived from Lava and Dragon.",
+      "iconFamily": "dragon",
+      "paletteVariant": "warm",
+      "accentOverlay": "dragon"
+    },
+    {
+      "id": "pack:thunder-dragon",
+      "name": "Thunder Dragon",
+      "category": "fantasy",
+      "summary": "Original Gameverse fantasy concept derived from Lightning and Dragon.",
+      "iconFamily": "dragon",
+      "paletteVariant": "cool",
+      "accentOverlay": "dragon"
+    },
+    {
+      "id": "pack:ice-dragon",
+      "name": "Ice Dragon",
+      "category": "fantasy",
+      "summary": "Original Gameverse fantasy concept derived from Ice and Dragon.",
+      "iconFamily": "dragon",
+      "paletteVariant": "cool",
+      "accentOverlay": "dragon"
+    },
+    {
+      "id": "pack:pixel-forest",
+      "name": "Pixel Forest",
+      "category": "fantasy",
+      "summary": "Original Gameverse fantasy concept derived from Pixel and Forest.",
+      "iconFamily": "forest",
+      "paletteVariant": "spectral",
+      "accentOverlay": "spark"
+    },
+    {
+      "id": "pack:pixel-samurai",
+      "name": "Pixel Samurai",
+      "category": "fantasy",
+      "summary": "Original Gameverse fantasy concept derived from Pixel and Samurai.",
+      "iconFamily": "samurai",
+      "paletteVariant": "cool",
+      "accentOverlay": "samurai"
+    },
+    {
+      "id": "pack:neon-dragon",
+      "name": "Neon Dragon",
+      "category": "fantasy",
+      "summary": "Original Gameverse fantasy concept derived from Neon and Dragon.",
+      "iconFamily": "dragon",
+      "paletteVariant": "spectral",
+      "accentOverlay": "dragon"
+    },
+    {
+      "id": "pack:arcade-dragon",
+      "name": "Arcade Dragon",
+      "category": "fantasy",
+      "summary": "Original Gameverse fantasy concept derived from Arcade and Dragon.",
+      "iconFamily": "dragon",
+      "paletteVariant": "warm",
+      "accentOverlay": "dragon"
+    },
+    {
+      "id": "pack:cyborg-dragon",
+      "name": "Cyborg Dragon",
+      "category": "fantasy",
+      "summary": "Original Gameverse fantasy concept derived from Cyber Dragon and Microchip.",
+      "iconFamily": "dragon",
+      "paletteVariant": "cool",
+      "accentOverlay": "dragon"
+    },
+    {
+      "id": "pack:dragon-forge",
+      "name": "Dragon Forge",
+      "category": "fantasy",
+      "summary": "Original Gameverse fantasy concept derived from Dragon and Star Forge.",
+      "iconFamily": "metal",
+      "paletteVariant": "warm",
+      "accentOverlay": "spark"
+    },
+    {
+      "id": "pack:spectral-samurai",
+      "name": "Spectral Samurai",
+      "category": "fantasy",
+      "summary": "Original Gameverse fantasy concept derived from Samurai and Shadow.",
+      "iconFamily": "samurai",
+      "paletteVariant": "spectral",
+      "accentOverlay": "samurai"
+    },
+    {
+      "id": "pack:crystal-samurai",
+      "name": "Crystal Samurai",
+      "category": "fantasy",
+      "summary": "Original Gameverse fantasy concept derived from Crystal and Samurai.",
+      "iconFamily": "samurai",
+      "paletteVariant": "spectral",
+      "accentOverlay": "samurai"
+    },
+    {
+      "id": "pack:steam-samurai",
+      "name": "Steam Samurai",
+      "category": "fantasy",
+      "summary": "Original Gameverse fantasy concept derived from Steam and Samurai.",
+      "iconFamily": "samurai",
+      "paletteVariant": "warm",
+      "accentOverlay": "samurai"
+    },
+    {
+      "id": "pack:steel-guardian",
+      "name": "Steel Guardian",
+      "category": "fantasy",
+      "summary": "Original Gameverse fantasy concept derived from Metal and Forest Guardian.",
+      "iconFamily": "robot",
+      "paletteVariant": "cool",
+      "accentOverlay": "robot"
+    },
+    {
+      "id": "pack:mecha-dragon",
+      "name": "Mecha Dragon",
+      "category": "fantasy",
+      "summary": "Original Gameverse fantasy concept derived from Cyber Dragon and Robot.",
+      "iconFamily": "dragon",
+      "paletteVariant": "cool",
+      "accentOverlay": "dragon"
+    },
+    {
+      "id": "pack:pixel-phantom",
+      "name": "Pixel Phantom",
+      "category": "fantasy",
+      "summary": "Original Gameverse fantasy concept derived from Arcade Phantom and Pixel.",
+      "iconFamily": "arcade",
+      "paletteVariant": "spectral",
+      "accentOverlay": "arcade"
+    },
+    {
+      "id": "pack:astral-samurai",
+      "name": "Astral Samurai",
+      "category": "fantasy",
+      "summary": "Original Gameverse fantasy concept derived from Samurai and Space.",
+      "iconFamily": "samurai",
+      "paletteVariant": "cool",
+      "accentOverlay": "samurai"
+    },
+    {
+      "id": "pack:fire-drone",
+      "name": "Fire Drone",
+      "category": "technology",
+      "summary": "Original Gameverse fantasy concept derived from Fire and Robot.",
+      "iconFamily": "robot",
+      "paletteVariant": "warm",
+      "accentOverlay": "robot"
+    },
+    {
+      "id": "pack:steam-engine",
+      "name": "Steam Engine",
+      "category": "technology",
+      "summary": "Original Gameverse fantasy concept derived from Steam and Wheel.",
+      "iconFamily": "robot",
+      "paletteVariant": "warm",
+      "accentOverlay": "robot"
+    },
+    {
+      "id": "pack:clockwork-forest",
+      "name": "Clockwork Forest",
+      "category": "fantasy",
+      "summary": "Original Gameverse fantasy concept derived from Clock and Forest.",
+      "iconFamily": "forest",
+      "paletteVariant": "warm",
+      "accentOverlay": "spark"
+    },
+    {
+      "id": "pack:cyber-forest",
+      "name": "Cyber Forest",
+      "category": "fantasy",
+      "summary": "Original Gameverse fantasy concept derived from Circuit and Forest.",
+      "iconFamily": "forest",
+      "paletteVariant": "cool",
+      "accentOverlay": "spark"
+    },
+    {
+      "id": "pack:electric-dragon",
+      "name": "Electric Dragon",
+      "category": "fantasy",
+      "summary": "Original Gameverse fantasy concept derived from Dragon and Electricity.",
+      "iconFamily": "dragon",
+      "paletteVariant": "cool",
+      "accentOverlay": "dragon"
+    },
+    {
+      "id": "pack:prism-dragon",
+      "name": "Prism Dragon",
+      "category": "fantasy",
+      "summary": "Original Gameverse fantasy concept derived from Glass and Dragon.",
+      "iconFamily": "dragon",
+      "paletteVariant": "spectral",
+      "accentOverlay": "dragon"
+    },
+    {
+      "id": "pack:virtual-garden",
+      "name": "Virtual Garden",
+      "category": "fantasy",
+      "summary": "Original Gameverse fantasy concept derived from Computer and Plant.",
+      "iconFamily": "plant",
+      "paletteVariant": "emerald",
+      "accentOverlay": "spark"
+    },
+    {
+      "id": "pack:cyber-samurai",
+      "name": "Cyber Samurai",
+      "category": "fantasy",
+      "summary": "Original Gameverse fantasy concept derived from Mecha Samurai and Circuit.",
+      "iconFamily": "samurai",
+      "paletteVariant": "cool",
+      "accentOverlay": "samurai"
+    },
+    {
+      "id": "pack:arcane-console",
+      "name": "Arcane Console",
+      "category": "fantasy",
+      "summary": "Original Gameverse fantasy concept derived from Console and Book.",
+      "iconFamily": "console",
+      "paletteVariant": "spectral",
+      "accentOverlay": "spark"
+    },
+    {
+      "id": "pack:retro-spirit",
+      "name": "Retro Spirit",
+      "category": "fantasy",
+      "summary": "Original Gameverse fantasy concept derived from History and Arcade.",
+      "iconFamily": "arcade",
+      "paletteVariant": "warm",
+      "accentOverlay": "arcade"
+    },
+    {
+      "id": "pack:neon-golem",
+      "name": "Neon Golem",
+      "category": "fantasy",
+      "summary": "Original Gameverse fantasy concept derived from Neon and Steam Golem.",
+      "iconFamily": "robot",
+      "paletteVariant": "spectral",
+      "accentOverlay": "robot"
+    },
+    {
+      "id": "pack:pixel-reactor",
+      "name": "Pixel Reactor",
+      "category": "technology",
+      "summary": "Original Gameverse fantasy concept derived from Pixel and Energy.",
+      "iconFamily": "energy",
+      "paletteVariant": "spectral",
+      "accentOverlay": "spark"
+    },
+    {
+      "id": "pack:dragon-battery",
+      "name": "Dragon Battery",
+      "category": "fantasy",
+      "summary": "Original Gameverse fantasy concept derived from Dragon and Battery.",
+      "iconFamily": "dragon",
+      "paletteVariant": "warm",
+      "accentOverlay": "dragon"
+    },
+    {
+      "id": "pack:sky-reactor",
+      "name": "Sky Reactor",
+      "category": "fantasy",
+      "summary": "Original Gameverse fantasy concept derived from Sky and Energy.",
+      "iconFamily": "energy",
+      "paletteVariant": "cool",
+      "accentOverlay": "spark"
+    },
+    {
+      "id": "pack:ghost-circuit",
+      "name": "Ghost Circuit",
+      "category": "technology",
+      "summary": "Original Gameverse fantasy concept derived from Shadow and Steam Engine.",
+      "iconFamily": "circuit",
+      "paletteVariant": "spectral",
+      "accentOverlay": "circuit"
+    },
+    {
+      "id": "pack:clockwork-samurai",
+      "name": "Clockwork Samurai",
+      "category": "fantasy",
+      "summary": "Original Gameverse fantasy concept derived from Clock and Samurai.",
+      "iconFamily": "samurai",
+      "paletteVariant": "warm",
+      "accentOverlay": "samurai"
+    },
+    {
+      "id": "pack:luminous-dragon",
+      "name": "Luminous Dragon",
+      "category": "fantasy",
+      "summary": "Original Gameverse fantasy concept derived from Light and Dragon.",
+      "iconFamily": "dragon",
+      "paletteVariant": "warm",
+      "accentOverlay": "dragon"
+    },
+    {
+      "id": "pack:ocean-dragon",
+      "name": "Ocean Dragon",
+      "category": "fantasy",
+      "summary": "Original Gameverse fantasy concept derived from Sea and Dragon.",
+      "iconFamily": "dragon",
+      "paletteVariant": "cool",
+      "accentOverlay": "dragon"
+    },
+    {
+      "id": "pack:forest-dragon",
+      "name": "Forest Dragon",
+      "category": "fantasy",
+      "summary": "Original Gameverse fantasy concept derived from Forest and Dragon.",
+      "iconFamily": "dragon",
+      "paletteVariant": "emerald",
+      "accentOverlay": "dragon"
+    }
+  ],
+  "recipes": [
+    [
+      "legacy:123",
+      "legacy:567",
+      "pack:mecha-samurai"
+    ],
+    [
+      "legacy:122",
+      "legacy:70",
+      "pack:cyber-dragon"
+    ],
+    [
+      "legacy:146",
+      "legacy:51",
+      "pack:pixel-wizard"
+    ],
+    [
+      "legacy:20",
+      "legacy:636",
+      "pack:neon-forest"
+    ],
+    [
+      "legacy:34",
+      "legacy:123",
+      "pack:crystal-robot"
+    ],
+    [
+      "legacy:4",
+      "legacy:123",
+      "pack:steam-golem"
+    ],
+    [
+      "legacy:64",
+      "legacy:91",
+      "pack:digital-myth"
+    ],
+    [
+      "legacy:171",
+      "legacy:66",
+      "pack:arcade-phantom"
+    ],
+    [
+      "legacy:548",
+      "legacy:22",
+      "pack:star-forge"
+    ],
+    [
+      "legacy:8",
+      "legacy:123",
+      "pack:lava-sentinel"
+    ],
+    [
+      "legacy:35",
+      "legacy:70",
+      "pack:frost-circuit"
+    ],
+    [
+      "legacy:211",
+      "legacy:122",
+      "pack:clockwork-dragon"
+    ],
+    [
+      "legacy:636",
+      "legacy:567",
+      "pack:neon-samurai"
+    ],
+    [
+      "legacy:20",
+      "legacy:123",
+      "pack:forest-guardian"
+    ],
+    [
+      "legacy:34",
+      "legacy:122",
+      "pack:crystal-dragon"
+    ],
+    [
+      "legacy:146",
+      "legacy:122",
+      "pack:pixel-dragon"
+    ],
+    [
+      "legacy:67",
+      "legacy:567",
+      "pack:electric-samurai"
+    ],
+    [
+      "legacy:23",
+      "legacy:70",
+      "pack:prism-circuit"
+    ],
+    [
+      "legacy:20",
+      "legacy:67",
+      "pack:electric-forest"
+    ],
+    [
+      "legacy:171",
+      "legacy:123",
+      "pack:arcade-golem"
+    ],
+    [
+      "legacy:10",
+      "legacy:123",
+      "pack:ocean-engine"
+    ],
+    [
+      "legacy:66",
+      "legacy:70",
+      "pack:shadow-circuit"
+    ],
+    [
+      "legacy:34",
+      "legacy:171",
+      "pack:crystal-arcade"
+    ],
+    [
+      "legacy:63",
+      "legacy:171",
+      "pack:solar-arcade"
+    ],
+    [
+      "legacy:20",
+      "legacy:56",
+      "pack:mechanical-forest"
+    ],
+    [
+      "legacy:4",
+      "legacy:171",
+      "pack:steam-arcade"
+    ],
+    [
+      "legacy:8",
+      "legacy:122",
+      "pack:lava-dragon"
+    ],
+    [
+      "legacy:18",
+      "legacy:122",
+      "pack:thunder-dragon"
+    ],
+    [
+      "legacy:35",
+      "legacy:122",
+      "pack:ice-dragon"
+    ],
+    [
+      "legacy:146",
+      "legacy:20",
+      "pack:pixel-forest"
+    ],
+    [
+      "legacy:146",
+      "legacy:567",
+      "pack:pixel-samurai"
+    ],
+    [
+      "legacy:636",
+      "legacy:122",
+      "pack:neon-dragon"
+    ],
+    [
+      "legacy:171",
+      "legacy:122",
+      "pack:arcade-dragon"
+    ],
+    [
+      "pack:cyber-dragon",
+      "legacy:73",
+      "pack:cyborg-dragon"
+    ],
+    [
+      "legacy:122",
+      "pack:star-forge",
+      "pack:dragon-forge"
+    ],
+    [
+      "legacy:567",
+      "legacy:66",
+      "pack:spectral-samurai"
+    ],
+    [
+      "legacy:34",
+      "legacy:567",
+      "pack:crystal-samurai"
+    ],
+    [
+      "legacy:4",
+      "legacy:567",
+      "pack:steam-samurai"
+    ],
+    [
+      "legacy:22",
+      "pack:forest-guardian",
+      "pack:steel-guardian"
+    ],
+    [
+      "pack:cyber-dragon",
+      "legacy:123",
+      "pack:mecha-dragon"
+    ],
+    [
+      "pack:arcade-phantom",
+      "legacy:146",
+      "pack:pixel-phantom"
+    ],
+    [
+      "legacy:567",
+      "legacy:548",
+      "pack:astral-samurai"
+    ],
+    [
+      "legacy:1",
+      "legacy:123",
+      "pack:fire-drone"
+    ],
+    [
+      "legacy:4",
+      "legacy:44",
+      "pack:steam-engine"
+    ],
+    [
+      "legacy:211",
+      "legacy:20",
+      "pack:clockwork-forest"
+    ],
+    [
+      "legacy:70",
+      "legacy:20",
+      "pack:cyber-forest"
+    ],
+    [
+      "legacy:122",
+      "legacy:67",
+      "pack:electric-dragon"
+    ],
+    [
+      "legacy:23",
+      "legacy:122",
+      "pack:prism-dragon"
+    ],
+    [
+      "legacy:91",
+      "legacy:15",
+      "pack:virtual-garden"
+    ],
+    [
+      "pack:mecha-samurai",
+      "legacy:70",
+      "pack:cyber-samurai"
+    ],
+    [
+      "legacy:168",
+      "legacy:51",
+      "pack:arcane-console"
+    ],
+    [
+      "legacy:64",
+      "legacy:171",
+      "pack:retro-spirit"
+    ],
+    [
+      "legacy:636",
+      "pack:steam-golem",
+      "pack:neon-golem"
+    ],
+    [
+      "legacy:146",
+      "legacy:5",
+      "pack:pixel-reactor"
+    ],
+    [
+      "legacy:122",
+      "legacy:69",
+      "pack:dragon-battery"
+    ],
+    [
+      "legacy:65",
+      "legacy:5",
+      "pack:sky-reactor"
+    ],
+    [
+      "legacy:66",
+      "pack:steam-engine",
+      "pack:ghost-circuit"
+    ],
+    [
+      "legacy:211",
+      "legacy:567",
+      "pack:clockwork-samurai"
+    ],
+    [
+      "legacy:63",
+      "legacy:122",
+      "pack:luminous-dragon"
+    ],
+    [
+      "legacy:10",
+      "legacy:122",
+      "pack:ocean-dragon"
+    ],
+    [
+      "legacy:20",
+      "legacy:122",
+      "pack:forest-dragon"
+    ],
+    [
+      "legacy:567",
+      "legacy:70",
+      "pack:cyber-samurai"
+    ],
+    [
+      "legacy:122",
+      "legacy:91",
+      "pack:cyber-dragon"
+    ],
+    [
+      "legacy:146",
+      "legacy:52",
+      "pack:pixel-wizard"
+    ],
+    [
+      "legacy:4",
+      "legacy:22",
+      "pack:steam-golem"
+    ],
+    [
+      "legacy:35",
+      "legacy:73",
+      "pack:frost-circuit"
+    ],
+    [
+      "legacy:20",
+      "legacy:63",
+      "pack:neon-forest"
+    ],
+    [
+      "legacy:122",
+      "legacy:123",
+      "pack:mecha-dragon"
+    ],
+    [
+      "legacy:567",
+      "legacy:22",
+      "pack:mecha-samurai"
+    ],
+    [
+      "legacy:23",
+      "legacy:171",
+      "pack:crystal-arcade"
+    ],
+    [
+      "legacy:66",
+      "legacy:73",
+      "pack:ghost-circuit"
+    ],
+    [
+      "legacy:51",
+      "legacy:91",
+      "pack:digital-myth"
+    ],
+    [
+      "legacy:20",
+      "legacy:29",
+      "pack:forest-guardian"
+    ],
+    [
+      "legacy:10",
+      "legacy:44",
+      "pack:ocean-engine"
+    ]
+  ]
+}

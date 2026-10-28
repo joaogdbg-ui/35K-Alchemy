@@ -1,0 +1,20 @@
+{
+  "totalRecipes": 5000,
+  "previousRecipes": 1809,
+  "addedRecipes": 3191,
+  "newElements": 1106,
+  "totalElements": 2758,
+  "reachable": 2758,
+  "unreachable": [],
+  "categories": {
+    "genre": 13,
+    "concept": 148,
+    "anime": 27,
+    "character": 499,
+    "power": 58,
+    "object": 244,
+    "film": 19,
+    "music": 86,
+    "game": 12
+  }
+}

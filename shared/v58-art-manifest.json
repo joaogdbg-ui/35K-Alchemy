@@ -1,0 +1,2005 @@
+{
+  "version": 58,
+  "icons": [
+    {
+      "id": "organic58:tide-washed-pebble",
+      "name": "Tide-Washed Pebble",
+      "file": "client/assets/v58/tide-washed-pebble.svg",
+      "sha256": "9aac89362ad5c3b3fa959376151187624b5fb89a368fff3deb394611a3b59c78",
+      "motifs": [
+        "mountain",
+        "wave"
+      ]
+    },
+    {
+      "id": "organic58:sea-spray-rainbow",
+      "name": "Sea Spray Rainbow",
+      "file": "client/assets/v58/sea-spray-rainbow.svg",
+      "sha256": "1dc517472c7fb414adb84c8f2f7f1e6bf6a559b91fa8ab9ad519ca8a2eafc2c4",
+      "motifs": [
+        "wave",
+        "sun"
+      ]
+    },
+    {
+      "id": "organic58:coral-nursery-rack",
+      "name": "Coral Nursery Rack",
+      "file": "client/assets/v58/coral-nursery-rack.svg",
+      "sha256": "99ab404b532c45646d864136052be2ae60396ba6c135e5bd33859d18c8e4d723",
+      "motifs": [
+        "coral",
+        "house"
+      ]
+    },
+    {
+      "id": "organic58:seagrass-shelter",
+      "name": "Seagrass Shelter",
+      "file": "client/assets/v58/seagrass-shelter.svg",
+      "sha256": "e2aafd543ea232797225aa053ee2f6284164aabc48bd6613bf63a48afe3a44d8",
+      "motifs": [
+        "grass",
+        "fish"
+      ]
+    },
+    {
+      "id": "organic58:storm-washed-shore",
+      "name": "Storm-Washed Shore",
+      "file": "client/assets/v58/storm-washed-shore.svg",
+      "sha256": "95de72ad3b7ba8144c316a26fbe5f9df179f2f0d555edcbdadcb7d7f401f21fe",
+      "motifs": [
+        "wave",
+        "cloud"
+      ]
+    },
+    {
+      "id": "organic58:coastal-bird-sanctuary",
+      "name": "Coastal Bird Sanctuary",
+      "file": "client/assets/v58/coastal-bird-sanctuary.svg",
+      "sha256": "5f28ccaf320cd4ff8fc9441942383ee8e76621b12533961397dd6608a07c0082",
+      "motifs": [
+        "tree",
+        "fish"
+      ]
+    },
+    {
+      "id": "organic58:driftwood-mobile",
+      "name": "Driftwood Mobile",
+      "file": "client/assets/v58/driftwood-mobile.svg",
+      "sha256": "471276b8b67f85672dc6212548800c78299d80e7d6cac8714f55d7003403e022",
+      "motifs": [
+        "branch",
+        "wind"
+      ]
+    },
+    {
+      "id": "organic58:sea-glass-pendant",
+      "name": "Sea Glass Pendant",
+      "file": "client/assets/v58/sea-glass-pendant.svg",
+      "sha256": "8e43d9f2dccb2cc607bbc81899f75324504c525bea27947ab9b1a45c21af9d9f",
+      "motifs": [
+        "shell",
+        "frame"
+      ]
+    },
+    {
+      "id": "organic58:tidal-estuary-map",
+      "name": "Tidal Estuary Map",
+      "file": "client/assets/v58/tidal-estuary-map.svg",
+      "sha256": "4bc88f1002050a60e9b086fe587f2d87a7871156febf7e8fb94c9fa672dc3762",
+      "motifs": [
+        "wave",
+        "paper"
+      ]
+    },
+    {
+      "id": "organic58:kelp-habitat-survey",
+      "name": "Kelp Habitat Survey",
+      "file": "client/assets/v58/kelp-habitat-survey.svg",
+      "sha256": "b869640a6e311aa0f7e1a472dd0f6b4d2f24b3d54a3cb10897380235632d03d8",
+      "motifs": [
+        "kelp",
+        "camera"
+      ]
+    },
+    {
+      "id": "organic58:moonlit-tidal-flat",
+      "name": "Moonlit Tidal Flat",
+      "file": "client/assets/v58/moonlit-tidal-flat.svg",
+      "sha256": "8f6f25946fa4adb6e727af8d2326bb314109ca687edf1efdf506cb2db7bea5e8",
+      "motifs": [
+        "wave",
+        "halo"
+      ]
+    },
+    {
+      "id": "organic58:reef-observation-window",
+      "name": "Reef Observation Window",
+      "file": "client/assets/v58/reef-observation-window.svg",
+      "sha256": "35126a612ebd9d6eee7f6326c771d03b2b76fbae2c6484bcb9a48251fcaea217",
+      "motifs": [
+        "coral",
+        "frame"
+      ]
+    },
+    {
+      "id": "organic58:shell-collector-s-box",
+      "name": "Shell Collector's Box",
+      "file": "client/assets/v58/shell-collector-s-box.svg",
+      "sha256": "64e7559d0390623870ef54ce81bda95f68e86958cc998b9968050504326cc2b7",
+      "motifs": [
+        "shell",
+        "basket"
+      ]
+    },
+    {
+      "id": "organic58:sailor-s-weather-log",
+      "name": "Sailor's Weather Log",
+      "file": "client/assets/v58/sailor-s-weather-log.svg",
+      "sha256": "3b8f873bcd492dccfc43a7807c7bf4edff5b604b3453ba547ffe58235b344b9f",
+      "motifs": [
+        "paper",
+        "wave"
+      ]
+    },
+    {
+      "id": "organic58:seaside-birdhouse",
+      "name": "Seaside Birdhouse",
+      "file": "client/assets/v58/seaside-birdhouse.svg",
+      "sha256": "3ca9ee2d0af52106409339e3c31c8aadb010e411e28912c3a8baf8eae9d2275e",
+      "motifs": [
+        "house",
+        "branch"
+      ]
+    },
+    {
+      "id": "organic58:mangrove-boardwalk",
+      "name": "Mangrove Boardwalk",
+      "file": "client/assets/v58/mangrove-boardwalk.svg",
+      "sha256": "16e9f103cd450ed852985ba1fa74a92b2d935b8aac72a716ef23db40692ab584",
+      "motifs": [
+        "roots",
+        "house"
+      ]
+    },
+    {
+      "id": "organic58:beach-cleanup-kit",
+      "name": "Beach Cleanup Kit",
+      "file": "client/assets/v58/beach-cleanup-kit.svg",
+      "sha256": "5d56fb93cd2fac7a3a0cc2b892a43b3e10c5f81bd13c0f91031086e59b1de4cf",
+      "motifs": [
+        "basket",
+        "wave"
+      ]
+    },
+    {
+      "id": "organic58:coral-shadow-pattern",
+      "name": "Coral Shadow Pattern",
+      "file": "client/assets/v58/coral-shadow-pattern.svg",
+      "sha256": "7ad09a799878abe1ea64ce624e19613f3c972f58c2ad32ea612586f2b1aafacf",
+      "motifs": [
+        "coral",
+        "halo"
+      ]
+    },
+    {
+      "id": "organic58:ocean-salt-mist",
+      "name": "Ocean Salt Mist",
+      "file": "client/assets/v58/ocean-salt-mist.svg",
+      "sha256": "4b355f7c2ebbcfacbe4cc9a16aefa2c133bbfc7d759b1bd663a683d8bc386fd6",
+      "motifs": [
+        "fog",
+        "shell"
+      ]
+    },
+    {
+      "id": "organic58:tidepool-sketchbook",
+      "name": "Tidepool Sketchbook",
+      "file": "client/assets/v58/tidepool-sketchbook.svg",
+      "sha256": "eaf5e9ceb6ed7f89ba92a6ae15b4317cbd408bebde054568faee0af51512b31b",
+      "motifs": [
+        "pool",
+        "book"
+      ]
+    },
+    {
+      "id": "organic58:fisherman-s-knot",
+      "name": "Fisherman's Knot",
+      "file": "client/assets/v58/fisherman-s-knot.svg",
+      "sha256": "83fe090454a855b82275136eb39aa2e8054e3ba0cd47e088f2bb07c0c280d2b6",
+      "motifs": [
+        "fish",
+        "branch"
+      ]
+    },
+    {
+      "id": "organic58:seafoam-lace",
+      "name": "Seafoam Lace",
+      "file": "client/assets/v58/seafoam-lace.svg",
+      "sha256": "09c1a869c73e83d700ac3f36155c2dba644f398e37f02dd09e3a9d3b4971d885",
+      "motifs": [
+        "wave",
+        "wind"
+      ]
+    },
+    {
+      "id": "organic58:underwater-ruin-map",
+      "name": "Underwater Ruin Map",
+      "file": "client/assets/v58/underwater-ruin-map.svg",
+      "sha256": "4da23634c2b8a157b5910bcc48d771435d1f83dbd29fe42a989367bfa5957670",
+      "motifs": [
+        "paper",
+        "camera"
+      ]
+    },
+    {
+      "id": "organic58:moss-covered-log",
+      "name": "Moss-Covered Log",
+      "file": "client/assets/v58/moss-covered-log.svg",
+      "sha256": "c5229f4ba58abdb9d6641e43f26f6f8188e9b3b0551c335cd1f3d6fc6437b288",
+      "motifs": [
+        "branch",
+        "grass"
+      ]
+    },
+    {
+      "id": "organic58:forest-birdbath",
+      "name": "Forest Birdbath",
+      "file": "client/assets/v58/forest-birdbath.svg",
+      "sha256": "b5b12724ce992988f631ef3d38cf23d0a1b12f2d87365d4d3f42c3b8ee416b0b",
+      "motifs": [
+        "pool",
+        "tree"
+      ]
+    },
+    {
+      "id": "organic58:sunlit-fern-patch",
+      "name": "Sunlit Fern Patch",
+      "file": "client/assets/v58/sunlit-fern-patch.svg",
+      "sha256": "2d57100aefe3293f6ceda0ace43e5c9ecc6d9622f4ffafa73210b4578b5ed460",
+      "motifs": [
+        "leaf",
+        "sun"
+      ]
+    },
+    {
+      "id": "organic58:fallen-leaf-compost",
+      "name": "Fallen Leaf Compost",
+      "file": "client/assets/v58/fallen-leaf-compost.svg",
+      "sha256": "252564db0b81cf1fd504be7699bc714c4cb7f50bda214fe4f951688560e82faa",
+      "motifs": [
+        "leaf",
+        "pot"
+      ]
+    },
+    {
+      "id": "organic58:pine-needle-mulch",
+      "name": "Pine Needle Mulch",
+      "file": "client/assets/v58/pine-needle-mulch.svg",
+      "sha256": "df13033412003cf18b21679b550ab2fb1eb02e53036e370f6abfa929869c1310",
+      "motifs": [
+        "leaf",
+        "roots"
+      ]
+    },
+    {
+      "id": "organic58:woodland-footbridge",
+      "name": "Woodland Footbridge",
+      "file": "client/assets/v58/woodland-footbridge.svg",
+      "sha256": "bab13dd73f2194d90987fbd0a5cec99a0a874012d538926b3561877bb46228c8",
+      "motifs": [
+        "house",
+        "wave"
+      ]
+    },
+    {
+      "id": "organic58:tree-hollow-lantern",
+      "name": "Tree Hollow Lantern",
+      "file": "client/assets/v58/tree-hollow-lantern.svg",
+      "sha256": "13d032161d87c6223e56d4683516b09a19f7c08656ec24626968862bee3642a4",
+      "motifs": [
+        "tree",
+        "sun"
+      ]
+    },
+    {
+      "id": "organic58:rainforest-canopy-walk",
+      "name": "Rainforest Canopy Walk",
+      "file": "client/assets/v58/rainforest-canopy-walk.svg",
+      "sha256": "b9864124a7c57640bd1103fef01863ae71a19f776261623981b688766677636c",
+      "motifs": [
+        "tree",
+        "house"
+      ]
+    },
+    {
+      "id": "organic58:squirrel-feeding-station",
+      "name": "Squirrel Feeding Station",
+      "file": "client/assets/v58/squirrel-feeding-station.svg",
+      "sha256": "2d680811edfb1a064ba790bb357996db7782373ec6e88cbed74472ee05e3151f",
+      "motifs": [
+        "basket",
+        "tree"
+      ]
+    },
+    {
+      "id": "organic58:mushroom-field-notes",
+      "name": "Mushroom Field Notes",
+      "file": "client/assets/v58/mushroom-field-notes.svg",
+      "sha256": "22126ef1fdd9c3bc8f80e02775f28dd28fffd22f401fb3fc82fecbd96db16f83",
+      "motifs": [
+        "mushroom",
+        "book"
+      ]
+    },
+    {
+      "id": "organic58:forest-fungus-garden",
+      "name": "Forest Fungus Garden",
+      "file": "client/assets/v58/forest-fungus-garden.svg",
+      "sha256": "e4cf9e73b802335bca6747241a3db94458e5f372cd7e2df02ef23bfa84b7173e",
+      "motifs": [
+        "mushroom",
+        "flower"
+      ]
+    },
+    {
+      "id": "organic58:hedgehog-nest",
+      "name": "Hedgehog Nest",
+      "file": "client/assets/v58/hedgehog-nest.svg",
+      "sha256": "4b15436efd166dfb4bfc1542b1739eab8e8d530750241efc09c942c2bd58b9f3",
+      "motifs": [
+        "branch",
+        "leaf"
+      ]
+    },
+    {
+      "id": "organic58:pine-resin-drop",
+      "name": "Pine Resin Drop",
+      "file": "client/assets/v58/pine-resin-drop.svg",
+      "sha256": "eb09ef7225e38441ce33564abfc6c00cbd9d35d7ebcabb128f5cdc2d87f631de",
+      "motifs": [
+        "droplet",
+        "branch"
+      ]
+    },
+    {
+      "id": "organic58:deer-track-cast",
+      "name": "Deer Track Cast",
+      "file": "client/assets/v58/deer-track-cast.svg",
+      "sha256": "210e29ba612b991725dda1d14fb0d9a4e0834271a3fe08ae687c58a743af33f7",
+      "motifs": [
+        "pot",
+        "leaf"
+      ]
+    },
+    {
+      "id": "organic58:butterfly-feeding-plate",
+      "name": "Butterfly Feeding Plate",
+      "file": "client/assets/v58/butterfly-feeding-plate.svg",
+      "sha256": "09abe0df77e284d142147ec26e5ec4ace6007d3967a997dd490275d2e86e3de8",
+      "motifs": [
+        "flower",
+        "cup"
+      ]
+    },
+    {
+      "id": "organic58:fox-trail-marker",
+      "name": "Fox Trail Marker",
+      "file": "client/assets/v58/fox-trail-marker.svg",
+      "sha256": "ba347f252e1af453f822a6e4602dadbcaf76c2ce868b4d0490c8f7630939cb1b",
+      "motifs": [
+        "paper",
+        "leaf"
+      ]
+    },
+    {
+      "id": "organic58:lichen-trail-sign",
+      "name": "Lichen Trail Sign",
+      "file": "client/assets/v58/lichen-trail-sign.svg",
+      "sha256": "22a736d34be2dcad53b21e02cc160b8c04d4b8bee4342480a7337fdc618b1b01",
+      "motifs": [
+        "leaf",
+        "paper"
+      ]
+    },
+    {
+      "id": "organic58:oak-leaf-print",
+      "name": "Oak Leaf Print",
+      "file": "client/assets/v58/oak-leaf-print.svg",
+      "sha256": "3b910cc9ed8802ab44ba476c7b5193af2e8918f1f80025921dc60b10981c896e",
+      "motifs": [
+        "leaf",
+        "paper"
+      ]
+    },
+    {
+      "id": "organic58:dew-covered-spiderweb",
+      "name": "Dew-Covered Spiderweb",
+      "file": "client/assets/v58/dew-covered-spiderweb.svg",
+      "sha256": "86d184a05ae2058f47d8bee115d8b0f9352de2a45af7e804291cd1792abc0834",
+      "motifs": [
+        "droplet",
+        "wreath"
+      ]
+    },
+    {
+      "id": "organic58:beaver-pond-viewpoint",
+      "name": "Beaver Pond Viewpoint",
+      "file": "client/assets/v58/beaver-pond-viewpoint.svg",
+      "sha256": "5a0aaa5388c59c11ab93a514f4578107257efe9ff0c3cbfdb567ca6219ca9a51",
+      "motifs": [
+        "house",
+        "pool"
+      ]
+    },
+    {
+      "id": "organic58:fallen-branch-shelter",
+      "name": "Fallen Branch Shelter",
+      "file": "client/assets/v58/fallen-branch-shelter.svg",
+      "sha256": "debfe63154bc1a998a8c76fa6b5382c1af8c53af6e516bc25290757dd72ad373",
+      "motifs": [
+        "branch",
+        "house"
+      ]
+    },
+    {
+      "id": "organic58:wildflower-seed-mix",
+      "name": "Wildflower Seed Mix",
+      "file": "client/assets/v58/wildflower-seed-mix.svg",
+      "sha256": "53c7ae176a079d16d65a1d8f4f5d541b1b5f0892ecb08efc837231d5087f9b56",
+      "motifs": [
+        "flower",
+        "basket"
+      ]
+    },
+    {
+      "id": "organic58:frozen-rain-gauge",
+      "name": "Frozen Rain Gauge",
+      "file": "client/assets/v58/frozen-rain-gauge.svg",
+      "sha256": "3d49f82225c8ec7a24e349b8291fc4264e755e37f587b0ab1feaa43bf3260c06",
+      "motifs": [
+        "ice",
+        "frame"
+      ]
+    },
+    {
+      "id": "organic58:mountain-cloud-deck",
+      "name": "Mountain Cloud Deck",
+      "file": "client/assets/v58/mountain-cloud-deck.svg",
+      "sha256": "0875f683454aed609d3f91ef5db505440700cd514db9b6ba125fe6c5d40e6506",
+      "motifs": [
+        "mountain",
+        "cloud"
+      ]
+    },
+    {
+      "id": "organic58:sunlit-snowbank",
+      "name": "Sunlit Snowbank",
+      "file": "client/assets/v58/sunlit-snowbank.svg",
+      "sha256": "a11fad1e7dd93563f3a4a217d005503b490503ff402303ce7042f6fc047d236b",
+      "motifs": [
+        "snow",
+        "sun"
+      ]
+    },
+    {
+      "id": "organic58:foggy-lighthouse",
+      "name": "Foggy Lighthouse",
+      "file": "client/assets/v58/foggy-lighthouse.svg",
+      "sha256": "baad1046d19d19673e9ba01b43be181d6d82d7dc7483db4e0bb9752a3ac9195b",
+      "motifs": [
+        "fog",
+        "house"
+      ]
+    },
+    {
+      "id": "organic58:rain-soaked-canvas",
+      "name": "Rain-Soaked Canvas",
+      "file": "client/assets/v58/rain-soaked-canvas.svg",
+      "sha256": "c61e94d5f048256c1a39b8d5fc5a390443719a34f72598f4e27946940af963ea",
+      "motifs": [
+        "rain",
+        "frame"
+      ]
+    },
+    {
+      "id": "organic58:storm-warning-bell",
+      "name": "Storm Warning Bell",
+      "file": "client/assets/v58/storm-warning-bell.svg",
+      "sha256": "10198dc6f8e1407d69cf17cb6f0f628d15fee145baacf8b68f0a1a5d6f2831aa",
+      "motifs": [
+        "cloud",
+        "halo"
+      ]
+    },
+    {
+      "id": "organic58:blizzard-shelter",
+      "name": "Blizzard Shelter",
+      "file": "client/assets/v58/blizzard-shelter.svg",
+      "sha256": "0dc491f8af3b685f57df65feb3953d03b7ea7cf19d0e98fb0ab5fbeb6724973a",
+      "motifs": [
+        "snow",
+        "house"
+      ]
+    },
+    {
+      "id": "organic58:hail-damaged-garden",
+      "name": "Hail-Damaged Garden",
+      "file": "client/assets/v58/hail-damaged-garden.svg",
+      "sha256": "6c40cadb12963514936bbb059d23a786d70cb13bcfc73a336ce4282a7bf864c4",
+      "motifs": [
+        "ice",
+        "flower"
+      ]
+    },
+    {
+      "id": "organic58:sunset-raincloud",
+      "name": "Sunset Raincloud",
+      "file": "client/assets/v58/sunset-raincloud.svg",
+      "sha256": "19f10c1d8a509b58582c2499cb3900e287771c6877b7039e97576a86d31a8126",
+      "motifs": [
+        "sun",
+        "cloud"
+      ]
+    },
+    {
+      "id": "organic58:frosted-leaf-edge",
+      "name": "Frosted Leaf Edge",
+      "file": "client/assets/v58/frosted-leaf-edge.svg",
+      "sha256": "b24652a5e0a70e12a4ae54169a972319cb4130251f0299bc0086ba42213f221b",
+      "motifs": [
+        "ice",
+        "leaf"
+      ]
+    },
+    {
+      "id": "organic58:wind-carved-snowdrift",
+      "name": "Wind-Carved Snowdrift",
+      "file": "client/assets/v58/wind-carved-snowdrift.svg",
+      "sha256": "cd556b153601a1c0d23c14af12728cffb6c722b2767787111e68fbb8054a6ba5",
+      "motifs": [
+        "snow",
+        "wind"
+      ]
+    },
+    {
+      "id": "organic58:thundercloud-reflection",
+      "name": "Thundercloud Reflection",
+      "file": "client/assets/v58/thundercloud-reflection.svg",
+      "sha256": "5b006cf42f72a41b19c3ba8e072aa0bbd24c1e90adeab740b168093fe57e0024",
+      "motifs": [
+        "cloud",
+        "pool"
+      ]
+    },
+    {
+      "id": "organic58:weathered-window-frame",
+      "name": "Weathered Window Frame",
+      "file": "client/assets/v58/weathered-window-frame.svg",
+      "sha256": "503d796766bdc8d40f6af6b2f46025dce31dc878fab26e16990c7ace17a20285",
+      "motifs": [
+        "frame",
+        "rain"
+      ]
+    },
+    {
+      "id": "organic58:mist-over-meadow",
+      "name": "Mist Over Meadow",
+      "file": "client/assets/v58/mist-over-meadow.svg",
+      "sha256": "023e8210774bacd1a0ceff16dda29ed2603300849befcfc0a412e83b19dcc010",
+      "motifs": [
+        "fog",
+        "grass"
+      ]
+    },
+    {
+      "id": "organic58:rain-barrel-overflow",
+      "name": "Rain Barrel Overflow",
+      "file": "client/assets/v58/rain-barrel-overflow.svg",
+      "sha256": "18d32a4cf2b796cdee16dd667fc2ee45c7361bc243e93b9291fd31b47bd68d81",
+      "motifs": [
+        "droplet",
+        "cup"
+      ]
+    },
+    {
+      "id": "organic58:cloud-shadow-mosaic",
+      "name": "Cloud Shadow Mosaic",
+      "file": "client/assets/v58/cloud-shadow-mosaic.svg",
+      "sha256": "1f15b12b683ac871032f29d6c701d14fff38f1606fe9b6b70d6b414fa2ebb1b0",
+      "motifs": [
+        "cloud",
+        "frame"
+      ]
+    },
+    {
+      "id": "organic58:cold-morning-breath",
+      "name": "Cold Morning Breath",
+      "file": "client/assets/v58/cold-morning-breath.svg",
+      "sha256": "b767ee48c7e6bb0a66afef760c6431f0a6ef3abcfafad47f614ff9435a7e5d38",
+      "motifs": [
+        "fog",
+        "people"
+      ]
+    },
+    {
+      "id": "organic58:rainforest-fogline",
+      "name": "Rainforest Fogline",
+      "file": "client/assets/v58/rainforest-fogline.svg",
+      "sha256": "4838b82dab50dbd223daac292bbe040ec2082f6f3710be076198ff6180f2df30",
+      "motifs": [
+        "tree",
+        "fog"
+      ]
+    },
+    {
+      "id": "organic58:sunlit-hailstones",
+      "name": "Sunlit Hailstones",
+      "file": "client/assets/v58/sunlit-hailstones.svg",
+      "sha256": "d9e3ff7b8aa18ab858dee2d88692f1a32d5f2dd885bd8563841e817a2f916886",
+      "motifs": [
+        "ice",
+        "sun"
+      ]
+    },
+    {
+      "id": "organic58:monsoon-rooftop",
+      "name": "Monsoon Rooftop",
+      "file": "client/assets/v58/monsoon-rooftop.svg",
+      "sha256": "b49b38dd5521b1428f6bd6827ff8bfb4de3c9f178da670d7e0c7f51fd93ea742",
+      "motifs": [
+        "rain",
+        "house"
+      ]
+    },
+    {
+      "id": "organic58:stormfront-photograph",
+      "name": "Stormfront Photograph",
+      "file": "client/assets/v58/stormfront-photograph.svg",
+      "sha256": "0c78c2c9f5fe98a14aaf5cb38c64d505b4f6c21385756d383f34c70d8d156f57",
+      "motifs": [
+        "camera",
+        "cloud"
+      ]
+    },
+    {
+      "id": "organic58:ice-crystal-halo",
+      "name": "Ice-Crystal Halo",
+      "file": "client/assets/v58/ice-crystal-halo.svg",
+      "sha256": "0a01e3de55d8059cdebf13fca34b8a8d18ea9ed755875a9f88cc2c0f25f2ca74",
+      "motifs": [
+        "ice",
+        "halo"
+      ]
+    },
+    {
+      "id": "organic58:distant-lightning-glow",
+      "name": "Distant Lightning Glow",
+      "file": "client/assets/v58/distant-lightning-glow.svg",
+      "sha256": "d080ef84be152f68b4ac9318301e44c6b8c83033d174b5c326b7ea6988dddfc4",
+      "motifs": [
+        "lightning",
+        "fog"
+      ]
+    },
+    {
+      "id": "organic58:lunar-eclipse-photograph",
+      "name": "Lunar Eclipse Photograph",
+      "file": "client/assets/v58/lunar-eclipse-photograph.svg",
+      "sha256": "f637a8bb1646a84ab41cdb8dcb1949fdad3f08e15043538de01455b50fda7865",
+      "motifs": [
+        "camera",
+        "halo"
+      ]
+    },
+    {
+      "id": "organic58:meteorite-display-case",
+      "name": "Meteorite Display Case",
+      "file": "client/assets/v58/meteorite-display-case.svg",
+      "sha256": "b77baa85bfd635fb72fa37201ffeb1d942c2d427b19162bdf94b95c43c912624",
+      "motifs": [
+        "mountain",
+        "frame"
+      ]
+    },
+    {
+      "id": "organic58:night-sky-field-journal",
+      "name": "Night-Sky Field Journal",
+      "file": "client/assets/v58/night-sky-field-journal.svg",
+      "sha256": "312d9653d8b5897c01cabf592c8b0a5ab12f4a466f751e1e02fc85f6c352d0ab",
+      "motifs": [
+        "book",
+        "halo"
+      ]
+    },
+    {
+      "id": "organic58:backyard-planetarium",
+      "name": "Backyard Planetarium",
+      "file": "client/assets/v58/backyard-planetarium.svg",
+      "sha256": "de7f9044569bfba30603c6fcbfb5f3ec372560bbb59fcd5217bc4857a220e5a2",
+      "motifs": [
+        "house",
+        "halo"
+      ]
+    },
+    {
+      "id": "organic58:telescope-silhouette",
+      "name": "Telescope Silhouette",
+      "file": "client/assets/v58/telescope-silhouette.svg",
+      "sha256": "67f07bc42c8c37a7f1f3f4e4b886293aaa2ccc452e2eab33b4509e7bc7b22bc7",
+      "motifs": [
+        "frame",
+        "sun"
+      ]
+    },
+    {
+      "id": "organic58:moonlit-observatory",
+      "name": "Moonlit Observatory",
+      "file": "client/assets/v58/moonlit-observatory.svg",
+      "sha256": "84f1473eb5c42f2d9170cfba7f3747a47b3b3bca47fe6c6c0c187e56eb09b626",
+      "motifs": [
+        "house",
+        "halo"
+      ]
+    },
+    {
+      "id": "organic58:cosmic-dust-sample",
+      "name": "Cosmic Dust Sample",
+      "file": "client/assets/v58/cosmic-dust-sample.svg",
+      "sha256": "8c8d6f57625f5ef7fcabbb1f4d5f769a82bd1e3e30e48fa1a080ac1064aea2cd",
+      "motifs": [
+        "mountain",
+        "frame"
+      ]
+    },
+    {
+      "id": "organic58:solar-flare-diagram",
+      "name": "Solar Flare Diagram",
+      "file": "client/assets/v58/solar-flare-diagram.svg",
+      "sha256": "839d2fadf4566730d43e0e813c4d6293c528945dad721847045a6e0fe30c973c",
+      "motifs": [
+        "sun",
+        "paper"
+      ]
+    },
+    {
+      "id": "organic58:planetary-dawn",
+      "name": "Planetary Dawn",
+      "file": "client/assets/v58/planetary-dawn.svg",
+      "sha256": "df1229be9691b316a18fa6fbbb2883a5731c479449629d6342bf706dca172af5",
+      "motifs": [
+        "sun",
+        "halo"
+      ]
+    },
+    {
+      "id": "organic58:milky-way-panorama",
+      "name": "Milky Way Panorama",
+      "file": "client/assets/v58/milky-way-panorama.svg",
+      "sha256": "98b784cfda596e8468c3750733494b51e6d927547574a06ceec3df20d422dd2d",
+      "motifs": [
+        "frame",
+        "halo"
+      ]
+    },
+    {
+      "id": "organic58:star-map-notebook",
+      "name": "Star Map Notebook",
+      "file": "client/assets/v58/star-map-notebook.svg",
+      "sha256": "cab8ae9940dc934c9bc428aeeab220c96de18327497bbb00a52299af628b9d48",
+      "motifs": [
+        "paper",
+        "book"
+      ]
+    },
+    {
+      "id": "organic58:aurora-timelapse",
+      "name": "Aurora Timelapse",
+      "file": "client/assets/v58/aurora-timelapse.svg",
+      "sha256": "05fb6916197908a8ca74086f4d83579f5471980934c91df7eeab8eb75dd738c5",
+      "motifs": [
+        "camera",
+        "halo"
+      ]
+    },
+    {
+      "id": "organic58:comet-watch-station",
+      "name": "Comet Watch Station",
+      "file": "client/assets/v58/comet-watch-station.svg",
+      "sha256": "22c50c6072fb0ed0633b5c747619fbf66ef783b07502a9f8b28a28579e853cc3",
+      "motifs": [
+        "house",
+        "halo"
+      ]
+    },
+    {
+      "id": "organic58:moon-crater-model",
+      "name": "Moon Crater Model",
+      "file": "client/assets/v58/moon-crater-model.svg",
+      "sha256": "8663367f378b614d9ea7122c082f41d2b1f07b367d9f331b19352dcb4e93d3c2",
+      "motifs": [
+        "pot",
+        "halo"
+      ]
+    },
+    {
+      "id": "organic58:galaxy-window-projection",
+      "name": "Galaxy Window Projection",
+      "file": "client/assets/v58/galaxy-window-projection.svg",
+      "sha256": "df19e17a058c8b12d1d31e670aac7ca26a833f7d4b2428aca5feb1de0f369286",
+      "motifs": [
+        "frame",
+        "halo"
+      ]
+    },
+    {
+      "id": "organic58:space-rock-collection",
+      "name": "Space Rock Collection",
+      "file": "client/assets/v58/space-rock-collection.svg",
+      "sha256": "7cba5383a8876bcf60ebb8d6c4e9958e51f17ae118d276de134793fb6ed686dd",
+      "motifs": [
+        "mountain",
+        "basket"
+      ]
+    },
+    {
+      "id": "organic58:stargazing-blanket",
+      "name": "Stargazing Blanket",
+      "file": "client/assets/v58/stargazing-blanket.svg",
+      "sha256": "5d08d5c29250fe6ca527b759e4b362c6b4098770b8723dc9ad070533e8c4e45e",
+      "motifs": [
+        "blanket",
+        "halo"
+      ]
+    },
+    {
+      "id": "organic58:planetary-ring-sketch",
+      "name": "Planetary Ring Sketch",
+      "file": "client/assets/v58/planetary-ring-sketch.svg",
+      "sha256": "ce8504a715068615b30848e376c185351098b24a3884d0ca377c73ce9e7709f3",
+      "motifs": [
+        "halo",
+        "pencil"
+      ]
+    },
+    {
+      "id": "organic58:satellite-night-trail",
+      "name": "Satellite Night Trail",
+      "file": "client/assets/v58/satellite-night-trail.svg",
+      "sha256": "255518916f340fc3ca997795295861afd231ddca1e28c8bfeba4be9e0afc76cd",
+      "motifs": [
+        "halo",
+        "wind"
+      ]
+    },
+    {
+      "id": "organic58:nebula-color-study",
+      "name": "Nebula Color Study",
+      "file": "client/assets/v58/nebula-color-study.svg",
+      "sha256": "5c31addfdd7d25b7d96674ba109b0ff6807568711e2122139656adcfeb0d79cf",
+      "motifs": [
+        "flower",
+        "halo"
+      ]
+    },
+    {
+      "id": "organic58:moonrise-time-chart",
+      "name": "Moonrise Time Chart",
+      "file": "client/assets/v58/moonrise-time-chart.svg",
+      "sha256": "8a1a3151f2ccdab9b8ee7043014d851311a5c6420a9c01badc0b5a0ded5d901f",
+      "motifs": [
+        "halo",
+        "paper"
+      ]
+    },
+    {
+      "id": "organic58:honey-glazed-carrot",
+      "name": "Honey Glazed Carrot",
+      "file": "client/assets/v58/honey-glazed-carrot.svg",
+      "sha256": "7e578508c3c8a34f6bae46e9574c8f5e85afacc337bef871917d0c1d99b205e4",
+      "motifs": [
+        "apple",
+        "cup"
+      ]
+    },
+    {
+      "id": "organic58:berry-crumble",
+      "name": "Berry Crumble",
+      "file": "client/assets/v58/berry-crumble.svg",
+      "sha256": "7ba3f3c12c02406430515c4d76a8bf2d87980fcfd782804326fa4623c2dc34cf",
+      "motifs": [
+        "food",
+        "bread"
+      ]
+    },
+    {
+      "id": "organic58:herb-roasted-potato",
+      "name": "Herb-Roasted Potato",
+      "file": "client/assets/v58/herb-roasted-potato.svg",
+      "sha256": "32a1c076dff3666015e0685e0f59fdd15a931bffe9f5541e31d812d14a0360af",
+      "motifs": [
+        "food",
+        "herbs"
+      ]
+    },
+    {
+      "id": "organic58:caramelized-onion",
+      "name": "Caramelized Onion",
+      "file": "client/assets/v58/caramelized-onion.svg",
+      "sha256": "f54aec38415423e4cd72c90ad02d1687be56c4f914bedc95a70220b0c74b8132",
+      "motifs": [
+        "apple",
+        "food"
+      ]
+    },
+    {
+      "id": "organic58:lemon-icing",
+      "name": "Lemon Icing",
+      "file": "client/assets/v58/lemon-icing.svg",
+      "sha256": "f311a57be5eec8e2842886805f76275057ae03b9bc16a3601d23c023689dd274",
+      "motifs": [
+        "droplet",
+        "cup"
+      ]
+    },
+    {
+      "id": "organic58:garlic-herb-oil",
+      "name": "Garlic Herb Oil",
+      "file": "client/assets/v58/garlic-herb-oil.svg",
+      "sha256": "08e236f164a3b67d967c08ec69cfeb43b747b1c91a33f80ff1c9d6043ae08b49",
+      "motifs": [
+        "cup",
+        "herbs"
+      ]
+    },
+    {
+      "id": "organic58:vanilla-custard-tart",
+      "name": "Vanilla Custard Tart",
+      "file": "client/assets/v58/vanilla-custard-tart.svg",
+      "sha256": "6a8e231efe35683426bf3292d541020f60810d126418e06d95023c1b943dd008",
+      "motifs": [
+        "bread",
+        "cup"
+      ]
+    },
+    {
+      "id": "organic58:fruit-jam-tartlet",
+      "name": "Fruit Jam Tartlet",
+      "file": "client/assets/v58/fruit-jam-tartlet.svg",
+      "sha256": "2cc7c83793b918330dd1448c4781bf37147dec870b6a6f17a4439dbc0636f6d3",
+      "motifs": [
+        "food",
+        "apple"
+      ]
+    },
+    {
+      "id": "organic58:honey-tea-cake",
+      "name": "Honey Tea Cake",
+      "file": "client/assets/v58/honey-tea-cake.svg",
+      "sha256": "fee6727e24ca6894c2e5194403524a52811b9b51ffc67d629e084de9ef1edfea",
+      "motifs": [
+        "bread",
+        "cup"
+      ]
+    },
+    {
+      "id": "organic58:creamy-mushroom-soup",
+      "name": "Creamy Mushroom Soup",
+      "file": "client/assets/v58/creamy-mushroom-soup.svg",
+      "sha256": "cac96605939382590b59824fb9e0a209962e572c08fbe21d2f0088c14fb4d37d",
+      "motifs": [
+        "cup",
+        "mushroom"
+      ]
+    },
+    {
+      "id": "organic58:rosemary-bread-twist",
+      "name": "Rosemary Bread Twist",
+      "file": "client/assets/v58/rosemary-bread-twist.svg",
+      "sha256": "834ede007a267d1eaaaac407ca318ed25fd1222b6efb3f60987cc748a906a689",
+      "motifs": [
+        "bread",
+        "herbs"
+      ]
+    },
+    {
+      "id": "organic58:tomato-basil-bruschetta",
+      "name": "Tomato Basil Bruschetta",
+      "file": "client/assets/v58/tomato-basil-bruschetta.svg",
+      "sha256": "b302266b04b091f6271cffc744061c834ab6feb61f752859d52e74e78f9868fc",
+      "motifs": [
+        "bread",
+        "apple"
+      ]
+    },
+    {
+      "id": "organic58:citrus-fruit-salad",
+      "name": "Citrus Fruit Salad",
+      "file": "client/assets/v58/citrus-fruit-salad.svg",
+      "sha256": "816885458b4f0ae20d604f51fd116966ee49a164cf594edcf6835c40bbec3a78",
+      "motifs": [
+        "food",
+        "apple"
+      ]
+    },
+    {
+      "id": "organic58:grilled-cheese-toast",
+      "name": "Grilled Cheese Toast",
+      "file": "client/assets/v58/grilled-cheese-toast.svg",
+      "sha256": "d0910bfcce55a982cd3fc287b410e7087f66e607f59896a2211261838105b306",
+      "motifs": [
+        "bread",
+        "food"
+      ]
+    },
+    {
+      "id": "organic58:sweet-rice-pudding",
+      "name": "Sweet Rice Pudding",
+      "file": "client/assets/v58/sweet-rice-pudding.svg",
+      "sha256": "4db14f64e30de0d64720634c89a0b3ba92cc4cfbbcfdfd6594134dce2091a64c",
+      "motifs": [
+        "cup",
+        "food"
+      ]
+    },
+    {
+      "id": "organic58:roasted-vegetable-tray",
+      "name": "Roasted Vegetable Tray",
+      "file": "client/assets/v58/roasted-vegetable-tray.svg",
+      "sha256": "be120273c849d2b2ea15ef35be8839be35c806f135c3d2f7aa6d705ab75acacc",
+      "motifs": [
+        "food",
+        "basket"
+      ]
+    },
+    {
+      "id": "organic58:sun-dried-tomato-paste",
+      "name": "Sun-Dried Tomato Paste",
+      "file": "client/assets/v58/sun-dried-tomato-paste.svg",
+      "sha256": "b06f28564ae81321f25b1fce4de0efdcb687db15514a0edc14e21ded4e4e662e",
+      "motifs": [
+        "apple",
+        "sun"
+      ]
+    },
+    {
+      "id": "organic58:herbal-lemon-syrup",
+      "name": "Herbal Lemon Syrup",
+      "file": "client/assets/v58/herbal-lemon-syrup.svg",
+      "sha256": "652201fe8f4476829db3befa5bbd49872b1cf9cec711a618bcc0e668dd8a2dbd",
+      "motifs": [
+        "cup",
+        "herbs"
+      ]
+    },
+    {
+      "id": "organic58:crisp-onion-rings",
+      "name": "Crisp Onion Rings",
+      "file": "client/assets/v58/crisp-onion-rings.svg",
+      "sha256": "58eafc74362404d92f0b2fe132696780cc22904213f3d767b28334012f7ef14e",
+      "motifs": [
+        "food",
+        "apple"
+      ]
+    },
+    {
+      "id": "organic58:pressed-flower-paper",
+      "name": "Pressed Flower Paper",
+      "file": "client/assets/v58/pressed-flower-paper.svg",
+      "sha256": "338695aa68aec2577a7f2fd6880d9b2b9a77b8b45574c51f6d918701cead9a51",
+      "motifs": [
+        "paper",
+        "flower"
+      ]
+    },
+    {
+      "id": "organic58:colored-glass-pebble",
+      "name": "Colored Glass Pebble",
+      "file": "client/assets/v58/colored-glass-pebble.svg",
+      "sha256": "3f5fb81d49cbb59b6296dae10c717e6b12e58e50802c9eb2a043e8257ba401f8",
+      "motifs": [
+        "mountain",
+        "frame"
+      ]
+    },
+    {
+      "id": "organic58:wood-ash-glaze",
+      "name": "Wood Ash Glaze",
+      "file": "client/assets/v58/wood-ash-glaze.svg",
+      "sha256": "6f0b5e67bebc89138807ea76bbcb466f66f2a566d2dc2a5247f46b0e8df7996b",
+      "motifs": [
+        "pot",
+        "cloud"
+      ]
+    },
+    {
+      "id": "organic58:copper-patina-tile",
+      "name": "Copper Patina Tile",
+      "file": "client/assets/v58/copper-patina-tile.svg",
+      "sha256": "f75bc885055e25d3bd330d39313a3bcd91b98ad76fd107dc712a35b624021013",
+      "motifs": [
+        "frame",
+        "rain"
+      ]
+    },
+    {
+      "id": "organic58:stained-linen-cloth",
+      "name": "Stained Linen Cloth",
+      "file": "client/assets/v58/stained-linen-cloth.svg",
+      "sha256": "7729c80c7164ecd2a5e95437e5a39e999dcfe4ee7686f8cddbdc82d3a70cb2c7",
+      "motifs": [
+        "blanket",
+        "droplet"
+      ]
+    },
+    {
+      "id": "organic58:handmade-seed-paper",
+      "name": "Handmade Seed Paper",
+      "file": "client/assets/v58/handmade-seed-paper.svg",
+      "sha256": "9a611a7c32e9a125977566ee228acf2599c13bf8ffe182205ff22e42d997a483",
+      "motifs": [
+        "paper",
+        "leaf"
+      ]
+    },
+    {
+      "id": "organic58:crushed-shell-plaster",
+      "name": "Crushed Shell Plaster",
+      "file": "client/assets/v58/crushed-shell-plaster.svg",
+      "sha256": "e94b0692113d29f7d263fec55a5d2c8cc41c48b6ea6c065a88eb54b17f9f2027",
+      "motifs": [
+        "shell",
+        "house"
+      ]
+    },
+    {
+      "id": "organic58:polished-river-stone",
+      "name": "Polished River Stone",
+      "file": "client/assets/v58/polished-river-stone.svg",
+      "sha256": "dbe39a0c023374a514d4e42466612d40a6b2aaf3102613b02876607e6c1e3969",
+      "motifs": [
+        "mountain",
+        "wave"
+      ]
+    },
+    {
+      "id": "organic58:mosaic-mortar",
+      "name": "Mosaic Mortar",
+      "file": "client/assets/v58/mosaic-mortar.svg",
+      "sha256": "df490d4ecd7657c7e4eebc9ae4c6aa66cbe8c95f93e0c88cc1561effbe353c04",
+      "motifs": [
+        "frame",
+        "mountain"
+      ]
+    },
+    {
+      "id": "organic58:charcoal-drawing-stick",
+      "name": "Charcoal Drawing Stick",
+      "file": "client/assets/v58/charcoal-drawing-stick.svg",
+      "sha256": "841997545d4d99a2ddeacda413fdf7dc32a77d5787903d39a3abcf66aec2d7cc",
+      "motifs": [
+        "pencil",
+        "cloud"
+      ]
+    },
+    {
+      "id": "organic58:copper-wire-coil",
+      "name": "Copper Wire Coil",
+      "file": "client/assets/v58/copper-wire-coil.svg",
+      "sha256": "1cb4f6fabb15151cbaa9bd5c45457496a7aca69af5c218604c769203a9db2bf0",
+      "motifs": [
+        "wreath",
+        "paper"
+      ]
+    },
+    {
+      "id": "organic58:limestone-chalk",
+      "name": "Limestone Chalk",
+      "file": "client/assets/v58/limestone-chalk.svg",
+      "sha256": "730317b6cc1c015b80a1be63b15a82eeafeaa6babc01e027c0749ad9b6e5c2f3",
+      "motifs": [
+        "mountain",
+        "pencil"
+      ]
+    },
+    {
+      "id": "organic58:beeswax-finish",
+      "name": "Beeswax Finish",
+      "file": "client/assets/v58/beeswax-finish.svg",
+      "sha256": "953ab39702f16a8000965ec37c1cb0e10379bdb662e34b30d503eb934395c80a",
+      "motifs": [
+        "branch",
+        "cup"
+      ]
+    },
+    {
+      "id": "organic58:clay-roof-shingle",
+      "name": "Clay Roof Shingle",
+      "file": "client/assets/v58/clay-roof-shingle.svg",
+      "sha256": "7fec4a820377d894d50105fb335e2588b4f5c66c56aaeb6e79bbbdca5731dcaa",
+      "motifs": [
+        "pot",
+        "house"
+      ]
+    },
+    {
+      "id": "organic58:watercolor-pigment",
+      "name": "Watercolor Pigment",
+      "file": "client/assets/v58/watercolor-pigment.svg",
+      "sha256": "7b2b980d402a8844130d5c117d9bf4aa12b53711e9e14181fc9fb0b421a2425f",
+      "motifs": [
+        "droplet",
+        "frame"
+      ]
+    },
+    {
+      "id": "organic58:fossil-stone-cast",
+      "name": "Fossil Stone Cast",
+      "file": "client/assets/v58/fossil-stone-cast.svg",
+      "sha256": "f331bcf6c800d2267410c456b96f4a266ff2db2467277122135fd981d56603a8",
+      "motifs": [
+        "mountain",
+        "pot"
+      ]
+    },
+    {
+      "id": "organic58:glass-bottom-lantern",
+      "name": "Glass-Bottom Lantern",
+      "file": "client/assets/v58/glass-bottom-lantern.svg",
+      "sha256": "666fa3146375d32b593e094b98fb31ddfb536a056977ac529558b81298151e20",
+      "motifs": [
+        "frame",
+        "sun"
+      ]
+    },
+    {
+      "id": "organic58:woven-reed-mat",
+      "name": "Woven Reed Mat",
+      "file": "client/assets/v58/woven-reed-mat.svg",
+      "sha256": "f40735c0c273c59f08381419f622604b897ba2ecaef65bccf1513a97a3ad234b",
+      "motifs": [
+        "blanket",
+        "grass"
+      ]
+    },
+    {
+      "id": "organic58:sawdust-briquette",
+      "name": "Sawdust Briquette",
+      "file": "client/assets/v58/sawdust-briquette.svg",
+      "sha256": "50dee61996d6fa3f17aaa0f5625660facd0b16736f82f2b2716027a1be12c1e3",
+      "motifs": [
+        "branch",
+        "mountain"
+      ]
+    },
+    {
+      "id": "organic58:terracotta-tile-mosaic",
+      "name": "Terracotta Tile Mosaic",
+      "file": "client/assets/v58/terracotta-tile-mosaic.svg",
+      "sha256": "938b1716e25a40afba6a60bf2751a3fe60a55047327de7b7f2c560a42cbfb138",
+      "motifs": [
+        "frame",
+        "pot"
+      ]
+    },
+    {
+      "id": "organic58:volcanic-stone-mortar",
+      "name": "Volcanic Stone Mortar",
+      "file": "client/assets/v58/volcanic-stone-mortar.svg",
+      "sha256": "7be2578e92f773062ce5fae9b84c8858c4d151b8853e8410bd7e06a411d6c61b",
+      "motifs": [
+        "mountain",
+        "cup"
+      ]
+    },
+    {
+      "id": "organic58:amber-resin-charm",
+      "name": "Amber Resin Charm",
+      "file": "client/assets/v58/amber-resin-charm.svg",
+      "sha256": "ea28c144f0583458709c9fdca7a3f8c9a38c8f2f27bd8b814ff0093aac065e05",
+      "motifs": [
+        "shell",
+        "frame"
+      ]
+    },
+    {
+      "id": "organic58:paper-lantern-shade",
+      "name": "Paper Lantern Shade",
+      "file": "client/assets/v58/paper-lantern-shade.svg",
+      "sha256": "55ecadb753f25869501cbd13ddfb8085765b8db4cda29c298afde0b004bd28df",
+      "motifs": [
+        "paper",
+        "sun"
+      ]
+    },
+    {
+      "id": "organic58:solar-greenhouse-fan",
+      "name": "Solar Greenhouse Fan",
+      "file": "client/assets/v58/solar-greenhouse-fan.svg",
+      "sha256": "0982328d2991b335d2968c6feaf45105dccbc23fd3d6b1c284da87cd5e7685e6",
+      "motifs": [
+        "sun",
+        "house"
+      ]
+    },
+    {
+      "id": "organic58:rainwater-level-sensor",
+      "name": "Rainwater Level Sensor",
+      "file": "client/assets/v58/rainwater-level-sensor.svg",
+      "sha256": "a23a5239f79f32445525e90b5c3a621b24d1726d12d3b51e04ff7287397e42a6",
+      "motifs": [
+        "droplet",
+        "paper"
+      ]
+    },
+    {
+      "id": "organic58:wind-powered-water-pump",
+      "name": "Wind-Powered Water Pump",
+      "file": "client/assets/v58/wind-powered-water-pump.svg",
+      "sha256": "04583991e617022bb3c8b94c664c946efc654ff062dc53e6a19adfc6808b3479",
+      "motifs": [
+        "wind",
+        "pool"
+      ]
+    },
+    {
+      "id": "organic58:portable-weather-monitor",
+      "name": "Portable Weather Monitor",
+      "file": "client/assets/v58/portable-weather-monitor.svg",
+      "sha256": "8eccc0f13a0ee7411d33fb6e1b1edaaf518ff755565f40db593eca40135d83c4",
+      "motifs": [
+        "cloud",
+        "frame"
+      ]
+    },
+    {
+      "id": "organic58:solar-street-clock",
+      "name": "Solar Street Clock",
+      "file": "client/assets/v58/solar-street-clock.svg",
+      "sha256": "7887fb6fd6877cbaceddc29a43602901b34e5c01f76a1ac88a11f0faa2ba2341",
+      "motifs": [
+        "sun",
+        "paper"
+      ]
+    },
+    {
+      "id": "organic58:automated-seed-dispenser",
+      "name": "Automated Seed Dispenser",
+      "file": "client/assets/v58/automated-seed-dispenser.svg",
+      "sha256": "816e27ecbfe31b7d769497568e6f7ec5cdc6b044f0d2a7ec36a0ba86507bba4a",
+      "motifs": [
+        "basket",
+        "pot"
+      ]
+    },
+    {
+      "id": "organic58:camera-motion-trigger",
+      "name": "Camera Motion Trigger",
+      "file": "client/assets/v58/camera-motion-trigger.svg",
+      "sha256": "f7379816794e93989d88c8e4c142815a897fbfced9dd672d23b58d9bbc74f136",
+      "motifs": [
+        "camera",
+        "halo"
+      ]
+    },
+    {
+      "id": "organic58:indoor-hydroponic-tray",
+      "name": "Indoor Hydroponic Tray",
+      "file": "client/assets/v58/indoor-hydroponic-tray.svg",
+      "sha256": "3462d53416c95ec5b0e0a52556ee037f34d673b066eb62043e37829338a60490",
+      "motifs": [
+        "pot",
+        "pool"
+      ]
+    },
+    {
+      "id": "organic58:greenhouse-humidity-gauge",
+      "name": "Greenhouse Humidity Gauge",
+      "file": "client/assets/v58/greenhouse-humidity-gauge.svg",
+      "sha256": "060d84be728a92ad97418e5e64d671d461623a1449e26e90ff62c4b83467c236",
+      "motifs": [
+        "house",
+        "droplet"
+      ]
+    },
+    {
+      "id": "organic58:wind-turbine-maintenance-kit",
+      "name": "Wind Turbine Maintenance Kit",
+      "file": "client/assets/v58/wind-turbine-maintenance-kit.svg",
+      "sha256": "7fe24b09e632c391955cd5182f2839df90d85b60f9cc77f1353789e290e1f71c",
+      "motifs": [
+        "wind",
+        "basket"
+      ]
+    },
+    {
+      "id": "organic58:underwater-temperature-logger",
+      "name": "Underwater Temperature Logger",
+      "file": "client/assets/v58/underwater-temperature-logger.svg",
+      "sha256": "bc195ca00e026e3a4f6747e6eedd53991e67f1692cb516fe9c82e5f4b49ab974",
+      "motifs": [
+        "camera",
+        "droplet"
+      ]
+    },
+    {
+      "id": "organic58:rain-activated-skylight",
+      "name": "Rain-Activated Skylight",
+      "file": "client/assets/v58/rain-activated-skylight.svg",
+      "sha256": "29aa947d7792f9ee39fbca6cc06ff55115dcb4452083becd626446b4af4d61e4",
+      "motifs": [
+        "frame",
+        "rain"
+      ]
+    },
+    {
+      "id": "organic58:portable-solar-charger",
+      "name": "Portable Solar Charger",
+      "file": "client/assets/v58/portable-solar-charger.svg",
+      "sha256": "8c9acb8e3c03617b2a95d18ec844e5f778625c7a4d0f3d6c844eef4699163207",
+      "motifs": [
+        "sun",
+        "frame"
+      ]
+    },
+    {
+      "id": "organic58:waterwheel-generator",
+      "name": "Waterwheel Generator",
+      "file": "client/assets/v58/waterwheel-generator.svg",
+      "sha256": "237b7292b92a76d926ed00d07b58b98eca18ccbb52130103b756c58bad29d4c4",
+      "motifs": [
+        "wave",
+        "house"
+      ]
+    },
+    {
+      "id": "organic58:glass-solar-lantern",
+      "name": "Glass Solar Lantern",
+      "file": "client/assets/v58/glass-solar-lantern.svg",
+      "sha256": "6db82201c9434e8b3447b21fb7b8a015d13601ddfc73d58950a2f1242d604f39",
+      "motifs": [
+        "frame",
+        "sun"
+      ]
+    },
+    {
+      "id": "organic58:smart-compost-monitor",
+      "name": "Smart Compost Monitor",
+      "file": "client/assets/v58/smart-compost-monitor.svg",
+      "sha256": "8ad1b1155b53a017d82b76c25142337b2e9aedfbe86a15e2c28fe1262d52b33b",
+      "motifs": [
+        "pot",
+        "paper"
+      ]
+    },
+    {
+      "id": "organic58:emergency-weather-beacon",
+      "name": "Emergency Weather Beacon",
+      "file": "client/assets/v58/emergency-weather-beacon.svg",
+      "sha256": "1a4ea108ba32f70837f4b9540c816661eec2851208f3252eaaea9782d7f0096e",
+      "motifs": [
+        "cloud",
+        "sun"
+      ]
+    },
+    {
+      "id": "organic58:mechanical-seed-sorter",
+      "name": "Mechanical Seed Sorter",
+      "file": "client/assets/v58/mechanical-seed-sorter.svg",
+      "sha256": "c844e78b7aee8e48117b60c176942cb981b573fba0221a38a65645e689640863",
+      "motifs": [
+        "flower",
+        "frame"
+      ]
+    },
+    {
+      "id": "organic58:moss-moisture-probe",
+      "name": "Moss Moisture Probe",
+      "file": "client/assets/v58/moss-moisture-probe.svg",
+      "sha256": "bf70d508d29a16d08cdede31d67b90a1c2cb745be5cd3b06c87aeb82cde49001",
+      "motifs": [
+        "leaf",
+        "droplet"
+      ]
+    },
+    {
+      "id": "organic58:tidal-energy-meter",
+      "name": "Tidal Energy Meter",
+      "file": "client/assets/v58/tidal-energy-meter.svg",
+      "sha256": "e53300f0c86f387aa4ee2f86709a2214b9685db965104288247f7e668d8da596",
+      "motifs": [
+        "wave",
+        "sun"
+      ]
+    },
+    {
+      "id": "organic58:solar-powered-bird-feeder",
+      "name": "Solar-Powered Bird Feeder",
+      "file": "client/assets/v58/solar-powered-bird-feeder.svg",
+      "sha256": "c9be276df9d9e70cd4bd60f53e7f2029f2016d03c51bd7f853fc0ddca9723fa2",
+      "motifs": [
+        "house",
+        "sun"
+      ]
+    },
+    {
+      "id": "organic58:observatory-tracking-motor",
+      "name": "Observatory Tracking Motor",
+      "file": "client/assets/v58/observatory-tracking-motor.svg",
+      "sha256": "a278e618d21d2d041319d3e3a83ce75c5fda6d3f815d7c2fa1ca76a74192896a",
+      "motifs": [
+        "halo",
+        "frame"
+      ]
+    },
+    {
+      "id": "organic58:community-seed-swap",
+      "name": "Community Seed Swap",
+      "file": "client/assets/v58/community-seed-swap.svg",
+      "sha256": "cde75e9f6783bae03dfba1a30a8f515ab52a9b5e8082c9ea266826169ec3e833",
+      "motifs": [
+        "basket",
+        "people"
+      ]
+    },
+    {
+      "id": "organic58:neighborhood-book-exchange",
+      "name": "Neighborhood Book Exchange",
+      "file": "client/assets/v58/neighborhood-book-exchange.svg",
+      "sha256": "97679e6a749c48694288e826f8f813b1407599d481b5a64d98288857147f052d",
+      "motifs": [
+        "book",
+        "shop"
+      ]
+    },
+    {
+      "id": "organic58:village-herb-workshop",
+      "name": "Village Herb Workshop",
+      "file": "client/assets/v58/village-herb-workshop.svg",
+      "sha256": "96cd5ffe7ede026f6b14a9b5e948db7fef6ee19c3c64a47ac01ce712b97d783a",
+      "motifs": [
+        "people",
+        "herbs"
+      ]
+    },
+    {
+      "id": "organic58:public-garden-map",
+      "name": "Public Garden Map",
+      "file": "client/assets/v58/public-garden-map.svg",
+      "sha256": "eb9c25036fa743e78662279a915b4aad4a7e11ec38950fd8bd0a5f713a60b2b2",
+      "motifs": [
+        "paper",
+        "flower"
+      ]
+    },
+    {
+      "id": "organic58:seasonal-harvest-parade",
+      "name": "Seasonal Harvest Parade",
+      "file": "client/assets/v58/seasonal-harvest-parade.svg",
+      "sha256": "b502513bdb9407be9415e39c35979f2dd648327e354cd468ac103280e8930bb0",
+      "motifs": [
+        "basket",
+        "wreath"
+      ]
+    },
+    {
+      "id": "organic58:open-air-photo-gallery",
+      "name": "Open-Air Photo Gallery",
+      "file": "client/assets/v58/open-air-photo-gallery.svg",
+      "sha256": "5b814bef1294be1eadaa7f3b496e457688ecb7c0076bdbbe75365db687ec70e8",
+      "motifs": [
+        "frame",
+        "flower"
+      ]
+    },
+    {
+      "id": "organic58:riverside-walking-tour",
+      "name": "Riverside Walking Tour",
+      "file": "client/assets/v58/riverside-walking-tour.svg",
+      "sha256": "08f4e9424135bf94888297cf582d2a6acdb5cc20872759efbefa25e611efacaf",
+      "motifs": [
+        "people",
+        "wave"
+      ]
+    },
+    {
+      "id": "organic58:coastal-heritage-center",
+      "name": "Coastal Heritage Center",
+      "file": "client/assets/v58/coastal-heritage-center.svg",
+      "sha256": "347b1a8d686eef83628deb9949f60bc343dbd943d56069cbb7f7f720fed1d539",
+      "motifs": [
+        "house",
+        "shell"
+      ]
+    },
+    {
+      "id": "organic58:village-science-fair",
+      "name": "Village Science Fair",
+      "file": "client/assets/v58/village-science-fair.svg",
+      "sha256": "e4d1a7dc3863c711d9d16fee26b3309ddba83945de76cb2ea67dd834c0cf5853",
+      "motifs": [
+        "people",
+        "halo"
+      ]
+    },
+    {
+      "id": "organic58:festival-lantern-row",
+      "name": "Festival Lantern Row",
+      "file": "client/assets/v58/festival-lantern-row.svg",
+      "sha256": "2c6d89bee0f4c75ed3b6db5c5ac79640f7d104ed7d2a84e74d9dd30c837692bd",
+      "motifs": [
+        "wreath",
+        "sun"
+      ]
+    },
+    {
+      "id": "organic58:historic-building-model",
+      "name": "Historic Building Model",
+      "file": "client/assets/v58/historic-building-model.svg",
+      "sha256": "e3d22eadba51373ca43c40b55845f713dae0dc387590a9de5ae6ecb21afa6a8d",
+      "motifs": [
+        "house",
+        "paper"
+      ]
+    },
+    {
+      "id": "organic58:storytelling-campfire",
+      "name": "Storytelling Campfire",
+      "file": "client/assets/v58/storytelling-campfire.svg",
+      "sha256": "6d86bcad48eb479ebfa4c59288984570edacfc6ff359e18bf2b8fec04f4f5b8f",
+      "motifs": [
+        "book",
+        "sun"
+      ]
+    },
+    {
+      "id": "organic58:outdoor-pottery-class",
+      "name": "Outdoor Pottery Class",
+      "file": "client/assets/v58/outdoor-pottery-class.svg",
+      "sha256": "227b65d5d757beabf42327164e293b6226b317c800ba4754cdb0d838f4dc04d6",
+      "motifs": [
+        "pot",
+        "people"
+      ]
+    },
+    {
+      "id": "organic58:family-recipe-archive",
+      "name": "Family Recipe Archive",
+      "file": "client/assets/v58/family-recipe-archive.svg",
+      "sha256": "77676f5280aaa5759c5a5bfed421023942bbd33d9f6560ba2f9dd5b595b4ea2d",
+      "motifs": [
+        "book",
+        "people"
+      ]
+    },
+    {
+      "id": "organic58:artisan-market-poster",
+      "name": "Artisan Market Poster",
+      "file": "client/assets/v58/artisan-market-poster.svg",
+      "sha256": "916e0dd44bf4ce368287cdcc94d99bc784a4bbcba044009e9d89beb15f54fea0",
+      "motifs": [
+        "paper",
+        "frame"
+      ]
+    },
+    {
+      "id": "organic58:local-birdwatching-club",
+      "name": "Local Birdwatching Club",
+      "file": "client/assets/v58/local-birdwatching-club.svg",
+      "sha256": "363e0cbe6ea0ee8f95987304184ec7c7e5c65fcc6269eb1e8cbd388b749ceece",
+      "motifs": [
+        "people",
+        "leaf"
+      ]
+    },
+    {
+      "id": "organic58:neighborhood-tea-house",
+      "name": "Neighborhood Tea House",
+      "file": "client/assets/v58/neighborhood-tea-house.svg",
+      "sha256": "c06d6d9af276f02e8ef4b995917feeaa28e73cba9b530b2b55a23c7351cb9d08",
+      "motifs": [
+        "house",
+        "cup"
+      ]
+    },
+    {
+      "id": "organic58:community-herbarium",
+      "name": "Community Herbarium",
+      "file": "client/assets/v58/community-herbarium.svg",
+      "sha256": "e4a8cc4bba81947cc258b2c5f9555f9a3ff75573222682e5fabac8072c37ba86",
+      "motifs": [
+        "book",
+        "leaf"
+      ]
+    },
+    {
+      "id": "organic58:craft-studio-open-day",
+      "name": "Craft Studio Open Day",
+      "file": "client/assets/v58/craft-studio-open-day.svg",
+      "sha256": "5634ce8d797d9240f92cdcafbb8e77a40e702102f69b6de35c3633ef258d4c06",
+      "motifs": [
+        "shop",
+        "people"
+      ]
+    },
+    {
+      "id": "organic58:seasonal-flower-festival",
+      "name": "Seasonal Flower Festival",
+      "file": "client/assets/v58/seasonal-flower-festival.svg",
+      "sha256": "22bc7e123d8d45222c50fd97d1c229ed8e2fe943639be449291ca098fd8d1eb2",
+      "motifs": [
+        "flower",
+        "wreath"
+      ]
+    },
+    {
+      "id": "organic58:historical-costume-sketch",
+      "name": "Historical Costume Sketch",
+      "file": "client/assets/v58/historical-costume-sketch.svg",
+      "sha256": "265d57131c9eb4988e75d3a69c36afffd7f9a9f6c3885c66c120a571ef68e664",
+      "motifs": [
+        "pencil",
+        "people"
+      ]
+    },
+    {
+      "id": "organic58:evening-street-concert",
+      "name": "Evening Street Concert",
+      "file": "client/assets/v58/evening-street-concert.svg",
+      "sha256": "a2649e4b7200de86d8de59168bb8ecfbfaee97f2b1884e633cf055cba6876acb",
+      "motifs": [
+        "people",
+        "sun"
+      ]
+    },
+    {
+      "id": "organic58:children-s-nature-trail",
+      "name": "Children's Nature Trail",
+      "file": "client/assets/v58/children-s-nature-trail.svg",
+      "sha256": "ada6f118bc61975b3fdbfc71ff2d4935983317279ba024b0bd83d53ea8f0ef26",
+      "motifs": [
+        "book",
+        "tree"
+      ]
+    },
+    {
+      "id": "organic58:village-garden-gate",
+      "name": "Village Garden Gate",
+      "file": "client/assets/v58/village-garden-gate.svg",
+      "sha256": "a19c278b15cd5f90a6372711346efcfcf60edc9c53a245c3a09a9273577285f6",
+      "motifs": [
+        "house",
+        "flower"
+      ]
+    },
+    {
+      "id": "organic58:wetland-bird-hide",
+      "name": "Wetland Bird Hide",
+      "file": "client/assets/v58/wetland-bird-hide.svg",
+      "sha256": "e889cf4fa4b37341fb3ac602409dbc2b2eef5d464401efd8461548b64f954a66",
+      "motifs": [
+        "house",
+        "fish"
+      ]
+    },
+    {
+      "id": "organic58:butterfly-observation-box",
+      "name": "Butterfly Observation Box",
+      "file": "client/assets/v58/butterfly-observation-box.svg",
+      "sha256": "69e5dbd6d36bd1f3351801d7184d450839343691ca3632d667aea63dd31f4b19",
+      "motifs": [
+        "frame",
+        "flower"
+      ]
+    },
+    {
+      "id": "organic58:owl-nest-camera",
+      "name": "Owl Nest Camera",
+      "file": "client/assets/v58/owl-nest-camera.svg",
+      "sha256": "0d00b5cf3a0e0f53f43d3a20a9d99d009edc06bff8abf818948b63930a19ee92",
+      "motifs": [
+        "camera",
+        "branch"
+      ]
+    },
+    {
+      "id": "organic58:bee-water-station",
+      "name": "Bee Water Station",
+      "file": "client/assets/v58/bee-water-station.svg",
+      "sha256": "11e75a27cf875448bfff2daa3f1d24c7ec8d0f09128d026be99e68d8b577950f",
+      "motifs": [
+        "pool",
+        "flower"
+      ]
+    },
+    {
+      "id": "organic58:pond-insect-survey",
+      "name": "Pond Insect Survey",
+      "file": "client/assets/v58/pond-insect-survey.svg",
+      "sha256": "5cb20a2667eb27846ab611044cb38e1b08f0ba826da65cc246fd06ffb50ef694",
+      "motifs": [
+        "fish",
+        "paper"
+      ]
+    },
+    {
+      "id": "organic58:fox-den-entrance",
+      "name": "Fox Den Entrance",
+      "file": "client/assets/v58/fox-den-entrance.svg",
+      "sha256": "f543f8eb76ea273045fe10365dc7c8f1997ae1bc6d29660ace943499683d5fd8",
+      "motifs": [
+        "house",
+        "mountain"
+      ]
+    },
+    {
+      "id": "organic58:ladybug-garden-shelter",
+      "name": "Ladybug Garden Shelter",
+      "file": "client/assets/v58/ladybug-garden-shelter.svg",
+      "sha256": "059c1c863d6e3fdfeae38351f1b02c9c5dc354faba88f9ae9f46fb880d31cc87",
+      "motifs": [
+        "flower",
+        "house"
+      ]
+    },
+    {
+      "id": "organic58:dragonfly-habitat-map",
+      "name": "Dragonfly Habitat Map",
+      "file": "client/assets/v58/dragonfly-habitat-map.svg",
+      "sha256": "999f16f31c568915ae7651412c950221aa1db11768f72af65f3b9aac09f80486",
+      "motifs": [
+        "paper",
+        "wave"
+      ]
+    },
+    {
+      "id": "organic58:sea-turtle-hatchery",
+      "name": "Sea Turtle Hatchery",
+      "file": "client/assets/v58/sea-turtle-hatchery.svg",
+      "sha256": "73c4de93885c7c80c768e7104ba45ea8d5c12dd80482dc8d2ca4b56e42245d30",
+      "motifs": [
+        "shell",
+        "house"
+      ]
+    },
+    {
+      "id": "organic58:hedgehog-garden-corridor",
+      "name": "Hedgehog Garden Corridor",
+      "file": "client/assets/v58/hedgehog-garden-corridor.svg",
+      "sha256": "18dea0afeb944694f1e5086513d7aa53f2b4e0be74fcdc2f786aa278945daa50",
+      "motifs": [
+        "tree",
+        "house"
+      ]
+    },
+    {
+      "id": "organic58:migratory-bird-calendar",
+      "name": "Migratory Bird Calendar",
+      "file": "client/assets/v58/migratory-bird-calendar.svg",
+      "sha256": "ffbbc2f4c4d807b4e338e5f77b33c4b7d34844438f509a82d7e80ec21d98c4d7",
+      "motifs": [
+        "book",
+        "fish"
+      ]
+    },
+    {
+      "id": "organic58:wildflower-pollinator-patch",
+      "name": "Wildflower Pollinator Patch",
+      "file": "client/assets/v58/wildflower-pollinator-patch.svg",
+      "sha256": "af041e2d32ed019c17173e75cf777eeb3053759f1bedc192780e3c484ad89efb",
+      "motifs": [
+        "flower",
+        "grass"
+      ]
+    },
+    {
+      "id": "organic58:river-otter-lookout",
+      "name": "River Otter Lookout",
+      "file": "client/assets/v58/river-otter-lookout.svg",
+      "sha256": "c6609d9183cbcd053b8efbedb0c2df1f86786f7eb862590e01d1d069558a479c",
+      "motifs": [
+        "people",
+        "wave"
+      ]
+    },
+    {
+      "id": "organic58:reef-fish-shelter",
+      "name": "Reef Fish Shelter",
+      "file": "client/assets/v58/reef-fish-shelter.svg",
+      "sha256": "0be17fe886f0611a9d3acd9d75eda561cf348ef30a56f1dbb15636c9645af633",
+      "motifs": [
+        "fish",
+        "coral"
+      ]
+    },
+    {
+      "id": "organic58:moth-light-trap",
+      "name": "Moth Light Trap",
+      "file": "client/assets/v58/moth-light-trap.svg",
+      "sha256": "514b0a8b205dbffbd27d54d5595f3a359b22eb0860cd6327c036125d31d9e954",
+      "motifs": [
+        "flower",
+        "sun"
+      ]
+    },
+    {
+      "id": "organic58:beetle-bark-tunnel",
+      "name": "Beetle Bark Tunnel",
+      "file": "client/assets/v58/beetle-bark-tunnel.svg",
+      "sha256": "17be486d80cde56e015c2b60f93f8674ec79e22a8826ddb8d10c8b1525e9e149",
+      "motifs": [
+        "branch",
+        "roots"
+      ]
+    },
+    {
+      "id": "organic58:frog-call-recorder",
+      "name": "Frog Call Recorder",
+      "file": "client/assets/v58/frog-call-recorder.svg",
+      "sha256": "d9f53f66e4d163b9f1cb60cf3f4ace1f5700c61d9eb74f65b5ee504b2fa95f28",
+      "motifs": [
+        "camera",
+        "leaf"
+      ]
+    },
+    {
+      "id": "organic58:garden-bird-census",
+      "name": "Garden Bird Census",
+      "file": "client/assets/v58/garden-bird-census.svg",
+      "sha256": "a3d2e8a36e560778f26636e012359e19c106bab91bdcdd00a3439f37c6244a06",
+      "motifs": [
+        "paper",
+        "people"
+      ]
+    },
+    {
+      "id": "organic58:seagrass-fish-nursery",
+      "name": "Seagrass Fish Nursery",
+      "file": "client/assets/v58/seagrass-fish-nursery.svg",
+      "sha256": "279be8605a0d18a94081159a045663c1efad0a5277fc65a597028f7f8ac796cc",
+      "motifs": [
+        "grass",
+        "fish"
+      ]
+    },
+    {
+      "id": "organic58:heron-wetland-sketch",
+      "name": "Heron Wetland Sketch",
+      "file": "client/assets/v58/heron-wetland-sketch.svg",
+      "sha256": "a4a198cfb728bacb18a4f230c314183139139634b6b7a0dbb3271533b0c092d5",
+      "motifs": [
+        "paper",
+        "fish"
+      ]
+    },
+    {
+      "id": "organic58:oyster-reef-habitat",
+      "name": "Oyster Reef Habitat",
+      "file": "client/assets/v58/oyster-reef-habitat.svg",
+      "sha256": "f873ec950e34e62214fc7bdfa8b1a58d8e6780fddc0622ba5fb755301e6ad33e",
+      "motifs": [
+        "shell",
+        "coral"
+      ]
+    },
+    {
+      "id": "organic58:night-moth-survey",
+      "name": "Night Moth Survey",
+      "file": "client/assets/v58/night-moth-survey.svg",
+      "sha256": "5c8356af60b2a4fd485d8adcf3c555539c96401bf2658e26e3b8866009e369a3",
+      "motifs": [
+        "flower",
+        "halo"
+      ]
+    },
+    {
+      "id": "organic58:squirrel-trail-camera",
+      "name": "Squirrel Trail Camera",
+      "file": "client/assets/v58/squirrel-trail-camera.svg",
+      "sha256": "9e9c5cdc0030d043ef036bf692cb7d72e79078cecd35fd7082cdd3522ed38943",
+      "motifs": [
+        "camera",
+        "tree"
+      ]
+    }
+  ]
+}

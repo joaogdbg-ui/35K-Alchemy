@@ -1,0 +1,1005 @@
+{
+  "version": 56,
+  "icons": [
+    {
+      "id": "organic56:tidal-ripple",
+      "name": "Tidal Ripple",
+      "path": "client/assets/v56/tidal-ripple.svg",
+      "sha256": "241d88f9786c7b8a6b984b608f58aff050cfefdfdaeadac17ebb036e8071196f",
+      "motifs": [
+        "wave",
+        "pool"
+      ]
+    },
+    {
+      "id": "organic56:sandy-footprint",
+      "name": "Sandy Footprint",
+      "path": "client/assets/v56/sandy-footprint.svg",
+      "sha256": "ea37ed6175458433d2ce806d8621b75a10b0877b66b9214cd9ec7c55b1080799",
+      "motifs": [
+        "mountain",
+        "paper"
+      ]
+    },
+    {
+      "id": "organic56:seaside-rock-pool",
+      "name": "Seaside Rock Pool",
+      "path": "client/assets/v56/seaside-rock-pool.svg",
+      "sha256": "fb83f488226ef7a56b025e0a057eedf9176e626602c3d8ff7b345de55f9873cc",
+      "motifs": [
+        "pool",
+        "mountain"
+      ]
+    },
+    {
+      "id": "organic56:salt-crystals",
+      "name": "Salt Crystals",
+      "path": "client/assets/v56/salt-crystals.svg",
+      "sha256": "b055731a9e642c744a693966d333df22b6efd1aa757f7c3397fb7880d9095106",
+      "motifs": [
+        "ice",
+        "shell"
+      ]
+    },
+    {
+      "id": "organic56:coastal-rainfall",
+      "name": "Coastal Rainfall",
+      "path": "client/assets/v56/coastal-rainfall.svg",
+      "sha256": "743bdf2745799454559d1e6835ca354735638b11beba9a80b0c468432508119c",
+      "motifs": [
+        "rain",
+        "wave"
+      ]
+    },
+    {
+      "id": "organic56:dune-ridge",
+      "name": "Dune Ridge",
+      "path": "client/assets/v56/dune-ridge.svg",
+      "sha256": "ef3564e53aa8dc4e5e872ee0030ffd542ff166ad7add1ddcf1a0a7464856a47f",
+      "motifs": [
+        "mountain",
+        "wave"
+      ]
+    },
+    {
+      "id": "organic56:coral-nursery",
+      "name": "Coral Nursery",
+      "path": "client/assets/v56/coral-nursery.svg",
+      "sha256": "cbd77b2a5b7bff6a3221bbf86fbe3047b928f61d983806d9f0c9de603a3c394f",
+      "motifs": [
+        "coral",
+        "flowerpot"
+      ]
+    },
+    {
+      "id": "organic56:seaweed-basket",
+      "name": "Seaweed Basket",
+      "path": "client/assets/v56/seaweed-basket.svg",
+      "sha256": "7c2621edb158bf6a2600e986c26334247b795d94e5f4f1a1810b074b90a6ed89",
+      "motifs": [
+        "basket",
+        "grass"
+      ]
+    },
+    {
+      "id": "organic56:reef-shadows",
+      "name": "Reef Shadows",
+      "path": "client/assets/v56/reef-shadows.svg",
+      "sha256": "93c220e446f765338db5a7a73f1fe06f2a170f7c8d09029b0882402ac1f8242e",
+      "motifs": [
+        "coral",
+        "halo"
+      ]
+    },
+    {
+      "id": "organic56:coastal-sunrise",
+      "name": "Coastal Sunrise",
+      "path": "client/assets/v56/coastal-sunrise.svg",
+      "sha256": "549bee3782837b390f67c3b11d8dc43ac055774f7e647aae6b4d151d027e00a1",
+      "motifs": [
+        "sun",
+        "wave"
+      ]
+    },
+    {
+      "id": "organic56:sea-breeze-chime",
+      "name": "Sea Breeze Chime",
+      "path": "client/assets/v56/sea-breeze-chime.svg",
+      "sha256": "18a5261609456d4449d1f6749c3580aa2644a0022e03495bde3da4bdd0329257",
+      "motifs": [
+        "wind",
+        "shell"
+      ]
+    },
+    {
+      "id": "organic56:beach-bonfire",
+      "name": "Beach Bonfire",
+      "path": "client/assets/v56/beach-bonfire.svg",
+      "sha256": "27ef46b10dcce3139943860419823291c8fc55bc2ebc457a3b2fe4c558d55a1f",
+      "motifs": [
+        "sun",
+        "branch"
+      ]
+    },
+    {
+      "id": "organic56:shell-collector",
+      "name": "Shell Collector",
+      "path": "client/assets/v56/shell-collector.svg",
+      "sha256": "4f5ce1f908f4235c78eead60194b2de429a37f5639fb547a7398ca455550d80d",
+      "motifs": [
+        "shell",
+        "people"
+      ]
+    },
+    {
+      "id": "organic56:tide-calendar",
+      "name": "Tide Calendar",
+      "path": "client/assets/v56/tide-calendar.svg",
+      "sha256": "f323041c837549507536291aeb7948e720e49976c80781d902fab7a71a66b7b1",
+      "motifs": [
+        "paper",
+        "wave"
+      ]
+    },
+    {
+      "id": "organic56:harbor-bell",
+      "name": "Harbor Bell",
+      "path": "client/assets/v56/harbor-bell.svg",
+      "sha256": "f532b24f87a7a9412f3976d9da8432e2fb6de80b2d0311474e1b6e47da3486f4",
+      "motifs": [
+        "house",
+        "halo"
+      ]
+    },
+    {
+      "id": "organic56:fisherman-s-lantern",
+      "name": "Fisherman's Lantern",
+      "path": "client/assets/v56/fisherman-s-lantern.svg",
+      "sha256": "03b58d2916b995ecd162c6d49e3e22b7fb894e336f9d18d4dfda4a0ca3bfa17a",
+      "motifs": [
+        "sun",
+        "fish"
+      ]
+    },
+    {
+      "id": "organic56:riverbank-reeds",
+      "name": "Riverbank Reeds",
+      "path": "client/assets/v56/riverbank-reeds.svg",
+      "sha256": "7b009b41df263c512bfb31e66a3a4201e46481ec90d105fe431dc8da959d4397",
+      "motifs": [
+        "grass",
+        "pool"
+      ]
+    },
+    {
+      "id": "organic56:salt-meadow",
+      "name": "Salt Meadow",
+      "path": "client/assets/v56/salt-meadow.svg",
+      "sha256": "a408fa7d3cee30738d7f18744002b07c22e1b454631b2ef40156ce5c91e4fa79",
+      "motifs": [
+        "grass",
+        "shell"
+      ]
+    },
+    {
+      "id": "organic56:floating-leaf",
+      "name": "Floating Leaf",
+      "path": "client/assets/v56/floating-leaf.svg",
+      "sha256": "a8ab28f9cb3fc3df7a0a7926ac030b1d9f0b9e4d15b3bf2723bd1cc64ee8b535",
+      "motifs": [
+        "leaf",
+        "pool"
+      ]
+    },
+    {
+      "id": "organic56:pine-grove-shade",
+      "name": "Pine Grove Shade",
+      "path": "client/assets/v56/pine-grove-shade.svg",
+      "sha256": "359dcf28c45dbf1f7e70aac92281d0a9c65f05faf8cd3eb2ccfe36eea24c1e0c",
+      "motifs": [
+        "tree",
+        "halo"
+      ]
+    },
+    {
+      "id": "organic56:mossy-boulder",
+      "name": "Mossy Boulder",
+      "path": "client/assets/v56/mossy-boulder.svg",
+      "sha256": "e76850a4c55b4a6285684c09f38118862a24688245e12ded93acc0557fb4004c",
+      "motifs": [
+        "grass",
+        "mountain"
+      ]
+    },
+    {
+      "id": "organic56:fern-dew",
+      "name": "Fern Dew",
+      "path": "client/assets/v56/fern-dew.svg",
+      "sha256": "2ce9e87fce565c2c619269828c7e48f2b754f9655bd6929c6c7eeab1e45eb55d",
+      "motifs": [
+        "leaf",
+        "droplet"
+      ]
+    },
+    {
+      "id": "organic56:forest-path-marker",
+      "name": "Forest Path Marker",
+      "path": "client/assets/v56/forest-path-marker.svg",
+      "sha256": "91c4303c2e2d8a551106e4187a32bb67598bc58711747eb166fcce07f516f07e",
+      "motifs": [
+        "tree",
+        "paper"
+      ]
+    },
+    {
+      "id": "organic56:fallen-pinecone",
+      "name": "Fallen Pinecone",
+      "path": "client/assets/v56/fallen-pinecone.svg",
+      "sha256": "ec9ae00dd0ded06e587dbf24a1032dba01771fd63d384b67c04da79a4fac691d",
+      "motifs": [
+        "branch",
+        "roots"
+      ]
+    },
+    {
+      "id": "organic56:bird-nest-lining",
+      "name": "Bird Nest Lining",
+      "path": "client/assets/v56/bird-nest-lining.svg",
+      "sha256": "0f7baabbb2098b835e0cdd1993bcd7014c9035c295fe0e37cc15970046459e2e",
+      "motifs": [
+        "tree",
+        "grass"
+      ]
+    },
+    {
+      "id": "organic56:wild-mushroom-soup",
+      "name": "Wild Mushroom Soup",
+      "path": "client/assets/v56/wild-mushroom-soup.svg",
+      "sha256": "061162d9b15b820aa46a2daa574c64b6587ecbdcffef3a2333d5c460f29b1c60",
+      "motifs": [
+        "mushroom",
+        "pot"
+      ]
+    },
+    {
+      "id": "organic56:root-cellar",
+      "name": "Root Cellar",
+      "path": "client/assets/v56/root-cellar.svg",
+      "sha256": "ab200a17ccae8430968a7d1b06bcd8c363168593c3597f4213a460e4850909be",
+      "motifs": [
+        "house",
+        "roots"
+      ]
+    },
+    {
+      "id": "organic56:forest-stream-pebble",
+      "name": "Forest Stream Pebble",
+      "path": "client/assets/v56/forest-stream-pebble.svg",
+      "sha256": "f00b59c59f13c3b5802f98e0310c5b663b68b6363eed3a8bfcedb51e8f2aceed",
+      "motifs": [
+        "pool",
+        "ice"
+      ]
+    },
+    {
+      "id": "organic56:wildflower-pollen",
+      "name": "Wildflower Pollen",
+      "path": "client/assets/v56/wildflower-pollen.svg",
+      "sha256": "10a4113e01b691ae6dc523ecfa4a430f03a122306b517471a2d7a759c1c1e08b",
+      "motifs": [
+        "flower",
+        "grass"
+      ]
+    },
+    {
+      "id": "organic56:bee-garden",
+      "name": "Bee Garden",
+      "path": "client/assets/v56/bee-garden.svg",
+      "sha256": "6652c5d9b01fd471f27320c470ddfbee97c5415c329644b4b37e7121b06ce800",
+      "motifs": [
+        "flower",
+        "people"
+      ]
+    },
+    {
+      "id": "organic56:honeycomb-frame",
+      "name": "Honeycomb Frame",
+      "path": "client/assets/v56/honeycomb-frame.svg",
+      "sha256": "7b1a735f8941dbadb4a8ae5b5ccee8b8ffec15ce1951c742cb56587c3b07a2d9",
+      "motifs": [
+        "basket",
+        "flower"
+      ]
+    },
+    {
+      "id": "organic56:leaf-press",
+      "name": "Leaf Press",
+      "path": "client/assets/v56/leaf-press.svg",
+      "sha256": "656324e54787523dd3a53ba3956f5b67bd6dbd0d0faa4a3fd4ee909cbf4342fd",
+      "motifs": [
+        "leaf",
+        "book"
+      ]
+    },
+    {
+      "id": "organic56:seedling-tray",
+      "name": "Seedling Tray",
+      "path": "client/assets/v56/seedling-tray.svg",
+      "sha256": "289735c85155960d4315c1af6dc18d1f3eb6f43161dc506eb2d83b9e0eeeafc1",
+      "motifs": [
+        "flowerpot",
+        "leaf"
+      ]
+    },
+    {
+      "id": "organic56:terrarium-moss",
+      "name": "Terrarium Moss",
+      "path": "client/assets/v56/terrarium-moss.svg",
+      "sha256": "293038ffada6e0937331d006c49fc058c70cf4305691dfc32eeddac830e43622",
+      "motifs": [
+        "leaf",
+        "ice"
+      ]
+    },
+    {
+      "id": "organic56:woodland-lantern",
+      "name": "Woodland Lantern",
+      "path": "client/assets/v56/woodland-lantern.svg",
+      "sha256": "caf887c978b2a8394f4b5bc1830105810ba32baa7cd243c26977b938f6c51444",
+      "motifs": [
+        "tree",
+        "sun"
+      ]
+    },
+    {
+      "id": "organic56:bark-texture",
+      "name": "Bark Texture",
+      "path": "client/assets/v56/bark-texture.svg",
+      "sha256": "47e8b981b70e21e3937279c3bd7cc42dfd1a9084b1292699b434f4c494065c01",
+      "motifs": [
+        "branch",
+        "frame"
+      ]
+    },
+    {
+      "id": "organic56:forest-whisper",
+      "name": "Forest Whisper",
+      "path": "client/assets/v56/forest-whisper.svg",
+      "sha256": "830498d4b99951662ae0439626cdd598af454b782ce7578a290e9190e8f5a813",
+      "motifs": [
+        "tree",
+        "wind"
+      ]
+    },
+    {
+      "id": "organic56:birdwatching-hide",
+      "name": "Birdwatching Hide",
+      "path": "client/assets/v56/birdwatching-hide.svg",
+      "sha256": "e770385914dc50ab38e232dcebc6b4a6a2e7f1a4e6110366307b563e9b2cecd4",
+      "motifs": [
+        "house",
+        "tree"
+      ]
+    },
+    {
+      "id": "organic56:mushroom-basket",
+      "name": "Mushroom Basket",
+      "path": "client/assets/v56/mushroom-basket.svg",
+      "sha256": "76ab80527a077d5660b5a9e9f7d132c2d231ba7176ec7a0828da17e0c2168190",
+      "motifs": [
+        "mushroom",
+        "basket"
+      ]
+    },
+    {
+      "id": "organic56:morning-dewdrop",
+      "name": "Morning Dewdrop",
+      "path": "client/assets/v56/morning-dewdrop.svg",
+      "sha256": "306f5565b05d0d0176669590a80c7781b8f4452edbd1cbc4e243ad674e3c00ba",
+      "motifs": [
+        "droplet",
+        "sun"
+      ]
+    },
+    {
+      "id": "organic56:sunlit-fog",
+      "name": "Sunlit Fog",
+      "path": "client/assets/v56/sunlit-fog.svg",
+      "sha256": "a12bb7bfb95d2b46fa9199b3b2717e1eec55c06bb35e5aaac3fb6410550bb429",
+      "motifs": [
+        "fog",
+        "sun"
+      ]
+    },
+    {
+      "id": "organic56:frozen-puddle",
+      "name": "Frozen Puddle",
+      "path": "client/assets/v56/frozen-puddle.svg",
+      "sha256": "e51dfce533163419ae084cc7c90ea9c76eafe83d2992296671f7bebee34ab0d5",
+      "motifs": [
+        "ice",
+        "pool"
+      ]
+    },
+    {
+      "id": "organic56:snow-covered-branch",
+      "name": "Snow-Covered Branch",
+      "path": "client/assets/v56/snow-covered-branch.svg",
+      "sha256": "d4b1b15d621103676c81a7dae58ad5c053943c088ad3e3c4b8bf88a0498181df",
+      "motifs": [
+        "snow",
+        "branch"
+      ]
+    },
+    {
+      "id": "organic56:windblown-leaves",
+      "name": "Windblown Leaves",
+      "path": "client/assets/v56/windblown-leaves.svg",
+      "sha256": "512a49a1a37cbf56a672fe405806aae421bc572af71641ca3e1301e45e5fb532",
+      "motifs": [
+        "leaf",
+        "wind"
+      ]
+    },
+    {
+      "id": "organic56:rain-darkened-stone",
+      "name": "Rain-Darkened Stone",
+      "path": "client/assets/v56/rain-darkened-stone.svg",
+      "sha256": "a597baa735f9229a8b0bba927f0658d61abe74688e94ebc426bbf416645403bf",
+      "motifs": [
+        "mountain",
+        "droplet"
+      ]
+    },
+    {
+      "id": "organic56:thunderstorm-rain",
+      "name": "Thunderstorm Rain",
+      "path": "client/assets/v56/thunderstorm-rain.svg",
+      "sha256": "28297cd8f1f82114c4a25c5db8fb292e918867809ae1d766b4d72ab75835191c",
+      "motifs": [
+        "rain",
+        "lightning"
+      ]
+    },
+    {
+      "id": "organic56:double-rainbow",
+      "name": "Double Rainbow",
+      "path": "client/assets/v56/double-rainbow.svg",
+      "sha256": "a214ed408bf840a8b83c70b82f3391813b30ca7237bc1ceca7d9546e719d84de",
+      "motifs": [
+        "halo",
+        "sun"
+      ]
+    },
+    {
+      "id": "organic56:cloudbreak",
+      "name": "Cloudbreak",
+      "path": "client/assets/v56/cloudbreak.svg",
+      "sha256": "eca2850b4c2060e1c1e1ac6eb205de90da5ca0076495bda13c4219e96ca6e25b",
+      "motifs": [
+        "cloud",
+        "sun"
+      ]
+    },
+    {
+      "id": "organic56:frosted-windowpane",
+      "name": "Frosted Windowpane",
+      "path": "client/assets/v56/frosted-windowpane.svg",
+      "sha256": "7f6011a31a8da90860a9bdd70557a9933ae395fd7bb79d2506da628128106c24",
+      "motifs": [
+        "ice",
+        "frame"
+      ]
+    },
+    {
+      "id": "organic56:dawn-chorus",
+      "name": "Dawn Chorus",
+      "path": "client/assets/v56/dawn-chorus.svg",
+      "sha256": "51dd7f7d1aba92e9c928e0844ebddad212a8221edc5e1cfc86e2c90405828c1f",
+      "motifs": [
+        "tree",
+        "wreath"
+      ]
+    },
+    {
+      "id": "organic56:night-sky-map",
+      "name": "Night Sky Map",
+      "path": "client/assets/v56/night-sky-map.svg",
+      "sha256": "68414dc845d8a48ba2fd2845d35cc4bf76932ddefe52cd97c0de27aa23659650",
+      "motifs": [
+        "paper",
+        "halo"
+      ]
+    },
+    {
+      "id": "organic56:constellation-card",
+      "name": "Constellation Card",
+      "path": "client/assets/v56/constellation-card.svg",
+      "sha256": "13e14b1cff582e6531dd40353f00a1cfd00d533b72af74f3e02c31b03b03dd5c",
+      "motifs": [
+        "paper",
+        "sun"
+      ]
+    },
+    {
+      "id": "organic56:star-tracker",
+      "name": "Star Tracker",
+      "path": "client/assets/v56/star-tracker.svg",
+      "sha256": "9ff9c56080836a63295f60300570ca74bfd77af8a6f3a6b3fc51c9df41475baa",
+      "motifs": [
+        "halo",
+        "camera"
+      ]
+    },
+    {
+      "id": "organic56:moonlight-photograph",
+      "name": "Moonlight Photograph",
+      "path": "client/assets/v56/moonlight-photograph.svg",
+      "sha256": "bd4483122efe41574c86245552df3fe334a090b7341d73fd71d9e2403091e4c4",
+      "motifs": [
+        "camera",
+        "sun"
+      ]
+    },
+    {
+      "id": "organic56:night-camp",
+      "name": "Night Camp",
+      "path": "client/assets/v56/night-camp.svg",
+      "sha256": "c21958b00aa97d3c1f4169de2e9f184d4b072f60086aec9ea6a7984c082bf99f",
+      "motifs": [
+        "blanket",
+        "halo"
+      ]
+    },
+    {
+      "id": "organic56:solar-sundial",
+      "name": "Solar Sundial",
+      "path": "client/assets/v56/solar-sundial.svg",
+      "sha256": "48429af57dd8a2193a65bf73e882e3ce6d1241ebebdd86405b4d4648a433712a",
+      "motifs": [
+        "sun",
+        "paper"
+      ]
+    },
+    {
+      "id": "organic56:rainfall-chart",
+      "name": "Rainfall Chart",
+      "path": "client/assets/v56/rainfall-chart.svg",
+      "sha256": "32eca6f187c07f03953165b4444da40ea083cab6b670ca701400a9eb2446afe2",
+      "motifs": [
+        "paper",
+        "rain"
+      ]
+    },
+    {
+      "id": "organic56:wind-speed-meter",
+      "name": "Wind Speed Meter",
+      "path": "client/assets/v56/wind-speed-meter.svg",
+      "sha256": "b3dd4fff54abbc77bb7e4515e75513126c1548827e649508de86663234cce010",
+      "motifs": [
+        "wind",
+        "paper"
+      ]
+    },
+    {
+      "id": "organic56:storm-journal",
+      "name": "Storm Journal",
+      "path": "client/assets/v56/storm-journal.svg",
+      "sha256": "fa7638a21a8c05ad8c2e2dd15aab262dbfe10428ea6a5cb179f787ff2c8d8329",
+      "motifs": [
+        "book",
+        "cloud"
+      ]
+    },
+    {
+      "id": "organic56:frost-pattern",
+      "name": "Frost Pattern",
+      "path": "client/assets/v56/frost-pattern.svg",
+      "sha256": "51d4e0f1f001da0dd2c25477f46b8351977335bd35cade570de87ff0d72b118f",
+      "motifs": [
+        "ice",
+        "flower"
+      ]
+    },
+    {
+      "id": "organic56:cave-echo",
+      "name": "Cave Echo",
+      "path": "client/assets/v56/cave-echo.svg",
+      "sha256": "fb6d2c9214a8b51fbb8b2c463ad04c54ec0bfb33994b506bbc9839fc7908d89b",
+      "motifs": [
+        "mountain",
+        "wreath"
+      ]
+    },
+    {
+      "id": "organic56:quartz-vein",
+      "name": "Quartz Vein",
+      "path": "client/assets/v56/quartz-vein.svg",
+      "sha256": "0cbceb385e33eb27f6a0ccb8661b751d8ece1ae82160aa655acb399f84b827e8",
+      "motifs": [
+        "ice",
+        "mountain"
+      ]
+    },
+    {
+      "id": "organic56:river-sediment",
+      "name": "River Sediment",
+      "path": "client/assets/v56/river-sediment.svg",
+      "sha256": "fdf1a7912cbea1e775366f0baa7593b8a06b1cc9648599a9dd31729fa8fe38e7",
+      "motifs": [
+        "pool",
+        "roots"
+      ]
+    },
+    {
+      "id": "organic56:cliffside-spring",
+      "name": "Cliffside Spring",
+      "path": "client/assets/v56/cliffside-spring.svg",
+      "sha256": "a208c1147f34974054ebc830770e1677083e613f2a4a309d2208102b8a7785ce",
+      "motifs": [
+        "mountain",
+        "pool"
+      ]
+    },
+    {
+      "id": "organic56:stone-cairn",
+      "name": "Stone Cairn",
+      "path": "client/assets/v56/stone-cairn.svg",
+      "sha256": "3ac65a09e7d63ea9b45a2fb8385b35a0e21449f0901c2d6062c720937d865968",
+      "motifs": [
+        "mountain",
+        "branch"
+      ]
+    },
+    {
+      "id": "organic56:cave-lantern",
+      "name": "Cave Lantern",
+      "path": "client/assets/v56/cave-lantern.svg",
+      "sha256": "d7517d4d2c15474dd81bd53e2b7f90ddf14d1ba9abf0694fc7636803f522aa5b",
+      "motifs": [
+        "mountain",
+        "sun"
+      ]
+    },
+    {
+      "id": "organic56:geology-notebook",
+      "name": "Geology Notebook",
+      "path": "client/assets/v56/geology-notebook.svg",
+      "sha256": "18b953942037abe1e39a9e2956d196d7a3611b3be607281fcc09583ac0d4ddda",
+      "motifs": [
+        "book",
+        "mountain"
+      ]
+    },
+    {
+      "id": "organic56:crystal-display",
+      "name": "Crystal Display",
+      "path": "client/assets/v56/crystal-display.svg",
+      "sha256": "c59b6163581b48a604c5bb3280ab65610a4b22b938902f03a20b086a72ac98d5",
+      "motifs": [
+        "ice",
+        "statue"
+      ]
+    },
+    {
+      "id": "organic56:rock-garden-path",
+      "name": "Rock Garden Path",
+      "path": "client/assets/v56/rock-garden-path.svg",
+      "sha256": "10c6c7175daeb9eaf9a3ecb594de58ae486d3fd1a1a1e5d7499f4d70e1d9e87c",
+      "motifs": [
+        "mountain",
+        "flower"
+      ]
+    },
+    {
+      "id": "organic56:mineral-sample",
+      "name": "Mineral Sample",
+      "path": "client/assets/v56/mineral-sample.svg",
+      "sha256": "fd834ef6c7bd0420330e684312c9710d5227531a71ad73880bd1e01a7f1f9243",
+      "motifs": [
+        "ice",
+        "paper"
+      ]
+    },
+    {
+      "id": "organic56:fresh-fruit-salad",
+      "name": "Fresh Fruit Salad",
+      "path": "client/assets/v56/fresh-fruit-salad.svg",
+      "sha256": "30ca2ba1439627b1f50dc053f1bed48a074d550bcf2c5e0261644f8f637e176c",
+      "motifs": [
+        "apple",
+        "leaf"
+      ]
+    },
+    {
+      "id": "organic56:honey-lemon-tea",
+      "name": "Honey Lemon Tea",
+      "path": "client/assets/v56/honey-lemon-tea.svg",
+      "sha256": "9f8fae0a0f3e0550781618ce68226c27b065efd733221d9a242a2e906c7cf295",
+      "motifs": [
+        "cup",
+        "sun"
+      ]
+    },
+    {
+      "id": "organic56:garden-herb-soup",
+      "name": "Garden Herb Soup",
+      "path": "client/assets/v56/garden-herb-soup.svg",
+      "sha256": "6ff09c5baf7eac5b13970873a5e864bbaa0d13fa2129860d064a8cf8db8a1500",
+      "motifs": [
+        "pot",
+        "leaf"
+      ]
+    },
+    {
+      "id": "organic56:baked-tomato",
+      "name": "Baked Tomato",
+      "path": "client/assets/v56/baked-tomato.svg",
+      "sha256": "c47c414209d0e14073a8795aa2c46d6617be4550855e3f3d8563220c01b73dbd",
+      "motifs": [
+        "pot",
+        "apple"
+      ]
+    },
+    {
+      "id": "organic56:apple-jam",
+      "name": "Apple Jam",
+      "path": "client/assets/v56/apple-jam.svg",
+      "sha256": "58e09e989ce507709dffc61cf841e315271545cd47970b96e1b735eccb583b7f",
+      "motifs": [
+        "apple",
+        "pot"
+      ]
+    },
+    {
+      "id": "organic56:berry-pancake",
+      "name": "Berry Pancake",
+      "path": "client/assets/v56/berry-pancake.svg",
+      "sha256": "882f7494dac2c5d0e63efcac80bd7b37d39bc98455154a6de3b2030654ed6adc",
+      "motifs": [
+        "apple",
+        "bread"
+      ]
+    },
+    {
+      "id": "organic56:cinnamon-swirl-bun",
+      "name": "Cinnamon Swirl Bun",
+      "path": "client/assets/v56/cinnamon-swirl-bun.svg",
+      "sha256": "3026bafa8aa7fbb97a11cf563b92a516fcce59c2d5218604bf52010e3041f707",
+      "motifs": [
+        "bread",
+        "herbs"
+      ]
+    },
+    {
+      "id": "organic56:warm-bread-basket",
+      "name": "Warm Bread Basket",
+      "path": "client/assets/v56/warm-bread-basket.svg",
+      "sha256": "c4bef8b789d51d395049e75085dd0b5e885c6ba46f8cd1c942c1820b1d55faa2",
+      "motifs": [
+        "basket",
+        "bread"
+      ]
+    },
+    {
+      "id": "organic56:farmers-soup",
+      "name": "Farmers' Soup",
+      "path": "client/assets/v56/farmers-soup.svg",
+      "sha256": "8d701238d3e29cd9700cd5a9a20bbe17ad370d11b94075e60169b2a4d6b6d48b",
+      "motifs": [
+        "pot",
+        "house"
+      ]
+    },
+    {
+      "id": "organic56:orchard-picnic-basket",
+      "name": "Orchard Picnic Basket",
+      "path": "client/assets/v56/orchard-picnic-basket.svg",
+      "sha256": "a061a8cb5523ced77a00f28aed114e1d3fc7ce4b08ca98ac63fcf360c7778b58",
+      "motifs": [
+        "apple",
+        "grass"
+      ]
+    },
+    {
+      "id": "organic56:clay-cooking-pot",
+      "name": "Clay Cooking Pot",
+      "path": "client/assets/v56/clay-cooking-pot.svg",
+      "sha256": "3a6d5b9ae64624482c8d705a9ba3d75d127c94c31f2f58b615f0a683fee4f74e",
+      "motifs": [
+        "pot",
+        "mountain"
+      ]
+    },
+    {
+      "id": "organic56:tea-ceremony-tray",
+      "name": "Tea Ceremony Tray",
+      "path": "client/assets/v56/tea-ceremony-tray.svg",
+      "sha256": "7288507eeb4841ae9e7fd340e8a54fb06024b98783b89af9df9b39a705149092",
+      "motifs": [
+        "cup",
+        "basket"
+      ]
+    },
+    {
+      "id": "organic56:cottage-herb-rack",
+      "name": "Cottage Herb Rack",
+      "path": "client/assets/v56/cottage-herb-rack.svg",
+      "sha256": "cf358f3a16d3fe5c102d00f40cd68eba9a324ef5833d63259579b0da2e567e10",
+      "motifs": [
+        "house",
+        "herbs"
+      ]
+    },
+    {
+      "id": "organic56:kitchen-timer",
+      "name": "Kitchen Timer",
+      "path": "client/assets/v56/kitchen-timer.svg",
+      "sha256": "fdc88f0bb1cc00be7cc6ad43cc14d76c77a108bc34b68463446ea44447934137",
+      "motifs": [
+        "paper",
+        "pot"
+      ]
+    },
+    {
+      "id": "organic56:seed-packet",
+      "name": "Seed Packet",
+      "path": "client/assets/v56/seed-packet.svg",
+      "sha256": "ddc884a9c6c8e86188a1161558174623605aee174e2780e48827aaecba239fbe",
+      "motifs": [
+        "flowerpot",
+        "paper"
+      ]
+    },
+    {
+      "id": "organic56:gardening-gloves",
+      "name": "Gardening Gloves",
+      "path": "client/assets/v56/gardening-gloves.svg",
+      "sha256": "acc90dd57abbf52fab82d257973ddb5545580cc402dbfab4d4cc71bc5620b039",
+      "motifs": [
+        "flower",
+        "paper"
+      ]
+    },
+    {
+      "id": "organic56:community-noticeboard",
+      "name": "Community Noticeboard",
+      "path": "client/assets/v56/community-noticeboard.svg",
+      "sha256": "446f518120af04260e845eed2f4f9f4674451f6319bb9c371b1a83680b9c771c",
+      "motifs": [
+        "paper",
+        "people"
+      ]
+    },
+    {
+      "id": "organic56:town-market-stall",
+      "name": "Town Market Stall",
+      "path": "client/assets/v56/town-market-stall.svg",
+      "sha256": "d2cc0a02c71aeb6e561af0d3a6486871a6c5804d0fbaa9af6680d1daeefa08f0",
+      "motifs": [
+        "shop",
+        "house"
+      ]
+    },
+    {
+      "id": "organic56:pottery-demonstration",
+      "name": "Pottery Demonstration",
+      "path": "client/assets/v56/pottery-demonstration.svg",
+      "sha256": "7bfc426480306e47413013c47ef3fae2cfc91a8d0cdf8afde756b1cef2a211ce",
+      "motifs": [
+        "pot",
+        "people"
+      ]
+    },
+    {
+      "id": "organic56:village-reading-room",
+      "name": "Village Reading Room",
+      "path": "client/assets/v56/village-reading-room.svg",
+      "sha256": "78061ab59862b80ba8922755cc770ecd9f1c63ae465601ad0cc72c25c129cda3",
+      "motifs": [
+        "book",
+        "house"
+      ]
+    },
+    {
+      "id": "organic56:street-photography",
+      "name": "Street Photography",
+      "path": "client/assets/v56/street-photography.svg",
+      "sha256": "15b74b2da512c1d31fe18c5af4ec4c8c2a60ea69ebc07e4f8f0c469f764fdce3",
+      "motifs": [
+        "camera",
+        "house"
+      ]
+    },
+    {
+      "id": "organic56:museum-sketch",
+      "name": "Museum Sketch",
+      "path": "client/assets/v56/museum-sketch.svg",
+      "sha256": "6b62a40abccc3eea46eed9aa296e6357b9136574b8dac42edd14795a8df42eed",
+      "motifs": [
+        "frame",
+        "pencil"
+      ]
+    },
+    {
+      "id": "organic56:painted-flowerpot",
+      "name": "Painted Flowerpot",
+      "path": "client/assets/v56/painted-flowerpot.svg",
+      "sha256": "82e4e807a697c8b624721c97c027764db51e86e0404bb7e2d12d3667c1b28223",
+      "motifs": [
+        "pot",
+        "flower"
+      ]
+    },
+    {
+      "id": "organic56:handmade-bookmark",
+      "name": "Handmade Bookmark",
+      "path": "client/assets/v56/handmade-bookmark.svg",
+      "sha256": "b2ddb0b8a9a40272ead7415fcf71cf2ea9bd65bfa69cb5fc10b3ceb8df310546",
+      "motifs": [
+        "book",
+        "paper"
+      ]
+    },
+    {
+      "id": "organic56:solar-garden-light",
+      "name": "Solar Garden Light",
+      "path": "client/assets/v56/solar-garden-light.svg",
+      "sha256": "11005bf501f2970c9f45c34e85da5dd764cd20a160bea5437c036559b85abb31",
+      "motifs": [
+        "sun",
+        "flower"
+      ]
+    },
+    {
+      "id": "organic56:weather-sensor-network",
+      "name": "Weather Sensor Network",
+      "path": "client/assets/v56/weather-sensor-network.svg",
+      "sha256": "92cc99ece51f4e06ca5c76b9e1bba7de464f90ca779c2b4714cb4f910fc71eee",
+      "motifs": [
+        "cloud",
+        "lightning"
+      ]
+    },
+    {
+      "id": "organic56:smart-irrigation-timer",
+      "name": "Smart Irrigation Timer",
+      "path": "client/assets/v56/smart-irrigation-timer.svg",
+      "sha256": "c975a2cdd42dcf46ac1d57e592db02f42b6b23c980625d66862f76a0995b4a86",
+      "motifs": [
+        "pool",
+        "paper"
+      ]
+    },
+    {
+      "id": "organic56:portable-power-meter",
+      "name": "Portable Power Meter",
+      "path": "client/assets/v56/portable-power-meter.svg",
+      "sha256": "9f4406beedc712a34976834955d8f9274fdee803977b20959004f3d3d18d82db",
+      "motifs": [
+        "lightning",
+        "paper"
+      ]
+    },
+    {
+      "id": "organic56:camera-lens-filter",
+      "name": "Camera Lens Filter",
+      "path": "client/assets/v56/camera-lens-filter.svg",
+      "sha256": "e9e5075b5f50371012398cd0204bd554ec58525b869ee01ea001bd164d18b3cd",
+      "motifs": [
+        "camera",
+        "ice"
+      ]
+    },
+    {
+      "id": "organic56:nature-audio-recorder",
+      "name": "Nature Audio Recorder",
+      "path": "client/assets/v56/nature-audio-recorder.svg",
+      "sha256": "62c683a3debfbc91a6a4d7cd8e39a0efd3ac255cb8fb047ac75eb584762d1970",
+      "motifs": [
+        "tree",
+        "camera"
+      ]
+    }
+  ]
+}

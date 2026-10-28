@@ -1,0 +1,164 @@
+{
+  "shared": [
+    {
+      "element": "Harvest",
+      "id": "organic37:harvest",
+      "ingredients": [
+        "Orchard",
+        "Human"
+      ],
+      "pair": "legacy:28|organic34:orchard"
+    },
+    {
+      "element": "Beekeeper",
+      "id": "organic37:beekeeper",
+      "ingredients": [
+        "Beehive",
+        "Human"
+      ],
+      "pair": "legacy:28|organic34:beehive"
+    },
+    {
+      "element": "Bonsai",
+      "id": "organic38:bonsai",
+      "ingredients": [
+        "Sapling",
+        "Human"
+      ],
+      "pair": "legacy:28|organic38:sapling"
+    },
+    {
+      "element": "Terrarium",
+      "id": "organic38:terrarium",
+      "ingredients": [
+        "Plant",
+        "Glass"
+      ],
+      "pair": "legacy:15|legacy:23"
+    },
+    {
+      "element": "Tea",
+      "id": "organic37:tea",
+      "ingredients": [
+        "Water",
+        "Mint"
+      ],
+      "pair": "legacy:0|organic38:mint"
+    },
+    {
+      "element": "Milk",
+      "id": "organic38:milk",
+      "ingredients": [
+        "Animal",
+        "Water"
+      ],
+      "pair": "legacy:0|legacy:26"
+    },
+    {
+      "element": "Cream",
+      "id": "organic38:cream",
+      "ingredients": [
+        "Milk",
+        "Heat"
+      ],
+      "pair": "legacy:11|organic38:milk"
+    },
+    {
+      "element": "Cheese",
+      "id": "organic38:cheese",
+      "ingredients": [
+        "Milk",
+        "Salt"
+      ],
+      "pair": "organic38:milk|organic38:salt"
+    },
+    {
+      "element": "Butter",
+      "id": "organic38:butter",
+      "ingredients": [
+        "Cream",
+        "Energy"
+      ],
+      "pair": "legacy:5|organic38:cream"
+    },
+    {
+      "element": "Jam",
+      "id": "organic37:jam",
+      "ingredients": [
+        "Fruit",
+        "Fire"
+      ],
+      "pair": "legacy:1|organic37:fruit"
+    },
+    {
+      "element": "Salad",
+      "id": "organic37:salad",
+      "ingredients": [
+        "Vegetable",
+        "Herb"
+      ],
+      "pair": "organic37:vegetable|organic38:herb"
+    },
+    {
+      "element": "Lemonade",
+      "id": "organic38:lemonade",
+      "ingredients": [
+        "Lemon",
+        "Water"
+      ],
+      "pair": "legacy:0|organic38:lemon"
+    },
+    {
+      "element": "Aquarium",
+      "id": "organic45:aquarium",
+      "ingredients": [
+        "Fish",
+        "Glass"
+      ],
+      "pair": "legacy:23|legacy:27"
+    },
+    {
+      "element": "Ice Cream",
+      "id": "organic38:ice-cream",
+      "ingredients": [
+        "Cream",
+        "Ice"
+      ],
+      "pair": "legacy:35|organic38:cream"
+    },
+    {
+      "element": "Herb Butter",
+      "id": "organic47:herb-butter",
+      "ingredients": [
+        "Butter",
+        "Herb"
+      ],
+      "pair": "organic38:butter|organic38:herb"
+    }
+  ],
+  "familySummaries": [
+    {
+      "id": "nature",
+      "items": 408,
+      "recipes": 1661,
+      "starters": [
+        "Water",
+        "Fire",
+        "Earth",
+        "Air"
+      ]
+    },
+    {
+      "id": "people",
+      "items": 167,
+      "recipes": 194,
+      "starters": [
+        "House",
+        "Book",
+        "Art",
+        "Trade"
+      ]
+    }
+  ],
+  "classicUnchanged": true
+}

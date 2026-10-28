@@ -1,0 +1,1202 @@
+[
+  {
+    "name": "Storm",
+    "category": "nature",
+    "description": "An intense spell of weather bringing strong winds, rain and changing skies.",
+    "paths": [
+      [
+        "Rain",
+        "Wind"
+      ],
+      [
+        "Weather",
+        "Lightning"
+      ]
+    ]
+  },
+  {
+    "name": "Thunder",
+    "category": "nature",
+    "description": "A deep rumbling sound produced when lightning suddenly heats the air.",
+    "paths": [
+      [
+        "Lightning",
+        "Sound"
+      ],
+      [
+        "Lightning",
+        "Storm"
+      ]
+    ]
+  },
+  {
+    "name": "Fog",
+    "category": "nature",
+    "description": "A cloud of tiny water droplets suspended close to the ground.",
+    "paths": [
+      [
+        "Cloud",
+        "Earth"
+      ],
+      [
+        "Weather",
+        "Steam"
+      ]
+    ]
+  },
+  {
+    "name": "Mist",
+    "category": "nature",
+    "description": "A thin veil of suspended droplets that softens distant details.",
+    "paths": [
+      [
+        "Rain",
+        "Air"
+      ],
+      [
+        "Steam",
+        "Ice"
+      ]
+    ]
+  },
+  {
+    "name": "Blizzard",
+    "category": "nature",
+    "description": "A severe snowstorm with strong wind and very poor visibility.",
+    "paths": [
+      [
+        "Snow",
+        "Storm"
+      ],
+      [
+        "Frost",
+        "Hurricane"
+      ]
+    ]
+  },
+  {
+    "name": "Tornado",
+    "category": "nature",
+    "description": "A rapidly rotating column of air extending down from a storm cloud.",
+    "paths": [
+      [
+        "Storm",
+        "Wind"
+      ],
+      [
+        "Hurricane",
+        "Earth"
+      ]
+    ]
+  },
+  {
+    "name": "Hurricane",
+    "category": "nature",
+    "description": "A huge tropical cyclone fueled by warm ocean water.",
+    "paths": [
+      [
+        "Storm",
+        "Ocean"
+      ],
+      [
+        "Storm",
+        "Heat"
+      ]
+    ]
+  },
+  {
+    "name": "Monsoon",
+    "category": "nature",
+    "description": "A seasonal wind shift that brings intense periods of rainfall.",
+    "paths": [
+      [
+        "Rainforest",
+        "Storm"
+      ],
+      [
+        "Ocean",
+        "Rain"
+      ]
+    ]
+  },
+  {
+    "name": "Drizzle",
+    "category": "nature",
+    "description": "Fine and gentle rain made from very small falling droplets.",
+    "paths": [
+      [
+        "Mist",
+        "Rain"
+      ],
+      [
+        "Cloud",
+        "Mist"
+      ]
+    ]
+  },
+  {
+    "name": "Flood",
+    "category": "nature",
+    "description": "Water covering land that is usually dry after heavy rain or overflow.",
+    "paths": [
+      [
+        "River",
+        "Storm"
+      ],
+      [
+        "Rain",
+        "River"
+      ]
+    ]
+  },
+  {
+    "name": "Pressure",
+    "category": "science",
+    "description": "The force exerted over an area, important to atmospheric changes.",
+    "paths": [
+      [
+        "Air",
+        "Gravity"
+      ],
+      [
+        "Weather",
+        "Science"
+      ]
+    ]
+  },
+  {
+    "name": "Humidity",
+    "category": "science",
+    "description": "The amount of water vapor present in the surrounding air.",
+    "paths": [
+      [
+        "Water",
+        "Weather"
+      ],
+      [
+        "Mist",
+        "Air"
+      ]
+    ]
+  },
+  {
+    "name": "Forecast",
+    "category": "science",
+    "description": "A prediction of future weather from observations and models.",
+    "paths": [
+      [
+        "Cloud",
+        "Knowledge"
+      ],
+      [
+        "Storm",
+        "Telescope"
+      ]
+    ]
+  },
+  {
+    "name": "Barometer",
+    "category": "technology",
+    "description": "An instrument that measures air pressure to track changing weather.",
+    "paths": [
+      [
+        "Pressure",
+        "Tool"
+      ],
+      [
+        "Pressure",
+        "Glass"
+      ]
+    ]
+  },
+  {
+    "name": "Thermometer",
+    "category": "technology",
+    "description": "A measuring instrument that reveals the temperature of a place.",
+    "paths": [
+      [
+        "Heat",
+        "Tool"
+      ],
+      [
+        "Glass",
+        "Heat"
+      ]
+    ]
+  },
+  {
+    "name": "Heatwave",
+    "category": "nature",
+    "description": "An extended spell of unusually hot weather across an area.",
+    "paths": [
+      [
+        "Sun",
+        "Weather"
+      ],
+      [
+        "Drought",
+        "Sun"
+      ]
+    ]
+  },
+  {
+    "name": "Ant",
+    "category": "life",
+    "description": "A social insect that gathers food and works with nest mates.",
+    "paths": [
+      [
+        "Insect",
+        "Earth"
+      ],
+      [
+        "Insect",
+        "Forest"
+      ]
+    ]
+  },
+  {
+    "name": "Anthill",
+    "category": "nature",
+    "description": "A mound of soil built around the tunnels of an ant colony.",
+    "paths": [
+      [
+        "Ant",
+        "Earth"
+      ],
+      [
+        "Ant",
+        "Nest"
+      ]
+    ]
+  },
+  {
+    "name": "Beetle",
+    "category": "life",
+    "description": "A hardy insect protected by a pair of firm wing covers.",
+    "paths": [
+      [
+        "Insect",
+        "Wood"
+      ],
+      [
+        "Insect",
+        "Stone"
+      ]
+    ]
+  },
+  {
+    "name": "Ladybug",
+    "category": "life",
+    "description": "A colorful spotted beetle that often feeds on garden aphids.",
+    "paths": [
+      [
+        "Beetle",
+        "Flower"
+      ],
+      [
+        "Beetle",
+        "Garden"
+      ]
+    ]
+  },
+  {
+    "name": "Wasp",
+    "category": "life",
+    "description": "A narrow-waisted flying insect that may hunt pests or visit flowers.",
+    "paths": [
+      [
+        "Bee",
+        "Hunter"
+      ],
+      [
+        "Insect",
+        "Nest"
+      ]
+    ]
+  },
+  {
+    "name": "Mosquito",
+    "category": "life",
+    "description": "A small flying insect whose females can feed on blood.",
+    "paths": [
+      [
+        "Insect",
+        "Wetland"
+      ],
+      [
+        "Insect",
+        "Water"
+      ]
+    ]
+  },
+  {
+    "name": "Moth",
+    "category": "life",
+    "description": "A mostly night-flying relative of the butterfly.",
+    "paths": [
+      [
+        "Butterfly",
+        "Night"
+      ],
+      [
+        "Cocoon",
+        "Night"
+      ]
+    ]
+  },
+  {
+    "name": "Grasshopper",
+    "category": "life",
+    "description": "A long-legged insect known for jumping across grassy fields.",
+    "paths": [
+      [
+        "Insect",
+        "Field"
+      ],
+      [
+        "Insect",
+        "Wind"
+      ]
+    ]
+  },
+  {
+    "name": "Cricket",
+    "category": "life",
+    "description": "A chirping insect that makes rhythmic sounds by rubbing its wings.",
+    "paths": [
+      [
+        "Insect",
+        "Music"
+      ],
+      [
+        "Insect",
+        "Night"
+      ]
+    ]
+  },
+  {
+    "name": "Silk",
+    "category": "material",
+    "description": "A smooth strong natural fiber spun by certain insects.",
+    "paths": [
+      [
+        "Cocoon",
+        "Thread"
+      ],
+      [
+        "Spider",
+        "Cocoon"
+      ]
+    ]
+  },
+  {
+    "name": "Bee Bread",
+    "category": "nature",
+    "description": "Fermented pollen stored in honeycomb cells to nourish young bees.",
+    "paths": [
+      [
+        "Pollen",
+        "Honey"
+      ],
+      [
+        "Hive",
+        "Pollen"
+      ]
+    ]
+  },
+  {
+    "name": "Insect Hotel",
+    "category": "technology",
+    "description": "A shelter of hollow stems and timber for beneficial garden insects.",
+    "paths": [
+      [
+        "Garden",
+        "Wood"
+      ],
+      [
+        "Bee",
+        "Workshop"
+      ]
+    ]
+  },
+  {
+    "name": "Aphid",
+    "category": "life",
+    "description": "A tiny plant-feeding insect commonly visited by ants and ladybugs.",
+    "paths": [
+      [
+        "Insect",
+        "Plant"
+      ],
+      [
+        "Ladybug",
+        "Plant"
+      ]
+    ]
+  },
+  {
+    "name": "Termite",
+    "category": "life",
+    "description": "A wood-eating social insect that helps break down dead plants.",
+    "paths": [
+      [
+        "Ant",
+        "Wood"
+      ],
+      [
+        "Insect",
+        "Tree"
+      ]
+    ]
+  },
+  {
+    "name": "Swarm",
+    "category": "life",
+    "description": "A moving cluster of insects traveling or gathering as a group.",
+    "paths": [
+      [
+        "Bee",
+        "Wind"
+      ],
+      [
+        "Bee",
+        "Society"
+      ]
+    ]
+  },
+  {
+    "name": "Praying Mantis",
+    "category": "life",
+    "description": "A watchful insect that seizes prey with folded front legs.",
+    "paths": [
+      [
+        "Insect",
+        "Hunter"
+      ],
+      [
+        "Insect",
+        "Garden"
+      ]
+    ]
+  },
+  {
+    "name": "Brick",
+    "category": "material",
+    "description": "A shaped block of clay hardened by drying or firing.",
+    "paths": [
+      [
+        "Clay",
+        "Fire"
+      ],
+      [
+        "Earth",
+        "Kiln"
+      ]
+    ]
+  },
+  {
+    "name": "Clay",
+    "category": "material",
+    "description": "Fine mineral-rich earth that can be shaped when wet.",
+    "paths": [
+      [
+        "Mud",
+        "Stone"
+      ],
+      [
+        "River",
+        "Mud"
+      ]
+    ]
+  },
+  {
+    "name": "Cement",
+    "category": "material",
+    "description": "A powdered binder that hardens after reacting with water.",
+    "paths": [
+      [
+        "Kiln",
+        "Stone"
+      ],
+      [
+        "Kiln",
+        "Rock"
+      ]
+    ]
+  },
+  {
+    "name": "Concrete",
+    "category": "material",
+    "description": "A hard construction mix made from binder, water and aggregates.",
+    "paths": [
+      [
+        "Cement",
+        "Sand"
+      ],
+      [
+        "Cement",
+        "Water"
+      ]
+    ]
+  },
+  {
+    "name": "Arch",
+    "category": "culture",
+    "description": "A curved structure that carries weight across an opening.",
+    "paths": [
+      [
+        "Brick",
+        "Bridge"
+      ],
+      [
+        "Stone",
+        "Bridge"
+      ]
+    ]
+  },
+  {
+    "name": "Column",
+    "category": "culture",
+    "description": "A tall load-bearing support used in buildings and monuments.",
+    "paths": [
+      [
+        "Stone",
+        "Tower"
+      ],
+      [
+        "Concrete",
+        "Stone"
+      ]
+    ]
+  },
+  {
+    "name": "Tower",
+    "category": "culture",
+    "description": "A tall structure built for defense, observation or communication.",
+    "paths": [
+      [
+        "Brick",
+        "House"
+      ],
+      [
+        "Castle",
+        "Blueprint"
+      ]
+    ]
+  },
+  {
+    "name": "Cathedral",
+    "category": "culture",
+    "description": "A grand church built as a center of a bishop’s community.",
+    "paths": [
+      [
+        "Choir",
+        "Tower"
+      ],
+      [
+        "Glass",
+        "Tower"
+      ]
+    ]
+  },
+  {
+    "name": "Ruins",
+    "category": "culture",
+    "description": "Remains of buildings that reveal the passage of time.",
+    "paths": [
+      [
+        "Castle",
+        "Time"
+      ],
+      [
+        "City",
+        "Time"
+      ]
+    ]
+  },
+  {
+    "name": "Monument",
+    "category": "culture",
+    "description": "A structure preserving the memory of a person or event.",
+    "paths": [
+      [
+        "Stone",
+        "History"
+      ],
+      [
+        "Column",
+        "History"
+      ]
+    ]
+  },
+  {
+    "name": "Plaza",
+    "category": "culture",
+    "description": "An open public square where streets and communities meet.",
+    "paths": [
+      [
+        "City",
+        "Stone"
+      ],
+      [
+        "Market",
+        "City"
+      ]
+    ]
+  },
+  {
+    "name": "Museum",
+    "category": "culture",
+    "description": "A place that preserves and presents objects for learning.",
+    "paths": [
+      [
+        "Art",
+        "History"
+      ],
+      [
+        "Artifact",
+        "House"
+      ]
+    ]
+  },
+  {
+    "name": "Library",
+    "category": "culture",
+    "description": "A building that keeps books and knowledge accessible.",
+    "paths": [
+      [
+        "Book",
+        "House"
+      ],
+      [
+        "City",
+        "Book"
+      ]
+    ]
+  },
+  {
+    "name": "Canal",
+    "category": "technology",
+    "description": "A man-made waterway guiding boats or irrigation through land.",
+    "paths": [
+      [
+        "River",
+        "Engineering"
+      ],
+      [
+        "River",
+        "Blueprint"
+      ]
+    ]
+  },
+  {
+    "name": "Aqueduct",
+    "category": "technology",
+    "description": "A structure that carries water across a valley or town.",
+    "paths": [
+      [
+        "Canal",
+        "Bridge"
+      ],
+      [
+        "Water",
+        "Arch"
+      ]
+    ]
+  },
+  {
+    "name": "Scaffold",
+    "category": "technology",
+    "description": "A temporary frame that lets builders work above the ground.",
+    "paths": [
+      [
+        "Wood",
+        "Construction"
+      ],
+      [
+        "Tool",
+        "Tower"
+      ]
+    ]
+  },
+  {
+    "name": "Harbor",
+    "category": "culture",
+    "description": "A sheltered coastal place where vessels can safely stop.",
+    "paths": [
+      [
+        "Sea",
+        "Dock"
+      ],
+      [
+        "Dock",
+        "City"
+      ]
+    ]
+  },
+  {
+    "name": "Compass",
+    "category": "technology",
+    "description": "An instrument that points toward magnetic north.",
+    "paths": [
+      [
+        "Map",
+        "Metal"
+      ],
+      [
+        "Map",
+        "Iron"
+      ]
+    ]
+  },
+  {
+    "name": "Navigation",
+    "category": "science",
+    "description": "The art and science of finding a route from place to place.",
+    "paths": [
+      [
+        "Map",
+        "Ship"
+      ],
+      [
+        "Map",
+        "Star"
+      ]
+    ]
+  },
+  {
+    "name": "Anchor",
+    "category": "technology",
+    "description": "A heavy device that holds a vessel in place against drift.",
+    "paths": [
+      [
+        "Ship",
+        "Metal"
+      ],
+      [
+        "Harbor",
+        "Iron"
+      ]
+    ]
+  },
+  {
+    "name": "Rudder",
+    "category": "technology",
+    "description": "A steering surface that turns a boat through water.",
+    "paths": [
+      [
+        "Ship",
+        "Wood"
+      ],
+      [
+        "Ship",
+        "Tool"
+      ]
+    ]
+  },
+  {
+    "name": "Mast",
+    "category": "technology",
+    "description": "An upright spar that supports a sailing vessel’s sails.",
+    "paths": [
+      [
+        "Sailboat",
+        "Wood"
+      ],
+      [
+        "Ship",
+        "Tree"
+      ]
+    ]
+  },
+  {
+    "name": "Keel",
+    "category": "technology",
+    "description": "The central structural spine running along the bottom of a hull.",
+    "paths": [
+      [
+        "Sailboat",
+        "Metal"
+      ],
+      [
+        "Ship",
+        "Engineering"
+      ]
+    ]
+  },
+  {
+    "name": "Sail",
+    "category": "technology",
+    "description": "A sheet of material that catches wind to move a boat.",
+    "paths": [
+      [
+        "Sailboat",
+        "Wind"
+      ],
+      [
+        "Ship",
+        "Wind"
+      ]
+    ]
+  },
+  {
+    "name": "Port",
+    "category": "culture",
+    "description": "A maritime gateway where vessels exchange goods and people.",
+    "paths": [
+      [
+        "Harbor",
+        "Trade"
+      ],
+      [
+        "Dock",
+        "Market"
+      ]
+    ]
+  },
+  {
+    "name": "Buoy",
+    "category": "technology",
+    "description": "A floating marker that guides boats or warns of obstacles.",
+    "paths": [
+      [
+        "Sea",
+        "Lighthouse"
+      ],
+      [
+        "Harbor",
+        "Light"
+      ]
+    ]
+  },
+  {
+    "name": "Fishing Net",
+    "category": "technology",
+    "description": "A web of cord that catches fish while allowing water through.",
+    "paths": [
+      [
+        "Fish",
+        "Thread"
+      ],
+      [
+        "Ocean",
+        "Thread"
+      ]
+    ]
+  },
+  {
+    "name": "Lifeboat",
+    "category": "technology",
+    "description": "A small boat kept ready to rescue people in danger.",
+    "paths": [
+      [
+        "Ship",
+        "Life"
+      ],
+      [
+        "Shipwreck",
+        "Sailboat"
+      ]
+    ]
+  },
+  {
+    "name": "Cargo Ship",
+    "category": "technology",
+    "description": "A large vessel built to carry goods across the sea.",
+    "paths": [
+      [
+        "Ship",
+        "Trade"
+      ],
+      [
+        "Port",
+        "Ship"
+      ]
+    ]
+  },
+  {
+    "name": "Shipyard",
+    "category": "culture",
+    "description": "A waterfront workshop where boats are built and repaired.",
+    "paths": [
+      [
+        "Ship",
+        "Workshop"
+      ],
+      [
+        "Harbor",
+        "Factory"
+      ]
+    ]
+  },
+  {
+    "name": "Sonar",
+    "category": "technology",
+    "description": "A system that uses sound waves to detect objects underwater.",
+    "paths": [
+      [
+        "Sound",
+        "Ocean"
+      ],
+      [
+        "Submarine",
+        "Sound"
+      ]
+    ]
+  },
+  {
+    "name": "Sextant",
+    "category": "technology",
+    "description": "An optical instrument used to measure angles between stars and the horizon.",
+    "paths": [
+      [
+        "Star",
+        "Navigation"
+      ],
+      [
+        "Telescope",
+        "Compass"
+      ]
+    ]
+  },
+  {
+    "name": "Artifact",
+    "category": "culture",
+    "description": "An object made or used by people, revealing clues about the past.",
+    "paths": [
+      [
+        "History",
+        "Tool"
+      ],
+      [
+        "History",
+        "Pottery"
+      ]
+    ]
+  },
+  {
+    "name": "Relic",
+    "category": "culture",
+    "description": "A surviving object valued for its connection to earlier times.",
+    "paths": [
+      [
+        "Artifact",
+        "Time"
+      ],
+      [
+        "Treasure",
+        "History"
+      ]
+    ]
+  },
+  {
+    "name": "Excavation",
+    "category": "science",
+    "description": "Careful digging to uncover buried structures or objects.",
+    "paths": [
+      [
+        "Earth",
+        "Archaeology"
+      ],
+      [
+        "Artifact",
+        "Tool"
+      ]
+    ]
+  },
+  {
+    "name": "Pyramid",
+    "category": "culture",
+    "description": "A monumental structure with broad base and tapering sides.",
+    "paths": [
+      [
+        "Stone",
+        "Desert"
+      ],
+      [
+        "Sand",
+        "Monument"
+      ]
+    ]
+  },
+  {
+    "name": "Mummy",
+    "category": "culture",
+    "description": "A body preserved by deliberate treatment or dry conditions.",
+    "paths": [
+      [
+        "Human",
+        "Tomb"
+      ],
+      [
+        "Pyramid",
+        "Human"
+      ]
+    ]
+  },
+  {
+    "name": "Hieroglyphics",
+    "category": "culture",
+    "description": "Picture-based writing used in ancient Egyptian inscriptions.",
+    "paths": [
+      [
+        "Writing",
+        "Pyramid"
+      ],
+      [
+        "Stone",
+        "Language"
+      ]
+    ]
+  },
+  {
+    "name": "Explorer",
+    "category": "culture",
+    "description": "A curious traveler who ventures beyond familiar places.",
+    "paths": [
+      [
+        "Human",
+        "Map"
+      ],
+      [
+        "Human",
+        "Compass"
+      ]
+    ]
+  },
+  {
+    "name": "Expedition",
+    "category": "culture",
+    "description": "A journey organized to investigate a distant place.",
+    "paths": [
+      [
+        "Explorer",
+        "Map"
+      ],
+      [
+        "Explorer",
+        "Ship"
+      ]
+    ]
+  },
+  {
+    "name": "Landmark",
+    "category": "culture",
+    "description": "A distinctive feature used to recognize and locate a place.",
+    "paths": [
+      [
+        "Map",
+        "Monument"
+      ],
+      [
+        "Tower",
+        "Map"
+      ]
+    ]
+  },
+  {
+    "name": "Rock Art",
+    "category": "culture",
+    "description": "Images scratched or painted onto natural stone surfaces.",
+    "paths": [
+      [
+        "Stone",
+        "Painting"
+      ],
+      [
+        "Cave",
+        "Art"
+      ]
+    ]
+  },
+  {
+    "name": "Tomb",
+    "category": "culture",
+    "description": "A place built or prepared for the burial of the dead.",
+    "paths": [
+      [
+        "Pyramid",
+        "Stone"
+      ],
+      [
+        "Pyramid",
+        "History"
+      ]
+    ]
+  },
+  {
+    "name": "Archaeologist",
+    "category": "culture",
+    "description": "A specialist who studies the past through material evidence.",
+    "paths": [
+      [
+        "Human",
+        "Archaeology"
+      ],
+      [
+        "Explorer",
+        "Artifact"
+      ]
+    ]
+  },
+  {
+    "name": "Treasure Map",
+    "category": "culture",
+    "description": "A drawn set of directions hinting at a hidden prize.",
+    "paths": [
+      [
+        "Map",
+        "Treasure"
+      ],
+      [
+        "Pirate",
+        "Map"
+      ]
+    ]
+  },
+  {
+    "name": "Ancient City",
+    "category": "culture",
+    "description": "A former urban center whose remains tell a story of civilizations.",
+    "paths": [
+      [
+        "City",
+        "Ruins"
+      ],
+      [
+        "History",
+        "City"
+      ]
+    ]
+  },
+  {
+    "name": "Cave Painting",
+    "category": "culture",
+    "description": "Ancient images preserved on the stone walls of a cave.",
+    "paths": [
+      [
+        "Cave",
+        "Painting"
+      ],
+      [
+        "Cave",
+        "Rock Art"
+      ]
+    ]
+  },
+  {
+    "name": "Sarcophagus",
+    "category": "culture",
+    "description": "A decorated stone coffin used for an important burial.",
+    "paths": [
+      [
+        "Tomb",
+        "Stone"
+      ],
+      [
+        "Mummy",
+        "Stone"
+      ]
+    ]
+  }
+]

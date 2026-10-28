@@ -1,0 +1,85 @@
+# Family Only Nature & Science; output | candidate pairs (first available, no classic override).
+Science | Life + Energy; Electricity + Life; Light + Life
+Geometry | Crystal + Stone; Stone + Light; Sand + Crystal
+Mathematics | Geometry + Science; Geometry + Light
+Binary | Mathematics + Silicon; Mathematics + Light; Electricity + Silicon; Electricity + Mathematics
+Disc | Glass + Stone; Glass + Iron; Glass + Crystal
+Coin | Copper + Gold; Gold + Iron; Copper + Metal
+Ball | Egg + Stone; Egg + Metal; Glass + Egg
+Byte | Binary + Electricity; Binary + Mathematics
+Algorithm | Mathematics + Binary; Science + Binary
+Weather Station | Rain + Electricity; Air + Electricity; Cloud + Metal
+Weather Forecast | Weather Station + Rain; Weather Station + Cloud
+Mycelium | Forest + Moss; Moss + Soil; Forest + Compost
+Tide | Sea + Moon; Sea + Sun; Sea + Sky
+Vegetable | Plant + Soil; Plant + Compost; Fruit + Soil
+Ink | Water + Coal; Coal + Paper; Water + Soot
+Current | Sea + Wind; River + Wind; Sea + Electricity
+Basil | Herb + Sun; Herb + Soil; Herb + Rain
+Tomato | Vegetable + Sun; Fruit + Soil; Plant + Fruit
+Potato | Vegetable + Earth; Soil + Vegetable; Vegetable + Rain
+Carrot | Vegetable + Soil; Earth + Seed; Soil + Seed
+Onion | Vegetable + Water; Vegetable + Wind; Vegetable + Rain
+Garlic | Onion + Soil; Herb + Onion; Onion + Sun
+Comet | Ice + Sky; Ice + Star; Ice + Night
+Meteor | Comet + Fire; Asteroid + Fire; Star + Stone
+Meteorite | Meteor + Stone; Meteor + Earth
+Orbit | Moon + Earth; Moon + Sun; Sky + Moon
+Nebula | Cloud + Star; Cloud + Night; Star + Dust
+Eclipse | Sun + Moon; Sun + Night; Moon + Shadow
+Supernova | Star + Fire; Star + Energy; Star + Heat
+Asteroid | Stone + Sky; Stone + Star; Stone + Moon
+Moonlight | Moon + Light; Night + Moon; Moon + Sky
+Solar System | Sun + Orbit; Sun + Star; Sun + Sky
+Exoplanet | Star + Orbit; Solar System + Star; Orbit + Stone
+Black Hole | Supernova + Shadow; Star + Shadow; Night + Supernova
+Squirrel | Animal + Forest; Animal + Tree; Animal + Pinecone
+Spider | Insect + Forest; Insect + Cave; Insect + Tree
+Silk | Spider + Plant; Spider + Cocoon; Spider + Vine
+Spiderweb | Spider + Silk; Spider + Dew; Spider + Night
+Ceramic | Clay + Fire; Clay + Heat; Terracotta + Fire
+Pressure | Air + Stone; Air + Water; Air + Metal
+Praying Mantis | Insect + Leaf Litter; Insect + Plant; Insect + Vine
+Cement | Limestone + Fire; Limestone + Heat; Limestone + Water
+Concrete | Cement + Water; Cement + Stone; Cement + Sand
+Navigation | Star + Sea; Sea + Sky; Moon + River
+Excavation | Stone + Earth; Stone + Cave; Earth + Cave
+Quartzite | Crystal + Pressure; Quartzite + Stone; Granite + Pressure
+Fault Line | Earth + Erosion; Mountain + Erosion; Earth + Rock Cycle; Stone + Erosion
+Newt | Frog + Pond; Frog + Wetland; Tadpole + Pond
+Lagoon | Sea + Lake; Sea + Pond; Lake + Sand
+Mussel | Clam + Sea; Clam + Rock Cycle; Oyster + River
+Optics | Vision + Science; Light + Vision; Vision + Glass
+Film | Light + Plastic; Light + Paper; Glass + Paper
+Exposure | Light + Film; Film + Sun; Film + Sky
+Weather Balloon | Air + Forecast; Air + Weather Station; Forecast + Plastic
+Tidepool Anemone | Sea Anemone + Tide Pool; Tide Pool + Coral
+Oak Sapling | Sapling + Forest; Sapling + Wood; Sapling + Pinecone
+Squirrel Drey | Squirrel + Nest; Squirrel + Tree; Squirrel + Wood
+Fern Frond | Moss + Leaf Litter; Moss + Plant; Vine + Forest
+Tree Rings | Tree + Fossil; Tree + Science; Wood + Science; Tree + Age
+Spore Print | Mycelium + Paper; Mycelium + Ink; Moss + Paper
+Meteor Shower | Meteor + Rain; Meteor + Star; Meteor + Sky
+Lunar Crater | Moon + Meteorite; Moon + Stone; Moon + Meteor
+Lunar Dust | Moon + Sediment; Moon + Ash; Moon + Soot; Moon + Fossil
+Star Cluster | Star + Nebula; Star + Star; Star + Sky
+Red Giant | Star + Heat; Star + Sun; Star + Fire
+White Dwarf | Red Giant + Ice; Red Giant + Snow; Red Giant + Star
+Bread Crumbs | Bread + Bird; Bread + Stone; Bread + Wind; Bread + Animal
+Yarn | Silk + Silk; Silk + Wood; Silk + Plant
+Lighthouse Beam | Light + Sea; Light + Fog; Light + Wave
+Rooftop Garden | Plant + Stone; Plant + Brick; Green Roof + Plant
+Rip Current | Tide + Current; Whirlpool + Sea; Storm + Current; Sea + Storm
+Leaf Vein | Plant + Vision; Plant + River; Plant + Water
+Sediment Layer | Sediment + Stone; Sediment + Earth; Sediment + Pressure
+Green Roof | Rooftop Garden + Moss; Rooftop Garden + Grass; Rooftop Garden + Plant
+Urban Orchard | Orchard + Stone; Orchard + Concrete; Orchard + Roof
+Long Exposure | Exposure + Night; Exposure + Moonlight; Exposure + Star
+Star Trail | Long Exposure + Star; Long Exposure + Night; Long Exposure + Sky
+Planetary Ring | Orbit + Stone; Orbit + Ice; Solar System + Ice
+Cosmic Dust | Dust + Nebula; Dust + Star; Dust + Orbit
+Moonrise | Moonlight + Sky; Moonlight + Night; Moonlight + Sea; Moon + Fog
+Comet Tail | Comet + Wind; Comet + Sun; Comet + Light
+Impact Crater | Meteorite + Sand; Meteorite + Mountain; Asteroid + Mountain; Meteorite + Cave
+Stellar Nursery | Nebula + Star Cluster; Nebula + Energy; Nebula + Light
+Space | Sky + Nebula; Sky + Solar System; Air + Star; Night + Star; Sky + Solar Power

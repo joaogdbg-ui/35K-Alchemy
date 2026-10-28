@@ -1,0 +1,288 @@
+{
+  "new_elements": 26,
+  "new_recipes": 78,
+  "skipped": [
+    {
+      "title": "Mega Man Battle Network 3 White",
+      "platform": "Game Boy Advance",
+      "reason": "occupied semantic paths"
+    },
+    {
+      "title": "Mega Man Battle Network 4 Red Sun",
+      "platform": "Game Boy Advance",
+      "reason": "occupied semantic paths"
+    },
+    {
+      "title": "Mega Man Battle Network 4 Blue Moon",
+      "platform": "Game Boy Advance",
+      "reason": "occupied semantic paths"
+    },
+    {
+      "seed": "Mega Man Battle Network 4 Red Sun",
+      "platform": "Game Boy Advance",
+      "reason": "missing anchor"
+    },
+    {
+      "seed": "Mega Man Battle Network 5 Team Protoman",
+      "platform": "Game Boy Advance",
+      "reason": "missing anchor"
+    },
+    {
+      "seed": "Mega Man Battle Network 6 Cybeast Gregar",
+      "platform": "Nintendo Switch",
+      "reason": "missing anchor"
+    },
+    {
+      "title": "Castlevania: Order of Ecclesia",
+      "platform": "Nintendo DS",
+      "reason": "occupied semantic paths"
+    },
+    {
+      "seed": "The Legend of Zelda: Tears of the Kingdom",
+      "platform": "Nintendo Switch",
+      "reason": "missing anchor"
+    },
+    {
+      "seed": "Professor Layton",
+      "platform": "Nintendo DS",
+      "reason": "missing anchor"
+    },
+    {
+      "title": "Phoenix Wright: Ace Attorney - Justice for All",
+      "platform": "Nintendo DS",
+      "reason": "occupied semantic paths"
+    },
+    {
+      "title": "Phoenix Wright: Ace Attorney - Trials and Tribulations",
+      "platform": "Nintendo DS",
+      "reason": "occupied semantic paths"
+    },
+    {
+      "seed": "Phoenix Wright: Ace Attorney - Trials and Tribulations",
+      "platform": "Nintendo DS",
+      "reason": "missing anchor"
+    },
+    {
+      "title": "Sonic Origins",
+      "platform": "Nintendo Switch",
+      "reason": "occupied semantic paths"
+    },
+    {
+      "title": "Resident Evil Outbreak",
+      "platform": "PlayStation 2",
+      "reason": "occupied semantic paths"
+    },
+    {
+      "title": "Resident Evil Outbreak File #2",
+      "platform": "PlayStation 2",
+      "reason": "occupied semantic paths"
+    },
+    {
+      "title": "Resident Evil: The Darkside Chronicles",
+      "platform": "Nintendo Wii",
+      "reason": "occupied semantic paths"
+    },
+    {
+      "title": "Final Fantasy X-2",
+      "platform": "PlayStation 2",
+      "reason": "occupied semantic paths"
+    },
+    {
+      "title": "Chrono Trigger DS",
+      "platform": "Nintendo DS",
+      "reason": "occupied semantic paths"
+    },
+    {
+      "seed": "Shovel Knight",
+      "platform": "Nintendo Switch",
+      "reason": "missing anchor"
+    },
+    {
+      "title": "The Typing of the Dead",
+      "platform": "Sega Dreamcast",
+      "reason": "occupied semantic paths"
+    },
+    {
+      "title": "Mega Man Battle Chip Challenge",
+      "platform": "Game Boy Advance",
+      "reason": "occupied semantic paths"
+    },
+    {
+      "title": "Mega Man Star Force 2: Zerker x Ninja",
+      "platform": "Nintendo DS",
+      "reason": "occupied semantic paths"
+    },
+    {
+      "title": "Mega Man Star Force 3: Black Ace",
+      "platform": "Nintendo DS",
+      "reason": "occupied semantic paths"
+    },
+    {
+      "title": "WarioWare, Inc.: Mega Microgame$!",
+      "platform": "Game Boy Advance",
+      "reason": "occupied semantic paths"
+    },
+    {
+      "seed": "WarioWare, Inc.: Mega Microgame$!",
+      "platform": "Nintendo DS",
+      "reason": "missing anchor"
+    },
+    {
+      "seed": "Boktai: The Sun Is in Your Hand",
+      "platform": "Game Boy Advance",
+      "reason": "missing anchor"
+    },
+    {
+      "title": "Star Fox Assault",
+      "platform": "Nintendo GameCube",
+      "reason": "occupied semantic paths"
+    },
+    {
+      "seed": "Pursuit Force",
+      "platform": "PSP",
+      "reason": "missing anchor"
+    },
+    {
+      "title": "Panzer Dragoon Zwei",
+      "platform": "Sega Saturn",
+      "reason": "occupied semantic paths"
+    },
+    {
+      "title": "Christmas NiGHTS into Dreams",
+      "platform": "Sega Saturn",
+      "reason": "occupied semantic paths"
+    },
+    {
+      "title": "Resident Evil Outbreak File #2",
+      "platform": "PlayStation 2",
+      "reason": "occupied semantic paths"
+    },
+    {
+      "title": "Silent Hill: Origins",
+      "platform": "PlayStation 2",
+      "reason": "occupied semantic paths"
+    },
+    {
+      "title": "Silent Hill: Shattered Memories",
+      "platform": "PlayStation 2",
+      "reason": "occupied semantic paths"
+    },
+    {
+      "title": "Dirge of Cerberus: Final Fantasy VII",
+      "platform": "PlayStation 2",
+      "reason": "occupied semantic paths"
+    },
+    {
+      "title": "Dragon Quest VIII: Journey of the Cursed King",
+      "platform": "PlayStation 2",
+      "reason": "occupied semantic paths"
+    },
+    {
+      "seed": "Tales of Symphonia",
+      "platform": "Nintendo GameCube",
+      "reason": "missing anchor"
+    },
+    {
+      "title": "Castlevania: Order of Ecclesia",
+      "platform": "Nintendo DS",
+      "reason": "occupied semantic paths"
+    },
+    {
+      "seed": "Shovel Knight",
+      "platform": "Nintendo Switch",
+      "reason": "missing anchor"
+    },
+    {
+      "title": "Tetris Effect: Connected",
+      "platform": "Nintendo Switch",
+      "reason": "occupied semantic paths"
+    },
+    {
+      "title": "Sonic Colors: Ultimate",
+      "platform": "Nintendo Switch",
+      "reason": "occupied semantic paths"
+    },
+    {
+      "title": "Sonic Origins",
+      "platform": "Nintendo Switch",
+      "reason": "occupied semantic paths"
+    },
+    {
+      "seed": "The Sims",
+      "platform": "PC",
+      "reason": "missing anchor"
+    },
+    {
+      "seed": "Killzone",
+      "platform": "PSP",
+      "reason": "missing anchor"
+    },
+    {
+      "seed": "Resistance: Fall of Man",
+      "platform": "PSP",
+      "reason": "missing anchor"
+    },
+    {
+      "title": "Mario vs. Donkey Kong: Mini-Land Mayhem!",
+      "platform": "Nintendo DS",
+      "reason": "occupied semantic paths"
+    },
+    {
+      "seed": "Spyro",
+      "platform": "Nintendo DS",
+      "reason": "missing anchor"
+    },
+    {
+      "title": "Ecco: The Tides of Time",
+      "platform": "Sega Genesis",
+      "reason": "occupied semantic paths"
+    },
+    {
+      "seed": "Harvest Moon",
+      "platform": "Nintendo DS",
+      "reason": "missing anchor"
+    },
+    {
+      "seed": "Harvest Moon DS",
+      "platform": "Nintendo Wii",
+      "reason": "missing anchor"
+    },
+    {
+      "seed": "Rune Factory",
+      "platform": "Nintendo DS",
+      "reason": "missing anchor"
+    },
+    {
+      "title": "Mario Party 9",
+      "platform": "Nintendo Wii",
+      "reason": "occupied semantic paths"
+    }
+  ],
+  "by_franchise": {
+    "Mega Man Battle Network": 2,
+    "Castlevania: Aria of Sorrow": 1,
+    "Golden Sun": 1,
+    "Kirby & the Amazing Mirror": 1,
+    "Sonic Frontiers": 1,
+    "Resident Evil 4": 2,
+    "New Super Mario Bros.": 1,
+    "Advance Wars": 1,
+    "Ecco the Dolphin": 1,
+    "Mega Man X": 1,
+    "LocoRoco": 1,
+    "Patapon": 1,
+    "Shining Force": 2,
+    "The Legend of Zelda": 1,
+    "Tetris": 1,
+    "Syphon Filter": 1,
+    "Jak II": 1,
+    "Ape Escape": 1,
+    "Mario vs. Donkey Kong": 1,
+    "Final Fantasy Tactics": 1,
+    "Castlevania": 1,
+    "Dragon Ball Z: Budokai 3": 1,
+    "Mario Party": 1
+  },
+  "total_elements": 3402,
+  "total_recipes": 8555
+}

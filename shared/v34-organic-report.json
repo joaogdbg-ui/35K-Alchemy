@@ -1,0 +1,25 @@
+{
+  "newElements": 30,
+  "newRecipes": 89,
+  "collisionsSkipped": [
+    [
+      "Wood",
+      "Sea",
+      "Sailboat",
+      "existing"
+    ],
+    [
+      "Rain",
+      "Mountain",
+      "Waterfall",
+      "existing"
+    ],
+    [
+      "Electricity",
+      "Tool",
+      "Electric Motor",
+      "existing"
+    ]
+  ],
+  "artworks": 30
+}

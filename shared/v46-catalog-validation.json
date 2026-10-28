@@ -1,0 +1,12 @@
+{
+  "release": "V46",
+  "status": "PASS",
+  "elements": 3883,
+  "recipes": 11847,
+  "new_elements": 80,
+  "new_recipes": 216,
+  "new_output_ratio": 1,
+  "art_unique": 80,
+  "prior_pairs_unchanged": 11631,
+  "reachable": 3883
+}

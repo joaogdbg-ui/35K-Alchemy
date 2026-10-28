@@ -1,0 +1,373 @@
+{
+  "release": "V44",
+  "old_elements": 3778,
+  "old_recipes": 10275,
+  "new_elements": 13,
+  "added_recipes": 836,
+  "curated_rule_sets": 104,
+  "historical_pairs_preserved": true,
+  "old_pairs_encountered": 1153,
+  "competing_proposals_rejected": 101,
+  "conflict_examples": [
+    {
+      "pair": "organic38:frost|organic41:humidity",
+      "kept": "legacy:17",
+      "rejected": "organic38:dew",
+      "theme": "dew"
+    },
+    {
+      "pair": "legacy:17|organic32:thunderstorm",
+      "kept": "organic41:thunder",
+      "rejected": "organic41:storm",
+      "theme": "storm"
+    },
+    {
+      "pair": "legacy:7|organic32:thunderstorm",
+      "kept": "organic41:thunder",
+      "rejected": "organic41:storm",
+      "theme": "storm"
+    },
+    {
+      "pair": "legacy:10|organic32:thunderstorm",
+      "kept": "legacy:7",
+      "rejected": "organic41:storm",
+      "theme": "storm"
+    },
+    {
+      "pair": "legacy:10|organic32:thunderstorm",
+      "kept": "legacy:7",
+      "rejected": "organic38:wave",
+      "theme": "wave"
+    },
+    {
+      "pair": "legacy:591|organic32:thunderstorm",
+      "kept": "legacy:7",
+      "rejected": "organic38:wave",
+      "theme": "wave"
+    },
+    {
+      "pair": "legacy:39|organic38:current",
+      "kept": "organic38:wave",
+      "rejected": "organic38:whirlpool",
+      "theme": "whirlpool"
+    },
+    {
+      "pair": "legacy:591|organic38:current",
+      "kept": "organic38:wave",
+      "rejected": "organic38:whirlpool",
+      "theme": "whirlpool"
+    },
+    {
+      "pair": "legacy:10|organic38:current",
+      "kept": "organic38:wave",
+      "rejected": "organic38:whirlpool",
+      "theme": "whirlpool"
+    },
+    {
+      "pair": "legacy:0|organic38:current",
+      "kept": "organic38:wave",
+      "rejected": "organic38:whirlpool",
+      "theme": "whirlpool"
+    },
+    {
+      "pair": "legacy:591|organic38:wave",
+      "kept": "organic38:whirlpool",
+      "rejected": "organic34:tide",
+      "theme": "tide"
+    },
+    {
+      "pair": "legacy:10|organic38:wave",
+      "kept": "organic38:whirlpool",
+      "rejected": "organic34:tide",
+      "theme": "tide"
+    },
+    {
+      "pair": "legacy:23|organic41:drizzle",
+      "kept": "organic34:rainbow",
+      "rejected": "organic44:rain-gauge",
+      "theme": "rain-gauge"
+    },
+    {
+      "pair": "legacy:29|organic41:storm",
+      "kept": "organic44:rain-gauge",
+      "rejected": "organic44:weather-vane",
+      "theme": "weather-vane"
+    },
+    {
+      "pair": "legacy:29|pack:weather",
+      "kept": "organic44:rain-gauge",
+      "rejected": "organic44:weather-vane",
+      "theme": "weather-vane"
+    },
+    {
+      "pair": "legacy:11|pack:weather",
+      "kept": "organic41:heatwave",
+      "rejected": "organic38:drought",
+      "theme": "drought"
+    },
+    {
+      "pair": "legacy:1048|pack:weather",
+      "kept": "organic41:heatwave",
+      "rejected": "organic38:drought",
+      "theme": "drought"
+    },
+    {
+      "pair": "legacy:591|organic38:current",
+      "kept": "organic38:wave",
+      "rejected": "organic38:delta",
+      "theme": "delta"
+    },
+    {
+      "pair": "legacy:10|organic38:current",
+      "kept": "organic38:wave",
+      "rejected": "organic38:delta",
+      "theme": "delta"
+    },
+    {
+      "pair": "legacy:16|organic38:current",
+      "kept": "organic42:sediment",
+      "rejected": "organic38:delta",
+      "theme": "delta"
+    },
+    {
+      "pair": "organic34:soil|organic38:current",
+      "kept": "organic42:sediment",
+      "rejected": "organic38:delta",
+      "theme": "delta"
+    },
+    {
+      "pair": "legacy:10|organic38:current",
+      "kept": "organic38:wave",
+      "rejected": "organic38:delta",
+      "theme": "delta"
+    },
+    {
+      "pair": "legacy:45|organic41:storm",
+      "kept": "organic44:weather-vane",
+      "rejected": "organic43:puddle",
+      "theme": "puddle"
+    },
+    {
+      "pair": "legacy:106|organic44:campfire",
+      "kept": "organic43:smoke",
+      "rejected": "organic43:soot",
+      "theme": "soot"
+    },
+    {
+      "pair": "legacy:24|organic44:campfire",
+      "kept": "organic43:smoke",
+      "rejected": "organic43:charcoal",
+      "theme": "charcoal"
+    },
+    {
+      "pair": "legacy:25|organic44:campfire",
+      "kept": "organic43:smoke",
+      "rejected": "organic43:charcoal",
+      "theme": "charcoal"
+    },
+    {
+      "pair": "legacy:56|organic41:clay",
+      "kept": "organic40:ceramic",
+      "rejected": "organic41:brick",
+      "theme": "brick"
+    },
+    {
+      "pair": "legacy:56|legacy:6",
+      "kept": "organic40:ceramic",
+      "rejected": "organic41:brick",
+      "theme": "brick"
+    },
+    {
+      "pair": "legacy:56|organic40:pottery",
+      "kept": "organic40:ceramic",
+      "rejected": "organic41:brick",
+      "theme": "brick"
+    },
+    {
+      "pair": "legacy:16|legacy:29",
+      "kept": "organic44:sandcastle",
+      "rejected": "organic41:concrete",
+      "theme": "concrete"
+    },
+    {
+      "pair": "legacy:16|legacy:45",
+      "kept": "organic44:sandcastle",
+      "rejected": "organic41:concrete",
+      "theme": "concrete"
+    },
+    {
+      "pair": "legacy:29|organic43:charcoal",
+      "kept": "organic44:campfire",
+      "rejected": "organic44:water-filter",
+      "theme": "water-filter"
+    },
+    {
+      "pair": "legacy:16|legacy:29",
+      "kept": "organic44:sandcastle",
+      "rejected": "organic44:water-filter",
+      "theme": "water-filter"
+    },
+    {
+      "pair": "legacy:16|legacy:55",
+      "kept": "organic41:concrete",
+      "rejected": "organic44:water-filter",
+      "theme": "water-filter"
+    },
+    {
+      "pair": "legacy:14|organic43:charcoal",
+      "kept": "organic44:campfire",
+      "rejected": "organic44:water-filter",
+      "theme": "water-filter"
+    },
+    {
+      "pair": "legacy:14|organic43:charcoal",
+      "kept": "organic44:campfire",
+      "rejected": "organic44:water-filter",
+      "theme": "water-filter"
+    },
+    {
+      "pair": "legacy:15|organic41:humidity",
+      "kept": "organic38:dew",
+      "rejected": "organic32:rainforest",
+      "theme": "rainforest"
+    },
+    {
+      "pair": "organic34:soil|organic41:mist",
+      "kept": "organic38:dew",
+      "rejected": "organic38:moss",
+      "theme": "moss"
+    },
+    {
+      "pair": "organic34:soil|organic41:fog",
+      "kept": "organic38:dew",
+      "rejected": "organic38:moss",
+      "theme": "moss"
+    },
+    {
+      "pair": "organic34:soil|organic41:mist",
+      "kept": "organic38:dew",
+      "rejected": "legacy:542",
+      "theme": "mushroom"
+    }
+  ],
+  "theme_yields": {
+    "manual": 41,
+    "rainfall": 10,
+    "clouds": 8,
+    "thunder": 11,
+    "fog": 7,
+    "dew": 9,
+    "ice": 8,
+    "snow": 4,
+    "storm": 7,
+    "wave": 6,
+    "whirlpool": 9,
+    "tide": 4,
+    "rainbow": 14,
+    "aurora": 8,
+    "sunshower": 5,
+    "rain-gauge": 13,
+    "weather-vane": 13,
+    "heatwave": 13,
+    "drought": 5,
+    "erosion": 1,
+    "sediment": 14,
+    "delta": 6,
+    "puddle": 12,
+    "campfire": 13,
+    "ash": 4,
+    "smoke": 7,
+    "soot": 5,
+    "smog": 15,
+    "charcoal": 5,
+    "smoke-signal": 9,
+    "wildfire": 1,
+    "obsidian": 4,
+    "basalt": 4,
+    "glass": 8,
+    "ceramic": 5,
+    "terracotta": 8,
+    "brick": 1,
+    "concrete": 5,
+    "crystal": 14,
+    "salt": 5,
+    "sandcastle": 7,
+    "driftwood": 10,
+    "water-filter": 10,
+    "sprout": 9,
+    "flower": 5,
+    "tree": 6,
+    "rainforest": 9,
+    "mangrove": 8,
+    "moss": 1,
+    "lichen": 4,
+    "mushroom": 6,
+    "cactus": 8,
+    "fruit": 4,
+    "honey": 7,
+    "butterfly": 10,
+    "birdsong": 22,
+    "nest": 14,
+    "wetland": 2,
+    "frog": 14,
+    "fish": 12,
+    "coral": 6,
+    "kelp": 5,
+    "tidal-pool": 7,
+    "seashell": 7,
+    "wind-chime": 11,
+    "lightning-rod": 9,
+    "motor": 8,
+    "battery": 10,
+    "circuit": 11,
+    "windmill": 10,
+    "watermill": 14,
+    "solar-panel": 11,
+    "telescope": 13,
+    "microscope": 12,
+    "camera": 16,
+    "photograph": 4,
+    "rain-gauge-science": 4,
+    "hot-air-balloon": 1,
+    "ship": 15,
+    "compass": 4,
+    "lighthouse": 3,
+    "sonar": 7,
+    "dough": 10,
+    "bread": 3,
+    "soup": 9,
+    "tea": 4,
+    "popcorn": 6,
+    "cake": 9,
+    "cookie": 2,
+    "jam": 5,
+    "ice-cream": 4,
+    "butter": 5,
+    "cheese": 2,
+    "lemonade": 4,
+    "pasta": 7,
+    "salad": 10,
+    "cooking": 2,
+    "book": 7,
+    "song": 13,
+    "melody": 10,
+    "orchestra": 11,
+    "village": 10,
+    "city": 6
+  },
+  "new_result_routes": {
+    "Balloon": 3,
+    "Campfire": 16,
+    "Sandcastle": 10,
+    "Wind Chime": 12,
+    "Driftwood": 13,
+    "Rain Gauge": 19,
+    "Lightning Rod": 13,
+    "Water Filter": 12,
+    "Birdsong": 26,
+    "Hot Air Balloon": 5,
+    "Terracotta": 12,
+    "Smoke Signal": 13,
+    "Weather Vane": 17
+  }
+}

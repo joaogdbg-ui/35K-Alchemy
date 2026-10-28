@@ -1,0 +1,882 @@
+{
+  "from": "V29.1",
+  "to": "V29.2",
+  "principle": "Change display names only; preserve legacy IDs, all recipes and existing save keys.",
+  "translations": [
+    {
+      "id": "legacy:100",
+      "before": "Disquete",
+      "after": "Floppy Disk"
+    },
+    {
+      "id": "legacy:101",
+      "before": "Material digital",
+      "after": "Digital Material"
+    },
+    {
+      "id": "legacy:104",
+      "before": "Rede",
+      "after": "Network"
+    },
+    {
+      "id": "legacy:105",
+      "before": "Regra",
+      "after": "Rule"
+    },
+    {
+      "id": "legacy:106",
+      "before": "Papel",
+      "after": "Paper"
+    },
+    {
+      "id": "legacy:107",
+      "before": "Tabuleiro",
+      "after": "Game Board"
+    },
+    {
+      "id": "legacy:108",
+      "before": "Moeda",
+      "after": "Coin"
+    },
+    {
+      "id": "legacy:109",
+      "before": "Bola",
+      "after": "Ball"
+    },
+    {
+      "id": "legacy:110",
+      "before": "Portabilidade",
+      "after": "Portability"
+    },
+    {
+      "id": "legacy:115",
+      "before": "Movimento",
+      "after": "Movement"
+    },
+    {
+      "id": "legacy:120",
+      "before": "Princesa",
+      "after": "Princess"
+    },
+    {
+      "id": "legacy:121",
+      "before": "Monstro",
+      "after": "Monster"
+    },
+    {
+      "id": "legacy:125",
+      "before": "Magia",
+      "after": "Magic"
+    },
+    {
+      "id": "legacy:127",
+      "before": "Naves",
+      "after": "Spacecraft"
+    },
+    {
+      "id": "legacy:128",
+      "before": "Terror",
+      "after": "Horror"
+    },
+    {
+      "id": "legacy:129",
+      "before": "Estados Unidos",
+      "after": "United States"
+    },
+    {
+      "id": "legacy:130",
+      "before": "Europa",
+      "after": "Europe"
+    },
+    {
+      "id": "legacy:131",
+      "before": "Reino Unido",
+      "after": "United Kingdom"
+    },
+    {
+      "id": "legacy:132",
+      "before": "Empresa",
+      "after": "Company"
+    },
+    {
+      "id": "legacy:134",
+      "before": "Desenvolvedor",
+      "after": "Developer"
+    },
+    {
+      "id": "legacy:135",
+      "before": "Plataforma online",
+      "after": "Online Platform"
+    },
+    {
+      "id": "legacy:136",
+      "before": "Shop digital",
+      "after": "Digital Store"
+    },
+    {
+      "id": "legacy:140",
+      "before": "Cor",
+      "after": "Color"
+    },
+    {
+      "id": "legacy:141",
+      "before": "Sol",
+      "after": "Sun"
+    },
+    {
+      "id": "legacy:142",
+      "before": "Noite",
+      "after": "Night"
+    },
+    {
+      "id": "legacy:147",
+      "before": "Banda sonora",
+      "after": "Soundtrack"
+    },
+    {
+      "id": "legacy:151",
+      "before": "Cartucho",
+      "after": "Cartridge"
+    },
+    {
+      "id": "legacy:152",
+      "before": "Cassete",
+      "after": "Cassette"
+    },
+    {
+      "id": "legacy:153",
+      "before": "Armazenamento",
+      "after": "Storage"
+    },
+    {
+      "id": "legacy:156",
+      "before": "Brincadeira",
+      "after": "Playtime"
+    },
+    {
+      "id": "legacy:158",
+      "before": "Desafio",
+      "after": "Challenge"
+    },
+    {
+      "id": "legacy:160",
+      "before": "Cartas",
+      "after": "Cards"
+    },
+    {
+      "id": "legacy:167",
+      "before": "Controlador",
+      "after": "Game Controller"
+    },
+    {
+      "id": "legacy:178",
+      "before": "8 bits",
+      "after": "8-bit"
+    },
+    {
+      "id": "legacy:179",
+      "before": "16 bits",
+      "after": "16-bit"
+    },
+    {
+      "id": "legacy:180",
+      "before": "32 bits",
+      "after": "32-bit"
+    },
+    {
+      "id": "legacy:181",
+      "before": "64 bits",
+      "after": "64-bit"
+    },
+    {
+      "id": "legacy:182",
+      "before": "128 bits",
+      "after": "128-bit"
+    },
+    {
+      "id": "legacy:184",
+      "before": "Game em nuvem",
+      "after": "Cloud Gaming"
+    },
+    {
+      "id": "legacy:185",
+      "before": "Fantasia",
+      "after": "Fantasy"
+    },
+    {
+      "id": "legacy:186",
+      "before": "Aventura",
+      "after": "Adventure"
+    },
+    {
+      "id": "legacy:188",
+      "before": "Corrida",
+      "after": "Racing"
+    },
+    {
+      "id": "legacy:189",
+      "before": "Desporto",
+      "after": "Sports"
+    },
+    {
+      "id": "legacy:190",
+      "before": "Futebol",
+      "after": "Soccer"
+    },
+    {
+      "id": "legacy:191",
+      "before": "Luta",
+      "after": "Fighting"
+    },
+    {
+      "id": "legacy:192",
+      "before": "Alvo",
+      "after": "Target"
+    },
+    {
+      "id": "legacy:200",
+      "before": "Mundo aberto",
+      "after": "Open World"
+    },
+    {
+      "id": "legacy:201",
+      "before": "Game musical",
+      "after": "Music Game"
+    },
+    {
+      "id": "legacy:202",
+      "before": "Beat em up",
+      "after": "Beat 'em Up"
+    },
+    {
+      "id": "legacy:203",
+      "before": "Brinquedo",
+      "after": "Toy"
+    },
+    {
+      "id": "legacy:205",
+      "before": "Conquista",
+      "after": "Achievement"
+    },
+    {
+      "id": "legacy:207",
+      "before": "Arte",
+      "after": "Art"
+    },
+    {
+      "id": "legacy:208",
+      "before": "Pintura",
+      "after": "Painting"
+    },
+    {
+      "id": "legacy:209",
+      "before": "Teatro",
+      "after": "Theater"
+    },
+    {
+      "id": "legacy:210",
+      "before": "Tempo",
+      "after": "Time"
+    },
+    {
+      "id": "legacy:213",
+      "before": "Passado",
+      "after": "Past"
+    },
+    {
+      "id": "legacy:214",
+      "before": "Futuro",
+      "after": "Future"
+    },
+    {
+      "id": "legacy:216",
+      "before": "Algoritmo",
+      "after": "Algorithm"
+    },
+    {
+      "id": "legacy:218",
+      "before": "Geometria",
+      "after": "Geometry"
+    },
+    {
+      "id": "legacy:221",
+      "before": "Multijogador",
+      "after": "Multiplayer"
+    },
+    {
+      "id": "legacy:222",
+      "before": "Sorte",
+      "after": "Luck"
+    },
+    {
+      "id": "legacy:223",
+      "before": "Dados",
+      "after": "Dice"
+    },
+    {
+      "id": "legacy:229",
+      "before": "Realidade virtual",
+      "after": "Virtual Reality"
+    },
+    {
+      "id": "legacy:230",
+      "before": "Realidade aumentada",
+      "after": "Augmented Reality"
+    },
+    {
+      "id": "legacy:233",
+      "before": "Plataformas",
+      "after": "Platformer"
+    },
+    {
+      "id": "legacy:234",
+      "before": "Tiro",
+      "after": "Shooting"
+    },
+    {
+      "id": "legacy:235",
+      "before": "Strategy em tempo real",
+      "after": "Real-Time Strategy"
+    },
+    {
+      "id": "legacy:242",
+      "before": "Puzzle digital",
+      "after": "Digital Puzzle"
+    },
+    {
+      "id": "legacy:243",
+      "before": "Arcade classic",
+      "after": "Classic Arcade"
+    },
+    {
+      "id": "legacy:245",
+      "before": "Technology Advanced",
+      "after": "Advanced Technology"
+    },
+    {
+      "id": "legacy:249",
+      "before": "Recorde",
+      "after": "High Score"
+    },
+    {
+      "id": "legacy:250",
+      "before": "Colecionador",
+      "after": "Collector"
+    },
+    {
+      "id": "legacy:318",
+      "before": "Super cartucho",
+      "after": "Super Cartridge"
+    },
+    {
+      "id": "legacy:322",
+      "before": "Multitoque",
+      "after": "Multi-Touch"
+    },
+    {
+      "id": "legacy:323",
+      "before": "Controller sem fios",
+      "after": "Wireless Controller"
+    },
+    {
+      "id": "legacy:324",
+      "before": "Cabo HDMI",
+      "after": "HDMI Cable"
+    },
+    {
+      "id": "legacy:326",
+      "before": "Volante",
+      "after": "Racing Wheel"
+    },
+    {
+      "id": "legacy:330",
+      "before": "Auscultadores",
+      "after": "Headphones"
+    },
+    {
+      "id": "legacy:332",
+      "before": "Cabine arcade",
+      "after": "Arcade Cabinet"
+    },
+    {
+      "id": "legacy:341",
+      "before": "Tapete arcade",
+      "after": "Arcade Mat"
+    },
+    {
+      "id": "legacy:343",
+      "before": "Console mini",
+      "after": "Mini Console"
+    },
+    {
+      "id": "legacy:350",
+      "before": "Edition Definitive",
+      "after": "Definitive Edition"
+    },
+    {
+      "id": "legacy:351",
+      "before": "Multijogador local",
+      "after": "Local Multiplayer"
+    },
+    {
+      "id": "legacy:352",
+      "before": "Amizade",
+      "after": "Friendship"
+    },
+    {
+      "id": "legacy:354",
+      "before": "Mapa",
+      "after": "Map"
+    },
+    {
+      "id": "legacy:355",
+      "before": "Mapa mundial",
+      "after": "World Map"
+    },
+    {
+      "id": "legacy:357",
+      "before": "Chefe final",
+      "after": "Final Boss"
+    },
+    {
+      "id": "legacy:359",
+      "before": "Life extra",
+      "after": "Extra Life"
+    },
+    {
+      "id": "legacy:362",
+      "before": "Guardar game",
+      "after": "Save Game"
+    },
+    {
+      "id": "legacy:363",
+      "before": "Modo handheld",
+      "after": "Handheld Mode"
+    },
+    {
+      "id": "legacy:365",
+      "before": "Cooperativo",
+      "after": "Co-op Play"
+    },
+    {
+      "id": "legacy:380",
+      "before": "Teclado",
+      "after": "Keyboard"
+    },
+    {
+      "id": "legacy:514",
+      "before": "Manivela",
+      "after": "Crank Handle"
+    },
+    {
+      "id": "legacy:530",
+      "before": "PC gaming",
+      "after": "PC Gaming"
+    },
+    {
+      "id": "legacy:542",
+      "before": "Cogumelo",
+      "after": "Mushroom"
+    },
+    {
+      "id": "legacy:543",
+      "before": "Salto",
+      "after": "Jump"
+    },
+    {
+      "id": "legacy:544",
+      "before": "Velocidade",
+      "after": "Speed"
+    },
+    {
+      "id": "legacy:545",
+      "before": "Espada",
+      "after": "Sword"
+    },
+    {
+      "id": "legacy:546",
+      "before": "Espionagem",
+      "after": "Espionage"
+    },
+    {
+      "id": "legacy:547",
+      "before": "Pirata",
+      "after": "Pirate"
+    },
+    {
+      "id": "legacy:549",
+      "before": "Planeta",
+      "after": "Planet"
+    },
+    {
+      "id": "legacy:551",
+      "before": "Labirinto",
+      "after": "Maze"
+    },
+    {
+      "id": "legacy:552",
+      "before": "Blocos",
+      "after": "Blocks"
+    },
+    {
+      "id": "legacy:553",
+      "before": "Guerra",
+      "after": "War"
+    },
+    {
+      "id": "legacy:556",
+      "before": "Detetive",
+      "after": "Detective"
+    },
+    {
+      "id": "legacy:557",
+      "before": "Bola saltitante",
+      "after": "Bouncing Ball"
+    },
+    {
+      "id": "legacy:558",
+      "before": "Ilha",
+      "after": "Island"
+    },
+    {
+      "id": "legacy:559",
+      "before": "Campo",
+      "after": "Field"
+    },
+    {
+      "id": "legacy:561",
+      "before": "Tesouro",
+      "after": "Treasure"
+    },
+    {
+      "id": "legacy:562",
+      "before": "Castelo",
+      "after": "Castle"
+    },
+    {
+      "id": "legacy:563",
+      "before": "City cyberpunk",
+      "after": "Cyberpunk City"
+    },
+    {
+      "id": "legacy:568",
+      "before": "Carro",
+      "after": "Car"
+    },
+    {
+      "id": "legacy:569",
+      "before": "Motociclo",
+      "after": "Motorcycle"
+    },
+    {
+      "id": "legacy:571",
+      "before": "Nave espacial",
+      "after": "Spaceship"
+    },
+    {
+      "id": "legacy:573",
+      "before": "Tanque",
+      "after": "Tank"
+    },
+    {
+      "id": "legacy:574",
+      "before": "Cavalo",
+      "after": "Horse"
+    },
+    {
+      "id": "legacy:575",
+      "before": "Dinossauro",
+      "after": "Dinosaur"
+    },
+    {
+      "id": "legacy:576",
+      "before": "Parque",
+      "after": "Park"
+    },
+    {
+      "id": "legacy:578",
+      "before": "Quinta",
+      "after": "Farm"
+    },
+    {
+      "id": "legacy:579",
+      "before": "Agricultura",
+      "after": "Agriculture"
+    },
+    {
+      "id": "legacy:580",
+      "before": "Arqueologia",
+      "after": "Archaeology"
+    },
+    {
+      "id": "legacy:581",
+      "before": "Profecia",
+      "after": "Prophecy"
+    },
+    {
+      "id": "legacy:582",
+      "before": "Sonho",
+      "after": "Dream"
+    },
+    {
+      "id": "legacy:583",
+      "before": "Fantasmas",
+      "after": "Ghosts"
+    },
+    {
+      "id": "legacy:584",
+      "before": "Corrida futurista",
+      "after": "Futuristic Racing"
+    },
+    {
+      "id": "legacy:587",
+      "before": "Mascarado",
+      "after": "Masked Figure"
+    },
+    {
+      "id": "legacy:590",
+      "before": "Submarino",
+      "after": "Submarine"
+    },
+    {
+      "id": "legacy:591",
+      "before": "Oceano",
+      "after": "Ocean"
+    },
+    {
+      "id": "legacy:592",
+      "before": "Jardim",
+      "after": "Garden"
+    },
+    {
+      "id": "legacy:595",
+      "before": "Tribunal",
+      "after": "Courtroom"
+    },
+    {
+      "id": "legacy:597",
+      "before": "Fuga",
+      "after": "Escape"
+    },
+    {
+      "id": "legacy:598",
+      "before": "Guitarra",
+      "after": "Guitar"
+    },
+    {
+      "id": "legacy:599",
+      "before": "Battery musical",
+      "after": "Drum Kit"
+    },
+    {
+      "id": "legacy:600",
+      "before": "Melodia",
+      "after": "Melody"
+    },
+    {
+      "id": "legacy:601",
+      "before": "Macaco",
+      "after": "Monkey"
+    },
+    {
+      "id": "legacy:602",
+      "before": "Gorila",
+      "after": "Gorilla"
+    },
+    {
+      "id": "legacy:606",
+      "before": "Pistola",
+      "after": "Pistol"
+    },
+    {
+      "id": "legacy:607",
+      "before": "Arco",
+      "after": "Bow"
+    },
+    {
+      "id": "legacy:609",
+      "before": "Robot gigante",
+      "after": "Giant Robot"
+    },
+    {
+      "id": "legacy:611",
+      "before": "Bomba",
+      "after": "Bomb"
+    },
+    {
+      "id": "legacy:612",
+      "before": "Estrela",
+      "after": "Star"
+    },
+    {
+      "id": "legacy:613",
+      "before": "Fronteira",
+      "after": "Frontier"
+    },
+    {
+      "id": "legacy:614",
+      "before": "Reino",
+      "after": "Kingdom"
+    },
+    {
+      "id": "legacy:616",
+      "before": "Diplomacia",
+      "after": "Diplomacy"
+    },
+    {
+      "id": "legacy:618",
+      "before": "Navio",
+      "after": "Ship"
+    },
+    {
+      "id": "legacy:619",
+      "before": "Comboio",
+      "after": "Train"
+    },
+    {
+      "id": "legacy:620",
+      "before": "Metro",
+      "after": "Subway"
+    },
+    {
+      "id": "legacy:623",
+      "before": "Cirurgia",
+      "after": "Surgery"
+    },
+    {
+      "id": "legacy:624",
+      "before": "Sobrevivente",
+      "after": "Survivor"
+    },
+    {
+      "id": "legacy:625",
+      "before": "Forest encantada",
+      "after": "Enchanted Forest"
+    },
+    {
+      "id": "legacy:628",
+      "before": "Desenhos animados",
+      "after": "Cartoons"
+    },
+    {
+      "id": "legacy:629",
+      "before": "Samurai cyberpunk",
+      "after": "Cyberpunk Samurai"
+    },
+    {
+      "id": "legacy:630",
+      "before": "Carreira",
+      "after": "Career"
+    },
+    {
+      "id": "legacy:635",
+      "before": "Gravidade",
+      "after": "Gravity"
+    },
+    {
+      "id": "legacy:637",
+      "before": "Raio laser",
+      "after": "Laser Beam"
+    },
+    {
+      "id": "legacy:638",
+      "before": "Retro futurismo",
+      "after": "Retrofuturism"
+    },
+    {
+      "id": "legacy:640",
+      "before": "Astronauta",
+      "after": "Astronaut"
+    },
+    {
+      "id": "legacy:641",
+      "before": "Cubo",
+      "after": "Cube"
+    },
+    {
+      "id": "legacy:642",
+      "before": "Amuleto",
+      "after": "Amulet"
+    },
+    {
+      "id": "legacy:643",
+      "before": "Shadow viva",
+      "after": "Living Shadow"
+    },
+    {
+      "id": "legacy:645",
+      "before": "City futurista",
+      "after": "Futuristic City"
+    },
+    {
+      "id": "legacy:647",
+      "before": "Fotografia",
+      "after": "Photography"
+    },
+    {
+      "id": "legacy:1048",
+      "before": "Deserto",
+      "after": "Desert"
+    },
+    {
+      "id": "legacy:1103",
+      "before": "Jornal",
+      "after": "Newspaper"
+    },
+    {
+      "id": "legacy:1196",
+      "before": "Xadrez",
+      "after": "Chess"
+    },
+    {
+      "id": "legacy:1197",
+      "before": "Damas",
+      "after": "Checkers"
+    },
+    {
+      "id": "legacy:1208",
+      "before": "Batalha Naval",
+      "after": "Naval Battle"
+    },
+    {
+      "id": "legacy:1232",
+      "before": "Azul (board)",
+      "after": "Azul (Board Game)"
+    },
+    {
+      "id": "legacy:1250",
+      "before": "Copas",
+      "after": "Hearts"
+    },
+    {
+      "id": "legacy:1260",
+      "before": "Miniaturas",
+      "after": "Miniatures"
+    },
+    {
+      "id": "legacy:1291",
+      "before": "Xadrez 3D",
+      "after": "3D Chess"
+    },
+    {
+      "id": "legacy:1330",
+      "before": "Go digital",
+      "after": "Digital Go"
+    },
+    {
+      "id": "legacy:1331",
+      "before": "Xadrez digital",
+      "after": "Digital Chess"
+    },
+    {
+      "id": "legacy:1332",
+      "before": "Monopoly digital",
+      "after": "Digital Monopoly"
+    },
+    {
+      "id": "legacy:1395",
+      "before": "Acessibilidade",
+      "after": "Accessibility"
+    }
+  ]
+}

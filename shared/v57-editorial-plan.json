@@ -1,0 +1,2206 @@
+{
+  "version": 57,
+  "count": 200,
+  "results": [
+    {
+      "family": "Marine",
+      "name": "Rockweed",
+      "id": "organic57:rockweed",
+      "ingredients": [
+        "Seaweed",
+        "Rock"
+      ],
+      "result": "Rockweed",
+      "icon": "rockweed.svg"
+    },
+    {
+      "family": "Marine",
+      "name": "Crab Burrow",
+      "id": "organic57:crab-burrow",
+      "ingredients": [
+        "Crab",
+        "Sand"
+      ],
+      "result": "Crab Burrow",
+      "icon": "crab-burrow.svg"
+    },
+    {
+      "family": "Marine",
+      "name": "Sea Cave",
+      "id": "organic57:sea-cave",
+      "ingredients": [
+        "Coastal Cliff",
+        "Water"
+      ],
+      "result": "Sea Cave",
+      "icon": "sea-cave.svg"
+    },
+    {
+      "family": "Marine",
+      "name": "Flotsam",
+      "id": "organic57:flotsam",
+      "ingredients": [
+        "Driftwood",
+        "Sea"
+      ],
+      "result": "Flotsam",
+      "icon": "flotsam.svg"
+    },
+    {
+      "family": "Marine",
+      "name": "Algal Bloom",
+      "id": "organic57:algal-bloom",
+      "ingredients": [
+        "Algae",
+        "Heat"
+      ],
+      "result": "Algal Bloom",
+      "icon": "algal-bloom.svg"
+    },
+    {
+      "family": "Marine",
+      "name": "Deep Sea Vent",
+      "id": "organic57:deep-sea-vent",
+      "ingredients": [
+        "Deep Sea",
+        "Geyser"
+      ],
+      "result": "Deep Sea Vent",
+      "icon": "deep-sea-vent.svg"
+    },
+    {
+      "family": "Marine",
+      "name": "Bioluminescent Plankton",
+      "id": "organic57:bioluminescent-plankton",
+      "ingredients": [
+        "Plankton",
+        "Electricity"
+      ],
+      "result": "Bioluminescent Plankton",
+      "icon": "bioluminescent-plankton.svg"
+    },
+    {
+      "family": "Marine",
+      "name": "Sandbar",
+      "id": "organic57:sandbar",
+      "ingredients": [
+        "River Sediment",
+        "Sand"
+      ],
+      "result": "Sandbar",
+      "icon": "sandbar.svg"
+    },
+    {
+      "family": "Marine",
+      "name": "Brackish Water",
+      "id": "organic57:brackish-water",
+      "ingredients": [
+        "River",
+        "Salt"
+      ],
+      "result": "Brackish Water",
+      "icon": "brackish-water.svg"
+    },
+    {
+      "family": "Marine",
+      "name": "Marine Current",
+      "id": "organic57:marine-current",
+      "ingredients": [
+        "Ocean",
+        "Movement"
+      ],
+      "result": "Marine Current",
+      "icon": "marine-current.svg"
+    },
+    {
+      "family": "Marine",
+      "name": "Saltwater Lagoon",
+      "id": "organic57:saltwater-lagoon",
+      "ingredients": [
+        "Lagoon",
+        "Sea"
+      ],
+      "result": "Saltwater Lagoon",
+      "icon": "saltwater-lagoon.svg"
+    },
+    {
+      "family": "Marine",
+      "name": "Ocean Trench",
+      "id": "organic57:ocean-trench",
+      "ingredients": [
+        "Sea",
+        "Canyon"
+      ],
+      "result": "Ocean Trench",
+      "icon": "ocean-trench.svg"
+    },
+    {
+      "family": "Marine",
+      "name": "Kelp Raft",
+      "id": "organic57:kelp-raft",
+      "ingredients": [
+        "Kelp",
+        "Wood"
+      ],
+      "result": "Kelp Raft",
+      "icon": "kelp-raft.svg"
+    },
+    {
+      "family": "Marine",
+      "name": "Seashell Mosaic",
+      "id": "organic57:seashell-mosaic",
+      "ingredients": [
+        "Seashell",
+        "Pottery"
+      ],
+      "result": "Seashell Mosaic",
+      "icon": "seashell-mosaic.svg"
+    },
+    {
+      "family": "Marine",
+      "name": "Coastal Erosion",
+      "id": "organic57:coastal-erosion",
+      "ingredients": [
+        "Coastal Cliff",
+        "Wave"
+      ],
+      "result": "Coastal Erosion",
+      "icon": "coastal-erosion.svg"
+    },
+    {
+      "family": "Marine",
+      "name": "Undersea Garden",
+      "id": "organic57:undersea-garden",
+      "ingredients": [
+        "Sea",
+        "Garden"
+      ],
+      "result": "Undersea Garden",
+      "icon": "undersea-garden.svg"
+    },
+    {
+      "family": "Marine",
+      "name": "Coral Reef Map",
+      "id": "organic57:coral-reef-map",
+      "ingredients": [
+        "Coral Reef",
+        "Map"
+      ],
+      "result": "Coral Reef Map",
+      "icon": "coral-reef-map.svg"
+    },
+    {
+      "family": "Marine",
+      "name": "Marine Life Sketch",
+      "id": "organic57:marine-life-sketch",
+      "ingredients": [
+        "Fish",
+        "Art"
+      ],
+      "result": "Marine Life Sketch",
+      "icon": "marine-life-sketch.svg"
+    },
+    {
+      "family": "Marine",
+      "name": "Coastal Tide Chart",
+      "id": "organic57:coastal-tide-chart",
+      "ingredients": [
+        "Tide",
+        "Paper"
+      ],
+      "result": "Coastal Tide Chart",
+      "icon": "coastal-tide-chart.svg"
+    },
+    {
+      "family": "Marine",
+      "name": "Reef Field Guide",
+      "id": "organic57:reef-field-guide",
+      "ingredients": [
+        "Reef",
+        "Book"
+      ],
+      "result": "Reef Field Guide",
+      "icon": "reef-field-guide.svg"
+    },
+    {
+      "family": "Weather",
+      "name": "Ground Fog",
+      "id": "organic57:ground-fog",
+      "ingredients": [
+        "Fog",
+        "Earth"
+      ],
+      "result": "Ground Fog",
+      "icon": "ground-fog.svg"
+    },
+    {
+      "family": "Weather",
+      "name": "Ice Storm",
+      "id": "organic57:ice-storm",
+      "ingredients": [
+        "Hail",
+        "Frost"
+      ],
+      "result": "Ice Storm",
+      "icon": "ice-storm.svg"
+    },
+    {
+      "family": "Weather",
+      "name": "Mist Droplet",
+      "id": "organic57:mist-droplet",
+      "ingredients": [
+        "Fog",
+        "Dewdrop"
+      ],
+      "result": "Mist Droplet",
+      "icon": "mist-droplet.svg"
+    },
+    {
+      "family": "Weather",
+      "name": "Rainshadow",
+      "id": "organic57:rainshadow",
+      "ingredients": [
+        "Mountain",
+        "Cloud Shadow"
+      ],
+      "result": "Rainshadow",
+      "icon": "rainshadow.svg"
+    },
+    {
+      "family": "Weather",
+      "name": "Mountain Mist",
+      "id": "organic57:mountain-mist",
+      "ingredients": [
+        "Mountain",
+        "Dew"
+      ],
+      "result": "Mountain Mist",
+      "icon": "mountain-mist.svg"
+    },
+    {
+      "family": "Weather",
+      "name": "Heat Mirage",
+      "id": "organic57:heat-mirage",
+      "ingredients": [
+        "Heat",
+        "Coastal Haze"
+      ],
+      "result": "Heat Mirage",
+      "icon": "heat-mirage.svg"
+    },
+    {
+      "family": "Weather",
+      "name": "Thunder Echo",
+      "id": "organic57:thunder-echo",
+      "ingredients": [
+        "Thunder",
+        "Cave Echo"
+      ],
+      "result": "Thunder Echo",
+      "icon": "thunder-echo.svg"
+    },
+    {
+      "family": "Weather",
+      "name": "Wind Gust",
+      "id": "organic57:wind-gust",
+      "ingredients": [
+        "Wind",
+        "Speed"
+      ],
+      "result": "Wind Gust",
+      "icon": "wind-gust.svg"
+    },
+    {
+      "family": "Weather",
+      "name": "Pollen Storm",
+      "id": "organic57:pollen-storm",
+      "ingredients": [
+        "Pollen",
+        "Storm"
+      ],
+      "result": "Pollen Storm",
+      "icon": "pollen-storm.svg"
+    },
+    {
+      "family": "Weather",
+      "name": "Dewy Window",
+      "id": "organic57:dewy-window",
+      "ingredients": [
+        "Dew",
+        "Glass"
+      ],
+      "result": "Dewy Window",
+      "icon": "dewy-window.svg"
+    },
+    {
+      "family": "Weather",
+      "name": "Icy Roof",
+      "id": "organic57:icy-roof",
+      "ingredients": [
+        "Ice",
+        "House"
+      ],
+      "result": "Icy Roof",
+      "icon": "icy-roof.svg"
+    },
+    {
+      "family": "Weather",
+      "name": "Rainy Window",
+      "id": "organic57:rainy-window",
+      "ingredients": [
+        "Rain",
+        "Frosted Windowpane"
+      ],
+      "result": "Rainy Window",
+      "icon": "rainy-window.svg"
+    },
+    {
+      "family": "Weather",
+      "name": "Hailstone",
+      "id": "organic57:hailstone",
+      "ingredients": [
+        "Hail",
+        "Stone"
+      ],
+      "result": "Hailstone",
+      "icon": "hailstone.svg"
+    },
+    {
+      "family": "Weather",
+      "name": "Frosted Leaf",
+      "id": "organic57:frosted-leaf",
+      "ingredients": [
+        "Frost",
+        "Leaf Litter"
+      ],
+      "result": "Frosted Leaf",
+      "icon": "frosted-leaf.svg"
+    },
+    {
+      "family": "Weather",
+      "name": "Cloud Reflection",
+      "id": "organic57:cloud-reflection",
+      "ingredients": [
+        "Cloud",
+        "Forest Pond"
+      ],
+      "result": "Cloud Reflection",
+      "icon": "cloud-reflection.svg"
+    },
+    {
+      "family": "Weather",
+      "name": "Snow Crust",
+      "id": "organic57:snow-crust",
+      "ingredients": [
+        "Snow",
+        "Ice"
+      ],
+      "result": "Snow Crust",
+      "icon": "snow-crust.svg"
+    },
+    {
+      "family": "Weather",
+      "name": "Rainwater Reservoir",
+      "id": "organic57:rainwater-reservoir",
+      "ingredients": [
+        "Rain",
+        "Water Tower"
+      ],
+      "result": "Rainwater Reservoir",
+      "icon": "rainwater-reservoir.svg"
+    },
+    {
+      "family": "Weather",
+      "name": "Windblown Sand",
+      "id": "organic57:windblown-sand",
+      "ingredients": [
+        "Sand",
+        "Windbreak"
+      ],
+      "result": "Windblown Sand",
+      "icon": "windblown-sand.svg"
+    },
+    {
+      "family": "Weather",
+      "name": "Distant Thunder",
+      "id": "organic57:distant-thunder",
+      "ingredients": [
+        "Thunder",
+        "Mountain"
+      ],
+      "result": "Distant Thunder",
+      "icon": "distant-thunder.svg"
+    },
+    {
+      "family": "Weather",
+      "name": "Cloud Atlas Page",
+      "id": "organic57:cloud-atlas-page",
+      "ingredients": [
+        "Cloud",
+        "Book"
+      ],
+      "result": "Cloud Atlas Page",
+      "icon": "cloud-atlas-page.svg"
+    },
+    {
+      "family": "Plants",
+      "name": "Fern Canopy",
+      "id": "organic57:fern-canopy",
+      "ingredients": [
+        "Fern",
+        "Leaf Canopy"
+      ],
+      "result": "Fern Canopy",
+      "icon": "fern-canopy.svg"
+    },
+    {
+      "family": "Plants",
+      "name": "Mushroom Spore",
+      "id": "organic57:mushroom-spore",
+      "ingredients": [
+        "Mushroom",
+        "Wind"
+      ],
+      "result": "Mushroom Spore",
+      "icon": "mushroom-spore.svg"
+    },
+    {
+      "family": "Plants",
+      "name": "Seed Dispersal",
+      "id": "organic57:seed-dispersal",
+      "ingredients": [
+        "Seed",
+        "Wind"
+      ],
+      "result": "Seed Dispersal",
+      "icon": "seed-dispersal.svg"
+    },
+    {
+      "family": "Plants",
+      "name": "Woodland Clearing",
+      "id": "organic57:woodland-clearing",
+      "ingredients": [
+        "Woodland Trail",
+        "Sun"
+      ],
+      "result": "Woodland Clearing",
+      "icon": "woodland-clearing.svg"
+    },
+    {
+      "family": "Plants",
+      "name": "Lichen Rock",
+      "id": "organic57:lichen-rock",
+      "ingredients": [
+        "Lichen",
+        "Rock"
+      ],
+      "result": "Lichen Rock",
+      "icon": "lichen-rock.svg"
+    },
+    {
+      "family": "Plants",
+      "name": "River Moss",
+      "id": "organic57:river-moss",
+      "ingredients": [
+        "Moss",
+        "Riverbank"
+      ],
+      "result": "River Moss",
+      "icon": "river-moss.svg"
+    },
+    {
+      "family": "Plants",
+      "name": "Bark Shelter",
+      "id": "organic57:bark-shelter",
+      "ingredients": [
+        "Tree Bark Strips",
+        "House"
+      ],
+      "result": "Bark Shelter",
+      "icon": "bark-shelter.svg"
+    },
+    {
+      "family": "Plants",
+      "name": "Forest Nursery",
+      "id": "organic57:forest-nursery",
+      "ingredients": [
+        "Seedling Pot",
+        "Forest"
+      ],
+      "result": "Forest Nursery",
+      "icon": "forest-nursery.svg"
+    },
+    {
+      "family": "Plants",
+      "name": "Pollinator Garden",
+      "id": "organic57:pollinator-garden",
+      "ingredients": [
+        "Bee",
+        "Herb Garden"
+      ],
+      "result": "Pollinator Garden",
+      "icon": "pollinator-garden.svg"
+    },
+    {
+      "family": "Plants",
+      "name": "Fern Ravine",
+      "id": "organic57:fern-ravine",
+      "ingredients": [
+        "Fern",
+        "Canyon"
+      ],
+      "result": "Fern Ravine",
+      "icon": "fern-ravine.svg"
+    },
+    {
+      "family": "Plants",
+      "name": "Seed Bank Vault",
+      "id": "organic57:seed-bank-vault",
+      "ingredients": [
+        "Seed Bank",
+        "House"
+      ],
+      "result": "Seed Bank Vault",
+      "icon": "seed-bank-vault.svg"
+    },
+    {
+      "family": "Plants",
+      "name": "Tree Ring Sample",
+      "id": "organic57:tree-ring-sample",
+      "ingredients": [
+        "Tree",
+        "Geology Notebook"
+      ],
+      "result": "Tree Ring Sample",
+      "icon": "tree-ring-sample.svg"
+    },
+    {
+      "family": "Plants",
+      "name": "Mushroom Log",
+      "id": "organic57:mushroom-log",
+      "ingredients": [
+        "Mushroom",
+        "Wooden Plank"
+      ],
+      "result": "Mushroom Log",
+      "icon": "mushroom-log.svg"
+    },
+    {
+      "family": "Plants",
+      "name": "Sunlit Canopy",
+      "id": "organic57:sunlit-canopy",
+      "ingredients": [
+        "Leaf Canopy",
+        "Sunbeam"
+      ],
+      "result": "Sunlit Canopy",
+      "icon": "sunlit-canopy.svg"
+    },
+    {
+      "family": "Plants",
+      "name": "Wildflower Strip",
+      "id": "organic57:wildflower-strip",
+      "ingredients": [
+        "Wildflower Pollen",
+        "Field"
+      ],
+      "result": "Wildflower Strip",
+      "icon": "wildflower-strip.svg"
+    },
+    {
+      "family": "Plants",
+      "name": "Forest Understory",
+      "id": "organic57:forest-understory",
+      "ingredients": [
+        "Forest Floor",
+        "Plant"
+      ],
+      "result": "Forest Understory",
+      "icon": "forest-understory.svg"
+    },
+    {
+      "family": "Plants",
+      "name": "Floating Water Lily",
+      "id": "organic57:floating-water-lily",
+      "ingredients": [
+        "Floating Leaf",
+        "Flower"
+      ],
+      "result": "Floating Water Lily",
+      "icon": "floating-water-lily.svg"
+    },
+    {
+      "family": "Plants",
+      "name": "Bonsai Pot",
+      "id": "organic57:bonsai-pot",
+      "ingredients": [
+        "Bonsai",
+        "Handcrafted Pot"
+      ],
+      "result": "Bonsai Pot",
+      "icon": "bonsai-pot.svg"
+    },
+    {
+      "family": "Plants",
+      "name": "Moss Terrarium",
+      "id": "organic57:moss-terrarium",
+      "ingredients": [
+        "Moss Carpet",
+        "Terrarium"
+      ],
+      "result": "Moss Terrarium",
+      "icon": "moss-terrarium.svg"
+    },
+    {
+      "family": "Plants",
+      "name": "Cactus Flower",
+      "id": "organic57:cactus-flower",
+      "ingredients": [
+        "Cactus",
+        "Pollen"
+      ],
+      "result": "Cactus Flower",
+      "icon": "cactus-flower.svg"
+    },
+    {
+      "family": "Wildlife",
+      "name": "Deer Tracks",
+      "id": "organic57:deer-tracks",
+      "ingredients": [
+        "Deer",
+        "Mud"
+      ],
+      "result": "Deer Tracks",
+      "icon": "deer-tracks.svg"
+    },
+    {
+      "family": "Wildlife",
+      "name": "Fox Den",
+      "id": "organic57:fox-den",
+      "ingredients": [
+        "Fox",
+        "Cave"
+      ],
+      "result": "Fox Den",
+      "icon": "fox-den.svg"
+    },
+    {
+      "family": "Wildlife",
+      "name": "Ant Tunnel",
+      "id": "organic57:ant-tunnel",
+      "ingredients": [
+        "Ant",
+        "Cave"
+      ],
+      "result": "Ant Tunnel",
+      "icon": "ant-tunnel.svg"
+    },
+    {
+      "family": "Wildlife",
+      "name": "Bee Pollen Basket",
+      "id": "organic57:bee-pollen-basket",
+      "ingredients": [
+        "Pollen Basket",
+        "Bee"
+      ],
+      "result": "Bee Pollen Basket",
+      "icon": "bee-pollen-basket.svg"
+    },
+    {
+      "family": "Wildlife",
+      "name": "Spider Egg Sac",
+      "id": "organic57:spider-egg-sac",
+      "ingredients": [
+        "Spider",
+        "Egg"
+      ],
+      "result": "Spider Egg Sac",
+      "icon": "spider-egg-sac.svg"
+    },
+    {
+      "family": "Wildlife",
+      "name": "Frog Spawn",
+      "id": "organic57:frog-spawn",
+      "ingredients": [
+        "Frog",
+        "Life"
+      ],
+      "result": "Frog Spawn",
+      "icon": "frog-spawn.svg"
+    },
+    {
+      "family": "Wildlife",
+      "name": "Coral Crab",
+      "id": "organic57:coral-crab",
+      "ingredients": [
+        "Crab",
+        "Coral"
+      ],
+      "result": "Coral Crab",
+      "icon": "coral-crab.svg"
+    },
+    {
+      "family": "Wildlife",
+      "name": "Firefly Lantern",
+      "id": "organic57:firefly-lantern",
+      "ingredients": [
+        "Firefly",
+        "Solar Lantern"
+      ],
+      "result": "Firefly Lantern",
+      "icon": "firefly-lantern.svg"
+    },
+    {
+      "family": "Wildlife",
+      "name": "Winter Nest",
+      "id": "organic57:winter-nest",
+      "ingredients": [
+        "Bird Nest",
+        "Snow"
+      ],
+      "result": "Winter Nest",
+      "icon": "winter-nest.svg"
+    },
+    {
+      "family": "Wildlife",
+      "name": "River Otter Den",
+      "id": "organic57:river-otter-den",
+      "ingredients": [
+        "Otter",
+        "Riverbank"
+      ],
+      "result": "River Otter Den",
+      "icon": "river-otter-den.svg"
+    },
+    {
+      "family": "Wildlife",
+      "name": "Migratory Bird",
+      "id": "organic57:migratory-bird",
+      "ingredients": [
+        "Bird",
+        "Map"
+      ],
+      "result": "Migratory Bird",
+      "icon": "migratory-bird.svg"
+    },
+    {
+      "family": "Wildlife",
+      "name": "Bee Swarm",
+      "id": "organic57:bee-swarm",
+      "ingredients": [
+        "Bee Colony",
+        "Wind"
+      ],
+      "result": "Bee Swarm",
+      "icon": "bee-swarm.svg"
+    },
+    {
+      "family": "Wildlife",
+      "name": "Mushroom Beetle",
+      "id": "organic57:mushroom-beetle",
+      "ingredients": [
+        "Beetle",
+        "Mushroom"
+      ],
+      "result": "Mushroom Beetle",
+      "icon": "mushroom-beetle.svg"
+    },
+    {
+      "family": "Wildlife",
+      "name": "Birdsong Chorus",
+      "id": "organic57:birdsong-chorus",
+      "ingredients": [
+        "Birdsong",
+        "Bird"
+      ],
+      "result": "Birdsong Chorus",
+      "icon": "birdsong-chorus.svg"
+    },
+    {
+      "family": "Wildlife",
+      "name": "Moonlit Owl",
+      "id": "organic57:moonlit-owl",
+      "ingredients": [
+        "Owl",
+        "Moon"
+      ],
+      "result": "Moonlit Owl",
+      "icon": "moonlit-owl.svg"
+    },
+    {
+      "family": "Wildlife",
+      "name": "Forest Animal Tracks",
+      "id": "organic57:forest-animal-tracks",
+      "ingredients": [
+        "Animal",
+        "Forest Floor"
+      ],
+      "result": "Forest Animal Tracks",
+      "icon": "forest-animal-tracks.svg"
+    },
+    {
+      "family": "Wildlife",
+      "name": "Sand Crab Trail",
+      "id": "organic57:sand-crab-trail",
+      "ingredients": [
+        "Crab",
+        "Coastal Dune"
+      ],
+      "result": "Sand Crab Trail",
+      "icon": "sand-crab-trail.svg"
+    },
+    {
+      "family": "Wildlife",
+      "name": "Birdwatcher's Notebook",
+      "id": "organic57:birdwatcher-s-notebook",
+      "ingredients": [
+        "Bird",
+        "Notebook"
+      ],
+      "result": "Birdwatcher's Notebook",
+      "icon": "birdwatcher-s-notebook.svg"
+    },
+    {
+      "family": "Wildlife",
+      "name": "Forest Animal Sketch",
+      "id": "organic57:forest-animal-sketch",
+      "ingredients": [
+        "Animal",
+        "Art"
+      ],
+      "result": "Forest Animal Sketch",
+      "icon": "forest-animal-sketch.svg"
+    },
+    {
+      "family": "Wildlife",
+      "name": "Butterfly Species Chart",
+      "id": "organic57:butterfly-species-chart",
+      "ingredients": [
+        "Butterfly",
+        "Paper"
+      ],
+      "result": "Butterfly Species Chart",
+      "icon": "butterfly-species-chart.svg"
+    },
+    {
+      "family": "Geology",
+      "name": "Crystal Geode",
+      "id": "organic57:crystal-geode",
+      "ingredients": [
+        "Crystal",
+        "Cave Pool"
+      ],
+      "result": "Crystal Geode",
+      "icon": "crystal-geode.svg"
+    },
+    {
+      "family": "Geology",
+      "name": "Basalt Cliff",
+      "id": "organic57:basalt-cliff",
+      "ingredients": [
+        "Basalt",
+        "Mountain"
+      ],
+      "result": "Basalt Cliff",
+      "icon": "basalt-cliff.svg"
+    },
+    {
+      "family": "Geology",
+      "name": "Rock Strata",
+      "id": "organic57:rock-strata",
+      "ingredients": [
+        "Rock",
+        "Time"
+      ],
+      "result": "Rock Strata",
+      "icon": "rock-strata.svg"
+    },
+    {
+      "family": "Geology",
+      "name": "River Pebble",
+      "id": "organic57:river-pebble",
+      "ingredients": [
+        "Smooth Beach Stone",
+        "River"
+      ],
+      "result": "River Pebble",
+      "icon": "river-pebble.svg"
+    },
+    {
+      "family": "Geology",
+      "name": "Volcanic Ash Cloud",
+      "id": "organic57:volcanic-ash-cloud",
+      "ingredients": [
+        "Volcano",
+        "Fog"
+      ],
+      "result": "Volcanic Ash Cloud",
+      "icon": "volcanic-ash-cloud.svg"
+    },
+    {
+      "family": "Geology",
+      "name": "Salt Cavern",
+      "id": "organic57:salt-cavern",
+      "ingredients": [
+        "Salt",
+        "Cave"
+      ],
+      "result": "Salt Cavern",
+      "icon": "salt-cavern.svg"
+    },
+    {
+      "family": "Geology",
+      "name": "Glacial Moraine",
+      "id": "organic57:glacial-moraine",
+      "ingredients": [
+        "Glacier",
+        "Rock"
+      ],
+      "result": "Glacial Moraine",
+      "icon": "glacial-moraine.svg"
+    },
+    {
+      "family": "Geology",
+      "name": "Petrified Branch",
+      "id": "organic57:petrified-branch",
+      "ingredients": [
+        "Wood",
+        "Fossil"
+      ],
+      "result": "Petrified Branch",
+      "icon": "petrified-branch.svg"
+    },
+    {
+      "family": "Geology",
+      "name": "Clay Deposit",
+      "id": "organic57:clay-deposit",
+      "ingredients": [
+        "Clay",
+        "Mountain"
+      ],
+      "result": "Clay Deposit",
+      "icon": "clay-deposit.svg"
+    },
+    {
+      "family": "Geology",
+      "name": "Lava Fountain",
+      "id": "organic57:lava-fountain",
+      "ingredients": [
+        "Lava",
+        "Geyser"
+      ],
+      "result": "Lava Fountain",
+      "icon": "lava-fountain.svg"
+    },
+    {
+      "family": "Geology",
+      "name": "Canyon Shadow",
+      "id": "organic57:canyon-shadow",
+      "ingredients": [
+        "Canyon",
+        "Shadow"
+      ],
+      "result": "Canyon Shadow",
+      "icon": "canyon-shadow.svg"
+    },
+    {
+      "family": "Geology",
+      "name": "Underground Spring",
+      "id": "organic57:underground-spring",
+      "ingredients": [
+        "Cave Pool",
+        "River"
+      ],
+      "result": "Underground Spring",
+      "icon": "underground-spring.svg"
+    },
+    {
+      "family": "Geology",
+      "name": "Water Worn Stone",
+      "id": "organic57:water-worn-stone",
+      "ingredients": [
+        "Rock",
+        "Riverbank"
+      ],
+      "result": "Water Worn Stone",
+      "icon": "water-worn-stone.svg"
+    },
+    {
+      "family": "Geology",
+      "name": "Crystal Cavern Pool",
+      "id": "organic57:crystal-cavern-pool",
+      "ingredients": [
+        "Crystal",
+        "Pond"
+      ],
+      "result": "Crystal Cavern Pool",
+      "icon": "crystal-cavern-pool.svg"
+    },
+    {
+      "family": "Geology",
+      "name": "Stone Arch",
+      "id": "organic57:stone-arch",
+      "ingredients": [
+        "Rock",
+        "Engineering"
+      ],
+      "result": "Stone Arch",
+      "icon": "stone-arch.svg"
+    },
+    {
+      "family": "Geology",
+      "name": "Obsidian Edge",
+      "id": "organic57:obsidian-edge",
+      "ingredients": [
+        "Obsidian",
+        "Tool"
+      ],
+      "result": "Obsidian Edge",
+      "icon": "obsidian-edge.svg"
+    },
+    {
+      "family": "Geology",
+      "name": "Cinder Cone",
+      "id": "organic57:cinder-cone",
+      "ingredients": [
+        "Volcano",
+        "Ash"
+      ],
+      "result": "Cinder Cone",
+      "icon": "cinder-cone.svg"
+    },
+    {
+      "family": "Geology",
+      "name": "Glacier Field Notes",
+      "id": "organic57:glacier-field-notes",
+      "ingredients": [
+        "Glacier",
+        "Field Notebook"
+      ],
+      "result": "Glacier Field Notes",
+      "icon": "glacier-field-notes.svg"
+    },
+    {
+      "family": "Geology",
+      "name": "Rock Mineral Chart",
+      "id": "organic57:rock-mineral-chart",
+      "ingredients": [
+        "Rock",
+        "Paper"
+      ],
+      "result": "Rock Mineral Chart",
+      "icon": "rock-mineral-chart.svg"
+    },
+    {
+      "family": "Geology",
+      "name": "Cave Survey Map",
+      "id": "organic57:cave-survey-map",
+      "ingredients": [
+        "Cave",
+        "Map"
+      ],
+      "result": "Cave Survey Map",
+      "icon": "cave-survey-map.svg"
+    },
+    {
+      "family": "Food",
+      "name": "Lemon Glaze",
+      "id": "organic57:lemon-glaze",
+      "ingredients": [
+        "Lemon",
+        "Honey Glaze"
+      ],
+      "result": "Lemon Glaze",
+      "icon": "lemon-glaze.svg"
+    },
+    {
+      "family": "Food",
+      "name": "Apple Compote",
+      "id": "organic57:apple-compote",
+      "ingredients": [
+        "Apple",
+        "Fruit Compote"
+      ],
+      "result": "Apple Compote",
+      "icon": "apple-compote.svg"
+    },
+    {
+      "family": "Food",
+      "name": "Rice Porridge",
+      "id": "organic57:rice-porridge",
+      "ingredients": [
+        "Rice",
+        "Soup Pot"
+      ],
+      "result": "Rice Porridge",
+      "icon": "rice-porridge.svg"
+    },
+    {
+      "family": "Food",
+      "name": "Mushroom Risotto",
+      "id": "organic57:mushroom-risotto",
+      "ingredients": [
+        "Mushroom",
+        "Rice"
+      ],
+      "result": "Mushroom Risotto",
+      "icon": "mushroom-risotto.svg"
+    },
+    {
+      "family": "Food",
+      "name": "Honey Tea",
+      "id": "organic57:honey-tea",
+      "ingredients": [
+        "Honey",
+        "Tea"
+      ],
+      "result": "Honey Tea",
+      "icon": "honey-tea.svg"
+    },
+    {
+      "family": "Food",
+      "name": "Chocolate Sauce",
+      "id": "organic57:chocolate-sauce",
+      "ingredients": [
+        "Chocolate",
+        "Soup Pot"
+      ],
+      "result": "Chocolate Sauce",
+      "icon": "chocolate-sauce.svg"
+    },
+    {
+      "family": "Food",
+      "name": "Herbal Bread",
+      "id": "organic57:herbal-bread",
+      "ingredients": [
+        "Herb",
+        "Bread"
+      ],
+      "result": "Herbal Bread",
+      "icon": "herbal-bread.svg"
+    },
+    {
+      "family": "Food",
+      "name": "Egg Custard",
+      "id": "organic57:egg-custard",
+      "ingredients": [
+        "Egg",
+        "Pastry"
+      ],
+      "result": "Egg Custard",
+      "icon": "egg-custard.svg"
+    },
+    {
+      "family": "Food",
+      "name": "Seaweed Broth",
+      "id": "organic57:seaweed-broth",
+      "ingredients": [
+        "Seaweed",
+        "Soup"
+      ],
+      "result": "Seaweed Broth",
+      "icon": "seaweed-broth.svg"
+    },
+    {
+      "family": "Food",
+      "name": "Mushroom Gravy",
+      "id": "organic57:mushroom-gravy",
+      "ingredients": [
+        "Mushroom",
+        "Soup Pot"
+      ],
+      "result": "Mushroom Gravy",
+      "icon": "mushroom-gravy.svg"
+    },
+    {
+      "family": "Food",
+      "name": "Lavender Honey",
+      "id": "organic57:lavender-honey",
+      "ingredients": [
+        "Lavender",
+        "Honey"
+      ],
+      "result": "Lavender Honey",
+      "icon": "lavender-honey.svg"
+    },
+    {
+      "family": "Food",
+      "name": "Caramel Apple",
+      "id": "organic57:caramel-apple",
+      "ingredients": [
+        "Apple",
+        "Caramel"
+      ],
+      "result": "Caramel Apple",
+      "icon": "caramel-apple.svg"
+    },
+    {
+      "family": "Food",
+      "name": "Pine Nut Pesto",
+      "id": "organic57:pine-nut-pesto",
+      "ingredients": [
+        "Pinecone",
+        "Herb"
+      ],
+      "result": "Pine Nut Pesto",
+      "icon": "pine-nut-pesto.svg"
+    },
+    {
+      "family": "Food",
+      "name": "Cocoa Biscuit",
+      "id": "organic57:cocoa-biscuit",
+      "ingredients": [
+        "Cocoa",
+        "Flour"
+      ],
+      "result": "Cocoa Biscuit",
+      "icon": "cocoa-biscuit.svg"
+    },
+    {
+      "family": "Food",
+      "name": "Cinnamon Apple Filling",
+      "id": "organic57:cinnamon-apple-filling",
+      "ingredients": [
+        "Apple",
+        "Cinnamon"
+      ],
+      "result": "Cinnamon Apple Filling",
+      "icon": "cinnamon-apple-filling.svg"
+    },
+    {
+      "family": "Food",
+      "name": "Mushroom Cooking Notes",
+      "id": "organic57:mushroom-cooking-notes",
+      "ingredients": [
+        "Mushroom",
+        "Book"
+      ],
+      "result": "Mushroom Cooking Notes",
+      "icon": "mushroom-cooking-notes.svg"
+    },
+    {
+      "family": "Food",
+      "name": "Cheese Herb Spread",
+      "id": "organic57:cheese-herb-spread",
+      "ingredients": [
+        "Cheese",
+        "Herb"
+      ],
+      "result": "Cheese Herb Spread",
+      "icon": "cheese-herb-spread.svg"
+    },
+    {
+      "family": "Food",
+      "name": "Toasted Honey Crumbs",
+      "id": "organic57:toasted-honey-crumbs",
+      "ingredients": [
+        "Honey",
+        "Bread Crumbs"
+      ],
+      "result": "Toasted Honey Crumbs",
+      "icon": "toasted-honey-crumbs.svg"
+    },
+    {
+      "family": "Food",
+      "name": "Chocolate Apple Tart",
+      "id": "organic57:chocolate-apple-tart",
+      "ingredients": [
+        "Chocolate",
+        "Apple"
+      ],
+      "result": "Chocolate Apple Tart",
+      "icon": "chocolate-apple-tart.svg"
+    },
+    {
+      "family": "Food",
+      "name": "Mushroom Stuffed Bread",
+      "id": "organic57:mushroom-stuffed-bread",
+      "ingredients": [
+        "Mushroom",
+        "Bread"
+      ],
+      "result": "Mushroom Stuffed Bread",
+      "icon": "mushroom-stuffed-bread.svg"
+    },
+    {
+      "family": "Culture",
+      "name": "Community Garden Gate",
+      "id": "organic57:community-garden-gate",
+      "ingredients": [
+        "Community Garden",
+        "House"
+      ],
+      "result": "Community Garden Gate",
+      "icon": "community-garden-gate.svg"
+    },
+    {
+      "family": "Culture",
+      "name": "Village Bread Market",
+      "id": "organic57:village-bread-market",
+      "ingredients": [
+        "Village",
+        "Bread"
+      ],
+      "result": "Village Bread Market",
+      "icon": "village-bread-market.svg"
+    },
+    {
+      "family": "Culture",
+      "name": "Riverside Market",
+      "id": "organic57:riverside-market",
+      "ingredients": [
+        "River",
+        "Market"
+      ],
+      "result": "Riverside Market",
+      "icon": "riverside-market.svg"
+    },
+    {
+      "family": "Culture",
+      "name": "Street Mural",
+      "id": "organic57:street-mural",
+      "ingredients": [
+        "Street Photography",
+        "Art"
+      ],
+      "result": "Street Mural",
+      "icon": "street-mural.svg"
+    },
+    {
+      "family": "Culture",
+      "name": "Town Clockwork",
+      "id": "organic57:town-clockwork",
+      "ingredients": [
+        "Town Clock",
+        "Gear"
+      ],
+      "result": "Town Clockwork",
+      "icon": "town-clockwork.svg"
+    },
+    {
+      "family": "Culture",
+      "name": "Library Bookmark",
+      "id": "organic57:library-bookmark",
+      "ingredients": [
+        "Library",
+        "Leaf Press"
+      ],
+      "result": "Library Bookmark",
+      "icon": "library-bookmark.svg"
+    },
+    {
+      "family": "Culture",
+      "name": "Glassblowing Studio",
+      "id": "organic57:glassblowing-studio",
+      "ingredients": [
+        "Glass",
+        "Workshop"
+      ],
+      "result": "Glassblowing Studio",
+      "icon": "glassblowing-studio.svg"
+    },
+    {
+      "family": "Culture",
+      "name": "Pottery Showcase",
+      "id": "organic57:pottery-showcase",
+      "ingredients": [
+        "Handcrafted Pot",
+        "Museum"
+      ],
+      "result": "Pottery Showcase",
+      "icon": "pottery-showcase.svg"
+    },
+    {
+      "family": "Culture",
+      "name": "Cultural Festival Poster",
+      "id": "organic57:cultural-festival-poster",
+      "ingredients": [
+        "Craft Fair",
+        "Paper"
+      ],
+      "result": "Cultural Festival Poster",
+      "icon": "cultural-festival-poster.svg"
+    },
+    {
+      "family": "Culture",
+      "name": "Village Lantern Festival",
+      "id": "organic57:village-lantern-festival",
+      "ingredients": [
+        "Village",
+        "Solar Lantern"
+      ],
+      "result": "Village Lantern Festival",
+      "icon": "village-lantern-festival.svg"
+    },
+    {
+      "family": "Culture",
+      "name": "Public Art Statue",
+      "id": "organic57:public-art-statue",
+      "ingredients": [
+        "Art",
+        "Sculpture Garden"
+      ],
+      "result": "Public Art Statue",
+      "icon": "public-art-statue.svg"
+    },
+    {
+      "family": "Culture",
+      "name": "Community Herb Garden",
+      "id": "organic57:community-herb-garden",
+      "ingredients": [
+        "Community Garden",
+        "Herb"
+      ],
+      "result": "Community Herb Garden",
+      "icon": "community-herb-garden.svg"
+    },
+    {
+      "family": "Culture",
+      "name": "Seaside Market Stall",
+      "id": "organic57:seaside-market-stall",
+      "ingredients": [
+        "Market Stall",
+        "Sea"
+      ],
+      "result": "Seaside Market Stall",
+      "icon": "seaside-market-stall.svg"
+    },
+    {
+      "family": "Culture",
+      "name": "Storytelling Circle",
+      "id": "organic57:storytelling-circle",
+      "ingredients": [
+        "Family",
+        "Book"
+      ],
+      "result": "Storytelling Circle",
+      "icon": "storytelling-circle.svg"
+    },
+    {
+      "family": "Culture",
+      "name": "Wooden Town Sign",
+      "id": "organic57:wooden-town-sign",
+      "ingredients": [
+        "Wooden Plank",
+        "City"
+      ],
+      "result": "Wooden Town Sign",
+      "icon": "wooden-town-sign.svg"
+    },
+    {
+      "family": "Culture",
+      "name": "Garden Reading Corner",
+      "id": "organic57:garden-reading-corner",
+      "ingredients": [
+        "Garden",
+        "Book"
+      ],
+      "result": "Garden Reading Corner",
+      "icon": "garden-reading-corner.svg"
+    },
+    {
+      "family": "Culture",
+      "name": "Heritage Walking Tour",
+      "id": "organic57:heritage-walking-tour",
+      "ingredients": [
+        "History",
+        "Map"
+      ],
+      "result": "Heritage Walking Tour",
+      "icon": "heritage-walking-tour.svg"
+    },
+    {
+      "family": "Culture",
+      "name": "School Greenhouse",
+      "id": "organic57:school-greenhouse",
+      "ingredients": [
+        "School",
+        "Greenhouse"
+      ],
+      "result": "School Greenhouse",
+      "icon": "school-greenhouse.svg"
+    },
+    {
+      "family": "Culture",
+      "name": "Amphitheater Stage",
+      "id": "organic57:amphitheater-stage",
+      "ingredients": [
+        "Theater",
+        "Stone"
+      ],
+      "result": "Amphitheater Stage",
+      "icon": "amphitheater-stage.svg"
+    },
+    {
+      "family": "Culture",
+      "name": "Concert Poster",
+      "id": "organic57:concert-poster",
+      "ingredients": [
+        "Concert",
+        "Paper"
+      ],
+      "result": "Concert Poster",
+      "icon": "concert-poster.svg"
+    },
+    {
+      "family": "Technology",
+      "name": "Plant Moisture Sensor",
+      "id": "organic57:plant-moisture-sensor",
+      "ingredients": [
+        "Plant",
+        "Sensor"
+      ],
+      "result": "Plant Moisture Sensor",
+      "icon": "plant-moisture-sensor.svg"
+    },
+    {
+      "family": "Technology",
+      "name": "Digital Weather Station",
+      "id": "organic57:digital-weather-station",
+      "ingredients": [
+        "Weather",
+        "Computer"
+      ],
+      "result": "Digital Weather Station",
+      "icon": "digital-weather-station.svg"
+    },
+    {
+      "family": "Technology",
+      "name": "Aquarium Water Filter",
+      "id": "organic57:aquarium-water-filter",
+      "ingredients": [
+        "Aquarium",
+        "Water Filter"
+      ],
+      "result": "Aquarium Water Filter",
+      "icon": "aquarium-water-filter.svg"
+    },
+    {
+      "family": "Technology",
+      "name": "Solar Water Pump",
+      "id": "organic57:solar-water-pump",
+      "ingredients": [
+        "Water Pump",
+        "Solar Power"
+      ],
+      "result": "Solar Water Pump",
+      "icon": "solar-water-pump.svg"
+    },
+    {
+      "family": "Technology",
+      "name": "Garden Irrigation Timer",
+      "id": "organic57:garden-irrigation-timer",
+      "ingredients": [
+        "Garden",
+        "Clock"
+      ],
+      "result": "Garden Irrigation Timer",
+      "icon": "garden-irrigation-timer.svg"
+    },
+    {
+      "family": "Technology",
+      "name": "Digital Field Notebook",
+      "id": "organic57:digital-field-notebook",
+      "ingredients": [
+        "Notebook",
+        "Computer"
+      ],
+      "result": "Digital Field Notebook",
+      "icon": "digital-field-notebook.svg"
+    },
+    {
+      "family": "Technology",
+      "name": "Compact Solar Lamp",
+      "id": "organic57:compact-solar-lamp",
+      "ingredients": [
+        "Solar Lantern",
+        "Battery"
+      ],
+      "result": "Compact Solar Lamp",
+      "icon": "compact-solar-lamp.svg"
+    },
+    {
+      "family": "Technology",
+      "name": "Electronic Soil Meter",
+      "id": "organic57:electronic-soil-meter",
+      "ingredients": [
+        "Soil",
+        "Sensor"
+      ],
+      "result": "Electronic Soil Meter",
+      "icon": "electronic-soil-meter.svg"
+    },
+    {
+      "family": "Technology",
+      "name": "Glass Solar Panel",
+      "id": "organic57:glass-solar-panel",
+      "ingredients": [
+        "Solar Power",
+        "Sea Glass"
+      ],
+      "result": "Glass Solar Panel",
+      "icon": "glass-solar-panel.svg"
+    },
+    {
+      "family": "Technology",
+      "name": "Thermal Camera Lens",
+      "id": "organic57:thermal-camera-lens",
+      "ingredients": [
+        "Thermal Camera",
+        "Lens"
+      ],
+      "result": "Thermal Camera Lens",
+      "icon": "thermal-camera-lens.svg"
+    },
+    {
+      "family": "Technology",
+      "name": "Remote Rain Sensor",
+      "id": "organic57:remote-rain-sensor",
+      "ingredients": [
+        "Rain Sensor",
+        "Computer"
+      ],
+      "result": "Remote Rain Sensor",
+      "icon": "remote-rain-sensor.svg"
+    },
+    {
+      "family": "Technology",
+      "name": "Wildlife Motion Detector",
+      "id": "organic57:wildlife-motion-detector",
+      "ingredients": [
+        "Animal",
+        "Motion Sensor"
+      ],
+      "result": "Wildlife Motion Detector",
+      "icon": "wildlife-motion-detector.svg"
+    },
+    {
+      "family": "Technology",
+      "name": "Smart Plant Pot",
+      "id": "organic57:smart-plant-pot",
+      "ingredients": [
+        "Plant",
+        "Microchip"
+      ],
+      "result": "Smart Plant Pot",
+      "icon": "smart-plant-pot.svg"
+    },
+    {
+      "family": "Technology",
+      "name": "Digital Compass Screen",
+      "id": "organic57:digital-compass-screen",
+      "ingredients": [
+        "Compass",
+        "Screen"
+      ],
+      "result": "Digital Compass Screen",
+      "icon": "digital-compass-screen.svg"
+    },
+    {
+      "family": "Technology",
+      "name": "Underwater Microphone",
+      "id": "organic57:underwater-microphone",
+      "ingredients": [
+        "Sea",
+        "Microphone"
+      ],
+      "result": "Underwater Microphone",
+      "icon": "underwater-microphone.svg"
+    },
+    {
+      "family": "Technology",
+      "name": "Solar Clock Face",
+      "id": "organic57:solar-clock-face",
+      "ingredients": [
+        "Clock",
+        "Solar Power"
+      ],
+      "result": "Solar Clock Face",
+      "icon": "solar-clock-face.svg"
+    },
+    {
+      "family": "Technology",
+      "name": "Microclimate Sensor",
+      "id": "organic57:microclimate-sensor",
+      "ingredients": [
+        "Weather Sensor",
+        "Garden"
+      ],
+      "result": "Microclimate Sensor",
+      "icon": "microclimate-sensor.svg"
+    },
+    {
+      "family": "Technology",
+      "name": "Wind Powered Pump",
+      "id": "organic57:wind-powered-pump",
+      "ingredients": [
+        "Water Pump",
+        "Wind Turbine"
+      ],
+      "result": "Wind Powered Pump",
+      "icon": "wind-powered-pump.svg"
+    },
+    {
+      "family": "Technology",
+      "name": "Forest Audio Recorder",
+      "id": "organic57:forest-audio-recorder",
+      "ingredients": [
+        "Forest Whisper",
+        "Camera"
+      ],
+      "result": "Forest Audio Recorder",
+      "icon": "forest-audio-recorder.svg"
+    },
+    {
+      "family": "Technology",
+      "name": "Digital Herbarium",
+      "id": "organic57:digital-herbarium",
+      "ingredients": [
+        "Herb Garden",
+        "Computer"
+      ],
+      "result": "Digital Herbarium",
+      "icon": "digital-herbarium.svg"
+    },
+    {
+      "family": "Astronomy",
+      "name": "Star Trail Photograph",
+      "id": "organic57:star-trail-photograph",
+      "ingredients": [
+        "Star",
+        "Photography"
+      ],
+      "result": "Star Trail Photograph",
+      "icon": "star-trail-photograph.svg"
+    },
+    {
+      "family": "Astronomy",
+      "name": "Solar Flare Glow",
+      "id": "organic57:solar-flare-glow",
+      "ingredients": [
+        "Solar Flare",
+        "Light"
+      ],
+      "result": "Solar Flare Glow",
+      "icon": "solar-flare-glow.svg"
+    },
+    {
+      "family": "Astronomy",
+      "name": "Comet Tail Ice",
+      "id": "organic57:comet-tail-ice",
+      "ingredients": [
+        "Comet",
+        "Ice"
+      ],
+      "result": "Comet Tail Ice",
+      "icon": "comet-tail-ice.svg"
+    },
+    {
+      "family": "Astronomy",
+      "name": "Meteorite Fragment",
+      "id": "organic57:meteorite-fragment",
+      "ingredients": [
+        "Meteorite",
+        "Fossil"
+      ],
+      "result": "Meteorite Fragment",
+      "icon": "meteorite-fragment.svg"
+    },
+    {
+      "family": "Astronomy",
+      "name": "Spacecraft Window",
+      "id": "organic57:spacecraft-window",
+      "ingredients": [
+        "Spacecraft",
+        "Glass"
+      ],
+      "result": "Spacecraft Window",
+      "icon": "spacecraft-window.svg"
+    },
+    {
+      "family": "Astronomy",
+      "name": "Telescope Star Chart",
+      "id": "organic57:telescope-star-chart",
+      "ingredients": [
+        "Telescope",
+        "Map"
+      ],
+      "result": "Telescope Star Chart",
+      "icon": "telescope-star-chart.svg"
+    },
+    {
+      "family": "Astronomy",
+      "name": "Moonrise Reflection",
+      "id": "organic57:moonrise-reflection",
+      "ingredients": [
+        "Moonrise",
+        "Pond"
+      ],
+      "result": "Moonrise Reflection",
+      "icon": "moonrise-reflection.svg"
+    },
+    {
+      "family": "Astronomy",
+      "name": "Solar Eclipse Shadow",
+      "id": "organic57:solar-eclipse-shadow",
+      "ingredients": [
+        "Eclipse",
+        "Shadow"
+      ],
+      "result": "Solar Eclipse Shadow",
+      "icon": "solar-eclipse-shadow.svg"
+    },
+    {
+      "family": "Astronomy",
+      "name": "Observatory Notebook",
+      "id": "organic57:observatory-notebook",
+      "ingredients": [
+        "Observatory",
+        "Book"
+      ],
+      "result": "Observatory Notebook",
+      "icon": "observatory-notebook.svg"
+    },
+    {
+      "family": "Astronomy",
+      "name": "Planetary Weather",
+      "id": "organic57:planetary-weather",
+      "ingredients": [
+        "Planet",
+        "Storm"
+      ],
+      "result": "Planetary Weather",
+      "icon": "planetary-weather.svg"
+    },
+    {
+      "family": "Astronomy",
+      "name": "Space Rock Sample",
+      "id": "organic57:space-rock-sample",
+      "ingredients": [
+        "Asteroid",
+        "Science"
+      ],
+      "result": "Space Rock Sample",
+      "icon": "space-rock-sample.svg"
+    },
+    {
+      "family": "Astronomy",
+      "name": "Meteor Shower Calendar",
+      "id": "organic57:meteor-shower-calendar",
+      "ingredients": [
+        "Meteor Shower",
+        "Time"
+      ],
+      "result": "Meteor Shower Calendar",
+      "icon": "meteor-shower-calendar.svg"
+    },
+    {
+      "family": "Astronomy",
+      "name": "Star Cluster Sketch",
+      "id": "organic57:star-cluster-sketch",
+      "ingredients": [
+        "Star Cluster",
+        "Art"
+      ],
+      "result": "Star Cluster Sketch",
+      "icon": "star-cluster-sketch.svg"
+    },
+    {
+      "family": "Astronomy",
+      "name": "Night Sky Photograph",
+      "id": "organic57:night-sky-photograph",
+      "ingredients": [
+        "Night Sky Map",
+        "Photography"
+      ],
+      "result": "Night Sky Photograph",
+      "icon": "night-sky-photograph.svg"
+    },
+    {
+      "family": "Astronomy",
+      "name": "Comet Observation Log",
+      "id": "organic57:comet-observation-log",
+      "ingredients": [
+        "Comet",
+        "Writing"
+      ],
+      "result": "Comet Observation Log",
+      "icon": "comet-observation-log.svg"
+    },
+    {
+      "family": "Astronomy",
+      "name": "Moonlit Mountain Ridge",
+      "id": "organic57:moonlit-mountain-ridge",
+      "ingredients": [
+        "Moonlight",
+        "Mountain"
+      ],
+      "result": "Moonlit Mountain Ridge",
+      "icon": "moonlit-mountain-ridge.svg"
+    },
+    {
+      "family": "Astronomy",
+      "name": "Observatory Field Notes",
+      "id": "organic57:observatory-field-notes",
+      "ingredients": [
+        "Observatory",
+        "Notebook"
+      ],
+      "result": "Observatory Field Notes",
+      "icon": "observatory-field-notes.svg"
+    },
+    {
+      "family": "Astronomy",
+      "name": "Moon Crater Sketch",
+      "id": "organic57:moon-crater-sketch",
+      "ingredients": [
+        "Moon",
+        "Art"
+      ],
+      "result": "Moon Crater Sketch",
+      "icon": "moon-crater-sketch.svg"
+    },
+    {
+      "family": "Astronomy",
+      "name": "Comet Ice Sample",
+      "id": "organic57:comet-ice-sample",
+      "ingredients": [
+        "Comet",
+        "Science"
+      ],
+      "result": "Comet Ice Sample",
+      "icon": "comet-ice-sample.svg"
+    },
+    {
+      "family": "Astronomy",
+      "name": "Starfield Observatory Photo",
+      "id": "organic57:starfield-observatory-photo",
+      "ingredients": [
+        "Observatory",
+        "Photography"
+      ],
+      "result": "Starfield Observatory Photo",
+      "icon": "starfield-observatory-photo.svg"
+    },
+    {
+      "family": "Crafts",
+      "name": "Pressed Flower Card",
+      "id": "organic57:pressed-flower-card",
+      "ingredients": [
+        "Flower",
+        "Paper"
+      ],
+      "result": "Pressed Flower Card",
+      "icon": "pressed-flower-card.svg"
+    },
+    {
+      "family": "Crafts",
+      "name": "Clay Plant Pot",
+      "id": "organic57:clay-plant-pot",
+      "ingredients": [
+        "Clay",
+        "Plant"
+      ],
+      "result": "Clay Plant Pot",
+      "icon": "clay-plant-pot.svg"
+    },
+    {
+      "family": "Crafts",
+      "name": "Glass Mosaic Tile",
+      "id": "organic57:glass-mosaic-tile",
+      "ingredients": [
+        "Glass",
+        "Art"
+      ],
+      "result": "Glass Mosaic Tile",
+      "icon": "glass-mosaic-tile.svg"
+    },
+    {
+      "family": "Crafts",
+      "name": "Copper Jewelry Wire",
+      "id": "organic57:copper-jewelry-wire",
+      "ingredients": [
+        "Copper",
+        "Wire"
+      ],
+      "result": "Copper Jewelry Wire",
+      "icon": "copper-jewelry-wire.svg"
+    },
+    {
+      "family": "Crafts",
+      "name": "Painted Ceramic Mug",
+      "id": "organic57:painted-ceramic-mug",
+      "ingredients": [
+        "Ceramic",
+        "Color"
+      ],
+      "result": "Painted Ceramic Mug",
+      "icon": "painted-ceramic-mug.svg"
+    },
+    {
+      "family": "Crafts",
+      "name": "Leaf Print Fabric",
+      "id": "organic57:leaf-print-fabric",
+      "ingredients": [
+        "Leaf Litter",
+        "Silk"
+      ],
+      "result": "Leaf Print Fabric",
+      "icon": "leaf-print-fabric.svg"
+    },
+    {
+      "family": "Crafts",
+      "name": "Pinecone Decoration",
+      "id": "organic57:pinecone-decoration",
+      "ingredients": [
+        "Pinecone",
+        "Art"
+      ],
+      "result": "Pinecone Decoration",
+      "icon": "pinecone-decoration.svg"
+    },
+    {
+      "family": "Crafts",
+      "name": "Seashell Pendant",
+      "id": "organic57:seashell-pendant",
+      "ingredients": [
+        "Seashell",
+        "Gold"
+      ],
+      "result": "Seashell Pendant",
+      "icon": "seashell-pendant.svg"
+    },
+    {
+      "family": "Crafts",
+      "name": "Botanical Watercolor",
+      "id": "organic57:botanical-watercolor",
+      "ingredients": [
+        "Botanical Sketch",
+        "Water"
+      ],
+      "result": "Botanical Watercolor",
+      "icon": "botanical-watercolor.svg"
+    },
+    {
+      "family": "Crafts",
+      "name": "Clay Bird Whistle",
+      "id": "organic57:clay-bird-whistle",
+      "ingredients": [
+        "Clay",
+        "Bird"
+      ],
+      "result": "Clay Bird Whistle",
+      "icon": "clay-bird-whistle.svg"
+    },
+    {
+      "family": "Crafts",
+      "name": "Dried Flower Bouquet",
+      "id": "organic57:dried-flower-bouquet",
+      "ingredients": [
+        "Flowering Field",
+        "Heat"
+      ],
+      "result": "Dried Flower Bouquet",
+      "icon": "dried-flower-bouquet.svg"
+    },
+    {
+      "family": "Crafts",
+      "name": "Glass Terrarium Dome",
+      "id": "organic57:glass-terrarium-dome",
+      "ingredients": [
+        "Terrarium",
+        "Glass"
+      ],
+      "result": "Glass Terrarium Dome",
+      "icon": "glass-terrarium-dome.svg"
+    },
+    {
+      "family": "Crafts",
+      "name": "Stone Mosaic Path",
+      "id": "organic57:stone-mosaic-path",
+      "ingredients": [
+        "Rock Garden Path",
+        "Art"
+      ],
+      "result": "Stone Mosaic Path",
+      "icon": "stone-mosaic-path.svg"
+    },
+    {
+      "family": "Crafts",
+      "name": "Handmade Herb Bookmark",
+      "id": "organic57:handmade-herb-bookmark",
+      "ingredients": [
+        "Herb",
+        "Paper"
+      ],
+      "result": "Handmade Herb Bookmark",
+      "icon": "handmade-herb-bookmark.svg"
+    },
+    {
+      "family": "Crafts",
+      "name": "Pressed Leaf Journal",
+      "id": "organic57:pressed-leaf-journal",
+      "ingredients": [
+        "Leaf Press",
+        "Nature Journal"
+      ],
+      "result": "Pressed Leaf Journal",
+      "icon": "pressed-leaf-journal.svg"
+    },
+    {
+      "family": "Crafts",
+      "name": "Painted Seashell Card",
+      "id": "organic57:painted-seashell-card",
+      "ingredients": [
+        "Seashell",
+        "Paper"
+      ],
+      "result": "Painted Seashell Card",
+      "icon": "painted-seashell-card.svg"
+    },
+    {
+      "family": "Crafts",
+      "name": "Garden Herb Label",
+      "id": "organic57:garden-herb-label",
+      "ingredients": [
+        "Herb Garden",
+        "Paper"
+      ],
+      "result": "Garden Herb Label",
+      "icon": "garden-herb-label.svg"
+    },
+    {
+      "family": "Crafts",
+      "name": "River Pebble Art",
+      "id": "organic57:river-pebble-art",
+      "ingredients": [
+        "Beach Pebble",
+        "Art"
+      ],
+      "result": "River Pebble Art",
+      "icon": "river-pebble-art.svg"
+    },
+    {
+      "family": "Crafts",
+      "name": "Pressed Pine Needle Card",
+      "id": "organic57:pressed-pine-needle-card",
+      "ingredients": [
+        "Pine Needle",
+        "Paper"
+      ],
+      "result": "Pressed Pine Needle Card",
+      "icon": "pressed-pine-needle-card.svg"
+    },
+    {
+      "family": "Crafts",
+      "name": "Flower Press Exhibition",
+      "id": "organic57:flower-press-exhibition",
+      "ingredients": [
+        "Leaf Press",
+        "Museum"
+      ],
+      "result": "Flower Press Exhibition",
+      "icon": "flower-press-exhibition.svg"
+    }
+  ]
+}

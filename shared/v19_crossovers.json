@@ -1,0 +1,667 @@
+{
+  "items": [
+    {
+      "id": "pack:dragon-ball-z-budokai-3",
+      "name": "Dragon Ball Z: Budokai 3",
+      "category": "game",
+      "summary": "Authentic 2004 video game release for the platform; original Gameverse artwork.",
+      "iconFamily": "game",
+      "paletteVariant": "cool",
+      "v19Art": "game_case"
+    },
+    {
+      "id": "pack:dragon-ball-raging-blast-2",
+      "name": "Dragon Ball: Raging Blast 2",
+      "category": "game",
+      "summary": "Authentic 2010 video game release for the platform; original Gameverse artwork.",
+      "iconFamily": "game",
+      "paletteVariant": "cool",
+      "v19Art": "game_case"
+    },
+    {
+      "id": "pack:dragon-ball-z-kakarot",
+      "name": "Dragon Ball Z: Kakarot",
+      "category": "game",
+      "summary": "Authentic 2020 video game release for the platform; original Gameverse artwork.",
+      "iconFamily": "game",
+      "paletteVariant": "cool",
+      "v19Art": "game_case"
+    },
+    {
+      "id": "pack:dragon-ball-sparking-zero",
+      "name": "Dragon Ball: Sparking! ZERO",
+      "category": "game",
+      "summary": "Authentic 2024 video game release for the platform; original Gameverse artwork.",
+      "iconFamily": "game",
+      "paletteVariant": "cool",
+      "v19Art": "game_case"
+    },
+    {
+      "id": "pack:dragon-ball-fighterz",
+      "name": "Dragon Ball FighterZ",
+      "category": "game",
+      "summary": "Authentic 2018 video game release for the platform; original Gameverse artwork.",
+      "iconFamily": "game",
+      "paletteVariant": "cool",
+      "v19Art": "game_case"
+    },
+    {
+      "id": "pack:dragon-ball-z-the-legacy-of-goku",
+      "name": "Dragon Ball Z: The Legacy of Goku",
+      "category": "game",
+      "summary": "Authentic 2002 video game release for the platform; original Gameverse artwork.",
+      "iconFamily": "game",
+      "paletteVariant": "cool",
+      "v19Art": "game_case"
+    },
+    {
+      "id": "pack:dragon-ball-z-shin-budokai",
+      "name": "Dragon Ball Z: Shin Budokai",
+      "category": "game",
+      "summary": "Authentic 2006 video game release for the platform; original Gameverse artwork.",
+      "iconFamily": "game",
+      "paletteVariant": "cool",
+      "v19Art": "game_case"
+    },
+    {
+      "id": "pack:dragon-ball-z-budokai-tenkaichi-3",
+      "name": "Dragon Ball Z: Budokai Tenkaichi 3",
+      "category": "game",
+      "summary": "Authentic 2007 video game release for the platform; original Gameverse artwork.",
+      "iconFamily": "game",
+      "paletteVariant": "cool",
+      "v19Art": "game_case"
+    },
+    {
+      "id": "pack:dragon-ball-z-budokai-2",
+      "name": "Dragon Ball Z: Budokai 2",
+      "category": "game",
+      "summary": "Authentic 2003 video game release for the platform; original Gameverse artwork.",
+      "iconFamily": "game",
+      "paletteVariant": "cool",
+      "v19Art": "game_case"
+    },
+    {
+      "id": "pack:dragon-ball-raging-blast",
+      "name": "Dragon Ball: Raging Blast",
+      "category": "game",
+      "summary": "Authentic 2009 video game release for the platform; original Gameverse artwork.",
+      "iconFamily": "game",
+      "paletteVariant": "cool",
+      "v19Art": "game_case"
+    },
+    {
+      "id": "pack:naruto-ultimate-ninja-3",
+      "name": "Naruto: Ultimate Ninja 3",
+      "category": "game",
+      "summary": "Authentic 2005 video game release for the platform; original Gameverse artwork.",
+      "iconFamily": "game",
+      "paletteVariant": "cool",
+      "v19Art": "game_case"
+    },
+    {
+      "id": "pack:naruto-ultimate-ninja-heroes",
+      "name": "Naruto: Ultimate Ninja Heroes",
+      "category": "game",
+      "summary": "Authentic 2007 video game release for the platform; original Gameverse artwork.",
+      "iconFamily": "game",
+      "paletteVariant": "cool",
+      "v19Art": "game_case"
+    },
+    {
+      "id": "pack:naruto-shippuden-ultimate-ninja-storm-4",
+      "name": "Naruto Shippuden: Ultimate Ninja Storm 4",
+      "category": "game",
+      "summary": "Authentic 2016 video game release for the platform; original Gameverse artwork.",
+      "iconFamily": "game",
+      "paletteVariant": "cool",
+      "v19Art": "game_case"
+    },
+    {
+      "id": "pack:naruto-shippuden-ultimate-ninja-storm-trilogy",
+      "name": "Naruto Shippuden: Ultimate Ninja Storm Trilogy",
+      "category": "game",
+      "summary": "Authentic 2018 video game release for the platform; original Gameverse artwork.",
+      "iconFamily": "game",
+      "paletteVariant": "cool",
+      "v19Art": "game_case"
+    },
+    {
+      "id": "pack:one-piece-grand-adventure",
+      "name": "One Piece: Grand Adventure",
+      "category": "game",
+      "summary": "Authentic 2006 video game release for the platform; original Gameverse artwork.",
+      "iconFamily": "game",
+      "paletteVariant": "cool",
+      "v19Art": "game_case"
+    },
+    {
+      "id": "pack:one-piece-pirate-warriors-4",
+      "name": "One Piece: Pirate Warriors 4",
+      "category": "game",
+      "summary": "Authentic 2020 video game release for the platform; original Gameverse artwork.",
+      "iconFamily": "game",
+      "paletteVariant": "cool",
+      "v19Art": "game_case"
+    },
+    {
+      "id": "pack:one-piece-unlimited-world-red",
+      "name": "One Piece: Unlimited World Red",
+      "category": "game",
+      "summary": "Authentic 2013 video game release for the platform; original Gameverse artwork.",
+      "iconFamily": "game",
+      "paletteVariant": "cool",
+      "v19Art": "game_case"
+    },
+    {
+      "id": "pack:bleach-blade-battlers-2nd",
+      "name": "Bleach: Blade Battlers 2nd",
+      "category": "game",
+      "summary": "Authentic 2007 video game release for the platform; original Gameverse artwork.",
+      "iconFamily": "game",
+      "paletteVariant": "cool",
+      "v19Art": "game_case"
+    },
+    {
+      "id": "pack:bleach-the-blade-of-fate",
+      "name": "Bleach: The Blade of Fate",
+      "category": "game",
+      "summary": "Authentic 2006 video game release for the platform; original Gameverse artwork.",
+      "iconFamily": "game",
+      "paletteVariant": "cool",
+      "v19Art": "game_case"
+    },
+    {
+      "id": "pack:bleach-heat-the-soul",
+      "name": "Bleach: Heat the Soul",
+      "category": "game",
+      "summary": "Authentic 2005 video game release for the platform; original Gameverse artwork.",
+      "iconFamily": "game",
+      "paletteVariant": "cool",
+      "v19Art": "game_case"
+    },
+    {
+      "id": "pack:jojo-s-bizarre-adventure-all-star-battle",
+      "name": "JoJo's Bizarre Adventure: All Star Battle",
+      "category": "game",
+      "summary": "Authentic 2013 video game release for the platform; original Gameverse artwork.",
+      "iconFamily": "game",
+      "paletteVariant": "cool",
+      "v19Art": "game_case"
+    },
+    {
+      "id": "pack:attack-on-titan-2",
+      "name": "Attack on Titan 2",
+      "category": "game",
+      "summary": "Authentic 2018 video game release for the platform; original Gameverse artwork.",
+      "iconFamily": "game",
+      "paletteVariant": "cool",
+      "v19Art": "game_case"
+    },
+    {
+      "id": "pack:demon-slayer-the-hinokami-chronicles",
+      "name": "Demon Slayer: The Hinokami Chronicles",
+      "category": "game",
+      "summary": "Authentic 2021 video game release for the platform; original Gameverse artwork.",
+      "iconFamily": "game",
+      "paletteVariant": "cool",
+      "v19Art": "game_case"
+    },
+    {
+      "id": "pack:pok-mon-let-s-go-pikachu",
+      "name": "Pokémon: Let's Go, Pikachu!",
+      "category": "game",
+      "summary": "Authentic 2018 video game release for the platform; original Gameverse artwork.",
+      "iconFamily": "game",
+      "paletteVariant": "cool",
+      "v19Art": "game_case"
+    },
+    {
+      "id": "pack:sonic-adventure-2-battle",
+      "name": "Sonic Adventure 2: Battle",
+      "category": "game",
+      "summary": "Authentic 2001 video game release for the platform; original Gameverse artwork.",
+      "iconFamily": "game",
+      "paletteVariant": "cool",
+      "v19Art": "game_case"
+    },
+    {
+      "id": "pack:lego-star-wars-the-skywalker-saga",
+      "name": "LEGO Star Wars: The Skywalker Saga",
+      "category": "game",
+      "summary": "Authentic 2022 video game release for the platform; original Gameverse artwork.",
+      "iconFamily": "game",
+      "paletteVariant": "cool",
+      "v19Art": "game_case"
+    },
+    {
+      "id": "pack:batman-arkham-city",
+      "name": "Batman: Arkham City",
+      "category": "game",
+      "summary": "Authentic 2011 video game release for the platform; original Gameverse artwork.",
+      "iconFamily": "game",
+      "paletteVariant": "cool",
+      "v19Art": "game_case"
+    },
+    {
+      "id": "pack:batman-arkham-knight",
+      "name": "Batman: Arkham Knight",
+      "category": "game",
+      "summary": "Authentic 2015 video game release for the platform; original Gameverse artwork.",
+      "iconFamily": "game",
+      "paletteVariant": "cool",
+      "v19Art": "game_case"
+    },
+    {
+      "id": "pack:hogwarts-legacy",
+      "name": "Hogwarts Legacy",
+      "category": "game",
+      "summary": "Authentic 2023 video game release for the platform; original Gameverse artwork.",
+      "iconFamily": "game",
+      "paletteVariant": "cool",
+      "v19Art": "game_case"
+    },
+    {
+      "id": "pack:indiana-jones-and-the-great-circle",
+      "name": "Indiana Jones and the Great Circle",
+      "category": "game",
+      "summary": "Authentic 2024 video game release for the platform; original Gameverse artwork.",
+      "iconFamily": "game",
+      "paletteVariant": "cool",
+      "v19Art": "game_case"
+    }
+  ],
+  "recipes": [
+    [
+      "pack:son-goku",
+      "legacy:416",
+      "pack:dragon-ball-z-budokai-3"
+    ],
+    [
+      "pack:dragon-ball",
+      "legacy:416",
+      "pack:dragon-ball-z-budokai-3"
+    ],
+    [
+      "pack:son-goku",
+      "legacy:418",
+      "pack:dragon-ball-raging-blast-2"
+    ],
+    [
+      "pack:son-goku",
+      "legacy:420",
+      "pack:dragon-ball-z-kakarot"
+    ],
+    [
+      "pack:dragon-ball",
+      "legacy:420",
+      "pack:dragon-ball-z-kakarot"
+    ],
+    [
+      "pack:son-goku",
+      "legacy:423",
+      "pack:dragon-ball-sparking-zero"
+    ],
+    [
+      "pack:dragon-ball-super",
+      "legacy:423",
+      "pack:dragon-ball-sparking-zero"
+    ],
+    [
+      "pack:son-goku",
+      "legacy:409",
+      "pack:dragon-ball-fighterz"
+    ],
+    [
+      "pack:dragon-ball",
+      "legacy:409",
+      "pack:dragon-ball-fighterz"
+    ],
+    [
+      "pack:dragon-ball",
+      "legacy:465",
+      "pack:dragon-ball-z-the-legacy-of-goku"
+    ],
+    [
+      "pack:dragon-ball",
+      "legacy:494",
+      "pack:dragon-ball-z-shin-budokai"
+    ],
+    [
+      "pack:super-saiyan-goku",
+      "legacy:416",
+      "pack:dragon-ball-z-budokai-tenkaichi-3"
+    ],
+    [
+      "pack:vegeta",
+      "legacy:416",
+      "pack:dragon-ball-z-budokai-2"
+    ],
+    [
+      "pack:son-goku",
+      "legacy:428",
+      "pack:dragon-ball-raging-blast"
+    ],
+    [
+      "pack:naruto-uzumaki",
+      "legacy:416",
+      "pack:naruto-ultimate-ninja-3"
+    ],
+    [
+      "pack:naruto",
+      "legacy:416",
+      "pack:naruto-ultimate-ninja-3"
+    ],
+    [
+      "pack:naruto",
+      "legacy:494",
+      "pack:naruto-ultimate-ninja-heroes"
+    ],
+    [
+      "pack:naruto-uzumaki",
+      "legacy:420",
+      "pack:naruto-shippuden-ultimate-ninja-storm-4"
+    ],
+    [
+      "pack:naruto",
+      "legacy:420",
+      "pack:naruto-shippuden-ultimate-ninja-storm-4"
+    ],
+    [
+      "pack:naruto",
+      "legacy:409",
+      "pack:naruto-shippuden-ultimate-ninja-storm-trilogy"
+    ],
+    [
+      "pack:monkey-d-luffy",
+      "legacy:416",
+      "pack:one-piece-grand-adventure"
+    ],
+    [
+      "pack:one-piece",
+      "legacy:416",
+      "pack:one-piece-grand-adventure"
+    ],
+    [
+      "pack:monkey-d-luffy",
+      "legacy:420",
+      "pack:one-piece-pirate-warriors-4"
+    ],
+    [
+      "pack:one-piece",
+      "legacy:420",
+      "pack:one-piece-pirate-warriors-4"
+    ],
+    [
+      "pack:monkey-d-luffy",
+      "legacy:409",
+      "pack:one-piece-pirate-warriors-4"
+    ],
+    [
+      "pack:one-piece",
+      "legacy:472",
+      "pack:one-piece-unlimited-world-red"
+    ],
+    [
+      "pack:ichigo-kurosaki",
+      "legacy:416",
+      "pack:bleach-blade-battlers-2nd"
+    ],
+    [
+      "pack:bleach",
+      "legacy:468",
+      "pack:bleach-the-blade-of-fate"
+    ],
+    [
+      "pack:bleach",
+      "legacy:494",
+      "pack:bleach-heat-the-soul"
+    ],
+    [
+      "pack:jotaro-kujo",
+      "legacy:418",
+      "pack:jojo-s-bizarre-adventure-all-star-battle"
+    ],
+    [
+      "pack:attack-on-titan",
+      "legacy:420",
+      "pack:attack-on-titan-2"
+    ],
+    [
+      "pack:tanjiro-kamado",
+      "legacy:420",
+      "pack:demon-slayer-the-hinokami-chronicles"
+    ],
+    [
+      "pack:demon-slayer",
+      "legacy:423",
+      "pack:demon-slayer-the-hinokami-chronicles"
+    ],
+    [
+      "pack:pikachu",
+      "legacy:409",
+      "pack:pok-mon-let-s-go-pikachu"
+    ],
+    [
+      "legacy:740",
+      "legacy:461",
+      "legacy:718"
+    ],
+    [
+      "legacy:740",
+      "legacy:468",
+      "legacy:727"
+    ],
+    [
+      "legacy:740",
+      "legacy:409",
+      "legacy:736"
+    ],
+    [
+      "legacy:783",
+      "legacy:405",
+      "pack:sonic-adventure-2-battle"
+    ],
+    [
+      "legacy:783",
+      "legacy:409",
+      "legacy:789"
+    ],
+    [
+      "legacy:783",
+      "legacy:423",
+      "legacy:790"
+    ],
+    [
+      "legacy:986",
+      "legacy:416",
+      "legacy:991"
+    ],
+    [
+      "legacy:988",
+      "legacy:420",
+      "legacy:996"
+    ],
+    [
+      "legacy:1002",
+      "legacy:416",
+      "legacy:1003"
+    ],
+    [
+      "legacy:838",
+      "legacy:423",
+      "legacy:842"
+    ],
+    [
+      "legacy:970",
+      "legacy:405",
+      "legacy:973"
+    ],
+    [
+      "legacy:970",
+      "legacy:416",
+      "legacy:973"
+    ],
+    [
+      "legacy:978",
+      "legacy:416",
+      "legacy:981"
+    ],
+    [
+      "legacy:978",
+      "legacy:418",
+      "legacy:983"
+    ],
+    [
+      "legacy:978",
+      "legacy:494",
+      "legacy:984"
+    ],
+    [
+      "pack:star-wars",
+      "legacy:416",
+      "legacy:1582"
+    ],
+    [
+      "pack:star-wars",
+      "legacy:427",
+      "legacy:1577"
+    ],
+    [
+      "pack:star-wars",
+      "legacy:409",
+      "pack:lego-star-wars-the-skywalker-saga"
+    ],
+    [
+      "pack:spider-man",
+      "legacy:420",
+      "legacy:852"
+    ],
+    [
+      "pack:spider-man",
+      "legacy:423",
+      "legacy:853"
+    ],
+    [
+      "pack:batman",
+      "legacy:418",
+      "pack:batman-arkham-city"
+    ],
+    [
+      "pack:batman",
+      "legacy:420",
+      "pack:batman-arkham-knight"
+    ],
+    [
+      "pack:harry-potter",
+      "legacy:423",
+      "pack:hogwarts-legacy"
+    ],
+    [
+      "pack:indiana-jones",
+      "legacy:434",
+      "pack:indiana-jones-and-the-great-circle"
+    ],
+    [
+      "legacy:1013",
+      "legacy:409",
+      "legacy:1016"
+    ],
+    [
+      "pack:dragon-ball-z-budokai-3",
+      "legacy:416",
+      "pack:dragon-ball-z-budokai-3"
+    ],
+    [
+      "pack:dragon-ball-z-budokai-3",
+      "pack:son-goku",
+      "pack:dragon-ball-z-budokai-3"
+    ],
+    [
+      "pack:dragon-ball-z-kakarot",
+      "pack:son-goku",
+      "pack:dragon-ball-z-kakarot"
+    ],
+    [
+      "pack:dragon-ball-fighterz",
+      "pack:dragon-ball",
+      "pack:dragon-ball-fighterz"
+    ],
+    [
+      "pack:dragon-ball-z-budokai-tenkaichi-3",
+      "pack:super-saiyan-goku",
+      "pack:dragon-ball-z-budokai-tenkaichi-3"
+    ],
+    [
+      "pack:naruto-ultimate-ninja-3",
+      "pack:naruto",
+      "pack:naruto-ultimate-ninja-3"
+    ],
+    [
+      "pack:naruto-shippuden-ultimate-ninja-storm-4",
+      "pack:naruto-uzumaki",
+      "pack:naruto-shippuden-ultimate-ninja-storm-4"
+    ],
+    [
+      "pack:one-piece-pirate-warriors-4",
+      "pack:monkey-d-luffy",
+      "pack:one-piece-pirate-warriors-4"
+    ],
+    [
+      "pack:one-piece-grand-adventure",
+      "pack:one-piece",
+      "pack:one-piece-grand-adventure"
+    ],
+    [
+      "pack:bleach-blade-battlers-2nd",
+      "pack:ichigo-kurosaki",
+      "pack:bleach-blade-battlers-2nd"
+    ],
+    [
+      "pack:sonic-adventure-2-battle",
+      "legacy:783",
+      "pack:sonic-adventure-2-battle"
+    ],
+    [
+      "pack:naruto-ultimate-ninja-3",
+      "legacy:416",
+      "pack:naruto-ultimate-ninja-3"
+    ],
+    [
+      "legacy:842",
+      "legacy:423",
+      "legacy:842"
+    ],
+    [
+      "legacy:853",
+      "legacy:423",
+      "legacy:853"
+    ],
+    [
+      "legacy:973",
+      "legacy:405",
+      "legacy:973"
+    ],
+    [
+      "legacy:718",
+      "legacy:461",
+      "legacy:718"
+    ],
+    [
+      "legacy:727",
+      "legacy:468",
+      "legacy:727"
+    ],
+    [
+      "legacy:736",
+      "legacy:409",
+      "legacy:736"
+    ],
+    [
+      "pack:lego-star-wars-the-skywalker-saga",
+      "legacy:409",
+      "pack:lego-star-wars-the-skywalker-saga"
+    ]
+  ],
+  "conflicts": []
+}

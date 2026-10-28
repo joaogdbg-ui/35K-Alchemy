@@ -1,0 +1,735 @@
+{
+  "version": 50,
+  "family": "people",
+  "starters": [
+    "House",
+    "Book",
+    "Art",
+    "Trade"
+  ],
+  "addedRecipes": [
+    {
+      "a": "Village",
+      "b": "House",
+      "result": "Society",
+      "pair": "legacy:45|legacy:46"
+    },
+    {
+      "a": "Book",
+      "b": "Trade",
+      "result": "Language",
+      "pair": "legacy:51|legacy:58"
+    },
+    {
+      "a": "Language",
+      "b": "Book",
+      "result": "Writing",
+      "pair": "legacy:49|legacy:51"
+    },
+    {
+      "a": "Museum",
+      "b": "Book",
+      "result": "Knowledge",
+      "pair": "legacy:51|organic41:museum"
+    },
+    {
+      "a": "Shop",
+      "b": "Trade",
+      "result": "Money",
+      "pair": "legacy:58|legacy:60"
+    },
+    {
+      "a": "Knowledge",
+      "b": "Trade",
+      "result": "Number",
+      "pair": "legacy:52|legacy:58"
+    },
+    {
+      "a": "Society",
+      "b": "Knowledge",
+      "result": "Rule",
+      "pair": "legacy:48|legacy:52"
+    },
+    {
+      "a": "Art",
+      "b": "Knowledge",
+      "result": "Fantasy",
+      "pair": "legacy:207|legacy:52"
+    },
+    {
+      "a": "Fantasy",
+      "b": "Art",
+      "result": "Monster",
+      "pair": "legacy:185|legacy:207"
+    },
+    {
+      "a": "Monster",
+      "b": "Fantasy",
+      "result": "Dragon",
+      "pair": "legacy:121|legacy:185"
+    },
+    {
+      "a": "Fantasy",
+      "b": "History",
+      "result": "Magic",
+      "pair": "legacy:185|legacy:64"
+    },
+    {
+      "a": "Fantasy",
+      "b": "Knowledge",
+      "result": "Science Fiction",
+      "pair": "legacy:185|legacy:52"
+    },
+    {
+      "a": "History",
+      "b": "Trade",
+      "result": "Europe",
+      "pair": "legacy:58|legacy:64"
+    },
+    {
+      "a": "Europe",
+      "b": "Trade",
+      "result": "United States",
+      "pair": "legacy:130|legacy:58"
+    },
+    {
+      "a": "Shop",
+      "b": "Society",
+      "result": "Company",
+      "pair": "legacy:48|legacy:60"
+    },
+    {
+      "a": "Company",
+      "b": "Knowledge",
+      "result": "Developer",
+      "pair": "legacy:132|legacy:52"
+    },
+    {
+      "a": "Art",
+      "b": "Developer",
+      "result": "Content Creator",
+      "pair": "legacy:134|legacy:207"
+    },
+    {
+      "a": "Art",
+      "b": "House",
+      "result": "Toy",
+      "pair": "legacy:207|legacy:45"
+    },
+    {
+      "a": "Toy",
+      "b": "Society",
+      "result": "Playtime",
+      "pair": "legacy:203|legacy:48"
+    },
+    {
+      "a": "Art",
+      "b": "Playtime",
+      "result": "Fun",
+      "pair": "legacy:156|legacy:207"
+    },
+    {
+      "a": "Challenge",
+      "b": "Book",
+      "result": "Strategy",
+      "pair": "legacy:158|legacy:51"
+    },
+    {
+      "a": "Competition",
+      "b": "Challenge",
+      "result": "Achievement",
+      "pair": "legacy:157|legacy:158"
+    },
+    {
+      "a": "Competition",
+      "b": "Developer",
+      "result": "Esports",
+      "pair": "legacy:134|legacy:157"
+    },
+    {
+      "a": "History",
+      "b": "Toy",
+      "result": "Nostalgia",
+      "pair": "legacy:203|legacy:64"
+    },
+    {
+      "a": "Art",
+      "b": "Number",
+      "result": "Pixel art",
+      "pair": "legacy:207|legacy:96"
+    },
+    {
+      "a": "Pixel art",
+      "b": "Art",
+      "result": "Animation",
+      "pair": "legacy:207|legacy:219"
+    },
+    {
+      "a": "Playtime",
+      "b": "Trade",
+      "result": "Luck",
+      "pair": "legacy:156|legacy:58"
+    },
+    {
+      "a": "Developer",
+      "b": "Nostalgia",
+      "result": "Retro gaming",
+      "pair": "legacy:134|legacy:215"
+    },
+    {
+      "a": "Competition",
+      "b": "Number",
+      "result": "High Score",
+      "pair": "legacy:157|legacy:96"
+    },
+    {
+      "a": "Money",
+      "b": "Nostalgia",
+      "result": "Collector",
+      "pair": "legacy:215|legacy:59"
+    },
+    {
+      "a": "History",
+      "b": "Animation",
+      "result": "Sequel",
+      "pair": "legacy:220|legacy:64"
+    },
+    {
+      "a": "Sequel",
+      "b": "Developer",
+      "result": "Expansion",
+      "pair": "legacy:134|legacy:347"
+    },
+    {
+      "a": "Expansion",
+      "b": "History",
+      "result": "Definitive Edition",
+      "pair": "legacy:348|legacy:64"
+    },
+    {
+      "a": "Developer",
+      "b": "Playtime",
+      "result": "Game Jam",
+      "pair": "legacy:134|legacy:156"
+    },
+    {
+      "a": "Art",
+      "b": "Village",
+      "result": "Harvest",
+      "pair": "legacy:207|legacy:46"
+    },
+    {
+      "a": "Harvest",
+      "b": "House",
+      "result": "Beekeeper",
+      "pair": "legacy:45|organic37:harvest"
+    },
+    {
+      "a": "Harvest",
+      "b": "Shop",
+      "result": "Jam",
+      "pair": "legacy:60|organic37:harvest"
+    },
+    {
+      "a": "Harvest",
+      "b": "Book",
+      "result": "Tea",
+      "pair": "legacy:51|organic37:harvest"
+    },
+    {
+      "a": "Village",
+      "b": "Harvest",
+      "result": "Milk",
+      "pair": "legacy:46|organic37:harvest"
+    },
+    {
+      "a": "Art",
+      "b": "Harvest",
+      "result": "Bonsai",
+      "pair": "legacy:207|organic37:harvest"
+    },
+    {
+      "a": "Bonsai",
+      "b": "House",
+      "result": "Terrarium",
+      "pair": "legacy:45|organic38:bonsai"
+    },
+    {
+      "a": "Milk",
+      "b": "Trade",
+      "result": "Cheese",
+      "pair": "legacy:58|organic38:milk"
+    },
+    {
+      "a": "Milk",
+      "b": "House",
+      "result": "Omelet",
+      "pair": "legacy:45|organic38:milk"
+    },
+    {
+      "a": "Tea",
+      "b": "Harvest",
+      "result": "Lemonade",
+      "pair": "organic37:harvest|organic37:tea"
+    },
+    {
+      "a": "History",
+      "b": "Science Fiction",
+      "result": "Constellation",
+      "pair": "legacy:126|legacy:64"
+    },
+    {
+      "a": "Studio",
+      "b": "Trade",
+      "result": "Workshop",
+      "pair": "legacy:246|legacy:58"
+    },
+    {
+      "a": "Art",
+      "b": "Workshop",
+      "result": "Pottery",
+      "pair": "legacy:207|organic40:workshop"
+    },
+    {
+      "a": "Workshop",
+      "b": "House",
+      "result": "Arch",
+      "pair": "legacy:45|organic40:workshop"
+    },
+    {
+      "a": "Arch",
+      "b": "House",
+      "result": "Column",
+      "pair": "legacy:45|organic41:arch"
+    },
+    {
+      "a": "Column",
+      "b": "Village",
+      "result": "Tower",
+      "pair": "legacy:46|organic41:column"
+    },
+    {
+      "a": "History",
+      "b": "Village",
+      "result": "Ruins",
+      "pair": "legacy:46|legacy:64"
+    },
+    {
+      "a": "City",
+      "b": "Workshop",
+      "result": "Harbor",
+      "pair": "legacy:47|organic40:workshop"
+    },
+    {
+      "a": "Workshop",
+      "b": "Harbor",
+      "result": "Shipyard",
+      "pair": "organic40:workshop|organic41:harbor"
+    },
+    {
+      "a": "Shipyard",
+      "b": "History",
+      "result": "Shipwreck",
+      "pair": "legacy:64|organic41:shipyard"
+    },
+    {
+      "a": "Trade",
+      "b": "Collector",
+      "result": "Treasure Chest",
+      "pair": "legacy:250|legacy:58"
+    },
+    {
+      "a": "Artifact",
+      "b": "History",
+      "result": "Relic",
+      "pair": "legacy:64|organic41:artifact"
+    },
+    {
+      "a": "Monument",
+      "b": "History",
+      "result": "Pyramid",
+      "pair": "legacy:64|organic41:monument"
+    },
+    {
+      "a": "Pyramid",
+      "b": "Relic",
+      "result": "Mummy",
+      "pair": "organic41:pyramid|organic41:relic"
+    },
+    {
+      "a": "Artifact",
+      "b": "Trade",
+      "result": "Explorer",
+      "pair": "legacy:58|organic41:artifact"
+    },
+    {
+      "a": "Explorer",
+      "b": "Trade",
+      "result": "Expedition",
+      "pair": "legacy:58|organic41:explorer"
+    },
+    {
+      "a": "Explorer",
+      "b": "Monument",
+      "result": "Landmark",
+      "pair": "organic41:explorer|organic41:monument"
+    },
+    {
+      "a": "Art",
+      "b": "Ruins",
+      "result": "Rock Art",
+      "pair": "legacy:207|organic41:ruins"
+    },
+    {
+      "a": "Explorer",
+      "b": "Treasure Chest",
+      "result": "Treasure Map",
+      "pair": "organic37:treasure-chest|organic41:explorer"
+    },
+    {
+      "a": "Rock Art",
+      "b": "History",
+      "result": "Cave Painting",
+      "pair": "legacy:64|organic41:rock-art"
+    },
+    {
+      "a": "Mummy",
+      "b": "Tomb",
+      "result": "Sarcophagus",
+      "pair": "organic41:mummy|organic41:tomb"
+    },
+    {
+      "a": "Milk",
+      "b": "Jam",
+      "result": "Pancake",
+      "pair": "organic37:jam|organic38:milk"
+    },
+    {
+      "a": "Toy",
+      "b": "Art",
+      "result": "Balloon",
+      "pair": "legacy:203|legacy:207"
+    },
+    {
+      "a": "House",
+      "b": "Playtime",
+      "result": "Sandcastle",
+      "pair": "legacy:156|legacy:45"
+    },
+    {
+      "a": "Ruins",
+      "b": "History",
+      "result": "Smoke Signal",
+      "pair": "legacy:64|organic41:ruins"
+    },
+    {
+      "a": "Beekeeper",
+      "b": "House",
+      "result": "Bird Feeder",
+      "pair": "legacy:45|organic37:beekeeper"
+    },
+    {
+      "a": "Terrarium",
+      "b": "House",
+      "result": "Aquarium",
+      "pair": "legacy:45|organic38:terrarium"
+    },
+    {
+      "a": "Art",
+      "b": "Magic",
+      "result": "Kaleidoscope",
+      "pair": "legacy:125|legacy:207"
+    },
+    {
+      "a": "Jam",
+      "b": "Tea",
+      "result": "Marmalade",
+      "pair": "organic37:jam|organic37:tea"
+    },
+    {
+      "a": "Workshop",
+      "b": "Trade",
+      "result": "Smithy",
+      "pair": "legacy:58|organic40:workshop"
+    },
+    {
+      "a": "Tower",
+      "b": "Trade",
+      "result": "Watchtower",
+      "pair": "legacy:58|organic41:tower"
+    },
+    {
+      "a": "Jam",
+      "b": "Harvest",
+      "result": "Fruit Compote",
+      "pair": "organic37:harvest|organic37:jam"
+    },
+    {
+      "a": "City",
+      "b": "Tower",
+      "result": "Tram Stop",
+      "pair": "legacy:47|organic41:tower"
+    },
+    {
+      "a": "City",
+      "b": "Arch",
+      "result": "Cobblestone Lane",
+      "pair": "legacy:47|organic41:arch"
+    },
+    {
+      "a": "Princess",
+      "b": "History",
+      "result": "Hero",
+      "pair": "legacy:120|legacy:64"
+    },
+    {
+      "a": "Hero",
+      "b": "Fantasy",
+      "result": "Villain",
+      "pair": "legacy:118|legacy:185"
+    },
+    {
+      "a": "Theater",
+      "b": "Art",
+      "result": "Music",
+      "pair": "legacy:207|legacy:209"
+    },
+    {
+      "a": "Music",
+      "b": "Book",
+      "result": "Soundtrack",
+      "pair": "legacy:139|legacy:51"
+    },
+    {
+      "a": "Art",
+      "b": "Studio",
+      "result": "Painting",
+      "pair": "legacy:207|legacy:246"
+    },
+    {
+      "a": "Japan",
+      "b": "Trade",
+      "result": "Coreia",
+      "pair": "legacy:244|legacy:58"
+    },
+    {
+      "a": "House",
+      "b": "Market",
+      "result": "Chef",
+      "pair": "legacy:45|legacy:61"
+    },
+    {
+      "a": "Chef",
+      "b": "House",
+      "result": "Soup",
+      "pair": "legacy:45|organic37:chef"
+    },
+    {
+      "a": "Chef",
+      "b": "Harvest",
+      "result": "Salad",
+      "pair": "organic37:chef|organic37:harvest"
+    },
+    {
+      "a": "Chef",
+      "b": "Cheese",
+      "result": "Pizza",
+      "pair": "organic37:chef|organic38:cheese"
+    },
+    {
+      "a": "Market",
+      "b": "Tea",
+      "result": "Coffee",
+      "pair": "legacy:61|organic37:tea"
+    },
+    {
+      "a": "Music",
+      "b": "Friendship",
+      "result": "Choir",
+      "pair": "legacy:139|legacy:352"
+    },
+    {
+      "a": "Chef",
+      "b": "Playtime",
+      "result": "Popcorn",
+      "pair": "legacy:156|organic37:chef"
+    },
+    {
+      "a": "Painting",
+      "b": "Developer",
+      "result": "Photograph",
+      "pair": "legacy:134|legacy:208"
+    },
+    {
+      "a": "Photograph",
+      "b": "House",
+      "result": "Darkroom",
+      "pair": "legacy:45|organic42:photograph"
+    },
+    {
+      "a": "Painting",
+      "b": "Society",
+      "result": "Portrait",
+      "pair": "legacy:208|legacy:48"
+    },
+    {
+      "a": "Music",
+      "b": "House",
+      "result": "Wind Chime",
+      "pair": "legacy:139|legacy:45"
+    },
+    {
+      "a": "Plaza",
+      "b": "Art",
+      "result": "Public Fountain",
+      "pair": "legacy:207|organic41:plaza"
+    },
+    {
+      "a": "Market",
+      "b": "Shop",
+      "result": "Market Stall",
+      "pair": "legacy:60|legacy:61"
+    },
+    {
+      "a": "Shop",
+      "b": "Chef",
+      "result": "Bakery",
+      "pair": "legacy:60|organic37:chef"
+    },
+    {
+      "a": "Bakery",
+      "b": "Chef",
+      "result": "Pastry",
+      "pair": "organic37:bakery|organic37:chef"
+    },
+    {
+      "a": "Milk",
+      "b": "Bakery",
+      "result": "Cream",
+      "pair": "organic37:bakery|organic38:milk"
+    },
+    {
+      "a": "Chef",
+      "b": "Pastry",
+      "result": "Pasta",
+      "pair": "organic37:chef|organic37:pastry"
+    },
+    {
+      "a": "Shop",
+      "b": "Cream",
+      "result": "Chocolate",
+      "pair": "legacy:60|organic38:cream"
+    },
+    {
+      "a": "Bakery",
+      "b": "Soup",
+      "result": "Sandwich",
+      "pair": "organic37:bakery|organic37:soup"
+    },
+    {
+      "a": "Bakery",
+      "b": "Pastry",
+      "result": "Bagel",
+      "pair": "organic37:bakery|organic37:pastry"
+    },
+    {
+      "a": "Pastry",
+      "b": "Trade",
+      "result": "Pretzel",
+      "pair": "legacy:58|organic37:pastry"
+    },
+    {
+      "a": "Pancake",
+      "b": "Bakery",
+      "result": "Waffle",
+      "pair": "organic37:bakery|organic42:pancake"
+    },
+    {
+      "a": "Soup",
+      "b": "Pastry",
+      "result": "Dumpling",
+      "pair": "organic37:pastry|organic37:soup"
+    },
+    {
+      "a": "Portrait",
+      "b": "Art",
+      "result": "Photographer",
+      "pair": "legacy:207|organic42:portrait"
+    },
+    {
+      "a": "Bakery",
+      "b": "History",
+      "result": "Sourdough",
+      "pair": "legacy:64|organic37:bakery"
+    },
+    {
+      "a": "Bakery",
+      "b": "Trade",
+      "result": "Baguette",
+      "pair": "legacy:58|organic37:bakery"
+    },
+    {
+      "a": "Cream",
+      "b": "Milk",
+      "result": "Custard",
+      "pair": "organic38:cream|organic38:milk"
+    },
+    {
+      "a": "Cream",
+      "b": "Cake",
+      "result": "Meringue",
+      "pair": "organic38:cream|organic42:cake"
+    },
+    {
+      "a": "Soup",
+      "b": "Sandwich",
+      "result": "Crouton",
+      "pair": "organic37:soup|organic38:sandwich"
+    },
+    {
+      "a": "Butter",
+      "b": "Harvest",
+      "result": "Herb Butter",
+      "pair": "organic37:harvest|organic38:butter"
+    },
+    {
+      "a": "Bakery",
+      "b": "Herb Butter",
+      "result": "Garlic Bread",
+      "pair": "organic37:bakery|organic47:herb-butter"
+    },
+    {
+      "a": "Pastry",
+      "b": "Harvest",
+      "result": "Apple Turnover",
+      "pair": "organic37:harvest|organic37:pastry"
+    },
+    {
+      "a": "Bakery",
+      "b": "Marmalade",
+      "result": "Cinnamon Roll",
+      "pair": "organic37:bakery|organic46:marmalade"
+    },
+    {
+      "a": "Jam",
+      "b": "Cream",
+      "result": "Honey Glaze",
+      "pair": "organic37:jam|organic38:cream"
+    },
+    {
+      "a": "Fruit Compote",
+      "b": "Cream",
+      "result": "Fruit Sorbet",
+      "pair": "organic38:cream|organic47:fruit-compote"
+    },
+    {
+      "a": "Bakery",
+      "b": "Harvest",
+      "result": "Toasted Seeds",
+      "pair": "organic37:bakery|organic37:harvest"
+    }
+  ],
+  "existingInternalRecipes": 74,
+  "reachability": 167,
+  "missing": []
+}

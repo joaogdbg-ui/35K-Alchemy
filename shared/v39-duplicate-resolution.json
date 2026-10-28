@@ -1,0 +1,33 @@
+{
+  "removed_duplicate_ids": {
+    "pack:pirate": "legacy:547",
+    "pack:sword": "legacy:545",
+    "pack:giant-robot": "legacy:609",
+    "pack:detective": "legacy:556",
+    "pack:spaceship": "legacy:571",
+    "pack:treasure": "legacy:561",
+    "pack:prophecy": "legacy:581",
+    "pack:planet": "legacy:549",
+    "pack:war": "legacy:553",
+    "pack:speed": "legacy:544",
+    "pack:friendship": "legacy:352",
+    "pack:island": "legacy:558",
+    "pack:car": "legacy:568",
+    "pack:star": "legacy:612"
+  },
+  "changed_references": 132,
+  "recipes_reassigned": [
+    {
+      "before": "Sword + Hero → Swordfighter (conflicted with Samurai)",
+      "after": "Sword + Action → Swordfighter"
+    },
+    {
+      "before": "War + PC Gaming → World of Warcraft (conflicted with Wolfenstein 3D)",
+      "after": "Fantasy + Multiplayer → World of Warcraft"
+    }
+  ],
+  "elements_before": 3572,
+  "elements_after": 3558,
+  "recipes_before": 8998,
+  "recipes_after": 8998
+}

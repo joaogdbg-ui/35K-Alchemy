@@ -1,0 +1,12 @@
+{
+  "release": "V47",
+  "status": "PASS",
+  "elements": 3963,
+  "recipes": 12069,
+  "new_elements": 80,
+  "new_recipes": 222,
+  "new_output_ratio": 1,
+  "distinct_new_icons": 80,
+  "old_unordered_pairs_preserved": 11847,
+  "reachable_items": 3963
+}

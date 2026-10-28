@@ -1,0 +1,192 @@
+{
+  "counts": {
+    "art-directed": 16,
+    "motif-composite": 184
+  },
+  "duplicates": [],
+  "nearest_pairs": [
+    [
+      2,
+      "Floating Reed Bed",
+      "Heron Wetland Nest"
+    ],
+    [
+      4,
+      "Greenhouse Thermostat",
+      "Aquarium Temperature Monitor"
+    ],
+    [
+      4,
+      "Heatwave Garden Thermometer",
+      "Honeybee Swarm Cluster"
+    ],
+    [
+      4,
+      "Ocean Plankton Bloom",
+      "River Otter Slide"
+    ],
+    [
+      4,
+      "Orchard Fruit Press",
+      "Heron Wetland Nest"
+    ],
+    [
+      4,
+      "Orchard Fruit Press",
+      "Squirrel Cache"
+    ],
+    [
+      4,
+      "Snow Covered Bird Feeder",
+      "Desert Burrow"
+    ],
+    [
+      4,
+      "Squirrel Cache",
+      "Floating Reed Bed"
+    ],
+    [
+      4,
+      "Squirrel Cache",
+      "Heron Wetland Nest"
+    ]
+  ],
+  "primary_counts": [
+    [
+      "flower",
+      27
+    ],
+    [
+      "tree",
+      21
+    ],
+    [
+      "wave",
+      13
+    ],
+    [
+      "camera",
+      11
+    ],
+    [
+      "mountain",
+      11
+    ],
+    [
+      "frame",
+      9
+    ],
+    [
+      "cloud",
+      9
+    ],
+    [
+      "food",
+      8
+    ],
+    [
+      "sun",
+      7
+    ],
+    [
+      "branch",
+      6
+    ],
+    [
+      "halo",
+      6
+    ],
+    [
+      "ice",
+      5
+    ],
+    [
+      "mushroom",
+      5
+    ],
+    [
+      "leaf",
+      5
+    ],
+    [
+      "fish",
+      4
+    ],
+    [
+      "statue",
+      4
+    ],
+    [
+      "pot",
+      4
+    ],
+    [
+      "book",
+      4
+    ],
+    [
+      "droplet",
+      3
+    ],
+    [
+      "kelp",
+      2
+    ],
+    [
+      "shop",
+      2
+    ],
+    [
+      "wind",
+      2
+    ],
+    [
+      "grass",
+      2
+    ],
+    [
+      "fog",
+      2
+    ],
+    [
+      "cup",
+      2
+    ],
+    [
+      "shell",
+      2
+    ],
+    [
+      "house",
+      2
+    ],
+    [
+      "rain",
+      1
+    ],
+    [
+      "apple",
+      1
+    ],
+    [
+      "bread",
+      1
+    ],
+    [
+      "people",
+      1
+    ],
+    [
+      "paper",
+      1
+    ],
+    [
+      "coral",
+      1
+    ]
+  ],
+  "strict_issues": [
+    "184/200 reuse the two-motif collage layout (target <=30/200)",
+    "Overused main subject: ('flower', 27) (target <=8 per 200)"
+  ]
+}

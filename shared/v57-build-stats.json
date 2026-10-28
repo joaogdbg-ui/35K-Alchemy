@@ -1,0 +1,20 @@
+{
+  "version": 57,
+  "baseline_elements": 4271,
+  "elements": 4471,
+  "baseline_recipes": 12608,
+  "recipes": 12808,
+  "new_elements": 200,
+  "new_recipes": 200,
+  "new_unique_svg_icons": 200,
+  "unit_tests": 196,
+  "browser_viewports": [
+    "360x740",
+    "390x820",
+    "1280x820"
+  ],
+  "base_html_bytes": 5859704,
+  "html_bytes": 6108169,
+  "html_increase_bytes": 248465,
+  "family_only": "unchanged (Nature & Science and People & Culture)"
+}

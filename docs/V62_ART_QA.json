@@ -1,0 +1,10 @@
+{
+  "tested": 35,
+  "art_modes": {
+    "bespoke-silhouette": 35
+  },
+  "duplicate_hashes": 0,
+  "perceptual_pairs_distance_le_6": [],
+  "art_size_at_35_px": "Contact sheet V62_35px_Dark_Review.png",
+  "limitations": "Phash does not establish semantic recognizability, originality, or human sign-off; manually inspect every icon."
+}

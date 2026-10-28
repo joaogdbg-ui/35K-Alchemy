@@ -1,0 +1,24 @@
+{
+  "release": "V39",
+  "status": "PASS",
+  "elements": 3558,
+  "recipes": 8998,
+  "unique_names": 3558,
+  "unique_ids": 3558,
+  "unique_unordered_pairs": 8998,
+  "reachable_elements": 3558,
+  "removed_duplicate_elements": 14,
+  "rewritten_recipe_references": 132,
+  "old_recipe_outcomes_preserved_except_two_explicit_changes": true,
+  "distinct_v38_art_verified": 78,
+  "near_name_review_only": [
+    [
+      "legacy:368",
+      "legacy:1416"
+    ],
+    [
+      "legacy:370",
+      "legacy:1417"
+    ]
+  ]
+}

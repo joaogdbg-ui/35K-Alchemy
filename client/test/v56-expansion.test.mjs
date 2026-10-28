@@ -1,0 +1,12 @@
+import test from 'node:test';
+import assert from 'node:assert/strict';
+import {readFileSync} from 'node:fs';
+import {ORGANIC_V56} from '../src/organic-pack-v56.js';
+import {ORGANIC_ART_V56} from '../src/organic-art-v56.js';
+const keys=new Set(),ids=new Set(ORGANIC_V56.items.map(x=>x.id));
+test('V56 expands with exactly 100 distinct discoveries',()=>{assert.equal(ORGANIC_V56.items.length,100);assert.equal(ids.size,100);});
+test('V56 adds a deterministic unique unordered pair per recipe',()=>{for(const [a,b,out] of ORGANIC_V56.recipes){assert.ok(ids.has(out));const key=[a,b].sort().join('|');assert.ok(!keys.has(key));keys.add(key);}assert.equal(keys.size,147);});
+test('Every new V56 concept has at least one accessible recipe',()=>{const outputs=new Set(ORGANIC_V56.recipes.map(x=>x[2]));for(const id of ids)assert.ok(outputs.has(id),id);});
+test('Every V56 recipe creates a new result, never an existing one',()=>{for(const [a,b,out] of ORGANIC_V56.recipes){assert.ok(out.startsWith('organic56:'));assert.notEqual(a,out);assert.notEqual(b,out);}});
+test('100 standalone SVGs and manifest entries are present',()=>{const entries=JSON.parse(readFileSync('shared/v56-art-manifest.json','utf8')).icons;assert.equal(entries.length,100);assert.equal(Object.keys(ORGANIC_ART_V56).length,100);for(const row of entries){assert.ok(ORGANIC_ART_V56[row.name.toLowerCase()].startsWith('<svg'));assert.equal(ORGANIC_ART_V56[row.name.toLowerCase()],readFileSync(row.path,'utf8'));}});
+test('All V56 names differ after normalisation',()=>{const names=ORGANIC_V56.items.map(x=>x.name.toLocaleLowerCase('en').normalize('NFKC').trim().replace(/\s+/g,' '));assert.equal(new Set(names).size,100);});

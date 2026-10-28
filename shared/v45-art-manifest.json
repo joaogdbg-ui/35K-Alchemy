@@ -1,0 +1,65 @@
+{
+  "release": "V45",
+  "icons": [
+    {
+      "id": "organic45:rain-barrel",
+      "path": "client/assets/v45/rain-barrel.svg",
+      "sha256": "4b7f596e87414a63cca9f6aae76d4a0c4303992bb29a75bec39ecb6e499fefab"
+    },
+    {
+      "id": "organic45:bird-feeder",
+      "path": "client/assets/v45/bird-feeder.svg",
+      "sha256": "f0b07dbf47b2a0f4cac55c5ec12fbbb3d5d6af186a6b77595cc595ab6e6ad2ed"
+    },
+    {
+      "id": "organic45:water-pump",
+      "path": "client/assets/v45/water-pump.svg",
+      "sha256": "c612aad206092c51376390191fa98b5e677f2588dce56527ff43c5cdfb6543bb"
+    },
+    {
+      "id": "organic45:solar-oven",
+      "path": "client/assets/v45/solar-oven.svg",
+      "sha256": "c26c3dcf7cd7810430bfae53b42a87fd7d50c43fa79d39641b267adbc42614ce"
+    },
+    {
+      "id": "organic45:streetlamp",
+      "path": "client/assets/v45/streetlamp.svg",
+      "sha256": "fa58b671f4bcecda494b397f30bea18970d2dc183b210e5c63f5dde05508ffe0"
+    },
+    {
+      "id": "organic45:aquarium",
+      "path": "client/assets/v45/aquarium.svg",
+      "sha256": "cc659c345f0f33655a56d51685f613191c177bdbe247d2f9e319e93d3d8d1c59"
+    },
+    {
+      "id": "organic45:weather-balloon",
+      "path": "client/assets/v45/weather-balloon.svg",
+      "sha256": "f4ac492c23c560507bf065eb43ef441472a8719e07bbffd8bd928f76a19af163"
+    },
+    {
+      "id": "organic45:tidal-turbine",
+      "path": "client/assets/v45/tidal-turbine.svg",
+      "sha256": "7f22f4345301c46f2bf35dc25fb5e1d457d6eca9f2725477205a5b380780dbf5"
+    },
+    {
+      "id": "organic45:cloud-chamber",
+      "path": "client/assets/v45/cloud-chamber.svg",
+      "sha256": "162d201b85c1a7784274af5d43e0e1166d55da0d910b3ee676a02626d35c5556"
+    },
+    {
+      "id": "organic45:camera-obscura",
+      "path": "client/assets/v45/camera-obscura.svg",
+      "sha256": "6cfe579333d68b909269e22effb3f7091edc6a865663a9c7b13f448bbe3ea29f"
+    },
+    {
+      "id": "organic45:kaleidoscope",
+      "path": "client/assets/v45/kaleidoscope.svg",
+      "sha256": "3477be78ac32cfcd395bf52c86f065366c72a1ef53bd088feb6ef05439e73c07"
+    },
+    {
+      "id": "organic45:sea-glass",
+      "path": "client/assets/v45/sea-glass.svg",
+      "sha256": "e14e2436234cba81396a34eb4a9b3c923710c15241e3156803a682411e21416f"
+    }
+  ]
+}

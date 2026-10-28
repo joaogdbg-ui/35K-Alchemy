@@ -1,0 +1,15 @@
+import test from 'node:test';import assert from 'node:assert/strict';
+import {readFileSync} from 'node:fs';import {createHash} from 'node:crypto';
+import {ORGANIC_V57} from '../src/organic-pack-v57.js';import {ORGANIC_ART_V57} from '../src/organic-art-v57.js';
+import {DATA} from '../src/legacy-data.js';import {PACK} from '../src/creative-pack.js';import {buildCatalog,normalizeCatalogName} from '../src/catalog-integrity.js';
+import {ORGANIC_V55} from '../src/organic-pack-v55.js';import {ORGANIC_V56} from '../src/organic-pack-v56.js';
+const mod=['gaming-v22','gaming-v23','gaming-v24','gaming-v26','gaming-v27','gaming-v30','organic-v32','organic-v34','organic-v37','organic-v38','organic-v40','organic-v41','organic-v42','organic-v43','organic-v44','organic-v45','organic-v46','organic-v47','organic-v50','organic-v52','organic-v53'];
+const packs=[PACK];for(const n of mod)packs.push(Object.values(await import('../src/'+n.replace('gaming','gaming-pack').replace('organic','organic-pack')+'.js'))[0]);
+const old=buildCatalog(DATA,[...packs,ORGANIC_V55,ORGANIC_V56]);const next=buildCatalog(DATA,[...packs,ORGANIC_V55,ORGANIC_V56,ORGANIC_V57]);
+const manifest=JSON.parse(readFileSync('shared/v57-art-manifest.json','utf8')).icons;
+test('200 new elements and fixed historical recipes',()=>{assert.equal(next.items.length,4471);assert.equal(next.recipes.size,12808);assert.equal(ORGANIC_V57.items.length,200);for(const [k,v]of old.recipes)assert.equal(next.recipes.get(k),v)});
+test('New recipes use 200 unique unordered pairs and only new outputs',()=>{const ids=new Set(ORGANIC_V57.items.map(x=>x.id)),seen=new Set();for(const[a,b,result]of ORGANIC_V57.recipes){let k=[a,b].sort().join('|');assert(!seen.has(k)&&!old.recipes.has(k));assert(ids.has(result));assert.equal(next.recipes.get(k),result);seen.add(k)}assert.equal(seen.size,200)});
+test('Normalized names and IDs remain globally unique',()=>{assert.equal(new Set(next.items.map(x=>normalizeCatalogName(x.name))).size,4471);assert.equal(new Set(next.items.map(x=>x.id)).size,4471)});
+test('Every V57 element is reachable from the four Classic starters',()=>{const got=new Set(['legacy:0','legacy:1','legacy:2','legacy:3']);let change=true;while(change){change=false;for(const[k,r]of next.recipes){const[a,b]=k.split('|');if(!got.has(r)&&got.has(a)&&got.has(b)){got.add(r);change=true}}}assert.equal(got.size,4471)});
+test('200 independent SVGs match manifest checksums',()=>{assert.equal(manifest.length,200);assert.equal(new Set(Object.values(ORGANIC_ART_V57)).size,200);for(const x of manifest){const svg=ORGANIC_ART_V57[x.name.toLowerCase()];assert.equal(readFileSync(x.file,'utf8'),svg);assert.equal(createHash('sha256').update(svg).digest('hex'),x.sha256);assert(!/<script|<image\b|<foreignObject|onload=|href=/i.test(svg))}});
+test('Exactly 20 discoveries in each of ten editorial branches',()=>{const plan=JSON.parse(readFileSync('shared/v57-editorial-plan.json','utf8'));let counts={};for(const x of plan.results)counts[x.family]=(counts[x.family]||0)+1;assert.equal(Object.keys(counts).length,10);for(const v of Object.values(counts))assert.equal(v,20)});

@@ -1,0 +1,31 @@
+{
+  "release": "V38",
+  "total_elements": 3572,
+  "total_unordered_recipes": 8998,
+  "reachable_elements": 3572,
+  "unreachable_count": 0,
+  "new_elements": 78,
+  "new_recipes": 203,
+  "new_element_icons_verified": 78,
+  "new_art_original_svg_coverage": "78/78",
+  "new_recipes_per_element_min": 2,
+  "new_recipes_per_element_max": 3,
+  "new_recipes_per_element_average": 2.6,
+  "previous_names_with_multiple_ids": {
+    "friendship": 2,
+    "speed": 2,
+    "sword": 2,
+    "pirate": 2,
+    "planet": 2,
+    "war": 2,
+    "detective": 2,
+    "island": 2,
+    "treasure": 2,
+    "car": 2,
+    "spaceship": 2,
+    "prophecy": 2,
+    "giant robot": 2,
+    "star": 2
+  },
+  "note": "Historic duplicate display names are recorded without changing their IDs. Existing icons outside V38 are not certified by this audit."
+}

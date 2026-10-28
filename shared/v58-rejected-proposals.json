@@ -1,0 +1,143 @@
+{
+  "version": 58,
+  "rejected": [
+    {
+      "name": "Submerged Cave Pool",
+      "branch": "Marine",
+      "original_recipe": "Sea Cave + Pool",
+      "note": "Rejected during editorial/collision review; do not add automatically"
+    },
+    {
+      "name": "Salt-Stained Rope",
+      "branch": "Marine",
+      "original_recipe": "Salt + Sail",
+      "note": "Rejected during editorial/collision review; do not add automatically"
+    },
+    {
+      "name": "Forest Water Trough",
+      "branch": "Forest",
+      "original_recipe": "Forest + Water",
+      "note": "Rejected during editorial/collision review; do not add automatically"
+    },
+    {
+      "name": "Hollow Log Habitat",
+      "branch": "Forest",
+      "original_recipe": "Wood + Insect",
+      "note": "Rejected during editorial/collision review; do not add automatically"
+    },
+    {
+      "name": "Bee Meadow Path",
+      "branch": "Forest",
+      "original_recipe": "Bee + Meadow",
+      "note": "Rejected during editorial/collision review; do not add automatically"
+    },
+    {
+      "name": "Thermal Draft",
+      "branch": "Weather",
+      "original_recipe": "Heat + Wind",
+      "note": "Rejected during editorial/collision review; do not add automatically"
+    },
+    {
+      "name": "Solar Telescope Filter",
+      "branch": "Astronomy",
+      "original_recipe": "Telescope + Solar Panel",
+      "note": "Rejected during editorial/collision review; do not add automatically"
+    },
+    {
+      "name": "Rocket Launch Sketch",
+      "branch": "Astronomy",
+      "original_recipe": "Rocket + Botanical Sketch",
+      "note": "Rejected during editorial/collision review; do not add automatically"
+    },
+    {
+      "name": "Twilight Starfield",
+      "branch": "Astronomy",
+      "original_recipe": "Star + Twilight",
+      "note": "Rejected during editorial/collision review; do not add automatically"
+    },
+    {
+      "name": "Cinnamon Apple Slice",
+      "branch": "Food",
+      "original_recipe": "Cinnamon + Apple",
+      "note": "Rejected during editorial/collision review; do not add automatically"
+    },
+    {
+      "name": "Cocoa Biscuit",
+      "branch": "Food",
+      "original_recipe": "Cocoa + Cookie",
+      "note": "Rejected during editorial/collision review; do not add automatically"
+    },
+    {
+      "name": "Baked Cinnamon Pear",
+      "branch": "Food",
+      "original_recipe": "Cinnamon + Pear",
+      "note": "Rejected during editorial/collision review; do not add automatically"
+    },
+    {
+      "name": "Butterflied Herb Biscuit",
+      "branch": "Food",
+      "original_recipe": "Butter + Herb",
+      "note": "Rejected during editorial/collision review; do not add automatically"
+    },
+    {
+      "name": "Honeyed Nut Cluster",
+      "branch": "Food",
+      "original_recipe": "Honey + Nuts",
+      "note": "Rejected during editorial/collision review; do not add automatically"
+    },
+    {
+      "name": "Coconut Rice Bowl",
+      "branch": "Food",
+      "original_recipe": "Rice + Coconut",
+      "note": "Rejected during editorial/collision review; do not add automatically"
+    },
+    {
+      "name": "Sun-Dried Brick",
+      "branch": "Materials",
+      "original_recipe": "Brick + Sun",
+      "note": "Rejected during editorial/collision review; do not add automatically"
+    },
+    {
+      "name": "Frosted Glass Lamp",
+      "branch": "Materials",
+      "original_recipe": "Glass + Frost",
+      "note": "Rejected during editorial/collision review; do not add automatically"
+    },
+    {
+      "name": "Smart Irrigation Timer",
+      "branch": "Engineering",
+      "original_recipe": "Irrigation + Clock",
+      "note": "Rejected during editorial/collision review; do not add automatically"
+    },
+    {
+      "name": "Bicycle Cargo Trailer",
+      "branch": "Engineering",
+      "original_recipe": "Bicycle + Cart",
+      "note": "Rejected during editorial/collision review; do not add automatically"
+    },
+    {
+      "name": "Electric Garden Cart",
+      "branch": "Engineering",
+      "original_recipe": "Electric Motor + Cart",
+      "note": "Rejected during editorial/collision review; do not add automatically"
+    },
+    {
+      "name": "Library Reading Corner",
+      "branch": "Culture",
+      "original_recipe": "Library + Blanket",
+      "note": "Rejected during editorial/collision review; do not add automatically"
+    },
+    {
+      "name": "Snail Rain Garden",
+      "branch": "Wildlife",
+      "original_recipe": "Rain Garden + Snail",
+      "note": "Rejected during editorial/collision review; do not add automatically"
+    },
+    {
+      "name": "Woodpecker Habitat Tree",
+      "branch": "Wildlife",
+      "original_recipe": "Woodpecker + Tree",
+      "note": "Rejected during editorial/collision review; do not add automatically"
+    }
+  ]
+}

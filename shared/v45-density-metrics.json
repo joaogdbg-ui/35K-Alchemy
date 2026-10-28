@@ -1,0 +1,352 @@
+{
+  "release": "V45",
+  "definition": "Fixed V44 reachable inventories. A successful pair returns any result. An unseen-result pair produces an output not included in the fixed owned inventory. Both can be counted as possible routes to the same new result. These are potential opportunities, not live gameplay telemetry.",
+  "baseline_elements": 3791,
+  "baseline_recipes": 11111,
+  "v45_elements": 3803,
+  "v45_recipes": 11631,
+  "global_pair_coverage_pct": 0.1608,
+  "cohorts": [
+    {
+      "depth": 0,
+      "owned": 4,
+      "v44": {
+        "possible_pairs": 10,
+        "successful_pairs": 10,
+        "result_rate_pct": 100.0,
+        "unseen_result_pairs": 10,
+        "unseen_result_pair_pct": 100.0,
+        "distinct_unseen_results": 10,
+        "already_owned_result_pairs": 0
+      },
+      "v45": {
+        "possible_pairs": 10,
+        "successful_pairs": 10,
+        "result_rate_pct": 100.0,
+        "unseen_result_pairs": 10,
+        "unseen_result_pair_pct": 100.0,
+        "distinct_unseen_results": 10,
+        "already_owned_result_pairs": 0
+      },
+      "gain_successful_pairs": 0,
+      "gain_unseen_pair_options": 0
+    },
+    {
+      "depth": 1,
+      "owned": 14,
+      "v44": {
+        "possible_pairs": 105,
+        "successful_pairs": 105,
+        "result_rate_pct": 100.0,
+        "unseen_result_pairs": 78,
+        "unseen_result_pair_pct": 74.286,
+        "distinct_unseen_results": 41,
+        "already_owned_result_pairs": 27
+      },
+      "v45": {
+        "possible_pairs": 105,
+        "successful_pairs": 105,
+        "result_rate_pct": 100.0,
+        "unseen_result_pairs": 78,
+        "unseen_result_pair_pct": 74.286,
+        "distinct_unseen_results": 41,
+        "already_owned_result_pairs": 27
+      },
+      "gain_successful_pairs": 0,
+      "gain_unseen_pair_options": 0
+    },
+    {
+      "depth": 2,
+      "owned": 55,
+      "v44": {
+        "possible_pairs": 1540,
+        "successful_pairs": 410,
+        "result_rate_pct": 26.623,
+        "unseen_result_pairs": 169,
+        "unseen_result_pair_pct": 10.974,
+        "distinct_unseen_results": 90,
+        "already_owned_result_pairs": 241
+      },
+      "v45": {
+        "possible_pairs": 1540,
+        "successful_pairs": 430,
+        "result_rate_pct": 27.922,
+        "unseen_result_pairs": 183,
+        "unseen_result_pair_pct": 11.883,
+        "distinct_unseen_results": 98,
+        "already_owned_result_pairs": 247
+      },
+      "gain_successful_pairs": 20,
+      "gain_unseen_pair_options": 14
+    },
+    {
+      "depth": 3,
+      "owned": 145,
+      "v44": {
+        "possible_pairs": 10585,
+        "successful_pairs": 1035,
+        "result_rate_pct": 9.778,
+        "unseen_result_pairs": 214,
+        "unseen_result_pair_pct": 2.022,
+        "distinct_unseen_results": 106,
+        "already_owned_result_pairs": 821
+      },
+      "v45": {
+        "possible_pairs": 10585,
+        "successful_pairs": 1094,
+        "result_rate_pct": 10.335,
+        "unseen_result_pairs": 249,
+        "unseen_result_pair_pct": 2.352,
+        "distinct_unseen_results": 116,
+        "already_owned_result_pairs": 845
+      },
+      "gain_successful_pairs": 59,
+      "gain_unseen_pair_options": 35
+    },
+    {
+      "depth": 4,
+      "owned": 251,
+      "v44": {
+        "possible_pairs": 31626,
+        "successful_pairs": 1534,
+        "result_rate_pct": 4.85,
+        "unseen_result_pairs": 175,
+        "unseen_result_pair_pct": 0.553,
+        "distinct_unseen_results": 108,
+        "already_owned_result_pairs": 1359
+      },
+      "v45": {
+        "possible_pairs": 31626,
+        "successful_pairs": 1636,
+        "result_rate_pct": 5.173,
+        "unseen_result_pairs": 227,
+        "unseen_result_pair_pct": 0.718,
+        "distinct_unseen_results": 122,
+        "already_owned_result_pairs": 1409
+      },
+      "gain_successful_pairs": 102,
+      "gain_unseen_pair_options": 52
+    },
+    {
+      "depth": 5,
+      "owned": 359,
+      "v44": {
+        "possible_pairs": 64620,
+        "successful_pairs": 2023,
+        "result_rate_pct": 3.131,
+        "unseen_result_pairs": 171,
+        "unseen_result_pair_pct": 0.265,
+        "distinct_unseen_results": 123,
+        "already_owned_result_pairs": 1852
+      },
+      "v45": {
+        "possible_pairs": 64620,
+        "successful_pairs": 2187,
+        "result_rate_pct": 3.384,
+        "unseen_result_pairs": 242,
+        "unseen_result_pair_pct": 0.374,
+        "distinct_unseen_results": 139,
+        "already_owned_result_pairs": 1945
+      },
+      "gain_successful_pairs": 164,
+      "gain_unseen_pair_options": 71
+    },
+    {
+      "depth": 6,
+      "owned": 482,
+      "v44": {
+        "possible_pairs": 116403,
+        "successful_pairs": 2445,
+        "result_rate_pct": 2.1,
+        "unseen_result_pairs": 153,
+        "unseen_result_pair_pct": 0.131,
+        "distinct_unseen_results": 116,
+        "already_owned_result_pairs": 2292
+      },
+      "v45": {
+        "possible_pairs": 116403,
+        "successful_pairs": 2657,
+        "result_rate_pct": 2.283,
+        "unseen_result_pairs": 247,
+        "unseen_result_pair_pct": 0.212,
+        "distinct_unseen_results": 138,
+        "already_owned_result_pairs": 2410
+      },
+      "gain_successful_pairs": 212,
+      "gain_unseen_pair_options": 94
+    },
+    {
+      "depth": 7,
+      "owned": 598,
+      "v44": {
+        "possible_pairs": 179101,
+        "successful_pairs": 2680,
+        "result_rate_pct": 1.496,
+        "unseen_result_pairs": 144,
+        "unseen_result_pair_pct": 0.08,
+        "distinct_unseen_results": 134,
+        "already_owned_result_pairs": 2536
+      },
+      "v45": {
+        "possible_pairs": 179101,
+        "successful_pairs": 2927,
+        "result_rate_pct": 1.634,
+        "unseen_result_pairs": 244,
+        "unseen_result_pair_pct": 0.136,
+        "distinct_unseen_results": 158,
+        "already_owned_result_pairs": 2683
+      },
+      "gain_successful_pairs": 247,
+      "gain_unseen_pair_options": 100
+    },
+    {
+      "depth": 8,
+      "owned": 732,
+      "v44": {
+        "possible_pairs": 268278,
+        "successful_pairs": 2950,
+        "result_rate_pct": 1.1,
+        "unseen_result_pairs": 179,
+        "unseen_result_pair_pct": 0.067,
+        "distinct_unseen_results": 161,
+        "already_owned_result_pairs": 2771
+      },
+      "v45": {
+        "possible_pairs": 268278,
+        "successful_pairs": 3265,
+        "result_rate_pct": 1.217,
+        "unseen_result_pairs": 320,
+        "unseen_result_pair_pct": 0.119,
+        "distinct_unseen_results": 191,
+        "already_owned_result_pairs": 2945
+      },
+      "gain_successful_pairs": 315,
+      "gain_unseen_pair_options": 141
+    },
+    {
+      "depth": 9,
+      "owned": 893,
+      "v44": {
+        "possible_pairs": 399171,
+        "successful_pairs": 3329,
+        "result_rate_pct": 0.834,
+        "unseen_result_pairs": 303,
+        "unseen_result_pair_pct": 0.076,
+        "distinct_unseen_results": 288,
+        "already_owned_result_pairs": 3026
+      },
+      "v45": {
+        "possible_pairs": 399171,
+        "successful_pairs": 3700,
+        "result_rate_pct": 0.927,
+        "unseen_result_pairs": 459,
+        "unseen_result_pair_pct": 0.115,
+        "distinct_unseen_results": 312,
+        "already_owned_result_pairs": 3241
+      },
+      "gain_successful_pairs": 371,
+      "gain_unseen_pair_options": 156
+    },
+    {
+      "depth": 10,
+      "owned": 1181,
+      "v44": {
+        "possible_pairs": 697971,
+        "successful_pairs": 4131,
+        "result_rate_pct": 0.592,
+        "unseen_result_pairs": 462,
+        "unseen_result_pair_pct": 0.066,
+        "distinct_unseen_results": 439,
+        "already_owned_result_pairs": 3669
+      },
+      "v45": {
+        "possible_pairs": 697971,
+        "successful_pairs": 4613,
+        "result_rate_pct": 0.661,
+        "unseen_result_pairs": 615,
+        "unseen_result_pair_pct": 0.088,
+        "distinct_unseen_results": 454,
+        "already_owned_result_pairs": 3998
+      },
+      "gain_successful_pairs": 482,
+      "gain_unseen_pair_options": 153
+    }
+  ],
+  "experimental_uniform_random_trials": [
+    {
+      "seed": 11,
+      "v44": {
+        "attempts": 5000,
+        "result_pairs_hit": 545,
+        "new_unlocks": 160,
+        "unique_owned_end": 164
+      },
+      "v45": {
+        "attempts": 5000,
+        "result_pairs_hit": 614,
+        "new_unlocks": 145,
+        "unique_owned_end": 149
+      }
+    },
+    {
+      "seed": 29,
+      "v44": {
+        "attempts": 5000,
+        "result_pairs_hit": 478,
+        "new_unlocks": 168,
+        "unique_owned_end": 172
+      },
+      "v45": {
+        "attempts": 5000,
+        "result_pairs_hit": 494,
+        "new_unlocks": 157,
+        "unique_owned_end": 161
+      }
+    },
+    {
+      "seed": 73,
+      "v44": {
+        "attempts": 5000,
+        "result_pairs_hit": 519,
+        "new_unlocks": 150,
+        "unique_owned_end": 154
+      },
+      "v45": {
+        "attempts": 5000,
+        "result_pairs_hit": 550,
+        "new_unlocks": 174,
+        "unique_owned_end": 178
+      }
+    },
+    {
+      "seed": 101,
+      "v44": {
+        "attempts": 5000,
+        "result_pairs_hit": 516,
+        "new_unlocks": 182,
+        "unique_owned_end": 186
+      },
+      "v45": {
+        "attempts": 5000,
+        "result_pairs_hit": 522,
+        "new_unlocks": 128,
+        "unique_owned_end": 132
+      }
+    },
+    {
+      "seed": 541,
+      "v44": {
+        "attempts": 5000,
+        "result_pairs_hit": 610,
+        "new_unlocks": 180,
+        "unique_owned_end": 184
+      },
+      "v45": {
+        "attempts": 5000,
+        "result_pairs_hit": 552,
+        "new_unlocks": 159,
+        "unique_owned_end": 163
+      }
+    }
+  ]
+}

@@ -1,0 +1,5 @@
+import test from 'node:test';import assert from 'node:assert/strict';
+import {ORGANIC_V63} from '../src/organic-pack-v63.js';import {ORGANIC_ART_V63} from '../src/organic-art-v63.js';
+test('V63 creates 18 actual new elements, not repackaged alternative results',()=>{assert.equal(ORGANIC_V63.items.length,18);assert.equal(ORGANIC_V63.recipes.length,18);const ids=new Set(ORGANIC_V63.items.map(i=>i.id));assert.equal(ids.size,18);for(const r of ORGANIC_V63.recipes)assert.ok(ids.has(r[2]));});
+test('V63 provides bespoke SVGs for 18 new elements and 20 redrawn historic objects',()=>{assert.equal(Object.keys(ORGANIC_ART_V63).length,38);assert.equal(new Set(Object.values(ORGANIC_ART_V63)).size,38);for(const x of Object.values(ORGANIC_ART_V63))assert.match(x,/^<svg /);});
+test('V63 redraws old assets without creating duplicates of legacy IDs',()=>{const ids=ORGANIC_V63.items.map(i=>i.id);assert.ok(ids.every(id=>id.startsWith('organic63:')));assert.ok('driftwood shelter' in ORGANIC_ART_V63);assert.ok(!ids.some(id=>id.startsWith('organic61:')));});

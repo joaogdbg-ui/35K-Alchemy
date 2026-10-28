@@ -1,0 +1,201 @@
+# domain|new element|category|ingredient 1|ingredient 2|art motifs
+Ocean|Estuary|nature|River|Sea|wave+droplet
+Ocean|Brackish Water|nature|River|Salt|droplet+wave
+Ocean|Tidal Bore|nature|River|Tide|wave+wind
+Ocean|Rip Current|nature|Ocean|Current|wave+wind
+Ocean|Tombolo|nature|Island|Sandbar|mountain+wave
+Ocean|Lagoon Barrier|nature|Lagoon|Sand|wave+mountain
+Ocean|Salt Pan|material|Salt|Sun|pool+sun
+Ocean|Beach Wrack|nature|Beach|Kelp|kelp+shell
+Ocean|Drift Line|nature|Driftwood|Beach|branch+wave
+Ocean|Seafloor Sediment|material|Sea|Mud|pool+mountain
+Ocean|Seamount|nature|Mountain|Deep Sea|mountain+wave
+Ocean|Hydrothermal Chimney|nature|Deep Sea Vent|Stone|geyser+mountain
+Ocean|Intertidal Zone|nature|Tide|Beach|pool+shell
+Ocean|Marine Foam|nature|Sea|Wind|wave+cloud
+Ocean|Saltwater Lens|science|Saltwater Lagoon|Glass|droplet+frame
+Ocean|Tidepool Crab|life|Rock Pool|Crab|crab+pool
+Ocean|Mussel Bed|life|Shell|Reef|shell+coral
+Ocean|Driftwood Shelter|culture|Driftwood|House|branch+house
+Ocean|Kelp Salad|food|Kelp|Salad|kelp+food
+Ocean|Sea Salt Caramel|food|Salt|Caramel|cup+shell
+Geology|Stalactite|nature|Cave|Water|mountain+droplet
+Geology|Stalagmite|nature|Cave|Stone|mountain+roots
+Geology|Travertine|material|Limestone|Water|pool+mountain
+Geology|Tufa|material|Mineral|River|mountain+pool
+Geology|Obsidian Shard|material|Obsidian|Stone|ice+mountain
+Geology|Geode|material|Crystal|Cave|ice+mountain
+Geology|Pumice Raft|nature|Pumice|Sea|mountain+wave
+Geology|Volcanic Ash Cloud|nature|Volcano|Cloud|cloud+mountain
+Geology|Lahar|nature|Lava|Rain|wave+mountain
+Geology|Rockfall|nature|Cliff|Earthquake|mountain+wave
+Geology|Sinkhole Pond|nature|Sinkhole|Rain|pool+mountain
+Geology|Mineral Vein|material|Gold|Stone|mountain+halo
+Geology|Garnet|material|Crystal|Iron|ice+mountain
+Geology|Quartz Sand|material|Crystal|Sand|ice+mountain
+Geology|Pebble Beach|nature|Stone|Beach|wave+mountain
+Geology|Fault Scarp|nature|Earthquake|Mountain|mountain+roots
+Geology|Lava Tube|nature|Lava|Cave|mountain+geyser
+Geology|Glacial Erratic|nature|Ice|Boulder|ice+mountain
+Geology|Fossil Imprint|life|Fossil|Clay|paper+leaf
+Geology|Sandstone Arch|nature|Sandstone|Wind|mountain+wind
+Ecology|Leafcutter Ant|life|Ant|Leaf|grass+leaf
+Ecology|Bee Orchid|life|Bee|Flower|flower+fish
+Ecology|Moss Carpet|nature|Moss|Forest Floor|grass+tree
+Ecology|Lichen Colony|life|Fungus|Stone|mushroom+mountain
+Ecology|Fairy Ring|nature|Mushroom|Meadow|mushroom+flower
+Ecology|Nurse Log|nature|Fallen Tree|Moss|branch+grass
+Ecology|Seed Bank|culture|Seed|Library|basket+book
+Ecology|Pollinator Meadow|nature|Butterfly|Meadow|flower+grass
+Ecology|Woodpecker Hole|life|Bird|Tree|tree+bird
+Ecology|Hedgehog Nest|life|Hedgehog|Leaf|roots+leaf
+Ecology|Beaver Lodge|life|Beaver|Wood|house+branch
+Ecology|Frog Spawn|life|Frog|Pond|pool+fish
+Ecology|Caterpillar Cocoon|life|Caterpillar|Silk|flowerpot+leaf
+Ecology|Spider Egg Sac|life|Spider|Silk|basket+roots
+Ecology|Pollen Grain|science|Pollen|Microscope|flower+camera
+Ecology|Forest Clearing|nature|Forest|Sun|tree+sun
+Ecology|Compost Tea|nature|Compost|Water|cup+herbs
+Ecology|Rain Garden|nature|Garden|Rain|flower+rain
+Ecology|Mycorrhiza|life|Mushroom|Roots|mushroom+roots
+Ecology|Mangrove Seedling|nature|Mangrove|Seed|pot+tree
+Weather|Cloudburst|nature|Cloud|Flood|cloud+rain
+Weather|Diamond Dust|nature|Ice|Sunlight|snow+sun
+Weather|Sundog Arc|nature|Sun|Ice Crystals|halo+ice
+Weather|Frost Flower|nature|Frost|Flower|flower+snow
+Weather|Ice Pellets|nature|Rain|Freezing|snow+droplet
+Weather|Downburst|nature|Storm|Wind|cloud+wind
+Weather|Dust Devil|nature|Dust|Heat|wind+sun
+Weather|Steam Fog|nature|Steam|Cold|fog+cup
+Weather|Morning Dew|nature|Grass|Mist|grass+droplet
+Weather|Wind Chill|science|Wind|Cold|wind+snow
+Weather|Cloud Ceiling|science|Cloud|Altitude|cloud+mountain
+Weather|Thunderhead|nature|Thunder|Cloud|cloud+lightning
+Weather|Snow Drift|nature|Snow|Wind|snow+wind
+Weather|Ice Needle|nature|Ice|Needle|ice+pencil
+Weather|Hailstone|nature|Hail|Stone|ice+mountain
+Weather|Rain Curtain|nature|Rain|Wind|rain+wind
+Weather|Volcanic Haze|nature|Volcano|Fog|fog+mountain
+Weather|Sun Pillar|nature|Sunlight|Ice|halo+sun
+Weather|Ice Jam|nature|River|Ice|wave+ice
+Weather|Wet Bulb Thermometer|technology|Thermometer|Water|pencil+droplet
+Food|Sourdough Starter|food|Flour|Yeast|bread+cup
+Food|Rye Loaf|food|Rye|Bread|bread+grass
+Food|Herb Focaccia|food|Bread|Rosemary|bread+herbs
+Food|Lemon Curd|food|Lemon|Egg|cup+sun
+Food|Fruit Leather|food|Fruit|Sun|apple+paper
+Food|Pickled Cucumber|food|Cucumber|Vinegar|pot+herbs
+Food|Fermented Cabbage|food|Cabbage|Salt|pot+grass
+Food|Apple Cider|food|Apple|Juice|cup+apple
+Food|Mushroom Risotto|food|Mushroom|Rice|mushroom+food
+Food|Honey Granola|food|Honey|Oats|basket+food
+Food|Roasted Chestnut|food|Chestnut|Fire|food+sun
+Food|Caramel Popcorn|food|Popcorn|Caramel|basket+food
+Food|Coconut Milk|food|Coconut|Water|cup+pool
+Food|Orange Marmalade|food|Orange|Sugar|apple+cup
+Food|Herb Dumpling|food|Dough|Herbs|bread+herbs
+Food|Tomato Relish|food|Tomato|Vinegar|pot+food
+Food|Berry Sorbet|food|Berry|Ice|cup+ice
+Food|Garlic Oil|food|Garlic|Oil|cup+herbs
+Food|Baked Pear|food|Pear|Oven|apple+sun
+Food|Spice Blend|food|Spice|Mortar|pot+flower
+Craft|Woven Reed Mat|material|Reed|Weaving|blanket+grass
+Craft|Clay Glaze|material|Clay|Glass|pot+ice
+Craft|Copper Wire|material|Copper|Tool|roots+mountain
+Craft|Paper Lantern|culture|Paper|Lantern|paper+halo
+Craft|Wax Seal|culture|Wax|Letter|wreath+paper
+Craft|Woodcut Print|culture|Wood|Ink|frame+branch
+Craft|Stone Inlay|material|Stone|Mosaic|mountain+frame
+Craft|Shell Mosaic|culture|Shell|Mosaic|shell+frame
+Craft|Knitted Scarf|culture|Wool|Needle|blanket+pencil
+Craft|Natural Dye|material|Flower|Fabric|flower+blanket
+Craft|Leaf Stamp|culture|Leaf|Ink|leaf+paper
+Craft|Sand Mandala|culture|Sand|Pattern|mountain+wreath
+Craft|Glass Etching|material|Glass|Tool|frame+pencil
+Craft|Ceramic Tile|material|Ceramic|Mosaic|pot+frame
+Craft|Wooden Spoon|culture|Wood|Spoon|branch+food
+Craft|Beeswax Candle|culture|Beeswax|Wick|cup+sun
+Craft|Pressed Herb Card|culture|Herbs|Paper|paper+herbs
+Craft|Metal Embossing|material|Metal|Hammer|mountain+statue
+Craft|Rope Basket|material|Rope|Basket|basket+roots
+Craft|Quilt Patch|culture|Fabric|Pattern|blanket+flower
+Tech|Portable Radio Beacon|technology|Radio|Battery|camera+halo
+Tech|Solar Backpack|technology|Solar Panel|Backpack|basket+sun
+Tech|Smart Irrigation Valve|technology|Sensor|Irrigation|pot+droplet
+Tech|Wind Turbine Blade|technology|Wind|Turbine|wind+branch
+Tech|Thermal Camera|technology|Camera|Heat|camera+sun
+Tech|Ultrasonic Ruler|technology|Sound|Ruler|pencil+wind
+Tech|Optical Mouse|technology|Computer|Laser Beam|camera+pencil
+Tech|Fiber Optic Cable|technology|Glass|Light|roots+halo
+Tech|Water Level Alarm|technology|Sensor|Flood|camera+wave
+Tech|Robot Vacuum Dock|technology|Robot|Charger|house+camera
+Tech|Greenhouse Thermostat|technology|Greenhouse|Thermometer|house+sun
+Tech|Pocket Spectroscope|technology|Prism|Telescope|camera+halo
+Tech|Digital Rain Gauge|technology|Rain|Sensor|cup+rain
+Tech|Solar Phone Case|technology|Solar Panel|Phone|frame+sun
+Tech|Battery Tester|technology|Battery|Tool|camera+pencil
+Tech|Wireless Doorbell|technology|Radio|House|house+halo
+Tech|Motion Activated Light|technology|Motion Sensor|Lantern|camera+sun
+Tech|Tidal Generator|technology|Tide|Electricity|wave+halo
+Tech|Solar Water Distiller|technology|Sun|Saltwater|cup+sun
+Tech|Mini Weather Balloon|technology|Balloon|Weather|cloud+halo
+Space|Lunar Crater Rim|nature|Moon|Crater|mountain+halo
+Space|Meteor Shower Calendar|culture|Meteor|Calendar|paper+sun
+Space|Saturn Ring Shadow|science|Saturn|Shadow|halo+mountain
+Space|Comet Nucleus|nature|Comet|Ice|ice+sun
+Space|Planetary Rings|nature|Planet|Ring|halo+mountain
+Space|Starlight Spectrum|science|Star|Prism|halo+ice
+Space|Moonrise|nature|Moon|Horizon|sun+mountain
+Space|Dark Nebula|science|Nebula|Dust|cloud+sun
+Space|Asteroid Belt Map|culture|Asteroid|Map|paper+mountain
+Space|Lunar Dust|material|Moon|Dust|mountain+snow
+Space|Aurora Curtain|nature|Aurora|Wind|wreath+wind
+Space|Planetary Transit|science|Planet|Sun|halo+sun
+Space|Star Cluster Chart|culture|Star Cluster|Chart|paper+halo
+Space|Crater Lake|nature|Crater|Rain|pool+mountain
+Space|Space Weather Station|technology|Solar Wind|Sensor|house+sun
+Space|Shooting Star Trail|nature|Meteor|Night|sun+wind
+Space|Martian Ice Cap|nature|Mars|Ice|mountain+ice
+Space|Lunar Eclipse Diagram|science|Eclipse|Book|paper+halo
+Space|Space Greenhouse|technology|Space|Greenhouse|house+sun
+Space|Orbital Debris Net|technology|Space Junk|Fishing Net|basket+halo
+Culture|Public Storytelling Night|culture|Story|Village|book+people
+Culture|Riverfront Market|culture|Market|River|shop+wave
+Culture|Community Seed Library|culture|Seed|Library|book+grass
+Culture|Street Mural|culture|Street|Painting|frame+pencil
+Culture|Village Music School|culture|Village|Music|house+book
+Culture|Harvest Parade|culture|Harvest|Festival|wreath+people
+Culture|Open Air Cinema|culture|Cinema|Park|frame+tree
+Culture|Pottery Workshop|culture|Pottery|Workshop|pot+house
+Culture|Neighborhood Book Exchange|culture|Book|Community|book+people
+Culture|Local History Exhibit|culture|History|Museum|frame+book
+Culture|Community Garden Bench|culture|Garden|Bench|tree+house
+Culture|Handmade Festival Banner|culture|Festival|Fabric|blanket+wreath
+Culture|Town Clock Tower|culture|Clock|Town|house+sun
+Culture|Village Water Fountain|culture|Village|Fountain|pool+house
+Culture|Children's Puppet Show|culture|Puppet|Theater|people+frame
+Culture|Mobile Library Van|culture|Library|Vehicle|book+house
+Culture|Public Art Trail|culture|Art|Trail|frame+tree
+Culture|Garden Reading Club|culture|Garden|Book|book+flower
+Culture|Community Repair Cafe|culture|Tool|Cafe|shop+pencil
+Culture|Seaside Craft Market|culture|Sea|Craft Fair|shop+wave
+Habitats|Bird Migration Stopover|nature|Bird|Wetland|bird+pool
+Habitats|Sand Dune Grass|nature|Dune|Grass|grass+mountain
+Habitats|Pond Skater|life|Pond|Insect|pool+fish
+Habitats|Forest Canopy Gap|nature|Forest|Wind|tree+wind
+Habitats|Cave Bat Colony|life|Bat|Cave|mountain+fish
+Habitats|Coral Spawning|life|Coral|Egg|coral+flower
+Habitats|Owl Roost|life|Owl|Tree|tree+fish
+Habitats|Fox Den|life|Fox|Cave|house+mountain
+Habitats|Snail Shell Trail|life|Snail|Mud|shell+roots
+Habitats|Duckweed Pond|nature|Pond|Leaf|pool+leaf
+Habitats|Mangrove Roots|nature|Mangrove|Roots|tree+roots
+Habitats|Mossy Boulder|nature|Moss|Boulder|mountain+grass
+Habitats|River Otter Slide|life|Otter|River|wave+fish
+Habitats|Honeybee Swarm Cluster|life|Bee Swarm|Tree|tree+flower
+Habitats|Meadow Butterfly Patch|nature|Meadow|Butterfly|flower+grass
+Habitats|Beach Nesting Ground|nature|Beach|Bird|shell+grass
+Habitats|Desert Burrow|nature|Desert|Animal|mountain+house
+Habitats|Woodland Ant Hill|life|Ant|Earth|mountain+grass
+Habitats|Floating Reed Bed|nature|Reed|Lake|grass+wave
+Habitats|Mushroom Spore Print|life|Mushroom|Paper|mushroom+paper

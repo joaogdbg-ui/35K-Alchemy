@@ -1,0 +1,1026 @@
+[
+  {
+    "name": "Stalactite",
+    "id": "organic42:stalactite",
+    "category": "nature",
+    "summary": "A mineral icicle growing down from a cave roof as dripping water leaves deposits.",
+    "paths": [
+      [
+        "Cave",
+        "Water"
+      ],
+      [
+        "Cave",
+        "Rain"
+      ]
+    ]
+  },
+  {
+    "name": "Stalagmite",
+    "id": "organic42:stalagmite",
+    "category": "nature",
+    "summary": "A cone of stone growing upward where mineral-rich drops reach a cave floor.",
+    "paths": [
+      [
+        "Stalactite",
+        "Earth"
+      ],
+      [
+        "Cave",
+        "Stalactite"
+      ]
+    ]
+  },
+  {
+    "name": "Geode",
+    "id": "organic42:geode",
+    "category": "material",
+    "summary": "A hollow rock lined with crystals formed from mineral-rich solutions.",
+    "paths": [
+      [
+        "Stone",
+        "Crystal"
+      ],
+      [
+        "Cave",
+        "Crystal"
+      ]
+    ]
+  },
+  {
+    "name": "Obsidian",
+    "id": "organic42:obsidian",
+    "category": "material",
+    "summary": "A dark volcanic glass formed when molten rock cools very quickly.",
+    "paths": [
+      [
+        "Lava",
+        "Glass"
+      ],
+      [
+        "Volcano",
+        "Glass"
+      ]
+    ]
+  },
+  {
+    "name": "Basalt",
+    "id": "organic42:basalt",
+    "category": "material",
+    "summary": "A dark volcanic rock that forms when lava cools and solidifies.",
+    "paths": [
+      [
+        "Lava",
+        "Stone"
+      ],
+      [
+        "Volcano",
+        "Rock"
+      ]
+    ]
+  },
+  {
+    "name": "Granite",
+    "id": "organic42:granite",
+    "category": "material",
+    "summary": "A hard speckled rock formed by the slow cooling of magma underground.",
+    "paths": [
+      [
+        "Mountain",
+        "Stone"
+      ],
+      [
+        "Basalt",
+        "Pressure"
+      ]
+    ]
+  },
+  {
+    "name": "Limestone",
+    "id": "organic42:limestone",
+    "category": "material",
+    "summary": "A sedimentary rock frequently built from ancient seashells and marine remains.",
+    "paths": [
+      [
+        "Fossil",
+        "Stone"
+      ],
+      [
+        "Rock",
+        "Ocean"
+      ]
+    ]
+  },
+  {
+    "name": "Marble",
+    "id": "organic42:marble",
+    "category": "material",
+    "summary": "A patterned stone produced when limestone is transformed by heat and pressure.",
+    "paths": [
+      [
+        "Limestone",
+        "Pressure"
+      ],
+      [
+        "Limestone",
+        "Heat"
+      ]
+    ]
+  },
+  {
+    "name": "Erosion",
+    "id": "organic42:erosion",
+    "category": "nature",
+    "summary": "The gradual wearing away of land by moving water, wind and weather.",
+    "paths": [
+      [
+        "Rock",
+        "River"
+      ],
+      [
+        "Mountain",
+        "Water"
+      ]
+    ]
+  },
+  {
+    "name": "Sediment",
+    "id": "organic42:sediment",
+    "category": "material",
+    "summary": "Small particles of rock and soil carried and deposited by water or wind.",
+    "paths": [
+      [
+        "Erosion",
+        "River"
+      ],
+      [
+        "Erosion",
+        "Sea"
+      ]
+    ]
+  },
+  {
+    "name": "Amber",
+    "id": "organic42:amber",
+    "category": "material",
+    "summary": "Golden fossilized tree resin that can preserve insects for millions of years.",
+    "paths": [
+      [
+        "Tree",
+        "Fossil"
+      ],
+      [
+        "Fossil",
+        "Insect"
+      ]
+    ]
+  },
+  {
+    "name": "Quartzite",
+    "id": "organic42:quartzite",
+    "category": "material",
+    "summary": "Tough metamorphic rock made when quartz-rich sandstone is heated and compressed.",
+    "paths": [
+      [
+        "Sand",
+        "Pressure"
+      ],
+      [
+        "Crystal",
+        "Pressure"
+      ]
+    ]
+  },
+  {
+    "name": "Pumice",
+    "id": "organic42:pumice",
+    "category": "material",
+    "summary": "A lightweight volcanic rock filled with bubbles from trapped volcanic gas.",
+    "paths": [
+      [
+        "Lava",
+        "Air"
+      ],
+      [
+        "Volcano",
+        "Steam"
+      ]
+    ]
+  },
+  {
+    "name": "Magma Chamber",
+    "id": "organic42:magma-chamber",
+    "category": "nature",
+    "summary": "An underground reservoir of molten rock that can feed an active volcano.",
+    "paths": [
+      [
+        "Cave",
+        "Lava"
+      ],
+      [
+        "Volcano",
+        "Cave"
+      ]
+    ]
+  },
+  {
+    "name": "Fault Line",
+    "id": "organic42:fault-line",
+    "category": "nature",
+    "summary": "A fracture through the Earth where masses of rock may move past each other.",
+    "paths": [
+      [
+        "Earth",
+        "Pressure"
+      ],
+      [
+        "Mountain",
+        "Pressure"
+      ]
+    ]
+  },
+  {
+    "name": "Rock Cycle",
+    "id": "organic42:rock-cycle",
+    "category": "science",
+    "summary": "The continuous transformation of rocks through melting, erosion and pressure.",
+    "paths": [
+      [
+        "Erosion",
+        "Lava"
+      ],
+      [
+        "Basalt",
+        "Sediment"
+      ]
+    ]
+  },
+  {
+    "name": "Mangrove",
+    "id": "organic42:mangrove",
+    "category": "life",
+    "summary": "A salt-tolerant coastal tree with arching roots that shelter fish and shorelines.",
+    "paths": [
+      [
+        "Tree",
+        "Ocean"
+      ],
+      [
+        "Forest",
+        "Sea"
+      ]
+    ]
+  },
+  {
+    "name": "Otter",
+    "id": "organic42:otter",
+    "category": "life",
+    "summary": "A playful semi-aquatic mammal that hunts fish in streams and coastal waters.",
+    "paths": [
+      [
+        "Fish",
+        "Forest"
+      ],
+      [
+        "Animal",
+        "Wetland"
+      ]
+    ]
+  },
+  {
+    "name": "Heron",
+    "id": "organic42:heron",
+    "category": "life",
+    "summary": "A tall wading bird that waits patiently for fish in shallow water.",
+    "paths": [
+      [
+        "Bird",
+        "Pond"
+      ],
+      [
+        "Bird",
+        "Wetland"
+      ]
+    ]
+  },
+  {
+    "name": "Tadpole",
+    "id": "organic42:tadpole",
+    "category": "life",
+    "summary": "A young amphibian with a tail that transforms as it grows into a frog.",
+    "paths": [
+      [
+        "Frog",
+        "Egg"
+      ],
+      [
+        "Frog",
+        "Pond"
+      ]
+    ]
+  },
+  {
+    "name": "Newt",
+    "id": "organic42:newt",
+    "category": "life",
+    "summary": "A small amphibian that spends part of its life in ponds and damp habitats.",
+    "paths": [
+      [
+        "Salamander",
+        "Pond"
+      ],
+      [
+        "Salamander",
+        "Water"
+      ]
+    ]
+  },
+  {
+    "name": "Marsh",
+    "id": "organic42:marsh",
+    "category": "nature",
+    "summary": "A shallow wetland where grasses and reeds dominate the landscape.",
+    "paths": [
+      [
+        "Wetland",
+        "Plant"
+      ],
+      [
+        "Pond",
+        "Field"
+      ]
+    ]
+  },
+  {
+    "name": "Bog",
+    "id": "organic42:bog",
+    "category": "nature",
+    "summary": "An acidic waterlogged habitat that slowly accumulates peat and moss.",
+    "paths": [
+      [
+        "Wetland",
+        "Moss"
+      ],
+      [
+        "Marsh",
+        "Moss"
+      ]
+    ]
+  },
+  {
+    "name": "Lagoon",
+    "id": "organic42:lagoon",
+    "category": "nature",
+    "summary": "A shallow body of coastal water sheltered from the open sea.",
+    "paths": [
+      [
+        "Sea",
+        "Island"
+      ],
+      [
+        "Ocean",
+        "Pond"
+      ]
+    ]
+  },
+  {
+    "name": "Clam",
+    "id": "organic42:clam",
+    "category": "life",
+    "summary": "A two-shelled mollusc that burrows in sand and filters water for food.",
+    "paths": [
+      [
+        "Pearl",
+        "Sand"
+      ],
+      [
+        "Oyster",
+        "Sea"
+      ]
+    ]
+  },
+  {
+    "name": "Mussel",
+    "id": "organic42:mussel",
+    "category": "life",
+    "summary": "A dark-shelled mollusc that anchors itself to rocks and filters seawater.",
+    "paths": [
+      [
+        "Clam",
+        "Rock"
+      ],
+      [
+        "Oyster",
+        "Rock"
+      ]
+    ]
+  },
+  {
+    "name": "Kelp",
+    "id": "organic42:kelp",
+    "category": "life",
+    "summary": "A large brown seaweed that forms underwater forests in cool coastal water.",
+    "paths": [
+      [
+        "Seaweed",
+        "Forest"
+      ],
+      [
+        "Algae",
+        "Ocean"
+      ]
+    ]
+  },
+  {
+    "name": "Reef",
+    "id": "organic42:reef",
+    "category": "nature",
+    "summary": "A shallow underwater ridge that provides habitat for a wealth of marine life.",
+    "paths": [
+      [
+        "Coral Reef",
+        "Stone"
+      ],
+      [
+        "Coral Reef",
+        "Ocean"
+      ]
+    ]
+  },
+  {
+    "name": "Coral",
+    "id": "organic42:coral",
+    "category": "life",
+    "summary": "A colony of tiny marine animals that can build remarkable limestone structures.",
+    "paths": [
+      [
+        "Reef",
+        "Life"
+      ],
+      [
+        "Coral Reef",
+        "Life"
+      ]
+    ]
+  },
+  {
+    "name": "Lily Pad",
+    "id": "organic42:lily-pad",
+    "category": "life",
+    "summary": "A floating circular leaf that helps an aquatic lily reach sunlight.",
+    "paths": [
+      [
+        "Wetland",
+        "Flower"
+      ],
+      [
+        "Pond",
+        "Sun"
+      ]
+    ]
+  },
+  {
+    "name": "Reed",
+    "id": "organic42:reed",
+    "category": "life",
+    "summary": "A tall flexible wetland plant that bends with the wind beside waterways.",
+    "paths": [
+      [
+        "Marsh",
+        "Plant"
+      ],
+      [
+        "Wetland",
+        "Wind"
+      ]
+    ]
+  },
+  {
+    "name": "Salt Marsh",
+    "id": "organic42:salt-marsh",
+    "category": "nature",
+    "summary": "A coastal wetland where salt-tolerant plants flourish in tidal water.",
+    "paths": [
+      [
+        "Marsh",
+        "Sea"
+      ],
+      [
+        "Mangrove",
+        "Marsh"
+      ]
+    ]
+  },
+  {
+    "name": "Yeast",
+    "id": "organic42:yeast",
+    "category": "life",
+    "summary": "A microscopic fungus that makes dough rise by fermenting sugars.",
+    "paths": [
+      [
+        "Bread",
+        "Life"
+      ],
+      [
+        "Dough",
+        "Life"
+      ]
+    ]
+  },
+  {
+    "name": "Croissant",
+    "id": "organic42:croissant",
+    "category": "culture",
+    "summary": "A buttery layered pastry that bakes into a golden crescent.",
+    "paths": [
+      [
+        "Pastry",
+        "Butter"
+      ],
+      [
+        "Dough",
+        "Butter"
+      ]
+    ]
+  },
+  {
+    "name": "Bagel",
+    "id": "organic42:bagel",
+    "category": "culture",
+    "summary": "A ring-shaped bread traditionally boiled before being baked.",
+    "paths": [
+      [
+        "Bread",
+        "Water"
+      ],
+      [
+        "Dough",
+        "Steam"
+      ]
+    ]
+  },
+  {
+    "name": "Pretzel",
+    "id": "organic42:pretzel",
+    "category": "culture",
+    "summary": "A baked twisted bread with a distinctive looped shape and golden crust.",
+    "paths": [
+      [
+        "Dough",
+        "Salt"
+      ],
+      [
+        "Bread",
+        "Salt"
+      ]
+    ]
+  },
+  {
+    "name": "Pancake",
+    "id": "organic42:pancake",
+    "category": "culture",
+    "summary": "A soft round breakfast cake cooked in a pan from a pourable batter.",
+    "paths": [
+      [
+        "Flour",
+        "Milk"
+      ],
+      [
+        "Bread",
+        "Milk"
+      ]
+    ]
+  },
+  {
+    "name": "Waffle",
+    "id": "organic42:waffle",
+    "category": "culture",
+    "summary": "A crisp patterned breakfast cake cooked between two hot patterned plates.",
+    "paths": [
+      [
+        "Pancake",
+        "Tool"
+      ],
+      [
+        "Pancake",
+        "Heat"
+      ]
+    ]
+  },
+  {
+    "name": "Cinnamon",
+    "id": "organic42:cinnamon",
+    "category": "material",
+    "summary": "A fragrant spice from the dried inner bark of certain evergreen trees.",
+    "paths": [
+      [
+        "Tree",
+        "Spice"
+      ],
+      [
+        "Wood",
+        "Spice"
+      ]
+    ]
+  },
+  {
+    "name": "Vanilla",
+    "id": "organic42:vanilla",
+    "category": "material",
+    "summary": "A sweet aromatic flavor made from the cured pods of a tropical orchid.",
+    "paths": [
+      [
+        "Flower",
+        "Sugar"
+      ],
+      [
+        "Flower",
+        "Spice"
+      ]
+    ]
+  },
+  {
+    "name": "Cake",
+    "id": "organic42:cake",
+    "category": "culture",
+    "summary": "A sweet baked dessert often layered with icing for special occasions.",
+    "paths": [
+      [
+        "Pastry",
+        "Sugar"
+      ],
+      [
+        "Flour",
+        "Sugar"
+      ]
+    ]
+  },
+  {
+    "name": "Caramel",
+    "id": "organic42:caramel",
+    "category": "material",
+    "summary": "Golden cooked sugar that adds a rich toasted sweetness to desserts.",
+    "paths": [
+      [
+        "Sugar",
+        "Heat"
+      ],
+      [
+        "Sugar",
+        "Fire"
+      ]
+    ]
+  },
+  {
+    "name": "Popcorn",
+    "id": "organic42:popcorn",
+    "category": "culture",
+    "summary": "Light puffed kernels that pop when moisture inside them turns to steam.",
+    "paths": [
+      [
+        "Seed",
+        "Heat"
+      ],
+      [
+        "Seed",
+        "Fire"
+      ]
+    ]
+  },
+  {
+    "name": "Rice",
+    "id": "organic42:rice",
+    "category": "life",
+    "summary": "Small edible grains grown on a grass that thrives in flooded fields.",
+    "paths": [
+      [
+        "Field",
+        "Water"
+      ],
+      [
+        "Seed",
+        "Wetland"
+      ]
+    ]
+  },
+  {
+    "name": "Noodles",
+    "id": "organic42:noodles",
+    "category": "culture",
+    "summary": "Long strands of dough cooked in water and enjoyed in countless cuisines.",
+    "paths": [
+      [
+        "Pasta",
+        "Water"
+      ],
+      [
+        "Pasta",
+        "Soup"
+      ]
+    ]
+  },
+  {
+    "name": "Dumpling",
+    "id": "organic42:dumpling",
+    "category": "culture",
+    "summary": "A small pocket of dough filled or folded then steamed, boiled or fried.",
+    "paths": [
+      [
+        "Dough",
+        "Soup"
+      ],
+      [
+        "Noodles",
+        "Food"
+      ]
+    ]
+  },
+  {
+    "name": "Syrup",
+    "id": "organic42:syrup",
+    "category": "material",
+    "summary": "A thick sweet liquid made by dissolving sugar or reducing plant juices.",
+    "paths": [
+      [
+        "Sugar",
+        "Water"
+      ],
+      [
+        "Honey",
+        "Water"
+      ]
+    ]
+  },
+  {
+    "name": "Pie",
+    "id": "organic42:pie",
+    "category": "culture",
+    "summary": "A baked dish with a pastry crust around a sweet or savory filling.",
+    "paths": [
+      [
+        "Pastry",
+        "Fruit"
+      ],
+      [
+        "Pastry",
+        "Jam"
+      ]
+    ]
+  },
+  {
+    "name": "Lens",
+    "id": "organic42:lens",
+    "category": "technology",
+    "summary": "A shaped transparent piece that bends light to form or magnify images.",
+    "paths": [
+      [
+        "Camera",
+        "Glass"
+      ],
+      [
+        "Telescope",
+        "Glass"
+      ]
+    ]
+  },
+  {
+    "name": "Prism",
+    "id": "organic42:prism",
+    "category": "science",
+    "summary": "A transparent solid that refracts light and separates it into colors.",
+    "paths": [
+      [
+        "Crystal",
+        "Light"
+      ],
+      [
+        "Glass",
+        "Rainbow"
+      ]
+    ]
+  },
+  {
+    "name": "Optics",
+    "id": "organic42:optics",
+    "category": "science",
+    "summary": "The scientific study of light, vision, reflections and image formation.",
+    "paths": [
+      [
+        "Light",
+        "Science"
+      ],
+      [
+        "Lens",
+        "Science"
+      ]
+    ]
+  },
+  {
+    "name": "Film",
+    "id": "organic42:film",
+    "category": "material",
+    "summary": "A light-sensitive sheet used to capture photographs or moving pictures.",
+    "paths": [
+      [
+        "Photography",
+        "Paper"
+      ],
+      [
+        "Camera",
+        "Paper"
+      ]
+    ]
+  },
+  {
+    "name": "Photograph",
+    "id": "organic42:photograph",
+    "category": "culture",
+    "summary": "A captured still image that can preserve a moment of the world.",
+    "paths": [
+      [
+        "Camera",
+        "Light"
+      ],
+      [
+        "Film",
+        "Camera"
+      ]
+    ]
+  },
+  {
+    "name": "Negative",
+    "id": "organic42:negative",
+    "category": "technology",
+    "summary": "A photographic image in which bright and dark tones are inverted.",
+    "paths": [
+      [
+        "Film",
+        "Shadow"
+      ],
+      [
+        "Photograph",
+        "Shadow"
+      ]
+    ]
+  },
+  {
+    "name": "Darkroom",
+    "id": "organic42:darkroom",
+    "category": "culture",
+    "summary": "A light-controlled room where photographic film and prints are developed.",
+    "paths": [
+      [
+        "Film",
+        "House"
+      ],
+      [
+        "Photography",
+        "House"
+      ]
+    ]
+  },
+  {
+    "name": "Flash",
+    "id": "organic42:flash",
+    "category": "technology",
+    "summary": "A brief brilliant burst of light used to illuminate a camera scene.",
+    "paths": [
+      [
+        "Camera",
+        "Lightning"
+      ],
+      [
+        "Photograph",
+        "Lightning"
+      ]
+    ]
+  },
+  {
+    "name": "Tripod",
+    "id": "organic42:tripod",
+    "category": "technology",
+    "summary": "A stable three-legged stand that keeps cameras steady during exposure.",
+    "paths": [
+      [
+        "Camera",
+        "Wood"
+      ],
+      [
+        "Camera",
+        "Tool"
+      ]
+    ]
+  },
+  {
+    "name": "Shutter",
+    "id": "organic42:shutter",
+    "category": "technology",
+    "summary": "A camera mechanism controlling how long light reaches the image sensor.",
+    "paths": [
+      [
+        "Camera",
+        "Time"
+      ],
+      [
+        "Lens",
+        "Time"
+      ]
+    ]
+  },
+  {
+    "name": "Projector",
+    "id": "organic42:projector",
+    "category": "technology",
+    "summary": "A device that casts enlarged images onto a distant screen.",
+    "paths": [
+      [
+        "Light",
+        "Film"
+      ],
+      [
+        "Camera",
+        "Cinema"
+      ]
+    ]
+  },
+  {
+    "name": "Slide",
+    "id": "organic42:slide",
+    "category": "technology",
+    "summary": "A transparent photograph or image intended for projection onto a screen.",
+    "paths": [
+      [
+        "Photograph",
+        "Glass"
+      ],
+      [
+        "Film",
+        "Glass"
+      ]
+    ]
+  },
+  {
+    "name": "Photographer",
+    "id": "organic42:photographer",
+    "category": "culture",
+    "summary": "A person who creates pictures by choosing light, framing and timing.",
+    "paths": [
+      [
+        "Human",
+        "Camera"
+      ],
+      [
+        "Human",
+        "Photography"
+      ]
+    ]
+  },
+  {
+    "name": "Exposure",
+    "id": "organic42:exposure",
+    "category": "science",
+    "summary": "The amount of light reaching a photographic surface over time.",
+    "paths": [
+      [
+        "Shutter",
+        "Light"
+      ],
+      [
+        "Photograph",
+        "Sun"
+      ]
+    ]
+  },
+  {
+    "name": "Portrait",
+    "id": "organic42:portrait",
+    "category": "culture",
+    "summary": "An image that focuses on the likeness and expression of a person.",
+    "paths": [
+      [
+        "Photograph",
+        "Human"
+      ],
+      [
+        "Painting",
+        "Human"
+      ]
+    ]
+  },
+  {
+    "name": "Aperture",
+    "id": "organic42:aperture",
+    "category": "technology",
+    "summary": "An adjustable opening in a lens that controls how much light enters.",
+    "paths": [
+      [
+        "Lens",
+        "Light"
+      ],
+      [
+        "Camera",
+        "Lens"
+      ]
+    ]
+  }
+]

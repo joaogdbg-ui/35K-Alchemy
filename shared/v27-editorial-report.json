@@ -1,0 +1,95 @@
+{
+  "new_elements": 8,
+  "new_recipes": 46,
+  "notes": [
+    {
+      "kind": "no-safe-path",
+      "title": "Space Channel 5: Part 2",
+      "platform": "Sega Dreamcast",
+      "seed": "Music"
+    },
+    {
+      "kind": "no-safe-path",
+      "title": "Ape Escape 2",
+      "platform": "PlayStation 2",
+      "seed": "Game"
+    },
+    {
+      "kind": "no-safe-path",
+      "title": "Ape Escape 3",
+      "platform": "PlayStation 2",
+      "seed": "Game"
+    },
+    {
+      "kind": "group-skip",
+      "platform": "PlayStation 2",
+      "seed": "Racing",
+      "missing": [
+        "seed"
+      ]
+    },
+    {
+      "kind": "no-safe-path",
+      "title": "Patapon 3",
+      "platform": "PSP",
+      "seed": "Music"
+    },
+    {
+      "kind": "no-safe-path",
+      "title": "Lumines II",
+      "platform": "PSP",
+      "seed": "Arcade"
+    },
+    {
+      "kind": "no-safe-path",
+      "title": "Advance Wars: Days of Ruin",
+      "platform": "Nintendo DS",
+      "seed": "Strategy"
+    },
+    {
+      "kind": "no-safe-path",
+      "title": "Bravely Second: End Layer",
+      "platform": "Nintendo 3DS",
+      "seed": "RPG"
+    },
+    {
+      "kind": "no-safe-path",
+      "title": "The Legend of Zelda: Breath of the Wild",
+      "platform": "Nintendo Switch",
+      "seed": "The Legend of Zelda"
+    },
+    {
+      "kind": "no-safe-path",
+      "title": "The Legend of Zelda: Tears of the Kingdom",
+      "platform": "Nintendo Switch",
+      "seed": "The Legend of Zelda"
+    },
+    {
+      "kind": "no-safe-path",
+      "title": "Fable: The Lost Chapters",
+      "platform": "Xbox",
+      "seed": "RPG"
+    },
+    {
+      "kind": "no-safe-path",
+      "title": "Seiken Densetsu 3",
+      "platform": "SNES",
+      "seed": "RPG"
+    },
+    {
+      "kind": "no-safe-path",
+      "title": "Dragon Force II",
+      "platform": "Sega Saturn",
+      "seed": "Strategy"
+    },
+    {
+      "kind": "no-safe-path",
+      "title": "Pitfall II: Lost Caverns",
+      "platform": "Atari 2600",
+      "seed": "Arcade"
+    }
+  ],
+  "total_elements": 3376,
+  "total_recipes": 8477,
+  "release_specs": 44
+}

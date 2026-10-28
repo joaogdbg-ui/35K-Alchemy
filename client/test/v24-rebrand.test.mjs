@@ -1,0 +1,23 @@
+import test from 'node:test';
+import assert from 'node:assert/strict';
+import {readFileSync} from 'node:fs';
+import {DATA} from '../src/legacy-data.js';
+import {PACK} from '../src/creative-pack.js';
+import {GAMING_V22} from '../src/gaming-pack-v22.js';
+import {GAMING_V23} from '../src/gaming-pack-v23.js';
+import {GAMING_V24} from '../src/gaming-pack-v24.js';
+import {groupFamilies} from '../src/discoveries.js';
+const key=(a,b)=>[a,b].sort().join('|');
+const old=[...DATA.items.map(([name,category],i)=>({id:`legacy:${i}`,name,category})),...PACK.items,...GAMING_V22.items,...GAMING_V23.items];
+const all=[...old,...GAMING_V24.items];
+const registry=new Set(all.map(i=>i.id));
+const pre=new Map(DATA.recipes.map(([a,b,c])=>[key(`legacy:${a}`,`legacy:${b}`),`legacy:${c}`]));
+for(const pack of [PACK,GAMING_V22,GAMING_V23]) for(const [a,b,c] of pack.recipes)if(!pre.has(key(a,b)))pre.set(key(a,b),c);
+const current=new Map(pre);for(const [a,b,c] of GAMING_V24.recipes){assert.ok(!current.has(key(a,b)),`Old input overwritten: ${a}+${b}`);current.set(key(a,b),c)}
+test('35K branding is an honest goal, not fictitious catalogue count',()=>{assert.equal(GAMING_V24.gameName,'35K Alchemy');assert.equal(GAMING_V24.targetElements,35000);assert.equal(all.length,3140);assert.equal(current.size,7880);assert.equal(GAMING_V24.items.length,56);assert.equal(GAMING_V24.recipes.length,213);});
+test('every new item identifier is unique and every recipe references a real item',()=>{assert.equal(new Set(all.map(x=>x.id)).size,all.length);for(const [a,b,c] of GAMING_V24.recipes)for(const id of [a,b,c])assert.ok(registry.has(id),`Unknown ${id}`);});
+test('all pre-existing V23 recipes remain unchanged',()=>{for(const [k,v] of pre)assert.equal(current.get(k),v,k);});
+test('new items can all be reached from the four starter elements',()=>{const reachable=new Set(['legacy:0','legacy:1','legacy:2','legacy:3']);let last=-1;while(last!==reachable.size){last=reachable.size;for(const [k,c] of current){const [a,b]=k.split('|');if(reachable.has(a)&&reachable.has(b))reachable.add(c);}}for(const it of GAMING_V24.items)assert.ok(reachable.has(it.id),it.name);});
+test('known-game and console relationships and multiple routes resolve offline',()=>{const byName=new Map(all.map(x=>[x.name,x.id]));const out=(a,b)=>all.find(it=>it.id===current.get(key(byName.get(a),byName.get(b))))?.name;assert.equal(out('Silent Hill 2','Sequel'),'Silent Hill 3');assert.equal(out('Mario Tennis','Nintendo Switch 2'),'Mario Tennis Fever');assert.equal(out('Pokémon','Nintendo Switch 2'),'Pokémon Pokopia');});
+test('the Discoveries families count real entries, not 35,000 placeholders',()=>{const groups=groupFamilies(all,new Set(['legacy:0','legacy:1','legacy:2','legacy:3']));assert.equal(Object.values(groups).reduce((n,g)=>n+g.total,0),all.length);});
+test('two tabs, V24/V25 title, saved-progress compatibility and roadmap UI',()=>{const html=readFileSync(new URL('../index.html',import.meta.url),'utf8');const app=readFileSync(new URL('../src/app.js',import.meta.url),'utf8');assert.match(html,/35K Alchemy — V(?:2[4-9](?:\.\d+)?|3[0-9]|4[0-9]|5[0-9]|6[0-9]) (?:Offline|English Edition)/);assert.equal((html.match(/class="tab(?: active)?" data-view/g)||[]).length,2);assert.match(html,/catalogTargetProgress/);assert.match(app,/gameverse_alchemy_v2/);assert.match(app,/gameverse_dynamic_v11/);assert.match(app,/GAMING_V24/);assert.match(app,/GAMING_V26/);});

@@ -1,0 +1,365 @@
+{
+  "version": 63,
+  "new_items": [
+    {
+      "name": "Horseshoe Crab",
+      "id": "organic63:horseshoe-crab",
+      "path": "client/assets/v63/new/horseshoe-crab.svg",
+      "ingredients": [
+        "Crab",
+        "Fossil"
+      ],
+      "sha256": "df36fe9861651d2bb4b2958e9b0a8edc59888c7a511dee372a404d2fbc74f435",
+      "art_mode": "bespoke-silhouette"
+    },
+    {
+      "name": "Moon Jellyfish",
+      "id": "organic63:moon-jellyfish",
+      "path": "client/assets/v63/new/moon-jellyfish.svg",
+      "ingredients": [
+        "Jellyfish",
+        "Moon"
+      ],
+      "sha256": "6b44a7d2a9463edb2419f54928a1161a10a8d53aa01202c52b261412ea977932",
+      "art_mode": "bespoke-silhouette"
+    },
+    {
+      "name": "Alpine Edelweiss",
+      "id": "organic63:alpine-edelweiss",
+      "path": "client/assets/v63/new/alpine-edelweiss.svg",
+      "ingredients": [
+        "Mountain",
+        "Flower"
+      ],
+      "sha256": "ef56bdef673162e86f1e226db0705985f746f10c734ed508457f9780569d2918",
+      "art_mode": "bespoke-silhouette"
+    },
+    {
+      "name": "Baobab Tree",
+      "id": "organic63:baobab-tree",
+      "path": "client/assets/v63/new/baobab-tree.svg",
+      "ingredients": [
+        "Tree",
+        "Desert"
+      ],
+      "sha256": "cc41b20097f6c83bd6936bab717a1ea1316b86bd3b9c94984585efefc082ef3c",
+      "art_mode": "bespoke-silhouette"
+    },
+    {
+      "name": "Fire Salamander",
+      "id": "organic63:fire-salamander",
+      "path": "client/assets/v63/new/fire-salamander.svg",
+      "ingredients": [
+        "Salamander",
+        "Fire"
+      ],
+      "sha256": "cfe859861f6f7e7c3e27ddc554266a849ee17cf65d49f96f4db620ca044a308c",
+      "art_mode": "bespoke-silhouette"
+    },
+    {
+      "name": "Silk Moth",
+      "id": "organic63:silk-moth",
+      "path": "client/assets/v63/new/silk-moth.svg",
+      "ingredients": [
+        "Insect",
+        "Silk"
+      ],
+      "sha256": "9684e760ced6ca0bba4a6f84377939cfdea98a37f834fdaf43c65a3910abf9a7",
+      "art_mode": "bespoke-silhouette"
+    },
+    {
+      "name": "Brass Spyglass",
+      "id": "organic63:brass-spyglass",
+      "path": "client/assets/v63/new/brass-spyglass.svg",
+      "ingredients": [
+        "Copper",
+        "Telescope"
+      ],
+      "sha256": "758473f0011ea763e2faeb3636c1e34772a152072df6c91c61164f6afbbbb593",
+      "art_mode": "bespoke-silhouette"
+    },
+    {
+      "name": "Ramen Bowl",
+      "id": "organic63:ramen-bowl",
+      "path": "client/assets/v63/new/ramen-bowl.svg",
+      "ingredients": [
+        "Noodles",
+        "Soup"
+      ],
+      "sha256": "b83750aa65fe8971e71d3f70786f7eb061572b7c27b9dc1999e0ba928cf54789",
+      "art_mode": "bespoke-silhouette"
+    },
+    {
+      "name": "Matcha Whisk",
+      "id": "organic63:matcha-whisk",
+      "path": "client/assets/v63/new/matcha-whisk.svg",
+      "ingredients": [
+        "Tea",
+        "Wood"
+      ],
+      "sha256": "fe65c733361813749f51d9725e9f0abf1d5e85f77ddb9bdc4fd6ce7a8b9aa67b",
+      "art_mode": "bespoke-silhouette"
+    },
+    {
+      "name": "Honey Dipper",
+      "id": "organic63:honey-dipper",
+      "path": "client/assets/v63/new/honey-dipper.svg",
+      "ingredients": [
+        "Honey",
+        "Wood"
+      ],
+      "sha256": "b1bcea287ddd333e5faf940d6aa9e97d66dd2f637f62ed0afdac650532e8a5f4",
+      "art_mode": "bespoke-silhouette"
+    },
+    {
+      "name": "Paper Lantern",
+      "id": "organic63:paper-lantern",
+      "path": "client/assets/v63/new/paper-lantern.svg",
+      "ingredients": [
+        "Paper",
+        "Light"
+      ],
+      "sha256": "d0bb4bd5699eb90085213a51e99097e27cfbe7af83e6fbc83cd6f317187d97c9",
+      "art_mode": "bespoke-silhouette"
+    },
+    {
+      "name": "Mechanical Keyboard",
+      "id": "organic63:mechanical-keyboard",
+      "path": "client/assets/v63/new/mechanical-keyboard.svg",
+      "ingredients": [
+        "Keyboard",
+        "Gear"
+      ],
+      "sha256": "9165137d217bd8bdaecb75392e888120ac021683454b317611bdc2751dd63905",
+      "art_mode": "bespoke-silhouette"
+    },
+    {
+      "name": "Film Projector",
+      "id": "organic63:film-projector",
+      "path": "client/assets/v63/new/film-projector.svg",
+      "ingredients": [
+        "Cinema",
+        "Light"
+      ],
+      "sha256": "6174707209fbcd12cd534aa2c2b392d49746ea08f3b1ee9cad9cce56ca0507f0",
+      "art_mode": "bespoke-silhouette"
+    },
+    {
+      "name": "Microscope Slide",
+      "id": "organic63:microscope-slide",
+      "path": "client/assets/v63/new/microscope-slide.svg",
+      "ingredients": [
+        "Glass",
+        "Microscope"
+      ],
+      "sha256": "7d357fe654801b7aa8cabb55efbbf83503eb73f14e22d82846e71bcf7fb2e47a",
+      "art_mode": "bespoke-silhouette"
+    },
+    {
+      "name": "Origami Crane",
+      "id": "organic63:origami-crane",
+      "path": "client/assets/v63/new/origami-crane.svg",
+      "ingredients": [
+        "Paper",
+        "Bird"
+      ],
+      "sha256": "e465372b7ced2ddda4abeb809ca953894b762ad611554665cf1052c6e519e292",
+      "art_mode": "bespoke-silhouette"
+    },
+    {
+      "name": "Snow Globe",
+      "id": "organic63:snow-globe",
+      "path": "client/assets/v63/new/snow-globe.svg",
+      "ingredients": [
+        "Snow",
+        "Toy"
+      ],
+      "sha256": "f69c337afc522f0d752e8f2e89a5e8025bb80fdb95212ef538b5aa720c53fad9",
+      "art_mode": "bespoke-silhouette"
+    },
+    {
+      "name": "Pottery Wheel",
+      "id": "organic63:pottery-wheel",
+      "path": "client/assets/v63/new/pottery-wheel.svg",
+      "ingredients": [
+        "Clay",
+        "Wheel"
+      ],
+      "sha256": "03250cb18b4f4a1b72df878b33103defc798b9c56ab6a88ff82de61659c7addd",
+      "art_mode": "bespoke-silhouette"
+    },
+    {
+      "name": "Sailboat Model",
+      "id": "organic63:sailboat-model",
+      "path": "client/assets/v63/new/sailboat-model.svg",
+      "ingredients": [
+        "Sailboat",
+        "Toy"
+      ],
+      "sha256": "5105b4143e0421ce3bd2d8cb97b8471f0d5d636bd97b7a3464b386de89d1405a",
+      "art_mode": "bespoke-silhouette"
+    }
+  ],
+  "redrawn_v61": [
+    {
+      "name": "Driftwood Shelter",
+      "id": "organic61:driftwood-shelter",
+      "path": "client/assets/v63/redrawn-v61/driftwood-shelter.svg",
+      "sha256": "a23c5032231ec721b38bbe25876122f01ff482bd23842d1d9e77316dd503ddf1",
+      "previous_art_mode": "motif-composite",
+      "art_mode": "bespoke-silhouette"
+    },
+    {
+      "name": "Kelp Salad",
+      "id": "organic61:kelp-salad",
+      "path": "client/assets/v63/redrawn-v61/kelp-salad.svg",
+      "sha256": "bd743329dfd508938817a10eccffbd85ab9765f13614790c3ccd0b122e7f2356",
+      "previous_art_mode": "motif-composite",
+      "art_mode": "bespoke-silhouette"
+    },
+    {
+      "name": "Sea Salt Caramel",
+      "id": "organic61:sea-salt-caramel",
+      "path": "client/assets/v63/redrawn-v61/sea-salt-caramel.svg",
+      "sha256": "17675cc35e787c6cd10062515dde548d49f6bad5b542b023e319d502141afc9a",
+      "previous_art_mode": "motif-composite",
+      "art_mode": "bespoke-silhouette"
+    },
+    {
+      "name": "River Delta Reedbed",
+      "id": "organic61:river-delta-reedbed",
+      "path": "client/assets/v63/redrawn-v61/river-delta-reedbed.svg",
+      "sha256": "0f1605a4d4069667ad9ac292008c8de3ed2ff95ab0f9272a7f0fed4e76fa42f2",
+      "previous_art_mode": "motif-composite",
+      "art_mode": "bespoke-silhouette"
+    },
+    {
+      "name": "Ocean Plankton Bloom",
+      "id": "organic61:ocean-plankton-bloom",
+      "path": "client/assets/v63/redrawn-v61/ocean-plankton-bloom.svg",
+      "sha256": "b61a77ec475d76053d697e13cdd39cd00f6c7a4d9f624f10d4579762d324a284",
+      "previous_art_mode": "motif-composite",
+      "art_mode": "bespoke-silhouette"
+    },
+    {
+      "name": "Kelp Paper",
+      "id": "organic61:kelp-paper",
+      "path": "client/assets/v63/redrawn-v61/kelp-paper.svg",
+      "sha256": "9c2e36045a1a29fa10e10ede126ba61267ac7f6991b6f655a6ed10a9bd1d64c5",
+      "previous_art_mode": "motif-composite",
+      "art_mode": "bespoke-silhouette"
+    },
+    {
+      "name": "Dolphin Observation Deck",
+      "id": "organic61:dolphin-observation-deck",
+      "path": "client/assets/v63/redrawn-v61/dolphin-observation-deck.svg",
+      "sha256": "6fe9f288d85a1b05914dd4e5863b28be8b2e2217ca05052a20dfd2775e0ad175",
+      "previous_art_mode": "motif-composite",
+      "art_mode": "bespoke-silhouette"
+    },
+    {
+      "name": "Sunken Anchor Garden",
+      "id": "organic61:sunken-anchor-garden",
+      "path": "client/assets/v63/redrawn-v61/sunken-anchor-garden.svg",
+      "sha256": "a42e79967733943ffecdf102322ac910bfc71467572f5d55c43a58f831bcfa30",
+      "previous_art_mode": "motif-composite",
+      "art_mode": "bespoke-silhouette"
+    },
+    {
+      "name": "Fishing Harbor Market",
+      "id": "organic61:fishing-harbor-market",
+      "path": "client/assets/v63/redrawn-v61/fishing-harbor-market.svg",
+      "sha256": "5250abdca7840e49c81a3aad96c129cae78bad145e4861c076b5c9f7b450b501",
+      "previous_art_mode": "motif-composite",
+      "art_mode": "bespoke-silhouette"
+    },
+    {
+      "name": "Saltwater Ice Crystal",
+      "id": "organic61:saltwater-ice-crystal",
+      "path": "client/assets/v63/redrawn-v61/saltwater-ice-crystal.svg",
+      "sha256": "3fda1df668e68848650d5718462d176aa7de41af7a1f5a78ef81b9e774e24ce9",
+      "previous_art_mode": "motif-composite",
+      "art_mode": "bespoke-silhouette"
+    },
+    {
+      "name": "Sandbar Bird Colony",
+      "id": "organic61:sandbar-bird-colony",
+      "path": "client/assets/v63/redrawn-v61/sandbar-bird-colony.svg",
+      "sha256": "bdd03f1755cfb36cdb1b5d34a40e7bdda932be68f8a4c897f06784e030f86741",
+      "previous_art_mode": "motif-composite",
+      "art_mode": "bespoke-silhouette"
+    },
+    {
+      "name": "Seaside Tide Bell",
+      "id": "organic61:seaside-tide-bell",
+      "path": "client/assets/v63/redrawn-v61/seaside-tide-bell.svg",
+      "sha256": "a556595a5a4b6b2a66a7c548db3104bf5eb930aeeee84ff6213124601a4ed124",
+      "previous_art_mode": "motif-composite",
+      "art_mode": "bespoke-silhouette"
+    },
+    {
+      "name": "Seagrass Aquarium",
+      "id": "organic61:seagrass-aquarium",
+      "path": "client/assets/v63/redrawn-v61/seagrass-aquarium.svg",
+      "sha256": "e46a28c26502800d78d0ecbf73475783d22c26e95efb1595c9e963e72883fc2d",
+      "previous_art_mode": "motif-composite",
+      "art_mode": "bespoke-silhouette"
+    },
+    {
+      "name": "Lifeboat Radio Kit",
+      "id": "organic61:lifeboat-radio-kit",
+      "path": "client/assets/v63/redrawn-v61/lifeboat-radio-kit.svg",
+      "sha256": "ef4be11367c7f97f780801854746e046a0b94298282656cb2483e73831b80cdd",
+      "previous_art_mode": "motif-composite",
+      "art_mode": "bespoke-silhouette"
+    },
+    {
+      "name": "Fossil Display Case",
+      "id": "organic61:fossil-display-case",
+      "path": "client/assets/v63/redrawn-v61/fossil-display-case.svg",
+      "sha256": "1e83a77bd034c692b943bd3d1b648f1ded63027aabc0531e6b6691c3bd9ed230",
+      "previous_art_mode": "motif-composite",
+      "art_mode": "bespoke-silhouette"
+    },
+    {
+      "name": "Marble Mosaic",
+      "id": "organic61:marble-mosaic",
+      "path": "client/assets/v63/redrawn-v61/marble-mosaic.svg",
+      "sha256": "eb58d298a176ab0acc4aaa2bae611a919c1424dcd2f028374e4615e30813102c",
+      "previous_art_mode": "motif-composite",
+      "art_mode": "bespoke-silhouette"
+    },
+    {
+      "name": "Glacial Pebble",
+      "id": "organic61:glacial-pebble",
+      "path": "client/assets/v63/redrawn-v61/glacial-pebble.svg",
+      "sha256": "ab9d4c93d5f219674644ffccedddb54ef639523d063fd261bb0905e86e580d42",
+      "previous_art_mode": "motif-composite",
+      "art_mode": "bespoke-silhouette"
+    },
+    {
+      "name": "Copper Patina",
+      "id": "organic61:copper-patina",
+      "path": "client/assets/v63/redrawn-v61/copper-patina.svg",
+      "sha256": "507cc1fe3bbce8834ba1da2500ac76a3646573ebf8cd8bd08d5fb48603b1fff4",
+      "previous_art_mode": "motif-composite",
+      "art_mode": "bespoke-silhouette"
+    },
+    {
+      "name": "Canyon Echo Point",
+      "id": "organic61:canyon-echo-point",
+      "path": "client/assets/v63/redrawn-v61/canyon-echo-point.svg",
+      "sha256": "29ee8205ee3d3f9441308301778acc8712bdf638ee6db28d2f8e668f080f6666",
+      "previous_art_mode": "motif-composite",
+      "art_mode": "bespoke-silhouette"
+    },
+    {
+      "name": "Rock Arch Shadow",
+      "id": "organic61:rock-arch-shadow",
+      "path": "client/assets/v63/redrawn-v61/rock-arch-shadow.svg",
+      "sha256": "819870b1bdc164271e205b2d93e10386cd6e8cf6beceb0a4312215b127ca9d0c",
+      "previous_art_mode": "motif-composite",
+      "art_mode": "bespoke-silhouette"
+    }
+  ]
+}

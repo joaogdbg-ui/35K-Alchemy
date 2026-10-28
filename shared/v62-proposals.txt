@@ -1,0 +1,91 @@
+# name|ingredient A|ingredient B|alternative A|alternative B
+[Marine]
+Tidepool Starfish|Tide Pool|Star|Sea|Star
+Nautilus Shell|Shell|Spiral|Sea|Fossil
+Hermit Crab|Crab|Shell|Crab|House
+Reef Seahorse|Fish|Coral|Reef|Horse
+Pearl Oyster|Pearl|Shell|Sea|Pearl
+Crimson Sea Fan|Sea Fan|Coral|Coral|Paint
+Kelp Ribbon|Kelp|Wind|Kelp|Thread
+Barnacle Colony|Rock|Shell|Stone|Sea
+[Botany]
+Venus Flytrap|Plant|Fly|Plant|Insect
+Lotus Bloom|Flower|Pond|Water Lily|Sun
+Fir Cone|Pine Forest|Seed|Tree|Seed
+Fiddlehead Fern|Fern|Spring|Fern|Sprout
+Sunflower Head|Flower|Sun|Flower|Seed
+Cattail Reed|Reed|Pond|Grass|Pond
+Dandelion Clock|Dandelion|Wind|Flower|Wind
+Pitcher Plant|Plant|Insect|Plant|Rain
+[Geology]
+Amethyst Geode|Crystal|Cave|Quartz|Cave
+Obsidian Blade|Obsidian|Tool|Lava|Tool
+Basalt Column|Basalt|Mountain|Lava|Stone
+Agate Slice|Agate|Stone|Crystal|Sand
+Sulfur Crystal|Sulfur|Crystal|Volcano|Crystal
+Pumice Stone|Lava|Foam|Lava|Stone
+Crystal Cavern|Cave|Crystal|Cave|Gem
+Amber Inclusion|Amber|Insect|Resin|Insect
+[Food]
+Butter Croissant|Bread|Butter|Dough|Butter
+Cinnamon Roll|Cinnamon|Dough|Bread|Sugar
+Salted Pretzel|Dough|Salt|Bread|Salt
+Steamed Dumpling|Dough|Steam|Dough|Soup
+Golden Waffle|Batter|Heat|Flour|Honey
+Strawberry Tart|Strawberry|Pastry|Fruit|Tart
+Rice Ball|Rice|Salt|Rice|Seaweed
+Honeycomb Toffee|Honey|Sugar|Caramel|Honey
+[Wildlife]
+Emerald Tree Frog|Frog|Tree|Animal|Pond
+Spiny Hedgehog|Hedgehog|Forest|Animal|Hedge
+Kingfisher Bird|Bird|River|Bird|Fish
+Seven Spot Ladybird|Ladybug|Leaf|Beetle|Leaf
+Blue Dragonfly|Dragonfly|Pond|Insect|Pond
+Arctic Fox|Fox|Snow|Animal|Snow
+Red Panda|Panda|Forest|Animal|Bamboo
+Snowy Owl|Owl|Snow|Bird|Snow
+[Atmosphere]
+Double Rainbow|Rainbow|Rain|Rainbow|Sun
+Sun Dog Halo|Ice|Sun|Halo|Sun
+Dust Devil|Dust|Wind|Sand|Wind
+Ocean Waterspout|Sea|Tornado|Sea|Storm
+Frost Flower|Ice|Flower|Snow|Flower
+Aurora Curtain|Aurora|Wind|Sky|Light
+Cloudburst|Cloud|Rain|Cloud|Storm
+Virga Rain|Cloud|Heat|Rain|Heat
+[Tools]
+Hand Drill|Tool|Wood|Drill|Wood
+Measuring Tape|Tool|Ruler|Tool|Measure
+Pruning Shears|Tool|Garden|Tool|Plant
+Soldering Iron|Iron|Circuit|Tool|Circuit
+Adjustable Wrench|Tool|Metal|Tool|Gear
+Paint Roller|Paint|Tool|Art|Tool
+Carpenter Plane|Wood|Tool|Carpenter|Wood
+Garden Trowel|Garden|Metal|Tool|Earth
+[Culture]
+Ceramic Teapot|Tea|Ceramic|Clay|Tea
+Garden Sundial|Sun|Clock|Sun|Garden
+Stone Windmill|Wind|House|Wind|Stone
+Coastal Lighthouse|Sea|Light|Coast|Light
+Violin Case|Violin|Wood|Music|Leather
+Hand Loom|Thread|Wood|Thread|Tool
+Paper Kite|Paper|Wind|Paper|String
+Town Fountain|City|Water|Stone|Water
+[Technology]
+Pocket Radio|Radio|Battery|Sound|Circuit
+Solar Cooker|Sun|Cooking|Sun|Oven
+Satellite Dish|Satellite|Metal|Space|Radio
+Weather Balloon|Balloon|Weather|Air|Balloon
+Robot Vacuum Cleaner|Robot|Vacuum|Robot|Dust
+Digital Microscope|Microscope|Computer|Science|Camera
+Circuit Probe|Circuit|Tool|Electricity|Tool
+Handheld Navigator|Map|Computer|GPS|Map
+[Astronomy]
+Lunar Lander|Moon|Spaceship|Moon|Robot
+Orbiting Satellite|Satellite|Orbit|Space|Satellite
+Comet Tail|Comet|Wind|Comet|Ice
+Lunar Eclipse|Moon|Eclipse|Moon|Shadow
+Rocket Booster|Rocket|Fuel|Rocket|Engine
+Interplanetary Probe|Space Probe|Planet|Robot|Space
+Saturn Ring Model|Planet|Ring|Space|Ring
+Open Star Cluster|Star|Cluster|Galaxy|Star

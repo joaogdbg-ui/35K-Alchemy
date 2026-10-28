@@ -1,0 +1,12 @@
+{
+  "release": "V45",
+  "status": "PASS",
+  "elements": 3803,
+  "recipes": 11631,
+  "unique_names": 3803,
+  "unique_ids": 3803,
+  "unique_unordered_recipe_pairs": 11631,
+  "reachable": 3803,
+  "old_pairs_unchanged": 11111,
+  "new_icons_verified": 12
+}

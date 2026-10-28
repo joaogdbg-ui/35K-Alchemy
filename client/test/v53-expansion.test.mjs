@@ -1,0 +1,12 @@
+import test from 'node:test';
+import assert from 'node:assert/strict';
+import {ORGANIC_V53} from '../src/organic-pack-v53.js';
+import {ORGANIC_ART_V53} from '../src/organic-art-v53.js';
+import {FAMILY_CAMPAIGNS} from '../src/family-mode-v53-campaigns.js';
+import {familiesFor} from '../src/discoveries.js';
+import {synchronizeFamilyProfiles,sharedMembership} from '../src/family-shared-v51.js';
+test('V53 creates 48 new discoveries, with two paths each',()=>{assert.equal(ORGANIC_V53.items.length,48);assert.equal(ORGANIC_V53.recipes.length,96);const counts=new Map();for(const [a,b,c] of ORGANIC_V53.recipes){assert.notEqual(a,b);counts.set(c,(counts.get(c)||0)+1);}for(const it of ORGANIC_V53.items)assert.equal(counts.get(it.id),2);});
+test('V53 all new elements have distinct offline SVGs',()=>{const art=ORGANIC_V53.items.map(it=>ORGANIC_ART_V53[it.name.toLowerCase()]);assert.equal(art.length,48);assert.equal(new Set(art).size,48);assert.ok(art.every(s=>s.startsWith('<svg')&&!s.includes('<image')));});
+test('V53 campaign metadata includes 8 shared unique IDs',()=>{const map=new Map(ORGANIC_V53.items.map(i=>[i.id,i]));const f=FAMILY_CAMPAIGNS.families;assert.deepEqual(f.map(x=>x.items.length),[476,211]);assert.equal(sharedMembership(f).size,31);const shared=[...map.values()].filter(x=>familiesFor(x).length===2);assert.equal(shared.length,8);});
+test('V53 unlocking shared item automatically reaches the other campaign',()=>{const f=FAMILY_CAMPAIGNS.families;const shared=ORGANIC_V53.items.find(i=>i.name==='Herb Garden');const state=synchronizeFamilyProfiles({nature:{unlocked:[...f[0].starters,shared.id]}},f);assert.ok(state.profiles.people.unlocked.includes(shared.id));});
+test('V53 recipe inputs are distinct fixed unordered pairs',()=>{const keys=new Set();for(const [a,b] of ORGANIC_V53.recipes){const k=[a,b].sort().join('|');assert.ok(!keys.has(k));keys.add(k);}assert.equal(keys.size,96);});

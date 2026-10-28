@@ -1,0 +1,308 @@
+{
+  "version": 67,
+  "new_items": [
+    {
+      "name": "Sandpiper",
+      "id": "organic67:sandpiper",
+      "ingredients": [
+        "Bird",
+        "Sand"
+      ],
+      "path": "client/assets/v67/new/sandpiper.svg",
+      "sha256": "74703aaf13f65da70755cf0d055045762c0cb400edb1e9207a7f7ba5eadc9078",
+      "art_mode": "bespoke-silhouette"
+    },
+    {
+      "name": "Puffin",
+      "id": "organic67:puffin",
+      "ingredients": [
+        "Bird",
+        "Coastal Cliff"
+      ],
+      "path": "client/assets/v67/new/puffin.svg",
+      "sha256": "a403584f4de8516c51a5c490fc5b8f7bc21f3b5335aec0e013799cf1da8a0fbb",
+      "art_mode": "bespoke-silhouette"
+    },
+    {
+      "name": "Blue Morpho Butterfly",
+      "id": "organic67:blue-morpho-butterfly",
+      "ingredients": [
+        "Butterfly",
+        "Rainforest"
+      ],
+      "path": "client/assets/v67/new/blue-morpho-butterfly.svg",
+      "sha256": "757a1a856c3cd259dbbf5f8a7b057362cc8a61b88b695936ae59dcfa9ecc0dd4",
+      "art_mode": "bespoke-silhouette"
+    },
+    {
+      "name": "Bonsai Tree",
+      "id": "organic67:bonsai-tree",
+      "ingredients": [
+        "Tree",
+        "Pottery"
+      ],
+      "path": "client/assets/v67/new/bonsai-tree.svg",
+      "sha256": "5a54290c7a93c248188e4bf176ce1896db72cac3c893c48c8ef8acdd3d380d4f",
+      "art_mode": "bespoke-silhouette"
+    },
+    {
+      "name": "Bioluminescent Bay",
+      "id": "organic67:bioluminescent-bay",
+      "ingredients": [
+        "Bioluminescence",
+        "Sea"
+      ],
+      "path": "client/assets/v67/new/bioluminescent-bay.svg",
+      "sha256": "31fdd434c8b4eda70c12f4375fbdd3961d8bb2a36d7c41b843d76eb107ce2142",
+      "art_mode": "bespoke-silhouette"
+    },
+    {
+      "name": "Origami Boat",
+      "id": "organic67:origami-boat",
+      "ingredients": [
+        "Paper",
+        "Sailboat"
+      ],
+      "path": "client/assets/v67/new/origami-boat.svg",
+      "sha256": "e1bf71d6c25e0560f8403fcba1b57557e558fb392f47bf409416d6491e99e87c",
+      "art_mode": "bespoke-silhouette"
+    },
+    {
+      "name": "Mushroom Spore Print",
+      "id": "organic67:mushroom-spore-print",
+      "ingredients": [
+        "Mushroom Spore",
+        "Paper"
+      ],
+      "path": "client/assets/v67/new/mushroom-spore-print.svg",
+      "sha256": "11132d041202ef5b3f44b2cdbf2c1e7dbd09267646d7c0e470cc632c384d6012",
+      "art_mode": "bespoke-silhouette"
+    },
+    {
+      "name": "Cacao Pod",
+      "id": "organic67:cacao-pod",
+      "ingredients": [
+        "Cocoa",
+        "Fruit"
+      ],
+      "path": "client/assets/v67/new/cacao-pod.svg",
+      "sha256": "eb52535573921ef99eea8c9cc7d82d8064dc3189609b061eab7e3ca6c855dfc7",
+      "art_mode": "bespoke-silhouette"
+    },
+    {
+      "name": "Copper Kettle",
+      "id": "organic67:copper-kettle",
+      "ingredients": [
+        "Copper",
+        "Tea"
+      ],
+      "path": "client/assets/v67/new/copper-kettle.svg",
+      "sha256": "7674f3879b432a04b8d5ab65af5df04a2e0fd9f6e3c94588378709905847e090",
+      "art_mode": "bespoke-silhouette"
+    },
+    {
+      "name": "Snow Bunting",
+      "id": "organic67:snow-bunting",
+      "ingredients": [
+        "Bird",
+        "Snow"
+      ],
+      "path": "client/assets/v67/new/snow-bunting.svg",
+      "sha256": "e7c27afaca16eea603fe45192b9473c37f9f09284d89722056f3a9698b404dfc",
+      "art_mode": "bespoke-silhouette"
+    },
+    {
+      "name": "Lichen Stone",
+      "id": "organic67:lichen-stone",
+      "ingredients": [
+        "Lichen",
+        "Stone"
+      ],
+      "path": "client/assets/v67/new/lichen-stone.svg",
+      "sha256": "d2325f1cae6bb81d1e782b628c292e63e46ffa2ea8916d7286a47cfb52e3b29a",
+      "art_mode": "bespoke-silhouette"
+    },
+    {
+      "name": "Rock Pool Shrimp",
+      "id": "organic67:rock-pool-shrimp",
+      "ingredients": [
+        "Shrimp",
+        "Tide Pool"
+      ],
+      "path": "client/assets/v67/new/rock-pool-shrimp.svg",
+      "sha256": "32528d2a14cbf60a1b1f7cc20bda479ddda70cc5ffab9ac206483749f630e1fa",
+      "art_mode": "bespoke-silhouette"
+    }
+  ],
+  "redrawn_v61": [
+    {
+      "name": "Tombolo",
+      "id": "organic61:tombolo",
+      "path": "client/assets/v67/redrawn-v61/tombolo.svg",
+      "sha256": "5a35b80d8b23b36f5c46b79510277947a25bd6cd3267030516050a29c980fb5f",
+      "art_mode": "bespoke-silhouette"
+    },
+    {
+      "name": "Lagoon Barrier",
+      "id": "organic61:lagoon-barrier",
+      "path": "client/assets/v67/redrawn-v61/lagoon-barrier.svg",
+      "sha256": "6e957abe5fe13057442a3a2a4918f44a7542fb66b183b3b562f065d5a4c2f57f",
+      "art_mode": "bespoke-silhouette"
+    },
+    {
+      "name": "Salt Pan",
+      "id": "organic61:salt-pan",
+      "path": "client/assets/v67/redrawn-v61/salt-pan.svg",
+      "sha256": "c455878caa1650f69db772f642eb236a88eca9dfae171b07b0d64863009d8c93",
+      "art_mode": "bespoke-silhouette"
+    },
+    {
+      "name": "Seamount",
+      "id": "organic61:seamount",
+      "path": "client/assets/v67/redrawn-v61/seamount.svg",
+      "sha256": "b49e6bbea982e1f31fe39c1c916806697895be2734e6a68f7c3d76540a301df1",
+      "art_mode": "bespoke-silhouette"
+    },
+    {
+      "name": "Hydrothermal Chimney",
+      "id": "organic61:hydrothermal-chimney",
+      "path": "client/assets/v67/redrawn-v61/hydrothermal-chimney.svg",
+      "sha256": "a32ffcd73730baa2a0733482eea1c91480fd573de4bc7d623f9a2c7488034c59",
+      "art_mode": "bespoke-silhouette"
+    },
+    {
+      "name": "Harbor Fog Horn",
+      "id": "organic61:harbor-fog-horn",
+      "path": "client/assets/v67/redrawn-v61/harbor-fog-horn.svg",
+      "sha256": "a9099ecd613bc8f39501866e9640f8bf480dd674e9d3d4201854c8ea4c7dd1f0",
+      "art_mode": "bespoke-silhouette"
+    },
+    {
+      "name": "Obsidian Shard",
+      "id": "organic61:obsidian-shard",
+      "path": "client/assets/v67/redrawn-v61/obsidian-shard.svg",
+      "sha256": "e9be159dfcc8ae6963c338c9d28b2721e1e4fc03e3837ba8679d74a0435cd4ac",
+      "art_mode": "bespoke-silhouette"
+    },
+    {
+      "name": "Mineral Vein",
+      "id": "organic61:mineral-vein",
+      "path": "client/assets/v67/redrawn-v61/mineral-vein.svg",
+      "sha256": "7f5e7442eef4f9f5c389236a9e83dc8707a1ae273c37c64fde1cd4ac414d657b",
+      "art_mode": "bespoke-silhouette"
+    },
+    {
+      "name": "Garnet",
+      "id": "organic61:garnet",
+      "path": "client/assets/v67/redrawn-v61/garnet.svg",
+      "sha256": "79f4d8b2e353fac2586b29c6079a58114814a5aafac079538ea3a31c0cdcf7ca",
+      "art_mode": "bespoke-silhouette"
+    },
+    {
+      "name": "Quartz Sand",
+      "id": "organic61:quartz-sand",
+      "path": "client/assets/v67/redrawn-v61/quartz-sand.svg",
+      "sha256": "2b94431e4128c8eb677b2294f0003a35691ea0ad08e891486adcd609de366d6a",
+      "art_mode": "bespoke-silhouette"
+    },
+    {
+      "name": "Forest Floor Herbarium",
+      "id": "organic61:forest-floor-herbarium",
+      "path": "client/assets/v67/redrawn-v61/forest-floor-herbarium.svg",
+      "sha256": "35d077b75bfc7d55119e6414c129325f05c69355c63fdddd35fe1082bb9cfa33",
+      "art_mode": "bespoke-silhouette"
+    },
+    {
+      "name": "Fern Leaf Press",
+      "id": "organic61:fern-leaf-press",
+      "path": "client/assets/v67/redrawn-v61/fern-leaf-press.svg",
+      "sha256": "990976029000c111e55870bd3f32008c31ab1d1af0899a39534a1747b6c54b71",
+      "art_mode": "bespoke-silhouette"
+    },
+    {
+      "name": "Pine Forest Trail Marker",
+      "id": "organic61:pine-forest-trail-marker",
+      "path": "client/assets/v67/redrawn-v61/pine-forest-trail-marker.svg",
+      "sha256": "227a3a5658d2791f065b25c08e9ada2e3ade3e309b303a3fc3d6ffb535a8ca0f",
+      "art_mode": "bespoke-silhouette"
+    },
+    {
+      "name": "Foggy Glass Lantern",
+      "id": "organic61:foggy-glass-lantern",
+      "path": "client/assets/v67/redrawn-v61/foggy-glass-lantern.svg",
+      "sha256": "a78e87ae3d5875dcd36b8859c1435bce7be5066e8fc00dbaddf8263aeb2d5b3a",
+      "art_mode": "bespoke-silhouette"
+    },
+    {
+      "name": "Weatherproof Birdhouse",
+      "id": "organic61:weatherproof-birdhouse",
+      "path": "client/assets/v67/redrawn-v61/weatherproof-birdhouse.svg",
+      "sha256": "b9bc9fb401c2cce68b6f47082676420a8c99d991f9017755743ef37f2b95bbb5",
+      "art_mode": "bespoke-silhouette"
+    },
+    {
+      "name": "Thunderstorm Barometer",
+      "id": "organic61:thunderstorm-barometer",
+      "path": "client/assets/v67/redrawn-v61/thunderstorm-barometer.svg",
+      "sha256": "f56393fb8403ca09e03a6b9d7d9517a373105facd80e81547c93efa0b5c07b0e",
+      "art_mode": "bespoke-silhouette"
+    },
+    {
+      "name": "Tomato Herb Pasta",
+      "id": "organic61:tomato-herb-pasta",
+      "path": "client/assets/v67/redrawn-v61/tomato-herb-pasta.svg",
+      "sha256": "ba1b14b447ba65ff85f7b35227646a0459a9126f9719ecb0e63f8b281a9e18b8",
+      "art_mode": "bespoke-silhouette"
+    },
+    {
+      "name": "Cocoa Butter Cookie",
+      "id": "organic61:cocoa-butter-cookie",
+      "path": "client/assets/v67/redrawn-v61/cocoa-butter-cookie.svg",
+      "sha256": "6a7fc6311c73b800f973339b811437b54a1f1d562db3e77a77e8f924ba3f4e9a",
+      "art_mode": "bespoke-silhouette"
+    },
+    {
+      "name": "Caramel Cream Tart",
+      "id": "organic61:caramel-cream-tart",
+      "path": "client/assets/v67/redrawn-v61/caramel-cream-tart.svg",
+      "sha256": "d6f9ccb17add829eca8dccf31f3f82c3334eed2ab0a942e27cb8e7d31d009563",
+      "art_mode": "bespoke-silhouette"
+    },
+    {
+      "name": "Copper Leaf Foil",
+      "id": "organic61:copper-leaf-foil",
+      "path": "client/assets/v67/redrawn-v61/copper-leaf-foil.svg",
+      "sha256": "e93f1e9f51a71634a911caf1c36f6731b0de83ef5e54317808282b0b5116223b",
+      "art_mode": "bespoke-silhouette"
+    },
+    {
+      "name": "Golden Thread",
+      "id": "organic61:golden-thread",
+      "path": "client/assets/v67/redrawn-v61/golden-thread.svg",
+      "sha256": "7fa3526725cb08005553c501bce7f174053d136b01ed997e9cb239c6d385e26d",
+      "art_mode": "bespoke-silhouette"
+    },
+    {
+      "name": "Portable Radio Beacon",
+      "id": "organic61:portable-radio-beacon",
+      "path": "client/assets/v67/redrawn-v61/portable-radio-beacon.svg",
+      "sha256": "f118621efbc659ac86fccb84b3d727e1154935d45d7423ccd75b5ab6ef10c9ae",
+      "art_mode": "bespoke-silhouette"
+    },
+    {
+      "name": "Lunar Eclipse Diagram",
+      "id": "organic61:lunar-eclipse-diagram",
+      "path": "client/assets/v67/redrawn-v61/lunar-eclipse-diagram.svg",
+      "sha256": "09088e0fbf3ce048d726e3384f9caa9ad0f0e5585dd328f658046451e1ce0d1b",
+      "art_mode": "bespoke-silhouette"
+    },
+    {
+      "name": "Public Chess Garden",
+      "id": "organic61:public-chess-garden",
+      "path": "client/assets/v67/redrawn-v61/public-chess-garden.svg",
+      "sha256": "c2975f31b5546e45d0b9cee247206bd0575ac0a044003042242bc1c3a9a2c7e1",
+      "art_mode": "bespoke-silhouette"
+    }
+  ],
+  "note": "Twenty-four legacy V61 icons replaced in-place; original IDs and recipes preserved."
+}

@@ -1,0 +1,28 @@
+{
+  "release": "V43",
+  "status": "PASS",
+  "elements": 3778,
+  "recipes": 10275,
+  "unique_names": 3778,
+  "unique_ids": 3778,
+  "unique_unordered_pairs": 10275,
+  "reachable_elements": 3778,
+  "removed_duplicate_elements": 14,
+  "rewritten_recipe_references": 132,
+  "old_recipe_outcomes_preserved_except_two_explicit_changes": true,
+  "distinct_v38_art_verified": 78,
+  "distinct_v40_art_verified": 64,
+  "distinct_v41_art_verified": 80,
+  "distinct_v42_art_verified": 64,
+  "distinct_v43_art_verified": 12,
+  "reviewed_near_name_exceptions": [
+    [
+      "legacy:368",
+      "legacy:1416"
+    ],
+    [
+      "legacy:370",
+      "legacy:1417"
+    ]
+  ]
+}

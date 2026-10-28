@@ -1,0 +1,299 @@
+{
+  "version": 65,
+  "new_items": [
+    {
+      "name": "Axolotl",
+      "id": "organic65:axolotl",
+      "ingredients": [
+        "Salamander",
+        "Lake"
+      ],
+      "path": "client/assets/v65/new/axolotl.svg",
+      "sha256": "07b2c4ded888ce5dd7e6739eaebfadf583d30b3840fdef78990be4bb7370e8d6",
+      "art_mode": "bespoke-silhouette"
+    },
+    {
+      "name": "Bioluminescent Mushroom",
+      "id": "organic65:bioluminescent-mushroom",
+      "ingredients": [
+        "Mushroom",
+        "Light"
+      ],
+      "path": "client/assets/v65/new/bioluminescent-mushroom.svg",
+      "sha256": "9fe2a1ff267b3582d6c2bde54c67281c88a26850e14b965fb14dc758df77ffb3",
+      "art_mode": "bespoke-silhouette"
+    },
+    {
+      "name": "Glass Frog",
+      "id": "organic65:glass-frog",
+      "ingredients": [
+        "Frog",
+        "Glass"
+      ],
+      "path": "client/assets/v65/new/glass-frog.svg",
+      "sha256": "9873ea55b216ce28160058e3ba7729acf7fb3b0872c3a58f3b30b843b5cc9a4a",
+      "art_mode": "bespoke-silhouette"
+    },
+    {
+      "name": "Solar Sail",
+      "id": "organic65:solar-sail",
+      "ingredients": [
+        "Sail",
+        "Space"
+      ],
+      "path": "client/assets/v65/new/solar-sail.svg",
+      "sha256": "d34c3e7a7d963a466793061ba24813d910e4c77f34fd1c3e3729c438bf7f42a5",
+      "art_mode": "bespoke-silhouette"
+    },
+    {
+      "name": "Lighthouse Lens",
+      "id": "organic65:lighthouse-lens",
+      "ingredients": [
+        "Lighthouse",
+        "Glass"
+      ],
+      "path": "client/assets/v65/new/lighthouse-lens.svg",
+      "sha256": "3ed788477bddbb13c1e72a194255df38bc13f7fb7662b000830ae26bc1e69ffe",
+      "art_mode": "bespoke-silhouette"
+    },
+    {
+      "name": "Saguaro Cactus",
+      "id": "organic65:saguaro-cactus",
+      "ingredients": [
+        "Cactus",
+        "Desert"
+      ],
+      "path": "client/assets/v65/new/saguaro-cactus.svg",
+      "sha256": "41d8b8b02d1896e01ab5093df720c4a5c175dd9e5a150c2e55064b91df782c0a",
+      "art_mode": "bespoke-silhouette"
+    },
+    {
+      "name": "Cuttlefish",
+      "id": "organic65:cuttlefish",
+      "ingredients": [
+        "Squid",
+        "Ink"
+      ],
+      "path": "client/assets/v65/new/cuttlefish.svg",
+      "sha256": "0e011a35a130a50592ad05623cb9f144600d0a01d2d5bf98d0986e86d95793b9",
+      "art_mode": "bespoke-silhouette"
+    },
+    {
+      "name": "Thermal Spring",
+      "id": "organic65:thermal-spring",
+      "ingredients": [
+        "Hot Spring",
+        "Mountain"
+      ],
+      "path": "client/assets/v65/new/thermal-spring.svg",
+      "sha256": "2ffaaf31280330c2c4180b82cf385333564b55778e6d3b72f93f71e4b9aeea98",
+      "art_mode": "bespoke-silhouette"
+    },
+    {
+      "name": "Amber Fossil",
+      "id": "organic65:amber-fossil",
+      "ingredients": [
+        "Amber",
+        "Fossil"
+      ],
+      "path": "client/assets/v65/new/amber-fossil.svg",
+      "sha256": "9d553de37c1da764398aacb5b41242207d7b1257ff94cd1719712a29499690b6",
+      "art_mode": "bespoke-silhouette"
+    },
+    {
+      "name": "Oil Lantern",
+      "id": "organic65:oil-lantern",
+      "ingredients": [
+        "Oil",
+        "Light"
+      ],
+      "path": "client/assets/v65/new/oil-lantern.svg",
+      "sha256": "32b303ac65580a3702d44fb0265705ca98d5fdbe37e7fef51ed80b20c8b0b1c4",
+      "art_mode": "bespoke-silhouette"
+    },
+    {
+      "name": "Clay Whistle",
+      "id": "organic65:clay-whistle",
+      "ingredients": [
+        "Clay",
+        "Music"
+      ],
+      "path": "client/assets/v65/new/clay-whistle.svg",
+      "sha256": "ea4286ac56ff1435f74e91f4fe1844f29e0424b667f96a413f4b68112f7c00f1",
+      "art_mode": "bespoke-silhouette"
+    },
+    {
+      "name": "Kingfisher Nest",
+      "id": "organic65:kingfisher-nest",
+      "ingredients": [
+        "Kingfisher Bird",
+        "Nest"
+      ],
+      "path": "client/assets/v65/new/kingfisher-nest.svg",
+      "sha256": "2524b982b463f48e21c63ce2a35eb1c8b6032390fc660a6f253f68f13c3830b4",
+      "art_mode": "bespoke-silhouette"
+    }
+  ],
+  "redrawn_v61": [
+    {
+      "name": "Crystal Prism Window",
+      "id": "organic61:crystal-prism-window",
+      "path": "client/assets/v65/redrawn-v61/crystal-prism-window.svg",
+      "sha256": "a48234d660a6511a2b94c47be499e43301070b5478f510c1751c8ffdc62981f7",
+      "art_mode": "bespoke-silhouette",
+      "previous_art_mode": "motif-composite"
+    },
+    {
+      "name": "Cave Glow Crystal",
+      "id": "organic61:cave-glow-crystal",
+      "path": "client/assets/v65/redrawn-v61/cave-glow-crystal.svg",
+      "sha256": "91c2e6f4a9d22cc53ae3eac72e78bdc29af12f69cfd02ec07b03b6dabb064382",
+      "art_mode": "bespoke-silhouette",
+      "previous_art_mode": "motif-composite"
+    },
+    {
+      "name": "Granite Garden Path",
+      "id": "organic61:granite-garden-path",
+      "path": "client/assets/v65/redrawn-v61/granite-garden-path.svg",
+      "sha256": "13136fdf5ec1c90058759a5a754e6924729ec66f519ef1e08a47873442e7029d",
+      "art_mode": "bespoke-silhouette",
+      "previous_art_mode": "motif-composite"
+    },
+    {
+      "name": "Obsidian Mosaic Tile",
+      "id": "organic61:obsidian-mosaic-tile",
+      "path": "client/assets/v65/redrawn-v61/obsidian-mosaic-tile.svg",
+      "sha256": "5da57572084c2804c99fcb03f01ea28910ddc590db1ce71362ae28d8480359ec",
+      "art_mode": "bespoke-silhouette",
+      "previous_art_mode": "motif-composite"
+    },
+    {
+      "name": "Rock Pool Minerals",
+      "id": "organic61:rock-pool-minerals",
+      "path": "client/assets/v65/redrawn-v61/rock-pool-minerals.svg",
+      "sha256": "5b674c1c35255f1f6de8cf2347a45f6d648ec6efebaa4890c03e90f041f41756",
+      "art_mode": "bespoke-silhouette",
+      "previous_art_mode": "motif-composite"
+    },
+    {
+      "name": "Basalt Weathering Pattern",
+      "id": "organic61:basalt-weathering-pattern",
+      "path": "client/assets/v65/redrawn-v61/basalt-weathering-pattern.svg",
+      "sha256": "aab47266f2d65f64a9748baaa2f44d349efbf5fc739099a5c125fedf708819b8",
+      "art_mode": "bespoke-silhouette",
+      "previous_art_mode": "motif-composite"
+    },
+    {
+      "name": "Canyon Sand Sculpture",
+      "id": "organic61:canyon-sand-sculpture",
+      "path": "client/assets/v65/redrawn-v61/canyon-sand-sculpture.svg",
+      "sha256": "592c9436acb2a51dcfe1ae0c877acb6c8684f33af7f130e8493a65ad3886b28e",
+      "art_mode": "bespoke-silhouette",
+      "previous_art_mode": "motif-composite"
+    },
+    {
+      "name": "Glacial Rock Sample",
+      "id": "organic61:glacial-rock-sample",
+      "path": "client/assets/v65/redrawn-v61/glacial-rock-sample.svg",
+      "sha256": "d5d7c85afdb082ffe7103e92d22e5a5b23b0b241a6c1f860695e7a19936f5837",
+      "art_mode": "bespoke-silhouette",
+      "previous_art_mode": "motif-composite"
+    },
+    {
+      "name": "Salt Cavern Lamp",
+      "id": "organic61:salt-cavern-lamp",
+      "path": "client/assets/v65/redrawn-v61/salt-cavern-lamp.svg",
+      "sha256": "7cd307e4aeac1ebdc42573440e097d35103747b036bbd3dad000e7c6de4f0db7",
+      "art_mode": "bespoke-silhouette",
+      "previous_art_mode": "motif-composite"
+    },
+    {
+      "name": "Pumice Rock Garden",
+      "id": "organic61:pumice-rock-garden",
+      "path": "client/assets/v65/redrawn-v61/pumice-rock-garden.svg",
+      "sha256": "48bd73dd2d32a7415e89b535d522ebef641817baf34279d7bb7f233721b96c65",
+      "art_mode": "bespoke-silhouette",
+      "previous_art_mode": "motif-composite"
+    },
+    {
+      "name": "Pollen Grain",
+      "id": "organic61:pollen-grain",
+      "path": "client/assets/v65/redrawn-v61/pollen-grain.svg",
+      "sha256": "e92893ca306f99c01751ab4aae88d0894154946af5816421466806ff2b52baa3",
+      "art_mode": "bespoke-silhouette",
+      "previous_art_mode": "motif-composite"
+    },
+    {
+      "name": "Woodland Seed Tray",
+      "id": "organic61:woodland-seed-tray",
+      "path": "client/assets/v65/redrawn-v61/woodland-seed-tray.svg",
+      "sha256": "6cc327aa7dc6f4e45bfd595a9b987d82fe7d2b3b3cfe436806a227eeb05f88ad",
+      "art_mode": "bespoke-silhouette",
+      "previous_art_mode": "motif-composite"
+    },
+    {
+      "name": "Fern Shade Garden",
+      "id": "organic61:fern-shade-garden",
+      "path": "client/assets/v65/redrawn-v61/fern-shade-garden.svg",
+      "sha256": "67e066c02e5ee3b0bb55ef74e2e16d8f1e0cb3eaca3107b68305d97ffc325aa1",
+      "art_mode": "bespoke-silhouette",
+      "previous_art_mode": "motif-composite"
+    },
+    {
+      "name": "Mushroom Spore Cloud",
+      "id": "organic61:mushroom-spore-cloud",
+      "path": "client/assets/v65/redrawn-v61/mushroom-spore-cloud.svg",
+      "sha256": "06865e8fa2326a26ed95218d28179d22e02d080a744353b23d4145e6922a24f3",
+      "art_mode": "bespoke-silhouette",
+      "previous_art_mode": "motif-composite"
+    },
+    {
+      "name": "Fallen Log Bridge",
+      "id": "organic61:fallen-log-bridge",
+      "path": "client/assets/v65/redrawn-v61/fallen-log-bridge.svg",
+      "sha256": "b6f8a950360f78497065d63eca6b1c4b8ce99dc2d08666fa0a0e689b737e3d51",
+      "art_mode": "bespoke-silhouette",
+      "previous_art_mode": "motif-composite"
+    },
+    {
+      "name": "Pollen Collector",
+      "id": "organic61:pollen-collector",
+      "path": "client/assets/v65/redrawn-v61/pollen-collector.svg",
+      "sha256": "6ff5414527167d0cdb0496b65fe4226d4ee93918d5a5a4019a60af20d0dca65e",
+      "art_mode": "bespoke-silhouette",
+      "previous_art_mode": "motif-composite"
+    },
+    {
+      "name": "Orchard Fruit Press",
+      "id": "organic61:orchard-fruit-press",
+      "path": "client/assets/v65/redrawn-v61/orchard-fruit-press.svg",
+      "sha256": "70ab7d0284c49a6a59a5b711309ce3b800029a2e2d0e09753f368f68a2fea1a7",
+      "art_mode": "bespoke-silhouette",
+      "previous_art_mode": "motif-composite"
+    },
+    {
+      "name": "Pinecone Bird Feeder",
+      "id": "organic61:pinecone-bird-feeder",
+      "path": "client/assets/v65/redrawn-v61/pinecone-bird-feeder.svg",
+      "sha256": "3b7d3dcdd37d1a3a6ef2c5194922c6ef5a100168cf772603b0fdfc528de797a8",
+      "art_mode": "bespoke-silhouette",
+      "previous_art_mode": "motif-composite"
+    },
+    {
+      "name": "Squirrel Cache",
+      "id": "organic61:squirrel-cache",
+      "path": "client/assets/v65/redrawn-v61/squirrel-cache.svg",
+      "sha256": "ea1bd0fe2574137ba25ba0b58586b597e97e38f8ce14213b79a018de20da1ad4",
+      "art_mode": "bespoke-silhouette",
+      "previous_art_mode": "motif-composite"
+    },
+    {
+      "name": "Forest Stream Mirror",
+      "id": "organic61:forest-stream-mirror",
+      "path": "client/assets/v65/redrawn-v61/forest-stream-mirror.svg",
+      "sha256": "dc62ae8cefec9f72c61383888568b5adba8aae44c41bbcb7ad6f1bd56b8ded54",
+      "art_mode": "bespoke-silhouette",
+      "previous_art_mode": "motif-composite"
+    }
+  ]
+}

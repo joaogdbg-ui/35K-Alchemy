@@ -1,0 +1,77 @@
+{
+  "release": "V43",
+  "icons": [
+    {
+      "id": "organic43:smoke",
+      "name": "Smoke",
+      "path": "client/assets/v43/smoke.svg",
+      "sha256": "b8cbe77f67b8ad0b343d58e7ebdaf29deced7300369c7dff9a7a1d02ab5338e4"
+    },
+    {
+      "id": "organic43:ash",
+      "name": "Ash",
+      "path": "client/assets/v43/ash.svg",
+      "sha256": "9c3a62d4f814d8b13a8e634883d2f0361b94b8bfbcd73f6e77b40f72d85e0134"
+    },
+    {
+      "id": "organic43:sandstorm",
+      "name": "Sandstorm",
+      "path": "client/assets/v43/sandstorm.svg",
+      "sha256": "e5386ad14a6897d8a3abcc1b4d95e4b8669068211312330acadb9e22a54c3f1e"
+    },
+    {
+      "id": "organic43:wildfire",
+      "name": "Wildfire",
+      "path": "client/assets/v43/wildfire.svg",
+      "sha256": "b5197946cd564cd994063941d259906a77c8ea375642e06d0acedddf046d2440"
+    },
+    {
+      "id": "organic43:puddle",
+      "name": "Puddle",
+      "path": "client/assets/v43/puddle.svg",
+      "sha256": "912faa683ff130c2e3fc2409c82ff514de5aa4b961bce5e1e33c1cdfc405c060"
+    },
+    {
+      "id": "organic43:soot",
+      "name": "Soot",
+      "path": "client/assets/v43/soot.svg",
+      "sha256": "fd78673d2abb1f97e410940bc7f49f188c351e2906d1e52109b5276f1acd9818"
+    },
+    {
+      "id": "organic43:smog",
+      "name": "Smog",
+      "path": "client/assets/v43/smog.svg",
+      "sha256": "0d25b622c960b3a65ea2db625f73270d6506665d0620fdbc26d41a6a94c0e541"
+    },
+    {
+      "id": "organic43:mudslide",
+      "name": "Mudslide",
+      "path": "client/assets/v43/mudslide.svg",
+      "sha256": "fb545a80fab4f8e499fba1bf8c8e25d9c036bb41176117ba6a96ee3b777b636e"
+    },
+    {
+      "id": "organic43:sunshower",
+      "name": "Sunshower",
+      "path": "client/assets/v43/sunshower.svg",
+      "sha256": "6e2642d859379a833669cb4033f2ccf88cfc6f0fb12d45094e2a1cb6cbf8837a"
+    },
+    {
+      "id": "organic43:haze",
+      "name": "Haze",
+      "path": "client/assets/v43/haze.svg",
+      "sha256": "7ebf3e76964384d0f4c0562212a2f288591769b4a2dbdf9bccaaceab3c3a4125"
+    },
+    {
+      "id": "organic43:slush",
+      "name": "Slush",
+      "path": "client/assets/v43/slush.svg",
+      "sha256": "881c3d7a72f97068e33b7d866184e45ed9a66e0153efbbb0ee5b4198e376fbdb"
+    },
+    {
+      "id": "organic43:charcoal",
+      "name": "Charcoal",
+      "path": "client/assets/v43/charcoal.svg",
+      "sha256": "b6a4cf1d5f3ed494bff2cf32714e1aa2b93df56f71d4b799cb6ced19dcacb9e6"
+    }
+  ]
+}

@@ -1,0 +1,100 @@
+Tidal Ripple|nature|Tide + Pond|Sea + Forest Pond|wave+pool
+Sandy Footprint|nature|Sand + Human|Sand + Animal|mountain+paper
+Seaside Rock Pool|nature|Rocky Shore + Pond|Tide Pool + Stone|pool+mountain
+Salt Crystals|material|Salt + Crystal|Sea + Calcite Crystal|ice+shell
+Coastal Rainfall|nature|Rain + Sea Breeze|Cloud + Coastal Fog|rain+wave
+Dune Ridge|nature|Coastal Dune + Mountain|Sand + Rocky Shore|mountain+wave
+Coral Nursery|nature|Coral + Garden|Coral Reef + Seed Bank|coral+flowerpot
+Seaweed Basket|culture|Seaweed + Basket|Seaweed + Market Stall|basket+grass
+Reef Shadows|nature|Coral Reef + Shadow|Reef + Cloud Shadow|coral+halo
+Coastal Sunrise|nature|Sunrise + Sea|Sun + Coastal Haze|sun+wave
+Sea Breeze Chime|culture|Sea Breeze + Wind Chime|Seashell + Wind Chime|wind+shell
+Beach Bonfire|culture|Beach + Campfire|Coastal Dune + Campfire|sun+branch
+Shell Collector|culture|Seashell + Explorer|Seashell + Human|shell+people
+Tide Calendar|culture|Tide + Book|Tide + Writing|paper+wave
+Harbor Bell|culture|Harbor + Sound|Harbor + Clock Tower|house+halo
+Fisherman's Lantern|culture|Fishing Net + Lantern|Fish + Solar Lantern|sun+fish
+Riverbank Reeds|nature|Reed + Riverbank|Reed + Pond|grass+pool
+Salt Meadow|nature|Salt Marsh + Flowering Field|Salt Marsh + Reed|grass+shell
+Floating Leaf|nature|Leaf Litter + Pond|Leaf Canopy + River|leaf+pool
+Pine Grove Shade|nature|Pine Forest + Shadow|Pine Forest + Cloud Shadow|tree+halo
+Mossy Boulder|nature|Moss + Rock|Moss Carpet + Rock|grass+mountain
+Fern Dew|nature|Fern + Dew|Fern Frond + Rain|leaf+droplet
+Forest Path Marker|culture|Woodland Trail + Wooden Plank|Forest + Map|tree+paper
+Fallen Pinecone|nature|Pinecone + Forest Floor|Pinecone + Wind|branch+roots
+Bird Nest Lining|nature|Bird Nest + Grass|Bird Nest + Feather|tree+grass
+Wild Mushroom Soup|culture|Mushroom + Soup|Mushroom Patch + Soup Pot|mushroom+pot
+Root Cellar|culture|Root + House|Vegetable + Cave|house+roots
+Forest Stream Pebble|nature|Forest Stream + Stone|River + Beach Pebble|pool+ice
+Wildflower Pollen|nature|Flowering Field + Pollen|Flower + Pollen|flower+grass
+Bee Garden|nature|Bee + Garden|Bee Colony + Flower|flower+people
+Honeycomb Frame|culture|Honeycomb + Wood|Beekeeper + Wood|basket+flower
+Leaf Press|culture|Leaf Litter + Paper|Leaf Canopy + Book|leaf+book
+Seedling Tray|culture|Seedling + Pottery|Seedling Pot + Workshop Bench|flowerpot+leaf
+Terrarium Moss|nature|Terrarium + Moss|Moss Carpet + Glass|leaf+ice
+Woodland Lantern|culture|Woodland Trail + Lantern|Forest + Solar Lantern|tree+sun
+Bark Texture|nature|Tree Bark Strips + Art|Birch Bark + Paper|branch+frame
+Forest Whisper|nature|Forest + Sound|Wind + Forest Floor|tree+wind
+Birdwatching Hide|culture|Bird + Cabin|Birdsong + Wooden Plank|house+tree
+Mushroom Basket|culture|Mushroom + Basket|Mushroom Patch + Market|mushroom+basket
+Morning Dewdrop|nature|Dew + Sunrise|Dew + Sunbeam|droplet+sun
+Sunlit Fog|nature|Fog + Sunbeam|Morning Mist + Light|fog+sun
+Frozen Puddle|nature|Puddle + Snow|Puddle + Hoarfrost|ice+pool
+Snow-Covered Branch|nature|Snow + Branch|Frost + Fallen Log|snow+branch
+Windblown Leaves|nature|Wind + Leaf Litter|Forest + Wind|leaf+wind
+Rain-Darkened Stone|nature|Stone + Rain|Rocky Shore + Rain|mountain+droplet
+Thunderstorm Rain|nature|Thundercloud + Rain|Storm + Rain Gauge|rain+lightning
+Double Rainbow|nature|Rainbow + Rain|Rainbow + Rainbow Arc|halo+sun
+Cloudbreak|nature|Cloud + Sunbeam|Cloud Shadow + Sun|cloud+sun
+Frosted Windowpane|material|Frost + Window|Glass + Ice Fog|ice+frame
+Dawn Chorus|nature|Birdsong + Sunrise|Birdsong + Morning Mist|tree+wreath
+Night Sky Map|culture|Map + Starlight|World Map + Star|paper+halo
+Constellation Card|culture|Constellation + Paper|Stars + Library Card|paper+sun
+Star Tracker|technology|Telescope + Circuit|Astronomy + Digital Compass|halo+camera
+Moonlight Photograph|culture|Moonlight + Photography|Moon + Camera|camera+sun
+Night Camp|culture|Night + Campfire|Telescope + Campfire|blanket+halo
+Solar Sundial|technology|Sun + Clock|Sunbeam + Stone|sun+paper
+Rainfall Chart|science|Rain Gauge + Paper|Weather Station + Graph|paper+rain
+Wind Speed Meter|technology|Wind + Measuring Tool|Wind + Weather Sensor|wind+paper
+Storm Journal|culture|Storm + Notebook|Weather Forecast + Book|book+cloud
+Frost Pattern|nature|Ice Fog + Glass|Ground Frost + Glass|ice+flower
+Cave Echo|nature|Cave + Sound|Cave + Music|mountain+wreath
+Quartz Vein|material|Calcite Crystal + Rock|Crystal + Flowstone|ice+mountain
+River Sediment|nature|River + Mud|River Delta + Soil|pool+roots
+Cliffside Spring|nature|Coastal Cliff + Spring|Mountain + Woodland Spring|mountain+pool
+Stone Cairn|culture|Rock + Woodland Trail|Stone + Map|mountain+branch
+Cave Lantern|culture|Cave + Solar Lantern|Cave + Street Lantern|mountain+sun
+Geology Notebook|culture|Stone + Notebook|Geology + Field Notebook|book+mountain
+Crystal Display|culture|Crystal + Museum|Crystal + Exhibition|ice+statue
+Rock Garden Path|culture|Stone + Garden|Pebble + Garden|mountain+flower
+Mineral Sample|science|Rock + Museum|Calcite Crystal + Field Notebook|ice+paper
+Fresh Fruit Salad|culture|Fruit + Salad|Fruit Bowl + Garden Salad|apple+leaf
+Honey Lemon Tea|culture|Honey + Lemon|Herbal Tea Cup + Lemon|cup+sun
+Garden Herb Soup|culture|Herb Garden + Soup|Herb + Vegetable Stew|pot+leaf
+Baked Tomato|culture|Tomato + Oven|Tomato + Fire|pot+apple
+Apple Jam|culture|Apple + Jam|Apple + Sugar|apple+pot
+Berry Pancake|culture|Wild Berry + Pancake|Berry Jam Jar + Pancake|apple+bread
+Cinnamon Swirl Bun|culture|Cinnamon Roll + Honey|Cinnamon Roll + Butter|bread+herbs
+Warm Bread Basket|culture|Bread Basket + Fire|Bread + Basket|basket+bread
+Farmers' Soup|culture|Farm + Soup|Vegetable + Community Kitchen|pot+house
+Orchard Picnic Basket|culture|Orchard Picnic + Fruit Bowl|Picnic + Basket|apple+grass
+Clay Cooking Pot|culture|Clay + Soup Pot|Pottery + Cooking|pot+mountain
+Tea Ceremony Tray|culture|Tea + Tray|Herbal Tea Cup + Craft Fair|cup+basket
+Cottage Herb Rack|culture|Herb + Shelf|Herb Garden + Workshop Bench|house+herbs
+Kitchen Timer|technology|Clock + Cooking|Time + Kitchen|paper+pot
+Seed Packet|culture|Seed + Paper|Garden + Envelope|flowerpot+paper
+Gardening Gloves|culture|Garden + Clothing|Garden + Workshop Bench|flower+paper
+Community Noticeboard|culture|Society + Paper|Village + Signpost|paper+people
+Town Market Stall|culture|Market + Workshop Bench|Market Stall + Wood|shop+house
+Pottery Demonstration|culture|Pottery + Exhibition|Pottery + Museum|pot+people
+Village Reading Room|culture|Library + Village|Book + Village Theater|book+house
+Street Photography|culture|Street + Camera|Photography + Town Square|camera+house
+Museum Sketch|culture|Museum + Garden Sketchbook|Museum + Drawing|frame+pencil
+Painted Flowerpot|culture|Pottery + Painting|Flowerpot + Paint|pot+flower
+Handmade Bookmark|culture|Book + Craft|Paper + Art Workshop|book+paper
+Solar Garden Light|technology|Solar Panel + Garden|Solar Lantern + Garden|sun+flower
+Weather Sensor Network|technology|Weather Sensor + Circuit|Weather Station + Computer|cloud+lightning
+Smart Irrigation Timer|technology|Irrigation + Clock|Water + Smart Greenhouse|pool+paper
+Portable Power Meter|technology|Battery + Measuring Tool|Electricity + Light Meter|lightning+paper
+Camera Lens Filter|technology|Lens + Color|Lens + Light Meter|camera+ice
+Nature Audio Recorder|technology|Birdsong + Computer|Sound + Wildlife Camera|tree+camera

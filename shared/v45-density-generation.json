@@ -1,0 +1,272 @@
+{
+  "release": "V45",
+  "base_items": 3791,
+  "base_recipes": 11111,
+  "new_items": 12,
+  "added_recipes": 520,
+  "rule_sets": 119,
+  "old_pairs_preserved": true,
+  "skipped_preexisting_pairs": 683,
+  "competing_proposals_rejected": 57,
+  "themes": {
+    "hand-authored new concepts": 32,
+    "Reef habitat": 1,
+    "Tidal life": 5,
+    "Cephalopod habitat": 1,
+    "Marsh ecology": 6,
+    "Coastal drift": 3,
+    "Coral seas": 1,
+    "Pebble smoothing": 1,
+    "Water transport": 9,
+    "Harbor navigation": 6,
+    "Water filtration": 3,
+    "Rain collection": 3,
+    "Water pumping": 8,
+    "Tidal engineering": 6,
+    "Seed germination": 3,
+    "Growing orchards": 2,
+    "Beekeeping": 4,
+    "Pollen ecology": 1,
+    "Bird feeding": 3,
+    "Morning birdsong": 3,
+    "Garden ecosystem": 2,
+    "Fungi network": 1,
+    "Food preservation": 2,
+    "Garden cultivation": 4,
+    "Atmospheric condensation": 7,
+    "Cloud precipitation": 1,
+    "Storm charge": 3,
+    "Winter surface": 7,
+    "Low altitude moisture": 2,
+    "Volcanic heat": 4,
+    "Vertical weather science": 6,
+    "Lightning protection": 3,
+    "Optical rainbow": 1,
+    "Atmosphere and rays": 1,
+    "Cloud chamber physics": 6,
+    "Water transport bridge": 6,
+    "Gear drive": 3,
+    "Wind energy": 2,
+    "Power generation": 9,
+    "Sunlight cooking": 4,
+    "Night street light": 2,
+    "Building tools": 2,
+    "Industrial metal": 2,
+    "Paper from wood": 2,
+    "Writing and books": 3,
+    "Optical image": 2,
+    "Lens imaging": 3,
+    "Projected image": 6,
+    "Darkroom image": 1,
+    "Colourful reflections": 5,
+    "Musical instrument": 5,
+    "Percussive rhythm": 5,
+    "Written melody": 2,
+    "Fresh salad": 4,
+    "Cocoa confection": 4,
+    "Coffee brewing": 3,
+    "Console play": 13,
+    "Arcade hardware": 13,
+    "Portable gaming": 5,
+    "Role-playing worlds": 11,
+    "Racing action": 11,
+    "Stealth genre": 7,
+    "Exploration platform": 6,
+    "Rogue exploration": 6,
+    "Strategy play": 7,
+    "Rhythm play": 9,
+    "Cinematic scores": 14,
+    "Interactive soundtracks": 7,
+    "Building game engines": 13,
+    "Modding software": 7,
+    "Online games": 6,
+    "Gaming competitions": 6,
+    "Pixel graphics": 10,
+    "Neural computer systems": 11,
+    "Remote game services": 6,
+    "Virtual environment": 10,
+    "Enhanced real-world visuals": 7,
+    "Online streams": 12,
+    "Game progress": 6,
+    "Unlocked achievements": 3,
+    "Play controllers": 5,
+    "Robotics engineering": 8,
+    "Silicon chips": 6,
+    "Low earth orbit": 11,
+    "Stars through lenses": 9,
+    "Interstellar scale": 6,
+    "Digital photography": 4,
+    "Video editing": 7,
+    "Cinema projection": 7,
+    "Documentaries": 5,
+    "Wireless signals": 7,
+    "Video broadcasting": 7,
+    "Creative art": 6
+  },
+  "new_item_routes": {
+    "Rain Barrel": 6,
+    "Bird Feeder": 6,
+    "Water Pump": 10,
+    "Solar Oven": 7,
+    "Streetlamp": 4,
+    "Aquarium": 3,
+    "Weather Balloon": 9,
+    "Tidal Turbine": 9,
+    "Cloud Chamber": 9,
+    "Camera Obscura": 4,
+    "Kaleidoscope": 6,
+    "Sea Glass": 3
+  },
+  "conflicts_illustrative": [
+    [
+      "legacy:22|organic41:port",
+      "legacy:618",
+      "organic41:compass",
+      "Harbor navigation"
+    ],
+    [
+      "legacy:578|legacy:7",
+      "organic45:rain-barrel",
+      "organic34:sprout",
+      "Seed germination"
+    ],
+    [
+      "organic34:flower|organic37:pollen",
+      "organic34:honey",
+      "organic34:pollination",
+      "Pollen ecology"
+    ],
+    [
+      "organic34:flower|organic34:nectar",
+      "organic34:honey",
+      "organic34:pollination",
+      "Pollen ecology"
+    ],
+    [
+      "organic34:flower|organic37:pollen",
+      "organic34:honey",
+      "organic37:butterfly",
+      "Garden ecosystem"
+    ],
+    [
+      "legacy:3|organic41:pressure",
+      "legacy:17",
+      "organic45:weather-balloon",
+      "Vertical weather science"
+    ],
+    [
+      "legacy:63|legacy:647",
+      "organic45:camera-obscura",
+      "organic42:photograph",
+      "Optical image"
+    ],
+    [
+      "legacy:168|legacy:76",
+      "legacy:166",
+      "legacy:169",
+      "Portable gaming"
+    ],
+    [
+      "legacy:461|legacy:76",
+      "legacy:166",
+      "legacy:169",
+      "Portable gaming"
+    ],
+    [
+      "legacy:118|legacy:356",
+      "legacy:193",
+      "legacy:199",
+      "Stealth genre"
+    ],
+    [
+      "legacy:186|legacy:356",
+      "legacy:193",
+      "legacy:236",
+      "Exploration platform"
+    ],
+    [
+      "legacy:356|legacy:560",
+      "legacy:193",
+      "legacy:236",
+      "Exploration platform"
+    ],
+    [
+      "legacy:186|legacy:356",
+      "legacy:193",
+      "legacy:237",
+      "Rogue exploration"
+    ],
+    [
+      "legacy:164|legacy:356",
+      "legacy:199",
+      "legacy:237",
+      "Rogue exploration"
+    ],
+    [
+      "legacy:164|legacy:560",
+      "legacy:193",
+      "legacy:237",
+      "Rogue exploration"
+    ],
+    [
+      "legacy:166|legacy:356",
+      "legacy:199",
+      "legacy:237",
+      "Rogue exploration"
+    ],
+    [
+      "legacy:166|legacy:560",
+      "legacy:193",
+      "legacy:237",
+      "Rogue exploration"
+    ],
+    [
+      "legacy:158|legacy:164",
+      "legacy:237",
+      "legacy:159",
+      "Strategy play"
+    ],
+    [
+      "legacy:166|pack:orchestra",
+      "legacy:147",
+      "organic32:game-soundtrack",
+      "Interactive soundtracks"
+    ],
+    [
+      "legacy:164|pack:orchestra",
+      "legacy:147",
+      "organic32:game-soundtrack",
+      "Interactive soundtracks"
+    ],
+    [
+      "legacy:135|legacy:166",
+      "legacy:221",
+      "organic34:game-tournament",
+      "Gaming competitions"
+    ],
+    [
+      "legacy:166|pack:team",
+      "legacy:159",
+      "organic34:game-tournament",
+      "Gaming competitions"
+    ],
+    [
+      "legacy:158|legacy:164",
+      "legacy:237",
+      "organic34:game-tournament",
+      "Gaming competitions"
+    ],
+    [
+      "legacy:135|legacy:164",
+      "legacy:221",
+      "organic34:game-tournament",
+      "Gaming competitions"
+    ],
+    [
+      "legacy:164|pack:team",
+      "legacy:159",
+      "organic34:game-tournament",
+      "Gaming competitions"
+    ]
+  ]
+}

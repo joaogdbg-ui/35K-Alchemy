@@ -1,0 +1,1287 @@
+{
+  "release": "V46",
+  "priority": "new-first",
+  "new_elements": 80,
+  "new_recipes": 216,
+  "recipes_producing_new_elements": 216,
+  "editorial_routes": [
+    {
+      "name": "Tidepool Anemone",
+      "recipes": [
+        "Sea Anemone + Rock",
+        "Sea Anemone + Lagoon",
+        "Sea Anemone + Tide"
+      ]
+    },
+    {
+      "name": "Sea Sponge",
+      "recipes": [
+        "Coral + Water",
+        "Coral + Plankton"
+      ]
+    },
+    {
+      "name": "Sea Cucumber",
+      "recipes": [
+        "Sea Urchin + Sand",
+        "Sea Urchin + Seaweed"
+      ]
+    },
+    {
+      "name": "Sea Fan",
+      "recipes": [
+        "Coral + Wind",
+        "Coral + Current",
+        "Reef + Wind"
+      ]
+    },
+    {
+      "name": "Hermit Crab",
+      "recipes": [
+        "Crab + Seashell",
+        "Crab + House"
+      ]
+    },
+    {
+      "name": "Nautilus",
+      "recipes": [
+        "Clam + Deep Sea",
+        "Seashell + Deep Sea"
+      ]
+    },
+    {
+      "name": "Brittle Star",
+      "recipes": [
+        "Starfish + Reef",
+        "Starfish + Deep Sea",
+        "Starfish + Sand"
+      ]
+    },
+    {
+      "name": "Sea Slug",
+      "recipes": [
+        "Seaweed + Animal",
+        "Seaweed + Reef",
+        "Seaweed + Hermit Crab"
+      ]
+    },
+    {
+      "name": "Seahorse Nursery",
+      "recipes": [
+        "Seahorse + Kelp",
+        "Seahorse + Mangrove",
+        "Seahorse + Reef"
+      ]
+    },
+    {
+      "name": "Kelp Canopy",
+      "recipes": [
+        "Kelp + Sun",
+        "Kelp + Canopy",
+        "Kelp Forest + Light"
+      ]
+    },
+    {
+      "name": "Oak Sapling",
+      "recipes": [
+        "Acorn + Water",
+        "Acorn + Rain",
+        "Acorn + Soil"
+      ]
+    },
+    {
+      "name": "Squirrel Drey",
+      "recipes": [
+        "Squirrel + Nest",
+        "Squirrel + Tree",
+        "Squirrel + Forest"
+      ]
+    },
+    {
+      "name": "Pecked Log",
+      "recipes": [
+        "Woodpecker + Tree Hollow",
+        "Woodpecker + Wooden Plank",
+        "Woodpecker + Forest Floor"
+      ]
+    },
+    {
+      "name": "Fern Frond",
+      "recipes": [
+        "Fern + Rain",
+        "Fern + Sun",
+        "Fern + Water"
+      ]
+    },
+    {
+      "name": "Tree Hollow",
+      "recipes": [
+        "Tree + Cave",
+        "Tree + Burrow",
+        "Wood + Cave"
+      ]
+    },
+    {
+      "name": "Tree Rings",
+      "recipes": [
+        "Tree + Time",
+        "Wood + Time",
+        "Tree + History"
+      ]
+    },
+    {
+      "name": "Leaf Litter",
+      "recipes": [
+        "Tree + Compost",
+        "Forest + Fern Frond",
+        "Tree + Fern Frond"
+      ]
+    },
+    {
+      "name": "Forest Floor",
+      "recipes": [
+        "Forest + Leaf Litter",
+        "Forest + Spore Print",
+        "Tree + Leaf Litter"
+      ]
+    },
+    {
+      "name": "Pine Needle",
+      "recipes": [
+        "Pinecone + Plant",
+        "Tree + Pinecone",
+        "Pinecone + Rain"
+      ]
+    },
+    {
+      "name": "Spore Print",
+      "recipes": [
+        "Mushroom + Paper",
+        "Mushroom + Ink",
+        "Mushroom + Art"
+      ]
+    },
+    {
+      "name": "Sunspot",
+      "recipes": [
+        "Sun + Shadow",
+        "Solar Power + Shadow"
+      ]
+    },
+    {
+      "name": "Solar Flare",
+      "recipes": [
+        "Sun + Lightning",
+        "Sun + Spark",
+        "Sunspot + Fire"
+      ]
+    },
+    {
+      "name": "Coronal Mass Ejection",
+      "recipes": [
+        "Solar Flare + Wind",
+        "Solar Flare + Space",
+        "Sun + Storm"
+      ]
+    },
+    {
+      "name": "Meteor Shower",
+      "recipes": [
+        "Meteor + Night",
+        "Meteor + Sky",
+        "Meteor + Rain"
+      ]
+    },
+    {
+      "name": "Lunar Crater",
+      "recipes": [
+        "Moon + Meteorite",
+        "Moon + Asteroid",
+        "Moon + Meteor"
+      ]
+    },
+    {
+      "name": "Lunar Dust",
+      "recipes": [
+        "Moon + Dust",
+        "Lunar Crater + Dust",
+        "Moon + Sand"
+      ]
+    },
+    {
+      "name": "Eclipse Glasses",
+      "recipes": [
+        "Eclipse + Glass",
+        "Eclipse + Optics"
+      ]
+    },
+    {
+      "name": "Star Cluster",
+      "recipes": [
+        "Star + Star",
+        "Star + Galaxy",
+        "Nebula + Star"
+      ]
+    },
+    {
+      "name": "Red Giant",
+      "recipes": [
+        "Star + Heat",
+        "Star + Expansion"
+      ]
+    },
+    {
+      "name": "White Dwarf",
+      "recipes": [
+        "Red Giant + Time",
+        "Red Giant + Space",
+        "Supernova + Star"
+      ]
+    },
+    {
+      "name": "Dust Devil",
+      "recipes": [
+        "Dust + Sandstorm",
+        "Wind + Erosion",
+        "Dust + Desert"
+      ]
+    },
+    {
+      "name": "Ice Halo",
+      "recipes": [
+        "Ice + Moon",
+        "Snow + Light",
+        "Frost + Rainbow"
+      ]
+    },
+    {
+      "name": "Sundog",
+      "recipes": [
+        "Sun + Ice Halo",
+        "Ice Halo + Light",
+        "Ice Halo + Prism"
+      ]
+    },
+    {
+      "name": "Cold Front",
+      "recipes": [
+        "Ice + Air",
+        "Weather + Ice"
+      ]
+    },
+    {
+      "name": "Warm Front",
+      "recipes": [
+        "Heat + Cold Front",
+        "Heatwave + Air",
+        "Weather + Heatwave"
+      ]
+    },
+    {
+      "name": "Jet Stream",
+      "recipes": [
+        "Sky + Wind",
+        "Storm + Sky"
+      ]
+    },
+    {
+      "name": "Ground Frost",
+      "recipes": [
+        "Earth + Frost",
+        "Dew + Frost"
+      ]
+    },
+    {
+      "name": "Thunderhead",
+      "recipes": [
+        "Storm + Thunder",
+        "Storm + Warm Front",
+        "Storm + Cold Front"
+      ]
+    },
+    {
+      "name": "Tipping-Bucket Gauge",
+      "recipes": [
+        "Rain Gauge + Gear",
+        "Rain Gauge + Engineering"
+      ]
+    },
+    {
+      "name": "Snowdrift",
+      "recipes": [
+        "Blizzard + Earth",
+        "Snow + Cold Front",
+        "Blizzard + Ground Frost"
+      ]
+    },
+    {
+      "name": "Sourdough Starter",
+      "recipes": [
+        "Flour + Life",
+        "Dough + Yeast"
+      ]
+    },
+    {
+      "name": "Sourdough",
+      "recipes": [
+        "Sourdough Starter + Dough",
+        "Sourdough Starter + Bread",
+        "Sourdough Starter + Fire"
+      ]
+    },
+    {
+      "name": "Baguette",
+      "recipes": [
+        "Sourdough + Fire",
+        "Sourdough + Heat"
+      ]
+    },
+    {
+      "name": "Custard",
+      "recipes": [
+        "Egg + Milk",
+        "Egg + Sugar",
+        "Cream + Egg"
+      ]
+    },
+    {
+      "name": "Meringue",
+      "recipes": [
+        "Egg + Air",
+        "Sugar + Cloud"
+      ]
+    },
+    {
+      "name": "Fruit Tart",
+      "recipes": [
+        "Fruit + Custard",
+        "Pie + Custard"
+      ]
+    },
+    {
+      "name": "Lemon Curd",
+      "recipes": [
+        "Lemon + Custard",
+        "Lemon + Butter",
+        "Lemon + Egg"
+      ]
+    },
+    {
+      "name": "Marmalade",
+      "recipes": [
+        "Lemon + Jam",
+        "Jam + Syrup",
+        "Lemon + Syrup"
+      ]
+    },
+    {
+      "name": "Crouton",
+      "recipes": [
+        "Bread + Soup",
+        "Bread + Salad",
+        "Bread + Oil"
+      ]
+    },
+    {
+      "name": "Bread Crumbs",
+      "recipes": [
+        "Bread + Dust",
+        "Bread + Tool",
+        "Bread + Stone"
+      ]
+    },
+    {
+      "name": "Anvil",
+      "recipes": [
+        "Metal + Hammer",
+        "Iron + Hammer",
+        "Metal + Forge"
+      ]
+    },
+    {
+      "name": "Forge",
+      "recipes": [
+        "Iron + Fire",
+        "Coal + Iron"
+      ]
+    },
+    {
+      "name": "Tongs",
+      "recipes": [
+        "Metal + Hand",
+        "Tool + Forge",
+        "Anvil + Tool"
+      ]
+    },
+    {
+      "name": "Smithy",
+      "recipes": [
+        "Forge + House",
+        "Forge + Workshop",
+        "Anvil + House"
+      ]
+    },
+    {
+      "name": "Loom",
+      "recipes": [
+        "Silk + Tool",
+        "Thread + Wood",
+        "Yarn + Wood"
+      ]
+    },
+    {
+      "name": "Spinning Wheel",
+      "recipes": [
+        "Silk + Wheel",
+        "Wheel + Yarn",
+        "Wheel + Thread"
+      ]
+    },
+    {
+      "name": "Yarn",
+      "recipes": [
+        "Silk + Spinning Wheel",
+        "Silk + Loom"
+      ]
+    },
+    {
+      "name": "Wooden Plank",
+      "recipes": [
+        "Wood + Tree Rings",
+        "Wood + Workbench",
+        "Tree + Sawdust"
+      ]
+    },
+    {
+      "name": "Sawdust",
+      "recipes": [
+        "Wood + Dust",
+        "Wooden Plank + Tool"
+      ]
+    },
+    {
+      "name": "Workbench",
+      "recipes": [
+        "Wooden Plank + Hammer",
+        "Wooden Plank + Forge",
+        "Wooden Plank + Anvil"
+      ]
+    },
+    {
+      "name": "Drawbridge",
+      "recipes": [
+        "Bridge + Castle",
+        "Bridge + Gear",
+        "Bridge + Hinge"
+      ]
+    },
+    {
+      "name": "Watchtower",
+      "recipes": [
+        "Tower + Forest",
+        "Castle + Tower"
+      ]
+    },
+    {
+      "name": "Lighthouse Beam",
+      "recipes": [
+        "Lighthouse + Light",
+        "Lighthouse + Lens",
+        "Lighthouse + Prism"
+      ]
+    },
+    {
+      "name": "Cobblestone",
+      "recipes": [
+        "Stone + Brick",
+        "Stone + Town Square",
+        "River + Brick"
+      ]
+    },
+    {
+      "name": "Rooftop Garden",
+      "recipes": [
+        "City + Garden",
+        "House + Rain Garden",
+        "Garden + Tower"
+      ]
+    },
+    {
+      "name": "Rain Garden",
+      "recipes": [
+        "Plant + Flood",
+        "Rain Barrel + Plant"
+      ]
+    },
+    {
+      "name": "Street Market",
+      "recipes": [
+        "City + Trade",
+        "Market + Town Square",
+        "Market + Watchtower"
+      ]
+    },
+    {
+      "name": "Fountain Pen",
+      "recipes": [
+        "Ink + Writing",
+        "Ink + Metal",
+        "Book + Ink"
+      ]
+    },
+    {
+      "name": "Town Square",
+      "recipes": [
+        "Village + Plaza",
+        "City + Plaza",
+        "Village + Market"
+      ]
+    },
+    {
+      "name": "Water Tower",
+      "recipes": [
+        "Tower + Water",
+        "Water + City",
+        "Water Pump + Tower"
+      ]
+    },
+    {
+      "name": "Photodiode",
+      "recipes": [
+        "Solar Power + Sensor",
+        "Sensor + Light"
+      ]
+    },
+    {
+      "name": "Infrared Sensor",
+      "recipes": [
+        "Heat + Sensor",
+        "Light + Thermometer",
+        "Sensor + Night"
+      ]
+    },
+    {
+      "name": "Thermostat",
+      "recipes": [
+        "Thermometer + Circuit",
+        "Thermometer + Gear"
+      ]
+    },
+    {
+      "name": "Solar Charger",
+      "recipes": [
+        "Sun + Battery",
+        "Solar Power + Battery"
+      ]
+    },
+    {
+      "name": "Wind Vane",
+      "recipes": [
+        "Weather Station + Wind",
+        "Wind + Watchtower",
+        "Wind + Weather Forecast"
+      ]
+    },
+    {
+      "name": "Microcontroller",
+      "recipes": [
+        "Circuit + Code",
+        "Circuit + Algorithm",
+        "Code + Robot Arm"
+      ]
+    },
+    {
+      "name": "Robot Arm",
+      "recipes": [
+        "Robot + Gear",
+        "Robotics + Tool"
+      ]
+    },
+    {
+      "name": "Drone Camera",
+      "recipes": [
+        "Camera + Sky",
+        "Camera + Weather Balloon",
+        "Camera + Robot"
+      ]
+    },
+    {
+      "name": "Sound Meter",
+      "recipes": [
+        "Sound + Sensor",
+        "Sound + Microcontroller",
+        "Sound + Thermostat"
+      ]
+    },
+    {
+      "name": "Light Meter",
+      "recipes": [
+        "Camera + Sensor",
+        "Light + Photodiode",
+        "Light + Microcontroller"
+      ]
+    }
+  ],
+  "rejected_candidates": [
+    [
+      "Tidepool Anemone",
+      "Sea Anemone",
+      "Shore",
+      "unknown ingredient"
+    ],
+    [
+      "Sea Sponge",
+      "Reef",
+      "Plankton",
+      "pre-existing pair or trivial self-result"
+    ],
+    [
+      "Sea Cucumber",
+      "Deep Sea",
+      "Animal",
+      "pre-existing pair or trivial self-result"
+    ],
+    [
+      "Sea Cucumber",
+      "Reef",
+      "Animal",
+      "pre-existing pair or trivial self-result"
+    ],
+    [
+      "Hermit Crab",
+      "Crab",
+      "Shell",
+      "unknown ingredient"
+    ],
+    [
+      "Hermit Crab",
+      "Crab",
+      "Shelter",
+      "unknown ingredient"
+    ],
+    [
+      "Nautilus",
+      "Mollusk",
+      "Spiral",
+      "unknown ingredient"
+    ],
+    [
+      "Nautilus",
+      "Ocean",
+      "Spiral",
+      "unknown ingredient"
+    ],
+    [
+      "Seahorse Nursery",
+      "Seahorse",
+      "Nursery",
+      "unknown ingredient"
+    ],
+    [
+      "Kelp Canopy",
+      "Kelp Forest",
+      "Sun",
+      "pre-existing pair or trivial self-result"
+    ],
+    [
+      "Pecked Log",
+      "Woodpecker",
+      "Wood",
+      "pre-existing pair or trivial self-result"
+    ],
+    [
+      "Pecked Log",
+      "Woodpecker",
+      "Log",
+      "unknown ingredient"
+    ],
+    [
+      "Pecked Log",
+      "Woodpecker",
+      "Tree",
+      "pre-existing pair or trivial self-result"
+    ],
+    [
+      "Pecked Log",
+      "Woodpecker",
+      "Forest",
+      "pre-existing pair or trivial self-result"
+    ],
+    [
+      "Fern Frond",
+      "Fern",
+      "Leaf",
+      "unknown ingredient"
+    ],
+    [
+      "Tree Hollow",
+      "Tree",
+      "Owl",
+      "pre-existing pair or trivial self-result"
+    ],
+    [
+      "Tree Rings",
+      "Wood",
+      "Age",
+      "unknown ingredient"
+    ],
+    [
+      "Leaf Litter",
+      "Leaf",
+      "Forest",
+      "unknown ingredient"
+    ],
+    [
+      "Leaf Litter",
+      "Leaf",
+      "Earth",
+      "unknown ingredient"
+    ],
+    [
+      "Leaf Litter",
+      "Autumn",
+      "Forest",
+      "unknown ingredient"
+    ],
+    [
+      "Forest Floor",
+      "Forest",
+      "Soil",
+      "pre-existing pair or trivial self-result"
+    ],
+    [
+      "Forest Floor",
+      "Forest",
+      "Moss",
+      "pre-existing pair or trivial self-result"
+    ],
+    [
+      "Forest Floor",
+      "Forest",
+      "Mud",
+      "pre-existing pair or trivial self-result"
+    ],
+    [
+      "Forest Floor",
+      "Forest",
+      "Fern Frond",
+      "pre-existing pair or trivial self-result"
+    ],
+    [
+      "Forest Floor",
+      "Forest",
+      "Leaf Litter",
+      "pre-existing pair or trivial self-result"
+    ],
+    [
+      "Pine Needle",
+      "Pinecone",
+      "Leaf",
+      "unknown ingredient"
+    ],
+    [
+      "Sunspot",
+      "Sun",
+      "Magnet",
+      "unknown ingredient"
+    ],
+    [
+      "Sunspot",
+      "Sun",
+      "Dark",
+      "unknown ingredient"
+    ],
+    [
+      "Coronal Mass Ejection",
+      "Sun",
+      "Plasma",
+      "unknown ingredient"
+    ],
+    [
+      "Eclipse Glasses",
+      "Eclipse",
+      "Glasses",
+      "unknown ingredient"
+    ],
+    [
+      "Eclipse Glasses",
+      "Sun",
+      "Sunglasses",
+      "unknown ingredient"
+    ],
+    [
+      "Star Cluster",
+      "Star",
+      "Gravity",
+      "pre-existing pair or trivial self-result"
+    ],
+    [
+      "Red Giant",
+      "Star",
+      "Time",
+      "pre-existing pair or trivial self-result"
+    ],
+    [
+      "Red Giant",
+      "Star",
+      "Age",
+      "unknown ingredient"
+    ],
+    [
+      "White Dwarf",
+      "Star",
+      "Gravity",
+      "pre-existing pair or trivial self-result"
+    ],
+    [
+      "Dust Devil",
+      "Dust",
+      "Wind",
+      "pre-existing pair or trivial self-result"
+    ],
+    [
+      "Dust Devil",
+      "Dust",
+      "Heat",
+      "pre-existing pair or trivial self-result"
+    ],
+    [
+      "Dust Devil",
+      "Sand",
+      "Wind",
+      "pre-existing pair or trivial self-result"
+    ],
+    [
+      "Dust Devil",
+      "Dust",
+      "Tornado",
+      "pre-existing pair or trivial self-result"
+    ],
+    [
+      "Dust Devil",
+      "Dust",
+      "Storm",
+      "pre-existing pair or trivial self-result"
+    ],
+    [
+      "Dust Devil",
+      "Dust",
+      "Tornado",
+      "pre-existing pair or trivial self-result"
+    ],
+    [
+      "Ice Halo",
+      "Ice",
+      "Sun",
+      "pre-existing pair or trivial self-result"
+    ],
+    [
+      "Cold Front",
+      "Cold",
+      "Wind",
+      "unknown ingredient"
+    ],
+    [
+      "Cold Front",
+      "Snow",
+      "Wind",
+      "pre-existing pair or trivial self-result"
+    ],
+    [
+      "Jet Stream",
+      "Wind",
+      "Altitude",
+      "unknown ingredient"
+    ],
+    [
+      "Jet Stream",
+      "Wind",
+      "Atmosphere",
+      "unknown ingredient"
+    ],
+    [
+      "Ground Frost",
+      "Grass",
+      "Frost",
+      "unknown ingredient"
+    ],
+    [
+      "Ground Frost",
+      "Ground",
+      "Ice",
+      "unknown ingredient"
+    ],
+    [
+      "Tipping-Bucket Gauge",
+      "Rain Gauge",
+      "Machine",
+      "unknown ingredient"
+    ],
+    [
+      "Tipping-Bucket Gauge",
+      "Rain",
+      "Counter",
+      "unknown ingredient"
+    ],
+    [
+      "Sourdough Starter",
+      "Yeast",
+      "Flour",
+      "pre-existing pair or trivial self-result"
+    ],
+    [
+      "Sourdough Starter",
+      "Yeast",
+      "Water",
+      "pre-existing pair or trivial self-result"
+    ],
+    [
+      "Sourdough",
+      "Bread",
+      "Fermentation",
+      "unknown ingredient"
+    ],
+    [
+      "Baguette",
+      "Sourdough",
+      "Oven",
+      "unknown ingredient"
+    ],
+    [
+      "Custard",
+      "Milk",
+      "Sugar",
+      "pre-existing pair or trivial self-result"
+    ],
+    [
+      "Meringue",
+      "Egg",
+      "Sugar",
+      "pre-existing pair or trivial self-result"
+    ],
+    [
+      "Meringue",
+      "Egg",
+      "Whisk",
+      "unknown ingredient"
+    ],
+    [
+      "Fruit Tart",
+      "Tart",
+      "Fruit",
+      "unknown ingredient"
+    ],
+    [
+      "Fruit Tart",
+      "Pastry",
+      "Fruit",
+      "pre-existing pair or trivial self-result"
+    ],
+    [
+      "Lemon Curd",
+      "Lemon",
+      "Sugar",
+      "pre-existing pair or trivial self-result"
+    ],
+    [
+      "Crouton",
+      "Bread",
+      "Toast",
+      "unknown ingredient"
+    ],
+    [
+      "Bread Crumbs",
+      "Bread",
+      "Grinder",
+      "unknown ingredient"
+    ],
+    [
+      "Forge",
+      "Metal",
+      "Furnace",
+      "unknown ingredient"
+    ],
+    [
+      "Forge",
+      "Metal",
+      "Fire",
+      "pre-existing pair or trivial self-result"
+    ],
+    [
+      "Tongs",
+      "Iron",
+      "Tool",
+      "pre-existing pair or trivial self-result"
+    ],
+    [
+      "Loom",
+      "Fabric",
+      "Machine",
+      "unknown ingredient"
+    ],
+    [
+      "Spinning Wheel",
+      "Wool",
+      "Wheel",
+      "unknown ingredient"
+    ],
+    [
+      "Yarn",
+      "Wool",
+      "Tool",
+      "unknown ingredient"
+    ],
+    [
+      "Yarn",
+      "Cotton",
+      "Spinning Wheel",
+      "unknown ingredient"
+    ],
+    [
+      "Sawdust",
+      "Wood",
+      "Saw",
+      "unknown ingredient"
+    ],
+    [
+      "Sawdust",
+      "Wood",
+      "Sand",
+      "pre-existing pair or trivial self-result"
+    ],
+    [
+      "Workbench",
+      "Wood",
+      "Tool",
+      "pre-existing pair or trivial self-result"
+    ],
+    [
+      "Workbench",
+      "House",
+      "Engineering",
+      "pre-existing pair or trivial self-result"
+    ],
+    [
+      "Workbench",
+      "Wooden Plank",
+      "Tool",
+      "pre-existing pair or trivial self-result"
+    ],
+    [
+      "Workbench",
+      "Forge",
+      "Table",
+      "unknown ingredient"
+    ],
+    [
+      "Drawbridge",
+      "Bridge",
+      "Fortress",
+      "unknown ingredient"
+    ],
+    [
+      "Watchtower",
+      "Tower",
+      "Guard",
+      "unknown ingredient"
+    ],
+    [
+      "Watchtower",
+      "Tower",
+      "Soldier",
+      "unknown ingredient"
+    ],
+    [
+      "Cobblestone",
+      "Stone",
+      "Road",
+      "unknown ingredient"
+    ],
+    [
+      "Cobblestone",
+      "Stone",
+      "City",
+      "pre-existing pair or trivial self-result"
+    ],
+    [
+      "Cobblestone",
+      "Stone",
+      "Street",
+      "unknown ingredient"
+    ],
+    [
+      "Cobblestone",
+      "River",
+      "Road",
+      "unknown ingredient"
+    ],
+    [
+      "Cobblestone",
+      "Stone",
+      "Concrete",
+      "pre-existing pair or trivial self-result"
+    ],
+    [
+      "Cobblestone",
+      "Stone",
+      "City",
+      "pre-existing pair or trivial self-result"
+    ],
+    [
+      "Cobblestone",
+      "Stone",
+      "Tower",
+      "pre-existing pair or trivial self-result"
+    ],
+    [
+      "Rain Garden",
+      "Garden",
+      "Rain",
+      "pre-existing pair or trivial self-result"
+    ],
+    [
+      "Rain Garden",
+      "Garden",
+      "Water",
+      "pre-existing pair or trivial self-result"
+    ],
+    [
+      "Street Market",
+      "Market",
+      "Street",
+      "unknown ingredient"
+    ],
+    [
+      "Street Market",
+      "Market",
+      "Road",
+      "unknown ingredient"
+    ],
+    [
+      "Street Market",
+      "Shop",
+      "Road",
+      "unknown ingredient"
+    ],
+    [
+      "Fountain Pen",
+      "Ink",
+      "Pen",
+      "unknown ingredient"
+    ],
+    [
+      "Water Tower",
+      "Reservoir",
+      "Tower",
+      "unknown ingredient"
+    ],
+    [
+      "Photodiode",
+      "Light",
+      "Circuit",
+      "pre-existing pair or trivial self-result"
+    ],
+    [
+      "Photodiode",
+      "Light",
+      "Silicon",
+      "pre-existing pair or trivial self-result"
+    ],
+    [
+      "Infrared Sensor",
+      "Infrared",
+      "Sensor",
+      "unknown ingredient"
+    ],
+    [
+      "Thermostat",
+      "Heat",
+      "Sensor",
+      "pre-existing pair or trivial self-result"
+    ],
+    [
+      "Thermostat",
+      "Temperature",
+      "Switch",
+      "unknown ingredient"
+    ],
+    [
+      "Solar Charger",
+      "Solar Panel",
+      "Battery",
+      "pre-existing pair or trivial self-result"
+    ],
+    [
+      "Solar Charger",
+      "Solar Panel",
+      "Phone",
+      "unknown ingredient"
+    ],
+    [
+      "Microcontroller",
+      "Computer",
+      "Circuit",
+      "pre-existing pair or trivial self-result"
+    ],
+    [
+      "Microcontroller",
+      "Chip",
+      "Program",
+      "unknown ingredient"
+    ],
+    [
+      "Microcontroller",
+      "Electronics",
+      "Code",
+      "pre-existing pair or trivial self-result"
+    ],
+    [
+      "Robot Arm",
+      "Robot",
+      "Tool",
+      "pre-existing pair or trivial self-result"
+    ],
+    [
+      "Robot Arm",
+      "Machine",
+      "Arm",
+      "unknown ingredient"
+    ],
+    [
+      "Sound Meter",
+      "Sound",
+      "Meter",
+      "unknown ingredient"
+    ],
+    [
+      "Sound Meter",
+      "Microphone",
+      "Meter",
+      "unknown ingredient"
+    ],
+    [
+      "Sound Meter",
+      "Sound",
+      "Scale",
+      "unknown ingredient"
+    ],
+    [
+      "Light Meter",
+      "Light",
+      "Meter",
+      "unknown ingredient"
+    ],
+    [
+      "Light Meter",
+      "Light",
+      "Sensor",
+      "pre-existing pair or trivial self-result"
+    ],
+    [
+      "Light Meter",
+      "Exposure",
+      "Instrument",
+      "unknown ingredient"
+    ]
+  ]
+}

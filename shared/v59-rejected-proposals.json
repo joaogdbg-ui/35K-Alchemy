@@ -1,0 +1,1268 @@
+{
+  "v": 59,
+  "total_candidates": 340,
+  "selected": 200,
+  "rejected_count": 140,
+  "rejected": [
+    {
+      "branch": "Marine",
+      "proposal": "Tidal Research Buoy",
+      "ingredients": [
+        "Tide",
+        "Sensor"
+      ],
+      "reason": "unordered ingredient pair already has a result"
+    },
+    {
+      "branch": "Marine",
+      "proposal": "Harbor Fog Bell",
+      "ingredients": [
+        "Harbor",
+        "Fog"
+      ],
+      "reason": "not selected for this curated 200-element release"
+    },
+    {
+      "branch": "Marine",
+      "proposal": "Seashell Mosaic",
+      "ingredients": [
+        "Seashell",
+        "Mosaic"
+      ],
+      "reason": "name already present in catalog"
+    },
+    {
+      "branch": "Marine",
+      "proposal": "Jellyfish Aquarium Lamp",
+      "ingredients": [
+        "Jellyfish",
+        "Lamp"
+      ],
+      "reason": "ingredient does not exist in V58 catalog; no automatic substitution accepted"
+    },
+    {
+      "branch": "Marine",
+      "proposal": "Saltwater Test Kit",
+      "ingredients": [
+        "Sea",
+        "Science"
+      ],
+      "reason": "not selected for this curated 200-element release"
+    },
+    {
+      "branch": "Marine",
+      "proposal": "Seafloor Sediment Core",
+      "ingredients": [
+        "Seafloor",
+        "Soil"
+      ],
+      "reason": "ingredient does not exist in V58 catalog; no automatic substitution accepted"
+    },
+    {
+      "branch": "Marine",
+      "proposal": "Harbor Rain Shelter",
+      "ingredients": [
+        "Harbor",
+        "Rain"
+      ],
+      "reason": "not selected for this curated 200-element release"
+    },
+    {
+      "branch": "Marine",
+      "proposal": "Fishing Line Spool",
+      "ingredients": [
+        "Fishing Rod",
+        "Wood"
+      ],
+      "reason": "ingredient does not exist in V58 catalog; no automatic substitution accepted"
+    },
+    {
+      "branch": "Forest",
+      "proposal": "Moss Terrarium Jar",
+      "ingredients": [
+        "Moss",
+        "Glass"
+      ],
+      "reason": "unordered ingredient pair already has a result"
+    },
+    {
+      "branch": "Forest",
+      "proposal": "Forest Seed Vault",
+      "ingredients": [
+        "Forest",
+        "Seed"
+      ],
+      "reason": "unordered ingredient pair already has a result"
+    },
+    {
+      "branch": "Forest",
+      "proposal": "Bee Meadow Habitat",
+      "ingredients": [
+        "Bee",
+        "Meadow"
+      ],
+      "reason": "ingredient does not exist in V58 catalog; no automatic substitution accepted"
+    },
+    {
+      "branch": "Forest",
+      "proposal": "Rainforest Mist Trail",
+      "ingredients": [
+        "Rainforest",
+        "Fog"
+      ],
+      "reason": "unordered ingredient pair already has a result"
+    },
+    {
+      "branch": "Forest",
+      "proposal": "Fox Den Entrance",
+      "ingredients": [
+        "Fox",
+        "Cave"
+      ],
+      "reason": "name already present in catalog"
+    },
+    {
+      "branch": "Forest",
+      "proposal": "Bark Texture Rubbing",
+      "ingredients": [
+        "Tree",
+        "Paper"
+      ],
+      "reason": "unordered ingredient pair already has a result"
+    },
+    {
+      "branch": "Forest",
+      "proposal": "Beech Leaf Garland",
+      "ingredients": [
+        "Leaf",
+        "Wreath"
+      ],
+      "reason": "ingredient does not exist in V58 catalog; no automatic substitution accepted"
+    },
+    {
+      "branch": "Forest",
+      "proposal": "Bird Habitat Map",
+      "ingredients": [
+        "Bird",
+        "Map"
+      ],
+      "reason": "unordered ingredient pair already has a result"
+    },
+    {
+      "branch": "Forest",
+      "proposal": "Woodland Shade Garden",
+      "ingredients": [
+        "Tree",
+        "Garden"
+      ],
+      "reason": "unordered ingredient pair already has a result"
+    },
+    {
+      "branch": "Forest",
+      "proposal": "Moss Rain Gauge",
+      "ingredients": [
+        "Moss",
+        "Rain Gauge"
+      ],
+      "reason": "not selected for this curated 200-element release"
+    },
+    {
+      "branch": "Sky",
+      "proposal": "Frost Pattern Window",
+      "ingredients": [
+        "Frost",
+        "Glass"
+      ],
+      "reason": "unordered ingredient pair already has a result"
+    },
+    {
+      "branch": "Sky",
+      "proposal": "Desert Wind Sculpture",
+      "ingredients": [
+        "Desert",
+        "Wind"
+      ],
+      "reason": "unordered ingredient pair already has a result"
+    },
+    {
+      "branch": "Sky",
+      "proposal": "Rainwater Weather Station",
+      "ingredients": [
+        "Rain",
+        "Sensor"
+      ],
+      "reason": "unordered ingredient pair already has a result"
+    },
+    {
+      "branch": "Sky",
+      "proposal": "Moonlit Fog Bank",
+      "ingredients": [
+        "Moonlight",
+        "Fog"
+      ],
+      "reason": "unordered ingredient pair already has a result"
+    },
+    {
+      "branch": "Sky",
+      "proposal": "Snowmelt Stream Gauge",
+      "ingredients": [
+        "Snow",
+        "River"
+      ],
+      "reason": "unordered ingredient pair already has a result"
+    },
+    {
+      "branch": "Sky",
+      "proposal": "Solar Heat Reflector",
+      "ingredients": [
+        "Sun",
+        "Mirror"
+      ],
+      "reason": "ingredient does not exist in V58 catalog; no automatic substitution accepted"
+    },
+    {
+      "branch": "Sky",
+      "proposal": "Lightning Capture Photograph",
+      "ingredients": [
+        "Lightning",
+        "Camera"
+      ],
+      "reason": "unordered ingredient pair already has a result"
+    },
+    {
+      "branch": "Sky",
+      "proposal": "Cloud Formation Atlas",
+      "ingredients": [
+        "Cloud",
+        "Book"
+      ],
+      "reason": "unordered ingredient pair already has a result"
+    },
+    {
+      "branch": "Sky",
+      "proposal": "Rainforest Rain Collector",
+      "ingredients": [
+        "Rainforest",
+        "Rain"
+      ],
+      "reason": "not selected for this curated 200-element release"
+    },
+    {
+      "branch": "Sky",
+      "proposal": "Fog Garden Sprinkler",
+      "ingredients": [
+        "Fog",
+        "Garden"
+      ],
+      "reason": "not selected for this curated 200-element release"
+    },
+    {
+      "branch": "Earth",
+      "proposal": "Crystal Cave Lamp",
+      "ingredients": [
+        "Crystal",
+        "Cave"
+      ],
+      "reason": "unordered ingredient pair already has a result"
+    },
+    {
+      "branch": "Earth",
+      "proposal": "Copper Wire Coil",
+      "ingredients": [
+        "Copper",
+        "Wire"
+      ],
+      "reason": "name already present in catalog"
+    },
+    {
+      "branch": "Earth",
+      "proposal": "River Stone Mosaic",
+      "ingredients": [
+        "River",
+        "Stone"
+      ],
+      "reason": "unordered ingredient pair already has a result"
+    },
+    {
+      "branch": "Earth",
+      "proposal": "Lava Glass Ornament",
+      "ingredients": [
+        "Lava",
+        "Glass"
+      ],
+      "reason": "unordered ingredient pair already has a result"
+    },
+    {
+      "branch": "Earth",
+      "proposal": "Mountain Weathered Ridge",
+      "ingredients": [
+        "Mountain",
+        "Wind"
+      ],
+      "reason": "unordered ingredient pair already has a result"
+    },
+    {
+      "branch": "Earth",
+      "proposal": "Mineral Sample Cabinet",
+      "ingredients": [
+        "Crystal",
+        "Cabinet"
+      ],
+      "reason": "ingredient does not exist in V58 catalog; no automatic substitution accepted"
+    },
+    {
+      "branch": "Earth",
+      "proposal": "Stone Bridge Arch",
+      "ingredients": [
+        "Stone",
+        "Bridge"
+      ],
+      "reason": "unordered ingredient pair already has a result"
+    },
+    {
+      "branch": "Kitchen",
+      "proposal": "Chocolate Cream Tart",
+      "ingredients": [
+        "Chocolate",
+        "Cream"
+      ],
+      "reason": "unordered ingredient pair already has a result"
+    },
+    {
+      "branch": "Kitchen",
+      "proposal": "Cheese Herb Scone",
+      "ingredients": [
+        "Cheese",
+        "Herbs"
+      ],
+      "reason": "ingredient does not exist in V58 catalog; no automatic substitution accepted"
+    },
+    {
+      "branch": "Kitchen",
+      "proposal": "Roasted Nut Brittle",
+      "ingredients": [
+        "Nut",
+        "Sugar"
+      ],
+      "reason": "ingredient does not exist in V58 catalog; no automatic substitution accepted"
+    },
+    {
+      "branch": "Kitchen",
+      "proposal": "Summer Fruit Parfait",
+      "ingredients": [
+        "Fruit",
+        "Cream"
+      ],
+      "reason": "unordered ingredient pair already has a result"
+    },
+    {
+      "branch": "Kitchen",
+      "proposal": "Pumpkin Soup Bowl",
+      "ingredients": [
+        "Pumpkin",
+        "Soup"
+      ],
+      "reason": "ingredient does not exist in V58 catalog; no automatic substitution accepted"
+    },
+    {
+      "branch": "Kitchen",
+      "proposal": "Rice Pudding Cup",
+      "ingredients": [
+        "Rice",
+        "Milk"
+      ],
+      "reason": "unordered ingredient pair already has a result"
+    },
+    {
+      "branch": "Kitchen",
+      "proposal": "Herb Butter Spread",
+      "ingredients": [
+        "Butter",
+        "Herbs"
+      ],
+      "reason": "ingredient does not exist in V58 catalog; no automatic substitution accepted"
+    },
+    {
+      "branch": "Kitchen",
+      "proposal": "Grilled Vegetable Skewer",
+      "ingredients": [
+        "Vegetable",
+        "Fire"
+      ],
+      "reason": "unordered ingredient pair already has a result"
+    },
+    {
+      "branch": "Kitchen",
+      "proposal": "Mushroom Cream Sauce",
+      "ingredients": [
+        "Mushroom",
+        "Cream"
+      ],
+      "reason": "unordered ingredient pair already has a result"
+    },
+    {
+      "branch": "Kitchen",
+      "proposal": "Honey Tea Glaze",
+      "ingredients": [
+        "Honey",
+        "Tea"
+      ],
+      "reason": "unordered ingredient pair already has a result"
+    },
+    {
+      "branch": "Kitchen",
+      "proposal": "Baked Pear Tart",
+      "ingredients": [
+        "Pear",
+        "Pastry"
+      ],
+      "reason": "ingredient does not exist in V58 catalog; no automatic substitution accepted"
+    },
+    {
+      "branch": "Kitchen",
+      "proposal": "Apple Cider Reduction",
+      "ingredients": [
+        "Apple",
+        "Heat"
+      ],
+      "reason": "unordered ingredient pair already has a result"
+    },
+    {
+      "branch": "Kitchen",
+      "proposal": "Chocolate Oat Cookie",
+      "ingredients": [
+        "Chocolate",
+        "Oats"
+      ],
+      "reason": "ingredient does not exist in V58 catalog; no automatic substitution accepted"
+    },
+    {
+      "branch": "Devices",
+      "proposal": "Solar Charging Backpack",
+      "ingredients": [
+        "Solar Panel",
+        "Backpack"
+      ],
+      "reason": "ingredient does not exist in V58 catalog; no automatic substitution accepted"
+    },
+    {
+      "branch": "Devices",
+      "proposal": "Rain Sensor Alarm",
+      "ingredients": [
+        "Rain",
+        "Alarm"
+      ],
+      "reason": "ingredient does not exist in V58 catalog; no automatic substitution accepted"
+    },
+    {
+      "branch": "Devices",
+      "proposal": "Portable Wind Meter",
+      "ingredients": [
+        "Wind",
+        "Meter"
+      ],
+      "reason": "ingredient does not exist in V58 catalog; no automatic substitution accepted"
+    },
+    {
+      "branch": "Devices",
+      "proposal": "Garden Soil Monitor",
+      "ingredients": [
+        "Soil",
+        "Sensor"
+      ],
+      "reason": "unordered ingredient pair already has a result"
+    },
+    {
+      "branch": "Devices",
+      "proposal": "Portable Solar Kettle",
+      "ingredients": [
+        "Solar Panel",
+        "Kettle"
+      ],
+      "reason": "ingredient does not exist in V58 catalog; no automatic substitution accepted"
+    },
+    {
+      "branch": "Devices",
+      "proposal": "Battery Powered Lantern",
+      "ingredients": [
+        "Battery",
+        "Lantern"
+      ],
+      "reason": "ingredient does not exist in V58 catalog; no automatic substitution accepted"
+    },
+    {
+      "branch": "Devices",
+      "proposal": "Sensor Controlled Greenhouse",
+      "ingredients": [
+        "Greenhouse",
+        "Sensor"
+      ],
+      "reason": "unordered ingredient pair already has a result"
+    },
+    {
+      "branch": "Devices",
+      "proposal": "Robotic Sorting Tray",
+      "ingredients": [
+        "Robot",
+        "Basket"
+      ],
+      "reason": "ingredient does not exist in V58 catalog; no automatic substitution accepted"
+    },
+    {
+      "branch": "Devices",
+      "proposal": "Home Recycling Scanner",
+      "ingredients": [
+        "Scanner",
+        "Recycling"
+      ],
+      "reason": "ingredient does not exist in V58 catalog; no automatic substitution accepted"
+    },
+    {
+      "branch": "Culture",
+      "proposal": "Community Garden Calendar",
+      "ingredients": [
+        "Garden",
+        "Calendar"
+      ],
+      "reason": "ingredient does not exist in V58 catalog; no automatic substitution accepted"
+    },
+    {
+      "branch": "Culture",
+      "proposal": "Town Music Pavilion",
+      "ingredients": [
+        "City",
+        "Music"
+      ],
+      "reason": "unordered ingredient pair already has a result"
+    },
+    {
+      "branch": "Culture",
+      "proposal": "Library Reading Alcove",
+      "ingredients": [
+        "Library",
+        "Chair"
+      ],
+      "reason": "ingredient does not exist in V58 catalog; no automatic substitution accepted"
+    },
+    {
+      "branch": "Culture",
+      "proposal": "Harbor History Exhibit",
+      "ingredients": [
+        "Harbor",
+        "Museum"
+      ],
+      "reason": "unordered ingredient pair already has a result"
+    },
+    {
+      "branch": "Culture",
+      "proposal": "Festival Lantern Trail",
+      "ingredients": [
+        "Lantern",
+        "Path"
+      ],
+      "reason": "ingredient does not exist in V58 catalog; no automatic substitution accepted"
+    },
+    {
+      "branch": "Culture",
+      "proposal": "Open Air Storytelling Circle",
+      "ingredients": [
+        "Forest",
+        "Story"
+      ],
+      "reason": "ingredient does not exist in V58 catalog; no automatic substitution accepted"
+    },
+    {
+      "branch": "Culture",
+      "proposal": "Cultural Garden Map",
+      "ingredients": [
+        "Garden",
+        "Map"
+      ],
+      "reason": "unordered ingredient pair already has a result"
+    },
+    {
+      "branch": "Space",
+      "proposal": "Meteorite Exhibition Case",
+      "ingredients": [
+        "Meteorite",
+        "Museum"
+      ],
+      "reason": "unordered ingredient pair already has a result"
+    },
+    {
+      "branch": "Space",
+      "proposal": "Stargazing Travel Kit",
+      "ingredients": [
+        "Star",
+        "Backpack"
+      ],
+      "reason": "ingredient does not exist in V58 catalog; no automatic substitution accepted"
+    },
+    {
+      "branch": "Space",
+      "proposal": "Solar Telescope Filter",
+      "ingredients": [
+        "Sun",
+        "Telescope"
+      ],
+      "reason": "not selected for this curated 200-element release"
+    },
+    {
+      "branch": "Space",
+      "proposal": "Space Rock Collection",
+      "ingredients": [
+        "Asteroid",
+        "Museum"
+      ],
+      "reason": "name already present in catalog"
+    },
+    {
+      "branch": "Space",
+      "proposal": "Rooftop Stargazing Deck",
+      "ingredients": [
+        "Telescope",
+        "House"
+      ],
+      "reason": "unordered ingredient pair already has a result"
+    },
+    {
+      "branch": "Space",
+      "proposal": "Planetarium Dome Lighting",
+      "ingredients": [
+        "Planetarium",
+        "Light"
+      ],
+      "reason": "ingredient does not exist in V58 catalog; no automatic substitution accepted"
+    },
+    {
+      "branch": "Space",
+      "proposal": "Solar Flare Observation",
+      "ingredients": [
+        "Sun",
+        "Camera"
+      ],
+      "reason": "unordered ingredient pair already has a result"
+    },
+    {
+      "branch": "Wildlife",
+      "proposal": "Butterfly Observation Jar",
+      "ingredients": [
+        "Butterfly",
+        "Glass"
+      ],
+      "reason": "unordered ingredient pair already has a result"
+    },
+    {
+      "branch": "Wildlife",
+      "proposal": "Hedgehog Garden Gate",
+      "ingredients": [
+        "Hedgehog",
+        "Garden"
+      ],
+      "reason": "unordered ingredient pair already has a result"
+    },
+    {
+      "branch": "Wildlife",
+      "proposal": "Reef Fish Shelter",
+      "ingredients": [
+        "Reef Fish",
+        "Coral"
+      ],
+      "reason": "name already present in catalog"
+    },
+    {
+      "branch": "Wildlife",
+      "proposal": "Crab Tidepool Hideout",
+      "ingredients": [
+        "Crab",
+        "Tide Pool"
+      ],
+      "reason": "unordered ingredient pair already has a result"
+    },
+    {
+      "branch": "Wildlife",
+      "proposal": "Butterfly Garden Bench",
+      "ingredients": [
+        "Butterfly",
+        "Garden"
+      ],
+      "reason": "unordered ingredient pair already has a result"
+    },
+    {
+      "branch": "Wildlife",
+      "proposal": "Hedgehog Leaf Shelter",
+      "ingredients": [
+        "Hedgehog",
+        "Leaf"
+      ],
+      "reason": "ingredient does not exist in V58 catalog; no automatic substitution accepted"
+    },
+    {
+      "branch": "Wildlife",
+      "proposal": "Frog Pond Watch",
+      "ingredients": [
+        "Frog",
+        "Pond"
+      ],
+      "reason": "unordered ingredient pair already has a result"
+    },
+    {
+      "branch": "Wildlife",
+      "proposal": "Mushroom Beetle Habitat",
+      "ingredients": [
+        "Beetle",
+        "Mushroom"
+      ],
+      "reason": "unordered ingredient pair already has a result"
+    },
+    {
+      "branch": "Craft",
+      "proposal": "Pressed Flower Bookmark",
+      "ingredients": [
+        "Pressed Flower",
+        "Book"
+      ],
+      "reason": "ingredient does not exist in V58 catalog; no automatic substitution accepted"
+    },
+    {
+      "branch": "Craft",
+      "proposal": "Recycled Glass Lantern",
+      "ingredients": [
+        "Glass",
+        "Lantern"
+      ],
+      "reason": "ingredient does not exist in V58 catalog; no automatic substitution accepted"
+    },
+    {
+      "branch": "Craft",
+      "proposal": "Stone Mosaic Garden Path",
+      "ingredients": [
+        "Stone",
+        "Garden"
+      ],
+      "reason": "unordered ingredient pair already has a result"
+    },
+    {
+      "branch": "Craft",
+      "proposal": "Bee Wax Candle Holder",
+      "ingredients": [
+        "Beeswax",
+        "Candle"
+      ],
+      "reason": "ingredient does not exist in V58 catalog; no automatic substitution accepted"
+    },
+    {
+      "branch": "Craft",
+      "proposal": "Moon Phase Wall Hanging",
+      "ingredients": [
+        "Moon",
+        "Wreath"
+      ],
+      "reason": "ingredient does not exist in V58 catalog; no automatic substitution accepted"
+    },
+    {
+      "branch": "Craft",
+      "proposal": "Herbal Sachet Gift",
+      "ingredients": [
+        "Herbs",
+        "Cloth"
+      ],
+      "reason": "ingredient does not exist in V58 catalog; no automatic substitution accepted"
+    },
+    {
+      "branch": "Craft",
+      "proposal": "Sun Dried Flower Wreath",
+      "ingredients": [
+        "Sun",
+        "Flower Wreath"
+      ],
+      "reason": "ingredient does not exist in V58 catalog; no automatic substitution accepted"
+    },
+    {
+      "branch": "Marine",
+      "proposal": "Moonlit Harbor Painting",
+      "ingredients": [
+        "Harbor",
+        "Art"
+      ],
+      "reason": "not selected for this curated 200-element release"
+    },
+    {
+      "branch": "Marine",
+      "proposal": "Seashell Museum Label",
+      "ingredients": [
+        "Seashell",
+        "Museum"
+      ],
+      "reason": "not selected for this curated 200-element release"
+    },
+    {
+      "branch": "Marine",
+      "proposal": "Saltwater Garden Pool",
+      "ingredients": [
+        "Sea",
+        "Garden"
+      ],
+      "reason": "unordered ingredient pair already has a result"
+    },
+    {
+      "branch": "Marine",
+      "proposal": "Coastal Heritage Journal",
+      "ingredients": [
+        "Sea",
+        "Book"
+      ],
+      "reason": "not selected for this curated 200-element release"
+    },
+    {
+      "branch": "Marine",
+      "proposal": "Sunlit Ocean Horizon",
+      "ingredients": [
+        "Sunbeam",
+        "Ocean"
+      ],
+      "reason": "not selected for this curated 200-element release"
+    },
+    {
+      "branch": "Forest",
+      "proposal": "Beehive Garden Fence",
+      "ingredients": [
+        "Beehive",
+        "Wood"
+      ],
+      "reason": "unordered ingredient pair already has a result"
+    },
+    {
+      "branch": "Forest",
+      "proposal": "Forest Path Signpost",
+      "ingredients": [
+        "Forest",
+        "Paper"
+      ],
+      "reason": "not selected for this curated 200-element release"
+    },
+    {
+      "branch": "Forest",
+      "proposal": "Tree Seed Collection",
+      "ingredients": [
+        "Tree",
+        "Seedling Pot"
+      ],
+      "reason": "not selected for this curated 200-element release"
+    },
+    {
+      "branch": "Sky",
+      "proposal": "Sunrise Fog Photograph",
+      "ingredients": [
+        "Sun",
+        "Fog"
+      ],
+      "reason": "unordered ingredient pair already has a result"
+    },
+    {
+      "branch": "Sky",
+      "proposal": "Rain Gauge Time Series",
+      "ingredients": [
+        "Rain Gauge",
+        "Book"
+      ],
+      "reason": "not selected for this curated 200-element release"
+    },
+    {
+      "branch": "Sky",
+      "proposal": "Moonlight Weather Diary",
+      "ingredients": [
+        "Moonlight",
+        "Forecast"
+      ],
+      "reason": "not selected for this curated 200-element release"
+    },
+    {
+      "branch": "Sky",
+      "proposal": "Winter Wind Journal",
+      "ingredients": [
+        "Snow",
+        "Notebook"
+      ],
+      "reason": "not selected for this curated 200-element release"
+    },
+    {
+      "branch": "Earth",
+      "proposal": "Meteorite Sample Tray",
+      "ingredients": [
+        "Meteorite",
+        "Camera"
+      ],
+      "reason": "not selected for this curated 200-element release"
+    },
+    {
+      "branch": "Earth",
+      "proposal": "Riverside Clay Workshop",
+      "ingredients": [
+        "River",
+        "Clay"
+      ],
+      "reason": "unordered ingredient pair already has a result"
+    },
+    {
+      "branch": "Earth",
+      "proposal": "Geology Field Collection",
+      "ingredients": [
+        "Geology Notebook",
+        "Crystal"
+      ],
+      "reason": "not selected for this curated 200-element release"
+    },
+    {
+      "branch": "Earth",
+      "proposal": "Volcanic Glass Paperweight",
+      "ingredients": [
+        "Lava",
+        "Art"
+      ],
+      "reason": "not selected for this curated 200-element release"
+    },
+    {
+      "branch": "Earth",
+      "proposal": "River Pebble Necklace",
+      "ingredients": [
+        "River Pebble",
+        "Shell Necklace"
+      ],
+      "reason": "not selected for this curated 200-element release"
+    },
+    {
+      "branch": "Earth",
+      "proposal": "Stone Garden Lantern",
+      "ingredients": [
+        "Stone",
+        "Solar Lantern"
+      ],
+      "reason": "not selected for this curated 200-element release"
+    },
+    {
+      "branch": "Earth",
+      "proposal": "Lava Rock Photo Collection",
+      "ingredients": [
+        "Lava",
+        "Photo Album"
+      ],
+      "reason": "not selected for this curated 200-element release"
+    },
+    {
+      "branch": "Kitchen",
+      "proposal": "Honey Fruit Tartlet",
+      "ingredients": [
+        "Honey",
+        "Fruit"
+      ],
+      "reason": "unordered ingredient pair already has a result"
+    },
+    {
+      "branch": "Kitchen",
+      "proposal": "Apple Cinnamon Compote",
+      "ingredients": [
+        "Apple",
+        "Cinnamon"
+      ],
+      "reason": "unordered ingredient pair already has a result"
+    },
+    {
+      "branch": "Kitchen",
+      "proposal": "Chocolate Milkshake Cup",
+      "ingredients": [
+        "Chocolate",
+        "Milk"
+      ],
+      "reason": "unordered ingredient pair already has a result"
+    },
+    {
+      "branch": "Kitchen",
+      "proposal": "Cheese Garden Sandwich",
+      "ingredients": [
+        "Cheese",
+        "Bread"
+      ],
+      "reason": "unordered ingredient pair already has a result"
+    },
+    {
+      "branch": "Kitchen",
+      "proposal": "Caramel Apple Crust",
+      "ingredients": [
+        "Sugar",
+        "Apple"
+      ],
+      "reason": "unordered ingredient pair already has a result"
+    },
+    {
+      "branch": "Devices",
+      "proposal": "Solar Garden Timer",
+      "ingredients": [
+        "Solar Charger",
+        "Garden"
+      ],
+      "reason": "not selected for this curated 200-element release"
+    },
+    {
+      "branch": "Devices",
+      "proposal": "Moonlight Trail Lamp",
+      "ingredients": [
+        "Moonlight",
+        "Street Lantern"
+      ],
+      "reason": "not selected for this curated 200-element release"
+    },
+    {
+      "branch": "Devices",
+      "proposal": "Nature Photography Database",
+      "ingredients": [
+        "Camera",
+        "Computer"
+      ],
+      "reason": "unordered ingredient pair already has a result"
+    },
+    {
+      "branch": "Devices",
+      "proposal": "Solar Thermometer Shelter",
+      "ingredients": [
+        "Solar Panel",
+        "House"
+      ],
+      "reason": "not selected for this curated 200-element release"
+    },
+    {
+      "branch": "Devices",
+      "proposal": "Field Compass Scanner",
+      "ingredients": [
+        "Compass",
+        "Camera"
+      ],
+      "reason": "not selected for this curated 200-element release"
+    },
+    {
+      "branch": "Culture",
+      "proposal": "Neighborhood Heritage Map",
+      "ingredients": [
+        "Village",
+        "Map"
+      ],
+      "reason": "not selected for this curated 200-element release"
+    },
+    {
+      "branch": "Culture",
+      "proposal": "Village Gardening Club",
+      "ingredients": [
+        "Village",
+        "Garden"
+      ],
+      "reason": "unordered ingredient pair already has a result"
+    },
+    {
+      "branch": "Culture",
+      "proposal": "Harbor Museum Notebook",
+      "ingredients": [
+        "Harbor",
+        "Notebook"
+      ],
+      "reason": "not selected for this curated 200-element release"
+    },
+    {
+      "branch": "Culture",
+      "proposal": "Street Art Photo Album",
+      "ingredients": [
+        "Art",
+        "Photo Album"
+      ],
+      "reason": "unordered ingredient pair already has a result"
+    },
+    {
+      "branch": "Culture",
+      "proposal": "School Weather Station",
+      "ingredients": [
+        "School",
+        "Forecast"
+      ],
+      "reason": "not selected for this curated 200-element release"
+    },
+    {
+      "branch": "Culture",
+      "proposal": "Local Wildlife Newsletter",
+      "ingredients": [
+        "Wildlife Camera",
+        "Newspaper"
+      ],
+      "reason": "not selected for this curated 200-element release"
+    },
+    {
+      "branch": "Culture",
+      "proposal": "Community Star Chart",
+      "ingredients": [
+        "Village",
+        "Star"
+      ],
+      "reason": "not selected for this curated 200-element release"
+    },
+    {
+      "branch": "Space",
+      "proposal": "Moon Surface Sketch",
+      "ingredients": [
+        "Moon",
+        "Sketchbook"
+      ],
+      "reason": "ingredient does not exist in V58 catalog; no automatic substitution accepted"
+    },
+    {
+      "branch": "Space",
+      "proposal": "Satellite Research Notebook",
+      "ingredients": [
+        "Satellite",
+        "Notebook"
+      ],
+      "reason": "not selected for this curated 200-element release"
+    },
+    {
+      "branch": "Space",
+      "proposal": "Rocket Museum Exhibit",
+      "ingredients": [
+        "Rocket",
+        "Museum"
+      ],
+      "reason": "not selected for this curated 200-element release"
+    },
+    {
+      "branch": "Space",
+      "proposal": "Galaxy Viewing Window",
+      "ingredients": [
+        "Galaxy",
+        "Glass"
+      ],
+      "reason": "not selected for this curated 200-element release"
+    },
+    {
+      "branch": "Space",
+      "proposal": "Meteorite Research Station",
+      "ingredients": [
+        "Meteorite",
+        "Science"
+      ],
+      "reason": "not selected for this curated 200-element release"
+    },
+    {
+      "branch": "Space",
+      "proposal": "Space Garden Biodome",
+      "ingredients": [
+        "Space",
+        "Garden"
+      ],
+      "reason": "not selected for this curated 200-element release"
+    },
+    {
+      "branch": "Space",
+      "proposal": "Asteroid Mineral Catalog",
+      "ingredients": [
+        "Asteroid",
+        "Book"
+      ],
+      "reason": "not selected for this curated 200-element release"
+    },
+    {
+      "branch": "Wildlife",
+      "proposal": "Owl Forest Nest Log",
+      "ingredients": [
+        "Owl",
+        "Forest"
+      ],
+      "reason": "unordered ingredient pair already has a result"
+    },
+    {
+      "branch": "Wildlife",
+      "proposal": "Butterfly Flower Trail",
+      "ingredients": [
+        "Butterfly",
+        "Flower"
+      ],
+      "reason": "unordered ingredient pair already has a result"
+    },
+    {
+      "branch": "Wildlife",
+      "proposal": "Deer Footprint Album",
+      "ingredients": [
+        "Deer",
+        "Photo Album"
+      ],
+      "reason": "not selected for this curated 200-element release"
+    },
+    {
+      "branch": "Wildlife",
+      "proposal": "Hedgehog Garden Survey",
+      "ingredients": [
+        "Hedgehog",
+        "Nature Journal"
+      ],
+      "reason": "not selected for this curated 200-element release"
+    },
+    {
+      "branch": "Wildlife",
+      "proposal": "Jellyfish Deep Sea Photograph",
+      "ingredients": [
+        "Jellyfish",
+        "Underwater Camera"
+      ],
+      "reason": "not selected for this curated 200-element release"
+    },
+    {
+      "branch": "Wildlife",
+      "proposal": "Wildlife Habitat Exhibit",
+      "ingredients": [
+        "Animal",
+        "Museum"
+      ],
+      "reason": "not selected for this curated 200-element release"
+    },
+    {
+      "branch": "Craft",
+      "proposal": "Forest Fern Bookmark",
+      "ingredients": [
+        "Fern",
+        "Book"
+      ],
+      "reason": "not selected for this curated 200-element release"
+    },
+    {
+      "branch": "Craft",
+      "proposal": "Wooden Nature Display Stand",
+      "ingredients": [
+        "Wood",
+        "Museum"
+      ],
+      "reason": "not selected for this curated 200-element release"
+    },
+    {
+      "branch": "Craft",
+      "proposal": "Herb Garden Gift Basket",
+      "ingredients": [
+        "Herb Garden",
+        "Bread Basket"
+      ],
+      "reason": "not selected for this curated 200-element release"
+    },
+    {
+      "branch": "Craft",
+      "proposal": "Crystal Museum Ornament",
+      "ingredients": [
+        "Crystal",
+        "Museum"
+      ],
+      "reason": "unordered ingredient pair already has a result"
+    },
+    {
+      "branch": "Craft",
+      "proposal": "Rainforest Flower Garland",
+      "ingredients": [
+        "Rainforest",
+        "Flower"
+      ],
+      "reason": "not selected for this curated 200-element release"
+    }
+  ]
+}

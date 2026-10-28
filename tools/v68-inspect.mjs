@@ -1,0 +1,5 @@
+import {ORGANIC_V67} from "../client/src/organic-pack-v67.js";
+import {ORGANIC_V65} from "../client/src/organic-pack-v65.js";
+import {DATA} from '../client/src/legacy-data.js';import {PACK} from '../client/src/creative-pack.js';import {buildCatalog} from '../client/src/catalog-integrity.js';import {ORGANIC_V66} from '../client/src/organic-pack-v66.js';
+const packs=[PACK];for(const v of ['gaming-v22','gaming-v23','gaming-v24','gaming-v26','gaming-v27','gaming-v30','organic-v32','organic-v34','organic-v37','organic-v38','organic-v40','organic-v41','organic-v42','organic-v43','organic-v44','organic-v45','organic-v46','organic-v47','organic-v50','organic-v52','organic-v53','organic-v55','organic-v56','organic-v57','organic-v58','organic-v59','organic-v61','organic-v62','organic-v63']){const f=v.replace('gaming','gaming-pack').replace('organic','organic-pack');const m=await import('../client/src/'+f+'.js');packs.push(Object.values(m)[0]);}
+const c=buildCatalog(DATA,[...packs,ORGANIC_V65,ORGANIC_V66,ORGANIC_V67]);console.log(JSON.stringify({items:c.items.map(x=>({name:x.name,id:x.id})),recipes:Object.fromEntries(c.recipes)}));
