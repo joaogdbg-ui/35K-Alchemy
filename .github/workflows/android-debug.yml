@@ -82,6 +82,25 @@ jobs:
           updated, nname = re.subn(r'(?m)^([ \t]*versionName[ \t]+)["\'][^"\']+["\']', lambda m: m.group(1) + '"' + name + '"', updated, count=1)
           if ncode != 1 or nname != 1:
               raise SystemExit('Expected exactly one versionCode/versionName in android/app/build.gradle')
+          # The Android build system may use its own auto-generated debug keystore.
+          # Explicitly bind the debug buildType to 35K Alchemy's verified key.
+          def inject_signing(m):
+              indent = m.group(1)
+              return (
+                  indent + 'signingConfigs {\n'
+                  + indent + '    alchemyDebug {\n'
+                  + indent + '        storeFile file(System.getProperty("user.home") + "/.android/debug.keystore")\n'
+                  + indent + '        storePassword "android"\n'
+                  + indent + '        keyAlias "androiddebugkey"\n'
+                  + indent + '        keyPassword "android"\n'
+                  + indent + '    }\n'
+                  + indent + '}\n'
+                  + indent + 'buildTypes {\n'
+                  + indent + '    debug { signingConfig signingConfigs.alchemyDebug }'
+              )
+          updated, nsign = re.subn(r'(?m)^([ \t]*)buildTypes[ \t]*\{', inject_signing, updated, count=1)
+          if nsign != 1:
+              raise SystemExit('Could not force 35K Alchemy debug signingConfig')
           path.write_text(updated, encoding='utf-8')
           print('Android versionCode:', code, 'versionName:', name)
           PY
