@@ -1,15 +1,25 @@
-# Importação completa num ficheiro (V67)
+# One-file V68 GitHub import — no manual extraction
 
-A estrutura inicial, regras e workflows já estão publicados. Para transferir **o jogo completo** sem carregar milhares de SVGs, usar o arquivo `35K_Alchemy_GitHub_Source_V67.tar.xz` fornecido no ChatGPT.
+Use the tested source file **`35K_Alchemy_V68_GitHub_Import.tar.xz`** (about 8.7 MB) from the ChatGPT V68 migration response.
 
-1. Abrir a raiz do [repositório](https://github.com/joaogdbg-ui/35K-Alchemy), selecionar **Add file → Upload files**, escolher o arquivo `.tar.xz`, criar commit em `main`.
-2. Abrir **Actions → Import full V67 source and build APK → Run workflow**.
-3. A ação verifica o SHA-256, importa fontes e recursos, remove o arquivo da branch, preserva `.git`, executa testes, constrói HTML e tenta gerar um **APK debug**.
-4. Se a construção for concluída, abrir a execução e descarregar o artefacto **35K-Alchemy-V67-debug-APK**.
+1. On GitHub, open [35K-Alchemy](https://github.com/joaogdbg-ui/35K-Alchemy).
+2. Select **Add file → Upload files**. Upload the original `.tar.xz` (not the 52 MB original V68 ZIP); **Commit directly to main**.
+3. Open [Actions](https://github.com/joaogdbg-ui/35K-Alchemy/actions), select **Import full V68 source and build APK**, and click **Run workflow** on `main`.
+4. The workflow checks the archive SHA-256, extracts V68 source + 2,963 files, removes the archive, commits the project to GitHub, runs Node tests and the standalone build, then builds a Capacitor Android debug APK.
+5. On success, download the artifact **35K-Alchemy-V68-debug-APK** from the workflow run; unzip the artifact and install `app-debug.apk` on Android.
+6. For later builds use the separate **Build Android debug APK** action.
 
-SHA-256 esperado:
-`5633f9b127a08f6c1f8f35f76fad1241ab1952832f1702ce9f1e468885362421`
+Pinned SHA-256:
+```
+24f348a349d0b5b8f26ebf99f12662bf17163e57cb6866287c2d35572c425c92
+```
 
-**Avisos:** se o upload pelo browser exceder a quota permitida, usar Git CLI e `IMPORT_TO_GITHUB.sh` do pacote ZIP alternativo. A compilação Android/Gradle ainda não foi executada em runner GitHub nesta data; por isso, não há garantia de APK até o workflow passar. Este é um **APK de testes**, não AAB release assinado. Integração real de AdMob/UMP e SSV continua pendente.
+Do not upload the historical full V68 project ZIP and do not upload a random renamed archive; the checksum is deliberate.
 
-Repositório é público; a importação também torna os fontes e recursos visíveis publicamente. Rever direitos e marcas antes de distribuição comercial.
+## Boundaries
+
+- Tested: 252 Node tests, V68 HTML rebuilt byte-for-byte from staged source, V68 art audit.
+- Not yet tested: successful remote GitHub Actions/Gradle Android build, in-device behavior, old browser save migration, native AdMob callbacks, UMP, SSV.
+- Current config uses provisional app ID `com.joaogdbg.alchemy35k`. Confirm before publishing.
+- The repository is **public**, so imported sources and SVGs will be visible. Review IP and marketing assets before release.
+- Android-rewarded-ad Kotlin reference sits in `native-reference/rewarded-ads/` to prevent conflicts with `npx cap add android`. It is **not automatically installed**.
