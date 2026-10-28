@@ -112,6 +112,12 @@ function applyTheme(){
  const dark=selectedTheme==='dark'||(selectedTheme==='system'&&!!systemDark?.matches);
  document.documentElement.dataset.theme=dark?'dark':'light';
  document.querySelector('meta[name="theme-color"]')?.setAttribute('content',dark?'#17191d':'#f7f5f2');
+ // Capacitor 8 edge-to-edge: use legible Android status/navigation bar
+ // icons against the actual in-game theme. No plugin in standalone HTML.
+ const systemBars=window.Capacitor?.Plugins?.SystemBars;
+ if(typeof systemBars?.setStyle==='function'){
+  Promise.resolve(systemBars.setStyle({style:dark?'DARK':'LIGHT'})).catch(()=>{});
+ }
  document.querySelectorAll('[data-theme-choice]').forEach(el=>el.setAttribute('aria-pressed',String(el.dataset.themeChoice===selectedTheme)));
 }
 applyTheme();systemDark?.addEventListener?.('change',()=>{if(selectedTheme==='system')applyTheme();});
