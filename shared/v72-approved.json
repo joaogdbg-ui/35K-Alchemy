@@ -1,0 +1,211 @@
+{
+  "version": 72,
+  "new_items": [
+    {
+      "name": "Joystick Repair Kit",
+      "id": "organic72:joystick-repair-kit",
+      "ingredients": [
+        "legacy:83",
+        "legacy:588"
+      ],
+      "path": "client/assets/v72/new/joystick-repair-kit.svg",
+      "art_mode": "bespoke-subject"
+    },
+    {
+      "name": "Arcade Token Tray",
+      "id": "organic72:arcade-token-tray",
+      "ingredients": [
+        "organic34:arcade-ticket",
+        "legacy:108"
+      ],
+      "path": "client/assets/v72/new/arcade-token-tray.svg",
+      "art_mode": "bespoke-subject"
+    },
+    {
+      "name": "Pinball Score Display",
+      "id": "organic72:pinball-score-display",
+      "ingredients": [
+        "legacy:173",
+        "legacy:76"
+      ],
+      "path": "client/assets/v72/new/pinball-score-display.svg",
+      "art_mode": "bespoke-subject"
+    },
+    {
+      "name": "Rhythm Drum Pedal",
+      "id": "organic72:rhythm-drum-pedal",
+      "ingredients": [
+        "legacy:599",
+        "legacy:201"
+      ],
+      "path": "client/assets/v72/new/rhythm-drum-pedal.svg",
+      "art_mode": "bespoke-subject"
+    },
+    {
+      "name": "Handheld Screen Protector",
+      "id": "organic72:handheld-screen-protector",
+      "ingredients": [
+        "legacy:169",
+        "legacy:23"
+      ],
+      "path": "client/assets/v72/new/handheld-screen-protector.svg",
+      "art_mode": "bespoke-subject"
+    },
+    {
+      "name": "Cartridge Dust Cover",
+      "id": "organic72:cartridge-dust-cover",
+      "ingredients": [
+        "legacy:151",
+        "legacy:9"
+      ],
+      "path": "client/assets/v72/new/cartridge-dust-cover.svg",
+      "art_mode": "bespoke-subject"
+    },
+    {
+      "name": "Retro Game Shelf",
+      "id": "organic72:retro-game-shelf",
+      "ingredients": [
+        "legacy:232",
+        "legacy:24"
+      ],
+      "path": "client/assets/v72/new/retro-game-shelf.svg",
+      "art_mode": "bespoke-subject"
+    },
+    {
+      "name": "Controller Charging Dock",
+      "id": "organic72:controller-charging-dock",
+      "ingredients": [
+        "legacy:323",
+        "legacy:69"
+      ],
+      "path": "client/assets/v72/new/controller-charging-dock.svg",
+      "art_mode": "bespoke-subject"
+    },
+    {
+      "name": "Pixel Art Palette",
+      "id": "organic72:pixel-art-palette",
+      "ingredients": [
+        "legacy:219",
+        "organic34:pixel-artist"
+      ],
+      "path": "client/assets/v72/new/pixel-art-palette.svg",
+      "art_mode": "bespoke-subject"
+    },
+    {
+      "name": "Arcade Prize Claw",
+      "id": "organic72:arcade-prize-claw",
+      "ingredients": [
+        "legacy:172",
+        "legacy:123"
+      ],
+      "path": "client/assets/v72/new/arcade-prize-claw.svg",
+      "art_mode": "bespoke-subject"
+    },
+    {
+      "name": "Pinball Bumper Set",
+      "id": "organic72:pinball-bumper-set",
+      "ingredients": [
+        "legacy:333",
+        "legacy:109"
+      ],
+      "path": "client/assets/v72/new/pinball-bumper-set.svg",
+      "art_mode": "bespoke-subject"
+    },
+    {
+      "name": "Racing Arcade Wheel",
+      "id": "organic72:racing-arcade-wheel",
+      "ingredients": [
+        "legacy:226",
+        "legacy:81"
+      ],
+      "path": "client/assets/v72/new/racing-arcade-wheel.svg",
+      "art_mode": "bespoke-subject"
+    },
+    {
+      "name": "Dance Arcade Lights",
+      "id": "organic72:dance-arcade-lights",
+      "ingredients": [
+        "legacy:334",
+        "legacy:636"
+      ],
+      "path": "client/assets/v72/new/dance-arcade-lights.svg",
+      "art_mode": "bespoke-subject"
+    },
+    {
+      "name": "Pocket Game Case",
+      "id": "organic72:pocket-game-case",
+      "ingredients": [
+        "legacy:169",
+        "legacy:106"
+      ],
+      "path": "client/assets/v72/new/pocket-game-case.svg",
+      "art_mode": "bespoke-subject"
+    },
+    {
+      "name": "Multiplayer Scoreboard",
+      "id": "organic72:multiplayer-scoreboard",
+      "ingredients": [
+        "organic34:co-op-game",
+        "legacy:76"
+      ],
+      "path": "client/assets/v72/new/multiplayer-scoreboard.svg",
+      "art_mode": "bespoke-subject"
+    },
+    {
+      "name": "Puzzle Piece Organizer",
+      "id": "organic72:puzzle-piece-organizer",
+      "ingredients": [
+        "legacy:225",
+        "legacy:24"
+      ],
+      "path": "client/assets/v72/new/puzzle-piece-organizer.svg",
+      "art_mode": "bespoke-subject"
+    },
+    {
+      "name": "Video Game Concept Sketch",
+      "id": "organic72:video-game-concept-sketch",
+      "ingredients": [
+        "organic34:game-studio",
+        "legacy:106"
+      ],
+      "path": "client/assets/v72/new/video-game-concept-sketch.svg",
+      "art_mode": "bespoke-subject"
+    },
+    {
+      "name": "Arcade High Score Trophy",
+      "id": "organic72:arcade-high-score-trophy",
+      "ingredients": [
+        "legacy:171",
+        "legacy:612"
+      ],
+      "path": "client/assets/v72/new/arcade-high-score-trophy.svg",
+      "art_mode": "bespoke-subject"
+    },
+    {
+      "name": "Game Debug Console",
+      "id": "organic72:game-debug-console",
+      "ingredients": [
+        "legacy:247",
+        "legacy:91"
+      ],
+      "path": "client/assets/v72/new/game-debug-console.svg",
+      "art_mode": "bespoke-subject"
+    },
+    {
+      "name": "Electronic Board Game Tokens",
+      "id": "organic72:electronic-board-game-tokens",
+      "ingredients": [
+        "legacy:162",
+        "legacy:70"
+      ],
+      "path": "client/assets/v72/new/electronic-board-game-tokens.svg",
+      "art_mode": "bespoke-subject"
+    }
+  ],
+  "base_catalog": {
+    "elements": 5212,
+    "recipes": 13549
+  },
+  "count": 20,
+  "remaining_to_200": 140
+}
