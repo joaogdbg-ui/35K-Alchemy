@@ -1,10 +1,10 @@
 # Alchemy 10K — mythology and prehistory expansion contract
-_Last edited: 29 October 2026. This is an editorial plan; do not mistake proposed items for existing catalog entries._
+_Last edited: 29 October 2026. Planned names below are not necessarily implemented; consult the current V82 manifest for real additions._
 
 ## Actual V81 baseline and this maintenance branch
 - Baseline main commit: `2aba8395f48082964bc2af2ff20a468c56dd464b`; **5,812 real IDs**, **14,149 global unordered recipes**.
 - Active target: **10,000+ genuine discoveries**. Twenty-one releases of **exactly +200** reach **10,012**. Historical 35K notes are obsolete for the active target.
-- This maintenance branch does **not** claim a new +200 release. It adds two closed Family Only campaigns from existing recipes: **Mythology & Gods (16/16)** and **Prehistory & Dinosaurs (9/9)**. They are deliberately starter graphs, not finished encyclopedias.
+- The branch remains **unmerged WIP**, but the first 25 **new** V82 catalog IDs and 25 unique subject SVGs have now been authored, alongside the two independently closed Family Only campaigns. V82 progress is **25/200** (18 mythology, 7 prehistory); remaining **175**. Original family baselines were **16/16** and **9/9**, while WIP thematic families contain **34/34** and **16/16** candidate-reachable items. Full-history CI and artwork QA still pending.
 - Existing V53 Nature & Science: 476/476, but the four Nature starters are still exactly Classic's (tracked defect). Existing People & Culture: 211/211. Preserve historical IDs and save format.
 
 ## Families Only — immutable rules
@@ -15,7 +15,7 @@ _Last edited: 29 October 2026. This is an editorial plan; do not mistake propose
 5. Each *new* family member requires a recipe path from the same four starters, and isolated closure must be tested after **every** proposed addition. Theme membership alone does not make a family completable.
 
 ## New family 1: Mythology & Gods
-**Current starters:** Human, History, Magic, Sky (global IDs unchanged). **Existing results:** God, Legend, Hero, Fantasy, Transformation, Shapeshifter, Leader, Psychic, Clan, Ancient City and additional foundations; all 16 IDs reachable with 12 permitted recipes.
+**Current starters:** Human, History, Magic, Sky (global IDs unchanged). **V82 WIP +18 elements:** Zeus, Poseidon, Athena, Jupiter, Odin, Norse Thor/Loki and bridges. **Starter graph results:** God, Legend, Hero, Fantasy, Transformation, Shapeshifter, Leader, Psychic, Clan, Ancient City and additional foundations; all 16 baseline IDs reachable with 12 permitted recipes; WIP expands this graph to 34 IDs.
 
 ### Editorial expansion by tradition
 - **Greek:** Zeus, Hera, Poseidon, Demeter, Athena, Apollo, Artemis, Ares, Aphrodite, Hermes, Hephaestus, Hestia, Hades, Persephone, Dionysus, Cronus, Gaia; realms Olympus, Underworld, Tartarus, and figures Medusa, Minotaur, Cerberus, Pegasus, Hydra, Cyclops.
@@ -37,7 +37,7 @@ _Last edited: 29 October 2026. This is an editorial plan; do not mistake propose
 Every proposed bridge must be reconciled with the **complete** 14,149+ global pair map, not just a theme's local pairs. No invented dual outcomes.
 
 ## New family 2: Prehistory & Dinosaurs
-**Current starters:** Animal, Stone, Life, History. **Existing craftable nodes:** Fossil, Dinosaur, Archaeology, Monument and Limestone; 9/9 reachable from five global recipes.
+**Current starters:** Animal, Stone, Life, History. **V82 WIP +7 elements:** Stegosaurus, Ankylosaurus, Mesozoic, Jurassic, Cretaceous, fossil skeleton and armor. **Baseline craftable nodes:** Fossil, Dinosaur, Archaeology, Monument and Limestone; 9/9 reachable from five global recipes; WIP graph grows to 16 items.
 
 ### Editorial expansion
 - **Geological time:** Triassic, Jurassic, Cretaceous, Mesozoic, Permian, Pleistocene, Mass Extinction, Asteroid Impact, Amber, Fossil Bed, Dinosaur Footprint, Trackway, Excavation, Paleontology, Fossil Skeleton.
