@@ -123,6 +123,10 @@ const MEDIA_NAME_RULES = Object.freeze(MEDIA_NAME_PAIRS.slice()
    return [new RegExp('\\b'+escaped+'\\b','gi'),fiction];
  }));
 const MEDIA_CATEGORIES=new Set(['game','film','movie','anime','manga','series','character','music']);
+// These words are also normal vocabulary in science, astronomy or hardware.
+const AMBIGUOUS_BRAND_SOURCES=new Set([String.raw`\bPortal\b`,String.raw`\bHalo\b`,String.raw`\bValve\b`,String.raw`\bDOOM\b`,String.raw`\bSonic\b`,String.raw`\bKnuckles\b`]);
+const isMedia=item=>MEDIA_CATEGORIES.has(item?.category);
+const isContextual=([pattern],item)=>isMedia(item)||!AMBIGUOUS_BRAND_SOURCES.has(pattern.source);
 export const PUBLIC_IP_SIGNALS = Object.freeze(
   [...RULES,...MEDIA_NAME_RULES].map(([pattern])=>new RegExp(pattern.source,pattern.flags.replace('g','')))
 );
@@ -132,8 +136,9 @@ export function publicText(value) {
   return result;
 }
 export function publicName(item) {
-  let label=publicText(item?.name??'');
- if(MEDIA_CATEGORIES.has(item?.category))for(const [pattern,fiction] of MEDIA_NAME_RULES)label=label.replace(pattern,fiction);
+  let label=String(item?.name??'');
+  for(const rule of RULES)if(isContextual(rule,item))label=label.replace(rule[0],rule[1]);
+  if(isMedia(item))for(const [pattern,fiction] of MEDIA_NAME_RULES)label=label.replace(pattern,fiction);
  return label;
 }
 /** Stable UI labels; collisions get an explicit distinction, never change IDs. */
@@ -151,7 +156,7 @@ export function buildPublicNameIndex(items) {
 
 /** False positives for common terms are excluded outside media categories. */
 export function hasUnresolvedPublicIPSignal(item, label=publicName(item)) {
-  return RULES.some(([pattern])=>new RegExp(pattern.source,pattern.flags.replace('g','')).test(label))
-    || (MEDIA_CATEGORIES.has(item?.category)
+  return RULES.some(rule=>isContextual(rule,item)&&new RegExp(rule[0].source,rule[0].flags.replace('g','')).test(label))
+    || (isMedia(item)
       && MEDIA_NAME_RULES.some(([pattern])=>new RegExp(pattern.source,pattern.flags.replace('g','')).test(label)));
 }
