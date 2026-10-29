@@ -1,6 +1,6 @@
 import test from 'node:test';
 import assert from 'node:assert/strict';
-import {publicText,publicName,buildPublicNameIndex,PUBLIC_IP_SIGNALS} from '../src/ip-safe-names.js';
+import {publicText,publicName,buildPublicNameIndex,PUBLIC_IP_SIGNALS,hasUnresolvedPublicIPSignal} from '../src/ip-safe-names.js';
 test('Mock labels replace console and entertainment identities, preserving input',()=>{
  const data=[
  ['Nintendo Switch 2 Cartridge Case','GlidePort II Cartridge Case'],
@@ -29,4 +29,13 @@ test('High-confidence franchise signals are absent from sample public labels',()
   const result=publicText(name);
   for(const signal of PUBLIC_IP_SIGNALS)assert.equal(signal.test(result),false,name+' => '+result);
  }
+});
+
+test('Game-title names do not rewrite non-media common words',()=>{
+  assert.equal(publicName({name:'Hades',category:'mythology'}),'Hades');
+  assert.equal(publicName({name:'Hades',category:'game'}),'Underrealm');
+  assert.equal(publicName({name:'Half-Life 2',category:'game'}),'Half Dawn 2');
+  assert.equal(publicName({name:'The Sims 4',category:'game'}),'Life Neighbors 4');
+  assert.equal(hasUnresolvedPublicIPSignal({name:'Hades',category:'mythology'}),false);
+  assert.equal(hasUnresolvedPublicIPSignal({name:'Monster Hunter',category:'game'}),false);
 });

@@ -148,3 +148,10 @@ export function buildPublicNameIndex(items) {
   }
   return result;
 }
+
+/** False positives for common terms are excluded outside media categories. */
+export function hasUnresolvedPublicIPSignal(item, label=publicName(item)) {
+  return RULES.some(([pattern])=>new RegExp(pattern.source,pattern.flags.replace('g','')).test(label))
+    || (MEDIA_CATEGORIES.has(item?.category)
+      && MEDIA_NAME_RULES.some(([pattern])=>new RegExp(pattern.source,pattern.flags.replace('g','')).test(label)));
+}
