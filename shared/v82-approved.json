@@ -1,0 +1,186 @@
+{
+  "version": 82,
+  "cohort_count": 14,
+  "expansion_goal": 200,
+  "expansion_progress": 14,
+  "remaining_to_goal": 186,
+  "cycle_complete": false,
+  "base_catalog": {
+    "elements": 5972,
+    "recipes": 14309
+  },
+  "expected_catalog": {
+    "elements": 5986,
+    "recipes": 14323
+  },
+  "new_items": [
+    {
+      "id": "organic82:dinosaur-skeleton-model",
+      "name": "Dinosaur Skeleton Model",
+      "category": "board",
+      "summary": "A miniature dinosaur skeleton stands on a display plinth with a curved neck and carefully assembled rib bones.",
+      "ingredients": [
+        "organic81:dinosaur-bone",
+        "organic81:miniature-terrain-toolbox"
+      ],
+      "art_mode": "bespoke-subject",
+      "path": "client/assets/v82/dinosaur-skeleton-model.svg"
+    },
+    {
+      "id": "organic82:fossil-field-guide",
+      "name": "Fossil Field Guide",
+      "category": "science",
+      "summary": "An open field guide illustrates fossil bones, ammonite spirals and notes for identifying prehistoric remains.",
+      "ingredients": [
+        "organic81:fossil-excavation",
+        "legacy:51"
+      ],
+      "art_mode": "bespoke-subject",
+      "path": "client/assets/v82/fossil-field-guide.svg"
+    },
+    {
+      "id": "organic82:dinosaur-egg-incubator",
+      "name": "Dinosaur Egg Incubator",
+      "category": "science",
+      "summary": "A glass incubator monitors the temperature of mottled dinosaur eggs under a soft warming lamp.",
+      "ingredients": [
+        "organic81:triceratops-nest",
+        "legacy:53"
+      ],
+      "art_mode": "bespoke-subject",
+      "path": "client/assets/v82/dinosaur-egg-incubator.svg"
+    },
+    {
+      "id": "organic82:prehistoric-footprint-trail",
+      "name": "Prehistoric Footprint Trail",
+      "category": "nature",
+      "summary": "A muddy trail through ancient ferns contains alternating three-toed dinosaur tracks leading into the forest.",
+      "ingredients": [
+        "organic81:dinosaur-footprint",
+        "legacy:20"
+      ],
+      "art_mode": "bespoke-subject",
+      "path": "client/assets/v82/prehistoric-footprint-trail.svg"
+    },
+    {
+      "id": "organic82:amber-beetle-showcase",
+      "name": "Amber Beetle Showcase",
+      "category": "culture",
+      "summary": "A polished amber beetle fossil glows beneath a small transparent display cover on a wooden museum plinth.",
+      "ingredients": [
+        "organic81:fossil-beetle",
+        "legacy:23"
+      ],
+      "art_mode": "bespoke-subject",
+      "path": "client/assets/v82/amber-beetle-showcase.svg"
+    },
+    {
+      "id": "organic82:ammonite-pendant",
+      "name": "Ammonite Pendant",
+      "category": "fantasy",
+      "summary": "A spiral ammonite fossil becomes a polished jewelry pendant suspended from a fine golden chain.",
+      "ingredients": [
+        "organic81:ammonite-shell",
+        "legacy:33"
+      ],
+      "art_mode": "bespoke-subject",
+      "path": "client/assets/v82/ammonite-pendant.svg"
+    },
+    {
+      "id": "organic82:dinosaur-strategy-board",
+      "name": "Dinosaur Strategy Board",
+      "category": "board",
+      "summary": "A prehistoric board game uses miniature horned dinosaurs and forest tiles to compete for ancient habitats.",
+      "ingredients": [
+        "organic81:triceratops",
+        "legacy:107"
+      ],
+      "art_mode": "bespoke-subject",
+      "path": "client/assets/v82/dinosaur-strategy-board.svg"
+    },
+    {
+      "id": "organic82:dinosaur-trading-cards",
+      "name": "Dinosaur Trading Cards",
+      "category": "board",
+      "summary": "A fan of collectible cards features original dinosaurs, fossil bones and dramatic prehistoric scenes.",
+      "ingredients": [
+        "organic81:dinosaur-bone",
+        "legacy:160"
+      ],
+      "art_mode": "bespoke-subject",
+      "path": "client/assets/v82/dinosaur-trading-cards.svg"
+    },
+    {
+      "id": "organic82:dinosaur-walk-animation",
+      "name": "Dinosaur Walk Animation",
+      "category": "gamecraft",
+      "summary": "A sprite-animation light table displays successive dinosaur footsteps as numbered game frames.",
+      "ingredients": [
+        "organic81:dinosaur-footprint",
+        "organic81:sprite-animation-light-table"
+      ],
+      "art_mode": "bespoke-subject",
+      "path": "client/assets/v82/dinosaur-walk-animation.svg"
+    },
+    {
+      "id": "organic82:prehistoric-arcade-cabinet",
+      "name": "Prehistoric Arcade Cabinet",
+      "category": "arcade",
+      "summary": "An original arcade machine features a colorful horned-dinosaur adventure on its glowing display.",
+      "ingredients": [
+        "organic81:styracosaurus",
+        "legacy:172"
+      ],
+      "art_mode": "bespoke-subject",
+      "path": "client/assets/v82/prehistoric-arcade-cabinet.svg"
+    },
+    {
+      "id": "organic82:mythic-creature-board",
+      "name": "Mythic Creature Board",
+      "category": "board",
+      "summary": "A fantasy tabletop board maps ancient ruins and uses distinct creature figurines for its adventures.",
+      "ingredients": [
+        "organic81:folklore-bestiary",
+        "legacy:107"
+      ],
+      "art_mode": "bespoke-subject",
+      "path": "client/assets/v82/mythic-creature-board.svg"
+    },
+    {
+      "id": "organic82:monster-trading-card",
+      "name": "Monster Trading Card",
+      "category": "board",
+      "summary": "A collectible fantasy card displays an original tusked monster portrait with combat symbols on its border.",
+      "ingredients": [
+        "organic81:orc",
+        "legacy:160"
+      ],
+      "art_mode": "bespoke-subject",
+      "path": "client/assets/v82/monster-trading-card.svg"
+    },
+    {
+      "id": "organic82:gothic-film-set",
+      "name": "Gothic Film Set",
+      "category": "film",
+      "summary": "A movie set recreates a gothic castle with a clapboard, camera tripod and dramatic stage lighting.",
+      "ingredients": [
+        "organic81:gothic-castle",
+        "legacy:85"
+      ],
+      "art_mode": "bespoke-subject",
+      "path": "client/assets/v82/gothic-film-set.svg"
+    },
+    {
+      "id": "organic82:werewolf-film-makeup",
+      "name": "Werewolf Film Makeup",
+      "category": "film",
+      "summary": "A film prosthetics table holds a realistic werewolf mask, makeup brushes and theatrical fur patches.",
+      "ingredients": [
+        "organic81:lunar-werewolf",
+        "legacy:207"
+      ],
+      "art_mode": "bespoke-subject",
+      "path": "client/assets/v82/werewolf-film-makeup.svg"
+    }
+  ]
+}
