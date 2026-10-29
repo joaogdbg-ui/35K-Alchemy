@@ -34,7 +34,8 @@ const EXTRA_THEMATIC_MEMBERSHIP = new Map([
 ]);
 export const familiesFor=(item)=>{
  const primary=familyFor(item), secondary=SECONDARY_FAMILY_IDS.get(item?.id);
- return [...new Set([primary,...(secondary?[secondary]:[]),...(EXTRA_THEMATIC_MEMBERSHIP.get(item?.id)||[])])];
+ const declared=Array.isArray(item?.familyCampaigns)?item.familyCampaigns.filter(id=>FAMILIES.some(f=>f.id===id)):[];
+ return [...new Set([primary,...(secondary?[secondary]:[]),...(EXTRA_THEMATIC_MEMBERSHIP.get(item?.id)||[]),...declared])];
 };
 export function groupFamilies(items,unlocked){
  const groups=Object.fromEntries(FAMILIES.map(f=>[f.id,{...f,ids:[],found:0,total:0}]));
