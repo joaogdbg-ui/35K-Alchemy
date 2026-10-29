@@ -119,3 +119,5 @@ Este repositório é público: fontes e assets ficam acessíveis aos visitantes.
 - Static structural screening of every active organic SVG map and the semantic gameverse SVG atlas via `tools/audit-active-artwork.mjs`.
 - Automated audit reports names that have **not** been fictionalized as an editorial review queue. A static PASS **does not** imply a rights clearance or review of visual likeness.
 - Read [IP_AUDIT_V76_2.md](docs/IP_AUDIT_V76_2.md) before any commercial release.
+
+V76.3: nomes fictícios anteriormente coincidentes com empresas reais foram substituídos; ver a documentação de risco V76.2. IDs e receitas mantidos.
