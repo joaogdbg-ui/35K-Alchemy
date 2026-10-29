@@ -27,8 +27,8 @@
     "id": "organic77:solar-battery-cell",
     "name": "Solar Battery Cell",
     "ingredients": [
-      "legacy:69",
-      "organic32:solar-power"
+      "legacy:141",
+      "organic76:sega-game-gear-power-bank"
     ],
     "category": "technology",
     "summary": "A palm-sized solar module stores daylight for the next late-night session.",
@@ -99,8 +99,8 @@
     "id": "organic77:storm-sensor-beacon",
     "name": "Storm Sensor Beacon",
     "ingredients": [
-      "legacy:86",
-      "organic41:storm"
+      "organic41:storm",
+      "organic77:signal-decoder"
     ],
     "category": "technology",
     "summary": "A weatherproof beacon flashes a warning when rainfall turns into a storm.",
