@@ -15,7 +15,7 @@ const modes=['gaming-v22','gaming-v23','gaming-v24','gaming-v26','gaming-v27','g
 const packs=[PACK];
 for(const n of modes){const f=n.replace('gaming','gaming-pack').replace('organic','organic-pack');const v=await import('../client/src/'+f+'.js');packs.push(Object.values(v)[0]);}
 const prior=buildCatalog(DATA,[...packs,ORGANIC_V71,ORGANIC_V72]);
-const now=buildCatalog(DATA,[...packs,ORGANIC_V71,ORGANIC_V72,ORGANIC_V73,ORGANIC_V74]);
+const now=buildCatalog(DATA,[...packs,ORGANIC_V71,ORGANIC_V72,ORGANIC_V73]);
 check(prior.items.length===5232&&prior.recipes.size===13569,'V72 baseline changed');
 check(now.items.length===5256&&now.recipes.size===13593,'V73 catalog totals incorrect');
 for(const [key,value] of prior.recipes)check(now.recipes.get(key)===value,'prior fixed outcome changed '+key);
@@ -44,7 +44,7 @@ for(const item of ORGANIC_V73.items){
  check(now.recipes.get(key)===item.id,'non-deterministic formula '+item.name);
 }
 const app=readFileSync('client/src/app.js','utf8');
-check(app.includes('ORGANIC_V71,ORGANIC_V72,ORGANIC_V73]'),'V73 catalog import missing');
+check(app.includes('ORGANIC_V71,ORGANIC_V72,ORGANIC_V73,ORGANIC_V74]'),'V73 catalog import missing');
 check(app.includes('ORGANIC_ART_V74[itemName]||ORGANIC_ART_V73[itemName]||ORGANIC_ART_V72[itemName]'),'V73 icon precedence missing');
 check(app.includes('const anchorId=this.ids[previousIndex]'),'scroll anchor regression');
 const css=readFileSync('client/src/styles.css','utf8');
