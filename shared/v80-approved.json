@@ -1,17 +1,17 @@
 {
   "version": 80,
-  "cohort_count": 24,
+  "cohort_count": 40,
   "expansion_goal": 200,
-  "expansion_progress": 24,
-  "remaining_to_goal": 176,
+  "expansion_progress": 40,
+  "remaining_to_goal": 160,
   "cycle_complete": false,
   "base_catalog": {
     "elements": 5572,
     "recipes": 13909
   },
   "expected_catalog": {
-    "elements": 5596,
-    "recipes": 13933
+    "elements": 5612,
+    "recipes": 13949
   },
   "new_items": [
     {
@@ -301,6 +301,198 @@
       ],
       "art_mode": "bespoke-subject",
       "path": "client/assets/v80/arcade-dance-trophy.svg"
+    },
+    {
+      "id": "organic80:arcade-score-camera",
+      "name": "Arcade Score Camera",
+      "category": "arcade",
+      "summary": "An overhead score camera tracks every step that dancers make on the arcade platform.",
+      "ingredients": [
+        "organic80:arcade-dance-platform",
+        "legacy:85"
+      ],
+      "art_mode": "bespoke-subject",
+      "path": "client/assets/v80/arcade-score-camera.svg"
+    },
+    {
+      "id": "organic80:cartridge-repair-bench",
+      "name": "Cartridge Repair Bench",
+      "category": "technology",
+      "summary": "A compact repair bench holds opened game cartridges, drivers, and a soldering iron.",
+      "ingredients": [
+        "organic80:cartridge-archive-vault",
+        "legacy:29"
+      ],
+      "art_mode": "bespoke-subject",
+      "path": "client/assets/v80/cartridge-repair-bench.svg"
+    },
+    {
+      "id": "organic80:cartridge-display-case",
+      "name": "Cartridge Display Case",
+      "category": "technology",
+      "summary": "A transparent display case showcases preserved game cartridges behind clear glass.",
+      "ingredients": [
+        "organic80:cartridge-archive-vault",
+        "legacy:23"
+      ],
+      "art_mode": "bespoke-subject",
+      "path": "client/assets/v80/cartridge-display-case.svg"
+    },
+    {
+      "id": "organic80:cartridge-museum-exhibit",
+      "name": "Cartridge Museum Exhibit",
+      "category": "culture",
+      "summary": "A museum exhibit places restored game cartridges beside an interactive gaming timeline.",
+      "ingredients": [
+        "organic80:cartridge-archive-vault",
+        "organic79:pixel-history-exhibit"
+      ],
+      "art_mode": "bespoke-subject",
+      "path": "client/assets/v80/cartridge-museum-exhibit.svg"
+    },
+    {
+      "id": "organic80:forest-ranger-station",
+      "name": "Forest Ranger Station",
+      "category": "nature",
+      "summary": "A timber ranger station offers woodland maps and emergency advice at the forest edge.",
+      "ingredients": [
+        "organic80:forest-warning-post",
+        "legacy:45"
+      ],
+      "art_mode": "bespoke-subject",
+      "path": "client/assets/v80/forest-ranger-station.svg"
+    },
+    {
+      "id": "organic80:forest-lookout-tower",
+      "name": "Forest Lookout Tower",
+      "category": "nature",
+      "summary": "A tall forest watchtower rises above the canopy to monitor trails and call for help.",
+      "ingredients": [
+        "organic80:forest-warning-post",
+        "organic79:moonwatch-radio-hut"
+      ],
+      "art_mode": "bespoke-subject",
+      "path": "client/assets/v80/forest-lookout-tower.svg"
+    },
+    {
+      "id": "organic80:forest-emergency-shelter",
+      "name": "Forest Emergency Shelter",
+      "category": "nature",
+      "summary": "A wooden lean-to beside the trail shelters hikers during heavy rain and storms.",
+      "ingredients": [
+        "organic80:forest-warning-post",
+        "legacy:24"
+      ],
+      "art_mode": "bespoke-subject",
+      "path": "client/assets/v80/forest-emergency-shelter.svg"
+    },
+    {
+      "id": "organic80:forest-wind-chimes",
+      "name": "Forest Wind Chimes",
+      "category": "nature",
+      "summary": "A forest trail sign holds hollow wind chimes that ring when a breeze passes.",
+      "ingredients": [
+        "organic80:forest-warning-post",
+        "organic79:wooden-wind-chime-rack"
+      ],
+      "art_mode": "bespoke-subject",
+      "path": "client/assets/v80/forest-wind-chimes.svg"
+    },
+    {
+      "id": "organic80:solar-camping-lantern",
+      "name": "Solar Camping Lantern",
+      "category": "technology",
+      "summary": "A solar camping lantern stores daytime sunlight to glow beside the tent at night.",
+      "ingredients": [
+        "organic80:sun-powered-charge-dock",
+        "organic80:glass-firefly-lantern"
+      ],
+      "art_mode": "bespoke-subject",
+      "path": "client/assets/v80/solar-camping-lantern.svg"
+    },
+    {
+      "id": "organic80:solar-charging-backpack",
+      "name": "Solar Charging Backpack",
+      "category": "technology",
+      "summary": "A hiking backpack carries a folding solar panel and protected battery sockets.",
+      "ingredients": [
+        "organic80:sun-powered-charge-dock",
+        "legacy:110"
+      ],
+      "art_mode": "bespoke-subject",
+      "path": "client/assets/v80/solar-charging-backpack.svg"
+    },
+    {
+      "id": "organic80:solar-weather-station",
+      "name": "Solar Weather Station",
+      "category": "science",
+      "summary": "A solar field station records the wind, snow, and sky from a powered sensor mast.",
+      "ingredients": [
+        "organic80:sun-powered-charge-dock",
+        "organic79:blizzard-detector-tower"
+      ],
+      "art_mode": "bespoke-subject",
+      "path": "client/assets/v80/solar-weather-station.svg"
+    },
+    {
+      "id": "organic80:solar-battery-cart",
+      "name": "Solar Battery Cart",
+      "category": "technology",
+      "summary": "A wheeled battery cart carries its own solar panel to power outdoor equipment.",
+      "ingredients": [
+        "organic80:sun-powered-charge-dock",
+        "legacy:44"
+      ],
+      "art_mode": "bespoke-subject",
+      "path": "client/assets/v80/solar-battery-cart.svg"
+    },
+    {
+      "id": "organic80:crystal-treasure-map",
+      "name": "Crystal Treasure Map",
+      "category": "fantasy",
+      "summary": "A folded treasure map marks a crystal compass route into a secret puzzle chamber.",
+      "ingredients": [
+        "organic80:crystal-quest-compass",
+        "legacy:106"
+      ],
+      "art_mode": "bespoke-subject",
+      "path": "client/assets/v80/crystal-treasure-map.svg"
+    },
+    {
+      "id": "organic80:crystal-cave-beacon",
+      "name": "Crystal Cave Beacon",
+      "category": "fantasy",
+      "summary": "A luminous crystal beacon reflects off cavern walls to mark a safe route underground.",
+      "ingredients": [
+        "organic80:crystal-quest-compass",
+        "legacy:37"
+      ],
+      "art_mode": "bespoke-subject",
+      "path": "client/assets/v80/crystal-cave-beacon.svg"
+    },
+    {
+      "id": "organic80:crystal-maze-door",
+      "name": "Crystal Maze Door",
+      "category": "fantasy",
+      "summary": "A stone maze door unlocks when a central crystal aligns with the compass needle.",
+      "ingredients": [
+        "organic80:crystal-quest-compass",
+        "organic79:crystal-gear-lock"
+      ],
+      "art_mode": "bespoke-subject",
+      "path": "client/assets/v80/crystal-maze-door.svg"
+    },
+    {
+      "id": "organic80:enchanted-compass-rose",
+      "name": "Enchanted Compass Rose",
+      "category": "fantasy",
+      "summary": "A magical compass rose points its crystal petals toward a nearby enchantment.",
+      "ingredients": [
+        "organic80:crystal-quest-compass",
+        "legacy:125"
+      ],
+      "art_mode": "bespoke-subject",
+      "path": "client/assets/v80/enchanted-compass-rose.svg"
     }
   ]
 }
