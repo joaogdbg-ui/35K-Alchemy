@@ -1,17 +1,17 @@
 {
   "version": 80,
-  "cohort_count": 8,
+  "cohort_count": 24,
   "expansion_goal": 200,
-  "expansion_progress": 8,
-  "remaining_to_goal": 192,
+  "expansion_progress": 24,
+  "remaining_to_goal": 176,
   "cycle_complete": false,
   "base_catalog": {
     "elements": 5572,
     "recipes": 13909
   },
   "expected_catalog": {
-    "elements": 5580,
-    "recipes": 13917
+    "elements": 5596,
+    "recipes": 13933
   },
   "new_items": [
     {
@@ -109,6 +109,198 @@
       ],
       "art_mode": "bespoke-subject",
       "path": "client/assets/v80/crystal-quest-compass.svg"
+    },
+    {
+      "id": "organic80:harbor-warning-buoy",
+      "name": "Harbor Warning Buoy",
+      "category": "technology",
+      "summary": "A bright warning buoy guides ships around the narrow passage into the floating harbor.",
+      "ingredients": [
+        "organic80:floating-harbor-gate",
+        "legacy:10"
+      ],
+      "art_mode": "bespoke-subject",
+      "path": "client/assets/v80/harbor-warning-buoy.svg"
+    },
+    {
+      "id": "organic80:harbor-fog-bell",
+      "name": "Harbor Fog Bell",
+      "category": "culture",
+      "summary": "A brass fog bell rings over the harbor entrance whenever clouds hide incoming ships.",
+      "ingredients": [
+        "organic80:floating-harbor-gate",
+        "legacy:17"
+      ],
+      "art_mode": "bespoke-subject",
+      "path": "client/assets/v80/harbor-fog-bell.svg"
+    },
+    {
+      "id": "organic80:harbor-cargo-crane",
+      "name": "Harbor Cargo Crane",
+      "category": "technology",
+      "summary": "A pivoting dock crane lifts wooden freight crates onto newly arrived airships.",
+      "ingredients": [
+        "organic80:floating-harbor-gate",
+        "legacy:55"
+      ],
+      "art_mode": "bespoke-subject",
+      "path": "client/assets/v80/harbor-cargo-crane.svg"
+    },
+    {
+      "id": "organic80:floating-harbor-lighthouse",
+      "name": "Floating Harbor Lighthouse",
+      "category": "fantasy",
+      "summary": "A tall glass lighthouse throws a warm guiding beam across the floating harbor.",
+      "ingredients": [
+        "organic80:floating-harbor-gate",
+        "organic80:glass-firefly-lantern"
+      ],
+      "art_mode": "bespoke-subject",
+      "path": "client/assets/v80/floating-harbor-lighthouse.svg"
+    },
+    {
+      "id": "organic80:harbor-wind-vane",
+      "name": "Harbor Wind Vane",
+      "category": "technology",
+      "summary": "An arrow-shaped weather vane above the pier turns to show the prevailing wind.",
+      "ingredients": [
+        "organic80:floating-harbor-gate",
+        "legacy:12"
+      ],
+      "art_mode": "bespoke-subject",
+      "path": "client/assets/v80/harbor-wind-vane.svg"
+    },
+    {
+      "id": "organic80:firefly-compass-jar",
+      "name": "Firefly Compass Jar",
+      "category": "fantasy",
+      "summary": "Fireflies gather around a glowing compass needle inside a portable glass jar.",
+      "ingredients": [
+        "organic80:glass-firefly-lantern",
+        "organic80:crystal-quest-compass"
+      ],
+      "art_mode": "bespoke-subject",
+      "path": "client/assets/v80/firefly-compass-jar.svg"
+    },
+    {
+      "id": "organic80:firefly-trail-marker",
+      "name": "Firefly Trail Marker",
+      "category": "nature",
+      "summary": "A wooden trail arrow holds a small firefly lantern so nighttime hikers can see it.",
+      "ingredients": [
+        "organic80:glass-firefly-lantern",
+        "organic80:forest-warning-post"
+      ],
+      "art_mode": "bespoke-subject",
+      "path": "client/assets/v80/firefly-trail-marker.svg"
+    },
+    {
+      "id": "organic80:firefly-wind-chime",
+      "name": "Firefly Wind Chime",
+      "category": "nature",
+      "summary": "A glowing jar and hanging wind chimes combine light and sound to guide travelers.",
+      "ingredients": [
+        "organic80:glass-firefly-lantern",
+        "organic79:wooden-wind-chime-rack"
+      ],
+      "art_mode": "bespoke-subject",
+      "path": "client/assets/v80/firefly-wind-chime.svg"
+    },
+    {
+      "id": "organic80:firefly-reading-lamp",
+      "name": "Firefly Reading Lamp",
+      "category": "culture",
+      "summary": "Gentle firefly light illuminates an open book beneath a rounded bedside lamp.",
+      "ingredients": [
+        "organic80:glass-firefly-lantern",
+        "legacy:51"
+      ],
+      "art_mode": "bespoke-subject",
+      "path": "client/assets/v80/firefly-reading-lamp.svg"
+    },
+    {
+      "id": "organic80:pixel-color-scanner",
+      "name": "Pixel Color Scanner",
+      "category": "technology",
+      "summary": "A small optical scanner samples the colored pixels on a digital display.",
+      "ingredients": [
+        "organic80:pixel-calibration-lens",
+        "legacy:85"
+      ],
+      "art_mode": "bespoke-subject",
+      "path": "client/assets/v80/pixel-color-scanner.svg"
+    },
+    {
+      "id": "organic80:pixel-art-magnifier",
+      "name": "Pixel Art Magnifier",
+      "category": "technology",
+      "summary": "A magnifying lens reveals the square color blocks used to build tiny game sprites.",
+      "ingredients": [
+        "organic80:pixel-calibration-lens",
+        "legacy:146"
+      ],
+      "art_mode": "bespoke-subject",
+      "path": "client/assets/v80/pixel-art-magnifier.svg"
+    },
+    {
+      "id": "organic80:pixel-repair-toolkit",
+      "name": "Pixel Repair Toolkit",
+      "category": "technology",
+      "summary": "A padded tool case stores a calibration lens and miniature screen repair implements.",
+      "ingredients": [
+        "organic80:pixel-calibration-lens",
+        "legacy:29"
+      ],
+      "art_mode": "bespoke-subject",
+      "path": "client/assets/v80/pixel-repair-toolkit.svg"
+    },
+    {
+      "id": "organic80:pixel-camera-viewfinder",
+      "name": "Pixel Camera Viewfinder",
+      "category": "technology",
+      "summary": "A camera viewfinder overlays a pixel grid on a live image for precise color checks.",
+      "ingredients": [
+        "organic80:pixel-calibration-lens",
+        "organic79:screen-color-chart"
+      ],
+      "art_mode": "bespoke-subject",
+      "path": "client/assets/v80/pixel-camera-viewfinder.svg"
+    },
+    {
+      "id": "organic80:arcade-rhythm-tournament",
+      "name": "Arcade Rhythm Tournament",
+      "category": "arcade",
+      "summary": "A lit arcade stage hosts a competition where dancers win podium prizes.",
+      "ingredients": [
+        "organic80:arcade-dance-platform",
+        "legacy:157"
+      ],
+      "art_mode": "bespoke-subject",
+      "path": "client/assets/v80/arcade-rhythm-tournament.svg"
+    },
+    {
+      "id": "organic80:arcade-stage-spotlight",
+      "name": "Arcade Stage Spotlight",
+      "category": "arcade",
+      "summary": "A suspended spotlight illuminates the colored tiles of an arcade dance floor.",
+      "ingredients": [
+        "organic80:arcade-dance-platform",
+        "legacy:63"
+      ],
+      "art_mode": "bespoke-subject",
+      "path": "client/assets/v80/arcade-stage-spotlight.svg"
+    },
+    {
+      "id": "organic80:arcade-dance-trophy",
+      "name": "Arcade Dance Trophy",
+      "category": "arcade",
+      "summary": "A golden cup marked with dance arrows recognizes an arcade rhythm champion.",
+      "ingredients": [
+        "organic80:arcade-dance-platform",
+        "organic79:arcade-medal-podium"
+      ],
+      "art_mode": "bespoke-subject",
+      "path": "client/assets/v80/arcade-dance-trophy.svg"
     }
   ]
 }

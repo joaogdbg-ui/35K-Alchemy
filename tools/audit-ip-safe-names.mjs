@@ -16,7 +16,7 @@ const risky=items.filter(it=>publicName(it)!==it.name);
 const unresolved=items.filter(it=>hasUnresolvedPublicIPSignal(it,visible.get(it.id)));
 if(unresolved.length)throw Error('Public IP signals remain: '+unresolved.slice(0,20).map(it=>it.name+' => '+visible.get(it.id)).join(', '));
 if(new Set(visible.values()).size!==items.length)throw Error('Duplicate public labels');
-if(items.length!==5580||recipes.size!==13917)throw Error('Unexpected catalog size during IP audit');
+if(items.length!==(5572+(await import('../client/src/organic-pack-v80.js')).ORGANIC_V80.items.length)||recipes.size!==(13909+(await import('../client/src/organic-pack-v80.js')).ORGANIC_V80.recipes.length))throw Error('Unexpected catalog size during IP audit');
 for(const it of items)if(!visible.has(it.id))throw Error('Missing public label for '+it.id);
 const v76=JSON.parse(readFileSync('shared/v76-approved.json','utf8'));
 for(const item of v76.new_items){
