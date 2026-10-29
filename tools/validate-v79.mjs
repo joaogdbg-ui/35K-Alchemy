@@ -48,13 +48,13 @@ for(const it of ORGANIC_V79.items){
  const svg=readFileSync(entry.path,'utf8'),hash=createHash('sha256').update(svg).digest('hex');
  check(svg.startsWith('<svg')&&svg.includes('viewBox="0 0 100 100"')&&svg.length>=410,'invalid SVG '+it.name);
  check(!/<(?:script|image|text|foreignObject|animate|use)\b|\s(?:href|onclick|onload)\s*=/i.test(svg),'external or unsafe vector '+it.name);
- check(!prevArt.has(hash)&&!images.has(hash),'duplicate V77/V79 SVG '+it.name);
+ check(!prevArt.has(hash)&&!images.has(hash),'duplicate V78/V79 SVG '+it.name);
  check(ORGANIC_ART_V79[it.name.toLowerCase()]===svg,'source/runtime SVG mismatch '+it.name);images.add(hash);
 }
 const app=readFileSync('client/src/app.js','utf8'),builder=readFileSync('tools/build-standalone.py','utf8');
 check(app.includes('ORGANIC_V77,ORGANIC_V78,ORGANIC_V79]'),'new pack not in Classic');
 check(app.includes('const newArt=ORGANIC_ART_V79[itemName]||ORGANIC_ART_V78'),'new art not highest priority');
-check(builder.includes('window.__gameverseOrganic78')&&builder.includes('window.__gameverseOrganicArt78'),'offline bundler lacks V79');
+check(builder.includes('window.__gameverseOrganic79')&&builder.includes('window.__gameverseOrganicArt79'),'offline bundler lacks V79');
 check(builder.includes('35K_Alchemy_V79_Offline.html'),'offline artifact not V79');
 check(app.includes('const anchorId=this.ids[previousIndex]'),'inventory scroll regression');
 if(!process.argv.includes('--quiet'))console.log('V79 PASS: +50 unique subjects and recipes; 5,572 items / 13,909 recipes; 200/200.');
