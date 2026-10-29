@@ -1,16 +1,16 @@
 {
   "version": 81,
-  "cohort_count": 57,
+  "cohort_count": 73,
   "expansion_goal": 200,
-  "expansion_progress": 57,
-  "remaining_to_goal": 143,
+  "expansion_progress": 73,
+  "remaining_to_goal": 127,
   "base_catalog": {
     "elements": 5772,
     "recipes": 14109
   },
   "expected_catalog": {
-    "elements": 5829,
-    "recipes": 14166
+    "elements": 5845,
+    "recipes": 14182
   },
   "new_items": [
     {
@@ -696,6 +696,198 @@
       ],
       "art_mode": "bespoke-subject",
       "path": "client/assets/v81/penguin.svg"
+    },
+    {
+      "id": "organic81:prehistoric-species-atlas",
+      "name": "Prehistoric Species Atlas",
+      "category": "science",
+      "summary": "A comparative fossil atlas places dinosaurs, flying reptiles and extinct Ice Age mammals on separate illustrated pages.",
+      "ingredients": [
+        "organic81:wildlife-species-atlas",
+        "legacy:575"
+      ],
+      "art_mode": "bespoke-subject",
+      "path": "client/assets/v81/prehistoric-species-atlas.svg"
+    },
+    {
+      "id": "organic81:triceratops",
+      "name": "Triceratops",
+      "category": "life",
+      "summary": "A massive Cretaceous herbivore bears three facial horns and a broad bony neck frill that inspired its name.",
+      "ingredients": [
+        "organic81:prehistoric-species-atlas",
+        "organic40:deer"
+      ],
+      "art_mode": "bespoke-subject",
+      "path": "client/assets/v81/triceratops.svg"
+    },
+    {
+      "id": "organic81:stegosaurus",
+      "name": "Stegosaurus",
+      "category": "life",
+      "summary": "This Jurassic herbivore carries large staggered back plates and a spiked tail used in defense.",
+      "ingredients": [
+        "organic81:prehistoric-species-atlas",
+        "legacy:14"
+      ],
+      "art_mode": "bespoke-subject",
+      "path": "client/assets/v81/stegosaurus.svg"
+    },
+    {
+      "id": "organic81:ankylosaurus",
+      "name": "Ankylosaurus",
+      "category": "life",
+      "summary": "A squat armored dinosaur protects its body with bony osteoderms and swings a heavy tail club.",
+      "ingredients": [
+        "organic81:prehistoric-species-atlas",
+        "legacy:22"
+      ],
+      "art_mode": "bespoke-subject",
+      "path": "client/assets/v81/ankylosaurus.svg"
+    },
+    {
+      "id": "organic81:brachiosaurus",
+      "name": "Brachiosaurus",
+      "category": "life",
+      "summary": "A towering long-necked sauropod lifts its small head above the treetops while walking on pillar-like legs.",
+      "ingredients": [
+        "organic81:prehistoric-species-atlas",
+        "legacy:38"
+      ],
+      "art_mode": "bespoke-subject",
+      "path": "client/assets/v81/brachiosaurus.svg"
+    },
+    {
+      "id": "organic81:spinosaurus",
+      "name": "Spinosaurus",
+      "category": "life",
+      "summary": "A semi-aquatic predatory dinosaur has an elongated crocodile-like snout and enormous sail spines along its back.",
+      "ingredients": [
+        "organic81:prehistoric-species-atlas",
+        "legacy:39"
+      ],
+      "art_mode": "bespoke-subject",
+      "path": "client/assets/v81/spinosaurus.svg"
+    },
+    {
+      "id": "organic81:pteranodon",
+      "name": "Pteranodon",
+      "category": "life",
+      "summary": "A flying pterosaur, not a dinosaur, glides over ancient seas using broad skin membranes and a bony head crest.",
+      "ingredients": [
+        "organic81:prehistoric-species-atlas",
+        "legacy:65"
+      ],
+      "art_mode": "bespoke-subject",
+      "path": "client/assets/v81/pteranodon.svg"
+    },
+    {
+      "id": "organic81:mosasaurus",
+      "name": "Mosasaurus",
+      "category": "life",
+      "summary": "A giant extinct marine lizard propels its streamlined body with flippers and a powerful tail through Cretaceous seas.",
+      "ingredients": [
+        "organic81:prehistoric-species-atlas",
+        "legacy:10"
+      ],
+      "art_mode": "bespoke-subject",
+      "path": "client/assets/v81/mosasaurus.svg"
+    },
+    {
+      "id": "organic81:woolly-mammoth",
+      "name": "Woolly Mammoth",
+      "category": "life",
+      "summary": "An Ice Age elephant relative wears thick shaggy fur, curved tusks and a sloping shoulder hump against the cold.",
+      "ingredients": [
+        "organic81:prehistoric-species-atlas",
+        "legacy:35"
+      ],
+      "art_mode": "bespoke-subject",
+      "path": "client/assets/v81/woolly-mammoth.svg"
+    },
+    {
+      "id": "organic81:smilodon",
+      "name": "Smilodon",
+      "category": "life",
+      "summary": "The saber-toothed Ice Age predator carried extraordinary upper canines and powerful forelimbs for ambushing prey.",
+      "ingredients": [
+        "organic81:prehistoric-species-atlas",
+        "organic81:cat"
+      ],
+      "art_mode": "bespoke-subject",
+      "path": "client/assets/v81/smilodon.svg"
+    },
+    {
+      "id": "organic81:dire-wolf",
+      "name": "Dire Wolf",
+      "category": "life",
+      "summary": "An extinct Ice Age dire wolf resembles a stocky wolf with a robust skull and a powerful bite.",
+      "ingredients": [
+        "organic81:prehistoric-species-atlas",
+        "organic81:wolf"
+      ],
+      "art_mode": "bespoke-subject",
+      "path": "client/assets/v81/dire-wolf.svg"
+    },
+    {
+      "id": "organic81:dodo",
+      "name": "Dodo",
+      "category": "life",
+      "summary": "An extinct flightless island bird combines a rounded body, a heavy curved beak and a tufted little tail.",
+      "ingredients": [
+        "organic81:prehistoric-species-atlas",
+        "organic38:bird"
+      ],
+      "art_mode": "bespoke-subject",
+      "path": "client/assets/v81/dodo.svg"
+    },
+    {
+      "id": "organic81:parasaurolophus",
+      "name": "Parasaurolophus",
+      "category": "life",
+      "summary": "A duck-billed dinosaur carries a long hollow crest projecting behind its skull, likely useful for sound and display.",
+      "ingredients": [
+        "organic81:prehistoric-species-atlas",
+        "legacy:62"
+      ],
+      "art_mode": "bespoke-subject",
+      "path": "client/assets/v81/parasaurolophus.svg"
+    },
+    {
+      "id": "organic81:compsognathus",
+      "name": "Compsognathus",
+      "category": "life",
+      "summary": "A tiny long-tailed predatory dinosaur runs lightly on two legs and has delicate arms and a slender head.",
+      "ingredients": [
+        "organic81:prehistoric-species-atlas",
+        "legacy:111"
+      ],
+      "art_mode": "bespoke-subject",
+      "path": "client/assets/v81/compsognathus.svg"
+    },
+    {
+      "id": "organic81:archaeopteryx",
+      "name": "Archaeopteryx",
+      "category": "life",
+      "summary": "A feathered Jurassic bird relative retains teeth, clawed wings and a long bony tail, illuminating bird evolution.",
+      "ingredients": [
+        "organic81:prehistoric-species-atlas",
+        "organic40:feather"
+      ],
+      "art_mode": "bespoke-subject",
+      "path": "client/assets/v81/archaeopteryx.svg"
+    },
+    {
+      "id": "organic81:woolly-rhinoceros",
+      "name": "Woolly Rhinoceros",
+      "category": "life",
+      "summary": "An Ice Age rhinoceros is covered in coarse insulating hair and carries two large horns above its muzzle.",
+      "ingredients": [
+        "organic81:prehistoric-species-atlas",
+        "organic81:goat"
+      ],
+      "art_mode": "bespoke-subject",
+      "path": "client/assets/v81/woolly-rhinoceros.svg"
     }
   ],
   "cycle_complete": false

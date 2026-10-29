@@ -1,6 +1,6 @@
-# V81 staged content: 57/200, not publicly released
+# Alchemy 10k V81 — 73/200 (in development)
 
-The public V81 consists of 40/200. This branch authors 17 additional entries in the next +188-to-6k release. No PR or Android build until a complete +188 candidate.
+Last published version has 40 V81 items; the remaining 33 are WIP toward +188/6,000. The prehistoric branch separates dinosaurs, extinct mammals and flying/marine reptiles scientifically.
 
 1. **Sprite Animation Light Table** = organic80:pixel-sprite-lightbox + legacy:211 — An animator's luminous drawing table shows three consecutive pixel-sprite frames beside a timing ruler.
 2. **Color-Proof Photo Printer** = organic80:color-calibration-proof + organic80:pocket-photo-printer — A tabletop printer outputs calibrated color patches beside a small landscape photograph.
@@ -59,3 +59,19 @@ The public V81 consists of 40/200. This branch authors 17 additional entries in 
 55. **Eagle** = organic81:wild-animal + legacy:65 — A soaring eagle extends its broad primary feathers and sharply hooked beak above the mountain winds.
 56. **Crocodile** = organic81:wild-animal + legacy:39 — A river crocodile has a low armored body, long serrated jaws and a heavy tapering tail for swimming.
 57. **Penguin** = organic81:wild-animal + legacy:35 — An upright penguin wears dark plumage and a white belly, with short flippers and webbed feet on icy ground.
+58. **Prehistoric Species Atlas** = organic81:wildlife-species-atlas + legacy:575 — A comparative fossil atlas places dinosaurs, flying reptiles and extinct Ice Age mammals on separate illustrated pages.
+59. **Triceratops** = organic81:prehistoric-species-atlas + organic40:deer — A massive Cretaceous herbivore bears three facial horns and a broad bony neck frill that inspired its name.
+60. **Stegosaurus** = organic81:prehistoric-species-atlas + legacy:14 — This Jurassic herbivore carries large staggered back plates and a spiked tail used in defense.
+61. **Ankylosaurus** = organic81:prehistoric-species-atlas + legacy:22 — A squat armored dinosaur protects its body with bony osteoderms and swings a heavy tail club.
+62. **Brachiosaurus** = organic81:prehistoric-species-atlas + legacy:38 — A towering long-necked sauropod lifts its small head above the treetops while walking on pillar-like legs.
+63. **Spinosaurus** = organic81:prehistoric-species-atlas + legacy:39 — A semi-aquatic predatory dinosaur has an elongated crocodile-like snout and enormous sail spines along its back.
+64. **Pteranodon** = organic81:prehistoric-species-atlas + legacy:65 — A flying pterosaur, not a dinosaur, glides over ancient seas using broad skin membranes and a bony head crest.
+65. **Mosasaurus** = organic81:prehistoric-species-atlas + legacy:10 — A giant extinct marine lizard propels its streamlined body with flippers and a powerful tail through Cretaceous seas.
+66. **Woolly Mammoth** = organic81:prehistoric-species-atlas + legacy:35 — An Ice Age elephant relative wears thick shaggy fur, curved tusks and a sloping shoulder hump against the cold.
+67. **Smilodon** = organic81:prehistoric-species-atlas + organic81:cat — The saber-toothed Ice Age predator carried extraordinary upper canines and powerful forelimbs for ambushing prey.
+68. **Dire Wolf** = organic81:prehistoric-species-atlas + organic81:wolf — An extinct Ice Age dire wolf resembles a stocky wolf with a robust skull and a powerful bite.
+69. **Dodo** = organic81:prehistoric-species-atlas + organic38:bird — An extinct flightless island bird combines a rounded body, a heavy curved beak and a tufted little tail.
+70. **Parasaurolophus** = organic81:prehistoric-species-atlas + legacy:62 — A duck-billed dinosaur carries a long hollow crest projecting behind its skull, likely useful for sound and display.
+71. **Compsognathus** = organic81:prehistoric-species-atlas + legacy:111 — A tiny long-tailed predatory dinosaur runs lightly on two legs and has delicate arms and a slender head.
+72. **Archaeopteryx** = organic81:prehistoric-species-atlas + organic40:feather — A feathered Jurassic bird relative retains teeth, clawed wings and a long bony tail, illuminating bird evolution.
+73. **Woolly Rhinoceros** = organic81:prehistoric-species-atlas + organic81:goat — An Ice Age rhinoceros is covered in coarse insulating hair and carries two large horns above its muzzle.

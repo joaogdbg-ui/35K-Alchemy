@@ -1,6 +1,6 @@
-# V81 original SVG illustrations — 57/200 WIP
+# Alchemy 10k V81 — 73/200 illustrated candidate icons
 
-These are 35px and 90px visual-review candidates, not yet released. No generic image-only placeholders.
+Artwork at both gameplay 35 px and larger 90 px. Not yet human/device-approved.
 
 | # | Element | 35px | 90px |
 |---:|---|:---:|:---:|
@@ -61,3 +61,19 @@ These are 35px and 90px visual-review candidates, not yet released. No generic i
 | 55 | Eagle | <img src="../client/assets/v81/eagle.svg" width="35" height="35" /> | <img src="../client/assets/v81/eagle.svg" width="90" height="90" /> |
 | 56 | Crocodile | <img src="../client/assets/v81/crocodile.svg" width="35" height="35" /> | <img src="../client/assets/v81/crocodile.svg" width="90" height="90" /> |
 | 57 | Penguin | <img src="../client/assets/v81/penguin.svg" width="35" height="35" /> | <img src="../client/assets/v81/penguin.svg" width="90" height="90" /> |
+| 58 | Prehistoric Species Atlas | <img src="../client/assets/v81/prehistoric-species-atlas.svg" width="35" height="35" /> | <img src="../client/assets/v81/prehistoric-species-atlas.svg" width="90" height="90" /> |
+| 59 | Triceratops | <img src="../client/assets/v81/triceratops.svg" width="35" height="35" /> | <img src="../client/assets/v81/triceratops.svg" width="90" height="90" /> |
+| 60 | Stegosaurus | <img src="../client/assets/v81/stegosaurus.svg" width="35" height="35" /> | <img src="../client/assets/v81/stegosaurus.svg" width="90" height="90" /> |
+| 61 | Ankylosaurus | <img src="../client/assets/v81/ankylosaurus.svg" width="35" height="35" /> | <img src="../client/assets/v81/ankylosaurus.svg" width="90" height="90" /> |
+| 62 | Brachiosaurus | <img src="../client/assets/v81/brachiosaurus.svg" width="35" height="35" /> | <img src="../client/assets/v81/brachiosaurus.svg" width="90" height="90" /> |
+| 63 | Spinosaurus | <img src="../client/assets/v81/spinosaurus.svg" width="35" height="35" /> | <img src="../client/assets/v81/spinosaurus.svg" width="90" height="90" /> |
+| 64 | Pteranodon | <img src="../client/assets/v81/pteranodon.svg" width="35" height="35" /> | <img src="../client/assets/v81/pteranodon.svg" width="90" height="90" /> |
+| 65 | Mosasaurus | <img src="../client/assets/v81/mosasaurus.svg" width="35" height="35" /> | <img src="../client/assets/v81/mosasaurus.svg" width="90" height="90" /> |
+| 66 | Woolly Mammoth | <img src="../client/assets/v81/woolly-mammoth.svg" width="35" height="35" /> | <img src="../client/assets/v81/woolly-mammoth.svg" width="90" height="90" /> |
+| 67 | Smilodon | <img src="../client/assets/v81/smilodon.svg" width="35" height="35" /> | <img src="../client/assets/v81/smilodon.svg" width="90" height="90" /> |
+| 68 | Dire Wolf | <img src="../client/assets/v81/dire-wolf.svg" width="35" height="35" /> | <img src="../client/assets/v81/dire-wolf.svg" width="90" height="90" /> |
+| 69 | Dodo | <img src="../client/assets/v81/dodo.svg" width="35" height="35" /> | <img src="../client/assets/v81/dodo.svg" width="90" height="90" /> |
+| 70 | Parasaurolophus | <img src="../client/assets/v81/parasaurolophus.svg" width="35" height="35" /> | <img src="../client/assets/v81/parasaurolophus.svg" width="90" height="90" /> |
+| 71 | Compsognathus | <img src="../client/assets/v81/compsognathus.svg" width="35" height="35" /> | <img src="../client/assets/v81/compsognathus.svg" width="90" height="90" /> |
+| 72 | Archaeopteryx | <img src="../client/assets/v81/archaeopteryx.svg" width="35" height="35" /> | <img src="../client/assets/v81/archaeopteryx.svg" width="90" height="90" /> |
+| 73 | Woolly Rhinoceros | <img src="../client/assets/v81/woolly-rhinoceros.svg" width="35" height="35" /> | <img src="../client/assets/v81/woolly-rhinoceros.svg" width="90" height="90" /> |
