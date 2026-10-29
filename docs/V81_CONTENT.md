@@ -1,0 +1,44 @@
+# V81 — new 40 original game-world connections
+
+Each element has its own SVG and its own globally deterministic recipe. 40 V81 combined with 160 new V80 entries equals **exactly +200** since V80B.
+
+1. **Sprite Animation Light Table** = organic80:pixel-sprite-lightbox + legacy:211 — An animator's luminous drawing table shows three consecutive pixel-sprite frames beside a timing ruler.
+2. **Color-Proof Photo Printer** = organic80:color-calibration-proof + organic80:pocket-photo-printer — A tabletop printer outputs calibrated color patches beside a small landscape photograph.
+3. **Controller Museum Plinth** = organic80:museum-interactive-console + legacy:167 — A museum pedestal presents a vintage game controller beneath a glass hood with a history label.
+4. **Arcade Merchandise Canopy** = organic80:championship-ticket-exchange + organic80:board-game-market-stall — A striped gaming market canopy sells arcade badges, prize plush toys and tournament tickets.
+5. **Pixel Cabinet Marquee** = organic80:arcade-trophy-cabinet + organic80:pixel-sprite-lightbox — A translucent cabinet marquee glows with pixel-art lettering and a tiny trophy silhouette.
+6. **Retro World Map Poster** = organic80:retro-game-checkout + legacy:354 — A colorful rolled poster maps the imaginary world of a retro adventure game sold at a game shop.
+7. **Cooperative Score Medal** = organic80:dual-player-scoreboard + organic80:champion-ticket-voucher — A shared gold medal celebrates the combined high score of two players in a cooperative arcade match.
+8. **Drum Champion Podium** = organic80:rhythm-drum-pad + organic80:arcade-dance-trophy — A percussion winner displays an electronic drum pad and a cup on the top step of a podium.
+9. **Speedrun Split Timer** = organic80:speedrun-replay-booth + legacy:211 — A digital timer divides a speedrun into segments and highlights the player's fastest recorded section.
+10. **Cartridge Label Embosser** = organic80:cartridge-data-reader + legacy:106 — A hand-operated label press stamps fresh identifying labels for restored game cartridges in an archive.
+11. **Contact Alignment Gauge** = organic80:cartridge-inspection-loupe + legacy:22 — A pocket metal gauge measures the spacing of cartridge connector pins while an archivist checks corrosion.
+12. **Handheld Sunshade Visor** = organic80:rainproof-handheld-case + legacy:141 — A folding shade clips above a handheld console so its display stays visible in bright summer sunlight.
+13. **Game Carry Wrist Strap** = organic80:rainproof-game-satchel + legacy:110 — A detachable woven wrist strap clips onto a compact gaming pouch so travelers carry it securely.
+14. **Chiptune Waveform Monitor** = organic80:arcade-sound-mixing-desk + legacy:76 — An oscilloscope screen shows square-wave chiptune tones emerging from the arcade mixing desk.
+15. **Pixel Stained-Glass Window** = organic80:pixel-palette-fan + legacy:23 — A stained-glass window depicts an eight-bit landscape made from brightly colored square panes.
+16. **Arcade Concert Floorplan** = organic80:rhythm-concert-stage + legacy:354 — A folded map of an arcade hall marks the dance stage, emergency exits and live sound booths.
+17. **Miniature Terrain Toolbox** = organic80:miniature-painting-stand + organic80:waterproof-card-organizer — A portable hobby toolbox holds painted miniature terrain pieces in padded compartments for tabletop adventures.
+18. **Chess Broadcast Notebook** = organic80:chess-commentary-microphone + legacy:51 — An annotated notebook records opening moves and interview notes from a live chess match broadcast.
+19. **Skyship Strategy Board** = organic80:skyship-bearing-dial + legacy:162 — A tabletop strategy board uses miniature airships and a compass rose to plan imaginary aerial trade routes.
+20. **Miniature Paint Palette** = organic80:miniature-painting-stand + organic80:pixel-palette-fan — A painter's thumbhole palette holds tiny pastel paint wells used to decorate tabletop game miniatures.
+21. **Cosmic Dice Planetarium** = organic80:glass-dice-dome + legacy:549 — A miniature planetarium dome projects constellations as glowing dice roll along a star-speckled orbit.
+22. **Forest Mystery Puzzle** = organic80:cave-exploration-journal + legacy:224 — A woodland mystery puzzle joins a hand-drawn clue map with movable tokens showing hidden cave symbols.
+23. **Dragon Adventure Codex** = organic80:dragon-chess-set + legacy:51 — An illustrated adventure codex opens to a dragon-shaped chess piece and its magical travel abilities.
+24. **Enchanted Pawn Portal** = organic80:queen's-gem-pawn + organic80:crystal-cave-passage — A glowing crystal doorway opens as a carved chess pawn approaches its matching magical gemstone.
+25. **Skyship Navigation Simulator** = organic81:skyship-strategy-board + legacy:91 — A flight simulator translates tabletop airship trade routes into a virtual cockpit with moving gauges.
+26. **Drone Mapping Joystick** = organic80:aerial-survey-atlas + legacy:83 — A handheld mapping controller pairs a directional joystick with a tiny display of the drone's survey route.
+27. **Solar Expedition Watch** = organic80:solar-trail-compass + legacy:211 — A rugged expedition wristwatch uses a tiny solar cell to power its compass and time display.
+28. **Firefly Route Projector** = organic80:cartographers-firefly-desk + legacy:63 — A brass tabletop projector illuminates a floating map by shining light through a jar of fireflies.
+29. **Storm Shelter Trailer** = organic80:ranger-triage-tent + legacy:44 — A small wheeled emergency trailer carries a folded medical tent and first-aid supplies into storm-damaged areas.
+30. **Riverside Rescue Signal Box** = organic80:lantern-river-pier + organic80:ranger-whistle-lanyard — A waterproof pier-mounted rescue box contains an emergency whistle and a light for river boaters.
+31. **Rotating Dice Score Dial** = organic80:dice-score-sheet + legacy:44 — A round tabletop score dial turns through numbered rings to record scores from successive dice throws.
+32. **Card Collector Lightbox** = organic80:transparent-card-sleeve + organic80:pixel-sprite-lightbox — A bright inspection lightbox reveals tiny printing marks on a sleeved collectible game card.
+33. **Arcade Collector's Badge** = organic80:championship-ticket-exchange + legacy:108 — A small enameled collector's badge is struck from a prize coin and stamped with a pixel trophy.
+34. **Escape Room Timer Lock** = organic80:escape-puzzle-wall + legacy:211 — An ornate escape-room lock counts down on a clock face until its rotating symbols align to release the door.
+35. **Museum Interview Recorder** = organic80:game-museum-audio-guide + legacy:85 — A museum interviewer records a game developer's oral history with a compact camera and tabletop microphone.
+36. **Adaptive Gamepad Switch** = organic80:wireless-dance-controller + legacy:80 — A large accessible input switch connects to a gamepad, allowing comfortable one-button activation during play.
+37. **Rhythm Game Metronome** = organic80:rhythm-step-chart + legacy:211 — A mechanical metronome ticks at the exact tempo of a printed rhythm-game step chart.
+38. **Concert Glowstick Fan** = organic80:rhythm-concert-stage + legacy:63 — A bundle of pastel glow sticks lights up the audience during the final arcade rhythm concert.
+39. **Harbor Pixel Postcard** = organic80:floating-harbor-gate + organic80:pixel-color-scanner — A souvenir postcard depicts the floating harbor gate as a crisp pastel pixel-art landscape.
+40. **Miniature Dungeon Diorama** = organic81:miniature-terrain-toolbox + legacy:37 — A tabletop diorama arranges painted stone doors, dungeon stairs and a tiny adventurer on a miniature cave floor.

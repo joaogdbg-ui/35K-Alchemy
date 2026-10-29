@@ -15,3 +15,25 @@ After CI and GitHub Android build: https://github.com/joaogdbg-ui/35K-Alchemy/re
 - Baseline de próxima entrega: commit `c918b85d148c5daaceb0d85f1faa281e9c07bc41`, **5.612 elementos / 13.949 receitas**. Alvo após +200: **5.812 elementos e no mínimo 14.149 receitas**, sem alterar as anteriores.
 - Plano de produção e teste automático de quantidade: `docs/CONTENT_200_BATCH_POLICY_PT.md` + `tools/check-content-batch-200.mjs`. 147 futuras entregas de 200 = **35.012** elementos.
 - **Importante:** esta atualização de documentação e CI **não adiciona ainda os próximos 200 elementos**. Não confundir a aprovação da política com a produção de conteúdo.
+
+## WIP 50/200 production delivery (branch-only, never released)
+
+- Branch: `wip/200-next-discoveries-authored` — new content since V80B: **+50 V80 items/recipes and 50 distinct SVG files**; V80 pack now 90/200, hypothetical catalog 5662/13999.
+- `main` remains **5,612 elements / 13,949 recipes**. Next **official content release must be +200**: remaining 110 V80 plus 40 V81, in one PR; **not a release at +50**.
+- Current recipe source, art source and manifest are aligned in WIP. Run full catalog validation / visual inspection before counting any asset approved for final release. No Android build or Google Play claims.
+
+## Internal work wave: bespoke board games, arcade hardware and fantasy (WIP)
+
+- Continued the branch `wip/200-next-discoveries-authored` from `2b6bdf5d9ddfa578636a0aa87931611310f63841` with **24** additional unique element IDs, intuitive source pairs and individually authored SVGs. The V80 draft reaches **114/200**.
+- New published releases: **none**. +74 new items since V80B on branch only; 86 additional V80 plus 40 new V81 are still needed before one legal +200 content merge.
+- Must run full CI, verify all existing catalogs' normalized names, 35px image perception and reachability. Never claim manual visual acceptance from automated tests.
+
+## Second internal content wave (WIP, no release)
+
+- Branch `wip/200-next-discoveries-authored`; 26 further distinct original SVG subjects and intuitive recipes added on top of previous 114 V80 items. **V80 140/200, +100 new discoveries since V80B**.
+- Candidate full game 5712 elements / 14049 recipes if integrated; currently main still 5,612 / 13,949.
+- Exactly +200 content release requires 60 V80 items plus 40 V81, integrated into one PR. Run all historical collision checks plus art and standalone QA; never publish partial APK.
+
+## Superseded by V81 batch
+
+V80 WIP checkpoint history above is retained. The current +200 production batch and quality conditions are recorded in `HANDOFF_V81.md`.
