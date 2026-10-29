@@ -13,16 +13,16 @@ import {familiesFor} from '../src/discoveries.js';
 const read=p=>readFileSync(new URL('../../'+p,import.meta.url),'utf8');
 const manifest=JSON.parse(read('shared/v82-approved.json'));
 const key=(a,b)=>[a,b].sort().join('|');
-test('V82 is an honest 25/200 WIP checkpoint, never a content release',()=>{
- assert.equal(manifest.status,'WIP_NOT_RELEASED');
- assert.equal(manifest.cycle_complete,false);
- assert.equal(manifest.cohort_count,25);
+test('V82 contains exactly 200 authored candidates and is not yet published',()=>{
+ assert.equal(manifest.status,'QA_PENDING_UNMERGED');
+ assert.equal(manifest.cycle_complete,true);
+ assert.equal(manifest.cohort_count,200);
  assert.equal(manifest.expansion_goal,200);
- assert.equal(manifest.remaining_to_goal,175);
- assert.equal(ORGANIC_V82.items.length,25);
- assert.equal(ORGANIC_V82.recipes.length,25);
- assert.equal(Object.keys(ORGANIC_ART_V82).length,25);
- assert.deepEqual(manifest.expected_catalog,{elements:5837,recipes:14174});
+ assert.equal(manifest.remaining_to_goal,0);
+ assert.equal(ORGANIC_V82.items.length,200);
+ assert.equal(ORGANIC_V82.recipes.length,200);
+ assert.equal(Object.keys(ORGANIC_ART_V82).length,200);
+ assert.deepEqual(manifest.expected_catalog,{elements:6012,recipes:14349});
 });
 test('Each original deity or dinosaur has a unique recipe, actual SVG file and explicit family membership',()=>{
  const ids=new Set(),names=new Set(),pairs=new Set(),svg=new Set();
@@ -60,8 +60,8 @@ test('All new mythical and prehistoric discoveries are craftable in isolated Fam
   globals.set(pair,out);
  }
  const campaigns=buildThematicCampaigns(globals,allItems);
- assert.equal(campaigns.find(x=>x.id==='mythology').items.length,16+18);
- assert.equal(campaigns.find(x=>x.id==='prehistoric').items.length,9+7);
+ assert.equal(campaigns.find(x=>x.id==='mythology').items.length,16+93);
+ assert.equal(campaigns.find(x=>x.id==='prehistoric').items.length,9+107);
  for(const family of campaigns){
   const reached=new Set(family.starters);
   let changed=true;

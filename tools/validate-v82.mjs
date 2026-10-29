@@ -10,14 +10,15 @@ import {ORGANIC_ART_V82} from '../client/src/organic-art-v82.js';
 import {FAMILY_CAMPAIGNS} from '../client/src/family-mode-v53-campaigns.js';
 import {buildThematicCampaigns} from '../client/src/family-campaigns-v82.js';
 
-const insist=(value,message)=>{if(!value)throw Error('V82 WIP: '+message);};
+const insist=(value,message)=>{if(!value)throw Error('V82 QA: '+message);};
 const approved=JSON.parse(readFileSync('shared/v82-approved.json','utf8'));
-insist(approved.version===82&&approved.status==='WIP_NOT_RELEASED','manifest must identify WIP');
-insist(approved.expansion_goal===200&&approved.cycle_complete===false,'not a completed release');
+insist(approved.version===82&&approved.status==='QA_PENDING_UNMERGED','QA candidate must not claim publication');
+insist(approved.expansion_goal===200&&approved.cycle_complete===true,'exactly 200 content candidates completed');
 insist(approved.cohort_count===ORGANIC_V82.items.length &&
   approved.new_items.length===ORGANIC_V82.items.length &&
   approved.expansion_progress===ORGANIC_V82.items.length &&
-  approved.remaining_to_goal===200-ORGANIC_V82.items.length,'partial content count');
+  approved.remaining_to_goal===200-ORGANIC_V82.items.length,'exact 200 candidate content count');
+insist(ORGANIC_V82.items.length===200&&ORGANIC_V82.recipes.length===200,'release candidate must contain exactly +200');
 insist(ORGANIC_V82.items.length===ORGANIC_V82.recipes.length &&
   Object.keys(ORGANIC_ART_V82).length===ORGANIC_V82.items.length,'one new recipe and SVG per new element');
 
@@ -46,6 +47,7 @@ for(const entry of approved.new_items){
  insist(!knownIds.has(it.id),'duplicate historical ID '+it.id);
  insist(!itemNames.has(normalizeCatalogName(it.name)),'duplicate historical name '+it.name);
  insist(it.summary.length>=50&&it.summary.length<=190,'summary length '+it.name);
+ insist(['bespoke-subject','species-specific-anatomy'].includes(entry.art_mode),'not original subject art '+it.name);
  const recipe=ORGANIC_V82.recipes.find(r=>r[2]===it.id);
  insist(recipe&&recipe[0]===entry.ingredients[0]&&recipe[1]===entry.ingredients[1],'primary recipe mismatch '+it.name);
  insist(knownIds.has(recipe[0])&&knownIds.has(recipe[1]),'ingredient not yet available '+it.name);
@@ -79,4 +81,4 @@ for(const family of families){
 }
 insist(families.find(x=>x.id==='mythology').items.length===16+ORGANIC_V82.items.filter(x=>x.category==='mythology').length,'mythology totals');
 insist(families.find(x=>x.id==='prehistoric').items.length===9+ORGANIC_V82.items.filter(x=>x.category==='prehistoric').length,'prehistory totals');
-if(!process.argv.includes('--quiet')) console.log('V82 WIP source validated: '+after.items.length+' IDs / '+after.recipes.size+' recipes, '+ORGANIC_V82.items.length+'/200 new items. Not a published release.');
+if(!process.argv.includes('--quiet')) console.log('V82 QA candidate validated: '+after.items.length+' IDs / '+after.recipes.size+' recipes, '+ORGANIC_V82.items.length+'/200 new items. Not a published release.');

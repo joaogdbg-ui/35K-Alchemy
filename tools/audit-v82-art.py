@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Structural/source checks for V82 authored SVGs. WIP, no artistic sign-off."""
+"""Structural/source checks for 200 V82 authored SVGs; device aesthetic sign-off pending."""
 from pathlib import Path
 from xml.etree import ElementTree as ET
 from hashlib import sha256
@@ -7,7 +7,7 @@ import json
 
 root=Path(__file__).resolve().parents[1]
 m=json.loads((root/'shared/v82-approved.json').read_text(encoding='utf-8'))
-assert m['status']=='WIP_NOT_RELEASED' and 0<len(m['new_items'])<200
+assert m['status']=='QA_PENDING_UNMERGED' and len(m['new_items'])==200
 assert len(m['new_items'])==m['cohort_count']
 allowed={'svg','g','path','rect','circle','ellipse','line','polygon','polyline','defs','linearGradient','stop'}
 seen=set()
@@ -26,4 +26,4 @@ for record in m['new_items']:
  signature=sha256(raw.encode('utf-8')).hexdigest()
  assert signature not in seen,path
  seen.add(signature)
-print('V82 WIP SVG structural PASS:',len(seen),'distinct hand-authored files; 35px aesthetic/device review pending')
+print('V82 WIP SVG structural PASS:',len(seen),'distinct SVG files; species-driven vector anatomy, 35px aesthetic/device review pending')
