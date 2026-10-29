@@ -18,3 +18,7 @@
 Google Play states that modifying copyrighted content can still infringe, and may require proof of rights. See [Intellectual Property](https://support.google.com/googleplay/android-developer/answer/9888072?hl=en).
 
 **Do not describe the result as legally guaranteed safe before a human art and legal review.**
+
+## V76.3 — third-party name collision fixes
+
+Spot checks of public commercial usage revealed that **Kairosoft**, **AsterCube**, **Vextro** and **Orilux** are already used by real businesses. All four were retired as *fictional* brands, replaced by **Nayvuril Studio**, **Zerqadyn**, **Qintavyr** and **Velqryon** respectively. Seven active V76 art source filenames and three SVG map modules were synchronized. These newly proposed words are **not legally cleared**: perform official trademark and market searches before public commercialization.

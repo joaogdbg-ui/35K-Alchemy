@@ -6,7 +6,7 @@ test('Mock labels replace console and entertainment identities, preserving input
  ['Nintendo Switch 2 Cartridge Case','GlidePort II Cartridge Case'],
  ['Game Boy Camera Album','PocketNova Camera Album'],
  ['PlayStation 5 Vertical Cooling Stand','Qelvorune 5 Vertical Cooling Stand'],
- ['Xbox Series X Ventilation Grille','AsterCube Zenith Ventilation Grille'],
+ ['Xbox Series X Ventilation Grille','Zerqadyn Zenith Ventilation Grille'],
  ['Sonic the Hedgehog','Windrush the Hedgehog'],
  ['Pokémon Red','Critter Atlas Red'],
  ['Dragon Ball Z: Budokai 3','Sky Orbs Z: Budokai 3']
@@ -46,4 +46,14 @@ test('V76.2 context-specific original game aliases do not rewrite generic scienc
  for(const n of ['Valve','Halo','Portal','Sonic Wave','DOOM','Knuckles'])
    assert.equal(publicName({name:n,category:'science'}),n);
  assert.equal(publicName({name:'Hades',category:'mythology'}),'Hades');
+});
+
+test('Brand-alias collision review retires identifiable real company names',()=>{
+ const cases=[
+  ['Konami','Nayvuril Studio'],
+  ['Atari 2600','Qintavyr 2600'],
+  ['Nintendo 64','Velqryon 64'],
+  ['Xbox Series X','Zerqadyn Zenith']
+ ];
+ for(const [oldName,expected] of cases)assert.equal(publicName({name:oldName,category:'console'}),expected);
 });

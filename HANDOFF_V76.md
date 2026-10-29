@@ -34,3 +34,7 @@ Latest release: https://github.com/joaogdbg-ui/35K-Alchemy/releases/tag/latest
 ## V76.2 — second pass of copyright/trademark risk reduction
 
 154 additional genre-aware game/media title aliases; avoid replacing ordinary technology, astronomy, science or mythology terminology. Audit all active original SVG maps for structural hazards, and log the remaining historical media titles requiring human editorial review. No element IDs, recipe outcomes or current V76 art illustrations change. Version 0.76.2; original baseline 5,422 elements / 13,759 unordered recipes. Native rewarded monetisation and commercial IP/trade-dress clearance remain open.
+
+## V76.3 — collision hotfix
+
+Retired real-world-company collisions in proposed aliases (Kairosoft, AsterCube, Vextro, Orilux); synchronized seven SVG asset paths, V76 artwork keys and catalog manifests. Added regression tests. New candidate names still need formal trademark clearance. No recipe or element ID changes.
