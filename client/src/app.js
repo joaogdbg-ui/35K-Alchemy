@@ -98,6 +98,7 @@ import { resolveLocalRedundancy } from './semantic.js';
 import { FAMILIES, familyFor, familiesFor, groupFamilies, recipesForTarget, candidatesForFamily } from './discoveries.js';
 import { FAMILY_CAMPAIGNS } from './family-mode-v53-campaigns.js';
 import { buildThematicCampaigns } from './family-campaigns-v82.js';
+import { reconcileLegacyFamilies } from './family-compatibility-v82.js';
 import { synchronizeFamilyProfiles, sharedMembership } from './family-shared-v51.js';
 import { eligibleFamilyMerge, mergeIntoClassicState, verifyMergePending } from './family-merge-v60.js';
 
@@ -110,7 +111,8 @@ const {items: ITEMS,recipes:classicRecipes} = buildCatalog(DATA,[PACK,GAMING_V22
 const PUBLIC_LABELS=buildPublicNameIndex(ITEMS);
 function uiName(item){return item?(PUBLIC_LABELS.get(item.id)||publicName(item)):'';}
 let recipes=classicRecipes;
-const ALL_CAMPAIGNS=[...FAMILY_CAMPAIGNS.families,...buildThematicCampaigns(classicRecipes,ITEMS)];
+const reconciledHistorical = reconcileLegacyFamilies(classicRecipes,FAMILY_CAMPAIGNS.families);
+const ALL_CAMPAIGNS=[...reconciledHistorical.families,...buildThematicCampaigns(classicRecipes,ITEMS)];
 const familyCampaigns=new Map(ALL_CAMPAIGNS.map(f=>[f.id,{...f,itemSet:new Set(f.items),recipeMap:new Map(f.recipes)}]));
 const sharedCatalogIds=sharedMembership(ALL_CAMPAIGNS);
 const MODE_SELECTION_KEY='35k_mode_selected_v48', FAMILY_SAVES_KEY='35k_family_profiles_v48';
