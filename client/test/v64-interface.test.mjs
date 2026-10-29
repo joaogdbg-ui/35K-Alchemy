@@ -26,7 +26,7 @@ test('V64: result feedback is a separate row, not wrapper of hint',()=>{
  assert.match(css,/\.combine-feedback\[data-kind="repeat"\]/);
 });
 test('V64: repeat combinations only announce once and do not toast',()=>{
- assert.match(js,/else \{announceCraft\('repeat','Already discovered · '\+byId.get\(resultId\).name\);\}/);
+ assert.match(js,/else \{announceCraft\('repeat','Already discovered · '\+uiName\(byId.get\(resultId\)\)\);\}/);
  assert.doesNotMatch(js,/toast\(\(kind==='redundant'/);
 });
 test('V64: sound switch lives in Settings and persists user choice',()=>{

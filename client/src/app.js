@@ -1,5 +1,6 @@
 import { DATA } from './legacy-data.js';
 import { buildCatalog } from './catalog-integrity.js';
+import { publicText, publicName, buildPublicNameIndex } from './ip-safe-names.js';
 import { GAMEVERSE_ART } from './gameverse-art.js';
 import { FAMILY_ICONS_V54 } from './family-icons-v54.js';
 import { PACK } from './creative-pack.js';
@@ -92,6 +93,9 @@ const escapeText = (s) => String(s).replace(/[&<>"']/g, (c) => ({'&':'&amp;','<'
 // V39: the same strict catalog contract runs in the browser, the build and CI.
 // No hidden first-wins recipe collisions or duplicated catalog entries.
 const {items: ITEMS,recipes:classicRecipes} = buildCatalog(DATA,[PACK,GAMING_V22,GAMING_V23,GAMING_V24,GAMING_V26,GAMING_V27,GAMING_V30,ORGANIC_V32,ORGANIC_V34,ORGANIC_V37,ORGANIC_V38,ORGANIC_V40,ORGANIC_V41,ORGANIC_V42,ORGANIC_V43,ORGANIC_V44,ORGANIC_V45,ORGANIC_V46,ORGANIC_V47,ORGANIC_V50,ORGANIC_V52,ORGANIC_V53,ORGANIC_V55,ORGANIC_V56,ORGANIC_V57,ORGANIC_V58,ORGANIC_V59,ORGANIC_V61,ORGANIC_V62,ORGANIC_V63,ORGANIC_V65,ORGANIC_V66,ORGANIC_V67,ORGANIC_V68,ORGANIC_V71,ORGANIC_V72,ORGANIC_V73,ORGANIC_V74,ORGANIC_V75,ORGANIC_V76]);
+// V76.1: change only public labels. Historic recipe IDs and artwork keys are immutable.
+const PUBLIC_LABELS=buildPublicNameIndex(ITEMS);
+function uiName(item){return item?(PUBLIC_LABELS.get(item.id)||publicName(item)):'';}
 let recipes=classicRecipes;
 const familyCampaigns=new Map(FAMILY_CAMPAIGNS.families.map(f=>[f.id,{...f,itemSet:new Set(f.items),recipeMap:new Map(f.recipes)}]));
 const sharedCatalogIds=sharedMembership(FAMILY_CAMPAIGNS.families);
@@ -616,24 +620,24 @@ function difficultyFor(id){const d=routeDepth.get(id);
 function elementIsUseful(id){return (recipeUses.get(id)||[]).some(r=>unlocked.has(r.a===id?r.b:r.a)&&!unlocked.has(r.out));}
 function elementIsComplete(id){return unlocked.has(id)&&!(recipeUses.get(id)||[]).some(r=>!unlocked.has(r.out));}
 const COLLECTION_SETS=[
- {id:'playstation',name:'PlayStation Generations',family:'consoles',names:['PlayStation','PlayStation 2','PlayStation 3','PlayStation 4','PlayStation 5','PSP','PS Vita'],icon:'console'},
- {id:'nintendo',name:'Nintendo Handhelds',family:'consoles',names:['Game Boy','Game Boy Color','Game Boy Advance','Nintendo DS','Nintendo 3DS'],icon:'handheld'},
+ {id:'playstation',name:'Qelvorune Generations',family:'consoles',names:['PlayStation','PlayStation 2','PlayStation 3','PlayStation 4','PlayStation 5','PSP','PS Vita'],icon:'console'},
+ {id:'nintendo',name:'Pocket Console Heritage',family:'consoles',names:['Game Boy','Game Boy Color','Game Boy Advance','Nintendo DS','Nintendo 3DS'],icon:'handheld'},
  {id:'classics',name:'Retro Game Classics',family:'games',names:['Super Mario Bros.','The Legend of Zelda','Pokémon Red','Pokémon Blue','Sonic the Hedgehog'],icon:'game_case'},
- {id:"sega-hardware",name:"Sega Hardware",family:"consoles",names:["Sega Genesis", "Sega Saturn", "Sega Dreamcast", "Sega Game Gear", "Sega CD"],icon:"game_case"},
- {id:"xbox-history",name:"Xbox Generations",family:"consoles",names:["Xbox", "Xbox 360", "Xbox One", "Xbox Series X", "Xbox Series S"],icon:"game_case"},
- {id:"mario-eras",name:"Mario Through the Years",family:"games",names:["Super Mario Bros.", "Super Mario World", "Super Mario 64", "Super Mario Sunshine", "Super Mario Galaxy", "Super Mario Odyssey"],icon:"game_case"},
- {id:"sonic-eras",name:"Sonic Across Generations",family:"games",names:["Sonic the Hedgehog", "Sonic the Hedgehog 2", "Sonic CD", "Sonic Adventure", "Sonic Adventure 2", "Sonic Mania"],icon:"game_case"},
- {id:"kirby-tour",name:"Kirby Adventures",family:"games",names:["Kirby’s Dream Land", "Kirby 64: The Crystal Shards", "Kirby: Triple Deluxe", "Kirby and the Forgotten Land"],icon:"game_case"},
+ {id:"sega-hardware",name:"Thrynovex Hardware",family:"consoles",names:["Sega Genesis", "Sega Saturn", "Sega Dreamcast", "Sega Game Gear", "Sega CD"],icon:"game_case"},
+ {id:"xbox-history",name:"AsterCube Generations",family:"consoles",names:["Xbox", "Xbox 360", "Xbox One", "Xbox Series X", "Xbox Series S"],icon:"game_case"},
+ {id:"mario-eras",name:"Mosskip Through the Years",family:"games",names:["Super Mario Bros.", "Super Mario World", "Super Mario 64", "Super Mario Sunshine", "Super Mario Galaxy", "Super Mario Odyssey"],icon:"game_case"},
+ {id:"sonic-eras",name:"Windrush Across Generations",family:"games",names:["Sonic the Hedgehog", "Sonic the Hedgehog 2", "Sonic CD", "Sonic Adventure", "Sonic Adventure 2", "Sonic Mania"],icon:"game_case"},
+ {id:"kirby-tour",name:"Pufflet Adventures",family:"games",names:["Kirby’s Dream Land", "Kirby 64: The Crystal Shards", "Kirby: Triple Deluxe", "Kirby and the Forgotten Land"],icon:"game_case"},
  {id:"pokemon-eras",name:"Pok\u00e9mon Generations",family:"games",names:["Pokémon Red", "Pokémon Gold", "Pokémon Ruby", "Pokémon Diamond", "Pokémon Black", "Pokémon X", "Pokémon Sun"],icon:"game_case"},
- {id:"dragon-ball-games",name:"Dragon Ball Games",family:"games",names:["Dragon Ball Z: Budokai 3", "Dragon Ball Z: Budokai Tenkaichi 3", "Dragon Ball FighterZ", "Dragon Ball Z: Kakarot"],icon:"game_case"},
+ {id:"dragon-ball-games",name:"Sky Orbs Adventures",family:"games",names:["Dragon Ball Z: Budokai 3", "Dragon Ball Z: Budokai Tenkaichi 3", "Dragon Ball FighterZ", "Dragon Ball Z: Kakarot"],icon:"game_case"},
  {id:"survival-horror",name:"Survival Horror Games",family:"games",names:["Resident Evil 2", "Resident Evil 4", "Silent Hill 3", "Dead Space", "Resident Evil Village"],icon:"game_case"},
  {id:"pc-classics",name:"PC Legends",family:"games",names:["Half-Life", "DOOM", "Quake", "StarCraft", "The Sims"],icon:"game_case"},
  {id:"indie",name:"Indie Games",family:"games",names:["Celeste", "Hollow Knight", "Stardew Valley", "Undertale", "Hades"],icon:"game_case"},
- {id:"nintendo-64",name:"Nintendo 64 Memories",family:"games",names:["Super Mario 64", "Mario Kart 64", "Donkey Kong 64", "Pokémon Snap", "Kirby 64: The Crystal Shards"],icon:"game_case"},
- {id:"sony-portables",name:"PlayStation Handhelds",family:"consoles",names:["PSP", "PS Vita", "God of War: Chains of Olympus", "Metal Gear Solid: Peace Walker"],icon:"game_case"},
+ {id:"nintendo-64",name:"Orilux 64 Memories",family:"games",names:["Super Mario 64", "Mario Kart 64", "Donkey Kong 64", "Pokémon Snap", "Kirby 64: The Crystal Shards"],icon:"game_case"},
+ {id:"sony-portables",name:"Qelvorune Handhelds",family:"consoles",names:["PSP", "PS Vita", "God of War: Chains of Olympus", "Metal Gear Solid: Peace Walker"],icon:"game_case"},
  {id:"fighting-legends",name:"Fighting Legends",family:"games",names:["Street Fighter II", "Mortal Kombat", "Tekken 3", "Virtua Fighter 2", "Street Fighter 6"],icon:"game_case"},
  {id:"music-games",name:"Music & Rhythm Games",family:"games",names:["Guitar Hero", "Dance Dance Revolution", "Wii Music", "Just Dance", "Rhythm Heaven Fever"],icon:"game_case"},
- {id:"zelda-classics",name:"Zelda Adventures",family:"games",names:["The Legend of Zelda", "The Legend of Zelda: Twilight Princess", "The Legend of Zelda: The Wind Waker", "The Legend of Zelda: Echoes of Wisdom"],icon:"game_case"},
+ {id:"zelda-classics",name:"Mooncrest Adventures",family:"games",names:["The Legend of Zelda", "The Legend of Zelda: Twilight Princess", "The Legend of Zelda: The Wind Waker", "The Legend of Zelda: Echoes of Wisdom"],icon:"game_case"},
 ];
 for(const set of COLLECTION_SETS){set.ids=set.names.map(n=>ITEMS.find(it=>it.name.toLowerCase()===n.toLowerCase())?.id).filter(Boolean);}
 function setProgress(s){return s.ids.filter(id=>unlocked.has(id)).length;}
@@ -791,7 +795,7 @@ function updateCounts(){
  $('statPersonal').textContent=earned.toLocaleString('en-US');
  refreshMergeButton();
 }
-function updateSlotUI(){slots.forEach((id,i)=>{const target=$(`slot${i}`),item=byId.get(id);target.classList.toggle('filled',!!item);target.innerHTML=item?`<span class="slot-art">${staticArt(item)}</span><span class="slot-name">${escapeText(item.name)}</span>`:'<span class="slot-plus">+</span>';});$('lockLeft').setAttribute('aria-pressed',String(leftLocked));$('batchOpen').hidden=!(leftLocked&&slots[0]);}
+function updateSlotUI(){slots.forEach((id,i)=>{const target=$(`slot${i}`),item=byId.get(id);target.classList.toggle('filled',!!item);target.innerHTML=item?`<span class="slot-art">${staticArt(item)}</span><span class="slot-name">${escapeText(uiName(item))}</span>`:'<span class="slot-plus">+</span>';});$('lockLeft').setAttribute('aria-pressed',String(leftLocked));$('batchOpen').hidden=!(leftLocked&&slots[0]);}
 function updateLatest(){ /* V35: the last ID remains in saved progress, but no screen-space widget. */ }
 function place(index,id){if(batchState?.phase==='scanning')return;if(!byId.has(id)||!unlocked.has(id))return;clearTimeout(autoTimer);slots[index]=id;updateSlotUI();if(slots.every(Boolean))autoTimer=setTimeout(combine,180);}
 // V54: pulsing feedback follows an actual ingredient selection (tap, pointer or keyboard).
@@ -839,7 +843,7 @@ async function refreshWorldFirsts(){
  worldFirsts=confirmed;worldStatsVerified=true;
  try{localStorage.setItem(firstStorageKey(),JSON.stringify([...worldFirsts]));}catch{}
  updateCounts();
- if(gained.length)toast(`★ WORLD FIRST! ${byId.get(gained[0])?.name||'New element'}${gained.length>1?' +'+(gained.length-1)+' more':''}`,'first');
+ if(gained.length)toast(`★ WORLD FIRST! ${uiName(byId.get(gained[0]))||'New element'}${gained.length>1?' +'+(gained.length-1)+' more':''}`,'first');
 }
 // V17: one bounded inbox check handles every queued pair for a guest session.
 // Completed items are acknowledged only after they have been stored locally.
@@ -868,7 +872,7 @@ async function refreshPending(announce=true){
     if(isNew){
      if(!STARTERS.has(id))discoveryLedger.set(id,{at:new Date().toISOString(),source:'world-approved',ingredients:[entry.leftId,entry.rightId]});
      recent=[id,...recent.filter(x=>x!==id)].slice(0,350);
-     last=id;newItems.push(entry.result.name);changed=true;
+     last=id;newItems.push(uiName(entry.result));changed=true;
     }
     worldChange=worldChange||!!entry.worldFirst;
     ack.push(entry.candidateId);
@@ -905,8 +909,8 @@ function completeCombination(resultId,a,b,kind='recipe'){
  if(fresh&&!STARTERS.has(resultId))discoveryLedger.set(resultId,{at:new Date().toISOString(),source:kind,ingredients:[a,b]});
  recent=[resultId,...recent.filter(i=>i!==resultId)].slice(0,350);
  save();updateCounts();updateLatest();
- if(fresh){announceCraft('new','New discovery · '+byId.get(resultId).name);rerenderCollections();if(tab==='World')renderDiscoveries();showDiscovery(resultId,a,b);}
- else {announceCraft('repeat','Already discovered · '+byId.get(resultId).name);}
+ if(fresh){announceCraft('new','New discovery · '+uiName(byId.get(resultId)));rerenderCollections();if(tab==='World')renderDiscoveries();showDiscovery(resultId,a,b);}
+ else {announceCraft('repeat','Already discovered · '+uiName(byId.get(resultId)));}
 }
 async function combine(){
  if(!slots[0]||!slots[1])return;
@@ -951,19 +955,19 @@ function closeModal(){
 
 function showDiscovery(id,a,b){
  const it=byId.get(id),isFirst=worldFirsts.has(id),earned=[...unlocked].filter(x=>!STARTERS.has(x)).length;
- showModal(`<div class="modal-tag ${isFirst?'world-first-tag':''}">${isFirst?'★ WORLD FIRST':'✦ NEW DISCOVERY'}</div><div class="modal-art">${staticArt(it)}</div><h2>${escapeText(it.name)}</h2><p>${escapeText(byId.get(a).name)} + ${escapeText(byId.get(b).name)}</p>${wittyDiscovery(it)?`<p class="discovery-wit">${escapeText(wittyDiscovery(it))}</p>`:""}<div class="modal-milestone">${earned.toLocaleString('en-US')} personal discoveries</div>`);
+ showModal(`<div class="modal-tag ${isFirst?'world-first-tag':''}">${isFirst?'★ WORLD FIRST':'✦ NEW DISCOVERY'}</div><div class="modal-art">${staticArt(it)}</div><h2>${escapeText(uiName(it))}</h2><p>${escapeText(uiName(byId.get(a)))} + ${escapeText(uiName(byId.get(b)))}</p>${wittyDiscovery(it)?`<p class="discovery-wit">${escapeText(publicText(wittyDiscovery(it)))}</p>`:""}<div class="modal-milestone">${earned.toLocaleString('en-US')} personal discoveries</div>`);
  $('continueBtn')?.remove();$('modal').dataset.dismiss='x-only';
 }
-function detail(id){const it=byId.get(id);if(!it)return;const extra=familiesFor(it).length>1?`<p class="mini-muted">Shared across: ${familiesFor(it).map(f=>escapeText(FAMILIES.find(x=>x.id===f)?.name||f)).join(' · ')}</p>`:'';showModal(`<div class="modal-art">${staticArt(it)}</div><h2>${escapeText(it.name)}</h2><p>${escapeText(categoryNames[it.category]||it.category)}</p>${extra}<button class="modal-button" id="useBtn">Use in craft table</button>`);$('useBtn').onclick=()=>{closeModal();switchTab('Play');if(!slots[0])place(0,id);else place(1,id);};}
+function detail(id){const it=byId.get(id);if(!it)return;const extra=familiesFor(it).length>1?`<p class="mini-muted">Shared across: ${familiesFor(it).map(f=>escapeText(FAMILIES.find(x=>x.id===f)?.name||f)).join(' · ')}</p>`:'';showModal(`<div class="modal-art">${staticArt(it)}</div><h2>${escapeText(uiName(it))}</h2><p>${escapeText(categoryNames[it.category]||it.category)}</p>${extra}<button class="modal-button" id="useBtn">Use in craft table</button>`);$('useBtn').onclick=()=>{closeModal();switchTab('Play');if(!slots[0])place(0,id);else place(1,id);};}
 const allIds=()=>[...unlocked].filter(id=>byId.has(id));
 function filtered(mode){
  let ids=allIds();if(currentMode==='family')ids=ids.filter(id=>familyCampaigns.get(currentFamilyId).itemSet.has(id));const q=playQuery.trim().toLowerCase();
  if(playFamily!=='all')ids=ids.filter(id=>familiesFor(byId.get(id)).includes(playFamily));
- if(q)ids=ids.filter(id=>byId.get(id).name.toLowerCase().includes(q));
+ if(q)ids=ids.filter(id=>uiName(byId.get(id)).toLowerCase().includes(q));
  if(sortChoice==='old'||sortChoice==='new'){
   syncDiscoveryOrder();const rank=new Map(discoveryOrder.map((id,i)=>[id,i]));
   ids.sort((a,b)=>sortChoice==='old'?(rank.get(a)??Infinity)-(rank.get(b)??Infinity):(rank.get(b)??-1)-(rank.get(a)??-1));
- }else ids.sort((a,b)=>byId.get(a).name.localeCompare(byId.get(b).name));
+ }else ids.sort((a,b)=>uiName(byId.get(a)).localeCompare(uiName(byId.get(b))));
  return ids;
 }
 class VirtualElements {
@@ -985,7 +989,7 @@ class VirtualElements {
   }else this.viewport.scrollTop=before;
   this.draw(true);
  }
- draw(force=false){let width=this.viewport.clientWidth,cols=Math.max(1,Math.floor((width-28+8)/(145+8))),rowHeight=62,rows=Math.ceil(this.ids.length/cols),top=Math.max(0,Math.floor(this.viewport.scrollTop/rowHeight)-4),end=Math.min(rows,Math.ceil((this.viewport.scrollTop+this.viewport.clientHeight)/rowHeight)+5);if(!force&&this.start===top&&this.end===end&&this.cols===cols)return;this.start=top;this.end=end;this.cols=cols;this.root.style.height=Math.max(40,rows*rowHeight)+'px';if(!this.ids.length){const msg='No elements found.';this.root.innerHTML='<div class="empty-list">'+msg+'</div>';return;}let shown=this.ids.slice(top*cols,end*cols);this.root.innerHTML=`<div class="virtual-grid" style="--cols:${cols};top:${top*rowHeight}px">${shown.map(id=>{const it=byId.get(id);return `<button class="element-chip ${worldFirsts.has(id)?'world-first-chip':''}" data-id="${escapeText(id)}" aria-label="Tap or drag ${escapeText(it.name)}"><span class="chip-art">${staticArt(it)}</span><span class="chip-label">${escapeText(it.name)}</span>${elementIsComplete(id)?'<span class="chip-completed" title="No undiscovered outputs in the offline catalogue" aria-label="Completed">★</span>':''}</button>`;}).join('')}</div>`;}
+ draw(force=false){let width=this.viewport.clientWidth,cols=Math.max(1,Math.floor((width-28+8)/(145+8))),rowHeight=62,rows=Math.ceil(this.ids.length/cols),top=Math.max(0,Math.floor(this.viewport.scrollTop/rowHeight)-4),end=Math.min(rows,Math.ceil((this.viewport.scrollTop+this.viewport.clientHeight)/rowHeight)+5);if(!force&&this.start===top&&this.end===end&&this.cols===cols)return;this.start=top;this.end=end;this.cols=cols;this.root.style.height=Math.max(40,rows*rowHeight)+'px';if(!this.ids.length){const msg='No elements found.';this.root.innerHTML='<div class="empty-list">'+msg+'</div>';return;}let shown=this.ids.slice(top*cols,end*cols);this.root.innerHTML=`<div class="virtual-grid" style="--cols:${cols};top:${top*rowHeight}px">${shown.map(id=>{const it=byId.get(id);return `<button class="element-chip ${worldFirsts.has(id)?'world-first-chip':''}" data-id="${escapeText(id)}" aria-label="Tap or drag ${escapeText(uiName(it))}"><span class="chip-art">${staticArt(it)}</span><span class="chip-label">${escapeText(uiName(it))}</span>${elementIsComplete(id)?'<span class="chip-completed" title="No undiscovered outputs in the offline catalogue" aria-label="Completed">★</span>':''}</button>`;}).join('')}</div>`;}
 }
 const playVirtual=new VirtualElements('inventoryVirtual','play');
 // One shared refresh path keeps Play and Discoveries in sync.
@@ -999,14 +1003,14 @@ function renderDiscoveries(){
  $('catalogTargetProgress').textContent=currentMode==='family'?`${unlocked.size} / ${total} found`:`${total.toLocaleString('en-US')} / ${GAMING_V24.targetElements.toLocaleString('en-US')} planned elements`;
  $('catalogTargetFill').style.width=Math.min(100,currentMode==='family'?100*unlocked.size/total:100*total/GAMING_V24.targetElements).toFixed(2)+'%';
  const setEl=$('thematicSets');if(setEl){setEl.hidden=currentMode==='family';setEl.innerHTML=COLLECTION_SETS.map(s=>{const count=setProgress(s),total=s.ids.length,pct=total?Math.round(100*count/total):0;
- return `<button class="theme-set" data-set="${s.id}"><strong>${escapeText(s.name)}</strong><small>${count} / ${total} found · ${pct}%</small><span class="family-line"><i style="width:${pct}%"></i></span></button>`;
+ return `<button class="theme-set" data-set="${s.id}"><strong>${escapeText(publicText(s.name))}</strong><small>${count} / ${total} found · ${pct}%</small><span class="family-line"><i style="width:${pct}%"></i></span></button>`;
  }).join('');}
  $('familiesGrid').innerHTML=FAMILIES.filter(f=>currentMode==='classic'||f.id===currentFamilyId).map(f=>{const g=groups[f.id],pct=g.total?Math.round(g.found/g.total*100):100;
   const icon=familyCardArtwork(f);
   return `<button class="family-card" data-family="${f.id}" aria-label="${escapeText(f.name)} ${g.found} of ${g.total} found"><span class="family-icon">${icon}</span><span class="family-card-main"><strong>${escapeText(f.name)}</strong><small>${g.found.toLocaleString('en-US')} / ${g.total.toLocaleString('en-US')} found</small><span class="family-line"><i style="width:${pct}%"></i></span></span><span class="family-next" aria-hidden="true">›</span></button>`;
  }).join('');
  if(activeFamily){const s=COLLECTION_SETS.find(x=>x.id===activeSet),g=s?{...groups[s.family],ids:s.ids,found:setProgress(s),total:s.ids.length,name:s.name}:groups[activeFamily];if(g){
-  $('familyName').textContent=g.name;$('familyProgressText').textContent=`${g.found.toLocaleString('en-US')} of ${g.total.toLocaleString('en-US')} discovered`;
+  $('familyName').textContent=publicText(g.name);$('familyProgressText').textContent=`${g.found.toLocaleString('en-US')} of ${g.total.toLocaleString('en-US')} discovered`;
   const pct=g.total?Math.round(100*g.found/g.total):100;$('familyPercent').textContent=(g.found>0&&pct===0?'<1%':pct+'%');$('familyProgressBar').style.width=pct+'%';
   const actionable=getFamilyCandidate(),action=$('familyHint');
   action.disabled=!actionable;
@@ -1030,7 +1034,7 @@ function discoveredRecipes(id){
  // for an unlocked element, rather than showing an empty entry.
  return options.length?[options[0]]:[];
 }
-function recipeLabel(recipe){return recipe ? `${byId.get(recipe.a).name} + ${byId.get(recipe.b).name}` : 'Starting element';}
+function recipeLabel(recipe){return recipe ? `${uiName(byId.get(recipe.a))} + ${uiName(byId.get(recipe.b))}` : 'Starting element';}
 function elementState(id){return unlocked.has(id)?'found':hintState.clues[id]==='recipe'?'recipe':hintState.clues[id]==='hint'?'hint':'unknown';}
 function discoverMetric(id){return `${difficultyFor(id)} · Players found: —`;}
 function recipeLine(id){
@@ -1044,8 +1048,8 @@ function recipeLine(id){
 function openRecipePaths(id){
  if(!unlocked.has(id))return openDiscoverElement(id);
  const item=byId.get(id),paths=discoveredRecipes(id);
- showModal(`<div class="modal-art">${staticArt(item)}</div><h2>${escapeText(item.name)}</h2><p>${paths.length===0?'Starting element':paths.length+' recipe path'+(paths.length===1?'':'s')+'</p>'}${familiesFor(item).length>1?`<p class="mini-muted">Shared: ${familiesFor(item).map(f=>escapeText(FAMILIES.find(x=>x.id===f)?.name||f)).join(' · ')}</p>`:''}
- <div class="paths-list">${paths.length?paths.slice(0,30).map(p=>`<div class="path-line">${escapeText(recipeLabel(p))} <span>→ ${escapeText(item.name)}</span></div>`).join(''):'<div class="path-line">Available from the beginning</div>'}</div>
+ showModal(`<div class="modal-art">${staticArt(item)}</div><h2>${escapeText(uiName(item))}</h2><p>${paths.length===0?'Starting element':paths.length+' recipe path'+(paths.length===1?'':'s')+'</p>'}${familiesFor(item).length>1?`<p class="mini-muted">Shared: ${familiesFor(item).map(f=>escapeText(FAMILIES.find(x=>x.id===f)?.name||f)).join(' · ')}</p>`:''}
+ <div class="paths-list">${paths.length?paths.slice(0,30).map(p=>`<div class="path-line">${escapeText(recipeLabel(p))} <span>→ ${escapeText(uiName(item))}</span></div>`).join(''):'<div class="path-line">Available from the beginning</div>'}</div>
  <button class="modal-button" id="useDiscovered">Use in craft</button>`);
  $('useDiscovered').onclick=()=>{closeModal();switchTab('Play');insertDirect(id);};
 }
@@ -1066,7 +1070,7 @@ class VirtualDiscoveries{
    if(discoveryScope==='useful'&&(!found||!elementIsUseful(id)))return false;
    if(discoveryScope==='completed'&&(!found||!elementIsComplete(id)))return false;
    if(discoveryScope==='recent'&&(!found||!recent.includes(id)))return false;
-   const q=discoverQuery.trim().toLowerCase();return !q||(found&&byId.get(id).name.toLowerCase().includes(q));
+   const q=discoverQuery.trim().toLowerCase();return !q||(found&&uiName(byId.get(id)).toLowerCase().includes(q));
   }):[];
   this.draw(true);
  }
@@ -1079,10 +1083,10 @@ class VirtualDiscoveries{
    const found=unlocked.has(id),state=elementState(id),it=byId.get(id),paths=found?discoveredRecipes(id):[];
    const recipe=escapeText(recipeLine(id));
    const mystery=state==='recipe'?'⌁':'?';
-   const badge=found&&paths.length>1?`<button class="discover-path-count" data-paths="${escapeText(id)}" aria-label="View ${paths.length} recipes for ${escapeText(it.name)}">${paths.length} paths</button>`:'';
+   const badge=found&&paths.length>1?`<button class="discover-path-count" data-paths="${escapeText(id)}" aria-label="View ${paths.length} recipes for ${escapeText(uiName(it))}">${paths.length} paths</button>`:'';
    const save=found?`<button class="discover-favorite ${favorites.has(id)?'is-favorite':''}" data-favorite="${escapeText(id)}" aria-label="${favorites.has(id)?'Remove from':'Save to'} favorites" aria-pressed="${favorites.has(id)}">${favorites.has(id)?'★':'☆'}</button>`:'';
    const status=state==='recipe'?'RECIPE KNOWN':state==='hint'?'HINT FOUND':state==='found'?'DISCOVERED':'UNDISCOVERED';
-   return `<div class="discover-entry ${state}"><button class="discover-entry-main" data-element="${escapeText(id)}" aria-label="${found?'Use '+escapeText(it.name):'View hidden element'}"><span class="discover-entry-art">${found?staticArt(it):'<span class="mystery-mark">'+mystery+'</span>'}</span><span class="discover-entry-text"><strong>${found?escapeText(it.name):'????'} <em class="entry-state">${status}</em></strong><small>${found?'Recipe · '+recipe:recipe}</small><span class="discovery-metric" title="${escapeText(playerRate(id))}">${escapeText(discoverMetric(id))}</span></span><span class="discover-entry-arrow" aria-hidden="true">›</span></button>${save}${badge}</div>`;
+   return `<div class="discover-entry ${state}"><button class="discover-entry-main" data-element="${escapeText(id)}" aria-label="${found?'Use '+escapeText(uiName(it)):'View hidden element'}"><span class="discover-entry-art">${found?staticArt(it):'<span class="mystery-mark">'+mystery+'</span>'}</span><span class="discover-entry-text"><strong>${found?escapeText(uiName(it)):'????'} <em class="entry-state">${status}</em></strong><small>${found?'Recipe · '+recipe:recipe}</small><span class="discovery-metric" title="${escapeText(playerRate(id))}">${escapeText(discoverMetric(id))}</span></span><span class="discover-entry-arrow" aria-hidden="true">›</span></button>${save}${badge}</div>`;
   }).join('')}</div>`;
  }
 }
@@ -1099,8 +1103,8 @@ function getFamilyCandidate(){
  return choices.find(c=>c.revealed!=='recipe')||choices[0]||null;
 }
 function formatClue(id){const c=hintState.clues[id],target=byId.get(id),option=candidateFor(id);if(!option)return 'No recipe available for this element yet.';
-  if(c==='recipe')return `${escapeText(byId.get(option.a).name)} + ${escapeText(byId.get(option.b).name)} → ????`;
-  if(c==='hint')return `${escapeText(byId.get(option.a).name)} + ???? → ????`;
+  if(c==='recipe')return `${escapeText(uiName(byId.get(option.a)))} + ${escapeText(uiName(byId.get(option.b)))} → ????`;
+  if(c==='hint')return `${escapeText(uiName(byId.get(option.a)))} + ???? → ????`;
   return `${escapeText(categoryNames[target.category]||target.category)} · undiscovered`;}
 function openDiscoverElement(id){if(!byId.has(id))return;
  if(unlocked.has(id)){switchTab('Play');insertDirect(id);return;}
@@ -1208,7 +1212,7 @@ function batchFamilySnapshot(){
  return groups;
 }
 let pendingBatchFamilies=null;
-function familyBatchCandidates(family){return (pendingBatchFamilies?.get(family)||batchFamilySnapshot().get(family)||[]).slice().sort((a,b)=>byId.get(a).name.localeCompare(byId.get(b).name));}
+function familyBatchCandidates(family){return (pendingBatchFamilies?.get(family)||batchFamilySnapshot().get(family)||[]).slice().sort((a,b)=>uiName(byId.get(a)).localeCompare(uiName(byId.get(b))));}
 function batchChooser(){
  if(!leftLocked||!slots[0]){toast('Lock an element on the left first','error');return;}
  pendingBatchFamilies=batchFamilySnapshot();
@@ -1219,7 +1223,7 @@ function batchChooser(){
   const icon=familyCardArtwork(f);
   return `<button type="button" class="batch-family-choice" data-batch-family="${f.id}" aria-pressed="${f.id===selected}" ${count?'':'disabled'}><span class="batch-family-picture">${icon}</span><span class="batch-family-data"><strong>${escapeText(f.name)}</strong><small>${count.toLocaleString('en-US')} found</small></span></button>`;
  }).join('');
- showModal(`<div class="modal-tag">FAMILY COMBINER</div><h2>Choose a family</h2><p class="batch-intro"><span class="batch-locked">♧ ${escapeText(byId.get(slots[0]).name)}</span> stays locked. Scan all collected elements, then review new discoveries.</p><div class="batch-family-grid" role="group" aria-label="Family to combine">${familyCards}</div><div class="batch-selection"><strong id="batchSelectedName"></strong><span id="batchEstimate"></span></div><div class="batch-actions"><button class="modal-button" id="batchDemo" ${batchTrialUsed||!selected?'disabled':''}>${batchTrialUsed?'Free trial used':'Free trial'}</button><button class="modal-button secondary" id="batchRewarded" ${rewardedAvailable()&&selected?'':'disabled'}>Watch Ad</button></div><p class="mini-muted batch-quiet-note">Offline fast scan · No per-element animations. Rewarded ads need a configured Android build.</p>`);
+ showModal(`<div class="modal-tag">FAMILY COMBINER</div><h2>Choose a family</h2><p class="batch-intro"><span class="batch-locked">♧ ${escapeText(uiName(byId.get(slots[0])))}</span> stays locked. Scan all collected elements, then review new discoveries.</p><div class="batch-family-grid" role="group" aria-label="Family to combine">${familyCards}</div><div class="batch-selection"><strong id="batchSelectedName"></strong><span id="batchEstimate"></span></div><div class="batch-actions"><button class="modal-button" id="batchDemo" ${batchTrialUsed||!selected?'disabled':''}>${batchTrialUsed?'Free trial used':'Free trial'}</button><button class="modal-button secondary" id="batchRewarded" ${rewardedAvailable()&&selected?'':'disabled'}>Watch Ad</button></div><p class="mini-muted batch-quiet-note">Offline fast scan · No per-element animations. Rewarded ads need a configured Android build.</p>`);
  const redraw=()=>{
   document.querySelectorAll('[data-batch-family]').forEach(b=>b.setAttribute('aria-pressed',String(b.dataset.batchFamily===selected)));
   $('batchSelectedName').textContent=FAMILIES.find(f=>f.id===selected)?.name||'No available elements';
@@ -1257,7 +1261,7 @@ function beginBatch(family,source){
  batchState={fixed,fixedItem:byId.get(fixed),family,source,ids,recipeIndex:batchPartnerIndex(fixed),index:0,fresh:0,repeat:0,miss:0,phase:'scanning',discoveries:[],newRecent:[],pendingIds:new Set(),pendingKnown:[],pendingRecipes:[],reviewIndex:0,viewAll:false,startedAt:performance.now()};
  const f=FAMILIES.find(f=>f.id===family);
  const art=familyCardArtwork(f);
- showModal(`<div class="modal-tag">SCANNING FAMILY</div><div class="batch-running-art">${art}</div><h2>${escapeText(f.name)}</h2><p>Combining with <strong>${escapeText(batchState.fixedItem.name)}</strong> · Checking recipes locally</p><span class="batch-fast-tag">Fast offline mode</span><div class="batch-running-progress"><div class="batch-running-fill" id="batchRunningFill"></div></div><div class="batch-running-count" id="batchRunningCount">0 / ${ids.length.toLocaleString('en-US')}</div><div class="batch-running-totals" id="batchRunningTotals">Searching for discoveries…</div><p class="mini-muted">Cancel with X. No animations or remote requests.</p>`);
+ showModal(`<div class="modal-tag">SCANNING FAMILY</div><div class="batch-running-art">${art}</div><h2>${escapeText(f.name)}</h2><p>Combining with <strong>${escapeText(uiName(batchState.fixedItem))}</strong> · Checking recipes locally</p><span class="batch-fast-tag">Fast offline mode</span><div class="batch-running-progress"><div class="batch-running-fill" id="batchRunningFill"></div></div><div class="batch-running-count" id="batchRunningCount">0 / ${ids.length.toLocaleString('en-US')}</div><div class="batch-running-totals" id="batchRunningTotals">Searching for discoveries…</div><p class="mini-muted">Cancel with X. No animations or remote requests.</p>`);
  $('modal').dataset.dismiss='x-only';
  slots[1]=null;updateSlotUI();announceCraft('idle',`Scanning ${ids.length.toLocaleString('en-US')} combinations…`);
  requestAnimationFrame(batchScanChunk);
@@ -1310,12 +1314,12 @@ function showBatchDiscovery(){
  const st=batchState;if(!st||st.phase!=='review')return;
  st.viewAll=false;
  const d=st.discoveries[st.reviewIndex],it=byId.get(d.id);
- showModal(`<div class="modal-tag">✦ NEW DISCOVERY · ${st.reviewIndex+1} OF ${st.discoveries.length}</div><div class="modal-art">${staticArt(it)}</div><h2>${escapeText(it.name)}</h2><p>${escapeText(byId.get(d.a).name)} + ${escapeText(byId.get(d.b).name)}</p>${wittyDiscovery(it)?`<p class="discovery-wit">${escapeText(wittyDiscovery(it))}</p>`:""}<div class="modal-milestone">${st.fresh} new · ${st.repeat} repeated · ${st.miss} no match</div><button type="button" id="batchViewAll" class="modal-button secondary">View All Discoveries (${st.discoveries.length})</button><p class="mini-muted">Close using X to view the next discovery.</p>`);
+ showModal(`<div class="modal-tag">✦ NEW DISCOVERY · ${st.reviewIndex+1} OF ${st.discoveries.length}</div><div class="modal-art">${staticArt(it)}</div><h2>${escapeText(uiName(it))}</h2><p>${escapeText(uiName(byId.get(d.a)))} + ${escapeText(uiName(byId.get(d.b)))}</p>${wittyDiscovery(it)?`<p class="discovery-wit">${escapeText(publicText(wittyDiscovery(it)))}</p>`:""}<div class="modal-milestone">${st.fresh} new · ${st.repeat} repeated · ${st.miss} no match</div><button type="button" id="batchViewAll" class="modal-button secondary">View All Discoveries (${st.discoveries.length})</button><p class="mini-muted">Close using X to view the next discovery.</p>`);
  $('modal').dataset.dismiss='x-only';
  $('batchViewAll').onclick=showBatchAll;
 }
 function batchResultRow(d,i){const item=byId.get(d.id);
- return `<div class="batch-discovery-row"><div class="batch-discovery-art">${staticArt(item)}</div><div class="batch-discovery-name"><strong>${escapeText(item.name)}</strong><small>${escapeText(byId.get(d.a).name)} + ${escapeText(byId.get(d.b).name)}</small></div><span>${i+1}</span></div>`;
+ return `<div class="batch-discovery-row"><div class="batch-discovery-art">${staticArt(item)}</div><div class="batch-discovery-name"><strong>${escapeText(uiName(item))}</strong><small>${escapeText(uiName(byId.get(d.a)))} + ${escapeText(uiName(byId.get(d.b)))}</small></div><span>${i+1}</span></div>`;
 }
 function showBatchAll(){
  const st=batchState;if(!st||st.phase!=='review')return;
@@ -1338,7 +1342,7 @@ function showBatchAll(){
 function showBatchSummary(){
  const st=batchState;if(!st)return;
  st.phase='summary';st.viewAll=false;
- showModal(`<div class="modal-tag">BATCH COMPLETE</div><h2>Family checked</h2><p>${st.ids.length} combinations tested with ${escapeText(byId.get(st.fixed).name)}.</p><div class="batch-summary"><span><strong>${st.fresh}</strong>New</span><span><strong>${st.repeat}</strong>Repeated</span><span><strong>${st.miss}</strong>No match</span></div><p class="mini-muted">Your new elements are saved in Discoveries.</p>`);
+ showModal(`<div class="modal-tag">BATCH COMPLETE</div><h2>Family checked</h2><p>${st.ids.length} combinations tested with ${escapeText(uiName(byId.get(st.fixed)))}.</p><div class="batch-summary"><span><strong>${st.fresh}</strong>New</span><span><strong>${st.repeat}</strong>Repeated</span><span><strong>${st.miss}</strong>No match</span></div><p class="mini-muted">Your new elements are saved in Discoveries.</p>`);
  $('modal').dataset.dismiss='x-only';
 }
 $('batchOpen').onclick=batchChooser;
@@ -1380,7 +1384,7 @@ async function hint(){
 }
 function showCompassRevealed(item){
  const fam=FAMILIES.find(f=>f.id===item.family)?.name||'Discoveries';
- showModal(`<div class="modal-tag">✧ RECIPE REVEALED</div><h2>${escapeText(fam)}</h2><div class="compass-recipe"><strong>${escapeText(byId.get(item.a).name)}</strong><span>+</span><strong>${escapeText(byId.get(item.b).name)}</strong></div><p>The result is still a mystery until you craft it.</p><button class="modal-button" id="compassTry">Try combination</button>`);
+ showModal(`<div class="modal-tag">✧ RECIPE REVEALED</div><h2>${escapeText(fam)}</h2><div class="compass-recipe"><strong>${escapeText(uiName(byId.get(item.a)))}</strong><span>+</span><strong>${escapeText(uiName(byId.get(item.b)))}</strong></div><p>The result is still a mystery until you craft it.</p><button class="modal-button" id="compassTry">Try combination</button>`);
  $('modal').dataset.dismiss='x-only';
  $('compassTry').onclick=()=>{closeModal();switchTab('Play');selectForHint(item.a,item.b);};
 }

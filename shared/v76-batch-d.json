@@ -2,63 +2,63 @@
   "items": [
     {
       "id": "organic76:sega-genesis-cartridge-display",
-      "name": "Sega Genesis Cartridge Display",
+      "name": "Thrynovex Origin Cartridge Display",
       "category": "culture",
       "summary": "A row of dark classic cartridges hangs in a polished display.",
       "iconFamily": "organic"
     },
     {
       "id": "organic76:sega-saturn-repair-bench",
-      "name": "Sega Saturn Repair Bench",
+      "name": "Thrynovex Ring Repair Bench",
       "category": "technology",
       "summary": "A precise bench helps restore a stubborn old disc console.",
       "iconFamily": "organic"
     },
     {
       "id": "organic76:sega-game-gear-power-bank",
-      "name": "Sega Game Gear Power Bank",
+      "name": "Thrynovex Pocket Power Bank",
       "category": "accessory",
       "summary": "A hefty battery pack keeps a bright portable screen running.",
       "iconFamily": "organic"
     },
     {
       "id": "organic76:sega-nomad-headphone-adapter",
-      "name": "Sega Nomad Headphone Adapter",
+      "name": "Thrynovex Rover Headphone Adapter",
       "category": "accessory",
       "summary": "An angled audio plug connects portable gameplay to a headset.",
       "iconFamily": "organic"
     },
     {
       "id": "organic76:game-and-watch-gallery",
-      "name": "Game and Watch Gallery",
+      "name": "Pocket Chronograph Gallery",
       "category": "culture",
       "summary": "A museum wall presents several tiny single-screen timekeepers.",
       "iconFamily": "organic"
     },
     {
       "id": "organic76:famicom-disk-archive",
-      "name": "Famicom Disk Archive",
+      "name": "Homebit Disk Archive",
       "category": "culture",
       "summary": "Labeled floppy-style game disks sleep safely in archival sleeves.",
       "iconFamily": "organic"
     },
     {
       "id": "organic76:nintendo-64-rumble-tester",
-      "name": "Nintendo 64 Rumble Tester",
+      "name": "Orilux 64 Rumble Tester",
       "category": "technology",
       "summary": "A vibration accessory shakes a small test lamp into life.",
       "iconFamily": "organic"
     },
     {
       "id": "organic76:game-boy-printer-scrapbook",
-      "name": "Game Boy Printer Scrapbook",
+      "name": "PocketNova Printer Scrapbook",
       "category": "culture",
       "summary": "Thermal photos fill a playful scrapbook of portable memories.",
       "iconFamily": "organic"
     },
     {
       "id": "organic76:game-boy-link-cable-tester",
-      "name": "Game Boy Link Cable Tester",
+      "name": "PocketNova Link Cable Tester",
       "category": "technology",
       "summary": "A tiny light confirms that the old link-cable pins still work.",
       "iconFamily": "organic"

@@ -26,3 +26,7 @@ Work through the remaining **150** with three independently reviewed ~50-item gr
 
 Android APK (stable): https://github.com/joaogdbg-ui/35K-Alchemy/releases/download/latest/35K-Alchemy.apk
 Latest release: https://github.com/joaogdbg-ui/35K-Alchemy/releases/tag/latest
+
+## V76.1 fictional-equipment migration
+
+39 of the 50 V76 item titles previously contained product or manufacturer brand references. The source item labels, five active illustration maps, approved manifest, five batch manifests and 39 SVG filenames now use distinct mock-world identities. All immutable IDs and original recipe input/output triples remain unchanged. The illustrations themselves remain custom art and require a separate human trade-dress review.

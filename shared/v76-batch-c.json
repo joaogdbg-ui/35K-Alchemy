@@ -2,70 +2,70 @@
   "items": [
     {
       "id": "organic76:playstation-3-cooling-platform",
-      "name": "PlayStation 3 Cooling Platform",
+      "name": "Qelvorune 3 Cooling Platform",
       "category": "accessory",
       "summary": "Three quiet fans keep a glossy console cool during long sessions.",
       "iconFamily": "organic"
     },
     {
       "id": "organic76:playstation-4-dual-charging-dock",
-      "name": "PlayStation 4 Dual Charging Dock",
+      "name": "Qelvorune 4 Dual Charging Dock",
       "category": "accessory",
       "summary": "Two gamepads recharge side by side like matching bookends.",
       "iconFamily": "organic"
     },
     {
       "id": "organic76:playstation-5-vertical-cooling-stand",
-      "name": "PlayStation 5 Vertical Cooling Stand",
+      "name": "Qelvorune 5 Vertical Cooling Stand",
       "category": "accessory",
       "summary": "Airflow rises around the tall console without hiding its curves.",
       "iconFamily": "organic"
     },
     {
       "id": "organic76:playstation-portal-travel-sleeve",
-      "name": "PlayStation Portal Travel Sleeve",
+      "name": "Qelvorune Streamscreen Travel Sleeve",
       "category": "accessory",
       "summary": "A padded travel sleeve protects the wide portable screen.",
       "iconFamily": "organic"
     },
     {
       "id": "organic76:xbox-disc-tower",
-      "name": "Xbox Disc Tower",
+      "name": "AsterCube Disc Tower",
       "category": "accessory",
       "summary": "A tall wooden tower holds the games for an entire weekend.",
       "iconFamily": "organic"
     },
     {
       "id": "organic76:xbox-360-power-module",
-      "name": "Xbox 360 Power Module",
+      "name": "AsterCube Orbit Power Module",
       "category": "technology",
       "summary": "A compact battery pack feeds the console without interruptions.",
       "iconFamily": "organic"
     },
     {
       "id": "organic76:xbox-one-wireless-receiver",
-      "name": "Xbox One Wireless Receiver",
+      "name": "AsterCube One Wireless Receiver",
       "category": "accessory",
       "summary": "A pocket receiver pairs a wireless controller across the room.",
       "iconFamily": "organic"
     },
     {
       "id": "organic76:xbox-series-x-ventilation-grille",
-      "name": "Xbox Series X Ventilation Grille",
+      "name": "AsterCube Zenith Ventilation Grille",
       "category": "technology",
       "summary": "Cool air passes through hundreds of carefully arranged openings.",
       "iconFamily": "organic"
     },
     {
       "id": "organic76:dreamcast-vmu-display-stand",
-      "name": "Dreamcast VMU Display Stand",
+      "name": "Lucent Orbit VMU Display Stand",
       "category": "culture",
       "summary": "A tiny detachable memory screen earns its own display pedestal.",
       "iconFamily": "organic"
     },
     {
       "id": "organic76:dreamcast-controller-shell",
-      "name": "Dreamcast Controller Shell",
+      "name": "Lucent Orbit Controller Shell",
       "category": "accessory",
       "summary": "A fresh ergonomic controller housing awaits its working parts.",
       "iconFamily": "organic"
