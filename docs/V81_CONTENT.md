@@ -1,6 +1,6 @@
-# V81 189/200 — staging, not a release
+# V81 200/200 — editorial work complete, release not yet prepared
 
-Published V81 entries: 40; unpublished additions here: 149. Complete 200/200 V81 and +28 V82 before a single +188-to-6000 PR and build.
+160 new V81 elements have been authored beyond the 40 in the latest public APK. To complete a single +188-element release to exactly 6,000, the project still requires 28 new V82 elements, integration and full QA.
 
 1. **Sprite Animation Light Table** = organic80:pixel-sprite-lightbox + legacy:211 — An animator's luminous drawing table shows three consecutive pixel-sprite frames beside a timing ruler.
 2. **Color-Proof Photo Printer** = organic80:color-calibration-proof + organic80:pocket-photo-printer — A tabletop printer outputs calibrated color patches beside a small landscape photograph.
@@ -191,3 +191,14 @@ Published V81 entries: 40; unpublished additions here: 149. Complete 200/200 V81
 187. **Flamingo** = organic81:parrot + legacy:39 — A pink flamingo balances on one thin leg, with an S-shaped neck and broad hooked bill in shallow water.
 188. **Sphinx** = organic81:lion + legacy:52 — A mythical sphinx has a lion's body, a human-like face and a patient gaze associated with ancient riddles.
 189. **Medusa** = organic81:naga + legacy:114 — A mythical Medusa has writhing snakes in place of hair and an intense gaze said to turn onlookers to stone.
+190. **Styracosaurus** = organic81:triceratops + legacy:141 — A horned dinosaur bears a sunburst of long spikes around the back of its broad neck frill.
+191. **Pachycephalosaurus** = organic81:prehistoric-species-atlas + organic81:bison — A bipedal Cretaceous dinosaur has an unusually thick round skull dome suited to headbutting contests.
+192. **Iguanodon** = organic81:prehistoric-species-atlas + legacy:15 — A large plant-eating dinosaur with a stiff tail uses pointed thumb spikes as its distinctive feature.
+193. **Maiasaura** = pack:dinosaur-egg + organic81:chicken — A protective duck-billed dinosaur watches over a nest of eggs, reflecting the good-mother meaning of its name.
+194. **Dinosaur Footprint** = organic81:triceratops + legacy:6 — A fossil three-toed footprint is impressed into muddy sediment and preserved as a trace of ancient life.
+195. **Dinosaur Bone** = organic81:fossil-excavation + legacy:575 — A large mineralized dinosaur leg bone lies exposed in dusty sediment, with broad joints at both ends.
+196. **Fossil Research Lab** = organic81:fossil-excavation + legacy:53 — A research laboratory studies fossil bone fragments beneath a microscope with carefully labeled specimen trays.
+197. **Triceratops Nest** = organic81:triceratops + pack:dinosaur-egg — A shallow nest shelters mottled ceratopsian eggs beneath protective leaves and prehistoric fern fronds.
+198. **Ammonite Shell** = organic81:ammonite + legacy:10 — The spiral ribbed shell of an extinct ammonite displays the characteristic whorls of the marine animal.
+199. **Dimetrodon** = organic81:prehistoric-species-atlas + legacy:141 — A prehistoric sail-backed synapsid predates the dinosaurs; its large dorsal sail rises over a low body.
+200. **Fossil Beetle** = organic81:fossil-excavation + organic41:beetle — A beetle's preserved body and six legs appear as a dark impression within an ancient rock slab.

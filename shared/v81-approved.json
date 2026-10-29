@@ -1,16 +1,16 @@
 {
   "version": 81,
-  "cohort_count": 189,
+  "cohort_count": 200,
   "expansion_goal": 200,
-  "expansion_progress": 189,
-  "remaining_to_goal": 11,
+  "expansion_progress": 200,
+  "remaining_to_goal": 0,
   "base_catalog": {
     "elements": 5772,
     "recipes": 14109
   },
   "expected_catalog": {
-    "elements": 5961,
-    "recipes": 14298
+    "elements": 5972,
+    "recipes": 14309
   },
   "new_items": [
     {
@@ -2280,7 +2280,139 @@
       ],
       "art_mode": "bespoke-subject",
       "path": "client/assets/v81/medusa.svg"
+    },
+    {
+      "id": "organic81:styracosaurus",
+      "name": "Styracosaurus",
+      "category": "life",
+      "summary": "A horned dinosaur bears a sunburst of long spikes around the back of its broad neck frill.",
+      "ingredients": [
+        "organic81:triceratops",
+        "legacy:141"
+      ],
+      "art_mode": "bespoke-subject",
+      "path": "client/assets/v81/styracosaurus.svg"
+    },
+    {
+      "id": "organic81:pachycephalosaurus",
+      "name": "Pachycephalosaurus",
+      "category": "life",
+      "summary": "A bipedal Cretaceous dinosaur has an unusually thick round skull dome suited to headbutting contests.",
+      "ingredients": [
+        "organic81:prehistoric-species-atlas",
+        "organic81:bison"
+      ],
+      "art_mode": "bespoke-subject",
+      "path": "client/assets/v81/pachycephalosaurus.svg"
+    },
+    {
+      "id": "organic81:iguanodon",
+      "name": "Iguanodon",
+      "category": "life",
+      "summary": "A large plant-eating dinosaur with a stiff tail uses pointed thumb spikes as its distinctive feature.",
+      "ingredients": [
+        "organic81:prehistoric-species-atlas",
+        "legacy:15"
+      ],
+      "art_mode": "bespoke-subject",
+      "path": "client/assets/v81/iguanodon.svg"
+    },
+    {
+      "id": "organic81:maiasaura",
+      "name": "Maiasaura",
+      "category": "life",
+      "summary": "A protective duck-billed dinosaur watches over a nest of eggs, reflecting the good-mother meaning of its name.",
+      "ingredients": [
+        "pack:dinosaur-egg",
+        "organic81:chicken"
+      ],
+      "art_mode": "bespoke-subject",
+      "path": "client/assets/v81/maiasaura.svg"
+    },
+    {
+      "id": "organic81:dinosaur-footprint",
+      "name": "Dinosaur Footprint",
+      "category": "science",
+      "summary": "A fossil three-toed footprint is impressed into muddy sediment and preserved as a trace of ancient life.",
+      "ingredients": [
+        "organic81:triceratops",
+        "legacy:6"
+      ],
+      "art_mode": "bespoke-subject",
+      "path": "client/assets/v81/dinosaur-footprint.svg"
+    },
+    {
+      "id": "organic81:dinosaur-bone",
+      "name": "Dinosaur Bone",
+      "category": "science",
+      "summary": "A large mineralized dinosaur leg bone lies exposed in dusty sediment, with broad joints at both ends.",
+      "ingredients": [
+        "organic81:fossil-excavation",
+        "legacy:575"
+      ],
+      "art_mode": "bespoke-subject",
+      "path": "client/assets/v81/dinosaur-bone.svg"
+    },
+    {
+      "id": "organic81:fossil-research-lab",
+      "name": "Fossil Research Lab",
+      "category": "science",
+      "summary": "A research laboratory studies fossil bone fragments beneath a microscope with carefully labeled specimen trays.",
+      "ingredients": [
+        "organic81:fossil-excavation",
+        "legacy:53"
+      ],
+      "art_mode": "bespoke-subject",
+      "path": "client/assets/v81/fossil-research-lab.svg"
+    },
+    {
+      "id": "organic81:triceratops-nest",
+      "name": "Triceratops Nest",
+      "category": "life",
+      "summary": "A shallow nest shelters mottled ceratopsian eggs beneath protective leaves and prehistoric fern fronds.",
+      "ingredients": [
+        "organic81:triceratops",
+        "pack:dinosaur-egg"
+      ],
+      "art_mode": "bespoke-subject",
+      "path": "client/assets/v81/triceratops-nest.svg"
+    },
+    {
+      "id": "organic81:ammonite-shell",
+      "name": "Ammonite Shell",
+      "category": "science",
+      "summary": "The spiral ribbed shell of an extinct ammonite displays the characteristic whorls of the marine animal.",
+      "ingredients": [
+        "organic81:ammonite",
+        "legacy:10"
+      ],
+      "art_mode": "bespoke-subject",
+      "path": "client/assets/v81/ammonite-shell.svg"
+    },
+    {
+      "id": "organic81:dimetrodon",
+      "name": "Dimetrodon",
+      "category": "life",
+      "summary": "A prehistoric sail-backed synapsid predates the dinosaurs; its large dorsal sail rises over a low body.",
+      "ingredients": [
+        "organic81:prehistoric-species-atlas",
+        "legacy:141"
+      ],
+      "art_mode": "bespoke-subject",
+      "path": "client/assets/v81/dimetrodon.svg"
+    },
+    {
+      "id": "organic81:fossil-beetle",
+      "name": "Fossil Beetle",
+      "category": "science",
+      "summary": "A beetle's preserved body and six legs appear as a dark impression within an ancient rock slab.",
+      "ingredients": [
+        "organic81:fossil-excavation",
+        "organic41:beetle"
+      ],
+      "art_mode": "bespoke-subject",
+      "path": "client/assets/v81/fossil-beetle.svg"
     }
   ],
-  "cycle_complete": false
+  "cycle_complete": true
 }

@@ -1,6 +1,6 @@
-# V81 illustration gallery — 189/200
+# V81 200/200 original subject artwork (unreleased WIP)
 
-Source-matched original SVGs; independent visual judgment at 35 px is still required.
+Source SVGs are original; 35px legibility still needs manual visual inspection. The 6,000-item release must also contain 28 V82 entries.
 
 | # | Element | 35 px | 90 px |
 |---:|---|:---:|:---:|
@@ -193,3 +193,14 @@ Source-matched original SVGs; independent visual judgment at 35 px is still requ
 | 187 | Flamingo | <img src="../client/assets/v81/flamingo.svg" width="35" height="35" /> | <img src="../client/assets/v81/flamingo.svg" width="90" height="90" /> |
 | 188 | Sphinx | <img src="../client/assets/v81/sphinx.svg" width="35" height="35" /> | <img src="../client/assets/v81/sphinx.svg" width="90" height="90" /> |
 | 189 | Medusa | <img src="../client/assets/v81/medusa.svg" width="35" height="35" /> | <img src="../client/assets/v81/medusa.svg" width="90" height="90" /> |
+| 190 | Styracosaurus | <img src="../client/assets/v81/styracosaurus.svg" width="35" height="35" /> | <img src="../client/assets/v81/styracosaurus.svg" width="90" height="90" /> |
+| 191 | Pachycephalosaurus | <img src="../client/assets/v81/pachycephalosaurus.svg" width="35" height="35" /> | <img src="../client/assets/v81/pachycephalosaurus.svg" width="90" height="90" /> |
+| 192 | Iguanodon | <img src="../client/assets/v81/iguanodon.svg" width="35" height="35" /> | <img src="../client/assets/v81/iguanodon.svg" width="90" height="90" /> |
+| 193 | Maiasaura | <img src="../client/assets/v81/maiasaura.svg" width="35" height="35" /> | <img src="../client/assets/v81/maiasaura.svg" width="90" height="90" /> |
+| 194 | Dinosaur Footprint | <img src="../client/assets/v81/dinosaur-footprint.svg" width="35" height="35" /> | <img src="../client/assets/v81/dinosaur-footprint.svg" width="90" height="90" /> |
+| 195 | Dinosaur Bone | <img src="../client/assets/v81/dinosaur-bone.svg" width="35" height="35" /> | <img src="../client/assets/v81/dinosaur-bone.svg" width="90" height="90" /> |
+| 196 | Fossil Research Lab | <img src="../client/assets/v81/fossil-research-lab.svg" width="35" height="35" /> | <img src="../client/assets/v81/fossil-research-lab.svg" width="90" height="90" /> |
+| 197 | Triceratops Nest | <img src="../client/assets/v81/triceratops-nest.svg" width="35" height="35" /> | <img src="../client/assets/v81/triceratops-nest.svg" width="90" height="90" /> |
+| 198 | Ammonite Shell | <img src="../client/assets/v81/ammonite-shell.svg" width="35" height="35" /> | <img src="../client/assets/v81/ammonite-shell.svg" width="90" height="90" /> |
+| 199 | Dimetrodon | <img src="../client/assets/v81/dimetrodon.svg" width="35" height="35" /> | <img src="../client/assets/v81/dimetrodon.svg" width="90" height="90" /> |
+| 200 | Fossil Beetle | <img src="../client/assets/v81/fossil-beetle.svg" width="35" height="35" /> | <img src="../client/assets/v81/fossil-beetle.svg" width="90" height="90" /> |
