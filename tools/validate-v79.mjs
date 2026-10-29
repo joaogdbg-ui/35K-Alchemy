@@ -22,7 +22,7 @@ const groups=['gaming-v22','gaming-v23','gaming-v24','gaming-v26','gaming-v27','
 const packs=[PACK];
 for(const v of groups){const mod=await import('../client/src/'+v.replace('gaming','gaming-pack').replace('organic','organic-pack')+'.js');packs.push(Object.values(mod)[0]);}
 const previous=[...packs,ORGANIC_V71,ORGANIC_V72,ORGANIC_V73,ORGANIC_V74,ORGANIC_V75,ORGANIC_V76,ORGANIC_V77,ORGANIC_V78];
-const prior=buildCatalog(DATA,previous),next=buildCatalog(DATA,[...previous,ORGANIC_V79,ORGANIC_V80]);
+const prior=buildCatalog(DATA,previous),next=buildCatalog(DATA,[...previous,ORGANIC_V79]);
 check(prior.items.length===5522&&prior.recipes.size===13859,'V78 baseline changed');
 check(next.items.length===5572&&next.recipes.size===13909,'V79 catalog totals');
 for(const [pair,out] of prior.recipes)check(next.recipes.get(pair)===out,'historic pair outcome changed '+pair);
