@@ -34,7 +34,7 @@ const current=buildCatalog(DATA,[...packs,ORGANIC_V65,ORGANIC_V66,ORGANIC_V67,OR
 assert(current.items.length===5172&&current.recipes.size===13509,'catalog totals changed');
 const app=readFileSync('client/src/app.js','utf8');
 assert(app.includes('ORGANIC_ART_V69[itemName]||ORGANIC_ART_V68[itemName]'),'V69 image priority lost');
-assert(app.includes('ORGANIC_V67,ORGANIC_V68])'),'catalog recipe chain unexpectedly changed');
+assert(app.includes('ORGANIC_V67,ORGANIC_V68,'),'catalog recipe chain unexpectedly changed');
 const build=readFileSync('tools/build-standalone.py','utf8');
 assert(build.includes('window.__gameverseOrganicArt69')&&(/35K_Alchemy_V(69|70)_Offline\.html/.test(build)),'offline build missing V69');
 if(!process.argv.includes('--quiet'))console.log('V69 VALID: 76 bespoke redraws, 5,172 elements, 13,509 immutable recipes; 14 additional V61 motifs flagged.');
