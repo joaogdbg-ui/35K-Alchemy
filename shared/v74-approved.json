@@ -141,7 +141,7 @@
       "name": "Game Studio Storyboard",
       "ingredients": [
         "organic34:game-studio",
-        "legacy:106"
+        "legacy:51"
       ],
       "path": "client/assets/v74/game-studio-storyboard.svg",
       "art_mode": "bespoke-subject"
@@ -331,7 +331,7 @@
       "name": "Game Save Terminal",
       "ingredients": [
         "legacy:337",
-        "legacy:91"
+        "legacy:76"
       ],
       "path": "client/assets/v74/game-save-terminal.svg",
       "art_mode": "bespoke-subject"
