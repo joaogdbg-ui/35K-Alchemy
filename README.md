@@ -8,7 +8,7 @@ The V81 baseline is **5,812 real catalog elements and 14,149 global recipes**. T
 
 [WIP content sources](client/src/organic-pack-v82.js) · [25 SVG art previews at 35/90 px](docs/V82_ART_REVIEW.md) · [thematic rules](docs/ALCHEMY_10K_THEMATIC_EXPANSION.md) · [WIP handoff](HANDOFF_ALCHEMY_10K.md) · [catalog validator](tools/validate-v82.mjs) · [previous published APK (older 35K build)](https://github.com/joaogdbg-ui/35K-Alchemy/releases/tag/latest).
 
-**Validation status:** a source-based recipe and closure check has been performed on foundational packs, and automated tests/validators have been authored. Full npm test, full-history catalog verification, HTML build, CI and physical Android QA are pending. No ad callback, Google Cloud or commercial signature is claimed as complete.
+**Validation status:** direct checks across the 46 historical catalog source modules detected no duplicate proposed names or reused old ingredient pairs. Targeted isolated source-graph checks reached **34/34 Mythology, 16/16 Prehistory, 476/476 Nature and 211/211 People**. Full npm test, executed full-history Node validator, HTML build, CI, 35px device art review and Android QA are still pending. No ad callback, Google Cloud or commercial signature is claimed as complete.
 
 ---
 
