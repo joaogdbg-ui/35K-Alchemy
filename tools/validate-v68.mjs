@@ -33,5 +33,5 @@ for(const e of [...manifest.new_items,...manifest.redrawn_v61]){
  ok(e.art_mode==='bespoke-silhouette','generic art mode');ok(!/<script|<image\b|<text\b|<foreignObject|onload\s*=|href\s*=|<animate/i.test(svg),'unsafe svg');
 }
 for(const e of manifest.redrawn_v61)ok(old61.get(e.name)===e.id&&!used.has(e.name),'redraw invalid '+e.name);
-const app=readFileSync('client/src/app.js','utf8');ok(app.includes('ORGANIC_V67,ORGANIC_V68])')&&app.includes('ORGANIC_ART_V68[itemName]||ORGANIC_ART_V67[itemName]'),'runtime priority broken');
+const app=readFileSync('client/src/app.js','utf8');ok(app.includes('ORGANIC_V67,ORGANIC_V68,')&&app.includes('ORGANIC_ART_V68[itemName]||ORGANIC_ART_V67[itemName]'),'runtime priority broken');
 if(!process.argv.includes('--quiet'))console.log('V68 VALID 5,172 elements, 13,509 recipes, 10 new, 24 redrawn.');
