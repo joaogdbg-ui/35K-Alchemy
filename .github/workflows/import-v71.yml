@@ -1,6 +1,10 @@
 name: Import V71 and publish 35K Alchemy APK
 on:
   workflow_dispatch:
+  push:
+    branches: [main]
+    paths:
+      - '.github/workflows/import-v71.yml'
 
 permissions:
   contents: write
