@@ -13,7 +13,7 @@ test('V73 moves only the two slots rather than moving the Hint or controls',()=>
 });
 test('V73 is wired into the offline app, catalog and art',()=>{
  const app=source('client/src/app.js'),build=source('tools/build-standalone.py');
- assert.match(app,/ORGANIC_V71,ORGANIC_V72,ORGANIC_V73,ORGANIC_V74,ORGANIC_V75,ORGANIC_V76,ORGANIC_V77\]/);
+ assert.match(app,/ORGANIC_V71,ORGANIC_V72,ORGANIC_V73,ORGANIC_V74,ORGANIC_V75,ORGANIC_V76,ORGANIC_V77,ORGANIC_V78\]/);
  assert.match(app,/ORGANIC_ART_V76\[itemName\]\|\|ORGANIC_ART_V75/);
  assert.match(build,/window\.__gameverseOrganic73/);
  assert.match(build,/35K_Alchemy_V76_Offline\.html/);

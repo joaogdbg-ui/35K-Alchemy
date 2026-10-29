@@ -1,3 +1,7 @@
+# 35K Alchemy V78 — 150/200 content cycle
+
+5,522 elements and 13,859 unique recipes after the +50 original V78 items, all with 35px source SVGs; 50 remain in the current 200-item cycle. Settings V76.8 unchanged. [V78 handoff](HANDOFF_V78.md) · [V78 art review](docs/V78_ART_REVIEW.md).
+
 # 35K Alchemy — V77.0 (100/200 original-content cycle)
 
 Current: 5,472 elements and 13,809 deterministic unordered recipes. V77 adds 50 original content + SVG illustrations without changing existing element IDs, recipes or settings. The current 200-item cycle stands at 100/200, with 100 still pending. See [V77 handoff](HANDOFF_V77.md) and [35px art review](docs/V77_ART_REVIEW.md).

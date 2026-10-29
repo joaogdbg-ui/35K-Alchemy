@@ -28,8 +28,8 @@ test('Fifty individually drawn 35px SVG sources are identical to game artwork',(
 });
 test('V77 app, offline builder, IP screen and Android payload include the new cohort',()=>{
  const app=read('client/src/app.js'),builder=read('tools/build-standalone.py'),web=read('tools/prepare-android-web.py');
- assert.match(app,/ORGANIC_V76,ORGANIC_V77\]/);
- assert.match(app,/ORGANIC_ART_V77\[itemName\]\|\|ORGANIC_ART_V76/);
+ assert.match(app,/ORGANIC_V76,ORGANIC_V77,ORGANIC_V78\]/);
+ assert.match(app,/ORGANIC_ART_V78\[itemName\]\|\|ORGANIC_ART_V77\[itemName\]\|\|ORGANIC_ART_V76/);
  assert.match(builder,/window\.__gameverseOrganic77/);
  assert.match(builder,/window\.__gameverseOrganicArt77/);
  assert.match(builder,/35K_Alchemy_V77_Offline\.html/);
