@@ -27,3 +27,9 @@ After CI and GitHub Android build: https://github.com/joaogdbg-ui/35K-Alchemy/re
 - Continued the branch `wip/200-next-discoveries-authored` from `2b6bdf5d9ddfa578636a0aa87931611310f63841` with **24** additional unique element IDs, intuitive source pairs and individually authored SVGs. The V80 draft reaches **114/200**.
 - New published releases: **none**. +74 new items since V80B on branch only; 86 additional V80 plus 40 new V81 are still needed before one legal +200 content merge.
 - Must run full CI, verify all existing catalogs' normalized names, 35px image perception and reachability. Never claim manual visual acceptance from automated tests.
+
+## Second internal content wave (WIP, no release)
+
+- Branch `wip/200-next-discoveries-authored`; 26 further distinct original SVG subjects and intuitive recipes added on top of previous 114 V80 items. **V80 140/200, +100 new discoveries since V80B**.
+- Candidate full game 5712 elements / 14049 recipes if integrated; currently main still 5,612 / 13,949.
+- Exactly +200 content release requires 60 V80 items plus 40 V81, integrated into one PR. Run all historical collision checks plus art and standalone QA; never publish partial APK.

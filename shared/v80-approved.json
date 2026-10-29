@@ -1,17 +1,17 @@
 {
   "version": 80,
-  "cohort_count": 114,
+  "cohort_count": 140,
   "expansion_goal": 200,
-  "expansion_progress": 114,
-  "remaining_to_goal": 86,
+  "expansion_progress": 140,
+  "remaining_to_goal": 60,
   "cycle_complete": false,
   "base_catalog": {
     "elements": 5572,
     "recipes": 13909
   },
   "expected_catalog": {
-    "elements": 5686,
-    "recipes": 14023
+    "elements": 5712,
+    "recipes": 14049
   },
   "new_items": [
     {
@@ -1381,6 +1381,318 @@
       ],
       "art_mode": "bespoke-subject",
       "path": "client/assets/v80/chess-tournament-medal.svg"
+    },
+    {
+      "id": "organic80:glowing-dice-pair",
+      "name": "Glowing Dice Pair",
+      "category": "board",
+      "summary": "Two translucent dice glow from within so their numbered faces remain visible during a dark game night.",
+      "ingredients": [
+        "legacy:223",
+        "legacy:63"
+      ],
+      "art_mode": "bespoke-subject",
+      "path": "client/assets/v80/glowing-dice-pair.svg"
+    },
+    {
+      "id": "organic80:clockwork-puzzle-chest",
+      "name": "Clockwork Puzzle Chest",
+      "category": "board",
+      "summary": "A brass clockwork lock on a wooden puzzle chest opens only when its rotating hands align.",
+      "ingredients": [
+        "legacy:224",
+        "legacy:211"
+      ],
+      "art_mode": "bespoke-subject",
+      "path": "client/assets/v80/clockwork-puzzle-chest.svg"
+    },
+    {
+      "id": "organic80:card-tournament-table",
+      "name": "Card Tournament Table",
+      "category": "board",
+      "summary": "A green felt tournament table arranges player hands around a central deck and winning trophy.",
+      "ingredients": [
+        "legacy:163",
+        "legacy:157"
+      ],
+      "art_mode": "bespoke-subject",
+      "path": "client/assets/v80/card-tournament-table.svg"
+    },
+    {
+      "id": "organic80:board-game-expansion-box",
+      "name": "Board Game Expansion Box",
+      "category": "board",
+      "summary": "A smaller illustrated box adds new cards and playable characters to an existing tabletop board game.",
+      "ingredients": [
+        "legacy:162",
+        "legacy:160"
+      ],
+      "art_mode": "bespoke-subject",
+      "path": "client/assets/v80/board-game-expansion-box.svg"
+    },
+    {
+      "id": "organic80:portable-card-binder",
+      "name": "Portable Card Binder",
+      "category": "board",
+      "summary": "A zippered pocket binder displays sleeved cards in transparent slots for easy trading on the move.",
+      "ingredients": [
+        "legacy:160",
+        "legacy:110"
+      ],
+      "art_mode": "bespoke-subject",
+      "path": "client/assets/v80/portable-card-binder.svg"
+    },
+    {
+      "id": "organic80:rotating-tile-draft",
+      "name": "Rotating Tile Draft",
+      "category": "board",
+      "summary": "A circular drafting wheel turns divided trays of colored game tiles toward each player.",
+      "ingredients": [
+        "legacy:162",
+        "legacy:44"
+      ],
+      "art_mode": "bespoke-subject",
+      "path": "client/assets/v80/rotating-tile-draft.svg"
+    },
+    {
+      "id": "organic80:firefly-game-night-lamp",
+      "name": "Firefly Game Night Lamp",
+      "category": "nature",
+      "summary": "A tabletop lantern full of fireflies lights dice and wooden playing pieces during an outdoor game night.",
+      "ingredients": [
+        "legacy:162",
+        "organic80:glass-firefly-lantern"
+      ],
+      "art_mode": "bespoke-subject",
+      "path": "client/assets/v80/firefly-game-night-lamp.svg"
+    },
+    {
+      "id": "organic80:puzzle-guidebook",
+      "name": "Puzzle Guidebook",
+      "category": "board",
+      "summary": "An illustrated guidebook offers sorting tips and shape diagrams to help assemble a difficult jigsaw.",
+      "ingredients": [
+        "legacy:225",
+        "legacy:51"
+      ],
+      "art_mode": "bespoke-subject",
+      "path": "client/assets/v80/puzzle-guidebook.svg"
+    },
+    {
+      "id": "organic80:mechanical-dice-roller",
+      "name": "Mechanical Dice Roller",
+      "category": "board",
+      "summary": "A hand-cranked mechanical tumbler shakes the dice inside a transparent rotating drum.",
+      "ingredients": [
+        "legacy:223",
+        "legacy:55"
+      ],
+      "art_mode": "bespoke-subject",
+      "path": "client/assets/v80/mechanical-dice-roller.svg"
+    },
+    {
+      "id": "organic80:arcade-coin-return",
+      "name": "Arcade Coin Return",
+      "category": "arcade",
+      "summary": "An arcade cabinet's return slot tips forgotten coins into a little metal collection tray.",
+      "ingredients": [
+        "legacy:172",
+        "legacy:108"
+      ],
+      "art_mode": "bespoke-subject",
+      "path": "client/assets/v80/arcade-coin-return.svg"
+    },
+    {
+      "id": "organic80:pinball-launch-ramp",
+      "name": "Pinball Launch Ramp",
+      "category": "arcade",
+      "summary": "A curved steel ramp guides a pinball upward through the flashing playfield of a mechanical arcade machine.",
+      "ingredients": [
+        "legacy:333",
+        "legacy:55"
+      ],
+      "art_mode": "bespoke-subject",
+      "path": "client/assets/v80/pinball-launch-ramp.svg"
+    },
+    {
+      "id": "organic80:pixel-palette-fan",
+      "name": "Pixel Palette Fan",
+      "category": "technology",
+      "summary": "A fan of color swatch cards displays the individual shades selected by a pixel artist.",
+      "ingredients": [
+        "legacy:219",
+        "legacy:208"
+      ],
+      "art_mode": "bespoke-subject",
+      "path": "client/assets/v80/pixel-palette-fan.svg"
+    },
+    {
+      "id": "organic80:handheld-screen-shield",
+      "name": "Handheld Screen Shield",
+      "category": "technology",
+      "summary": "A transparent fitted glass screen shield protects a portable game's display without hiding the controls.",
+      "ingredients": [
+        "legacy:169",
+        "legacy:23"
+      ],
+      "art_mode": "bespoke-subject",
+      "path": "client/assets/v80/handheld-screen-shield.svg"
+    },
+    {
+      "id": "organic80:arcade-listening-headset",
+      "name": "Arcade Listening Headset",
+      "category": "arcade",
+      "summary": "An over-ear listening headset hangs from an arcade cabinet for private sound during gameplay.",
+      "ingredients": [
+        "legacy:172",
+        "legacy:62"
+      ],
+      "art_mode": "bespoke-subject",
+      "path": "client/assets/v80/arcade-listening-headset.svg"
+    },
+    {
+      "id": "organic80:carved-chessboard",
+      "name": "Carved Chessboard",
+      "category": "board",
+      "summary": "A polished wooden chessboard has deep engraved squares and two handcrafted chess pieces.",
+      "ingredients": [
+        "legacy:1196",
+        "legacy:24"
+      ],
+      "art_mode": "bespoke-subject",
+      "path": "client/assets/v80/carved-chessboard.svg"
+    },
+    {
+      "id": "organic80:crystal-game-token",
+      "name": "Crystal Game Token",
+      "category": "fantasy",
+      "summary": "A faceted violet game token catches light as it rests in a circular scoring space on the board.",
+      "ingredients": [
+        "legacy:107",
+        "legacy:34"
+      ],
+      "art_mode": "bespoke-subject",
+      "path": "client/assets/v80/crystal-game-token.svg"
+    },
+    {
+      "id": "organic80:game-replay-filmstrip",
+      "name": "Game Replay Filmstrip",
+      "category": "arcade",
+      "summary": "A winding filmstrip records consecutive frames of a player's best arcade speedrun.",
+      "ingredients": [
+        "organic80:speedrun-replay-booth",
+        "legacy:85"
+      ],
+      "art_mode": "bespoke-subject",
+      "path": "client/assets/v80/game-replay-filmstrip.svg"
+    },
+    {
+      "id": "organic80:portable-puzzle-locket",
+      "name": "Portable Puzzle Locket",
+      "category": "fantasy",
+      "summary": "A tiny hinged travel locket conceals a miniature sliding-tile puzzle behind its engraved cover.",
+      "ingredients": [
+        "legacy:224",
+        "legacy:110"
+      ],
+      "art_mode": "bespoke-subject",
+      "path": "client/assets/v80/portable-puzzle-locket.svg"
+    },
+    {
+      "id": "organic80:sound-match-puzzle",
+      "name": "Sound Match Puzzle",
+      "category": "technology",
+      "summary": "A four-button electronic puzzle challenges players to repeat a pattern of musical tones.",
+      "ingredients": [
+        "legacy:242",
+        "legacy:62"
+      ],
+      "art_mode": "bespoke-subject",
+      "path": "client/assets/v80/sound-match-puzzle.svg"
+    },
+    {
+      "id": "organic80:arcade-ticket-roll",
+      "name": "Arcade Ticket Roll",
+      "category": "arcade",
+      "summary": "A perforated roll of numbered arcade reward tickets coils out of the rhythm machine.",
+      "ingredients": [
+        "organic80:rhythm-ticket-dispenser",
+        "legacy:106"
+      ],
+      "art_mode": "bespoke-subject",
+      "path": "client/assets/v80/arcade-ticket-roll.svg"
+    },
+    {
+      "id": "organic80:wildlife-field-notebook",
+      "name": "Wildlife Field Notebook",
+      "category": "nature",
+      "summary": "A ranger records the animals photographed by a trail camera in a field notebook with sketches.",
+      "ingredients": [
+        "organic80:wildlife-camera-trap",
+        "legacy:51"
+      ],
+      "art_mode": "bespoke-subject",
+      "path": "client/assets/v80/wildlife-field-notebook.svg"
+    },
+    {
+      "id": "organic80:tidal-evacuation-map",
+      "name": "Tidal Evacuation Map",
+      "category": "science",
+      "summary": "A color-coded coastal map marks roads above projected flood levels and safe evacuation zones.",
+      "ingredients": [
+        "organic80:flood-level-gauge",
+        "legacy:354"
+      ],
+      "art_mode": "bespoke-subject",
+      "path": "client/assets/v80/tidal-evacuation-map.svg"
+    },
+    {
+      "id": "organic80:solar-harbor-signal-lamp",
+      "name": "Solar Harbor Signal Lamp",
+      "category": "technology",
+      "summary": "A solar-powered warning lamp flashes above a harbor buoy without needing a wired electricity supply.",
+      "ingredients": [
+        "organic80:sun-powered-charge-dock",
+        "organic80:harbor-warning-buoy"
+      ],
+      "art_mode": "bespoke-subject",
+      "path": "client/assets/v80/solar-harbor-signal-lamp.svg"
+    },
+    {
+      "id": "organic80:moonlit-ranger-telescope",
+      "name": "Moonlit Ranger Telescope",
+      "category": "science",
+      "summary": "A compact telescope at a ranger camp observes moonlit wildlife and stars above the tree line.",
+      "ingredients": [
+        "organic80:moonlit-ranger-camp",
+        "legacy:53"
+      ],
+      "art_mode": "bespoke-subject",
+      "path": "client/assets/v80/moonlit-ranger-telescope.svg"
+    },
+    {
+      "id": "organic80:forest-footbridge-blueprint",
+      "name": "Forest Footbridge Blueprint",
+      "category": "science",
+      "summary": "An engineer's paper blueprint diagrams the load-bearing ropes and plank spacing of a forest bridge.",
+      "ingredients": [
+        "organic80:trail-rope-bridge",
+        "legacy:106"
+      ],
+      "art_mode": "bespoke-subject",
+      "path": "client/assets/v80/forest-footbridge-blueprint.svg"
+    },
+    {
+      "id": "organic80:dragon-chess-set",
+      "name": "Dragon Chess Set",
+      "category": "fantasy",
+      "summary": "A fantasy chess set replaces ordinary knights and kings with tiny dragon-shaped playing pieces.",
+      "ingredients": [
+        "legacy:1196",
+        "legacy:122"
+      ],
+      "art_mode": "bespoke-subject",
+      "path": "client/assets/v80/dragon-chess-set.svg"
     }
   ]
 }

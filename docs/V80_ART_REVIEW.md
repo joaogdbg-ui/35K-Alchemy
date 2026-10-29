@@ -1,8 +1,8 @@
-# V80 original art review — 114 SVGs
+# V80 WIP original subject gallery (140/200)
 
-Check at 35px and 90px; this branch remains work-in-progress.
+Assess individual meaning at 35 px and 90 px in light/dark, not just SVG hashes. This draft is not a published 200-element expansion.
 
-| # | Element | 35px | 90px |
+| # | Name | Icon 35 px | Icon 90 px |
 |---:|---|:---:|:---:|
 | 1 | Floating Harbor Gate | <img src="../client/assets/v80/floating-harbor-gate.svg" width="35" height="35" /> | <img src="../client/assets/v80/floating-harbor-gate.svg" width="90" height="90" /> |
 | 2 | Glass Firefly Lantern | <img src="../client/assets/v80/glass-firefly-lantern.svg" width="35" height="35" /> | <img src="../client/assets/v80/glass-firefly-lantern.svg" width="90" height="90" /> |
@@ -118,3 +118,29 @@ Check at 35px and 90px; this branch remains work-in-progress.
 | 112 | Crystal Chess Queen | <img src="../client/assets/v80/crystal-chess-queen.svg" width="35" height="35" /> | <img src="../client/assets/v80/crystal-chess-queen.svg" width="90" height="90" /> |
 | 113 | Board Game Market Stall | <img src="../client/assets/v80/board-game-market-stall.svg" width="35" height="35" /> | <img src="../client/assets/v80/board-game-market-stall.svg" width="90" height="90" /> |
 | 114 | Chess Tournament Medal | <img src="../client/assets/v80/chess-tournament-medal.svg" width="35" height="35" /> | <img src="../client/assets/v80/chess-tournament-medal.svg" width="90" height="90" /> |
+| 115 | Glowing Dice Pair | <img src="../client/assets/v80/glowing-dice-pair.svg" width="35" height="35" /> | <img src="../client/assets/v80/glowing-dice-pair.svg" width="90" height="90" /> |
+| 116 | Clockwork Puzzle Chest | <img src="../client/assets/v80/clockwork-puzzle-chest.svg" width="35" height="35" /> | <img src="../client/assets/v80/clockwork-puzzle-chest.svg" width="90" height="90" /> |
+| 117 | Card Tournament Table | <img src="../client/assets/v80/card-tournament-table.svg" width="35" height="35" /> | <img src="../client/assets/v80/card-tournament-table.svg" width="90" height="90" /> |
+| 118 | Board Game Expansion Box | <img src="../client/assets/v80/board-game-expansion-box.svg" width="35" height="35" /> | <img src="../client/assets/v80/board-game-expansion-box.svg" width="90" height="90" /> |
+| 119 | Portable Card Binder | <img src="../client/assets/v80/portable-card-binder.svg" width="35" height="35" /> | <img src="../client/assets/v80/portable-card-binder.svg" width="90" height="90" /> |
+| 120 | Rotating Tile Draft | <img src="../client/assets/v80/rotating-tile-draft.svg" width="35" height="35" /> | <img src="../client/assets/v80/rotating-tile-draft.svg" width="90" height="90" /> |
+| 121 | Firefly Game Night Lamp | <img src="../client/assets/v80/firefly-game-night-lamp.svg" width="35" height="35" /> | <img src="../client/assets/v80/firefly-game-night-lamp.svg" width="90" height="90" /> |
+| 122 | Puzzle Guidebook | <img src="../client/assets/v80/puzzle-guidebook.svg" width="35" height="35" /> | <img src="../client/assets/v80/puzzle-guidebook.svg" width="90" height="90" /> |
+| 123 | Mechanical Dice Roller | <img src="../client/assets/v80/mechanical-dice-roller.svg" width="35" height="35" /> | <img src="../client/assets/v80/mechanical-dice-roller.svg" width="90" height="90" /> |
+| 124 | Arcade Coin Return | <img src="../client/assets/v80/arcade-coin-return.svg" width="35" height="35" /> | <img src="../client/assets/v80/arcade-coin-return.svg" width="90" height="90" /> |
+| 125 | Pinball Launch Ramp | <img src="../client/assets/v80/pinball-launch-ramp.svg" width="35" height="35" /> | <img src="../client/assets/v80/pinball-launch-ramp.svg" width="90" height="90" /> |
+| 126 | Pixel Palette Fan | <img src="../client/assets/v80/pixel-palette-fan.svg" width="35" height="35" /> | <img src="../client/assets/v80/pixel-palette-fan.svg" width="90" height="90" /> |
+| 127 | Handheld Screen Shield | <img src="../client/assets/v80/handheld-screen-shield.svg" width="35" height="35" /> | <img src="../client/assets/v80/handheld-screen-shield.svg" width="90" height="90" /> |
+| 128 | Arcade Listening Headset | <img src="../client/assets/v80/arcade-listening-headset.svg" width="35" height="35" /> | <img src="../client/assets/v80/arcade-listening-headset.svg" width="90" height="90" /> |
+| 129 | Carved Chessboard | <img src="../client/assets/v80/carved-chessboard.svg" width="35" height="35" /> | <img src="../client/assets/v80/carved-chessboard.svg" width="90" height="90" /> |
+| 130 | Crystal Game Token | <img src="../client/assets/v80/crystal-game-token.svg" width="35" height="35" /> | <img src="../client/assets/v80/crystal-game-token.svg" width="90" height="90" /> |
+| 131 | Game Replay Filmstrip | <img src="../client/assets/v80/game-replay-filmstrip.svg" width="35" height="35" /> | <img src="../client/assets/v80/game-replay-filmstrip.svg" width="90" height="90" /> |
+| 132 | Portable Puzzle Locket | <img src="../client/assets/v80/portable-puzzle-locket.svg" width="35" height="35" /> | <img src="../client/assets/v80/portable-puzzle-locket.svg" width="90" height="90" /> |
+| 133 | Sound Match Puzzle | <img src="../client/assets/v80/sound-match-puzzle.svg" width="35" height="35" /> | <img src="../client/assets/v80/sound-match-puzzle.svg" width="90" height="90" /> |
+| 134 | Arcade Ticket Roll | <img src="../client/assets/v80/arcade-ticket-roll.svg" width="35" height="35" /> | <img src="../client/assets/v80/arcade-ticket-roll.svg" width="90" height="90" /> |
+| 135 | Wildlife Field Notebook | <img src="../client/assets/v80/wildlife-field-notebook.svg" width="35" height="35" /> | <img src="../client/assets/v80/wildlife-field-notebook.svg" width="90" height="90" /> |
+| 136 | Tidal Evacuation Map | <img src="../client/assets/v80/tidal-evacuation-map.svg" width="35" height="35" /> | <img src="../client/assets/v80/tidal-evacuation-map.svg" width="90" height="90" /> |
+| 137 | Solar Harbor Signal Lamp | <img src="../client/assets/v80/solar-harbor-signal-lamp.svg" width="35" height="35" /> | <img src="../client/assets/v80/solar-harbor-signal-lamp.svg" width="90" height="90" /> |
+| 138 | Moonlit Ranger Telescope | <img src="../client/assets/v80/moonlit-ranger-telescope.svg" width="35" height="35" /> | <img src="../client/assets/v80/moonlit-ranger-telescope.svg" width="90" height="90" /> |
+| 139 | Forest Footbridge Blueprint | <img src="../client/assets/v80/forest-footbridge-blueprint.svg" width="35" height="35" /> | <img src="../client/assets/v80/forest-footbridge-blueprint.svg" width="90" height="90" /> |
+| 140 | Dragon Chess Set | <img src="../client/assets/v80/dragon-chess-set.svg" width="35" height="35" /> | <img src="../client/assets/v80/dragon-chess-set.svg" width="90" height="90" /> |
