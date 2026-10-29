@@ -1,18 +1,18 @@
 {
   "version": 82,
   "status": "WIP_NOT_RELEASED",
-  "cohort_count": 25,
+  "cohort_count": 44,
   "expansion_goal": 200,
-  "expansion_progress": 25,
-  "remaining_to_goal": 175,
+  "expansion_progress": 44,
+  "remaining_to_goal": 156,
   "cycle_complete": false,
   "base_catalog": {
     "elements": 5812,
     "recipes": 14149
   },
   "expected_catalog": {
-    "elements": 5837,
-    "recipes": 14174
+    "elements": 5856,
+    "recipes": 14193
   },
   "new_items": [
     {
@@ -389,6 +389,291 @@
       ],
       "art_mode": "bespoke-subject",
       "path": "client/assets/v82/ankylosaurus.svg"
+    },
+    {
+      "id": "organic82:hera",
+      "name": "Hera",
+      "category": "mythology",
+      "summary": "The Greek queen of Olympus and patron of marriage carries a royal peacock feather.",
+      "familyCampaigns": [
+        "mythology"
+      ],
+      "ingredients": [
+        "organic82:zeus",
+        "organic82:greek-pantheon"
+      ],
+      "art_mode": "bespoke-subject",
+      "path": "client/assets/v82/hera.svg"
+    },
+    {
+      "id": "organic82:demeter",
+      "name": "Demeter",
+      "category": "mythology",
+      "summary": "The Greek goddess of harvest holds a bundle of golden grain beneath a laurel wreath.",
+      "familyCampaigns": [
+        "mythology"
+      ],
+      "ingredients": [
+        "organic82:mount-olympus",
+        "organic82:ancient-wisdom"
+      ],
+      "art_mode": "bespoke-subject",
+      "path": "client/assets/v82/demeter.svg"
+    },
+    {
+      "id": "organic82:apollo",
+      "name": "Apollo",
+      "category": "mythology",
+      "summary": "The radiant Greek god of music and prophecy raises a gilded lyre before the sun.",
+      "familyCampaigns": [
+        "mythology"
+      ],
+      "ingredients": [
+        "organic82:divine-thunderbolt",
+        "organic82:greek-pantheon"
+      ],
+      "art_mode": "bespoke-subject",
+      "path": "client/assets/v82/apollo.svg"
+    },
+    {
+      "id": "organic82:artemis",
+      "name": "Artemis",
+      "category": "mythology",
+      "summary": "The Greek goddess of the hunt aims a silver bow beneath a slender crescent moon.",
+      "familyCampaigns": [
+        "mythology"
+      ],
+      "ingredients": [
+        "organic82:apollo",
+        "organic82:mythology"
+      ],
+      "art_mode": "bespoke-subject",
+      "path": "client/assets/v82/artemis.svg"
+    },
+    {
+      "id": "organic82:ares",
+      "name": "Ares",
+      "category": "mythology",
+      "summary": "The Greek god of battle is marked by a bronze helmet, crimson crest and spear.",
+      "familyCampaigns": [
+        "mythology"
+      ],
+      "ingredients": [
+        "organic82:athena",
+        "organic82:divine-thunderbolt"
+      ],
+      "art_mode": "bespoke-subject",
+      "path": "client/assets/v82/ares.svg"
+    },
+    {
+      "id": "organic82:aphrodite",
+      "name": "Aphrodite",
+      "category": "mythology",
+      "summary": "The Greek goddess of love rises from a rose-pink seashell near a circling dove.",
+      "familyCampaigns": [
+        "mythology"
+      ],
+      "ingredients": [
+        "organic82:poseidon",
+        "organic82:greek-pantheon"
+      ],
+      "art_mode": "bespoke-subject",
+      "path": "client/assets/v82/aphrodite.svg"
+    },
+    {
+      "id": "organic82:hephaestus",
+      "name": "Hephaestus",
+      "category": "mythology",
+      "summary": "The Greek divine smith works a glowing bar of celestial metal upon his anvil.",
+      "familyCampaigns": [
+        "mythology"
+      ],
+      "ingredients": [
+        "organic82:zeus",
+        "organic82:divine-thunderbolt"
+      ],
+      "art_mode": "bespoke-subject",
+      "path": "client/assets/v82/hephaestus.svg"
+    },
+    {
+      "id": "organic82:hermes",
+      "name": "Hermes",
+      "category": "mythology",
+      "summary": "The Greek messenger god wears winged sandals and bears a herald's serpent staff.",
+      "familyCampaigns": [
+        "mythology"
+      ],
+      "ingredients": [
+        "organic82:greek-pantheon",
+        "pack:leader"
+      ],
+      "art_mode": "bespoke-subject",
+      "path": "client/assets/v82/hermes.svg"
+    },
+    {
+      "id": "organic82:greek-underworld",
+      "name": "Greek Underworld",
+      "category": "mythology",
+      "summary": "The Greek realm of the dead lies beyond an obsidian gate and a mist-covered river.",
+      "familyCampaigns": [
+        "mythology"
+      ],
+      "ingredients": [
+        "organic82:greek-pantheon",
+        "pack:psychic"
+      ],
+      "art_mode": "bespoke-subject",
+      "path": "client/assets/v82/greek-underworld.svg"
+    },
+    {
+      "id": "organic82:hades",
+      "name": "Hades",
+      "category": "mythology",
+      "summary": "The Greek king of the Underworld wears a shadowed crown and holds his bident.",
+      "familyCampaigns": [
+        "mythology"
+      ],
+      "ingredients": [
+        "organic82:zeus",
+        "organic82:greek-underworld"
+      ],
+      "art_mode": "bespoke-subject",
+      "path": "client/assets/v82/hades.svg"
+    },
+    {
+      "id": "organic82:dionysus",
+      "name": "Dionysus",
+      "category": "mythology",
+      "summary": "The Greek god of wine and theatre wears an ivy crown and carries a festive goblet.",
+      "familyCampaigns": [
+        "mythology"
+      ],
+      "ingredients": [
+        "organic82:greek-pantheon",
+        "pack:transformation"
+      ],
+      "art_mode": "bespoke-subject",
+      "path": "client/assets/v82/dionysus.svg"
+    },
+    {
+      "id": "organic82:persephone",
+      "name": "Persephone",
+      "category": "mythology",
+      "summary": "The Greek goddess of spring and the dead holds a pomegranate of the returning seasons.",
+      "familyCampaigns": [
+        "mythology"
+      ],
+      "ingredients": [
+        "organic82:hades",
+        "organic82:demeter"
+      ],
+      "art_mode": "bespoke-subject",
+      "path": "client/assets/v82/persephone.svg"
+    },
+    {
+      "id": "organic82:gaia",
+      "name": "Gaia",
+      "category": "mythology",
+      "summary": "The primordial Greek earth mother embraces a living globe of continents and oceans.",
+      "familyCampaigns": [
+        "mythology"
+      ],
+      "ingredients": [
+        "organic82:greek-pantheon",
+        "organic82:mythology"
+      ],
+      "art_mode": "bespoke-subject",
+      "path": "client/assets/v82/gaia.svg"
+    },
+    {
+      "id": "organic82:cronus",
+      "name": "Cronus",
+      "category": "mythology",
+      "summary": "The ancient Titan Cronus holds the hooked sickle of his mythical reign.",
+      "familyCampaigns": [
+        "mythology"
+      ],
+      "ingredients": [
+        "organic82:gaia",
+        "organic82:greek-pantheon"
+      ],
+      "art_mode": "bespoke-subject",
+      "path": "client/assets/v82/cronus.svg"
+    },
+    {
+      "id": "organic82:cerberus",
+      "name": "Cerberus",
+      "category": "mythology",
+      "summary": "The three-headed watchdog Cerberus guards the dark boundary of the Greek Underworld.",
+      "familyCampaigns": [
+        "mythology"
+      ],
+      "ingredients": [
+        "organic82:greek-underworld",
+        "pack:shapeshifter"
+      ],
+      "art_mode": "bespoke-subject",
+      "path": "client/assets/v82/cerberus.svg"
+    },
+    {
+      "id": "organic82:minotaur",
+      "name": "Minotaur",
+      "category": "mythology",
+      "summary": "The Greek labyrinth's Minotaur bears a powerful bull head and a broad human torso.",
+      "familyCampaigns": [
+        "mythology"
+      ],
+      "ingredients": [
+        "organic82:greek-pantheon",
+        "pack:shapeshifter"
+      ],
+      "art_mode": "bespoke-subject",
+      "path": "client/assets/v82/minotaur.svg"
+    },
+    {
+      "id": "organic82:pegasus",
+      "name": "Pegasus",
+      "category": "mythology",
+      "summary": "Pegasus spreads feathered wings over the clouds with the long neck of a white horse.",
+      "familyCampaigns": [
+        "mythology"
+      ],
+      "ingredients": [
+        "organic82:poseidon",
+        "pack:shapeshifter"
+      ],
+      "art_mode": "bespoke-subject",
+      "path": "client/assets/v82/pegasus.svg"
+    },
+    {
+      "id": "organic82:medusa",
+      "name": "Medusa",
+      "category": "mythology",
+      "summary": "The Greek gorgon Medusa has serpent hair and a gaze that turns mortals to stone.",
+      "familyCampaigns": [
+        "mythology"
+      ],
+      "ingredients": [
+        "organic82:poseidon",
+        "organic82:athena"
+      ],
+      "art_mode": "bespoke-subject",
+      "path": "client/assets/v82/medusa.svg"
+    },
+    {
+      "id": "organic82:cyclops",
+      "name": "Cyclops",
+      "category": "mythology",
+      "summary": "A great Cyclops peers from a rocky giant's face with one eye at its centre.",
+      "familyCampaigns": [
+        "mythology"
+      ],
+      "ingredients": [
+        "organic82:ancient-wisdom",
+        "pack:shapeshifter"
+      ],
+      "art_mode": "bespoke-subject",
+      "path": "client/assets/v82/cyclops.svg"
     }
   ]
 }
