@@ -1,0 +1,122 @@
+[
+  {
+    "id": "organic77:pixel-compass",
+    "name": "Pixel Compass",
+    "ingredients": [
+      "legacy:219",
+      "legacy:354"
+    ],
+    "category": "gamecraft",
+    "summary": "A tiny compass made of crisp pixels points toward the next secret path.",
+    "path": "client/assets/v77/pixel-compass.svg",
+    "art_mode": "bespoke-subject"
+  },
+  {
+    "id": "organic77:checkpoint-lantern",
+    "name": "Checkpoint Lantern",
+    "ingredients": [
+      "legacy:362",
+      "legacy:63"
+    ],
+    "category": "fantasy",
+    "summary": "A warm lantern marks a safe return point when the adventure becomes dangerous.",
+    "path": "client/assets/v77/checkpoint-lantern.svg",
+    "art_mode": "bespoke-subject"
+  },
+  {
+    "id": "organic77:puzzle-bridge",
+    "name": "Puzzle Bridge",
+    "ingredients": [
+      "legacy:224",
+      "legacy:1245"
+    ],
+    "category": "gamecraft",
+    "summary": "A stone bridge appears only when its interlocking tiles line up correctly.",
+    "path": "client/assets/v77/puzzle-bridge.svg",
+    "art_mode": "bespoke-subject"
+  },
+  {
+    "id": "organic77:floating-platform",
+    "name": "Floating Platform",
+    "ingredients": [
+      "legacy:233",
+      "legacy:3"
+    ],
+    "category": "fantasy",
+    "summary": "A grassy island hovers above the clouds waiting for a perfect timed jump.",
+    "path": "client/assets/v77/floating-platform.svg",
+    "art_mode": "bespoke-subject"
+  },
+  {
+    "id": "organic77:secret-passage",
+    "name": "Secret Passage",
+    "ingredients": [
+      "legacy:354",
+      "legacy:66"
+    ],
+    "category": "fantasy",
+    "summary": "A hidden corridor slips behind a bookshelf into the unexplored darkness.",
+    "path": "client/assets/v77/secret-passage.svg",
+    "art_mode": "bespoke-subject"
+  },
+  {
+    "id": "organic77:clockwork-gate",
+    "name": "Clockwork Gate",
+    "ingredients": [
+      "legacy:211",
+      "legacy:562"
+    ],
+    "category": "fantasy",
+    "summary": "A castle gate turns its massive gears only when the ancient clock chimes.",
+    "path": "client/assets/v77/clockwork-gate.svg",
+    "art_mode": "bespoke-subject"
+  },
+  {
+    "id": "organic77:treasure-radar",
+    "name": "Treasure Radar",
+    "ingredients": [
+      "legacy:561",
+      "legacy:86"
+    ],
+    "category": "technology",
+    "summary": "A handheld scanner sweeps the dunes searching for buried treasure chests.",
+    "path": "client/assets/v77/treasure-radar.svg",
+    "art_mode": "bespoke-subject"
+  },
+  {
+    "id": "organic77:level-blueprint",
+    "name": "Level Blueprint",
+    "ingredients": [
+      "legacy:356",
+      "legacy:106"
+    ],
+    "category": "gamecraft",
+    "summary": "A folded designer's plan lays out platforms, hazards and hidden exits.",
+    "path": "client/assets/v77/level-blueprint.svg",
+    "art_mode": "bespoke-subject"
+  },
+  {
+    "id": "organic77:quest-journal",
+    "name": "Quest Journal",
+    "ingredients": [
+      "legacy:51",
+      "organic77:level-blueprint"
+    ],
+    "category": "culture",
+    "summary": "A weathered notebook tracks clues, completed missions and fresh discoveries.",
+    "path": "client/assets/v77/quest-journal.svg",
+    "art_mode": "bespoke-subject"
+  },
+  {
+    "id": "organic77:boss-key",
+    "name": "Boss Key",
+    "ingredients": [
+      "legacy:357",
+      "legacy:29"
+    ],
+    "category": "fantasy",
+    "summary": "An ornate brass key opens a final chamber after the last trial is complete.",
+    "path": "client/assets/v77/boss-key.svg",
+    "art_mode": "bespoke-subject"
+  }
+]

@@ -1,0 +1,122 @@
+[
+  {
+    "id": "organic77:crystal-lantern",
+    "name": "Crystal Lantern",
+    "ingredients": [
+      "legacy:34",
+      "organic77:checkpoint-lantern"
+    ],
+    "category": "fantasy",
+    "summary": "A luminous crystal inside a forged frame paints a cave with soft colors.",
+    "path": "client/assets/v77/crystal-lantern.svg",
+    "art_mode": "bespoke-subject"
+  },
+  {
+    "id": "organic77:frozen-tower",
+    "name": "Frozen Tower",
+    "ingredients": [
+      "legacy:562",
+      "legacy:35"
+    ],
+    "category": "fantasy",
+    "summary": "A steep icebound watchtower rises above a winter kingdom in the clouds.",
+    "path": "client/assets/v77/frozen-tower.svg",
+    "art_mode": "bespoke-subject"
+  },
+  {
+    "id": "organic77:forest-shrine",
+    "name": "Forest Shrine",
+    "ingredients": [
+      "legacy:625",
+      "legacy:14"
+    ],
+    "category": "fantasy",
+    "summary": "A mossy stone altar sits beneath towering trees where old paths intersect.",
+    "path": "client/assets/v77/forest-shrine.svg",
+    "art_mode": "bespoke-subject"
+  },
+  {
+    "id": "organic77:firefly-globe",
+    "name": "Firefly Globe",
+    "ingredients": [
+      "legacy:23",
+      "organic38:firefly"
+    ],
+    "category": "fantasy",
+    "summary": "A glass globe holds a tiny swarm of glowing fireflies from summer nights.",
+    "path": "client/assets/v77/firefly-globe.svg",
+    "art_mode": "bespoke-subject"
+  },
+  {
+    "id": "organic77:dragon-nest",
+    "name": "Dragon Nest",
+    "ingredients": [
+      "legacy:122",
+      "legacy:24"
+    ],
+    "category": "fantasy",
+    "summary": "Curled roots cradle a scaled egg while its unseen parent circles above.",
+    "path": "client/assets/v77/dragon-nest.svg",
+    "art_mode": "bespoke-subject"
+  },
+  {
+    "id": "organic77:moonlit-bridge",
+    "name": "Moonlit Bridge",
+    "ingredients": [
+      "legacy:1245",
+      "legacy:142"
+    ],
+    "category": "fantasy",
+    "summary": "A quiet stone bridge shines beneath the moon in a midnight adventure.",
+    "path": "client/assets/v77/moonlit-bridge.svg",
+    "art_mode": "bespoke-subject"
+  },
+  {
+    "id": "organic77:windmill-village",
+    "name": "Windmill Village",
+    "ingredients": [
+      "legacy:46",
+      "legacy:12"
+    ],
+    "category": "culture",
+    "summary": "A cluster of cottages gathers around a windmill that powers the village.",
+    "path": "client/assets/v77/windmill-village.svg",
+    "art_mode": "bespoke-subject"
+  },
+  {
+    "id": "organic77:sky-harbor",
+    "name": "Sky Harbor",
+    "ingredients": [
+      "legacy:618",
+      "legacy:3"
+    ],
+    "category": "fantasy",
+    "summary": "Airships settle against a high floating pier suspended over the clouds.",
+    "path": "client/assets/v77/sky-harbor.svg",
+    "art_mode": "bespoke-subject"
+  },
+  {
+    "id": "organic77:gemstone-cavern",
+    "name": "Gemstone Cavern",
+    "ingredients": [
+      "legacy:37",
+      "organic77:crystal-lantern"
+    ],
+    "category": "fantasy",
+    "summary": "Bright crystals grow from the walls of a dark cavern beneath the mountains.",
+    "path": "client/assets/v77/gemstone-cavern.svg",
+    "art_mode": "bespoke-subject"
+  },
+  {
+    "id": "organic77:solar-clock",
+    "name": "Solar Clock",
+    "ingredients": [
+      "legacy:211",
+      "organic40:eclipse"
+    ],
+    "category": "technology",
+    "summary": "A brass sun tracker uses the moving shadow of its pointer to mark the hours.",
+    "path": "client/assets/v77/solar-clock.svg",
+    "art_mode": "bespoke-subject"
+  }
+]

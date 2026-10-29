@@ -26,7 +26,7 @@ test('All fifty icon files match their actual game art and unique recipes',()=>{
 });
 test('V76 still runs offline with unchanged inventory scroll and crafting slots',()=>{
  const app=source('client/src/app.js'),build=source('tools/build-standalone.py');
- assert.match(app,/ORGANIC_V74,ORGANIC_V75,ORGANIC_V76\]/);
+ assert.match(app,/ORGANIC_V74,ORGANIC_V75,ORGANIC_V76,ORGANIC_V77\]/);
  assert.match(app,/ORGANIC_ART_V76\[itemName\]\|\|ORGANIC_ART_V75/);
  assert.match(app,/const anchorId=this.ids\[previousIndex\]/);
  assert.match(build,/35K_Alchemy_V76_Offline\.html/);

@@ -48,5 +48,5 @@ test('V76.8 theme, small-screen and future migration guidance are covered',()=>{
  assert.match(css,/max-height:min\(84dvh,650px\)/);
  assert.match(css,/html\[data-theme="dark"\] \.settings-section/);
  assert.match(read('docs/SETTINGS_V76_8.md'),/Restore from cloud|Recover from cloud/);
- assert.match(read('package.json'),/"version": "0\.76\.8"/);
+ assert.match(read('package.json'),/"version": "0\.(?:76\.8|77\.0)"/);
 });
