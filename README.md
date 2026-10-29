@@ -1,10 +1,14 @@
-# Alchemy 10K — new themed campaigns (development branch)
+# Alchemy 10K — V82 WIP: 25/200 mythology and prehistoric discoveries
 
-Current verified **catalog baseline**: 5,812 unique elements / 14,149 deterministic recipes from V81. Target: **10,000+ real discoveries** with **+200 new elements per content delivery** (21 further batches bring the total to 10,012). Old 35K references below document historical development, not the active goal.
+The V81 baseline is **5,812 real catalog elements and 14,149 global recipes**. The current target is **10,000+ discoveries**, in exactly 200-item content releases. This branch is **WIP, not merged, not a release and not a new downloadable APK**.
 
-This maintenance branch adds independently completable **Mythology & Gods** (16 catalog items) and **Prehistory & Dinosaurs** (9 catalog items), drawing only on existing global recipes. Neither campaign creates new catalog IDs, changes historical A+B outcomes or claims Zeus/Athena/Odin/dinosaur species are already authored. New subject-specific deity and dinosaur artwork and 200-element V82 content remain future expansion work. Android application ID and local save keys are retained for compatibility; the native display name becomes Alchemy 10K.
+**New authored V82 content (WIP only):** 25 original catalog elements, 25 deterministic unordered recipes, 25 source-matched individual SVGs. Proposed new catalog tally **5,837 / 14,174**, subject to the full validator and visual QA. Editorial themes: 18 mythology elements (Greek/Roman/Norse, including Zeus, Poseidon, Athena, Jupiter, Odin, Norse Thor and Norse Loki) and 7 prehistoric discoveries (Mesozoic, Jurassic, Cretaceous, Stegosaurus, Ankylosaurus and more). **175 more** are required before any +200 content PR/release.
 
-[Thematic campaign data](client/src/family-campaigns-v82.js) · [Global family grouping](client/src/discoveries.js) · [V82 thematic test](client/test/thematic-families-v82.test.mjs) · [New plan](shared/production-plan-200.json) · [Newest existing APK (older 35K build)](https://github.com/joaogdbg-ui/35K-Alchemy/releases/tag/latest).
+**Family Only:** Mythology & Gods now has 16 existing starter-graph items plus 18 proposed V82 items (34 in total); Prehistory & Dinosaurs has 9 existing items plus 7 proposed (16 in total). Every new item is explicitly assigned to the family and its global recipe must be reachable from the family's four starters. Former campaigns, Classic saves, rewards, Android package ID, and existing recipe outputs are preserved.
+
+[WIP content sources](client/src/organic-pack-v82.js) · [25 SVG art previews at 35/90 px](docs/V82_ART_REVIEW.md) · [thematic rules](docs/ALCHEMY_10K_THEMATIC_EXPANSION.md) · [WIP handoff](HANDOFF_ALCHEMY_10K.md) · [catalog validator](tools/validate-v82.mjs) · [previous published APK (older 35K build)](https://github.com/joaogdbg-ui/35K-Alchemy/releases/tag/latest).
+
+**Validation status:** a source-based recipe and closure check has been performed on foundational packs, and automated tests/validators have been authored. Full npm test, full-history catalog verification, HTML build, CI and physical Android QA are pending. No ad callback, Google Cloud or commercial signature is claimed as complete.
 
 ---
 
