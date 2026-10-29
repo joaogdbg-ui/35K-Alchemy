@@ -18,10 +18,10 @@ test('Gate recognizes added IDs but forbids rewriting historic items or recipes'
 });
 test('Production policy has a pinned and arithmetically honest baseline',()=>{
  const p=JSON.parse(read('shared/production-plan-200.json'));
- assert.equal(p.batch_size,200);assert.equal(p.baseline_elements,5612);
- assert.equal(p.baseline_recipes,13949);assert.equal(p.target_minimum_elements,35000);
+ assert.equal(p.batch_size,200);assert.equal(p.baseline_elements,5812);
+ assert.equal(p.baseline_recipes,14149);assert.equal(p.target_minimum_elements,10000);
  assert.equal(p.deliveries_to_target,Math.ceil((p.target_minimum_elements-p.baseline_elements)/200));
- assert.equal(p.baseline_elements+200*p.deliveries_to_target,35012);
- assert.equal(p.next_delivery_outline.finish_v80+p.next_delivery_outline.begin_v81,200);
+ assert.equal(p.baseline_elements+200*p.deliveries_to_target,10012);
+ assert.equal(p.next_delivery_outline.new_v82_elements,200);
  assert.match(read('docs/WORKING_RULES_PT.md'),/OBRIGATÓRIO/);
 });
