@@ -77,3 +77,21 @@ test('UI, Android identity, offline builder, content plan and no-ad integrity ar
  assert.equal(plan.baseline_elements,5812);
  assert.equal(plan.deliveries_to_target,21);
 });
+
+test('Future gods or dinosaurs are accepted only when explicitly assigned and reachable in their own campaign',()=>{
+ const future={id:'organic82:future-pantheon-test',name:'Future Pantheon Test',category:'mythology',familyCampaigns:['mythology']};
+ const path=new Map(globalPairs);
+ const ingredientPair=['legacy:65','pack:god'].sort().join('|');
+ path.set(ingredientPair,future.id);
+ const withFuture=buildThematicCampaigns(path,[...items,future]);
+ assert.ok(withFuture.find(f=>f.id==='mythology').items.includes(future.id));
+ assert.ok(!withFuture.find(f=>f.id==='prehistoric').items.includes(future.id));
+ assert.ok(familiesFor(future).includes('mythology'));
+ assert.throws(()=>buildThematicCampaigns(globalPairs,[...items,future]),/not independently completable/);
+});
+test('Starting in a family does not share free starter IDs as earned discoveries',async()=>{
+ const {synchronizeFamilyProfiles}=await import('../src/family-shared-v51.js');
+ const profile=Object.fromEntries(families.map(f=>[f.id,{unlocked:[...f.starters],order:[...f.starters]}]));
+ const result=synchronizeFamilyProfiles(profile,families);
+ for(const received of Object.values(result.received))assert.deepEqual(received,[]);
+});
