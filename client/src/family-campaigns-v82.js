@@ -25,9 +25,13 @@ export function buildThematicCampaigns(catalogRecipes, allItems) {
   const known = new Set(allItems.map(x=>x.id));
   const result=[];
   for(const plan of THEMATIC_CAMPAIGN_BLUEPRINTS) {
-    const allowed = new Set(plan.items);
-    if(allowed.size!==plan.items.length || new Set(plan.starters).size!==4 ||
-      !plan.starters.every(x=>allowed.has(x)) || !plan.items.every(x=>known.has(x)))
+    // Future authored items join explicitly, without silently classifying historical items.
+    // Every attached discovery must pass the same full isolated-closure check.
+    const additions=allItems.filter(x=>Array.isArray(x.familyCampaigns)&&x.familyCampaigns.includes(plan.id)).map(x=>x.id);
+    const membership=[...new Set([...plan.items,...additions])];
+    const allowed = new Set(membership);
+    if(new Set(plan.items).size!==plan.items.length || new Set(plan.starters).size!==4 ||
+      !plan.starters.every(x=>allowed.has(x)) || !membership.every(x=>known.has(x)))
       throw Error('Invalid thematic campaign membership: '+plan.id);
     const recipes=[];
     for(const [rawPair,output] of catalogRecipes) {
@@ -47,10 +51,10 @@ export function buildThematicCampaigns(catalogRecipes, allItems) {
         }
       }
     }
-    const blocked=plan.items.filter(id=>!reached.has(id));
+    const blocked=membership.filter(id=>!reached.has(id));
     if(blocked.length)throw Error('Family '+plan.id+' is not independently completable: '+blocked.join(', '));
     result.push({id:plan.id,name:plan.name,starters:[...plan.starters],
-      items:[...plan.items],recipes});
+      items:membership,recipes});
   }
   return result;
 }
