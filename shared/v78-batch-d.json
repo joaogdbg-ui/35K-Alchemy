@@ -1,0 +1,122 @@
+[
+  {
+    "id": "organic78:solar-research-kit",
+    "name": "Solar Research Kit",
+    "ingredients": [
+      "organic77:solar-battery-cell",
+      "legacy:53"
+    ],
+    "category": "science",
+    "summary": "A field scientist packs a folding solar charger beside miniature test instruments.",
+    "path": "client/assets/v78/solar-research-kit.svg",
+    "art_mode": "bespoke-subject"
+  },
+  {
+    "id": "organic78:pond-sample-slide",
+    "name": "Pond Sample Slide",
+    "ingredients": [
+      "organic77:microscope-slide",
+      "organic38:pond"
+    ],
+    "category": "science",
+    "summary": "A drop of pond water reveals tiny swimming organisms under the microscope.",
+    "path": "client/assets/v78/pond-sample-slide.svg",
+    "art_mode": "bespoke-subject"
+  },
+  {
+    "id": "organic78:storm-lab-console",
+    "name": "Storm Lab Console",
+    "ingredients": [
+      "organic77:storm-sensor-beacon",
+      "organic77:circuit-lab-bench"
+    ],
+    "category": "technology",
+    "summary": "A compact laboratory console records lightning, rainfall and air pressure.",
+    "path": "client/assets/v78/storm-lab-console.svg",
+    "art_mode": "bespoke-subject"
+  },
+  {
+    "id": "organic78:magnetic-puzzle-box",
+    "name": "Magnetic Puzzle Box",
+    "ingredients": [
+      "organic77:puzzle-magnet-board",
+      "legacy:24"
+    ],
+    "category": "board",
+    "summary": "A wooden puzzle box opens only when every magnetic piece reaches its slot.",
+    "path": "client/assets/v78/magnetic-puzzle-box.svg",
+    "art_mode": "bespoke-subject"
+  },
+  {
+    "id": "organic78:secret-radio-receiver",
+    "name": "Secret Radio Receiver",
+    "ingredients": [
+      "organic77:signal-decoder",
+      "organic77:secret-passage"
+    ],
+    "category": "technology",
+    "summary": "An old radio inside a concealed compartment listens for coded messages.",
+    "path": "client/assets/v78/secret-radio-receiver.svg",
+    "art_mode": "bespoke-subject"
+  },
+  {
+    "id": "organic78:tactical-hologram",
+    "name": "Tactical Hologram",
+    "ingredients": [
+      "organic77:holographic-map-table",
+      "organic77:co-op-battle-map"
+    ],
+    "category": "technology",
+    "summary": "A glowing three-dimensional battle plan marks safe routes for the whole team.",
+    "path": "client/assets/v78/tactical-hologram.svg",
+    "art_mode": "bespoke-subject"
+  },
+  {
+    "id": "organic78:pocket-cooling-core",
+    "name": "Pocket Cooling Core",
+    "ingredients": [
+      "organic77:cooling-fan-module",
+      "organic77:handheld-battery-tester"
+    ],
+    "category": "technology",
+    "summary": "A replaceable cooling cartridge keeps a portable game system running smoothly.",
+    "path": "client/assets/v78/pocket-cooling-core.svg",
+    "art_mode": "bespoke-subject"
+  },
+  {
+    "id": "organic78:copper-sensor-net",
+    "name": "Copper Sensor Net",
+    "ingredients": [
+      "organic77:copper-circuit-loom",
+      "legacy:86"
+    ],
+    "category": "technology",
+    "summary": "A mesh of tiny copper sensors detects movement across a compact network.",
+    "path": "client/assets/v78/copper-sensor-net.svg",
+    "art_mode": "bespoke-subject"
+  },
+  {
+    "id": "organic78:neon-code-puzzle",
+    "name": "Neon Code Puzzle",
+    "ingredients": [
+      "organic77:neon-logic-display",
+      "legacy:224"
+    ],
+    "category": "gamecraft",
+    "summary": "A glowing logic puzzle challenges players to connect the right paths.",
+    "path": "client/assets/v78/neon-code-puzzle.svg",
+    "art_mode": "bespoke-subject"
+  },
+  {
+    "id": "organic78:crystal-light-spectrum",
+    "name": "Crystal Light Spectrum",
+    "ingredients": [
+      "organic77:crystal-lantern",
+      "organic77:screen-calibration-grid"
+    ],
+    "category": "science",
+    "summary": "A prism casts bands of colored light across a scientific calibration card.",
+    "path": "client/assets/v78/crystal-light-spectrum.svg",
+    "art_mode": "bespoke-subject"
+  }
+]
