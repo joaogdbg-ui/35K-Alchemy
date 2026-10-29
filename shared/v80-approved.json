@@ -1,17 +1,17 @@
 {
   "version": 80,
-  "cohort_count": 80,
+  "cohort_count": 90,
   "expansion_goal": 200,
-  "expansion_progress": 80,
-  "remaining_to_goal": 120,
+  "expansion_progress": 90,
+  "remaining_to_goal": 110,
   "cycle_complete": false,
   "base_catalog": {
     "elements": 5572,
     "recipes": 13909
   },
   "expected_catalog": {
-    "elements": 5652,
-    "recipes": 13989
+    "elements": 5662,
+    "recipes": 13999
   },
   "new_items": [
     {
@@ -973,6 +973,126 @@
       ],
       "art_mode": "bespoke-subject",
       "path": "client/assets/v80/retro-handheld-repair.svg"
+    },
+    {
+      "id": "organic80:lantern-guided-ferry",
+      "name": "Lantern-Guided Ferry",
+      "category": "nature",
+      "summary": "A small wooden river ferry carries a glowing firefly lantern to guide its passage after sunset.",
+      "ingredients": [
+        "organic80:river-firefly-marker",
+        "legacy:24"
+      ],
+      "art_mode": "bespoke-subject",
+      "path": "client/assets/v80/lantern-guided-ferry.svg"
+    },
+    {
+      "id": "organic80:rescue-flare-launcher",
+      "name": "Rescue Flare Launcher",
+      "category": "technology",
+      "summary": "A compact safety launcher sends a bright signal flare above dangerous reef waters.",
+      "ingredients": [
+        "organic80:reef-rescue-flare",
+        "legacy:29"
+      ],
+      "art_mode": "bespoke-subject",
+      "path": "client/assets/v80/rescue-flare-launcher.svg"
+    },
+    {
+      "id": "organic80:storm-warning-mast",
+      "name": "Storm Warning Mast",
+      "category": "science",
+      "summary": "A coastal warning mast flashes a lightning symbol when an incoming thunderstorm threatens ships.",
+      "ingredients": [
+        "organic80:tidal-weather-beacon",
+        "legacy:18"
+      ],
+      "art_mode": "bespoke-subject",
+      "path": "client/assets/v80/storm-warning-mast.svg"
+    },
+    {
+      "id": "organic80:cave-exploration-journal",
+      "name": "Cave Exploration Journal",
+      "category": "fantasy",
+      "summary": "An explorer's leather notebook records crystal formations and hidden doorways found deep underground.",
+      "ingredients": [
+        "organic80:crystal-cave-passage",
+        "legacy:51"
+      ],
+      "art_mode": "bespoke-subject",
+      "path": "client/assets/v80/cave-exploration-journal.svg"
+    },
+    {
+      "id": "organic80:skyship-port-map",
+      "name": "Skyship Port Map",
+      "category": "fantasy",
+      "summary": "A chart of floating docks plots cargo routes, arrival arches, and safe passages through clouds.",
+      "ingredients": [
+        "organic80:skyship-cargo-manifest",
+        "legacy:354"
+      ],
+      "art_mode": "bespoke-subject",
+      "path": "client/assets/v80/skyship-port-map.svg"
+    },
+    {
+      "id": "organic80:solar-wildlife-monitor",
+      "name": "Solar Wildlife Monitor",
+      "category": "nature",
+      "summary": "A remote wildlife camera runs for days using a small solar panel attached to its forest tree.",
+      "ingredients": [
+        "organic80:wildlife-camera-trap",
+        "organic80:solar-charging-backpack"
+      ],
+      "art_mode": "bespoke-subject",
+      "path": "client/assets/v80/solar-wildlife-monitor.svg"
+    },
+    {
+      "id": "organic80:moonlit-ranger-camp",
+      "name": "Moonlit Ranger Camp",
+      "category": "nature",
+      "summary": "A ranger's forest camp glows beneath the moon while a warm lantern lights the cabin entrance.",
+      "ingredients": [
+        "organic80:forest-ranger-station",
+        "legacy:142"
+      ],
+      "art_mode": "bespoke-subject",
+      "path": "client/assets/v80/moonlit-ranger-camp.svg"
+    },
+    {
+      "id": "organic80:arcade-prize-counter",
+      "name": "Arcade Prize Counter",
+      "category": "arcade",
+      "summary": "An arcade rewards counter trades stamped champion tickets for plush prizes and small trophies.",
+      "ingredients": [
+        "organic80:champion-ticket-voucher",
+        "legacy:60"
+      ],
+      "art_mode": "bespoke-subject",
+      "path": "client/assets/v80/arcade-prize-counter.svg"
+    },
+    {
+      "id": "organic80:game-archive-catalogue",
+      "name": "Game Archive Catalogue",
+      "category": "culture",
+      "summary": "A carefully indexed catalogue documents the cartridges, consoles, and exhibits in a game museum.",
+      "ingredients": [
+        "organic80:museum-interactive-console",
+        "legacy:51"
+      ],
+      "art_mode": "bespoke-subject",
+      "path": "client/assets/v80/game-archive-catalogue.svg"
+    },
+    {
+      "id": "organic80:pixel-sprite-lightbox",
+      "name": "Pixel Sprite Lightbox",
+      "category": "technology",
+      "summary": "A backlit tracing box reveals the crisp square edges of a pixel sprite under a magnifying lens.",
+      "ingredients": [
+        "organic80:pixel-art-magnifier",
+        "legacy:63"
+      ],
+      "art_mode": "bespoke-subject",
+      "path": "client/assets/v80/pixel-sprite-lightbox.svg"
     }
   ]
 }

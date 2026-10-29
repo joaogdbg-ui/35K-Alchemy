@@ -1,6 +1,6 @@
-# V80 WIP art at 35px and 90px — 80/200
+# V80 WIP — 90/200 SVGs for review
 
-Original SVG for each element. Distinct hashes are not sufficient for semantic icon variety; check visually.
+Each individual source should be viewed at 35px/90px in Light/Dark themes; no partial publication allowed.
 
 | # | Element | 35px | 90px |
 |---:|---|:---:|:---:|
@@ -84,3 +84,13 @@ Original SVG for each element. Distinct hashes are not sufficient for semantic i
 | 78 | Replay Memory Card | <img src="../client/assets/v80/replay-memory-card.svg" width="35" height="35" /> | <img src="../client/assets/v80/replay-memory-card.svg" width="90" height="90" /> |
 | 79 | Retro Game Checkout | <img src="../client/assets/v80/retro-game-checkout.svg" width="35" height="35" /> | <img src="../client/assets/v80/retro-game-checkout.svg" width="90" height="90" /> |
 | 80 | Retro Handheld Repair | <img src="../client/assets/v80/retro-handheld-repair.svg" width="35" height="35" /> | <img src="../client/assets/v80/retro-handheld-repair.svg" width="90" height="90" /> |
+| 81 | Lantern-Guided Ferry | <img src="../client/assets/v80/lantern-guided-ferry.svg" width="35" height="35" /> | <img src="../client/assets/v80/lantern-guided-ferry.svg" width="90" height="90" /> |
+| 82 | Rescue Flare Launcher | <img src="../client/assets/v80/rescue-flare-launcher.svg" width="35" height="35" /> | <img src="../client/assets/v80/rescue-flare-launcher.svg" width="90" height="90" /> |
+| 83 | Storm Warning Mast | <img src="../client/assets/v80/storm-warning-mast.svg" width="35" height="35" /> | <img src="../client/assets/v80/storm-warning-mast.svg" width="90" height="90" /> |
+| 84 | Cave Exploration Journal | <img src="../client/assets/v80/cave-exploration-journal.svg" width="35" height="35" /> | <img src="../client/assets/v80/cave-exploration-journal.svg" width="90" height="90" /> |
+| 85 | Skyship Port Map | <img src="../client/assets/v80/skyship-port-map.svg" width="35" height="35" /> | <img src="../client/assets/v80/skyship-port-map.svg" width="90" height="90" /> |
+| 86 | Solar Wildlife Monitor | <img src="../client/assets/v80/solar-wildlife-monitor.svg" width="35" height="35" /> | <img src="../client/assets/v80/solar-wildlife-monitor.svg" width="90" height="90" /> |
+| 87 | Moonlit Ranger Camp | <img src="../client/assets/v80/moonlit-ranger-camp.svg" width="35" height="35" /> | <img src="../client/assets/v80/moonlit-ranger-camp.svg" width="90" height="90" /> |
+| 88 | Arcade Prize Counter | <img src="../client/assets/v80/arcade-prize-counter.svg" width="35" height="35" /> | <img src="../client/assets/v80/arcade-prize-counter.svg" width="90" height="90" /> |
+| 89 | Game Archive Catalogue | <img src="../client/assets/v80/game-archive-catalogue.svg" width="35" height="35" /> | <img src="../client/assets/v80/game-archive-catalogue.svg" width="90" height="90" /> |
+| 90 | Pixel Sprite Lightbox | <img src="../client/assets/v80/pixel-sprite-lightbox.svg" width="35" height="35" /> | <img src="../client/assets/v80/pixel-sprite-lightbox.svg" width="90" height="90" /> |

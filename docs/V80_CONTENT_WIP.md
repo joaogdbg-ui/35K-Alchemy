@@ -1,6 +1,6 @@
-# V80 internal editorial progress — 80/200
+# V80 WIP — 90/200
 
-**WIP branch, not released.** 5,612 items / 13,949 fixed recipes remain on main; WIP source catalog has 5652 items / 13989 recipes. Need +120 V80 and +40 new V81 in ONE release to satisfy the post-V80B +200 rule.
+The first **50 new element illustrations since V80B** are now authored and persisted on an isolated feature branch. **Not a release.** The unmerged candidate contains 5662 catalog elements and 13999 recipes. To satisfy the single +200 production delivery rule, create another **110 V80 elements** and **40 V81 elements** before proposing merge; no filler, no duplicate pair, each subject specifically drawn.
 
 1. **Floating Harbor Gate** = organic79:sky-dock-beacon + organic79:airship-anchor-winch — A docking arch combines a beacon with mooring cables to guide skyships safely into a floating port.
 2. **Glass Firefly Lantern** = organic79:firefly-garden-terrarium + organic79:aurora-desk-lantern — A curved glass lantern shelters luminous fireflies and brings a miniature garden into the night.
@@ -82,3 +82,13 @@
 78. **Replay Memory Card** = organic80:speedrun-replay-booth + legacy:75 — A removable memory card stores a recorded speedrun so players can watch each decisive move.
 79. **Retro Game Checkout** = organic80:cartridge-display-case + legacy:60 — A retro games counter displays cartridges beside a small cash register and price labels.
 80. **Retro Handheld Repair** = organic80:cartridge-repair-bench + legacy:169 — A repair desk holds an opened portable game console with exposed circuit board and controls.
+81. **Lantern-Guided Ferry** = organic80:river-firefly-marker + legacy:24 — A small wooden river ferry carries a glowing firefly lantern to guide its passage after sunset.
+82. **Rescue Flare Launcher** = organic80:reef-rescue-flare + legacy:29 — A compact safety launcher sends a bright signal flare above dangerous reef waters.
+83. **Storm Warning Mast** = organic80:tidal-weather-beacon + legacy:18 — A coastal warning mast flashes a lightning symbol when an incoming thunderstorm threatens ships.
+84. **Cave Exploration Journal** = organic80:crystal-cave-passage + legacy:51 — An explorer's leather notebook records crystal formations and hidden doorways found deep underground.
+85. **Skyship Port Map** = organic80:skyship-cargo-manifest + legacy:354 — A chart of floating docks plots cargo routes, arrival arches, and safe passages through clouds.
+86. **Solar Wildlife Monitor** = organic80:wildlife-camera-trap + organic80:solar-charging-backpack — A remote wildlife camera runs for days using a small solar panel attached to its forest tree.
+87. **Moonlit Ranger Camp** = organic80:forest-ranger-station + legacy:142 — A ranger's forest camp glows beneath the moon while a warm lantern lights the cabin entrance.
+88. **Arcade Prize Counter** = organic80:champion-ticket-voucher + legacy:60 — An arcade rewards counter trades stamped champion tickets for plush prizes and small trophies.
+89. **Game Archive Catalogue** = organic80:museum-interactive-console + legacy:51 — A carefully indexed catalogue documents the cartridges, consoles, and exhibits in a game museum.
+90. **Pixel Sprite Lightbox** = organic80:pixel-art-magnifier + legacy:63 — A backlit tracing box reveals the crisp square edges of a pixel sprite under a magnifying lens.

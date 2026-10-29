@@ -36,4 +36,4 @@ const app=readFileSync('client/src/app.js','utf8'),build=readFileSync('tools/bui
 check(app.includes('ORGANIC_V78,ORGANIC_V79,ORGANIC_V80]'),'missing Classic V80');
 check(app.includes('const newArt=ORGANIC_ART_V80[itemName]||ORGANIC_ART_V79[itemName]'),'V80 illustration not displayed');
 check(build.includes('window.__gameverseOrganic80')&&build.includes('window.__gameverseOrganicArt80'),'offline integration incomplete');
-if(!process.argv.includes('--quiet'))console.log('V80B PASS: 5,580 elements / 13,917 fixed recipes; 8/200.');
+if(!process.argv.includes('--quiet'))console.log(`V80 WIP PASS: ${next.items.length} elements / ${next.recipes.size} recipes; ${m.cohort_count}/200, pending +200 release.`);
