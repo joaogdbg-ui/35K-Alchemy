@@ -34,8 +34,8 @@ check(prior.items.length===5172&&prior.recipes.size===13509,'existing catalog ch
 check(all.items.length===5212&&all.recipes.size===13549,'target catalog mismatch');
 for(const [key,val] of prior.recipes)check(all.recipes.get(key)===val,'changed existing recipe '+key);
 const app=readFileSync('client/src/app.js','utf8');
-check(app.includes('ORGANIC_V68,ORGANIC_V71,ORGANIC_V72,ORGANIC_V73])'),'app must retain V71 pack while appending V72');
+check(app.includes('ORGANIC_V68,ORGANIC_V71,ORGANIC_V72,ORGANIC_V73,ORGANIC_V74])'),'app must retain V71 pack while appending V72');
 check(app.includes('ORGANIC_ART_V71[itemName]||ORGANIC_ART_V70[itemName]'),'art precedence');
 const build=readFileSync('tools/build-standalone.py','utf8');
-check(build.includes('window.__gameverseOrganicArt71') && build.includes('35K_Alchemy_V73_Offline.html'),'standalone missing V71 pack or version');
+check(build.includes('window.__gameverseOrganicArt71') && build.includes('35K_Alchemy_V74_Offline.html'),'standalone missing V71 pack or version');
 if(!process.argv.includes('--quiet'))console.log('V71 VALID: +40 bespoke new items, +40 intuitive recipes, 5212/13549, all original recipe mappings unchanged.');
