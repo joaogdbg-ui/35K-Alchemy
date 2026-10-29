@@ -1299,16 +1299,16 @@
       "path": "client/assets/v80/joystick-repair-stand.svg"
     },
     {
-      "id": "organic80:controller-charging-dock",
-      "name": "Controller Charging Dock",
+      "id": "organic80:illuminated-gamepad-cradle",
+      "name": "Illuminated Gamepad Cradle",
       "category": "technology",
-      "summary": "A standing cradle charges a game controller through metal contacts while its battery indicator glows.",
+      "summary": "A luminous battery indicator on this standing cradle shows when a wireless gamepad has finished charging.",
       "ingredients": [
         "legacy:167",
         "legacy:69"
       ],
       "art_mode": "bespoke-subject",
-      "path": "client/assets/v80/controller-charging-dock.svg"
+      "path": "client/assets/v80/illuminated-gamepad-cradle.svg"
     },
     {
       "id": "organic80:touchscreen-drawing-stylus",

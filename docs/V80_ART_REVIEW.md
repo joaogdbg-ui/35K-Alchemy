@@ -1,8 +1,8 @@
-# V80 original icon review — 114/200 WIP
+# V80 original art review — 114 SVGs
 
-Each illustrated subject is in a separate original SVG file. Review meaning and distinctness at 35px, not solely hashes. This branch has not completed device-level review and must not be treated as a released catalog.
+Check at 35px and 90px; this branch remains work-in-progress.
 
-| # | Subject | 35px | 90px |
+| # | Element | 35px | 90px |
 |---:|---|:---:|:---:|
 | 1 | Floating Harbor Gate | <img src="../client/assets/v80/floating-harbor-gate.svg" width="35" height="35" /> | <img src="../client/assets/v80/floating-harbor-gate.svg" width="90" height="90" /> |
 | 2 | Glass Firefly Lantern | <img src="../client/assets/v80/glass-firefly-lantern.svg" width="35" height="35" /> | <img src="../client/assets/v80/glass-firefly-lantern.svg" width="90" height="90" /> |
@@ -111,7 +111,7 @@ Each illustrated subject is in a separate original SVG file. Review meaning and 
 | 105 | Arcade Racing Cockpit | <img src="../client/assets/v80/arcade-racing-cockpit.svg" width="35" height="35" /> | <img src="../client/assets/v80/arcade-racing-cockpit.svg" width="90" height="90" /> |
 | 106 | Rhythm Drum Pad | <img src="../client/assets/v80/rhythm-drum-pad.svg" width="35" height="35" /> | <img src="../client/assets/v80/rhythm-drum-pad.svg" width="90" height="90" /> |
 | 107 | Joystick Repair Stand | <img src="../client/assets/v80/joystick-repair-stand.svg" width="35" height="35" /> | <img src="../client/assets/v80/joystick-repair-stand.svg" width="90" height="90" /> |
-| 108 | Controller Charging Dock | <img src="../client/assets/v80/controller-charging-dock.svg" width="35" height="35" /> | <img src="../client/assets/v80/controller-charging-dock.svg" width="90" height="90" /> |
+| 108 | Illuminated Gamepad Cradle | <img src="../client/assets/v80/illuminated-gamepad-cradle.svg" width="35" height="35" /> | <img src="../client/assets/v80/illuminated-gamepad-cradle.svg" width="90" height="90" /> |
 | 109 | Touchscreen Drawing Stylus | <img src="../client/assets/v80/touchscreen-drawing-stylus.svg" width="35" height="35" /> | <img src="../client/assets/v80/touchscreen-drawing-stylus.svg" width="90" height="90" /> |
 | 110 | Tabletop Scoreboard | <img src="../client/assets/v80/tabletop-scoreboard.svg" width="35" height="35" /> | <img src="../client/assets/v80/tabletop-scoreboard.svg" width="90" height="90" /> |
 | 111 | Fortune Dice | <img src="../client/assets/v80/fortune-dice.svg" width="35" height="35" /> | <img src="../client/assets/v80/fortune-dice.svg" width="90" height="90" /> |

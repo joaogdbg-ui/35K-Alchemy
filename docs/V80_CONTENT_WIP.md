@@ -1,6 +1,6 @@
-# V80 content WIP — 114/200 (unmerged)
+# V80 WIP — 114/200 (unmerged)
 
-This is an **internal development branch**, not a release. 74 elements have been authored since the V80B main baseline. Classic on main stays at 5,612 items / 13,949 formulas; the candidate catalog currently has 5686 items / 14023 formulas. The next single content release must add **exactly 200** new items since V80B: complete 86 V80 items and 40 V81 items.
+This branch contains 74 new recipes and images since V80B; no content release until a +200 verified batch. Candidate 5686 elements and 14023 recipes.
 
 1. **Floating Harbor Gate** = organic79:sky-dock-beacon + organic79:airship-anchor-winch — A docking arch combines a beacon with mooring cables to guide skyships safely into a floating port.
 2. **Glass Firefly Lantern** = organic79:firefly-garden-terrarium + organic79:aurora-desk-lantern — A curved glass lantern shelters luminous fireflies and brings a miniature garden into the night.
@@ -109,7 +109,7 @@ This is an **internal development branch**, not a release. 74 elements have been
 105. **Arcade Racing Cockpit** = legacy:326 + legacy:172 — A sit-down arcade racing cabinet pairs a steering wheel with pedals and a panoramic track display.
 106. **Rhythm Drum Pad** = legacy:239 + legacy:62 — A tabletop electronic drum pad turns tapped colored surfaces into beats for a rhythm game.
 107. **Joystick Repair Stand** = legacy:83 + legacy:29 — A disassembled arcade joystick rests on a repair stand beside its exposed microswitches and screwdriver.
-108. **Controller Charging Dock** = legacy:167 + legacy:69 — A standing cradle charges a game controller through metal contacts while its battery indicator glows.
+108. **Illuminated Gamepad Cradle** = legacy:167 + legacy:69 — A luminous battery indicator on this standing cradle shows when a wireless gamepad has finished charging.
 109. **Touchscreen Drawing Stylus** = legacy:84 + legacy:29 — A fine-tipped digital stylus draws curved strokes directly onto a tablet's glass display.
 110. **Tabletop Scoreboard** = legacy:162 + organic80:arcade-leaderboard-screen — A portable tabletop scoreboard shows each player's points on large flip-number panels.
 111. **Fortune Dice** = legacy:223 + legacy:125 — A pair of enchanted dice flashes with star-shaped symbols each time they tumble across the table.
