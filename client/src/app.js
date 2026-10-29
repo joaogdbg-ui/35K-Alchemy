@@ -938,7 +938,7 @@ async function combine(){
   else toast('Discovery is temporarily unavailable','error');
  }catch(e){toast('Server unavailable · Offline progress preserved','error');console.warn(e);}
 }
-function showModal(content){$('modal').dataset.dismiss='any';$('modalContent').innerHTML=content;$('modal').hidden=false;}
+function showModal(content){$('modal').removeAttribute('aria-labelledby');$('modal').dataset.dismiss='any';$('modalContent').innerHTML=content;$('modal').hidden=false;}
 function closeModal(){
  const st=batchState;
  if(st?.phase==='scanning'){batchState=null;slots[1]=null;updateSlotUI();announceCraft('idle','Family scan cancelled · No new results published');$('modal').hidden=true;$('modal').dataset.dismiss='any';return;}
