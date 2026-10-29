@@ -51,7 +51,7 @@ for(const it of ORGANIC_V78.items){
  check(ORGANIC_ART_V78[it.name.toLowerCase()]===svg,'source/runtime SVG mismatch '+it.name);images.add(hash);
 }
 const app=readFileSync('client/src/app.js','utf8'),builder=readFileSync('tools/build-standalone.py','utf8');
-check(app.includes('ORGANIC_V76,ORGANIC_V77,ORGANIC_V78,ORGANIC_V79,ORGANIC_V80]'),'new pack not in Classic');
+check(app.includes('ORGANIC_V76,ORGANIC_V77,ORGANIC_V78,ORGANIC_V79,ORGANIC_V80,ORGANIC_V81]'),'new pack not in Classic');
 check(app.includes('const newArt=ORGANIC_ART_V80[itemName]||ORGANIC_ART_V79[itemName]||ORGANIC_ART_V78[itemName]||ORGANIC_ART_V77'),'new art not highest priority');
 check(builder.includes('window.__gameverseOrganic78')&&builder.includes('window.__gameverseOrganicArt78'),'offline bundler lacks V78');
 check(builder.includes('35K_Alchemy_V78_Offline.html'),'offline artifact not V78');
