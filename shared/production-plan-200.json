@@ -1,0 +1,19 @@
+{
+  "policy": "mandatory-200-per-content-delivery",
+  "effective_after_version": "0.80.1",
+  "baseline_commit": "c918b85d148c5daaceb0d85f1faa281e9c07bc41",
+  "baseline_elements": 5612,
+  "baseline_recipes": 13949,
+  "batch_size": 200,
+  "target_minimum_elements": 35000,
+  "deliveries_to_target": 147,
+  "expected_after_next_delivery_elements": 5812,
+  "next_delivery_outline": {
+    "finish_v80": 160,
+    "begin_v81": 40
+  },
+  "historical_v80_approved": 40,
+  "partial_content_merges_allowed": false,
+  "zero_content_maintenance_allowed": true,
+  "human_review_required": true
+}

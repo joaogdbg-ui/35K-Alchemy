@@ -8,3 +8,10 @@
 - Device-level 35px QA, real Android gameplay, visual duplicate review and IP clearance require manual work.
 
 After CI and GitHub Android build: https://github.com/joaogdbg-ui/35K-Alchemy/releases/download/latest/35K-Alchemy.apk
+
+## Regra de produção adotada após V80B
+
+- V80B (40/200) é uma entrega **histórica anterior ao novo contrato**. A próxima entrega de conteúdo **não será +20, +50 ou +160 apenas**: serão **+200 elementos reais** num único PR de conteúdo, combinando **+160 finais da V80 e +40 primeiros da V81**.
+- Baseline de próxima entrega: commit `c918b85d148c5daaceb0d85f1faa281e9c07bc41`, **5.612 elementos / 13.949 receitas**. Alvo após +200: **5.812 elementos e no mínimo 14.149 receitas**, sem alterar as anteriores.
+- Plano de produção e teste automático de quantidade: `docs/CONTENT_200_BATCH_POLICY_PT.md` + `tools/check-content-batch-200.mjs`. 147 futuras entregas de 200 = **35.012** elementos.
+- **Importante:** esta atualização de documentação e CI **não adiciona ainda os próximos 200 elementos**. Não confundir a aprovação da política com a produção de conteúdo.
