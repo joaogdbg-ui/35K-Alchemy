@@ -95,6 +95,7 @@ import { legacyIcon, fallbackIcon, sharedIcon, setIconCatalog } from './icons.js
 import { resolveLocalRedundancy } from './semantic.js';
 import { FAMILIES, familyFor, familiesFor, groupFamilies, recipesForTarget, candidatesForFamily } from './discoveries.js';
 import { FAMILY_CAMPAIGNS } from './family-mode-v53-campaigns.js';
+import { buildThematicCampaigns } from './family-campaigns-v82.js';
 import { synchronizeFamilyProfiles, sharedMembership } from './family-shared-v51.js';
 import { eligibleFamilyMerge, mergeIntoClassicState, verifyMergePending } from './family-merge-v60.js';
 
@@ -107,8 +108,9 @@ const {items: ITEMS,recipes:classicRecipes} = buildCatalog(DATA,[PACK,GAMING_V22
 const PUBLIC_LABELS=buildPublicNameIndex(ITEMS);
 function uiName(item){return item?(PUBLIC_LABELS.get(item.id)||publicName(item)):'';}
 let recipes=classicRecipes;
-const familyCampaigns=new Map(FAMILY_CAMPAIGNS.families.map(f=>[f.id,{...f,itemSet:new Set(f.items),recipeMap:new Map(f.recipes)}]));
-const sharedCatalogIds=sharedMembership(FAMILY_CAMPAIGNS.families);
+const ALL_CAMPAIGNS=[...FAMILY_CAMPAIGNS.families,...buildThematicCampaigns(classicRecipes,ITEMS)];
+const familyCampaigns=new Map(ALL_CAMPAIGNS.map(f=>[f.id,{...f,itemSet:new Set(f.items),recipeMap:new Map(f.recipes)}]));
+const sharedCatalogIds=sharedMembership(ALL_CAMPAIGNS);
 const MODE_SELECTION_KEY='35k_mode_selected_v48', FAMILY_SAVES_KEY='35k_family_profiles_v48';
 const MERGE_PENDING_KEY='35k_family_merge_pending_v60'; // One credited ad can be resumed, never automatically rewarded.
 let currentMode='classic', currentFamilyId=null, classicSnapshot=null;
@@ -116,7 +118,7 @@ let familyProfiles={};
 try {const raw=JSON.parse(localStorage.getItem(FAMILY_SAVES_KEY)||'null');if(raw&&typeof raw==='object'&&!Array.isArray(raw))familyProfiles=raw;}catch{}
 // V51: migrate old Family Only saves on load, including families not yet played.
 // Shared discoveries never cross into the independent Classic save.
-familyProfiles=synchronizeFamilyProfiles(familyProfiles,FAMILY_CAMPAIGNS.families).profiles;
+familyProfiles=synchronizeFamilyProfiles(familyProfiles,ALL_CAMPAIGNS).profiles;
 try{localStorage.setItem(FAMILY_SAVES_KEY,JSON.stringify(familyProfiles));}catch{}
 setIconCatalog(ITEMS);
 const byId=new Map(ITEMS.map(item=>[item.id,item]));
@@ -407,7 +409,7 @@ function storeFamilyProfile(){if(currentMode!=='family'||!currentFamilyId)return
  familyProfiles[currentFamilyId]=snapshotPlayState();
  // A single shared ID is owned by all eligible Family Only campaigns.
  // This makes the unlock visible on the other campaign even before visiting it.
- familyProfiles=synchronizeFamilyProfiles(familyProfiles,FAMILY_CAMPAIGNS.families).profiles;
+ familyProfiles=synchronizeFamilyProfiles(familyProfiles,ALL_CAMPAIGNS).profiles;
  try{localStorage.setItem(FAMILY_SAVES_KEY,JSON.stringify(familyProfiles));}catch{}
 }
 function restorePlayState(raw,starterIds){const allowed=new Set(currentMode==='family'?familyCampaigns.get(currentFamilyId).items:[...byId.keys()]);
@@ -465,7 +467,12 @@ function modePicker(firstChoice=false){
  $('modalContent').querySelector('[data-mode-choice="classic"]').onclick=()=>requestModeActivation('classic',null,firstChoice);
  $('modalContent').querySelector('[data-mode-choice="families"]').onclick=()=>familyModePicker(firstChoice);
 }
+const THEMATIC_FAMILY_ART={
+ mythology:`<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100" width="100%" height="100%" aria-hidden="true"><path d="M15 87h70v-7H15z" fill="#9D8BB0"/><path d="M18 75h64v5H18zM21 35h58v7H21z" fill="#BCA7D4"/><path d="M17 34 50 14l33 20z" fill="#EBC18E" stroke="#AE8A62" stroke-width="3"/><path d="M28 43h9v32h-9zM45 43h10v32H45zM63 43h9v32h-9z" fill="#F5E9D6" stroke="#AA98AD" stroke-width="2"/><path d="m58 8-19 31h14l-12 33 31-42H56L67 8z" fill="#FFC65C" stroke="#DB8E3C" stroke-width="2"/></svg>`,
+ prehistoric:`<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100" width="100%" height="100%" aria-hidden="true"><path d="M13 82q27-13 74 0v9H13z" fill="#C4A880"/><path d="M13 70q13-19 30-17 15-23 31-13l9 13-5 7-12-8q-9-3-14 13L27 76z" fill="#95B4A0" stroke="#557A70" stroke-width="3"/><path d="m22 70-6 11m27-17-5 17m23-16 8 15" stroke="#557A70" stroke-width="5" stroke-linecap="round"/><path d="M72 35 88 26l-4 21-12 4z" fill="#95B4A0" stroke="#557A70" stroke-width="3"/><circle cx="79" cy="39" r="2.5" fill="#283C42"/><path d="m40 52-12-14 15 4 1-11 12 15" fill="#95B4A0" stroke="#557A70" stroke-width="3" stroke-linejoin="round"/><path d="m64 64 5-5" stroke="#F8DAB5" stroke-width="3"/></svg>`
+};
 function familyCardArtwork(f){
+ if(THEMATIC_FAMILY_ART[f.id])return THEMATIC_FAMILY_ART[f.id];
  const src=FAMILY_ICONS_V54[f.id];
  if(src)return `<img src="${src}" alt="" loading="lazy" decoding="async">`;
  // Original in-game fallback, if a new family has not been illustrated.
@@ -532,7 +539,7 @@ let mergePending=null;
 try {const raw=JSON.parse(localStorage.getItem(MERGE_PENDING_KEY)||'null');if(verifyMergePending(raw))mergePending=raw;}catch{}
 function familyMergeCandidates(){
  if(currentMode==='family')storeFamilyProfile();
- return eligibleFamilyMerge(familyProfiles,FAMILY_CAMPAIGNS.families,classicSnapshot?.unlocked||[],byId);
+ return eligibleFamilyMerge(familyProfiles,ALL_CAMPAIGNS,classicSnapshot?.unlocked||[],byId);
 }
 function mergeStatus(){
  const current=familyMergeCandidates();
@@ -1173,7 +1180,7 @@ function exportProgress(){
  const progress={format:'35k-alchemy-backup',version:25,savedAt:new Date().toISOString(),data:{}};
  for(const key of BACKUP_KEYS){const raw=localStorage.getItem(key);if(raw!==null){try{progress.data[key]=JSON.parse(raw);}catch{}}}
  const blob=new Blob([JSON.stringify(progress,null,2)],{type:'application/json'}),url=URL.createObjectURL(blob),link=document.createElement('a');
- link.href=url;link.download='35K_Alchemy_Backup_'+new Date().toISOString().slice(0,10)+'.json';document.body.append(link);link.click();link.remove();
+ link.href=url;link.download='Alchemy_10K_Backup_'+new Date().toISOString().slice(0,10)+'.json';document.body.append(link);link.click();link.remove();
  setTimeout(()=>URL.revokeObjectURL(url),3000);toast('Backup exported');
 }
 function importProgress(file){
@@ -1291,7 +1298,7 @@ function settings(){
     <div class="settings-divider"></div>
     <details><summary>Where is progress saved?</summary><p>Progress is stored locally. Clearing app data or uninstalling the game may erase it. Cloud recovery is not available yet.</p></details>
    </div>
-   <div class="settings-about">35K Alchemy <span>v0.76.8 · Offline test build</span></div>
+   <div class="settings-about">Alchemy 10K <span>v0.81.1 · Offline test build</span></div>
   </section>
  </div>`);
  $('modal').setAttribute('aria-labelledby','settingsHeading');
