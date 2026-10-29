@@ -1,0 +1,42 @@
+import {readFileSync} from 'node:fs';
+import {createHash} from 'node:crypto';
+import {DATA} from '../client/src/legacy-data.js';
+import {PACK} from '../client/src/creative-pack.js';
+import {buildCatalog,normalizeCatalogName} from '../client/src/catalog-integrity.js';
+import {ORGANIC_V71} from '../client/src/organic-pack-v71.js';
+import {ORGANIC_V72} from '../client/src/organic-pack-v72.js';
+import {ORGANIC_ART_V72} from '../client/src/organic-art-v72.js';
+const check=(ok,msg)=>{if(!ok)throw Error('V72: '+msg);};
+const manifest=JSON.parse(readFileSync('shared/v72-approved.json','utf8'));
+check(manifest.version===72&&manifest.count===20,'manifest version/count');
+check(ORGANIC_V72.items.length===20&&ORGANIC_V72.recipes.length===20,'20 new discoveries and recipes');
+const modes=['gaming-v22','gaming-v23','gaming-v24','gaming-v26','gaming-v27','gaming-v30','organic-v32','organic-v34','organic-v37','organic-v38','organic-v40','organic-v41','organic-v42','organic-v43','organic-v44','organic-v45','organic-v46','organic-v47','organic-v50','organic-v52','organic-v53','organic-v55','organic-v56','organic-v57','organic-v58','organic-v59','organic-v61','organic-v62','organic-v63','organic-v65','organic-v66','organic-v67','organic-v68'];
+const packs=[PACK];
+for(const n of modes){const file=n.replace('gaming','gaming-pack').replace('organic','organic-pack');const x=await import('../client/src/'+file+'.js');packs.push(Object.values(x)[0]);}
+const before=buildCatalog(DATA,[...packs,ORGANIC_V71]);
+const after=buildCatalog(DATA,[...packs,ORGANIC_V71,ORGANIC_V72]);
+check(before.items.length===5212&&before.recipes.size===13549,'V71 source drift');
+check(after.items.length===5232&&after.recipes.size===13569,'V72 count mismatch');
+for(const [k,v] of before.recipes)check(after.recipes.get(k)===v,'changed original formula '+k);
+const approved=new Map(manifest.new_items.map(item=>[item.id,item]));
+check(approved.size===20&&Object.keys(ORGANIC_ART_V72).length===20,'art manifest mismatch');
+const hashes=new Set(),unique=new Set();
+for(const item of ORGANIC_V72.items){
+ check(!unique.has(normalizeCatalogName(item.name)),'duplicate art name');unique.add(normalizeCatalogName(item.name));
+ const record=approved.get(item.id);check(record?.name===item.name&&record.art_mode==='bespoke-subject','unapproved item '+item.name);
+ const svg=readFileSync(record.path,'utf8');const hash=createHash('sha256').update(svg).digest('hex');
+ check(!hashes.has(hash),'duplicate identical SVG');hashes.add(hash);
+ check(ORGANIC_ART_V72[item.name.toLowerCase()]===svg,'embedded SVG mismatch '+item.name);
+ check(svg.startsWith('<svg')&&svg.includes('viewBox="0 0 100 100"')&&svg.length>300,'invalid/oversimplified drawing '+item.name);
+ check(!/<script|<image\b|<text\b|<foreignObject|onload\s*=|href\s*=|<animate/i.test(svg),'unsafe drawing '+item.name);
+ check(ORGANIC_V72.recipes.some(r=>r[2]===item.id),'missing recipe for '+item.name);
+}
+const code=readFileSync('client/src/app.js','utf8');
+check(code.includes('ORGANIC_V71,ORGANIC_V72]'),'app must include new catalog');
+check(code.includes('ORGANIC_ART_V72[itemName]||ORGANIC_ART_V71[itemName]'),'art priority');
+check(code.includes('const anchorId=this.ids[previousIndex]'),'inventory scroll anchor lost');
+check(code.includes('refresh({resetScroll=false}={})'),'refresh must default to preserve scroll');
+check(code.includes('this.viewport.scrollTop=Math.floor(index/cols)*rowHeight+intraRow'),'anchor offset missing');
+check(readFileSync('client/src/styles.css','utf8').includes('V71 mobile ergonomics'),'craft breathing space regression');
+check(readFileSync('tools/build-standalone.py','utf8').includes('window.__gameverseOrganic72'),'bundle missing');
+if(!process.argv.includes('--quiet'))console.log('V72 PASS: +20 original gaming artworks, 5232 elements, 13569 recipes, scroll retention and spacing.');
