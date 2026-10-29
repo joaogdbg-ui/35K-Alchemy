@@ -1,8 +1,8 @@
-# V80 artwork draft — 159/200
+# V80 original icon gallery: 178/200 (WIP)
 
-Individual illustrations at actual 35px and at 90px. WIP, not a released expansion.
+Each icon should be identifiable at 35 px, also shown at 90 px. No published update yet.
 
-| # | Element | 35px | 90px |
+| # | Element | 35 px | 90 px |
 |---:|---|:---:|:---:|
 | 1 | Floating Harbor Gate | <img src="../client/assets/v80/floating-harbor-gate.svg" width="35" height="35" /> | <img src="../client/assets/v80/floating-harbor-gate.svg" width="90" height="90" /> |
 | 2 | Glass Firefly Lantern | <img src="../client/assets/v80/glass-firefly-lantern.svg" width="35" height="35" /> | <img src="../client/assets/v80/glass-firefly-lantern.svg" width="90" height="90" /> |
@@ -163,3 +163,22 @@ Individual illustrations at actual 35px and at 90px. WIP, not a released expansi
 | 157 | Rainproof Game Satchel | <img src="../client/assets/v80/rainproof-game-satchel.svg" width="35" height="35" /> | <img src="../client/assets/v80/rainproof-game-satchel.svg" width="90" height="90" /> |
 | 158 | Skyship Windsock | <img src="../client/assets/v80/skyship-windsock.svg" width="35" height="35" /> | <img src="../client/assets/v80/skyship-windsock.svg" width="90" height="90" /> |
 | 159 | Glass Dice Dome | <img src="../client/assets/v80/glass-dice-dome.svg" width="35" height="35" /> | <img src="../client/assets/v80/glass-dice-dome.svg" width="90" height="90" /> |
+| 160 | Crystal Award Pedestal | <img src="../client/assets/v80/crystal-award-pedestal.svg" width="35" height="35" /> | <img src="../client/assets/v80/crystal-award-pedestal.svg" width="90" height="90" /> |
+| 161 | Night Chess Pavilion | <img src="../client/assets/v80/night-chess-pavilion.svg" width="35" height="35" /> | <img src="../client/assets/v80/night-chess-pavilion.svg" width="90" height="90" /> |
+| 162 | Pinball Audio Board | <img src="../client/assets/v80/pinball-audio-board.svg" width="35" height="35" /> | <img src="../client/assets/v80/pinball-audio-board.svg" width="90" height="90" /> |
+| 163 | Concert Program Booklet | <img src="../client/assets/v80/concert-program-booklet.svg" width="35" height="35" /> | <img src="../client/assets/v80/concert-program-booklet.svg" width="90" height="90" /> |
+| 164 | Birdwatcher Binoculars | <img src="../client/assets/v80/birdwatcher-binoculars.svg" width="35" height="35" /> | <img src="../client/assets/v80/birdwatcher-binoculars.svg" width="90" height="90" /> |
+| 165 | Harbor Semaphore Post | <img src="../client/assets/v80/harbor-semaphore-post.svg" width="35" height="35" /> | <img src="../client/assets/v80/harbor-semaphore-post.svg" width="90" height="90" /> |
+| 166 | Storm Rescue Chart | <img src="../client/assets/v80/storm-rescue-chart.svg" width="35" height="35" /> | <img src="../client/assets/v80/storm-rescue-chart.svg" width="90" height="90" /> |
+| 167 | Lantern River Pier | <img src="../client/assets/v80/lantern-river-pier.svg" width="35" height="35" /> | <img src="../client/assets/v80/lantern-river-pier.svg" width="90" height="90" /> |
+| 168 | Firefly Game Gazebo | <img src="../client/assets/v80/firefly-game-gazebo.svg" width="35" height="35" /> | <img src="../client/assets/v80/firefly-game-gazebo.svg" width="90" height="90" /> |
+| 169 | Gemstone Score Plaque | <img src="../client/assets/v80/gemstone-score-plaque.svg" width="35" height="35" /> | <img src="../client/assets/v80/gemstone-score-plaque.svg" width="90" height="90" /> |
+| 170 | Bridge Rescue Basket | <img src="../client/assets/v80/bridge-rescue-basket.svg" width="35" height="35" /> | <img src="../client/assets/v80/bridge-rescue-basket.svg" width="90" height="90" /> |
+| 171 | Aerial Survey Atlas | <img src="../client/assets/v80/aerial-survey-atlas.svg" width="35" height="35" /> | <img src="../client/assets/v80/aerial-survey-atlas.svg" width="90" height="90" /> |
+| 172 | Floating Harbor Sextant | <img src="../client/assets/v80/floating-harbor-sextant.svg" width="35" height="35" /> | <img src="../client/assets/v80/floating-harbor-sextant.svg" width="90" height="90" /> |
+| 173 | Archival Dust Cover | <img src="../client/assets/v80/archival-dust-cover.svg" width="35" height="35" /> | <img src="../client/assets/v80/archival-dust-cover.svg" width="90" height="90" /> |
+| 174 | Emergency Whistle Post | <img src="../client/assets/v80/emergency-whistle-post.svg" width="35" height="35" /> | <img src="../client/assets/v80/emergency-whistle-post.svg" width="90" height="90" /> |
+| 175 | Waterproof Card Organizer | <img src="../client/assets/v80/waterproof-card-organizer.svg" width="35" height="35" /> | <img src="../client/assets/v80/waterproof-card-organizer.svg" width="90" height="90" /> |
+| 176 | Skyship Crosswind Chart | <img src="../client/assets/v80/skyship-crosswind-chart.svg" width="35" height="35" /> | <img src="../client/assets/v80/skyship-crosswind-chart.svg" width="90" height="90" /> |
+| 177 | Dice Museum Gallery | <img src="../client/assets/v80/dice-museum-gallery.svg" width="35" height="35" /> | <img src="../client/assets/v80/dice-museum-gallery.svg" width="90" height="90" /> |
+| 178 | Ranger Medical Kit | <img src="../client/assets/v80/ranger-medical-kit.svg" width="35" height="35" /> | <img src="../client/assets/v80/ranger-medical-kit.svg" width="90" height="90" /> |

@@ -1,17 +1,17 @@
 {
   "version": 80,
-  "cohort_count": 159,
+  "cohort_count": 178,
   "expansion_goal": 200,
-  "expansion_progress": 159,
-  "remaining_to_goal": 41,
+  "expansion_progress": 178,
+  "remaining_to_goal": 22,
   "cycle_complete": false,
   "base_catalog": {
     "elements": 5572,
     "recipes": 13909
   },
   "expected_catalog": {
-    "elements": 5731,
-    "recipes": 14068
+    "elements": 5750,
+    "recipes": 14087
   },
   "new_items": [
     {
@@ -1921,6 +1921,234 @@
       ],
       "art_mode": "bespoke-subject",
       "path": "client/assets/v80/glass-dice-dome.svg"
+    },
+    {
+      "id": "organic80:crystal-award-pedestal",
+      "name": "Crystal Award Pedestal",
+      "category": "fantasy",
+      "summary": "A polished wooden podium presents a delicate crystal victory crown as the award for a magical tournament.",
+      "ingredients": [
+        "organic80:crystal-victory-crown",
+        "legacy:24"
+      ],
+      "art_mode": "bespoke-subject",
+      "path": "client/assets/v80/crystal-award-pedestal.svg"
+    },
+    {
+      "id": "organic80:night-chess-pavilion",
+      "name": "Night Chess Pavilion",
+      "category": "board",
+      "summary": "A small roofed garden pavilion houses a chess table for quiet matches under the night sky.",
+      "ingredients": [
+        "organic80:moonlight-chess-table",
+        "legacy:45"
+      ],
+      "art_mode": "bespoke-subject",
+      "path": "client/assets/v80/night-chess-pavilion.svg"
+    },
+    {
+      "id": "organic80:pinball-audio-board",
+      "name": "Pinball Audio Board",
+      "category": "technology",
+      "summary": "A compact circuit board replays the bell, bumper and jackpot sound effects of a vintage pinball table.",
+      "ingredients": [
+        "organic80:pinball-jackpot-bell",
+        "legacy:91"
+      ],
+      "art_mode": "bespoke-subject",
+      "path": "client/assets/v80/pinball-audio-board.svg"
+    },
+    {
+      "id": "organic80:concert-program-booklet",
+      "name": "Concert Program Booklet",
+      "category": "culture",
+      "summary": "A folded concert program lists the rhythm finalists and includes an illustration of the award ribbon.",
+      "ingredients": [
+        "organic80:rhythm-finalist-ribbon",
+        "legacy:51"
+      ],
+      "art_mode": "bespoke-subject",
+      "path": "client/assets/v80/concert-program-booklet.svg"
+    },
+    {
+      "id": "organic80:birdwatcher-binoculars",
+      "name": "Birdwatcher Binoculars",
+      "category": "nature",
+      "summary": "A pair of compact green binoculars helps a field-guide reader identify distant forest birds.",
+      "ingredients": [
+        "organic80:field-birdwatching-guide",
+        "legacy:23"
+      ],
+      "art_mode": "bespoke-subject",
+      "path": "client/assets/v80/birdwatcher-binoculars.svg"
+    },
+    {
+      "id": "organic80:harbor-semaphore-post",
+      "name": "Harbor Semaphore Post",
+      "category": "science",
+      "summary": "A tall coastal semaphore mast combines colored signal flags with a radio warning marker.",
+      "ingredients": [
+        "organic80:coastal-danger-flag",
+        "legacy:89"
+      ],
+      "art_mode": "bespoke-subject",
+      "path": "client/assets/v80/harbor-semaphore-post.svg"
+    },
+    {
+      "id": "organic80:storm-rescue-chart",
+      "name": "Storm Rescue Chart",
+      "category": "nature",
+      "summary": "An emergency route chart marks the location of a storm lookout and the safest rescue paths through the forest.",
+      "ingredients": [
+        "organic80:flarestorm-lookout",
+        "legacy:354"
+      ],
+      "art_mode": "bespoke-subject",
+      "path": "client/assets/v80/storm-rescue-chart.svg"
+    },
+    {
+      "id": "organic80:lantern-river-pier",
+      "name": "Lantern River Pier",
+      "category": "nature",
+      "summary": "A timber pier with short mooring posts and hanging firefly lanterns welcomes the evening ferry.",
+      "ingredients": [
+        "organic80:lantern-guided-ferry",
+        "legacy:24"
+      ],
+      "art_mode": "bespoke-subject",
+      "path": "client/assets/v80/lantern-river-pier.svg"
+    },
+    {
+      "id": "organic80:firefly-game-gazebo",
+      "name": "Firefly Game Gazebo",
+      "category": "nature",
+      "summary": "A round garden gazebo holds a board-game table lit by a jar of glowing fireflies after dusk.",
+      "ingredients": [
+        "organic80:firefly-game-night-lamp",
+        "legacy:45"
+      ],
+      "art_mode": "bespoke-subject",
+      "path": "client/assets/v80/firefly-game-gazebo.svg"
+    },
+    {
+      "id": "organic80:gemstone-score-plaque",
+      "name": "Gemstone Score Plaque",
+      "category": "board",
+      "summary": "A wooden score plaque uses a polished gem pawn to mark the leading player on a tabletop game's track.",
+      "ingredients": [
+        "organic80:queen's-gem-pawn",
+        "legacy:107"
+      ],
+      "art_mode": "bespoke-subject",
+      "path": "client/assets/v80/gemstone-score-plaque.svg"
+    },
+    {
+      "id": "organic80:bridge-rescue-basket",
+      "name": "Bridge Rescue Basket",
+      "category": "nature",
+      "summary": "A wicker rescue basket hangs from a rope pulley so supplies can cross a narrow forest bridge.",
+      "ingredients": [
+        "organic80:forest-bridge-pulley",
+        "legacy:24"
+      ],
+      "art_mode": "bespoke-subject",
+      "path": "client/assets/v80/bridge-rescue-basket.svg"
+    },
+    {
+      "id": "organic80:aerial-survey-atlas",
+      "name": "Aerial Survey Atlas",
+      "category": "technology",
+      "summary": "An aerial map atlas plots drone flight routes, landing zones and photographs of remote valleys.",
+      "ingredients": [
+        "organic80:drone-landing-circle",
+        "legacy:354"
+      ],
+      "art_mode": "bespoke-subject",
+      "path": "client/assets/v80/aerial-survey-atlas.svg"
+    },
+    {
+      "id": "organic80:floating-harbor-sextant",
+      "name": "Floating Harbor Sextant",
+      "category": "fantasy",
+      "summary": "A brass sextant measures the altitude of skyship landmarks using the windsock's bearing at a floating harbor.",
+      "ingredients": [
+        "organic80:skyship-windsock",
+        "organic80:cartographer-brass-caliper"
+      ],
+      "art_mode": "bespoke-subject",
+      "path": "client/assets/v80/floating-harbor-sextant.svg"
+    },
+    {
+      "id": "organic80:archival-dust-cover",
+      "name": "Archival Dust Cover",
+      "category": "technology",
+      "summary": "A clear snap-on dust cover shields the connector pins of a freshly cleaned game cartridge.",
+      "ingredients": [
+        "organic80:cartridge-cleaning-brush",
+        "legacy:23"
+      ],
+      "art_mode": "bespoke-subject",
+      "path": "client/assets/v80/archival-dust-cover.svg"
+    },
+    {
+      "id": "organic80:emergency-whistle-post",
+      "name": "Emergency Whistle Post",
+      "category": "nature",
+      "summary": "A wooden trail sign offers a mounted whistle for hikers to signal rangers in an emergency.",
+      "ingredients": [
+        "organic80:ranger-whistle-lanyard",
+        "legacy:24"
+      ],
+      "art_mode": "bespoke-subject",
+      "path": "client/assets/v80/emergency-whistle-post.svg"
+    },
+    {
+      "id": "organic80:waterproof-card-organizer",
+      "name": "Waterproof Card Organizer",
+      "category": "board",
+      "summary": "A sealed folding organizer keeps separate decks of cards dry and sorted inside a travel satchel.",
+      "ingredients": [
+        "organic80:rainproof-game-satchel",
+        "legacy:160"
+      ],
+      "art_mode": "bespoke-subject",
+      "path": "client/assets/v80/waterproof-card-organizer.svg"
+    },
+    {
+      "id": "organic80:skyship-crosswind-chart",
+      "name": "Skyship Crosswind Chart",
+      "category": "science",
+      "summary": "A pilot's paper diagram plots wind vectors and landing angles for airships docking at high altitude.",
+      "ingredients": [
+        "organic80:skyship-windsock",
+        "legacy:106"
+      ],
+      "art_mode": "bespoke-subject",
+      "path": "client/assets/v80/skyship-crosswind-chart.svg"
+    },
+    {
+      "id": "organic80:dice-museum-gallery",
+      "name": "Dice Museum Gallery",
+      "category": "culture",
+      "summary": "A museum display joins a glass dice dome with an audio handset explaining the history of board-game dice.",
+      "ingredients": [
+        "organic80:glass-dice-dome",
+        "organic80:game-museum-audio-guide"
+      ],
+      "art_mode": "bespoke-subject",
+      "path": "client/assets/v80/dice-museum-gallery.svg"
+    },
+    {
+      "id": "organic80:ranger-medical-kit",
+      "name": "Ranger Medical Kit",
+      "category": "nature",
+      "summary": "A green canvas emergency bag carries clean dressings and a visible white medical cross for forest rescues.",
+      "ingredients": [
+        "organic80:forest-ranger-station",
+        "legacy:21"
+      ],
+      "art_mode": "bespoke-subject",
+      "path": "client/assets/v80/ranger-medical-kit.svg"
     }
   ]
 }
