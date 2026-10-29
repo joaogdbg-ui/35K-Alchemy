@@ -1,17 +1,17 @@
 {
   "version": 80,
-  "cohort_count": 178,
+  "cohort_count": 200,
   "expansion_goal": 200,
-  "expansion_progress": 178,
-  "remaining_to_goal": 22,
-  "cycle_complete": false,
+  "expansion_progress": 200,
+  "remaining_to_goal": 0,
+  "cycle_complete": true,
   "base_catalog": {
     "elements": 5572,
     "recipes": 13909
   },
   "expected_catalog": {
-    "elements": 5750,
-    "recipes": 14087
+    "elements": 5772,
+    "recipes": 14109
   },
   "new_items": [
     {
@@ -2149,6 +2149,270 @@
       ],
       "art_mode": "bespoke-subject",
       "path": "client/assets/v80/ranger-medical-kit.svg"
+    },
+    {
+      "id": "organic80:arcade-award-showcase",
+      "name": "Arcade Award Showcase",
+      "category": "arcade",
+      "summary": "A brightly lit glass showcase exhibits the arcade's champion tickets, rare coins and first-place trophy.",
+      "ingredients": [
+        "organic80:championship-ticket-exchange",
+        "legacy:23"
+      ],
+      "art_mode": "bespoke-subject",
+      "path": "client/assets/v80/arcade-award-showcase.svg"
+    },
+    {
+      "id": "organic80:trophy-parade-wagon",
+      "name": "Trophy Parade Wagon",
+      "category": "arcade",
+      "summary": "A little festival wagon carries a sparkling crystal trophy through a gaming tournament parade.",
+      "ingredients": [
+        "organic80:crystal-award-pedestal",
+        "legacy:44"
+      ],
+      "art_mode": "bespoke-subject",
+      "path": "client/assets/v80/trophy-parade-wagon.svg"
+    },
+    {
+      "id": "organic80:chess-commentary-microphone",
+      "name": "Chess Commentary Microphone",
+      "category": "board",
+      "summary": "A table microphone and small radio console broadcast live commentary from the night chess pavilion.",
+      "ingredients": [
+        "organic80:night-chess-pavilion",
+        "legacy:89"
+      ],
+      "art_mode": "bespoke-subject",
+      "path": "client/assets/v80/chess-commentary-microphone.svg"
+    },
+    {
+      "id": "organic80:arcade-sound-mixing-desk",
+      "name": "Arcade Sound Mixing Desk",
+      "category": "technology",
+      "summary": "A compact mixing desk adjusts separate bells, bumpers and electronic melodies from a pinball game.",
+      "ingredients": [
+        "organic80:pinball-audio-board",
+        "legacy:139"
+      ],
+      "art_mode": "bespoke-subject",
+      "path": "client/assets/v80/arcade-sound-mixing-desk.svg"
+    },
+    {
+      "id": "organic80:rhythm-conductor-baton",
+      "name": "Rhythm Conductor Baton",
+      "category": "culture",
+      "summary": "A conductor's slender baton leads an orchestra through the closing rhythm-game concert performance.",
+      "ingredients": [
+        "organic80:concert-program-booklet",
+        "legacy:29"
+      ],
+      "art_mode": "bespoke-subject",
+      "path": "client/assets/v80/rhythm-conductor-baton.svg"
+    },
+    {
+      "id": "organic80:woodland-observation-hide",
+      "name": "Woodland Observation Hide",
+      "category": "nature",
+      "summary": "A camouflaged wooden hide lets birdwatchers observe wildlife without disturbing the forest canopy.",
+      "ingredients": [
+        "organic80:birdwatcher-binoculars",
+        "organic80:forest-lookout-tower"
+      ],
+      "art_mode": "bespoke-subject",
+      "path": "client/assets/v80/woodland-observation-hide.svg"
+    },
+    {
+      "id": "organic80:maritime-signal-mirror",
+      "name": "Maritime Signal Mirror",
+      "category": "science",
+      "summary": "A polished hand mirror reflects sunlight into precise flashing patterns used by coastal rescue signals.",
+      "ingredients": [
+        "organic80:harbor-semaphore-post",
+        "legacy:23"
+      ],
+      "art_mode": "bespoke-subject",
+      "path": "client/assets/v80/maritime-signal-mirror.svg"
+    },
+    {
+      "id": "organic80:storm-supply-sledge",
+      "name": "Storm Supply Sledge",
+      "category": "nature",
+      "summary": "An emergency supply sledge carries blankets and navigation charts through snow after a mountain storm.",
+      "ingredients": [
+        "organic80:storm-rescue-chart",
+        "legacy:44"
+      ],
+      "art_mode": "bespoke-subject",
+      "path": "client/assets/v80/storm-supply-sledge.svg"
+    },
+    {
+      "id": "organic80:pier-arrival-sign",
+      "name": "Pier Arrival Sign",
+      "category": "nature",
+      "summary": "A hand-painted board on the ferry pier displays arrival arrows beside a glowing hanging lantern.",
+      "ingredients": [
+        "organic80:lantern-river-pier",
+        "legacy:106"
+      ],
+      "art_mode": "bespoke-subject",
+      "path": "client/assets/v80/pier-arrival-sign.svg"
+    },
+    {
+      "id": "organic80:gazebo-dice-championship",
+      "name": "Gazebo Dice Championship",
+      "category": "board",
+      "summary": "A nighttime dice competition gathers players beneath a lantern-lit garden gazebo.",
+      "ingredients": [
+        "organic80:firefly-game-gazebo",
+        "legacy:157"
+      ],
+      "art_mode": "bespoke-subject",
+      "path": "client/assets/v80/gazebo-dice-championship.svg"
+    },
+    {
+      "id": "organic80:gemstone-scoring-abacus",
+      "name": "Gemstone Scoring Abacus",
+      "category": "board",
+      "summary": "A tabletop abacus tracks scores using colored gemstone beads sliding along carved wooden rails.",
+      "ingredients": [
+        "organic80:gemstone-score-plaque",
+        "legacy:44"
+      ],
+      "art_mode": "bespoke-subject",
+      "path": "client/assets/v80/gemstone-scoring-abacus.svg"
+    },
+    {
+      "id": "organic80:ravine-cargo-cableway",
+      "name": "Ravine Cargo Cableway",
+      "category": "nature",
+      "summary": "A steel cable carries a suspended wicker basket loaded with supplies across a deep woodland ravine.",
+      "ingredients": [
+        "organic80:bridge-rescue-basket",
+        "legacy:22"
+      ],
+      "art_mode": "bespoke-subject",
+      "path": "client/assets/v80/ravine-cargo-cableway.svg"
+    },
+    {
+      "id": "organic80:survey-flight-recorder",
+      "name": "Survey Flight Recorder",
+      "category": "technology",
+      "summary": "A rugged flight recorder stores the route and camera readings of an unmanned survey mission.",
+      "ingredients": [
+        "organic80:aerial-survey-atlas",
+        "legacy:75"
+      ],
+      "art_mode": "bespoke-subject",
+      "path": "client/assets/v80/survey-flight-recorder.svg"
+    },
+    {
+      "id": "organic80:skyship-bearing-dial",
+      "name": "Skyship Bearing Dial",
+      "category": "fantasy",
+      "summary": "A round brass instrument combines a ship's directional bearings with a clock dial for timed skyship arrivals.",
+      "ingredients": [
+        "organic80:floating-harbor-sextant",
+        "legacy:211"
+      ],
+      "art_mode": "bespoke-subject",
+      "path": "client/assets/v80/skyship-bearing-dial.svg"
+    },
+    {
+      "id": "organic80:museum-cleaning-caddy",
+      "name": "Museum Cleaning Caddy",
+      "category": "technology",
+      "summary": "A partitioned curator's caddy holds soft brushes and protective covers for cleaning old game cartridges.",
+      "ingredients": [
+        "organic80:archival-dust-cover",
+        "legacy:29"
+      ],
+      "art_mode": "bespoke-subject",
+      "path": "client/assets/v80/museum-cleaning-caddy.svg"
+    },
+    {
+      "id": "organic80:trail-rescue-banner",
+      "name": "Trail Rescue Banner",
+      "category": "nature",
+      "summary": "A bright rescue banner hangs beside an emergency whistle post to mark a safe forest gathering point.",
+      "ingredients": [
+        "organic80:emergency-whistle-post",
+        "legacy:106"
+      ],
+      "art_mode": "bespoke-subject",
+      "path": "client/assets/v80/trail-rescue-banner.svg"
+    },
+    {
+      "id": "organic80:waterproof-route-sleeve",
+      "name": "Waterproof Route Sleeve",
+      "category": "nature",
+      "summary": "A transparent sealed pouch protects a folding travel map from rain while hiking with a board-game collection.",
+      "ingredients": [
+        "organic80:waterproof-card-organizer",
+        "legacy:354"
+      ],
+      "art_mode": "bespoke-subject",
+      "path": "client/assets/v80/waterproof-route-sleeve.svg"
+    },
+    {
+      "id": "organic80:crosswind-practice-kite",
+      "name": "Crosswind Practice Kite",
+      "category": "science",
+      "summary": "A diamond training kite displays colored streamers to help young skyship pilots read gusts and crosswinds.",
+      "ingredients": [
+        "organic80:skyship-crosswind-chart",
+        "legacy:3"
+      ],
+      "art_mode": "bespoke-subject",
+      "path": "client/assets/v80/crosswind-practice-kite.svg"
+    },
+    {
+      "id": "organic80:dice-exhibit-nameplate",
+      "name": "Dice Exhibit Nameplate",
+      "category": "culture",
+      "summary": "An engraved museum plaque explains the age and craftsmanship of the glass-domed collectible dice.",
+      "ingredients": [
+        "organic80:dice-museum-gallery",
+        "legacy:106"
+      ],
+      "art_mode": "bespoke-subject",
+      "path": "client/assets/v80/dice-exhibit-nameplate.svg"
+    },
+    {
+      "id": "organic80:ranger-triage-tent",
+      "name": "Ranger Triage Tent",
+      "category": "nature",
+      "summary": "A green canvas emergency tent provides first-aid shelter for injured hikers at a ranger outpost.",
+      "ingredients": [
+        "organic80:ranger-medical-kit",
+        "legacy:45"
+      ],
+      "art_mode": "bespoke-subject",
+      "path": "client/assets/v80/ranger-triage-tent.svg"
+    },
+    {
+      "id": "organic80:camping-lantern-tripod",
+      "name": "Camping Lantern Tripod",
+      "category": "nature",
+      "summary": "A lightweight three-legged camping tripod suspends a rechargeable lantern above the campsite cooking area.",
+      "ingredients": [
+        "organic80:solar-camping-lantern",
+        "legacy:29"
+      ],
+      "art_mode": "bespoke-subject",
+      "path": "client/assets/v80/camping-lantern-tripod.svg"
+    },
+    {
+      "id": "organic80:escape-puzzle-wall",
+      "name": "Escape Puzzle Wall",
+      "category": "fantasy",
+      "summary": "A wall-mounted escape-room puzzle uses rotating wooden tiles and a clockwork latch to open a hidden passage.",
+      "ingredients": [
+        "organic80:clockwork-puzzle-chest",
+        "legacy:45"
+      ],
+      "art_mode": "bespoke-subject",
+      "path": "client/assets/v80/escape-puzzle-wall.svg"
     }
   ]
 }

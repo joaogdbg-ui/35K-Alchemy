@@ -1,8 +1,8 @@
-# V80 original icon gallery: 178/200 (WIP)
+# V80 original artwork — 200/200
 
-Each icon should be identifiable at 35 px, also shown at 90 px. No published update yet.
+Each asset is a distinct original illustration at 35px & 90px. V80 cycle complete, but the +200 release still needs V81 +40 and editorial QA.
 
-| # | Element | 35 px | 90 px |
+| # | Name | 35px | 90px |
 |---:|---|:---:|:---:|
 | 1 | Floating Harbor Gate | <img src="../client/assets/v80/floating-harbor-gate.svg" width="35" height="35" /> | <img src="../client/assets/v80/floating-harbor-gate.svg" width="90" height="90" /> |
 | 2 | Glass Firefly Lantern | <img src="../client/assets/v80/glass-firefly-lantern.svg" width="35" height="35" /> | <img src="../client/assets/v80/glass-firefly-lantern.svg" width="90" height="90" /> |
@@ -182,3 +182,25 @@ Each icon should be identifiable at 35 px, also shown at 90 px. No published upd
 | 176 | Skyship Crosswind Chart | <img src="../client/assets/v80/skyship-crosswind-chart.svg" width="35" height="35" /> | <img src="../client/assets/v80/skyship-crosswind-chart.svg" width="90" height="90" /> |
 | 177 | Dice Museum Gallery | <img src="../client/assets/v80/dice-museum-gallery.svg" width="35" height="35" /> | <img src="../client/assets/v80/dice-museum-gallery.svg" width="90" height="90" /> |
 | 178 | Ranger Medical Kit | <img src="../client/assets/v80/ranger-medical-kit.svg" width="35" height="35" /> | <img src="../client/assets/v80/ranger-medical-kit.svg" width="90" height="90" /> |
+| 179 | Arcade Award Showcase | <img src="../client/assets/v80/arcade-award-showcase.svg" width="35" height="35" /> | <img src="../client/assets/v80/arcade-award-showcase.svg" width="90" height="90" /> |
+| 180 | Trophy Parade Wagon | <img src="../client/assets/v80/trophy-parade-wagon.svg" width="35" height="35" /> | <img src="../client/assets/v80/trophy-parade-wagon.svg" width="90" height="90" /> |
+| 181 | Chess Commentary Microphone | <img src="../client/assets/v80/chess-commentary-microphone.svg" width="35" height="35" /> | <img src="../client/assets/v80/chess-commentary-microphone.svg" width="90" height="90" /> |
+| 182 | Arcade Sound Mixing Desk | <img src="../client/assets/v80/arcade-sound-mixing-desk.svg" width="35" height="35" /> | <img src="../client/assets/v80/arcade-sound-mixing-desk.svg" width="90" height="90" /> |
+| 183 | Rhythm Conductor Baton | <img src="../client/assets/v80/rhythm-conductor-baton.svg" width="35" height="35" /> | <img src="../client/assets/v80/rhythm-conductor-baton.svg" width="90" height="90" /> |
+| 184 | Woodland Observation Hide | <img src="../client/assets/v80/woodland-observation-hide.svg" width="35" height="35" /> | <img src="../client/assets/v80/woodland-observation-hide.svg" width="90" height="90" /> |
+| 185 | Maritime Signal Mirror | <img src="../client/assets/v80/maritime-signal-mirror.svg" width="35" height="35" /> | <img src="../client/assets/v80/maritime-signal-mirror.svg" width="90" height="90" /> |
+| 186 | Storm Supply Sledge | <img src="../client/assets/v80/storm-supply-sledge.svg" width="35" height="35" /> | <img src="../client/assets/v80/storm-supply-sledge.svg" width="90" height="90" /> |
+| 187 | Pier Arrival Sign | <img src="../client/assets/v80/pier-arrival-sign.svg" width="35" height="35" /> | <img src="../client/assets/v80/pier-arrival-sign.svg" width="90" height="90" /> |
+| 188 | Gazebo Dice Championship | <img src="../client/assets/v80/gazebo-dice-championship.svg" width="35" height="35" /> | <img src="../client/assets/v80/gazebo-dice-championship.svg" width="90" height="90" /> |
+| 189 | Gemstone Scoring Abacus | <img src="../client/assets/v80/gemstone-scoring-abacus.svg" width="35" height="35" /> | <img src="../client/assets/v80/gemstone-scoring-abacus.svg" width="90" height="90" /> |
+| 190 | Ravine Cargo Cableway | <img src="../client/assets/v80/ravine-cargo-cableway.svg" width="35" height="35" /> | <img src="../client/assets/v80/ravine-cargo-cableway.svg" width="90" height="90" /> |
+| 191 | Survey Flight Recorder | <img src="../client/assets/v80/survey-flight-recorder.svg" width="35" height="35" /> | <img src="../client/assets/v80/survey-flight-recorder.svg" width="90" height="90" /> |
+| 192 | Skyship Bearing Dial | <img src="../client/assets/v80/skyship-bearing-dial.svg" width="35" height="35" /> | <img src="../client/assets/v80/skyship-bearing-dial.svg" width="90" height="90" /> |
+| 193 | Museum Cleaning Caddy | <img src="../client/assets/v80/museum-cleaning-caddy.svg" width="35" height="35" /> | <img src="../client/assets/v80/museum-cleaning-caddy.svg" width="90" height="90" /> |
+| 194 | Trail Rescue Banner | <img src="../client/assets/v80/trail-rescue-banner.svg" width="35" height="35" /> | <img src="../client/assets/v80/trail-rescue-banner.svg" width="90" height="90" /> |
+| 195 | Waterproof Route Sleeve | <img src="../client/assets/v80/waterproof-route-sleeve.svg" width="35" height="35" /> | <img src="../client/assets/v80/waterproof-route-sleeve.svg" width="90" height="90" /> |
+| 196 | Crosswind Practice Kite | <img src="../client/assets/v80/crosswind-practice-kite.svg" width="35" height="35" /> | <img src="../client/assets/v80/crosswind-practice-kite.svg" width="90" height="90" /> |
+| 197 | Dice Exhibit Nameplate | <img src="../client/assets/v80/dice-exhibit-nameplate.svg" width="35" height="35" /> | <img src="../client/assets/v80/dice-exhibit-nameplate.svg" width="90" height="90" /> |
+| 198 | Ranger Triage Tent | <img src="../client/assets/v80/ranger-triage-tent.svg" width="35" height="35" /> | <img src="../client/assets/v80/ranger-triage-tent.svg" width="90" height="90" /> |
+| 199 | Camping Lantern Tripod | <img src="../client/assets/v80/camping-lantern-tripod.svg" width="35" height="35" /> | <img src="../client/assets/v80/camping-lantern-tripod.svg" width="90" height="90" /> |
+| 200 | Escape Puzzle Wall | <img src="../client/assets/v80/escape-puzzle-wall.svg" width="35" height="35" /> | <img src="../client/assets/v80/escape-puzzle-wall.svg" width="90" height="90" /> |
