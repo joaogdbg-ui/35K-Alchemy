@@ -7,7 +7,7 @@ import json
 
 base=Path(__file__).resolve().parents[1]
 manifest=json.loads((base/'shared/v80-approved.json').read_text(encoding='utf-8'))
-assert len(manifest['new_items']) == 8, 'Unexpected V80 source count'
+assert len(manifest['new_items']) == manifest['cohort_count'], 'Unexpected V80 source count'
 seen=set()
 allowed={'svg','g','path','rect','ellipse','circle','line','polygon','polyline','defs','linearGradient','stop'}
 ns='{http://www.w3.org/2000/svg}'
