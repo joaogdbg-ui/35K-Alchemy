@@ -30,7 +30,7 @@ test('Every V79 item has a unique recipe, bespoke SVG source and valid summary',
 });
 test('V79 is wired to game, offline bundle, IP scan and Android packaging without altering settings',()=>{
  const app=read('client/src/app.js'),build=read('tools/build-standalone.py');
- assert.match(app,/ORGANIC_V78,ORGANIC_V79,ORGANIC_V80,ORGANIC_V81\]/);
+ assert.match(app,/ORGANIC_V78,ORGANIC_V79,ORGANIC_V80,ORGANIC_V81,ORGANIC_V82\]/);
  assert.match(app,/ORGANIC_ART_V80\[itemName\]\|\|ORGANIC_ART_V79\[itemName\]\|\|ORGANIC_ART_V78/);
  assert.match(build,/window\.__gameverseOrganic79/);
  assert.match(build,/window\.__gameverseOrganicArt79/);

@@ -63,7 +63,7 @@ test('Profiles never gain elements outside their family or unrelated normal elem
 });
 test('Runtime saves cross-family discoveries and picker counts inherited progress',()=>{
  const js=readFileSync(new URL('../src/app.js',import.meta.url),'utf8');
- assert.match(js,/familyProfiles=synchronizeFamilyProfiles\(familyProfiles,FAMILY_CAMPAIGNS\.families\)\.profiles/g);
+ assert.match(js,/familyProfiles=synchronizeFamilyProfiles\(familyProfiles,ALL_CAMPAIGNS\)\.profiles/g);
  assert.match(js,/familyProfiles\[currentFamilyId\]=snapshotPlayState\(\)/);
  assert.match(js,/familyProfiles\[f\.id\]\?\.unlocked/);
  assert.match(js,/if\(result\?\.earned!==true\)/);
