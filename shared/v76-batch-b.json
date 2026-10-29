@@ -2,70 +2,70 @@
   "items": [
     {
       "id": "organic76:nintendo-switch-2-cartridge-case",
-      "name": "Nintendo Switch 2 Cartridge Case",
+      "name": "GlidePort II Cartridge Case",
       "category": "accessory",
       "summary": "Twelve little game cards fit safely inside a pocket-sized case.",
       "iconFamily": "organic"
     },
     {
       "id": "organic76:famicom-cartridge-organizer",
-      "name": "Famicom Cartridge Organizer",
+      "name": "Homebit Cartridge Organizer",
       "category": "accessory",
       "summary": "An orderly shelf puts every colorful family cartridge in reach.",
       "iconFamily": "organic"
     },
     {
       "id": "organic76:super-famicom-controller-tray",
-      "name": "Super Famicom Controller Tray",
+      "name": "Super Homebit Controller Tray",
       "category": "accessory",
       "summary": "A shallow wooden tray gives a classic gamepad a home.",
       "iconFamily": "organic"
     },
     {
       "id": "organic76:nintendo-64-repair-station",
-      "name": "Nintendo 64 Repair Station",
+      "name": "Orilux 64 Repair Station",
       "category": "technology",
       "summary": "A microscope and tiny tools restore a well-loved console.",
       "iconFamily": "organic"
     },
     {
       "id": "organic76:nintendo-64-expansion-tester",
-      "name": "Nintendo 64 Expansion Tester",
+      "name": "Orilux 64 Expansion Tester",
       "category": "technology",
       "summary": "A cartridge-shaped diagnostic module lights up every contact.",
       "iconFamily": "organic"
     },
     {
       "id": "organic76:gamecube-disc-display",
-      "name": "GameCube Disc Display",
+      "name": "Cubelet Disc Display",
       "category": "culture",
       "summary": "Miniature optical discs gleam inside a clear exhibition case.",
       "iconFamily": "organic"
     },
     {
       "id": "organic76:wii-motion-calibration-station",
-      "name": "Wii Motion Calibration Station",
+      "name": "MotionArc Motion Calibration Station",
       "category": "technology",
       "summary": "A glowing sensor guides precise motion with an invisible beam.",
       "iconFamily": "organic"
     },
     {
       "id": "organic76:wii-u-charging-mat",
-      "name": "Wii U Charging Mat",
+      "name": "MotionArc Plus Charging Mat",
       "category": "accessory",
       "summary": "A soft charging surface keeps the two-screen controller ready.",
       "iconFamily": "organic"
     },
     {
       "id": "organic76:playstation-disc-organizer",
-      "name": "PlayStation Disc Organizer",
+      "name": "Auralis Disc Organizer",
       "category": "accessory",
       "summary": "A wooden record rack sorts the original silver game discs.",
       "iconFamily": "organic"
     },
     {
       "id": "organic76:playstation-2-memory-cabinet",
-      "name": "PlayStation 2 Memory Cabinet",
+      "name": "Auralis 2 Memory Cabinet",
       "category": "accessory",
       "summary": "Tiny save cards are catalogued like priceless digital memories.",
       "iconFamily": "organic"

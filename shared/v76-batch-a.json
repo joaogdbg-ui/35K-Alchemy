@@ -2,70 +2,70 @@
   "items": [
     {
       "id": "organic76:game-boy-screen-magnifier",
-      "name": "Game Boy Screen Magnifier",
+      "name": "PocketNova Screen Magnifier",
       "category": "accessory",
       "summary": "A clip-on lens gives tiny adventures a surprisingly grand view.",
       "iconFamily": "organic"
     },
     {
       "id": "organic76:game-boy-link-station",
-      "name": "Game Boy Link Station",
+      "name": "PocketNova Link Station",
       "category": "technology",
       "summary": "Two handheld screens exchange a secret across a coiled cable.",
       "iconFamily": "organic"
     },
     {
       "id": "organic76:game-boy-camera-album",
-      "name": "Game Boy Camera Album",
+      "name": "PocketNova Camera Album",
       "category": "culture",
       "summary": "A pocket camera's grainy portraits become a treasured paper album.",
       "iconFamily": "organic"
     },
     {
       "id": "organic76:game-boy-color-shell-workshop",
-      "name": "Game Boy Color Shell Workshop",
+      "name": "PocketNova Color Shell Workshop",
       "category": "gamecraft",
       "summary": "Pastel console shells wait beside tiny tools and paint samples.",
       "iconFamily": "organic"
     },
     {
       "id": "organic76:game-boy-advance-power-cradle",
-      "name": "Game Boy Advance Power Cradle",
+      "name": "PocketNova Advance Power Cradle",
       "category": "accessory",
       "summary": "A sturdy handheld charging base ends the low-battery panic.",
       "iconFamily": "organic"
     },
     {
       "id": "organic76:nintendo-ds-stylus-dock",
-      "name": "Nintendo DS Stylus Dock",
+      "name": "Twinleaf Stylus Dock",
       "category": "accessory",
       "summary": "Two fold-out screens rest next to a precision stylus holder.",
       "iconFamily": "organic"
     },
     {
       "id": "organic76:nintendo-dsi-photo-studio",
-      "name": "Nintendo DSi Photo Studio",
+      "name": "Twinleaf i Photo Studio",
       "category": "gamecraft",
       "summary": "A two-screen photo editor turns snapshots into playful stickers.",
       "iconFamily": "organic"
     },
     {
       "id": "organic76:nintendo-3ds-parallax-viewer",
-      "name": "Nintendo 3DS Parallax Viewer",
+      "name": "TriFold Parallax Viewer",
       "category": "accessory",
       "summary": "A tiny stereoscopic lens makes the screen's depth feel real.",
       "iconFamily": "organic"
     },
     {
       "id": "organic76:nintendo-switch-travel-dock",
-      "name": "Nintendo Switch Travel Dock",
+      "name": "GlidePort Travel Dock",
       "category": "accessory",
       "summary": "The portable console clicks neatly into a wooden desktop dock.",
       "iconFamily": "organic"
     },
     {
       "id": "organic76:nintendo-switch-oled-showcase",
-      "name": "Nintendo Switch OLED Showcase",
+      "name": "GlidePort Aurora Showcase",
       "category": "culture",
       "summary": "A wide glossy display glows behind its protective glass case.",
       "iconFamily": "organic"

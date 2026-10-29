@@ -15,392 +15,392 @@
   "new_items": [
     {
       "id": "organic76:game-boy-screen-magnifier",
-      "name": "Game Boy Screen Magnifier",
+      "name": "PocketNova Screen Magnifier",
       "ingredients": [
         "legacy:461",
         "legacy:23"
       ],
-      "path": "client/assets/v76/game-boy-screen-magnifier.svg",
+      "path": "client/assets/v76/pocketnova-screen-magnifier.svg",
       "art_mode": "bespoke-subject"
     },
     {
       "id": "organic76:game-boy-link-station",
-      "name": "Game Boy Link Station",
+      "name": "PocketNova Link Station",
       "ingredients": [
         "legacy:461",
         "legacy:70"
       ],
-      "path": "client/assets/v76/game-boy-link-station.svg",
+      "path": "client/assets/v76/pocketnova-link-station.svg",
       "art_mode": "bespoke-subject"
     },
     {
       "id": "organic76:game-boy-camera-album",
-      "name": "Game Boy Camera Album",
+      "name": "PocketNova Camera Album",
       "ingredients": [
         "legacy:1352",
         "legacy:106"
       ],
-      "path": "client/assets/v76/game-boy-camera-album.svg",
+      "path": "client/assets/v76/pocketnova-camera-album.svg",
       "art_mode": "bespoke-subject"
     },
     {
       "id": "organic76:game-boy-color-shell-workshop",
-      "name": "Game Boy Color Shell Workshop",
+      "name": "PocketNova Color Shell Workshop",
       "ingredients": [
         "legacy:464",
         "legacy:140"
       ],
-      "path": "client/assets/v76/game-boy-color-shell-workshop.svg",
+      "path": "client/assets/v76/pocketnova-color-shell-workshop.svg",
       "art_mode": "bespoke-subject"
     },
     {
       "id": "organic76:game-boy-advance-power-cradle",
-      "name": "Game Boy Advance Power Cradle",
+      "name": "PocketNova Advance Power Cradle",
       "ingredients": [
         "legacy:465",
         "legacy:69"
       ],
-      "path": "client/assets/v76/game-boy-advance-power-cradle.svg",
+      "path": "client/assets/v76/pocketnova-advance-power-cradle.svg",
       "art_mode": "bespoke-subject"
     },
     {
       "id": "organic76:nintendo-ds-stylus-dock",
-      "name": "Nintendo DS Stylus Dock",
+      "name": "Twinleaf Stylus Dock",
       "ingredients": [
         "legacy:468",
         "legacy:24"
       ],
-      "path": "client/assets/v76/nintendo-ds-stylus-dock.svg",
+      "path": "client/assets/v76/twinleaf-stylus-dock.svg",
       "art_mode": "bespoke-subject"
     },
     {
       "id": "organic76:nintendo-dsi-photo-studio",
-      "name": "Nintendo DSi Photo Studio",
+      "name": "Twinleaf i Photo Studio",
       "ingredients": [
         "legacy:470",
         "legacy:647"
       ],
-      "path": "client/assets/v76/nintendo-dsi-photo-studio.svg",
+      "path": "client/assets/v76/twinleaf-i-photo-studio.svg",
       "art_mode": "bespoke-subject"
     },
     {
       "id": "organic76:nintendo-3ds-parallax-viewer",
-      "name": "Nintendo 3DS Parallax Viewer",
+      "name": "TriFold Parallax Viewer",
       "ingredients": [
         "legacy:472",
         "legacy:23"
       ],
-      "path": "client/assets/v76/nintendo-3ds-parallax-viewer.svg",
+      "path": "client/assets/v76/trifold-parallax-viewer.svg",
       "art_mode": "bespoke-subject"
     },
     {
       "id": "organic76:nintendo-switch-travel-dock",
-      "name": "Nintendo Switch Travel Dock",
+      "name": "GlidePort Travel Dock",
       "ingredients": [
         "legacy:409",
         "legacy:24"
       ],
-      "path": "client/assets/v76/nintendo-switch-travel-dock.svg",
+      "path": "client/assets/v76/glideport-travel-dock.svg",
       "art_mode": "bespoke-subject"
     },
     {
       "id": "organic76:nintendo-switch-oled-showcase",
-      "name": "Nintendo Switch OLED Showcase",
+      "name": "GlidePort Aurora Showcase",
       "ingredients": [
         "legacy:410",
         "legacy:23"
       ],
-      "path": "client/assets/v76/nintendo-switch-oled-showcase.svg",
+      "path": "client/assets/v76/glideport-aurora-showcase.svg",
       "art_mode": "bespoke-subject"
     },
     {
       "id": "organic76:nintendo-switch-2-cartridge-case",
-      "name": "Nintendo Switch 2 Cartridge Case",
+      "name": "GlidePort II Cartridge Case",
       "ingredients": [
         "legacy:411",
         "legacy:151"
       ],
-      "path": "client/assets/v76/nintendo-switch-2-cartridge-case.svg",
+      "path": "client/assets/v76/glideport-ii-cartridge-case.svg",
       "art_mode": "bespoke-subject"
     },
     {
       "id": "organic76:famicom-cartridge-organizer",
-      "name": "Famicom Cartridge Organizer",
+      "name": "Homebit Cartridge Organizer",
       "ingredients": [
         "legacy:397",
         "legacy:24"
       ],
-      "path": "client/assets/v76/famicom-cartridge-organizer.svg",
+      "path": "client/assets/v76/homebit-cartridge-organizer.svg",
       "art_mode": "bespoke-subject"
     },
     {
       "id": "organic76:super-famicom-controller-tray",
-      "name": "Super Famicom Controller Tray",
+      "name": "Super Homebit Controller Tray",
       "ingredients": [
         "legacy:400",
         "legacy:81"
       ],
-      "path": "client/assets/v76/super-famicom-controller-tray.svg",
+      "path": "client/assets/v76/super-homebit-controller-tray.svg",
       "art_mode": "bespoke-subject"
     },
     {
       "id": "organic76:nintendo-64-repair-station",
-      "name": "Nintendo 64 Repair Station",
+      "name": "Orilux 64 Repair Station",
       "ingredients": [
         "legacy:403",
         "legacy:588"
       ],
-      "path": "client/assets/v76/nintendo-64-repair-station.svg",
+      "path": "client/assets/v76/orilux-64-repair-station.svg",
       "art_mode": "bespoke-subject"
     },
     {
       "id": "organic76:nintendo-64-expansion-tester",
-      "name": "Nintendo 64 Expansion Tester",
+      "name": "Orilux 64 Expansion Tester",
       "ingredients": [
         "legacy:1350",
         "legacy:70"
       ],
-      "path": "client/assets/v76/nintendo-64-expansion-tester.svg",
+      "path": "client/assets/v76/orilux-64-expansion-tester.svg",
       "art_mode": "bespoke-subject"
     },
     {
       "id": "organic76:gamecube-disc-display",
-      "name": "GameCube Disc Display",
+      "name": "Cubelet Disc Display",
       "ingredients": [
         "legacy:405",
         "legacy:23"
       ],
-      "path": "client/assets/v76/gamecube-disc-display.svg",
+      "path": "client/assets/v76/cubelet-disc-display.svg",
       "art_mode": "bespoke-subject"
     },
     {
       "id": "organic76:wii-motion-calibration-station",
-      "name": "Wii Motion Calibration Station",
+      "name": "MotionArc Motion Calibration Station",
       "ingredients": [
         "legacy:406",
         "legacy:63"
       ],
-      "path": "client/assets/v76/wii-motion-calibration-station.svg",
+      "path": "client/assets/v76/motionarc-motion-calibration-station.svg",
       "art_mode": "bespoke-subject"
     },
     {
       "id": "organic76:wii-u-charging-mat",
-      "name": "Wii U Charging Mat",
+      "name": "MotionArc Plus Charging Mat",
       "ingredients": [
         "legacy:408",
         "legacy:69"
       ],
-      "path": "client/assets/v76/wii-u-charging-mat.svg",
+      "path": "client/assets/v76/motionarc-plus-charging-mat.svg",
       "art_mode": "bespoke-subject"
     },
     {
       "id": "organic76:playstation-disc-organizer",
-      "name": "PlayStation Disc Organizer",
+      "name": "Auralis Disc Organizer",
       "ingredients": [
         "legacy:414",
         "legacy:24"
       ],
-      "path": "client/assets/v76/playstation-disc-organizer.svg",
+      "path": "client/assets/v76/auralis-disc-organizer.svg",
       "art_mode": "bespoke-subject"
     },
     {
       "id": "organic76:playstation-2-memory-cabinet",
-      "name": "PlayStation 2 Memory Cabinet",
+      "name": "Auralis 2 Memory Cabinet",
       "ingredients": [
         "legacy:416",
         "legacy:337"
       ],
-      "path": "client/assets/v76/playstation-2-memory-cabinet.svg",
+      "path": "client/assets/v76/auralis-2-memory-cabinet.svg",
       "art_mode": "bespoke-subject"
     },
     {
       "id": "organic76:playstation-3-cooling-platform",
-      "name": "PlayStation 3 Cooling Platform",
+      "name": "Auralis 3 Cooling Platform",
       "ingredients": [
         "legacy:418",
         "legacy:12"
       ],
-      "path": "client/assets/v76/playstation-3-cooling-platform.svg",
+      "path": "client/assets/v76/auralis-3-cooling-platform.svg",
       "art_mode": "bespoke-subject"
     },
     {
       "id": "organic76:playstation-4-dual-charging-dock",
-      "name": "PlayStation 4 Dual Charging Dock",
+      "name": "Auralis 4 Dual Charging Dock",
       "ingredients": [
         "legacy:420",
         "legacy:69"
       ],
-      "path": "client/assets/v76/playstation-4-dual-charging-dock.svg",
+      "path": "client/assets/v76/auralis-4-dual-charging-dock.svg",
       "art_mode": "bespoke-subject"
     },
     {
       "id": "organic76:playstation-5-vertical-cooling-stand",
-      "name": "PlayStation 5 Vertical Cooling Stand",
+      "name": "Auralis 5 Vertical Cooling Stand",
       "ingredients": [
         "legacy:423",
         "legacy:12"
       ],
-      "path": "client/assets/v76/playstation-5-vertical-cooling-stand.svg",
+      "path": "client/assets/v76/auralis-5-vertical-cooling-stand.svg",
       "art_mode": "bespoke-subject"
     },
     {
       "id": "organic76:playstation-portal-travel-sleeve",
-      "name": "PlayStation Portal Travel Sleeve",
+      "name": "Auralis Streamscreen Travel Sleeve",
       "ingredients": [
         "legacy:501",
         "legacy:99"
       ],
-      "path": "client/assets/v76/playstation-portal-travel-sleeve.svg",
+      "path": "client/assets/v76/auralis-streamscreen-travel-sleeve.svg",
       "art_mode": "bespoke-subject"
     },
     {
       "id": "organic76:xbox-disc-tower",
-      "name": "Xbox Disc Tower",
+      "name": "AsterCube Disc Tower",
       "ingredients": [
         "legacy:427",
         "legacy:24"
       ],
-      "path": "client/assets/v76/xbox-disc-tower.svg",
+      "path": "client/assets/v76/astercube-disc-tower.svg",
       "art_mode": "bespoke-subject"
     },
     {
       "id": "organic76:xbox-360-power-module",
-      "name": "Xbox 360 Power Module",
+      "name": "AsterCube Orbit Power Module",
       "ingredients": [
         "legacy:428",
         "legacy:69"
       ],
-      "path": "client/assets/v76/xbox-360-power-module.svg",
+      "path": "client/assets/v76/astercube-orbit-power-module.svg",
       "art_mode": "bespoke-subject"
     },
     {
       "id": "organic76:xbox-one-wireless-receiver",
-      "name": "Xbox One Wireless Receiver",
+      "name": "AsterCube One Wireless Receiver",
       "ingredients": [
         "legacy:430",
         "legacy:89"
       ],
-      "path": "client/assets/v76/xbox-one-wireless-receiver.svg",
+      "path": "client/assets/v76/astercube-one-wireless-receiver.svg",
       "art_mode": "bespoke-subject"
     },
     {
       "id": "organic76:xbox-series-x-ventilation-grille",
-      "name": "Xbox Series X Ventilation Grille",
+      "name": "AsterCube Zenith Ventilation Grille",
       "ingredients": [
         "legacy:434",
         "legacy:12"
       ],
-      "path": "client/assets/v76/xbox-series-x-ventilation-grille.svg",
+      "path": "client/assets/v76/astercube-zenith-ventilation-grille.svg",
       "art_mode": "bespoke-subject"
     },
     {
       "id": "organic76:dreamcast-vmu-display-stand",
-      "name": "Dreamcast VMU Display Stand",
+      "name": "Lucent Orbit VMU Display Stand",
       "ingredients": [
         "legacy:482",
         "legacy:24"
       ],
-      "path": "client/assets/v76/dreamcast-vmu-display-stand.svg",
+      "path": "client/assets/v76/lucent-orbit-vmu-display-stand.svg",
       "art_mode": "bespoke-subject"
     },
     {
       "id": "organic76:dreamcast-controller-shell",
-      "name": "Dreamcast Controller Shell",
+      "name": "Lucent Orbit Controller Shell",
       "ingredients": [
         "legacy:394",
         "legacy:81"
       ],
-      "path": "client/assets/v76/dreamcast-controller-shell.svg",
+      "path": "client/assets/v76/lucent-orbit-controller-shell.svg",
       "art_mode": "bespoke-subject"
     },
     {
       "id": "organic76:sega-genesis-cartridge-display",
-      "name": "Sega Genesis Cartridge Display",
+      "name": "Virex Origin Cartridge Display",
       "ingredients": [
         "legacy:390",
         "legacy:151"
       ],
-      "path": "client/assets/v76/sega-genesis-cartridge-display.svg",
+      "path": "client/assets/v76/virex-origin-cartridge-display.svg",
       "art_mode": "bespoke-subject"
     },
     {
       "id": "organic76:sega-saturn-repair-bench",
-      "name": "Sega Saturn Repair Bench",
+      "name": "Virex Ring Repair Bench",
       "ingredients": [
         "legacy:393",
         "legacy:588"
       ],
-      "path": "client/assets/v76/sega-saturn-repair-bench.svg",
+      "path": "client/assets/v76/virex-ring-repair-bench.svg",
       "art_mode": "bespoke-subject"
     },
     {
       "id": "organic76:sega-game-gear-power-bank",
-      "name": "Sega Game Gear Power Bank",
+      "name": "Virex Pocket Power Bank",
       "ingredients": [
         "legacy:480",
         "legacy:69"
       ],
-      "path": "client/assets/v76/sega-game-gear-power-bank.svg",
+      "path": "client/assets/v76/virex-pocket-power-bank.svg",
       "art_mode": "bespoke-subject"
     },
     {
       "id": "organic76:sega-nomad-headphone-adapter",
-      "name": "Sega Nomad Headphone Adapter",
+      "name": "Virex Rover Headphone Adapter",
       "ingredients": [
         "legacy:481",
         "legacy:330"
       ],
-      "path": "client/assets/v76/sega-nomad-headphone-adapter.svg",
+      "path": "client/assets/v76/virex-rover-headphone-adapter.svg",
       "art_mode": "bespoke-subject"
     },
     {
       "id": "organic76:game-and-watch-gallery",
-      "name": "Game and Watch Gallery",
+      "name": "Pocket Chronograph Gallery",
       "ingredients": [
         "legacy:457",
         "legacy:251"
       ],
-      "path": "client/assets/v76/game-and-watch-gallery.svg",
+      "path": "client/assets/v76/pocket-chronograph-gallery.svg",
       "art_mode": "bespoke-subject"
     },
     {
       "id": "organic76:famicom-disk-archive",
-      "name": "Famicom Disk Archive",
+      "name": "Homebit Disk Archive",
       "ingredients": [
         "legacy:1344",
         "legacy:106"
       ],
-      "path": "client/assets/v76/famicom-disk-archive.svg",
+      "path": "client/assets/v76/homebit-disk-archive.svg",
       "art_mode": "bespoke-subject"
     },
     {
       "id": "organic76:nintendo-64-rumble-tester",
-      "name": "Nintendo 64 Rumble Tester",
+      "name": "Orilux 64 Rumble Tester",
       "ingredients": [
         "legacy:1349",
         "legacy:70"
       ],
-      "path": "client/assets/v76/nintendo-64-rumble-tester.svg",
+      "path": "client/assets/v76/orilux-64-rumble-tester.svg",
       "art_mode": "bespoke-subject"
     },
     {
       "id": "organic76:game-boy-printer-scrapbook",
-      "name": "Game Boy Printer Scrapbook",
+      "name": "PocketNova Printer Scrapbook",
       "ingredients": [
         "legacy:1353",
         "legacy:106"
       ],
-      "path": "client/assets/v76/game-boy-printer-scrapbook.svg",
+      "path": "client/assets/v76/pocketnova-printer-scrapbook.svg",
       "art_mode": "bespoke-subject"
     },
     {
       "id": "organic76:game-boy-link-cable-tester",
-      "name": "Game Boy Link Cable Tester",
+      "name": "PocketNova Link Cable Tester",
       "ingredients": [
         "legacy:1355",
         "legacy:70"
       ],
-      "path": "client/assets/v76/game-boy-link-cable-tester.svg",
+      "path": "client/assets/v76/pocketnova-link-cable-tester.svg",
       "art_mode": "bespoke-subject"
     },
     {
