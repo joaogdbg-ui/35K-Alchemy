@@ -6,7 +6,7 @@ const source = readFileSync(new URL('src/app.js',root),'utf8');
 const html = readFileSync(new URL('index.html',root),'utf8');
 const css = readFileSync(new URL('src/styles.css',root),'utf8');
 test('V25 maintains just two tabs and existing storage keys',()=>{
- assert.match(html,/<title>35K Alchemy — V(?:2[6-9](?:\.\d+)?|3[0-9]|4[0-9]|5[0-9]|6[0-9]) (?:Offline|English Edition)<\/title>/);
+ assert.match(html,/<title>35K Alchemy — V(?:2[6-9](?:\.\d+)?|3[0-9]|4[0-9]|5[0-9]|6[0-9]|7[0-9]) (?:Offline|English Edition)<\/title>/);
  assert.equal((html.match(/class="tab(?: active)?"/g)||[]).length,2);
  for(const key of ['gameverse_alchemy_v2','gameverse_dynamic_v11','gameverse_discovery_hints_v20','gameverse_ledger_v16'])assert.ok(source.includes(key));
 });
