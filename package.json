@@ -1,6 +1,6 @@
 {
   "name": "alchemy-10k",
-  "version": "0.81.0",
+  "version": "0.82.0",
   "private": true,
   "scripts": {
     "test": "node --test client/test/*.test.mjs",
