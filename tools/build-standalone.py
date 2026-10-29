@@ -48,6 +48,12 @@ subprocess.run(['python','tools/audit-v70-art.py'],cwd=root,check=True)
 subprocess.run(['python','tools/audit-v62-art.py'],cwd=root,check=True)
 family54=(root/'client/src/family-icons-v54.js').read_text(encoding='utf-8').replace('export const FAMILY_ICONS_V54 =','const FAMILY_ICONS_V54 =')
 html=(root/'client/index.html').read_text(encoding='utf-8')
+# Keep the favicon bundled into the fully offline HTML as an SVG data URI.
+from urllib.parse import quote
+favicon_link='<link rel="icon" type="image/svg+xml" href="./assets/brand/35k-alchemy-icon.svg" />'
+if favicon_link not in html: raise SystemExit('Original favicon link missing')
+icon_svg=(root/'client/assets/brand/35k-alchemy-icon.svg').read_text(encoding='utf-8')
+html=html.replace(favicon_link,'<link rel="icon" type="image/svg+xml" href="data:image/svg+xml,'+quote(icon_svg,safe='')+'" />')
 css=(root/'client/src/styles.css').read_text(encoding='utf-8')
 data=(root/'client/src/legacy-data.js').read_text(encoding='utf-8').replace('export const DATA =','const DATA =')
 pack=(root/'client/src/creative-pack.js').read_text(encoding='utf-8').replace('export const PACK =','const PACK =')

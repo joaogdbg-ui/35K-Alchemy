@@ -1,4 +1,4 @@
-# 35K Alchemy — V76.2 (expanded IP editorial audit)
+# 35K Alchemy — V76.4 (clear hardware names and original app icon)
 
 Repositório oficial do jogo **35K Alchemy**, incluindo o código-fonte completo da V76 e o pipeline Android.
 

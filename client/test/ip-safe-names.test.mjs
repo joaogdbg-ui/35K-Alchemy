@@ -3,10 +3,10 @@ import assert from 'node:assert/strict';
 import {publicText,publicName,buildPublicNameIndex,PUBLIC_IP_SIGNALS,hasUnresolvedPublicIPSignal} from '../src/ip-safe-names.js';
 test('Mock labels replace console and entertainment identities, preserving input',()=>{
  const data=[
- ['Nintendo Switch 2 Cartridge Case','GlidePort II Cartridge Case'],
- ['Game Boy Camera Album','PocketNova Camera Album'],
- ['PlayStation 5 Vertical Cooling Stand','Qelvorune 5 Vertical Cooling Stand'],
- ['Xbox Series X Ventilation Grille','Zerqadyn Zenith Ventilation Grille'],
+ ['Nintendo Switch 2 Cartridge Case','Hybrid Console 2 Cartridge Case'],
+ ['Game Boy Camera Album','Pixel Pocket Camera Album'],
+ ['PlayStation 5 Vertical Cooling Stand','Disc Console 5 Vertical Cooling Stand'],
+ ['Xbox Series X Ventilation Grille','Power Console X Ventilation Grille'],
  ['Sonic the Hedgehog','Windrush the Hedgehog'],
  ['Pokémon Red','Critter Atlas Red'],
  ['Dragon Ball Z: Budokai 3','Sky Orbs Z: Budokai 3']
@@ -15,12 +15,12 @@ test('Mock labels replace console and entertainment identities, preserving input
  assert.equal(publicName({name:'Mario Kart'}),'Mosskip Kart');
 });
 test('Public-name index preserves identifiers and disambiguates coincident labels',()=>{
- const items=[{id:'a',name:'PlayStation'},{id:'b',name:'Qelvorune'},{id:'c',name:'Water'}];
+ const items=[{id:'a',name:'PlayStation'},{id:'b',name:'Disc Console'},{id:'c',name:'Water'}];
  const original=items.map(x=>x.name);
  const out=buildPublicNameIndex(items);
  assert.deepEqual(items.map(x=>x.name),original);
- assert.equal(out.get('a'),'Qelvorune');
- assert.equal(out.get('b'),'Qelvorune — Edition 2');
+ assert.equal(out.get('a'),'Disc Console');
+ assert.equal(out.get('b'),'Disc Console — Edition 2');
  assert.equal(out.get('c'),'Water');
 });
 test('High-confidence franchise signals are absent from sample public labels',()=>{
@@ -50,10 +50,20 @@ test('V76.2 context-specific original game aliases do not rewrite generic scienc
 
 test('Brand-alias collision review retires identifiable real company names',()=>{
  const cases=[
-  ['Konami','Nayvuril Studio'],
-  ['Atari 2600','Qintavyr 2600'],
-  ['Nintendo 64','Velqryon 64'],
-  ['Xbox Series X','Zerqadyn Zenith']
+  ['Konami','Arcade Game Studio'],
+  ['Atari 2600','Retro Console 2600'],
+  ['Nintendo 64','64-Bit Cartridge Console'],
+  ['Xbox Series X','Power Console X']
  ];
  for(const [oldName,expected] of cases)assert.equal(publicName({name:oldName,category:'console'}),expected);
+});
+
+test('Readable category labels transform legacy and newest sources without mutating saved IDs',()=>{
+ const cases=[['PlayStation 4','Disc Console 4'],['Nintendo Switch OLED','Hybrid OLED Console'],['Game Boy Advance','Pixel Pocket Advance'],['Sega Genesis','16-Bit Arcade Console'],['Xbox 360','Orbit Console'],['Qelvorune 5','Disc Console 5'],['Velqryon 64','64-Bit Cartridge Console'],['Nayvuril Studio','Arcade Game Studio']];
+ for(const [source,target] of cases)assert.equal(publicName({name:source,category:'console'}),target);
+ const items=[{id:'a',name:'PlayStation 4'},{id:'b',name:'Qelvorune 4'}];
+ const index=buildPublicNameIndex(items);
+ assert.equal(index.get('a'),'Disc Console 4');
+ assert.equal(index.get('b'),'Disc Console 4 — Edition 2');
+ assert.deepEqual(items.map(x=>x.id),['a','b']);
 });
