@@ -23,4 +23,8 @@ for(const item of v76.new_items){
  const svg=readFileSync(item.path,'utf8');
  if(/<image\b|<text\b|<foreignObject|<script\b|<use\b|href\s*=|url\s*\(\s*['\"]?https?:|data:image/i.test(svg))throw Error('V76 active SVG contains external, text, or reusable logo material: '+item.path);
 }
+const mediaCategories=new Set(['game','film','movie','anime','manga','series','character','music']);
+const pendingReview=items.filter(it=>mediaCategories.has(it.category)&&publicName(it)===it.name);
+console.log('EDITORIAL REVIEW QUEUE:',pendingReview.length,'media elements still retain their historic names; this includes generic and public-domain terminology.');
+console.log('Example media candidates:',pendingReview.filter(it=>it.category==='game').slice(0,16).map(it=>it.name).join(' / '));
 console.log('IP display screen PASS:',items.length,'IDs,',recipes.size,'recipes;',risky.length,'fictionalized labels;',unresolved.length,'known pattern hits. Artwork and trademark clearance still require human review.');
