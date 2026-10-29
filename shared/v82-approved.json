@@ -1,18 +1,18 @@
 {
   "version": 82,
   "status": "WIP_NOT_RELEASED",
-  "cohort_count": 61,
+  "cohort_count": 82,
   "expansion_goal": 200,
-  "expansion_progress": 61,
-  "remaining_to_goal": 139,
+  "expansion_progress": 82,
+  "remaining_to_goal": 118,
   "cycle_complete": false,
   "base_catalog": {
     "elements": 5812,
     "recipes": 14149
   },
   "expected_catalog": {
-    "elements": 5873,
-    "recipes": 14210
+    "elements": 5894,
+    "recipes": 14231
   },
   "new_items": [
     {
@@ -929,6 +929,321 @@
       ],
       "art_mode": "bespoke-subject",
       "path": "client/assets/v82/temple-of-vesta.svg"
+    },
+    {
+      "id": "organic82:yggdrasil",
+      "name": "Yggdrasil",
+      "category": "mythology",
+      "summary": "The Norse world tree holds many realms among immense branches and wandering roots.",
+      "familyCampaigns": [
+        "mythology"
+      ],
+      "ingredients": [
+        "organic82:asgard",
+        "organic82:norse-mythology"
+      ],
+      "art_mode": "bespoke-subject",
+      "path": "client/assets/v82/yggdrasil.svg"
+    },
+    {
+      "id": "organic82:bifrost",
+      "name": "Bifrost",
+      "category": "mythology",
+      "summary": "The radiant Norse rainbow bridge connects the gods' high realm with the human world.",
+      "familyCampaigns": [
+        "mythology"
+      ],
+      "ingredients": [
+        "organic82:asgard",
+        "organic82:divine-thunderbolt"
+      ],
+      "art_mode": "bespoke-subject",
+      "path": "client/assets/v82/bifrost.svg"
+    },
+    {
+      "id": "organic82:midgard",
+      "name": "Midgard",
+      "category": "mythology",
+      "summary": "The Norse human world lies within a protective ring of sea and mountains.",
+      "familyCampaigns": [
+        "mythology"
+      ],
+      "ingredients": [
+        "organic82:norse-mythology",
+        "organic82:ancient-wisdom"
+      ],
+      "art_mode": "bespoke-subject",
+      "path": "client/assets/v82/midgard.svg"
+    },
+    {
+      "id": "organic82:nine-realms",
+      "name": "Nine Realms",
+      "category": "mythology",
+      "summary": "Nine spheres around the world tree represent interconnected realms of Norse cosmology.",
+      "familyCampaigns": [
+        "mythology"
+      ],
+      "ingredients": [
+        "organic82:yggdrasil",
+        "organic82:norse-mythology"
+      ],
+      "art_mode": "bespoke-subject",
+      "path": "client/assets/v82/nine-realms.svg"
+    },
+    {
+      "id": "organic82:valhalla",
+      "name": "Valhalla",
+      "category": "mythology",
+      "summary": "Odin's golden Norse hall welcomes heroic warriors beneath steep timber roofs.",
+      "familyCampaigns": [
+        "mythology"
+      ],
+      "ingredients": [
+        "organic82:odin",
+        "organic82:yggdrasil"
+      ],
+      "art_mode": "bespoke-subject",
+      "path": "client/assets/v82/valhalla.svg"
+    },
+    {
+      "id": "organic82:valkyrie",
+      "name": "Valkyrie",
+      "category": "mythology",
+      "summary": "A wing-helmed Valkyrie guides fallen warriors from battle toward Valhalla.",
+      "familyCampaigns": [
+        "mythology"
+      ],
+      "ingredients": [
+        "organic82:valhalla",
+        "organic82:norse-war-hammer"
+      ],
+      "art_mode": "bespoke-subject",
+      "path": "client/assets/v82/valkyrie.svg"
+    },
+    {
+      "id": "organic82:ragnarok",
+      "name": "Ragnarok",
+      "category": "mythology",
+      "summary": "The legendary twilight of the Norse gods unfolds beneath a shattered sky.",
+      "familyCampaigns": [
+        "mythology"
+      ],
+      "ingredients": [
+        "organic82:loki-of-asgard",
+        "organic82:thor-of-asgard"
+      ],
+      "art_mode": "bespoke-subject",
+      "path": "client/assets/v82/ragnarok.svg"
+    },
+    {
+      "id": "organic82:fenrir",
+      "name": "Fenrir",
+      "category": "mythology",
+      "summary": "The monstrous wolf Fenrir bares long teeth beneath a chain of Norse prophecy.",
+      "familyCampaigns": [
+        "mythology"
+      ],
+      "ingredients": [
+        "organic82:loki-of-asgard",
+        "pack:shapeshifter"
+      ],
+      "art_mode": "bespoke-subject",
+      "path": "client/assets/v82/fenrir.svg"
+    },
+    {
+      "id": "organic82:jormungandr",
+      "name": "Jormungandr",
+      "category": "mythology",
+      "summary": "The vast Midgard serpent coils through an encircling ocean and bites its tail.",
+      "familyCampaigns": [
+        "mythology"
+      ],
+      "ingredients": [
+        "organic82:loki-of-asgard",
+        "organic82:norse-mythology"
+      ],
+      "art_mode": "bespoke-subject",
+      "path": "client/assets/v82/jormungandr.svg"
+    },
+    {
+      "id": "organic82:sleipnir",
+      "name": "Sleipnir",
+      "category": "mythology",
+      "summary": "Odin's mythical eight-legged horse races across the winds of Asgard.",
+      "familyCampaigns": [
+        "mythology"
+      ],
+      "ingredients": [
+        "organic82:odin",
+        "pack:shapeshifter"
+      ],
+      "art_mode": "bespoke-subject",
+      "path": "client/assets/v82/sleipnir.svg"
+    },
+    {
+      "id": "organic82:frigg",
+      "name": "Frigg",
+      "category": "mythology",
+      "summary": "The Norse goddess Frigg wears a woven crown as guardian of home and foresight.",
+      "familyCampaigns": [
+        "mythology"
+      ],
+      "ingredients": [
+        "organic82:odin",
+        "organic82:asgard"
+      ],
+      "art_mode": "bespoke-subject",
+      "path": "client/assets/v82/frigg.svg"
+    },
+    {
+      "id": "organic82:freyja",
+      "name": "Freyja",
+      "category": "mythology",
+      "summary": "The Norse goddess Freyja wears a jeweled necklace beside a wildcat emblem.",
+      "familyCampaigns": [
+        "mythology"
+      ],
+      "ingredients": [
+        "organic82:asgard",
+        "organic82:ancient-wisdom"
+      ],
+      "art_mode": "bespoke-subject",
+      "path": "client/assets/v82/freyja.svg"
+    },
+    {
+      "id": "organic82:freyr",
+      "name": "Freyr",
+      "category": "mythology",
+      "summary": "The Norse god Freyr is shown with a green harvest branch and a radiant sword.",
+      "familyCampaigns": [
+        "mythology"
+      ],
+      "ingredients": [
+        "organic82:freyja",
+        "organic82:asgard"
+      ],
+      "art_mode": "bespoke-subject",
+      "path": "client/assets/v82/freyr.svg"
+    },
+    {
+      "id": "organic82:tyr-the-oathkeeper",
+      "name": "Tyr the Oathkeeper",
+      "category": "mythology",
+      "summary": "The Norse god Tyr bears a sword and the distinctive one-handed sign of his sacrifice.",
+      "familyCampaigns": [
+        "mythology"
+      ],
+      "ingredients": [
+        "organic82:odin",
+        "organic82:norse-war-hammer"
+      ],
+      "art_mode": "bespoke-subject",
+      "path": "client/assets/v82/tyr-the-oathkeeper.svg"
+    },
+    {
+      "id": "organic82:heimdall",
+      "name": "Heimdall",
+      "category": "mythology",
+      "summary": "The Norse watchman Heimdall blows a curved horn while guarding the rainbow bridge.",
+      "familyCampaigns": [
+        "mythology"
+      ],
+      "ingredients": [
+        "organic82:bifrost",
+        "organic82:asgard"
+      ],
+      "art_mode": "bespoke-subject",
+      "path": "client/assets/v82/heimdall.svg"
+    },
+    {
+      "id": "organic82:baldr",
+      "name": "Baldr",
+      "category": "mythology",
+      "summary": "The radiant Norse god Baldr holds a white flower within a halo of golden light.",
+      "familyCampaigns": [
+        "mythology"
+      ],
+      "ingredients": [
+        "organic82:frigg",
+        "organic82:asgard"
+      ],
+      "art_mode": "bespoke-subject",
+      "path": "client/assets/v82/baldr.svg"
+    },
+    {
+      "id": "organic82:niflheim",
+      "name": "Niflheim",
+      "category": "mythology",
+      "summary": "The mist-shrouded world Niflheim contains blue glaciers and ancient frozen rivers.",
+      "familyCampaigns": [
+        "mythology"
+      ],
+      "ingredients": [
+        "organic82:nine-realms",
+        "organic82:runestone"
+      ],
+      "art_mode": "bespoke-subject",
+      "path": "client/assets/v82/niflheim.svg"
+    },
+    {
+      "id": "organic82:hel",
+      "name": "Hel",
+      "category": "mythology",
+      "summary": "The Norse ruler Hel appears half-living and half-shadowed in her cold underworld.",
+      "familyCampaigns": [
+        "mythology"
+      ],
+      "ingredients": [
+        "organic82:loki-of-asgard",
+        "organic82:niflheim"
+      ],
+      "art_mode": "bespoke-subject",
+      "path": "client/assets/v82/hel.svg"
+    },
+    {
+      "id": "organic82:jotunheim",
+      "name": "Jotunheim",
+      "category": "mythology",
+      "summary": "The land of Norse giants rises as jagged mountain walls beneath winter clouds.",
+      "familyCampaigns": [
+        "mythology"
+      ],
+      "ingredients": [
+        "organic82:nine-realms",
+        "pack:shapeshifter"
+      ],
+      "art_mode": "bespoke-subject",
+      "path": "client/assets/v82/jotunheim.svg"
+    },
+    {
+      "id": "organic82:frost-giant",
+      "name": "Frost Giant",
+      "category": "mythology",
+      "summary": "A towering frost giant with icicle shoulders strides across the mountains of Norse myth.",
+      "familyCampaigns": [
+        "mythology"
+      ],
+      "ingredients": [
+        "organic82:jotunheim",
+        "organic82:norse-mythology"
+      ],
+      "art_mode": "bespoke-subject",
+      "path": "client/assets/v82/frost-giant.svg"
+    },
+    {
+      "id": "organic82:gungnir",
+      "name": "Gungnir",
+      "category": "mythology",
+      "summary": "Odin's unfailing spear Gungnir bears blue Norse runes along its broad silver point.",
+      "familyCampaigns": [
+        "mythology"
+      ],
+      "ingredients": [
+        "organic82:odin",
+        "organic82:runestone"
+      ],
+      "art_mode": "bespoke-subject",
+      "path": "client/assets/v82/gungnir.svg"
     }
   ]
 }
