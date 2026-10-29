@@ -72,7 +72,7 @@ jobs:
 
       - name: Set increasing Android versionCode
         env:
-          BUILD_NUMBER: ${{ github.run_number }}
+          BUILD_NUMBER: ${{ github.run_id }}
         shell: bash
         run: |
           python3 - <<'PY'
@@ -80,7 +80,7 @@ jobs:
           from pathlib import Path
           path = Path('android/app/build.gradle')
           original = path.read_text(encoding='utf-8')
-          code = int(os.environ['BUILD_NUMBER'])
+          code = int(os.environ['BUILD_NUMBER']) % 2000000000
           name = json.loads(Path('package.json').read_text(encoding='utf-8'))['version'] + '.' + str(code)
           updated, ncode = re.subn(r'(?m)^([ \t]*versionCode[ \t]+)\d+', lambda m: m.group(1) + str(code), original, count=1)
           updated, nname = re.subn(r'(?m)^([ \t]*versionName[ \t]+)["\'][^"\']+["\']', lambda m: m.group(1) + '"' + name + '"', updated, count=1)
@@ -145,7 +145,7 @@ jobs:
 
             Package: com.joaogdbg.alchemy35k.
             Dedicated, stable 35K Alchemy debug-test certificate (NOT the Virtual Spectre certificate).
-            VersionCode: ${{ github.run_number }}.
+            Android debug versionCode = GitHub run ID modulo 2000000000 (monotonically increasing across workflows).
             This public debug signing key is NOT a production signing key.
             Native rewarded ads and verified rewards are not implemented.
             The first switch from the previous random debug-signed build may require reinstalling: back up saves first.
