@@ -1,0 +1,228 @@
+{
+  "items": [
+    {
+      "id": "organic76:playstation-3-cooling-platform",
+      "name": "PlayStation 3 Cooling Platform",
+      "category": "accessory",
+      "summary": "Three quiet fans keep a glossy console cool during long sessions.",
+      "iconFamily": "organic"
+    },
+    {
+      "id": "organic76:playstation-4-dual-charging-dock",
+      "name": "PlayStation 4 Dual Charging Dock",
+      "category": "accessory",
+      "summary": "Two gamepads recharge side by side like matching bookends.",
+      "iconFamily": "organic"
+    },
+    {
+      "id": "organic76:playstation-5-vertical-cooling-stand",
+      "name": "PlayStation 5 Vertical Cooling Stand",
+      "category": "accessory",
+      "summary": "Airflow rises around the tall console without hiding its curves.",
+      "iconFamily": "organic"
+    },
+    {
+      "id": "organic76:playstation-portal-travel-sleeve",
+      "name": "PlayStation Portal Travel Sleeve",
+      "category": "accessory",
+      "summary": "A padded travel sleeve protects the wide portable screen.",
+      "iconFamily": "organic"
+    },
+    {
+      "id": "organic76:xbox-disc-tower",
+      "name": "Xbox Disc Tower",
+      "category": "accessory",
+      "summary": "A tall wooden tower holds the games for an entire weekend.",
+      "iconFamily": "organic"
+    },
+    {
+      "id": "organic76:xbox-360-power-module",
+      "name": "Xbox 360 Power Module",
+      "category": "technology",
+      "summary": "A compact battery pack feeds the console without interruptions.",
+      "iconFamily": "organic"
+    },
+    {
+      "id": "organic76:xbox-one-wireless-receiver",
+      "name": "Xbox One Wireless Receiver",
+      "category": "accessory",
+      "summary": "A pocket receiver pairs a wireless controller across the room.",
+      "iconFamily": "organic"
+    },
+    {
+      "id": "organic76:xbox-series-x-ventilation-grille",
+      "name": "Xbox Series X Ventilation Grille",
+      "category": "technology",
+      "summary": "Cool air passes through hundreds of carefully arranged openings.",
+      "iconFamily": "organic"
+    },
+    {
+      "id": "organic76:dreamcast-vmu-display-stand",
+      "name": "Dreamcast VMU Display Stand",
+      "category": "culture",
+      "summary": "A tiny detachable memory screen earns its own display pedestal.",
+      "iconFamily": "organic"
+    },
+    {
+      "id": "organic76:dreamcast-controller-shell",
+      "name": "Dreamcast Controller Shell",
+      "category": "accessory",
+      "summary": "A fresh ergonomic controller housing awaits its working parts.",
+      "iconFamily": "organic"
+    }
+  ],
+  "recipes": [
+    [
+      "legacy:418",
+      "legacy:12",
+      "organic76:playstation-3-cooling-platform"
+    ],
+    [
+      "legacy:420",
+      "legacy:69",
+      "organic76:playstation-4-dual-charging-dock"
+    ],
+    [
+      "legacy:423",
+      "legacy:12",
+      "organic76:playstation-5-vertical-cooling-stand"
+    ],
+    [
+      "legacy:501",
+      "legacy:99",
+      "organic76:playstation-portal-travel-sleeve"
+    ],
+    [
+      "legacy:427",
+      "legacy:24",
+      "organic76:xbox-disc-tower"
+    ],
+    [
+      "legacy:428",
+      "legacy:69",
+      "organic76:xbox-360-power-module"
+    ],
+    [
+      "legacy:430",
+      "legacy:89",
+      "organic76:xbox-one-wireless-receiver"
+    ],
+    [
+      "legacy:434",
+      "legacy:12",
+      "organic76:xbox-series-x-ventilation-grille"
+    ],
+    [
+      "legacy:482",
+      "legacy:24",
+      "organic76:dreamcast-vmu-display-stand"
+    ],
+    [
+      "legacy:394",
+      "legacy:81",
+      "organic76:dreamcast-controller-shell"
+    ]
+  ],
+  "new_items": [
+    {
+      "id": "organic76:playstation-3-cooling-platform",
+      "name": "PlayStation 3 Cooling Platform",
+      "ingredients": [
+        "legacy:418",
+        "legacy:12"
+      ],
+      "path": "client/assets/v76/playstation-3-cooling-platform.svg",
+      "art_mode": "bespoke-subject"
+    },
+    {
+      "id": "organic76:playstation-4-dual-charging-dock",
+      "name": "PlayStation 4 Dual Charging Dock",
+      "ingredients": [
+        "legacy:420",
+        "legacy:69"
+      ],
+      "path": "client/assets/v76/playstation-4-dual-charging-dock.svg",
+      "art_mode": "bespoke-subject"
+    },
+    {
+      "id": "organic76:playstation-5-vertical-cooling-stand",
+      "name": "PlayStation 5 Vertical Cooling Stand",
+      "ingredients": [
+        "legacy:423",
+        "legacy:12"
+      ],
+      "path": "client/assets/v76/playstation-5-vertical-cooling-stand.svg",
+      "art_mode": "bespoke-subject"
+    },
+    {
+      "id": "organic76:playstation-portal-travel-sleeve",
+      "name": "PlayStation Portal Travel Sleeve",
+      "ingredients": [
+        "legacy:501",
+        "legacy:99"
+      ],
+      "path": "client/assets/v76/playstation-portal-travel-sleeve.svg",
+      "art_mode": "bespoke-subject"
+    },
+    {
+      "id": "organic76:xbox-disc-tower",
+      "name": "Xbox Disc Tower",
+      "ingredients": [
+        "legacy:427",
+        "legacy:24"
+      ],
+      "path": "client/assets/v76/xbox-disc-tower.svg",
+      "art_mode": "bespoke-subject"
+    },
+    {
+      "id": "organic76:xbox-360-power-module",
+      "name": "Xbox 360 Power Module",
+      "ingredients": [
+        "legacy:428",
+        "legacy:69"
+      ],
+      "path": "client/assets/v76/xbox-360-power-module.svg",
+      "art_mode": "bespoke-subject"
+    },
+    {
+      "id": "organic76:xbox-one-wireless-receiver",
+      "name": "Xbox One Wireless Receiver",
+      "ingredients": [
+        "legacy:430",
+        "legacy:89"
+      ],
+      "path": "client/assets/v76/xbox-one-wireless-receiver.svg",
+      "art_mode": "bespoke-subject"
+    },
+    {
+      "id": "organic76:xbox-series-x-ventilation-grille",
+      "name": "Xbox Series X Ventilation Grille",
+      "ingredients": [
+        "legacy:434",
+        "legacy:12"
+      ],
+      "path": "client/assets/v76/xbox-series-x-ventilation-grille.svg",
+      "art_mode": "bespoke-subject"
+    },
+    {
+      "id": "organic76:dreamcast-vmu-display-stand",
+      "name": "Dreamcast VMU Display Stand",
+      "ingredients": [
+        "legacy:482",
+        "legacy:24"
+      ],
+      "path": "client/assets/v76/dreamcast-vmu-display-stand.svg",
+      "art_mode": "bespoke-subject"
+    },
+    {
+      "id": "organic76:dreamcast-controller-shell",
+      "name": "Dreamcast Controller Shell",
+      "ingredients": [
+        "legacy:394",
+        "legacy:81"
+      ],
+      "path": "client/assets/v76/dreamcast-controller-shell.svg",
+      "art_mode": "bespoke-subject"
+    }
+  ]
+}

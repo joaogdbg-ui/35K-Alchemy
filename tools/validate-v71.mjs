@@ -37,5 +37,5 @@ const app=readFileSync('client/src/app.js','utf8');
 check(app.includes('ORGANIC_V68,ORGANIC_V71,ORGANIC_V72,ORGANIC_V73,ORGANIC_V74,ORGANIC_V75])'),'app must retain V71 pack while appending V72');
 check(app.includes('ORGANIC_ART_V71[itemName]||ORGANIC_ART_V70[itemName]'),'art precedence');
 const build=readFileSync('tools/build-standalone.py','utf8');
-check(build.includes('window.__gameverseOrganicArt71') && build.includes('35K_Alchemy_V75_Offline.html'),'standalone missing V71 pack or version');
+check(build.includes('window.__gameverseOrganicArt71') && build.includes('35K_Alchemy_V76_Offline.html'),'standalone missing V71 pack or version');
 if(!process.argv.includes('--quiet'))console.log('V71 VALID: +40 bespoke new items, +40 intuitive recipes, 5212/13549, all original recipe mappings unchanged.');

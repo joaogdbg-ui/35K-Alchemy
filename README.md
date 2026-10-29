@@ -1,6 +1,6 @@
-# 35K Alchemy — V75
+# 35K Alchemy — V76
 
-Repositório oficial do jogo **35K Alchemy**, incluindo o código-fonte completo da V75 e o pipeline Android.
+Repositório oficial do jogo **35K Alchemy**, incluindo o código-fonte completo da V76 e o pipeline Android.
 
 ## Estado verificado — 28 de outubro de 2026
 
@@ -71,6 +71,16 @@ Repositório oficial do jogo **35K Alchemy**, incluindo o código-fonte completo
 - Todos os IDs, receitas anteriores, perfis Classic e Families Only, Merge recompensado, saves e assinatura Android continuam preservados.
 - Manifests e testes: `shared/v75-approved.json`, `tools/validate-v75.mjs`, `tools/audit-v75-art.py`. [Handoff V75](HANDOFF_V75.md).
 - [Galeria dos 68 SVGs a 35 px](docs/V75_ART_REVIEW.md). O teste visual em aparelho real continua recomendado.
+- APK: https://github.com/joaogdbg-ui/35K-Alchemy/releases/download/latest/35K-Alchemy.apk
+
+## V76 — 50 novas descobertas e ilustrações originais (subfase 1/4)
+
+- **50 elementos e 50 receitas** inéditos, centrados em acessórios para consolas, preservação retro, hardware e arcade.
+- Contagem alvo após validação: **5.422 elementos e 13.759 receitas**.
+- Primeiro sublote do próximo ciclo de 200: **50/200**, faltam **150**. Não declarar o ciclo completo antes de criar e rever os outros elementos.
+- SVGs individuais em `client/assets/v76/`, 5 módulos de arte e manifesto `shared/v76-approved.json`.
+- Auditorias: `tools/validate-v76.mjs` e `tools/audit-v76-art.py`; `node --test client/test/*.test.mjs`.
+- [Galeria dos 50 novos desenhos, a 35 px e 90 px](docs/V76_ART_REVIEW.md) e [handoff V76](HANDOFF_V76.md).
 - APK: https://github.com/joaogdbg-ui/35K-Alchemy/releases/download/latest/35K-Alchemy.apk
 
 ## Instalar Android (link permanente)

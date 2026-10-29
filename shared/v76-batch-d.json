@@ -1,0 +1,228 @@
+{
+  "items": [
+    {
+      "id": "organic76:sega-genesis-cartridge-display",
+      "name": "Sega Genesis Cartridge Display",
+      "category": "culture",
+      "summary": "A row of dark classic cartridges hangs in a polished display.",
+      "iconFamily": "organic"
+    },
+    {
+      "id": "organic76:sega-saturn-repair-bench",
+      "name": "Sega Saturn Repair Bench",
+      "category": "technology",
+      "summary": "A precise bench helps restore a stubborn old disc console.",
+      "iconFamily": "organic"
+    },
+    {
+      "id": "organic76:sega-game-gear-power-bank",
+      "name": "Sega Game Gear Power Bank",
+      "category": "accessory",
+      "summary": "A hefty battery pack keeps a bright portable screen running.",
+      "iconFamily": "organic"
+    },
+    {
+      "id": "organic76:sega-nomad-headphone-adapter",
+      "name": "Sega Nomad Headphone Adapter",
+      "category": "accessory",
+      "summary": "An angled audio plug connects portable gameplay to a headset.",
+      "iconFamily": "organic"
+    },
+    {
+      "id": "organic76:game-and-watch-gallery",
+      "name": "Game and Watch Gallery",
+      "category": "culture",
+      "summary": "A museum wall presents several tiny single-screen timekeepers.",
+      "iconFamily": "organic"
+    },
+    {
+      "id": "organic76:famicom-disk-archive",
+      "name": "Famicom Disk Archive",
+      "category": "culture",
+      "summary": "Labeled floppy-style game disks sleep safely in archival sleeves.",
+      "iconFamily": "organic"
+    },
+    {
+      "id": "organic76:nintendo-64-rumble-tester",
+      "name": "Nintendo 64 Rumble Tester",
+      "category": "technology",
+      "summary": "A vibration accessory shakes a small test lamp into life.",
+      "iconFamily": "organic"
+    },
+    {
+      "id": "organic76:game-boy-printer-scrapbook",
+      "name": "Game Boy Printer Scrapbook",
+      "category": "culture",
+      "summary": "Thermal photos fill a playful scrapbook of portable memories.",
+      "iconFamily": "organic"
+    },
+    {
+      "id": "organic76:game-boy-link-cable-tester",
+      "name": "Game Boy Link Cable Tester",
+      "category": "technology",
+      "summary": "A tiny light confirms that the old link-cable pins still work.",
+      "iconFamily": "organic"
+    },
+    {
+      "id": "organic76:3ds-tabletop-stand",
+      "name": "3DS Tabletop Stand",
+      "category": "accessory",
+      "summary": "A hinged handheld rests comfortably on a wooden viewing stand.",
+      "iconFamily": "organic"
+    }
+  ],
+  "recipes": [
+    [
+      "legacy:390",
+      "legacy:151",
+      "organic76:sega-genesis-cartridge-display"
+    ],
+    [
+      "legacy:393",
+      "legacy:588",
+      "organic76:sega-saturn-repair-bench"
+    ],
+    [
+      "legacy:480",
+      "legacy:69",
+      "organic76:sega-game-gear-power-bank"
+    ],
+    [
+      "legacy:481",
+      "legacy:330",
+      "organic76:sega-nomad-headphone-adapter"
+    ],
+    [
+      "legacy:457",
+      "legacy:251",
+      "organic76:game-and-watch-gallery"
+    ],
+    [
+      "legacy:1344",
+      "legacy:106",
+      "organic76:famicom-disk-archive"
+    ],
+    [
+      "legacy:1349",
+      "legacy:70",
+      "organic76:nintendo-64-rumble-tester"
+    ],
+    [
+      "legacy:1353",
+      "legacy:106",
+      "organic76:game-boy-printer-scrapbook"
+    ],
+    [
+      "legacy:1355",
+      "legacy:70",
+      "organic76:game-boy-link-cable-tester"
+    ],
+    [
+      "legacy:472",
+      "legacy:24",
+      "organic76:3ds-tabletop-stand"
+    ]
+  ],
+  "new_items": [
+    {
+      "id": "organic76:sega-genesis-cartridge-display",
+      "name": "Sega Genesis Cartridge Display",
+      "ingredients": [
+        "legacy:390",
+        "legacy:151"
+      ],
+      "path": "client/assets/v76/sega-genesis-cartridge-display.svg",
+      "art_mode": "bespoke-subject"
+    },
+    {
+      "id": "organic76:sega-saturn-repair-bench",
+      "name": "Sega Saturn Repair Bench",
+      "ingredients": [
+        "legacy:393",
+        "legacy:588"
+      ],
+      "path": "client/assets/v76/sega-saturn-repair-bench.svg",
+      "art_mode": "bespoke-subject"
+    },
+    {
+      "id": "organic76:sega-game-gear-power-bank",
+      "name": "Sega Game Gear Power Bank",
+      "ingredients": [
+        "legacy:480",
+        "legacy:69"
+      ],
+      "path": "client/assets/v76/sega-game-gear-power-bank.svg",
+      "art_mode": "bespoke-subject"
+    },
+    {
+      "id": "organic76:sega-nomad-headphone-adapter",
+      "name": "Sega Nomad Headphone Adapter",
+      "ingredients": [
+        "legacy:481",
+        "legacy:330"
+      ],
+      "path": "client/assets/v76/sega-nomad-headphone-adapter.svg",
+      "art_mode": "bespoke-subject"
+    },
+    {
+      "id": "organic76:game-and-watch-gallery",
+      "name": "Game and Watch Gallery",
+      "ingredients": [
+        "legacy:457",
+        "legacy:251"
+      ],
+      "path": "client/assets/v76/game-and-watch-gallery.svg",
+      "art_mode": "bespoke-subject"
+    },
+    {
+      "id": "organic76:famicom-disk-archive",
+      "name": "Famicom Disk Archive",
+      "ingredients": [
+        "legacy:1344",
+        "legacy:106"
+      ],
+      "path": "client/assets/v76/famicom-disk-archive.svg",
+      "art_mode": "bespoke-subject"
+    },
+    {
+      "id": "organic76:nintendo-64-rumble-tester",
+      "name": "Nintendo 64 Rumble Tester",
+      "ingredients": [
+        "legacy:1349",
+        "legacy:70"
+      ],
+      "path": "client/assets/v76/nintendo-64-rumble-tester.svg",
+      "art_mode": "bespoke-subject"
+    },
+    {
+      "id": "organic76:game-boy-printer-scrapbook",
+      "name": "Game Boy Printer Scrapbook",
+      "ingredients": [
+        "legacy:1353",
+        "legacy:106"
+      ],
+      "path": "client/assets/v76/game-boy-printer-scrapbook.svg",
+      "art_mode": "bespoke-subject"
+    },
+    {
+      "id": "organic76:game-boy-link-cable-tester",
+      "name": "Game Boy Link Cable Tester",
+      "ingredients": [
+        "legacy:1355",
+        "legacy:70"
+      ],
+      "path": "client/assets/v76/game-boy-link-cable-tester.svg",
+      "art_mode": "bespoke-subject"
+    },
+    {
+      "id": "organic76:3ds-tabletop-stand",
+      "name": "3DS Tabletop Stand",
+      "ingredients": [
+        "legacy:472",
+        "legacy:24"
+      ],
+      "path": "client/assets/v76/3ds-tabletop-stand.svg",
+      "art_mode": "bespoke-subject"
+    }
+  ]
+}

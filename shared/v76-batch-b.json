@@ -1,0 +1,228 @@
+{
+  "items": [
+    {
+      "id": "organic76:nintendo-switch-2-cartridge-case",
+      "name": "Nintendo Switch 2 Cartridge Case",
+      "category": "accessory",
+      "summary": "Twelve little game cards fit safely inside a pocket-sized case.",
+      "iconFamily": "organic"
+    },
+    {
+      "id": "organic76:famicom-cartridge-organizer",
+      "name": "Famicom Cartridge Organizer",
+      "category": "accessory",
+      "summary": "An orderly shelf puts every colorful family cartridge in reach.",
+      "iconFamily": "organic"
+    },
+    {
+      "id": "organic76:super-famicom-controller-tray",
+      "name": "Super Famicom Controller Tray",
+      "category": "accessory",
+      "summary": "A shallow wooden tray gives a classic gamepad a home.",
+      "iconFamily": "organic"
+    },
+    {
+      "id": "organic76:nintendo-64-repair-station",
+      "name": "Nintendo 64 Repair Station",
+      "category": "technology",
+      "summary": "A microscope and tiny tools restore a well-loved console.",
+      "iconFamily": "organic"
+    },
+    {
+      "id": "organic76:nintendo-64-expansion-tester",
+      "name": "Nintendo 64 Expansion Tester",
+      "category": "technology",
+      "summary": "A cartridge-shaped diagnostic module lights up every contact.",
+      "iconFamily": "organic"
+    },
+    {
+      "id": "organic76:gamecube-disc-display",
+      "name": "GameCube Disc Display",
+      "category": "culture",
+      "summary": "Miniature optical discs gleam inside a clear exhibition case.",
+      "iconFamily": "organic"
+    },
+    {
+      "id": "organic76:wii-motion-calibration-station",
+      "name": "Wii Motion Calibration Station",
+      "category": "technology",
+      "summary": "A glowing sensor guides precise motion with an invisible beam.",
+      "iconFamily": "organic"
+    },
+    {
+      "id": "organic76:wii-u-charging-mat",
+      "name": "Wii U Charging Mat",
+      "category": "accessory",
+      "summary": "A soft charging surface keeps the two-screen controller ready.",
+      "iconFamily": "organic"
+    },
+    {
+      "id": "organic76:playstation-disc-organizer",
+      "name": "PlayStation Disc Organizer",
+      "category": "accessory",
+      "summary": "A wooden record rack sorts the original silver game discs.",
+      "iconFamily": "organic"
+    },
+    {
+      "id": "organic76:playstation-2-memory-cabinet",
+      "name": "PlayStation 2 Memory Cabinet",
+      "category": "accessory",
+      "summary": "Tiny save cards are catalogued like priceless digital memories.",
+      "iconFamily": "organic"
+    }
+  ],
+  "recipes": [
+    [
+      "legacy:411",
+      "legacy:151",
+      "organic76:nintendo-switch-2-cartridge-case"
+    ],
+    [
+      "legacy:397",
+      "legacy:24",
+      "organic76:famicom-cartridge-organizer"
+    ],
+    [
+      "legacy:400",
+      "legacy:81",
+      "organic76:super-famicom-controller-tray"
+    ],
+    [
+      "legacy:403",
+      "legacy:588",
+      "organic76:nintendo-64-repair-station"
+    ],
+    [
+      "legacy:1350",
+      "legacy:70",
+      "organic76:nintendo-64-expansion-tester"
+    ],
+    [
+      "legacy:405",
+      "legacy:23",
+      "organic76:gamecube-disc-display"
+    ],
+    [
+      "legacy:406",
+      "legacy:63",
+      "organic76:wii-motion-calibration-station"
+    ],
+    [
+      "legacy:408",
+      "legacy:69",
+      "organic76:wii-u-charging-mat"
+    ],
+    [
+      "legacy:414",
+      "legacy:24",
+      "organic76:playstation-disc-organizer"
+    ],
+    [
+      "legacy:416",
+      "legacy:337",
+      "organic76:playstation-2-memory-cabinet"
+    ]
+  ],
+  "new_items": [
+    {
+      "id": "organic76:nintendo-switch-2-cartridge-case",
+      "name": "Nintendo Switch 2 Cartridge Case",
+      "ingredients": [
+        "legacy:411",
+        "legacy:151"
+      ],
+      "path": "client/assets/v76/nintendo-switch-2-cartridge-case.svg",
+      "art_mode": "bespoke-subject"
+    },
+    {
+      "id": "organic76:famicom-cartridge-organizer",
+      "name": "Famicom Cartridge Organizer",
+      "ingredients": [
+        "legacy:397",
+        "legacy:24"
+      ],
+      "path": "client/assets/v76/famicom-cartridge-organizer.svg",
+      "art_mode": "bespoke-subject"
+    },
+    {
+      "id": "organic76:super-famicom-controller-tray",
+      "name": "Super Famicom Controller Tray",
+      "ingredients": [
+        "legacy:400",
+        "legacy:81"
+      ],
+      "path": "client/assets/v76/super-famicom-controller-tray.svg",
+      "art_mode": "bespoke-subject"
+    },
+    {
+      "id": "organic76:nintendo-64-repair-station",
+      "name": "Nintendo 64 Repair Station",
+      "ingredients": [
+        "legacy:403",
+        "legacy:588"
+      ],
+      "path": "client/assets/v76/nintendo-64-repair-station.svg",
+      "art_mode": "bespoke-subject"
+    },
+    {
+      "id": "organic76:nintendo-64-expansion-tester",
+      "name": "Nintendo 64 Expansion Tester",
+      "ingredients": [
+        "legacy:1350",
+        "legacy:70"
+      ],
+      "path": "client/assets/v76/nintendo-64-expansion-tester.svg",
+      "art_mode": "bespoke-subject"
+    },
+    {
+      "id": "organic76:gamecube-disc-display",
+      "name": "GameCube Disc Display",
+      "ingredients": [
+        "legacy:405",
+        "legacy:23"
+      ],
+      "path": "client/assets/v76/gamecube-disc-display.svg",
+      "art_mode": "bespoke-subject"
+    },
+    {
+      "id": "organic76:wii-motion-calibration-station",
+      "name": "Wii Motion Calibration Station",
+      "ingredients": [
+        "legacy:406",
+        "legacy:63"
+      ],
+      "path": "client/assets/v76/wii-motion-calibration-station.svg",
+      "art_mode": "bespoke-subject"
+    },
+    {
+      "id": "organic76:wii-u-charging-mat",
+      "name": "Wii U Charging Mat",
+      "ingredients": [
+        "legacy:408",
+        "legacy:69"
+      ],
+      "path": "client/assets/v76/wii-u-charging-mat.svg",
+      "art_mode": "bespoke-subject"
+    },
+    {
+      "id": "organic76:playstation-disc-organizer",
+      "name": "PlayStation Disc Organizer",
+      "ingredients": [
+        "legacy:414",
+        "legacy:24"
+      ],
+      "path": "client/assets/v76/playstation-disc-organizer.svg",
+      "art_mode": "bespoke-subject"
+    },
+    {
+      "id": "organic76:playstation-2-memory-cabinet",
+      "name": "PlayStation 2 Memory Cabinet",
+      "ingredients": [
+        "legacy:416",
+        "legacy:337"
+      ],
+      "path": "client/assets/v76/playstation-2-memory-cabinet.svg",
+      "art_mode": "bespoke-subject"
+    }
+  ]
+}

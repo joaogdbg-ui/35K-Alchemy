@@ -1,0 +1,228 @@
+{
+  "items": [
+    {
+      "id": "organic76:arcade-control-panel",
+      "name": "Arcade Control Panel",
+      "category": "arcade",
+      "summary": "A bright control deck answers every movement of its joystick.",
+      "iconFamily": "organic"
+    },
+    {
+      "id": "organic76:fighting-cabinet-twin-controls",
+      "name": "Fighting Cabinet Twin Controls",
+      "category": "arcade",
+      "summary": "Two full-size fight sticks wait for a rematch at the arcade.",
+      "iconFamily": "organic"
+    },
+    {
+      "id": "organic76:racing-arcade-dashboard",
+      "name": "Racing Arcade Dashboard",
+      "category": "arcade",
+      "summary": "A speedometer and lap display wrap around the racing wheel.",
+      "iconFamily": "organic"
+    },
+    {
+      "id": "organic76:pinball-score-lamp",
+      "name": "Pinball Score Lamp",
+      "category": "arcade",
+      "summary": "A glass topper lights up when the last pinball hits its mark.",
+      "iconFamily": "organic"
+    },
+    {
+      "id": "organic76:arcade-coin-collector",
+      "name": "Arcade Coin Collector",
+      "category": "arcade",
+      "summary": "A coin hopper catches each token with a satisfying metallic rattle.",
+      "iconFamily": "organic"
+    },
+    {
+      "id": "organic76:pixel-animation-drawing-desk",
+      "name": "Pixel Animation Drawing Desk",
+      "category": "gamecraft",
+      "summary": "A tidy animation desk holds pixel frames and a drawing pencil.",
+      "iconFamily": "organic"
+    },
+    {
+      "id": "organic76:retro-console-diagnostic-screen",
+      "name": "Retro Console Diagnostic Screen",
+      "category": "technology",
+      "summary": "Glowing circuit tests reveal where an old console needs repair.",
+      "iconFamily": "organic"
+    },
+    {
+      "id": "organic76:retro-rhythm-oscilloscope",
+      "name": "Retro Rhythm Oscilloscope",
+      "category": "technology",
+      "summary": "A green waveform dances across an old-school laboratory scope.",
+      "iconFamily": "organic"
+    },
+    {
+      "id": "organic76:co-op-controller-rack",
+      "name": "Co-op Controller Rack",
+      "category": "accessory",
+      "summary": "A wooden rack keeps every controller within reach of the team.",
+      "iconFamily": "organic"
+    },
+    {
+      "id": "organic76:portable-game-repair-mat",
+      "name": "Portable Game Repair Mat",
+      "category": "accessory",
+      "summary": "A soft workstation holds spare buttons and handheld repair tools.",
+      "iconFamily": "organic"
+    }
+  ],
+  "recipes": [
+    [
+      "legacy:172",
+      "legacy:83",
+      "organic76:arcade-control-panel"
+    ],
+    [
+      "legacy:227",
+      "legacy:167",
+      "organic76:fighting-cabinet-twin-controls"
+    ],
+    [
+      "organic72:racing-arcade-wheel",
+      "legacy:76",
+      "organic76:racing-arcade-dashboard"
+    ],
+    [
+      "organic74:pinball-light-panel",
+      "legacy:63",
+      "organic76:pinball-score-lamp"
+    ],
+    [
+      "organic73:arcade-ticket-booth",
+      "legacy:108",
+      "organic76:arcade-coin-collector"
+    ],
+    [
+      "legacy:219",
+      "legacy:106",
+      "organic76:pixel-animation-drawing-desk"
+    ],
+    [
+      "legacy:232",
+      "legacy:70",
+      "organic76:retro-console-diagnostic-screen"
+    ],
+    [
+      "legacy:626",
+      "legacy:70",
+      "organic76:retro-rhythm-oscilloscope"
+    ],
+    [
+      "organic73:co-op-controller-splitter",
+      "legacy:24",
+      "organic76:co-op-controller-rack"
+    ],
+    [
+      "legacy:169",
+      "legacy:588",
+      "organic76:portable-game-repair-mat"
+    ]
+  ],
+  "new_items": [
+    {
+      "id": "organic76:arcade-control-panel",
+      "name": "Arcade Control Panel",
+      "ingredients": [
+        "legacy:172",
+        "legacy:83"
+      ],
+      "path": "client/assets/v76/arcade-control-panel.svg",
+      "art_mode": "bespoke-subject"
+    },
+    {
+      "id": "organic76:fighting-cabinet-twin-controls",
+      "name": "Fighting Cabinet Twin Controls",
+      "ingredients": [
+        "legacy:227",
+        "legacy:167"
+      ],
+      "path": "client/assets/v76/fighting-cabinet-twin-controls.svg",
+      "art_mode": "bespoke-subject"
+    },
+    {
+      "id": "organic76:racing-arcade-dashboard",
+      "name": "Racing Arcade Dashboard",
+      "ingredients": [
+        "organic72:racing-arcade-wheel",
+        "legacy:76"
+      ],
+      "path": "client/assets/v76/racing-arcade-dashboard.svg",
+      "art_mode": "bespoke-subject"
+    },
+    {
+      "id": "organic76:pinball-score-lamp",
+      "name": "Pinball Score Lamp",
+      "ingredients": [
+        "organic74:pinball-light-panel",
+        "legacy:63"
+      ],
+      "path": "client/assets/v76/pinball-score-lamp.svg",
+      "art_mode": "bespoke-subject"
+    },
+    {
+      "id": "organic76:arcade-coin-collector",
+      "name": "Arcade Coin Collector",
+      "ingredients": [
+        "organic73:arcade-ticket-booth",
+        "legacy:108"
+      ],
+      "path": "client/assets/v76/arcade-coin-collector.svg",
+      "art_mode": "bespoke-subject"
+    },
+    {
+      "id": "organic76:pixel-animation-drawing-desk",
+      "name": "Pixel Animation Drawing Desk",
+      "ingredients": [
+        "legacy:219",
+        "legacy:106"
+      ],
+      "path": "client/assets/v76/pixel-animation-drawing-desk.svg",
+      "art_mode": "bespoke-subject"
+    },
+    {
+      "id": "organic76:retro-console-diagnostic-screen",
+      "name": "Retro Console Diagnostic Screen",
+      "ingredients": [
+        "legacy:232",
+        "legacy:70"
+      ],
+      "path": "client/assets/v76/retro-console-diagnostic-screen.svg",
+      "art_mode": "bespoke-subject"
+    },
+    {
+      "id": "organic76:retro-rhythm-oscilloscope",
+      "name": "Retro Rhythm Oscilloscope",
+      "ingredients": [
+        "legacy:626",
+        "legacy:70"
+      ],
+      "path": "client/assets/v76/retro-rhythm-oscilloscope.svg",
+      "art_mode": "bespoke-subject"
+    },
+    {
+      "id": "organic76:co-op-controller-rack",
+      "name": "Co-op Controller Rack",
+      "ingredients": [
+        "organic73:co-op-controller-splitter",
+        "legacy:24"
+      ],
+      "path": "client/assets/v76/co-op-controller-rack.svg",
+      "art_mode": "bespoke-subject"
+    },
+    {
+      "id": "organic76:portable-game-repair-mat",
+      "name": "Portable Game Repair Mat",
+      "ingredients": [
+        "legacy:169",
+        "legacy:588"
+      ],
+      "path": "client/assets/v76/portable-game-repair-mat.svg",
+      "art_mode": "bespoke-subject"
+    }
+  ]
+}

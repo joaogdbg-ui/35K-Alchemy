@@ -1,0 +1,228 @@
+{
+  "items": [
+    {
+      "id": "organic76:game-boy-screen-magnifier",
+      "name": "Game Boy Screen Magnifier",
+      "category": "accessory",
+      "summary": "A clip-on lens gives tiny adventures a surprisingly grand view.",
+      "iconFamily": "organic"
+    },
+    {
+      "id": "organic76:game-boy-link-station",
+      "name": "Game Boy Link Station",
+      "category": "technology",
+      "summary": "Two handheld screens exchange a secret across a coiled cable.",
+      "iconFamily": "organic"
+    },
+    {
+      "id": "organic76:game-boy-camera-album",
+      "name": "Game Boy Camera Album",
+      "category": "culture",
+      "summary": "A pocket camera's grainy portraits become a treasured paper album.",
+      "iconFamily": "organic"
+    },
+    {
+      "id": "organic76:game-boy-color-shell-workshop",
+      "name": "Game Boy Color Shell Workshop",
+      "category": "gamecraft",
+      "summary": "Pastel console shells wait beside tiny tools and paint samples.",
+      "iconFamily": "organic"
+    },
+    {
+      "id": "organic76:game-boy-advance-power-cradle",
+      "name": "Game Boy Advance Power Cradle",
+      "category": "accessory",
+      "summary": "A sturdy handheld charging base ends the low-battery panic.",
+      "iconFamily": "organic"
+    },
+    {
+      "id": "organic76:nintendo-ds-stylus-dock",
+      "name": "Nintendo DS Stylus Dock",
+      "category": "accessory",
+      "summary": "Two fold-out screens rest next to a precision stylus holder.",
+      "iconFamily": "organic"
+    },
+    {
+      "id": "organic76:nintendo-dsi-photo-studio",
+      "name": "Nintendo DSi Photo Studio",
+      "category": "gamecraft",
+      "summary": "A two-screen photo editor turns snapshots into playful stickers.",
+      "iconFamily": "organic"
+    },
+    {
+      "id": "organic76:nintendo-3ds-parallax-viewer",
+      "name": "Nintendo 3DS Parallax Viewer",
+      "category": "accessory",
+      "summary": "A tiny stereoscopic lens makes the screen's depth feel real.",
+      "iconFamily": "organic"
+    },
+    {
+      "id": "organic76:nintendo-switch-travel-dock",
+      "name": "Nintendo Switch Travel Dock",
+      "category": "accessory",
+      "summary": "The portable console clicks neatly into a wooden desktop dock.",
+      "iconFamily": "organic"
+    },
+    {
+      "id": "organic76:nintendo-switch-oled-showcase",
+      "name": "Nintendo Switch OLED Showcase",
+      "category": "culture",
+      "summary": "A wide glossy display glows behind its protective glass case.",
+      "iconFamily": "organic"
+    }
+  ],
+  "recipes": [
+    [
+      "legacy:461",
+      "legacy:23",
+      "organic76:game-boy-screen-magnifier"
+    ],
+    [
+      "legacy:461",
+      "legacy:70",
+      "organic76:game-boy-link-station"
+    ],
+    [
+      "legacy:1352",
+      "legacy:106",
+      "organic76:game-boy-camera-album"
+    ],
+    [
+      "legacy:464",
+      "legacy:140",
+      "organic76:game-boy-color-shell-workshop"
+    ],
+    [
+      "legacy:465",
+      "legacy:69",
+      "organic76:game-boy-advance-power-cradle"
+    ],
+    [
+      "legacy:468",
+      "legacy:24",
+      "organic76:nintendo-ds-stylus-dock"
+    ],
+    [
+      "legacy:470",
+      "legacy:647",
+      "organic76:nintendo-dsi-photo-studio"
+    ],
+    [
+      "legacy:472",
+      "legacy:23",
+      "organic76:nintendo-3ds-parallax-viewer"
+    ],
+    [
+      "legacy:409",
+      "legacy:24",
+      "organic76:nintendo-switch-travel-dock"
+    ],
+    [
+      "legacy:410",
+      "legacy:23",
+      "organic76:nintendo-switch-oled-showcase"
+    ]
+  ],
+  "new_items": [
+    {
+      "id": "organic76:game-boy-screen-magnifier",
+      "name": "Game Boy Screen Magnifier",
+      "ingredients": [
+        "legacy:461",
+        "legacy:23"
+      ],
+      "path": "client/assets/v76/game-boy-screen-magnifier.svg",
+      "art_mode": "bespoke-subject"
+    },
+    {
+      "id": "organic76:game-boy-link-station",
+      "name": "Game Boy Link Station",
+      "ingredients": [
+        "legacy:461",
+        "legacy:70"
+      ],
+      "path": "client/assets/v76/game-boy-link-station.svg",
+      "art_mode": "bespoke-subject"
+    },
+    {
+      "id": "organic76:game-boy-camera-album",
+      "name": "Game Boy Camera Album",
+      "ingredients": [
+        "legacy:1352",
+        "legacy:106"
+      ],
+      "path": "client/assets/v76/game-boy-camera-album.svg",
+      "art_mode": "bespoke-subject"
+    },
+    {
+      "id": "organic76:game-boy-color-shell-workshop",
+      "name": "Game Boy Color Shell Workshop",
+      "ingredients": [
+        "legacy:464",
+        "legacy:140"
+      ],
+      "path": "client/assets/v76/game-boy-color-shell-workshop.svg",
+      "art_mode": "bespoke-subject"
+    },
+    {
+      "id": "organic76:game-boy-advance-power-cradle",
+      "name": "Game Boy Advance Power Cradle",
+      "ingredients": [
+        "legacy:465",
+        "legacy:69"
+      ],
+      "path": "client/assets/v76/game-boy-advance-power-cradle.svg",
+      "art_mode": "bespoke-subject"
+    },
+    {
+      "id": "organic76:nintendo-ds-stylus-dock",
+      "name": "Nintendo DS Stylus Dock",
+      "ingredients": [
+        "legacy:468",
+        "legacy:24"
+      ],
+      "path": "client/assets/v76/nintendo-ds-stylus-dock.svg",
+      "art_mode": "bespoke-subject"
+    },
+    {
+      "id": "organic76:nintendo-dsi-photo-studio",
+      "name": "Nintendo DSi Photo Studio",
+      "ingredients": [
+        "legacy:470",
+        "legacy:647"
+      ],
+      "path": "client/assets/v76/nintendo-dsi-photo-studio.svg",
+      "art_mode": "bespoke-subject"
+    },
+    {
+      "id": "organic76:nintendo-3ds-parallax-viewer",
+      "name": "Nintendo 3DS Parallax Viewer",
+      "ingredients": [
+        "legacy:472",
+        "legacy:23"
+      ],
+      "path": "client/assets/v76/nintendo-3ds-parallax-viewer.svg",
+      "art_mode": "bespoke-subject"
+    },
+    {
+      "id": "organic76:nintendo-switch-travel-dock",
+      "name": "Nintendo Switch Travel Dock",
+      "ingredients": [
+        "legacy:409",
+        "legacy:24"
+      ],
+      "path": "client/assets/v76/nintendo-switch-travel-dock.svg",
+      "art_mode": "bespoke-subject"
+    },
+    {
+      "id": "organic76:nintendo-switch-oled-showcase",
+      "name": "Nintendo Switch OLED Showcase",
+      "ingredients": [
+        "legacy:410",
+        "legacy:23"
+      ],
+      "path": "client/assets/v76/nintendo-switch-oled-showcase.svg",
+      "art_mode": "bespoke-subject"
+    }
+  ]
+}

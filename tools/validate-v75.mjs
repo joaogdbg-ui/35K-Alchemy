@@ -55,9 +55,9 @@ for(const item of ORGANIC_V75.items) {
 }
 const app=readFileSync('client/src/app.js','utf8');
 const builder=readFileSync('tools/build-standalone.py','utf8');
-check(app.includes('ORGANIC_V73,ORGANIC_V74,ORGANIC_V75]'),'V75 missing from playable catalog');
-check(app.includes('ORGANIC_ART_V75[itemName]||ORGANIC_ART_V74[itemName]'),'V75 bespoke icon not prioritized');
-check(builder.includes('window.__gameverseOrganicArt75')&&builder.includes('window.__gameverseOrganic75')&&builder.includes('35K_Alchemy_V75_Offline.html'),'V75 standalone/Android packaging missing');
+check(app.includes('ORGANIC_V73,ORGANIC_V74,ORGANIC_V75,ORGANIC_V76]'),'V75 missing from playable catalog');
+check(app.includes('ORGANIC_ART_V76[itemName]||ORGANIC_ART_V75[itemName]||ORGANIC_ART_V74[itemName]'),'V75 bespoke icon not prioritized');
+check(builder.includes('window.__gameverseOrganicArt75')&&builder.includes('window.__gameverseOrganic75')&&builder.includes('35K_Alchemy_V76_Offline.html'),'V75 standalone/Android packaging missing');
 check(app.includes('const anchorId=this.ids[previousIndex]'),'inventory scroll fix regressed');
 check(readFileSync('client/src/styles.css','utf8').includes('.craft-row{transform:translateY(9px)}'),'combiner spacing regressed');
 if(!process.argv.includes('--quiet'))console.log('V75 PASS: +68 individually authored SVGs, 5,372 elements, 13,709 fixed recipes, 200/200 expansion complete.');
