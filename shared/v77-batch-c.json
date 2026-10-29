@@ -1,0 +1,122 @@
+[
+  {
+    "id": "organic77:handheld-battery-tester",
+    "name": "Handheld Battery Tester",
+    "ingredients": [
+      "legacy:169",
+      "legacy:69"
+    ],
+    "category": "accessory",
+    "summary": "A small diagnostic meter checks whether a pocket console can survive one more level.",
+    "path": "client/assets/v77/handheld-battery-tester.svg",
+    "art_mode": "bespoke-subject"
+  },
+  {
+    "id": "organic77:cartridge-dust-brush",
+    "name": "Cartridge Dust Brush",
+    "ingredients": [
+      "legacy:151",
+      "legacy:9"
+    ],
+    "category": "accessory",
+    "summary": "A soft cleaning brush clears years of dust from a well-loved game cartridge.",
+    "path": "client/assets/v77/cartridge-dust-brush.svg",
+    "art_mode": "bespoke-subject"
+  },
+  {
+    "id": "organic77:arcade-button-panel",
+    "name": "Arcade Button Panel",
+    "ingredients": [
+      "legacy:172",
+      "legacy:80"
+    ],
+    "category": "arcade",
+    "summary": "A colorful control panel gives quick fingers four different ways to win.",
+    "path": "client/assets/v77/arcade-button-panel.svg",
+    "art_mode": "bespoke-subject"
+  },
+  {
+    "id": "organic77:memory-card-locker",
+    "name": "Memory Card Locker",
+    "ingredients": [
+      "legacy:337",
+      "legacy:24"
+    ],
+    "category": "accessory",
+    "summary": "A tiny wooden locker keeps precious saved adventures safe from scratches.",
+    "path": "client/assets/v77/memory-card-locker.svg",
+    "art_mode": "bespoke-subject"
+  },
+  {
+    "id": "organic77:joystick-spring",
+    "name": "Joystick Spring",
+    "ingredients": [
+      "legacy:83",
+      "legacy:22"
+    ],
+    "category": "accessory",
+    "summary": "A polished coil brings springy precision back to a worn arcade joystick.",
+    "path": "client/assets/v77/joystick-spring.svg",
+    "art_mode": "bespoke-subject"
+  },
+  {
+    "id": "organic77:screen-calibration-grid",
+    "name": "Screen Calibration Grid",
+    "ingredients": [
+      "legacy:76",
+      "legacy:146"
+    ],
+    "category": "technology",
+    "summary": "A precise color-and-pixel grid reveals every flaw on a freshly repaired screen.",
+    "path": "client/assets/v77/screen-calibration-grid.svg",
+    "art_mode": "bespoke-subject"
+  },
+  {
+    "id": "organic77:controller-charging-stand",
+    "name": "Controller Charging Stand",
+    "ingredients": [
+      "legacy:81",
+      "legacy:69"
+    ],
+    "category": "accessory",
+    "summary": "A compact charging stand keeps the next controller ready for a co-op session.",
+    "path": "client/assets/v77/controller-charging-stand.svg",
+    "art_mode": "bespoke-subject"
+  },
+  {
+    "id": "organic77:retro-speaker-cabinet",
+    "name": "Retro Speaker Cabinet",
+    "ingredients": [
+      "legacy:232",
+      "legacy:87"
+    ],
+    "category": "technology",
+    "summary": "A wood-framed cabinet turns classic game music into a room-filling melody.",
+    "path": "client/assets/v77/retro-speaker-cabinet.svg",
+    "art_mode": "bespoke-subject"
+  },
+  {
+    "id": "organic77:game-audio-mixer",
+    "name": "Game Audio Mixer",
+    "ingredients": [
+      "legacy:201",
+      "legacy:62"
+    ],
+    "category": "music",
+    "summary": "A row of faders balances sound effects, music and cheers from the arcade.",
+    "path": "client/assets/v77/game-audio-mixer.svg",
+    "art_mode": "bespoke-subject"
+  },
+  {
+    "id": "organic77:pixel-scan-monitor",
+    "name": "Pixel Scan Monitor",
+    "ingredients": [
+      "legacy:146",
+      "legacy:86"
+    ],
+    "category": "technology",
+    "summary": "A vintage monitor sweeps tiny pixels line by line to check their alignment.",
+    "path": "client/assets/v77/pixel-scan-monitor.svg",
+    "art_mode": "bespoke-subject"
+  }
+]
