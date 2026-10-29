@@ -14,7 +14,7 @@ const modes=['gaming-v22','gaming-v23','gaming-v24','gaming-v26','gaming-v27','g
 const packs=[PACK];
 for(const n of modes){const file=n.replace('gaming','gaming-pack').replace('organic','organic-pack');const x=await import('../client/src/'+file+'.js');packs.push(Object.values(x)[0]);}
 const before=buildCatalog(DATA,[...packs,ORGANIC_V71]);
-const after=buildCatalog(DATA,[...packs,ORGANIC_V71,ORGANIC_V72,ORGANIC_V73]);
+const after=buildCatalog(DATA,[...packs,ORGANIC_V71,ORGANIC_V72]);
 check(before.items.length===5212&&before.recipes.size===13549,'V71 source drift');
 check(after.items.length===5232&&after.recipes.size===13569,'V72 count mismatch');
 for(const [k,v] of before.recipes)check(after.recipes.get(k)===v,'changed original formula '+k);
