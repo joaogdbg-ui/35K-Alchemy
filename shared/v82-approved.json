@@ -1,18 +1,18 @@
 {
   "version": 82,
-  "status": "WIP_NOT_RELEASED",
-  "cohort_count": 170,
+  "status": "QA_PENDING_UNMERGED",
+  "cohort_count": 200,
   "expansion_goal": 200,
-  "expansion_progress": 170,
-  "remaining_to_goal": 30,
-  "cycle_complete": false,
+  "expansion_progress": 200,
+  "remaining_to_goal": 0,
+  "cycle_complete": true,
   "base_catalog": {
     "elements": 5812,
     "recipes": 14149
   },
   "expected_catalog": {
-    "elements": 5982,
-    "recipes": 14319
+    "elements": 6012,
+    "recipes": 14349
   },
   "new_items": [
     {
@@ -2564,6 +2564,456 @@
       ],
       "art_mode": "species-specific-anatomy",
       "path": "client/assets/v82/gallimimus.svg"
+    },
+    {
+      "id": "organic82:pteranodon",
+      "name": "Pteranodon",
+      "category": "prehistoric",
+      "summary": "A Late Cretaceous flying reptile with a long backward-pointing skull crest and toothless beak.",
+      "familyCampaigns": [
+        "prehistoric"
+      ],
+      "ingredients": [
+        "organic82:pterosaur",
+        "organic82:cretaceous-period"
+      ],
+      "art_mode": "species-specific-anatomy",
+      "path": "client/assets/v82/pteranodon.svg"
+    },
+    {
+      "id": "organic82:quetzalcoatlus",
+      "name": "Quetzalcoatlus",
+      "category": "prehistoric",
+      "summary": "An immense azhdarchid pterosaur with a tall ground stance and elongated toothless jaws.",
+      "familyCampaigns": [
+        "prehistoric"
+      ],
+      "ingredients": [
+        "organic82:pterosaur",
+        "organic82:late-cretaceous"
+      ],
+      "art_mode": "species-specific-anatomy",
+      "path": "client/assets/v82/quetzalcoatlus.svg"
+    },
+    {
+      "id": "organic82:pterodactylus",
+      "name": "Pterodactylus",
+      "category": "prehistoric",
+      "summary": "A small Late Jurassic pterosaur with a long pointed beak and broad membranous wings.",
+      "familyCampaigns": [
+        "prehistoric"
+      ],
+      "ingredients": [
+        "organic82:pterosaur",
+        "organic82:jurassic-period"
+      ],
+      "art_mode": "species-specific-anatomy",
+      "path": "client/assets/v82/pterodactylus.svg"
+    },
+    {
+      "id": "organic82:dimorphodon",
+      "name": "Dimorphodon",
+      "category": "prehistoric",
+      "summary": "A Jurassic flying reptile notable for its short deep head and differently shaped teeth.",
+      "familyCampaigns": [
+        "prehistoric"
+      ],
+      "ingredients": [
+        "organic82:pterosaur",
+        "organic82:fossil-skeleton"
+      ],
+      "art_mode": "species-specific-anatomy",
+      "path": "client/assets/v82/dimorphodon.svg"
+    },
+    {
+      "id": "organic82:rhamphorhynchus",
+      "name": "Rhamphorhynchus",
+      "category": "prehistoric",
+      "summary": "A Jurassic pterosaur with narrow wings and a long tail ending in a diamond-shaped vane.",
+      "familyCampaigns": [
+        "prehistoric"
+      ],
+      "ingredients": [
+        "organic82:pterosaur",
+        "organic82:fossil-footprint"
+      ],
+      "art_mode": "species-specific-anatomy",
+      "path": "client/assets/v82/rhamphorhynchus.svg"
+    },
+    {
+      "id": "organic82:tapejara",
+      "name": "Tapejara",
+      "category": "prehistoric",
+      "summary": "A Brazilian Cretaceous pterosaur carrying a very tall leaf-shaped cranial crest.",
+      "familyCampaigns": [
+        "prehistoric"
+      ],
+      "ingredients": [
+        "organic82:pterosaur",
+        "organic82:quetzalcoatlus"
+      ],
+      "art_mode": "species-specific-anatomy",
+      "path": "client/assets/v82/tapejara.svg"
+    },
+    {
+      "id": "organic82:mosasaurus",
+      "name": "Mosasaurus",
+      "category": "prehistoric",
+      "summary": "A giant marine lizard with paddle-shaped limbs and a powerful long-jawed skull.",
+      "familyCampaigns": [
+        "prehistoric"
+      ],
+      "ingredients": [
+        "organic82:marine-reptile",
+        "organic82:late-cretaceous"
+      ],
+      "art_mode": "species-specific-anatomy",
+      "path": "client/assets/v82/mosasaurus.svg"
+    },
+    {
+      "id": "organic82:plesiosaurus",
+      "name": "Plesiosaurus",
+      "category": "prehistoric",
+      "summary": "A Jurassic marine reptile with a long neck, a small head and four strong flippers.",
+      "familyCampaigns": [
+        "prehistoric"
+      ],
+      "ingredients": [
+        "organic82:marine-reptile",
+        "organic82:jurassic-period"
+      ],
+      "art_mode": "species-specific-anatomy",
+      "path": "client/assets/v82/plesiosaurus.svg"
+    },
+    {
+      "id": "organic82:elasmosaurus",
+      "name": "Elasmosaurus",
+      "category": "prehistoric",
+      "summary": "A Late Cretaceous plesiosaur carrying an extraordinarily long serpentine neck.",
+      "familyCampaigns": [
+        "prehistoric"
+      ],
+      "ingredients": [
+        "organic82:plesiosaurus",
+        "organic82:cretaceous-period"
+      ],
+      "art_mode": "species-specific-anatomy",
+      "path": "client/assets/v82/elasmosaurus.svg"
+    },
+    {
+      "id": "organic82:ichthyosaurus",
+      "name": "Ichthyosaurus",
+      "category": "prehistoric",
+      "summary": "A dolphin-shaped marine reptile with a large round eye and a tail fin.",
+      "familyCampaigns": [
+        "prehistoric"
+      ],
+      "ingredients": [
+        "organic82:marine-reptile",
+        "organic82:triassic-period"
+      ],
+      "art_mode": "species-specific-anatomy",
+      "path": "client/assets/v82/ichthyosaurus.svg"
+    },
+    {
+      "id": "organic82:liopleurodon",
+      "name": "Liopleurodon",
+      "category": "prehistoric",
+      "summary": "A Jurassic pliosaur with a short neck, powerful jaws and four paddle flippers.",
+      "familyCampaigns": [
+        "prehistoric"
+      ],
+      "ingredients": [
+        "organic82:marine-reptile",
+        "organic82:plesiosaurus"
+      ],
+      "art_mode": "species-specific-anatomy",
+      "path": "client/assets/v82/liopleurodon.svg"
+    },
+    {
+      "id": "organic82:kronosaurus",
+      "name": "Kronosaurus",
+      "category": "prehistoric",
+      "summary": "A giant Cretaceous pliosaur with an enormous skull and strong underwater paddles.",
+      "familyCampaigns": [
+        "prehistoric"
+      ],
+      "ingredients": [
+        "organic82:liopleurodon",
+        "organic82:cretaceous-period"
+      ],
+      "art_mode": "species-specific-anatomy",
+      "path": "client/assets/v82/kronosaurus.svg"
+    },
+    {
+      "id": "organic82:nothosaurus",
+      "name": "Nothosaurus",
+      "category": "prehistoric",
+      "summary": "A Triassic semi-aquatic reptile with a slender body, long snout and webbed feet.",
+      "familyCampaigns": [
+        "prehistoric"
+      ],
+      "ingredients": [
+        "organic82:marine-reptile",
+        "organic82:mesozoic-era"
+      ],
+      "art_mode": "species-specific-anatomy",
+      "path": "client/assets/v82/nothosaurus.svg"
+    },
+    {
+      "id": "organic82:woolly-mammoth",
+      "name": "Woolly Mammoth",
+      "category": "prehistoric",
+      "summary": "A shaggy Ice Age elephant with a domed skull and huge outward-curving ivory tusks.",
+      "familyCampaigns": [
+        "prehistoric"
+      ],
+      "ingredients": [
+        "organic82:prehistoric-mammal",
+        "organic82:ice-age"
+      ],
+      "art_mode": "species-specific-anatomy",
+      "path": "client/assets/v82/woolly-mammoth.svg"
+    },
+    {
+      "id": "organic82:smilodon",
+      "name": "Smilodon",
+      "category": "prehistoric",
+      "summary": "A saber-toothed cat with robust forequarters and exceptionally long curved canine teeth.",
+      "familyCampaigns": [
+        "prehistoric"
+      ],
+      "ingredients": [
+        "organic82:prehistoric-mammal",
+        "organic82:pleistocene-epoch"
+      ],
+      "art_mode": "species-specific-anatomy",
+      "path": "client/assets/v82/smilodon.svg"
+    },
+    {
+      "id": "organic82:woolly-rhinoceros",
+      "name": "Woolly Rhinoceros",
+      "category": "prehistoric",
+      "summary": "A shaggy Ice Age rhinoceros sporting a huge front horn and a smaller second horn.",
+      "familyCampaigns": [
+        "prehistoric"
+      ],
+      "ingredients": [
+        "organic82:ice-age",
+        "organic82:fossil-skeleton"
+      ],
+      "art_mode": "species-specific-anatomy",
+      "path": "client/assets/v82/woolly-rhinoceros.svg"
+    },
+    {
+      "id": "organic82:giant-ground-sloth",
+      "name": "Giant Ground Sloth",
+      "category": "prehistoric",
+      "summary": "A giant prehistoric sloth with enormous curved claws and a heavy upright torso.",
+      "familyCampaigns": [
+        "prehistoric"
+      ],
+      "ingredients": [
+        "organic82:prehistoric-mammal",
+        "organic82:cenozoic-era"
+      ],
+      "art_mode": "species-specific-anatomy",
+      "path": "client/assets/v82/giant-ground-sloth.svg"
+    },
+    {
+      "id": "organic82:cave-bear",
+      "name": "Cave Bear",
+      "category": "prehistoric",
+      "summary": "A formidable Pleistocene bear with a high forehead and thick winter coat.",
+      "familyCampaigns": [
+        "prehistoric"
+      ],
+      "ingredients": [
+        "organic82:woolly-mammoth",
+        "organic82:ice-age"
+      ],
+      "art_mode": "species-specific-anatomy",
+      "path": "client/assets/v82/cave-bear.svg"
+    },
+    {
+      "id": "organic82:irish-elk",
+      "name": "Irish Elk",
+      "category": "prehistoric",
+      "summary": "A giant deer of the Ice Age with exceptionally wide palmated antlers.",
+      "familyCampaigns": [
+        "prehistoric"
+      ],
+      "ingredients": [
+        "organic82:prehistoric-mammal",
+        "organic82:fossil-footprint"
+      ],
+      "art_mode": "species-specific-anatomy",
+      "path": "client/assets/v82/irish-elk.svg"
+    },
+    {
+      "id": "organic82:dire-wolf",
+      "name": "Dire Wolf",
+      "category": "prehistoric",
+      "summary": "A powerful extinct North American canid with a robust skull and strong legs.",
+      "familyCampaigns": [
+        "prehistoric"
+      ],
+      "ingredients": [
+        "organic82:cave-bear",
+        "organic82:ice-age"
+      ],
+      "art_mode": "species-specific-anatomy",
+      "path": "client/assets/v82/dire-wolf.svg"
+    },
+    {
+      "id": "organic82:glyptodon",
+      "name": "Glyptodon",
+      "category": "prehistoric",
+      "summary": "A massive prehistoric armadillo with a rounded bony shell and heavy tail.",
+      "familyCampaigns": [
+        "prehistoric"
+      ],
+      "ingredients": [
+        "organic82:prehistoric-mammal",
+        "organic82:dinosaur-armor"
+      ],
+      "art_mode": "species-specific-anatomy",
+      "path": "client/assets/v82/glyptodon.svg"
+    },
+    {
+      "id": "organic82:mastodon",
+      "name": "Mastodon",
+      "category": "prehistoric",
+      "summary": "An extinct elephant relative with a long trunk, curved tusks and stocky body.",
+      "familyCampaigns": [
+        "prehistoric"
+      ],
+      "ingredients": [
+        "organic82:woolly-mammoth",
+        "organic82:prehistoric-mammal"
+      ],
+      "art_mode": "species-specific-anatomy",
+      "path": "client/assets/v82/mastodon.svg"
+    },
+    {
+      "id": "organic82:terror-bird",
+      "name": "Terror Bird",
+      "category": "prehistoric",
+      "summary": "A tall flightless Cenozoic predator with a huge hooked beak and long running legs.",
+      "familyCampaigns": [
+        "prehistoric"
+      ],
+      "ingredients": [
+        "organic82:cenozoic-era",
+        "organic82:feathered-dinosaur"
+      ],
+      "art_mode": "species-specific-anatomy",
+      "path": "client/assets/v82/terror-bird.svg"
+    },
+    {
+      "id": "organic82:trilobite",
+      "name": "Trilobite",
+      "category": "prehistoric",
+      "summary": "An extinct segmented marine arthropod with three lengthwise body lobes.",
+      "familyCampaigns": [
+        "prehistoric"
+      ],
+      "ingredients": [
+        "organic82:cambrian-period",
+        "organic82:prehistoric-ocean"
+      ],
+      "art_mode": "species-specific-anatomy",
+      "path": "client/assets/v82/trilobite.svg"
+    },
+    {
+      "id": "organic82:ammonite",
+      "name": "Ammonite",
+      "category": "prehistoric",
+      "summary": "A spiral-shelled extinct cephalopod preserved in curled and ribbed fossil chambers.",
+      "familyCampaigns": [
+        "prehistoric"
+      ],
+      "ingredients": [
+        "organic82:prehistoric-ocean",
+        "organic82:fossil-skeleton"
+      ],
+      "art_mode": "species-specific-anatomy",
+      "path": "client/assets/v82/ammonite.svg"
+    },
+    {
+      "id": "organic82:anomalocaris",
+      "name": "Anomalocaris",
+      "category": "prehistoric",
+      "summary": "A strange Cambrian swimmer with lobed side fins, stalked eyes and two grasping appendages.",
+      "familyCampaigns": [
+        "prehistoric"
+      ],
+      "ingredients": [
+        "organic82:cambrian-period",
+        "organic82:trilobite"
+      ],
+      "art_mode": "species-specific-anatomy",
+      "path": "client/assets/v82/anomalocaris.svg"
+    },
+    {
+      "id": "organic82:dunkleosteus",
+      "name": "Dunkleosteus",
+      "category": "prehistoric",
+      "summary": "A giant Devonian armored fish with bony jaw plates instead of ordinary teeth.",
+      "familyCampaigns": [
+        "prehistoric"
+      ],
+      "ingredients": [
+        "organic82:paleozoic-era",
+        "organic82:prehistoric-ocean"
+      ],
+      "art_mode": "species-specific-anatomy",
+      "path": "client/assets/v82/dunkleosteus.svg"
+    },
+    {
+      "id": "organic82:megalodon",
+      "name": "Megalodon",
+      "category": "prehistoric",
+      "summary": "An enormous extinct shark known chiefly from giant triangular fossil teeth.",
+      "familyCampaigns": [
+        "prehistoric"
+      ],
+      "ingredients": [
+        "organic82:cenozoic-era",
+        "organic82:prehistoric-ocean"
+      ],
+      "art_mode": "species-specific-anatomy",
+      "path": "client/assets/v82/megalodon.svg"
+    },
+    {
+      "id": "organic82:giant-dragonfly",
+      "name": "Giant Dragonfly",
+      "category": "prehistoric",
+      "summary": "An enormous ancient griffinfly spreads broad transparent wings above a swamp.",
+      "familyCampaigns": [
+        "prehistoric"
+      ],
+      "ingredients": [
+        "organic82:carboniferous-period",
+        "organic82:fossil-footprint"
+      ],
+      "art_mode": "species-specific-anatomy",
+      "path": "client/assets/v82/giant-dragonfly.svg"
+    },
+    {
+      "id": "organic82:cycad",
+      "name": "Cycad",
+      "category": "prehistoric",
+      "summary": "A prehistoric seed plant with a stout trunk and a crown of long leathery leaves.",
+      "familyCampaigns": [
+        "prehistoric"
+      ],
+      "ingredients": [
+        "organic82:jurassic-period",
+        "organic82:paleozoic-era"
+      ],
+      "art_mode": "species-specific-anatomy",
+      "path": "client/assets/v82/cycad.svg"
     }
   ]
 }
