@@ -29,10 +29,10 @@ test('Every V75 icon has a matching subject key, original recipe, and SVG source
 test('V75 keeps Android packaging, scroll anchors and targeted combiner spacing',()=>{
  const app=text('client/src/app.js');
  const build=text('tools/build-standalone.py');
- assert.match(app,/ORGANIC_V73,ORGANIC_V74,ORGANIC_V75\]/);
- assert.match(app,/ORGANIC_ART_V75\[itemName\]\|\|ORGANIC_ART_V74/);
+ assert.match(app,/ORGANIC_V73,ORGANIC_V74,ORGANIC_V75,ORGANIC_V76\]/);
+ assert.match(app,/ORGANIC_ART_V76\[itemName\]\|\|ORGANIC_ART_V75/);
  assert.match(app,/const anchorId=this.ids\[previousIndex\]/);
  assert.match(build,/window\.__gameverseOrganicArt75/);
- assert.match(build,/35K_Alchemy_V75_Offline\.html/);
+ assert.match(build,/35K_Alchemy_V76_Offline\.html/);
  assert.match(text('client/src/styles.css'),/\.craft-row\{transform:translateY\(9px\)\}/);
 });
