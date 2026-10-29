@@ -1,0 +1,122 @@
+[
+  {
+    "id": "organic79:chiptune-speaker-tower",
+    "name": "Chiptune Speaker Tower",
+    "category": "music",
+    "summary": "A stacked speaker tower sends crisp retro chiptunes across the concert stage.",
+    "ingredients": [
+      "organic78:chiptune-concert-stage",
+      "legacy:87"
+    ],
+    "art_mode": "bespoke-subject",
+    "path": "client/assets/v79/chiptune-speaker-tower.svg"
+  },
+  {
+    "id": "organic79:battery-rhythm-drum",
+    "name": "Battery Rhythm Drum",
+    "category": "music",
+    "summary": "An electric percussion drum uses its built-in battery to drive steady dance beats.",
+    "ingredients": [
+      "organic78:rhythm-kick-drum",
+      "legacy:69"
+    ],
+    "art_mode": "bespoke-subject",
+    "path": "client/assets/v79/battery-rhythm-drum.svg"
+  },
+  {
+    "id": "organic79:dance-light-controller",
+    "name": "Dance Light Controller",
+    "category": "music",
+    "summary": "A lighting desk switches colored spotlights to match a dancer's rhythm.",
+    "ingredients": [
+      "organic78:dance-floor-spotlight",
+      "legacy:76"
+    ],
+    "art_mode": "bespoke-subject",
+    "path": "client/assets/v79/dance-light-controller.svg"
+  },
+  {
+    "id": "organic79:stop-motion-game-scene",
+    "name": "Stop-Motion Game Scene",
+    "category": "gamecraft",
+    "summary": "A tiny tabletop film set turns hand-drawn game frames into moving scenes.",
+    "ingredients": [
+      "organic78:storyboard-flipbook",
+      "legacy:85"
+    ],
+    "art_mode": "bespoke-subject",
+    "path": "client/assets/v79/stop-motion-game-scene.svg"
+  },
+  {
+    "id": "organic79:arcade-medal-podium",
+    "name": "Arcade Medal Podium",
+    "category": "arcade",
+    "summary": "A little winner's podium displays a shiny prize medal after the final match.",
+    "ingredients": [
+      "organic78:tournament-prize-desk",
+      "legacy:108"
+    ],
+    "art_mode": "bespoke-subject",
+    "path": "client/assets/v79/arcade-medal-podium.svg"
+  },
+  {
+    "id": "organic79:dual-controller-tactics",
+    "name": "Dual Controller Tactics",
+    "category": "gamecraft",
+    "summary": "Two controllers sit beside a tabletop map before a cooperative strategy match.",
+    "ingredients": [
+      "organic78:two-player-war-table",
+      "legacy:81"
+    ],
+    "art_mode": "bespoke-subject",
+    "path": "client/assets/v79/dual-controller-tactics.svg"
+  },
+  {
+    "id": "organic79:golden-speed-trophy",
+    "name": "Golden Speed Trophy",
+    "category": "culture",
+    "summary": "A polished golden trophy celebrates a record-breaking time trial run.",
+    "ingredients": [
+      "organic78:time-trial-medal",
+      "legacy:33"
+    ],
+    "art_mode": "bespoke-subject",
+    "path": "client/assets/v79/golden-speed-trophy.svg"
+  },
+  {
+    "id": "organic79:pixel-history-exhibit",
+    "name": "Pixel History Exhibit",
+    "category": "culture",
+    "summary": "A museum display shows the evolution from chunky pixels to delicate game art.",
+    "ingredients": [
+      "organic78:museum-exhibit-plaque",
+      "legacy:146"
+    ],
+    "art_mode": "bespoke-subject",
+    "path": "client/assets/v79/pixel-history-exhibit.svg"
+  },
+  {
+    "id": "organic79:painted-cartridge-cover",
+    "name": "Painted Cartridge Cover",
+    "category": "gamecraft",
+    "summary": "A colorful hand-painted game cover makes a restored cartridge feel brand new.",
+    "ingredients": [
+      "organic78:pixel-art-cartridge-sticker",
+      "legacy:208"
+    ],
+    "art_mode": "bespoke-subject",
+    "path": "client/assets/v79/painted-cartridge-cover.svg"
+  },
+  {
+    "id": "organic79:puzzle-surprise-chest",
+    "name": "Puzzle Surprise Chest",
+    "category": "fantasy",
+    "summary": "A small treasure chest opens only after the sliding puzzle on its lid is solved.",
+    "ingredients": [
+      "organic78:mystery-reward-crate",
+      "legacy:224"
+    ],
+    "art_mode": "bespoke-subject",
+    "path": "client/assets/v79/puzzle-surprise-chest.svg"
+  }
+]
