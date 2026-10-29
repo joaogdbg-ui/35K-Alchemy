@@ -1,6 +1,6 @@
-# 35K Alchemy — V74
+# 35K Alchemy — V75
 
-Repositório oficial do jogo **35K Alchemy**, incluindo o código-fonte completo da V72 e o pipeline Android.
+Repositório oficial do jogo **35K Alchemy**, incluindo o código-fonte completo da V75 e o pipeline Android.
 
 ## Estado verificado — 28 de outubro de 2026
 
@@ -63,6 +63,15 @@ Repositório oficial do jogo **35K Alchemy**, incluindo o código-fonte completo
 - Total alvo após testes: **5.304 elementos / 13.641 receitas**. Avanço neste ciclo: **132/200**, faltam **68**.
 - Não alteramos recipes anteriores, saves ou assinatura Android.
 - Documentação: [HANDOFF_V74.md](HANDOFF_V74.md).
+
+## V75 — primeiro ciclo de expansão de 200 concluído
+
+- **68 descobertas finais da expansão V71–V75**: cada uma com uma receita fixa, SVG individual e descrição própria em inglês.
+- **5.372 elementos e 13.709 receitas** após validação; os 200 novos elementos foram distribuídos por V71 (+40), V72 (+20), V73 (+24), V74 (+48), V75 (+68).
+- Todos os IDs, receitas anteriores, perfis Classic e Families Only, Merge recompensado, saves e assinatura Android continuam preservados.
+- Manifests e testes: `shared/v75-approved.json`, `tools/validate-v75.mjs`, `tools/audit-v75-art.py`. [Handoff V75](HANDOFF_V75.md).
+- [Galeria dos 68 SVGs a 35 px](docs/V75_ART_REVIEW.md). O teste visual em aparelho real continua recomendado.
+- APK: https://github.com/joaogdbg-ui/35K-Alchemy/releases/download/latest/35K-Alchemy.apk
 
 ## Instalar Android (link permanente)
 

@@ -1,0 +1,696 @@
+{
+  "version": 75,
+  "new_items": [
+    {
+      "id": "organic75:arcade-prize-counter",
+      "name": "Arcade Prize Counter",
+      "ingredients": [
+        "organic74:arcade-prize-window",
+        "organic73:arcade-token-dispenser"
+      ],
+      "path": "client/assets/v75/arcade-prize-counter.svg",
+      "art_mode": "bespoke-subject"
+    },
+    {
+      "id": "organic75:flight-training-helmet",
+      "name": "Flight Training Helmet",
+      "ingredients": [
+        "organic74:flight-simulator-cockpit",
+        "organic74:vr-starship-cockpit"
+      ],
+      "path": "client/assets/v75/flight-training-helmet.svg",
+      "art_mode": "bespoke-subject"
+    },
+    {
+      "id": "organic75:synth-keyboard-station",
+      "name": "Synth Keyboard Station",
+      "ingredients": [
+        "organic74:chiptune-synthesizer",
+        "organic73:gaming-desk-lamp"
+      ],
+      "path": "client/assets/v75/synth-keyboard-station.svg",
+      "art_mode": "bespoke-subject"
+    },
+    {
+      "id": "organic75:pixel-flipbook",
+      "name": "Pixel Flipbook",
+      "ingredients": [
+        "organic74:pixel-art-sketchbook",
+        "organic73:pixel-sprite-sheet"
+      ],
+      "path": "client/assets/v75/pixel-flipbook.svg",
+      "art_mode": "bespoke-subject"
+    },
+    {
+      "id": "organic75:rhythm-battle-drum",
+      "name": "Rhythm Battle Drum",
+      "ingredients": [
+        "organic74:rhythm-arcade-headphones",
+        "organic72:rhythm-drum-pedal"
+      ],
+      "path": "client/assets/v75/rhythm-battle-drum.svg",
+      "art_mode": "bespoke-subject"
+    },
+    {
+      "id": "organic75:vintage-tv-console",
+      "name": "Vintage TV Console",
+      "ingredients": [
+        "organic74:retro-crt-speaker",
+        "organic72:controller-charging-dock"
+      ],
+      "path": "client/assets/v75/vintage-tv-console.svg",
+      "art_mode": "bespoke-subject"
+    },
+    {
+      "id": "organic75:laser-maze-sensor",
+      "name": "Laser Maze Sensor",
+      "ingredients": [
+        "organic74:laser-tag-arena",
+        "organic73:game-level-blueprint"
+      ],
+      "path": "client/assets/v75/laser-maze-sensor.svg",
+      "art_mode": "bespoke-subject"
+    },
+    {
+      "id": "organic75:temple-puzzle-tablet",
+      "name": "Temple Puzzle Tablet",
+      "ingredients": [
+        "organic74:puzzle-temple-gate",
+        "organic73:puzzle-cipher-wheel"
+      ],
+      "path": "client/assets/v75/temple-puzzle-tablet.svg",
+      "art_mode": "bespoke-subject"
+    },
+    {
+      "id": "organic75:pixel-dinosaur-arcade",
+      "name": "Pixel Dinosaur Arcade",
+      "ingredients": [
+        "organic74:pixel-dinosaur-sprite",
+        "organic73:arcade-marquee-sign"
+      ],
+      "path": "client/assets/v75/pixel-dinosaur-arcade.svg",
+      "art_mode": "bespoke-subject"
+    },
+    {
+      "id": "organic75:magic-coding-keyboard",
+      "name": "Magic Coding Keyboard",
+      "ingredients": [
+        "organic74:keyboard-spellbook",
+        "organic72:game-debug-console"
+      ],
+      "path": "client/assets/v75/magic-coding-keyboard.svg",
+      "art_mode": "bespoke-subject"
+    },
+    {
+      "id": "organic75:aquarium-arcade-cabinet",
+      "name": "Aquarium Arcade Cabinet",
+      "ingredients": [
+        "organic74:arcade-fish-tank",
+        "organic73:arcade-marquee-sign"
+      ],
+      "path": "client/assets/v75/aquarium-arcade-cabinet.svg",
+      "art_mode": "bespoke-subject"
+    },
+    {
+      "id": "organic75:space-combat-console",
+      "name": "Space Combat Console",
+      "ingredients": [
+        "organic74:spacefighter-hud",
+        "organic74:vr-starship-cockpit"
+      ],
+      "path": "client/assets/v75/space-combat-console.svg",
+      "art_mode": "bespoke-subject"
+    },
+    {
+      "id": "organic75:championship-timing-tower",
+      "name": "Championship Timing Tower",
+      "ingredients": [
+        "organic74:racing-leaderboard",
+        "organic73:racing-lap-timer"
+      ],
+      "path": "client/assets/v75/championship-timing-tower.svg",
+      "art_mode": "bespoke-subject"
+    },
+    {
+      "id": "organic75:game-storyboard-wall",
+      "name": "Game Storyboard Wall",
+      "ingredients": [
+        "organic74:game-studio-storyboard",
+        "organic72:retro-game-shelf"
+      ],
+      "path": "client/assets/v75/game-storyboard-wall.svg",
+      "art_mode": "bespoke-subject"
+    },
+    {
+      "id": "organic75:pinball-trophy-table",
+      "name": "Pinball Trophy Table",
+      "ingredients": [
+        "organic74:pinball-flipper",
+        "organic72:arcade-high-score-trophy"
+      ],
+      "path": "client/assets/v75/pinball-trophy-table.svg",
+      "art_mode": "bespoke-subject"
+    },
+    {
+      "id": "organic75:sand-timer-game-box",
+      "name": "Sand Timer Game Box",
+      "ingredients": [
+        "organic74:board-game-hourglass",
+        "organic73:card-deck-protector"
+      ],
+      "path": "client/assets/v75/sand-timer-game-box.svg",
+      "art_mode": "bespoke-subject"
+    },
+    {
+      "id": "organic75:dice-tower-labyrinth",
+      "name": "Dice Tower Labyrinth",
+      "ingredients": [
+        "organic74:dice-tower",
+        "organic73:game-level-blueprint"
+      ],
+      "path": "client/assets/v75/dice-tower-labyrinth.svg",
+      "art_mode": "bespoke-subject"
+    },
+    {
+      "id": "organic75:holographic-strategy-table",
+      "name": "Holographic Strategy Table",
+      "ingredients": [
+        "organic74:holographic-game-board",
+        "organic73:game-level-blueprint"
+      ],
+      "path": "client/assets/v75/holographic-strategy-table.svg",
+      "art_mode": "bespoke-subject"
+    },
+    {
+      "id": "organic75:console-cooling-dock",
+      "name": "Console Cooling Dock",
+      "ingredients": [
+        "organic74:console-cooling-fan",
+        "organic73:handheld-charging-cradle"
+      ],
+      "path": "client/assets/v75/console-cooling-dock.svg",
+      "art_mode": "bespoke-subject"
+    },
+    {
+      "id": "organic75:braided-game-cable",
+      "name": "Braided Game Cable",
+      "ingredients": [
+        "organic74:controller-charging-cable",
+        "organic73:co-op-controller-splitter"
+      ],
+      "path": "client/assets/v75/braided-game-cable.svg",
+      "art_mode": "bespoke-subject"
+    },
+    {
+      "id": "organic75:pixel-dungeon-chest",
+      "name": "Pixel Dungeon Chest",
+      "ingredients": [
+        "organic74:pixel-treasure-chest",
+        "organic74:fantasy-sword-pedestal"
+      ],
+      "path": "client/assets/v75/pixel-dungeon-chest.svg",
+      "art_mode": "bespoke-subject"
+    },
+    {
+      "id": "organic75:robot-tournament-arena",
+      "name": "Robot Tournament Arena",
+      "ingredients": [
+        "organic74:robot-game-referee",
+        "organic74:laser-tag-arena"
+      ],
+      "path": "client/assets/v75/robot-tournament-arena.svg",
+      "art_mode": "bespoke-subject"
+    },
+    {
+      "id": "organic75:chiptune-stereo-tower",
+      "name": "Chiptune Stereo Tower",
+      "ingredients": [
+        "organic74:8-bit-music-speaker",
+        "organic73:chiptune-radio"
+      ],
+      "path": "client/assets/v75/chiptune-stereo-tower.svg",
+      "art_mode": "bespoke-subject"
+    },
+    {
+      "id": "organic75:retro-repair-station",
+      "name": "Retro Repair Station",
+      "ingredients": [
+        "organic74:retro-console-workbench",
+        "organic73:game-cartridge-repair-bench"
+      ],
+      "path": "client/assets/v75/retro-repair-station.svg",
+      "art_mode": "bespoke-subject"
+    },
+    {
+      "id": "organic75:rocket-pinball-arcade",
+      "name": "Rocket Pinball Arcade",
+      "ingredients": [
+        "organic74:rocket-arcade-cabinet",
+        "organic72:pinball-bumper-set"
+      ],
+      "path": "client/assets/v75/rocket-pinball-arcade.svg",
+      "art_mode": "bespoke-subject"
+    },
+    {
+      "id": "organic75:concert-light-console",
+      "name": "Concert Light Console",
+      "ingredients": [
+        "organic74:rhythm-stage-spotlight",
+        "organic72:dance-arcade-lights"
+      ],
+      "path": "client/assets/v75/concert-light-console.svg",
+      "art_mode": "bespoke-subject"
+    },
+    {
+      "id": "organic75:quest-cartographer-desk",
+      "name": "Quest Cartographer Desk",
+      "ingredients": [
+        "organic74:rpg-quest-scroll",
+        "organic74:board-game-map-stand"
+      ],
+      "path": "client/assets/v75/quest-cartographer-desk.svg",
+      "art_mode": "bespoke-subject"
+    },
+    {
+      "id": "organic75:tournament-card-vault",
+      "name": "Tournament Card Vault",
+      "ingredients": [
+        "organic74:card-game-deck-box",
+        "organic72:electronic-board-game-tokens"
+      ],
+      "path": "client/assets/v75/tournament-card-vault.svg",
+      "art_mode": "bespoke-subject"
+    },
+    {
+      "id": "organic75:trophy-display-cabinet",
+      "name": "Trophy Display Cabinet",
+      "ingredients": [
+        "organic74:gaming-achievement-medal",
+        "organic74:miniature-game-museum"
+      ],
+      "path": "client/assets/v75/trophy-display-cabinet.svg",
+      "art_mode": "bespoke-subject"
+    },
+    {
+      "id": "organic75:racing-pit-control-screen",
+      "name": "Racing Pit Control Screen",
+      "ingredients": [
+        "organic74:racing-pit-crew-robot",
+        "organic74:racing-leaderboard"
+      ],
+      "path": "client/assets/v75/racing-pit-control-screen.svg",
+      "art_mode": "bespoke-subject"
+    },
+    {
+      "id": "organic75:star-navigation-beacon",
+      "name": "Star Navigation Beacon",
+      "ingredients": [
+        "organic74:spacecraft-radar",
+        "organic74:spacefighter-hud"
+      ],
+      "path": "client/assets/v75/star-navigation-beacon.svg",
+      "art_mode": "bespoke-subject"
+    },
+    {
+      "id": "organic75:boss-door-emblem",
+      "name": "Boss Door Emblem",
+      "ingredients": [
+        "organic74:secret-boss-key",
+        "organic74:puzzle-temple-gate"
+      ],
+      "path": "client/assets/v75/boss-door-emblem.svg",
+      "art_mode": "bespoke-subject"
+    },
+    {
+      "id": "organic75:save-station-hologram",
+      "name": "Save Station Hologram",
+      "ingredients": [
+        "organic74:game-save-terminal",
+        "organic74:holographic-game-board"
+      ],
+      "path": "client/assets/v75/save-station-hologram.svg",
+      "art_mode": "bespoke-subject"
+    },
+    {
+      "id": "organic75:pixel-greenhouse",
+      "name": "Pixel Greenhouse",
+      "ingredients": [
+        "organic74:pixel-garden-pot",
+        "organic73:game-level-blueprint"
+      ],
+      "path": "client/assets/v75/pixel-greenhouse.svg",
+      "art_mode": "bespoke-subject"
+    },
+    {
+      "id": "organic75:neon-dance-console",
+      "name": "Neon Dance Console",
+      "ingredients": [
+        "organic74:neon-dance-floor",
+        "organic74:chiptune-synthesizer"
+      ],
+      "path": "client/assets/v75/neon-dance-console.svg",
+      "art_mode": "bespoke-subject"
+    },
+    {
+      "id": "organic75:robot-coin-sorter",
+      "name": "Robot Coin Sorter",
+      "ingredients": [
+        "organic74:robot-arcade-cashier",
+        "organic72:arcade-token-tray"
+      ],
+      "path": "client/assets/v75/robot-coin-sorter.svg",
+      "art_mode": "bespoke-subject"
+    },
+    {
+      "id": "organic75:weatherproof-arcade-stand",
+      "name": "Weatherproof Arcade Stand",
+      "ingredients": [
+        "organic74:arcade-rain-shelter",
+        "organic73:arcade-ticket-booth"
+      ],
+      "path": "client/assets/v75/weatherproof-arcade-stand.svg",
+      "art_mode": "bespoke-subject"
+    },
+    {
+      "id": "organic75:racing-checkered-podium",
+      "name": "Racing Checkered Podium",
+      "ingredients": [
+        "organic74:racing-lap-flag",
+        "organic73:arcade-medal-podium"
+      ],
+      "path": "client/assets/v75/racing-checkered-podium.svg",
+      "art_mode": "bespoke-subject"
+    },
+    {
+      "id": "organic75:illuminated-pinball-tunnel",
+      "name": "Illuminated Pinball Tunnel",
+      "ingredients": [
+        "organic74:pinball-light-panel",
+        "organic72:pinball-bumper-set"
+      ],
+      "path": "client/assets/v75/illuminated-pinball-tunnel.svg",
+      "art_mode": "bespoke-subject"
+    },
+    {
+      "id": "organic75:vr-galaxy-window",
+      "name": "VR Galaxy Window",
+      "ingredients": [
+        "organic74:vr-starship-cockpit",
+        "organic74:spacecraft-radar"
+      ],
+      "path": "client/assets/v75/vr-galaxy-window.svg",
+      "art_mode": "bespoke-subject"
+    },
+    {
+      "id": "organic75:cartridge-restoration-album",
+      "name": "Cartridge Restoration Album",
+      "ingredients": [
+        "organic74:game-cartridge-binder",
+        "organic73:retro-game-magazine"
+      ],
+      "path": "client/assets/v75/cartridge-restoration-album.svg",
+      "art_mode": "bespoke-subject"
+    },
+    {
+      "id": "organic75:cloud-streaming-console",
+      "name": "Cloud Streaming Console",
+      "ingredients": [
+        "organic74:cloud-gaming-router",
+        "organic73:handheld-charging-cradle"
+      ],
+      "path": "client/assets/v75/cloud-streaming-console.svg",
+      "art_mode": "bespoke-subject"
+    },
+    {
+      "id": "organic75:lost-dungeon-map-stand",
+      "name": "Lost Dungeon Map Stand",
+      "ingredients": [
+        "organic74:board-game-map-stand",
+        "organic74:secret-boss-key"
+      ],
+      "path": "client/assets/v75/lost-dungeon-map-stand.svg",
+      "art_mode": "bespoke-subject"
+    },
+    {
+      "id": "organic75:sky-castle-arcade",
+      "name": "Sky Castle Arcade",
+      "ingredients": [
+        "organic74:pixelated-cloud-castle",
+        "organic74:rocket-arcade-cabinet"
+      ],
+      "path": "client/assets/v75/sky-castle-arcade.svg",
+      "art_mode": "bespoke-subject"
+    },
+    {
+      "id": "organic75:retro-broadcast-booth",
+      "name": "Retro Broadcast Booth",
+      "ingredients": [
+        "organic74:retro-radio-headset",
+        "organic73:chiptune-radio"
+      ],
+      "path": "client/assets/v75/retro-broadcast-booth.svg",
+      "art_mode": "bespoke-subject"
+    },
+    {
+      "id": "organic75:cipher-treasure-casket",
+      "name": "Cipher Treasure Casket",
+      "ingredients": [
+        "organic74:puzzle-lockbox",
+        "organic73:puzzle-cipher-wheel"
+      ],
+      "path": "client/assets/v75/cipher-treasure-casket.svg",
+      "art_mode": "bespoke-subject"
+    },
+    {
+      "id": "organic75:museum-arcade-exhibit",
+      "name": "Museum Arcade Exhibit",
+      "ingredients": [
+        "organic74:miniature-game-museum",
+        "organic73:retro-game-magazine"
+      ],
+      "path": "client/assets/v75/museum-arcade-exhibit.svg",
+      "art_mode": "bespoke-subject"
+    },
+    {
+      "id": "organic75:legendary-sword-showcase",
+      "name": "Legendary Sword Showcase",
+      "ingredients": [
+        "organic74:fantasy-sword-pedestal",
+        "organic74:miniature-game-museum"
+      ],
+      "path": "client/assets/v75/legendary-sword-showcase.svg",
+      "art_mode": "bespoke-subject"
+    },
+    {
+      "id": "organic75:arcade-claw-controller",
+      "name": "Arcade Claw Controller",
+      "ingredients": [
+        "organic72:arcade-prize-claw",
+        "organic72:joystick-repair-kit"
+      ],
+      "path": "client/assets/v75/arcade-claw-controller.svg",
+      "art_mode": "bespoke-subject"
+    },
+    {
+      "id": "organic75:collector-cartridge-display",
+      "name": "Collector Cartridge Display",
+      "ingredients": [
+        "organic72:retro-game-shelf",
+        "organic72:cartridge-dust-cover"
+      ],
+      "path": "client/assets/v75/collector-cartridge-display.svg",
+      "art_mode": "bespoke-subject"
+    },
+    {
+      "id": "organic75:multiplayer-battle-station",
+      "name": "Multiplayer Battle Station",
+      "ingredients": [
+        "organic72:multiplayer-scoreboard",
+        "organic73:co-op-controller-splitter"
+      ],
+      "path": "client/assets/v75/multiplayer-battle-station.svg",
+      "art_mode": "bespoke-subject"
+    },
+    {
+      "id": "organic75:handheld-arcade-dock",
+      "name": "Handheld Arcade Dock",
+      "ingredients": [
+        "organic73:handheld-charging-cradle",
+        "organic73:arcade-ticket-booth"
+      ],
+      "path": "client/assets/v75/handheld-arcade-dock.svg",
+      "art_mode": "bespoke-subject"
+    },
+    {
+      "id": "organic75:game-concept-art-wall",
+      "name": "Game Concept Art Wall",
+      "ingredients": [
+        "organic72:video-game-concept-sketch",
+        "organic73:pixel-art-display-frame"
+      ],
+      "path": "client/assets/v75/game-concept-art-wall.svg",
+      "art_mode": "bespoke-subject"
+    },
+    {
+      "id": "organic75:pinball-repair-toolbox",
+      "name": "Pinball Repair Toolbox",
+      "ingredients": [
+        "organic73:pinball-plunger",
+        "organic72:joystick-repair-kit"
+      ],
+      "path": "client/assets/v75/pinball-repair-toolbox.svg",
+      "art_mode": "bespoke-subject"
+    },
+    {
+      "id": "organic75:digital-dice-mixer",
+      "name": "Digital Dice Mixer",
+      "ingredients": [
+        "organic72:electronic-board-game-tokens",
+        "organic74:dice-tower"
+      ],
+      "path": "client/assets/v75/digital-dice-mixer.svg",
+      "art_mode": "bespoke-subject"
+    },
+    {
+      "id": "organic75:puzzle-medal-trophy",
+      "name": "Puzzle Medal Trophy",
+      "ingredients": [
+        "organic72:puzzle-piece-organizer",
+        "organic72:arcade-high-score-trophy"
+      ],
+      "path": "client/assets/v75/puzzle-medal-trophy.svg",
+      "art_mode": "bespoke-subject"
+    },
+    {
+      "id": "organic75:pixel-color-display",
+      "name": "Pixel Color Display",
+      "ingredients": [
+        "organic72:pixel-art-palette",
+        "organic73:crt-scanline-filter"
+      ],
+      "path": "client/assets/v75/pixel-color-display.svg",
+      "art_mode": "bespoke-subject"
+    },
+    {
+      "id": "organic75:rhythm-studio-equalizer",
+      "name": "Rhythm Studio Equalizer",
+      "ingredients": [
+        "organic73:chiptune-radio",
+        "organic74:rhythm-stage-spotlight"
+      ],
+      "path": "client/assets/v75/rhythm-studio-equalizer.svg",
+      "art_mode": "bespoke-subject"
+    },
+    {
+      "id": "organic75:arcade-ticket-carousel",
+      "name": "Arcade Ticket Carousel",
+      "ingredients": [
+        "organic34:arcade-ticket",
+        "organic73:arcade-ticket-booth"
+      ],
+      "path": "client/assets/v75/arcade-ticket-carousel.svg",
+      "art_mode": "bespoke-subject"
+    },
+    {
+      "id": "organic75:racing-vr-seat",
+      "name": "Racing VR Seat",
+      "ingredients": [
+        "organic72:racing-arcade-wheel",
+        "organic74:vr-starship-cockpit"
+      ],
+      "path": "client/assets/v75/racing-vr-seat.svg",
+      "art_mode": "bespoke-subject"
+    },
+    {
+      "id": "organic75:game-level-prototype",
+      "name": "Game Level Prototype",
+      "ingredients": [
+        "organic73:game-level-blueprint",
+        "organic73:robot-gaming-companion"
+      ],
+      "path": "client/assets/v75/game-level-prototype.svg",
+      "art_mode": "bespoke-subject"
+    },
+    {
+      "id": "organic75:portable-rhythm-kit",
+      "name": "Portable Rhythm Kit",
+      "ingredients": [
+        "organic72:rhythm-drum-pedal",
+        "organic73:handheld-charging-cradle"
+      ],
+      "path": "client/assets/v75/portable-rhythm-kit.svg",
+      "art_mode": "bespoke-subject"
+    },
+    {
+      "id": "organic75:arcade-coin-conveyor",
+      "name": "Arcade Coin Conveyor",
+      "ingredients": [
+        "organic72:arcade-token-tray",
+        "organic73:arcade-token-dispenser"
+      ],
+      "path": "client/assets/v75/arcade-coin-conveyor.svg",
+      "art_mode": "bespoke-subject"
+    },
+    {
+      "id": "organic75:moonlight-quest-stage",
+      "name": "Moonlight Quest Stage",
+      "ingredients": [
+        "organic74:rpg-quest-scroll",
+        "organic74:rhythm-stage-spotlight"
+      ],
+      "path": "client/assets/v75/moonlight-quest-stage.svg",
+      "art_mode": "bespoke-subject"
+    },
+    {
+      "id": "organic75:miniature-space-museum",
+      "name": "Miniature Space Museum",
+      "ingredients": [
+        "organic74:miniature-game-museum",
+        "organic74:vr-starship-cockpit"
+      ],
+      "path": "client/assets/v75/miniature-space-museum.svg",
+      "art_mode": "bespoke-subject"
+    },
+    {
+      "id": "organic75:guardian-puzzle-sentinel",
+      "name": "Guardian Puzzle Sentinel",
+      "ingredients": [
+        "organic73:robot-gaming-companion",
+        "organic74:puzzle-temple-gate"
+      ],
+      "path": "client/assets/v75/guardian-puzzle-sentinel.svg",
+      "art_mode": "bespoke-subject"
+    },
+    {
+      "id": "organic75:led-controller-shell",
+      "name": "LED Controller Shell",
+      "ingredients": [
+        "organic73:controller-wall-mount",
+        "organic74:neon-dance-floor"
+      ],
+      "path": "client/assets/v75/led-controller-shell.svg",
+      "art_mode": "bespoke-subject"
+    },
+    {
+      "id": "organic75:console-memory-archive",
+      "name": "Console Memory Archive",
+      "ingredients": [
+        "organic73:save-card-adapter",
+        "organic74:game-cartridge-binder"
+      ],
+      "path": "client/assets/v75/console-memory-archive.svg",
+      "art_mode": "bespoke-subject"
+    }
+  ],
+  "cohort_count": 68,
+  "base_catalog": {
+    "elements": 5304,
+    "recipes": 13641
+  },
+  "end_catalog": {
+    "elements": 5372,
+    "recipes": 13709
+  },
+  "expansion_complete": 200,
+  "remaining_to_200": 0
+}
