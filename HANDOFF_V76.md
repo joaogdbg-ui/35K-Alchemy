@@ -42,3 +42,7 @@ Retired real-world-company collisions in proposed aliases (Kairosoft, AsterCube,
 ## V76.6 Settings/Profile
 
 Settings is a compact three-tab view (Profile/Game/Appearance) with local stats and Google Play Games/cloud/leaderboard placeholders correctly marked unconfigured. Manual import/export buttons are removed from the UI, but backup routines and old save keys remain for migration. No fake account, sync, restore or leaderboard claims. A future native Android-only AlchemyPlayerServices.getStatus() may show an authenticated Play Games gamer identity. See docs/PLAY_GAMES_FOUNDATION_V76_6.md.
+
+## V76.7 — Casual-game Settings redesign
+
+Replaced the admin-like Settings view with a game-first **Game | Profile | Help** tabbed sheet (Game is default). Sound and Light/Dark/Auto appearance are the only core preference controls; game mode stays accessible. Profile retains local statistics and future Google Play Games, leaderboards and cloud recovery placeholders without suggesting that cloud sync already exists. Help has three tappable/keyboard-accessible native FAQ disclosures and an About panel. Removed the duplicate hint shortcut from Settings; hints remain in the Play combiner. Original backup code/save keys are intact; no import/export options in Settings. All UI works offline, no fake Google login. Test across 320/360/390 width and short Android screens; style and dark-mode regression automated; physical QA still required.
