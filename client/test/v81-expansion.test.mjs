@@ -33,11 +33,11 @@ test('Every V81 recipe has a unique pair and an original standalone SVG file',as
 });
 test('V81 is integrated in Classic, unique SVG priority and Android offline packaging',()=>{
  const app=read('client/src/app.js'),build=read('tools/build-standalone.py'),android=read('tools/prepare-android-web.py');
- assert.match(app,/ORGANIC_V79,ORGANIC_V80,ORGANIC_V81\\]/);
- assert.match(app,/ORGANIC_ART_V81\\[itemName\\]\\|\\|ORGANIC_ART_V80/);
- assert.match(build,/window\\.__gameverseOrganic81/);
- assert.match(build,/window\\.__gameverseOrganicArt81/);
- assert.match(build,/35K_Alchemy_V81_Offline\\.html/);
- assert.match(android,/35K_Alchemy_V81_Offline\\.html/);
- assert.match(read('tools/audit-active-artwork.mjs'),/,80,81\\]/);
+ assert.match(app,/ORGANIC_V79,ORGANIC_V80,ORGANIC_V81\]/);
+ assert.match(app,/ORGANIC_ART_V81\[itemName\]\|\|ORGANIC_ART_V80/);
+ assert.match(build,/window\.__gameverseOrganic81/);
+ assert.match(build,/window\.__gameverseOrganicArt81/);
+ assert.match(build,/35K_Alchemy_V81_Offline\.html/);
+ assert.match(android,/35K_Alchemy_V81_Offline\.html/);
+ assert.match(read('tools/audit-active-artwork.mjs'),/,80,81\]/);
 });
