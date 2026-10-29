@@ -1148,7 +1148,7 @@
       "category": "board",
       "summary": "A raised painting holder steadies a tiny game miniature while a fine brush adds its details.",
       "ingredients": [
-        "legacy:107",
+        "legacy:161",
         "legacy:208"
       ],
       "art_mode": "bespoke-subject",

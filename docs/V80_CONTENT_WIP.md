@@ -1,6 +1,6 @@
 # V80 WIP — 114/200 (unmerged)
 
-This branch contains 74 new recipes and images since V80B; no content release until a +200 verified batch. Candidate 5686 elements and 14023 recipes.
+74 new elements since V80B (unreleased); main remains 5,612 elements. Each SVG is original and recipe collision audit is mandatory.
 
 1. **Floating Harbor Gate** = organic79:sky-dock-beacon + organic79:airship-anchor-winch — A docking arch combines a beacon with mooring cables to guide skyships safely into a floating port.
 2. **Glass Firefly Lantern** = organic79:firefly-garden-terrarium + organic79:aurora-desk-lantern — A curved glass lantern shelters luminous fireflies and brings a miniature garden into the night.
@@ -96,7 +96,7 @@ This branch contains 74 new recipes and images since V80B; no content release un
 92. **Chess Match Clock** = legacy:1196 + legacy:211 — A tournament clock uses two separate dials so each chess player can time their moves.
 93. **Pocket Chess Kit** = legacy:1196 + legacy:110 — A folding chess board fits miniature pieces into a portable case for matches on the move.
 94. **Board Game Token Pouch** = legacy:162 + legacy:153 — A drawstring fabric pouch stores the wooden counters and scoring tokens from a tabletop game.
-95. **Miniature Painting Stand** = legacy:107 + legacy:208 — A raised painting holder steadies a tiny game miniature while a fine brush adds its details.
+95. **Miniature Painting Stand** = legacy:161 + legacy:208 — A raised painting holder steadies a tiny game miniature while a fine brush adds its details.
 96. **Board Game Rulebook** = legacy:162 + legacy:51 — An illustrated rulebook explains the turns, dice rolls and piece movement of a tabletop game.
 97. **Transparent Card Sleeve** = legacy:160 + legacy:99 — A flexible clear sleeve seals a collectible card against fingerprints and scuffed corners.
 98. **Automatic Card Shuffler** = legacy:160 + legacy:55 — A small automatic shuffler feeds two stacks of cards into a mixed deck at its center.
