@@ -1,6 +1,6 @@
-# V81 source artwork gallery — 124/200 (WIP)
+# Alchemy 10k — 124/200 V81 original SVGs in development
 
-| # | Subject | 35px | 90px |
+| # | Name | 35px | 90px |
 |---:|---|:---:|:---:|
 | 1 | Sprite Animation Light Table | <img src="../client/assets/v81/sprite-animation-light-table.svg" width="35" height="35" /> | <img src="../client/assets/v81/sprite-animation-light-table.svg" width="90" height="90" /> |
 | 2 | Color-Proof Photo Printer | <img src="../client/assets/v81/color-proof-photo-printer.svg" width="35" height="35" /> | <img src="../client/assets/v81/color-proof-photo-printer.svg" width="90" height="90" /> |
@@ -58,7 +58,7 @@
 | 54 | Bat | <img src="../client/assets/v81/bat.svg" width="35" height="35" /> | <img src="../client/assets/v81/bat.svg" width="90" height="90" /> |
 | 55 | Eagle | <img src="../client/assets/v81/eagle.svg" width="35" height="35" /> | <img src="../client/assets/v81/eagle.svg" width="90" height="90" /> |
 | 56 | Crocodile | <img src="../client/assets/v81/crocodile.svg" width="35" height="35" /> | <img src="../client/assets/v81/crocodile.svg" width="90" height="90" /> |
-| 57 | Penguin | <img src="../client/assets/v81/penguin.svg" width="35" height="35" /> | <img src="../client/assets/v81/penguin.svg" width="90" height="90" /> |
+| 57 | Emperor Penguin | <img src="../client/assets/v81/emperor-penguin.svg" width="35" height="35" /> | <img src="../client/assets/v81/emperor-penguin.svg" width="90" height="90" /> |
 | 58 | Prehistoric Species Atlas | <img src="../client/assets/v81/prehistoric-species-atlas.svg" width="35" height="35" /> | <img src="../client/assets/v81/prehistoric-species-atlas.svg" width="90" height="90" /> |
 | 59 | Triceratops | <img src="../client/assets/v81/triceratops.svg" width="35" height="35" /> | <img src="../client/assets/v81/triceratops.svg" width="90" height="90" /> |
 | 60 | Stegosaurus | <img src="../client/assets/v81/stegosaurus.svg" width="35" height="35" /> | <img src="../client/assets/v81/stegosaurus.svg" width="90" height="90" /> |
@@ -79,7 +79,7 @@
 | 75 | Troll | <img src="../client/assets/v81/troll.svg" width="35" height="35" /> | <img src="../client/assets/v81/troll.svg" width="90" height="90" /> |
 | 76 | Goblin | <img src="../client/assets/v81/goblin.svg" width="35" height="35" /> | <img src="../client/assets/v81/goblin.svg" width="90" height="90" /> |
 | 77 | Ogre | <img src="../client/assets/v81/ogre.svg" width="35" height="35" /> | <img src="../client/assets/v81/ogre.svg" width="90" height="90" /> |
-| 78 | Werewolf | <img src="../client/assets/v81/werewolf.svg" width="35" height="35" /> | <img src="../client/assets/v81/werewolf.svg" width="90" height="90" /> |
+| 78 | Lunar Werewolf | <img src="../client/assets/v81/lunar-werewolf.svg" width="35" height="35" /> | <img src="../client/assets/v81/lunar-werewolf.svg" width="90" height="90" /> |
 | 79 | Vampire Bat | <img src="../client/assets/v81/vampire-bat.svg" width="35" height="35" /> | <img src="../client/assets/v81/vampire-bat.svg" width="90" height="90" /> |
 | 80 | Griffin | <img src="../client/assets/v81/griffin.svg" width="35" height="35" /> | <img src="../client/assets/v81/griffin.svg" width="90" height="90" /> |
 | 81 | Phoenix | <img src="../client/assets/v81/phoenix.svg" width="35" height="35" /> | <img src="../client/assets/v81/phoenix.svg" width="90" height="90" /> |
@@ -127,4 +127,4 @@
 | 123 | Wolf Pack | <img src="../client/assets/v81/wolf-pack.svg" width="35" height="35" /> | <img src="../client/assets/v81/wolf-pack.svg" width="90" height="90" /> |
 | 124 | Fossil Excavation | <img src="../client/assets/v81/fossil-excavation.svg" width="35" height="35" /> | <img src="../client/assets/v81/fossil-excavation.svg" width="90" height="90" /> |
 
-Need final human subject-recognition check before commercial release.
+Manual review of distinct object silhouettes and real 35px recognizability remains necessary.

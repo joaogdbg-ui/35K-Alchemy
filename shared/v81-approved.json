@@ -686,16 +686,16 @@
       "path": "client/assets/v81/crocodile.svg"
     },
     {
-      "id": "organic81:penguin",
-      "name": "Penguin",
+      "id": "organic81:emperor-penguin",
+      "name": "Emperor Penguin",
       "category": "life",
-      "summary": "An upright penguin wears dark plumage and a white belly, with short flippers and webbed feet on icy ground.",
+      "summary": "An emperor penguin has yellow-orange neck markings, a white belly and short black flippers for Antarctic waters.",
       "ingredients": [
         "organic81:wild-animal",
         "legacy:35"
       ],
       "art_mode": "bespoke-subject",
-      "path": "client/assets/v81/penguin.svg"
+      "path": "client/assets/v81/emperor-penguin.svg"
     },
     {
       "id": "organic81:prehistoric-species-atlas",
@@ -938,16 +938,16 @@
       "path": "client/assets/v81/ogre.svg"
     },
     {
-      "id": "organic81:werewolf",
-      "name": "Werewolf",
+      "id": "organic81:lunar-werewolf",
+      "name": "Lunar Werewolf",
       "category": "fantasy",
-      "summary": "A cursed shapeshifter grows a wolf's muzzle, claws and thick fur whenever the moon is full.",
+      "summary": "A lunar werewolf is a legendary human shapeshifter with wolf ears, claws and thick fur when the full moon rises.",
       "ingredients": [
         "organic81:wolf",
         "organic40:moonlight"
       ],
       "art_mode": "bespoke-subject",
-      "path": "client/assets/v81/werewolf.svg"
+      "path": "client/assets/v81/lunar-werewolf.svg"
     },
     {
       "id": "organic81:vampire-bat",
