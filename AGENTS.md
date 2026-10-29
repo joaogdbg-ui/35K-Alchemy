@@ -4,10 +4,13 @@ Ler primeiro `docs/WORKING_RULES_PT.md`, `docs/CONTENT_200_BATCH_POLICY_PT.md`, 
 
 ## Produção de conteúdo — REGRA ABSOLUTA
 
-- **Cada entrega de expansão após V80B exige exatamente +200 elementos NOVOS no catálogo verificado**, relativamente à baseline do PR. Não publicar lotes parciais de 8/20/40/50, não fazer merge desses parciais nem disponibilizar um APK de expansão antes dos 200. Ondas internas de 25/50 apenas em branch WIP; continuar até 200.
+**EXCEÇÃO ÚNICA 29/10/2026:** a próxima entrega após a V81 publicada tem **exatamente 188 elementos novos**, passando de **5.812 para 6.000**. O gate de CI só autoriza +188 enquanto nenhuma nova expansão tiver sido integrada desde o commit V81 `2aba8395f48082964bc2af2ff20a468c56dd464b`. **Depois disso, todas as entregas são obrigatoriamente +200**, de 6.000 até 35.000 inclusive: **145 lotes**, sem outras exceções. O nome do ficheiro `check-content-batch-200.mjs` mantém-se por compatibilidade; a exceção não altera a regra geral.
+
+
+- **Próxima entrega após V81: apenas uma vez +188 IDs para atingir exatamente 6.000. Em seguida, cada entrega exige exatamente +200 IDs NOVOS**, relativamente à baseline do PR. Não publicar lotes parciais de 8/20/40/50, não fazer merge desses parciais nem disponibilizar um APK de expansão antes dos 200. Ondas internas de 25/50 apenas em branch WIP; continuar até 200.
 - **Nunca preencher artificialmente 200**: ID/nome/receita únicos e coerentes, origem/reachability, descrição em inglês, SVG próprio reconhecível a 35px e testes obrigatórios para cada elemento. Sem desenhos "genéricos diferentes por hash", falsos IDs ou receitas alternativas contadas como novos.
-- V80B 40/200 é **histórico pré-política**. A próxima entrega é **+160 V80 e +40 V81 = +200 numa só entrega**, para 5.812 elementos. A partir de 5.612, 147 lotes de +200 atingem 35.012 (meta mínima: 35K). Não publicar 160 e 40 separadamente.
-- O gate `node tools/check-content-batch-200.mjs --base <SHA>` verifica o incremento real e deve passar em PR e build Android. Mudanças técnicas com **zero** novos elementos são permitidas, mas não contam como expansão.
+- V81 (commit `2aba839`) já foi publicada com **5.812 elementos e 14.149 receitas**. A próxima entrega é **+160 para terminar V81 e +28 para iniciar V82 = +188**, numa única publicação para 6.000. Após essa entrega, **145 lotes de +200 = 35.000 elementos exatos**.
+- O gate `node tools/check-content-batch-200.mjs --base <SHA>` exige **+188 apenas na próxima entrega** e **+200 depois** (ou zero novos IDs numa alteração de manutenção); valida em PR e Android. Mudanças técnicas com **zero** novos elementos são permitidas, mas não contam como expansão.
 - Uma conversa interrompida deve deixar progresso WIP guardado e retomar na mesma branch; não confundir checkpoint com entrega, não alegar testes/arte/IP/QA não feitos.
 
 ## Invariantes imutáveis
@@ -23,4 +26,4 @@ Ler primeiro `docs/WORKING_RULES_PT.md`, `docs/CONTENT_200_BATCH_POLICY_PT.md`, 
 - **Cada família é completável a 100% APENAS com os seus 4 starters temáticos**, sem Classic, outras famílias, anúncios ou Merge. Verificar fecho de alcance isolado por família em todas as expansões.
 - **Multifamília:** mesmo ID/receita/arte em todas as famílias elegíveis; descoberta sincroniza entre elas; Classic independente, exceto Merge após 2 recompensas reais.
 - V53 contém uma exceção ainda por corrigir: Nature & Science usa os 4 starters Classic (apesar de alcançar 476/476); corrigir grafo com cuidado, não só os iniciais. Ler `docs/FAMILIES_ONLY_CONTRACT_PT.md`.
-- **NÃO desencadear GitHub Actions a cada push WIP.** Produzir os +200 completos, rever sem CI cobrada, abrir um único PR com CI, e só após merge uma compilação Android. Ler `docs/CI_BUDGET_POLICY_PT.md`.
+- **NÃO desencadear GitHub Actions a cada push WIP.** Produzir o próximo +188 completo (e depois lotes +200), rever sem CI cobrada, abrir um único PR com CI, e só após merge uma compilação Android. Ler `docs/CI_BUDGET_POLICY_PT.md`.

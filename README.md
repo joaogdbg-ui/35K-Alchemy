@@ -1,6 +1,6 @@
-# 35K Alchemy — V81 release candidate: 5,812 elements / 14,149 recipes
+# 35K Alchemy — V81 publicada: 5,812 elements / 14,149 recipes
 
-This candidate delivers **exactly 200 new discoveries** since published V80B: **160 additional V80** plus **40 new V81** elements. All have individual original SVG illustrations and globally deterministic recipes. **Publication remains conditional on one complete CI check, merge, and Android APK build.** No fake rewarded ads or unfinished Google cloud integration.
+**V81 publicada e compilada:** 5.812 elementos e 14.149 receitas; +200 elementos face à V80B, com SVGs próprios. **Próxima entrega extraordinária: +188 elementos para chegar exatamente a 6.000** (160 V81 +28 V82). Depois, **145 entregas obrigatórias de +200** terminam em 35.000. Preparação em branch WIP sem Actions por push. No fake rewarded ads or unfinished Google cloud integration.
 
 [V81 handoff](HANDOFF_V81.md) · [V80 SVG review](docs/V80_ART_REVIEW.md) · [V81 SVG review](docs/V81_ART_REVIEW.md) · [Family Only rules](docs/FAMILIES_ONLY_CONTRACT_PT.md) · [CI minutes policy](docs/CI_BUDGET_POLICY_PT.md)
 

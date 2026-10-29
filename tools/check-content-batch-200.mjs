@@ -1,5 +1,5 @@
 #!/usr/bin/env node
-/** Enforce exactly +200 actual, original discoveries between a content PR/push and its base. */
+/** Enforce one-off +188 to reach 6,000, then exactly +200 on all further content releases. */
 import {execFileSync} from 'node:child_process';
 import {readFileSync,existsSync} from 'node:fs';
 import {createHash} from 'node:crypto';
@@ -11,6 +11,18 @@ const pattern=/^client\/src\/(organic|gaming)-pack-v(\d+)\.js$/;
 const norm=s=>String(s).normalize('NFKD').toLowerCase().replace(/[\u0300-\u036f]/g,'').replace(/\s+/g,' ').trim();
 const read=p=>readFileSync(resolve(root,p),'utf8');
 const json=p=>JSON.parse(read(p));
+/** The 188 exception depends on the content history of the PR/build BASE, not the branch name or a mutable flag. */
+export function requiredContentBatchSize(plan,{baseDescendsFromAnchor=false,contentPackChangedSinceAnchor=false}={}){
+ if(plan.batch_size!==200||plan.target_minimum_elements!==35000||plan.partial_content_merges_allowed!==false)
+  err('mandatory permanent +200 policy changed');
+ const exc=plan.one_time_rounding_exception;
+ if(!exc)return plan.batch_size;
+ if(exc.required_new_elements!==188||exc.base_elements!==5812||exc.target_elements!==6000||
+    exc.anchor_content_commit!=='2aba8395f48082964bc2af2ff20a468c56dd464b'||
+    exc.editorial_split?.finish_v81!==160||exc.editorial_split?.begin_v82!==28)
+  err('unauthorized rounding exception config');
+ return baseDescendsFromAnchor&&!contentPackChangedSinceAnchor?188:200;
+}
 export function requireExactContentBatch(n,size=200){
  if(!Number.isInteger(n)||n<0)err('invalid element count');
  if(n&&n!==size)err('actual new IDs: '+n+'; required '+size+'. Save partial groups in an unmerged WIP branch, never ship filler');
@@ -47,7 +59,17 @@ async function main(){
   return;
  }
  const plan=json('shared/production-plan-200.json');
- if(plan.batch_size!==200||plan.target_minimum_elements!==35000||plan.partial_content_merges_allowed!==false)err('policy changed');
+ const anchor=plan.one_time_rounding_exception?.anchor_content_commit;
+ let descendant=false,packChanged=false;
+ if(anchor){
+  git('rev-parse','--verify',anchor+'^{commit}');
+  try{git('merge-base','--is-ancestor',anchor,base);descendant=true;}catch{}
+  if(descendant){
+   const delta=git('diff','--name-only',anchor,base).split('\n').filter(Boolean);
+   packChanged=delta.some(p=>pattern.test(p)||['client/src/legacy-data.js','client/src/creative-pack.js'].includes(p));
+  }
+ }
+ const required=requiredContentBatchSize(plan,{baseDescendsFromAnchor:descendant,contentPackChangedSinceAnchor:packChanged});
  const ids=new Set(),names=new Set(),pairs=new Set(),svgs=new Set();
  for(const file of files){
   const match=file.match(pattern),v=Number(match[2]);
@@ -75,7 +97,7 @@ async function main(){
    if(art[item.name.toLowerCase()]!==svg)err('runtime art differs from SVG source '+item.id);
   }
  }
- const msg=requireExactContentBatch(ids.size,plan.batch_size);
+ const msg=requireExactContentBatch(ids.size,required);
  console.log('CONTENT-200 PASS: '+msg+'; manifest, original icons and unique new recipes verified.');
  console.log('Manual aesthetic/35px and IP review still required.');
 }

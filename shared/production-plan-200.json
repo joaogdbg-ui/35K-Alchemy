@@ -1,19 +1,31 @@
 {
-  "policy": "mandatory-200-per-content-delivery",
-  "effective_after_version": "0.80.1",
-  "baseline_commit": "c918b85d148c5daaceb0d85f1faa281e9c07bc41",
-  "baseline_elements": 5612,
-  "baseline_recipes": 13949,
+  "policy": "mandatory-200-after-single-188-rounding-exception",
+  "effective_after_version": "0.81.0",
+  "baseline_commit": "2aba8395f48082964bc2af2ff20a468c56dd464b",
+  "baseline_elements": 5812,
+  "baseline_recipes": 14149,
   "batch_size": 200,
-  "target_minimum_elements": 35000,
-  "deliveries_to_target": 147,
-  "expected_after_next_delivery_elements": 5812,
-  "next_delivery_outline": {
-    "finish_v80": 160,
-    "begin_v81": 40
+  "one_time_rounding_exception": {
+    "anchor_content_commit": "2aba8395f48082964bc2af2ff20a468c56dd464b",
+    "required_new_elements": 188,
+    "base_elements": 5812,
+    "target_elements": 6000,
+    "editorial_split": {
+      "finish_v81": 160,
+      "begin_v82": 28
+    },
+    "consumed_once_content_pack_changes_since_anchor": true
   },
-  "historical_v80_approved": 40,
+  "target_minimum_elements": 35000,
+  "deliveries_to_target_after_rounding": 145,
+  "expected_after_next_delivery_elements": 6000,
+  "expected_after_next_delivery_recipes_at_least": 14337,
+  "next_delivery_outline": {
+    "finish_v81": 160,
+    "begin_v82": 28
+  },
   "partial_content_merges_allowed": false,
   "zero_content_maintenance_allowed": true,
-  "human_review_required": true
+  "human_review_required": true,
+  "note": "One time +188 from 5812 to 6000; automatic gate reverts to +200 when base contains content pack changes after pinned V81 anchor."
 }
