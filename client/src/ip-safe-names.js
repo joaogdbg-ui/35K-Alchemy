@@ -112,8 +112,19 @@ const RULES = Object.freeze([
   [/\bKonami\b/gi,'Kairosoft Arts'],
   [/\bSquare Enix\b/gi,'Crystalvale Studio']
 ]);
+
+// Additional context-sensitive editorial mock game/media names. This list is a
+// screening aid only, NOT a license or trademark-clearance finding.
+const MEDIA_NAME_PAIRS = [["WarioWare","Pocket Mischief"],["Wario Land","Gilded Hills"],["Ocarina of Time","Chronoflute"],["A Link to the Past","Path Through Ages"],["The Wind Waker","Gale Baton"],["Twilight Princess","Dusk Princess"],["Breath of the Wild","Wildwind Breath"],["Tears of the Kingdom","Crownfall Tears"],["F-Zero","Velocity Zero"],["Star Fox","Nebula Fox"],["Fire Emblem","Cinder Sigil"],["Animal Crossing","Meadow Village"],["Pikmin","Spriglings"],["Splatoon","Inkstrike"],["Super Smash Bros","Champions Clash"],["Nintendogs","PetPals"],["Advance Wars","Frontier Tactics"],["Xenoblade","Aetherblade"],["Streets of Rage","Rebel Streets"],["Shinobi","Nightblade"],["Phantasy Star","Ethereal Star"],["Panzer Dragoon","Steel Drake"],["Virtua Fighter","Vector Duel"],["Crazy Taxi","Street Cab Chaos"],["Crash Bandicoot","Tumblefox"],["Spyro","Emberling Dragon"],["Ratchet & Clank","Cogtail and Bolt"],["Jak and Daxter","Jet and Bristle"],["Sly Cooper","Shade Fox"],["Uncharted","Lost Atlas"],["The Last of Us","The Last Ember"],["Ghost of Tsushima","Specter of the Isles"],["Bloodborne","Crimson Reliquary"],["Gran Turismo","Grand Motorway"],["LittleBigPlanet","Pocket Planet"],["Tekken","Iron Fists"],["Forza","Turbo Circuit"],["Gears of War","Iron Gears"],["Age of Empires","Age of Kingdoms"],["Half-Life","Half Dawn"],["Counter-Strike","Counterforce"],["Terraria","Caverncraft"],["Stardew Valley","Fernbrook Valley"],["Celeste","Cloudpeak"],["Cuphead","Teacup Hero"],["Undertale","Underpath"],["Hades","Underrealm"],["Dead Cells","Fallen Cells"],["Slay the Spire","Ascend the Tower"],["Among Us","Within the Crew"],["The Sims","Life Neighbors"],["SimCity","City Architect"],["Tomb Raider","Crypt Explorer"],["Chrono Trigger","Hourglass Trigger"],["Dragon Quest","Dragon Voyage"],["Persona","Mirrorbound"],["Elden Ring","Elder Circle"],["Dark Souls","Ashen Pilgrims"],["Monster Hunter","Beastward"],["Grand Theft Auto","Metro Outlaws"],["GTA","Metro Outlaws"],["Red Dead Redemption","Crimson Prairie"],["The Witcher","Wanderer of Runes"],["Fallout","Wasteland Echo"],["Mass Effect","Cosmic Resonance"],["Battlefield","Warfront"],["Rocket League","Turbo League"],["Guitar Hero","String Champion"],["Professor Layton","Professor Wren"],["Castlevania","Castle Eclipse"],["Bayonetta","Midnight Enchantress"],["Demon Slayer","Dusk Hunter"],["Attack on Titan","Giantfall"],["Bleach","Spirit Blade"],["Jujutsu Kaisen","Spectral Academy"],["Indiana Jones","Arden Explorer"],["Diablo","Infernal Depths"],["League of Legends","Dawn League"],["Baldur's Gate","Boulder Gate"],["Danganronpa","School Mystery Trial"]];
+const MEDIA_NAME_RULES = Object.freeze(MEDIA_NAME_PAIRS.slice()
+ .sort((a,b)=>b[0].length-a[0].length)
+ .map(([original,fiction]) => {
+   const escaped=original.replace(/[^A-Za-z0-9 ]/g,ch=>'\\'+ch);
+   return [new RegExp('\\b'+escaped+'\\b','gi'),fiction];
+ }));
+const MEDIA_CATEGORIES=new Set(['game','film','movie','anime','manga','series','character','music']);
 export const PUBLIC_IP_SIGNALS = Object.freeze(
-  RULES.map(([pattern])=>new RegExp(pattern.source,pattern.flags.replace('g','')))
+  [...RULES,...MEDIA_NAME_RULES].map(([pattern])=>new RegExp(pattern.source,pattern.flags.replace('g','')))
 );
 export function publicText(value) {
   let result=String(value??'');
@@ -121,7 +132,9 @@ export function publicText(value) {
   return result;
 }
 export function publicName(item) {
-  return publicText(item?.name??'');
+  let label=publicText(item?.name??'');
+ if(MEDIA_CATEGORIES.has(item?.category))for(const [pattern,fiction] of MEDIA_NAME_RULES)label=label.replace(pattern,fiction);
+ return label;
 }
 /** Stable UI labels; collisions get an explicit distinction, never change IDs. */
 export function buildPublicNameIndex(items) {
