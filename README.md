@@ -1,3 +1,13 @@
+# Alchemy 10K — new themed campaigns (development branch)
+
+Current verified **catalog baseline**: 5,812 unique elements / 14,149 deterministic recipes from V81. Target: **10,000+ real discoveries** with **+200 new elements per content delivery** (21 further batches bring the total to 10,012). Old 35K references below document historical development, not the active goal.
+
+This maintenance branch adds independently completable **Mythology & Gods** (16 catalog items) and **Prehistory & Dinosaurs** (9 catalog items), drawing only on existing global recipes. Neither campaign creates new catalog IDs, changes historical A+B outcomes or claims Zeus/Athena/Odin/dinosaur species are already authored. New subject-specific deity and dinosaur artwork and 200-element V82 content remain future expansion work. Android application ID and local save keys are retained for compatibility; the native display name becomes Alchemy 10K.
+
+[Thematic campaign data](client/src/family-campaigns-v82.js) · [Global family grouping](client/src/discoveries.js) · [V82 thematic test](client/test/thematic-families-v82.test.mjs) · [New plan](shared/production-plan-200.json) · [Newest existing APK (older 35K build)](https://github.com/joaogdbg-ui/35K-Alchemy/releases/tag/latest).
+
+---
+
 # 35K Alchemy — V81 release candidate: 5,812 elements / 14,149 recipes
 
 This candidate delivers **exactly 200 new discoveries** since published V80B: **160 additional V80** plus **40 new V81** elements. All have individual original SVG illustrations and globally deterministic recipes. **Publication remains conditional on one complete CI check, merge, and Android APK build.** No fake rewarded ads or unfinished Google cloud integration.
