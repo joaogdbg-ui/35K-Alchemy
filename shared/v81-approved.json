@@ -1,16 +1,16 @@
 {
   "version": 81,
-  "cohort_count": 30,
+  "cohort_count": 40,
   "expansion_goal": 40,
-  "expansion_progress": 30,
-  "remaining_to_goal": 10,
+  "expansion_progress": 40,
+  "remaining_to_goal": 0,
   "base_catalog": {
     "elements": 5772,
     "recipes": 14109
   },
   "expected_catalog": {
-    "elements": 5802,
-    "recipes": 14139
+    "elements": 5812,
+    "recipes": 14149
   },
   "new_items": [
     {
@@ -372,6 +372,126 @@
       ],
       "art_mode": "bespoke-subject",
       "path": "client/assets/v81/riverside-rescue-signal-box.svg"
+    },
+    {
+      "id": "organic81:rotating-dice-score-dial",
+      "name": "Rotating Dice Score Dial",
+      "category": "board",
+      "summary": "A round tabletop score dial turns through numbered rings to record scores from successive dice throws.",
+      "ingredients": [
+        "organic80:dice-score-sheet",
+        "legacy:44"
+      ],
+      "art_mode": "bespoke-subject",
+      "path": "client/assets/v81/rotating-dice-score-dial.svg"
+    },
+    {
+      "id": "organic81:card-collector-lightbox",
+      "name": "Card Collector Lightbox",
+      "category": "board",
+      "summary": "A bright inspection lightbox reveals tiny printing marks on a sleeved collectible game card.",
+      "ingredients": [
+        "organic80:transparent-card-sleeve",
+        "organic80:pixel-sprite-lightbox"
+      ],
+      "art_mode": "bespoke-subject",
+      "path": "client/assets/v81/card-collector-lightbox.svg"
+    },
+    {
+      "id": "organic81:arcade-collectors-badge",
+      "name": "Arcade Collector's Badge",
+      "category": "arcade",
+      "summary": "A small enameled collector's badge is struck from a prize coin and stamped with a pixel trophy.",
+      "ingredients": [
+        "organic80:championship-ticket-exchange",
+        "legacy:108"
+      ],
+      "art_mode": "bespoke-subject",
+      "path": "client/assets/v81/arcade-collectors-badge.svg"
+    },
+    {
+      "id": "organic81:escape-room-timer-lock",
+      "name": "Escape Room Timer Lock",
+      "category": "fantasy",
+      "summary": "An ornate escape-room lock counts down on a clock face until its rotating symbols align to release the door.",
+      "ingredients": [
+        "organic80:escape-puzzle-wall",
+        "legacy:211"
+      ],
+      "art_mode": "bespoke-subject",
+      "path": "client/assets/v81/escape-room-timer-lock.svg"
+    },
+    {
+      "id": "organic81:museum-interview-recorder",
+      "name": "Museum Interview Recorder",
+      "category": "culture",
+      "summary": "A museum interviewer records a game developer's oral history with a compact camera and tabletop microphone.",
+      "ingredients": [
+        "organic80:game-museum-audio-guide",
+        "legacy:85"
+      ],
+      "art_mode": "bespoke-subject",
+      "path": "client/assets/v81/museum-interview-recorder.svg"
+    },
+    {
+      "id": "organic81:adaptive-gamepad-switch",
+      "name": "Adaptive Gamepad Switch",
+      "category": "technology",
+      "summary": "A large accessible input switch connects to a gamepad, allowing comfortable one-button activation during play.",
+      "ingredients": [
+        "organic80:wireless-dance-controller",
+        "legacy:80"
+      ],
+      "art_mode": "bespoke-subject",
+      "path": "client/assets/v81/adaptive-gamepad-switch.svg"
+    },
+    {
+      "id": "organic81:rhythm-game-metronome",
+      "name": "Rhythm Game Metronome",
+      "category": "arcade",
+      "summary": "A mechanical metronome ticks at the exact tempo of a printed rhythm-game step chart.",
+      "ingredients": [
+        "organic80:rhythm-step-chart",
+        "legacy:211"
+      ],
+      "art_mode": "bespoke-subject",
+      "path": "client/assets/v81/rhythm-game-metronome.svg"
+    },
+    {
+      "id": "organic81:concert-glowstick-fan",
+      "name": "Concert Glowstick Fan",
+      "category": "arcade",
+      "summary": "A bundle of pastel glow sticks lights up the audience during the final arcade rhythm concert.",
+      "ingredients": [
+        "organic80:rhythm-concert-stage",
+        "legacy:63"
+      ],
+      "art_mode": "bespoke-subject",
+      "path": "client/assets/v81/concert-glowstick-fan.svg"
+    },
+    {
+      "id": "organic81:harbor-pixel-postcard",
+      "name": "Harbor Pixel Postcard",
+      "category": "culture",
+      "summary": "A souvenir postcard depicts the floating harbor gate as a crisp pastel pixel-art landscape.",
+      "ingredients": [
+        "organic80:floating-harbor-gate",
+        "organic80:pixel-color-scanner"
+      ],
+      "art_mode": "bespoke-subject",
+      "path": "client/assets/v81/harbor-pixel-postcard.svg"
+    },
+    {
+      "id": "organic81:miniature-dungeon-diorama",
+      "name": "Miniature Dungeon Diorama",
+      "category": "fantasy",
+      "summary": "A tabletop diorama arranges painted stone doors, dungeon stairs and a tiny adventurer on a miniature cave floor.",
+      "ingredients": [
+        "organic81:miniature-terrain-toolbox",
+        "legacy:37"
+      ],
+      "art_mode": "bespoke-subject",
+      "path": "client/assets/v81/miniature-dungeon-diorama.svg"
     }
   ]
 }
