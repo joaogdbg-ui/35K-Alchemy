@@ -1,6 +1,6 @@
 # V80 WIP — 90/200
 
-The first **50 new element illustrations since V80B** are now authored and persisted on an isolated feature branch. **Not a release.** The unmerged candidate contains 5662 catalog elements and 13999 recipes. To satisfy the single +200 production delivery rule, create another **110 V80 elements** and **40 V81 elements** before proposing merge; no filler, no duplicate pair, each subject specifically drawn.
+**50 newly created elements** since V80B in an isolated WIP branch. Main: 5,612 elements / 13,949 recipes. WIP: 5662 elements / 13999 recipes. No merge/APK release until 110 remaining V80 and 40 V81 items all pass validation and the +200 production gate.
 
 1. **Floating Harbor Gate** = organic79:sky-dock-beacon + organic79:airship-anchor-winch — A docking arch combines a beacon with mooring cables to guide skyships safely into a floating port.
 2. **Glass Firefly Lantern** = organic79:firefly-garden-terrarium + organic79:aurora-desk-lantern — A curved glass lantern shelters luminous fireflies and brings a miniature garden into the night.
@@ -89,6 +89,6 @@ The first **50 new element illustrations since V80B** are now authored and persi
 85. **Skyship Port Map** = organic80:skyship-cargo-manifest + legacy:354 — A chart of floating docks plots cargo routes, arrival arches, and safe passages through clouds.
 86. **Solar Wildlife Monitor** = organic80:wildlife-camera-trap + organic80:solar-charging-backpack — A remote wildlife camera runs for days using a small solar panel attached to its forest tree.
 87. **Moonlit Ranger Camp** = organic80:forest-ranger-station + legacy:142 — A ranger's forest camp glows beneath the moon while a warm lantern lights the cabin entrance.
-88. **Arcade Prize Counter** = organic80:champion-ticket-voucher + legacy:60 — An arcade rewards counter trades stamped champion tickets for plush prizes and small trophies.
+88. **Championship Ticket Exchange** = organic80:champion-ticket-voucher + legacy:60 — A championship rewards desk exchanges victory tickets for arcade collectibles and trophies.
 89. **Game Archive Catalogue** = organic80:museum-interactive-console + legacy:51 — A carefully indexed catalogue documents the cartridges, consoles, and exhibits in a game museum.
 90. **Pixel Sprite Lightbox** = organic80:pixel-art-magnifier + legacy:63 — A backlit tracing box reveals the crisp square edges of a pixel sprite under a magnifying lens.

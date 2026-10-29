@@ -91,6 +91,6 @@ Each individual source should be viewed at 35px/90px in Light/Dark themes; no pa
 | 85 | Skyship Port Map | <img src="../client/assets/v80/skyship-port-map.svg" width="35" height="35" /> | <img src="../client/assets/v80/skyship-port-map.svg" width="90" height="90" /> |
 | 86 | Solar Wildlife Monitor | <img src="../client/assets/v80/solar-wildlife-monitor.svg" width="35" height="35" /> | <img src="../client/assets/v80/solar-wildlife-monitor.svg" width="90" height="90" /> |
 | 87 | Moonlit Ranger Camp | <img src="../client/assets/v80/moonlit-ranger-camp.svg" width="35" height="35" /> | <img src="../client/assets/v80/moonlit-ranger-camp.svg" width="90" height="90" /> |
-| 88 | Arcade Prize Counter | <img src="../client/assets/v80/arcade-prize-counter.svg" width="35" height="35" /> | <img src="../client/assets/v80/arcade-prize-counter.svg" width="90" height="90" /> |
+| 88 | Championship Ticket Exchange | <img src="../client/assets/v80/championship-ticket-exchange.svg" width="35" height="35" /> | <img src="../client/assets/v80/championship-ticket-exchange.svg" width="90" height="90" /> |
 | 89 | Game Archive Catalogue | <img src="../client/assets/v80/game-archive-catalogue.svg" width="35" height="35" /> | <img src="../client/assets/v80/game-archive-catalogue.svg" width="90" height="90" /> |
 | 90 | Pixel Sprite Lightbox | <img src="../client/assets/v80/pixel-sprite-lightbox.svg" width="35" height="35" /> | <img src="../client/assets/v80/pixel-sprite-lightbox.svg" width="90" height="90" /> |

@@ -1059,16 +1059,16 @@
       "path": "client/assets/v80/moonlit-ranger-camp.svg"
     },
     {
-      "id": "organic80:arcade-prize-counter",
-      "name": "Arcade Prize Counter",
+      "id": "organic80:championship-ticket-exchange",
+      "name": "Championship Ticket Exchange",
       "category": "arcade",
-      "summary": "An arcade rewards counter trades stamped champion tickets for plush prizes and small trophies.",
+      "summary": "A championship rewards desk exchanges victory tickets for arcade collectibles and trophies.",
       "ingredients": [
         "organic80:champion-ticket-voucher",
         "legacy:60"
       ],
       "art_mode": "bespoke-subject",
-      "path": "client/assets/v80/arcade-prize-counter.svg"
+      "path": "client/assets/v80/championship-ticket-exchange.svg"
     },
     {
       "id": "organic80:game-archive-catalogue",
