@@ -1,3 +1,7 @@
+# 35K Alchemy — V80A: 5,580 elements / 13,917 recipes
+
+Third 200-element cycle: eight hand-authored discoveries (8/200, 192 remain), each with a unique deterministic recipe and a bespoke SVG. No Settings, Family Only profiles, reward contract or old recipes altered. See [V80 handoff](HANDOFF_V80.md) and [35px art review](docs/V80_ART_REVIEW.md).
+
 # 35K Alchemy — V79: 5,572 elements and 13,909 recipes
 
 V79 completes the second 200-element cycle (V76 through V79). The new 50 discoveries each have their own source SVG, with older IDs, recipes, Settings and saved progress preserved. See [V79 art review](docs/V79_ART_REVIEW.md).

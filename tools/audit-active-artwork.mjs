@@ -5,7 +5,7 @@
  * It does not recognise character likenesses or protect names/marks automatically.
  */
 import {readFileSync} from 'node:fs';
-const versions=[32,34,37,38,40,41,42,43,44,45,46,47,50,52,53,55,56,57,58,59,61,62,63,65,66,67,68,69,70,71,72,73,74,75,76,77,78,79];
+const versions=[32,34,37,38,40,41,42,43,44,45,46,47,50,52,53,55,56,57,58,59,61,62,63,65,66,67,68,69,70,71,72,73,74,75,76,77,78,79,80];
 const sources=[...versions.map(v=>'organic-art-v'+v+'.js'),'gameverse-art-v30-semantic.js'];
 let examined=0, failures=[], groups=[];
 const unsafe=/<(?:script|image|text|foreignObject|iframe|audio|video)\b|\s(?:href|xlink:href|onload|onerror|onclick|onmouseover)\s*=|\b(?:javascript:|data:image\/(?:png|jpe?g|webp|gif))|\burl\s*\(\s*['"]?\s*https?:/i;
@@ -43,6 +43,9 @@ for(const item of v78Approved.new_items){
 const v79Approved=JSON.parse(readFileSync(new URL('../shared/v79-approved.json',import.meta.url),'utf8'));
 const v79=(await import('../client/src/organic-art-v79.js')).ORGANIC_ART_V79;
 for(const item of v79Approved.new_items){const key=item.name.toLowerCase(),raw=readFileSync(new URL('../'+item.path,import.meta.url),'utf8');if(v79[key]!==raw)failures.push({source:item.path,key,why:'V79 runtime/source SVG mismatch'});}
+const v80Approved=JSON.parse(readFileSync(new URL('../shared/v80-approved.json',import.meta.url),'utf8'));
+const v80=(await import('../client/src/organic-art-v80.js')).ORGANIC_ART_V80;
+for(const item of v80Approved.new_items){const key=item.name.toLowerCase(),raw=readFileSync(new URL('../'+item.path,import.meta.url),'utf8');if(v80[key]!==raw)failures.push({source:item.path,key,why:'V80 runtime/source SVG mismatch'});}
 if(failures.length){
   console.error(JSON.stringify({examined,failures:failures.slice(0,24)},null,2));
   process.exitCode=1;

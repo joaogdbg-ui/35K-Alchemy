@@ -1,0 +1,114 @@
+{
+  "version": 80,
+  "cohort_count": 8,
+  "expansion_goal": 200,
+  "expansion_progress": 8,
+  "remaining_to_goal": 192,
+  "cycle_complete": false,
+  "base_catalog": {
+    "elements": 5572,
+    "recipes": 13909
+  },
+  "expected_catalog": {
+    "elements": 5580,
+    "recipes": 13917
+  },
+  "new_items": [
+    {
+      "id": "organic80:floating-harbor-gate",
+      "name": "Floating Harbor Gate",
+      "category": "fantasy",
+      "summary": "A docking arch combines a beacon with mooring cables to guide skyships safely into a floating port.",
+      "ingredients": [
+        "organic79:sky-dock-beacon",
+        "organic79:airship-anchor-winch"
+      ],
+      "art_mode": "bespoke-subject",
+      "path": "client/assets/v80/floating-harbor-gate.svg"
+    },
+    {
+      "id": "organic80:glass-firefly-lantern",
+      "name": "Glass Firefly Lantern",
+      "category": "nature",
+      "summary": "A curved glass lantern shelters luminous fireflies and brings a miniature garden into the night.",
+      "ingredients": [
+        "organic79:firefly-garden-terrarium",
+        "organic79:aurora-desk-lantern"
+      ],
+      "art_mode": "bespoke-subject",
+      "path": "client/assets/v80/glass-firefly-lantern.svg"
+    },
+    {
+      "id": "organic80:pixel-calibration-lens",
+      "name": "Pixel Calibration Lens",
+      "category": "technology",
+      "summary": "An optical calibrator magnifies a display's individual pixels against bright reference color targets.",
+      "ingredients": [
+        "organic79:screen-color-chart",
+        "organic79:pixel-inspection-lens"
+      ],
+      "art_mode": "bespoke-subject",
+      "path": "client/assets/v80/pixel-calibration-lens.svg"
+    },
+    {
+      "id": "organic80:arcade-dance-platform",
+      "name": "Arcade Dance Platform",
+      "category": "arcade",
+      "summary": "An illuminated dance platform responds to chiptune beats while colored spotlights sweep the floor.",
+      "ingredients": [
+        "organic79:chiptune-speaker-tower",
+        "organic79:dance-light-controller"
+      ],
+      "art_mode": "bespoke-subject",
+      "path": "client/assets/v80/arcade-dance-platform.svg"
+    },
+    {
+      "id": "organic80:cartridge-archive-vault",
+      "name": "Cartridge Archive Vault",
+      "category": "technology",
+      "summary": "A locked preservation cabinet safeguards rows of restored game cartridges behind its reinforced door.",
+      "ingredients": [
+        "organic79:encrypted-save-vault",
+        "organic79:game-collection-shelf"
+      ],
+      "art_mode": "bespoke-subject",
+      "path": "client/assets/v80/cartridge-archive-vault.svg"
+    },
+    {
+      "id": "organic80:forest-warning-post",
+      "name": "Forest Warning Post",
+      "category": "fantasy",
+      "summary": "A wooden signal post joins a clear woodland arrow and a hanging alarm bell for traveling explorers.",
+      "ingredients": [
+        "organic79:moonlit-trail-sign",
+        "organic79:woodland-alarm-bell"
+      ],
+      "art_mode": "bespoke-subject",
+      "path": "client/assets/v80/forest-warning-post.svg"
+    },
+    {
+      "id": "organic80:sun-powered-charge-dock",
+      "name": "Sun-Powered Charge Dock",
+      "category": "technology",
+      "summary": "An angled solar collector supplies a compact outdoor charger that powers two removable battery cells.",
+      "ingredients": [
+        "organic79:solar-test-bench",
+        "organic79:dual-battery-rack"
+      ],
+      "art_mode": "bespoke-subject",
+      "path": "client/assets/v80/sun-powered-charge-dock.svg"
+    },
+    {
+      "id": "organic80:crystal-quest-compass",
+      "name": "Crystal Quest Compass",
+      "category": "fantasy",
+      "summary": "A brass treasure compass hides a faceted crystal whose needle points to secret puzzle chambers.",
+      "ingredients": [
+        "organic79:treasure-survey-kit",
+        "organic79:crystal-maze-box"
+      ],
+      "art_mode": "bespoke-subject",
+      "path": "client/assets/v80/crystal-quest-compass.svg"
+    }
+  ]
+}
