@@ -1,0 +1,122 @@
+[
+  {
+    "id": "organic78:chiptune-concert-stage",
+    "name": "Chiptune Concert Stage",
+    "ingredients": [
+      "organic77:pixel-orchestra",
+      "legacy:209"
+    ],
+    "category": "music",
+    "summary": "A tiny pixel-music ensemble performs beneath the lights of a miniature theater.",
+    "path": "client/assets/v78/chiptune-concert-stage.svg",
+    "art_mode": "bespoke-subject"
+  },
+  {
+    "id": "organic78:rhythm-kick-drum",
+    "name": "Rhythm Kick Drum",
+    "ingredients": [
+      "organic77:rhythm-foot-pedal",
+      "legacy:239"
+    ],
+    "category": "music",
+    "summary": "A bright bass drum responds to foot pedal taps with a deep rhythmic beat.",
+    "path": "client/assets/v78/rhythm-kick-drum.svg",
+    "art_mode": "bespoke-subject"
+  },
+  {
+    "id": "organic78:dance-floor-spotlight",
+    "name": "Dance Floor Spotlight",
+    "ingredients": [
+      "organic77:dance-floor-tiles",
+      "legacy:63"
+    ],
+    "category": "music",
+    "summary": "A rotating stage lamp paints a colorful circle across a dancing floor.",
+    "path": "client/assets/v78/dance-floor-spotlight.svg",
+    "art_mode": "bespoke-subject"
+  },
+  {
+    "id": "organic78:storyboard-flipbook",
+    "name": "Storyboard Flipbook",
+    "ingredients": [
+      "organic77:indie-storyboard",
+      "legacy:220"
+    ],
+    "category": "gamecraft",
+    "summary": "A thick stack of illustrated cards shows an animated scene frame by frame.",
+    "path": "client/assets/v78/storyboard-flipbook.svg",
+    "art_mode": "bespoke-subject"
+  },
+  {
+    "id": "organic78:tournament-prize-desk",
+    "name": "Tournament Prize Desk",
+    "ingredients": [
+      "organic77:arcade-token-tray",
+      "legacy:227"
+    ],
+    "category": "arcade",
+    "summary": "A tournament counter displays its trophy beside stacks of arcade tokens.",
+    "path": "client/assets/v78/tournament-prize-desk.svg",
+    "art_mode": "bespoke-subject"
+  },
+  {
+    "id": "organic78:two-player-war-table",
+    "name": "Two-Player War Table",
+    "ingredients": [
+      "organic77:co-op-battle-map",
+      "legacy:107"
+    ],
+    "category": "board",
+    "summary": "Two opposing seats share one tabletop battle map with colorful unit markers.",
+    "path": "client/assets/v78/two-player-war-table.svg",
+    "art_mode": "bespoke-subject"
+  },
+  {
+    "id": "organic78:time-trial-medal",
+    "name": "Time Trial Medal",
+    "ingredients": [
+      "organic77:speedrun-stopwatch",
+      "legacy:108"
+    ],
+    "category": "culture",
+    "summary": "A polished medal celebrates finishing a challenging stage in record time.",
+    "path": "client/assets/v78/time-trial-medal.svg",
+    "art_mode": "bespoke-subject"
+  },
+  {
+    "id": "organic78:museum-exhibit-plaque",
+    "name": "Museum Exhibit Plaque",
+    "ingredients": [
+      "organic77:game-museum-ticket",
+      "legacy:51"
+    ],
+    "category": "culture",
+    "summary": "A brass museum label explains the story behind a classic gaming artifact.",
+    "path": "client/assets/v78/museum-exhibit-plaque.svg",
+    "art_mode": "bespoke-subject"
+  },
+  {
+    "id": "organic78:pixel-art-cartridge-sticker",
+    "name": "Pixel Art Cartridge Sticker",
+    "ingredients": [
+      "organic77:retro-cartridge-label",
+      "legacy:219"
+    ],
+    "category": "gamecraft",
+    "summary": "A colorful adhesive pixel illustration makes a cartridge instantly recognizable.",
+    "path": "client/assets/v78/pixel-art-cartridge-sticker.svg",
+    "art_mode": "bespoke-subject"
+  },
+  {
+    "id": "organic78:mystery-reward-crate",
+    "name": "Mystery Reward Crate",
+    "ingredients": [
+      "organic77:puzzle-prize-capsule",
+      "legacy:561"
+    ],
+    "category": "arcade",
+    "summary": "A mysterious prize crate opens after the player completes a clever puzzle.",
+    "path": "client/assets/v78/mystery-reward-crate.svg",
+    "art_mode": "bespoke-subject"
+  }
+]
