@@ -6,7 +6,7 @@ test('Mock labels replace console and entertainment identities, preserving input
  ['Nintendo Switch 2 Cartridge Case','GlidePort II Cartridge Case'],
  ['Game Boy Camera Album','PocketNova Camera Album'],
  ['PlayStation 5 Vertical Cooling Stand','Qelvorune 5 Vertical Cooling Stand'],
- ['Xbox Series X Ventilation Grille','AsterCube Zenith Ventilation Grille'],
+ ['Xbox Series X Ventilation Grille','Zerqadyn Zenith Ventilation Grille'],
  ['Sonic the Hedgehog','Windrush the Hedgehog'],
  ['Pokémon Red','Critter Atlas Red'],
  ['Dragon Ball Z: Budokai 3','Sky Orbs Z: Budokai 3']
