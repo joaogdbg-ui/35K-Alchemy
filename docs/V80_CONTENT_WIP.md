@@ -1,6 +1,6 @@
-# V80B — content checkpoint (40/200; 160 remaining)
+# V80 — internal work in progress (53/200)
 
-Integrated Classic target after validation: **5612 elements / 13949 deterministic recipes**. V80A's first eight items are immutable. This cohort adds 32 original drawings and recipes across harbor, firefly forest, arcade, cartridges, solar equipment and crystal fantasy. Many recipes bridge newer subjects with accessible legacy elements; none rewrites an existing output.
+Unmerged WIP content only: 5625 hypothetical integrated elements and 13962 fixed recipes in feature branch. Baseline main remains 5,612 / 13,949. Do not publish until +200 since baseline: +160 V80 and +40 V81.
 
 1. **Floating Harbor Gate** = organic79:sky-dock-beacon + organic79:airship-anchor-winch — A docking arch combines a beacon with mooring cables to guide skyships safely into a floating port.
 2. **Glass Firefly Lantern** = organic79:firefly-garden-terrarium + organic79:aurora-desk-lantern — A curved glass lantern shelters luminous fireflies and brings a miniature garden into the night.
@@ -42,5 +42,16 @@ Integrated Classic target after validation: **5612 elements / 13949 deterministi
 38. **Crystal Cave Beacon** = organic80:crystal-quest-compass + legacy:37 — A luminous crystal beacon reflects off cavern walls to mark a safe route underground.
 39. **Crystal Maze Door** = organic80:crystal-quest-compass + organic79:crystal-gear-lock — A stone maze door unlocks when a central crystal aligns with the compass needle.
 40. **Enchanted Compass Rose** = organic80:crystal-quest-compass + legacy:125 — A magical compass rose points its crystal petals toward a nearby enchantment.
-
-**Manual visual review at 35px, mobile gameplay and IP clearance still necessary.**
+41. **Rhythm Ticket Dispenser** = organic80:arcade-dance-platform + legacy:106 — A compact machine prints colorful reward tickets after a successful rhythm-game performance.
+42. **Arcade Trophy Cabinet** = organic80:arcade-dance-trophy + legacy:172 — A glass-fronted arcade machine displays the golden trophy awarded to its reigning dance champion.
+43. **Motion Capture Mat** = organic80:arcade-score-camera + legacy:86 — A pressure-sensitive floor mat tracks dancers' feet in synchrony with an overhead motion camera.
+44. **Cooperative Dance Floor** = organic80:arcade-dance-platform + organic79:co-op-rally-banner — Two players share a split-color dance floor, coordinating their steps beneath a teamwork banner.
+45. **Arcade Leaderboard Screen** = organic80:arcade-rhythm-tournament + legacy:76 — A tall arcade scoreboard displays three ranking places above a dancing crowd.
+46. **Speedrun Replay Booth** = organic80:arcade-score-camera + legacy:91 — A replay kiosk lets competitors study recorded gameplay frame by frame after a timed challenge.
+47. **Rhythm Step Chart** = organic80:arcade-rhythm-tournament + legacy:106 — A printed step chart uses arrows and beat markers to teach the timing of a tournament dance sequence.
+48. **Cartridge Inspection Loupe** = organic80:cartridge-repair-bench + organic80:pixel-art-magnifier — A jeweler-style loupe reveals tiny copper contacts along the edge of an opened game cartridge.
+49. **Portable Pixel Camera** = organic80:pixel-camera-viewfinder + legacy:110 — A pocket camera uses a pixel grid in its miniature viewfinder to frame digital snapshots.
+50. **Flood Level Gauge** = organic80:harbor-warning-buoy + legacy:39 — A floating marker carries a graduated water-level ruler to warn nearby riverside settlements.
+51. **Tidal Weather Beacon** = organic80:harbor-wind-vane + legacy:10 — A mast topped with a weather vane measures sea winds beside an illuminated tidal indicator.
+52. **Skyship Cargo Manifest** = organic80:harbor-cargo-crane + legacy:106 — A stamped loading ledger lists crates, weights, and destinations for an arriving airship.
+53. **Solar Trail Compass** = organic80:solar-charging-backpack + organic80:crystal-quest-compass — A hiker's digital compass draws power from a folding solar panel during long wilderness journeys.

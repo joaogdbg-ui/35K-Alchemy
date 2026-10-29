@@ -1,17 +1,17 @@
 {
   "version": 80,
-  "cohort_count": 40,
+  "cohort_count": 53,
   "expansion_goal": 200,
-  "expansion_progress": 40,
-  "remaining_to_goal": 160,
+  "expansion_progress": 53,
+  "remaining_to_goal": 147,
   "cycle_complete": false,
   "base_catalog": {
     "elements": 5572,
     "recipes": 13909
   },
   "expected_catalog": {
-    "elements": 5612,
-    "recipes": 13949
+    "elements": 5625,
+    "recipes": 13962
   },
   "new_items": [
     {
@@ -493,6 +493,162 @@
       ],
       "art_mode": "bespoke-subject",
       "path": "client/assets/v80/enchanted-compass-rose.svg"
+    },
+    {
+      "id": "organic80:rhythm-ticket-dispenser",
+      "name": "Rhythm Ticket Dispenser",
+      "category": "arcade",
+      "summary": "A compact machine prints colorful reward tickets after a successful rhythm-game performance.",
+      "ingredients": [
+        "organic80:arcade-dance-platform",
+        "legacy:106"
+      ],
+      "art_mode": "bespoke-subject",
+      "path": "client/assets/v80/rhythm-ticket-dispenser.svg"
+    },
+    {
+      "id": "organic80:arcade-trophy-cabinet",
+      "name": "Arcade Trophy Cabinet",
+      "category": "arcade",
+      "summary": "A glass-fronted arcade machine displays the golden trophy awarded to its reigning dance champion.",
+      "ingredients": [
+        "organic80:arcade-dance-trophy",
+        "legacy:172"
+      ],
+      "art_mode": "bespoke-subject",
+      "path": "client/assets/v80/arcade-trophy-cabinet.svg"
+    },
+    {
+      "id": "organic80:motion-capture-mat",
+      "name": "Motion Capture Mat",
+      "category": "technology",
+      "summary": "A pressure-sensitive floor mat tracks dancers' feet in synchrony with an overhead motion camera.",
+      "ingredients": [
+        "organic80:arcade-score-camera",
+        "legacy:86"
+      ],
+      "art_mode": "bespoke-subject",
+      "path": "client/assets/v80/motion-capture-mat.svg"
+    },
+    {
+      "id": "organic80:cooperative-dance-floor",
+      "name": "Cooperative Dance Floor",
+      "category": "arcade",
+      "summary": "Two players share a split-color dance floor, coordinating their steps beneath a teamwork banner.",
+      "ingredients": [
+        "organic80:arcade-dance-platform",
+        "organic79:co-op-rally-banner"
+      ],
+      "art_mode": "bespoke-subject",
+      "path": "client/assets/v80/cooperative-dance-floor.svg"
+    },
+    {
+      "id": "organic80:arcade-leaderboard-screen",
+      "name": "Arcade Leaderboard Screen",
+      "category": "arcade",
+      "summary": "A tall arcade scoreboard displays three ranking places above a dancing crowd.",
+      "ingredients": [
+        "organic80:arcade-rhythm-tournament",
+        "legacy:76"
+      ],
+      "art_mode": "bespoke-subject",
+      "path": "client/assets/v80/arcade-leaderboard-screen.svg"
+    },
+    {
+      "id": "organic80:speedrun-replay-booth",
+      "name": "Speedrun Replay Booth",
+      "category": "arcade",
+      "summary": "A replay kiosk lets competitors study recorded gameplay frame by frame after a timed challenge.",
+      "ingredients": [
+        "organic80:arcade-score-camera",
+        "legacy:91"
+      ],
+      "art_mode": "bespoke-subject",
+      "path": "client/assets/v80/speedrun-replay-booth.svg"
+    },
+    {
+      "id": "organic80:rhythm-step-chart",
+      "name": "Rhythm Step Chart",
+      "category": "culture",
+      "summary": "A printed step chart uses arrows and beat markers to teach the timing of a tournament dance sequence.",
+      "ingredients": [
+        "organic80:arcade-rhythm-tournament",
+        "legacy:106"
+      ],
+      "art_mode": "bespoke-subject",
+      "path": "client/assets/v80/rhythm-step-chart.svg"
+    },
+    {
+      "id": "organic80:cartridge-inspection-loupe",
+      "name": "Cartridge Inspection Loupe",
+      "category": "technology",
+      "summary": "A jeweler-style loupe reveals tiny copper contacts along the edge of an opened game cartridge.",
+      "ingredients": [
+        "organic80:cartridge-repair-bench",
+        "organic80:pixel-art-magnifier"
+      ],
+      "art_mode": "bespoke-subject",
+      "path": "client/assets/v80/cartridge-inspection-loupe.svg"
+    },
+    {
+      "id": "organic80:portable-pixel-camera",
+      "name": "Portable Pixel Camera",
+      "category": "technology",
+      "summary": "A pocket camera uses a pixel grid in its miniature viewfinder to frame digital snapshots.",
+      "ingredients": [
+        "organic80:pixel-camera-viewfinder",
+        "legacy:110"
+      ],
+      "art_mode": "bespoke-subject",
+      "path": "client/assets/v80/portable-pixel-camera.svg"
+    },
+    {
+      "id": "organic80:flood-level-gauge",
+      "name": "Flood Level Gauge",
+      "category": "science",
+      "summary": "A floating marker carries a graduated water-level ruler to warn nearby riverside settlements.",
+      "ingredients": [
+        "organic80:harbor-warning-buoy",
+        "legacy:39"
+      ],
+      "art_mode": "bespoke-subject",
+      "path": "client/assets/v80/flood-level-gauge.svg"
+    },
+    {
+      "id": "organic80:tidal-weather-beacon",
+      "name": "Tidal Weather Beacon",
+      "category": "science",
+      "summary": "A mast topped with a weather vane measures sea winds beside an illuminated tidal indicator.",
+      "ingredients": [
+        "organic80:harbor-wind-vane",
+        "legacy:10"
+      ],
+      "art_mode": "bespoke-subject",
+      "path": "client/assets/v80/tidal-weather-beacon.svg"
+    },
+    {
+      "id": "organic80:skyship-cargo-manifest",
+      "name": "Skyship Cargo Manifest",
+      "category": "culture",
+      "summary": "A stamped loading ledger lists crates, weights, and destinations for an arriving airship.",
+      "ingredients": [
+        "organic80:harbor-cargo-crane",
+        "legacy:106"
+      ],
+      "art_mode": "bespoke-subject",
+      "path": "client/assets/v80/skyship-cargo-manifest.svg"
+    },
+    {
+      "id": "organic80:solar-trail-compass",
+      "name": "Solar Trail Compass",
+      "category": "technology",
+      "summary": "A hiker's digital compass draws power from a folding solar panel during long wilderness journeys.",
+      "ingredients": [
+        "organic80:solar-charging-backpack",
+        "organic80:crystal-quest-compass"
+      ],
+      "art_mode": "bespoke-subject",
+      "path": "client/assets/v80/solar-trail-compass.svg"
     }
   ]
 }
