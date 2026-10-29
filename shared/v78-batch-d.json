@@ -15,7 +15,7 @@
     "id": "organic78:pond-sample-slide",
     "name": "Pond Sample Slide",
     "ingredients": [
-      "organic77:microscope-slide",
+      "organic77:microscope-focus-wheel",
       "organic38:pond"
     ],
     "category": "science",

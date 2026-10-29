@@ -389,7 +389,7 @@
       "id": "organic78:pond-sample-slide",
       "name": "Pond Sample Slide",
       "ingredients": [
-        "organic77:microscope-slide",
+        "organic77:microscope-focus-wheel",
         "organic38:pond"
       ],
       "category": "science",
@@ -545,7 +545,7 @@
       "id": "organic78:tournament-prize-desk",
       "name": "Tournament Prize Desk",
       "ingredients": [
-        "organic77:arcade-token-tray",
+        "organic77:arcade-prize-bell",
         "legacy:227"
       ],
       "category": "arcade",

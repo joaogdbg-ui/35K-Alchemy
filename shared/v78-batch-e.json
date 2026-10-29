@@ -51,7 +51,7 @@
     "id": "organic78:tournament-prize-desk",
     "name": "Tournament Prize Desk",
     "ingredients": [
-      "organic77:arcade-token-tray",
+      "organic77:arcade-prize-bell",
       "legacy:227"
     ],
     "category": "arcade",
