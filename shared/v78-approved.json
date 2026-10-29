@@ -1,0 +1,617 @@
+{
+  "version": 78,
+  "cohort_count": 50,
+  "expansion_progress": 150,
+  "expansion_goal": 200,
+  "remaining_to_goal": 50,
+  "base_catalog": {
+    "elements": 5472,
+    "recipes": 13809
+  },
+  "expected_catalog": {
+    "elements": 5522,
+    "recipes": 13859
+  },
+  "new_items": [
+    {
+      "id": "organic78:hidden-trail-marker",
+      "name": "Hidden Trail Marker",
+      "ingredients": [
+        "organic77:pixel-compass",
+        "legacy:20"
+      ],
+      "category": "fantasy",
+      "summary": "A painted wooden marker makes the secret forest route easy to follow.",
+      "path": "client/assets/v78/hidden-trail-marker.svg",
+      "art_mode": "bespoke-subject"
+    },
+    {
+      "id": "organic78:night-checkpoint-bell",
+      "name": "Night Checkpoint Bell",
+      "ingredients": [
+        "organic77:checkpoint-lantern",
+        "legacy:211"
+      ],
+      "category": "fantasy",
+      "summary": "A small brass bell marks the moment a night journey can safely resume.",
+      "path": "client/assets/v78/night-checkpoint-bell.svg",
+      "art_mode": "bespoke-subject"
+    },
+    {
+      "id": "organic78:bridge-construction-plan",
+      "name": "Bridge Construction Plan",
+      "ingredients": [
+        "organic77:puzzle-bridge",
+        "organic77:level-blueprint"
+      ],
+      "category": "gamecraft",
+      "summary": "A folded architectural plan reveals the exact layout of a puzzle bridge.",
+      "path": "client/assets/v78/bridge-construction-plan.svg",
+      "art_mode": "bespoke-subject"
+    },
+    {
+      "id": "organic78:cloud-pier",
+      "name": "Cloud Pier",
+      "ingredients": [
+        "organic77:floating-platform",
+        "organic77:sky-harbor"
+      ],
+      "category": "fantasy",
+      "summary": "A wooden landing pier joins a floating island to visiting airships.",
+      "path": "client/assets/v78/cloud-pier.svg",
+      "art_mode": "bespoke-subject"
+    },
+    {
+      "id": "organic78:hidden-gear-door",
+      "name": "Hidden Gear Door",
+      "ingredients": [
+        "organic77:secret-passage",
+        "organic77:clockwork-gate"
+      ],
+      "category": "fantasy",
+      "summary": "A disguised wall panel swings open when its concealed gears align.",
+      "path": "client/assets/v78/hidden-gear-door.svg",
+      "art_mode": "bespoke-subject"
+    },
+    {
+      "id": "organic78:buried-treasure-chart",
+      "name": "Buried Treasure Chart",
+      "ingredients": [
+        "organic77:treasure-radar",
+        "legacy:354"
+      ],
+      "category": "gamecraft",
+      "summary": "A map annotated with scan readings pinpoints a forgotten chest underground.",
+      "path": "client/assets/v78/buried-treasure-chart.svg",
+      "art_mode": "bespoke-subject"
+    },
+    {
+      "id": "organic78:quest-wax-seal",
+      "name": "Quest Wax Seal",
+      "ingredients": [
+        "organic77:quest-journal",
+        "legacy:33"
+      ],
+      "category": "culture",
+      "summary": "A golden wax emblem stamps completed quests inside a traveling journal.",
+      "path": "client/assets/v78/quest-wax-seal.svg",
+      "art_mode": "bespoke-subject"
+    },
+    {
+      "id": "organic78:final-gate-keyhole",
+      "name": "Final Gate Keyhole",
+      "ingredients": [
+        "organic77:boss-key",
+        "organic77:clockwork-gate"
+      ],
+      "category": "fantasy",
+      "summary": "An enormous lock carved into stone waits for a legendary boss key.",
+      "path": "client/assets/v78/final-gate-keyhole.svg",
+      "art_mode": "bespoke-subject"
+    },
+    {
+      "id": "organic78:time-trial-route",
+      "name": "Time Trial Route",
+      "ingredients": [
+        "organic77:speedrun-stopwatch",
+        "organic77:quest-journal"
+      ],
+      "category": "gamecraft",
+      "summary": "A hand-marked route highlights the quickest possible path through a stage.",
+      "path": "client/assets/v78/time-trial-route.svg",
+      "art_mode": "bespoke-subject"
+    },
+    {
+      "id": "organic78:team-waypoint-flag",
+      "name": "Team Waypoint Flag",
+      "ingredients": [
+        "organic77:pixel-compass",
+        "organic77:co-op-battle-map"
+      ],
+      "category": "gamecraft",
+      "summary": "A colorful marker shows both players where to regroup on a shared map.",
+      "path": "client/assets/v78/team-waypoint-flag.svg",
+      "art_mode": "bespoke-subject"
+    },
+    {
+      "id": "organic78:aurora-crystal-lamp",
+      "name": "Aurora Crystal Lamp",
+      "ingredients": [
+        "organic77:crystal-lantern",
+        "legacy:142"
+      ],
+      "category": "fantasy",
+      "summary": "A faceted night lamp bends starlight into moving ribbons of color.",
+      "path": "client/assets/v78/aurora-crystal-lamp.svg",
+      "art_mode": "bespoke-subject"
+    },
+    {
+      "id": "organic78:snow-observatory",
+      "name": "Snow Observatory",
+      "ingredients": [
+        "organic77:frozen-tower",
+        "organic32:telescope"
+      ],
+      "category": "science",
+      "summary": "A frost-covered observation tower points its telescope toward the winter sky.",
+      "path": "client/assets/v78/snow-observatory.svg",
+      "art_mode": "bespoke-subject"
+    },
+    {
+      "id": "organic78:shrine-offering-bowl",
+      "name": "Shrine Offering Bowl",
+      "ingredients": [
+        "organic77:forest-shrine",
+        "legacy:561"
+      ],
+      "category": "fantasy",
+      "summary": "A carved bowl gathers a small gift of gems at the heart of a quiet shrine.",
+      "path": "client/assets/v78/shrine-offering-bowl.svg",
+      "art_mode": "bespoke-subject"
+    },
+    {
+      "id": "organic78:firefly-pond-dome",
+      "name": "Firefly Pond Dome",
+      "ingredients": [
+        "organic77:firefly-globe",
+        "legacy:40"
+      ],
+      "category": "nature",
+      "summary": "A clear dome protects a miniature pond that glitters with living lights.",
+      "path": "client/assets/v78/firefly-pond-dome.svg",
+      "art_mode": "bespoke-subject"
+    },
+    {
+      "id": "organic78:dragon-egg-cradle",
+      "name": "Dragon Egg Cradle",
+      "ingredients": [
+        "organic77:dragon-nest",
+        "legacy:24"
+      ],
+      "category": "fantasy",
+      "summary": "A sturdy wooden cradle keeps a precious scaled egg safe from rolling away.",
+      "path": "client/assets/v78/dragon-egg-cradle.svg",
+      "art_mode": "bespoke-subject"
+    },
+    {
+      "id": "organic78:moonbridge-watchpost",
+      "name": "Moonbridge Watchpost",
+      "ingredients": [
+        "organic77:moonlit-bridge",
+        "legacy:562"
+      ],
+      "category": "fantasy",
+      "summary": "A small moonlit guardhouse watches travelers crossing an ancient bridge.",
+      "path": "client/assets/v78/moonbridge-watchpost.svg",
+      "art_mode": "bespoke-subject"
+    },
+    {
+      "id": "organic78:village-wind-chimes",
+      "name": "Village Wind Chimes",
+      "ingredients": [
+        "organic77:windmill-village",
+        "legacy:62"
+      ],
+      "category": "music",
+      "summary": "Hanging metal chimes turn the village breeze into a gentle melody.",
+      "path": "client/assets/v78/village-wind-chimes.svg",
+      "art_mode": "bespoke-subject"
+    },
+    {
+      "id": "organic78:airship-mooring-tower",
+      "name": "Airship Mooring Tower",
+      "ingredients": [
+        "organic77:sky-harbor",
+        "legacy:14"
+      ],
+      "category": "fantasy",
+      "summary": "An elevated mooring mast steadies a visiting skyship above the harbor.",
+      "path": "client/assets/v78/airship-mooring-tower.svg",
+      "art_mode": "bespoke-subject"
+    },
+    {
+      "id": "organic78:gem-miner-pickaxe",
+      "name": "Gem Miner Pickaxe",
+      "ingredients": [
+        "organic77:gemstone-cavern",
+        "legacy:29"
+      ],
+      "category": "accessory",
+      "summary": "A sturdy pickaxe chips glowing crystals out of a deep underground vein.",
+      "path": "client/assets/v78/gem-miner-pickaxe.svg",
+      "art_mode": "bespoke-subject"
+    },
+    {
+      "id": "organic78:village-sundial",
+      "name": "Village Sundial",
+      "ingredients": [
+        "organic77:solar-clock",
+        "legacy:46"
+      ],
+      "category": "culture",
+      "summary": "A sunny village square uses a stone sundial to keep track of market time.",
+      "path": "client/assets/v78/village-sundial.svg",
+      "art_mode": "bespoke-subject"
+    },
+    {
+      "id": "organic78:pocket-charge-meter",
+      "name": "Pocket Charge Meter",
+      "ingredients": [
+        "organic77:handheld-battery-tester",
+        "legacy:67"
+      ],
+      "category": "accessory",
+      "summary": "A compact dial reveals the exact charge remaining in a handheld battery.",
+      "path": "client/assets/v78/pocket-charge-meter.svg",
+      "art_mode": "bespoke-subject"
+    },
+    {
+      "id": "organic78:dustproof-game-case",
+      "name": "Dustproof Game Case",
+      "ingredients": [
+        "organic77:cartridge-dust-brush",
+        "legacy:23"
+      ],
+      "category": "accessory",
+      "summary": "A sealed clear case shields a prized game cartridge from grit and scratches.",
+      "path": "client/assets/v78/dustproof-game-case.svg",
+      "art_mode": "bespoke-subject"
+    },
+    {
+      "id": "organic78:arcade-button-tester",
+      "name": "Arcade Button Tester",
+      "ingredients": [
+        "organic77:arcade-button-panel",
+        "legacy:70"
+      ],
+      "category": "technology",
+      "summary": "A portable test board lights up whenever a joystick button works correctly.",
+      "path": "client/assets/v78/arcade-button-tester.svg",
+      "art_mode": "bespoke-subject"
+    },
+    {
+      "id": "organic78:backup-memory-vault",
+      "name": "Backup Memory Vault",
+      "ingredients": [
+        "organic77:memory-card-locker",
+        "legacy:14"
+      ],
+      "category": "technology",
+      "summary": "A stone-lined vault protects backup memory cards from dust and damage.",
+      "path": "client/assets/v78/backup-memory-vault.svg",
+      "art_mode": "bespoke-subject"
+    },
+    {
+      "id": "organic78:spring-arcade-lever",
+      "name": "Spring Arcade Lever",
+      "ingredients": [
+        "organic77:joystick-spring",
+        "legacy:172"
+      ],
+      "category": "arcade",
+      "summary": "An oversized spring joystick snaps back into place after every quick turn.",
+      "path": "client/assets/v78/spring-arcade-lever.svg",
+      "art_mode": "bespoke-subject"
+    },
+    {
+      "id": "organic78:color-reference-card",
+      "name": "Color Reference Card",
+      "ingredients": [
+        "organic77:screen-calibration-grid",
+        "legacy:106"
+      ],
+      "category": "gamecraft",
+      "summary": "A folded print reference helps match the colors of a pixel-art display.",
+      "path": "client/assets/v78/color-reference-card.svg",
+      "art_mode": "bespoke-subject"
+    },
+    {
+      "id": "organic78:twin-charging-dock",
+      "name": "Twin Charging Dock",
+      "ingredients": [
+        "organic77:controller-charging-stand",
+        "legacy:221"
+      ],
+      "category": "accessory",
+      "summary": "A dual-port stand charges two controllers before the next cooperative match.",
+      "path": "client/assets/v78/twin-charging-dock.svg",
+      "art_mode": "bespoke-subject"
+    },
+    {
+      "id": "organic78:echo-cabinet",
+      "name": "Echo Cabinet",
+      "ingredients": [
+        "organic77:retro-speaker-cabinet",
+        "legacy:37"
+      ],
+      "category": "technology",
+      "summary": "An acoustic cabinet carries long echoing sounds from a hidden cave.",
+      "path": "client/assets/v78/echo-cabinet.svg",
+      "art_mode": "bespoke-subject"
+    },
+    {
+      "id": "organic78:audio-wave-monitor",
+      "name": "Audio Wave Monitor",
+      "ingredients": [
+        "organic77:game-audio-mixer",
+        "legacy:76"
+      ],
+      "category": "technology",
+      "summary": "A waveform screen displays the shape of each note and sound effect.",
+      "path": "client/assets/v78/audio-wave-monitor.svg",
+      "art_mode": "bespoke-subject"
+    },
+    {
+      "id": "organic78:arcade-pixel-scanner",
+      "name": "Arcade Pixel Scanner",
+      "ingredients": [
+        "organic77:pixel-scan-monitor",
+        "legacy:151"
+      ],
+      "category": "technology",
+      "summary": "A handheld scanning arm checks each row of pixels on a game cartridge.",
+      "path": "client/assets/v78/arcade-pixel-scanner.svg",
+      "art_mode": "bespoke-subject"
+    },
+    {
+      "id": "organic78:solar-research-kit",
+      "name": "Solar Research Kit",
+      "ingredients": [
+        "organic77:solar-battery-cell",
+        "legacy:53"
+      ],
+      "category": "science",
+      "summary": "A field scientist packs a folding solar charger beside miniature test instruments.",
+      "path": "client/assets/v78/solar-research-kit.svg",
+      "art_mode": "bespoke-subject"
+    },
+    {
+      "id": "organic78:pond-sample-slide",
+      "name": "Pond Sample Slide",
+      "ingredients": [
+        "organic77:microscope-focus-wheel",
+        "organic38:pond"
+      ],
+      "category": "science",
+      "summary": "A drop of pond water reveals tiny swimming organisms under the microscope.",
+      "path": "client/assets/v78/pond-sample-slide.svg",
+      "art_mode": "bespoke-subject"
+    },
+    {
+      "id": "organic78:storm-lab-console",
+      "name": "Storm Lab Console",
+      "ingredients": [
+        "organic77:storm-sensor-beacon",
+        "organic77:circuit-lab-bench"
+      ],
+      "category": "technology",
+      "summary": "A compact laboratory console records lightning, rainfall and air pressure.",
+      "path": "client/assets/v78/storm-lab-console.svg",
+      "art_mode": "bespoke-subject"
+    },
+    {
+      "id": "organic78:magnetic-puzzle-box",
+      "name": "Magnetic Puzzle Box",
+      "ingredients": [
+        "organic77:puzzle-magnet-board",
+        "legacy:24"
+      ],
+      "category": "board",
+      "summary": "A wooden puzzle box opens only when every magnetic piece reaches its slot.",
+      "path": "client/assets/v78/magnetic-puzzle-box.svg",
+      "art_mode": "bespoke-subject"
+    },
+    {
+      "id": "organic78:secret-radio-receiver",
+      "name": "Secret Radio Receiver",
+      "ingredients": [
+        "organic77:signal-decoder",
+        "organic77:secret-passage"
+      ],
+      "category": "technology",
+      "summary": "An old radio inside a concealed compartment listens for coded messages.",
+      "path": "client/assets/v78/secret-radio-receiver.svg",
+      "art_mode": "bespoke-subject"
+    },
+    {
+      "id": "organic78:tactical-hologram",
+      "name": "Tactical Hologram",
+      "ingredients": [
+        "organic77:holographic-map-table",
+        "organic77:co-op-battle-map"
+      ],
+      "category": "technology",
+      "summary": "A glowing three-dimensional battle plan marks safe routes for the whole team.",
+      "path": "client/assets/v78/tactical-hologram.svg",
+      "art_mode": "bespoke-subject"
+    },
+    {
+      "id": "organic78:pocket-cooling-core",
+      "name": "Pocket Cooling Core",
+      "ingredients": [
+        "organic77:cooling-fan-module",
+        "organic77:handheld-battery-tester"
+      ],
+      "category": "technology",
+      "summary": "A replaceable cooling cartridge keeps a portable game system running smoothly.",
+      "path": "client/assets/v78/pocket-cooling-core.svg",
+      "art_mode": "bespoke-subject"
+    },
+    {
+      "id": "organic78:copper-sensor-net",
+      "name": "Copper Sensor Net",
+      "ingredients": [
+        "organic77:copper-circuit-loom",
+        "legacy:86"
+      ],
+      "category": "technology",
+      "summary": "A mesh of tiny copper sensors detects movement across a compact network.",
+      "path": "client/assets/v78/copper-sensor-net.svg",
+      "art_mode": "bespoke-subject"
+    },
+    {
+      "id": "organic78:neon-code-puzzle",
+      "name": "Neon Code Puzzle",
+      "ingredients": [
+        "organic77:neon-logic-display",
+        "legacy:224"
+      ],
+      "category": "gamecraft",
+      "summary": "A glowing logic puzzle challenges players to connect the right paths.",
+      "path": "client/assets/v78/neon-code-puzzle.svg",
+      "art_mode": "bespoke-subject"
+    },
+    {
+      "id": "organic78:crystal-light-spectrum",
+      "name": "Crystal Light Spectrum",
+      "ingredients": [
+        "organic77:crystal-lantern",
+        "organic77:screen-calibration-grid"
+      ],
+      "category": "science",
+      "summary": "A prism casts bands of colored light across a scientific calibration card.",
+      "path": "client/assets/v78/crystal-light-spectrum.svg",
+      "art_mode": "bespoke-subject"
+    },
+    {
+      "id": "organic78:chiptune-concert-stage",
+      "name": "Chiptune Concert Stage",
+      "ingredients": [
+        "organic77:pixel-orchestra",
+        "legacy:209"
+      ],
+      "category": "music",
+      "summary": "A tiny pixel-music ensemble performs beneath the lights of a miniature theater.",
+      "path": "client/assets/v78/chiptune-concert-stage.svg",
+      "art_mode": "bespoke-subject"
+    },
+    {
+      "id": "organic78:rhythm-kick-drum",
+      "name": "Rhythm Kick Drum",
+      "ingredients": [
+        "organic77:rhythm-foot-pedal",
+        "legacy:239"
+      ],
+      "category": "music",
+      "summary": "A bright bass drum responds to foot pedal taps with a deep rhythmic beat.",
+      "path": "client/assets/v78/rhythm-kick-drum.svg",
+      "art_mode": "bespoke-subject"
+    },
+    {
+      "id": "organic78:dance-floor-spotlight",
+      "name": "Dance Floor Spotlight",
+      "ingredients": [
+        "organic77:dance-floor-tiles",
+        "legacy:63"
+      ],
+      "category": "music",
+      "summary": "A rotating stage lamp paints a colorful circle across a dancing floor.",
+      "path": "client/assets/v78/dance-floor-spotlight.svg",
+      "art_mode": "bespoke-subject"
+    },
+    {
+      "id": "organic78:storyboard-flipbook",
+      "name": "Storyboard Flipbook",
+      "ingredients": [
+        "organic77:indie-storyboard",
+        "legacy:220"
+      ],
+      "category": "gamecraft",
+      "summary": "A thick stack of illustrated cards shows an animated scene frame by frame.",
+      "path": "client/assets/v78/storyboard-flipbook.svg",
+      "art_mode": "bespoke-subject"
+    },
+    {
+      "id": "organic78:tournament-prize-desk",
+      "name": "Tournament Prize Desk",
+      "ingredients": [
+        "organic77:arcade-prize-bell",
+        "legacy:227"
+      ],
+      "category": "arcade",
+      "summary": "A tournament counter displays its trophy beside stacks of arcade tokens.",
+      "path": "client/assets/v78/tournament-prize-desk.svg",
+      "art_mode": "bespoke-subject"
+    },
+    {
+      "id": "organic78:two-player-war-table",
+      "name": "Two-Player War Table",
+      "ingredients": [
+        "organic77:co-op-battle-map",
+        "legacy:107"
+      ],
+      "category": "board",
+      "summary": "Two opposing seats share one tabletop battle map with colorful unit markers.",
+      "path": "client/assets/v78/two-player-war-table.svg",
+      "art_mode": "bespoke-subject"
+    },
+    {
+      "id": "organic78:time-trial-medal",
+      "name": "Time Trial Medal",
+      "ingredients": [
+        "organic77:speedrun-stopwatch",
+        "legacy:108"
+      ],
+      "category": "culture",
+      "summary": "A polished medal celebrates finishing a challenging stage in record time.",
+      "path": "client/assets/v78/time-trial-medal.svg",
+      "art_mode": "bespoke-subject"
+    },
+    {
+      "id": "organic78:museum-exhibit-plaque",
+      "name": "Museum Exhibit Plaque",
+      "ingredients": [
+        "organic77:game-museum-ticket",
+        "legacy:51"
+      ],
+      "category": "culture",
+      "summary": "A brass museum label explains the story behind a classic gaming artifact.",
+      "path": "client/assets/v78/museum-exhibit-plaque.svg",
+      "art_mode": "bespoke-subject"
+    },
+    {
+      "id": "organic78:pixel-art-cartridge-sticker",
+      "name": "Pixel Art Cartridge Sticker",
+      "ingredients": [
+        "organic77:retro-cartridge-label",
+        "legacy:219"
+      ],
+      "category": "gamecraft",
+      "summary": "A colorful adhesive pixel illustration makes a cartridge instantly recognizable.",
+      "path": "client/assets/v78/pixel-art-cartridge-sticker.svg",
+      "art_mode": "bespoke-subject"
+    },
+    {
+      "id": "organic78:mystery-reward-crate",
+      "name": "Mystery Reward Crate",
+      "ingredients": [
+        "organic77:puzzle-prize-capsule",
+        "legacy:561"
+      ],
+      "category": "arcade",
+      "summary": "A mysterious prize crate opens after the player completes a clever puzzle.",
+      "path": "client/assets/v78/mystery-reward-crate.svg",
+      "art_mode": "bespoke-subject"
+    }
+  ]
+}

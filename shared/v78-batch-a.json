@@ -1,0 +1,122 @@
+[
+  {
+    "id": "organic78:hidden-trail-marker",
+    "name": "Hidden Trail Marker",
+    "ingredients": [
+      "organic77:pixel-compass",
+      "legacy:20"
+    ],
+    "category": "fantasy",
+    "summary": "A painted wooden marker makes the secret forest route easy to follow.",
+    "path": "client/assets/v78/hidden-trail-marker.svg",
+    "art_mode": "bespoke-subject"
+  },
+  {
+    "id": "organic78:night-checkpoint-bell",
+    "name": "Night Checkpoint Bell",
+    "ingredients": [
+      "organic77:checkpoint-lantern",
+      "legacy:211"
+    ],
+    "category": "fantasy",
+    "summary": "A small brass bell marks the moment a night journey can safely resume.",
+    "path": "client/assets/v78/night-checkpoint-bell.svg",
+    "art_mode": "bespoke-subject"
+  },
+  {
+    "id": "organic78:bridge-construction-plan",
+    "name": "Bridge Construction Plan",
+    "ingredients": [
+      "organic77:puzzle-bridge",
+      "organic77:level-blueprint"
+    ],
+    "category": "gamecraft",
+    "summary": "A folded architectural plan reveals the exact layout of a puzzle bridge.",
+    "path": "client/assets/v78/bridge-construction-plan.svg",
+    "art_mode": "bespoke-subject"
+  },
+  {
+    "id": "organic78:cloud-pier",
+    "name": "Cloud Pier",
+    "ingredients": [
+      "organic77:floating-platform",
+      "organic77:sky-harbor"
+    ],
+    "category": "fantasy",
+    "summary": "A wooden landing pier joins a floating island to visiting airships.",
+    "path": "client/assets/v78/cloud-pier.svg",
+    "art_mode": "bespoke-subject"
+  },
+  {
+    "id": "organic78:hidden-gear-door",
+    "name": "Hidden Gear Door",
+    "ingredients": [
+      "organic77:secret-passage",
+      "organic77:clockwork-gate"
+    ],
+    "category": "fantasy",
+    "summary": "A disguised wall panel swings open when its concealed gears align.",
+    "path": "client/assets/v78/hidden-gear-door.svg",
+    "art_mode": "bespoke-subject"
+  },
+  {
+    "id": "organic78:buried-treasure-chart",
+    "name": "Buried Treasure Chart",
+    "ingredients": [
+      "organic77:treasure-radar",
+      "legacy:354"
+    ],
+    "category": "gamecraft",
+    "summary": "A map annotated with scan readings pinpoints a forgotten chest underground.",
+    "path": "client/assets/v78/buried-treasure-chart.svg",
+    "art_mode": "bespoke-subject"
+  },
+  {
+    "id": "organic78:quest-wax-seal",
+    "name": "Quest Wax Seal",
+    "ingredients": [
+      "organic77:quest-journal",
+      "legacy:33"
+    ],
+    "category": "culture",
+    "summary": "A golden wax emblem stamps completed quests inside a traveling journal.",
+    "path": "client/assets/v78/quest-wax-seal.svg",
+    "art_mode": "bespoke-subject"
+  },
+  {
+    "id": "organic78:final-gate-keyhole",
+    "name": "Final Gate Keyhole",
+    "ingredients": [
+      "organic77:boss-key",
+      "organic77:clockwork-gate"
+    ],
+    "category": "fantasy",
+    "summary": "An enormous lock carved into stone waits for a legendary boss key.",
+    "path": "client/assets/v78/final-gate-keyhole.svg",
+    "art_mode": "bespoke-subject"
+  },
+  {
+    "id": "organic78:time-trial-route",
+    "name": "Time Trial Route",
+    "ingredients": [
+      "organic77:speedrun-stopwatch",
+      "organic77:quest-journal"
+    ],
+    "category": "gamecraft",
+    "summary": "A hand-marked route highlights the quickest possible path through a stage.",
+    "path": "client/assets/v78/time-trial-route.svg",
+    "art_mode": "bespoke-subject"
+  },
+  {
+    "id": "organic78:team-waypoint-flag",
+    "name": "Team Waypoint Flag",
+    "ingredients": [
+      "organic77:pixel-compass",
+      "organic77:co-op-battle-map"
+    ],
+    "category": "gamecraft",
+    "summary": "A colorful marker shows both players where to regroup on a shared map.",
+    "path": "client/assets/v78/team-waypoint-flag.svg",
+    "art_mode": "bespoke-subject"
+  }
+]

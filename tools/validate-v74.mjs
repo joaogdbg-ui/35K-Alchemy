@@ -43,7 +43,7 @@ for(const item of ORGANIC_V74.items) {
  check(!/<script|<image\b|<text\b|<foreignObject|onload\s*=|href\s*=|<animate/i.test(svg),'SVG invalid or unsafe '+item.name);
 }
 const app=readFileSync('client/src/app.js','utf8'),builder=readFileSync('tools/build-standalone.py','utf8');
-check(app.includes('ORGANIC_V72,ORGANIC_V73,ORGANIC_V74,ORGANIC_V75,ORGANIC_V76,ORGANIC_V77]'),'V74 catalog not wired');
+check(app.includes('ORGANIC_V72,ORGANIC_V73,ORGANIC_V74,ORGANIC_V75,ORGANIC_V76,ORGANIC_V77,ORGANIC_V78]'),'V74 catalog not wired');
 check(app.includes('ORGANIC_ART_V76[itemName]||ORGANIC_ART_V75[itemName]||ORGANIC_ART_V74[itemName]||ORGANIC_ART_V73[itemName]'),'V74 artwork not wired');
 check(builder.includes('window.__gameverseOrganic74')&&builder.includes('35K_Alchemy_V76_Offline.html'),'V74 offline bundler not wired');
 check(app.includes('const anchorId=this.ids[previousIndex]'),'scroll position regression');
