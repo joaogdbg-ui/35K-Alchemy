@@ -1,3 +1,7 @@
+# 35K Alchemy — V79: 5,572 elements and 13,909 recipes
+
+V79 completes the second 200-element cycle (V76 through V79). The new 50 discoveries each have their own source SVG, with older IDs, recipes, Settings and saved progress preserved. See [V79 art review](docs/V79_ART_REVIEW.md).
+
 # 35K Alchemy V78 — 150/200 content cycle
 
 5,522 elements and 13,859 unique recipes after the +50 original V78 items, all with 35px source SVGs; 50 remain in the current 200-item cycle. Settings V76.8 unchanged. [V78 handoff](HANDOFF_V78.md) · [V78 art review](docs/V78_ART_REVIEW.md).
