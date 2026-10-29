@@ -39,3 +39,11 @@ test('Game-title names do not rewrite non-media common words',()=>{
   assert.equal(hasUnresolvedPublicIPSignal({name:'Hades',category:'mythology'}),false);
   assert.equal(hasUnresolvedPublicIPSignal({name:'Monster Hunter',category:'game'}),false);
 });
+
+test('V76.2 context-specific original game aliases do not rewrite generic science terms',()=>{
+ const examples=[['Ninja Gaiden','Nightsunder Legacy'],['Dino Crisis','Raptor Emergency'],['Battletoads','Marsh Brawlers'],['Prince of Persia','Prince of the Dunes'],['Yu-Gi-Oh! Master Duel','Cardbound Legends! Master Duel']];
+ for(const [original,expected] of examples)assert.equal(publicName({name:original,category:'game'}),expected);
+ for(const n of ['Valve','Halo','Portal','Sonic Wave','DOOM','Knuckles'])
+   assert.equal(publicName({name:n,category:'science'}),n);
+ assert.equal(publicName({name:'Hades',category:'mythology'}),'Hades');
+});
