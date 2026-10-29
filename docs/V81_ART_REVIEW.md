@@ -1,6 +1,6 @@
-# Alchemy 10k V81 — 89/200 original illustrations (WIP)
+# Alchemy 10k V81 original illustrated content — 103/200
 
-| # | Element | Actual 35px | Detail 90px |
+| # | Element | 35px | 90px |
 |---:|---|:---:|:---:|
 | 1 | Sprite Animation Light Table | <img src="../client/assets/v81/sprite-animation-light-table.svg" width="35" height="35" /> | <img src="../client/assets/v81/sprite-animation-light-table.svg" width="90" height="90" /> |
 | 2 | Color-Proof Photo Printer | <img src="../client/assets/v81/color-proof-photo-printer.svg" width="35" height="35" /> | <img src="../client/assets/v81/color-proof-photo-printer.svg" width="90" height="90" /> |
@@ -91,5 +91,19 @@
 | 87 | Vampire Lord | <img src="../client/assets/v81/vampire-lord.svg" width="35" height="35" /> | <img src="../client/assets/v81/vampire-lord.svg" width="90" height="90" /> |
 | 88 | Witch Familiar | <img src="../client/assets/v81/witch-familiar.svg" width="35" height="35" /> | <img src="../client/assets/v81/witch-familiar.svg" width="90" height="90" /> |
 | 89 | Ghost Wolf | <img src="../client/assets/v81/ghost-wolf.svg" width="35" height="35" /> | <img src="../client/assets/v81/ghost-wolf.svg" width="90" height="90" /> |
+| 90 | Deinonychus | <img src="../client/assets/v81/deinonychus.svg" width="35" height="35" /> | <img src="../client/assets/v81/deinonychus.svg" width="90" height="90" /> |
+| 91 | Carnotaurus | <img src="../client/assets/v81/carnotaurus.svg" width="35" height="35" /> | <img src="../client/assets/v81/carnotaurus.svg" width="90" height="90" /> |
+| 92 | Therizinosaurus | <img src="../client/assets/v81/therizinosaurus.svg" width="35" height="35" /> | <img src="../client/assets/v81/therizinosaurus.svg" width="90" height="90" /> |
+| 93 | Gallimimus | <img src="../client/assets/v81/gallimimus.svg" width="35" height="35" /> | <img src="../client/assets/v81/gallimimus.svg" width="90" height="90" /> |
+| 94 | Diplodocus | <img src="../client/assets/v81/diplodocus.svg" width="35" height="35" /> | <img src="../client/assets/v81/diplodocus.svg" width="90" height="90" /> |
+| 95 | Quetzalcoatlus | <img src="../client/assets/v81/quetzalcoatlus.svg" width="35" height="35" /> | <img src="../client/assets/v81/quetzalcoatlus.svg" width="90" height="90" /> |
+| 96 | Plesiosaurus | <img src="../client/assets/v81/plesiosaurus.svg" width="35" height="35" /> | <img src="../client/assets/v81/plesiosaurus.svg" width="90" height="90" /> |
+| 97 | Dunkleosteus | <img src="../client/assets/v81/dunkleosteus.svg" width="35" height="35" /> | <img src="../client/assets/v81/dunkleosteus.svg" width="90" height="90" /> |
+| 98 | Ammonite | <img src="../client/assets/v81/ammonite.svg" width="35" height="35" /> | <img src="../client/assets/v81/ammonite.svg" width="90" height="90" /> |
+| 99 | Trilobite | <img src="../client/assets/v81/trilobite.svg" width="35" height="35" /> | <img src="../client/assets/v81/trilobite.svg" width="90" height="90" /> |
+| 100 | Megalodon | <img src="../client/assets/v81/megalodon.svg" width="35" height="35" /> | <img src="../client/assets/v81/megalodon.svg" width="90" height="90" /> |
+| 101 | Meganeura | <img src="../client/assets/v81/meganeura.svg" width="35" height="35" /> | <img src="../client/assets/v81/meganeura.svg" width="90" height="90" /> |
+| 102 | Glyptodon | <img src="../client/assets/v81/glyptodon.svg" width="35" height="35" /> | <img src="../client/assets/v81/glyptodon.svg" width="90" height="90" /> |
+| 103 | Megatherium | <img src="../client/assets/v81/megatherium.svg" width="35" height="35" /> | <img src="../client/assets/v81/megatherium.svg" width="90" height="90" /> |
 
-Human recognition at 35px is a separate review stage; hashes and SVG validity alone do not certify artistic quality.
+Visual 35px/aesthetic quality is still subject to final human/device review.

@@ -1,16 +1,16 @@
 {
   "version": 81,
-  "cohort_count": 89,
+  "cohort_count": 103,
   "expansion_goal": 200,
-  "expansion_progress": 89,
-  "remaining_to_goal": 111,
+  "expansion_progress": 103,
+  "remaining_to_goal": 97,
   "base_catalog": {
     "elements": 5772,
     "recipes": 14109
   },
   "expected_catalog": {
-    "elements": 5861,
-    "recipes": 14198
+    "elements": 5875,
+    "recipes": 14212
   },
   "new_items": [
     {
@@ -1080,6 +1080,174 @@
       ],
       "art_mode": "bespoke-subject",
       "path": "client/assets/v81/ghost-wolf.svg"
+    },
+    {
+      "id": "organic81:deinonychus",
+      "name": "Deinonychus",
+      "category": "life",
+      "summary": "A feathered dromaeosaur bears large sickle-shaped claws on each hind foot and a long balancing tail.",
+      "ingredients": [
+        "pack:velociraptor",
+        "legacy:545"
+      ],
+      "art_mode": "bespoke-subject",
+      "path": "client/assets/v81/deinonychus.svg"
+    },
+    {
+      "id": "organic81:carnotaurus",
+      "name": "Carnotaurus",
+      "category": "life",
+      "summary": "A swift meat-eating dinosaur has two short horns above its eyes and unusually tiny forelimbs.",
+      "ingredients": [
+        "pack:tyrannosaurus-rex",
+        "organic81:cow"
+      ],
+      "art_mode": "bespoke-subject",
+      "path": "client/assets/v81/carnotaurus.svg"
+    },
+    {
+      "id": "organic81:therizinosaurus",
+      "name": "Therizinosaurus",
+      "category": "life",
+      "summary": "This long-necked feathered dinosaur has enormous hand claws that resemble curved swords.",
+      "ingredients": [
+        "organic81:prehistoric-species-atlas",
+        "legacy:545"
+      ],
+      "art_mode": "bespoke-subject",
+      "path": "client/assets/v81/therizinosaurus.svg"
+    },
+    {
+      "id": "organic81:gallimimus",
+      "name": "Gallimimus",
+      "category": "life",
+      "summary": "A speedy ostrich-mimic dinosaur runs on long legs with a small beaked head and a balancing tail.",
+      "ingredients": [
+        "organic81:prehistoric-species-atlas",
+        "legacy:544"
+      ],
+      "art_mode": "bespoke-subject",
+      "path": "client/assets/v81/gallimimus.svg"
+    },
+    {
+      "id": "organic81:diplodocus",
+      "name": "Diplodocus",
+      "category": "life",
+      "summary": "A huge Jurassic sauropod carries an exceptionally long tail and a slender horizontal neck for browsing foliage.",
+      "ingredients": [
+        "organic81:brachiosaurus",
+        "legacy:19"
+      ],
+      "art_mode": "bespoke-subject",
+      "path": "client/assets/v81/diplodocus.svg"
+    },
+    {
+      "id": "organic81:quetzalcoatlus",
+      "name": "Quetzalcoatlus",
+      "category": "life",
+      "summary": "A gigantic azhdarchid pterosaur has a very long beak and a tall walking stance, separate from true dinosaurs.",
+      "ingredients": [
+        "organic81:pteranodon",
+        "legacy:38"
+      ],
+      "art_mode": "bespoke-subject",
+      "path": "client/assets/v81/quetzalcoatlus.svg"
+    },
+    {
+      "id": "organic81:plesiosaurus",
+      "name": "Plesiosaurus",
+      "category": "life",
+      "summary": "A long-necked marine reptile paddles through prehistoric water using four large flippers rather than fins.",
+      "ingredients": [
+        "organic81:mosasaurus",
+        "legacy:40"
+      ],
+      "art_mode": "bespoke-subject",
+      "path": "client/assets/v81/plesiosaurus.svg"
+    },
+    {
+      "id": "organic81:dunkleosteus",
+      "name": "Dunkleosteus",
+      "category": "life",
+      "summary": "An armored Devonian fish has massive bony head plates and sharp shearing jaw edges instead of ordinary teeth.",
+      "ingredients": [
+        "organic81:prehistoric-species-atlas",
+        "legacy:27"
+      ],
+      "art_mode": "bespoke-subject",
+      "path": "client/assets/v81/dunkleosteus.svg"
+    },
+    {
+      "id": "organic81:ammonite",
+      "name": "Ammonite",
+      "category": "life",
+      "summary": "An extinct coiled cephalopod lived in chambered spiral shells and swam through ancient oceans.",
+      "ingredients": [
+        "organic81:prehistoric-species-atlas",
+        "organic38:octopus"
+      ],
+      "art_mode": "bespoke-subject",
+      "path": "client/assets/v81/ammonite.svg"
+    },
+    {
+      "id": "organic81:trilobite",
+      "name": "Trilobite",
+      "category": "life",
+      "summary": "An extinct seafloor arthropod has a three-lobed segmented exoskeleton and a rounded protective head shield.",
+      "ingredients": [
+        "organic81:prehistoric-species-atlas",
+        "organic41:beetle"
+      ],
+      "art_mode": "bespoke-subject",
+      "path": "client/assets/v81/trilobite.svg"
+    },
+    {
+      "id": "organic81:megalodon",
+      "name": "Megalodon",
+      "category": "life",
+      "summary": "A giant extinct mackerel shark possessed enormous serrated teeth and hunted large marine mammals.",
+      "ingredients": [
+        "organic81:prehistoric-species-atlas",
+        "organic38:shark"
+      ],
+      "art_mode": "bespoke-subject",
+      "path": "client/assets/v81/megalodon.svg"
+    },
+    {
+      "id": "organic81:meganeura",
+      "name": "Meganeura",
+      "category": "life",
+      "summary": "A giant Carboniferous dragonfly relative has broad veined wings and an elongated segmented abdomen.",
+      "ingredients": [
+        "organic81:prehistoric-species-atlas",
+        "organic38:dragonfly"
+      ],
+      "art_mode": "bespoke-subject",
+      "path": "client/assets/v81/meganeura.svg"
+    },
+    {
+      "id": "organic81:glyptodon",
+      "name": "Glyptodon",
+      "category": "life",
+      "summary": "An extinct giant armadillo relative had a domed bony shell, stubby legs and a stout armored tail.",
+      "ingredients": [
+        "organic81:ankylosaurus",
+        "organic81:woolly-mammoth"
+      ],
+      "art_mode": "bespoke-subject",
+      "path": "client/assets/v81/glyptodon.svg"
+    },
+    {
+      "id": "organic81:megatherium",
+      "name": "Megatherium",
+      "category": "life",
+      "summary": "A giant prehistoric ground sloth walked on powerful hind limbs and reached tall branches with massive foreclaws.",
+      "ingredients": [
+        "organic81:prehistoric-species-atlas",
+        "legacy:19"
+      ],
+      "art_mode": "bespoke-subject",
+      "path": "client/assets/v81/megatherium.svg"
     }
   ],
   "cycle_complete": false
