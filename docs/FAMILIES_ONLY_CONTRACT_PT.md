@@ -1,4 +1,4 @@
-# 35K Alchemy — contrato funcional Families Only (obrigatório)
+# Alchemy 10k — contrato funcional Families Only (obrigatório)
 
 **Objetivo:** cada campanha é uma experiência própria, autónoma e possível de completar 100%, com partilha legítima de descobertas multifamília, sem contaminação do progresso Classic.
 
@@ -61,3 +61,7 @@ Interseção: **31 IDs multifamília** entre as duas campanhas. O módulo de sin
 6. Qualquer nova família ou novo elemento associado a uma família deve passar de novo todos os testes. Não aceitar "categoria correta" como substituto da progressão.
 
 Nenhuma campanha é considerada completa apenas porque mostra 100% num estado importado de outra família.
+
+## 7. Nove famílias editoriais vs duas campanhas completas
+
+A meta Alchemy 10k descreve **nove famílias no catálogo**, não nove campanhas jogáveis atuais. Só **Nature & Science** e **People & Culture** têm campanhas Families Only já ligadas ao jogo. As outras sete só serão ativadas quando os quatro starters temáticos e todas as suas receitas forem 100% completáveis isoladamente, sem depender de progresso Classic, de Merge ou de partilhas multifamília. Não inventar conquistas para desbloquear uma campanha incompleta. O plano e as metas de IDs únicos estão em `docs/FAMILY_BALANCE_10K_PT.md` e `shared/family-targets-10k.json`.

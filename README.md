@@ -1,4 +1,15 @@
-# 35K Alchemy — V81 publicada: 5,812 elements / 14,149 recipes
+# Alchemy 10k — objetivo de 10.000 descobertas únicas
+
+**Publicado atualmente:** 5.812 elementos e 14.149 receitas. **Próxima entrega:** +188 até aos 6.000; depois exatamente **20 lotes de +200**, terminando em **10.000**. O rebrand encontra-se numa branch WIP; o APK ainda mostra a marca anterior.
+
+**Nove famílias editoriais**, com **53,5%** dos elementos reservados a Video Games, Consoles & Hardware e Arcade & Tabletop. Atualmente só duas campanhas Families Only jogáveis; as outras sete só estarão disponíveis quando forem individualmente 100% completáveis.
+
+[Distribuição das famílias](docs/FAMILY_BALANCE_10K_PT.md) · [Plano de cadência](docs/CONTENT_200_BATCH_POLICY_PT.md) · [Contrato Families Only](docs/FAMILIES_ONLY_CONTRACT_PT.md) · [Poupança GitHub Actions](docs/CI_BUDGET_POLICY_PT.md) · [Handoff para 6.000](HANDOFF_NEXT_6000.md)
+
+---
+
+## Histórico de desenvolvimento anterior
+
 
 **V81 publicada e compilada:** 5.812 elementos e 14.149 receitas; +200 elementos face à V80B, com SVGs próprios. **Próxima entrega extraordinária: +188 elementos para chegar exatamente a 6.000** (160 V81 +28 V82). Depois, **145 entregas obrigatórias de +200** terminam em 35.000. Preparação em branch WIP sem Actions por push. No fake rewarded ads or unfinished Google cloud integration.
 

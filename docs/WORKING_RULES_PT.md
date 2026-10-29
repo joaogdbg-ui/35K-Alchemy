@@ -1,6 +1,8 @@
-# Regras permanentes do 35K Alchemy
+# Regras permanentes do Alchemy 10k
 
-**EXCEÇÃO ÚNICA APROVADA (29/10/2026):** próxima expansão = **+188** de 5.812 para **6.000**. **Daí em diante, sem exceções: +200 IDs por entrega**, completando 145 lotes até aos 35.000. Esta regra prevalece sobre indicações antigas de +200 para a próxima entrega.
+**EXCEÇÃO ÚNICA APROVADA (29/10/2026):** próxima expansão = **+188** de 5.812 para **6.000**. **Daí em diante, sem exceções: +200 IDs por entrega**, completando 20 lotes até aos 10.000. Esta regra prevalece sobre indicações antigas de +200 para a próxima entrega.
+
+**META FINAL: EXATAMENTE 10.000 ELEMENTOS ÚNICOS.** O nome público é **Alchemy 10k**; a marca 35K e o teto de 35.000 deixam de orientar o desenvolvimento. Há nove famílias editoriais (orçamento em `shared/family-targets-10k.json`), duas campanhas Families Only ativas e sete ainda em planeamento. Um ID multifamília não duplica o total global.
 
 ## Conteúdo e motor
 
@@ -20,7 +22,7 @@
 ## Produção escalável de 200 — regra de entrega
 
 - **Uma única exceção: +188 desde V81 (5.812) até 6.000. A partir daí, exatamente +200 em todas as publicações de conteúdo.** Todos os elementos precisam de receitas próprias, nomes únicos, SVGs semanticamente distintos e 35px legíveis. Ondas internas 25/50 não são entregas e não podem ser integradas em `main` como conteúdo parcial.
-- V81 já foi publicada com **5.812** elementos e **14.149** receitas. Próximo lote excecional: **+160 V81 +28 V82 = +188**, chegando a **6.000** elementos e pelo menos **14.337** receitas. A seguir, **145 lotes de +200** terminam exatamente em **35.000**.
+- V81 já foi publicada com **5.812** elementos e **14.149** receitas. Próximo lote excecional: **+160 V81 +28 V82 = +188**, chegando a **6.000** elementos e pelo menos **14.337** receitas. A seguir, **20 lotes de +200** terminam exatamente em **10.000**.
 - Não admitir atalhos de geração de nomes arbitrários, receitas sem lógica, cópias de SVG ou motivos repetidos. O artefacto de produção só conta após validações e revisão visual.
 - O CI e build Android executam `tools/check-content-batch-200.mjs` e **bloqueiam conteúdo parcial e quaisquer novos desvios à regra de +200**; zero novos elementos para correções técnicas é permitido. Para continuidade entre conversas, manter sempre branch WIP e estado do handoff.
 - Produzir por blueprint de 188 excecional ou 200 normal, em frentes temáticas e ondas internas de revisão; rever e corrigir sem cortar a quota. O processo completo está em `docs/CONTENT_200_BATCH_POLICY_PT.md`.

@@ -1,4 +1,4 @@
-# 35K Alchemy — política de poupança de minutos do GitHub Actions
+# Alchemy 10k — política de poupança de minutos do GitHub Actions
 
 ## Regra de produção: só testar no GitHub quando o lote completo estiver pronto
 
@@ -25,3 +25,5 @@ O CI é uma última verificação obrigatória, **não o motor de desenvolviment
 **Não contornar a verificação de qualidade para poupar minutos**. Resolver os erros previamente, e nunca lançar um APK sem CI validada.
 
 **Âncora técnica da exceção:** commit V81 `2aba8395f48082964bc2af2ff20a468c56dd464b`. O gate usa a existência de alterações nos packs desde a âncora para consumir automaticamente a exceção, sem executar GitHub Actions durante a preparação dos 188.
+
+**Rebrand/10k:** de 5.812 para 6.000 (+188) e depois **20 lotes de +200**, terminando em **10.000 exatamente**. Evitar Actions para simples checkpoints, rebranding de interface e revisão editorial; apenas uma PR e um build Android por entrega completa sempre que possível.
