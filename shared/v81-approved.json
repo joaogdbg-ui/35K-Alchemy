@@ -1,16 +1,16 @@
 {
   "version": 81,
-  "cohort_count": 10,
+  "cohort_count": 20,
   "expansion_goal": 40,
-  "expansion_progress": 10,
-  "remaining_to_goal": 30,
+  "expansion_progress": 20,
+  "remaining_to_goal": 20,
   "base_catalog": {
     "elements": 5772,
     "recipes": 14109
   },
   "expected_catalog": {
-    "elements": 5782,
-    "recipes": 14119
+    "elements": 5792,
+    "recipes": 14129
   },
   "new_items": [
     {
@@ -132,6 +132,126 @@
       ],
       "art_mode": "bespoke-subject",
       "path": "client/assets/v81/cartridge-label-embosser.svg"
+    },
+    {
+      "id": "organic81:contact-alignment-gauge",
+      "name": "Contact Alignment Gauge",
+      "category": "technology",
+      "summary": "A pocket metal gauge measures the spacing of cartridge connector pins while an archivist checks corrosion.",
+      "ingredients": [
+        "organic80:cartridge-inspection-loupe",
+        "legacy:22"
+      ],
+      "art_mode": "bespoke-subject",
+      "path": "client/assets/v81/contact-alignment-gauge.svg"
+    },
+    {
+      "id": "organic81:handheld-sunshade-visor",
+      "name": "Handheld Sunshade Visor",
+      "category": "technology",
+      "summary": "A folding shade clips above a handheld console so its display stays visible in bright summer sunlight.",
+      "ingredients": [
+        "organic80:rainproof-handheld-case",
+        "legacy:141"
+      ],
+      "art_mode": "bespoke-subject",
+      "path": "client/assets/v81/handheld-sunshade-visor.svg"
+    },
+    {
+      "id": "organic81:game-carry-wrist-strap",
+      "name": "Game Carry Wrist Strap",
+      "category": "technology",
+      "summary": "A detachable woven wrist strap clips onto a compact gaming pouch so travelers carry it securely.",
+      "ingredients": [
+        "organic80:rainproof-game-satchel",
+        "legacy:110"
+      ],
+      "art_mode": "bespoke-subject",
+      "path": "client/assets/v81/game-carry-wrist-strap.svg"
+    },
+    {
+      "id": "organic81:chiptune-waveform-monitor",
+      "name": "Chiptune Waveform Monitor",
+      "category": "technology",
+      "summary": "An oscilloscope screen shows square-wave chiptune tones emerging from the arcade mixing desk.",
+      "ingredients": [
+        "organic80:arcade-sound-mixing-desk",
+        "legacy:76"
+      ],
+      "art_mode": "bespoke-subject",
+      "path": "client/assets/v81/chiptune-waveform-monitor.svg"
+    },
+    {
+      "id": "organic81:pixel-stained-glass-window",
+      "name": "Pixel Stained-Glass Window",
+      "category": "culture",
+      "summary": "A stained-glass window depicts an eight-bit landscape made from brightly colored square panes.",
+      "ingredients": [
+        "organic80:pixel-palette-fan",
+        "legacy:23"
+      ],
+      "art_mode": "bespoke-subject",
+      "path": "client/assets/v81/pixel-stained-glass-window.svg"
+    },
+    {
+      "id": "organic81:arcade-concert-floorplan",
+      "name": "Arcade Concert Floorplan",
+      "category": "arcade",
+      "summary": "A folded map of an arcade hall marks the dance stage, emergency exits and live sound booths.",
+      "ingredients": [
+        "organic80:rhythm-concert-stage",
+        "legacy:354"
+      ],
+      "art_mode": "bespoke-subject",
+      "path": "client/assets/v81/arcade-concert-floorplan.svg"
+    },
+    {
+      "id": "organic81:miniature-terrain-toolbox",
+      "name": "Miniature Terrain Toolbox",
+      "category": "board",
+      "summary": "A portable hobby toolbox holds painted miniature terrain pieces in padded compartments for tabletop adventures.",
+      "ingredients": [
+        "organic80:miniature-painting-stand",
+        "organic80:waterproof-card-organizer"
+      ],
+      "art_mode": "bespoke-subject",
+      "path": "client/assets/v81/miniature-terrain-toolbox.svg"
+    },
+    {
+      "id": "organic81:chess-broadcast-notebook",
+      "name": "Chess Broadcast Notebook",
+      "category": "board",
+      "summary": "An annotated notebook records opening moves and interview notes from a live chess match broadcast.",
+      "ingredients": [
+        "organic80:chess-commentary-microphone",
+        "legacy:51"
+      ],
+      "art_mode": "bespoke-subject",
+      "path": "client/assets/v81/chess-broadcast-notebook.svg"
+    },
+    {
+      "id": "organic81:skyship-strategy-board",
+      "name": "Skyship Strategy Board",
+      "category": "board",
+      "summary": "A tabletop strategy board uses miniature airships and a compass rose to plan imaginary aerial trade routes.",
+      "ingredients": [
+        "organic80:skyship-bearing-dial",
+        "legacy:162"
+      ],
+      "art_mode": "bespoke-subject",
+      "path": "client/assets/v81/skyship-strategy-board.svg"
+    },
+    {
+      "id": "organic81:miniature-paint-palette",
+      "name": "Miniature Paint Palette",
+      "category": "board",
+      "summary": "A painter's thumbhole palette holds tiny pastel paint wells used to decorate tabletop game miniatures.",
+      "ingredients": [
+        "organic80:miniature-painting-stand",
+        "organic80:pixel-palette-fan"
+      ],
+      "art_mode": "bespoke-subject",
+      "path": "client/assets/v81/miniature-paint-palette.svg"
     }
   ]
 }
