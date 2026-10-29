@@ -145,22 +145,22 @@
     },
     {
       "id": "organic76:nintendo-64-repair-station",
-      "name": "Orilux 64 Repair Station",
+      "name": "Velqryon 64 Repair Station",
       "ingredients": [
         "legacy:403",
         "legacy:588"
       ],
-      "path": "client/assets/v76/orilux-64-repair-station.svg",
+      "path": "client/assets/v76/velqryon-64-repair-station.svg",
       "art_mode": "bespoke-subject"
     },
     {
       "id": "organic76:nintendo-64-expansion-tester",
-      "name": "Orilux 64 Expansion Tester",
+      "name": "Velqryon 64 Expansion Tester",
       "ingredients": [
         "legacy:1350",
         "legacy:70"
       ],
-      "path": "client/assets/v76/orilux-64-expansion-tester.svg",
+      "path": "client/assets/v76/velqryon-64-expansion-tester.svg",
       "art_mode": "bespoke-subject"
     },
     {
@@ -255,42 +255,42 @@
     },
     {
       "id": "organic76:xbox-disc-tower",
-      "name": "AsterCube Disc Tower",
+      "name": "Zerqadyn Disc Tower",
       "ingredients": [
         "legacy:427",
         "legacy:24"
       ],
-      "path": "client/assets/v76/astercube-disc-tower.svg",
+      "path": "client/assets/v76/zerqadyn-disc-tower.svg",
       "art_mode": "bespoke-subject"
     },
     {
       "id": "organic76:xbox-360-power-module",
-      "name": "AsterCube Orbit Power Module",
+      "name": "Zerqadyn Orbit Power Module",
       "ingredients": [
         "legacy:428",
         "legacy:69"
       ],
-      "path": "client/assets/v76/astercube-orbit-power-module.svg",
+      "path": "client/assets/v76/zerqadyn-orbit-power-module.svg",
       "art_mode": "bespoke-subject"
     },
     {
       "id": "organic76:xbox-one-wireless-receiver",
-      "name": "AsterCube One Wireless Receiver",
+      "name": "Zerqadyn One Wireless Receiver",
       "ingredients": [
         "legacy:430",
         "legacy:89"
       ],
-      "path": "client/assets/v76/astercube-one-wireless-receiver.svg",
+      "path": "client/assets/v76/zerqadyn-one-wireless-receiver.svg",
       "art_mode": "bespoke-subject"
     },
     {
       "id": "organic76:xbox-series-x-ventilation-grille",
-      "name": "AsterCube Zenith Ventilation Grille",
+      "name": "Zerqadyn Zenith Ventilation Grille",
       "ingredients": [
         "legacy:434",
         "legacy:12"
       ],
-      "path": "client/assets/v76/astercube-zenith-ventilation-grille.svg",
+      "path": "client/assets/v76/zerqadyn-zenith-ventilation-grille.svg",
       "art_mode": "bespoke-subject"
     },
     {
@@ -375,12 +375,12 @@
     },
     {
       "id": "organic76:nintendo-64-rumble-tester",
-      "name": "Orilux 64 Rumble Tester",
+      "name": "Velqryon 64 Rumble Tester",
       "ingredients": [
         "legacy:1349",
         "legacy:70"
       ],
-      "path": "client/assets/v76/orilux-64-rumble-tester.svg",
+      "path": "client/assets/v76/velqryon-64-rumble-tester.svg",
       "art_mode": "bespoke-subject"
     },
     {
