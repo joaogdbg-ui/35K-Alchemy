@@ -35,5 +35,5 @@ test('V77 app, offline builder, IP screen and Android payload include the new co
  assert.match(builder,/35K_Alchemy_V77_Offline\.html/);
  assert.match(web,/35K_Alchemy_V81_Offline\.html/);
  assert.match(read('tools/audit-ip-safe-names.mjs'),/organic-v77/);
- assert.match(read('tools/audit-active-artwork.mjs'),/,77,78,79,80,81\]/);
+ assert.match(read('tools/audit-active-artwork.mjs'),/,77,78,79,80,81,82\]/);
 });

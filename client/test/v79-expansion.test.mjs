@@ -37,7 +37,7 @@ test('V79 is wired to game, offline bundle, IP scan and Android packaging withou
  assert.match(build,/35K_Alchemy_V81_Offline\.html/);
  assert.match(read('tools/prepare-android-web.py'),/35K_Alchemy_V81_Offline\.html/);
  assert.match(read('tools/audit-ip-safe-names.mjs'),/organic-v79/);
- assert.match(read('tools/audit-active-artwork.mjs'),/,79,80,81\]/);
+ assert.match(read('tools/audit-active-artwork.mjs'),/,79,80,81,82\]/);
  assert.match(app,/function selectSettingsPage\(next/);
  assert.match(app,/No cloud backup exists in this version/);
 });
