@@ -1,0 +1,122 @@
+[
+  {
+    "id": "organic77:pixel-orchestra",
+    "name": "Pixel Orchestra",
+    "ingredients": [
+      "legacy:146",
+      "legacy:139"
+    ],
+    "category": "music",
+    "summary": "A tiny conductor leads a chiptune orchestra made of colorful square notes.",
+    "path": "client/assets/v77/pixel-orchestra.svg",
+    "art_mode": "bespoke-subject"
+  },
+  {
+    "id": "organic77:rhythm-foot-pedal",
+    "name": "Rhythm Foot Pedal",
+    "ingredients": [
+      "legacy:239",
+      "legacy:80"
+    ],
+    "category": "music",
+    "summary": "A sturdy pedal lets dancers add one sharp beat with the heel of a shoe.",
+    "path": "client/assets/v77/rhythm-foot-pedal.svg",
+    "art_mode": "bespoke-subject"
+  },
+  {
+    "id": "organic77:dance-floor-tiles",
+    "name": "Dance Floor Tiles",
+    "ingredients": [
+      "legacy:240",
+      "legacy:23"
+    ],
+    "category": "music",
+    "summary": "Glowing floor tiles follow each footstep with a cascade of color.",
+    "path": "client/assets/v77/dance-floor-tiles.svg",
+    "art_mode": "bespoke-subject"
+  },
+  {
+    "id": "organic77:indie-storyboard",
+    "name": "Indie Storyboard",
+    "ingredients": [
+      "legacy:204",
+      "legacy:106"
+    ],
+    "category": "gamecraft",
+    "summary": "A storyboard of handmade scenes turns a small game idea into an adventure.",
+    "path": "client/assets/v77/indie-storyboard.svg",
+    "art_mode": "bespoke-subject"
+  },
+  {
+    "id": "organic77:arcade-token-tray",
+    "name": "Arcade Token Tray",
+    "ingredients": [
+      "legacy:171",
+      "legacy:108"
+    ],
+    "category": "arcade",
+    "summary": "A shallow felt tray catches bright arcade tokens before the next round.",
+    "path": "client/assets/v77/arcade-token-tray.svg",
+    "art_mode": "bespoke-subject"
+  },
+  {
+    "id": "organic77:co-op-battle-map",
+    "name": "Co-op Battle Map",
+    "ingredients": [
+      "legacy:221",
+      "legacy:354"
+    ],
+    "category": "gamecraft",
+    "summary": "Two players mark their routes on a shared map before tackling the next boss.",
+    "path": "client/assets/v77/co-op-battle-map.svg",
+    "art_mode": "bespoke-subject"
+  },
+  {
+    "id": "organic77:speedrun-stopwatch",
+    "name": "Speedrun Stopwatch",
+    "ingredients": [
+      "legacy:544",
+      "legacy:211"
+    ],
+    "category": "accessory",
+    "summary": "A fast stopwatch records every second of a perfectly timed game challenge.",
+    "path": "client/assets/v77/speedrun-stopwatch.svg",
+    "art_mode": "bespoke-subject"
+  },
+  {
+    "id": "organic77:game-museum-ticket",
+    "name": "Game Museum Ticket",
+    "ingredients": [
+      "legacy:251",
+      "legacy:106"
+    ],
+    "category": "culture",
+    "summary": "An embossed admission ticket welcomes visitors to a gallery of game history.",
+    "path": "client/assets/v77/game-museum-ticket.svg",
+    "art_mode": "bespoke-subject"
+  },
+  {
+    "id": "organic77:retro-cartridge-label",
+    "name": "Retro Cartridge Label",
+    "ingredients": [
+      "legacy:151",
+      "legacy:208"
+    ],
+    "category": "gamecraft",
+    "summary": "A handmade paper label transforms a plain cartridge into a collector's keepsake.",
+    "path": "client/assets/v77/retro-cartridge-label.svg",
+    "art_mode": "bespoke-subject"
+  },
+  {
+    "id": "organic77:puzzle-prize-capsule",
+    "name": "Puzzle Prize Capsule",
+    "ingredients": [
+      "legacy:224",
+      "legacy:561"
+    ],
+    "category": "arcade",
+    "summary": "A transparent capsule rattles with a tiny reward after the puzzle is solved.",
+    "path": "client/assets/v77/puzzle-prize-capsule.svg",
+    "art_mode": "bespoke-subject"
+  }
+]
