@@ -1,6 +1,6 @@
-# V81 work-in-progress — 138/200
+# V81 editorial work — 150/200
 
-40 V81 entries are already published. There are now 98 unreleased entries toward the one-time +188 release that targets exactly 6,000 total elements (160 V81 and 28 V82).
+Of these, 40 were in the last published APK and 110 are unpublished WIP. The next release targets 6,000 with exactly +188 new IDs: 160 V81 and 28 V82.
 
 1. **Sprite Animation Light Table** = organic80:pixel-sprite-lightbox + legacy:211 — An animator's luminous drawing table shows three consecutive pixel-sprite frames beside a timing ruler.
 2. **Color-Proof Photo Printer** = organic80:color-calibration-proof + organic80:pocket-photo-printer — A tabletop printer outputs calibrated color patches beside a small landscape photograph.
@@ -140,3 +140,15 @@
 136. **Wolf Howl** = organic81:wolf + legacy:62 — A wolf raises its muzzle to release a far-carrying howl that helps its pack communicate after dusk.
 137. **Banshee** = pack:ghost + organic81:wolf-howl — A wailing spectral figure drifts through the night in a pale veil, foretelling sorrow in Celtic folklore.
 138. **Dryad** = organic81:folklore-bestiary + legacy:19 — A guardian tree spirit emerges from living bark with leaf-shaped hair and roots curling beneath its feet.
+139. **Fairy** = organic81:dryad + organic37:butterfly — A woodland fairy hovers between flowers on translucent wings with a tiny glowing wand.
+140. **Pixie** = organic81:fairy + legacy:63 — A tiny mischievous pixie leaves trails of light behind bright dragonfly wings in a moonlit garden.
+141. **Harpy** = organic81:eagle + legacy:28 — A harpy has a stern human-like face and sweeping feathered wings, with powerful bird talons below.
+142. **Golem** = organic81:gargoyle + legacy:125 — A magically animated stone golem walks on massive carved legs with a luminous rune in its chest.
+143. **Mimic** = organic81:golem + legacy:561 — A treasure chest monster opens its lid to reveal sharp teeth, staring eyes and a curling tongue.
+144. **Orc** = organic81:goblin + legacy:553 — A broad-shouldered orc warrior has green skin, jutting lower tusks and a rough iron shoulder guard.
+145. **Hobgoblin** = organic81:goblin + legacy:45 — A house-dwelling hobgoblin carries a small lantern, with pointed ears and an oversized pointed cap.
+146. **Kobold** = organic81:goblin + legacy:37 — A small cavern kobold has a scaly snout, pointed ears and a miner's lantern for exploring tunnels.
+147. **Dwarf** = organic81:folklore-bestiary + legacy:31 — A stout fantasy dwarf wears a crested iron helm and a thick braided beard while gripping a smith's hammer.
+148. **Necromancer** = organic81:witch-familiar + legacy:554 — A hooded sorcerer raises a skull-topped staff to command restless undead through forbidden magic.
+149. **Lich** = organic81:necromancer + legacy:554 — An undead necromancer retains a jeweled crown, exposed skull and ancient robes infused with magic.
+150. **Wraith** = pack:ghost + organic81:gothic-castle — A dark wraith drifts beneath a torn hood with pale shining eyes and trailing strips of shadow.

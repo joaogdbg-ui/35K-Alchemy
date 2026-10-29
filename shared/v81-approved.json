@@ -1,16 +1,16 @@
 {
   "version": 81,
-  "cohort_count": 138,
+  "cohort_count": 150,
   "expansion_goal": 200,
-  "expansion_progress": 138,
-  "remaining_to_goal": 62,
+  "expansion_progress": 150,
+  "remaining_to_goal": 50,
   "base_catalog": {
     "elements": 5772,
     "recipes": 14109
   },
   "expected_catalog": {
-    "elements": 5910,
-    "recipes": 14247
+    "elements": 5922,
+    "recipes": 14259
   },
   "new_items": [
     {
@@ -1668,6 +1668,150 @@
       ],
       "art_mode": "bespoke-subject",
       "path": "client/assets/v81/dryad.svg"
+    },
+    {
+      "id": "organic81:fairy",
+      "name": "Fairy",
+      "category": "fantasy",
+      "summary": "A woodland fairy hovers between flowers on translucent wings with a tiny glowing wand.",
+      "ingredients": [
+        "organic81:dryad",
+        "organic37:butterfly"
+      ],
+      "art_mode": "bespoke-subject",
+      "path": "client/assets/v81/fairy.svg"
+    },
+    {
+      "id": "organic81:pixie",
+      "name": "Pixie",
+      "category": "fantasy",
+      "summary": "A tiny mischievous pixie leaves trails of light behind bright dragonfly wings in a moonlit garden.",
+      "ingredients": [
+        "organic81:fairy",
+        "legacy:63"
+      ],
+      "art_mode": "bespoke-subject",
+      "path": "client/assets/v81/pixie.svg"
+    },
+    {
+      "id": "organic81:harpy",
+      "name": "Harpy",
+      "category": "fantasy",
+      "summary": "A harpy has a stern human-like face and sweeping feathered wings, with powerful bird talons below.",
+      "ingredients": [
+        "organic81:eagle",
+        "legacy:28"
+      ],
+      "art_mode": "bespoke-subject",
+      "path": "client/assets/v81/harpy.svg"
+    },
+    {
+      "id": "organic81:golem",
+      "name": "Golem",
+      "category": "fantasy",
+      "summary": "A magically animated stone golem walks on massive carved legs with a luminous rune in its chest.",
+      "ingredients": [
+        "organic81:gargoyle",
+        "legacy:125"
+      ],
+      "art_mode": "bespoke-subject",
+      "path": "client/assets/v81/golem.svg"
+    },
+    {
+      "id": "organic81:mimic",
+      "name": "Mimic",
+      "category": "fantasy",
+      "summary": "A treasure chest monster opens its lid to reveal sharp teeth, staring eyes and a curling tongue.",
+      "ingredients": [
+        "organic81:golem",
+        "legacy:561"
+      ],
+      "art_mode": "bespoke-subject",
+      "path": "client/assets/v81/mimic.svg"
+    },
+    {
+      "id": "organic81:orc",
+      "name": "Orc",
+      "category": "fantasy",
+      "summary": "A broad-shouldered orc warrior has green skin, jutting lower tusks and a rough iron shoulder guard.",
+      "ingredients": [
+        "organic81:goblin",
+        "legacy:553"
+      ],
+      "art_mode": "bespoke-subject",
+      "path": "client/assets/v81/orc.svg"
+    },
+    {
+      "id": "organic81:hobgoblin",
+      "name": "Hobgoblin",
+      "category": "fantasy",
+      "summary": "A house-dwelling hobgoblin carries a small lantern, with pointed ears and an oversized pointed cap.",
+      "ingredients": [
+        "organic81:goblin",
+        "legacy:45"
+      ],
+      "art_mode": "bespoke-subject",
+      "path": "client/assets/v81/hobgoblin.svg"
+    },
+    {
+      "id": "organic81:kobold",
+      "name": "Kobold",
+      "category": "fantasy",
+      "summary": "A small cavern kobold has a scaly snout, pointed ears and a miner's lantern for exploring tunnels.",
+      "ingredients": [
+        "organic81:goblin",
+        "legacy:37"
+      ],
+      "art_mode": "bespoke-subject",
+      "path": "client/assets/v81/kobold.svg"
+    },
+    {
+      "id": "organic81:dwarf",
+      "name": "Dwarf",
+      "category": "fantasy",
+      "summary": "A stout fantasy dwarf wears a crested iron helm and a thick braided beard while gripping a smith's hammer.",
+      "ingredients": [
+        "organic81:folklore-bestiary",
+        "legacy:31"
+      ],
+      "art_mode": "bespoke-subject",
+      "path": "client/assets/v81/dwarf.svg"
+    },
+    {
+      "id": "organic81:necromancer",
+      "name": "Necromancer",
+      "category": "fantasy",
+      "summary": "A hooded sorcerer raises a skull-topped staff to command restless undead through forbidden magic.",
+      "ingredients": [
+        "organic81:witch-familiar",
+        "legacy:554"
+      ],
+      "art_mode": "bespoke-subject",
+      "path": "client/assets/v81/necromancer.svg"
+    },
+    {
+      "id": "organic81:lich",
+      "name": "Lich",
+      "category": "fantasy",
+      "summary": "An undead necromancer retains a jeweled crown, exposed skull and ancient robes infused with magic.",
+      "ingredients": [
+        "organic81:necromancer",
+        "legacy:554"
+      ],
+      "art_mode": "bespoke-subject",
+      "path": "client/assets/v81/lich.svg"
+    },
+    {
+      "id": "organic81:wraith",
+      "name": "Wraith",
+      "category": "fantasy",
+      "summary": "A dark wraith drifts beneath a torn hood with pale shining eyes and trailing strips of shadow.",
+      "ingredients": [
+        "pack:ghost",
+        "organic81:gothic-castle"
+      ],
+      "art_mode": "bespoke-subject",
+      "path": "client/assets/v81/wraith.svg"
     }
   ],
   "cycle_complete": false

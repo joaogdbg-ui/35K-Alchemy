@@ -1,8 +1,8 @@
-# V81 illustrated gallery — 138/200 (WIP)
+# V81 original artwork — 150/200 (WIP)
 
-Manual 35/90px visual review is required. Never treat this internal work as a published APK.
+One hand-authored source SVG per discovery, previewed at 35 and 90 pixels for manual review.
 
-| # | Element | 35px | 90px |
+| # | Element | 35 px | 90 px |
 |---:|---|:---:|:---:|
 | 1 | Sprite Animation Light Table | <img src="../client/assets/v81/sprite-animation-light-table.svg" width="35" height="35" /> | <img src="../client/assets/v81/sprite-animation-light-table.svg" width="90" height="90" /> |
 | 2 | Color-Proof Photo Printer | <img src="../client/assets/v81/color-proof-photo-printer.svg" width="35" height="35" /> | <img src="../client/assets/v81/color-proof-photo-printer.svg" width="90" height="90" /> |
@@ -142,3 +142,15 @@ Manual 35/90px visual review is required. Never treat this internal work as a pu
 | 136 | Wolf Howl | <img src="../client/assets/v81/wolf-howl.svg" width="35" height="35" /> | <img src="../client/assets/v81/wolf-howl.svg" width="90" height="90" /> |
 | 137 | Banshee | <img src="../client/assets/v81/banshee.svg" width="35" height="35" /> | <img src="../client/assets/v81/banshee.svg" width="90" height="90" /> |
 | 138 | Dryad | <img src="../client/assets/v81/dryad.svg" width="35" height="35" /> | <img src="../client/assets/v81/dryad.svg" width="90" height="90" /> |
+| 139 | Fairy | <img src="../client/assets/v81/fairy.svg" width="35" height="35" /> | <img src="../client/assets/v81/fairy.svg" width="90" height="90" /> |
+| 140 | Pixie | <img src="../client/assets/v81/pixie.svg" width="35" height="35" /> | <img src="../client/assets/v81/pixie.svg" width="90" height="90" /> |
+| 141 | Harpy | <img src="../client/assets/v81/harpy.svg" width="35" height="35" /> | <img src="../client/assets/v81/harpy.svg" width="90" height="90" /> |
+| 142 | Golem | <img src="../client/assets/v81/golem.svg" width="35" height="35" /> | <img src="../client/assets/v81/golem.svg" width="90" height="90" /> |
+| 143 | Mimic | <img src="../client/assets/v81/mimic.svg" width="35" height="35" /> | <img src="../client/assets/v81/mimic.svg" width="90" height="90" /> |
+| 144 | Orc | <img src="../client/assets/v81/orc.svg" width="35" height="35" /> | <img src="../client/assets/v81/orc.svg" width="90" height="90" /> |
+| 145 | Hobgoblin | <img src="../client/assets/v81/hobgoblin.svg" width="35" height="35" /> | <img src="../client/assets/v81/hobgoblin.svg" width="90" height="90" /> |
+| 146 | Kobold | <img src="../client/assets/v81/kobold.svg" width="35" height="35" /> | <img src="../client/assets/v81/kobold.svg" width="90" height="90" /> |
+| 147 | Dwarf | <img src="../client/assets/v81/dwarf.svg" width="35" height="35" /> | <img src="../client/assets/v81/dwarf.svg" width="90" height="90" /> |
+| 148 | Necromancer | <img src="../client/assets/v81/necromancer.svg" width="35" height="35" /> | <img src="../client/assets/v81/necromancer.svg" width="90" height="90" /> |
+| 149 | Lich | <img src="../client/assets/v81/lich.svg" width="35" height="35" /> | <img src="../client/assets/v81/lich.svg" width="90" height="90" /> |
+| 150 | Wraith | <img src="../client/assets/v81/wraith.svg" width="35" height="35" /> | <img src="../client/assets/v81/wraith.svg" width="90" height="90" /> |
