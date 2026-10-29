@@ -1,46 +1,49 @@
-# Alchemy 10K — V82 working handoff / 29 October 2026
+# Alchemy 10K — V82 candidate handoff (29 October 2026)
 
-## Branch / baseline / release truth
-- Branch: `feature/alchemy-10k-mythology-prehistory`; main baseline `2aba8395f48082964bc2af2ff20a468c56dd464b`.
-- V81 baseline: **5,812 real catalog IDs / 14,149 fixed global recipes**.
-- V82 WIP: **+25 genuine IDs / +25 authored recipes / +25 original SVG source files**, target branch totals **5,837 items / 14,174 recipes**, pending the entire full-history validator.
-- Exactly **25/200**, **175 remain**. Neither this branch nor its HTML/APK has been published. Do **not** claim a +200 release or launch GitHub Actions for this checkpoint.
-- Active project goal: **10,000+ elements**. Twenty-one complete +200 batches after V81 reach 10,012; this unfinished 25 is part of the *first* of those 21, not an additional release.
-- Existing repository name and Android `appId=com.joaogdbg.alchemy35k` retained to preserve upgrade/save compatibility; app display title is **Alchemy 10K**.
+## Branch, goal and release truth
+- Development branch: `feature/alchemy-10k-mythology-prehistory`.
+- V81 baseline on main: SHA `2aba8395f48082964bc2af2ff20a468c56dd464b`, **5,812 original elements and 14,149 recipes**.
+- V82 authored candidate: **+200 permanent IDs and +200 new unordered global recipes**, giving **6,012 elements / 14,349 recipes** when passed and merged. This is the FIRST of 21 planned +200 expansions from V81; after V82 the goal of >=10,000 needs 20 more complete deliveries.
+- V82 catalog mix: **93 mythology and 107 prehistory items**, all with exact source SVG files, entries in `client/src/organic-art-v82.js`, unique primary recipes and explicit familyCampaigns metadata.
+- Manifest `shared/v82-approved.json`: `expansion_progress=200`, `remaining_to_goal=0`, `cycle_complete=true`, `status=QA_PENDING_UNMERGED`. **Not published, not merged, no V82 APK**.
+- Rebranding: public `Alchemy 10K` display title, but original Android `appId=com.joaogdbg.alchemy35k` and legacy save keys intentionally retained.
 
-## New playable content in WIP source
-**Mythology & Gods (18 new, 34 currently listed):**
-Mythology; Greek Pantheon; Mount Olympus; Divine Thunderbolt; Zeus; Sacred Trident; Poseidon; Ancient Wisdom; Athena; Roman Pantheon; Jupiter; Norse Mythology; Asgard; Runestone; Odin; Norse War Hammer; Thor of Asgard; Loki of Asgard.
+## Content and quality details
+- Greek, Roman, Norse and Egyptian mythologies: pantheons, public-domain deities and original interpretations of ancient creatures, places and artifacts.
+- Dinosaur families: theropods, sauropods, armored, ceratopsians, hadrosaurs; also pterosaurs, marine reptiles, Paleozoic life and Ice Age mammals.
+- 120 individually composed original illustrations; 80 species-parameterized anatomical SVGs (renderer: `tools/v82-fauna-renderer.js`), each with distinct vector source and morphological input.
+- `Hades the God` is distinct from prior `legacy:941` Hades game. `Fossilized Dinosaur Egg` is distinct from `pack:dinosaur-egg`, a franchise prop. Internal new IDs remain immutable `organic82:hades` and `organic82:dinosaur-egg`.
+- Every SVG is independently stored at `client/assets/v82/<id-suffix>.svg`; the [full 200-item thumbnail contact sheet](docs/V82_ART_REVIEW.md) renders 35px and 90px views for human/device art review.
+- Primary recipes must be semantically sensible and globally unique. Confirm end-to-end before release: source-only static checks do not establish real gameplay quality.
 
-**Prehistory & Dinosaurs (7 new, 16 currently listed):**
-Mesozoic Era; Jurassic Period; Cretaceous Period; Fossil Skeleton; Dinosaur Armor; Stegosaurus; Ankylosaurus.
+## Four Family Only closures, checked directly from source
+| Campaign | Reachable / total | Internal global-compatible recipes |
+|---|---:|---:|
+| Nature & Science | 476/476 | 1,781 |
+| People & Culture | 211/211 | 266 |
+| Mythology & Gods | 109/109 | 105 |
+| Prehistory & Dinosaurs | 116/116 | 112 |
 
-Each authored entry has: permanent `organic82:` ID, original English summary, semantic category, explicit `familyCampaigns` membership, one globally shared unordered recipe, hand-authored 100×100 SVG file and an exact runtime art-map entry. Drawings avoid duplicating the Marvel Thor/Loki and licensed Jurassic-film designs; review still required at 35 px.
+- All four use four starter IDs and are independently craftable according to source-derived recipe graph traversal. New mythology starts Human, History, Magic, Sky; new prehistory starts Animal, Stone, Life, History. Nature still has the historical defect that its starters coincide with Classic; address separately without silently changing progress.
+- No new family-specific alternative A+B result. Earned multi-family IDs share one stable identity, Classic save/progress remains separate, free family starter IDs do not transfer as earned discoveries. Optional merge still requires 2 actual verified rewarded ads with saved 1/2 credit.
 
-## Family contract
-- Existing Nature & Science: 476/476 reachable, **still** uses the Classic four starters (known defect).
-- Existing People & Culture: 211/211 reachable.
-- New thematic starter baselines are 16/16 and 9/9; V82 adds 18 and 7 closed global-recipe paths to reach 34/34 and 16/16 when integrated.
-- New future elements must have explicit membership and must pass the isolated closure gate from four thematic starters. Recipe outputs and ID identities are globally identical across all modes. No family-specific alternative outputs.
-- Earned multi-family IDs synchronize only among eligible family profiles; free starters are not transferred as earned items. Classic remains isolated, and Merge requires two verified rewarded callbacks with saved 1/2 credit.
+## Committed content and code
+- `client/src/organic-pack-v82.js`, `client/src/organic-art-v82.js`, `client/assets/v82/*.svg`, `shared/v82-approved.json`.
+- Authoring inputs: `tools/v82-greek-authoring.js`, `tools/v82-roman-authoring.js`, `tools/v82-norse-authoring.js`, `tools/v82-egypt-authoring.js`, `tools/v82-prehistory-foundations-authoring.js`, `tools/v82-fauna-dinosaurs.json`, `tools/v82-fauna-other.json`, `tools/v82-fauna-renderer.js`.
+- App + offline integration: `client/src/app.js`, `tools/build-standalone.py`; active art scan includes V82.
+- Gates: `tools/validate-v82.mjs`, `tools/audit-v82-art.py`, `client/test/v82-content.test.mjs`, historical V80/V81 regression updates, and `tools/check-content-batch-200.mjs` with specific original art modes `bespoke-subject` and `species-specific-anatomy`.
+- Marketing/review: `docs/V82_ART_REVIEW.md`.
 
-## Committed files
-- `client/src/organic-pack-v82.js`: 25 authored catalog entries / ordered recipes.
-- `client/src/organic-art-v82.js`: exact 25 subject-specific SVG strings.
-- `client/assets/v82/*.svg`: 25 editable original vector sources.
-- `shared/v82-approved.json`: explicit WIP status, 25/200 and source paths, exact provisional counts.
-- `docs/V82_ART_REVIEW.md`: GitHub-renderable 35/90px thumbnails, not yet a human sign-off.
-- `tools/validate-v82.mjs`, `tools/audit-v82-art.py`, `client/test/v82-content.test.mjs`: completeness, global pair integrity, XML/security/duplicate/source, family reachability and WIP guard tests.
-- `client/src/app.js`, `tools/build-standalone.py`, `tools/audit-active-artwork.mjs` plus historical V80/V81 tests updated to include the V82 layer.
+## Verified versus pending
+**Done:** 200 committed candidate IDs and unique visual source files, four source-level isolated family traversals, no conflicting output found among inspected foundation/catalog subsets, preexisting name collisions resolved, old unchanged code kept in branch. Previous exact candidate name scans covered 46 historical catalog modules.
 
-## Checks and exclusions
-- **Repository-source scan across all 46 historical catalog modules** (legacy, creative, gaming and organic through V81): summed 5,812 item records / 14,149 recipes; no pre-existing names equal to the 25 new names and no use of the four old-old ingredient pairs chosen for V82. This verifies the *candidate collision inputs*, not an executed full Node validator.
-- **Direct in-memory family closure using the actual historical V53 family definitions, foundation recipe sources, all 25 new recipes and current thematic compiler**: Nature & Science **476/476**, People & Culture **211/211**, Mythology & Gods **34/34** (30 graph recipes), Prehistory & Dinosaurs **16/16** (12 graph recipes), **zero conflicting family/global outputs and zero unearned starter sync**. These are targeted source-level checks; full application regression tests remain pending.
-- A **complete** repository checkout, **npm test**, full-history validator, standalone builder, browser visual audit, full 35px light/dark review, CI and Android device/APK tests have **not yet been run** in this environment. Do not imply green CI or human-reviewed artwork.
-- No new APK or merged release exists. The current GitHub 'latest' APK still corresponds to a previous main-branch build.
-- Real AdMob rewards, cloud sync, leaderboards, production signing and Nature & Science's starter correction are unresolved.
+**Not done:** local complete repo checkout; full historical `node tools/validate-v82.mjs` execution; `npm test`; `python tools/audit-v82-art.py`; end-to-end HTML build; 35px physical Android light/dark visual review; CI; Android APK build and signing; full revenue/cloud/leaderboard integrations. Do not claim CI green or a released V82 APK.
 
-## Next task
-Continue the SAME V82 WIP pack in editorial waves, without PR/CI or published APK until +200. Prioritize completing Greek/Roman/Norse pantheons and distinct prehistoric dinosaur families, then broad gaming/crossovers. Before each new item, check full global unordered pair and normalized-name availability, ensure an honest path from family starters, then draw its own easily identifiable 35px silhouette. After full 200, run npm test + validators + SVG/XML audit + 320/360/390/1280 browser QA + one GitHub PR CI + one Android debug build, not at WIP checkpoints.
+## Release checklist
+1. Run `npm test`, `node tools/validate-v82.mjs`, `python tools/audit-v82-art.py`, `node tools/audit-active-artwork.mjs`, and exact +200 Git diff gate against baseline.
+2. Run `python tools/build-standalone.py` and verify output `Alchemy_10K_V82_WIP_Offline.html` plus legacy output for Android compatibility.
+3. Inspect the 200 thumbnails at 35px in dark/light mode at 320/360/390px and audit distinct recognizable silhouettes.
+4. One draft pull request and its one planned CI run after 200; repair failures without unnecessary repeated Actions minutes.
+5. Test on an actual Android device, publish a single verified release APK only after QA, CI and merge.
 
-See `docs/ALCHEMY_10K_THEMATIC_EXPANSION.md`, `docs/CONTENT_200_BATCH_POLICY_PT.md`, and `AGENTS.md`.
+Preserve 200-per-batch policy and do not start another content release on top of unpublished unstable V82.

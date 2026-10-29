@@ -4,7 +4,7 @@ _Last edited: 29 October 2026. Planned names below are not necessarily implement
 ## Actual V81 baseline and this maintenance branch
 - Baseline main commit: `2aba8395f48082964bc2af2ff20a468c56dd464b`; **5,812 real IDs**, **14,149 global unordered recipes**.
 - Active target: **10,000+ genuine discoveries**. Twenty-one releases of **exactly +200** reach **10,012**. Historical 35K notes are obsolete for the active target.
-- The branch remains **unmerged WIP**, but the first 25 **new** V82 catalog IDs and 25 unique subject SVGs have now been authored, alongside the two independently closed Family Only campaigns. V82 progress is **25/200** (18 mythology, 7 prehistory); remaining **175**. Original family baselines were **16/16** and **9/9**, while WIP thematic families contain **34/34** and **16/16** candidate-reachable items. Full-history CI and artwork QA still pending.
+- The branch has **200/200 new V82 catalog IDs, 200 unique pair recipes and 200 individual SVG sources** (93 mythology, 107 prehistoric). The candidate total is **6,012 IDs and 14,349 recipes**, but remains **unmerged and unreleased, with full-history CI, Android and artwork QA pending**. Original thematic baselines were 16/16 and 9/9; V82 family graphs now reach **109/109** and **116/116** respectively. All four campaign closures were tested by direct traversal of current source data.
 - Existing V53 Nature & Science: 476/476, but the four Nature starters are still exactly Classic's (tracked defect). Existing People & Culture: 211/211. Preserve historical IDs and save format.
 
 ## Families Only — immutable rules
@@ -15,13 +15,13 @@ _Last edited: 29 October 2026. Planned names below are not necessarily implement
 5. Each *new* family member requires a recipe path from the same four starters, and isolated closure must be tested after **every** proposed addition. Theme membership alone does not make a family completable.
 
 ## New family 1: Mythology & Gods
-**Current starters:** Human, History, Magic, Sky (global IDs unchanged). **V82 WIP +18 elements:** Zeus, Poseidon, Athena, Jupiter, Odin, Norse Thor/Loki and bridges. **Starter graph results:** God, Legend, Hero, Fantasy, Transformation, Shapeshifter, Leader, Psychic, Clan, Ancient City and additional foundations; all 16 baseline IDs reachable with 12 permitted recipes; WIP expands this graph to 34 IDs.
+**Current starters:** Human, History, Magic, Sky (global IDs unchanged). **V82 +93 candidate elements:** Greek, Roman, Norse and Egyptian deities, monsters and connected realms, including Zeus, Poseidon, Athena, Hera, Jupiter, Freyja, Odin, Norse Thor/Loki, Ra and Anubis. **Starter graph results:** God, Legend, Hero, Fantasy, Transformation, Shapeshifter, Leader, Psychic, Clan, Ancient City and additional foundations; all 16 baseline IDs reachable with 12 permitted recipes; V82 expands this graph to 109 IDs.
 
 ### Editorial expansion by tradition
 - **Greek:** Zeus, Hera, Poseidon, Demeter, Athena, Apollo, Artemis, Ares, Aphrodite, Hermes, Hephaestus, Hestia, Hades, Persephone, Dionysus, Cronus, Gaia; realms Olympus, Underworld, Tartarus, and figures Medusa, Minotaur, Cerberus, Pegasus, Hydra, Cyclops.
 - **Roman:** Jupiter, Juno, Neptune, Minerva, Mars, Venus, Mercury, Diana, Ceres, Vulcan, Vesta, Pluto, Janus, Saturn, Bacchus; Rome, Roman Pantheon, Roman Temple, Oracle.
 - **Norse:** Odin, Thor (Norse rather than the existing Marvel-linked Thor ID), Loki (mythic rather than MCU-linked), Frigg, Freyja, Freyr, Tyr, Heimdall, Baldr, Hel, Fenrir, Jormungandr, Sleipnir, Yggdrasil, Asgard, Midgard, Valhalla, Bifrost, Ragnarok.
-- **Future traditions** (after historically grounded review): Egyptian, Mesopotamian, Celtic, Japanese, Hindu, Chinese and others. Avoid presenting living religions as throwaway parody; prioritize cultural accuracy and original art.
+- **Future traditions** (after historically grounded review): Mesopotamian, Celtic, Japanese, Hindu, Chinese and others. Egyptian already has an original V82 starter subtree. Living traditions require careful cultural treatment. Avoid presenting living religions as throwaway parody; prioritize cultural accuracy and original art.
 
 **Naming/IP:** Ancient mythological names are generally public-domain cultural material. Do not copy the character designs, costumes, logos, weapons, promotional art, or visual identities of Marvel, God of War or any other modern IP. Reuse **one** identity only if meaning and global recipes really match; an MCU-specific ID is not a substitute for the mythological figure. Distinguish culturally related Greek/Roman names without creating duplicate IDs for the same named item.
 
@@ -37,7 +37,7 @@ _Last edited: 29 October 2026. Planned names below are not necessarily implement
 Every proposed bridge must be reconciled with the **complete** 14,149+ global pair map, not just a theme's local pairs. No invented dual outcomes.
 
 ## New family 2: Prehistory & Dinosaurs
-**Current starters:** Animal, Stone, Life, History. **V82 WIP +7 elements:** Stegosaurus, Ankylosaurus, Mesozoic, Jurassic, Cretaceous, fossil skeleton and armor. **Baseline craftable nodes:** Fossil, Dinosaur, Archaeology, Monument and Limestone; 9/9 reachable from five global recipes; WIP graph grows to 16 items.
+**Current starters:** Animal, Stone, Life, History. **V82 +107 candidate elements:** dinosaurs, pterosaurs, marine reptiles, Ice Age mammals, Palaeozoic organisms and geology, including Stegosaurus, Ankylosaurus, Spinosaurus, Triceratops and Woolly Mammoth. **Baseline craftable nodes:** Fossil, Dinosaur, Archaeology, Monument and Limestone; 9/9 reachable from five global recipes; V82 graph grows to 116 items.
 
 ### Editorial expansion
 - **Geological time:** Triassic, Jurassic, Cretaceous, Mesozoic, Permian, Pleistocene, Mass Extinction, Asteroid Impact, Amber, Fossil Bed, Dinosaur Footprint, Trackway, Excavation, Paleontology, Fossil Skeleton.

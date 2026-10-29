@@ -1,8 +1,12 @@
-# Alchemy 10K — current catalog roadmap (29 October 2026)
+# Alchemy 10K — active catalog roadmap (29 October 2026)
 
-Active goal: **10,000+ meaningful discoveries**, starting from V81's verified **5,812** IDs / **14,149** global combinations. Exactly 21 remaining content batches of 200 IDs reach **10,012**; do not publish smaller content batches. The two Family Only campaigns began as an art-and-engine-only addition (16 and 9 existing IDs). The V82 WIP branch now additionally contains **25 real new authored elements** (18 mythology + 7 prehistory) with unique SVG drawings and recipe inputs: a provisional **5,837 IDs / 14,174 recipes**, with **175 yet to complete** before a +200 release. The WIP themes hold 34 and 16 items respectively; deeper pantheons and prehistoric diversity still require later authored work.
+V81 main baseline: **5,812 items / 14,149 global unordered recipes**. V82 authored QA candidate on `feature/alchemy-10k-mythology-prehistory`: **+200 real new IDs, +200 recipes and 200 SVG source files**. Candidate total **6,012 / 14,349**, of which **93 new mythology elements** and **107 new prehistory items**. Content count is full but branch is **unmerged and not an APK release**. Manual at-35px art review, full tests, CI and Android build remain pending.
 
-Read [Alchemy 10K themed expansion](docs/ALCHEMY_10K_THEMATIC_EXPANSION.md), [new handoff](HANDOFF_ALCHEMY_10K.md), [family independence rules](docs/FAMILIES_ONLY_CONTRACT_PT.md) and [200-item delivery rules](docs/CONTENT_200_BATCH_POLICY_PT.md). The original 35K roadmap retained below is historical rather than current.
+Four Family Only source-level isolated closure checks: Nature & Science **476/476**, People & Culture **211/211**, Mythology & Gods **109/109**, Prehistory & Dinosaurs **116/116**. Existing Nature campaign continues to use the historical Classic starters (known defect); the two new campaigns have four unique thematic starters. One global result for each unordered pair applies to Classic and all campaigns.
+
+Active minimum goal: **10,000+ unique elements** in full **+200 content releases**. Starting from V81 there are 21 batches to reach **10,012**; V82 would complete the first, leaving **20 more 200-item batches** and no filler allowed.
+
+Read the [200-illustration V82 art contact sheet](docs/V82_ART_REVIEW.md), [V82 handoff](HANDOFF_ALCHEMY_10K.md), [thematic contract](docs/ALCHEMY_10K_THEMATIC_EXPANSION.md), [Family Only invariants](docs/FAMILIES_ONLY_CONTRACT_PT.md) and [200-item release policy](docs/CONTENT_200_BATCH_POLICY_PT.md). The old 35K roadmap below is historical and not active development policy.
 
 ---
 
