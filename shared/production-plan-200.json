@@ -14,10 +14,11 @@
       "finish_v81": 160,
       "begin_v82": 28
     },
-    "consumed_once_content_pack_changes_since_anchor": true
+    "consumed_once_content_pack_changes_since_anchor": true,
+    "note": "Only +188 immediately after V81, then exactly twenty +200 deliveries to 10k"
   },
-  "target_minimum_elements": 35000,
-  "deliveries_to_target_after_rounding": 145,
+  "target_minimum_elements": 10000,
+  "deliveries_to_target_after_rounding": 20,
   "expected_after_next_delivery_elements": 6000,
   "expected_after_next_delivery_recipes_at_least": 14337,
   "next_delivery_outline": {
@@ -27,5 +28,9 @@
   "partial_content_merges_allowed": false,
   "zero_content_maintenance_allowed": true,
   "human_review_required": true,
-  "note": "One time +188 from 5812 to 6000; automatic gate reverts to +200 when base contains content pack changes after pinned V81 anchor."
+  "note": "One time +188 from 5812 to 6000; automatic gate reverts to +200 when base contains content pack changes after pinned V81 anchor.",
+  "game_name": "Alchemy 10k",
+  "target_policy": "exact-10000-hard-cap",
+  "projected_remaining_elements": 4188,
+  "family_targets_path": "shared/family-targets-10k.json"
 }

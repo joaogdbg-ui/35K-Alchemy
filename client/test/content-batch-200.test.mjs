@@ -1,7 +1,7 @@
 import test from 'node:test';
 import assert from 'node:assert/strict';
 import {readFileSync} from 'node:fs';
-import {requireExactContentBatch,inspectPackDelta,requiredContentBatchSize} from '../../tools/check-content-batch-200.mjs';
+import {requireExactContentBatch,inspectPackDelta,requiredContentBatchSize,verifyCatalogCeiling} from '../../tools/check-content-batch-200.mjs';
 const read=p=>readFileSync(new URL('../../'+p,import.meta.url),'utf8');
 const plan=JSON.parse(read('shared/production-plan-200.json'));
 
@@ -32,15 +32,23 @@ test('Gate recognizes added IDs but forbids rewriting historical items or recipe
  assert.throws(()=>inspectPackDelta(old,{items:old.items,recipes:[]}),/historical recipe/);
  assert.throws(()=>inspectPackDelta(old,{items:[...old.items,...old.items],recipes:old.recipes}),/duplicate IDs/);
 });
-test('Arithmetic is exact: a single +188, then 145 separate +200 deliveries',()=>{
+test('Arithmetic is exact: a single +188, then 20 separate +200 deliveries',()=>{
  assert.equal(plan.baseline_elements,5812);
  assert.equal(plan.baseline_recipes,14149);
  assert.equal(plan.batch_size,200);
- assert.equal(plan.target_minimum_elements,35000);
+ assert.equal(plan.target_minimum_elements,10000);
  assert.equal(plan.expected_after_next_delivery_elements,6000);
+ assert.equal(plan.game_name,'Alchemy 10k');
  assert.equal(plan.expected_after_next_delivery_recipes_at_least,14337);
  assert.equal(plan.next_delivery_outline.finish_v81+plan.next_delivery_outline.begin_v82,188);
- assert.equal(plan.deliveries_to_target_after_rounding,(35000-6000)/200);
- assert.equal(5812+188+145*200,35000);
+ assert.equal(plan.deliveries_to_target_after_rounding,(10000-6000)/200);
+ assert.equal(5812+188+20*200,10000);
  assert.match(read('docs/WORKING_RULES_PT.md'),/OBRIGATÓRIO/);
+});
+
+test('10k hard ceiling rejects the first 10,200-element content overshoot',()=>{
+ assert.equal(verifyCatalogCeiling(6000,188,10000),6000);
+ for(const n of [6200,6400,9800,10000])assert.equal(verifyCatalogCeiling(n,200,10000),n);
+ for(const n of [5812,6001,10001,10200])assert.throws(()=>verifyCatalogCeiling(n,200,10000));
+ assert.throws(()=>verifyCatalogCeiling(6200,188,10000),/6,000/);
 });

@@ -1,7 +1,7 @@
 #!/usr/bin/env node
 /** Enforce one-off +188 to reach 6,000, then exactly +200 on all further content releases. */
 import {execFileSync} from 'node:child_process';
-import {readFileSync,existsSync} from 'node:fs';
+import {readFileSync,existsSync,readdirSync} from 'node:fs';
 import {createHash} from 'node:crypto';
 import {resolve} from 'node:path';
 const root=resolve(import.meta.dirname,'..');
@@ -13,7 +13,7 @@ const read=p=>readFileSync(resolve(root,p),'utf8');
 const json=p=>JSON.parse(read(p));
 /** The 188 exception depends on the content history of the PR/build BASE, not the branch name or a mutable flag. */
 export function requiredContentBatchSize(plan,{baseDescendsFromAnchor=false,contentPackChangedSinceAnchor=false}={}){
- if(plan.batch_size!==200||plan.target_minimum_elements!==35000||plan.partial_content_merges_allowed!==false)
+ if(plan.batch_size!==200||plan.target_minimum_elements!==10000||plan.partial_content_merges_allowed!==false)
   err('mandatory permanent +200 policy changed');
  const exc=plan.one_time_rounding_exception;
  if(!exc)return plan.batch_size;
@@ -27,6 +27,14 @@ export function requireExactContentBatch(n,size=200){
  if(!Number.isInteger(n)||n<0)err('invalid element count');
  if(n&&n!==size)err('actual new IDs: '+n+'; required '+size+'. Save partial groups in an unmerged WIP branch, never ship filler');
  return n===0?'maintenance change (0 new IDs)':'content batch of '+n+' new IDs';
+}
+/** Enforce exact 10,000-element finish and prevent a 10,200-element overshoot. */
+export function verifyCatalogCeiling(current,delta,cap=10000){
+ if(!Number.isInteger(current)||!Number.isInteger(delta)||!Number.isInteger(cap)||delta<0)err('invalid 10k milestone');
+ if(current>cap)err('catalog would exceed final '+cap+' IDs ('+current+')');
+ if(delta===188&&current!==6000)err('single rounding release must produce exactly 6,000 elements');
+ if(delta===200&&(current<6200||(current-6000)%200!==0))err('post-rounding milestone must be 6,200, 6,400, ..., 10,000');
+ return current;
 }
 export function inspectPackDelta(oldPack,newPack,path='pack'){
  if(!Array.isArray(oldPack.items)||!Array.isArray(oldPack.recipes)||!Array.isArray(newPack.items)||!Array.isArray(newPack.recipes))err('malformed '+path);
@@ -98,6 +106,16 @@ async function main(){
   }
  }
  const msg=requireExactContentBatch(ids.size,required);
+ if(ids.size){
+  const moduleFiles=readdirSync(resolve(root,'client/src')).filter(name=>/^(?:organic|gaming)-pack-v\d+\.js$/.test(name));
+  const legacy=parse(read('client/src/legacy-data.js'),'legacy-data');
+  const creative=parse(read('client/src/creative-pack.js'),'creative-pack');
+  const currentCount=legacy.items.length+creative.items.length+
+   moduleFiles.reduce((n,name)=>n+parse(read('client/src/'+name),name).items.length,0);
+  verifyCatalogCeiling(currentCount,ids.size,plan.target_minimum_elements);
+  if(ids.size===188&&currentCount!==plan.one_time_rounding_exception.target_elements)err('rounding release must end at 6,000');
+ }
+
  console.log('CONTENT-200 PASS: '+msg+'; manifest, original icons and unique new recipes verified.');
  console.log('Manual aesthetic/35px and IP review still required.');
 }
