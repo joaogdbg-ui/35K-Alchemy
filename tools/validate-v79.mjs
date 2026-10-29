@@ -22,7 +22,7 @@ const groups=['gaming-v22','gaming-v23','gaming-v24','gaming-v26','gaming-v27','
 const packs=[PACK];
 for(const v of groups){const mod=await import('../client/src/'+v.replace('gaming','gaming-pack').replace('organic','organic-pack')+'.js');packs.push(Object.values(mod)[0]);}
 const previous=[...packs,ORGANIC_V71,ORGANIC_V72,ORGANIC_V73,ORGANIC_V74,ORGANIC_V75,ORGANIC_V76,ORGANIC_V77,ORGANIC_V78];
-const prior=buildCatalog(DATA,previous),next=buildCatalog(DATA,[...previous,ORGANIC_V79]);
+const prior=buildCatalog(DATA,previous),next=buildCatalog(DATA,[...previous,ORGANIC_V79,ORGANIC_V80]);
 check(prior.items.length===5522&&prior.recipes.size===13859,'V78 baseline changed');
 check(next.items.length===5572&&next.recipes.size===13909,'V79 catalog totals');
 for(const [pair,out] of prior.recipes)check(next.recipes.get(pair)===out,'historic pair outcome changed '+pair);
@@ -52,8 +52,8 @@ for(const it of ORGANIC_V79.items){
  check(ORGANIC_ART_V79[it.name.toLowerCase()]===svg,'source/runtime SVG mismatch '+it.name);images.add(hash);
 }
 const app=readFileSync('client/src/app.js','utf8'),builder=readFileSync('tools/build-standalone.py','utf8');
-check(app.includes('ORGANIC_V77,ORGANIC_V78,ORGANIC_V79]'),'new pack not in Classic');
-check(app.includes('const newArt=ORGANIC_ART_V79[itemName]||ORGANIC_ART_V78'),'new art not highest priority');
+check(app.includes('ORGANIC_V77,ORGANIC_V78,ORGANIC_V79,ORGANIC_V80]'),'new pack not in Classic');
+check(app.includes('const newArt=ORGANIC_ART_V80[itemName]||ORGANIC_ART_V79[itemName]||ORGANIC_ART_V78'),'new art not highest priority');
 check(builder.includes('window.__gameverseOrganic79')&&builder.includes('window.__gameverseOrganicArt79'),'offline bundler lacks V79');
 check(builder.includes('35K_Alchemy_V79_Offline.html'),'offline artifact not V79');
 check(app.includes('const anchorId=this.ids[previousIndex]'),'inventory scroll regression');
