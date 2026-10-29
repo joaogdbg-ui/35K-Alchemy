@@ -32,7 +32,7 @@ for(const item of ORGANIC_V72.items){
  check(ORGANIC_V72.recipes.some(r=>r[2]===item.id),'missing recipe for '+item.name);
 }
 const code=readFileSync('client/src/app.js','utf8');
-check(code.includes('ORGANIC_V71,ORGANIC_V72]'),'app must include new catalog');
+check(code.includes('ORGANIC_V71,ORGANIC_V72,ORGANIC_V73]'),'app must preserve V72 alongside V73');
 check(code.includes('ORGANIC_ART_V73[itemName]||ORGANIC_ART_V72[itemName]||ORGANIC_ART_V71[itemName]'),'art priority');
 check(code.includes('const anchorId=this.ids[previousIndex]'),'inventory scroll anchor lost');
 check(code.includes('refresh({resetScroll=false}={})'),'refresh must default to preserve scroll');
