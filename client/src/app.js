@@ -1384,7 +1384,7 @@ async function hint(){
 }
 function showCompassRevealed(item){
  const fam=FAMILIES.find(f=>f.id===item.family)?.name||'Discoveries';
- showModal(`<div class="modal-tag">✧ RECIPE REVEALED</div><h2>${escapeText(fam)}</h2><div class="compass-recipe"><strong>${escapeText(byId.get(item.a).name)}</strong><span>+</span><strong>${escapeText(byId.get(item.b).name)}</strong></div><p>The result is still a mystery until you craft it.</p><button class="modal-button" id="compassTry">Try combination</button>`);
+ showModal(`<div class="modal-tag">✧ RECIPE REVEALED</div><h2>${escapeText(fam)}</h2><div class="compass-recipe"><strong>${escapeText(uiName(byId.get(item.a)))}</strong><span>+</span><strong>${escapeText(uiName(byId.get(item.b)))}</strong></div><p>The result is still a mystery until you craft it.</p><button class="modal-button" id="compassTry">Try combination</button>`);
  $('modal').dataset.dismiss='x-only';
  $('compassTry').onclick=()=>{closeModal();switchTab('Play');selectForHint(item.a,item.b);};
 }

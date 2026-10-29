@@ -9,7 +9,7 @@ Historical catalogue strings contain many real console brands, game franchises, 
 - Keep all historical immutable IDs and every recipe untouched. Internal source references and older archive files may retain original names for saves, historical recipe lookup, art lookup and audits. Do not use those identifiers in storefront artwork or promotional text.
 - Screen public labels and V76 embedded SVG content with `node tools/audit-ip-safe-names.mjs`. It is a heuristic **release gate**, not independent legal certification.
 - Previous original vector images have not been certified safe by a person. Before commercial launch, visually compare *every* icon resembling a proprietary console, character, emblem or logo and redraw or replace any confusingly similar design; include screenshots, sounds, app icon, store listing, and third-party dependency licenses.
-- Catalogue names changed for V76 items must keep IDs, recipes and exact SVG key pairing; historical manifest `new_items` names and art-map keys must be kept synchronized.
+- **V76 implemented:** 39 branded source item names, 39 corresponding SVG asset paths, all five active SVG maps, approved manifest, five batch manifests and art-review gallery have been migrated in sync. All 50 immutable IDs and recipes have been preserved; source paths and public labels now match.
 
 ## Additional code audit observations
 - `buildCatalog` already rejects duplicate IDs, normalized names, unordered formula conflicts, and unreachable elements.
