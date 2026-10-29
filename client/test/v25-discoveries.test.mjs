@@ -27,7 +27,7 @@ test('V25 offers functional offline filters, themed sets, and independent favori
  for(const scope of ['recipe','recent','useful','completed','favorites'])assert.ok(html.includes(`data-dscope="${scope}"`));
  assert.match(html,/id="recentBtn"/);
  assert.match(html,/id="playFamily"/);
- for(const name of ['Qelvorune Generations','Pocket Console Heritage','Retro Game Classics'])assert.ok(source.includes(name));
+ for(const name of ['Disc Console Timeline','Pocket Console History','Retro Gaming Icons'])assert.ok(source.includes(name));
  assert.match(source,/function saveExtras\(\)/);
  assert.match(source,/function toggleFavorite\(id\)/);
 });
