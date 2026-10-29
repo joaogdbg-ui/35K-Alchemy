@@ -28,6 +28,8 @@ export function synchronizeFamilyProfiles(input, campaigns) {
     const profile = profiles[campaign.id];
     if (!profile || !Array.isArray(profile.unlocked)) continue;
     for (const id of profile.unlocked) {
+      // Free starters are not earned discoveries: never leak them to other campaigns.
+      if (campaign.starters.includes(id)) continue;
       if (!membership.get(id)?.has(campaign.id) || discovered.has(id)) continue;
       const record = Array.isArray(profile.ledger)
         ? profile.ledger.find(entry => Array.isArray(entry) && entry[0] === id)?.[1]
