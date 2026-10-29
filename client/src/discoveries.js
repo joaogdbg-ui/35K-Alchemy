@@ -1,4 +1,5 @@
-// V20: stable offline discovery families. Every catalog category maps to exactly one family.
+// Alchemy 10k: stable nine-family taxonomy; editorial primary targets sum to exactly 10,000.
+// Food belongs to People & Culture, never the fantasy catch-all. IDs and saves are unchanged.
 export const FAMILIES = Object.freeze([
  {id:'games',name:'Video Games',icon:'game_case',category:'Gaming',description:'Games, genres and releases',categories:['game','genre','gamecraft'],order:0},
  {id:'consoles',name:'Consoles & Hardware',icon:'console',category:'Gaming',description:'Consoles, handhelds and computers',categories:['console','portable','computer','technology','brand','accessory'],order:1},
@@ -8,7 +9,7 @@ export const FAMILIES = Object.freeze([
  {id:'music',name:'Music',icon:'music',category:'Culture',description:'Artists, albums and instruments',categories:['music'],order:5},
  {id:'nature',name:'Nature & Science',icon:'dragon',category:'World',description:'Natural elements, life and discovery',categories:['nature','material','life','science'],order:6},
  {id:'fantasy',name:'Fantasy & Objects',icon:'crystal',category:'World',description:'Imaginary worlds and inventions',categories:['fantasy','object','concept'],order:7},
- {id:'people',name:'People & Culture',icon:'manga',category:'World',description:'Personalities and world history',categories:['politician','culture'],order:8},
+ {id:'people',name:'People & Culture',icon:'manga',category:'World',description:'Personalities and world history',categories:['politician','culture','food'],order:8},
 ]);
 const CATEGORY_FAMILY = new Map(FAMILIES.flatMap(f=>f.categories.map(c=>[c,f.id])));
 export const familyFor=(item)=>['Moon','Planet','Space','Star','Bread'].includes(item?.name)?'nature':CATEGORY_FAMILY.get(item.category)||'fantasy';

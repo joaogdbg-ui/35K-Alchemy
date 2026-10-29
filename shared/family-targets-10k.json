@@ -1,0 +1,292 @@
+{
+  "version": "10k-scope-v1",
+  "gameName": "Alchemy 10k",
+  "targetUniqueElements": 10000,
+  "baseline": {
+    "commit": "2aba8395f48082964bc2af2ff20a468c56dd464b",
+    "items": 5812,
+    "recipes": 14149
+  },
+  "counting": "Editorial category-derived primary family budgets. Every catalog element counts exactly once globally and in one primary category; secondary collection memberships do not increase 10,000. Overrides for five historic names and multi-family display may cause UI membership totals to exceed these primary buckets.",
+  "families": [
+    {
+      "id": "games",
+      "name": "Video Games",
+      "baseline": 1309,
+      "target": 2500,
+      "priority": "Game titles, gamecraft, genres; distinct subgenres, eras and original parody names",
+      "status": "planned",
+      "starters": [
+        {
+          "name": "Game",
+          "status": "proposal-not-validated"
+        },
+        {
+          "name": "Strategy",
+          "status": "proposal-not-validated"
+        },
+        {
+          "name": "Pixel",
+          "status": "proposal-not-validated"
+        },
+        {
+          "name": "Story",
+          "status": "proposal-not-validated"
+        }
+      ],
+      "remaining": 1191,
+      "campaignAvailable": false
+    },
+    {
+      "id": "consoles",
+      "name": "Consoles & Hardware",
+      "baseline": 959,
+      "target": 1600,
+      "priority": "Hardware generations, controllers, parts, computers, repair and software",
+      "status": "planned",
+      "starters": [
+        {
+          "name": "Circuit",
+          "status": "proposal-not-validated"
+        },
+        {
+          "name": "Screen",
+          "status": "proposal-not-validated"
+        },
+        {
+          "name": "Battery",
+          "status": "proposal-not-validated"
+        },
+        {
+          "name": "Controller",
+          "status": "proposal-not-validated"
+        }
+      ],
+      "remaining": 641,
+      "campaignAvailable": false
+    },
+    {
+      "id": "arcades",
+      "name": "Arcade & Tabletop",
+      "baseline": 462,
+      "target": 1250,
+      "priority": "Arcade, pinball, board games, tabletop tools, competitive play",
+      "status": "planned",
+      "starters": [
+        {
+          "name": "Arcade Machine",
+          "status": "proposal-not-validated"
+        },
+        {
+          "name": "Dice",
+          "status": "proposal-not-validated"
+        },
+        {
+          "name": "Game Board",
+          "status": "proposal-not-validated"
+        },
+        {
+          "name": "Coin",
+          "status": "proposal-not-validated"
+        }
+      ],
+      "remaining": 788,
+      "campaignAvailable": false
+    },
+    {
+      "id": "anime",
+      "name": "Anime & Manga",
+      "baseline": 584,
+      "target": 850,
+      "priority": "Animation, comics, original character archetypes and powers",
+      "status": "planned",
+      "starters": [
+        {
+          "name": "Manga",
+          "status": "proposal-not-validated"
+        },
+        {
+          "name": "Drawing",
+          "status": "proposal-not-validated"
+        },
+        {
+          "name": "Story",
+          "status": "proposal-not-validated"
+        },
+        {
+          "name": "Character",
+          "status": "proposal-not-validated"
+        }
+      ],
+      "remaining": 266,
+      "campaignAvailable": false
+    },
+    {
+      "id": "cinema",
+      "name": "Cinema & TV",
+      "baseline": 19,
+      "target": 250,
+      "priority": "Cinema, filmmaking and TV genres; carefully selected rather than mass franchise clones",
+      "status": "planned",
+      "starters": [
+        {
+          "name": "Camera",
+          "status": "proposal-not-validated"
+        },
+        {
+          "name": "Film",
+          "status": "proposal-not-validated"
+        },
+        {
+          "name": "Screen",
+          "status": "proposal-not-validated"
+        },
+        {
+          "name": "Story",
+          "status": "proposal-not-validated"
+        }
+      ],
+      "remaining": 231,
+      "campaignAvailable": false
+    },
+    {
+      "id": "music",
+      "name": "Music",
+      "baseline": 111,
+      "target": 300,
+      "priority": "Instruments, rhythm, audio production, music formats and styles",
+      "status": "planned",
+      "starters": [
+        {
+          "name": "Sound",
+          "status": "proposal-not-validated"
+        },
+        {
+          "name": "Instrument",
+          "status": "proposal-not-validated"
+        },
+        {
+          "name": "Music",
+          "status": "proposal-not-validated"
+        },
+        {
+          "name": "Rhythm",
+          "status": "proposal-not-validated"
+        }
+      ],
+      "remaining": 189,
+      "campaignAvailable": false
+    },
+    {
+      "id": "nature",
+      "name": "Nature & Science",
+      "baseline": 943,
+      "target": 1250,
+      "priority": "Ecosystems, weather, chemistry, astronomy, ecology and scientific instruments",
+      "status": "active",
+      "starters": [
+        {
+          "name": "Plant",
+          "status": "proposal-not-validated"
+        },
+        {
+          "name": "Stone",
+          "status": "proposal-not-validated"
+        },
+        {
+          "name": "Rain",
+          "status": "proposal-not-validated"
+        },
+        {
+          "name": "Sun",
+          "status": "proposal-not-validated"
+        }
+      ],
+      "remaining": 307,
+      "campaignAvailable": true
+    },
+    {
+      "id": "fantasy",
+      "name": "Fantasy & Objects",
+      "baseline": 638,
+      "target": 1000,
+      "priority": "Mythology, fantasy worlds, artifacts and inventions with meaningful game links",
+      "status": "planned",
+      "starters": [
+        {
+          "name": "Magic",
+          "status": "proposal-not-validated"
+        },
+        {
+          "name": "Crystal",
+          "status": "proposal-not-validated"
+        },
+        {
+          "name": "Dragon",
+          "status": "proposal-not-validated"
+        },
+        {
+          "name": "Treasure",
+          "status": "proposal-not-validated"
+        }
+      ],
+      "remaining": 362,
+      "campaignAvailable": false
+    },
+    {
+      "id": "people",
+      "name": "People & Culture",
+      "baseline": 787,
+      "target": 1000,
+      "priority": "History, places, professions, food, arts and society",
+      "status": "active",
+      "starters": [
+        {
+          "name": "House",
+          "status": "proposal-not-validated"
+        },
+        {
+          "name": "Book",
+          "status": "proposal-not-validated"
+        },
+        {
+          "name": "Culture",
+          "status": "proposal-not-validated"
+        },
+        {
+          "name": "Craft",
+          "status": "proposal-not-validated"
+        }
+      ],
+      "remaining": 213,
+      "campaignAvailable": true
+    }
+  ],
+  "campaignRules": {
+    "active": [
+      "nature",
+      "people"
+    ],
+    "planned": [
+      "games",
+      "consoles",
+      "arcades",
+      "anime",
+      "cinema",
+      "music",
+      "fantasy"
+    ],
+    "starterCount": 4,
+    "independentReachabilityRequired": true,
+    "sharedIdOneGlobalItem": true,
+    "sharedDiscoveriesAcrossEligibleFamilies": true,
+    "classicSavesSeparate": true,
+    "existingNatureStarterIssue": "Currently uses Classic four, must be redesigned with 100% graph proof",
+    "doNotAutoGenerateOrActivateIncompleteCampaigns": true
+  },
+  "scopeAfter6000": {
+    "batchSize": 200,
+    "remainingBatches": 20,
+    "exactFinal": 10000
+  }
+}
