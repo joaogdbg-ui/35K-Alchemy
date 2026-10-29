@@ -1,0 +1,425 @@
+{
+  "kind": "marine-ice-age-ancient-life",
+  "rows": [
+    [
+      "pteranodon",
+      "Pteranodon",
+      "pterosaur",
+      "cretaceous-period",
+      "A Late Cretaceous flying reptile with a long backward-pointing skull crest and toothless beak.",
+      "pterosaur",
+      {
+        "color": "#A7B8C8",
+        "crest": "back",
+        "span": 1.12,
+        "beak": 1.22
+      }
+    ],
+    [
+      "quetzalcoatlus",
+      "Quetzalcoatlus",
+      "pterosaur",
+      "late-cretaceous",
+      "An immense azhdarchid pterosaur with a tall ground stance and elongated toothless jaws.",
+      "pterosaur",
+      {
+        "color": "#B5B19E",
+        "crest": "small",
+        "span": 1.34,
+        "beak": 1.62,
+        "legs": 1.35
+      }
+    ],
+    [
+      "pterodactylus",
+      "Pterodactylus",
+      "pterosaur",
+      "jurassic-period",
+      "A small Late Jurassic pterosaur with a long pointed beak and broad membranous wings.",
+      "pterosaur",
+      {
+        "color": "#B2A7BD",
+        "crest": "none",
+        "span": 0.85,
+        "beak": 1.18
+      }
+    ],
+    [
+      "dimorphodon",
+      "Dimorphodon",
+      "pterosaur",
+      "fossil-skeleton",
+      "A Jurassic flying reptile notable for its short deep head and differently shaped teeth.",
+      "pterosaur",
+      {
+        "color": "#B7AAA1",
+        "crest": "none",
+        "span": 0.94,
+        "beak": 0.72,
+        "teeth": true
+      }
+    ],
+    [
+      "rhamphorhynchus",
+      "Rhamphorhynchus",
+      "pterosaur",
+      "fossil-footprint",
+      "A Jurassic pterosaur with narrow wings and a long tail ending in a diamond-shaped vane.",
+      "pterosaur",
+      {
+        "color": "#96B5AF",
+        "crest": "none",
+        "span": 1.04,
+        "tail": "diamond",
+        "beak": 1.08
+      }
+    ],
+    [
+      "tapejara",
+      "Tapejara",
+      "pterosaur",
+      "quetzalcoatlus",
+      "A Brazilian Cretaceous pterosaur carrying a very tall leaf-shaped cranial crest.",
+      "pterosaur",
+      {
+        "color": "#C3A9A9",
+        "crest": "tall",
+        "span": 1,
+        "beak": 1.05
+      }
+    ],
+    [
+      "mosasaurus",
+      "Mosasaurus",
+      "marine-reptile",
+      "late-cretaceous",
+      "A giant marine lizard with paddle-shaped limbs and a powerful long-jawed skull.",
+      "marine",
+      {
+        "color": "#8CAFB8",
+        "type": "mosasaur",
+        "jaw": 1.42,
+        "neck": 0.65,
+        "body": 1.15
+      }
+    ],
+    [
+      "plesiosaurus",
+      "Plesiosaurus",
+      "marine-reptile",
+      "jurassic-period",
+      "A Jurassic marine reptile with a long neck, a small head and four strong flippers.",
+      "marine",
+      {
+        "color": "#A7BAC5",
+        "type": "plesio",
+        "neck": 1.55,
+        "head": 0.74
+      }
+    ],
+    [
+      "elasmosaurus",
+      "Elasmosaurus",
+      "plesiosaurus",
+      "cretaceous-period",
+      "A Late Cretaceous plesiosaur carrying an extraordinarily long serpentine neck.",
+      "marine",
+      {
+        "color": "#A4B5AD",
+        "type": "plesio",
+        "neck": 2.06,
+        "head": 0.62
+      }
+    ],
+    [
+      "ichthyosaurus",
+      "Ichthyosaurus",
+      "marine-reptile",
+      "triassic-period",
+      "A dolphin-shaped marine reptile with a large round eye and a tail fin.",
+      "marine",
+      {
+        "color": "#B3B9C3",
+        "type": "ichthyo",
+        "fin": 1.2,
+        "eye": 1.35
+      }
+    ],
+    [
+      "liopleurodon",
+      "Liopleurodon",
+      "marine-reptile",
+      "plesiosaurus",
+      "A Jurassic pliosaur with a short neck, powerful jaws and four paddle flippers.",
+      "marine",
+      {
+        "color": "#A2B5B1",
+        "type": "pliosaur",
+        "jaw": 1.15,
+        "head": 1.25
+      }
+    ],
+    [
+      "kronosaurus",
+      "Kronosaurus",
+      "liopleurodon",
+      "cretaceous-period",
+      "A giant Cretaceous pliosaur with an enormous skull and strong underwater paddles.",
+      "marine",
+      {
+        "color": "#8FABBD",
+        "type": "pliosaur",
+        "jaw": 1.4,
+        "head": 1.5,
+        "body": 1.28
+      }
+    ],
+    [
+      "nothosaurus",
+      "Nothosaurus",
+      "marine-reptile",
+      "mesozoic-era",
+      "A Triassic semi-aquatic reptile with a slender body, long snout and webbed feet.",
+      "marine",
+      {
+        "color": "#A7B79B",
+        "type": "nothosaur",
+        "jaw": 1.12,
+        "neck": 1.22
+      }
+    ],
+    [
+      "woolly-mammoth",
+      "Woolly Mammoth",
+      "prehistoric-mammal",
+      "ice-age",
+      "A shaggy Ice Age elephant with a domed skull and huge outward-curving ivory tusks.",
+      "mammal",
+      {
+        "color": "#B19C92",
+        "type": "mammoth",
+        "fur": true,
+        "tusks": 2,
+        "body": 1.3
+      }
+    ],
+    [
+      "smilodon",
+      "Smilodon",
+      "prehistoric-mammal",
+      "pleistocene-epoch",
+      "A saber-toothed cat with robust forequarters and exceptionally long curved canine teeth.",
+      "mammal",
+      {
+        "color": "#BFAE92",
+        "type": "cat",
+        "fangs": true,
+        "body": 1.05
+      }
+    ],
+    [
+      "woolly-rhinoceros",
+      "Woolly Rhinoceros",
+      "ice-age",
+      "fossil-skeleton",
+      "A shaggy Ice Age rhinoceros sporting a huge front horn and a smaller second horn.",
+      "mammal",
+      {
+        "color": "#B6AAA1",
+        "type": "rhino",
+        "fur": true,
+        "horns": 2,
+        "body": 1.28
+      }
+    ],
+    [
+      "giant-ground-sloth",
+      "Giant Ground Sloth",
+      "prehistoric-mammal",
+      "cenozoic-era",
+      "A giant prehistoric sloth with enormous curved claws and a heavy upright torso.",
+      "mammal",
+      {
+        "color": "#AEB29A",
+        "type": "sloth",
+        "claws": 3,
+        "body": 1.2
+      }
+    ],
+    [
+      "cave-bear",
+      "Cave Bear",
+      "woolly-mammoth",
+      "ice-age",
+      "A formidable Pleistocene bear with a high forehead and thick winter coat.",
+      "mammal",
+      {
+        "color": "#A89A9B",
+        "type": "bear",
+        "fur": true,
+        "body": 1.17
+      }
+    ],
+    [
+      "irish-elk",
+      "Irish Elk",
+      "prehistoric-mammal",
+      "fossil-footprint",
+      "A giant deer of the Ice Age with exceptionally wide palmated antlers.",
+      "mammal",
+      {
+        "color": "#B8A48E",
+        "type": "elk",
+        "antlers": 2,
+        "body": 1.06
+      }
+    ],
+    [
+      "dire-wolf",
+      "Dire Wolf",
+      "cave-bear",
+      "ice-age",
+      "A powerful extinct North American canid with a robust skull and strong legs.",
+      "mammal",
+      {
+        "color": "#9CA9AE",
+        "type": "wolf",
+        "fur": true,
+        "body": 1.12
+      }
+    ],
+    [
+      "glyptodon",
+      "Glyptodon",
+      "prehistoric-mammal",
+      "dinosaur-armor",
+      "A massive prehistoric armadillo with a rounded bony shell and heavy tail.",
+      "mammal",
+      {
+        "color": "#B8AD9C",
+        "type": "glyptodon",
+        "armor": true,
+        "body": 1.23
+      }
+    ],
+    [
+      "mastodon",
+      "Mastodon",
+      "woolly-mammoth",
+      "prehistoric-mammal",
+      "An extinct elephant relative with a long trunk, curved tusks and stocky body.",
+      "mammal",
+      {
+        "color": "#BCA89C",
+        "type": "mastodon",
+        "tusks": 2,
+        "body": 1.14
+      }
+    ],
+    [
+      "terror-bird",
+      "Terror Bird",
+      "cenozoic-era",
+      "feathered-dinosaur",
+      "A tall flightless Cenozoic predator with a huge hooked beak and long running legs.",
+      "mammal",
+      {
+        "color": "#B6B7A1",
+        "type": "bird",
+        "beak": true,
+        "legs": 1.35
+      }
+    ],
+    [
+      "trilobite",
+      "Trilobite",
+      "cambrian-period",
+      "prehistoric-ocean",
+      "An extinct segmented marine arthropod with three lengthwise body lobes.",
+      "ancient",
+      {
+        "color": "#B8A99A",
+        "type": "trilobite",
+        "segments": 8
+      }
+    ],
+    [
+      "ammonite",
+      "Ammonite",
+      "prehistoric-ocean",
+      "fossil-skeleton",
+      "A spiral-shelled extinct cephalopod preserved in curled and ribbed fossil chambers.",
+      "ancient",
+      {
+        "color": "#C4B69F",
+        "type": "ammonite",
+        "ribs": 10
+      }
+    ],
+    [
+      "anomalocaris",
+      "Anomalocaris",
+      "cambrian-period",
+      "trilobite",
+      "A strange Cambrian swimmer with lobed side fins, stalked eyes and two grasping appendages.",
+      "ancient",
+      {
+        "color": "#A5B8B0",
+        "type": "anomalocaris",
+        "segments": 7
+      }
+    ],
+    [
+      "dunkleosteus",
+      "Dunkleosteus",
+      "paleozoic-era",
+      "prehistoric-ocean",
+      "A giant Devonian armored fish with bony jaw plates instead of ordinary teeth.",
+      "ancient",
+      {
+        "color": "#8EAAB4",
+        "type": "armoredfish",
+        "jaw": 1.3
+      }
+    ],
+    [
+      "megalodon",
+      "Megalodon",
+      "cenozoic-era",
+      "prehistoric-ocean",
+      "An enormous extinct shark known chiefly from giant triangular fossil teeth.",
+      "ancient",
+      {
+        "color": "#A2B7C0",
+        "type": "shark",
+        "jaw": 1.5
+      }
+    ],
+    [
+      "giant-dragonfly",
+      "Giant Dragonfly",
+      "carboniferous-period",
+      "fossil-footprint",
+      "An enormous ancient griffinfly spreads broad transparent wings above a swamp.",
+      "ancient",
+      {
+        "color": "#ADC0AC",
+        "type": "dragonfly",
+        "span": 1.3
+      }
+    ],
+    [
+      "cycad",
+      "Cycad",
+      "jurassic-period",
+      "paleozoic-era",
+      "A prehistoric seed plant with a stout trunk and a crown of long leathery leaves.",
+      "ancient",
+      {
+        "color": "#9BB799",
+        "type": "cycad",
+        "leaves": 8
+      }
+    ]
+  ]
+}
