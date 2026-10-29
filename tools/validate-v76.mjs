@@ -55,7 +55,7 @@ for(const item of ORGANIC_V76.items){
   check(!/<script|<image\b|<text\b|<foreignObject|onload\s*=|href\s*=|<animate/i.test(svg),'external/unsafe SVG '+item.name);
 }
 const app=readFileSync('client/src/app.js','utf8'),builder=readFileSync('tools/build-standalone.py','utf8');
-check(app.includes('ORGANIC_V74,ORGANIC_V75,ORGANIC_V76]'),'V76 pack not in Classic');
+check(app.includes('ORGANIC_V74,ORGANIC_V75,ORGANIC_V76,ORGANIC_V77]'),'V76 pack not in Classic');
 check(app.includes('ORGANIC_ART_V76[itemName]||ORGANIC_ART_V75[itemName]'),'V76 artwork priority');
 check(builder.includes('window.__gameverseOrganic76')&&builder.includes('window.__gameverseOrganicArt76'),'standalone data missing');
 check(builder.includes('35K_Alchemy_V76_Offline.html'),'standalone version incorrect');
