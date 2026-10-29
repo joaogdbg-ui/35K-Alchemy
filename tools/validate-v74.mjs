@@ -25,6 +25,8 @@ const ids=new Set(),pairs=new Set(),hashes=new Set();
 for(const item of ORGANIC_V74.items) {
  check(!itemNames.has(normalizeCatalogName(item.name)),'duplicate existing concept '+item.name);
  check(!ids.has(item.id),'duplicate ID '+item.id);ids.add(item.id);
+ check(new Set(['game','genre','gamecraft','console','portable','computer','technology','brand','accessory','arcade','board','culture','fantasy','nature','material','science','object','concept']).has(item.category),'unknown family category '+item.name);
+ check(item.summary.length>=35&&!/legacy:|organic\\d+:/.test(item.summary),'uninformative or technical summary '+item.name);
  const a=m.new_items.find(x=>x.id===item.id);
  check(a?.name===item.name&&a.art_mode==='bespoke-subject','unapproved '+item.name);
  const recipe=ORGANIC_V74.recipes.find(x=>x[2]===item.id);
