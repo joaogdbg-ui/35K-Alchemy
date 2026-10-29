@@ -33,7 +33,7 @@ test('V77 app, offline builder, IP screen and Android payload include the new co
  assert.match(builder,/window\.__gameverseOrganic77/);
  assert.match(builder,/window\.__gameverseOrganicArt77/);
  assert.match(builder,/35K_Alchemy_V77_Offline\.html/);
- assert.match(web,/35K_Alchemy_V77_Offline\.html/);
+ assert.match(web,/35K_Alchemy_V78_Offline\.html/);
  assert.match(read('tools/audit-ip-safe-names.mjs'),/organic-v77/);
  assert.match(read('tools/audit-active-artwork.mjs'),/,77\]/);
 });
