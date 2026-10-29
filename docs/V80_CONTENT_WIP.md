@@ -1,6 +1,6 @@
-# V80 — internal work in progress (53/200)
+# V80 WIP — 68/200; not merged into main
 
-Unmerged WIP content only: 5625 hypothetical integrated elements and 13962 fixed recipes in feature branch. Baseline main remains 5,612 / 13,949. Do not publish until +200 since baseline: +160 V80 and +40 V81.
+This draft branch has 5640 prospective catalog items and 13977 recipes. Main still has 5,612 items. Complete V80 and add +40 V81 before a single 200-element delivery; do not release WIP APK.
 
 1. **Floating Harbor Gate** = organic79:sky-dock-beacon + organic79:airship-anchor-winch — A docking arch combines a beacon with mooring cables to guide skyships safely into a floating port.
 2. **Glass Firefly Lantern** = organic79:firefly-garden-terrarium + organic79:aurora-desk-lantern — A curved glass lantern shelters luminous fireflies and brings a miniature garden into the night.
@@ -55,3 +55,18 @@ Unmerged WIP content only: 5625 hypothetical integrated elements and 13962 fixed
 51. **Tidal Weather Beacon** = organic80:harbor-wind-vane + legacy:10 — A mast topped with a weather vane measures sea winds beside an illuminated tidal indicator.
 52. **Skyship Cargo Manifest** = organic80:harbor-cargo-crane + legacy:106 — A stamped loading ledger lists crates, weights, and destinations for an arriving airship.
 53. **Solar Trail Compass** = organic80:solar-charging-backpack + organic80:crystal-quest-compass — A hiker's digital compass draws power from a folding solar panel during long wilderness journeys.
+54. **Wildlife Camera Trap** = organic80:forest-ranger-station + legacy:85 — A weatherproof camera straps to a tree and quietly photographs animals along the forest path.
+55. **Forest Rescue Radio** = organic80:forest-ranger-station + legacy:89 — A handheld emergency radio keeps lost hikers in contact with rangers beyond the forest trails.
+56. **Waterproof Trail Shelter** = organic80:forest-emergency-shelter + legacy:7 — A sloped rainproof shelter channels heavy showers away from hikers and dry firewood.
+57. **Trail Rope Bridge** = organic80:forest-warning-post + organic79:timber-bridge-model — A light rope bridge stretches between wooden trail posts over a narrow woodland ravine.
+58. **Solar Survey Drone** = organic80:solar-weather-station + legacy:123 — A four-rotor survey drone carries miniature weather sensors and a solar-powered battery panel.
+59. **Screen Calibration Workbench** = organic80:pixel-repair-toolkit + legacy:76 — A technician's workbench holds a color-chart display beside optical testing instruments.
+60. **Cartridge Data Reader** = organic80:cartridge-repair-bench + legacy:91 — A desktop adapter reads the memory of an old game cartridge through a computer connection.
+61. **Game Museum Audio Guide** = organic80:cartridge-museum-exhibit + legacy:62 — Museum visitors use a headset to hear the history of restored consoles and cartridges.
+62. **Enchanted Map Scroll** = organic80:crystal-treasure-map + legacy:125 — A rolled treasure map illuminates hidden paths whenever a traveler casts a guiding spell.
+63. **Crystal Cave Passage** = organic80:crystal-maze-door + legacy:37 — A secret cavern doorway opens when its crystal lock aligns with the maze compass.
+64. **Dragon Compass Pendant** = organic80:enchanted-compass-rose + legacy:122 — A small enchanted pendant carries a dragon-shaped compass needle that points toward magical treasure.
+65. **Cartographer's Firefly Desk** = organic80:firefly-reading-lamp + organic80:crystal-treasure-map — A cartographer sketches crystal routes at a wooden desk lit by a jar of living fireflies.
+66. **Solar Rain Cover** = organic80:solar-charging-backpack + legacy:7 — A transparent waterproof hood keeps a hiker's folding solar charger dry during unexpected rain.
+67. **River Firefly Marker** = organic80:firefly-trail-marker + legacy:39 — A floating trail marker shines with fireflies to guide canoeists along a dark forest river.
+68. **Reef Rescue Flare** = organic80:harbor-warning-buoy + legacy:1 — An emergency flare fixed to a safety buoy signals danger beside a shallow reef at night.

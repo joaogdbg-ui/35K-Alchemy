@@ -1,6 +1,6 @@
-# V80 in progress — 53 subject-specific illustrations
+# V80 WIP SVG review — 68/200 (not released)
 
-Not a completed or released 200-item content batch. Check every icon at 35px and 90px in Light/Dark.
+Individual source drawings for comparison at 35px and 90px. Check actual legibility and similarity manually.
 
 | # | Element | 35px | 90px |
 |---:|---|:---:|:---:|
@@ -57,3 +57,18 @@ Not a completed or released 200-item content batch. Check every icon at 35px and
 | 51 | Tidal Weather Beacon | <img src="../client/assets/v80/tidal-weather-beacon.svg" width="35" height="35" /> | <img src="../client/assets/v80/tidal-weather-beacon.svg" width="90" height="90" /> |
 | 52 | Skyship Cargo Manifest | <img src="../client/assets/v80/skyship-cargo-manifest.svg" width="35" height="35" /> | <img src="../client/assets/v80/skyship-cargo-manifest.svg" width="90" height="90" /> |
 | 53 | Solar Trail Compass | <img src="../client/assets/v80/solar-trail-compass.svg" width="35" height="35" /> | <img src="../client/assets/v80/solar-trail-compass.svg" width="90" height="90" /> |
+| 54 | Wildlife Camera Trap | <img src="../client/assets/v80/wildlife-camera-trap.svg" width="35" height="35" /> | <img src="../client/assets/v80/wildlife-camera-trap.svg" width="90" height="90" /> |
+| 55 | Forest Rescue Radio | <img src="../client/assets/v80/forest-rescue-radio.svg" width="35" height="35" /> | <img src="../client/assets/v80/forest-rescue-radio.svg" width="90" height="90" /> |
+| 56 | Waterproof Trail Shelter | <img src="../client/assets/v80/waterproof-trail-shelter.svg" width="35" height="35" /> | <img src="../client/assets/v80/waterproof-trail-shelter.svg" width="90" height="90" /> |
+| 57 | Trail Rope Bridge | <img src="../client/assets/v80/trail-rope-bridge.svg" width="35" height="35" /> | <img src="../client/assets/v80/trail-rope-bridge.svg" width="90" height="90" /> |
+| 58 | Solar Survey Drone | <img src="../client/assets/v80/solar-survey-drone.svg" width="35" height="35" /> | <img src="../client/assets/v80/solar-survey-drone.svg" width="90" height="90" /> |
+| 59 | Screen Calibration Workbench | <img src="../client/assets/v80/screen-calibration-workbench.svg" width="35" height="35" /> | <img src="../client/assets/v80/screen-calibration-workbench.svg" width="90" height="90" /> |
+| 60 | Cartridge Data Reader | <img src="../client/assets/v80/cartridge-data-reader.svg" width="35" height="35" /> | <img src="../client/assets/v80/cartridge-data-reader.svg" width="90" height="90" /> |
+| 61 | Game Museum Audio Guide | <img src="../client/assets/v80/game-museum-audio-guide.svg" width="35" height="35" /> | <img src="../client/assets/v80/game-museum-audio-guide.svg" width="90" height="90" /> |
+| 62 | Enchanted Map Scroll | <img src="../client/assets/v80/enchanted-map-scroll.svg" width="35" height="35" /> | <img src="../client/assets/v80/enchanted-map-scroll.svg" width="90" height="90" /> |
+| 63 | Crystal Cave Passage | <img src="../client/assets/v80/crystal-cave-passage.svg" width="35" height="35" /> | <img src="../client/assets/v80/crystal-cave-passage.svg" width="90" height="90" /> |
+| 64 | Dragon Compass Pendant | <img src="../client/assets/v80/dragon-compass-pendant.svg" width="35" height="35" /> | <img src="../client/assets/v80/dragon-compass-pendant.svg" width="90" height="90" /> |
+| 65 | Cartographer's Firefly Desk | <img src="../client/assets/v80/cartographers-firefly-desk.svg" width="35" height="35" /> | <img src="../client/assets/v80/cartographers-firefly-desk.svg" width="90" height="90" /> |
+| 66 | Solar Rain Cover | <img src="../client/assets/v80/solar-rain-cover.svg" width="35" height="35" /> | <img src="../client/assets/v80/solar-rain-cover.svg" width="90" height="90" /> |
+| 67 | River Firefly Marker | <img src="../client/assets/v80/river-firefly-marker.svg" width="35" height="35" /> | <img src="../client/assets/v80/river-firefly-marker.svg" width="90" height="90" /> |
+| 68 | Reef Rescue Flare | <img src="../client/assets/v80/reef-rescue-flare.svg" width="35" height="35" /> | <img src="../client/assets/v80/reef-rescue-flare.svg" width="90" height="90" /> |

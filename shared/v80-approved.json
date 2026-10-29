@@ -1,17 +1,17 @@
 {
   "version": 80,
-  "cohort_count": 53,
+  "cohort_count": 68,
   "expansion_goal": 200,
-  "expansion_progress": 53,
-  "remaining_to_goal": 147,
+  "expansion_progress": 68,
+  "remaining_to_goal": 132,
   "cycle_complete": false,
   "base_catalog": {
     "elements": 5572,
     "recipes": 13909
   },
   "expected_catalog": {
-    "elements": 5625,
-    "recipes": 13962
+    "elements": 5640,
+    "recipes": 13977
   },
   "new_items": [
     {
@@ -649,6 +649,186 @@
       ],
       "art_mode": "bespoke-subject",
       "path": "client/assets/v80/solar-trail-compass.svg"
+    },
+    {
+      "id": "organic80:wildlife-camera-trap",
+      "name": "Wildlife Camera Trap",
+      "category": "nature",
+      "summary": "A weatherproof camera straps to a tree and quietly photographs animals along the forest path.",
+      "ingredients": [
+        "organic80:forest-ranger-station",
+        "legacy:85"
+      ],
+      "art_mode": "bespoke-subject",
+      "path": "client/assets/v80/wildlife-camera-trap.svg"
+    },
+    {
+      "id": "organic80:forest-rescue-radio",
+      "name": "Forest Rescue Radio",
+      "category": "technology",
+      "summary": "A handheld emergency radio keeps lost hikers in contact with rangers beyond the forest trails.",
+      "ingredients": [
+        "organic80:forest-ranger-station",
+        "legacy:89"
+      ],
+      "art_mode": "bespoke-subject",
+      "path": "client/assets/v80/forest-rescue-radio.svg"
+    },
+    {
+      "id": "organic80:waterproof-trail-shelter",
+      "name": "Waterproof Trail Shelter",
+      "category": "nature",
+      "summary": "A sloped rainproof shelter channels heavy showers away from hikers and dry firewood.",
+      "ingredients": [
+        "organic80:forest-emergency-shelter",
+        "legacy:7"
+      ],
+      "art_mode": "bespoke-subject",
+      "path": "client/assets/v80/waterproof-trail-shelter.svg"
+    },
+    {
+      "id": "organic80:trail-rope-bridge",
+      "name": "Trail Rope Bridge",
+      "category": "nature",
+      "summary": "A light rope bridge stretches between wooden trail posts over a narrow woodland ravine.",
+      "ingredients": [
+        "organic80:forest-warning-post",
+        "organic79:timber-bridge-model"
+      ],
+      "art_mode": "bespoke-subject",
+      "path": "client/assets/v80/trail-rope-bridge.svg"
+    },
+    {
+      "id": "organic80:solar-survey-drone",
+      "name": "Solar Survey Drone",
+      "category": "technology",
+      "summary": "A four-rotor survey drone carries miniature weather sensors and a solar-powered battery panel.",
+      "ingredients": [
+        "organic80:solar-weather-station",
+        "legacy:123"
+      ],
+      "art_mode": "bespoke-subject",
+      "path": "client/assets/v80/solar-survey-drone.svg"
+    },
+    {
+      "id": "organic80:screen-calibration-workbench",
+      "name": "Screen Calibration Workbench",
+      "category": "technology",
+      "summary": "A technician's workbench holds a color-chart display beside optical testing instruments.",
+      "ingredients": [
+        "organic80:pixel-repair-toolkit",
+        "legacy:76"
+      ],
+      "art_mode": "bespoke-subject",
+      "path": "client/assets/v80/screen-calibration-workbench.svg"
+    },
+    {
+      "id": "organic80:cartridge-data-reader",
+      "name": "Cartridge Data Reader",
+      "category": "technology",
+      "summary": "A desktop adapter reads the memory of an old game cartridge through a computer connection.",
+      "ingredients": [
+        "organic80:cartridge-repair-bench",
+        "legacy:91"
+      ],
+      "art_mode": "bespoke-subject",
+      "path": "client/assets/v80/cartridge-data-reader.svg"
+    },
+    {
+      "id": "organic80:game-museum-audio-guide",
+      "name": "Game Museum Audio Guide",
+      "category": "culture",
+      "summary": "Museum visitors use a headset to hear the history of restored consoles and cartridges.",
+      "ingredients": [
+        "organic80:cartridge-museum-exhibit",
+        "legacy:62"
+      ],
+      "art_mode": "bespoke-subject",
+      "path": "client/assets/v80/game-museum-audio-guide.svg"
+    },
+    {
+      "id": "organic80:enchanted-map-scroll",
+      "name": "Enchanted Map Scroll",
+      "category": "fantasy",
+      "summary": "A rolled treasure map illuminates hidden paths whenever a traveler casts a guiding spell.",
+      "ingredients": [
+        "organic80:crystal-treasure-map",
+        "legacy:125"
+      ],
+      "art_mode": "bespoke-subject",
+      "path": "client/assets/v80/enchanted-map-scroll.svg"
+    },
+    {
+      "id": "organic80:crystal-cave-passage",
+      "name": "Crystal Cave Passage",
+      "category": "fantasy",
+      "summary": "A secret cavern doorway opens when its crystal lock aligns with the maze compass.",
+      "ingredients": [
+        "organic80:crystal-maze-door",
+        "legacy:37"
+      ],
+      "art_mode": "bespoke-subject",
+      "path": "client/assets/v80/crystal-cave-passage.svg"
+    },
+    {
+      "id": "organic80:dragon-compass-pendant",
+      "name": "Dragon Compass Pendant",
+      "category": "fantasy",
+      "summary": "A small enchanted pendant carries a dragon-shaped compass needle that points toward magical treasure.",
+      "ingredients": [
+        "organic80:enchanted-compass-rose",
+        "legacy:122"
+      ],
+      "art_mode": "bespoke-subject",
+      "path": "client/assets/v80/dragon-compass-pendant.svg"
+    },
+    {
+      "id": "organic80:cartographers-firefly-desk",
+      "name": "Cartographer's Firefly Desk",
+      "category": "fantasy",
+      "summary": "A cartographer sketches crystal routes at a wooden desk lit by a jar of living fireflies.",
+      "ingredients": [
+        "organic80:firefly-reading-lamp",
+        "organic80:crystal-treasure-map"
+      ],
+      "art_mode": "bespoke-subject",
+      "path": "client/assets/v80/cartographers-firefly-desk.svg"
+    },
+    {
+      "id": "organic80:solar-rain-cover",
+      "name": "Solar Rain Cover",
+      "category": "technology",
+      "summary": "A transparent waterproof hood keeps a hiker's folding solar charger dry during unexpected rain.",
+      "ingredients": [
+        "organic80:solar-charging-backpack",
+        "legacy:7"
+      ],
+      "art_mode": "bespoke-subject",
+      "path": "client/assets/v80/solar-rain-cover.svg"
+    },
+    {
+      "id": "organic80:river-firefly-marker",
+      "name": "River Firefly Marker",
+      "category": "nature",
+      "summary": "A floating trail marker shines with fireflies to guide canoeists along a dark forest river.",
+      "ingredients": [
+        "organic80:firefly-trail-marker",
+        "legacy:39"
+      ],
+      "art_mode": "bespoke-subject",
+      "path": "client/assets/v80/river-firefly-marker.svg"
+    },
+    {
+      "id": "organic80:reef-rescue-flare",
+      "name": "Reef Rescue Flare",
+      "category": "nature",
+      "summary": "An emergency flare fixed to a safety buoy signals danger beside a shallow reef at night.",
+      "ingredients": [
+        "organic80:harbor-warning-buoy",
+        "legacy:1"
+      ],
+      "art_mode": "bespoke-subject",
+      "path": "client/assets/v80/reef-rescue-flare.svg"
     }
   ]
 }
