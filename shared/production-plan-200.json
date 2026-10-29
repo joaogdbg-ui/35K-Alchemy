@@ -1,19 +1,21 @@
 {
   "policy": "mandatory-200-per-content-delivery",
   "effective_after_version": "0.80.1",
-  "baseline_commit": "c918b85d148c5daaceb0d85f1faa281e9c07bc41",
-  "baseline_elements": 5612,
-  "baseline_recipes": 13949,
+  "baseline_commit": "2aba8395f48082964bc2af2ff20a468c56dd464b",
+  "baseline_elements": 5812,
+  "baseline_recipes": 14149,
   "batch_size": 200,
-  "target_minimum_elements": 35000,
-  "deliveries_to_target": 147,
-  "expected_after_next_delivery_elements": 5812,
+  "target_minimum_elements": 10000,
+  "deliveries_to_target": 21,
+  "expected_after_next_delivery_elements": 6012,
   "next_delivery_outline": {
-    "finish_v80": 160,
-    "begin_v81": 40
+    "new_v82_elements": 200,
+    "mythology_and_prehistory_first": true
   },
   "historical_v80_approved": 40,
   "partial_content_merges_allowed": false,
   "zero_content_maintenance_allowed": true,
-  "human_review_required": true
+  "human_review_required": true,
+  "previous_goal_elements": 35000,
+  "goal_brand": "Alchemy 10K"
 }
