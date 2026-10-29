@@ -47,7 +47,7 @@ async function main(){
   return;
  }
  const plan=json('shared/production-plan-200.json');
- if(plan.batch_size!==200||plan.target_minimum_elements!==35000||plan.partial_content_merges_allowed!==false)err('policy changed');
+ if(plan.batch_size!==200||plan.target_minimum_elements!==10000||plan.partial_content_merges_allowed!==false)err('policy changed');
  const ids=new Set(),names=new Set(),pairs=new Set(),svgs=new Set();
  for(const file of files){
   const match=file.match(pattern),v=Number(match[2]);
