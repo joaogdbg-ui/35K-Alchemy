@@ -25,6 +25,7 @@ check(artKeys.length===24,'missing or extra drawings');
 const seenIds=new Set(),seenHashes=new Set(),seenPairs=new Set();
 for(const item of ORGANIC_V73.items){
  check(!priorNames.has(normalizeCatalogName(item.name)),'duplicate existing concept '+item.name);
+ check(!/\b(?:legacy|organic\d+):[\w-]+\b/.test(item.summary),'developer IDs leaked in discovery description '+item.name);
  check(!seenIds.has(item.id),'duplicate new ID '+item.id);
  seenIds.add(item.id);
  const approved=manifest.new_items.find(x=>x.id===item.id);
