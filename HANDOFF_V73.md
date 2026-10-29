@@ -11,8 +11,8 @@
 The screenshot showed that the extra space was needed ABOVE the two combining slots,
 not below them. V71 accidentally translated the entire .workspace-content, taking
 Hint/feedback along for the ride.
-V73 removes that translation and shifts only .craft-row down by 14px on tall phones,
-6px on short phones. Hint/feedback/inventory stay in their established positions.
+V73 removes that translation and shifts only .craft-row down by 9px on tall phones,
+3px on short phones. Hint/feedback/inventory stay in their established positions.
 The top bar, fullscreen mode and bottom tabs remain unchanged.
 
 ## Art standard

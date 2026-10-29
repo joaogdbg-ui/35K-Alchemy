@@ -52,7 +52,7 @@ Repositório oficial do jogo **35K Alchemy**, incluindo o código-fonte completo
 
 - V73 acrescenta 24 ilustrações próprias, 24 novas receitas, preservando todos os elementos anteriores.
 - Catálogo após validação: **5.256 elementos, 13.593 receitas**; progresso do ciclo de 200: **84/200**, faltando 116.
-- Zona superior: deslocados **apenas** os dois slots 14px para baixo em ecrãs altos, sem deslocar Hint, inventário ou o espaço inferior.
+- Zona superior: deslocados **apenas** os dois slots 9px para baixo em ecrãs altos, sem deslocar Hint, inventário ou o espaço inferior.
 - Código: `client/src/organic-pack-v73.js`, `client/src/organic-art-v73.js`, `shared/v73-approved.json`.
 - Testes: `tools/validate-v73.mjs` e `client/test/v73-ui-regressions.test.mjs`. [Handoff](HANDOFF_V73.md).
 - APK: https://github.com/joaogdbg-ui/35K-Alchemy/releases/download/latest/35K-Alchemy.apk

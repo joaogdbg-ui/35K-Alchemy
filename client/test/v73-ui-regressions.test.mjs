@@ -6,7 +6,7 @@ test('V73 moves only the two slots rather than moving the Hint or controls',()=>
  const css=source('client/src/styles.css');
  const scoped=css.slice(css.indexOf('/* V73: move ONLY'));
  assert.match(scoped,/\.workspace-content\{transform:none\}/);
- assert.match(scoped,/\.craft-row\{transform:translateY\(14px\)\}/);
+ assert.match(scoped,/\.craft-row\{transform:translateY\(9px\)\}/);
  assert.doesNotMatch(scoped,/\.craft-actions\s*\{[^}]*transform/);
  assert.doesNotMatch(scoped,/\.combine-feedback\s*\{[^}]*transform/);
  assert.match(scoped,/max-height:700px/);
