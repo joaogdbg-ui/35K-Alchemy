@@ -1,6 +1,6 @@
-# V81 illustrated element gallery — 113/200
+# V81 source artwork gallery — 124/200 (WIP)
 
-| # | Name | Actual 35px | Detail 90px |
+| # | Subject | 35px | 90px |
 |---:|---|:---:|:---:|
 | 1 | Sprite Animation Light Table | <img src="../client/assets/v81/sprite-animation-light-table.svg" width="35" height="35" /> | <img src="../client/assets/v81/sprite-animation-light-table.svg" width="90" height="90" /> |
 | 2 | Color-Proof Photo Printer | <img src="../client/assets/v81/color-proof-photo-printer.svg" width="35" height="35" /> | <img src="../client/assets/v81/color-proof-photo-printer.svg" width="90" height="90" /> |
@@ -115,5 +115,16 @@
 | 111 | Raccoon | <img src="../client/assets/v81/raccoon.svg" width="35" height="35" /> | <img src="../client/assets/v81/raccoon.svg" width="90" height="90" /> |
 | 112 | Whale | <img src="../client/assets/v81/whale.svg" width="35" height="35" /> | <img src="../client/assets/v81/whale.svg" width="90" height="90" /> |
 | 113 | Seal | <img src="../client/assets/v81/seal.svg" width="35" height="35" /> | <img src="../client/assets/v81/seal.svg" width="90" height="90" /> |
+| 114 | Turkey | <img src="../client/assets/v81/turkey.svg" width="35" height="35" /> | <img src="../client/assets/v81/turkey.svg" width="90" height="90" /> |
+| 115 | Beaver | <img src="../client/assets/v81/beaver.svg" width="35" height="35" /> | <img src="../client/assets/v81/beaver.svg" width="90" height="90" /> |
+| 116 | Hedgehog | <img src="../client/assets/v81/hedgehog.svg" width="35" height="35" /> | <img src="../client/assets/v81/hedgehog.svg" width="90" height="90" /> |
+| 117 | Parrot | <img src="../client/assets/v81/parrot.svg" width="35" height="35" /> | <img src="../client/assets/v81/parrot.svg" width="90" height="90" /> |
+| 118 | Snake | <img src="../client/assets/v81/snake.svg" width="35" height="35" /> | <img src="../client/assets/v81/snake.svg" width="90" height="90" /> |
+| 119 | Otter | <img src="../client/assets/v81/otter.svg" width="35" height="35" /> | <img src="../client/assets/v81/otter.svg" width="90" height="90" /> |
+| 120 | Polar Bear | <img src="../client/assets/v81/polar-bear.svg" width="35" height="35" /> | <img src="../client/assets/v81/polar-bear.svg" width="90" height="90" /> |
+| 121 | Moose | <img src="../client/assets/v81/moose.svg" width="35" height="35" /> | <img src="../client/assets/v81/moose.svg" width="90" height="90" /> |
+| 122 | Wool | <img src="../client/assets/v81/wool.svg" width="35" height="35" /> | <img src="../client/assets/v81/wool.svg" width="90" height="90" /> |
+| 123 | Wolf Pack | <img src="../client/assets/v81/wolf-pack.svg" width="35" height="35" /> | <img src="../client/assets/v81/wolf-pack.svg" width="90" height="90" /> |
+| 124 | Fossil Excavation | <img src="../client/assets/v81/fossil-excavation.svg" width="35" height="35" /> | <img src="../client/assets/v81/fossil-excavation.svg" width="90" height="90" /> |
 
-WIP not released. Human 35px review is pending.
+Need final human subject-recognition check before commercial release.

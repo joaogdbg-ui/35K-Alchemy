@@ -1,16 +1,16 @@
 {
   "version": 81,
-  "cohort_count": 113,
+  "cohort_count": 124,
   "expansion_goal": 200,
-  "expansion_progress": 113,
-  "remaining_to_goal": 87,
+  "expansion_progress": 124,
+  "remaining_to_goal": 76,
   "base_catalog": {
     "elements": 5772,
     "recipes": 14109
   },
   "expected_catalog": {
-    "elements": 5885,
-    "recipes": 14222
+    "elements": 5896,
+    "recipes": 14233
   },
   "new_items": [
     {
@@ -1368,6 +1368,138 @@
       ],
       "art_mode": "bespoke-subject",
       "path": "client/assets/v81/seal.svg"
+    },
+    {
+      "id": "organic81:turkey",
+      "name": "Turkey",
+      "category": "life",
+      "summary": "A large turkey fans out striped tail feathers and stands proudly with a little red wattle beneath its beak.",
+      "ingredients": [
+        "organic81:farm-animal",
+        "legacy:20"
+      ],
+      "art_mode": "bespoke-subject",
+      "path": "client/assets/v81/turkey.svg"
+    },
+    {
+      "id": "organic81:beaver",
+      "name": "Beaver",
+      "category": "life",
+      "summary": "A beaver uses broad front teeth and a flat paddle-shaped tail to build dams from riverside wood.",
+      "ingredients": [
+        "organic81:wild-animal",
+        "legacy:24"
+      ],
+      "art_mode": "bespoke-subject",
+      "path": "client/assets/v81/beaver.svg"
+    },
+    {
+      "id": "organic81:hedgehog",
+      "name": "Hedgehog",
+      "category": "life",
+      "summary": "A small hedgehog curls beneath spiky back quills and searches under garden plants for insects.",
+      "ingredients": [
+        "organic81:wild-animal",
+        "legacy:15"
+      ],
+      "art_mode": "bespoke-subject",
+      "path": "client/assets/v81/hedgehog.svg"
+    },
+    {
+      "id": "organic81:parrot",
+      "name": "Parrot",
+      "category": "life",
+      "summary": "A colorful parrot has a curved strong beak, vivid wing feathers and feet that grip forest branches.",
+      "ingredients": [
+        "organic81:wild-animal",
+        "legacy:140"
+      ],
+      "art_mode": "bespoke-subject",
+      "path": "client/assets/v81/parrot.svg"
+    },
+    {
+      "id": "organic81:snake",
+      "name": "Snake",
+      "category": "life",
+      "summary": "A winding desert snake moves without legs and flicks a forked tongue while searching for small prey.",
+      "ingredients": [
+        "organic81:wild-animal",
+        "legacy:16"
+      ],
+      "art_mode": "bespoke-subject",
+      "path": "client/assets/v81/snake.svg"
+    },
+    {
+      "id": "organic81:otter",
+      "name": "Otter",
+      "category": "life",
+      "summary": "A playful river otter has a streamlined body, webbed paws, rounded ears and a thick swimming tail.",
+      "ingredients": [
+        "organic81:wild-animal",
+        "legacy:40"
+      ],
+      "art_mode": "bespoke-subject",
+      "path": "client/assets/v81/otter.svg"
+    },
+    {
+      "id": "organic81:polar-bear",
+      "name": "Polar Bear",
+      "category": "life",
+      "summary": "An Arctic polar bear has snow-white fur, small ears and broad paws adapted to icy coastal habitats.",
+      "ingredients": [
+        "organic81:bear",
+        "legacy:35"
+      ],
+      "art_mode": "bespoke-subject",
+      "path": "client/assets/v81/polar-bear.svg"
+    },
+    {
+      "id": "organic81:moose",
+      "name": "Moose",
+      "category": "life",
+      "summary": "A forest moose carries enormous broad antlers, a long muzzle and sturdy legs for cold woodland terrain.",
+      "ingredients": [
+        "organic81:wild-animal",
+        "legacy:38"
+      ],
+      "art_mode": "bespoke-subject",
+      "path": "client/assets/v81/moose.svg"
+    },
+    {
+      "id": "organic81:wool",
+      "name": "Wool",
+      "category": "material",
+      "summary": "Soft sheep fleece becomes wool when it is shorn and cleaned, ready to be spun into warm textiles.",
+      "ingredients": [
+        "organic81:sheep",
+        "legacy:29"
+      ],
+      "art_mode": "bespoke-subject",
+      "path": "client/assets/v81/wool.svg"
+    },
+    {
+      "id": "organic81:wolf-pack",
+      "name": "Wolf Pack",
+      "category": "nature",
+      "summary": "A coordinated family group of wolves communicates by howling and moves together across its territory.",
+      "ingredients": [
+        "organic81:wolf",
+        "legacy:48"
+      ],
+      "art_mode": "bespoke-subject",
+      "path": "client/assets/v81/wolf-pack.svg"
+    },
+    {
+      "id": "organic81:fossil-excavation",
+      "name": "Fossil Excavation",
+      "category": "science",
+      "summary": "Paleontologists carefully expose a curved dinosaur rib and vertebrae in sediment using fine brushes and tools.",
+      "ingredients": [
+        "organic81:prehistoric-species-atlas",
+        "legacy:580"
+      ],
+      "art_mode": "bespoke-subject",
+      "path": "client/assets/v81/fossil-excavation.svg"
     }
   ],
   "cycle_complete": false
