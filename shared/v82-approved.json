@@ -1,0 +1,394 @@
+{
+  "version": 82,
+  "status": "WIP_NOT_RELEASED",
+  "cohort_count": 25,
+  "expansion_goal": 200,
+  "expansion_progress": 25,
+  "remaining_to_goal": 175,
+  "cycle_complete": false,
+  "base_catalog": {
+    "elements": 5812,
+    "recipes": 14149
+  },
+  "expected_catalog": {
+    "elements": 5837,
+    "recipes": 14174
+  },
+  "new_items": [
+    {
+      "id": "organic82:mythology",
+      "name": "Mythology",
+      "category": "mythology",
+      "summary": "An illustrated record of sacred stories, legends and gods across ancient cultures.",
+      "familyCampaigns": [
+        "mythology"
+      ],
+      "ingredients": [
+        "pack:god",
+        "pack:legend"
+      ],
+      "art_mode": "bespoke-subject",
+      "path": "client/assets/v82/mythology.svg"
+    },
+    {
+      "id": "organic82:greek-pantheon",
+      "name": "Greek Pantheon",
+      "category": "mythology",
+      "summary": "The gathering of ancient Greek gods is represented by a marble temple beneath an olive wreath.",
+      "familyCampaigns": [
+        "mythology"
+      ],
+      "ingredients": [
+        "organic82:mythology",
+        "organic41:ancient-city"
+      ],
+      "art_mode": "bespoke-subject",
+      "path": "client/assets/v82/greek-pantheon.svg"
+    },
+    {
+      "id": "organic82:mount-olympus",
+      "name": "Mount Olympus",
+      "category": "mythology",
+      "summary": "The mythic home of the Olympian gods rises above a cloud bank in towering white peaks.",
+      "familyCampaigns": [
+        "mythology"
+      ],
+      "ingredients": [
+        "organic82:greek-pantheon",
+        "legacy:65"
+      ],
+      "art_mode": "bespoke-subject",
+      "path": "client/assets/v82/mount-olympus.svg"
+    },
+    {
+      "id": "organic82:divine-thunderbolt",
+      "name": "Divine Thunderbolt",
+      "category": "mythology",
+      "summary": "A forked heavenly bolt symbolizes the commanding power of a storm deity.",
+      "familyCampaigns": [
+        "mythology"
+      ],
+      "ingredients": [
+        "organic82:mythology",
+        "legacy:125"
+      ],
+      "art_mode": "bespoke-subject",
+      "path": "client/assets/v82/divine-thunderbolt.svg"
+    },
+    {
+      "id": "organic82:zeus",
+      "name": "Zeus",
+      "category": "mythology",
+      "summary": "The ancient Greek king of the Olympians holds a storm bolt beside an eagle emblem.",
+      "familyCampaigns": [
+        "mythology"
+      ],
+      "ingredients": [
+        "organic82:mount-olympus",
+        "organic82:divine-thunderbolt"
+      ],
+      "art_mode": "bespoke-subject",
+      "path": "client/assets/v82/zeus.svg"
+    },
+    {
+      "id": "organic82:sacred-trident",
+      "name": "Sacred Trident",
+      "category": "mythology",
+      "summary": "A three-pronged ceremonial spear channels the power of the ancient sea gods.",
+      "familyCampaigns": [
+        "mythology"
+      ],
+      "ingredients": [
+        "organic82:greek-pantheon",
+        "legacy:125"
+      ],
+      "art_mode": "bespoke-subject",
+      "path": "client/assets/v82/sacred-trident.svg"
+    },
+    {
+      "id": "organic82:poseidon",
+      "name": "Poseidon",
+      "category": "mythology",
+      "summary": "The Greek sea god carries a trident through a cresting wave.",
+      "familyCampaigns": [
+        "mythology"
+      ],
+      "ingredients": [
+        "organic82:mount-olympus",
+        "organic82:sacred-trident"
+      ],
+      "art_mode": "bespoke-subject",
+      "path": "client/assets/v82/poseidon.svg"
+    },
+    {
+      "id": "organic82:ancient-wisdom",
+      "name": "Ancient Wisdom",
+      "category": "mythology",
+      "summary": "An open scroll and watchful eye express insight preserved in the oldest legends.",
+      "familyCampaigns": [
+        "mythology"
+      ],
+      "ingredients": [
+        "organic82:mythology",
+        "pack:psychic"
+      ],
+      "art_mode": "bespoke-subject",
+      "path": "client/assets/v82/ancient-wisdom.svg"
+    },
+    {
+      "id": "organic82:athena",
+      "name": "Athena",
+      "category": "mythology",
+      "summary": "The Greek goddess of wisdom and strategy is recognized by her crested helmet and owl.",
+      "familyCampaigns": [
+        "mythology"
+      ],
+      "ingredients": [
+        "organic82:greek-pantheon",
+        "organic82:ancient-wisdom"
+      ],
+      "art_mode": "bespoke-subject",
+      "path": "client/assets/v82/athena.svg"
+    },
+    {
+      "id": "organic82:roman-pantheon",
+      "name": "Roman Pantheon",
+      "category": "mythology",
+      "summary": "A domed classical sanctuary honors the distinct names of the ancient Roman deities.",
+      "familyCampaigns": [
+        "mythology"
+      ],
+      "ingredients": [
+        "organic82:greek-pantheon",
+        "legacy:48"
+      ],
+      "art_mode": "bespoke-subject",
+      "path": "client/assets/v82/roman-pantheon.svg"
+    },
+    {
+      "id": "organic82:jupiter",
+      "name": "Jupiter",
+      "category": "mythology",
+      "summary": "The Roman sky god raises an eagle-marked thunderbolt over the Capitol.",
+      "familyCampaigns": [
+        "mythology"
+      ],
+      "ingredients": [
+        "organic82:roman-pantheon",
+        "organic82:divine-thunderbolt"
+      ],
+      "art_mode": "bespoke-subject",
+      "path": "client/assets/v82/jupiter.svg"
+    },
+    {
+      "id": "organic82:norse-mythology",
+      "name": "Norse Mythology",
+      "category": "mythology",
+      "summary": "Runes and interwoven roots evoke the tales of gods and giants in the Nine Worlds.",
+      "familyCampaigns": [
+        "mythology"
+      ],
+      "ingredients": [
+        "organic82:mythology",
+        "legacy:586"
+      ],
+      "art_mode": "bespoke-subject",
+      "path": "client/assets/v82/norse-mythology.svg"
+    },
+    {
+      "id": "organic82:asgard",
+      "name": "Asgard",
+      "category": "mythology",
+      "summary": "A gold-roofed stronghold stands beyond a shimmering bridge to the Norse gods' realm.",
+      "familyCampaigns": [
+        "mythology"
+      ],
+      "ingredients": [
+        "organic82:norse-mythology",
+        "legacy:65"
+      ],
+      "art_mode": "bespoke-subject",
+      "path": "client/assets/v82/asgard.svg"
+    },
+    {
+      "id": "organic82:runestone",
+      "name": "Runestone",
+      "category": "mythology",
+      "summary": "A weathered standing stone carries deeply cut runes picked out in soft blue light.",
+      "familyCampaigns": [
+        "mythology"
+      ],
+      "ingredients": [
+        "organic82:norse-mythology",
+        "legacy:64"
+      ],
+      "art_mode": "bespoke-subject",
+      "path": "client/assets/v82/runestone.svg"
+    },
+    {
+      "id": "organic82:odin",
+      "name": "Odin",
+      "category": "mythology",
+      "summary": "A one-eyed wanderer with a broad hat and raven represents the Norse seeker of wisdom.",
+      "familyCampaigns": [
+        "mythology"
+      ],
+      "ingredients": [
+        "organic82:asgard",
+        "organic82:runestone"
+      ],
+      "art_mode": "bespoke-subject",
+      "path": "client/assets/v82/odin.svg"
+    },
+    {
+      "id": "organic82:norse-war-hammer",
+      "name": "Norse War Hammer",
+      "category": "mythology",
+      "summary": "An iron-headed hammer with a short carved handle evokes a mythic thunder weapon.",
+      "familyCampaigns": [
+        "mythology"
+      ],
+      "ingredients": [
+        "organic82:norse-mythology",
+        "organic82:divine-thunderbolt"
+      ],
+      "art_mode": "bespoke-subject",
+      "path": "client/assets/v82/norse-war-hammer.svg"
+    },
+    {
+      "id": "organic82:thor-of-asgard",
+      "name": "Thor of Asgard",
+      "category": "mythology",
+      "summary": "A red-bearded Norse thunder god wields a traditional hammer against the northern sky.",
+      "familyCampaigns": [
+        "mythology"
+      ],
+      "ingredients": [
+        "organic82:asgard",
+        "organic82:norse-war-hammer"
+      ],
+      "art_mode": "bespoke-subject",
+      "path": "client/assets/v82/thor-of-asgard.svg"
+    },
+    {
+      "id": "organic82:loki-of-asgard",
+      "name": "Loki of Asgard",
+      "category": "mythology",
+      "summary": "A sly Norse shapeshifter wears a patterned cloak and a playful half-mask.",
+      "familyCampaigns": [
+        "mythology"
+      ],
+      "ingredients": [
+        "organic82:asgard",
+        "pack:shapeshifter"
+      ],
+      "art_mode": "bespoke-subject",
+      "path": "client/assets/v82/loki-of-asgard.svg"
+    },
+    {
+      "id": "organic82:mesozoic-era",
+      "name": "Mesozoic Era",
+      "category": "prehistoric",
+      "summary": "Ancient reptile life dominates a landscape spanning the Triassic, Jurassic and Cretaceous.",
+      "familyCampaigns": [
+        "prehistoric"
+      ],
+      "ingredients": [
+        "legacy:575",
+        "legacy:64"
+      ],
+      "art_mode": "bespoke-subject",
+      "path": "client/assets/v82/mesozoic-era.svg"
+    },
+    {
+      "id": "organic82:jurassic-period",
+      "name": "Jurassic Period",
+      "category": "prehistoric",
+      "summary": "Huge long-necked dinosaurs browse between conifers and cycads in a warm landscape.",
+      "familyCampaigns": [
+        "prehistoric"
+      ],
+      "ingredients": [
+        "organic82:mesozoic-era",
+        "legacy:21"
+      ],
+      "art_mode": "bespoke-subject",
+      "path": "client/assets/v82/jurassic-period.svg"
+    },
+    {
+      "id": "organic82:cretaceous-period",
+      "name": "Cretaceous Period",
+      "category": "prehistoric",
+      "summary": "Flowering plants and diverse dinosaurs spread across Late Mesozoic landmasses.",
+      "familyCampaigns": [
+        "prehistoric"
+      ],
+      "ingredients": [
+        "organic82:mesozoic-era",
+        "legacy:26"
+      ],
+      "art_mode": "bespoke-subject",
+      "path": "client/assets/v82/cretaceous-period.svg"
+    },
+    {
+      "id": "organic82:fossil-skeleton",
+      "name": "Fossil Skeleton",
+      "category": "prehistoric",
+      "summary": "A carefully excavated rib cage and vertebrae remain embedded in a slab of ancient rock.",
+      "familyCampaigns": [
+        "prehistoric"
+      ],
+      "ingredients": [
+        "legacy:41",
+        "legacy:580"
+      ],
+      "art_mode": "bespoke-subject",
+      "path": "client/assets/v82/fossil-skeleton.svg"
+    },
+    {
+      "id": "organic82:dinosaur-armor",
+      "name": "Dinosaur Armor",
+      "category": "prehistoric",
+      "summary": "Heavy bony plates and spikes defend an armored herbivorous dinosaur.",
+      "familyCampaigns": [
+        "prehistoric"
+      ],
+      "ingredients": [
+        "legacy:575",
+        "legacy:14"
+      ],
+      "art_mode": "bespoke-subject",
+      "path": "client/assets/v82/dinosaur-armor.svg"
+    },
+    {
+      "id": "organic82:stegosaurus",
+      "name": "Stegosaurus",
+      "category": "prehistoric",
+      "summary": "A Jurassic herbivore shows upright alternating back plates and four tail spikes.",
+      "familyCampaigns": [
+        "prehistoric"
+      ],
+      "ingredients": [
+        "organic82:jurassic-period",
+        "organic82:dinosaur-armor"
+      ],
+      "art_mode": "bespoke-subject",
+      "path": "client/assets/v82/stegosaurus.svg"
+    },
+    {
+      "id": "organic82:ankylosaurus",
+      "name": "Ankylosaurus",
+      "category": "prehistoric",
+      "summary": "A low Cretaceous dinosaur bears protective osteoderms and a powerful clubbed tail.",
+      "familyCampaigns": [
+        "prehistoric"
+      ],
+      "ingredients": [
+        "organic82:cretaceous-period",
+        "organic82:dinosaur-armor"
+      ],
+      "art_mode": "bespoke-subject",
+      "path": "client/assets/v82/ankylosaurus.svg"
+    }
+  ]
+}
