@@ -1,0 +1,48 @@
+import {readFileSync} from 'node:fs';
+import {createHash} from 'node:crypto';
+import {DATA} from '../client/src/legacy-data.js';
+import {PACK} from '../client/src/creative-pack.js';
+import {buildCatalog,normalizeCatalogName} from '../client/src/catalog-integrity.js';
+import {ORGANIC_V71} from '../client/src/organic-pack-v71.js';
+import {ORGANIC_V72} from '../client/src/organic-pack-v72.js';
+import {ORGANIC_V73} from '../client/src/organic-pack-v73.js';
+import {ORGANIC_V74} from '../client/src/organic-pack-v74.js';
+import {ORGANIC_ART_V74} from '../client/src/organic-art-v74.js';
+const check=(cond,msg)=>{if(!cond)throw Error('V74: '+msg);};
+const m=JSON.parse(readFileSync('shared/v74-approved.json','utf8'));
+check(m.version===74&&m.cohort_count===48&&m.new_items.length===48,'manifest contents');
+check(ORGANIC_V74.items.length===48&&ORGANIC_V74.recipes.length===48&&Object.keys(ORGANIC_ART_V74).length===48,'item/recipe/art number');
+const modes=['gaming-v22','gaming-v23','gaming-v24','gaming-v26','gaming-v27','gaming-v30','organic-v32','organic-v34','organic-v37','organic-v38','organic-v40','organic-v41','organic-v42','organic-v43','organic-v44','organic-v45','organic-v46','organic-v47','organic-v50','organic-v52','organic-v53','organic-v55','organic-v56','organic-v57','organic-v58','organic-v59','organic-v61','organic-v62','organic-v63','organic-v65','organic-v66','organic-v67','organic-v68'];
+const packs=[PACK];
+for(const s of modes){const p=s.replace('gaming','gaming-pack').replace('organic','organic-pack');const v=await import('../client/src/'+p+'.js');packs.push(Object.values(v)[0]);}
+const before=buildCatalog(DATA,[...packs,ORGANIC_V71,ORGANIC_V72,ORGANIC_V73]);
+const after=buildCatalog(DATA,[...packs,ORGANIC_V71,ORGANIC_V72,ORGANIC_V73,ORGANIC_V74]);
+check(before.items.length===5256&&before.recipes.size===13593,'V73 baseline changed');
+check(after.items.length===5304&&after.recipes.size===13641,'V74 counts');
+for(const [key,value] of before.recipes)check(after.recipes.get(key)===value,'old recipe changed '+key);
+const itemNames=new Set(before.items.map(x=>normalizeCatalogName(x.name)));
+const ids=new Set(),pairs=new Set(),hashes=new Set();
+for(const item of ORGANIC_V74.items) {
+ check(!itemNames.has(normalizeCatalogName(item.name)),'duplicate existing concept '+item.name);
+ check(!ids.has(item.id),'duplicate ID '+item.id);ids.add(item.id);
+ const a=m.new_items.find(x=>x.id===item.id);
+ check(a?.name===item.name&&a.art_mode==='bespoke-subject','unapproved '+item.name);
+ const recipe=ORGANIC_V74.recipes.find(x=>x[2]===item.id);
+ check(recipe&&recipe[0]===a.ingredients[0]&&recipe[1]===a.ingredients[1],'recipe mismatch '+item.name);
+ check(before.items.some(x=>x.id===recipe[0])&&before.items.some(x=>x.id===recipe[1]),'unknown ingredient '+item.name);
+ const pair=[recipe[0],recipe[1]].sort().join('|');
+ check(!pairs.has(pair)&&!before.recipes.has(pair),'recipe collision '+item.name);pairs.add(pair);
+ check(after.recipes.get(pair)===item.id,'recipe output changed '+item.name);
+ const svg=readFileSync(a.path,'utf8');
+ const hash=createHash('sha256').update(svg).digest('hex');
+ check(!hashes.has(hash),'identical drawing '+item.name);hashes.add(hash);
+ check(ORGANIC_ART_V74[item.name.toLowerCase()]===svg,'art mirror mismatch '+item.name);
+ check(svg.startsWith('<svg')&&svg.includes('viewBox="0 0 100 100"')&&svg.length>310,'art invalid '+item.name);
+ check(!/<script|<image\b|<text\b|<foreignObject|onload\s*=|href\s*=|<animate/i.test(svg),'SVG invalid or unsafe '+item.name);
+}
+const app=readFileSync('client/src/app.js','utf8'),builder=readFileSync('tools/build-standalone.py','utf8');
+check(app.includes('ORGANIC_V72,ORGANIC_V73,ORGANIC_V74]'),'V74 catalog not wired');
+check(app.includes('ORGANIC_ART_V74[itemName]||ORGANIC_ART_V73[itemName]'),'V74 artwork not wired');
+check(builder.includes('window.__gameverseOrganic74')&&builder.includes('35K_Alchemy_V74_Offline.html'),'V74 offline bundler not wired');
+check(app.includes('const anchorId=this.ids[previousIndex]'),'scroll position regression');
+if(!process.argv.includes('--quiet'))console.log('V74 validated: +48 new subject drawings and recipes; 5304 elements / 13641 recipes; 68 elements remain in this 200-batch.');
