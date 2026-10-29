@@ -48,15 +48,15 @@
     "art_mode": "bespoke-subject"
   },
   {
-    "id": "organic77:arcade-token-tray",
-    "name": "Arcade Coin Dish",
+    "id": "organic77:arcade-prize-bell",
+    "name": "Arcade Prize Bell",
     "ingredients": [
-      "legacy:108",
-      "organic76:arcade-coin-collector"
+      "organic75:arcade-prize-counter",
+      "legacy:62"
     ],
     "category": "arcade",
-    "summary": "A shallow felt tray catches bright arcade tokens before the next round.",
-    "path": "client/assets/v77/arcade-token-tray.svg",
+    "summary": "A polished little bell rings when the arcade prize counter announces a winner.",
+    "path": "client/assets/v77/arcade-prize-bell.svg",
     "art_mode": "bespoke-subject"
   },
   {

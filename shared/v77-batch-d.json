@@ -12,15 +12,15 @@
     "art_mode": "bespoke-subject"
   },
   {
-    "id": "organic77:microscope-slide",
-    "name": "Cell Study Slide",
+    "id": "organic77:microscope-focus-wheel",
+    "name": "Microscope Focus Wheel",
     "ingredients": [
-      "legacy:23",
+      "legacy:44",
       "organic32:microscope"
     ],
     "category": "science",
-    "summary": "A prepared glass slide reveals a tiny world of cells beneath a lens.",
-    "path": "client/assets/v77/microscope-slide.svg",
+    "summary": "A large precision wheel lets a microscope find the sharpest possible focus.",
+    "path": "client/assets/v77/microscope-focus-wheel.svg",
     "art_mode": "bespoke-subject"
   },
   {
