@@ -39,7 +39,8 @@ for(const it of ORGANIC_V77.items){
  check(!/\b(?:nintendo|playstation|xbox|sega|pokemon|mario|sonic|zelda|kirby)\b/i.test(it.name+' '+it.summary),'non-generic media name '+it.name);
  const recipe=ORGANIC_V77.recipes.find(r=>r[2]===it.id);
  check(recipe?.[0]===entry.ingredients[0]&&recipe?.[1]===entry.ingredients[1],'recipe manifest mismatch '+it.name);
- check(recipe.slice(0,2).every(id=>prior.items.some(x=>x.id===id)),'recipe input unreachable '+it.name);
+ const position=m.new_items.findIndex(x=>x.id===it.id);
+ check(recipe.slice(0,2).every(id=>prior.items.some(x=>x.id===id)||m.new_items.findIndex(x=>x.id===id)>=0&&m.new_items.findIndex(x=>x.id===id)<position),'recipe input not already reachable '+it.name);
  const pair=recipe.slice(0,2).sort().join('|');
  check(!prior.recipes.has(pair)&&!pairs.has(pair),'duplicate/contradictory recipe '+it.name+' = '+pair);
  pairs.add(pair);check(now.recipes.get(pair)===it.id,'recipe not deterministic '+it.name);
