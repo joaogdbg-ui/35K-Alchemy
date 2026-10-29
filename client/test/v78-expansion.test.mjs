@@ -34,9 +34,9 @@ test('V78 is wired to game, offline bundle, IP scan and Android packaging withou
  assert.match(build,/window\.__gameverseOrganic78/);
  assert.match(build,/window\.__gameverseOrganicArt78/);
  assert.match(build,/35K_Alchemy_V78_Offline\.html/);
- assert.match(read('tools/prepare-android-web.py'),/35K_Alchemy_V78_Offline\.html/);
+ assert.match(read('tools/prepare-android-web.py'),/35K_Alchemy_V79_Offline\.html/);
  assert.match(read('tools/audit-ip-safe-names.mjs'),/organic-v78/);
- assert.match(read('tools/audit-active-artwork.mjs'),/,78\]/);
+ assert.match(read('tools/audit-active-artwork.mjs'),/,78,79\]/);
  assert.match(app,/function selectSettingsPage\(next/);
  assert.match(app,/No cloud backup exists in this version/);
 });
