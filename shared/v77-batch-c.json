@@ -3,8 +3,8 @@
     "id": "organic77:handheld-battery-tester",
     "name": "Handheld Battery Tester",
     "ingredients": [
-      "legacy:169",
-      "legacy:69"
+      "legacy:69",
+      "organic76:retro-console-diagnostic-screen"
     ],
     "category": "accessory",
     "summary": "A small diagnostic meter checks whether a pocket console can survive one more level.",
@@ -16,7 +16,7 @@
     "name": "Cartridge Dust Brush",
     "ingredients": [
       "legacy:151",
-      "legacy:9"
+      "organic76:portable-game-repair-mat"
     ],
     "category": "accessory",
     "summary": "A soft cleaning brush clears years of dust from a well-loved game cartridge.",
@@ -99,8 +99,8 @@
     "id": "organic77:game-audio-mixer",
     "name": "Game Audio Mixer",
     "ingredients": [
-      "legacy:201",
-      "legacy:62"
+      "legacy:139",
+      "organic76:retro-rhythm-oscilloscope"
     ],
     "category": "music",
     "summary": "A row of faders balances sound effects, music and cheers from the arcade.",

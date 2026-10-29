@@ -114,7 +114,7 @@
       "name": "Quest Journal",
       "ingredients": [
         "legacy:51",
-        "legacy:164"
+        "organic77:level-blueprint"
       ],
       "category": "culture",
       "summary": "A weathered notebook tracks clues, completed missions and fresh discoveries.",
@@ -138,7 +138,7 @@
       "name": "Crystal Lantern",
       "ingredients": [
         "legacy:34",
-        "legacy:63"
+        "organic77:checkpoint-lantern"
       ],
       "category": "fantasy",
       "summary": "A luminous crystal inside a forged frame paints a cave with soft colors.",
@@ -173,8 +173,8 @@
       "id": "organic77:firefly-globe",
       "name": "Firefly Globe",
       "ingredients": [
-        "legacy:142",
-        "legacy:23"
+        "legacy:23",
+        "organic38:firefly"
       ],
       "category": "fantasy",
       "summary": "A glass globe holds a tiny swarm of glowing fireflies from summer nights.",
@@ -234,7 +234,7 @@
       "name": "Gemstone Cavern",
       "ingredients": [
         "legacy:37",
-        "legacy:34"
+        "organic77:crystal-lantern"
       ],
       "category": "fantasy",
       "summary": "Bright crystals grow from the walls of a dark cavern beneath the mountains.",
@@ -245,8 +245,8 @@
       "id": "organic77:solar-clock",
       "name": "Solar Clock",
       "ingredients": [
-        "legacy:141",
-        "legacy:211"
+        "legacy:211",
+        "organic40:eclipse"
       ],
       "category": "technology",
       "summary": "A brass sun tracker uses the moving shadow of its pointer to mark the hours.",
@@ -257,8 +257,8 @@
       "id": "organic77:handheld-battery-tester",
       "name": "Handheld Battery Tester",
       "ingredients": [
-        "legacy:169",
-        "legacy:69"
+        "legacy:69",
+        "organic76:retro-console-diagnostic-screen"
       ],
       "category": "accessory",
       "summary": "A small diagnostic meter checks whether a pocket console can survive one more level.",
@@ -270,7 +270,7 @@
       "name": "Cartridge Dust Brush",
       "ingredients": [
         "legacy:151",
-        "legacy:9"
+        "organic76:portable-game-repair-mat"
       ],
       "category": "accessory",
       "summary": "A soft cleaning brush clears years of dust from a well-loved game cartridge.",
@@ -353,8 +353,8 @@
       "id": "organic77:game-audio-mixer",
       "name": "Game Audio Mixer",
       "ingredients": [
-        "legacy:201",
-        "legacy:62"
+        "legacy:139",
+        "organic76:retro-rhythm-oscilloscope"
       ],
       "category": "music",
       "summary": "A row of faders balances sound effects, music and cheers from the arcade.",
@@ -387,10 +387,10 @@
     },
     {
       "id": "organic77:microscope-slide",
-      "name": "Microscope Slide",
+      "name": "Cell Study Slide",
       "ingredients": [
         "legacy:23",
-        "legacy:53"
+        "organic32:microscope"
       ],
       "category": "science",
       "summary": "A prepared glass slide reveals a tiny world of cells beneath a lens.",
@@ -401,8 +401,8 @@
       "id": "organic77:solar-battery-cell",
       "name": "Solar Battery Cell",
       "ingredients": [
-        "legacy:141",
-        "legacy:69"
+        "legacy:69",
+        "organic32:solar-power"
       ],
       "category": "technology",
       "summary": "A palm-sized solar module stores daylight for the next late-night session.",
@@ -449,7 +449,7 @@
       "id": "organic77:cooling-fan-module",
       "name": "Cooling Fan Module",
       "ingredients": [
-        "legacy:11",
+        "legacy:70",
         "legacy:12"
       ],
       "category": "technology",
@@ -462,7 +462,7 @@
       "name": "Copper Circuit Loom",
       "ingredients": [
         "legacy:32",
-        "legacy:68"
+        "organic77:circuit-lab-bench"
       ],
       "category": "technology",
       "summary": "Thin copper lines weave a neat electronic network across a green circuit board.",
@@ -474,7 +474,7 @@
       "name": "Storm Sensor Beacon",
       "ingredients": [
         "legacy:86",
-        "legacy:7"
+        "organic41:storm"
       ],
       "category": "technology",
       "summary": "A weatherproof beacon flashes a warning when rainfall turns into a storm.",
@@ -497,7 +497,7 @@
       "id": "organic77:pixel-orchestra",
       "name": "Pixel Orchestra",
       "ingredients": [
-        "legacy:146",
+        "legacy:219",
         "legacy:139"
       ],
       "category": "music",
@@ -543,10 +543,10 @@
     },
     {
       "id": "organic77:arcade-token-tray",
-      "name": "Arcade Token Tray",
+      "name": "Arcade Coin Dish",
       "ingredients": [
-        "legacy:171",
-        "legacy:108"
+        "legacy:108",
+        "organic76:arcade-coin-collector"
       ],
       "category": "arcade",
       "summary": "A shallow felt tray catches bright arcade tokens before the next round.",
@@ -606,7 +606,7 @@
       "name": "Puzzle Prize Capsule",
       "ingredients": [
         "legacy:224",
-        "legacy:561"
+        "organic75:arcade-prize-counter"
       ],
       "category": "arcade",
       "summary": "A transparent capsule rattles with a tiny reward after the puzzle is solved.",

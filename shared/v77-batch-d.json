@@ -13,10 +13,10 @@
   },
   {
     "id": "organic77:microscope-slide",
-    "name": "Microscope Slide",
+    "name": "Cell Study Slide",
     "ingredients": [
       "legacy:23",
-      "legacy:53"
+      "organic32:microscope"
     ],
     "category": "science",
     "summary": "A prepared glass slide reveals a tiny world of cells beneath a lens.",
@@ -27,8 +27,8 @@
     "id": "organic77:solar-battery-cell",
     "name": "Solar Battery Cell",
     "ingredients": [
-      "legacy:141",
-      "legacy:69"
+      "legacy:69",
+      "organic32:solar-power"
     ],
     "category": "technology",
     "summary": "A palm-sized solar module stores daylight for the next late-night session.",
@@ -75,7 +75,7 @@
     "id": "organic77:cooling-fan-module",
     "name": "Cooling Fan Module",
     "ingredients": [
-      "legacy:11",
+      "legacy:70",
       "legacy:12"
     ],
     "category": "technology",
@@ -88,7 +88,7 @@
     "name": "Copper Circuit Loom",
     "ingredients": [
       "legacy:32",
-      "legacy:68"
+      "organic77:circuit-lab-bench"
     ],
     "category": "technology",
     "summary": "Thin copper lines weave a neat electronic network across a green circuit board.",
@@ -100,7 +100,7 @@
     "name": "Storm Sensor Beacon",
     "ingredients": [
       "legacy:86",
-      "legacy:7"
+      "organic41:storm"
     ],
     "category": "technology",
     "summary": "A weatherproof beacon flashes a warning when rainfall turns into a storm.",

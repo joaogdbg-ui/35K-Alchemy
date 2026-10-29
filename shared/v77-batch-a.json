@@ -100,7 +100,7 @@
     "name": "Quest Journal",
     "ingredients": [
       "legacy:51",
-      "legacy:164"
+      "organic77:level-blueprint"
     ],
     "category": "culture",
     "summary": "A weathered notebook tracks clues, completed missions and fresh discoveries.",

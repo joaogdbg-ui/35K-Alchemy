@@ -3,7 +3,7 @@
     "id": "organic77:pixel-orchestra",
     "name": "Pixel Orchestra",
     "ingredients": [
-      "legacy:146",
+      "legacy:219",
       "legacy:139"
     ],
     "category": "music",
@@ -49,10 +49,10 @@
   },
   {
     "id": "organic77:arcade-token-tray",
-    "name": "Arcade Token Tray",
+    "name": "Arcade Coin Dish",
     "ingredients": [
-      "legacy:171",
-      "legacy:108"
+      "legacy:108",
+      "organic76:arcade-coin-collector"
     ],
     "category": "arcade",
     "summary": "A shallow felt tray catches bright arcade tokens before the next round.",
@@ -112,7 +112,7 @@
     "name": "Puzzle Prize Capsule",
     "ingredients": [
       "legacy:224",
-      "legacy:561"
+      "organic75:arcade-prize-counter"
     ],
     "category": "arcade",
     "summary": "A transparent capsule rattles with a tiny reward after the puzzle is solved.",

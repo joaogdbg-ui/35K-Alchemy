@@ -4,7 +4,7 @@
     "name": "Crystal Lantern",
     "ingredients": [
       "legacy:34",
-      "legacy:63"
+      "organic77:checkpoint-lantern"
     ],
     "category": "fantasy",
     "summary": "A luminous crystal inside a forged frame paints a cave with soft colors.",
@@ -39,8 +39,8 @@
     "id": "organic77:firefly-globe",
     "name": "Firefly Globe",
     "ingredients": [
-      "legacy:142",
-      "legacy:23"
+      "legacy:23",
+      "organic38:firefly"
     ],
     "category": "fantasy",
     "summary": "A glass globe holds a tiny swarm of glowing fireflies from summer nights.",
@@ -100,7 +100,7 @@
     "name": "Gemstone Cavern",
     "ingredients": [
       "legacy:37",
-      "legacy:34"
+      "organic77:crystal-lantern"
     ],
     "category": "fantasy",
     "summary": "Bright crystals grow from the walls of a dark cavern beneath the mountains.",
@@ -111,8 +111,8 @@
     "id": "organic77:solar-clock",
     "name": "Solar Clock",
     "ingredients": [
-      "legacy:141",
-      "legacy:211"
+      "legacy:211",
+      "organic40:eclipse"
     ],
     "category": "technology",
     "summary": "A brass sun tracker uses the moving shadow of its pointer to mark the hours.",
