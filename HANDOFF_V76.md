@@ -30,3 +30,7 @@ Latest release: https://github.com/joaogdbg-ui/35K-Alchemy/releases/tag/latest
 ## V76.1 fictional-equipment migration
 
 39 of the 50 V76 item titles previously contained product or manufacturer brand references. The source item labels, five active illustration maps, approved manifest, five batch manifests and 39 SVG filenames now use distinct mock-world identities. All immutable IDs and original recipe input/output triples remain unchanged. The illustrations themselves remain custom art and require a separate human trade-dress review.
+
+## V76.2 — second pass of copyright/trademark risk reduction
+
+154 additional genre-aware game/media title aliases; avoid replacing ordinary technology, astronomy, science or mythology terminology. Audit all active original SVG maps for structural hazards, and log the remaining historical media titles requiring human editorial review. No element IDs, recipe outcomes or current V76 art illustrations change. Version 0.76.2; original baseline 5,422 elements / 13,759 unordered recipes. Native rewarded monetisation and commercial IP/trade-dress clearance remain open.
