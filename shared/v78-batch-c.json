@@ -1,0 +1,122 @@
+[
+  {
+    "id": "organic78:pocket-charge-meter",
+    "name": "Pocket Charge Meter",
+    "ingredients": [
+      "organic77:handheld-battery-tester",
+      "legacy:67"
+    ],
+    "category": "accessory",
+    "summary": "A compact dial reveals the exact charge remaining in a handheld battery.",
+    "path": "client/assets/v78/pocket-charge-meter.svg",
+    "art_mode": "bespoke-subject"
+  },
+  {
+    "id": "organic78:dustproof-game-case",
+    "name": "Dustproof Game Case",
+    "ingredients": [
+      "organic77:cartridge-dust-brush",
+      "legacy:23"
+    ],
+    "category": "accessory",
+    "summary": "A sealed clear case shields a prized game cartridge from grit and scratches.",
+    "path": "client/assets/v78/dustproof-game-case.svg",
+    "art_mode": "bespoke-subject"
+  },
+  {
+    "id": "organic78:arcade-button-tester",
+    "name": "Arcade Button Tester",
+    "ingredients": [
+      "organic77:arcade-button-panel",
+      "legacy:70"
+    ],
+    "category": "technology",
+    "summary": "A portable test board lights up whenever a joystick button works correctly.",
+    "path": "client/assets/v78/arcade-button-tester.svg",
+    "art_mode": "bespoke-subject"
+  },
+  {
+    "id": "organic78:backup-memory-vault",
+    "name": "Backup Memory Vault",
+    "ingredients": [
+      "organic77:memory-card-locker",
+      "legacy:14"
+    ],
+    "category": "technology",
+    "summary": "A stone-lined vault protects backup memory cards from dust and damage.",
+    "path": "client/assets/v78/backup-memory-vault.svg",
+    "art_mode": "bespoke-subject"
+  },
+  {
+    "id": "organic78:spring-arcade-lever",
+    "name": "Spring Arcade Lever",
+    "ingredients": [
+      "organic77:joystick-spring",
+      "legacy:172"
+    ],
+    "category": "arcade",
+    "summary": "An oversized spring joystick snaps back into place after every quick turn.",
+    "path": "client/assets/v78/spring-arcade-lever.svg",
+    "art_mode": "bespoke-subject"
+  },
+  {
+    "id": "organic78:color-reference-card",
+    "name": "Color Reference Card",
+    "ingredients": [
+      "organic77:screen-calibration-grid",
+      "legacy:106"
+    ],
+    "category": "gamecraft",
+    "summary": "A folded print reference helps match the colors of a pixel-art display.",
+    "path": "client/assets/v78/color-reference-card.svg",
+    "art_mode": "bespoke-subject"
+  },
+  {
+    "id": "organic78:twin-charging-dock",
+    "name": "Twin Charging Dock",
+    "ingredients": [
+      "organic77:controller-charging-stand",
+      "legacy:221"
+    ],
+    "category": "accessory",
+    "summary": "A dual-port stand charges two controllers before the next cooperative match.",
+    "path": "client/assets/v78/twin-charging-dock.svg",
+    "art_mode": "bespoke-subject"
+  },
+  {
+    "id": "organic78:echo-cabinet",
+    "name": "Echo Cabinet",
+    "ingredients": [
+      "organic77:retro-speaker-cabinet",
+      "legacy:37"
+    ],
+    "category": "technology",
+    "summary": "An acoustic cabinet carries long echoing sounds from a hidden cave.",
+    "path": "client/assets/v78/echo-cabinet.svg",
+    "art_mode": "bespoke-subject"
+  },
+  {
+    "id": "organic78:audio-wave-monitor",
+    "name": "Audio Wave Monitor",
+    "ingredients": [
+      "organic77:game-audio-mixer",
+      "legacy:76"
+    ],
+    "category": "technology",
+    "summary": "A waveform screen displays the shape of each note and sound effect.",
+    "path": "client/assets/v78/audio-wave-monitor.svg",
+    "art_mode": "bespoke-subject"
+  },
+  {
+    "id": "organic78:arcade-pixel-scanner",
+    "name": "Arcade Pixel Scanner",
+    "ingredients": [
+      "organic77:pixel-scan-monitor",
+      "legacy:151"
+    ],
+    "category": "technology",
+    "summary": "A handheld scanning arm checks each row of pixels on a game cartridge.",
+    "path": "client/assets/v78/arcade-pixel-scanner.svg",
+    "art_mode": "bespoke-subject"
+  }
+]
