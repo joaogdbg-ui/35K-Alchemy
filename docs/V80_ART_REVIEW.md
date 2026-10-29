@@ -1,6 +1,6 @@
-# V80 WIP SVG review — 68/200 (not released)
+# V80 WIP art at 35px and 90px — 80/200
 
-Individual source drawings for comparison at 35px and 90px. Check actual legibility and similarity manually.
+Original SVG for each element. Distinct hashes are not sufficient for semantic icon variety; check visually.
 
 | # | Element | 35px | 90px |
 |---:|---|:---:|:---:|
@@ -72,3 +72,15 @@ Individual source drawings for comparison at 35px and 90px. Check actual legibil
 | 66 | Solar Rain Cover | <img src="../client/assets/v80/solar-rain-cover.svg" width="35" height="35" /> | <img src="../client/assets/v80/solar-rain-cover.svg" width="90" height="90" /> |
 | 67 | River Firefly Marker | <img src="../client/assets/v80/river-firefly-marker.svg" width="35" height="35" /> | <img src="../client/assets/v80/river-firefly-marker.svg" width="90" height="90" /> |
 | 68 | Reef Rescue Flare | <img src="../client/assets/v80/reef-rescue-flare.svg" width="35" height="35" /> | <img src="../client/assets/v80/reef-rescue-flare.svg" width="90" height="90" /> |
+| 69 | Museum Interactive Console | <img src="../client/assets/v80/museum-interactive-console.svg" width="35" height="35" /> | <img src="../client/assets/v80/museum-interactive-console.svg" width="90" height="90" /> |
+| 70 | Arcade History Listening Booth | <img src="../client/assets/v80/arcade-history-listening-booth.svg" width="35" height="35" /> | <img src="../client/assets/v80/arcade-history-listening-booth.svg" width="90" height="90" /> |
+| 71 | Cartridge Preservation Scanner | <img src="../client/assets/v80/cartridge-preservation-scanner.svg" width="35" height="35" /> | <img src="../client/assets/v80/cartridge-preservation-scanner.svg" width="90" height="90" /> |
+| 72 | Pocket Photo Printer | <img src="../client/assets/v80/pocket-photo-printer.svg" width="35" height="35" /> | <img src="../client/assets/v80/pocket-photo-printer.svg" width="90" height="90" /> |
+| 73 | Rhythm Concert Stage | <img src="../client/assets/v80/rhythm-concert-stage.svg" width="35" height="35" /> | <img src="../client/assets/v80/rhythm-concert-stage.svg" width="90" height="90" /> |
+| 74 | Wireless Dance Controller | <img src="../client/assets/v80/wireless-dance-controller.svg" width="35" height="35" /> | <img src="../client/assets/v80/wireless-dance-controller.svg" width="90" height="90" /> |
+| 75 | Color Calibration Proof | <img src="../client/assets/v80/color-calibration-proof.svg" width="35" height="35" /> | <img src="../client/assets/v80/color-calibration-proof.svg" width="90" height="90" /> |
+| 76 | Champion Ticket Voucher | <img src="../client/assets/v80/champion-ticket-voucher.svg" width="35" height="35" /> | <img src="../client/assets/v80/champion-ticket-voucher.svg" width="90" height="90" /> |
+| 77 | Dual Player Scoreboard | <img src="../client/assets/v80/dual-player-scoreboard.svg" width="35" height="35" /> | <img src="../client/assets/v80/dual-player-scoreboard.svg" width="90" height="90" /> |
+| 78 | Replay Memory Card | <img src="../client/assets/v80/replay-memory-card.svg" width="35" height="35" /> | <img src="../client/assets/v80/replay-memory-card.svg" width="90" height="90" /> |
+| 79 | Retro Game Checkout | <img src="../client/assets/v80/retro-game-checkout.svg" width="35" height="35" /> | <img src="../client/assets/v80/retro-game-checkout.svg" width="90" height="90" /> |
+| 80 | Retro Handheld Repair | <img src="../client/assets/v80/retro-handheld-repair.svg" width="35" height="35" /> | <img src="../client/assets/v80/retro-handheld-repair.svg" width="90" height="90" /> |

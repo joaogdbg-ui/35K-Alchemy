@@ -1,17 +1,17 @@
 {
   "version": 80,
-  "cohort_count": 68,
+  "cohort_count": 80,
   "expansion_goal": 200,
-  "expansion_progress": 68,
-  "remaining_to_goal": 132,
+  "expansion_progress": 80,
+  "remaining_to_goal": 120,
   "cycle_complete": false,
   "base_catalog": {
     "elements": 5572,
     "recipes": 13909
   },
   "expected_catalog": {
-    "elements": 5640,
-    "recipes": 13977
+    "elements": 5652,
+    "recipes": 13989
   },
   "new_items": [
     {
@@ -829,6 +829,150 @@
       ],
       "art_mode": "bespoke-subject",
       "path": "client/assets/v80/reef-rescue-flare.svg"
+    },
+    {
+      "id": "organic80:museum-interactive-console",
+      "name": "Museum Interactive Console",
+      "category": "technology",
+      "summary": "Visitors explore a vintage game collection through a touchscreen kiosk mounted beside the display.",
+      "ingredients": [
+        "organic80:cartridge-museum-exhibit",
+        "legacy:84"
+      ],
+      "art_mode": "bespoke-subject",
+      "path": "client/assets/v80/museum-interactive-console.svg"
+    },
+    {
+      "id": "organic80:arcade-history-listening-booth",
+      "name": "Arcade History Listening Booth",
+      "category": "culture",
+      "summary": "A retro-style listening booth plays narrated stories about early arcade games through attached headphones.",
+      "ingredients": [
+        "organic80:game-museum-audio-guide",
+        "legacy:172"
+      ],
+      "art_mode": "bespoke-subject",
+      "path": "client/assets/v80/arcade-history-listening-booth.svg"
+    },
+    {
+      "id": "organic80:cartridge-preservation-scanner",
+      "name": "Cartridge Preservation Scanner",
+      "category": "technology",
+      "summary": "An optical reader checks the worn label and contacts of a retro cartridge before archival storage.",
+      "ingredients": [
+        "organic80:cartridge-data-reader",
+        "organic80:pixel-color-scanner"
+      ],
+      "art_mode": "bespoke-subject",
+      "path": "client/assets/v80/cartridge-preservation-scanner.svg"
+    },
+    {
+      "id": "organic80:pocket-photo-printer",
+      "name": "Pocket Photo Printer",
+      "category": "technology",
+      "summary": "A miniature thermal printer creates paper snapshots sent directly from a portable digital camera.",
+      "ingredients": [
+        "organic80:portable-pixel-camera",
+        "legacy:106"
+      ],
+      "art_mode": "bespoke-subject",
+      "path": "client/assets/v80/pocket-photo-printer.svg"
+    },
+    {
+      "id": "organic80:rhythm-concert-stage",
+      "name": "Rhythm Concert Stage",
+      "category": "arcade",
+      "summary": "A concert stage surrounds dancing performers with live music, speakers, and synchronized spotlights.",
+      "ingredients": [
+        "organic80:arcade-rhythm-tournament",
+        "legacy:139"
+      ],
+      "art_mode": "bespoke-subject",
+      "path": "client/assets/v80/rhythm-concert-stage.svg"
+    },
+    {
+      "id": "organic80:wireless-dance-controller",
+      "name": "Wireless Dance Controller",
+      "category": "accessory",
+      "summary": "A wireless controller sends pressure-pad dance steps directly to a rhythm game without a cable.",
+      "ingredients": [
+        "organic80:motion-capture-mat",
+        "legacy:81"
+      ],
+      "art_mode": "bespoke-subject",
+      "path": "client/assets/v80/wireless-dance-controller.svg"
+    },
+    {
+      "id": "organic80:color-calibration-proof",
+      "name": "Color Calibration Proof",
+      "category": "technology",
+      "summary": "A printed proof sheet records the exact color patches measured on a calibrated computer monitor.",
+      "ingredients": [
+        "organic80:screen-calibration-workbench",
+        "legacy:106"
+      ],
+      "art_mode": "bespoke-subject",
+      "path": "client/assets/v80/color-calibration-proof.svg"
+    },
+    {
+      "id": "organic80:champion-ticket-voucher",
+      "name": "Champion Ticket Voucher",
+      "category": "arcade",
+      "summary": "A prize voucher bears a golden trophy seal redeemable at the arcade rewards desk.",
+      "ingredients": [
+        "organic80:arcade-trophy-cabinet",
+        "organic80:rhythm-ticket-dispenser"
+      ],
+      "art_mode": "bespoke-subject",
+      "path": "client/assets/v80/champion-ticket-voucher.svg"
+    },
+    {
+      "id": "organic80:dual-player-scoreboard",
+      "name": "Dual Player Scoreboard",
+      "category": "arcade",
+      "summary": "A split scoreboard compares two teammates' rhythm scores and displays their combined total.",
+      "ingredients": [
+        "organic80:cooperative-dance-floor",
+        "organic80:arcade-leaderboard-screen"
+      ],
+      "art_mode": "bespoke-subject",
+      "path": "client/assets/v80/dual-player-scoreboard.svg"
+    },
+    {
+      "id": "organic80:replay-memory-card",
+      "name": "Replay Memory Card",
+      "category": "accessory",
+      "summary": "A removable memory card stores a recorded speedrun so players can watch each decisive move.",
+      "ingredients": [
+        "organic80:speedrun-replay-booth",
+        "legacy:75"
+      ],
+      "art_mode": "bespoke-subject",
+      "path": "client/assets/v80/replay-memory-card.svg"
+    },
+    {
+      "id": "organic80:retro-game-checkout",
+      "name": "Retro Game Checkout",
+      "category": "culture",
+      "summary": "A retro games counter displays cartridges beside a small cash register and price labels.",
+      "ingredients": [
+        "organic80:cartridge-display-case",
+        "legacy:60"
+      ],
+      "art_mode": "bespoke-subject",
+      "path": "client/assets/v80/retro-game-checkout.svg"
+    },
+    {
+      "id": "organic80:retro-handheld-repair",
+      "name": "Retro Handheld Repair",
+      "category": "technology",
+      "summary": "A repair desk holds an opened portable game console with exposed circuit board and controls.",
+      "ingredients": [
+        "organic80:cartridge-repair-bench",
+        "legacy:169"
+      ],
+      "art_mode": "bespoke-subject",
+      "path": "client/assets/v80/retro-handheld-repair.svg"
     }
   ]
 }

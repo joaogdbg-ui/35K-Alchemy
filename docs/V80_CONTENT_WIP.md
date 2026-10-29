@@ -1,6 +1,6 @@
-# V80 WIP — 68/200; not merged into main
+# V80 internal editorial progress — 80/200
 
-This draft branch has 5640 prospective catalog items and 13977 recipes. Main still has 5,612 items. Complete V80 and add +40 V81 before a single 200-element delivery; do not release WIP APK.
+**WIP branch, not released.** 5,612 items / 13,949 fixed recipes remain on main; WIP source catalog has 5652 items / 13989 recipes. Need +120 V80 and +40 new V81 in ONE release to satisfy the post-V80B +200 rule.
 
 1. **Floating Harbor Gate** = organic79:sky-dock-beacon + organic79:airship-anchor-winch — A docking arch combines a beacon with mooring cables to guide skyships safely into a floating port.
 2. **Glass Firefly Lantern** = organic79:firefly-garden-terrarium + organic79:aurora-desk-lantern — A curved glass lantern shelters luminous fireflies and brings a miniature garden into the night.
@@ -70,3 +70,15 @@ This draft branch has 5640 prospective catalog items and 13977 recipes. Main sti
 66. **Solar Rain Cover** = organic80:solar-charging-backpack + legacy:7 — A transparent waterproof hood keeps a hiker's folding solar charger dry during unexpected rain.
 67. **River Firefly Marker** = organic80:firefly-trail-marker + legacy:39 — A floating trail marker shines with fireflies to guide canoeists along a dark forest river.
 68. **Reef Rescue Flare** = organic80:harbor-warning-buoy + legacy:1 — An emergency flare fixed to a safety buoy signals danger beside a shallow reef at night.
+69. **Museum Interactive Console** = organic80:cartridge-museum-exhibit + legacy:84 — Visitors explore a vintage game collection through a touchscreen kiosk mounted beside the display.
+70. **Arcade History Listening Booth** = organic80:game-museum-audio-guide + legacy:172 — A retro-style listening booth plays narrated stories about early arcade games through attached headphones.
+71. **Cartridge Preservation Scanner** = organic80:cartridge-data-reader + organic80:pixel-color-scanner — An optical reader checks the worn label and contacts of a retro cartridge before archival storage.
+72. **Pocket Photo Printer** = organic80:portable-pixel-camera + legacy:106 — A miniature thermal printer creates paper snapshots sent directly from a portable digital camera.
+73. **Rhythm Concert Stage** = organic80:arcade-rhythm-tournament + legacy:139 — A concert stage surrounds dancing performers with live music, speakers, and synchronized spotlights.
+74. **Wireless Dance Controller** = organic80:motion-capture-mat + legacy:81 — A wireless controller sends pressure-pad dance steps directly to a rhythm game without a cable.
+75. **Color Calibration Proof** = organic80:screen-calibration-workbench + legacy:106 — A printed proof sheet records the exact color patches measured on a calibrated computer monitor.
+76. **Champion Ticket Voucher** = organic80:arcade-trophy-cabinet + organic80:rhythm-ticket-dispenser — A prize voucher bears a golden trophy seal redeemable at the arcade rewards desk.
+77. **Dual Player Scoreboard** = organic80:cooperative-dance-floor + organic80:arcade-leaderboard-screen — A split scoreboard compares two teammates' rhythm scores and displays their combined total.
+78. **Replay Memory Card** = organic80:speedrun-replay-booth + legacy:75 — A removable memory card stores a recorded speedrun so players can watch each decisive move.
+79. **Retro Game Checkout** = organic80:cartridge-display-case + legacy:60 — A retro games counter displays cartridges beside a small cash register and price labels.
+80. **Retro Handheld Repair** = organic80:cartridge-repair-bench + legacy:169 — A repair desk holds an opened portable game console with exposed circuit board and controls.
