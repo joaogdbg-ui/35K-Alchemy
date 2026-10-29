@@ -1,6 +1,6 @@
-# V81 — 177/200 WIP
+# V81 189/200 — staging, not a release
 
-Published V81 baseline: 40 items. New since last APK: 137. Next release requires +188 total, with 160 V81 and 28 V82 to reach 6,000.
+Published V81 entries: 40; unpublished additions here: 149. Complete 200/200 V81 and +28 V82 before a single +188-to-6000 PR and build.
 
 1. **Sprite Animation Light Table** = organic80:pixel-sprite-lightbox + legacy:211 — An animator's luminous drawing table shows three consecutive pixel-sprite frames beside a timing ruler.
 2. **Color-Proof Photo Printer** = organic80:color-calibration-proof + organic80:pocket-photo-printer — A tabletop printer outputs calibrated color patches beside a small landscape photograph.
@@ -179,3 +179,15 @@ Published V81 baseline: 40 items. New since last APK: 137. Next release requires
 175. **Yak** = organic81:cow + legacy:36 — A long-haired mountain yak grows a thick winter fringe and sweeping horns to withstand icy highland weather.
 176. **Camel** = organic81:farm-animal + legacy:16 — A desert camel has a high fat-storing hump, long legs and a narrow muzzle adapted to dry landscapes.
 177. **Bighorn Sheep** = organic81:sheep + legacy:38 — A mountain bighorn sheep is identified by large spiral horns and a sturdy, wool-coated body.
+178. **Hippopotamus** = organic81:cow + legacy:39 — A bulky semi-aquatic hippopotamus has a broad snout, tiny raised ears and nostrils above the waterline.
+179. **Rhinoceros** = organic81:cow + legacy:14 — A heavy modern rhinoceros bears thick folded skin and two forward-facing nasal horns.
+180. **Kangaroo** = organic81:rabbit + legacy:543 — A long-tailed kangaroo balances on strong hind legs and carries a joey inside its belly pouch.
+181. **Koala** = organic81:bear + legacy:19 — A grey koala clings to a eucalyptus branch with large fluffy ears and a dark oval nose.
+182. **Hyena** = organic81:wolf + organic81:lion — A spotted hyena has rounded ears, powerful jaws and a sloping back that distinguishes it from wolves.
+183. **Gazelle** = organic81:wild-animal + legacy:544 — A swift slender gazelle has narrow curved horns and long legs for running across open grasslands.
+184. **Armadillo** = organic81:glyptodon + organic81:wild-animal — A modern armadillo carries a banded bony shell and a long pointed snout adapted for digging.
+185. **Pangolin** = organic81:armadillo + legacy:20 — A pangolin has overlapping leaf-shaped keratin scales and a curling tail, rather than an armadillo's shell bands.
+186. **Toucan** = organic81:parrot + legacy:20 — A toucan sits on a branch with a dramatically oversized multicolored bill and a compact dark body.
+187. **Flamingo** = organic81:parrot + legacy:39 — A pink flamingo balances on one thin leg, with an S-shaped neck and broad hooked bill in shallow water.
+188. **Sphinx** = organic81:lion + legacy:52 — A mythical sphinx has a lion's body, a human-like face and a patient gaze associated with ancient riddles.
+189. **Medusa** = organic81:naga + legacy:114 — A mythical Medusa has writhing snakes in place of hair and an intense gaze said to turn onlookers to stone.

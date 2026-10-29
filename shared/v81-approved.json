@@ -1,16 +1,16 @@
 {
   "version": 81,
-  "cohort_count": 177,
+  "cohort_count": 189,
   "expansion_goal": 200,
-  "expansion_progress": 177,
-  "remaining_to_goal": 23,
+  "expansion_progress": 189,
+  "remaining_to_goal": 11,
   "base_catalog": {
     "elements": 5772,
     "recipes": 14109
   },
   "expected_catalog": {
-    "elements": 5949,
-    "recipes": 14286
+    "elements": 5961,
+    "recipes": 14298
   },
   "new_items": [
     {
@@ -2136,6 +2136,150 @@
       ],
       "art_mode": "bespoke-subject",
       "path": "client/assets/v81/bighorn-sheep.svg"
+    },
+    {
+      "id": "organic81:hippopotamus",
+      "name": "Hippopotamus",
+      "category": "life",
+      "summary": "A bulky semi-aquatic hippopotamus has a broad snout, tiny raised ears and nostrils above the waterline.",
+      "ingredients": [
+        "organic81:cow",
+        "legacy:39"
+      ],
+      "art_mode": "bespoke-subject",
+      "path": "client/assets/v81/hippopotamus.svg"
+    },
+    {
+      "id": "organic81:rhinoceros",
+      "name": "Rhinoceros",
+      "category": "life",
+      "summary": "A heavy modern rhinoceros bears thick folded skin and two forward-facing nasal horns.",
+      "ingredients": [
+        "organic81:cow",
+        "legacy:14"
+      ],
+      "art_mode": "bespoke-subject",
+      "path": "client/assets/v81/rhinoceros.svg"
+    },
+    {
+      "id": "organic81:kangaroo",
+      "name": "Kangaroo",
+      "category": "life",
+      "summary": "A long-tailed kangaroo balances on strong hind legs and carries a joey inside its belly pouch.",
+      "ingredients": [
+        "organic81:rabbit",
+        "legacy:543"
+      ],
+      "art_mode": "bespoke-subject",
+      "path": "client/assets/v81/kangaroo.svg"
+    },
+    {
+      "id": "organic81:koala",
+      "name": "Koala",
+      "category": "life",
+      "summary": "A grey koala clings to a eucalyptus branch with large fluffy ears and a dark oval nose.",
+      "ingredients": [
+        "organic81:bear",
+        "legacy:19"
+      ],
+      "art_mode": "bespoke-subject",
+      "path": "client/assets/v81/koala.svg"
+    },
+    {
+      "id": "organic81:hyena",
+      "name": "Hyena",
+      "category": "life",
+      "summary": "A spotted hyena has rounded ears, powerful jaws and a sloping back that distinguishes it from wolves.",
+      "ingredients": [
+        "organic81:wolf",
+        "organic81:lion"
+      ],
+      "art_mode": "bespoke-subject",
+      "path": "client/assets/v81/hyena.svg"
+    },
+    {
+      "id": "organic81:gazelle",
+      "name": "Gazelle",
+      "category": "life",
+      "summary": "A swift slender gazelle has narrow curved horns and long legs for running across open grasslands.",
+      "ingredients": [
+        "organic81:wild-animal",
+        "legacy:544"
+      ],
+      "art_mode": "bespoke-subject",
+      "path": "client/assets/v81/gazelle.svg"
+    },
+    {
+      "id": "organic81:armadillo",
+      "name": "Armadillo",
+      "category": "life",
+      "summary": "A modern armadillo carries a banded bony shell and a long pointed snout adapted for digging.",
+      "ingredients": [
+        "organic81:glyptodon",
+        "organic81:wild-animal"
+      ],
+      "art_mode": "bespoke-subject",
+      "path": "client/assets/v81/armadillo.svg"
+    },
+    {
+      "id": "organic81:pangolin",
+      "name": "Pangolin",
+      "category": "life",
+      "summary": "A pangolin has overlapping leaf-shaped keratin scales and a curling tail, rather than an armadillo's shell bands.",
+      "ingredients": [
+        "organic81:armadillo",
+        "legacy:20"
+      ],
+      "art_mode": "bespoke-subject",
+      "path": "client/assets/v81/pangolin.svg"
+    },
+    {
+      "id": "organic81:toucan",
+      "name": "Toucan",
+      "category": "life",
+      "summary": "A toucan sits on a branch with a dramatically oversized multicolored bill and a compact dark body.",
+      "ingredients": [
+        "organic81:parrot",
+        "legacy:20"
+      ],
+      "art_mode": "bespoke-subject",
+      "path": "client/assets/v81/toucan.svg"
+    },
+    {
+      "id": "organic81:flamingo",
+      "name": "Flamingo",
+      "category": "life",
+      "summary": "A pink flamingo balances on one thin leg, with an S-shaped neck and broad hooked bill in shallow water.",
+      "ingredients": [
+        "organic81:parrot",
+        "legacy:39"
+      ],
+      "art_mode": "bespoke-subject",
+      "path": "client/assets/v81/flamingo.svg"
+    },
+    {
+      "id": "organic81:sphinx",
+      "name": "Sphinx",
+      "category": "fantasy",
+      "summary": "A mythical sphinx has a lion's body, a human-like face and a patient gaze associated with ancient riddles.",
+      "ingredients": [
+        "organic81:lion",
+        "legacy:52"
+      ],
+      "art_mode": "bespoke-subject",
+      "path": "client/assets/v81/sphinx.svg"
+    },
+    {
+      "id": "organic81:medusa",
+      "name": "Medusa",
+      "category": "fantasy",
+      "summary": "A mythical Medusa has writhing snakes in place of hair and an intense gaze said to turn onlookers to stone.",
+      "ingredients": [
+        "organic81:naga",
+        "legacy:114"
+      ],
+      "art_mode": "bespoke-subject",
+      "path": "client/assets/v81/medusa.svg"
     }
   ],
   "cycle_complete": false

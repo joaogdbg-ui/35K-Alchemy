@@ -1,8 +1,8 @@
-# V81 — 177/200 SVG candidates
+# V81 illustration gallery — 189/200
 
-Visual review at 35px and 90px; unique SVG source files are not by themselves proof of visual legibility.
+Source-matched original SVGs; independent visual judgment at 35 px is still required.
 
-| # | Element | 35px | 90px |
+| # | Element | 35 px | 90 px |
 |---:|---|:---:|:---:|
 | 1 | Sprite Animation Light Table | <img src="../client/assets/v81/sprite-animation-light-table.svg" width="35" height="35" /> | <img src="../client/assets/v81/sprite-animation-light-table.svg" width="90" height="90" /> |
 | 2 | Color-Proof Photo Printer | <img src="../client/assets/v81/color-proof-photo-printer.svg" width="35" height="35" /> | <img src="../client/assets/v81/color-proof-photo-printer.svg" width="90" height="90" /> |
@@ -181,3 +181,15 @@ Visual review at 35px and 90px; unique SVG source files are not by themselves pr
 | 175 | Yak | <img src="../client/assets/v81/yak.svg" width="35" height="35" /> | <img src="../client/assets/v81/yak.svg" width="90" height="90" /> |
 | 176 | Camel | <img src="../client/assets/v81/camel.svg" width="35" height="35" /> | <img src="../client/assets/v81/camel.svg" width="90" height="90" /> |
 | 177 | Bighorn Sheep | <img src="../client/assets/v81/bighorn-sheep.svg" width="35" height="35" /> | <img src="../client/assets/v81/bighorn-sheep.svg" width="90" height="90" /> |
+| 178 | Hippopotamus | <img src="../client/assets/v81/hippopotamus.svg" width="35" height="35" /> | <img src="../client/assets/v81/hippopotamus.svg" width="90" height="90" /> |
+| 179 | Rhinoceros | <img src="../client/assets/v81/rhinoceros.svg" width="35" height="35" /> | <img src="../client/assets/v81/rhinoceros.svg" width="90" height="90" /> |
+| 180 | Kangaroo | <img src="../client/assets/v81/kangaroo.svg" width="35" height="35" /> | <img src="../client/assets/v81/kangaroo.svg" width="90" height="90" /> |
+| 181 | Koala | <img src="../client/assets/v81/koala.svg" width="35" height="35" /> | <img src="../client/assets/v81/koala.svg" width="90" height="90" /> |
+| 182 | Hyena | <img src="../client/assets/v81/hyena.svg" width="35" height="35" /> | <img src="../client/assets/v81/hyena.svg" width="90" height="90" /> |
+| 183 | Gazelle | <img src="../client/assets/v81/gazelle.svg" width="35" height="35" /> | <img src="../client/assets/v81/gazelle.svg" width="90" height="90" /> |
+| 184 | Armadillo | <img src="../client/assets/v81/armadillo.svg" width="35" height="35" /> | <img src="../client/assets/v81/armadillo.svg" width="90" height="90" /> |
+| 185 | Pangolin | <img src="../client/assets/v81/pangolin.svg" width="35" height="35" /> | <img src="../client/assets/v81/pangolin.svg" width="90" height="90" /> |
+| 186 | Toucan | <img src="../client/assets/v81/toucan.svg" width="35" height="35" /> | <img src="../client/assets/v81/toucan.svg" width="90" height="90" /> |
+| 187 | Flamingo | <img src="../client/assets/v81/flamingo.svg" width="35" height="35" /> | <img src="../client/assets/v81/flamingo.svg" width="90" height="90" /> |
+| 188 | Sphinx | <img src="../client/assets/v81/sphinx.svg" width="35" height="35" /> | <img src="../client/assets/v81/sphinx.svg" width="90" height="90" /> |
+| 189 | Medusa | <img src="../client/assets/v81/medusa.svg" width="35" height="35" /> | <img src="../client/assets/v81/medusa.svg" width="90" height="90" /> |
