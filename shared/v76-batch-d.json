@@ -2,28 +2,28 @@
   "items": [
     {
       "id": "organic76:sega-genesis-cartridge-display",
-      "name": "Virex Origin Cartridge Display",
+      "name": "Thrynovex Origin Cartridge Display",
       "category": "culture",
       "summary": "A row of dark classic cartridges hangs in a polished display.",
       "iconFamily": "organic"
     },
     {
       "id": "organic76:sega-saturn-repair-bench",
-      "name": "Virex Ring Repair Bench",
+      "name": "Thrynovex Ring Repair Bench",
       "category": "technology",
       "summary": "A precise bench helps restore a stubborn old disc console.",
       "iconFamily": "organic"
     },
     {
       "id": "organic76:sega-game-gear-power-bank",
-      "name": "Virex Pocket Power Bank",
+      "name": "Thrynovex Pocket Power Bank",
       "category": "accessory",
       "summary": "A hefty battery pack keeps a bright portable screen running.",
       "iconFamily": "organic"
     },
     {
       "id": "organic76:sega-nomad-headphone-adapter",
-      "name": "Virex Rover Headphone Adapter",
+      "name": "Thrynovex Rover Headphone Adapter",
       "category": "accessory",
       "summary": "An angled audio plug connects portable gameplay to a headset.",
       "iconFamily": "organic"

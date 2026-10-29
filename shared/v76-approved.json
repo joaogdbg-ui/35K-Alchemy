@@ -195,62 +195,62 @@
     },
     {
       "id": "organic76:playstation-disc-organizer",
-      "name": "Auralis Disc Organizer",
+      "name": "Qelvorune Disc Organizer",
       "ingredients": [
         "legacy:414",
         "legacy:24"
       ],
-      "path": "client/assets/v76/auralis-disc-organizer.svg",
+      "path": "client/assets/v76/qelvorune-disc-organizer.svg",
       "art_mode": "bespoke-subject"
     },
     {
       "id": "organic76:playstation-2-memory-cabinet",
-      "name": "Auralis 2 Memory Cabinet",
+      "name": "Qelvorune 2 Memory Cabinet",
       "ingredients": [
         "legacy:416",
         "legacy:337"
       ],
-      "path": "client/assets/v76/auralis-2-memory-cabinet.svg",
+      "path": "client/assets/v76/qelvorune-2-memory-cabinet.svg",
       "art_mode": "bespoke-subject"
     },
     {
       "id": "organic76:playstation-3-cooling-platform",
-      "name": "Auralis 3 Cooling Platform",
+      "name": "Qelvorune 3 Cooling Platform",
       "ingredients": [
         "legacy:418",
         "legacy:12"
       ],
-      "path": "client/assets/v76/auralis-3-cooling-platform.svg",
+      "path": "client/assets/v76/qelvorune-3-cooling-platform.svg",
       "art_mode": "bespoke-subject"
     },
     {
       "id": "organic76:playstation-4-dual-charging-dock",
-      "name": "Auralis 4 Dual Charging Dock",
+      "name": "Qelvorune 4 Dual Charging Dock",
       "ingredients": [
         "legacy:420",
         "legacy:69"
       ],
-      "path": "client/assets/v76/auralis-4-dual-charging-dock.svg",
+      "path": "client/assets/v76/qelvorune-4-dual-charging-dock.svg",
       "art_mode": "bespoke-subject"
     },
     {
       "id": "organic76:playstation-5-vertical-cooling-stand",
-      "name": "Auralis 5 Vertical Cooling Stand",
+      "name": "Qelvorune 5 Vertical Cooling Stand",
       "ingredients": [
         "legacy:423",
         "legacy:12"
       ],
-      "path": "client/assets/v76/auralis-5-vertical-cooling-stand.svg",
+      "path": "client/assets/v76/qelvorune-5-vertical-cooling-stand.svg",
       "art_mode": "bespoke-subject"
     },
     {
       "id": "organic76:playstation-portal-travel-sleeve",
-      "name": "Auralis Streamscreen Travel Sleeve",
+      "name": "Qelvorune Streamscreen Travel Sleeve",
       "ingredients": [
         "legacy:501",
         "legacy:99"
       ],
-      "path": "client/assets/v76/auralis-streamscreen-travel-sleeve.svg",
+      "path": "client/assets/v76/qelvorune-streamscreen-travel-sleeve.svg",
       "art_mode": "bespoke-subject"
     },
     {
@@ -315,42 +315,42 @@
     },
     {
       "id": "organic76:sega-genesis-cartridge-display",
-      "name": "Virex Origin Cartridge Display",
+      "name": "Thrynovex Origin Cartridge Display",
       "ingredients": [
         "legacy:390",
         "legacy:151"
       ],
-      "path": "client/assets/v76/virex-origin-cartridge-display.svg",
+      "path": "client/assets/v76/thrynovex-origin-cartridge-display.svg",
       "art_mode": "bespoke-subject"
     },
     {
       "id": "organic76:sega-saturn-repair-bench",
-      "name": "Virex Ring Repair Bench",
+      "name": "Thrynovex Ring Repair Bench",
       "ingredients": [
         "legacy:393",
         "legacy:588"
       ],
-      "path": "client/assets/v76/virex-ring-repair-bench.svg",
+      "path": "client/assets/v76/thrynovex-ring-repair-bench.svg",
       "art_mode": "bespoke-subject"
     },
     {
       "id": "organic76:sega-game-gear-power-bank",
-      "name": "Virex Pocket Power Bank",
+      "name": "Thrynovex Pocket Power Bank",
       "ingredients": [
         "legacy:480",
         "legacy:69"
       ],
-      "path": "client/assets/v76/virex-pocket-power-bank.svg",
+      "path": "client/assets/v76/thrynovex-pocket-power-bank.svg",
       "art_mode": "bespoke-subject"
     },
     {
       "id": "organic76:sega-nomad-headphone-adapter",
-      "name": "Virex Rover Headphone Adapter",
+      "name": "Thrynovex Rover Headphone Adapter",
       "ingredients": [
         "legacy:481",
         "legacy:330"
       ],
-      "path": "client/assets/v76/virex-rover-headphone-adapter.svg",
+      "path": "client/assets/v76/thrynovex-rover-headphone-adapter.svg",
       "art_mode": "bespoke-subject"
     },
     {
