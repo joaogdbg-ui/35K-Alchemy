@@ -1,3 +1,11 @@
+# Alchemy 10K — current catalog roadmap (29 October 2026)
+
+Active goal: **10,000+ meaningful discoveries**, starting from V81's verified **5,812** IDs / **14,149** global combinations. Exactly 21 remaining content batches of 200 IDs reach **10,012**; do not publish smaller content batches. The introductory standalone Family Only campaigns **Mythology & Gods** and **Prehistory & Dinosaurs** are implemented as a zero-new-ID technical addition in `feature/alchemy-10k-mythology-prehistory`. Their first graphs have 16 and 9 existing discoveries, respectively. Full pantheons and varied prehistoric species remain planned for V82 and later, not counted in the catalog yet.
+
+Read [Alchemy 10K themed expansion](docs/ALCHEMY_10K_THEMATIC_EXPANSION.md), [new handoff](HANDOFF_ALCHEMY_10K.md), [family independence rules](docs/FAMILIES_ONLY_CONTRACT_PT.md) and [200-item delivery rules](docs/CONTENT_200_BATCH_POLICY_PT.md). The original 35K roadmap retained below is historical rather than current.
+
+---
+
 # Art-first content road map
 
 Goal: 35,000 recognizable, meaningful discoveries, not merely 35,000 nouns.
