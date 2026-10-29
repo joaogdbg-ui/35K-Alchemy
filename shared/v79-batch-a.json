@@ -1,0 +1,122 @@
+[
+  {
+    "id": "organic79:moonlit-trail-sign",
+    "name": "Moonlit Trail Sign",
+    "category": "fantasy",
+    "summary": "A glowing wooden arrow shows hikers the safe route through the night.",
+    "ingredients": [
+      "organic78:hidden-trail-marker",
+      "legacy:142"
+    ],
+    "art_mode": "bespoke-subject",
+    "path": "client/assets/v79/moonlit-trail-sign.svg"
+  },
+  {
+    "id": "organic79:woodland-alarm-bell",
+    "name": "Woodland Alarm Bell",
+    "category": "fantasy",
+    "summary": "A hanging bronze bell alerts nearby villagers when the forest trail becomes unsafe.",
+    "ingredients": [
+      "organic78:night-checkpoint-bell",
+      "legacy:20"
+    ],
+    "art_mode": "bespoke-subject",
+    "path": "client/assets/v79/woodland-alarm-bell.svg"
+  },
+  {
+    "id": "organic79:timber-bridge-model",
+    "name": "Timber Bridge Model",
+    "category": "gamecraft",
+    "summary": "A miniature wooden bridge model helps designers test its supports before building.",
+    "ingredients": [
+      "organic78:bridge-construction-plan",
+      "legacy:24"
+    ],
+    "art_mode": "bespoke-subject",
+    "path": "client/assets/v79/timber-bridge-model.svg"
+  },
+  {
+    "id": "organic79:sky-dock-beacon",
+    "name": "Sky Dock Beacon",
+    "category": "technology",
+    "summary": "A rotating radar beacon guides visiting airships safely into a floating dock.",
+    "ingredients": [
+      "organic78:cloud-pier",
+      "legacy:86"
+    ],
+    "art_mode": "bespoke-subject",
+    "path": "client/assets/v79/sky-dock-beacon.svg"
+  },
+  {
+    "id": "organic79:crystal-gear-lock",
+    "name": "Crystal Gear Lock",
+    "category": "fantasy",
+    "summary": "A crystalline dial fits into a heavy mechanical gate to open its hidden latch.",
+    "ingredients": [
+      "organic78:hidden-gear-door",
+      "legacy:34"
+    ],
+    "art_mode": "bespoke-subject",
+    "path": "client/assets/v79/crystal-gear-lock.svg"
+  },
+  {
+    "id": "organic79:treasure-survey-kit",
+    "name": "Treasure Survey Kit",
+    "category": "gamecraft",
+    "summary": "A survey kit holds the map, compass and coins needed for a careful treasure hunt.",
+    "ingredients": [
+      "organic78:buried-treasure-chart",
+      "legacy:108"
+    ],
+    "art_mode": "bespoke-subject",
+    "path": "client/assets/v79/treasure-survey-kit.svg"
+  },
+  {
+    "id": "organic79:sealed-quest-letter",
+    "name": "Sealed Quest Letter",
+    "category": "culture",
+    "summary": "A neatly folded letter bears a wax crest to confirm a quest has been completed.",
+    "ingredients": [
+      "organic78:quest-wax-seal",
+      "legacy:106"
+    ],
+    "art_mode": "bespoke-subject",
+    "path": "client/assets/v79/sealed-quest-letter.svg"
+  },
+  {
+    "id": "organic79:keyhole-light-beam",
+    "name": "Keyhole Light Beam",
+    "category": "fantasy",
+    "summary": "A narrow column of light passes through the enormous lock of the final gate.",
+    "ingredients": [
+      "organic78:final-gate-keyhole",
+      "legacy:63"
+    ],
+    "art_mode": "bespoke-subject",
+    "path": "client/assets/v79/keyhole-light-beam.svg"
+  },
+  {
+    "id": "organic79:racing-shortcut-map",
+    "name": "Racing Shortcut Map",
+    "category": "gamecraft",
+    "summary": "A route map marks the secret shortcut used to beat a difficult racing challenge.",
+    "ingredients": [
+      "organic78:time-trial-route",
+      "legacy:544"
+    ],
+    "art_mode": "bespoke-subject",
+    "path": "client/assets/v79/racing-shortcut-map.svg"
+  },
+  {
+    "id": "organic79:co-op-rally-banner",
+    "name": "Co-op Rally Banner",
+    "category": "gamecraft",
+    "summary": "A two-player rally banner marks the next shared objective on a busy map.",
+    "ingredients": [
+      "organic78:team-waypoint-flag",
+      "legacy:83"
+    ],
+    "art_mode": "bespoke-subject",
+    "path": "client/assets/v79/co-op-rally-banner.svg"
+  }
+]
