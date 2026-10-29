@@ -1,6 +1,6 @@
-# Alchemy 10k V81 original illustrated content — 103/200
+# V81 illustrated element gallery — 113/200
 
-| # | Element | 35px | 90px |
+| # | Name | Actual 35px | Detail 90px |
 |---:|---|:---:|:---:|
 | 1 | Sprite Animation Light Table | <img src="../client/assets/v81/sprite-animation-light-table.svg" width="35" height="35" /> | <img src="../client/assets/v81/sprite-animation-light-table.svg" width="90" height="90" /> |
 | 2 | Color-Proof Photo Printer | <img src="../client/assets/v81/color-proof-photo-printer.svg" width="35" height="35" /> | <img src="../client/assets/v81/color-proof-photo-printer.svg" width="90" height="90" /> |
@@ -105,5 +105,15 @@
 | 101 | Meganeura | <img src="../client/assets/v81/meganeura.svg" width="35" height="35" /> | <img src="../client/assets/v81/meganeura.svg" width="90" height="90" /> |
 | 102 | Glyptodon | <img src="../client/assets/v81/glyptodon.svg" width="35" height="35" /> | <img src="../client/assets/v81/glyptodon.svg" width="90" height="90" /> |
 | 103 | Megatherium | <img src="../client/assets/v81/megatherium.svg" width="35" height="35" /> | <img src="../client/assets/v81/megatherium.svg" width="90" height="90" /> |
+| 104 | Sheep | <img src="../client/assets/v81/sheep.svg" width="35" height="35" /> | <img src="../client/assets/v81/sheep.svg" width="90" height="90" /> |
+| 105 | Donkey | <img src="../client/assets/v81/donkey.svg" width="35" height="35" /> | <img src="../client/assets/v81/donkey.svg" width="90" height="90" /> |
+| 106 | Duck | <img src="../client/assets/v81/duck.svg" width="35" height="35" /> | <img src="../client/assets/v81/duck.svg" width="90" height="90" /> |
+| 107 | Goose | <img src="../client/assets/v81/goose.svg" width="35" height="35" /> | <img src="../client/assets/v81/goose.svg" width="90" height="90" /> |
+| 108 | Zebra | <img src="../client/assets/v81/zebra.svg" width="35" height="35" /> | <img src="../client/assets/v81/zebra.svg" width="90" height="90" /> |
+| 109 | Giraffe | <img src="../client/assets/v81/giraffe.svg" width="35" height="35" /> | <img src="../client/assets/v81/giraffe.svg" width="90" height="90" /> |
+| 110 | Elephant | <img src="../client/assets/v81/elephant.svg" width="35" height="35" /> | <img src="../client/assets/v81/elephant.svg" width="90" height="90" /> |
+| 111 | Raccoon | <img src="../client/assets/v81/raccoon.svg" width="35" height="35" /> | <img src="../client/assets/v81/raccoon.svg" width="90" height="90" /> |
+| 112 | Whale | <img src="../client/assets/v81/whale.svg" width="35" height="35" /> | <img src="../client/assets/v81/whale.svg" width="90" height="90" /> |
+| 113 | Seal | <img src="../client/assets/v81/seal.svg" width="35" height="35" /> | <img src="../client/assets/v81/seal.svg" width="90" height="90" /> |
 
-Visual 35px/aesthetic quality is still subject to final human/device review.
+WIP not released. Human 35px review is pending.

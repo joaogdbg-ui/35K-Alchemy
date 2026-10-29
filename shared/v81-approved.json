@@ -1,16 +1,16 @@
 {
   "version": 81,
-  "cohort_count": 103,
+  "cohort_count": 113,
   "expansion_goal": 200,
-  "expansion_progress": 103,
-  "remaining_to_goal": 97,
+  "expansion_progress": 113,
+  "remaining_to_goal": 87,
   "base_catalog": {
     "elements": 5772,
     "recipes": 14109
   },
   "expected_catalog": {
-    "elements": 5875,
-    "recipes": 14212
+    "elements": 5885,
+    "recipes": 14222
   },
   "new_items": [
     {
@@ -1248,6 +1248,126 @@
       ],
       "art_mode": "bespoke-subject",
       "path": "client/assets/v81/megatherium.svg"
+    },
+    {
+      "id": "organic81:sheep",
+      "name": "Sheep",
+      "category": "life",
+      "summary": "A woolly farm sheep keeps warm beneath a thick fleece and has tiny curved ears and sturdy hooves.",
+      "ingredients": [
+        "organic81:farm-animal",
+        "legacy:36"
+      ],
+      "art_mode": "bespoke-subject",
+      "path": "client/assets/v81/sheep.svg"
+    },
+    {
+      "id": "organic81:donkey",
+      "name": "Donkey",
+      "category": "life",
+      "summary": "A hard-working donkey has exceptionally long upright ears, a short bristled mane and a gentle gray muzzle.",
+      "ingredients": [
+        "organic81:farm-animal",
+        "legacy:574"
+      ],
+      "art_mode": "bespoke-subject",
+      "path": "client/assets/v81/donkey.svg"
+    },
+    {
+      "id": "organic81:duck",
+      "name": "Duck",
+      "category": "life",
+      "summary": "A dabbling duck has webbed orange feet, a broad flattened bill and waterproof feathers for lakes and ponds.",
+      "ingredients": [
+        "organic81:farm-animal",
+        "legacy:40"
+      ],
+      "art_mode": "bespoke-subject",
+      "path": "client/assets/v81/duck.svg"
+    },
+    {
+      "id": "organic81:goose",
+      "name": "Goose",
+      "category": "life",
+      "summary": "A domestic goose carries a long upright neck, noisy honk and large webbed feet near a farm pond.",
+      "ingredients": [
+        "organic81:farm-animal",
+        "organic38:bird"
+      ],
+      "art_mode": "bespoke-subject",
+      "path": "client/assets/v81/goose.svg"
+    },
+    {
+      "id": "organic81:zebra",
+      "name": "Zebra",
+      "category": "life",
+      "summary": "A wild equid of African grasslands wears distinctive black-and-white stripes that help identify its species.",
+      "ingredients": [
+        "legacy:574",
+        "organic81:wild-animal"
+      ],
+      "art_mode": "bespoke-subject",
+      "path": "client/assets/v81/zebra.svg"
+    },
+    {
+      "id": "organic81:giraffe",
+      "name": "Giraffe",
+      "category": "life",
+      "summary": "A giraffe reaches treetop leaves using its exceptionally long neck and shows brown patches on pale fur.",
+      "ingredients": [
+        "organic81:wild-animal",
+        "organic81:brachiosaurus"
+      ],
+      "art_mode": "bespoke-subject",
+      "path": "client/assets/v81/giraffe.svg"
+    },
+    {
+      "id": "organic81:elephant",
+      "name": "Elephant",
+      "category": "life",
+      "summary": "Modern elephants share a deep evolutionary lineage with mammoths and use a flexible trunk to explore the world.",
+      "ingredients": [
+        "organic81:wild-animal",
+        "organic81:woolly-mammoth"
+      ],
+      "art_mode": "bespoke-subject",
+      "path": "client/assets/v81/elephant.svg"
+    },
+    {
+      "id": "organic81:raccoon",
+      "name": "Raccoon",
+      "category": "life",
+      "summary": "A clever city-edge raccoon wears a dark eye mask and a thick ringed tail while exploring nighttime bins.",
+      "ingredients": [
+        "organic81:wild-animal",
+        "legacy:47"
+      ],
+      "art_mode": "bespoke-subject",
+      "path": "client/assets/v81/raccoon.svg"
+    },
+    {
+      "id": "organic81:whale",
+      "name": "Whale",
+      "category": "life",
+      "summary": "A large baleen whale cruises through the ocean and sends a spray of water from its blowhole.",
+      "ingredients": [
+        "organic81:wild-animal",
+        "legacy:591"
+      ],
+      "art_mode": "bespoke-subject",
+      "path": "client/assets/v81/whale.svg"
+    },
+    {
+      "id": "organic81:seal",
+      "name": "Seal",
+      "category": "life",
+      "summary": "A sleek seal rests on pack ice with its rounded muzzle, short flippers and dense water-resistant coat.",
+      "ingredients": [
+        "organic81:wild-animal",
+        "legacy:10"
+      ],
+      "art_mode": "bespoke-subject",
+      "path": "client/assets/v81/seal.svg"
     }
   ],
   "cycle_complete": false
