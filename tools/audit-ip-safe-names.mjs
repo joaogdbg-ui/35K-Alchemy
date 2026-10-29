@@ -7,7 +7,7 @@ import {PACK} from '../client/src/creative-pack.js';
 import {buildCatalog} from '../client/src/catalog-integrity.js';
 import {publicName,buildPublicNameIndex,hasUnresolvedPublicIPSignal} from '../client/src/ip-safe-names.js';
 import {readFileSync} from 'node:fs';
-const versions=['gaming-v22','gaming-v23','gaming-v24','gaming-v26','gaming-v27','gaming-v30','organic-v32','organic-v34','organic-v37','organic-v38','organic-v40','organic-v41','organic-v42','organic-v43','organic-v44','organic-v45','organic-v46','organic-v47','organic-v50','organic-v52','organic-v53','organic-v55','organic-v56','organic-v57','organic-v58','organic-v59','organic-v61','organic-v62','organic-v63','organic-v65','organic-v66','organic-v67','organic-v68','organic-v71','organic-v72','organic-v73','organic-v74','organic-v75','organic-v76','organic-v77','organic-v78','organic-v79'];
+const versions=['gaming-v22','gaming-v23','gaming-v24','gaming-v26','gaming-v27','gaming-v30','organic-v32','organic-v34','organic-v37','organic-v38','organic-v40','organic-v41','organic-v42','organic-v43','organic-v44','organic-v45','organic-v46','organic-v47','organic-v50','organic-v52','organic-v53','organic-v55','organic-v56','organic-v57','organic-v58','organic-v59','organic-v61','organic-v62','organic-v63','organic-v65','organic-v66','organic-v67','organic-v68','organic-v71','organic-v72','organic-v73','organic-v74','organic-v75','organic-v76','organic-v77','organic-v78','organic-v79','organic-v80'];
 const packs=[PACK];
 for(const v of versions){const path=v.replace('gaming','gaming-pack').replace('organic','organic-pack');const mod=await import('../client/src/'+path+'.js');packs.push(Object.values(mod)[0]);}
 const {items,recipes}=buildCatalog(DATA,packs);
