@@ -620,24 +620,24 @@ function difficultyFor(id){const d=routeDepth.get(id);
 function elementIsUseful(id){return (recipeUses.get(id)||[]).some(r=>unlocked.has(r.a===id?r.b:r.a)&&!unlocked.has(r.out));}
 function elementIsComplete(id){return unlocked.has(id)&&!(recipeUses.get(id)||[]).some(r=>!unlocked.has(r.out));}
 const COLLECTION_SETS=[
- {id:'playstation',name:'Qelvorune Generations',family:'consoles',names:['PlayStation','PlayStation 2','PlayStation 3','PlayStation 4','PlayStation 5','PSP','PS Vita'],icon:'console'},
- {id:'nintendo',name:'Pocket Console Heritage',family:'consoles',names:['Game Boy','Game Boy Color','Game Boy Advance','Nintendo DS','Nintendo 3DS'],icon:'handheld'},
- {id:'classics',name:'Retro Game Classics',family:'games',names:['Super Mario Bros.','The Legend of Zelda','Pokémon Red','Pokémon Blue','Sonic the Hedgehog'],icon:'game_case'},
- {id:"sega-hardware",name:"Thrynovex Hardware",family:"consoles",names:["Sega Genesis", "Sega Saturn", "Sega Dreamcast", "Sega Game Gear", "Sega CD"],icon:"game_case"},
- {id:"xbox-history",name:"Zerqadyn Generations",family:"consoles",names:["Xbox", "Xbox 360", "Xbox One", "Xbox Series X", "Xbox Series S"],icon:"game_case"},
- {id:"mario-eras",name:"Mosskip Through the Years",family:"games",names:["Super Mario Bros.", "Super Mario World", "Super Mario 64", "Super Mario Sunshine", "Super Mario Galaxy", "Super Mario Odyssey"],icon:"game_case"},
- {id:"sonic-eras",name:"Windrush Across Generations",family:"games",names:["Sonic the Hedgehog", "Sonic the Hedgehog 2", "Sonic CD", "Sonic Adventure", "Sonic Adventure 2", "Sonic Mania"],icon:"game_case"},
- {id:"kirby-tour",name:"Pufflet Adventures",family:"games",names:["Kirby’s Dream Land", "Kirby 64: The Crystal Shards", "Kirby: Triple Deluxe", "Kirby and the Forgotten Land"],icon:"game_case"},
- {id:"pokemon-eras",name:"Pok\u00e9mon Generations",family:"games",names:["Pokémon Red", "Pokémon Gold", "Pokémon Ruby", "Pokémon Diamond", "Pokémon Black", "Pokémon X", "Pokémon Sun"],icon:"game_case"},
- {id:"dragon-ball-games",name:"Sky Orbs Adventures",family:"games",names:["Dragon Ball Z: Budokai 3", "Dragon Ball Z: Budokai Tenkaichi 3", "Dragon Ball FighterZ", "Dragon Ball Z: Kakarot"],icon:"game_case"},
- {id:"survival-horror",name:"Survival Horror Games",family:"games",names:["Resident Evil 2", "Resident Evil 4", "Silent Hill 3", "Dead Space", "Resident Evil Village"],icon:"game_case"},
- {id:"pc-classics",name:"PC Legends",family:"games",names:["Half-Life", "DOOM", "Quake", "StarCraft", "The Sims"],icon:"game_case"},
- {id:"indie",name:"Indie Games",family:"games",names:["Celeste", "Hollow Knight", "Stardew Valley", "Undertale", "Hades"],icon:"game_case"},
- {id:"nintendo-64",name:"Velqryon 64 Memories",family:"games",names:["Super Mario 64", "Mario Kart 64", "Donkey Kong 64", "Pokémon Snap", "Kirby 64: The Crystal Shards"],icon:"game_case"},
- {id:"sony-portables",name:"Qelvorune Handhelds",family:"consoles",names:["PSP", "PS Vita", "God of War: Chains of Olympus", "Metal Gear Solid: Peace Walker"],icon:"game_case"},
- {id:"fighting-legends",name:"Fighting Legends",family:"games",names:["Street Fighter II", "Mortal Kombat", "Tekken 3", "Virtua Fighter 2", "Street Fighter 6"],icon:"game_case"},
- {id:"music-games",name:"Music & Rhythm Games",family:"games",names:["Guitar Hero", "Dance Dance Revolution", "Wii Music", "Just Dance", "Rhythm Heaven Fever"],icon:"game_case"},
- {id:"zelda-classics",name:"Mooncrest Adventures",family:"games",names:["The Legend of Zelda", "The Legend of Zelda: Twilight Princess", "The Legend of Zelda: The Wind Waker", "The Legend of Zelda: Echoes of Wisdom"],icon:"game_case"},
+ {id:'playstation',name:'Disc Console Timeline',description:'Home consoles and portable systems across the disc era.',family:'consoles',names:['PlayStation','PlayStation 2','PlayStation 3','PlayStation 4','PlayStation 5','PSP','PS Vita'],icon:'console'},
+ {id:'nintendo',name:'Pocket Console History',description:'Handheld games, cartridges and dual-screen devices.',family:'consoles',names:['Game Boy','Game Boy Color','Game Boy Advance','Nintendo DS','Nintendo 3DS'],icon:'handheld'},
+ {id:'classics',name:'Retro Gaming Icons',description:'Platform games, fantasy quests and creature adventures.',family:'games',names:['Super Mario Bros.','The Legend of Zelda','Pokémon Red','Pokémon Blue','Sonic the Hedgehog'],icon:'game_case'},
+ {id:"sega-hardware",name:'Arcade Console History',description:'16-bit machines, disc systems and portable arcade gaming.',family:"consoles",names:["Sega Genesis", "Sega Saturn", "Sega Dreamcast", "Sega Game Gear", "Sega CD"],icon:"game_case"},
+ {id:"xbox-history",name:'Modern Home Consoles',description:'A timeline of high-powered living-room systems.',family:"consoles",names:["Xbox", "Xbox 360", "Xbox One", "Xbox Series X", "Xbox Series S"],icon:"game_case"},
+ {id:"mario-eras",name:'Classic Platform Adventures',description:'Jump-and-run platform games from 2D to 3D.',family:"games",names:["Super Mario Bros.", "Super Mario World", "Super Mario 64", "Super Mario Sunshine", "Super Mario Galaxy", "Super Mario Odyssey"],icon:"game_case"},
+ {id:"sonic-eras",name:'High-Speed Platformers',description:'Fast-moving platform games built around momentum.',family:"games",names:["Sonic the Hedgehog", "Sonic the Hedgehog 2", "Sonic CD", "Sonic Adventure", "Sonic Adventure 2", "Sonic Mania"],icon:"game_case"},
+ {id:"kirby-tour",name:'Cute Fantasy Platformers',description:'Bright, playful platform adventures with tiny heroes.',family:"games",names:["Kirby’s Dream Land", "Kirby 64: The Crystal Shards", "Kirby: Triple Deluxe", "Kirby and the Forgotten Land"],icon:"game_case"},
+ {id:"pokemon-eras",name:'Creature-Collecting RPGs',description:'Explore generations of turn-based creature adventures.',family:"games",names:["Pokémon Red", "Pokémon Gold", "Pokémon Ruby", "Pokémon Diamond", "Pokémon Black", "Pokémon X", "Pokémon Sun"],icon:"game_case"},
+ {id:"dragon-ball-games",name:'Anime Battle Games',description:'Arena fighting, tournaments and energetic action.',family:"games",names:["Dragon Ball Z: Budokai 3", "Dragon Ball Z: Budokai Tenkaichi 3", "Dragon Ball FighterZ", "Dragon Ball Z: Kakarot"],icon:"game_case"},
+ {id:"survival-horror",name:'Survival Horror Games',description:'Scary mysteries, survival and science-fiction horror.',family:"games",names:["Resident Evil 2", "Resident Evil 4", "Silent Hill 3", "Dead Space", "Resident Evil Village"],icon:"game_case"},
+ {id:"pc-classics",name:'Classic PC Games',description:'Shooters, strategy and everyday-life simulations.',family:"games",names:["Half-Life", "DOOM", "Quake", "StarCraft", "The Sims"],icon:"game_case"},
+ {id:"indie",name:'Indie Game Favorites',description:'Indie platformers, farming, exploration and stories.',family:"games",names:["Celeste", "Hollow Knight", "Stardew Valley", "Undertale", "Hades"],icon:"game_case"},
+ {id:"nintendo-64",name:'64-Bit Game Classics',description:'Cartridge-era 3D platforming and kart racing.',family:"games",names:["Super Mario 64", "Mario Kart 64", "Donkey Kong 64", "Pokémon Snap", "Kirby 64: The Crystal Shards"],icon:"game_case"},
+ {id:"sony-portables",name:'Portable Disc Gaming',description:'Pocket consoles and their action-adventure games.',family:"consoles",names:["PSP", "PS Vita", "God of War: Chains of Olympus", "Metal Gear Solid: Peace Walker"],icon:"game_case"},
+ {id:"fighting-legends",name:'Arcade Fighting Games',description:'One-on-one fighters and classic tournament action.',family:"games",names:["Street Fighter II", "Mortal Kombat", "Tekken 3", "Virtua Fighter 2", "Street Fighter 6"],icon:"game_case"},
+ {id:"music-games",name:'Music & Rhythm Games',description:'Play to the beat in dancing and instrument games.',family:"games",names:["Guitar Hero", "Dance Dance Revolution", "Wii Music", "Just Dance", "Rhythm Heaven Fever"],icon:"game_case"},
+ {id:"zelda-classics",name:'Fantasy Quest Games',description:'Swordplay, exploration, dungeons and puzzle-solving.',family:"games",names:["The Legend of Zelda", "The Legend of Zelda: Twilight Princess", "The Legend of Zelda: The Wind Waker", "The Legend of Zelda: Echoes of Wisdom"],icon:"game_case"},
 ];
 for(const set of COLLECTION_SETS){set.ids=set.names.map(n=>ITEMS.find(it=>it.name.toLowerCase()===n.toLowerCase())?.id).filter(Boolean);}
 function setProgress(s){return s.ids.filter(id=>unlocked.has(id)).length;}
@@ -1003,14 +1003,14 @@ function renderDiscoveries(){
  $('catalogTargetProgress').textContent=currentMode==='family'?`${unlocked.size} / ${total} found`:`${total.toLocaleString('en-US')} / ${GAMING_V24.targetElements.toLocaleString('en-US')} planned elements`;
  $('catalogTargetFill').style.width=Math.min(100,currentMode==='family'?100*unlocked.size/total:100*total/GAMING_V24.targetElements).toFixed(2)+'%';
  const setEl=$('thematicSets');if(setEl){setEl.hidden=currentMode==='family';setEl.innerHTML=COLLECTION_SETS.map(s=>{const count=setProgress(s),total=s.ids.length,pct=total?Math.round(100*count/total):0;
- return `<button class="theme-set" data-set="${s.id}"><strong>${escapeText(publicText(s.name))}</strong><small>${count} / ${total} found · ${pct}%</small><span class="family-line"><i style="width:${pct}%"></i></span></button>`;
+ return `<button class="theme-set" data-set="${s.id}" aria-label="${escapeText(s.name)}. ${escapeText(s.description)}. ${count} of ${total} found"><strong>${escapeText(s.name)}</strong><span class="theme-set-description">${escapeText(s.description)}</span><small>${count} / ${total} found · ${pct}%</small><span class="family-line"><i style="width:${pct}%"></i></span></button>`;
  }).join('');}
  $('familiesGrid').innerHTML=FAMILIES.filter(f=>currentMode==='classic'||f.id===currentFamilyId).map(f=>{const g=groups[f.id],pct=g.total?Math.round(g.found/g.total*100):100;
   const icon=familyCardArtwork(f);
   return `<button class="family-card" data-family="${f.id}" aria-label="${escapeText(f.name)} ${g.found} of ${g.total} found"><span class="family-icon">${icon}</span><span class="family-card-main"><strong>${escapeText(f.name)}</strong><small>${g.found.toLocaleString('en-US')} / ${g.total.toLocaleString('en-US')} found</small><span class="family-line"><i style="width:${pct}%"></i></span></span><span class="family-next" aria-hidden="true">›</span></button>`;
  }).join('');
  if(activeFamily){const s=COLLECTION_SETS.find(x=>x.id===activeSet),g=s?{...groups[s.family],ids:s.ids,found:setProgress(s),total:s.ids.length,name:s.name}:groups[activeFamily];if(g){
-  $('familyName').textContent=publicText(g.name);$('familyProgressText').textContent=`${g.found.toLocaleString('en-US')} of ${g.total.toLocaleString('en-US')} discovered`;
+  $('familyName').textContent=s?s.name:publicText(g.name);const setDescription=$('collectionDetailDescription');if(setDescription){setDescription.hidden=!s;setDescription.textContent=s?s.description:'';}$('familyProgressText').textContent=`${g.found.toLocaleString('en-US')} of ${g.total.toLocaleString('en-US')} discovered`;
   const pct=g.total?Math.round(100*g.found/g.total):100;$('familyPercent').textContent=(g.found>0&&pct===0?'<1%':pct+'%');$('familyProgressBar').style.width=pct+'%';
   const actionable=getFamilyCandidate(),action=$('familyHint');
   action.disabled=!actionable;

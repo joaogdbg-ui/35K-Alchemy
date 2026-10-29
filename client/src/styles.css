@@ -560,3 +560,11 @@ html.alchemy-android-immersive .app{
   .craft-row{transform:translateY(3px)}
 }
 
+
+/* V76.5 — clear themed collection titles and short descriptions. */
+.theme-set{min-height:113px;gap:5px}
+.theme-set strong{font-size:12px;line-height:1.25}
+.theme-set-description{color:#7a6c63;font-size:10px;line-height:1.35;display:-webkit-box;-webkit-box-orient:vertical;-webkit-line-clamp:2;line-clamp:2;overflow:hidden}
+.theme-set small{margin-top:auto}
+.collection-detail-description{font-size:11px;line-height:1.4;color:#84776e;padding:0 18px 10px;margin:0;flex:none}
+html[data-theme="dark"] .theme-set-description,html[data-theme="dark"] .collection-detail-description{color:#c2b8b1}
