@@ -958,7 +958,23 @@ function filtered(mode){
 }
 class VirtualElements {
  constructor(rootId,mode){this.root=$(rootId);this.viewport=this.root.parentElement;this.mode=mode;this.ids=[];this.start=-1;this.end=-1;this.cols=-1;this.viewport.addEventListener('scroll',()=>this.draw());window.addEventListener('resize',()=>this.draw(true));this.root.addEventListener('click',e=>{if(Date.now()-this.dragEnded<300)return;const chip=e.target.closest('.element-chip');if(chip)insertDirect(chip.dataset.id);});this.dragEnded=0;}
- refresh(){this.ids=filtered(this.mode);this.viewport.scrollTop=0;this.draw(true);}
+ refresh({resetScroll=false}={}){
+  // Preserve the visible row while a newly discovered element enters a
+  // sorted list. Rebuilding virtual DOM must never jump back to the top.
+  const before=this.viewport.scrollTop;
+  const cols=Math.max(1,Math.floor(((this.viewport.clientWidth||360)-28+8)/(145+8)));
+  const rowHeight=62;
+  const previousIndex=Math.floor(before/rowHeight)*cols;
+  const anchorId=this.ids[previousIndex];
+  const intraRow=before%rowHeight;
+  this.ids=filtered(this.mode);
+  if(resetScroll){this.viewport.scrollTop=0;}
+  else if(anchorId && this.ids.includes(anchorId)){
+   const index=this.ids.indexOf(anchorId);
+   this.viewport.scrollTop=Math.floor(index/cols)*rowHeight+intraRow;
+  }else this.viewport.scrollTop=before;
+  this.draw(true);
+ }
  draw(force=false){let width=this.viewport.clientWidth,cols=Math.max(1,Math.floor((width-28+8)/(145+8))),rowHeight=62,rows=Math.ceil(this.ids.length/cols),top=Math.max(0,Math.floor(this.viewport.scrollTop/rowHeight)-4),end=Math.min(rows,Math.ceil((this.viewport.scrollTop+this.viewport.clientHeight)/rowHeight)+5);if(!force&&this.start===top&&this.end===end&&this.cols===cols)return;this.start=top;this.end=end;this.cols=cols;this.root.style.height=Math.max(40,rows*rowHeight)+'px';if(!this.ids.length){const msg='No elements found.';this.root.innerHTML='<div class="empty-list">'+msg+'</div>';return;}let shown=this.ids.slice(top*cols,end*cols);this.root.innerHTML=`<div class="virtual-grid" style="--cols:${cols};top:${top*rowHeight}px">${shown.map(id=>{const it=byId.get(id);return `<button class="element-chip ${worldFirsts.has(id)?'world-first-chip':''}" data-id="${escapeText(id)}" aria-label="Tap or drag ${escapeText(it.name)}"><span class="chip-art">${staticArt(it)}</span><span class="chip-label">${escapeText(it.name)}</span>${elementIsComplete(id)?'<span class="chip-completed" title="No undiscovered outputs in the offline catalogue" aria-label="Completed">★</span>':''}</button>`;}).join('')}</div>`;}
 }
 const playVirtual=new VirtualElements('inventoryVirtual','play');
@@ -1396,11 +1412,11 @@ function setSearchOpen(open){
  toolbar.classList.toggle('search-open',open);
  field.hidden=!open;toggle.setAttribute('aria-expanded',String(open));
  toggle.setAttribute('aria-label',open?'Close element search':'Open element search');
- if(open){field.focus();}else{field.value='';playQuery='';field.blur();syncKeyboardViewport();playVirtual.refresh();}
+ if(open){field.focus();}else{field.value='';playQuery='';field.blur();syncKeyboardViewport();playVirtual.refresh({resetScroll:true});}
 }
 $('searchToggle').onclick=()=>setSearchOpen(!$('shelfToolbar').classList.contains('search-open'));
 $('playSearch').addEventListener('keydown',e=>{if(e.key==='Escape'){e.preventDefault();setSearchOpen(false);}});
-$('playSearch').oninput=e=>{playQuery=e.target.value;playVirtual.refresh();};
+$('playSearch').oninput=e=>{playQuery=e.target.value;playVirtual.refresh({resetScroll:true});};
 // V55: touch-friendly in-game Sort chooser (no native Android <select>).
 function openInventorySorter(){
  const choices=[['az','A–Z','Alphabetical order'],['old','Old first','Earliest discoveries first'],['new','New first','Latest discoveries first']];
@@ -1412,7 +1428,7 @@ function openInventorySorter(){
   try{localStorage.setItem(SORT_KEY,sortChoice);}catch{}
   $('recentBtn').dataset.sort=sortChoice;
   $('recentBtn').setAttribute('aria-label','Sort elements: '+({az:'A to Z',old:'Old first',new:'New first'}[sortChoice]));
-  closeModal();playVirtual.refresh();
+  closeModal();playVirtual.refresh({resetScroll:true});
  });
 }
 $('recentBtn').dataset.sort=sortChoice;
@@ -1438,7 +1454,7 @@ function openInventoryFamilyPicker(){
       $('playFamilyLabel').textContent=selected==='all'?'All families':FAMILIES.find(f=>f.id===selected)?.name||'All families';
       $('playFamily').setAttribute('aria-expanded','false');
       closeModal();
-      playVirtual.refresh();
+      playVirtual.refresh({resetScroll:true});
     });
   });
 }
