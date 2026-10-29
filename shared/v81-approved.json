@@ -1,0 +1,137 @@
+{
+  "version": 81,
+  "cohort_count": 10,
+  "expansion_goal": 40,
+  "expansion_progress": 10,
+  "remaining_to_goal": 30,
+  "base_catalog": {
+    "elements": 5772,
+    "recipes": 14109
+  },
+  "expected_catalog": {
+    "elements": 5782,
+    "recipes": 14119
+  },
+  "new_items": [
+    {
+      "id": "organic81:sprite-animation-light-table",
+      "name": "Sprite Animation Light Table",
+      "category": "technology",
+      "summary": "An animator's luminous drawing table shows three consecutive pixel-sprite frames beside a timing ruler.",
+      "ingredients": [
+        "organic80:pixel-sprite-lightbox",
+        "legacy:211"
+      ],
+      "art_mode": "bespoke-subject",
+      "path": "client/assets/v81/sprite-animation-light-table.svg"
+    },
+    {
+      "id": "organic81:color-proof-photo-printer",
+      "name": "Color-Proof Photo Printer",
+      "category": "technology",
+      "summary": "A tabletop printer outputs calibrated color patches beside a small landscape photograph.",
+      "ingredients": [
+        "organic80:color-calibration-proof",
+        "organic80:pocket-photo-printer"
+      ],
+      "art_mode": "bespoke-subject",
+      "path": "client/assets/v81/color-proof-photo-printer.svg"
+    },
+    {
+      "id": "organic81:controller-museum-plinth",
+      "name": "Controller Museum Plinth",
+      "category": "culture",
+      "summary": "A museum pedestal presents a vintage game controller beneath a glass hood with a history label.",
+      "ingredients": [
+        "organic80:museum-interactive-console",
+        "legacy:167"
+      ],
+      "art_mode": "bespoke-subject",
+      "path": "client/assets/v81/controller-museum-plinth.svg"
+    },
+    {
+      "id": "organic81:arcade-merchandise-canopy",
+      "name": "Arcade Merchandise Canopy",
+      "category": "arcade",
+      "summary": "A striped gaming market canopy sells arcade badges, prize plush toys and tournament tickets.",
+      "ingredients": [
+        "organic80:championship-ticket-exchange",
+        "organic80:board-game-market-stall"
+      ],
+      "art_mode": "bespoke-subject",
+      "path": "client/assets/v81/arcade-merchandise-canopy.svg"
+    },
+    {
+      "id": "organic81:pixel-cabinet-marquee",
+      "name": "Pixel Cabinet Marquee",
+      "category": "arcade",
+      "summary": "A translucent cabinet marquee glows with pixel-art lettering and a tiny trophy silhouette.",
+      "ingredients": [
+        "organic80:arcade-trophy-cabinet",
+        "organic80:pixel-sprite-lightbox"
+      ],
+      "art_mode": "bespoke-subject",
+      "path": "client/assets/v81/pixel-cabinet-marquee.svg"
+    },
+    {
+      "id": "organic81:retro-world-map-poster",
+      "name": "Retro World Map Poster",
+      "category": "culture",
+      "summary": "A colorful rolled poster maps the imaginary world of a retro adventure game sold at a game shop.",
+      "ingredients": [
+        "organic80:retro-game-checkout",
+        "legacy:354"
+      ],
+      "art_mode": "bespoke-subject",
+      "path": "client/assets/v81/retro-world-map-poster.svg"
+    },
+    {
+      "id": "organic81:cooperative-score-medal",
+      "name": "Cooperative Score Medal",
+      "category": "arcade",
+      "summary": "A shared gold medal celebrates the combined high score of two players in a cooperative arcade match.",
+      "ingredients": [
+        "organic80:dual-player-scoreboard",
+        "organic80:champion-ticket-voucher"
+      ],
+      "art_mode": "bespoke-subject",
+      "path": "client/assets/v81/cooperative-score-medal.svg"
+    },
+    {
+      "id": "organic81:drum-champion-podium",
+      "name": "Drum Champion Podium",
+      "category": "arcade",
+      "summary": "A percussion winner displays an electronic drum pad and a cup on the top step of a podium.",
+      "ingredients": [
+        "organic80:rhythm-drum-pad",
+        "organic80:arcade-dance-trophy"
+      ],
+      "art_mode": "bespoke-subject",
+      "path": "client/assets/v81/drum-champion-podium.svg"
+    },
+    {
+      "id": "organic81:speedrun-split-timer",
+      "name": "Speedrun Split Timer",
+      "category": "arcade",
+      "summary": "A digital timer divides a speedrun into segments and highlights the player's fastest recorded section.",
+      "ingredients": [
+        "organic80:speedrun-replay-booth",
+        "legacy:211"
+      ],
+      "art_mode": "bespoke-subject",
+      "path": "client/assets/v81/speedrun-split-timer.svg"
+    },
+    {
+      "id": "organic81:cartridge-label-embosser",
+      "name": "Cartridge Label Embosser",
+      "category": "technology",
+      "summary": "A hand-operated label press stamps fresh identifying labels for restored game cartridges in an archive.",
+      "ingredients": [
+        "organic80:cartridge-data-reader",
+        "legacy:106"
+      ],
+      "art_mode": "bespoke-subject",
+      "path": "client/assets/v81/cartridge-label-embosser.svg"
+    }
+  ]
+}
