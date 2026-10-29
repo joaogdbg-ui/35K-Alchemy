@@ -1,18 +1,18 @@
 {
   "version": 82,
   "status": "WIP_NOT_RELEASED",
-  "cohort_count": 120,
+  "cohort_count": 170,
   "expansion_goal": 200,
-  "expansion_progress": 120,
-  "remaining_to_goal": 80,
+  "expansion_progress": 170,
+  "remaining_to_goal": 30,
   "cycle_complete": false,
   "base_catalog": {
     "elements": 5812,
     "recipes": 14149
   },
   "expected_catalog": {
-    "elements": 5932,
-    "recipes": 14269
+    "elements": 5982,
+    "recipes": 14319
   },
   "new_items": [
     {
@@ -1814,6 +1814,756 @@
       ],
       "art_mode": "bespoke-subject",
       "path": "client/assets/v82/fossil-footprint.svg"
+    },
+    {
+      "id": "organic82:allosaurus",
+      "name": "Allosaurus",
+      "category": "prehistoric",
+      "summary": "A large Jurassic hunter with strong legs, three-fingered arms and small brow crests.",
+      "familyCampaigns": [
+        "prehistoric"
+      ],
+      "ingredients": [
+        "organic82:theropod",
+        "organic82:jurassic-period"
+      ],
+      "art_mode": "species-specific-anatomy",
+      "path": "client/assets/v82/allosaurus.svg"
+    },
+    {
+      "id": "organic82:spinosaurus",
+      "name": "Spinosaurus",
+      "category": "prehistoric",
+      "summary": "A semi-aquatic Cretaceous theropod with an elongated crocodile-like snout and tall back sail.",
+      "familyCampaigns": [
+        "prehistoric"
+      ],
+      "ingredients": [
+        "organic82:theropod",
+        "organic82:marine-reptile"
+      ],
+      "art_mode": "species-specific-anatomy",
+      "path": "client/assets/v82/spinosaurus.svg"
+    },
+    {
+      "id": "organic82:carnotaurus",
+      "name": "Carnotaurus",
+      "category": "prehistoric",
+      "summary": "A fast abelisaurid from South America with two blunt horns above a short deep skull.",
+      "familyCampaigns": [
+        "prehistoric"
+      ],
+      "ingredients": [
+        "organic82:theropod",
+        "organic82:dinosaur-armor"
+      ],
+      "art_mode": "species-specific-anatomy",
+      "path": "client/assets/v82/carnotaurus.svg"
+    },
+    {
+      "id": "organic82:giganotosaurus",
+      "name": "Giganotosaurus",
+      "category": "prehistoric",
+      "summary": "A massive South American predator with a long low skull and powerful two-legged stride.",
+      "familyCampaigns": [
+        "prehistoric"
+      ],
+      "ingredients": [
+        "organic82:theropod",
+        "organic82:late-cretaceous"
+      ],
+      "art_mode": "species-specific-anatomy",
+      "path": "client/assets/v82/giganotosaurus.svg"
+    },
+    {
+      "id": "organic82:tarbosaurus",
+      "name": "Tarbosaurus",
+      "category": "prehistoric",
+      "summary": "A giant Asian tyrannosaur with a broad powerful skull and relatively short forelimbs.",
+      "familyCampaigns": [
+        "prehistoric"
+      ],
+      "ingredients": [
+        "organic82:giganotosaurus",
+        "organic82:theropod"
+      ],
+      "art_mode": "species-specific-anatomy",
+      "path": "client/assets/v82/tarbosaurus.svg"
+    },
+    {
+      "id": "organic82:dilophosaurus",
+      "name": "Dilophosaurus",
+      "category": "prehistoric",
+      "summary": "An Early Jurassic theropod recognized by its paired thin bony crests over the head.",
+      "familyCampaigns": [
+        "prehistoric"
+      ],
+      "ingredients": [
+        "organic82:allosaurus",
+        "organic82:theropod"
+      ],
+      "art_mode": "species-specific-anatomy",
+      "path": "client/assets/v82/dilophosaurus.svg"
+    },
+    {
+      "id": "organic82:baryonyx",
+      "name": "Baryonyx",
+      "category": "prehistoric",
+      "summary": "A fish-eating spinosaurid with narrow crocodile-like jaws and a large thumb claw.",
+      "familyCampaigns": [
+        "prehistoric"
+      ],
+      "ingredients": [
+        "organic82:spinosaurus",
+        "organic82:theropod"
+      ],
+      "art_mode": "species-specific-anatomy",
+      "path": "client/assets/v82/baryonyx.svg"
+    },
+    {
+      "id": "organic82:deinonychus",
+      "name": "Deinonychus",
+      "category": "prehistoric",
+      "summary": "A feathered dromaeosaur with a rigid balancing tail and an enlarged sickle toe claw.",
+      "familyCampaigns": [
+        "prehistoric"
+      ],
+      "ingredients": [
+        "organic82:feathered-dinosaur",
+        "organic82:theropod"
+      ],
+      "art_mode": "species-specific-anatomy",
+      "path": "client/assets/v82/deinonychus.svg"
+    },
+    {
+      "id": "organic82:oviraptor",
+      "name": "Oviraptor",
+      "category": "prehistoric",
+      "summary": "A beaked feathered theropod from Mongolia, often associated with fossil nests.",
+      "familyCampaigns": [
+        "prehistoric"
+      ],
+      "ingredients": [
+        "organic82:dinosaur-egg",
+        "organic82:theropod"
+      ],
+      "art_mode": "species-specific-anatomy",
+      "path": "client/assets/v82/oviraptor.svg"
+    },
+    {
+      "id": "organic82:compsognathus",
+      "name": "Compsognathus",
+      "category": "prehistoric",
+      "summary": "A small slender Jurassic theropod with a long tail and light running legs.",
+      "familyCampaigns": [
+        "prehistoric"
+      ],
+      "ingredients": [
+        "organic82:theropod",
+        "organic82:fossil-footprint"
+      ],
+      "art_mode": "species-specific-anatomy",
+      "path": "client/assets/v82/compsognathus.svg"
+    },
+    {
+      "id": "organic82:utahraptor",
+      "name": "Utahraptor",
+      "category": "prehistoric",
+      "summary": "A large Early Cretaceous raptor built with strong hind legs and a sickle-shaped toe claw.",
+      "familyCampaigns": [
+        "prehistoric"
+      ],
+      "ingredients": [
+        "organic82:deinonychus",
+        "organic82:feathered-dinosaur"
+      ],
+      "art_mode": "species-specific-anatomy",
+      "path": "client/assets/v82/utahraptor.svg"
+    },
+    {
+      "id": "organic82:ceratosaurus",
+      "name": "Ceratosaurus",
+      "category": "prehistoric",
+      "summary": "A horned Jurassic predator with a narrow nasal horn and rows of small bony scutes.",
+      "familyCampaigns": [
+        "prehistoric"
+      ],
+      "ingredients": [
+        "organic82:allosaurus",
+        "organic82:dinosaur-armor"
+      ],
+      "art_mode": "species-specific-anatomy",
+      "path": "client/assets/v82/ceratosaurus.svg"
+    },
+    {
+      "id": "organic82:suchomimus",
+      "name": "Suchomimus",
+      "category": "prehistoric",
+      "summary": "A spinosaurid with long fish-catching jaws and large hooked claws on its forelimbs.",
+      "familyCampaigns": [
+        "prehistoric"
+      ],
+      "ingredients": [
+        "organic82:spinosaurus",
+        "organic82:marine-reptile"
+      ],
+      "art_mode": "species-specific-anatomy",
+      "path": "client/assets/v82/suchomimus.svg"
+    },
+    {
+      "id": "organic82:albertosaurus",
+      "name": "Albertosaurus",
+      "category": "prehistoric",
+      "summary": "A comparatively agile North American tyrannosaur with a narrower snout and long legs.",
+      "familyCampaigns": [
+        "prehistoric"
+      ],
+      "ingredients": [
+        "organic82:tarbosaurus",
+        "organic82:theropod"
+      ],
+      "art_mode": "species-specific-anatomy",
+      "path": "client/assets/v82/albertosaurus.svg"
+    },
+    {
+      "id": "organic82:ornithomimus",
+      "name": "Ornithomimus",
+      "category": "prehistoric",
+      "summary": "A swift ostrich-like theropod with a toothless beak and long running legs.",
+      "familyCampaigns": [
+        "prehistoric"
+      ],
+      "ingredients": [
+        "organic82:feathered-dinosaur",
+        "organic82:fossil-footprint"
+      ],
+      "art_mode": "species-specific-anatomy",
+      "path": "client/assets/v82/ornithomimus.svg"
+    },
+    {
+      "id": "organic82:therizinosaurus",
+      "name": "Therizinosaurus",
+      "category": "prehistoric",
+      "summary": "A tall feathered theropod with a broad belly and exceptionally long hand claws.",
+      "familyCampaigns": [
+        "prehistoric"
+      ],
+      "ingredients": [
+        "organic82:feathered-dinosaur",
+        "organic82:dinosaur-armor"
+      ],
+      "art_mode": "species-specific-anatomy",
+      "path": "client/assets/v82/therizinosaurus.svg"
+    },
+    {
+      "id": "organic82:brachiosaurus",
+      "name": "Brachiosaurus",
+      "category": "prehistoric",
+      "summary": "A Jurassic long-necked herbivore with longer front legs and a high-set feeding head.",
+      "familyCampaigns": [
+        "prehistoric"
+      ],
+      "ingredients": [
+        "organic82:sauropod",
+        "organic82:jurassic-period"
+      ],
+      "art_mode": "species-specific-anatomy",
+      "path": "client/assets/v82/brachiosaurus.svg"
+    },
+    {
+      "id": "organic82:diplodocus",
+      "name": "Diplodocus",
+      "category": "prehistoric",
+      "summary": "A slender Late Jurassic giant with an extraordinarily long whip-like balancing tail.",
+      "familyCampaigns": [
+        "prehistoric"
+      ],
+      "ingredients": [
+        "organic82:sauropod",
+        "organic82:fossil-footprint"
+      ],
+      "art_mode": "species-specific-anatomy",
+      "path": "client/assets/v82/diplodocus.svg"
+    },
+    {
+      "id": "organic82:apatosaurus",
+      "name": "Apatosaurus",
+      "category": "prehistoric",
+      "summary": "A massive thick-necked Jurassic sauropod with stout column-like legs.",
+      "familyCampaigns": [
+        "prehistoric"
+      ],
+      "ingredients": [
+        "organic82:brachiosaurus",
+        "organic82:sauropod"
+      ],
+      "art_mode": "species-specific-anatomy",
+      "path": "client/assets/v82/apatosaurus.svg"
+    },
+    {
+      "id": "organic82:argentinosaurus",
+      "name": "Argentinosaurus",
+      "category": "prehistoric",
+      "summary": "A colossal Cretaceous titanosaur known from enormous vertebrae found in Patagonia.",
+      "familyCampaigns": [
+        "prehistoric"
+      ],
+      "ingredients": [
+        "organic82:sauropod",
+        "organic82:late-cretaceous"
+      ],
+      "art_mode": "species-specific-anatomy",
+      "path": "client/assets/v82/argentinosaurus.svg"
+    },
+    {
+      "id": "organic82:dreadnoughtus",
+      "name": "Dreadnoughtus",
+      "category": "prehistoric",
+      "summary": "A gigantic long-necked South American titanosaur with broad hips and powerful limbs.",
+      "familyCampaigns": [
+        "prehistoric"
+      ],
+      "ingredients": [
+        "organic82:argentinosaurus",
+        "organic82:sauropod"
+      ],
+      "art_mode": "species-specific-anatomy",
+      "path": "client/assets/v82/dreadnoughtus.svg"
+    },
+    {
+      "id": "organic82:camarasaurus",
+      "name": "Camarasaurus",
+      "category": "prehistoric",
+      "summary": "A Jurassic sauropod with a comparatively short neck and distinctive blunt skull.",
+      "familyCampaigns": [
+        "prehistoric"
+      ],
+      "ingredients": [
+        "organic82:apatosaurus",
+        "organic82:jurassic-period"
+      ],
+      "art_mode": "species-specific-anatomy",
+      "path": "client/assets/v82/camarasaurus.svg"
+    },
+    {
+      "id": "organic82:saltasaurus",
+      "name": "Saltasaurus",
+      "category": "prehistoric",
+      "summary": "A smaller titanosaur from Argentina protected by patches of bony skin armor.",
+      "familyCampaigns": [
+        "prehistoric"
+      ],
+      "ingredients": [
+        "organic82:sauropod",
+        "organic82:dinosaur-armor"
+      ],
+      "art_mode": "species-specific-anatomy",
+      "path": "client/assets/v82/saltasaurus.svg"
+    },
+    {
+      "id": "organic82:mamenchisaurus",
+      "name": "Mamenchisaurus",
+      "category": "prehistoric",
+      "summary": "A Chinese Jurassic sauropod famous for an exceptionally elongated neck.",
+      "familyCampaigns": [
+        "prehistoric"
+      ],
+      "ingredients": [
+        "organic82:diplodocus",
+        "organic82:jurassic-period"
+      ],
+      "art_mode": "species-specific-anatomy",
+      "path": "client/assets/v82/mamenchisaurus.svg"
+    },
+    {
+      "id": "organic82:amargasaurus",
+      "name": "Amargasaurus",
+      "category": "prehistoric",
+      "summary": "A South American sauropod with striking double rows of tall neck spines.",
+      "familyCampaigns": [
+        "prehistoric"
+      ],
+      "ingredients": [
+        "organic82:sauropod",
+        "organic82:fossil-skeleton"
+      ],
+      "art_mode": "species-specific-anatomy",
+      "path": "client/assets/v82/amargasaurus.svg"
+    },
+    {
+      "id": "organic82:brontosaurus",
+      "name": "Brontosaurus",
+      "category": "prehistoric",
+      "summary": "A robust Late Jurassic sauropod with a thick tail and strong low shoulders.",
+      "familyCampaigns": [
+        "prehistoric"
+      ],
+      "ingredients": [
+        "organic82:apatosaurus",
+        "organic82:diplodocus"
+      ],
+      "art_mode": "species-specific-anatomy",
+      "path": "client/assets/v82/brontosaurus.svg"
+    },
+    {
+      "id": "organic82:triceratops",
+      "name": "Triceratops",
+      "category": "prehistoric",
+      "summary": "A huge Late Cretaceous herbivore bearing three facial horns and a broad bony frill.",
+      "familyCampaigns": [
+        "prehistoric"
+      ],
+      "ingredients": [
+        "organic82:ceratopsian",
+        "organic82:late-cretaceous"
+      ],
+      "art_mode": "species-specific-anatomy",
+      "path": "client/assets/v82/triceratops.svg"
+    },
+    {
+      "id": "organic82:styracosaurus",
+      "name": "Styracosaurus",
+      "category": "prehistoric",
+      "summary": "A spiky ceratopsian with an elongated nasal horn and long spikes around its frill.",
+      "familyCampaigns": [
+        "prehistoric"
+      ],
+      "ingredients": [
+        "organic82:triceratops",
+        "organic82:ceratopsian"
+      ],
+      "art_mode": "species-specific-anatomy",
+      "path": "client/assets/v82/styracosaurus.svg"
+    },
+    {
+      "id": "organic82:protoceratops",
+      "name": "Protoceratops",
+      "category": "prehistoric",
+      "summary": "A small Mongolian hornless ceratopsian with a compact neck frill and beak.",
+      "familyCampaigns": [
+        "prehistoric"
+      ],
+      "ingredients": [
+        "organic82:ceratopsian",
+        "organic82:dinosaur-egg"
+      ],
+      "art_mode": "species-specific-anatomy",
+      "path": "client/assets/v82/protoceratops.svg"
+    },
+    {
+      "id": "organic82:pachyrhinosaurus",
+      "name": "Pachyrhinosaurus",
+      "category": "prehistoric",
+      "summary": "A polar ceratopsian with thickened bone bosses instead of long nasal horns.",
+      "familyCampaigns": [
+        "prehistoric"
+      ],
+      "ingredients": [
+        "organic82:ceratopsian",
+        "organic82:dinosaur-armor"
+      ],
+      "art_mode": "species-specific-anatomy",
+      "path": "client/assets/v82/pachyrhinosaurus.svg"
+    },
+    {
+      "id": "organic82:centrosaurus",
+      "name": "Centrosaurus",
+      "category": "prehistoric",
+      "summary": "A herd-forming ceratopsian with a prominent curved nasal horn and decorated frill.",
+      "familyCampaigns": [
+        "prehistoric"
+      ],
+      "ingredients": [
+        "organic82:styracosaurus",
+        "organic82:ceratopsian"
+      ],
+      "art_mode": "species-specific-anatomy",
+      "path": "client/assets/v82/centrosaurus.svg"
+    },
+    {
+      "id": "organic82:pentaceratops",
+      "name": "Pentaceratops",
+      "category": "prehistoric",
+      "summary": "A large ceratopsian with a towering frill and prominent facial and cheek horns.",
+      "familyCampaigns": [
+        "prehistoric"
+      ],
+      "ingredients": [
+        "organic82:ceratopsian",
+        "organic82:fossil-skeleton"
+      ],
+      "art_mode": "species-specific-anatomy",
+      "path": "client/assets/v82/pentaceratops.svg"
+    },
+    {
+      "id": "organic82:chasmosaurus",
+      "name": "Chasmosaurus",
+      "category": "prehistoric",
+      "summary": "A long-frilled Late Cretaceous ceratopsian with two elongated brow horns.",
+      "familyCampaigns": [
+        "prehistoric"
+      ],
+      "ingredients": [
+        "organic82:ceratopsian",
+        "organic82:fossil-footprint"
+      ],
+      "art_mode": "species-specific-anatomy",
+      "path": "client/assets/v82/chasmosaurus.svg"
+    },
+    {
+      "id": "organic82:parasaurolophus",
+      "name": "Parasaurolophus",
+      "category": "prehistoric",
+      "summary": "A duck-billed dinosaur with an elongated backward-curving hollow cranial crest.",
+      "familyCampaigns": [
+        "prehistoric"
+      ],
+      "ingredients": [
+        "organic82:hadrosaur",
+        "organic82:late-cretaceous"
+      ],
+      "art_mode": "species-specific-anatomy",
+      "path": "client/assets/v82/parasaurolophus.svg"
+    },
+    {
+      "id": "organic82:corythosaurus",
+      "name": "Corythosaurus",
+      "category": "prehistoric",
+      "summary": "A crested hadrosaur named for its tall helmet-shaped head ornament.",
+      "familyCampaigns": [
+        "prehistoric"
+      ],
+      "ingredients": [
+        "organic82:parasaurolophus",
+        "organic82:hadrosaur"
+      ],
+      "art_mode": "species-specific-anatomy",
+      "path": "client/assets/v82/corythosaurus.svg"
+    },
+    {
+      "id": "organic82:edmontosaurus",
+      "name": "Edmontosaurus",
+      "category": "prehistoric",
+      "summary": "A large duck-billed herbivore with a long low profile and a soft-tissue head crest.",
+      "familyCampaigns": [
+        "prehistoric"
+      ],
+      "ingredients": [
+        "organic82:hadrosaur",
+        "organic82:dinosaur-egg"
+      ],
+      "art_mode": "species-specific-anatomy",
+      "path": "client/assets/v82/edmontosaurus.svg"
+    },
+    {
+      "id": "organic82:lambeosaurus",
+      "name": "Lambeosaurus",
+      "category": "prehistoric",
+      "summary": "A North American hadrosaur recognized by its forward and backward forked crest.",
+      "familyCampaigns": [
+        "prehistoric"
+      ],
+      "ingredients": [
+        "organic82:corythosaurus",
+        "organic82:hadrosaur"
+      ],
+      "art_mode": "species-specific-anatomy",
+      "path": "client/assets/v82/lambeosaurus.svg"
+    },
+    {
+      "id": "organic82:maiasaura",
+      "name": "Maiasaura",
+      "category": "prehistoric",
+      "summary": "A nesting hadrosaur whose name celebrates evidence of parental care for hatchlings.",
+      "familyCampaigns": [
+        "prehistoric"
+      ],
+      "ingredients": [
+        "organic82:edmontosaurus",
+        "organic82:dinosaur-egg"
+      ],
+      "art_mode": "species-specific-anatomy",
+      "path": "client/assets/v82/maiasaura.svg"
+    },
+    {
+      "id": "organic82:kentrosaurus",
+      "name": "Kentrosaurus",
+      "category": "prehistoric",
+      "summary": "An African stegosaur with paired plates on its back and long shoulder and tail spikes.",
+      "familyCampaigns": [
+        "prehistoric"
+      ],
+      "ingredients": [
+        "organic82:stegosaurus",
+        "organic82:dinosaur-armor"
+      ],
+      "art_mode": "species-specific-anatomy",
+      "path": "client/assets/v82/kentrosaurus.svg"
+    },
+    {
+      "id": "organic82:huayangosaurus",
+      "name": "Huayangosaurus",
+      "category": "prehistoric",
+      "summary": "An early Chinese stegosaur with shorter limbs, paired plates and defensive spikes.",
+      "familyCampaigns": [
+        "prehistoric"
+      ],
+      "ingredients": [
+        "organic82:stegosaurus",
+        "organic82:jurassic-period"
+      ],
+      "art_mode": "species-specific-anatomy",
+      "path": "client/assets/v82/huayangosaurus.svg"
+    },
+    {
+      "id": "organic82:euoplocephalus",
+      "name": "Euoplocephalus",
+      "category": "prehistoric",
+      "summary": "An armored ankylosaur with heavy osteoderms, low skull and a powerful tail club.",
+      "familyCampaigns": [
+        "prehistoric"
+      ],
+      "ingredients": [
+        "organic82:ankylosaurus",
+        "organic82:dinosaur-armor"
+      ],
+      "art_mode": "species-specific-anatomy",
+      "path": "client/assets/v82/euoplocephalus.svg"
+    },
+    {
+      "id": "organic82:nodosaurus",
+      "name": "Nodosaurus",
+      "category": "prehistoric",
+      "summary": "A broad armored dinosaur covered in bony plates but lacking a tail club.",
+      "familyCampaigns": [
+        "prehistoric"
+      ],
+      "ingredients": [
+        "organic82:dinosaur-armor",
+        "organic82:fossil-footprint"
+      ],
+      "art_mode": "species-specific-anatomy",
+      "path": "client/assets/v82/nodosaurus.svg"
+    },
+    {
+      "id": "organic82:borealopelta",
+      "name": "Borealopelta",
+      "category": "prehistoric",
+      "summary": "A beautifully preserved nodosaur with shoulder spikes and detailed body armor.",
+      "familyCampaigns": [
+        "prehistoric"
+      ],
+      "ingredients": [
+        "organic82:nodosaurus",
+        "organic82:dinosaur-armor"
+      ],
+      "art_mode": "species-specific-anatomy",
+      "path": "client/assets/v82/borealopelta.svg"
+    },
+    {
+      "id": "organic82:pachycephalosaurus",
+      "name": "Pachycephalosaurus",
+      "category": "prehistoric",
+      "summary": "A Late Cretaceous ornithischian with an extraordinarily thick rounded skull dome.",
+      "familyCampaigns": [
+        "prehistoric"
+      ],
+      "ingredients": [
+        "organic82:dinosaur-armor",
+        "organic82:geological-timeline"
+      ],
+      "art_mode": "species-specific-anatomy",
+      "path": "client/assets/v82/pachycephalosaurus.svg"
+    },
+    {
+      "id": "organic82:microraptor",
+      "name": "Microraptor",
+      "category": "prehistoric",
+      "summary": "A small feathered dinosaur famous for wing-like flight feathers on all four limbs.",
+      "familyCampaigns": [
+        "prehistoric"
+      ],
+      "ingredients": [
+        "organic82:feathered-dinosaur",
+        "organic82:jurassic-period"
+      ],
+      "art_mode": "species-specific-anatomy",
+      "path": "client/assets/v82/microraptor.svg"
+    },
+    {
+      "id": "organic82:archaeopteryx",
+      "name": "Archaeopteryx",
+      "category": "prehistoric",
+      "summary": "An early bird-like Jurassic dinosaur with feathered wings, teeth and a bony tail.",
+      "familyCampaigns": [
+        "prehistoric"
+      ],
+      "ingredients": [
+        "organic82:feathered-dinosaur",
+        "organic82:dinosaur-egg"
+      ],
+      "art_mode": "species-specific-anatomy",
+      "path": "client/assets/v82/archaeopteryx.svg"
+    },
+    {
+      "id": "organic82:psittacosaurus",
+      "name": "Psittacosaurus",
+      "category": "prehistoric",
+      "summary": "An early ceratopsian with a parrot-like beak and distinctive bristles near its tail.",
+      "familyCampaigns": [
+        "prehistoric"
+      ],
+      "ingredients": [
+        "organic82:ceratopsian",
+        "organic82:cretaceous-period"
+      ],
+      "art_mode": "species-specific-anatomy",
+      "path": "client/assets/v82/psittacosaurus.svg"
+    },
+    {
+      "id": "organic82:plateosaurus",
+      "name": "Plateosaurus",
+      "category": "prehistoric",
+      "summary": "A long-tailed Triassic sauropodomorph able to browse with a long grasping neck.",
+      "familyCampaigns": [
+        "prehistoric"
+      ],
+      "ingredients": [
+        "organic82:sauropod",
+        "organic82:triassic-period"
+      ],
+      "art_mode": "species-specific-anatomy",
+      "path": "client/assets/v82/plateosaurus.svg"
+    },
+    {
+      "id": "organic82:iguanodon",
+      "name": "Iguanodon",
+      "category": "prehistoric",
+      "summary": "An Early Cretaceous ornithopod bearing a conspicuous conical thumb spike.",
+      "familyCampaigns": [
+        "prehistoric"
+      ],
+      "ingredients": [
+        "organic82:hadrosaur",
+        "organic82:jurassic-period"
+      ],
+      "art_mode": "species-specific-anatomy",
+      "path": "client/assets/v82/iguanodon.svg"
+    },
+    {
+      "id": "organic82:gallimimus",
+      "name": "Gallimimus",
+      "category": "prehistoric",
+      "summary": "An ostrich-like dinosaur with long running legs, a small toothless beak and slender build.",
+      "familyCampaigns": [
+        "prehistoric"
+      ],
+      "ingredients": [
+        "organic82:ornithomimus",
+        "organic82:theropod"
+      ],
+      "art_mode": "species-specific-anatomy",
+      "path": "client/assets/v82/gallimimus.svg"
     }
   ]
 }
