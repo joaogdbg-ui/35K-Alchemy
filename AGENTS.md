@@ -1,12 +1,12 @@
-# 35K Alchemy — instruções obrigatórias para desenvolvimento
+# Alchemy 10K — instruções obrigatórias para desenvolvimento
 
-Ler primeiro `docs/WORKING_RULES_PT.md`, `docs/CONTENT_200_BATCH_POLICY_PT.md`, `docs/ANDROID_BUILD.md` e o handoff atual.
+Ler primeiro `docs/WORKING_RULES_PT.md`, `docs/CONTENT_200_BATCH_POLICY_PT.md`, `docs/ANDROID_BUILD.md`, `docs/ALCHEMY_10K_THEMATIC_EXPANSION.md` e o handoff atual (`HANDOFF_ALCHEMY_10K.md`).
 
 ## Produção de conteúdo — REGRA ABSOLUTA
 
 - **Cada entrega de expansão após V80B exige exatamente +200 elementos NOVOS no catálogo verificado**, relativamente à baseline do PR. Não publicar lotes parciais de 8/20/40/50, não fazer merge desses parciais nem disponibilizar um APK de expansão antes dos 200. Ondas internas de 25/50 apenas em branch WIP; continuar até 200.
 - **Nunca preencher artificialmente 200**: ID/nome/receita únicos e coerentes, origem/reachability, descrição em inglês, SVG próprio reconhecível a 35px e testes obrigatórios para cada elemento. Sem desenhos "genéricos diferentes por hash", falsos IDs ou receitas alternativas contadas como novos.
-- V80B 40/200 é **histórico pré-política**. A próxima entrega é **+160 V80 e +40 V81 = +200 numa só entrega**, para 5.812 elementos. A partir de 5.612, 147 lotes de +200 atingem 35.012 (meta mínima: 35K). Não publicar 160 e 40 separadamente.
+- V80B e V81 são **histórico concluído**: a base atual V81 tem **5.812 elementos e 14.149 receitas**. Meta atual **Alchemy 10K**, pelo menos 10.000 elementos: **21 lotes futuros de exatamente +200** chegam a 10.012. O próximo lote editorial é V82, nunca publicar 1–199 novos elementos.
 - O gate `node tools/check-content-batch-200.mjs --base <SHA>` verifica o incremento real e deve passar em PR e build Android. Mudanças técnicas com **zero** novos elementos são permitidas, mas não contam como expansão.
 - Uma conversa interrompida deve deixar progresso WIP guardado e retomar na mesma branch; não confundir checkpoint com entrega, não alegar testes/arte/IP/QA não feitos.
 
