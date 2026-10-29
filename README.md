@@ -1,4 +1,4 @@
-# 35K Alchemy — V76.1 (IP editorial revision)
+# 35K Alchemy — V76.2 (expanded IP editorial audit)
 
 Repositório oficial do jogo **35K Alchemy**, incluindo o código-fonte completo da V76 e o pipeline Android.
 
@@ -112,3 +112,10 @@ Este repositório é público: fontes e assets ficam acessíveis aos visitantes.
 - Nomes apresentados ao jogador passaram para alternativas editoriais fictícias: Qelvorune, GlidePort, AsterCube, PocketNova, Orilux, Mosskip, Critter Atlas, entre outros.
 - A auditoria automatizada está em `tools/audit-ip-safe-names.mjs`; documentação em [IP_AUDIT_V76_1.md](docs/IP_AUDIT_V76_1.md).
 - **Não existe garantia de clearance jurídico**: fontes históricas, semelhança visual, marcas, screenshots e direitos de terceiros necessitam de avaliação antes da publicação comercial.
+
+## V76.2 — additional original names and art audit
+
+- 154 additional curated media name aliases. Preserve ordinary terminology outside the entertainment context (e.g. technical valve or astronomical halo).
+- Static structural screening of every active organic SVG map and the semantic gameverse SVG atlas via `tools/audit-active-artwork.mjs`.
+- Automated audit reports names that have **not** been fictionalized as an editorial review queue. A static PASS **does not** imply a rights clearance or review of visual likeness.
+- Read [IP_AUDIT_V76_2.md](docs/IP_AUDIT_V76_2.md) before any commercial release.
