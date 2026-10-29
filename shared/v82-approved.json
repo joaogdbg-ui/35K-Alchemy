@@ -1,18 +1,18 @@
 {
   "version": 82,
   "status": "WIP_NOT_RELEASED",
-  "cohort_count": 44,
+  "cohort_count": 61,
   "expansion_goal": 200,
-  "expansion_progress": 44,
-  "remaining_to_goal": 156,
+  "expansion_progress": 61,
+  "remaining_to_goal": 139,
   "cycle_complete": false,
   "base_catalog": {
     "elements": 5812,
     "recipes": 14149
   },
   "expected_catalog": {
-    "elements": 5856,
-    "recipes": 14193
+    "elements": 5873,
+    "recipes": 14210
   },
   "new_items": [
     {
@@ -674,6 +674,261 @@
       ],
       "art_mode": "bespoke-subject",
       "path": "client/assets/v82/cyclops.svg"
+    },
+    {
+      "id": "organic82:juno",
+      "name": "Juno",
+      "category": "mythology",
+      "summary": "The Roman queen of heaven wears a gemmed diadem beside the iridescent eye of a peacock.",
+      "familyCampaigns": [
+        "mythology"
+      ],
+      "ingredients": [
+        "organic82:jupiter",
+        "organic82:hera"
+      ],
+      "art_mode": "bespoke-subject",
+      "path": "client/assets/v82/juno.svg"
+    },
+    {
+      "id": "organic82:neptune",
+      "name": "Neptune",
+      "category": "mythology",
+      "summary": "The Roman sea god rises from the foam holding a sea-green trident above curling waves.",
+      "familyCampaigns": [
+        "mythology"
+      ],
+      "ingredients": [
+        "organic82:roman-pantheon",
+        "organic82:poseidon"
+      ],
+      "art_mode": "bespoke-subject",
+      "path": "client/assets/v82/neptune.svg"
+    },
+    {
+      "id": "organic82:minerva",
+      "name": "Minerva",
+      "category": "mythology",
+      "summary": "The Roman wisdom goddess carries an owl-marked round shield and a silver crested helmet.",
+      "familyCampaigns": [
+        "mythology"
+      ],
+      "ingredients": [
+        "organic82:roman-pantheon",
+        "organic82:athena"
+      ],
+      "art_mode": "bespoke-subject",
+      "path": "client/assets/v82/minerva.svg"
+    },
+    {
+      "id": "organic82:mars-the-war-god",
+      "name": "Mars the War God",
+      "category": "mythology",
+      "summary": "The Roman god of war brandishes a legionary spear and a crested bronze helmet.",
+      "familyCampaigns": [
+        "mythology"
+      ],
+      "ingredients": [
+        "organic82:roman-pantheon",
+        "organic82:ares"
+      ],
+      "art_mode": "bespoke-subject",
+      "path": "client/assets/v82/mars-the-war-god.svg"
+    },
+    {
+      "id": "organic82:venus-the-goddess",
+      "name": "Venus the Goddess",
+      "category": "mythology",
+      "summary": "The Roman goddess of love carries a fresh rose above a carved scallop shell.",
+      "familyCampaigns": [
+        "mythology"
+      ],
+      "ingredients": [
+        "organic82:roman-pantheon",
+        "organic82:aphrodite"
+      ],
+      "art_mode": "bespoke-subject",
+      "path": "client/assets/v82/venus-the-goddess.svg"
+    },
+    {
+      "id": "organic82:mercury-the-messenger",
+      "name": "Mercury the Messenger",
+      "category": "mythology",
+      "summary": "The Roman divine messenger flies across the sky wearing his recognizable winged cap.",
+      "familyCampaigns": [
+        "mythology"
+      ],
+      "ingredients": [
+        "organic82:roman-pantheon",
+        "organic82:hermes"
+      ],
+      "art_mode": "bespoke-subject",
+      "path": "client/assets/v82/mercury-the-messenger.svg"
+    },
+    {
+      "id": "organic82:diana-of-the-hunt",
+      "name": "Diana of the Hunt",
+      "category": "mythology",
+      "summary": "The Roman hunting goddess draws a bow while a silver crescent arcs across the sky.",
+      "familyCampaigns": [
+        "mythology"
+      ],
+      "ingredients": [
+        "organic82:roman-pantheon",
+        "organic82:artemis"
+      ],
+      "art_mode": "bespoke-subject",
+      "path": "client/assets/v82/diana-of-the-hunt.svg"
+    },
+    {
+      "id": "organic82:vulcan-the-smith",
+      "name": "Vulcan the Smith",
+      "category": "mythology",
+      "summary": "The Roman forge god hammers a red-hot blade upon a dark metal anvil.",
+      "familyCampaigns": [
+        "mythology"
+      ],
+      "ingredients": [
+        "organic82:roman-pantheon",
+        "organic82:hephaestus"
+      ],
+      "art_mode": "bespoke-subject",
+      "path": "client/assets/v82/vulcan-the-smith.svg"
+    },
+    {
+      "id": "organic82:ceres-the-harvest",
+      "name": "Ceres the Harvest",
+      "category": "mythology",
+      "summary": "The Roman grain goddess tends bright wheat and an autumn garland.",
+      "familyCampaigns": [
+        "mythology"
+      ],
+      "ingredients": [
+        "organic82:roman-pantheon",
+        "organic82:demeter"
+      ],
+      "art_mode": "bespoke-subject",
+      "path": "client/assets/v82/ceres-the-harvest.svg"
+    },
+    {
+      "id": "organic82:pluto-the-underworld-god",
+      "name": "Pluto the Underworld God",
+      "category": "mythology",
+      "summary": "The Roman ruler of the dead holds a two-pronged scepter before a black gate.",
+      "familyCampaigns": [
+        "mythology"
+      ],
+      "ingredients": [
+        "organic82:roman-pantheon",
+        "organic82:hades"
+      ],
+      "art_mode": "bespoke-subject",
+      "path": "client/assets/v82/pluto-the-underworld-god.svg"
+    },
+    {
+      "id": "organic82:saturn-the-titan",
+      "name": "Saturn the Titan",
+      "category": "mythology",
+      "summary": "The Roman ancestral Titan wears a leaf crown and carries a silver agricultural sickle.",
+      "familyCampaigns": [
+        "mythology"
+      ],
+      "ingredients": [
+        "organic82:roman-pantheon",
+        "organic82:cronus"
+      ],
+      "art_mode": "bespoke-subject",
+      "path": "client/assets/v82/saturn-the-titan.svg"
+    },
+    {
+      "id": "organic82:janus",
+      "name": "Janus",
+      "category": "mythology",
+      "summary": "The two-faced Roman god of doorways watches both the future and the past.",
+      "familyCampaigns": [
+        "mythology"
+      ],
+      "ingredients": [
+        "organic82:roman-pantheon",
+        "organic82:ancient-wisdom"
+      ],
+      "art_mode": "bespoke-subject",
+      "path": "client/assets/v82/janus.svg"
+    },
+    {
+      "id": "organic82:bacchus",
+      "name": "Bacchus",
+      "category": "mythology",
+      "summary": "The Roman celebration god wears green ivy and carries a cluster of purple grapes.",
+      "familyCampaigns": [
+        "mythology"
+      ],
+      "ingredients": [
+        "organic82:roman-pantheon",
+        "organic82:dionysus"
+      ],
+      "art_mode": "bespoke-subject",
+      "path": "client/assets/v82/bacchus.svg"
+    },
+    {
+      "id": "organic82:sacred-hearth",
+      "name": "Sacred Hearth",
+      "category": "mythology",
+      "summary": "A perpetual household hearth burns in a tiny shrine of Roman stone and brick.",
+      "familyCampaigns": [
+        "mythology"
+      ],
+      "ingredients": [
+        "organic82:roman-pantheon",
+        "organic82:gaia"
+      ],
+      "art_mode": "bespoke-subject",
+      "path": "client/assets/v82/sacred-hearth.svg"
+    },
+    {
+      "id": "organic82:vesta",
+      "name": "Vesta",
+      "category": "mythology",
+      "summary": "The Roman guardian of sacred fires wears a white veil before a sheltered flame.",
+      "familyCampaigns": [
+        "mythology"
+      ],
+      "ingredients": [
+        "organic82:roman-pantheon",
+        "organic82:sacred-hearth"
+      ],
+      "art_mode": "bespoke-subject",
+      "path": "client/assets/v82/vesta.svg"
+    },
+    {
+      "id": "organic82:roman-augur",
+      "name": "Roman Augur",
+      "category": "mythology",
+      "summary": "A Roman diviner interprets the movement of sacred birds above a wooden tripod.",
+      "familyCampaigns": [
+        "mythology"
+      ],
+      "ingredients": [
+        "organic82:jupiter",
+        "organic82:ancient-wisdom"
+      ],
+      "art_mode": "bespoke-subject",
+      "path": "client/assets/v82/roman-augur.svg"
+    },
+    {
+      "id": "organic82:temple-of-vesta",
+      "name": "Temple of Vesta",
+      "category": "mythology",
+      "summary": "A small circular Roman temple shelters the eternal flame beneath its tiled roof.",
+      "familyCampaigns": [
+        "mythology"
+      ],
+      "ingredients": [
+        "organic82:vesta",
+        "organic82:roman-pantheon"
+      ],
+      "art_mode": "bespoke-subject",
+      "path": "client/assets/v82/temple-of-vesta.svg"
     }
   ]
 }
