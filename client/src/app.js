@@ -1188,7 +1188,9 @@ function importProgress(file){
 // V76.6: Settings uses three compact tabs. No simulated Google identity or cloud save.
 // V76.7: a game-first settings sheet. Profile and help are separate panels.
 // Play Games identity, cloud saves and global scores are NOT simulated.
-let settingsActiveTab='game';
+// V76.8: one plain Settings overview with separate Profile and Help screens.
+// There are no tabs, fake Play Games accounts, fake rankings or fake cloud saves.
+let settingsPage='main';
 function getPlayerServicesBridge(){
  const cap=window.Capacitor;
  if(cap?.getPlatform?.()!=='android')return null;
@@ -1201,128 +1203,107 @@ async function refreshPlayerServicesStatus(){
   const state=await bridge.getStatus();
   const connected=state?.authenticated===true&&typeof state.playerId==='string'&&state.playerId.trim().length>0;
   const name=$('settingsAccountName'),status=$('settingsAccountStatus'),info=$('settingsAccountInfo');
-  if(!name||!status||!info||!$('settingsTabs')||!connected)return;
+  if(!name||!status||!info||!$('settingsPanelProfile')||!connected)return;
   name.textContent=typeof state.displayName==='string'&&state.displayName.trim()?state.displayName.trim().slice(0,70):'Play Games player';
-  status.textContent='Play Games profile detected';status.dataset.state='available';
-  info.textContent='Your Play Games profile is available. Cloud saves and leaderboards are not enabled in this build.';
+  status.textContent='Play Games connected';status.dataset.state='available';
+  info.textContent='Play Games identity is available. Leaderboards and cloud backup are not enabled in this build.';
  }catch(error){console.warn('Play Games status unavailable; local progress unchanged',error);}
 }
-function selectSettingsTab(next,{focus=false}={}){
- if(!['game','profile','help'].includes(next))return;
- settingsActiveTab=next;
- for(const button of $('settingsTabs')?.querySelectorAll('[data-settings-tab]')||[]){
-  const active=button.dataset.settingsTab===next;
-  button.setAttribute('aria-selected',String(active));button.tabIndex=active?0:-1;
-  if(active&&focus)button.focus();
+function selectSettingsPage(next,{focus=false}={}){
+ if(!['main','profile','help'].includes(next))return;
+ settingsPage=next;
+ const title=next==='profile'?'Profile':next==='help'?'Help':'Settings';
+ $('settingsHeading').textContent=title;
+ const back=$('settingsBack');
+ back.hidden=next==='main';
+ for(const panel of $('modalContent').querySelectorAll('[data-settings-page]')){
+  panel.hidden=panel.dataset.settingsPage!==next;
+  if(!panel.hidden)panel.scrollTop=0;
  }
- for(const panel of $('modalContent')?.querySelectorAll('[data-settings-panel]')||[])
-  panel.hidden=panel.dataset.settingsPanel!==next;
+ if(focus)(next==='main'?$('settingsProfileLink'):back).focus();
 }
 function settings(){
  const mode=currentMode==='family'?'Families Only':'Classic';
  showModal(`<div class="settings-shell">
-   <div class="settings-header">
-    <span class="settings-header-emblem" aria-hidden="true">⚗</span>
-    <div class="settings-header-copy"><span class="settings-eyebrow">35K ALCHEMY</span>
-     <h2 id="settingsHeading">Settings</h2><p>Make the game yours</p></div>
-   </div>
-   <div class="settings-tabs" id="settingsTabs" role="tablist" aria-label="Settings">
-     <button type="button" id="settingsTabGame" role="tab" data-settings-tab="game" aria-controls="settingsPanelGame" aria-selected="true" tabindex="0">Game</button>
-     <button type="button" id="settingsTabProfile" role="tab" data-settings-tab="profile" aria-controls="settingsPanelProfile" aria-selected="false" tabindex="-1">Profile</button>
-     <button type="button" id="settingsTabHelp" role="tab" data-settings-tab="help" aria-controls="settingsPanelHelp" aria-selected="false" tabindex="-1">Help</button>
-   </div>
-   <section class="settings-pane" id="settingsPanelGame" role="tabpanel" data-settings-panel="game" aria-labelledby="settingsTabGame">
-    <div class="settings-group-label">PREFERENCES</div>
-    <div class="settings-game-panel">
-     <div class="settings-control-row">
-      <span class="settings-control-icon" aria-hidden="true">♫</span>
-      <div class="settings-control-copy"><strong>Sound effects</strong><small>Mixing and discovery sounds</small></div>
-      <button type="button" id="settingsSoundToggle" class="sound-settings-toggle settings-sound-switch" aria-pressed="${soundEnabled}">${soundEnabled?'♫ Sound On':'♪̸ Sound Off'}</button>
-     </div>
-     <div class="settings-control-divider"></div>
-     <div class="settings-appearance-control">
-      <div class="settings-control-row"><span class="settings-control-icon" aria-hidden="true">◐</span>
-       <div class="settings-control-copy"><strong>Appearance</strong><small>Choose your preferred theme</small></div></div>
-      <div class="theme-choices settings-theme-choices" role="group" aria-label="Appearance mode">
-       <button type="button" data-theme-choice="light" aria-pressed="${selectedTheme==='light'}">☀ Light</button>
-       <button type="button" data-theme-choice="dark" aria-pressed="${selectedTheme==='dark'}">☾ Dark</button>
-       <button type="button" data-theme-choice="system" aria-pressed="${selectedTheme==='system'}">◐ Auto</button>
-      </div>
+  <div class="settings-header">
+   <button type="button" class="settings-back" id="settingsBack" aria-label="Back to settings" hidden>‹</button>
+   <h2 id="settingsHeading">Settings</h2>
+  </div>
+  <section id="settingsPanelMain" class="settings-page" data-settings-page="main" aria-label="Game settings">
+   <div class="settings-section">
+    <div class="settings-row">
+     <label for="settingsSoundToggle">Sound effects</label>
+     <button type="button" id="settingsSoundToggle" class="settings-sound-toggle" aria-pressed="${soundEnabled}">${soundEnabled?'On':'Off'}</button>
+    </div>
+    <div class="settings-divider"></div>
+    <div class="settings-theme">
+     <div class="settings-row-title">Theme</div>
+     <div class="settings-theme-choices" role="group" aria-label="Color theme">
+      <button type="button" data-theme-choice="light" aria-pressed="${selectedTheme==='light'}">Light</button>
+      <button type="button" data-theme-choice="dark" aria-pressed="${selectedTheme==='dark'}">Dark</button>
+      <button type="button" data-theme-choice="system" aria-pressed="${selectedTheme==='system'}">Auto</button>
      </div>
     </div>
-    <div class="settings-group-label">GAMEPLAY</div>
-    <div class="settings-game-panel">
-     <button type="button" class="settings-action settings-game-action" id="changeGameMode">
-      <span class="settings-control-icon" aria-hidden="true">✦</span>
-      <span>Game mode<small>${escapeText(mode)} · Change mode</small></span>
-      <span aria-hidden="true">›</span></button>
-     ${currentMode==='family'?'<div class="settings-control-divider"></div><button type="button" class="settings-action settings-game-action" id="settingsMergeClassic"><span class="settings-control-icon" aria-hidden="true">↗</span><span>Merge into Classic<small>Two completed rewarded ads required</small></span><span aria-hidden="true">›</span></button>':''}
-    </div>
-    <p class="settings-footer-note">Game progress is saved automatically on this device.</p>
-   </section>
-   <section class="settings-pane" id="settingsPanelProfile" role="tabpanel" data-settings-panel="profile" aria-labelledby="settingsTabProfile" hidden>
-    <div class="settings-profile-card"><span class="settings-avatar" aria-hidden="true">✦</span>
-     <div class="settings-profile-copy"><strong id="settingsAccountName">Local player</strong>
+   </div>
+   <div class="settings-section settings-links">
+    <button type="button" id="changeGameMode" class="settings-link"><span>Game mode<small>${escapeText(mode)}</small></span><span aria-hidden="true">›</span></button>
+    ${currentMode==='family'?'<div class="settings-divider"></div><button type="button" id="settingsMergeClassic" class="settings-link"><span>Merge into Classic<small>Requires 2 rewarded ads</small></span><span aria-hidden="true">›</span></button>':''}
+    <div class="settings-divider"></div>
+    <button type="button" id="settingsProfileLink" class="settings-link"><span>Profile &amp; cloud</span><span aria-hidden="true">›</span></button>
+    <div class="settings-divider"></div>
+    <button type="button" id="settingsHelpLink" class="settings-link"><span>Help &amp; about</span><span aria-hidden="true">›</span></button>
+   </div>
+   <p class="settings-footnote">Progress saved on this device.</p>
+  </section>
+  <section id="settingsPanelProfile" class="settings-page" data-settings-page="profile" aria-label="Player profile" hidden>
+   <div class="settings-section">
+    <div class="settings-identity"><div class="settings-avatar" aria-hidden="true">✦</div><div>
+      <strong id="settingsAccountName">Local player</strong>
       <span id="settingsAccountStatus" role="status" data-state="offline">Not connected</span>
-      <small id="settingsAccountInfo">Playing offline. Your progress is stored on this device, not in the cloud.</small></div>
-    </div>
-    <div class="settings-stats">
-     <div><strong>${unlocked.size.toLocaleString('en-US')}</strong><span>${escapeText(mode)} discoveries</span></div>
-     <div><strong>${ITEMS.length.toLocaleString('en-US')}</strong><span>Available elements</span></div>
-    </div>
-    <div class="settings-group-label">GOOGLE PLAY GAMES</div>
-    <div class="settings-game-panel">
-     <div class="settings-service-head"><span>Player services</span><span class="settings-state-tag">Coming soon</span></div>
-     <button type="button" class="settings-action settings-game-action" id="settingsLeaderboard" disabled aria-describedby="settingsServiceNote">
-      <span class="settings-control-icon" aria-hidden="true">♛</span><span>Leaderboards<small>Compare discoveries with other players</small></span><span aria-hidden="true">›</span></button>
-     <div class="settings-control-divider"></div>
-     <button type="button" class="settings-action settings-game-action" id="recoverFromCloud" disabled aria-describedby="settingsServiceNote">
-      <span class="settings-control-icon" aria-hidden="true">☁</span><span>Recover from cloud<small>Cloud saves not active yet</small></span><span aria-hidden="true">›</span></button>
-    </div>
-    <p class="settings-footer-note" id="settingsServiceNote">Nothing has been uploaded. Google Play Games and cloud saving require a future app update.</p>
-   </section>
-   <section class="settings-pane" id="settingsPanelHelp" role="tabpanel" data-settings-panel="help" aria-labelledby="settingsTabHelp" hidden>
-    <div class="settings-group-label">HOW TO PLAY</div>
-    <div class="settings-game-panel settings-help-panel">
-     <details class="settings-help-item">
-      <summary>How do I discover elements?</summary>
-      <p>Start with Water, Fire, Earth and Air in Classic. Tap or drag two elements into the combiner to discover new ones.</p>
-     </details>
-     <details class="settings-help-item">
-      <summary>How do hints and families work?</summary>
-      <p>Hints reveal craftable recipes after a verified rewarded ad. Families Only has four themed starting elements per family, with progress separate from Classic.</p>
-     </details>
-     <details class="settings-help-item">
-      <summary>Where is my progress saved?</summary>
-      <p>Progress is saved automatically on this device. Google cloud recovery is not available yet, so uninstalling or clearing app data may erase it.</p>
-     </details>
-    </div>
-    <div class="settings-group-label">ABOUT</div>
-    <div class="settings-game-panel settings-about">
-     <div class="settings-about-line"><span>35K Alchemy</span><strong>Offline beta</strong></div>
-     <p>Combine and discover your way toward a growing catalog. 35,000 elements is the long-term goal; ${ITEMS.length.toLocaleString('en-US')} are currently available.</p>
-    </div>
-   </section>
-  </div>`);
+      <small id="settingsAccountInfo">Google Play Games is not connected. Progress remains on this device.</small>
+    </div></div>
+    <div class="settings-divider"></div>
+    <div class="settings-progress"><strong>${unlocked.size.toLocaleString('en-US')} <small>/ ${ITEMS.length.toLocaleString('en-US')}</small></strong><span>${escapeText(mode)} discoveries</span></div>
+   </div>
+   <div class="settings-section settings-links">
+    <div class="settings-service-title">GOOGLE PLAY GAMES</div>
+    <button type="button" class="settings-link" id="settingsLeaderboard" disabled><span>Leaderboards<small>Coming soon</small></span><span aria-hidden="true">›</span></button>
+    <div class="settings-divider"></div>
+    <button type="button" class="settings-link" id="recoverFromCloud" disabled><span>Recover from cloud<small>Not available yet</small></span><span aria-hidden="true">›</span></button>
+   </div>
+   <p class="settings-footnote">No cloud backup exists in this version. Do not uninstall before cloud saves are enabled.</p>
+  </section>
+  <section id="settingsPanelHelp" class="settings-page" data-settings-page="help" aria-label="Help and about" hidden>
+   <div class="settings-section settings-help">
+    <details><summary>How do I combine elements?</summary><p>In Classic, start with Water, Fire, Earth and Air. Tap or drag any two discovered elements into the combiner.</p></details>
+    <div class="settings-divider"></div>
+    <details><summary>How do hints and families work?</summary><p>Hints need a completed rewarded ad. Families Only offers four themed starters and separate progress for each family.</p></details>
+    <div class="settings-divider"></div>
+    <details><summary>Where is progress saved?</summary><p>Progress is stored locally. Clearing app data or uninstalling the game may erase it. Cloud recovery is not available yet.</p></details>
+   </div>
+   <div class="settings-about">35K Alchemy <span>v0.76.8 · Offline test build</span></div>
+  </section>
+ </div>`);
  $('modal').setAttribute('aria-labelledby','settingsHeading');
- const tabs=$('settingsTabs');
- tabs.querySelectorAll('[data-settings-tab]').forEach(button=>button.onclick=()=>selectSettingsTab(button.dataset.settingsTab));
- tabs.onkeydown=event=>{
-  if(!['ArrowRight','ArrowLeft','Home','End'].includes(event.key))return;
-  const choices=['game','profile','help'],current=choices.indexOf(settingsActiveTab);
-  const next=event.key==='Home'?0:event.key==='End'?choices.length-1:
-   (current+(event.key==='ArrowRight'?1:-1)+choices.length)%choices.length;
-  event.preventDefault();selectSettingsTab(choices[next],{focus:true});
+ $('settingsProfileLink').onclick=()=>selectSettingsPage('profile',{focus:true});
+ $('settingsHelpLink').onclick=()=>selectSettingsPage('help',{focus:true});
+ $('settingsBack').onclick=()=>selectSettingsPage('main',{focus:true});
+ // Escape returns from child pages before dismissing the sheet.
+ $('modalContent').onkeydown=e=>{
+  if(e.key==='Escape'&&settingsPage!=='main'){
+   e.preventDefault();e.stopPropagation();selectSettingsPage('main',{focus:true});
+  }
  };
  $('modalContent').querySelectorAll('[data-theme-choice]').forEach(btn=>btn.onclick=()=>{
-  selectedTheme=btn.dataset.themeChoice;try{localStorage.setItem(THEME_KEY,selectedTheme);}catch{}
+  selectedTheme=btn.dataset.themeChoice;
+  try{localStorage.setItem(THEME_KEY,selectedTheme);}catch{}
   applyTheme();
   $('modalContent').querySelectorAll('[data-theme-choice]').forEach(choice=>choice.setAttribute('aria-pressed',String(choice.dataset.themeChoice===selectedTheme)));
  });
  syncSoundToggle();$('settingsSoundToggle').onclick=toggleSoundEnabled;
  if(currentMode==='family')$('settingsMergeClassic').onclick=mergeModal;
  $('changeGameMode').onclick=()=>modePicker(false);
- selectSettingsTab('game');
+ selectSettingsPage('main');
  void refreshPlayerServicesStatus();
 }
 
@@ -1544,7 +1525,7 @@ for(const field of [$('playSearch'),$('discoverSearch')]){
 window.visualViewport?.addEventListener('resize',syncKeyboardViewport);
 $('slot0').onclick=()=>{if(batchState?.phase==='scanning')return;slots[0]=null;clearTimeout(autoTimer);updateSlotUI();};$('slot1').onclick=()=>{if(batchState?.phase==='scanning')return;slots[1]=null;clearTimeout(autoTimer);updateSlotUI();};$('lockLeft').onclick=()=>{if(batchState?.phase==='scanning')return;leftLocked=!leftLocked;updateSlotUI();};
 // WebAudio needs user interaction on mobile; never play sound on page load.
-function syncSoundToggle(){const button=$('settingsSoundToggle');if(!button)return;button.setAttribute('aria-pressed',String(soundEnabled));button.setAttribute('aria-label',soundEnabled?'Mute sound effects':'Enable sound effects');button.textContent=soundEnabled?'♫ Sound On':'♪̸ Sound Off';}
+function syncSoundToggle(){const button=$('settingsSoundToggle');if(!button)return;button.setAttribute('aria-pressed',String(soundEnabled));button.setAttribute('aria-label',soundEnabled?'Mute sound effects':'Enable sound effects');button.textContent=soundEnabled?'On':'Off';}
 function toggleSoundEnabled(){soundEnabled=!soundEnabled;try{localStorage.setItem(SOUND_KEY,soundEnabled?'on':'off');}catch{}syncSoundToggle();if(soundEnabled){acquireSoundEngine();soundForResult('repeat');}}
 document.addEventListener('pointerdown',()=>{if(soundEnabled)acquireSoundEngine();},{passive:true});
 function setSearchOpen(open){
