@@ -1,6 +1,6 @@
-# V80 art gallery (140/200, WIP)
+# V80 artwork draft — 159/200
 
-Each item has its own original SVG; icon clarity at 35px and visual uniqueness require manual review. No micro-release.
+Individual illustrations at actual 35px and at 90px. WIP, not a released expansion.
 
 | # | Element | 35px | 90px |
 |---:|---|:---:|:---:|
@@ -144,3 +144,22 @@ Each item has its own original SVG; icon clarity at 35px and visual uniqueness r
 | 138 | Moonlit Ranger Telescope | <img src="../client/assets/v80/moonlit-ranger-telescope.svg" width="35" height="35" /> | <img src="../client/assets/v80/moonlit-ranger-telescope.svg" width="90" height="90" /> |
 | 139 | Forest Footbridge Blueprint | <img src="../client/assets/v80/forest-footbridge-blueprint.svg" width="35" height="35" /> | <img src="../client/assets/v80/forest-footbridge-blueprint.svg" width="90" height="90" /> |
 | 140 | Dragon Chess Set | <img src="../client/assets/v80/dragon-chess-set.svg" width="35" height="35" /> | <img src="../client/assets/v80/dragon-chess-set.svg" width="90" height="90" /> |
+| 141 | Crystal Victory Crown | <img src="../client/assets/v80/crystal-victory-crown.svg" width="35" height="35" /> | <img src="../client/assets/v80/crystal-victory-crown.svg" width="90" height="90" /> |
+| 142 | Moonlight Chess Table | <img src="../client/assets/v80/moonlight-chess-table.svg" width="35" height="35" /> | <img src="../client/assets/v80/moonlight-chess-table.svg" width="90" height="90" /> |
+| 143 | Pinball Jackpot Bell | <img src="../client/assets/v80/pinball-jackpot-bell.svg" width="35" height="35" /> | <img src="../client/assets/v80/pinball-jackpot-bell.svg" width="90" height="90" /> |
+| 144 | Rhythm Finalist Ribbon | <img src="../client/assets/v80/rhythm-finalist-ribbon.svg" width="35" height="35" /> | <img src="../client/assets/v80/rhythm-finalist-ribbon.svg" width="90" height="90" /> |
+| 145 | Field Birdwatching Guide | <img src="../client/assets/v80/field-birdwatching-guide.svg" width="35" height="35" /> | <img src="../client/assets/v80/field-birdwatching-guide.svg" width="90" height="90" /> |
+| 146 | Coastal Danger Flag | <img src="../client/assets/v80/coastal-danger-flag.svg" width="35" height="35" /> | <img src="../client/assets/v80/coastal-danger-flag.svg" width="90" height="90" /> |
+| 147 | Flarestorm Lookout | <img src="../client/assets/v80/flarestorm-lookout.svg" width="35" height="35" /> | <img src="../client/assets/v80/flarestorm-lookout.svg" width="90" height="90" /> |
+| 148 | Ferry Boarding Pass | <img src="../client/assets/v80/ferry-boarding-pass.svg" width="35" height="35" /> | <img src="../client/assets/v80/ferry-boarding-pass.svg" width="90" height="90" /> |
+| 149 | Puzzle Light Pendant | <img src="../client/assets/v80/puzzle-light-pendant.svg" width="35" height="35" /> | <img src="../client/assets/v80/puzzle-light-pendant.svg" width="90" height="90" /> |
+| 150 | Jigsaw Edge Stencil | <img src="../client/assets/v80/jigsaw-edge-stencil.svg" width="35" height="35" /> | <img src="../client/assets/v80/jigsaw-edge-stencil.svg" width="90" height="90" /> |
+| 151 | Queen's Gem Pawn | <img src="../client/assets/v80/queen's-gem-pawn.svg" width="35" height="35" /> | <img src="../client/assets/v80/queen's-gem-pawn.svg" width="90" height="90" /> |
+| 152 | Forest Bridge Pulley | <img src="../client/assets/v80/forest-bridge-pulley.svg" width="35" height="35" /> | <img src="../client/assets/v80/forest-bridge-pulley.svg" width="90" height="90" /> |
+| 153 | Drone Landing Circle | <img src="../client/assets/v80/drone-landing-circle.svg" width="35" height="35" /> | <img src="../client/assets/v80/drone-landing-circle.svg" width="90" height="90" /> |
+| 154 | Cartographer Brass Caliper | <img src="../client/assets/v80/cartographer-brass-caliper.svg" width="35" height="35" /> | <img src="../client/assets/v80/cartographer-brass-caliper.svg" width="90" height="90" /> |
+| 155 | Cartridge Cleaning Brush | <img src="../client/assets/v80/cartridge-cleaning-brush.svg" width="35" height="35" /> | <img src="../client/assets/v80/cartridge-cleaning-brush.svg" width="90" height="90" /> |
+| 156 | Ranger Whistle Lanyard | <img src="../client/assets/v80/ranger-whistle-lanyard.svg" width="35" height="35" /> | <img src="../client/assets/v80/ranger-whistle-lanyard.svg" width="90" height="90" /> |
+| 157 | Rainproof Game Satchel | <img src="../client/assets/v80/rainproof-game-satchel.svg" width="35" height="35" /> | <img src="../client/assets/v80/rainproof-game-satchel.svg" width="90" height="90" /> |
+| 158 | Skyship Windsock | <img src="../client/assets/v80/skyship-windsock.svg" width="35" height="35" /> | <img src="../client/assets/v80/skyship-windsock.svg" width="90" height="90" /> |
+| 159 | Glass Dice Dome | <img src="../client/assets/v80/glass-dice-dome.svg" width="35" height="35" /> | <img src="../client/assets/v80/glass-dice-dome.svg" width="90" height="90" /> |

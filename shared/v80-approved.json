@@ -1,17 +1,17 @@
 {
   "version": 80,
-  "cohort_count": 140,
+  "cohort_count": 159,
   "expansion_goal": 200,
-  "expansion_progress": 140,
-  "remaining_to_goal": 60,
+  "expansion_progress": 159,
+  "remaining_to_goal": 41,
   "cycle_complete": false,
   "base_catalog": {
     "elements": 5572,
     "recipes": 13909
   },
   "expected_catalog": {
-    "elements": 5712,
-    "recipes": 14049
+    "elements": 5731,
+    "recipes": 14068
   },
   "new_items": [
     {
@@ -1693,6 +1693,234 @@
       ],
       "art_mode": "bespoke-subject",
       "path": "client/assets/v80/dragon-chess-set.svg"
+    },
+    {
+      "id": "organic80:crystal-victory-crown",
+      "name": "Crystal Victory Crown",
+      "category": "fantasy",
+      "summary": "A faceted violet queen's crown is set with tiny victory stars for the champion of a crystal chess tournament.",
+      "ingredients": [
+        "organic80:crystal-chess-queen",
+        "legacy:157"
+      ],
+      "art_mode": "bespoke-subject",
+      "path": "client/assets/v80/crystal-victory-crown.svg"
+    },
+    {
+      "id": "organic80:moonlight-chess-table",
+      "name": "Moonlight Chess Table",
+      "category": "board",
+      "summary": "A carved chessboard rests beneath a crescent moon, its contrasting squares illuminated for a late-night match.",
+      "ingredients": [
+        "organic80:carved-chessboard",
+        "legacy:142"
+      ],
+      "art_mode": "bespoke-subject",
+      "path": "client/assets/v80/moonlight-chess-table.svg"
+    },
+    {
+      "id": "organic80:pinball-jackpot-bell",
+      "name": "Pinball Jackpot Bell",
+      "category": "arcade",
+      "summary": "An ornate steel bell rings above a pinball cabinet when the metal ball enters the jackpot ramp.",
+      "ingredients": [
+        "organic80:pinball-launch-ramp",
+        "legacy:62"
+      ],
+      "art_mode": "bespoke-subject",
+      "path": "client/assets/v80/pinball-jackpot-bell.svg"
+    },
+    {
+      "id": "organic80:rhythm-finalist-ribbon",
+      "name": "Rhythm Finalist Ribbon",
+      "category": "arcade",
+      "summary": "A long satin ribbon awarded at a rhythm-game concert carries a star medal and printed beat arrows.",
+      "ingredients": [
+        "organic80:rhythm-concert-stage",
+        "legacy:106"
+      ],
+      "art_mode": "bespoke-subject",
+      "path": "client/assets/v80/rhythm-finalist-ribbon.svg"
+    },
+    {
+      "id": "organic80:field-birdwatching-guide",
+      "name": "Field Birdwatching Guide",
+      "category": "nature",
+      "summary": "A ranger's field guide opens to a painted woodland bird with annotated wing and beak details.",
+      "ingredients": [
+        "organic80:wildlife-field-notebook",
+        "legacy:20"
+      ],
+      "art_mode": "bespoke-subject",
+      "path": "client/assets/v80/field-birdwatching-guide.svg"
+    },
+    {
+      "id": "organic80:coastal-danger-flag",
+      "name": "Coastal Danger Flag",
+      "category": "science",
+      "summary": "A red-and-yellow hazard flag flies above a high-tide evacuation point in strong coastal winds.",
+      "ingredients": [
+        "organic80:tidal-evacuation-map",
+        "legacy:12"
+      ],
+      "art_mode": "bespoke-subject",
+      "path": "client/assets/v80/coastal-danger-flag.svg"
+    },
+    {
+      "id": "organic80:flarestorm-lookout",
+      "name": "Flarestorm Lookout",
+      "category": "nature",
+      "summary": "A lookout tower launches a brilliant emergency flare above its roof to guide rescue crews through storm clouds.",
+      "ingredients": [
+        "organic80:rescue-flare-launcher",
+        "organic80:forest-lookout-tower"
+      ],
+      "art_mode": "bespoke-subject",
+      "path": "client/assets/v80/flarestorm-lookout.svg"
+    },
+    {
+      "id": "organic80:ferry-boarding-pass",
+      "name": "Ferry Boarding Pass",
+      "category": "culture",
+      "summary": "A paper boarding pass for a lantern-lit river ferry features a tiny boat and numbered departure time.",
+      "ingredients": [
+        "organic80:lantern-guided-ferry",
+        "legacy:106"
+      ],
+      "art_mode": "bespoke-subject",
+      "path": "client/assets/v80/ferry-boarding-pass.svg"
+    },
+    {
+      "id": "organic80:puzzle-light-pendant",
+      "name": "Puzzle Light Pendant",
+      "category": "fantasy",
+      "summary": "A hinged puzzle locket doubles as a warm pendant lamp once its sliding tiles are arranged into a star.",
+      "ingredients": [
+        "organic80:portable-puzzle-locket",
+        "legacy:63"
+      ],
+      "art_mode": "bespoke-subject",
+      "path": "client/assets/v80/puzzle-light-pendant.svg"
+    },
+    {
+      "id": "organic80:jigsaw-edge-stencil",
+      "name": "Jigsaw Edge Stencil",
+      "category": "board",
+      "summary": "A transparent tracing stencil outlines the corner and edge shapes needed to sort a large jigsaw puzzle.",
+      "ingredients": [
+        "organic80:jigsaw-sorting-tray",
+        "legacy:29"
+      ],
+      "art_mode": "bespoke-subject",
+      "path": "client/assets/v80/jigsaw-edge-stencil.svg"
+    },
+    {
+      "id": "organic80:queen's-gem-pawn",
+      "name": "Queen's Gem Pawn",
+      "category": "fantasy",
+      "summary": "A small chess pawn carries a polished gemstone borrowed from a magnificent crystal queen.",
+      "ingredients": [
+        "organic80:crystal-chess-queen",
+        "legacy:161"
+      ],
+      "art_mode": "bespoke-subject",
+      "path": "client/assets/v80/queen's-gem-pawn.svg"
+    },
+    {
+      "id": "organic80:forest-bridge-pulley",
+      "name": "Forest Bridge Pulley",
+      "category": "nature",
+      "summary": "A wooden hoist pulley tightens the rope cables that support a narrow bridge across a forest ravine.",
+      "ingredients": [
+        "organic80:trail-rope-bridge",
+        "legacy:29"
+      ],
+      "art_mode": "bespoke-subject",
+      "path": "client/assets/v80/forest-bridge-pulley.svg"
+    },
+    {
+      "id": "organic80:drone-landing-circle",
+      "name": "Drone Landing Circle",
+      "category": "technology",
+      "summary": "A circular landing platform with a central H marking safely receives a four-rotor solar survey drone.",
+      "ingredients": [
+        "organic80:solar-survey-drone",
+        "legacy:2"
+      ],
+      "art_mode": "bespoke-subject",
+      "path": "client/assets/v80/drone-landing-circle.svg"
+    },
+    {
+      "id": "organic80:cartographer-brass-caliper",
+      "name": "Cartographer Brass Caliper",
+      "category": "technology",
+      "summary": "A brass measuring caliper lets a mapmaker compare delicate crystal routes on a parchment chart.",
+      "ingredients": [
+        "organic80:cartographers-firefly-desk",
+        "legacy:22"
+      ],
+      "art_mode": "bespoke-subject",
+      "path": "client/assets/v80/cartographer-brass-caliper.svg"
+    },
+    {
+      "id": "organic80:cartridge-cleaning-brush",
+      "name": "Cartridge Cleaning Brush",
+      "category": "technology",
+      "summary": "A soft-bristled antistatic brush clears dust from copper contacts before an old game cartridge is archived.",
+      "ingredients": [
+        "organic80:cartridge-preservation-scanner",
+        "legacy:29"
+      ],
+      "art_mode": "bespoke-subject",
+      "path": "client/assets/v80/cartridge-cleaning-brush.svg"
+    },
+    {
+      "id": "organic80:ranger-whistle-lanyard",
+      "name": "Ranger Whistle Lanyard",
+      "category": "nature",
+      "summary": "A metal emergency whistle hangs from a ranger's bright neck lanyard for signaling lost hikers.",
+      "ingredients": [
+        "organic80:forest-ranger-station",
+        "legacy:62"
+      ],
+      "art_mode": "bespoke-subject",
+      "path": "client/assets/v80/ranger-whistle-lanyard.svg"
+    },
+    {
+      "id": "organic80:rainproof-game-satchel",
+      "name": "Rainproof Game Satchel",
+      "category": "technology",
+      "summary": "A wide waterproof satchel adds compartments for cartridges, charging cables and a protected handheld console.",
+      "ingredients": [
+        "organic80:rainproof-handheld-case",
+        "legacy:153"
+      ],
+      "art_mode": "bespoke-subject",
+      "path": "client/assets/v80/rainproof-game-satchel.svg"
+    },
+    {
+      "id": "organic80:skyship-windsock",
+      "name": "Skyship Windsock",
+      "category": "fantasy",
+      "summary": "A striped windsock on a skyship dock shows pilots the direction of turbulent crosswinds.",
+      "ingredients": [
+        "organic80:skyship-port-map",
+        "legacy:12"
+      ],
+      "art_mode": "bespoke-subject",
+      "path": "client/assets/v80/skyship-windsock.svg"
+    },
+    {
+      "id": "organic80:glass-dice-dome",
+      "name": "Glass Dice Dome",
+      "category": "board",
+      "summary": "A clear museum dome displays two luminous collectible dice on a soft velvet plinth.",
+      "ingredients": [
+        "organic80:glowing-dice-pair",
+        "legacy:23"
+      ],
+      "art_mode": "bespoke-subject",
+      "path": "client/assets/v80/glass-dice-dome.svg"
     }
   ]
 }

@@ -1,6 +1,6 @@
-# V80 internal draft — 140/200
+# Internal content WIP — V80 159/200
 
-100 new element candidates since V80B, not released. Global catalog remains 5,612 on main. Exactly 200 new elements are required before merge.
+Published main remains 5,612 / 13,949. This unmerged branch proposes 5731 elements / 14068 recipes. Release only at +200 IDs since main: V80 final 41 and 40 V81.
 
 1. **Floating Harbor Gate** = organic79:sky-dock-beacon + organic79:airship-anchor-winch — A docking arch combines a beacon with mooring cables to guide skyships safely into a floating port.
 2. **Glass Firefly Lantern** = organic79:firefly-garden-terrarium + organic79:aurora-desk-lantern — A curved glass lantern shelters luminous fireflies and brings a miniature garden into the night.
@@ -142,3 +142,22 @@
 138. **Moonlit Ranger Telescope** = organic80:moonlit-ranger-camp + legacy:53 — A compact telescope at a ranger camp observes moonlit wildlife and stars above the tree line.
 139. **Forest Footbridge Blueprint** = organic80:trail-rope-bridge + legacy:106 — An engineer's paper blueprint diagrams the load-bearing ropes and plank spacing of a forest bridge.
 140. **Dragon Chess Set** = legacy:1196 + legacy:122 — A fantasy chess set replaces ordinary knights and kings with tiny dragon-shaped playing pieces.
+141. **Crystal Victory Crown** = organic80:crystal-chess-queen + legacy:157 — A faceted violet queen's crown is set with tiny victory stars for the champion of a crystal chess tournament.
+142. **Moonlight Chess Table** = organic80:carved-chessboard + legacy:142 — A carved chessboard rests beneath a crescent moon, its contrasting squares illuminated for a late-night match.
+143. **Pinball Jackpot Bell** = organic80:pinball-launch-ramp + legacy:62 — An ornate steel bell rings above a pinball cabinet when the metal ball enters the jackpot ramp.
+144. **Rhythm Finalist Ribbon** = organic80:rhythm-concert-stage + legacy:106 — A long satin ribbon awarded at a rhythm-game concert carries a star medal and printed beat arrows.
+145. **Field Birdwatching Guide** = organic80:wildlife-field-notebook + legacy:20 — A ranger's field guide opens to a painted woodland bird with annotated wing and beak details.
+146. **Coastal Danger Flag** = organic80:tidal-evacuation-map + legacy:12 — A red-and-yellow hazard flag flies above a high-tide evacuation point in strong coastal winds.
+147. **Flarestorm Lookout** = organic80:rescue-flare-launcher + organic80:forest-lookout-tower — A lookout tower launches a brilliant emergency flare above its roof to guide rescue crews through storm clouds.
+148. **Ferry Boarding Pass** = organic80:lantern-guided-ferry + legacy:106 — A paper boarding pass for a lantern-lit river ferry features a tiny boat and numbered departure time.
+149. **Puzzle Light Pendant** = organic80:portable-puzzle-locket + legacy:63 — A hinged puzzle locket doubles as a warm pendant lamp once its sliding tiles are arranged into a star.
+150. **Jigsaw Edge Stencil** = organic80:jigsaw-sorting-tray + legacy:29 — A transparent tracing stencil outlines the corner and edge shapes needed to sort a large jigsaw puzzle.
+151. **Queen's Gem Pawn** = organic80:crystal-chess-queen + legacy:161 — A small chess pawn carries a polished gemstone borrowed from a magnificent crystal queen.
+152. **Forest Bridge Pulley** = organic80:trail-rope-bridge + legacy:29 — A wooden hoist pulley tightens the rope cables that support a narrow bridge across a forest ravine.
+153. **Drone Landing Circle** = organic80:solar-survey-drone + legacy:2 — A circular landing platform with a central H marking safely receives a four-rotor solar survey drone.
+154. **Cartographer Brass Caliper** = organic80:cartographers-firefly-desk + legacy:22 — A brass measuring caliper lets a mapmaker compare delicate crystal routes on a parchment chart.
+155. **Cartridge Cleaning Brush** = organic80:cartridge-preservation-scanner + legacy:29 — A soft-bristled antistatic brush clears dust from copper contacts before an old game cartridge is archived.
+156. **Ranger Whistle Lanyard** = organic80:forest-ranger-station + legacy:62 — A metal emergency whistle hangs from a ranger's bright neck lanyard for signaling lost hikers.
+157. **Rainproof Game Satchel** = organic80:rainproof-handheld-case + legacy:153 — A wide waterproof satchel adds compartments for cartridges, charging cables and a protected handheld console.
+158. **Skyship Windsock** = organic80:skyship-port-map + legacy:12 — A striped windsock on a skyship dock shows pilots the direction of turbulent crosswinds.
+159. **Glass Dice Dome** = organic80:glowing-dice-pair + legacy:23 — A clear museum dome displays two luminous collectible dice on a soft velvet plinth.
