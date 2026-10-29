@@ -1,16 +1,16 @@
 {
   "version": 81,
-  "cohort_count": 20,
+  "cohort_count": 30,
   "expansion_goal": 40,
-  "expansion_progress": 20,
-  "remaining_to_goal": 20,
+  "expansion_progress": 30,
+  "remaining_to_goal": 10,
   "base_catalog": {
     "elements": 5772,
     "recipes": 14109
   },
   "expected_catalog": {
-    "elements": 5792,
-    "recipes": 14129
+    "elements": 5802,
+    "recipes": 14139
   },
   "new_items": [
     {
@@ -252,6 +252,126 @@
       ],
       "art_mode": "bespoke-subject",
       "path": "client/assets/v81/miniature-paint-palette.svg"
+    },
+    {
+      "id": "organic81:cosmic-dice-planetarium",
+      "name": "Cosmic Dice Planetarium",
+      "category": "fantasy",
+      "summary": "A miniature planetarium dome projects constellations as glowing dice roll along a star-speckled orbit.",
+      "ingredients": [
+        "organic80:glass-dice-dome",
+        "legacy:549"
+      ],
+      "art_mode": "bespoke-subject",
+      "path": "client/assets/v81/cosmic-dice-planetarium.svg"
+    },
+    {
+      "id": "organic81:forest-mystery-puzzle",
+      "name": "Forest Mystery Puzzle",
+      "category": "board",
+      "summary": "A woodland mystery puzzle joins a hand-drawn clue map with movable tokens showing hidden cave symbols.",
+      "ingredients": [
+        "organic80:cave-exploration-journal",
+        "legacy:224"
+      ],
+      "art_mode": "bespoke-subject",
+      "path": "client/assets/v81/forest-mystery-puzzle.svg"
+    },
+    {
+      "id": "organic81:dragon-adventure-codex",
+      "name": "Dragon Adventure Codex",
+      "category": "fantasy",
+      "summary": "An illustrated adventure codex opens to a dragon-shaped chess piece and its magical travel abilities.",
+      "ingredients": [
+        "organic80:dragon-chess-set",
+        "legacy:51"
+      ],
+      "art_mode": "bespoke-subject",
+      "path": "client/assets/v81/dragon-adventure-codex.svg"
+    },
+    {
+      "id": "organic81:enchanted-pawn-portal",
+      "name": "Enchanted Pawn Portal",
+      "category": "fantasy",
+      "summary": "A glowing crystal doorway opens as a carved chess pawn approaches its matching magical gemstone.",
+      "ingredients": [
+        "organic80:queen's-gem-pawn",
+        "organic80:crystal-cave-passage"
+      ],
+      "art_mode": "bespoke-subject",
+      "path": "client/assets/v81/enchanted-pawn-portal.svg"
+    },
+    {
+      "id": "organic81:skyship-navigation-simulator",
+      "name": "Skyship Navigation Simulator",
+      "category": "arcade",
+      "summary": "A flight simulator translates tabletop airship trade routes into a virtual cockpit with moving gauges.",
+      "ingredients": [
+        "organic81:skyship-strategy-board",
+        "legacy:91"
+      ],
+      "art_mode": "bespoke-subject",
+      "path": "client/assets/v81/skyship-navigation-simulator.svg"
+    },
+    {
+      "id": "organic81:drone-mapping-joystick",
+      "name": "Drone Mapping Joystick",
+      "category": "technology",
+      "summary": "A handheld mapping controller pairs a directional joystick with a tiny display of the drone's survey route.",
+      "ingredients": [
+        "organic80:aerial-survey-atlas",
+        "legacy:83"
+      ],
+      "art_mode": "bespoke-subject",
+      "path": "client/assets/v81/drone-mapping-joystick.svg"
+    },
+    {
+      "id": "organic81:solar-expedition-watch",
+      "name": "Solar Expedition Watch",
+      "category": "technology",
+      "summary": "A rugged expedition wristwatch uses a tiny solar cell to power its compass and time display.",
+      "ingredients": [
+        "organic80:solar-trail-compass",
+        "legacy:211"
+      ],
+      "art_mode": "bespoke-subject",
+      "path": "client/assets/v81/solar-expedition-watch.svg"
+    },
+    {
+      "id": "organic81:firefly-route-projector",
+      "name": "Firefly Route Projector",
+      "category": "fantasy",
+      "summary": "A brass tabletop projector illuminates a floating map by shining light through a jar of fireflies.",
+      "ingredients": [
+        "organic80:cartographers-firefly-desk",
+        "legacy:63"
+      ],
+      "art_mode": "bespoke-subject",
+      "path": "client/assets/v81/firefly-route-projector.svg"
+    },
+    {
+      "id": "organic81:storm-shelter-trailer",
+      "name": "Storm Shelter Trailer",
+      "category": "nature",
+      "summary": "A small wheeled emergency trailer carries a folded medical tent and first-aid supplies into storm-damaged areas.",
+      "ingredients": [
+        "organic80:ranger-triage-tent",
+        "legacy:44"
+      ],
+      "art_mode": "bespoke-subject",
+      "path": "client/assets/v81/storm-shelter-trailer.svg"
+    },
+    {
+      "id": "organic81:riverside-rescue-signal-box",
+      "name": "Riverside Rescue Signal Box",
+      "category": "nature",
+      "summary": "A waterproof pier-mounted rescue box contains an emergency whistle and a light for river boaters.",
+      "ingredients": [
+        "organic80:lantern-river-pier",
+        "organic80:ranger-whistle-lanyard"
+      ],
+      "art_mode": "bespoke-subject",
+      "path": "client/assets/v81/riverside-rescue-signal-box.svg"
     }
   ]
 }
