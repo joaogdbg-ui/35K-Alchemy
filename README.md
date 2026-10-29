@@ -109,6 +109,6 @@ Este repositório é público: fontes e assets ficam acessíveis aos visitantes.
 ## V76.1 — nomes fictícios e auditoria de propriedade intelectual
 
 - Mantidos **5.422 elementos e 13.759 receitas**; sem alteração de IDs, fórmulas, campanhas, saves ou certificados.
-- Nomes apresentados ao jogador passaram para alternativas editoriais fictícias: Auralis, GlidePort, AsterCube, PocketNova, Orilux, Mosskip, Critter Atlas, entre outros.
+- Nomes apresentados ao jogador passaram para alternativas editoriais fictícias: Qelvorune, GlidePort, AsterCube, PocketNova, Orilux, Mosskip, Critter Atlas, entre outros.
 - A auditoria automatizada está em `tools/audit-ip-safe-names.mjs`; documentação em [IP_AUDIT_V76_1.md](docs/IP_AUDIT_V76_1.md).
 - **Não existe garantia de clearance jurídico**: fontes históricas, semelhança visual, marcas, screenshots e direitos de terceiros necessitam de avaliação antes da publicação comercial.

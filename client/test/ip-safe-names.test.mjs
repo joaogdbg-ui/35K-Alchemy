@@ -5,7 +5,7 @@ test('Mock labels replace console and entertainment identities, preserving input
  const data=[
  ['Nintendo Switch 2 Cartridge Case','GlidePort II Cartridge Case'],
  ['Game Boy Camera Album','PocketNova Camera Album'],
- ['PlayStation 5 Vertical Cooling Stand','Auralis 5 Vertical Cooling Stand'],
+ ['PlayStation 5 Vertical Cooling Stand','Qelvorune 5 Vertical Cooling Stand'],
  ['Xbox Series X Ventilation Grille','AsterCube Zenith Ventilation Grille'],
  ['Sonic the Hedgehog','Windrush the Hedgehog'],
  ['Pokémon Red','Critter Atlas Red'],
@@ -15,12 +15,12 @@ test('Mock labels replace console and entertainment identities, preserving input
  assert.equal(publicName({name:'Mario Kart'}),'Mosskip Kart');
 });
 test('Public-name index preserves identifiers and disambiguates coincident labels',()=>{
- const items=[{id:'a',name:'PlayStation'},{id:'b',name:'Auralis'},{id:'c',name:'Water'}];
+ const items=[{id:'a',name:'PlayStation'},{id:'b',name:'Qelvorune'},{id:'c',name:'Water'}];
  const original=items.map(x=>x.name);
  const out=buildPublicNameIndex(items);
  assert.deepEqual(items.map(x=>x.name),original);
- assert.equal(out.get('a'),'Auralis');
- assert.equal(out.get('b'),'Auralis — Edition 2');
+ assert.equal(out.get('a'),'Qelvorune');
+ assert.equal(out.get('b'),'Qelvorune — Edition 2');
  assert.equal(out.get('c'),'Water');
 });
 test('High-confidence franchise signals are absent from sample public labels',()=>{

@@ -620,10 +620,10 @@ function difficultyFor(id){const d=routeDepth.get(id);
 function elementIsUseful(id){return (recipeUses.get(id)||[]).some(r=>unlocked.has(r.a===id?r.b:r.a)&&!unlocked.has(r.out));}
 function elementIsComplete(id){return unlocked.has(id)&&!(recipeUses.get(id)||[]).some(r=>!unlocked.has(r.out));}
 const COLLECTION_SETS=[
- {id:'playstation',name:'Auralis Generations',family:'consoles',names:['PlayStation','PlayStation 2','PlayStation 3','PlayStation 4','PlayStation 5','PSP','PS Vita'],icon:'console'},
+ {id:'playstation',name:'Qelvorune Generations',family:'consoles',names:['PlayStation','PlayStation 2','PlayStation 3','PlayStation 4','PlayStation 5','PSP','PS Vita'],icon:'console'},
  {id:'nintendo',name:'Pocket Console Heritage',family:'consoles',names:['Game Boy','Game Boy Color','Game Boy Advance','Nintendo DS','Nintendo 3DS'],icon:'handheld'},
  {id:'classics',name:'Retro Game Classics',family:'games',names:['Super Mario Bros.','The Legend of Zelda','Pokémon Red','Pokémon Blue','Sonic the Hedgehog'],icon:'game_case'},
- {id:"sega-hardware",name:"Virex Hardware",family:"consoles",names:["Sega Genesis", "Sega Saturn", "Sega Dreamcast", "Sega Game Gear", "Sega CD"],icon:"game_case"},
+ {id:"sega-hardware",name:"Thrynovex Hardware",family:"consoles",names:["Sega Genesis", "Sega Saturn", "Sega Dreamcast", "Sega Game Gear", "Sega CD"],icon:"game_case"},
  {id:"xbox-history",name:"AsterCube Generations",family:"consoles",names:["Xbox", "Xbox 360", "Xbox One", "Xbox Series X", "Xbox Series S"],icon:"game_case"},
  {id:"mario-eras",name:"Mosskip Through the Years",family:"games",names:["Super Mario Bros.", "Super Mario World", "Super Mario 64", "Super Mario Sunshine", "Super Mario Galaxy", "Super Mario Odyssey"],icon:"game_case"},
  {id:"sonic-eras",name:"Windrush Across Generations",family:"games",names:["Sonic the Hedgehog", "Sonic the Hedgehog 2", "Sonic CD", "Sonic Adventure", "Sonic Adventure 2", "Sonic Mania"],icon:"game_case"},
@@ -634,7 +634,7 @@ const COLLECTION_SETS=[
  {id:"pc-classics",name:"PC Legends",family:"games",names:["Half-Life", "DOOM", "Quake", "StarCraft", "The Sims"],icon:"game_case"},
  {id:"indie",name:"Indie Games",family:"games",names:["Celeste", "Hollow Knight", "Stardew Valley", "Undertale", "Hades"],icon:"game_case"},
  {id:"nintendo-64",name:"Orilux 64 Memories",family:"games",names:["Super Mario 64", "Mario Kart 64", "Donkey Kong 64", "Pokémon Snap", "Kirby 64: The Crystal Shards"],icon:"game_case"},
- {id:"sony-portables",name:"Auralis Handhelds",family:"consoles",names:["PSP", "PS Vita", "God of War: Chains of Olympus", "Metal Gear Solid: Peace Walker"],icon:"game_case"},
+ {id:"sony-portables",name:"Qelvorune Handhelds",family:"consoles",names:["PSP", "PS Vita", "God of War: Chains of Olympus", "Metal Gear Solid: Peace Walker"],icon:"game_case"},
  {id:"fighting-legends",name:"Fighting Legends",family:"games",names:["Street Fighter II", "Mortal Kombat", "Tekken 3", "Virtua Fighter 2", "Street Fighter 6"],icon:"game_case"},
  {id:"music-games",name:"Music & Rhythm Games",family:"games",names:["Guitar Hero", "Dance Dance Revolution", "Wii Music", "Just Dance", "Rhythm Heaven Fever"],icon:"game_case"},
  {id:"zelda-classics",name:"Mooncrest Adventures",family:"games",names:["The Legend of Zelda", "The Legend of Zelda: Twilight Princess", "The Legend of Zelda: The Wind Waker", "The Legend of Zelda: Echoes of Wisdom"],icon:"game_case"},
