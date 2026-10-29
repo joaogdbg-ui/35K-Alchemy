@@ -1,16 +1,16 @@
 {
   "version": 81,
-  "cohort_count": 162,
+  "cohort_count": 177,
   "expansion_goal": 200,
-  "expansion_progress": 162,
-  "remaining_to_goal": 38,
+  "expansion_progress": 177,
+  "remaining_to_goal": 23,
   "base_catalog": {
     "elements": 5772,
     "recipes": 14109
   },
   "expected_catalog": {
-    "elements": 5934,
-    "recipes": 14271
+    "elements": 5949,
+    "recipes": 14286
   },
   "new_items": [
     {
@@ -1956,6 +1956,186 @@
       ],
       "art_mode": "bespoke-subject",
       "path": "client/assets/v81/lich-phylactery.svg"
+    },
+    {
+      "id": "organic81:wildcat",
+      "name": "Wildcat",
+      "category": "life",
+      "summary": "A wary wildcat has a striped face, amber eyes and a thick ringed tail adapted to life beyond houses.",
+      "ingredients": [
+        "organic81:cat",
+        "organic81:wild-animal"
+      ],
+      "art_mode": "bespoke-subject",
+      "path": "client/assets/v81/wildcat.svg"
+    },
+    {
+      "id": "organic81:tiger",
+      "name": "Tiger",
+      "category": "life",
+      "summary": "A powerful striped tiger stalks a forest, distinguished by bold dark bands across an orange coat.",
+      "ingredients": [
+        "organic81:wildcat",
+        "legacy:20"
+      ],
+      "art_mode": "bespoke-subject",
+      "path": "client/assets/v81/tiger.svg"
+    },
+    {
+      "id": "organic81:leopard",
+      "name": "Leopard",
+      "category": "life",
+      "summary": "A leopard with dark rosette spots rests along a tree branch, its long tail hanging beneath the leaves.",
+      "ingredients": [
+        "organic81:wildcat",
+        "legacy:19"
+      ],
+      "art_mode": "bespoke-subject",
+      "path": "client/assets/v81/leopard.svg"
+    },
+    {
+      "id": "organic81:cheetah",
+      "name": "Cheetah",
+      "category": "life",
+      "summary": "A slender spotted cheetah sprints across the savanna, marked by black tear-lines beneath its eyes.",
+      "ingredients": [
+        "organic81:wildcat",
+        "legacy:544"
+      ],
+      "art_mode": "bespoke-subject",
+      "path": "client/assets/v81/cheetah.svg"
+    },
+    {
+      "id": "organic81:snow-leopard",
+      "name": "Snow Leopard",
+      "category": "life",
+      "summary": "A pale snow leopard balances on a rocky ledge with dark rosettes and a thick curling tail for warmth.",
+      "ingredients": [
+        "organic81:wildcat",
+        "legacy:36"
+      ],
+      "art_mode": "bespoke-subject",
+      "path": "client/assets/v81/snow-leopard.svg"
+    },
+    {
+      "id": "organic81:cougar",
+      "name": "Cougar",
+      "category": "life",
+      "summary": "A tawny mountain cougar leaps from a rocky ledge with powerful hind legs and a long balancing tail.",
+      "ingredients": [
+        "organic81:wildcat",
+        "legacy:38"
+      ],
+      "art_mode": "bespoke-subject",
+      "path": "client/assets/v81/cougar.svg"
+    },
+    {
+      "id": "organic81:lynx",
+      "name": "Lynx",
+      "category": "life",
+      "summary": "A northern lynx has tall black ear tufts, thick cheek fur and a distinctive short bobbed tail.",
+      "ingredients": [
+        "organic81:wildcat",
+        "legacy:35"
+      ],
+      "art_mode": "bespoke-subject",
+      "path": "client/assets/v81/lynx.svg"
+    },
+    {
+      "id": "organic81:arctic-wolf",
+      "name": "Arctic Wolf",
+      "category": "life",
+      "summary": "A white-furred Arctic wolf with a dense winter coat patrols a snowy tundra beneath the polar sky.",
+      "ingredients": [
+        "organic81:wolf",
+        "legacy:36"
+      ],
+      "art_mode": "bespoke-subject",
+      "path": "client/assets/v81/arctic-wolf.svg"
+    },
+    {
+      "id": "organic81:coyote",
+      "name": "Coyote",
+      "category": "life",
+      "summary": "A lean desert coyote has a narrow pointed muzzle and tall ears for hearing movement among dry grasses.",
+      "ingredients": [
+        "organic81:wolf",
+        "legacy:16"
+      ],
+      "art_mode": "bespoke-subject",
+      "path": "client/assets/v81/coyote.svg"
+    },
+    {
+      "id": "organic81:wild-boar",
+      "name": "Wild Boar",
+      "category": "life",
+      "summary": "A shaggy forest boar has a sloping snout, bristly mane and long ivory tusks for rooting among woodland trees.",
+      "ingredients": [
+        "organic81:pig",
+        "legacy:20"
+      ],
+      "art_mode": "bespoke-subject",
+      "path": "client/assets/v81/wild-boar.svg"
+    },
+    {
+      "id": "organic81:ibex",
+      "name": "Ibex",
+      "category": "life",
+      "summary": "A mountain ibex stands on a cliff with immense ridged horns curving backward from its head.",
+      "ingredients": [
+        "organic81:goat",
+        "legacy:38"
+      ],
+      "art_mode": "bespoke-subject",
+      "path": "client/assets/v81/ibex.svg"
+    },
+    {
+      "id": "organic81:bison",
+      "name": "Bison",
+      "category": "life",
+      "summary": "A bison carries a massive shoulder hump, shaggy dark mane and short curved horns across broad grasslands.",
+      "ingredients": [
+        "organic81:cow",
+        "legacy:20"
+      ],
+      "art_mode": "bespoke-subject",
+      "path": "client/assets/v81/bison.svg"
+    },
+    {
+      "id": "organic81:yak",
+      "name": "Yak",
+      "category": "life",
+      "summary": "A long-haired mountain yak grows a thick winter fringe and sweeping horns to withstand icy highland weather.",
+      "ingredients": [
+        "organic81:cow",
+        "legacy:36"
+      ],
+      "art_mode": "bespoke-subject",
+      "path": "client/assets/v81/yak.svg"
+    },
+    {
+      "id": "organic81:camel",
+      "name": "Camel",
+      "category": "life",
+      "summary": "A desert camel has a high fat-storing hump, long legs and a narrow muzzle adapted to dry landscapes.",
+      "ingredients": [
+        "organic81:farm-animal",
+        "legacy:16"
+      ],
+      "art_mode": "bespoke-subject",
+      "path": "client/assets/v81/camel.svg"
+    },
+    {
+      "id": "organic81:bighorn-sheep",
+      "name": "Bighorn Sheep",
+      "category": "life",
+      "summary": "A mountain bighorn sheep is identified by large spiral horns and a sturdy, wool-coated body.",
+      "ingredients": [
+        "organic81:sheep",
+        "legacy:38"
+      ],
+      "art_mode": "bespoke-subject",
+      "path": "client/assets/v81/bighorn-sheep.svg"
     }
   ],
   "cycle_complete": false

@@ -1,6 +1,6 @@
-# V81 WIP — 162/200
+# V81 — 177/200 WIP
 
-122 new elements have been authored in the working branch since public V81B. Next single +188 release: 160 V81 +28 V82 to reach 6,000.
+Published V81 baseline: 40 items. New since last APK: 137. Next release requires +188 total, with 160 V81 and 28 V82 to reach 6,000.
 
 1. **Sprite Animation Light Table** = organic80:pixel-sprite-lightbox + legacy:211 — An animator's luminous drawing table shows three consecutive pixel-sprite frames beside a timing ruler.
 2. **Color-Proof Photo Printer** = organic80:color-calibration-proof + organic80:pocket-photo-printer — A tabletop printer outputs calibrated color patches beside a small landscape photograph.
@@ -164,3 +164,18 @@
 160. **Phoenix Feather** = organic81:phoenix + organic40:feather — A fiery phoenix feather keeps a warm golden ember at its tip long after the mythical bird flies away.
 161. **Orc Warband** = organic81:orc + legacy:553 — A group of tusked orc warriors advances under a rough banner carrying painted shield emblems.
 162. **Lich Phylactery** = organic81:lich + legacy:34 — A jewel-encrusted soul vessel protects the binding essence of an immortal undead sorcerer.
+163. **Wildcat** = organic81:cat + organic81:wild-animal — A wary wildcat has a striped face, amber eyes and a thick ringed tail adapted to life beyond houses.
+164. **Tiger** = organic81:wildcat + legacy:20 — A powerful striped tiger stalks a forest, distinguished by bold dark bands across an orange coat.
+165. **Leopard** = organic81:wildcat + legacy:19 — A leopard with dark rosette spots rests along a tree branch, its long tail hanging beneath the leaves.
+166. **Cheetah** = organic81:wildcat + legacy:544 — A slender spotted cheetah sprints across the savanna, marked by black tear-lines beneath its eyes.
+167. **Snow Leopard** = organic81:wildcat + legacy:36 — A pale snow leopard balances on a rocky ledge with dark rosettes and a thick curling tail for warmth.
+168. **Cougar** = organic81:wildcat + legacy:38 — A tawny mountain cougar leaps from a rocky ledge with powerful hind legs and a long balancing tail.
+169. **Lynx** = organic81:wildcat + legacy:35 — A northern lynx has tall black ear tufts, thick cheek fur and a distinctive short bobbed tail.
+170. **Arctic Wolf** = organic81:wolf + legacy:36 — A white-furred Arctic wolf with a dense winter coat patrols a snowy tundra beneath the polar sky.
+171. **Coyote** = organic81:wolf + legacy:16 — A lean desert coyote has a narrow pointed muzzle and tall ears for hearing movement among dry grasses.
+172. **Wild Boar** = organic81:pig + legacy:20 — A shaggy forest boar has a sloping snout, bristly mane and long ivory tusks for rooting among woodland trees.
+173. **Ibex** = organic81:goat + legacy:38 — A mountain ibex stands on a cliff with immense ridged horns curving backward from its head.
+174. **Bison** = organic81:cow + legacy:20 — A bison carries a massive shoulder hump, shaggy dark mane and short curved horns across broad grasslands.
+175. **Yak** = organic81:cow + legacy:36 — A long-haired mountain yak grows a thick winter fringe and sweeping horns to withstand icy highland weather.
+176. **Camel** = organic81:farm-animal + legacy:16 — A desert camel has a high fat-storing hump, long legs and a narrow muzzle adapted to dry landscapes.
+177. **Bighorn Sheep** = organic81:sheep + legacy:38 — A mountain bighorn sheep is identified by large spiral horns and a sturdy, wool-coated body.

@@ -1,6 +1,6 @@
-# V81 SVG art preview — 162/200 (WIP)
+# V81 — 177/200 SVG candidates
 
-All source illustrations are separately authored; manual comparison at 35px and 90px is still mandatory.
+Visual review at 35px and 90px; unique SVG source files are not by themselves proof of visual legibility.
 
 | # | Element | 35px | 90px |
 |---:|---|:---:|:---:|
@@ -166,3 +166,18 @@ All source illustrations are separately authored; manual comparison at 35px and 
 | 160 | Phoenix Feather | <img src="../client/assets/v81/phoenix-feather.svg" width="35" height="35" /> | <img src="../client/assets/v81/phoenix-feather.svg" width="90" height="90" /> |
 | 161 | Orc Warband | <img src="../client/assets/v81/orc-warband.svg" width="35" height="35" /> | <img src="../client/assets/v81/orc-warband.svg" width="90" height="90" /> |
 | 162 | Lich Phylactery | <img src="../client/assets/v81/lich-phylactery.svg" width="35" height="35" /> | <img src="../client/assets/v81/lich-phylactery.svg" width="90" height="90" /> |
+| 163 | Wildcat | <img src="../client/assets/v81/wildcat.svg" width="35" height="35" /> | <img src="../client/assets/v81/wildcat.svg" width="90" height="90" /> |
+| 164 | Tiger | <img src="../client/assets/v81/tiger.svg" width="35" height="35" /> | <img src="../client/assets/v81/tiger.svg" width="90" height="90" /> |
+| 165 | Leopard | <img src="../client/assets/v81/leopard.svg" width="35" height="35" /> | <img src="../client/assets/v81/leopard.svg" width="90" height="90" /> |
+| 166 | Cheetah | <img src="../client/assets/v81/cheetah.svg" width="35" height="35" /> | <img src="../client/assets/v81/cheetah.svg" width="90" height="90" /> |
+| 167 | Snow Leopard | <img src="../client/assets/v81/snow-leopard.svg" width="35" height="35" /> | <img src="../client/assets/v81/snow-leopard.svg" width="90" height="90" /> |
+| 168 | Cougar | <img src="../client/assets/v81/cougar.svg" width="35" height="35" /> | <img src="../client/assets/v81/cougar.svg" width="90" height="90" /> |
+| 169 | Lynx | <img src="../client/assets/v81/lynx.svg" width="35" height="35" /> | <img src="../client/assets/v81/lynx.svg" width="90" height="90" /> |
+| 170 | Arctic Wolf | <img src="../client/assets/v81/arctic-wolf.svg" width="35" height="35" /> | <img src="../client/assets/v81/arctic-wolf.svg" width="90" height="90" /> |
+| 171 | Coyote | <img src="../client/assets/v81/coyote.svg" width="35" height="35" /> | <img src="../client/assets/v81/coyote.svg" width="90" height="90" /> |
+| 172 | Wild Boar | <img src="../client/assets/v81/wild-boar.svg" width="35" height="35" /> | <img src="../client/assets/v81/wild-boar.svg" width="90" height="90" /> |
+| 173 | Ibex | <img src="../client/assets/v81/ibex.svg" width="35" height="35" /> | <img src="../client/assets/v81/ibex.svg" width="90" height="90" /> |
+| 174 | Bison | <img src="../client/assets/v81/bison.svg" width="35" height="35" /> | <img src="../client/assets/v81/bison.svg" width="90" height="90" /> |
+| 175 | Yak | <img src="../client/assets/v81/yak.svg" width="35" height="35" /> | <img src="../client/assets/v81/yak.svg" width="90" height="90" /> |
+| 176 | Camel | <img src="../client/assets/v81/camel.svg" width="35" height="35" /> | <img src="../client/assets/v81/camel.svg" width="90" height="90" /> |
+| 177 | Bighorn Sheep | <img src="../client/assets/v81/bighorn-sheep.svg" width="35" height="35" /> | <img src="../client/assets/v81/bighorn-sheep.svg" width="90" height="90" /> |
