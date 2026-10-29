@@ -209,8 +209,8 @@
       "id": "organic73:arcade-token-dispenser",
       "name": "Arcade Token Dispenser",
       "ingredients": [
-        "legacy:171",
-        "legacy:108"
+        "organic72:arcade-token-tray",
+        "legacy:70"
       ],
       "path": "client/assets/v73/new/arcade-token-dispenser.svg",
       "art_mode": "bespoke-subject"
