@@ -47,3 +47,13 @@ test('V76.2 context-specific original game aliases do not rewrite generic scienc
    assert.equal(publicName({name:n,category:'science'}),n);
  assert.equal(publicName({name:'Hades',category:'mythology'}),'Hades');
 });
+
+test('Brand-alias collision review retires identifiable real company names',()=>{
+ const cases=[
+  ['Konami','Nayvuril Studio'],
+  ['Atari 2600','Qintavyr 2600'],
+  ['Nintendo 64','Velqryon 64'],
+  ['Xbox Series X','Zerqadyn Zenith']
+ ];
+ for(const [oldName,expected] of cases)assert.equal(publicName({name:oldName,category:'console'}),expected);
+});
