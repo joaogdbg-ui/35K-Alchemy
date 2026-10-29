@@ -1,0 +1,122 @@
+[
+  {
+    "id": "organic77:circuit-lab-bench",
+    "name": "Circuit Lab Bench",
+    "ingredients": [
+      "legacy:70",
+      "legacy:55"
+    ],
+    "category": "technology",
+    "summary": "An electronics bench brings together sensors, test clips and a neat circuit board.",
+    "path": "client/assets/v77/circuit-lab-bench.svg",
+    "art_mode": "bespoke-subject"
+  },
+  {
+    "id": "organic77:microscope-slide",
+    "name": "Microscope Slide",
+    "ingredients": [
+      "legacy:23",
+      "legacy:53"
+    ],
+    "category": "science",
+    "summary": "A prepared glass slide reveals a tiny world of cells beneath a lens.",
+    "path": "client/assets/v77/microscope-slide.svg",
+    "art_mode": "bespoke-subject"
+  },
+  {
+    "id": "organic77:solar-battery-cell",
+    "name": "Solar Battery Cell",
+    "ingredients": [
+      "legacy:141",
+      "legacy:69"
+    ],
+    "category": "technology",
+    "summary": "A palm-sized solar module stores daylight for the next late-night session.",
+    "path": "client/assets/v77/solar-battery-cell.svg",
+    "art_mode": "bespoke-subject"
+  },
+  {
+    "id": "organic77:puzzle-magnet-board",
+    "name": "Puzzle Magnet Board",
+    "ingredients": [
+      "legacy:107",
+      "legacy:22"
+    ],
+    "category": "board",
+    "summary": "Magnetic game pieces click into a clever sliding puzzle on a steel board.",
+    "path": "client/assets/v77/puzzle-magnet-board.svg",
+    "art_mode": "bespoke-subject"
+  },
+  {
+    "id": "organic77:signal-decoder",
+    "name": "Signal Decoder",
+    "ingredients": [
+      "legacy:89",
+      "legacy:95"
+    ],
+    "category": "technology",
+    "summary": "A portable decoder turns blinking radio pulses into an understandable pattern.",
+    "path": "client/assets/v77/signal-decoder.svg",
+    "art_mode": "bespoke-subject"
+  },
+  {
+    "id": "organic77:holographic-map-table",
+    "name": "Holographic Map Table",
+    "ingredients": [
+      "legacy:354",
+      "legacy:63"
+    ],
+    "category": "technology",
+    "summary": "A glowing landscape floats above a table that projects tomorrow's quest.",
+    "path": "client/assets/v77/holographic-map-table.svg",
+    "art_mode": "bespoke-subject"
+  },
+  {
+    "id": "organic77:cooling-fan-module",
+    "name": "Cooling Fan Module",
+    "ingredients": [
+      "legacy:11",
+      "legacy:12"
+    ],
+    "category": "technology",
+    "summary": "A compact cooling fan whirls warm air away from a hard-working circuit.",
+    "path": "client/assets/v77/cooling-fan-module.svg",
+    "art_mode": "bespoke-subject"
+  },
+  {
+    "id": "organic77:copper-circuit-loom",
+    "name": "Copper Circuit Loom",
+    "ingredients": [
+      "legacy:32",
+      "legacy:68"
+    ],
+    "category": "technology",
+    "summary": "Thin copper lines weave a neat electronic network across a green circuit board.",
+    "path": "client/assets/v77/copper-circuit-loom.svg",
+    "art_mode": "bespoke-subject"
+  },
+  {
+    "id": "organic77:storm-sensor-beacon",
+    "name": "Storm Sensor Beacon",
+    "ingredients": [
+      "legacy:86",
+      "legacy:7"
+    ],
+    "category": "technology",
+    "summary": "A weatherproof beacon flashes a warning when rainfall turns into a storm.",
+    "path": "client/assets/v77/storm-sensor-beacon.svg",
+    "art_mode": "bespoke-subject"
+  },
+  {
+    "id": "organic77:neon-logic-display",
+    "name": "Neon Logic Display",
+    "ingredients": [
+      "legacy:95",
+      "legacy:76"
+    ],
+    "category": "technology",
+    "summary": "A bright logic screen shows how tiny decisions become complex game behavior.",
+    "path": "client/assets/v77/neon-logic-display.svg",
+    "art_mode": "bespoke-subject"
+  }
+]
