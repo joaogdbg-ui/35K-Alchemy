@@ -29,7 +29,7 @@ test('Every V78 item has a unique recipe, bespoke SVG source and valid summary',
 });
 test('V78 is wired to game, offline bundle, IP scan and Android packaging without altering settings',()=>{
  const app=read('client/src/app.js'),build=read('tools/build-standalone.py');
- assert.match(app,/ORGANIC_V77,ORGANIC_V78\]/);
+ assert.match(app,/ORGANIC_V77,ORGANIC_V78,ORGANIC_V79\]/);
  assert.match(app,/ORGANIC_ART_V78\[itemName\]\|\|ORGANIC_ART_V77/);
  assert.match(build,/window\.__gameverseOrganic78/);
  assert.match(build,/window\.__gameverseOrganicArt78/);
