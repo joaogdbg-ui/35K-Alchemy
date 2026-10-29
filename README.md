@@ -1,3 +1,11 @@
+# 35K Alchemy — V80B: 5.612 elementos / 13.949 receitas
+
+**Política de expansão atualizada:** cada nova entrega de conteúdo, a partir desta baseline, deve adicionar **exatamente 200 elementos reais** com receitas intuitivas e SVG próprio. Ondas internas de 25/50 podem ser usadas, mas **nunca lançadas como entregas isoladas**. Próximo incremento: **160 elementos para fechar V80 + 40 em V81, num único PR**, chegando a 5.812 elementos. Com 147 lotes de 200 atingiremos 35.012 (35K mínimo).
+
+[Ler o contrato de produção de 200](docs/CONTENT_200_BATCH_POLICY_PT.md) · [Handoff V80B](HANDOFF_V80.md) · [Galeria V80](docs/V80_ART_REVIEW.md) · [APK atual de testes](https://github.com/joaogdbg-ui/35K-Alchemy/releases/download/latest/35K-Alchemy.apk)
+
+> O histórico abaixo descreve versões anteriores à regra obrigatória de 200 por entrega; não é uma autorização para micro-lotes futuros.
+
 # 35K Alchemy — V80A: 5,580 elements / 13,917 recipes
 
 Third 200-element cycle: eight hand-authored discoveries (8/200, 192 remain), each with a unique deterministic recipe and a bespoke SVG. No Settings, Family Only profiles, reward contract or old recipes altered. See [V80 handoff](HANDOFF_V80.md) and [35px art review](docs/V80_ART_REVIEW.md).
