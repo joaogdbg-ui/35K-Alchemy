@@ -16,7 +16,7 @@ const modes=['gaming-v22','gaming-v23','gaming-v24','gaming-v26','gaming-v27','g
 const packs=[PACK];
 for(const s of modes){const p=s.replace('gaming','gaming-pack').replace('organic','organic-pack');const v=await import('../client/src/'+p+'.js');packs.push(Object.values(v)[0]);}
 const before=buildCatalog(DATA,[...packs,ORGANIC_V71,ORGANIC_V72,ORGANIC_V73]);
-const after=buildCatalog(DATA,[...packs,ORGANIC_V71,ORGANIC_V72,ORGANIC_V73,ORGANIC_V74,ORGANIC_V75]);
+const after=buildCatalog(DATA,[...packs,ORGANIC_V71,ORGANIC_V72,ORGANIC_V73,ORGANIC_V74]);
 check(before.items.length===5256&&before.recipes.size===13593,'V73 baseline changed');
 check(after.items.length===5304&&after.recipes.size===13641,'V74 counts');
 for(const [key,value] of before.recipes)check(after.recipes.get(key)===value,'old recipe changed '+key);
