@@ -1,0 +1,122 @@
+[
+  {
+    "id": "organic79:pixel-battery-gauge",
+    "name": "Pixel Battery Gauge",
+    "category": "accessory",
+    "summary": "A portable meter draws a pixel by pixel battery bar for a handheld console.",
+    "ingredients": [
+      "organic78:pocket-charge-meter",
+      "legacy:146"
+    ],
+    "art_mode": "bespoke-subject",
+    "path": "client/assets/v79/pixel-battery-gauge.svg"
+  },
+  {
+    "id": "organic79:game-collection-shelf",
+    "name": "Game Collection Shelf",
+    "category": "culture",
+    "summary": "A wooden display shelf stores cleaned cartridges and cases in tidy rows.",
+    "ingredients": [
+      "organic78:dustproof-game-case",
+      "legacy:24"
+    ],
+    "art_mode": "bespoke-subject",
+    "path": "client/assets/v79/game-collection-shelf.svg"
+  },
+  {
+    "id": "organic79:arcade-switch-circuit",
+    "name": "Arcade Switch Circuit",
+    "category": "technology",
+    "summary": "A small circuit board reveals the electrical contact behind every arcade press.",
+    "ingredients": [
+      "organic78:arcade-button-tester",
+      "legacy:67"
+    ],
+    "art_mode": "bespoke-subject",
+    "path": "client/assets/v79/arcade-switch-circuit.svg"
+  },
+  {
+    "id": "organic79:encrypted-save-vault",
+    "name": "Encrypted Save Vault",
+    "category": "technology",
+    "summary": "A reinforced memory vault protects digital saves behind a coded locking wheel.",
+    "ingredients": [
+      "organic78:backup-memory-vault",
+      "legacy:95"
+    ],
+    "art_mode": "bespoke-subject",
+    "path": "client/assets/v79/encrypted-save-vault.svg"
+  },
+  {
+    "id": "organic79:arcade-lever-assembly",
+    "name": "Arcade Lever Assembly",
+    "category": "accessory",
+    "summary": "A polished metal linkage connects the joystick stem to its spring mechanism.",
+    "ingredients": [
+      "organic78:spring-arcade-lever",
+      "legacy:22"
+    ],
+    "art_mode": "bespoke-subject",
+    "path": "client/assets/v79/arcade-lever-assembly.svg"
+  },
+  {
+    "id": "organic79:screen-color-chart",
+    "name": "Screen Color Chart",
+    "category": "technology",
+    "summary": "A camera color-check chart compares six patches to calibrate a gaming screen.",
+    "ingredients": [
+      "organic78:color-reference-card",
+      "legacy:85"
+    ],
+    "art_mode": "bespoke-subject",
+    "path": "client/assets/v79/screen-color-chart.svg"
+  },
+  {
+    "id": "organic79:dual-battery-rack",
+    "name": "Dual Battery Rack",
+    "category": "accessory",
+    "summary": "Two removable cells sit side by side in a tidy charging rack.",
+    "ingredients": [
+      "organic78:twin-charging-dock",
+      "legacy:69"
+    ],
+    "art_mode": "bespoke-subject",
+    "path": "client/assets/v79/dual-battery-rack.svg"
+  },
+  {
+    "id": "organic79:soundproof-listening-booth",
+    "name": "Soundproof Listening Booth",
+    "category": "music",
+    "summary": "A padded listening booth keeps arcade melodies clear without disturbing the room.",
+    "ingredients": [
+      "organic78:echo-cabinet",
+      "legacy:139"
+    ],
+    "art_mode": "bespoke-subject",
+    "path": "client/assets/v79/soundproof-listening-booth.svg"
+  },
+  {
+    "id": "organic79:game-sound-analyzer",
+    "name": "Game Sound Analyzer",
+    "category": "technology",
+    "summary": "A waveform analyzer highlights the beats and tones of a recorded game soundtrack.",
+    "ingredients": [
+      "organic78:audio-wave-monitor",
+      "legacy:147"
+    ],
+    "art_mode": "bespoke-subject",
+    "path": "client/assets/v79/game-sound-analyzer.svg"
+  },
+  {
+    "id": "organic79:pixel-inspection-lens",
+    "name": "Pixel Inspection Lens",
+    "category": "technology",
+    "summary": "A magnifying inspection lens reveals the individual pixels beneath an arcade screen.",
+    "ingredients": [
+      "organic78:arcade-pixel-scanner",
+      "legacy:63"
+    ],
+    "art_mode": "bespoke-subject",
+    "path": "client/assets/v79/pixel-inspection-lens.svg"
+  }
+]
