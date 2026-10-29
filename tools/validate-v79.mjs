@@ -15,7 +15,7 @@ import {ORGANIC_V79} from '../client/src/organic-pack-v79.js';
 import {ORGANIC_ART_V79} from '../client/src/organic-art-v79.js';
 const check=(condition,message)=>{if(!condition)throw Error('V79: '+message);};
 const m=JSON.parse(readFileSync('shared/v79-approved.json','utf8'));
-check(m.version===78&&m.cohort_count===50&&m.new_items.length===50,'manifest size');
+check(m.version===79&&m.cohort_count===50&&m.new_items.length===50,'manifest size');
 check(m.expansion_progress===200&&m.remaining_to_goal===0&&m.cycle_complete===true&&m.expansion_goal===200,'progress accuracy');
 check(ORGANIC_V79.items.length===50&&ORGANIC_V79.recipes.length===50&&Object.keys(ORGANIC_ART_V79).length===50,'cohort sizes');
 const groups=['gaming-v22','gaming-v23','gaming-v24','gaming-v26','gaming-v27','gaming-v30','organic-v32','organic-v34','organic-v37','organic-v38','organic-v40','organic-v41','organic-v42','organic-v43','organic-v44','organic-v45','organic-v46','organic-v47','organic-v50','organic-v52','organic-v53','organic-v55','organic-v56','organic-v57','organic-v58','organic-v59','organic-v61','organic-v62','organic-v63','organic-v65','organic-v66','organic-v67','organic-v68'];
@@ -23,7 +23,7 @@ const packs=[PACK];
 for(const v of groups){const mod=await import('../client/src/'+v.replace('gaming','gaming-pack').replace('organic','organic-pack')+'.js');packs.push(Object.values(mod)[0]);}
 const previous=[...packs,ORGANIC_V71,ORGANIC_V72,ORGANIC_V73,ORGANIC_V74,ORGANIC_V75,ORGANIC_V76,ORGANIC_V77,ORGANIC_V78];
 const prior=buildCatalog(DATA,previous),next=buildCatalog(DATA,[...previous,ORGANIC_V79]);
-check(prior.items.length===5522&&prior.recipes.size===13859,'V77 baseline changed');
+check(prior.items.length===5522&&prior.recipes.size===13859,'V78 baseline changed');
 check(next.items.length===5572&&next.recipes.size===13909,'V79 catalog totals');
 for(const [pair,out] of prior.recipes)check(next.recipes.get(pair)===out,'historic pair outcome changed '+pair);
 const knownNames=new Set(prior.items.map(x=>normalizeCatalogName(x.name)));
