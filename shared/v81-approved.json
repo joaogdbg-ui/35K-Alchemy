@@ -1,16 +1,16 @@
 {
   "version": 81,
-  "cohort_count": 150,
+  "cohort_count": 162,
   "expansion_goal": 200,
-  "expansion_progress": 150,
-  "remaining_to_goal": 50,
+  "expansion_progress": 162,
+  "remaining_to_goal": 38,
   "base_catalog": {
     "elements": 5772,
     "recipes": 14109
   },
   "expected_catalog": {
-    "elements": 5922,
-    "recipes": 14259
+    "elements": 5934,
+    "recipes": 14271
   },
   "new_items": [
     {
@@ -1812,6 +1812,150 @@
       ],
       "art_mode": "bespoke-subject",
       "path": "client/assets/v81/wraith.svg"
+    },
+    {
+      "id": "organic81:dullahan",
+      "name": "Dullahan",
+      "category": "fantasy",
+      "summary": "A headless rider in a dark cloak gallops on a black horse while carrying a glowing lantern.",
+      "ingredients": [
+        "organic81:wraith",
+        "legacy:574"
+      ],
+      "art_mode": "bespoke-subject",
+      "path": "client/assets/v81/dullahan.svg"
+    },
+    {
+      "id": "organic81:siren",
+      "name": "Siren",
+      "category": "fantasy",
+      "summary": "A sea siren sings from a rocky shore, her flowing hair and curling fish tail shaped by ocean waves.",
+      "ingredients": [
+        "organic81:mermaid",
+        "legacy:62"
+      ],
+      "art_mode": "bespoke-subject",
+      "path": "client/assets/v81/siren.svg"
+    },
+    {
+      "id": "organic81:stone-troll",
+      "name": "Stone Troll",
+      "category": "fantasy",
+      "summary": "A hulking mossy stone troll has a cracked rocky back and huge hands made from weathered granite.",
+      "ingredients": [
+        "organic81:troll",
+        "legacy:14"
+      ],
+      "art_mode": "bespoke-subject",
+      "path": "client/assets/v81/stone-troll.svg"
+    },
+    {
+      "id": "organic81:werebear",
+      "name": "Werebear",
+      "category": "fantasy",
+      "summary": "A human-shaped bear spirit transforms beneath the full moon, with rounded ears and enormous clawed paws.",
+      "ingredients": [
+        "organic81:bear",
+        "organic40:moonlight"
+      ],
+      "art_mode": "bespoke-subject",
+      "path": "client/assets/v81/werebear.svg"
+    },
+    {
+      "id": "organic81:kelpie",
+      "name": "Kelpie",
+      "category": "fantasy",
+      "summary": "A Scottish water-horse emerges from a lake with a flowing aquatic mane and a wave-shaped tail.",
+      "ingredients": [
+        "organic81:mermaid",
+        "legacy:574"
+      ],
+      "art_mode": "bespoke-subject",
+      "path": "client/assets/v81/kelpie.svg"
+    },
+    {
+      "id": "organic81:sea-serpent",
+      "name": "Sea Serpent",
+      "category": "fantasy",
+      "summary": "A legendary sea serpent coils above the waves with a long scaled neck, crest and sharp fangs.",
+      "ingredients": [
+        "organic81:mosasaurus",
+        "legacy:125"
+      ],
+      "art_mode": "bespoke-subject",
+      "path": "client/assets/v81/sea-serpent.svg"
+    },
+    {
+      "id": "organic81:naga",
+      "name": "Naga",
+      "category": "fantasy",
+      "summary": "A half-human serpent guardian has an upright torso and a long coiled snake body with green scales.",
+      "ingredients": [
+        "organic81:snake",
+        "legacy:28"
+      ],
+      "art_mode": "bespoke-subject",
+      "path": "client/assets/v81/naga.svg"
+    },
+    {
+      "id": "organic81:fairy-ring",
+      "name": "Fairy Ring",
+      "category": "fantasy",
+      "summary": "An enchanted circle of mushrooms glows beneath the woodland canopy, marking a mythical fairy gathering.",
+      "ingredients": [
+        "organic81:fairy",
+        "legacy:542"
+      ],
+      "art_mode": "bespoke-subject",
+      "path": "client/assets/v81/fairy-ring.svg"
+    },
+    {
+      "id": "organic81:troll-bridge",
+      "name": "Troll Bridge",
+      "category": "fantasy",
+      "summary": "A rough wooden bridge crosses a stream while a hulking troll peers out from the dark arch beneath it.",
+      "ingredients": [
+        "organic81:troll",
+        "legacy:24"
+      ],
+      "art_mode": "bespoke-subject",
+      "path": "client/assets/v81/troll-bridge.svg"
+    },
+    {
+      "id": "organic81:phoenix-feather",
+      "name": "Phoenix Feather",
+      "category": "fantasy",
+      "summary": "A fiery phoenix feather keeps a warm golden ember at its tip long after the mythical bird flies away.",
+      "ingredients": [
+        "organic81:phoenix",
+        "organic40:feather"
+      ],
+      "art_mode": "bespoke-subject",
+      "path": "client/assets/v81/phoenix-feather.svg"
+    },
+    {
+      "id": "organic81:orc-warband",
+      "name": "Orc Warband",
+      "category": "fantasy",
+      "summary": "A group of tusked orc warriors advances under a rough banner carrying painted shield emblems.",
+      "ingredients": [
+        "organic81:orc",
+        "legacy:553"
+      ],
+      "art_mode": "bespoke-subject",
+      "path": "client/assets/v81/orc-warband.svg"
+    },
+    {
+      "id": "organic81:lich-phylactery",
+      "name": "Lich Phylactery",
+      "category": "fantasy",
+      "summary": "A jewel-encrusted soul vessel protects the binding essence of an immortal undead sorcerer.",
+      "ingredients": [
+        "organic81:lich",
+        "legacy:34"
+      ],
+      "art_mode": "bespoke-subject",
+      "path": "client/assets/v81/lich-phylactery.svg"
     }
   ],
   "cycle_complete": false

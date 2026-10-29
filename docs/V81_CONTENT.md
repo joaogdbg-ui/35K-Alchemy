@@ -1,6 +1,6 @@
-# V81 editorial work — 150/200
+# V81 WIP — 162/200
 
-Of these, 40 were in the last published APK and 110 are unpublished WIP. The next release targets 6,000 with exactly +188 new IDs: 160 V81 and 28 V82.
+122 new elements have been authored in the working branch since public V81B. Next single +188 release: 160 V81 +28 V82 to reach 6,000.
 
 1. **Sprite Animation Light Table** = organic80:pixel-sprite-lightbox + legacy:211 — An animator's luminous drawing table shows three consecutive pixel-sprite frames beside a timing ruler.
 2. **Color-Proof Photo Printer** = organic80:color-calibration-proof + organic80:pocket-photo-printer — A tabletop printer outputs calibrated color patches beside a small landscape photograph.
@@ -152,3 +152,15 @@ Of these, 40 were in the last published APK and 110 are unpublished WIP. The nex
 148. **Necromancer** = organic81:witch-familiar + legacy:554 — A hooded sorcerer raises a skull-topped staff to command restless undead through forbidden magic.
 149. **Lich** = organic81:necromancer + legacy:554 — An undead necromancer retains a jeweled crown, exposed skull and ancient robes infused with magic.
 150. **Wraith** = pack:ghost + organic81:gothic-castle — A dark wraith drifts beneath a torn hood with pale shining eyes and trailing strips of shadow.
+151. **Dullahan** = organic81:wraith + legacy:574 — A headless rider in a dark cloak gallops on a black horse while carrying a glowing lantern.
+152. **Siren** = organic81:mermaid + legacy:62 — A sea siren sings from a rocky shore, her flowing hair and curling fish tail shaped by ocean waves.
+153. **Stone Troll** = organic81:troll + legacy:14 — A hulking mossy stone troll has a cracked rocky back and huge hands made from weathered granite.
+154. **Werebear** = organic81:bear + organic40:moonlight — A human-shaped bear spirit transforms beneath the full moon, with rounded ears and enormous clawed paws.
+155. **Kelpie** = organic81:mermaid + legacy:574 — A Scottish water-horse emerges from a lake with a flowing aquatic mane and a wave-shaped tail.
+156. **Sea Serpent** = organic81:mosasaurus + legacy:125 — A legendary sea serpent coils above the waves with a long scaled neck, crest and sharp fangs.
+157. **Naga** = organic81:snake + legacy:28 — A half-human serpent guardian has an upright torso and a long coiled snake body with green scales.
+158. **Fairy Ring** = organic81:fairy + legacy:542 — An enchanted circle of mushrooms glows beneath the woodland canopy, marking a mythical fairy gathering.
+159. **Troll Bridge** = organic81:troll + legacy:24 — A rough wooden bridge crosses a stream while a hulking troll peers out from the dark arch beneath it.
+160. **Phoenix Feather** = organic81:phoenix + organic40:feather — A fiery phoenix feather keeps a warm golden ember at its tip long after the mythical bird flies away.
+161. **Orc Warband** = organic81:orc + legacy:553 — A group of tusked orc warriors advances under a rough banner carrying painted shield emblems.
+162. **Lich Phylactery** = organic81:lich + legacy:34 — A jewel-encrusted soul vessel protects the binding essence of an immortal undead sorcerer.

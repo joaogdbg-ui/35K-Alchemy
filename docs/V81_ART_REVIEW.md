@@ -1,8 +1,8 @@
-# V81 original artwork — 150/200 (WIP)
+# V81 SVG art preview — 162/200 (WIP)
 
-One hand-authored source SVG per discovery, previewed at 35 and 90 pixels for manual review.
+All source illustrations are separately authored; manual comparison at 35px and 90px is still mandatory.
 
-| # | Element | 35 px | 90 px |
+| # | Element | 35px | 90px |
 |---:|---|:---:|:---:|
 | 1 | Sprite Animation Light Table | <img src="../client/assets/v81/sprite-animation-light-table.svg" width="35" height="35" /> | <img src="../client/assets/v81/sprite-animation-light-table.svg" width="90" height="90" /> |
 | 2 | Color-Proof Photo Printer | <img src="../client/assets/v81/color-proof-photo-printer.svg" width="35" height="35" /> | <img src="../client/assets/v81/color-proof-photo-printer.svg" width="90" height="90" /> |
@@ -154,3 +154,15 @@ One hand-authored source SVG per discovery, previewed at 35 and 90 pixels for ma
 | 148 | Necromancer | <img src="../client/assets/v81/necromancer.svg" width="35" height="35" /> | <img src="../client/assets/v81/necromancer.svg" width="90" height="90" /> |
 | 149 | Lich | <img src="../client/assets/v81/lich.svg" width="35" height="35" /> | <img src="../client/assets/v81/lich.svg" width="90" height="90" /> |
 | 150 | Wraith | <img src="../client/assets/v81/wraith.svg" width="35" height="35" /> | <img src="../client/assets/v81/wraith.svg" width="90" height="90" /> |
+| 151 | Dullahan | <img src="../client/assets/v81/dullahan.svg" width="35" height="35" /> | <img src="../client/assets/v81/dullahan.svg" width="90" height="90" /> |
+| 152 | Siren | <img src="../client/assets/v81/siren.svg" width="35" height="35" /> | <img src="../client/assets/v81/siren.svg" width="90" height="90" /> |
+| 153 | Stone Troll | <img src="../client/assets/v81/stone-troll.svg" width="35" height="35" /> | <img src="../client/assets/v81/stone-troll.svg" width="90" height="90" /> |
+| 154 | Werebear | <img src="../client/assets/v81/werebear.svg" width="35" height="35" /> | <img src="../client/assets/v81/werebear.svg" width="90" height="90" /> |
+| 155 | Kelpie | <img src="../client/assets/v81/kelpie.svg" width="35" height="35" /> | <img src="../client/assets/v81/kelpie.svg" width="90" height="90" /> |
+| 156 | Sea Serpent | <img src="../client/assets/v81/sea-serpent.svg" width="35" height="35" /> | <img src="../client/assets/v81/sea-serpent.svg" width="90" height="90" /> |
+| 157 | Naga | <img src="../client/assets/v81/naga.svg" width="35" height="35" /> | <img src="../client/assets/v81/naga.svg" width="90" height="90" /> |
+| 158 | Fairy Ring | <img src="../client/assets/v81/fairy-ring.svg" width="35" height="35" /> | <img src="../client/assets/v81/fairy-ring.svg" width="90" height="90" /> |
+| 159 | Troll Bridge | <img src="../client/assets/v81/troll-bridge.svg" width="35" height="35" /> | <img src="../client/assets/v81/troll-bridge.svg" width="90" height="90" /> |
+| 160 | Phoenix Feather | <img src="../client/assets/v81/phoenix-feather.svg" width="35" height="35" /> | <img src="../client/assets/v81/phoenix-feather.svg" width="90" height="90" /> |
+| 161 | Orc Warband | <img src="../client/assets/v81/orc-warband.svg" width="35" height="35" /> | <img src="../client/assets/v81/orc-warband.svg" width="90" height="90" /> |
+| 162 | Lich Phylactery | <img src="../client/assets/v81/lich-phylactery.svg" width="35" height="35" /> | <img src="../client/assets/v81/lich-phylactery.svg" width="90" height="90" /> |
