@@ -28,6 +28,7 @@ jobs:
       - run: npm test
       - run: node tools/validate-catalog.mjs
       - run: node tools/validate-v76.mjs
+      - run: node tools/validate-v77.mjs
       - run: node tools/audit-ip-safe-names.mjs
       - run: node tools/audit-active-artwork.mjs
       - run: python tools/build-standalone.py

@@ -1,3 +1,7 @@
+# 35K Alchemy — V77.0 (100/200 original-content cycle)
+
+Current: 5,472 elements and 13,809 deterministic unordered recipes. V77 adds 50 original content + SVG illustrations without changing existing element IDs, recipes or settings. The current 200-item cycle stands at 100/200, with 100 still pending. See [V77 handoff](HANDOFF_V77.md) and [35px art review](docs/V77_ART_REVIEW.md).
+
 # 35K Alchemy — V76.4 (clear hardware names and original app icon)
 
 Repositório oficial do jogo **35K Alchemy**, incluindo o código-fonte completo da V76 e o pipeline Android.

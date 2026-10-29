@@ -20,7 +20,7 @@ const modes=['gaming-v22','gaming-v23','gaming-v24','gaming-v26','gaming-v27','g
 const packs=[PACK];
 for(const name of modes){const path=name.replace('gaming','gaming-pack').replace('organic','organic-pack');const mod=await import('../client/src/'+path+'.js');packs.push(Object.values(mod)[0]);}
 const prior=buildCatalog(DATA,[...packs,ORGANIC_V71,ORGANIC_V72,ORGANIC_V73,ORGANIC_V74,ORGANIC_V75]);
-const current=buildCatalog(DATA,[...packs,ORGANIC_V71,ORGANIC_V72,ORGANIC_V73,ORGANIC_V74,ORGANIC_V75,ORGANIC_V76]);
+const current=buildCatalog(DATA,[...packs,ORGANIC_V71,ORGANIC_V72,ORGANIC_V73,ORGANIC_V74,ORGANIC_V75,ORGANIC_V76,ORGANIC_V77]);
 check(prior.items.length===5372&&prior.recipes.size===13709,'V75 baseline unexpectedly changed');
 check(current.items.length===5422&&current.recipes.size===13759,'V76 total count');
 for(const [key,out] of prior.recipes)check(current.recipes.get(key)===out,'historical recipe outcome changed '+key);
