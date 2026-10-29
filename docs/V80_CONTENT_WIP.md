@@ -1,6 +1,6 @@
 # V80 internal draft — 140/200
 
-**Work in progress only.** +100 distinct element candidates since V80B; main remains 5,612 elements. Entire next release must include exactly 200 new items, so 60 V80 + 40 V81 are still required. Automatic full historical pair/name checks are mandatory.
+100 new element candidates since V80B, not released. Global catalog remains 5,612 on main. Exactly 200 new elements are required before merge.
 
 1. **Floating Harbor Gate** = organic79:sky-dock-beacon + organic79:airship-anchor-winch — A docking arch combines a beacon with mooring cables to guide skyships safely into a floating port.
 2. **Glass Firefly Lantern** = organic79:firefly-garden-terrarium + organic79:aurora-desk-lantern — A curved glass lantern shelters luminous fireflies and brings a miniature garden into the night.
@@ -118,7 +118,7 @@
 114. **Chess Tournament Medal** = legacy:1196 + legacy:157 — A bronze-and-gold medal shows a chess knight in profile beneath its tournament ribbon.
 115. **Glowing Dice Pair** = legacy:223 + legacy:63 — Two translucent dice glow from within so their numbered faces remain visible during a dark game night.
 116. **Clockwork Puzzle Chest** = legacy:224 + legacy:55 — A brass clockwork lock on a wooden puzzle chest opens only when its rotating hands align.
-117. **Card Tournament Table** = legacy:163 + legacy:24 — A green felt tournament table arranges player hands around a central deck and winning trophy.
+117. **Card Tournament Table** = legacy:163 + organic80:chess-match-clock — A green felt tournament table arranges player hands around a central deck and winning trophy.
 118. **Board Game Expansion Box** = legacy:162 + organic80:trading-card-storage-box — A smaller illustrated box adds new cards and playable characters to an existing tabletop board game.
 119. **Portable Card Binder** = legacy:160 + legacy:110 — A zippered pocket binder displays sleeved cards in transparent slots for easy trading on the move.
 120. **Rotating Tile Draft** = legacy:162 + legacy:44 — A circular drafting wheel turns divided trays of colored game tiles toward each player.

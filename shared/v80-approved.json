@@ -1413,7 +1413,7 @@
       "summary": "A green felt tournament table arranges player hands around a central deck and winning trophy.",
       "ingredients": [
         "legacy:163",
-        "legacy:24"
+        "organic80:chess-match-clock"
       ],
       "art_mode": "bespoke-subject",
       "path": "client/assets/v80/card-tournament-table.svg"
