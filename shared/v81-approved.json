@@ -1,16 +1,16 @@
 {
   "version": 81,
-  "cohort_count": 73,
+  "cohort_count": 89,
   "expansion_goal": 200,
-  "expansion_progress": 73,
-  "remaining_to_goal": 127,
+  "expansion_progress": 89,
+  "remaining_to_goal": 111,
   "base_catalog": {
     "elements": 5772,
     "recipes": 14109
   },
   "expected_catalog": {
-    "elements": 5845,
-    "recipes": 14182
+    "elements": 5861,
+    "recipes": 14198
   },
   "new_items": [
     {
@@ -888,6 +888,198 @@
       ],
       "art_mode": "bespoke-subject",
       "path": "client/assets/v81/woolly-rhinoceros.svg"
+    },
+    {
+      "id": "organic81:folklore-bestiary",
+      "name": "Folklore Bestiary",
+      "category": "fantasy",
+      "summary": "A weathered compendium depicts legendary beings beside real animals, inviting discoveries about folklore and myths.",
+      "ingredients": [
+        "organic81:wildlife-species-atlas",
+        "legacy:121"
+      ],
+      "art_mode": "bespoke-subject",
+      "path": "client/assets/v81/folklore-bestiary.svg"
+    },
+    {
+      "id": "organic81:troll",
+      "name": "Troll",
+      "category": "fantasy",
+      "summary": "A bulky stone-skinned troll from northern folklore guards a rough bridge with long arms and oversized ears.",
+      "ingredients": [
+        "organic81:folklore-bestiary",
+        "legacy:14"
+      ],
+      "art_mode": "bespoke-subject",
+      "path": "client/assets/v81/troll.svg"
+    },
+    {
+      "id": "organic81:goblin",
+      "name": "Goblin",
+      "category": "fantasy",
+      "summary": "A mischievous treasure-hoarding goblin has oversized pointed ears, a hooked nose and a pouch of stolen coins.",
+      "ingredients": [
+        "organic81:folklore-bestiary",
+        "legacy:561"
+      ],
+      "art_mode": "bespoke-subject",
+      "path": "client/assets/v81/goblin.svg"
+    },
+    {
+      "id": "organic81:ogre",
+      "name": "Ogre",
+      "category": "fantasy",
+      "summary": "A cave-dwelling ogre towers over travelers with a broad jaw, heavy tusks and a battered wooden club.",
+      "ingredients": [
+        "organic81:folklore-bestiary",
+        "legacy:37"
+      ],
+      "art_mode": "bespoke-subject",
+      "path": "client/assets/v81/ogre.svg"
+    },
+    {
+      "id": "organic81:werewolf",
+      "name": "Werewolf",
+      "category": "fantasy",
+      "summary": "A cursed shapeshifter grows a wolf's muzzle, claws and thick fur whenever the moon is full.",
+      "ingredients": [
+        "organic81:wolf",
+        "organic40:moonlight"
+      ],
+      "art_mode": "bespoke-subject",
+      "path": "client/assets/v81/werewolf.svg"
+    },
+    {
+      "id": "organic81:vampire-bat",
+      "name": "Vampire Bat",
+      "category": "life",
+      "summary": "A real blood-feeding bat lends its name to vampire legends, with pointed teeth and wings adapted for flight.",
+      "ingredients": [
+        "pack:vampire",
+        "organic81:bat"
+      ],
+      "art_mode": "bespoke-subject",
+      "path": "client/assets/v81/vampire-bat.svg"
+    },
+    {
+      "id": "organic81:griffin",
+      "name": "Griffin",
+      "category": "fantasy",
+      "summary": "A griffin combines the head and wings of an eagle with the muscular body and hindquarters of a lion.",
+      "ingredients": [
+        "organic81:eagle",
+        "organic81:lion"
+      ],
+      "art_mode": "bespoke-subject",
+      "path": "client/assets/v81/griffin.svg"
+    },
+    {
+      "id": "organic81:phoenix",
+      "name": "Phoenix",
+      "category": "fantasy",
+      "summary": "A legendary phoenix rises from its own ashes as a blazing bird whose bright tail resembles living flames.",
+      "ingredients": [
+        "organic81:folklore-bestiary",
+        "legacy:1"
+      ],
+      "art_mode": "bespoke-subject",
+      "path": "client/assets/v81/phoenix.svg"
+    },
+    {
+      "id": "organic81:kraken",
+      "name": "Kraken",
+      "category": "fantasy",
+      "summary": "A colossal legendary sea monster unfurls eight tentacles around ships and rises from the deep ocean.",
+      "ingredients": [
+        "organic81:folklore-bestiary",
+        "organic38:octopus"
+      ],
+      "art_mode": "bespoke-subject",
+      "path": "client/assets/v81/kraken.svg"
+    },
+    {
+      "id": "organic81:mermaid",
+      "name": "Mermaid",
+      "category": "fantasy",
+      "summary": "A mythic sea-dweller has a human upper body, flowing hair and the iridescent tail of a fish.",
+      "ingredients": [
+        "organic81:folklore-bestiary",
+        "legacy:27"
+      ],
+      "art_mode": "bespoke-subject",
+      "path": "client/assets/v81/mermaid.svg"
+    },
+    {
+      "id": "organic81:unicorn",
+      "name": "Unicorn",
+      "category": "fantasy",
+      "summary": "A white mythical horse bears a single spiraled horn on its forehead and a flowing pastel mane.",
+      "ingredients": [
+        "organic81:folklore-bestiary",
+        "legacy:574"
+      ],
+      "art_mode": "bespoke-subject",
+      "path": "client/assets/v81/unicorn.svg"
+    },
+    {
+      "id": "organic81:yeti",
+      "name": "Yeti",
+      "category": "fantasy",
+      "summary": "A shaggy mountain yeti stands against snow with oversized tracks, broad paws and thick white fur.",
+      "ingredients": [
+        "organic81:bear",
+        "legacy:36"
+      ],
+      "art_mode": "bespoke-subject",
+      "path": "client/assets/v81/yeti.svg"
+    },
+    {
+      "id": "organic81:gothic-castle",
+      "name": "Gothic Castle",
+      "category": "fantasy",
+      "summary": "A shadowy stone fortress with tall spires, pointed windows and a drawbridge evokes old vampire legends.",
+      "ingredients": [
+        "organic81:folklore-bestiary",
+        "legacy:562"
+      ],
+      "art_mode": "bespoke-subject",
+      "path": "client/assets/v81/gothic-castle.svg"
+    },
+    {
+      "id": "organic81:vampire-lord",
+      "name": "Vampire Lord",
+      "category": "fantasy",
+      "summary": "An elegant castle-dwelling vampire wears a high-collared cloak and reveals two sharp canine teeth.",
+      "ingredients": [
+        "pack:vampire",
+        "organic81:gothic-castle"
+      ],
+      "art_mode": "bespoke-subject",
+      "path": "client/assets/v81/vampire-lord.svg"
+    },
+    {
+      "id": "organic81:witch-familiar",
+      "name": "Witch Familiar",
+      "category": "fantasy",
+      "summary": "A witch's clever black cat acts as a magical familiar beside a little spellbook and crooked broomstick.",
+      "ingredients": [
+        "pack:witch",
+        "organic81:cat"
+      ],
+      "art_mode": "bespoke-subject",
+      "path": "client/assets/v81/witch-familiar.svg"
+    },
+    {
+      "id": "organic81:ghost-wolf",
+      "name": "Ghost Wolf",
+      "category": "fantasy",
+      "summary": "A translucent spectral wolf leaves pale blue tracks and an eerie howl that echoes through enchanted woods.",
+      "ingredients": [
+        "pack:ghost",
+        "organic81:wolf"
+      ],
+      "art_mode": "bespoke-subject",
+      "path": "client/assets/v81/ghost-wolf.svg"
     }
   ],
   "cycle_complete": false

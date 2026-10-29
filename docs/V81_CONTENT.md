@@ -1,6 +1,6 @@
-# Alchemy 10k V81 — 73/200 (in development)
+# Alchemy 10k V81: 89/200
 
-Last published version has 40 V81 items; the remaining 33 are WIP toward +188/6,000. The prehistoric branch separates dinosaurs, extinct mammals and flying/marine reptiles scientifically.
+Published baseline: 40 V81 items; WIP adds 49 new unique elements. No public merge/build until +188 total. Distinct biological, prehistoric and folklore branches, with globally identical recipe pairs.
 
 1. **Sprite Animation Light Table** = organic80:pixel-sprite-lightbox + legacy:211 — An animator's luminous drawing table shows three consecutive pixel-sprite frames beside a timing ruler.
 2. **Color-Proof Photo Printer** = organic80:color-calibration-proof + organic80:pocket-photo-printer — A tabletop printer outputs calibrated color patches beside a small landscape photograph.
@@ -75,3 +75,19 @@ Last published version has 40 V81 items; the remaining 33 are WIP toward +188/6,
 71. **Compsognathus** = organic81:prehistoric-species-atlas + legacy:111 — A tiny long-tailed predatory dinosaur runs lightly on two legs and has delicate arms and a slender head.
 72. **Archaeopteryx** = organic81:prehistoric-species-atlas + organic40:feather — A feathered Jurassic bird relative retains teeth, clawed wings and a long bony tail, illuminating bird evolution.
 73. **Woolly Rhinoceros** = organic81:prehistoric-species-atlas + organic81:goat — An Ice Age rhinoceros is covered in coarse insulating hair and carries two large horns above its muzzle.
+74. **Folklore Bestiary** = organic81:wildlife-species-atlas + legacy:121 — A weathered compendium depicts legendary beings beside real animals, inviting discoveries about folklore and myths.
+75. **Troll** = organic81:folklore-bestiary + legacy:14 — A bulky stone-skinned troll from northern folklore guards a rough bridge with long arms and oversized ears.
+76. **Goblin** = organic81:folklore-bestiary + legacy:561 — A mischievous treasure-hoarding goblin has oversized pointed ears, a hooked nose and a pouch of stolen coins.
+77. **Ogre** = organic81:folklore-bestiary + legacy:37 — A cave-dwelling ogre towers over travelers with a broad jaw, heavy tusks and a battered wooden club.
+78. **Werewolf** = organic81:wolf + organic40:moonlight — A cursed shapeshifter grows a wolf's muzzle, claws and thick fur whenever the moon is full.
+79. **Vampire Bat** = pack:vampire + organic81:bat — A real blood-feeding bat lends its name to vampire legends, with pointed teeth and wings adapted for flight.
+80. **Griffin** = organic81:eagle + organic81:lion — A griffin combines the head and wings of an eagle with the muscular body and hindquarters of a lion.
+81. **Phoenix** = organic81:folklore-bestiary + legacy:1 — A legendary phoenix rises from its own ashes as a blazing bird whose bright tail resembles living flames.
+82. **Kraken** = organic81:folklore-bestiary + organic38:octopus — A colossal legendary sea monster unfurls eight tentacles around ships and rises from the deep ocean.
+83. **Mermaid** = organic81:folklore-bestiary + legacy:27 — A mythic sea-dweller has a human upper body, flowing hair and the iridescent tail of a fish.
+84. **Unicorn** = organic81:folklore-bestiary + legacy:574 — A white mythical horse bears a single spiraled horn on its forehead and a flowing pastel mane.
+85. **Yeti** = organic81:bear + legacy:36 — A shaggy mountain yeti stands against snow with oversized tracks, broad paws and thick white fur.
+86. **Gothic Castle** = organic81:folklore-bestiary + legacy:562 — A shadowy stone fortress with tall spires, pointed windows and a drawbridge evokes old vampire legends.
+87. **Vampire Lord** = pack:vampire + organic81:gothic-castle — An elegant castle-dwelling vampire wears a high-collared cloak and reveals two sharp canine teeth.
+88. **Witch Familiar** = pack:witch + organic81:cat — A witch's clever black cat acts as a magical familiar beside a little spellbook and crooked broomstick.
+89. **Ghost Wolf** = pack:ghost + organic81:wolf — A translucent spectral wolf leaves pale blue tracks and an eerie howl that echoes through enchanted woods.

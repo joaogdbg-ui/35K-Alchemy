@@ -1,8 +1,6 @@
-# Alchemy 10k V81 — 73/200 illustrated candidate icons
+# Alchemy 10k V81 — 89/200 original illustrations (WIP)
 
-Artwork at both gameplay 35 px and larger 90 px. Not yet human/device-approved.
-
-| # | Element | 35px | 90px |
+| # | Element | Actual 35px | Detail 90px |
 |---:|---|:---:|:---:|
 | 1 | Sprite Animation Light Table | <img src="../client/assets/v81/sprite-animation-light-table.svg" width="35" height="35" /> | <img src="../client/assets/v81/sprite-animation-light-table.svg" width="90" height="90" /> |
 | 2 | Color-Proof Photo Printer | <img src="../client/assets/v81/color-proof-photo-printer.svg" width="35" height="35" /> | <img src="../client/assets/v81/color-proof-photo-printer.svg" width="90" height="90" /> |
@@ -77,3 +75,21 @@ Artwork at both gameplay 35 px and larger 90 px. Not yet human/device-approved.
 | 71 | Compsognathus | <img src="../client/assets/v81/compsognathus.svg" width="35" height="35" /> | <img src="../client/assets/v81/compsognathus.svg" width="90" height="90" /> |
 | 72 | Archaeopteryx | <img src="../client/assets/v81/archaeopteryx.svg" width="35" height="35" /> | <img src="../client/assets/v81/archaeopteryx.svg" width="90" height="90" /> |
 | 73 | Woolly Rhinoceros | <img src="../client/assets/v81/woolly-rhinoceros.svg" width="35" height="35" /> | <img src="../client/assets/v81/woolly-rhinoceros.svg" width="90" height="90" /> |
+| 74 | Folklore Bestiary | <img src="../client/assets/v81/folklore-bestiary.svg" width="35" height="35" /> | <img src="../client/assets/v81/folklore-bestiary.svg" width="90" height="90" /> |
+| 75 | Troll | <img src="../client/assets/v81/troll.svg" width="35" height="35" /> | <img src="../client/assets/v81/troll.svg" width="90" height="90" /> |
+| 76 | Goblin | <img src="../client/assets/v81/goblin.svg" width="35" height="35" /> | <img src="../client/assets/v81/goblin.svg" width="90" height="90" /> |
+| 77 | Ogre | <img src="../client/assets/v81/ogre.svg" width="35" height="35" /> | <img src="../client/assets/v81/ogre.svg" width="90" height="90" /> |
+| 78 | Werewolf | <img src="../client/assets/v81/werewolf.svg" width="35" height="35" /> | <img src="../client/assets/v81/werewolf.svg" width="90" height="90" /> |
+| 79 | Vampire Bat | <img src="../client/assets/v81/vampire-bat.svg" width="35" height="35" /> | <img src="../client/assets/v81/vampire-bat.svg" width="90" height="90" /> |
+| 80 | Griffin | <img src="../client/assets/v81/griffin.svg" width="35" height="35" /> | <img src="../client/assets/v81/griffin.svg" width="90" height="90" /> |
+| 81 | Phoenix | <img src="../client/assets/v81/phoenix.svg" width="35" height="35" /> | <img src="../client/assets/v81/phoenix.svg" width="90" height="90" /> |
+| 82 | Kraken | <img src="../client/assets/v81/kraken.svg" width="35" height="35" /> | <img src="../client/assets/v81/kraken.svg" width="90" height="90" /> |
+| 83 | Mermaid | <img src="../client/assets/v81/mermaid.svg" width="35" height="35" /> | <img src="../client/assets/v81/mermaid.svg" width="90" height="90" /> |
+| 84 | Unicorn | <img src="../client/assets/v81/unicorn.svg" width="35" height="35" /> | <img src="../client/assets/v81/unicorn.svg" width="90" height="90" /> |
+| 85 | Yeti | <img src="../client/assets/v81/yeti.svg" width="35" height="35" /> | <img src="../client/assets/v81/yeti.svg" width="90" height="90" /> |
+| 86 | Gothic Castle | <img src="../client/assets/v81/gothic-castle.svg" width="35" height="35" /> | <img src="../client/assets/v81/gothic-castle.svg" width="90" height="90" /> |
+| 87 | Vampire Lord | <img src="../client/assets/v81/vampire-lord.svg" width="35" height="35" /> | <img src="../client/assets/v81/vampire-lord.svg" width="90" height="90" /> |
+| 88 | Witch Familiar | <img src="../client/assets/v81/witch-familiar.svg" width="35" height="35" /> | <img src="../client/assets/v81/witch-familiar.svg" width="90" height="90" /> |
+| 89 | Ghost Wolf | <img src="../client/assets/v81/ghost-wolf.svg" width="35" height="35" /> | <img src="../client/assets/v81/ghost-wolf.svg" width="90" height="90" /> |
+
+Human recognition at 35px is a separate review stage; hashes and SVG validity alone do not certify artistic quality.
