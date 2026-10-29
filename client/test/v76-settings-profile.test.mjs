@@ -13,6 +13,7 @@ test('V76.6: Settings has three keyboard accessible, scrollable tabs with Profil
  assert.match(settings,/selectSettingsTab\('profile'\)/);
  assert.match(source,/event\.key==='Home'/);
  assert.match(css,/\.settings-pane\[hidden\]\{display:none!important\}/);
+ assert.match(source,/function showModal\(content\)\{\$\('modal'\)\.removeAttribute\('aria-labelledby'\)/);
  assert.match(css,/max-height:min\(86dvh,750px\)/);
  assert.match(css,/html\[data-theme="dark"\] \.settings-shell/);
 });
