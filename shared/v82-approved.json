@@ -1,17 +1,17 @@
 {
   "version": 82,
-  "cohort_count": 14,
+  "cohort_count": 28,
   "expansion_goal": 200,
-  "expansion_progress": 14,
-  "remaining_to_goal": 186,
+  "expansion_progress": 28,
+  "remaining_to_goal": 172,
   "cycle_complete": false,
   "base_catalog": {
     "elements": 5972,
     "recipes": 14309
   },
   "expected_catalog": {
-    "elements": 5986,
-    "recipes": 14323
+    "elements": 6000,
+    "recipes": 14337
   },
   "new_items": [
     {
@@ -181,6 +181,174 @@
       ],
       "art_mode": "bespoke-subject",
       "path": "client/assets/v82/werewolf-film-makeup.svg"
+    },
+    {
+      "id": "organic82:phoenix-soundtrack",
+      "name": "Phoenix Soundtrack",
+      "category": "music",
+      "summary": "A mythical firebird music album depicts a rising phoenix and an original orchestral score on its sleeve.",
+      "ingredients": [
+        "organic81:phoenix",
+        "legacy:139"
+      ],
+      "art_mode": "bespoke-subject",
+      "path": "client/assets/v82/phoenix-soundtrack.svg"
+    },
+    {
+      "id": "organic82:dragon-wing-animatronic",
+      "name": "Dragon Wing Animatronic",
+      "category": "technology",
+      "summary": "A mechanical dragon wing uses hinged metal spars and motors to create believable fantasy film effects.",
+      "ingredients": [
+        "organic81:dragon-adventure-codex",
+        "legacy:55"
+      ],
+      "art_mode": "bespoke-subject",
+      "path": "client/assets/v82/dragon-wing-animatronic.svg"
+    },
+    {
+      "id": "organic82:troll-puzzle-game",
+      "name": "Troll Puzzle Game",
+      "category": "game",
+      "summary": "An original puzzle adventure challenges players to cross a winding stone bridge without waking its troll guardian.",
+      "ingredients": [
+        "organic81:troll",
+        "legacy:224"
+      ],
+      "art_mode": "bespoke-subject",
+      "path": "client/assets/v82/troll-puzzle-game.svg"
+    },
+    {
+      "id": "organic82:vampire-castle-diorama",
+      "name": "Vampire Castle Diorama",
+      "category": "fantasy",
+      "summary": "A tabletop miniature recreates a moonlit vampire castle with pointed towers and a winding graveyard path.",
+      "ingredients": [
+        "organic81:gothic-castle",
+        "organic81:miniature-terrain-toolbox"
+      ],
+      "art_mode": "bespoke-subject",
+      "path": "client/assets/v82/vampire-castle-diorama.svg"
+    },
+    {
+      "id": "organic82:wildlife-rescue-game",
+      "name": "Wildlife Rescue Game",
+      "category": "game",
+      "summary": "An original wildlife rescue game lets players rehabilitate forest animals and return them to safe habitats.",
+      "ingredients": [
+        "organic81:wildlife-species-atlas",
+        "legacy:166"
+      ],
+      "art_mode": "bespoke-subject",
+      "path": "client/assets/v82/wildlife-rescue-game.svg"
+    },
+    {
+      "id": "organic82:dinosaur-park-simulator",
+      "name": "Dinosaur Park Simulator",
+      "category": "game",
+      "summary": "A dinosaur-care simulation lets players build safe habitats, incubate eggs and manage a lively prehistoric park.",
+      "ingredients": [
+        "organic81:maiasaura",
+        "legacy:196"
+      ],
+      "art_mode": "bespoke-subject",
+      "path": "client/assets/v82/dinosaur-park-simulator.svg"
+    },
+    {
+      "id": "organic82:nature-sound-mixer",
+      "name": "Nature Sound Mixer",
+      "category": "music",
+      "summary": "An audio mixing console layers recorded wolf howls, forest wind and birdsong into an atmospheric track.",
+      "ingredients": [
+        "organic81:wolf-howl",
+        "organic81:arcade-sound-mixing-desk"
+      ],
+      "art_mode": "bespoke-subject",
+      "path": "client/assets/v82/nature-sound-mixer.svg"
+    },
+    {
+      "id": "organic82:fossil-excavation-game",
+      "name": "Fossil Excavation Game",
+      "category": "game",
+      "summary": "An original archaeology game challenges players to uncover and reconstruct dinosaur skeletons from excavation sites.",
+      "ingredients": [
+        "organic81:fossil-excavation",
+        "legacy:166"
+      ],
+      "art_mode": "bespoke-subject",
+      "path": "client/assets/v82/fossil-excavation-game.svg"
+    },
+    {
+      "id": "organic82:paleontology-puzzle",
+      "name": "Paleontology Puzzle",
+      "category": "board",
+      "summary": "A jigsaw puzzle assembles an ancient beetle impression, letting players restore the missing sections of a fossil.",
+      "ingredients": [
+        "organic81:fossil-beetle",
+        "legacy:225"
+      ],
+      "art_mode": "bespoke-subject",
+      "path": "client/assets/v82/paleontology-puzzle.svg"
+    },
+    {
+      "id": "organic82:ice-age-strategy-board",
+      "name": "Ice Age Strategy Board",
+      "category": "board",
+      "summary": "A tabletop strategy game uses mammoth and ice-age animal tokens on a map of frozen valleys.",
+      "ingredients": [
+        "organic81:woolly-mammoth",
+        "legacy:107"
+      ],
+      "art_mode": "bespoke-subject",
+      "path": "client/assets/v82/ice-age-strategy-board.svg"
+    },
+    {
+      "id": "organic82:mammoth-plush-toy",
+      "name": "Mammoth Plush Toy",
+      "category": "object",
+      "summary": "A soft collectible woolly mammoth plush has oversized ears, curled felt tusks and stitched button eyes.",
+      "ingredients": [
+        "organic81:woolly-mammoth",
+        "legacy:203"
+      ],
+      "art_mode": "bespoke-subject",
+      "path": "client/assets/v82/mammoth-plush-toy.svg"
+    },
+    {
+      "id": "organic82:mythic-creature-arena",
+      "name": "Mythic Creature Arena",
+      "category": "fantasy",
+      "summary": "A circular fantasy arena pits legendary creatures against one another beneath banners and torchlight.",
+      "ingredients": [
+        "organic81:hydra",
+        "legacy:585"
+      ],
+      "art_mode": "bespoke-subject",
+      "path": "client/assets/v82/mythic-creature-arena.svg"
+    },
+    {
+      "id": "organic82:kraken-deep-sea-game",
+      "name": "Kraken Deep-Sea Game",
+      "category": "game",
+      "summary": "An underwater exploration game features a giant kraken wrapping its tentacles around a submarine.",
+      "ingredients": [
+        "organic81:kraken",
+        "legacy:166"
+      ],
+      "art_mode": "bespoke-subject",
+      "path": "client/assets/v82/kraken-deep-sea-game.svg"
+    },
+    {
+      "id": "organic82:pegasus-racing-game",
+      "name": "Pegasus Racing Game",
+      "category": "game",
+      "summary": "An original fantasy racing game sends winged horses across floating checkpoints high above the clouds.",
+      "ingredients": [
+        "organic81:pegasus",
+        "legacy:188"
+      ],
+      "art_mode": "bespoke-subject",
+      "path": "client/assets/v82/pegasus-racing-game.svg"
     }
   ]
 }
