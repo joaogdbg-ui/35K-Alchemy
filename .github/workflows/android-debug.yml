@@ -27,6 +27,16 @@ jobs:
     timeout-minutes: 60
     steps:
       - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+      - name: Gate content release on exactly 200 new elements
+        env:
+          PREVIOUS_SHA: ${{ github.event.before }}
+        shell: bash
+        run: |
+          BASE="$PREVIOUS_SHA"
+          if [[ -z "$BASE" || "$BASE" =~ ^0+$ ]]; then BASE="$(git rev-parse HEAD)"; fi
+          node tools/check-content-batch-200.mjs --base "$BASE"
       - name: Require complete game source
         run: |
           test -f client/src/app.js
