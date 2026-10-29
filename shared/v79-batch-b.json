@@ -1,0 +1,122 @@
+[
+  {
+    "id": "organic79:aurora-desk-lantern",
+    "name": "Aurora Desk Lantern",
+    "category": "fantasy",
+    "summary": "A hand-carved desk lamp pours soft aurora colors over the pages of a book.",
+    "ingredients": [
+      "organic78:aurora-crystal-lamp",
+      "legacy:24"
+    ],
+    "art_mode": "bespoke-subject",
+    "path": "client/assets/v79/aurora-desk-lantern.svg"
+  },
+  {
+    "id": "organic79:blizzard-detector-tower",
+    "name": "Blizzard Detector Tower",
+    "category": "technology",
+    "summary": "A frost-covered sensor tower flashes a storm warning before the first snowdrift.",
+    "ingredients": [
+      "organic78:snow-observatory",
+      "legacy:18"
+    ],
+    "art_mode": "bespoke-subject",
+    "path": "client/assets/v79/blizzard-detector-tower.svg"
+  },
+  {
+    "id": "organic79:gem-offering-dish",
+    "name": "Gem Offering Dish",
+    "category": "fantasy",
+    "summary": "A shallow temple bowl holds polished gems left as tokens of gratitude.",
+    "ingredients": [
+      "organic78:shrine-offering-bowl",
+      "legacy:34"
+    ],
+    "art_mode": "bespoke-subject",
+    "path": "client/assets/v79/gem-offering-dish.svg"
+  },
+  {
+    "id": "organic79:firefly-garden-terrarium",
+    "name": "Firefly Garden Terrarium",
+    "category": "nature",
+    "summary": "A miniature woodland under glass shelters tiny lights among moss and leaves.",
+    "ingredients": [
+      "organic78:firefly-pond-dome",
+      "legacy:19"
+    ],
+    "art_mode": "bespoke-subject",
+    "path": "client/assets/v79/firefly-garden-terrarium.svg"
+  },
+  {
+    "id": "organic79:enchanted-egg-ward",
+    "name": "Enchanted Egg Ward",
+    "category": "fantasy",
+    "summary": "A magic circle protects a rare egg with a bright ring of protective runes.",
+    "ingredients": [
+      "organic78:dragon-egg-cradle",
+      "legacy:125"
+    ],
+    "art_mode": "bespoke-subject",
+    "path": "client/assets/v79/enchanted-egg-ward.svg"
+  },
+  {
+    "id": "organic79:moonwatch-radio-hut",
+    "name": "Moonwatch Radio Hut",
+    "category": "fantasy",
+    "summary": "A tiny lookout hut carries radio messages across a sleeping moonlit valley.",
+    "ingredients": [
+      "organic78:moonbridge-watchpost",
+      "legacy:89"
+    ],
+    "art_mode": "bespoke-subject",
+    "path": "client/assets/v79/moonwatch-radio-hut.svg"
+  },
+  {
+    "id": "organic79:wooden-wind-chime-rack",
+    "name": "Wooden Wind Chime Rack",
+    "category": "culture",
+    "summary": "A simple wooden frame suspends hollow chimes that sing in a summer breeze.",
+    "ingredients": [
+      "organic78:village-wind-chimes",
+      "legacy:24"
+    ],
+    "art_mode": "bespoke-subject",
+    "path": "client/assets/v79/wooden-wind-chime-rack.svg"
+  },
+  {
+    "id": "organic79:airship-anchor-winch",
+    "name": "Airship Anchor Winch",
+    "category": "technology",
+    "summary": "A sturdy cable winch pulls a visiting airship toward a safe mooring point.",
+    "ingredients": [
+      "organic78:airship-mooring-tower",
+      "legacy:68"
+    ],
+    "art_mode": "bespoke-subject",
+    "path": "client/assets/v79/airship-anchor-winch.svg"
+  },
+  {
+    "id": "organic79:fossil-gem-hammer",
+    "name": "Fossil Gem Hammer",
+    "category": "fantasy",
+    "summary": "A miner's hammer cracks open stone to reveal a bright fossil crystal.",
+    "ingredients": [
+      "organic78:gem-miner-pickaxe",
+      "legacy:41"
+    ],
+    "art_mode": "bespoke-subject",
+    "path": "client/assets/v79/fossil-gem-hammer.svg"
+  },
+  {
+    "id": "organic79:solar-village-plaza",
+    "name": "Solar Village Plaza",
+    "category": "culture",
+    "summary": "A village square surrounds a grand sundial where travelers meet at midday.",
+    "ingredients": [
+      "organic78:village-sundial",
+      "legacy:141"
+    ],
+    "art_mode": "bespoke-subject",
+    "path": "client/assets/v79/solar-village-plaza.svg"
+  }
+]

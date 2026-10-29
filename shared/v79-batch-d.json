@@ -1,0 +1,122 @@
+[
+  {
+    "id": "organic79:solar-test-bench",
+    "name": "Solar Test Bench",
+    "category": "science",
+    "summary": "A tabletop solar testing rig compares the output of panels in bright daylight.",
+    "ingredients": [
+      "organic78:solar-research-kit",
+      "legacy:141"
+    ],
+    "art_mode": "bespoke-subject",
+    "path": "client/assets/v79/solar-test-bench.svg"
+  },
+  {
+    "id": "organic79:aquatic-cell-study",
+    "name": "Aquatic Cell Study",
+    "category": "science",
+    "summary": "A microscope view reveals colorful pond cells drifting in a drop of water.",
+    "ingredients": [
+      "organic78:pond-sample-slide",
+      "legacy:53"
+    ],
+    "art_mode": "bespoke-subject",
+    "path": "client/assets/v79/aquatic-cell-study.svg"
+  },
+  {
+    "id": "organic79:lightning-strike-recorder",
+    "name": "Lightning Strike Recorder",
+    "category": "technology",
+    "summary": "A weather station records sudden voltage spikes when lightning strikes nearby.",
+    "ingredients": [
+      "organic78:storm-lab-console",
+      "legacy:18"
+    ],
+    "art_mode": "bespoke-subject",
+    "path": "client/assets/v79/lightning-strike-recorder.svg"
+  },
+  {
+    "id": "organic79:crystal-maze-box",
+    "name": "Crystal Maze Box",
+    "category": "board",
+    "summary": "A transparent puzzle box traps a sparkling crystal behind moving walls.",
+    "ingredients": [
+      "organic78:magnetic-puzzle-box",
+      "legacy:34"
+    ],
+    "art_mode": "bespoke-subject",
+    "path": "client/assets/v79/crystal-maze-box.svg"
+  },
+  {
+    "id": "organic79:shadow-frequency-tuner",
+    "name": "Shadow Frequency Tuner",
+    "category": "technology",
+    "summary": "A discreet tuning dial isolates quiet radio signals hidden beneath background noise.",
+    "ingredients": [
+      "organic78:secret-radio-receiver",
+      "legacy:66"
+    ],
+    "art_mode": "bespoke-subject",
+    "path": "client/assets/v79/shadow-frequency-tuner.svg"
+  },
+  {
+    "id": "organic79:holographic-command-link",
+    "name": "Holographic Command Link",
+    "category": "technology",
+    "summary": "A tiny transmitter sends a floating tactical map to a teammate's station.",
+    "ingredients": [
+      "organic78:tactical-hologram",
+      "legacy:68"
+    ],
+    "art_mode": "bespoke-subject",
+    "path": "client/assets/v79/holographic-command-link.svg"
+  },
+  {
+    "id": "organic79:frost-cooling-capsule",
+    "name": "Frost Cooling Capsule",
+    "category": "technology",
+    "summary": "A removable cooling capsule stores icy fluid to protect an overworked handheld.",
+    "ingredients": [
+      "organic78:pocket-cooling-core",
+      "legacy:35"
+    ],
+    "art_mode": "bespoke-subject",
+    "path": "client/assets/v79/frost-cooling-capsule.svg"
+  },
+  {
+    "id": "organic79:wind-sensor-array",
+    "name": "Wind Sensor Array",
+    "category": "science",
+    "summary": "A row of rooftop wind sensors spins and records changing air currents.",
+    "ingredients": [
+      "organic78:copper-sensor-net",
+      "legacy:12"
+    ],
+    "art_mode": "bespoke-subject",
+    "path": "client/assets/v79/wind-sensor-array.svg"
+  },
+  {
+    "id": "organic79:logic-chip-maze",
+    "name": "Logic Chip Maze",
+    "category": "technology",
+    "summary": "A little processor chip runs a maze of digital gates and bright signal paths.",
+    "ingredients": [
+      "organic78:neon-code-puzzle",
+      "legacy:73"
+    ],
+    "art_mode": "bespoke-subject",
+    "path": "client/assets/v79/logic-chip-maze.svg"
+  },
+  {
+    "id": "organic79:prism-color-fountain",
+    "name": "Prism Color Fountain",
+    "category": "fantasy",
+    "summary": "A carved crystal fountain refracts falling water into colorful rays.",
+    "ingredients": [
+      "organic78:crystal-light-spectrum",
+      "legacy:63"
+    ],
+    "art_mode": "bespoke-subject",
+    "path": "client/assets/v79/prism-color-fountain.svg"
+  }
+]
