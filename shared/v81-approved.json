@@ -1,9 +1,9 @@
 {
   "version": 81,
   "cohort_count": 40,
-  "expansion_goal": 40,
+  "expansion_goal": 200,
   "expansion_progress": 40,
-  "remaining_to_goal": 0,
+  "remaining_to_goal": 160,
   "base_catalog": {
     "elements": 5772,
     "recipes": 14109
@@ -493,5 +493,6 @@
       "art_mode": "bespoke-subject",
       "path": "client/assets/v81/miniature-dungeon-diorama.svg"
     }
-  ]
+  ],
+  "cycle_complete": false
 }
