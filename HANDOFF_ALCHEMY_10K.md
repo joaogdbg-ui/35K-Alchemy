@@ -34,7 +34,8 @@ Each authored entry has: permanent `organic82:` ID, original English summary, se
 - `client/src/app.js`, `tools/build-standalone.py`, `tools/audit-active-artwork.mjs` plus historical V80/V81 tests updated to include the V82 layer.
 
 ## Checks and exclusions
-- Preliminary in-memory source checks on representative legacy, creative and organic packs previously showed all starter campaigns reachable and no global pair contradictions among those checked. The four new-old primary ingredient pairs were searched against the GitHub catalog, with no matches returned.
+- **Repository-source scan across all 46 historical catalog modules** (legacy, creative, gaming and organic through V81): summed 5,812 item records / 14,149 recipes; no pre-existing names equal to the 25 new names and no use of the four old-old ingredient pairs chosen for V82. This verifies the *candidate collision inputs*, not an executed full Node validator.
+- **Direct in-memory family closure using the actual historical V53 family definitions, foundation recipe sources, all 25 new recipes and current thematic compiler**: Nature & Science **476/476**, People & Culture **211/211**, Mythology & Gods **34/34** (30 graph recipes), Prehistory & Dinosaurs **16/16** (12 graph recipes), **zero conflicting family/global outputs and zero unearned starter sync**. These are targeted source-level checks; full application regression tests remain pending.
 - A **complete** repository checkout, **npm test**, full-history validator, standalone builder, browser visual audit, full 35px light/dark review, CI and Android device/APK tests have **not yet been run** in this environment. Do not imply green CI or human-reviewed artwork.
 - No new APK or merged release exists. The current GitHub 'latest' APK still corresponds to a previous main-branch build.
 - Real AdMob rewards, cloud sync, leaderboards, production signing and Nature & Science's starter correction are unresolved.
