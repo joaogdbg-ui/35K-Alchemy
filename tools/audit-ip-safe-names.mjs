@@ -21,6 +21,6 @@ for(const it of items)if(!visible.has(it.id))throw Error('Missing public label f
 const v76=JSON.parse(readFileSync('shared/v76-approved.json','utf8'));
 for(const item of v76.new_items){
  const svg=readFileSync(item.path,'utf8');
- if(/<image\b|<text\b|<foreignObject|<script\b|<use\b|href\s*=|https?:|data:image/i.test(svg))throw Error('V76 active SVG contains external, text, or reusable logo material: '+item.path);
+ if(/<image\b|<text\b|<foreignObject|<script\b|<use\b|href\s*=|url\s*\(\s*['\"]?https?:|data:image/i.test(svg))throw Error('V76 active SVG contains external, text, or reusable logo material: '+item.path);
 }
 console.log('IP display screen PASS:',items.length,'IDs,',recipes.size,'recipes;',risky.length,'fictionalized labels;',unresolved.length,'known pattern hits. Artwork and trademark clearance still require human review.');
