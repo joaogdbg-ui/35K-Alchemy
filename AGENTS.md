@@ -17,3 +17,10 @@ Ler primeiro `docs/WORKING_RULES_PT.md`, `docs/CONTENT_200_BATCH_POLICY_PT.md`, 
 - UI inglês; preservar Settings, Sort, combiner, sons, tema, pesquisa, scroll, Family Only e Merge. Ilustrações SVG originais, semanticamente distintas; evitar direitos de terceiros.
 - Tests: `npm test`, validadores, auditorias de SVG e IP, builder standalone, comparação de deltas +200 em CI. Confirmar 320/360/390/1280px e testar APK físico antes da distribuição comercial.
 - Não apresentar Google Cloud, Google leaderboard, AdMob real nem assinatura release como concluídos sem verificação.
+
+## Families Only e consumo de CI — PONTOS INEGOCIÁVEIS
+
+- **Cada família é completável a 100% APENAS com os seus 4 starters temáticos**, sem Classic, outras famílias, anúncios ou Merge. Verificar fecho de alcance isolado por família em todas as expansões.
+- **Multifamília:** mesmo ID/receita/arte em todas as famílias elegíveis; descoberta sincroniza entre elas; Classic independente, exceto Merge após 2 recompensas reais.
+- V53 contém uma exceção ainda por corrigir: Nature & Science usa os 4 starters Classic (apesar de alcançar 476/476); corrigir grafo com cuidado, não só os iniciais. Ler `docs/FAMILIES_ONLY_CONTRACT_PT.md`.
+- **NÃO desencadear GitHub Actions a cada push WIP.** Produzir os +200 completos, rever sem CI cobrada, abrir um único PR com CI, e só após merge uma compilação Android. Ler `docs/CI_BUDGET_POLICY_PT.md`.
