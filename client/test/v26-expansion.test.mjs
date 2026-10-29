@@ -23,6 +23,6 @@ test('V26 new game unlocks persist across future versions and exports',()=>{
 });
 test('V26 has 18 local sets, two tabs and truthful offline rates',()=>{
  assert.equal((html.match(/class="tab(?: active)?" data-view/g)||[]).length,2);
- assert.ok(app.includes('Kirby Adventures'));assert.ok(app.includes('Dragon Ball Games'));
+ assert.ok(app.includes('Pufflet Adventures'));assert.ok(app.includes('Sky Orbs Adventures'));
  assert.ok(app.includes('Player discovery rate · — (offline)'));
 });
