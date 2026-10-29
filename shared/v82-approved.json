@@ -1,18 +1,18 @@
 {
   "version": 82,
   "status": "WIP_NOT_RELEASED",
-  "cohort_count": 82,
+  "cohort_count": 100,
   "expansion_goal": 200,
-  "expansion_progress": 82,
-  "remaining_to_goal": 118,
+  "expansion_progress": 100,
+  "remaining_to_goal": 100,
   "cycle_complete": false,
   "base_catalog": {
     "elements": 5812,
     "recipes": 14149
   },
   "expected_catalog": {
-    "elements": 5894,
-    "recipes": 14231
+    "elements": 5912,
+    "recipes": 14249
   },
   "new_items": [
     {
@@ -1244,6 +1244,276 @@
       ],
       "art_mode": "bespoke-subject",
       "path": "client/assets/v82/gungnir.svg"
+    },
+    {
+      "id": "organic82:egyptian-mythology",
+      "name": "Egyptian Mythology",
+      "category": "mythology",
+      "summary": "Gods of the Nile, sacred animals and tales of the afterlife shape Egyptian mythology.",
+      "familyCampaigns": [
+        "mythology"
+      ],
+      "ingredients": [
+        "organic82:mythology",
+        "organic82:greek-underworld"
+      ],
+      "art_mode": "bespoke-subject",
+      "path": "client/assets/v82/egyptian-mythology.svg"
+    },
+    {
+      "id": "organic82:ancient-egypt",
+      "name": "Ancient Egypt",
+      "category": "mythology",
+      "summary": "The Nile valley's ancient temples, pyramids and fertile riverbanks form a vast kingdom.",
+      "familyCampaigns": [
+        "mythology"
+      ],
+      "ingredients": [
+        "organic82:egyptian-mythology",
+        "organic41:ancient-city"
+      ],
+      "art_mode": "bespoke-subject",
+      "path": "client/assets/v82/ancient-egypt.svg"
+    },
+    {
+      "id": "organic82:egyptian-pantheon",
+      "name": "Egyptian Pantheon",
+      "category": "mythology",
+      "summary": "The great Egyptian pantheon gathers animal-headed and solar gods of the Nile.",
+      "familyCampaigns": [
+        "mythology"
+      ],
+      "ingredients": [
+        "organic82:egyptian-mythology",
+        "pack:god"
+      ],
+      "art_mode": "bespoke-subject",
+      "path": "client/assets/v82/egyptian-pantheon.svg"
+    },
+    {
+      "id": "organic82:ra",
+      "name": "Ra",
+      "category": "mythology",
+      "summary": "The Egyptian sun god Ra wears a golden solar disk as a falcon and serpent stand guard.",
+      "familyCampaigns": [
+        "mythology"
+      ],
+      "ingredients": [
+        "organic82:egyptian-pantheon",
+        "organic82:divine-thunderbolt"
+      ],
+      "art_mode": "bespoke-subject",
+      "path": "client/assets/v82/ra.svg"
+    },
+    {
+      "id": "organic82:isis",
+      "name": "Isis",
+      "category": "mythology",
+      "summary": "The Egyptian goddess Isis spreads protective feathered wings around a throne-shaped crown.",
+      "familyCampaigns": [
+        "mythology"
+      ],
+      "ingredients": [
+        "organic82:egyptian-pantheon",
+        "organic82:ancient-wisdom"
+      ],
+      "art_mode": "bespoke-subject",
+      "path": "client/assets/v82/isis.svg"
+    },
+    {
+      "id": "organic82:osiris",
+      "name": "Osiris",
+      "category": "mythology",
+      "summary": "The Egyptian ruler of the afterlife holds a crook and flail beneath an ornate white crown.",
+      "familyCampaigns": [
+        "mythology"
+      ],
+      "ingredients": [
+        "organic82:egyptian-pantheon",
+        "organic82:greek-underworld"
+      ],
+      "art_mode": "bespoke-subject",
+      "path": "client/assets/v82/osiris.svg"
+    },
+    {
+      "id": "organic82:horus",
+      "name": "Horus",
+      "category": "mythology",
+      "summary": "The falcon-headed Egyptian god Horus carries a royal crown and watchful golden eye.",
+      "familyCampaigns": [
+        "mythology"
+      ],
+      "ingredients": [
+        "organic82:ra",
+        "organic82:isis"
+      ],
+      "art_mode": "bespoke-subject",
+      "path": "client/assets/v82/horus.svg"
+    },
+    {
+      "id": "organic82:anubis",
+      "name": "Anubis",
+      "category": "mythology",
+      "summary": "The Egyptian jackal-headed god Anubis watches over embalming and the journey after death.",
+      "familyCampaigns": [
+        "mythology"
+      ],
+      "ingredients": [
+        "organic82:osiris",
+        "pack:shapeshifter"
+      ],
+      "art_mode": "bespoke-subject",
+      "path": "client/assets/v82/anubis.svg"
+    },
+    {
+      "id": "organic82:bastet",
+      "name": "Bastet",
+      "category": "mythology",
+      "summary": "The Egyptian cat goddess Bastet bears upright feline ears and a ceremonial sistrum.",
+      "familyCampaigns": [
+        "mythology"
+      ],
+      "ingredients": [
+        "organic82:isis",
+        "pack:shapeshifter"
+      ],
+      "art_mode": "bespoke-subject",
+      "path": "client/assets/v82/bastet.svg"
+    },
+    {
+      "id": "organic82:thoth",
+      "name": "Thoth",
+      "category": "mythology",
+      "summary": "The ibis-headed Egyptian god Thoth guards writing, measurement and ancient knowledge.",
+      "familyCampaigns": [
+        "mythology"
+      ],
+      "ingredients": [
+        "organic82:egyptian-pantheon",
+        "organic82:runestone"
+      ],
+      "art_mode": "bespoke-subject",
+      "path": "client/assets/v82/thoth.svg"
+    },
+    {
+      "id": "organic82:set-of-egypt",
+      "name": "Set of Egypt",
+      "category": "mythology",
+      "summary": "The Egyptian god Set carries a forked desert staff and the tall ears of his sacred animal.",
+      "familyCampaigns": [
+        "mythology"
+      ],
+      "ingredients": [
+        "organic82:egyptian-pantheon",
+        "organic82:ragnarok"
+      ],
+      "art_mode": "bespoke-subject",
+      "path": "client/assets/v82/set-of-egypt.svg"
+    },
+    {
+      "id": "organic82:hathor",
+      "name": "Hathor",
+      "category": "mythology",
+      "summary": "The Egyptian goddess Hathor wears a sun disk between curved cow horns.",
+      "familyCampaigns": [
+        "mythology"
+      ],
+      "ingredients": [
+        "organic82:egyptian-pantheon",
+        "organic82:aphrodite"
+      ],
+      "art_mode": "bespoke-subject",
+      "path": "client/assets/v82/hathor.svg"
+    },
+    {
+      "id": "organic82:sekhmet",
+      "name": "Sekhmet",
+      "category": "mythology",
+      "summary": "The Egyptian lioness goddess Sekhmet wears a solar crown and fierce feline muzzle.",
+      "familyCampaigns": [
+        "mythology"
+      ],
+      "ingredients": [
+        "organic82:ra",
+        "pack:shapeshifter"
+      ],
+      "art_mode": "bespoke-subject",
+      "path": "client/assets/v82/sekhmet.svg"
+    },
+    {
+      "id": "organic82:sobek",
+      "name": "Sobek",
+      "category": "mythology",
+      "summary": "The crocodile-headed Egyptian god Sobek represents river strength and fertile Nile waters.",
+      "familyCampaigns": [
+        "mythology"
+      ],
+      "ingredients": [
+        "organic82:egyptian-pantheon",
+        "organic82:poseidon"
+      ],
+      "art_mode": "bespoke-subject",
+      "path": "client/assets/v82/sobek.svg"
+    },
+    {
+      "id": "organic82:nephthys",
+      "name": "Nephthys",
+      "category": "mythology",
+      "summary": "The Egyptian goddess Nephthys protects mourners beneath a tall house-shaped headdress.",
+      "familyCampaigns": [
+        "mythology"
+      ],
+      "ingredients": [
+        "organic82:isis",
+        "organic82:greek-underworld"
+      ],
+      "art_mode": "bespoke-subject",
+      "path": "client/assets/v82/nephthys.svg"
+    },
+    {
+      "id": "organic82:ammit",
+      "name": "Ammit",
+      "category": "mythology",
+      "summary": "The Egyptian devourer Ammit joins crocodile jaws, lion claws and a hippopotamus body.",
+      "familyCampaigns": [
+        "mythology"
+      ],
+      "ingredients": [
+        "organic82:anubis",
+        "pack:shapeshifter"
+      ],
+      "art_mode": "bespoke-subject",
+      "path": "client/assets/v82/ammit.svg"
+    },
+    {
+      "id": "organic82:apophis",
+      "name": "Apophis",
+      "category": "mythology",
+      "summary": "The Egyptian chaos serpent Apophis coils against the nightly solar voyage of Ra.",
+      "familyCampaigns": [
+        "mythology"
+      ],
+      "ingredients": [
+        "organic82:ra",
+        "organic82:jormungandr"
+      ],
+      "art_mode": "bespoke-subject",
+      "path": "client/assets/v82/apophis.svg"
+    },
+    {
+      "id": "organic82:eye-of-horus",
+      "name": "Eye of Horus",
+      "category": "mythology",
+      "summary": "The protective Eye of Horus is drawn as a stylized Egyptian symbol of healing and wholeness.",
+      "familyCampaigns": [
+        "mythology"
+      ],
+      "ingredients": [
+        "organic82:horus",
+        "organic82:ancient-wisdom"
+      ],
+      "art_mode": "bespoke-subject",
+      "path": "client/assets/v82/eye-of-horus.svg"
     }
   ]
 }
