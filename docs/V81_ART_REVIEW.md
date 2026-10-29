@@ -1,6 +1,8 @@
-# Alchemy 10k — 124/200 V81 original SVGs in development
+# V81 illustrated gallery — 138/200 (WIP)
 
-| # | Name | 35px | 90px |
+Manual 35/90px visual review is required. Never treat this internal work as a published APK.
+
+| # | Element | 35px | 90px |
 |---:|---|:---:|:---:|
 | 1 | Sprite Animation Light Table | <img src="../client/assets/v81/sprite-animation-light-table.svg" width="35" height="35" /> | <img src="../client/assets/v81/sprite-animation-light-table.svg" width="90" height="90" /> |
 | 2 | Color-Proof Photo Printer | <img src="../client/assets/v81/color-proof-photo-printer.svg" width="35" height="35" /> | <img src="../client/assets/v81/color-proof-photo-printer.svg" width="90" height="90" /> |
@@ -126,5 +128,17 @@
 | 122 | Wool | <img src="../client/assets/v81/wool.svg" width="35" height="35" /> | <img src="../client/assets/v81/wool.svg" width="90" height="90" /> |
 | 123 | Wolf Pack | <img src="../client/assets/v81/wolf-pack.svg" width="35" height="35" /> | <img src="../client/assets/v81/wolf-pack.svg" width="90" height="90" /> |
 | 124 | Fossil Excavation | <img src="../client/assets/v81/fossil-excavation.svg" width="35" height="35" /> | <img src="../client/assets/v81/fossil-excavation.svg" width="90" height="90" /> |
-
-Manual review of distinct object silhouettes and real 35px recognizability remains necessary.
+| 125 | Cyclops | <img src="../client/assets/v81/cyclops.svg" width="35" height="35" /> | <img src="../client/assets/v81/cyclops.svg" width="90" height="90" /> |
+| 126 | Minotaur | <img src="../client/assets/v81/minotaur.svg" width="35" height="35" /> | <img src="../client/assets/v81/minotaur.svg" width="90" height="90" /> |
+| 127 | Centaur | <img src="../client/assets/v81/centaur.svg" width="35" height="35" /> | <img src="../client/assets/v81/centaur.svg" width="90" height="90" /> |
+| 128 | Pegasus | <img src="../client/assets/v81/pegasus.svg" width="35" height="35" /> | <img src="../client/assets/v81/pegasus.svg" width="90" height="90" /> |
+| 129 | Hippogriff | <img src="../client/assets/v81/hippogriff.svg" width="35" height="35" /> | <img src="../client/assets/v81/hippogriff.svg" width="90" height="90" /> |
+| 130 | Chimera | <img src="../client/assets/v81/chimera.svg" width="35" height="35" /> | <img src="../client/assets/v81/chimera.svg" width="90" height="90" /> |
+| 131 | Hydra | <img src="../client/assets/v81/hydra.svg" width="35" height="35" /> | <img src="../client/assets/v81/hydra.svg" width="90" height="90" /> |
+| 132 | Basilisk | <img src="../client/assets/v81/basilisk.svg" width="35" height="35" /> | <img src="../client/assets/v81/basilisk.svg" width="90" height="90" /> |
+| 133 | Gargoyle | <img src="../client/assets/v81/gargoyle.svg" width="35" height="35" /> | <img src="../client/assets/v81/gargoyle.svg" width="90" height="90" /> |
+| 134 | Hellhound | <img src="../client/assets/v81/hellhound.svg" width="35" height="35" /> | <img src="../client/assets/v81/hellhound.svg" width="90" height="90" /> |
+| 135 | Cerberus | <img src="../client/assets/v81/cerberus.svg" width="35" height="35" /> | <img src="../client/assets/v81/cerberus.svg" width="90" height="90" /> |
+| 136 | Wolf Howl | <img src="../client/assets/v81/wolf-howl.svg" width="35" height="35" /> | <img src="../client/assets/v81/wolf-howl.svg" width="90" height="90" /> |
+| 137 | Banshee | <img src="../client/assets/v81/banshee.svg" width="35" height="35" /> | <img src="../client/assets/v81/banshee.svg" width="90" height="90" /> |
+| 138 | Dryad | <img src="../client/assets/v81/dryad.svg" width="35" height="35" /> | <img src="../client/assets/v81/dryad.svg" width="90" height="90" /> |

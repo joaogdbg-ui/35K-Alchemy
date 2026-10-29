@@ -1,6 +1,6 @@
-# Alchemy 10k V81: 89/200
+# V81 work-in-progress — 138/200
 
-Published baseline: 40 V81 items; WIP adds 49 new unique elements. No public merge/build until +188 total. Distinct biological, prehistoric and folklore branches, with globally identical recipe pairs.
+40 V81 entries are already published. There are now 98 unreleased entries toward the one-time +188 release that targets exactly 6,000 total elements (160 V81 and 28 V82).
 
 1. **Sprite Animation Light Table** = organic80:pixel-sprite-lightbox + legacy:211 — An animator's luminous drawing table shows three consecutive pixel-sprite frames beside a timing ruler.
 2. **Color-Proof Photo Printer** = organic80:color-calibration-proof + organic80:pocket-photo-printer — A tabletop printer outputs calibrated color patches beside a small landscape photograph.
@@ -58,7 +58,7 @@ Published baseline: 40 V81 items; WIP adds 49 new unique elements. No public mer
 54. **Bat** = organic81:wild-animal + organic40:moonlight — A nocturnal bat flies on thin membranes stretched between long fingers and navigates by echolocation.
 55. **Eagle** = organic81:wild-animal + legacy:65 — A soaring eagle extends its broad primary feathers and sharply hooked beak above the mountain winds.
 56. **Crocodile** = organic81:wild-animal + legacy:39 — A river crocodile has a low armored body, long serrated jaws and a heavy tapering tail for swimming.
-57. **Penguin** = organic81:wild-animal + legacy:35 — An upright penguin wears dark plumage and a white belly, with short flippers and webbed feet on icy ground.
+57. **Emperor Penguin** = organic81:wild-animal + legacy:35 — An emperor penguin has yellow-orange neck markings, a white belly and short black flippers for Antarctic waters.
 58. **Prehistoric Species Atlas** = organic81:wildlife-species-atlas + legacy:575 — A comparative fossil atlas places dinosaurs, flying reptiles and extinct Ice Age mammals on separate illustrated pages.
 59. **Triceratops** = organic81:prehistoric-species-atlas + organic40:deer — A massive Cretaceous herbivore bears three facial horns and a broad bony neck frill that inspired its name.
 60. **Stegosaurus** = organic81:prehistoric-species-atlas + legacy:14 — This Jurassic herbivore carries large staggered back plates and a spiked tail used in defense.
@@ -79,7 +79,7 @@ Published baseline: 40 V81 items; WIP adds 49 new unique elements. No public mer
 75. **Troll** = organic81:folklore-bestiary + legacy:14 — A bulky stone-skinned troll from northern folklore guards a rough bridge with long arms and oversized ears.
 76. **Goblin** = organic81:folklore-bestiary + legacy:561 — A mischievous treasure-hoarding goblin has oversized pointed ears, a hooked nose and a pouch of stolen coins.
 77. **Ogre** = organic81:folklore-bestiary + legacy:37 — A cave-dwelling ogre towers over travelers with a broad jaw, heavy tusks and a battered wooden club.
-78. **Werewolf** = organic81:wolf + organic40:moonlight — A cursed shapeshifter grows a wolf's muzzle, claws and thick fur whenever the moon is full.
+78. **Lunar Werewolf** = organic81:wolf + organic40:moonlight — A lunar werewolf is a legendary human shapeshifter with wolf ears, claws and thick fur when the full moon rises.
 79. **Vampire Bat** = pack:vampire + organic81:bat — A real blood-feeding bat lends its name to vampire legends, with pointed teeth and wings adapted for flight.
 80. **Griffin** = organic81:eagle + organic81:lion — A griffin combines the head and wings of an eagle with the muscular body and hindquarters of a lion.
 81. **Phoenix** = organic81:folklore-bestiary + legacy:1 — A legendary phoenix rises from its own ashes as a blazing bird whose bright tail resembles living flames.
@@ -91,3 +91,52 @@ Published baseline: 40 V81 items; WIP adds 49 new unique elements. No public mer
 87. **Vampire Lord** = pack:vampire + organic81:gothic-castle — An elegant castle-dwelling vampire wears a high-collared cloak and reveals two sharp canine teeth.
 88. **Witch Familiar** = pack:witch + organic81:cat — A witch's clever black cat acts as a magical familiar beside a little spellbook and crooked broomstick.
 89. **Ghost Wolf** = pack:ghost + organic81:wolf — A translucent spectral wolf leaves pale blue tracks and an eerie howl that echoes through enchanted woods.
+90. **Deinonychus** = pack:velociraptor + legacy:545 — A feathered dromaeosaur bears large sickle-shaped claws on each hind foot and a long balancing tail.
+91. **Carnotaurus** = pack:tyrannosaurus-rex + organic81:cow — A swift meat-eating dinosaur has two short horns above its eyes and unusually tiny forelimbs.
+92. **Therizinosaurus** = organic81:prehistoric-species-atlas + legacy:545 — This long-necked feathered dinosaur has enormous hand claws that resemble curved swords.
+93. **Gallimimus** = organic81:prehistoric-species-atlas + legacy:544 — A speedy ostrich-mimic dinosaur runs on long legs with a small beaked head and a balancing tail.
+94. **Diplodocus** = organic81:brachiosaurus + legacy:19 — A huge Jurassic sauropod carries an exceptionally long tail and a slender horizontal neck for browsing foliage.
+95. **Quetzalcoatlus** = organic81:pteranodon + legacy:38 — A gigantic azhdarchid pterosaur has a very long beak and a tall walking stance, separate from true dinosaurs.
+96. **Plesiosaurus** = organic81:mosasaurus + legacy:40 — A long-necked marine reptile paddles through prehistoric water using four large flippers rather than fins.
+97. **Dunkleosteus** = organic81:prehistoric-species-atlas + legacy:27 — An armored Devonian fish has massive bony head plates and sharp shearing jaw edges instead of ordinary teeth.
+98. **Ammonite** = organic81:prehistoric-species-atlas + organic38:octopus — An extinct coiled cephalopod lived in chambered spiral shells and swam through ancient oceans.
+99. **Trilobite** = organic81:prehistoric-species-atlas + organic41:beetle — An extinct seafloor arthropod has a three-lobed segmented exoskeleton and a rounded protective head shield.
+100. **Megalodon** = organic81:prehistoric-species-atlas + organic38:shark — A giant extinct mackerel shark possessed enormous serrated teeth and hunted large marine mammals.
+101. **Meganeura** = organic81:prehistoric-species-atlas + organic38:dragonfly — A giant Carboniferous dragonfly relative has broad veined wings and an elongated segmented abdomen.
+102. **Glyptodon** = organic81:ankylosaurus + organic81:woolly-mammoth — An extinct giant armadillo relative had a domed bony shell, stubby legs and a stout armored tail.
+103. **Megatherium** = organic81:prehistoric-species-atlas + legacy:19 — A giant prehistoric ground sloth walked on powerful hind limbs and reached tall branches with massive foreclaws.
+104. **Sheep** = organic81:farm-animal + legacy:36 — A woolly farm sheep keeps warm beneath a thick fleece and has tiny curved ears and sturdy hooves.
+105. **Donkey** = organic81:farm-animal + legacy:574 — A hard-working donkey has exceptionally long upright ears, a short bristled mane and a gentle gray muzzle.
+106. **Duck** = organic81:farm-animal + legacy:40 — A dabbling duck has webbed orange feet, a broad flattened bill and waterproof feathers for lakes and ponds.
+107. **Goose** = organic81:farm-animal + organic38:bird — A domestic goose carries a long upright neck, noisy honk and large webbed feet near a farm pond.
+108. **Zebra** = legacy:574 + organic81:wild-animal — A wild equid of African grasslands wears distinctive black-and-white stripes that help identify its species.
+109. **Giraffe** = organic81:wild-animal + organic81:brachiosaurus — A giraffe reaches treetop leaves using its exceptionally long neck and shows brown patches on pale fur.
+110. **Elephant** = organic81:wild-animal + organic81:woolly-mammoth — Modern elephants share a deep evolutionary lineage with mammoths and use a flexible trunk to explore the world.
+111. **Raccoon** = organic81:wild-animal + legacy:47 — A clever city-edge raccoon wears a dark eye mask and a thick ringed tail while exploring nighttime bins.
+112. **Whale** = organic81:wild-animal + legacy:591 — A large baleen whale cruises through the ocean and sends a spray of water from its blowhole.
+113. **Seal** = organic81:wild-animal + legacy:10 — A sleek seal rests on pack ice with its rounded muzzle, short flippers and dense water-resistant coat.
+114. **Turkey** = organic81:farm-animal + legacy:20 — A large turkey fans out striped tail feathers and stands proudly with a little red wattle beneath its beak.
+115. **Beaver** = organic81:wild-animal + legacy:24 — A beaver uses broad front teeth and a flat paddle-shaped tail to build dams from riverside wood.
+116. **Hedgehog** = organic81:wild-animal + legacy:15 — A small hedgehog curls beneath spiky back quills and searches under garden plants for insects.
+117. **Parrot** = organic81:wild-animal + legacy:140 — A colorful parrot has a curved strong beak, vivid wing feathers and feet that grip forest branches.
+118. **Snake** = organic81:wild-animal + legacy:16 — A winding desert snake moves without legs and flicks a forked tongue while searching for small prey.
+119. **Otter** = organic81:wild-animal + legacy:40 — A playful river otter has a streamlined body, webbed paws, rounded ears and a thick swimming tail.
+120. **Polar Bear** = organic81:bear + legacy:35 — An Arctic polar bear has snow-white fur, small ears and broad paws adapted to icy coastal habitats.
+121. **Moose** = organic81:wild-animal + legacy:38 — A forest moose carries enormous broad antlers, a long muzzle and sturdy legs for cold woodland terrain.
+122. **Wool** = organic81:sheep + legacy:29 — Soft sheep fleece becomes wool when it is shorn and cleaned, ready to be spun into warm textiles.
+123. **Wolf Pack** = organic81:wolf + legacy:48 — A coordinated family group of wolves communicates by howling and moves together across its territory.
+124. **Fossil Excavation** = organic81:prehistoric-species-atlas + legacy:580 — Paleontologists carefully expose a curved dinosaur rib and vertebrae in sediment using fine brushes and tools.
+125. **Cyclops** = organic81:ogre + legacy:114 — A mythical giant peers through one enormous eye set in the middle of its broad face.
+126. **Minotaur** = organic81:cow + legacy:121 — A bull-headed mythical monster bears sweeping horns, broad shoulders and the strength of an ancient maze guardian.
+127. **Centaur** = organic81:minotaur + legacy:574 — A mythic centaur combines a human torso with the four legs and long tail of a horse.
+128. **Pegasus** = legacy:574 + organic81:eagle — A winged horse spreads immense feathered wings and rises above the clouds of a legendary sky.
+129. **Hippogriff** = organic81:griffin + legacy:574 — A legendary beast combines the feathered head and foretalons of an eagle with a horse's hindquarters.
+130. **Chimera** = organic81:lion + legacy:122 — A fearsome mythic beast carries a lion's mane, goat-like horns and a long serpent tail.
+131. **Hydra** = organic81:crocodile + legacy:122 — A many-headed serpentine monster rises from a marsh, its reptilian necks ending in snapping jaws.
+132. **Basilisk** = organic81:snake + legacy:121 — A mythical crowned serpent with a petrifying gaze coils around a ruined stone pillar.
+133. **Gargoyle** = organic81:gothic-castle + legacy:14 — A grim stone gargoyle crouches on a cathedral ledge with bat-like wings and a carved beaked face.
+134. **Hellhound** = organic81:dog + legacy:1 — A supernatural hound has ember-red fur and flame-shaped ears, leaving glowing prints in the dark.
+135. **Cerberus** = organic81:hellhound + organic81:gothic-castle — A three-headed infernal watchdog guards the gates of a shadowy underworld in ancient mythology.
+136. **Wolf Howl** = organic81:wolf + legacy:62 — A wolf raises its muzzle to release a far-carrying howl that helps its pack communicate after dusk.
+137. **Banshee** = pack:ghost + organic81:wolf-howl — A wailing spectral figure drifts through the night in a pale veil, foretelling sorrow in Celtic folklore.
+138. **Dryad** = organic81:folklore-bestiary + legacy:19 — A guardian tree spirit emerges from living bark with leaf-shaped hair and roots curling beneath its feet.

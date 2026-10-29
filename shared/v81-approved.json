@@ -1,16 +1,16 @@
 {
   "version": 81,
-  "cohort_count": 124,
+  "cohort_count": 138,
   "expansion_goal": 200,
-  "expansion_progress": 124,
-  "remaining_to_goal": 76,
+  "expansion_progress": 138,
+  "remaining_to_goal": 62,
   "base_catalog": {
     "elements": 5772,
     "recipes": 14109
   },
   "expected_catalog": {
-    "elements": 5896,
-    "recipes": 14233
+    "elements": 5910,
+    "recipes": 14247
   },
   "new_items": [
     {
@@ -1500,6 +1500,174 @@
       ],
       "art_mode": "bespoke-subject",
       "path": "client/assets/v81/fossil-excavation.svg"
+    },
+    {
+      "id": "organic81:cyclops",
+      "name": "Cyclops",
+      "category": "fantasy",
+      "summary": "A mythical giant peers through one enormous eye set in the middle of its broad face.",
+      "ingredients": [
+        "organic81:ogre",
+        "legacy:114"
+      ],
+      "art_mode": "bespoke-subject",
+      "path": "client/assets/v81/cyclops.svg"
+    },
+    {
+      "id": "organic81:minotaur",
+      "name": "Minotaur",
+      "category": "fantasy",
+      "summary": "A bull-headed mythical monster bears sweeping horns, broad shoulders and the strength of an ancient maze guardian.",
+      "ingredients": [
+        "organic81:cow",
+        "legacy:121"
+      ],
+      "art_mode": "bespoke-subject",
+      "path": "client/assets/v81/minotaur.svg"
+    },
+    {
+      "id": "organic81:centaur",
+      "name": "Centaur",
+      "category": "fantasy",
+      "summary": "A mythic centaur combines a human torso with the four legs and long tail of a horse.",
+      "ingredients": [
+        "organic81:minotaur",
+        "legacy:574"
+      ],
+      "art_mode": "bespoke-subject",
+      "path": "client/assets/v81/centaur.svg"
+    },
+    {
+      "id": "organic81:pegasus",
+      "name": "Pegasus",
+      "category": "fantasy",
+      "summary": "A winged horse spreads immense feathered wings and rises above the clouds of a legendary sky.",
+      "ingredients": [
+        "legacy:574",
+        "organic81:eagle"
+      ],
+      "art_mode": "bespoke-subject",
+      "path": "client/assets/v81/pegasus.svg"
+    },
+    {
+      "id": "organic81:hippogriff",
+      "name": "Hippogriff",
+      "category": "fantasy",
+      "summary": "A legendary beast combines the feathered head and foretalons of an eagle with a horse's hindquarters.",
+      "ingredients": [
+        "organic81:griffin",
+        "legacy:574"
+      ],
+      "art_mode": "bespoke-subject",
+      "path": "client/assets/v81/hippogriff.svg"
+    },
+    {
+      "id": "organic81:chimera",
+      "name": "Chimera",
+      "category": "fantasy",
+      "summary": "A fearsome mythic beast carries a lion's mane, goat-like horns and a long serpent tail.",
+      "ingredients": [
+        "organic81:lion",
+        "legacy:122"
+      ],
+      "art_mode": "bespoke-subject",
+      "path": "client/assets/v81/chimera.svg"
+    },
+    {
+      "id": "organic81:hydra",
+      "name": "Hydra",
+      "category": "fantasy",
+      "summary": "A many-headed serpentine monster rises from a marsh, its reptilian necks ending in snapping jaws.",
+      "ingredients": [
+        "organic81:crocodile",
+        "legacy:122"
+      ],
+      "art_mode": "bespoke-subject",
+      "path": "client/assets/v81/hydra.svg"
+    },
+    {
+      "id": "organic81:basilisk",
+      "name": "Basilisk",
+      "category": "fantasy",
+      "summary": "A mythical crowned serpent with a petrifying gaze coils around a ruined stone pillar.",
+      "ingredients": [
+        "organic81:snake",
+        "legacy:121"
+      ],
+      "art_mode": "bespoke-subject",
+      "path": "client/assets/v81/basilisk.svg"
+    },
+    {
+      "id": "organic81:gargoyle",
+      "name": "Gargoyle",
+      "category": "fantasy",
+      "summary": "A grim stone gargoyle crouches on a cathedral ledge with bat-like wings and a carved beaked face.",
+      "ingredients": [
+        "organic81:gothic-castle",
+        "legacy:14"
+      ],
+      "art_mode": "bespoke-subject",
+      "path": "client/assets/v81/gargoyle.svg"
+    },
+    {
+      "id": "organic81:hellhound",
+      "name": "Hellhound",
+      "category": "fantasy",
+      "summary": "A supernatural hound has ember-red fur and flame-shaped ears, leaving glowing prints in the dark.",
+      "ingredients": [
+        "organic81:dog",
+        "legacy:1"
+      ],
+      "art_mode": "bespoke-subject",
+      "path": "client/assets/v81/hellhound.svg"
+    },
+    {
+      "id": "organic81:cerberus",
+      "name": "Cerberus",
+      "category": "fantasy",
+      "summary": "A three-headed infernal watchdog guards the gates of a shadowy underworld in ancient mythology.",
+      "ingredients": [
+        "organic81:hellhound",
+        "organic81:gothic-castle"
+      ],
+      "art_mode": "bespoke-subject",
+      "path": "client/assets/v81/cerberus.svg"
+    },
+    {
+      "id": "organic81:wolf-howl",
+      "name": "Wolf Howl",
+      "category": "nature",
+      "summary": "A wolf raises its muzzle to release a far-carrying howl that helps its pack communicate after dusk.",
+      "ingredients": [
+        "organic81:wolf",
+        "legacy:62"
+      ],
+      "art_mode": "bespoke-subject",
+      "path": "client/assets/v81/wolf-howl.svg"
+    },
+    {
+      "id": "organic81:banshee",
+      "name": "Banshee",
+      "category": "fantasy",
+      "summary": "A wailing spectral figure drifts through the night in a pale veil, foretelling sorrow in Celtic folklore.",
+      "ingredients": [
+        "pack:ghost",
+        "organic81:wolf-howl"
+      ],
+      "art_mode": "bespoke-subject",
+      "path": "client/assets/v81/banshee.svg"
+    },
+    {
+      "id": "organic81:dryad",
+      "name": "Dryad",
+      "category": "fantasy",
+      "summary": "A guardian tree spirit emerges from living bark with leaf-shaped hair and roots curling beneath its feet.",
+      "ingredients": [
+        "organic81:folklore-bestiary",
+        "legacy:19"
+      ],
+      "art_mode": "bespoke-subject",
+      "path": "client/assets/v81/dryad.svg"
     }
   ],
   "cycle_complete": false
