@@ -1,6 +1,6 @@
-# V80A editorial checkpoint (not yet integrated into shipped Android build)
+# V80A editorial checkpoint (integrated in feature branch; QA pending)
 
-The new 200-item cycle begins with 8 bespoke subject illustrations and deterministic pair candidates. Expected count after integration: 5,580 elements / 13,917 recipes (8/200). Existing saved profiles, family progress, Settings and monetization contracts must not change. Review semantic relation, source parity, IP, UI and all prior validators before merging.
+The new 200-item cycle begins with 8 bespoke subject illustrations and deterministic pair candidates, now wired into Classic, offline HTML and the Android build pipeline on the feature branch. Expected count: 5,580 elements / 13,917 recipes (8/200). Existing saves, Families Only progress, Settings and monetization contracts remain untouched. Source parity, catalog, IP, UI and previous-version validators must pass before merging; the rolling APK remains V79 until a successful merge and build.
 
 - **Floating Harbor Gate** = organic79:sky-dock-beacon + organic79:airship-anchor-winch. A docking arch combines a beacon with mooring cables to guide skyships safely into a floating port.
 - **Glass Firefly Lantern** = organic79:firefly-garden-terrarium + organic79:aurora-desk-lantern. A curved glass lantern shelters luminous fireflies and brings a miniature garden into the night.
