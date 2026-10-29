@@ -38,3 +38,7 @@ Latest release: https://github.com/joaogdbg-ui/35K-Alchemy/releases/tag/latest
 ## V76.3 — collision hotfix
 
 Retired real-world-company collisions in proposed aliases (Kairosoft, AsterCube, Vextro, Orilux); synchronized seven SVG asset paths, V76 artwork keys and catalog manifests. Added regression tests. New candidate names still need formal trademark clearance. No recipe or element ID changes.
+
+## V76.6 Settings/Profile
+
+Settings is a compact three-tab view (Profile/Game/Appearance) with local stats and Google Play Games/cloud/leaderboard placeholders correctly marked unconfigured. Manual import/export buttons are removed from the UI, but backup routines and old save keys remain for migration. No fake account, sync, restore or leaderboard claims. A future native Android-only AlchemyPlayerServices.getStatus() may show an authenticated Play Games gamer identity. See docs/PLAY_GAMES_FOUNDATION_V76_6.md.

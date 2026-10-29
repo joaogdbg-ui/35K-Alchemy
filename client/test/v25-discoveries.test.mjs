@@ -35,6 +35,8 @@ test('V25 backup only exports approved local progress keys',()=>{
  assert.match(source,/const BACKUP_KEYS=/);
  assert.match(source,/format:'35k-alchemy-backup'/);
  assert.match(source,/Object\.hasOwn\(state\.data,k\)/);
- assert.match(source,/confirm\('Import saved progress/);
+ const newSettings=source.slice(source.indexOf('function settings(){'),source.indexOf('// V28 family sweep:'));
+ assert.doesNotMatch(newSettings,/id="importBackup"|id="exportBackup"|Import progress|Export progress/);
+ assert.match(source,/if\(state\.format!==\'35k-alchemy-backup\'/);
  assert.match(source,/function importProgress\(file\)/);
 });

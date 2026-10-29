@@ -938,7 +938,7 @@ async function combine(){
   else toast('Discovery is temporarily unavailable','error');
  }catch(e){toast('Server unavailable · Offline progress preserved','error');console.warn(e);}
 }
-function showModal(content){$('modal').dataset.dismiss='any';$('modalContent').innerHTML=content;$('modal').hidden=false;}
+function showModal(content){$('modal').removeAttribute('aria-labelledby');$('modal').dataset.dismiss='any';$('modalContent').innerHTML=content;$('modal').hidden=false;}
 function closeModal(){
  const st=batchState;
  if(st?.phase==='scanning'){batchState=null;slots[1]=null;updateSlotUI();announceCraft('idle','Family scan cancelled · No new results published');$('modal').hidden=true;$('modal').dataset.dismiss='any';return;}
@@ -1185,19 +1185,103 @@ function importProgress(file){
   }catch(e){toast('Could not import backup: '+e.message,'error');}
  };reader.onerror=()=>toast('Could not read backup','error');reader.readAsText(file);
 }
+// V76.6: Settings uses three compact tabs. No simulated Google identity or cloud save.
+let settingsActiveTab='profile';
+function getPlayerServicesBridge(){
+ const cap=window.Capacitor;
+ if(cap?.getPlatform?.()!=='android')return null;
+ const bridge=cap.Plugins?.AlchemyPlayerServices;
+ return bridge&&typeof bridge.getStatus==='function'?bridge:null;
+}
+async function refreshPlayerServicesStatus(){
+ const bridge=getPlayerServicesBridge();if(!bridge)return;
+ try{
+  const state=await bridge.getStatus();
+  const connected=state?.authenticated===true&&typeof state.playerId==='string'&&state.playerId.trim().length>0;
+  const name=$('settingsAccountName'),status=$('settingsAccountStatus'),info=$('settingsAccountInfo');
+  if(!name||!status||!info||!$('settingsTabs')||!connected)return;
+  name.textContent=typeof state.displayName==='string'&&state.displayName.trim()?state.displayName.trim().slice(0,70):'Play Games player';
+  status.textContent='Play Games profile detected';status.dataset.state='available';
+  info.textContent='Play Games profile is available. Cloud saves and leaderboards are not enabled in this build.';
+ }catch(error){console.warn('Play Games status unavailable; local progress unchanged',error);}
+}
+function selectSettingsTab(next,{focus=false}={}){
+ if(!['profile','game','appearance'].includes(next))return;
+ settingsActiveTab=next;
+ for(const button of $('settingsTabs')?.querySelectorAll('[data-settings-tab]')||[]){
+  const active=button.dataset.settingsTab===next;
+  button.setAttribute('aria-selected',String(active));button.tabIndex=active?0:-1;
+  if(active&&focus)button.focus();
+ }
+ for(const panel of $('modalContent')?.querySelectorAll('[data-settings-panel]')||[])
+  panel.hidden=panel.dataset.settingsPanel!==next;
+}
 function settings(){
- showModal(`<h2>35K Alchemy</h2><p>35,000 curated elements is the long-term goal; the actual available total appears in Discoveries. This edition plays entirely offline.</p><p class="mini-muted">There are no real worldwide player percentages without anonymous aggregate data. Difficulty is calculated from the offline recipe paths, not from player behavior.</p>${currentMode==='family'?'<button type="button" class="modal-button" id="settingsMergeClassic">↗ Merge Elements into Classic · 2 Ads</button>':''}<button class="modal-button secondary" id="changeGameMode">Game mode · ${currentMode==='family'?'Family Only':'Classic'} · Switch with Ad</button><div class="sound-settings"><strong>Sound effects</strong><button type="button" id="settingsSoundToggle" class="sound-settings-toggle" aria-pressed="${soundEnabled}">${soundEnabled?'♫ Sound On':'♪̸ Sound Off'}</button></div><div class="theme-settings"><strong>Appearance</strong><div class="theme-choices" role="group" aria-label="Appearance mode"><button type="button" data-theme-choice="light" aria-pressed="${selectedTheme==='light'}">☀ Light</button><button type="button" data-theme-choice="dark" aria-pressed="${selectedTheme==='dark'}">☾ Dark</button><button type="button" data-theme-choice="system" aria-pressed="${selectedTheme==='system'}">◐ System</button></div></div><div class="backup-actions"><button class="modal-button" id="exportBackup">Export progress</button><button class="modal-button secondary" id="importBackup">Import progress</button><input hidden type="file" id="importBackupFile" accept="application/json,.json"></div><p class="mini-muted">Backups contain local progress and favorites, not an online account. Import replaces saved progress.</p><button class="modal-button secondary" id="hintButton">Hint · Watch Ad</button>`);
+ const mode=currentMode==='family'?'Families Only':'Classic';
+ showModal(`<div class="settings-shell">
+  <div class="settings-header"><span class="settings-eyebrow">35K ALCHEMY</span><h2 id="settingsHeading">Settings</h2><p>Your player profile and preferences.</p></div>
+  <div class="settings-tabs" id="settingsTabs" role="tablist" aria-label="Settings categories">
+   <button type="button" id="settingsTabProfile" role="tab" data-settings-tab="profile" aria-controls="settingsPanelProfile" aria-selected="true" tabindex="0">Profile</button>
+   <button type="button" id="settingsTabGame" role="tab" data-settings-tab="game" aria-controls="settingsPanelGame" aria-selected="false" tabindex="-1">Game</button>
+   <button type="button" id="settingsTabAppearance" role="tab" data-settings-tab="appearance" aria-controls="settingsPanelAppearance" aria-selected="false" tabindex="-1">Appearance</button>
+  </div>
+  <section class="settings-pane" id="settingsPanelProfile" role="tabpanel" data-settings-panel="profile" aria-labelledby="settingsTabProfile">
+   <div class="settings-profile-card"><span class="settings-avatar" aria-hidden="true">✦</span><div class="settings-profile-copy">
+    <strong id="settingsAccountName">Local player</strong><span id="settingsAccountStatus" role="status" data-state="offline">Not connected</span>
+    <small id="settingsAccountInfo">Progress is saved on this device. Google Play Games is not configured in this test build.</small>
+   </div></div>
+   <div class="settings-stats"><div><strong>${unlocked.size.toLocaleString('en-US')}</strong><span>Discovered · ${escapeText(mode)}</span></div><div><strong>${ITEMS.length.toLocaleString('en-US')}</strong><span>Elements in catalog</span></div></div>
+   <div class="settings-section"><div class="settings-section-heading"><strong>Google Play Games</strong><span class="settings-state-tag">Coming soon</span></div>
+    <p>Player identity, achievements and worldwide leaderboards will appear here once connected.</p>
+    <button type="button" class="settings-action" id="settingsLeaderboard" disabled aria-describedby="settingsServiceNote"><span>♛</span><span>View leaderboards</span><span aria-hidden="true">›</span></button>
+   </div>
+   <div class="settings-section"><div class="settings-section-heading"><strong>Cloud saves</strong><span class="settings-state-tag">Not active</span></div>
+    <p>Your discoveries have not been uploaded. A verified Google Saved Games connection will support backup and restore.</p>
+    <button type="button" class="settings-action settings-recover" id="recoverFromCloud" disabled aria-describedby="settingsServiceNote"><span>☁</span><span>Recover from cloud</span><span aria-hidden="true">↺</span></button>
+    <p class="settings-service-note" id="settingsServiceNote">Unavailable in this test build. Your local progress is unchanged.</p>
+   </div>
+  </section>
+  <section class="settings-pane" id="settingsPanelGame" role="tabpanel" data-settings-panel="game" aria-labelledby="settingsTabGame" hidden>
+   <div class="settings-section"><div class="settings-section-heading"><strong>Gameplay</strong></div>
+    <button class="settings-action" type="button" id="changeGameMode"><span>◈</span><span>Game mode <small>${escapeText(mode)} · Switch with Ad</small></span><span aria-hidden="true">›</span></button>
+    ${currentMode==='family'?'<button class="settings-action" type="button" id="settingsMergeClassic"><span>↗</span><span>Merge Elements into Classic <small>Requires two rewarded ads</small></span><span aria-hidden="true">›</span></button>':''}
+    <div class="sound-settings settings-setting-row"><strong>Sound effects</strong><button type="button" id="settingsSoundToggle" class="sound-settings-toggle" aria-pressed="${soundEnabled}">${soundEnabled?'♫ Sound On':'♪̸ Sound Off'}</button></div>
+    <button type="button" class="settings-action" id="hintButton"><span>✧</span><span>Hint <small>Watch a rewarded ad</small></span><span aria-hidden="true">›</span></button>
+   </div>
+   <div class="settings-section settings-about"><strong>About</strong><p>35,000 elements is our long-term goal. ${ITEMS.length.toLocaleString('en-US')} are available now. The game works offline.</p></div>
+  </section>
+  <section class="settings-pane" id="settingsPanelAppearance" role="tabpanel" data-settings-panel="appearance" aria-labelledby="settingsTabAppearance" hidden>
+   <div class="settings-section"><div class="settings-section-heading"><strong>Theme</strong></div><p>Choose how the game looks on your device.</p>
+    <div class="theme-settings"><div class="theme-choices" role="group" aria-label="Appearance mode">
+     <button type="button" data-theme-choice="light" aria-pressed="${selectedTheme==='light'}">☀ Light</button>
+     <button type="button" data-theme-choice="dark" aria-pressed="${selectedTheme==='dark'}">☾ Dark</button>
+     <button type="button" data-theme-choice="system" aria-pressed="${selectedTheme==='system'}">◐ System</button>
+    </div></div>
+   </div>
+  </section>
+ </div>`);
+ $('modal').setAttribute('aria-labelledby','settingsHeading');
+ const tabs=$('settingsTabs');
+ tabs.querySelectorAll('[data-settings-tab]').forEach(button=>
+  button.onclick=()=>selectSettingsTab(button.dataset.settingsTab));
+ tabs.onkeydown=event=>{
+  if(!['ArrowRight','ArrowLeft','Home','End'].includes(event.key))return;
+  const choices=['profile','game','appearance'],current=choices.indexOf(settingsActiveTab);
+  const next=event.key==='Home'?0:event.key==='End'?choices.length-1:
+   (current+(event.key==='ArrowRight'?1:-1)+choices.length)%choices.length;
+  event.preventDefault();selectSettingsTab(choices[next],{focus:true});
+ };
  $('modalContent').querySelectorAll('[data-theme-choice]').forEach(btn=>btn.onclick=()=>{
   selectedTheme=btn.dataset.themeChoice;try{localStorage.setItem(THEME_KEY,selectedTheme);}catch{}
   applyTheme();
+  $('modalContent').querySelectorAll('[data-theme-choice]').forEach(choice=>choice.setAttribute('aria-pressed',String(choice.dataset.themeChoice===selectedTheme)));
  });
  syncSoundToggle();$('settingsSoundToggle').onclick=toggleSoundEnabled;
  if(currentMode==='family')$('settingsMergeClassic').onclick=mergeModal;
  $('changeGameMode').onclick=()=>modePicker(false);
  $('hintButton').onclick=()=>{closeModal();hint();};
- $('exportBackup').onclick=exportProgress;
- $('importBackup').onclick=()=>$('importBackupFile').click();
- $('importBackupFile').onchange=e=>{const file=e.target.files?.[0];if(file&&confirm('Import saved progress and replace the current local save?'))importProgress(file);};
+ selectSettingsTab('profile');
+ void refreshPlayerServicesStatus();
 }
 
 // V28 family sweep: check EVERY ingredient first; only after the entire sweep do we
