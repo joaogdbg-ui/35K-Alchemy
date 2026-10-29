@@ -1401,7 +1401,7 @@
       "summary": "A brass clockwork lock on a wooden puzzle chest opens only when its rotating hands align.",
       "ingredients": [
         "legacy:224",
-        "legacy:211"
+        "legacy:55"
       ],
       "art_mode": "bespoke-subject",
       "path": "client/assets/v80/clockwork-puzzle-chest.svg"
@@ -1413,7 +1413,7 @@
       "summary": "A green felt tournament table arranges player hands around a central deck and winning trophy.",
       "ingredients": [
         "legacy:163",
-        "legacy:157"
+        "legacy:24"
       ],
       "art_mode": "bespoke-subject",
       "path": "client/assets/v80/card-tournament-table.svg"
@@ -1425,7 +1425,7 @@
       "summary": "A smaller illustrated box adds new cards and playable characters to an existing tabletop board game.",
       "ingredients": [
         "legacy:162",
-        "legacy:160"
+        "organic80:trading-card-storage-box"
       ],
       "art_mode": "bespoke-subject",
       "path": "client/assets/v80/board-game-expansion-box.svg"
@@ -1527,16 +1527,16 @@
       "path": "client/assets/v80/pixel-palette-fan.svg"
     },
     {
-      "id": "organic80:handheld-screen-shield",
-      "name": "Handheld Screen Shield",
+      "id": "organic80:rainproof-handheld-case",
+      "name": "Rainproof Handheld Case",
       "category": "technology",
-      "summary": "A transparent fitted glass screen shield protects a portable game's display without hiding the controls.",
+      "summary": "A zippered water-resistant case protects a handheld gaming console from rain during an outdoor journey.",
       "ingredients": [
         "legacy:169",
-        "legacy:23"
+        "legacy:7"
       ],
       "art_mode": "bespoke-subject",
-      "path": "client/assets/v80/handheld-screen-shield.svg"
+      "path": "client/assets/v80/rainproof-handheld-case.svg"
     },
     {
       "id": "organic80:arcade-listening-headset",

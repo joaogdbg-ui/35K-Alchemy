@@ -1,8 +1,6 @@
-# V80 internal WIP — 140/200
+# V80 internal draft — 140/200
 
-**No release or merge.** The draft branch adds 100 real items + original SVGs since published V80B; the WIP candidate would contain 5712 elements and 14049 deterministic recipes. Main stays at 5,612 / 13,949.
-
-The +200 release requires **60 more V80 items plus 40 new V81 items**. No filler. CI automatically audits all historical names, recipe pairs and SVGs.
+**Work in progress only.** +100 distinct element candidates since V80B; main remains 5,612 elements. Entire next release must include exactly 200 new items, so 60 V80 + 40 V81 are still required. Automatic full historical pair/name checks are mandatory.
 
 1. **Floating Harbor Gate** = organic79:sky-dock-beacon + organic79:airship-anchor-winch — A docking arch combines a beacon with mooring cables to guide skyships safely into a floating port.
 2. **Glass Firefly Lantern** = organic79:firefly-garden-terrarium + organic79:aurora-desk-lantern — A curved glass lantern shelters luminous fireflies and brings a miniature garden into the night.
@@ -119,9 +117,9 @@ The +200 release requires **60 more V80 items plus 40 new V81 items**. No filler
 113. **Board Game Market Stall** = legacy:162 + legacy:60 — A striped market canopy shelters stacks of boxed board games and a wooden demonstration table.
 114. **Chess Tournament Medal** = legacy:1196 + legacy:157 — A bronze-and-gold medal shows a chess knight in profile beneath its tournament ribbon.
 115. **Glowing Dice Pair** = legacy:223 + legacy:63 — Two translucent dice glow from within so their numbered faces remain visible during a dark game night.
-116. **Clockwork Puzzle Chest** = legacy:224 + legacy:211 — A brass clockwork lock on a wooden puzzle chest opens only when its rotating hands align.
-117. **Card Tournament Table** = legacy:163 + legacy:157 — A green felt tournament table arranges player hands around a central deck and winning trophy.
-118. **Board Game Expansion Box** = legacy:162 + legacy:160 — A smaller illustrated box adds new cards and playable characters to an existing tabletop board game.
+116. **Clockwork Puzzle Chest** = legacy:224 + legacy:55 — A brass clockwork lock on a wooden puzzle chest opens only when its rotating hands align.
+117. **Card Tournament Table** = legacy:163 + legacy:24 — A green felt tournament table arranges player hands around a central deck and winning trophy.
+118. **Board Game Expansion Box** = legacy:162 + organic80:trading-card-storage-box — A smaller illustrated box adds new cards and playable characters to an existing tabletop board game.
 119. **Portable Card Binder** = legacy:160 + legacy:110 — A zippered pocket binder displays sleeved cards in transparent slots for easy trading on the move.
 120. **Rotating Tile Draft** = legacy:162 + legacy:44 — A circular drafting wheel turns divided trays of colored game tiles toward each player.
 121. **Firefly Game Night Lamp** = legacy:162 + organic80:glass-firefly-lantern — A tabletop lantern full of fireflies lights dice and wooden playing pieces during an outdoor game night.
@@ -130,7 +128,7 @@ The +200 release requires **60 more V80 items plus 40 new V81 items**. No filler
 124. **Arcade Coin Return** = legacy:172 + legacy:108 — An arcade cabinet's return slot tips forgotten coins into a little metal collection tray.
 125. **Pinball Launch Ramp** = legacy:333 + legacy:55 — A curved steel ramp guides a pinball upward through the flashing playfield of a mechanical arcade machine.
 126. **Pixel Palette Fan** = legacy:219 + legacy:208 — A fan of color swatch cards displays the individual shades selected by a pixel artist.
-127. **Handheld Screen Shield** = legacy:169 + legacy:23 — A transparent fitted glass screen shield protects a portable game's display without hiding the controls.
+127. **Rainproof Handheld Case** = legacy:169 + legacy:7 — A zippered water-resistant case protects a handheld gaming console from rain during an outdoor journey.
 128. **Arcade Listening Headset** = legacy:172 + legacy:62 — An over-ear listening headset hangs from an arcade cabinet for private sound during gameplay.
 129. **Carved Chessboard** = legacy:1196 + legacy:24 — A polished wooden chessboard has deep engraved squares and two handcrafted chess pieces.
 130. **Crystal Game Token** = legacy:107 + legacy:34 — A faceted violet game token catches light as it rests in a circular scoring space on the board.

@@ -1,8 +1,8 @@
-# V80 WIP original subject gallery (140/200)
+# V80 art gallery (140/200, WIP)
 
-Assess individual meaning at 35 px and 90 px in light/dark, not just SVG hashes. This draft is not a published 200-element expansion.
+Each item has its own original SVG; icon clarity at 35px and visual uniqueness require manual review. No micro-release.
 
-| # | Name | Icon 35 px | Icon 90 px |
+| # | Element | 35px | 90px |
 |---:|---|:---:|:---:|
 | 1 | Floating Harbor Gate | <img src="../client/assets/v80/floating-harbor-gate.svg" width="35" height="35" /> | <img src="../client/assets/v80/floating-harbor-gate.svg" width="90" height="90" /> |
 | 2 | Glass Firefly Lantern | <img src="../client/assets/v80/glass-firefly-lantern.svg" width="35" height="35" /> | <img src="../client/assets/v80/glass-firefly-lantern.svg" width="90" height="90" /> |
@@ -130,7 +130,7 @@ Assess individual meaning at 35 px and 90 px in light/dark, not just SVG hashes.
 | 124 | Arcade Coin Return | <img src="../client/assets/v80/arcade-coin-return.svg" width="35" height="35" /> | <img src="../client/assets/v80/arcade-coin-return.svg" width="90" height="90" /> |
 | 125 | Pinball Launch Ramp | <img src="../client/assets/v80/pinball-launch-ramp.svg" width="35" height="35" /> | <img src="../client/assets/v80/pinball-launch-ramp.svg" width="90" height="90" /> |
 | 126 | Pixel Palette Fan | <img src="../client/assets/v80/pixel-palette-fan.svg" width="35" height="35" /> | <img src="../client/assets/v80/pixel-palette-fan.svg" width="90" height="90" /> |
-| 127 | Handheld Screen Shield | <img src="../client/assets/v80/handheld-screen-shield.svg" width="35" height="35" /> | <img src="../client/assets/v80/handheld-screen-shield.svg" width="90" height="90" /> |
+| 127 | Rainproof Handheld Case | <img src="../client/assets/v80/rainproof-handheld-case.svg" width="35" height="35" /> | <img src="../client/assets/v80/rainproof-handheld-case.svg" width="90" height="90" /> |
 | 128 | Arcade Listening Headset | <img src="../client/assets/v80/arcade-listening-headset.svg" width="35" height="35" /> | <img src="../client/assets/v80/arcade-listening-headset.svg" width="90" height="90" /> |
 | 129 | Carved Chessboard | <img src="../client/assets/v80/carved-chessboard.svg" width="35" height="35" /> | <img src="../client/assets/v80/carved-chessboard.svg" width="90" height="90" /> |
 | 130 | Crystal Game Token | <img src="../client/assets/v80/crystal-game-token.svg" width="35" height="35" /> | <img src="../client/assets/v80/crystal-game-token.svg" width="90" height="90" /> |
