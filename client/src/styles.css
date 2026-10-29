@@ -546,3 +546,10 @@ html.alchemy-android-immersive .app{
 @media(max-width:849px){.workspace{flex-basis:clamp(176px,22dvh,190px)}}
 @media(max-width:849px) and (max-height:680px){.workspace{flex-basis:170px}}
 @media(max-width:849px) and (max-height:560px){.workspace{flex-basis:153px}}
+
+/* V71 mobile ergonomics: slightly more breathing room above the crafting slots
+   without recreating the oversized unused header space from V68. */
+@media (max-width:849px) and (min-height:701px){
+  .workspace{flex-basis:clamp(190px,23.5dvh,208px)}
+  .workspace-content{transform:translateY(7px)}
+}
