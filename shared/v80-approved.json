@@ -1,17 +1,17 @@
 {
   "version": 80,
-  "cohort_count": 90,
+  "cohort_count": 114,
   "expansion_goal": 200,
-  "expansion_progress": 90,
-  "remaining_to_goal": 110,
+  "expansion_progress": 114,
+  "remaining_to_goal": 86,
   "cycle_complete": false,
   "base_catalog": {
     "elements": 5572,
     "recipes": 13909
   },
   "expected_catalog": {
-    "elements": 5662,
-    "recipes": 13999
+    "elements": 5686,
+    "recipes": 14023
   },
   "new_items": [
     {
@@ -1093,6 +1093,294 @@
       ],
       "art_mode": "bespoke-subject",
       "path": "client/assets/v80/pixel-sprite-lightbox.svg"
+    },
+    {
+      "id": "organic80:wooden-dice-tower",
+      "name": "Wooden Dice Tower",
+      "category": "board",
+      "summary": "A tall wooden chute tumbles dice through angled shelves before releasing them into a landing tray.",
+      "ingredients": [
+        "legacy:223",
+        "legacy:24"
+      ],
+      "art_mode": "bespoke-subject",
+      "path": "client/assets/v80/wooden-dice-tower.svg"
+    },
+    {
+      "id": "organic80:chess-match-clock",
+      "name": "Chess Match Clock",
+      "category": "board",
+      "summary": "A tournament clock uses two separate dials so each chess player can time their moves.",
+      "ingredients": [
+        "legacy:1196",
+        "legacy:211"
+      ],
+      "art_mode": "bespoke-subject",
+      "path": "client/assets/v80/chess-match-clock.svg"
+    },
+    {
+      "id": "organic80:pocket-chess-kit",
+      "name": "Pocket Chess Kit",
+      "category": "board",
+      "summary": "A folding chess board fits miniature pieces into a portable case for matches on the move.",
+      "ingredients": [
+        "legacy:1196",
+        "legacy:110"
+      ],
+      "art_mode": "bespoke-subject",
+      "path": "client/assets/v80/pocket-chess-kit.svg"
+    },
+    {
+      "id": "organic80:board-game-token-pouch",
+      "name": "Board Game Token Pouch",
+      "category": "board",
+      "summary": "A drawstring fabric pouch stores the wooden counters and scoring tokens from a tabletop game.",
+      "ingredients": [
+        "legacy:162",
+        "legacy:153"
+      ],
+      "art_mode": "bespoke-subject",
+      "path": "client/assets/v80/board-game-token-pouch.svg"
+    },
+    {
+      "id": "organic80:miniature-painting-stand",
+      "name": "Miniature Painting Stand",
+      "category": "board",
+      "summary": "A raised painting holder steadies a tiny game miniature while a fine brush adds its details.",
+      "ingredients": [
+        "legacy:107",
+        "legacy:208"
+      ],
+      "art_mode": "bespoke-subject",
+      "path": "client/assets/v80/miniature-painting-stand.svg"
+    },
+    {
+      "id": "organic80:board-game-rulebook",
+      "name": "Board Game Rulebook",
+      "category": "board",
+      "summary": "An illustrated rulebook explains the turns, dice rolls and piece movement of a tabletop game.",
+      "ingredients": [
+        "legacy:162",
+        "legacy:51"
+      ],
+      "art_mode": "bespoke-subject",
+      "path": "client/assets/v80/board-game-rulebook.svg"
+    },
+    {
+      "id": "organic80:transparent-card-sleeve",
+      "name": "Transparent Card Sleeve",
+      "category": "board",
+      "summary": "A flexible clear sleeve seals a collectible card against fingerprints and scuffed corners.",
+      "ingredients": [
+        "legacy:160",
+        "legacy:99"
+      ],
+      "art_mode": "bespoke-subject",
+      "path": "client/assets/v80/transparent-card-sleeve.svg"
+    },
+    {
+      "id": "organic80:automatic-card-shuffler",
+      "name": "Automatic Card Shuffler",
+      "category": "board",
+      "summary": "A small automatic shuffler feeds two stacks of cards into a mixed deck at its center.",
+      "ingredients": [
+        "legacy:160",
+        "legacy:55"
+      ],
+      "art_mode": "bespoke-subject",
+      "path": "client/assets/v80/automatic-card-shuffler.svg"
+    },
+    {
+      "id": "organic80:trading-card-storage-box",
+      "name": "Trading Card Storage Box",
+      "category": "board",
+      "summary": "An upright collector's box holds rows of trading cards in protective dividers.",
+      "ingredients": [
+        "legacy:160",
+        "legacy:153"
+      ],
+      "art_mode": "bespoke-subject",
+      "path": "client/assets/v80/trading-card-storage-box.svg"
+    },
+    {
+      "id": "organic80:jigsaw-sorting-tray",
+      "name": "Jigsaw Sorting Tray",
+      "category": "board",
+      "summary": "A compartmentalized tray groups jigsaw pieces by color and edge shape before assembly.",
+      "ingredients": [
+        "legacy:225",
+        "legacy:153"
+      ],
+      "art_mode": "bespoke-subject",
+      "path": "client/assets/v80/jigsaw-sorting-tray.svg"
+    },
+    {
+      "id": "organic80:dice-score-sheet",
+      "name": "Dice Score Sheet",
+      "category": "board",
+      "summary": "A paper score sheet tracks dice rolls with numbered columns, pencil marks and totals.",
+      "ingredients": [
+        "legacy:223",
+        "legacy:106"
+      ],
+      "art_mode": "bespoke-subject",
+      "path": "client/assets/v80/dice-score-sheet.svg"
+    },
+    {
+      "id": "organic80:puzzle-display-frame",
+      "name": "Puzzle Display Frame",
+      "category": "board",
+      "summary": "A finished jigsaw puzzle sits behind clear protective glass inside a wooden picture frame.",
+      "ingredients": [
+        "legacy:225",
+        "legacy:23"
+      ],
+      "art_mode": "bespoke-subject",
+      "path": "client/assets/v80/puzzle-display-frame.svg"
+    },
+    {
+      "id": "organic80:chess-piece-case",
+      "name": "Chess Piece Case",
+      "category": "board",
+      "summary": "A velvet-lined travel box holds a carved knight, pawns and the remaining chess pieces safely.",
+      "ingredients": [
+        "legacy:1196",
+        "legacy:153"
+      ],
+      "art_mode": "bespoke-subject",
+      "path": "client/assets/v80/chess-piece-case.svg"
+    },
+    {
+      "id": "organic80:treasure-map-game-board",
+      "name": "Treasure Map Game Board",
+      "category": "board",
+      "summary": "A strategy board depicts a treasure island where movable markers follow routes across a printed map.",
+      "ingredients": [
+        "legacy:159",
+        "legacy:354"
+      ],
+      "art_mode": "bespoke-subject",
+      "path": "client/assets/v80/treasure-map-game-board.svg"
+    },
+    {
+      "id": "organic80:arcade-racing-cockpit",
+      "name": "Arcade Racing Cockpit",
+      "category": "arcade",
+      "summary": "A sit-down arcade racing cabinet pairs a steering wheel with pedals and a panoramic track display.",
+      "ingredients": [
+        "legacy:326",
+        "legacy:172"
+      ],
+      "art_mode": "bespoke-subject",
+      "path": "client/assets/v80/arcade-racing-cockpit.svg"
+    },
+    {
+      "id": "organic80:rhythm-drum-pad",
+      "name": "Rhythm Drum Pad",
+      "category": "arcade",
+      "summary": "A tabletop electronic drum pad turns tapped colored surfaces into beats for a rhythm game.",
+      "ingredients": [
+        "legacy:239",
+        "legacy:62"
+      ],
+      "art_mode": "bespoke-subject",
+      "path": "client/assets/v80/rhythm-drum-pad.svg"
+    },
+    {
+      "id": "organic80:joystick-repair-stand",
+      "name": "Joystick Repair Stand",
+      "category": "technology",
+      "summary": "A disassembled arcade joystick rests on a repair stand beside its exposed microswitches and screwdriver.",
+      "ingredients": [
+        "legacy:83",
+        "legacy:29"
+      ],
+      "art_mode": "bespoke-subject",
+      "path": "client/assets/v80/joystick-repair-stand.svg"
+    },
+    {
+      "id": "organic80:controller-charging-dock",
+      "name": "Controller Charging Dock",
+      "category": "technology",
+      "summary": "A standing cradle charges a game controller through metal contacts while its battery indicator glows.",
+      "ingredients": [
+        "legacy:167",
+        "legacy:69"
+      ],
+      "art_mode": "bespoke-subject",
+      "path": "client/assets/v80/controller-charging-dock.svg"
+    },
+    {
+      "id": "organic80:touchscreen-drawing-stylus",
+      "name": "Touchscreen Drawing Stylus",
+      "category": "technology",
+      "summary": "A fine-tipped digital stylus draws curved strokes directly onto a tablet's glass display.",
+      "ingredients": [
+        "legacy:84",
+        "legacy:29"
+      ],
+      "art_mode": "bespoke-subject",
+      "path": "client/assets/v80/touchscreen-drawing-stylus.svg"
+    },
+    {
+      "id": "organic80:tabletop-scoreboard",
+      "name": "Tabletop Scoreboard",
+      "category": "board",
+      "summary": "A portable tabletop scoreboard shows each player's points on large flip-number panels.",
+      "ingredients": [
+        "legacy:162",
+        "organic80:arcade-leaderboard-screen"
+      ],
+      "art_mode": "bespoke-subject",
+      "path": "client/assets/v80/tabletop-scoreboard.svg"
+    },
+    {
+      "id": "organic80:fortune-dice",
+      "name": "Fortune Dice",
+      "category": "fantasy",
+      "summary": "A pair of enchanted dice flashes with star-shaped symbols each time they tumble across the table.",
+      "ingredients": [
+        "legacy:223",
+        "legacy:125"
+      ],
+      "art_mode": "bespoke-subject",
+      "path": "client/assets/v80/fortune-dice.svg"
+    },
+    {
+      "id": "organic80:crystal-chess-queen",
+      "name": "Crystal Chess Queen",
+      "category": "fantasy",
+      "summary": "A chess queen carved from a pale violet crystal wears a faceted crown above a glassy pedestal.",
+      "ingredients": [
+        "legacy:1196",
+        "legacy:34"
+      ],
+      "art_mode": "bespoke-subject",
+      "path": "client/assets/v80/crystal-chess-queen.svg"
+    },
+    {
+      "id": "organic80:board-game-market-stall",
+      "name": "Board Game Market Stall",
+      "category": "culture",
+      "summary": "A striped market canopy shelters stacks of boxed board games and a wooden demonstration table.",
+      "ingredients": [
+        "legacy:162",
+        "legacy:60"
+      ],
+      "art_mode": "bespoke-subject",
+      "path": "client/assets/v80/board-game-market-stall.svg"
+    },
+    {
+      "id": "organic80:chess-tournament-medal",
+      "name": "Chess Tournament Medal",
+      "category": "board",
+      "summary": "A bronze-and-gold medal shows a chess knight in profile beneath its tournament ribbon.",
+      "ingredients": [
+        "legacy:1196",
+        "legacy:157"
+      ],
+      "art_mode": "bespoke-subject",
+      "path": "client/assets/v80/chess-tournament-medal.svg"
     }
   ]
 }

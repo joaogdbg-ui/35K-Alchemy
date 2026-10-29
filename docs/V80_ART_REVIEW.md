@@ -1,8 +1,8 @@
-# V80 WIP — 90/200 SVGs for review
+# V80 original icon review — 114/200 WIP
 
-Each individual source should be viewed at 35px/90px in Light/Dark themes; no partial publication allowed.
+Each illustrated subject is in a separate original SVG file. Review meaning and distinctness at 35px, not solely hashes. This branch has not completed device-level review and must not be treated as a released catalog.
 
-| # | Element | 35px | 90px |
+| # | Subject | 35px | 90px |
 |---:|---|:---:|:---:|
 | 1 | Floating Harbor Gate | <img src="../client/assets/v80/floating-harbor-gate.svg" width="35" height="35" /> | <img src="../client/assets/v80/floating-harbor-gate.svg" width="90" height="90" /> |
 | 2 | Glass Firefly Lantern | <img src="../client/assets/v80/glass-firefly-lantern.svg" width="35" height="35" /> | <img src="../client/assets/v80/glass-firefly-lantern.svg" width="90" height="90" /> |
@@ -94,3 +94,27 @@ Each individual source should be viewed at 35px/90px in Light/Dark themes; no pa
 | 88 | Championship Ticket Exchange | <img src="../client/assets/v80/championship-ticket-exchange.svg" width="35" height="35" /> | <img src="../client/assets/v80/championship-ticket-exchange.svg" width="90" height="90" /> |
 | 89 | Game Archive Catalogue | <img src="../client/assets/v80/game-archive-catalogue.svg" width="35" height="35" /> | <img src="../client/assets/v80/game-archive-catalogue.svg" width="90" height="90" /> |
 | 90 | Pixel Sprite Lightbox | <img src="../client/assets/v80/pixel-sprite-lightbox.svg" width="35" height="35" /> | <img src="../client/assets/v80/pixel-sprite-lightbox.svg" width="90" height="90" /> |
+| 91 | Wooden Dice Tower | <img src="../client/assets/v80/wooden-dice-tower.svg" width="35" height="35" /> | <img src="../client/assets/v80/wooden-dice-tower.svg" width="90" height="90" /> |
+| 92 | Chess Match Clock | <img src="../client/assets/v80/chess-match-clock.svg" width="35" height="35" /> | <img src="../client/assets/v80/chess-match-clock.svg" width="90" height="90" /> |
+| 93 | Pocket Chess Kit | <img src="../client/assets/v80/pocket-chess-kit.svg" width="35" height="35" /> | <img src="../client/assets/v80/pocket-chess-kit.svg" width="90" height="90" /> |
+| 94 | Board Game Token Pouch | <img src="../client/assets/v80/board-game-token-pouch.svg" width="35" height="35" /> | <img src="../client/assets/v80/board-game-token-pouch.svg" width="90" height="90" /> |
+| 95 | Miniature Painting Stand | <img src="../client/assets/v80/miniature-painting-stand.svg" width="35" height="35" /> | <img src="../client/assets/v80/miniature-painting-stand.svg" width="90" height="90" /> |
+| 96 | Board Game Rulebook | <img src="../client/assets/v80/board-game-rulebook.svg" width="35" height="35" /> | <img src="../client/assets/v80/board-game-rulebook.svg" width="90" height="90" /> |
+| 97 | Transparent Card Sleeve | <img src="../client/assets/v80/transparent-card-sleeve.svg" width="35" height="35" /> | <img src="../client/assets/v80/transparent-card-sleeve.svg" width="90" height="90" /> |
+| 98 | Automatic Card Shuffler | <img src="../client/assets/v80/automatic-card-shuffler.svg" width="35" height="35" /> | <img src="../client/assets/v80/automatic-card-shuffler.svg" width="90" height="90" /> |
+| 99 | Trading Card Storage Box | <img src="../client/assets/v80/trading-card-storage-box.svg" width="35" height="35" /> | <img src="../client/assets/v80/trading-card-storage-box.svg" width="90" height="90" /> |
+| 100 | Jigsaw Sorting Tray | <img src="../client/assets/v80/jigsaw-sorting-tray.svg" width="35" height="35" /> | <img src="../client/assets/v80/jigsaw-sorting-tray.svg" width="90" height="90" /> |
+| 101 | Dice Score Sheet | <img src="../client/assets/v80/dice-score-sheet.svg" width="35" height="35" /> | <img src="../client/assets/v80/dice-score-sheet.svg" width="90" height="90" /> |
+| 102 | Puzzle Display Frame | <img src="../client/assets/v80/puzzle-display-frame.svg" width="35" height="35" /> | <img src="../client/assets/v80/puzzle-display-frame.svg" width="90" height="90" /> |
+| 103 | Chess Piece Case | <img src="../client/assets/v80/chess-piece-case.svg" width="35" height="35" /> | <img src="../client/assets/v80/chess-piece-case.svg" width="90" height="90" /> |
+| 104 | Treasure Map Game Board | <img src="../client/assets/v80/treasure-map-game-board.svg" width="35" height="35" /> | <img src="../client/assets/v80/treasure-map-game-board.svg" width="90" height="90" /> |
+| 105 | Arcade Racing Cockpit | <img src="../client/assets/v80/arcade-racing-cockpit.svg" width="35" height="35" /> | <img src="../client/assets/v80/arcade-racing-cockpit.svg" width="90" height="90" /> |
+| 106 | Rhythm Drum Pad | <img src="../client/assets/v80/rhythm-drum-pad.svg" width="35" height="35" /> | <img src="../client/assets/v80/rhythm-drum-pad.svg" width="90" height="90" /> |
+| 107 | Joystick Repair Stand | <img src="../client/assets/v80/joystick-repair-stand.svg" width="35" height="35" /> | <img src="../client/assets/v80/joystick-repair-stand.svg" width="90" height="90" /> |
+| 108 | Controller Charging Dock | <img src="../client/assets/v80/controller-charging-dock.svg" width="35" height="35" /> | <img src="../client/assets/v80/controller-charging-dock.svg" width="90" height="90" /> |
+| 109 | Touchscreen Drawing Stylus | <img src="../client/assets/v80/touchscreen-drawing-stylus.svg" width="35" height="35" /> | <img src="../client/assets/v80/touchscreen-drawing-stylus.svg" width="90" height="90" /> |
+| 110 | Tabletop Scoreboard | <img src="../client/assets/v80/tabletop-scoreboard.svg" width="35" height="35" /> | <img src="../client/assets/v80/tabletop-scoreboard.svg" width="90" height="90" /> |
+| 111 | Fortune Dice | <img src="../client/assets/v80/fortune-dice.svg" width="35" height="35" /> | <img src="../client/assets/v80/fortune-dice.svg" width="90" height="90" /> |
+| 112 | Crystal Chess Queen | <img src="../client/assets/v80/crystal-chess-queen.svg" width="35" height="35" /> | <img src="../client/assets/v80/crystal-chess-queen.svg" width="90" height="90" /> |
+| 113 | Board Game Market Stall | <img src="../client/assets/v80/board-game-market-stall.svg" width="35" height="35" /> | <img src="../client/assets/v80/board-game-market-stall.svg" width="90" height="90" /> |
+| 114 | Chess Tournament Medal | <img src="../client/assets/v80/chess-tournament-medal.svg" width="35" height="35" /> | <img src="../client/assets/v80/chess-tournament-medal.svg" width="90" height="90" /> |

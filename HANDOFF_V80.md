@@ -21,3 +21,9 @@ After CI and GitHub Android build: https://github.com/joaogdbg-ui/35K-Alchemy/re
 - Branch: `wip/200-next-discoveries-authored` — new content since V80B: **+50 V80 items/recipes and 50 distinct SVG files**; V80 pack now 90/200, hypothetical catalog 5662/13999.
 - `main` remains **5,612 elements / 13,949 recipes**. Next **official content release must be +200**: remaining 110 V80 plus 40 V81, in one PR; **not a release at +50**.
 - Current recipe source, art source and manifest are aligned in WIP. Run full catalog validation / visual inspection before counting any asset approved for final release. No Android build or Google Play claims.
+
+## Internal work wave: bespoke board games, arcade hardware and fantasy (WIP)
+
+- Continued the branch `wip/200-next-discoveries-authored` from `2b6bdf5d9ddfa578636a0aa87931611310f63841` with **24** additional unique element IDs, intuitive source pairs and individually authored SVGs. The V80 draft reaches **114/200**.
+- New published releases: **none**. +74 new items since V80B on branch only; 86 additional V80 plus 40 new V81 are still needed before one legal +200 content merge.
+- Must run full CI, verify all existing catalogs' normalized names, 35px image perception and reachability. Never claim manual visual acceptance from automated tests.

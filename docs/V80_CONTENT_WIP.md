@@ -1,6 +1,6 @@
-# V80 WIP — 90/200
+# V80 content WIP — 114/200 (unmerged)
 
-**50 newly created elements** since V80B in an isolated WIP branch. Main: 5,612 elements / 13,949 recipes. WIP: 5662 elements / 13999 recipes. No merge/APK release until 110 remaining V80 and 40 V81 items all pass validation and the +200 production gate.
+This is an **internal development branch**, not a release. 74 elements have been authored since the V80B main baseline. Classic on main stays at 5,612 items / 13,949 formulas; the candidate catalog currently has 5686 items / 14023 formulas. The next single content release must add **exactly 200** new items since V80B: complete 86 V80 items and 40 V81 items.
 
 1. **Floating Harbor Gate** = organic79:sky-dock-beacon + organic79:airship-anchor-winch — A docking arch combines a beacon with mooring cables to guide skyships safely into a floating port.
 2. **Glass Firefly Lantern** = organic79:firefly-garden-terrarium + organic79:aurora-desk-lantern — A curved glass lantern shelters luminous fireflies and brings a miniature garden into the night.
@@ -92,3 +92,27 @@
 88. **Championship Ticket Exchange** = organic80:champion-ticket-voucher + legacy:60 — A championship rewards desk exchanges victory tickets for arcade collectibles and trophies.
 89. **Game Archive Catalogue** = organic80:museum-interactive-console + legacy:51 — A carefully indexed catalogue documents the cartridges, consoles, and exhibits in a game museum.
 90. **Pixel Sprite Lightbox** = organic80:pixel-art-magnifier + legacy:63 — A backlit tracing box reveals the crisp square edges of a pixel sprite under a magnifying lens.
+91. **Wooden Dice Tower** = legacy:223 + legacy:24 — A tall wooden chute tumbles dice through angled shelves before releasing them into a landing tray.
+92. **Chess Match Clock** = legacy:1196 + legacy:211 — A tournament clock uses two separate dials so each chess player can time their moves.
+93. **Pocket Chess Kit** = legacy:1196 + legacy:110 — A folding chess board fits miniature pieces into a portable case for matches on the move.
+94. **Board Game Token Pouch** = legacy:162 + legacy:153 — A drawstring fabric pouch stores the wooden counters and scoring tokens from a tabletop game.
+95. **Miniature Painting Stand** = legacy:107 + legacy:208 — A raised painting holder steadies a tiny game miniature while a fine brush adds its details.
+96. **Board Game Rulebook** = legacy:162 + legacy:51 — An illustrated rulebook explains the turns, dice rolls and piece movement of a tabletop game.
+97. **Transparent Card Sleeve** = legacy:160 + legacy:99 — A flexible clear sleeve seals a collectible card against fingerprints and scuffed corners.
+98. **Automatic Card Shuffler** = legacy:160 + legacy:55 — A small automatic shuffler feeds two stacks of cards into a mixed deck at its center.
+99. **Trading Card Storage Box** = legacy:160 + legacy:153 — An upright collector's box holds rows of trading cards in protective dividers.
+100. **Jigsaw Sorting Tray** = legacy:225 + legacy:153 — A compartmentalized tray groups jigsaw pieces by color and edge shape before assembly.
+101. **Dice Score Sheet** = legacy:223 + legacy:106 — A paper score sheet tracks dice rolls with numbered columns, pencil marks and totals.
+102. **Puzzle Display Frame** = legacy:225 + legacy:23 — A finished jigsaw puzzle sits behind clear protective glass inside a wooden picture frame.
+103. **Chess Piece Case** = legacy:1196 + legacy:153 — A velvet-lined travel box holds a carved knight, pawns and the remaining chess pieces safely.
+104. **Treasure Map Game Board** = legacy:159 + legacy:354 — A strategy board depicts a treasure island where movable markers follow routes across a printed map.
+105. **Arcade Racing Cockpit** = legacy:326 + legacy:172 — A sit-down arcade racing cabinet pairs a steering wheel with pedals and a panoramic track display.
+106. **Rhythm Drum Pad** = legacy:239 + legacy:62 — A tabletop electronic drum pad turns tapped colored surfaces into beats for a rhythm game.
+107. **Joystick Repair Stand** = legacy:83 + legacy:29 — A disassembled arcade joystick rests on a repair stand beside its exposed microswitches and screwdriver.
+108. **Controller Charging Dock** = legacy:167 + legacy:69 — A standing cradle charges a game controller through metal contacts while its battery indicator glows.
+109. **Touchscreen Drawing Stylus** = legacy:84 + legacy:29 — A fine-tipped digital stylus draws curved strokes directly onto a tablet's glass display.
+110. **Tabletop Scoreboard** = legacy:162 + organic80:arcade-leaderboard-screen — A portable tabletop scoreboard shows each player's points on large flip-number panels.
+111. **Fortune Dice** = legacy:223 + legacy:125 — A pair of enchanted dice flashes with star-shaped symbols each time they tumble across the table.
+112. **Crystal Chess Queen** = legacy:1196 + legacy:34 — A chess queen carved from a pale violet crystal wears a faceted crown above a glassy pedestal.
+113. **Board Game Market Stall** = legacy:162 + legacy:60 — A striped market canopy shelters stacks of boxed board games and a wooden demonstration table.
+114. **Chess Tournament Medal** = legacy:1196 + legacy:157 — A bronze-and-gold medal shows a chess knight in profile beneath its tournament ribbon.
