@@ -1,6 +1,6 @@
-# 35K Alchemy — V70
+# 35K Alchemy — V72
 
-Repositório oficial do jogo **35K Alchemy**, incluindo o código-fonte completo da V69 e o pipeline Android.
+Repositório oficial do jogo **35K Alchemy**, incluindo o código-fonte completo da V72 e o pipeline Android.
 
 ## Estado verificado — 28 de outubro de 2026
 
@@ -36,6 +36,17 @@ Repositório oficial do jogo **35K Alchemy**, incluindo o código-fonte completo
 - Catálogo agora em **5.212 elementos** e **13.549 receitas**; todos os resultados anteriores preservados.
 - V71 é uma expansão progressiva **40/200**, não afirmamos que os 200 estão concluídos. Prioridade à qualidade artística a 35 px.
 - [Handoff da V71](docs/V71_HANDOFF.md).
+
+## V72 — segundo grupo de expansão e correções de jogabilidade
+
+- **5.232 elementos / 13.569 receitas**, contando 20 descobertas originais de videojogos e arcade nesta versão, além das 40 da V71.
+- **60/200 novos elementos** no ciclo de expansão; faltam 140 para a meta. Não são consideradas concluídas descobertas ainda não implementadas.
+- 20 SVGs individuais novos em `client/assets/v72/new/`, integrados via `client/src/organic-art-v72.js`, com receitas globais `client/src/organic-pack-v72.js`.
+- Corrigido o **salto da lista para o topo** após novas descobertas: o inventário virtualizado conserva o elemento visível anterior. Pesquisa, Sort e filtros ainda podem regressar ao início propositadamente.
+- Mais **7 px de espaço acima do combinador** nos ecrãs móveis suficientemente altos, sem alterar a posição dos restantes controlos nos ecrãs baixos.
+- Verificações adicionais em `tools/validate-v72.mjs` e `client/test/v72-ui-regressions.test.mjs`.
+- Handoff completo em [HANDOFF_V72.md](HANDOFF_V72.md).
+- APK atualizado no endereço fixo: https://github.com/joaogdbg-ui/35K-Alchemy/releases/download/latest/35K-Alchemy.apk
 
 ## Instalar Android (link permanente)
 
