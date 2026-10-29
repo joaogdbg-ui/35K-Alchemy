@@ -23,14 +23,14 @@
     },
     {
       "id": "organic76:nintendo-64-repair-station",
-      "name": "Orilux 64 Repair Station",
+      "name": "Velqryon 64 Repair Station",
       "category": "technology",
       "summary": "A microscope and tiny tools restore a well-loved console.",
       "iconFamily": "organic"
     },
     {
       "id": "organic76:nintendo-64-expansion-tester",
-      "name": "Orilux 64 Expansion Tester",
+      "name": "Velqryon 64 Expansion Tester",
       "category": "technology",
       "summary": "A cartridge-shaped diagnostic module lights up every contact.",
       "iconFamily": "organic"
