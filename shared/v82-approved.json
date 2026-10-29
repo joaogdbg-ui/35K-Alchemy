@@ -527,7 +527,7 @@
     },
     {
       "id": "organic82:hades",
-      "name": "Hades",
+      "name": "Hades the God",
       "category": "mythology",
       "summary": "The Greek king of the Underworld wears a shadowed crown and holds his bident.",
       "familyCampaigns": [
@@ -1787,7 +1787,7 @@
     },
     {
       "id": "organic82:dinosaur-egg",
-      "name": "Dinosaur Egg",
+      "name": "Fossilized Dinosaur Egg",
       "category": "prehistoric",
       "summary": "A large speckled dinosaur egg rests in a ring of broken shell fragments.",
       "familyCampaigns": [
