@@ -1,0 +1,122 @@
+[
+  {
+    "id": "organic78:aurora-crystal-lamp",
+    "name": "Aurora Crystal Lamp",
+    "ingredients": [
+      "organic77:crystal-lantern",
+      "legacy:142"
+    ],
+    "category": "fantasy",
+    "summary": "A faceted night lamp bends starlight into moving ribbons of color.",
+    "path": "client/assets/v78/aurora-crystal-lamp.svg",
+    "art_mode": "bespoke-subject"
+  },
+  {
+    "id": "organic78:snow-observatory",
+    "name": "Snow Observatory",
+    "ingredients": [
+      "organic77:frozen-tower",
+      "organic32:telescope"
+    ],
+    "category": "science",
+    "summary": "A frost-covered observation tower points its telescope toward the winter sky.",
+    "path": "client/assets/v78/snow-observatory.svg",
+    "art_mode": "bespoke-subject"
+  },
+  {
+    "id": "organic78:shrine-offering-bowl",
+    "name": "Shrine Offering Bowl",
+    "ingredients": [
+      "organic77:forest-shrine",
+      "legacy:561"
+    ],
+    "category": "fantasy",
+    "summary": "A carved bowl gathers a small gift of gems at the heart of a quiet shrine.",
+    "path": "client/assets/v78/shrine-offering-bowl.svg",
+    "art_mode": "bespoke-subject"
+  },
+  {
+    "id": "organic78:firefly-pond-dome",
+    "name": "Firefly Pond Dome",
+    "ingredients": [
+      "organic77:firefly-globe",
+      "legacy:40"
+    ],
+    "category": "nature",
+    "summary": "A clear dome protects a miniature pond that glitters with living lights.",
+    "path": "client/assets/v78/firefly-pond-dome.svg",
+    "art_mode": "bespoke-subject"
+  },
+  {
+    "id": "organic78:dragon-egg-cradle",
+    "name": "Dragon Egg Cradle",
+    "ingredients": [
+      "organic77:dragon-nest",
+      "legacy:24"
+    ],
+    "category": "fantasy",
+    "summary": "A sturdy wooden cradle keeps a precious scaled egg safe from rolling away.",
+    "path": "client/assets/v78/dragon-egg-cradle.svg",
+    "art_mode": "bespoke-subject"
+  },
+  {
+    "id": "organic78:moonbridge-watchpost",
+    "name": "Moonbridge Watchpost",
+    "ingredients": [
+      "organic77:moonlit-bridge",
+      "legacy:562"
+    ],
+    "category": "fantasy",
+    "summary": "A small moonlit guardhouse watches travelers crossing an ancient bridge.",
+    "path": "client/assets/v78/moonbridge-watchpost.svg",
+    "art_mode": "bespoke-subject"
+  },
+  {
+    "id": "organic78:village-wind-chimes",
+    "name": "Village Wind Chimes",
+    "ingredients": [
+      "organic77:windmill-village",
+      "legacy:62"
+    ],
+    "category": "music",
+    "summary": "Hanging metal chimes turn the village breeze into a gentle melody.",
+    "path": "client/assets/v78/village-wind-chimes.svg",
+    "art_mode": "bespoke-subject"
+  },
+  {
+    "id": "organic78:airship-mooring-tower",
+    "name": "Airship Mooring Tower",
+    "ingredients": [
+      "organic77:sky-harbor",
+      "legacy:14"
+    ],
+    "category": "fantasy",
+    "summary": "An elevated mooring mast steadies a visiting skyship above the harbor.",
+    "path": "client/assets/v78/airship-mooring-tower.svg",
+    "art_mode": "bespoke-subject"
+  },
+  {
+    "id": "organic78:gem-miner-pickaxe",
+    "name": "Gem Miner Pickaxe",
+    "ingredients": [
+      "organic77:gemstone-cavern",
+      "legacy:29"
+    ],
+    "category": "accessory",
+    "summary": "A sturdy pickaxe chips glowing crystals out of a deep underground vein.",
+    "path": "client/assets/v78/gem-miner-pickaxe.svg",
+    "art_mode": "bespoke-subject"
+  },
+  {
+    "id": "organic78:village-sundial",
+    "name": "Village Sundial",
+    "ingredients": [
+      "organic77:solar-clock",
+      "legacy:46"
+    ],
+    "category": "culture",
+    "summary": "A sunny village square uses a stone sundial to keep track of market time.",
+    "path": "client/assets/v78/village-sundial.svg",
+    "art_mode": "bespoke-subject"
+  }
+]
