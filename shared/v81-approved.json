@@ -1,16 +1,16 @@
 {
   "version": 81,
-  "cohort_count": 40,
+  "cohort_count": 57,
   "expansion_goal": 200,
-  "expansion_progress": 40,
-  "remaining_to_goal": 160,
+  "expansion_progress": 57,
+  "remaining_to_goal": 143,
   "base_catalog": {
     "elements": 5772,
     "recipes": 14109
   },
   "expected_catalog": {
-    "elements": 5812,
-    "recipes": 14149
+    "elements": 5829,
+    "recipes": 14166
   },
   "new_items": [
     {
@@ -492,6 +492,210 @@
       ],
       "art_mode": "bespoke-subject",
       "path": "client/assets/v81/miniature-dungeon-diorama.svg"
+    },
+    {
+      "id": "organic81:wildlife-species-atlas",
+      "name": "Wildlife Species Atlas",
+      "category": "science",
+      "summary": "An illustrated atlas connects animal shapes, habitats and field observations into a branching wildlife guide.",
+      "ingredients": [
+        "legacy:26",
+        "organic80:wildlife-field-notebook"
+      ],
+      "art_mode": "bespoke-subject",
+      "path": "client/assets/v81/wildlife-species-atlas.svg"
+    },
+    {
+      "id": "organic81:farm-animal",
+      "name": "Farm Animal",
+      "category": "life",
+      "summary": "A familiar domesticated creature lives alongside people on a farm, opening several branches of livestock.",
+      "ingredients": [
+        "organic81:wildlife-species-atlas",
+        "legacy:578"
+      ],
+      "art_mode": "bespoke-subject",
+      "path": "client/assets/v81/farm-animal.svg"
+    },
+    {
+      "id": "organic81:cat",
+      "name": "Cat",
+      "category": "life",
+      "summary": "A small domestic feline with pointed ears, whiskers and a curved tail curls up inside a warm house.",
+      "ingredients": [
+        "organic81:farm-animal",
+        "legacy:45"
+      ],
+      "art_mode": "bespoke-subject",
+      "path": "client/assets/v81/cat.svg"
+    },
+    {
+      "id": "organic81:dog",
+      "name": "Dog",
+      "category": "life",
+      "summary": "A loyal domestic dog with floppy ears and a wagging tail became a companion of humans across generations.",
+      "ingredients": [
+        "organic81:farm-animal",
+        "legacy:28"
+      ],
+      "art_mode": "bespoke-subject",
+      "path": "client/assets/v81/dog.svg"
+    },
+    {
+      "id": "organic81:cow",
+      "name": "Cow",
+      "category": "life",
+      "summary": "A dairy cow with curved horns and a spotted hide provides milk and grazes peacefully in open fields.",
+      "ingredients": [
+        "organic81:farm-animal",
+        "organic38:milk"
+      ],
+      "art_mode": "bespoke-subject",
+      "path": "client/assets/v81/cow.svg"
+    },
+    {
+      "id": "organic81:pig",
+      "name": "Pig",
+      "category": "life",
+      "summary": "A pink farm pig enjoys a muddy puddle, with a broad snout, triangular ears and a tightly curled tail.",
+      "ingredients": [
+        "organic81:farm-animal",
+        "legacy:6"
+      ],
+      "art_mode": "bespoke-subject",
+      "path": "client/assets/v81/pig.svg"
+    },
+    {
+      "id": "organic81:chicken",
+      "name": "Chicken",
+      "category": "life",
+      "summary": "A farm chicken sports a bright comb, rounded body and little beak, and lays eggs in its nest.",
+      "ingredients": [
+        "organic81:farm-animal",
+        "organic40:feather"
+      ],
+      "art_mode": "bespoke-subject",
+      "path": "client/assets/v81/chicken.svg"
+    },
+    {
+      "id": "organic81:goat",
+      "name": "Goat",
+      "category": "life",
+      "summary": "A nimble mountain goat balances on rocky ground, with a short beard, slender horns and cloven hooves.",
+      "ingredients": [
+        "organic81:farm-animal",
+        "legacy:38"
+      ],
+      "art_mode": "bespoke-subject",
+      "path": "client/assets/v81/goat.svg"
+    },
+    {
+      "id": "organic81:wild-animal",
+      "name": "Wild Animal",
+      "category": "life",
+      "summary": "An untamed creature adapted to life in forests opens the woodland predator, herbivore and bird branches.",
+      "ingredients": [
+        "organic81:wildlife-species-atlas",
+        "legacy:20"
+      ],
+      "art_mode": "bespoke-subject",
+      "path": "client/assets/v81/wild-animal.svg"
+    },
+    {
+      "id": "organic81:wolf",
+      "name": "Wolf",
+      "category": "life",
+      "summary": "A gray wolf howls at night, distinguished by its pointed muzzle, erect ears and thick neck ruff.",
+      "ingredients": [
+        "organic81:wild-animal",
+        "legacy:142"
+      ],
+      "art_mode": "bespoke-subject",
+      "path": "client/assets/v81/wolf.svg"
+    },
+    {
+      "id": "organic81:bear",
+      "name": "Bear",
+      "category": "life",
+      "summary": "A broad brown bear with rounded ears and a heavy muzzle emerges from its den deep in the forest.",
+      "ingredients": [
+        "organic81:wild-animal",
+        "legacy:37"
+      ],
+      "art_mode": "bespoke-subject",
+      "path": "client/assets/v81/bear.svg"
+    },
+    {
+      "id": "organic81:rabbit",
+      "name": "Rabbit",
+      "category": "life",
+      "summary": "A quick burrowing rabbit has long upright ears, round eyes and powerful hind legs for escaping predators.",
+      "ingredients": [
+        "organic81:wild-animal",
+        "organic40:burrow"
+      ],
+      "art_mode": "bespoke-subject",
+      "path": "client/assets/v81/rabbit.svg"
+    },
+    {
+      "id": "organic81:lion",
+      "name": "Lion",
+      "category": "life",
+      "summary": "A proud lion carries a full golden mane beneath the hot sun and surveys the grassland for prey.",
+      "ingredients": [
+        "organic81:wild-animal",
+        "legacy:141"
+      ],
+      "art_mode": "bespoke-subject",
+      "path": "client/assets/v81/lion.svg"
+    },
+    {
+      "id": "organic81:bat",
+      "name": "Bat",
+      "category": "life",
+      "summary": "A nocturnal bat flies on thin membranes stretched between long fingers and navigates by echolocation.",
+      "ingredients": [
+        "organic81:wild-animal",
+        "organic40:moonlight"
+      ],
+      "art_mode": "bespoke-subject",
+      "path": "client/assets/v81/bat.svg"
+    },
+    {
+      "id": "organic81:eagle",
+      "name": "Eagle",
+      "category": "life",
+      "summary": "A soaring eagle extends its broad primary feathers and sharply hooked beak above the mountain winds.",
+      "ingredients": [
+        "organic81:wild-animal",
+        "legacy:65"
+      ],
+      "art_mode": "bespoke-subject",
+      "path": "client/assets/v81/eagle.svg"
+    },
+    {
+      "id": "organic81:crocodile",
+      "name": "Crocodile",
+      "category": "life",
+      "summary": "A river crocodile has a low armored body, long serrated jaws and a heavy tapering tail for swimming.",
+      "ingredients": [
+        "organic81:wild-animal",
+        "legacy:39"
+      ],
+      "art_mode": "bespoke-subject",
+      "path": "client/assets/v81/crocodile.svg"
+    },
+    {
+      "id": "organic81:penguin",
+      "name": "Penguin",
+      "category": "life",
+      "summary": "An upright penguin wears dark plumage and a white belly, with short flippers and webbed feet on icy ground.",
+      "ingredients": [
+        "organic81:wild-animal",
+        "legacy:35"
+      ],
+      "art_mode": "bespoke-subject",
+      "path": "client/assets/v81/penguin.svg"
     }
   ],
   "cycle_complete": false

@@ -1,8 +1,8 @@
-# V81 original illustrations — 40/40
+# V81 original SVG illustrations — 57/200 WIP
 
-Artwork is source-matched, unique, and drawn per subject. Review all 40 at 35 px and 90 px, in light/dark, before claiming human approval.
+These are 35px and 90px visual-review candidates, not yet released. No generic image-only placeholders.
 
-| # | Element | 35 px | 90 px |
+| # | Element | 35px | 90px |
 |---:|---|:---:|:---:|
 | 1 | Sprite Animation Light Table | <img src="../client/assets/v81/sprite-animation-light-table.svg" width="35" height="35" /> | <img src="../client/assets/v81/sprite-animation-light-table.svg" width="90" height="90" /> |
 | 2 | Color-Proof Photo Printer | <img src="../client/assets/v81/color-proof-photo-printer.svg" width="35" height="35" /> | <img src="../client/assets/v81/color-proof-photo-printer.svg" width="90" height="90" /> |
@@ -44,3 +44,20 @@ Artwork is source-matched, unique, and drawn per subject. Review all 40 at 35 px
 | 38 | Concert Glowstick Fan | <img src="../client/assets/v81/concert-glowstick-fan.svg" width="35" height="35" /> | <img src="../client/assets/v81/concert-glowstick-fan.svg" width="90" height="90" /> |
 | 39 | Harbor Pixel Postcard | <img src="../client/assets/v81/harbor-pixel-postcard.svg" width="35" height="35" /> | <img src="../client/assets/v81/harbor-pixel-postcard.svg" width="90" height="90" /> |
 | 40 | Miniature Dungeon Diorama | <img src="../client/assets/v81/miniature-dungeon-diorama.svg" width="35" height="35" /> | <img src="../client/assets/v81/miniature-dungeon-diorama.svg" width="90" height="90" /> |
+| 41 | Wildlife Species Atlas | <img src="../client/assets/v81/wildlife-species-atlas.svg" width="35" height="35" /> | <img src="../client/assets/v81/wildlife-species-atlas.svg" width="90" height="90" /> |
+| 42 | Farm Animal | <img src="../client/assets/v81/farm-animal.svg" width="35" height="35" /> | <img src="../client/assets/v81/farm-animal.svg" width="90" height="90" /> |
+| 43 | Cat | <img src="../client/assets/v81/cat.svg" width="35" height="35" /> | <img src="../client/assets/v81/cat.svg" width="90" height="90" /> |
+| 44 | Dog | <img src="../client/assets/v81/dog.svg" width="35" height="35" /> | <img src="../client/assets/v81/dog.svg" width="90" height="90" /> |
+| 45 | Cow | <img src="../client/assets/v81/cow.svg" width="35" height="35" /> | <img src="../client/assets/v81/cow.svg" width="90" height="90" /> |
+| 46 | Pig | <img src="../client/assets/v81/pig.svg" width="35" height="35" /> | <img src="../client/assets/v81/pig.svg" width="90" height="90" /> |
+| 47 | Chicken | <img src="../client/assets/v81/chicken.svg" width="35" height="35" /> | <img src="../client/assets/v81/chicken.svg" width="90" height="90" /> |
+| 48 | Goat | <img src="../client/assets/v81/goat.svg" width="35" height="35" /> | <img src="../client/assets/v81/goat.svg" width="90" height="90" /> |
+| 49 | Wild Animal | <img src="../client/assets/v81/wild-animal.svg" width="35" height="35" /> | <img src="../client/assets/v81/wild-animal.svg" width="90" height="90" /> |
+| 50 | Wolf | <img src="../client/assets/v81/wolf.svg" width="35" height="35" /> | <img src="../client/assets/v81/wolf.svg" width="90" height="90" /> |
+| 51 | Bear | <img src="../client/assets/v81/bear.svg" width="35" height="35" /> | <img src="../client/assets/v81/bear.svg" width="90" height="90" /> |
+| 52 | Rabbit | <img src="../client/assets/v81/rabbit.svg" width="35" height="35" /> | <img src="../client/assets/v81/rabbit.svg" width="90" height="90" /> |
+| 53 | Lion | <img src="../client/assets/v81/lion.svg" width="35" height="35" /> | <img src="../client/assets/v81/lion.svg" width="90" height="90" /> |
+| 54 | Bat | <img src="../client/assets/v81/bat.svg" width="35" height="35" /> | <img src="../client/assets/v81/bat.svg" width="90" height="90" /> |
+| 55 | Eagle | <img src="../client/assets/v81/eagle.svg" width="35" height="35" /> | <img src="../client/assets/v81/eagle.svg" width="90" height="90" /> |
+| 56 | Crocodile | <img src="../client/assets/v81/crocodile.svg" width="35" height="35" /> | <img src="../client/assets/v81/crocodile.svg" width="90" height="90" /> |
+| 57 | Penguin | <img src="../client/assets/v81/penguin.svg" width="35" height="35" /> | <img src="../client/assets/v81/penguin.svg" width="90" height="90" /> |

@@ -1,6 +1,6 @@
-# V81 — new 40 original game-world connections
+# V81 staged content: 57/200, not publicly released
 
-Each element has its own SVG and its own globally deterministic recipe. 40 V81 combined with 160 new V80 entries equals **exactly +200** since V80B.
+The public V81 consists of 40/200. This branch authors 17 additional entries in the next +188-to-6k release. No PR or Android build until a complete +188 candidate.
 
 1. **Sprite Animation Light Table** = organic80:pixel-sprite-lightbox + legacy:211 — An animator's luminous drawing table shows three consecutive pixel-sprite frames beside a timing ruler.
 2. **Color-Proof Photo Printer** = organic80:color-calibration-proof + organic80:pocket-photo-printer — A tabletop printer outputs calibrated color patches beside a small landscape photograph.
@@ -42,3 +42,20 @@ Each element has its own SVG and its own globally deterministic recipe. 40 V81 c
 38. **Concert Glowstick Fan** = organic80:rhythm-concert-stage + legacy:63 — A bundle of pastel glow sticks lights up the audience during the final arcade rhythm concert.
 39. **Harbor Pixel Postcard** = organic80:floating-harbor-gate + organic80:pixel-color-scanner — A souvenir postcard depicts the floating harbor gate as a crisp pastel pixel-art landscape.
 40. **Miniature Dungeon Diorama** = organic81:miniature-terrain-toolbox + legacy:37 — A tabletop diorama arranges painted stone doors, dungeon stairs and a tiny adventurer on a miniature cave floor.
+41. **Wildlife Species Atlas** = legacy:26 + organic80:wildlife-field-notebook — An illustrated atlas connects animal shapes, habitats and field observations into a branching wildlife guide.
+42. **Farm Animal** = organic81:wildlife-species-atlas + legacy:578 — A familiar domesticated creature lives alongside people on a farm, opening several branches of livestock.
+43. **Cat** = organic81:farm-animal + legacy:45 — A small domestic feline with pointed ears, whiskers and a curved tail curls up inside a warm house.
+44. **Dog** = organic81:farm-animal + legacy:28 — A loyal domestic dog with floppy ears and a wagging tail became a companion of humans across generations.
+45. **Cow** = organic81:farm-animal + organic38:milk — A dairy cow with curved horns and a spotted hide provides milk and grazes peacefully in open fields.
+46. **Pig** = organic81:farm-animal + legacy:6 — A pink farm pig enjoys a muddy puddle, with a broad snout, triangular ears and a tightly curled tail.
+47. **Chicken** = organic81:farm-animal + organic40:feather — A farm chicken sports a bright comb, rounded body and little beak, and lays eggs in its nest.
+48. **Goat** = organic81:farm-animal + legacy:38 — A nimble mountain goat balances on rocky ground, with a short beard, slender horns and cloven hooves.
+49. **Wild Animal** = organic81:wildlife-species-atlas + legacy:20 — An untamed creature adapted to life in forests opens the woodland predator, herbivore and bird branches.
+50. **Wolf** = organic81:wild-animal + legacy:142 — A gray wolf howls at night, distinguished by its pointed muzzle, erect ears and thick neck ruff.
+51. **Bear** = organic81:wild-animal + legacy:37 — A broad brown bear with rounded ears and a heavy muzzle emerges from its den deep in the forest.
+52. **Rabbit** = organic81:wild-animal + organic40:burrow — A quick burrowing rabbit has long upright ears, round eyes and powerful hind legs for escaping predators.
+53. **Lion** = organic81:wild-animal + legacy:141 — A proud lion carries a full golden mane beneath the hot sun and surveys the grassland for prey.
+54. **Bat** = organic81:wild-animal + organic40:moonlight — A nocturnal bat flies on thin membranes stretched between long fingers and navigates by echolocation.
+55. **Eagle** = organic81:wild-animal + legacy:65 — A soaring eagle extends its broad primary feathers and sharply hooked beak above the mountain winds.
+56. **Crocodile** = organic81:wild-animal + legacy:39 — A river crocodile has a low armored body, long serrated jaws and a heavy tapering tail for swimming.
+57. **Penguin** = organic81:wild-animal + legacy:35 — An upright penguin wears dark plumage and a white belly, with short flippers and webbed feet on icy ground.
