@@ -30,6 +30,13 @@ Repositório oficial do jogo **35K Alchemy**, incluindo o código-fonte completo
 - Mantém 5.172 elementos e 13.509 receitas, sem alterar IDs, modos, saves, monetização ou a assinatura Android.
 - Próximo ciclo **V71**: expansão de **até 200 elementos novos**, condicionada a receitas orgânicas, SVG específico por objeto, legibilidade a 35 px e validação das campanhas.
 
+## V71 — Primeiro conjunto de expansão (40/200)
+
+- 40 novos elementos originais e 40 combinações intuitivas; SVG individual em cada elemento.
+- Catálogo agora em **5.212 elementos** e **13.549 receitas**; todos os resultados anteriores preservados.
+- V71 é uma expansão progressiva **40/200**, não afirmamos que os 200 estão concluídos. Prioridade à qualidade artística a 35 px.
+- [Handoff da V71](docs/V71_HANDOFF.md).
+
 ## Instalar Android (link permanente)
 
 - **[Descarregar 35K-Alchemy.apk](https://github.com/joaogdbg-ui/35K-Alchemy/releases/download/latest/35K-Alchemy.apk)**.

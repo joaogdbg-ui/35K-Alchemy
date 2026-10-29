@@ -35,6 +35,7 @@ import { ORGANIC_V65 } from './organic-pack-v65.js';
 import { ORGANIC_V66 } from './organic-pack-v66.js';
 import { ORGANIC_V67 } from './organic-pack-v67.js';
 import { ORGANIC_V68 } from './organic-pack-v68.js';
+import { ORGANIC_V71 } from './organic-pack-v71.js';
 import { ORGANIC_V57 } from './organic-pack-v57.js';
 import { ORGANIC_ART_V34 } from './organic-art-v34.js';
 import { ORGANIC_ART_V37 } from './organic-art-v37.js';
@@ -62,6 +63,7 @@ import { ORGANIC_ART_V66 } from './organic-art-v66.js';
 import { ORGANIC_ART_V67 } from './organic-art-v67.js';
 import { ORGANIC_ART_V68 } from './organic-art-v68.js';
 import { ORGANIC_ART_V70 } from './organic-art-v70.js';
+import { ORGANIC_ART_V71 } from './organic-art-v71.js';
 import { ORGANIC_ART_V69 } from './organic-art-v69.js';
 import { ORGANIC_ART_V57 } from './organic-art-v57.js';
 import { ORGANIC_ART_V32 } from './organic-art-v32.js';
@@ -79,7 +81,7 @@ const $ = (id) => document.getElementById(id);
 const escapeText = (s) => String(s).replace(/[&<>"']/g, (c) => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
 // V39: the same strict catalog contract runs in the browser, the build and CI.
 // No hidden first-wins recipe collisions or duplicated catalog entries.
-const {items: ITEMS,recipes:classicRecipes} = buildCatalog(DATA,[PACK,GAMING_V22,GAMING_V23,GAMING_V24,GAMING_V26,GAMING_V27,GAMING_V30,ORGANIC_V32,ORGANIC_V34,ORGANIC_V37,ORGANIC_V38,ORGANIC_V40,ORGANIC_V41,ORGANIC_V42,ORGANIC_V43,ORGANIC_V44,ORGANIC_V45,ORGANIC_V46,ORGANIC_V47,ORGANIC_V50,ORGANIC_V52,ORGANIC_V53,ORGANIC_V55,ORGANIC_V56,ORGANIC_V57,ORGANIC_V58,ORGANIC_V59,ORGANIC_V61,ORGANIC_V62,ORGANIC_V63,ORGANIC_V65,ORGANIC_V66,ORGANIC_V67,ORGANIC_V68]);
+const {items: ITEMS,recipes:classicRecipes} = buildCatalog(DATA,[PACK,GAMING_V22,GAMING_V23,GAMING_V24,GAMING_V26,GAMING_V27,GAMING_V30,ORGANIC_V32,ORGANIC_V34,ORGANIC_V37,ORGANIC_V38,ORGANIC_V40,ORGANIC_V41,ORGANIC_V42,ORGANIC_V43,ORGANIC_V44,ORGANIC_V45,ORGANIC_V46,ORGANIC_V47,ORGANIC_V50,ORGANIC_V52,ORGANIC_V53,ORGANIC_V55,ORGANIC_V56,ORGANIC_V57,ORGANIC_V58,ORGANIC_V59,ORGANIC_V61,ORGANIC_V62,ORGANIC_V63,ORGANIC_V65,ORGANIC_V66,ORGANIC_V67,ORGANIC_V68,ORGANIC_V71]);
 let recipes=classicRecipes;
 const familyCampaigns=new Map(FAMILY_CAMPAIGNS.families.map(f=>[f.id,{...f,itemSet:new Set(f.items),recipeMap:new Map(f.recipes)}]));
 const sharedCatalogIds=sharedMembership(FAMILY_CAMPAIGNS.families);
@@ -740,7 +742,7 @@ function staticArt(item){
  // V30 highest-priority semantic art: only exact canonical names are eligible.
  // A sky is never rendered as a sword just because its name contains "sky".
  const itemName=String(item.name||'').toLowerCase();
- const newArt=ORGANIC_ART_V70[itemName]||ORGANIC_ART_V69[itemName]||ORGANIC_ART_V68[itemName]||ORGANIC_ART_V67[itemName]||ORGANIC_ART_V66[itemName]||ORGANIC_ART_V65[itemName]||ORGANIC_ART_V63[itemName]||ORGANIC_ART_V62[itemName]||ORGANIC_ART_V61[itemName]||ORGANIC_ART_V59[itemName]||ORGANIC_ART_V58[itemName]||ORGANIC_ART_V57[itemName]||ORGANIC_ART_V56[itemName]||ORGANIC_ART_V55[itemName]||ORGANIC_ART_V53[itemName]||ORGANIC_ART_V52[itemName]||ORGANIC_ART_V50[itemName]||ORGANIC_ART_V47[itemName]||ORGANIC_ART_V46[itemName]||ORGANIC_ART_V45[itemName]||ORGANIC_ART_V44[itemName]||ORGANIC_ART_V43[itemName]||ORGANIC_ART_V42[itemName]||ORGANIC_ART_V41[itemName]||ORGANIC_ART_V40[itemName]||ORGANIC_ART_V38[itemName]||ORGANIC_ART_V37[itemName]||ORGANIC_ART_V34[itemName]||ORGANIC_ART_V32[itemName];if(newArt)return newArt;
+ const newArt=ORGANIC_ART_V71[itemName]||ORGANIC_ART_V70[itemName]||ORGANIC_ART_V69[itemName]||ORGANIC_ART_V68[itemName]||ORGANIC_ART_V67[itemName]||ORGANIC_ART_V66[itemName]||ORGANIC_ART_V65[itemName]||ORGANIC_ART_V63[itemName]||ORGANIC_ART_V62[itemName]||ORGANIC_ART_V61[itemName]||ORGANIC_ART_V59[itemName]||ORGANIC_ART_V58[itemName]||ORGANIC_ART_V57[itemName]||ORGANIC_ART_V56[itemName]||ORGANIC_ART_V55[itemName]||ORGANIC_ART_V53[itemName]||ORGANIC_ART_V52[itemName]||ORGANIC_ART_V50[itemName]||ORGANIC_ART_V47[itemName]||ORGANIC_ART_V46[itemName]||ORGANIC_ART_V45[itemName]||ORGANIC_ART_V44[itemName]||ORGANIC_ART_V43[itemName]||ORGANIC_ART_V42[itemName]||ORGANIC_ART_V41[itemName]||ORGANIC_ART_V40[itemName]||ORGANIC_ART_V38[itemName]||ORGANIC_ART_V37[itemName]||ORGANIC_ART_V34[itemName]||ORGANIC_ART_V32[itemName];if(newArt)return newArt;
  const semantic=GAMEVERSE_ART_V30_SEMANTIC[itemName];
  if(semantic)return semantic;
  const v27=v27StaticArt(item);

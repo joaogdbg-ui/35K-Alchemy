@@ -1,15 +1,15 @@
 #!/usr/bin/env python3
-"""Copy verified V70 single-file HTML into Capacitor webDir."""
+"""Copy verified V71 single-file HTML into Capacitor webDir."""
 from pathlib import Path
 import shutil
 root=Path(__file__).resolve().parents[1]
-src=root/'35K_Alchemy_V70_Offline.html'
+src=root/'35K_Alchemy_V71_Offline.html'
 if not src.is_file():
-    raise SystemExit('V70 HTML missing: run python tools/build-standalone.py')
+    raise SystemExit('V71 HTML missing: run python tools/build-standalone.py')
 html=src.read_text(encoding='utf-8')
 if '<head' not in html.lower() or '</html>' not in html.lower():
-    raise SystemExit('V70 standalone HTML incomplete')
+    raise SystemExit('V71 standalone HTML incomplete')
 dst=root/'www';dst.mkdir(exist_ok=True)
 shutil.copyfile(src,dst/'index.html')
-if (dst/'index.html').read_bytes()!=src.read_bytes():raise SystemExit('Android payload differs from V70 HTML')
-print('V70 Capacitor payload:',(dst/'index.html').stat().st_size,'bytes')
+if (dst/'index.html').read_bytes()!=src.read_bytes():raise SystemExit('Android payload differs from V71 HTML')
+print('V71 Capacitor payload:',(dst/'index.html').stat().st_size,'bytes')

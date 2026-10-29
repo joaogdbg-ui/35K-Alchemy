@@ -1,0 +1,41 @@
+import {readFileSync} from 'node:fs';
+import {createHash} from 'node:crypto';
+import {DATA} from '../client/src/legacy-data.js';
+import {PACK} from '../client/src/creative-pack.js';
+import {buildCatalog} from '../client/src/catalog-integrity.js';
+import {ORGANIC_V71} from '../client/src/organic-pack-v71.js';
+import {ORGANIC_ART_V71} from '../client/src/organic-art-v71.js';
+const check=(cond,message)=>{if(!cond)throw Error('V71: '+message)};
+const m=JSON.parse(readFileSync('shared/v71-approved.json','utf8'));
+check(m.version===71,'manifest version');
+check(m.new_items.length===40,'first approved 40-illustration cohort');
+check(ORGANIC_V71.items.length===40&&ORGANIC_V71.recipes.length===40,'40 new elements and formulas');
+check(Object.keys(ORGANIC_ART_V71).length===40,'40 artworks');
+const signatures=new Set(), names=new Set(),ids=new Set();
+for(const entry of m.new_items){
+ check(!names.has(entry.name.toLowerCase())&&!ids.has(entry.id),'duplicate subject');
+ names.add(entry.name.toLowerCase());ids.add(entry.id);
+ const item=ORGANIC_V71.items.find(it=>it.id===entry.id);
+ check(item?.name===entry.name,'misnamed element '+entry.name);
+ check(ORGANIC_V71.recipes.some(r=>r[2]===entry.id),'recipe missing '+entry.name);
+ check(entry.art_mode==='bespoke-subject','not subject-specific');
+ const svg=readFileSync(entry.path,'utf8');
+ check(createHash('sha256').update(svg).digest('hex')===entry.sha256,'asset mutated '+entry.name);
+ check(!signatures.has(entry.sha256),'identical artwork');signatures.add(entry.sha256);
+ check(svg.includes('viewBox="0 0 100 100"') && svg.length>330,'invalid vector');
+ check(!/<script|<image\b|<text\b|<foreignObject|onload\s*=|href\s*=|<animate/i.test(svg),'unsafe external/vector embedded content');
+ check(ORGANIC_ART_V71[entry.name.toLowerCase()]===svg,'runtime artwork mismatch');
+}
+const mods=['gaming-v22','gaming-v23','gaming-v24','gaming-v26','gaming-v27','gaming-v30','organic-v32','organic-v34','organic-v37','organic-v38','organic-v40','organic-v41','organic-v42','organic-v43','organic-v44','organic-v45','organic-v46','organic-v47','organic-v50','organic-v52','organic-v53','organic-v55','organic-v56','organic-v57','organic-v58','organic-v59','organic-v61','organic-v62','organic-v63','organic-v65','organic-v66','organic-v67','organic-v68'];
+const packs=[PACK];for(const name of mods){const f=name.replace('gaming','gaming-pack').replace('organic','organic-pack');const mod=await import('../client/src/'+f+'.js');packs.push(Object.values(mod)[0]);}
+const prior=buildCatalog(DATA,packs);
+const all=buildCatalog(DATA,[...packs,ORGANIC_V71]);
+check(prior.items.length===5172&&prior.recipes.size===13509,'existing catalog changed');
+check(all.items.length===5212&&all.recipes.size===13549,'target catalog mismatch');
+for(const [key,val] of prior.recipes)check(all.recipes.get(key)===val,'changed existing recipe '+key);
+const app=readFileSync('client/src/app.js','utf8');
+check(app.includes('ORGANIC_V68,ORGANIC_V71])'),'app does not include new pack');
+check(app.includes('ORGANIC_ART_V71[itemName]||ORGANIC_ART_V70[itemName]'),'art precedence');
+const build=readFileSync('tools/build-standalone.py','utf8');
+check(build.includes('window.__gameverseOrganicArt71') && build.includes('35K_Alchemy_V71_Offline.html'),'standalone missing V71 pack or version');
+if(!process.argv.includes('--quiet'))console.log('V71 VALID: +40 bespoke new items, +40 intuitive recipes, 5212/13549, all original recipe mappings unchanged.');
