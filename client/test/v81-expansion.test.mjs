@@ -5,19 +5,21 @@ import {ORGANIC_V80} from '../src/organic-pack-v80.js';
 import {ORGANIC_V81} from '../src/organic-pack-v81.js';
 import {ORGANIC_ART_V81} from '../src/organic-art-v81.js';
 const read=p=>readFileSync(new URL('../../'+p,import.meta.url),'utf8');
-test('V80 200/200 cycle and V81 40/200 first cohort constitute exactly +200 since V80B',()=>{
+test('V80 remains unchanged while V81 grows from the 40-element published cohort toward 200',()=>{
  const m80=JSON.parse(read('shared/v80-approved.json')),m81=JSON.parse(read('shared/v81-approved.json'));
  assert.equal(ORGANIC_V80.items.length,200);
  assert.equal(m80.cycle_complete,true);
  assert.equal(m81.expansion_goal,200);
- assert.equal(m81.expansion_progress,40);
- assert.equal(m81.remaining_to_goal,160);
- assert.equal(ORGANIC_V81.items.length,40);
- assert.equal(ORGANIC_V81.recipes.length,40);
- assert.equal(Object.keys(ORGANIC_ART_V81).length,40);
- assert.equal(ORGANIC_V80.items.length-40+ORGANIC_V81.items.length,200);
- assert.equal(m81.expected_catalog.elements,5812);
- assert.equal(m81.expected_catalog.recipes,14149);
+ assert.ok(ORGANIC_V81.items.length>=40&&ORGANIC_V81.items.length<=200);
+ assert.equal(m81.expansion_progress,ORGANIC_V81.items.length);
+ assert.equal(m81.remaining_to_goal,200-ORGANIC_V81.items.length);
+ assert.equal(m81.cycle_complete,ORGANIC_V81.items.length===200);
+ assert.equal(ORGANIC_V81.recipes.length,ORGANIC_V81.items.length);
+ assert.equal(Object.keys(ORGANIC_ART_V81).length,ORGANIC_V81.items.length);
+ assert.equal(ORGANIC_V80.items.length-40+ORGANIC_V81.items.length,160+ORGANIC_V81.items.length);
+ assert.equal(m81.expected_catalog.elements,5772+ORGANIC_V81.items.length);
+ assert.equal(m81.expected_catalog.recipes,14109+ORGANIC_V81.recipes.length);
+ assert.ok(m81.expected_catalog.elements<=6000);
 });
 test('Every V81 recipe has a unique pair and an original standalone SVG file',async()=>{
  const m=JSON.parse(read('shared/v81-approved.json')),pairs=new Set(),arts=new Set(Object.values((await import('../src/organic-art-v80.js')).ORGANIC_ART_V80));
@@ -38,6 +40,6 @@ test('V81 is integrated in Classic, unique SVG priority and Android offline pack
  assert.match(build,/window\.__gameverseOrganic81/);
  assert.match(build,/window\.__gameverseOrganicArt81/);
  assert.match(build,/35K_Alchemy_V81_Offline\.html/);
- assert.match(android,/35K_Alchemy_V81_Offline\.html/);
+ assert.match(android,/Alchemy_10k_V81_Offline\.html/);
  assert.match(read('tools/audit-active-artwork.mjs'),/,80,81\]/);
 });

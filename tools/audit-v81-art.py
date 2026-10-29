@@ -5,7 +5,8 @@ from xml.etree import ElementTree as ET
 import hashlib,json
 root=Path(__file__).resolve().parents[1]
 manifest=json.loads((root/'shared/v81-approved.json').read_text())
-assert len(manifest['new_items'])==40
+assert 40<=len(manifest['new_items'])<=200
+assert len(manifest['new_items'])==manifest['cohort_count']
 allowed={'svg','g','path','rect','circle','ellipse','line','polygon','polyline','defs','linearGradient','stop'}
 seen=set()
 for item in manifest['new_items']:
