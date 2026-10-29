@@ -61,3 +61,9 @@ Não baixar a meta nem preencher com combinações arbitrárias. **Parar o merge
 ## 6. Regra de continuidade entre conversas
 
 A instrução "avança"/"continua" significa **continuar os 200 em curso**, não publicar o que couber numa resposta. Se a execução terminar antes dos 200, conservar branch, manifests, lista de IDs e QA pendente, informar o progresso com precisão e retomar no turno seguinte. Nunca dizer que houve entrega de 200 ou APK novo quando ainda não houve. O objetivo é escalabilidade com qualidade, não passos de 20 que se tornam releases independentes.
+
+## 7. Condição adicional de cada expansão: famílias fechadas, multifamília e orçamento CI
+
+Antes de dar por concluído um lote de +200, aplicar integralmente `docs/FAMILIES_ONLY_CONTRACT_PT.md`. A inclusão de cada novo elemento numa família exige que o jogador o possa alcançar **a partir dos 4 starters daquela família**, mesmo sem partilhas de outras famílias. A partilha por ID único não substitui a completabilidade isolada.
+
+**Não executar Actions por 25/50/100/150:** conservar os SVG e as receitas na branch WIP, fazer validações locais e auditoria editorial. Só abrir PR com exatamente +200, executar a CI completa uma vez e gerar um único APK após merge. Detalhes em `docs/CI_BUDGET_POLICY_PT.md`.
