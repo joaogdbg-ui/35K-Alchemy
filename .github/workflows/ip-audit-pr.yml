@@ -41,5 +41,6 @@ jobs:
       - run: node tools/validate-v78.mjs
       - run: node tools/validate-v79.mjs
       - run: node tools/audit-ip-safe-names.mjs
+      - run: node tools/validate-family-10k.mjs
       - run: node tools/audit-active-artwork.mjs
       - run: python tools/build-standalone.py
