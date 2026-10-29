@@ -7,10 +7,10 @@ export const FAMILIES = Object.freeze([
  {id:'cinema',name:'Cinema & TV',icon:'cinema',category:'Culture',description:'Films, TV and series',categories:['film','series'],order:4},
  {id:'music',name:'Music',icon:'music',category:'Culture',description:'Artists, albums and instruments',categories:['music'],order:5},
  {id:'nature',name:'Nature & Science',icon:'dragon',category:'World',description:'Natural elements, life and discovery',categories:['nature','material','life','science'],order:6},
- {id:'mythology',name:'Mythology & Gods',icon:'crystal',category:'World',description:'Gods, legends and ancient pantheons',categories:['mythology'],order:6.2},
- {id:'prehistoric',name:'Prehistory & Dinosaurs',icon:'dragon',category:'World',description:'Fossils, ancient life and dinosaurs',categories:['prehistoric'],order:6.4},
  {id:'fantasy',name:'Fantasy & Objects',icon:'crystal',category:'World',description:'Imaginary worlds and inventions',categories:['fantasy','object','concept'],order:7},
  {id:'people',name:'People & Culture',icon:'manga',category:'World',description:'Personalities and world history',categories:['politician','culture'],order:8},
+ {id:'mythology',name:'Mythology & Gods',icon:'crystal',category:'World',description:'Gods, legends and ancient pantheons',categories:['mythology'],order:9},
+ {id:'prehistoric',name:'Prehistory & Dinosaurs',icon:'dragon',category:'World',description:'Fossils, ancient life and dinosaurs',categories:['prehistoric'],order:10},
 ]);
 const CATEGORY_FAMILY = new Map(FAMILIES.flatMap(f=>f.categories.map(c=>[c,f.id])));
 export const familyFor=(item)=>['Moon','Planet','Space','Star','Bread'].includes(item?.name)?'nature':CATEGORY_FAMILY.get(item.category)||'fantasy';
