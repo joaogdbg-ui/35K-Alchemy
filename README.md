@@ -1,4 +1,4 @@
-# 35K Alchemy — V72
+# 35K Alchemy — V73
 
 Repositório oficial do jogo **35K Alchemy**, incluindo o código-fonte completo da V72 e o pipeline Android.
 
@@ -47,6 +47,15 @@ Repositório oficial do jogo **35K Alchemy**, incluindo o código-fonte completo
 - Verificações adicionais em `tools/validate-v72.mjs` e `client/test/v72-ui-regressions.test.mjs`.
 - Handoff completo em [HANDOFF_V72.md](HANDOFF_V72.md).
 - APK atualizado no endereço fixo: https://github.com/joaogdbg-ui/35K-Alchemy/releases/download/latest/35K-Alchemy.apk
+
+## V73 — 24 novos elementos e correção do espaço sobre o combinador
+
+- V73 acrescenta 24 ilustrações próprias, 24 novas receitas, preservando todos os elementos anteriores.
+- Catálogo após validação: **5.256 elementos, 13.593 receitas**; progresso do ciclo de 200: **84/200**, faltando 116.
+- Zona superior: deslocados **apenas** os dois slots 14px para baixo em ecrãs altos, sem deslocar Hint, inventário ou o espaço inferior.
+- Código: `client/src/organic-pack-v73.js`, `client/src/organic-art-v73.js`, `shared/v73-approved.json`.
+- Testes: `tools/validate-v73.mjs` e `client/test/v73-ui-regressions.test.mjs`. [Handoff](HANDOFF_V73.md).
+- APK: https://github.com/joaogdbg-ui/35K-Alchemy/releases/download/latest/35K-Alchemy.apk
 
 ## Instalar Android (link permanente)
 

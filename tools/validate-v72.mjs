@@ -14,7 +14,7 @@ const modes=['gaming-v22','gaming-v23','gaming-v24','gaming-v26','gaming-v27','g
 const packs=[PACK];
 for(const n of modes){const file=n.replace('gaming','gaming-pack').replace('organic','organic-pack');const x=await import('../client/src/'+file+'.js');packs.push(Object.values(x)[0]);}
 const before=buildCatalog(DATA,[...packs,ORGANIC_V71]);
-const after=buildCatalog(DATA,[...packs,ORGANIC_V71,ORGANIC_V72]);
+const after=buildCatalog(DATA,[...packs,ORGANIC_V71,ORGANIC_V72,ORGANIC_V73]);
 check(before.items.length===5212&&before.recipes.size===13549,'V71 source drift');
 check(after.items.length===5232&&after.recipes.size===13569,'V72 count mismatch');
 for(const [k,v] of before.recipes)check(after.recipes.get(k)===v,'changed original formula '+k);
@@ -33,10 +33,10 @@ for(const item of ORGANIC_V72.items){
 }
 const code=readFileSync('client/src/app.js','utf8');
 check(code.includes('ORGANIC_V71,ORGANIC_V72]'),'app must include new catalog');
-check(code.includes('ORGANIC_ART_V72[itemName]||ORGANIC_ART_V71[itemName]'),'art priority');
+check(code.includes('ORGANIC_ART_V73[itemName]||ORGANIC_ART_V72[itemName]||ORGANIC_ART_V71[itemName]'),'art priority');
 check(code.includes('const anchorId=this.ids[previousIndex]'),'inventory scroll anchor lost');
 check(code.includes('refresh({resetScroll=false}={})'),'refresh must default to preserve scroll');
 check(code.includes('this.viewport.scrollTop=Math.floor(index/cols)*rowHeight+intraRow'),'anchor offset missing');
-check(readFileSync('client/src/styles.css','utf8').includes('V71 mobile ergonomics'),'craft breathing space regression');
+check(readFileSync('client/src/styles.css','utf8').includes('V73: move ONLY the ingredient row'),'craft breathing space regression');
 check(readFileSync('tools/build-standalone.py','utf8').includes('window.__gameverseOrganic72'),'bundle missing');
 if(!process.argv.includes('--quiet'))console.log('V72 PASS: +20 original gaming artworks, 5232 elements, 13569 recipes, scroll retention and spacing.');
