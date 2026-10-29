@@ -30,28 +30,28 @@
     },
     {
       "id": "organic76:xbox-disc-tower",
-      "name": "AsterCube Disc Tower",
+      "name": "Zerqadyn Disc Tower",
       "category": "accessory",
       "summary": "A tall wooden tower holds the games for an entire weekend.",
       "iconFamily": "organic"
     },
     {
       "id": "organic76:xbox-360-power-module",
-      "name": "AsterCube Orbit Power Module",
+      "name": "Zerqadyn Orbit Power Module",
       "category": "technology",
       "summary": "A compact battery pack feeds the console without interruptions.",
       "iconFamily": "organic"
     },
     {
       "id": "organic76:xbox-one-wireless-receiver",
-      "name": "AsterCube One Wireless Receiver",
+      "name": "Zerqadyn One Wireless Receiver",
       "category": "accessory",
       "summary": "A pocket receiver pairs a wireless controller across the room.",
       "iconFamily": "organic"
     },
     {
       "id": "organic76:xbox-series-x-ventilation-grille",
-      "name": "AsterCube Zenith Ventilation Grille",
+      "name": "Zerqadyn Zenith Ventilation Grille",
       "category": "technology",
       "summary": "Cool air passes through hundreds of carefully arranged openings.",
       "iconFamily": "organic"
