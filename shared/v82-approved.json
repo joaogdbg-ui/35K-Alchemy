@@ -1,18 +1,18 @@
 {
   "version": 82,
   "status": "WIP_NOT_RELEASED",
-  "cohort_count": 100,
+  "cohort_count": 120,
   "expansion_goal": 200,
-  "expansion_progress": 100,
-  "remaining_to_goal": 100,
+  "expansion_progress": 120,
+  "remaining_to_goal": 80,
   "cycle_complete": false,
   "base_catalog": {
     "elements": 5812,
     "recipes": 14149
   },
   "expected_catalog": {
-    "elements": 5912,
-    "recipes": 14249
+    "elements": 5932,
+    "recipes": 14269
   },
   "new_items": [
     {
@@ -1514,6 +1514,306 @@
       ],
       "art_mode": "bespoke-subject",
       "path": "client/assets/v82/eye-of-horus.svg"
+    },
+    {
+      "id": "organic82:geological-timeline",
+      "name": "Geological Timeline",
+      "category": "prehistoric",
+      "summary": "A layered stone timeline orders the vast eras recorded by fossils in sedimentary rock.",
+      "familyCampaigns": [
+        "prehistoric"
+      ],
+      "ingredients": [
+        "organic82:mesozoic-era",
+        "organic82:fossil-skeleton"
+      ],
+      "art_mode": "bespoke-subject",
+      "path": "client/assets/v82/geological-timeline.svg"
+    },
+    {
+      "id": "organic82:paleozoic-era",
+      "name": "Paleozoic Era",
+      "category": "prehistoric",
+      "summary": "The Paleozoic is pictured through an ancient seafloor and a primitive shelled arthropod.",
+      "familyCampaigns": [
+        "prehistoric"
+      ],
+      "ingredients": [
+        "organic82:geological-timeline",
+        "organic82:fossil-skeleton"
+      ],
+      "art_mode": "bespoke-subject",
+      "path": "client/assets/v82/paleozoic-era.svg"
+    },
+    {
+      "id": "organic82:cenozoic-era",
+      "name": "Cenozoic Era",
+      "category": "prehistoric",
+      "summary": "The Cenozoic era is represented by flowering hills and the rise of large mammals.",
+      "familyCampaigns": [
+        "prehistoric"
+      ],
+      "ingredients": [
+        "organic82:geological-timeline",
+        "organic82:mesozoic-era"
+      ],
+      "art_mode": "bespoke-subject",
+      "path": "client/assets/v82/cenozoic-era.svg"
+    },
+    {
+      "id": "organic82:triassic-period",
+      "name": "Triassic Period",
+      "category": "prehistoric",
+      "summary": "The Triassic period shows the first dinosaurs among sparse conifers on dry red plains.",
+      "familyCampaigns": [
+        "prehistoric"
+      ],
+      "ingredients": [
+        "organic82:mesozoic-era",
+        "organic82:dinosaur-armor"
+      ],
+      "art_mode": "bespoke-subject",
+      "path": "client/assets/v82/triassic-period.svg"
+    },
+    {
+      "id": "organic82:late-cretaceous",
+      "name": "Late Cretaceous",
+      "category": "prehistoric",
+      "summary": "A late Cretaceous landscape brings flowering plants and great horned dinosaurs together.",
+      "familyCampaigns": [
+        "prehistoric"
+      ],
+      "ingredients": [
+        "organic82:cretaceous-period",
+        "organic82:mesozoic-era"
+      ],
+      "art_mode": "bespoke-subject",
+      "path": "client/assets/v82/late-cretaceous.svg"
+    },
+    {
+      "id": "organic82:pleistocene-epoch",
+      "name": "Pleistocene Epoch",
+      "category": "prehistoric",
+      "summary": "Ice-age grasslands and large mammals characterize the late Pleistocene epoch.",
+      "familyCampaigns": [
+        "prehistoric"
+      ],
+      "ingredients": [
+        "organic82:cenozoic-era",
+        "organic82:fossil-skeleton"
+      ],
+      "art_mode": "bespoke-subject",
+      "path": "client/assets/v82/pleistocene-epoch.svg"
+    },
+    {
+      "id": "organic82:ice-age",
+      "name": "Ice Age",
+      "category": "prehistoric",
+      "summary": "The Ice Age blankets prehistoric valleys with glaciers and wind-carved snowfall.",
+      "familyCampaigns": [
+        "prehistoric"
+      ],
+      "ingredients": [
+        "organic82:pleistocene-epoch",
+        "organic82:fossil-skeleton"
+      ],
+      "art_mode": "bespoke-subject",
+      "path": "client/assets/v82/ice-age.svg"
+    },
+    {
+      "id": "organic82:cambrian-period",
+      "name": "Cambrian Period",
+      "category": "prehistoric",
+      "summary": "Cambrian oceans teem with unfamiliar early animal forms and seafloor burrows.",
+      "familyCampaigns": [
+        "prehistoric"
+      ],
+      "ingredients": [
+        "organic82:paleozoic-era",
+        "organic82:geological-timeline"
+      ],
+      "art_mode": "bespoke-subject",
+      "path": "client/assets/v82/cambrian-period.svg"
+    },
+    {
+      "id": "organic82:carboniferous-period",
+      "name": "Carboniferous Period",
+      "category": "prehistoric",
+      "summary": "The Carboniferous supports giant swamp forests, fern-like trees and ancient insects.",
+      "familyCampaigns": [
+        "prehistoric"
+      ],
+      "ingredients": [
+        "organic82:paleozoic-era",
+        "organic82:fossil-skeleton"
+      ],
+      "art_mode": "bespoke-subject",
+      "path": "client/assets/v82/carboniferous-period.svg"
+    },
+    {
+      "id": "organic82:prehistoric-ocean",
+      "name": "Prehistoric Ocean",
+      "category": "prehistoric",
+      "summary": "Ancient oceans shelter extinct sea reptiles and fish across several geological eras.",
+      "familyCampaigns": [
+        "prehistoric"
+      ],
+      "ingredients": [
+        "organic82:mesozoic-era",
+        "organic82:paleozoic-era"
+      ],
+      "art_mode": "bespoke-subject",
+      "path": "client/assets/v82/prehistoric-ocean.svg"
+    },
+    {
+      "id": "organic82:theropod",
+      "name": "Theropod",
+      "category": "prehistoric",
+      "summary": "Theropods are mostly two-legged dinosaurs with grasping claws and predatory jaws.",
+      "familyCampaigns": [
+        "prehistoric"
+      ],
+      "ingredients": [
+        "organic82:cretaceous-period",
+        "organic82:triassic-period"
+      ],
+      "art_mode": "bespoke-subject",
+      "path": "client/assets/v82/theropod.svg"
+    },
+    {
+      "id": "organic82:sauropod",
+      "name": "Sauropod",
+      "category": "prehistoric",
+      "summary": "Sauropods are giant long-necked plant-eating dinosaurs with column-like legs.",
+      "familyCampaigns": [
+        "prehistoric"
+      ],
+      "ingredients": [
+        "organic82:jurassic-period",
+        "organic82:mesozoic-era"
+      ],
+      "art_mode": "bespoke-subject",
+      "path": "client/assets/v82/sauropod.svg"
+    },
+    {
+      "id": "organic82:ceratopsian",
+      "name": "Ceratopsian",
+      "category": "prehistoric",
+      "summary": "Ceratopsians are beaked dinosaurs with skull frills and distinctive facial horns.",
+      "familyCampaigns": [
+        "prehistoric"
+      ],
+      "ingredients": [
+        "organic82:late-cretaceous",
+        "organic82:dinosaur-armor"
+      ],
+      "art_mode": "bespoke-subject",
+      "path": "client/assets/v82/ceratopsian.svg"
+    },
+    {
+      "id": "organic82:hadrosaur",
+      "name": "Hadrosaur",
+      "category": "prehistoric",
+      "summary": "Hadrosaurs are duck-billed herbivores whose heads often bear hollow bone crests.",
+      "familyCampaigns": [
+        "prehistoric"
+      ],
+      "ingredients": [
+        "organic82:late-cretaceous",
+        "organic82:mesozoic-era"
+      ],
+      "art_mode": "bespoke-subject",
+      "path": "client/assets/v82/hadrosaur.svg"
+    },
+    {
+      "id": "organic82:feathered-dinosaur",
+      "name": "Feathered Dinosaur",
+      "category": "prehistoric",
+      "summary": "Feathered dinosaurs display a transition from predatory scales to insulating plumage.",
+      "familyCampaigns": [
+        "prehistoric"
+      ],
+      "ingredients": [
+        "organic82:theropod",
+        "organic82:fossil-skeleton"
+      ],
+      "art_mode": "bespoke-subject",
+      "path": "client/assets/v82/feathered-dinosaur.svg"
+    },
+    {
+      "id": "organic82:pterosaur",
+      "name": "Pterosaur",
+      "category": "prehistoric",
+      "summary": "Pterosaurs were flying reptiles whose extended finger bones supported membrane wings.",
+      "familyCampaigns": [
+        "prehistoric"
+      ],
+      "ingredients": [
+        "organic82:triassic-period",
+        "organic82:fossil-skeleton"
+      ],
+      "art_mode": "bespoke-subject",
+      "path": "client/assets/v82/pterosaur.svg"
+    },
+    {
+      "id": "organic82:marine-reptile",
+      "name": "Marine Reptile",
+      "category": "prehistoric",
+      "summary": "Marine reptiles evolved flippers and streamlined bodies to hunt in ancient seas.",
+      "familyCampaigns": [
+        "prehistoric"
+      ],
+      "ingredients": [
+        "organic82:prehistoric-ocean",
+        "organic82:jurassic-period"
+      ],
+      "art_mode": "bespoke-subject",
+      "path": "client/assets/v82/marine-reptile.svg"
+    },
+    {
+      "id": "organic82:prehistoric-mammal",
+      "name": "Prehistoric Mammal",
+      "category": "prehistoric",
+      "summary": "The age of mammals is marked by fur-covered bodies and diversified land habitats.",
+      "familyCampaigns": [
+        "prehistoric"
+      ],
+      "ingredients": [
+        "organic82:cenozoic-era",
+        "organic82:geological-timeline"
+      ],
+      "art_mode": "bespoke-subject",
+      "path": "client/assets/v82/prehistoric-mammal.svg"
+    },
+    {
+      "id": "organic82:dinosaur-egg",
+      "name": "Dinosaur Egg",
+      "category": "prehistoric",
+      "summary": "A large speckled dinosaur egg rests in a ring of broken shell fragments.",
+      "familyCampaigns": [
+        "prehistoric"
+      ],
+      "ingredients": [
+        "organic82:jurassic-period",
+        "organic82:fossil-skeleton"
+      ],
+      "art_mode": "bespoke-subject",
+      "path": "client/assets/v82/dinosaur-egg.svg"
+    },
+    {
+      "id": "organic82:fossil-footprint",
+      "name": "Fossil Footprint",
+      "category": "prehistoric",
+      "summary": "A three-toed dinosaur track is preserved in ancient mud hardened into rock.",
+      "familyCampaigns": [
+        "prehistoric"
+      ],
+      "ingredients": [
+        "organic82:stegosaurus",
+        "organic82:fossil-skeleton"
+      ],
+      "art_mode": "bespoke-subject",
+      "path": "client/assets/v82/fossil-footprint.svg"
     }
   ]
 }
