@@ -1,0 +1,16 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="512" height="512" viewBox="0 0 256 256"><defs><linearGradient id="bg" x2="1" y2="1"><stop stop-color="#332751"/><stop offset="1" stop-color="#151E38"/></linearGradient><linearGradient id="glass" x2="1" y2="1"><stop stop-color="#EDFFFF" stop-opacity=".94"/><stop offset=".56" stop-color="#B3CAF7" stop-opacity=".35"/><stop offset="1" stop-color="#D9D4FA" stop-opacity=".8"/></linearGradient><linearGradient id="brew" x2="1" y2="1"><stop stop-color="#85F4D3"/><stop offset=".55" stop-color="#55C4DF"/><stop offset="1" stop-color="#8782E8"/></linearGradient><linearGradient id="flame" x2="0" y2="1"><stop stop-color="#FFE39B"/><stop offset="1" stop-color="#FF805A"/></linearGradient></defs><g transform="translate(29 29) scale(.7734375)"><g fill="none" stroke-linecap="round" stroke-linejoin="round">
+<!-- FIRE: orange flame -->
+<path d="M65 81c-19-12-10-32 1-44-1 15 14 18 11 32 11-12 8-22 8-22 18 19 14 38-3 44-8 3-14-3-17-10Z" fill="url(#flame)" stroke="#FFCC7A" stroke-width="3"/><path d="M70 84c-4-9 3-17 7-20 0 8 10 13 4 21-3 4-8 3-11-1Z" fill="#FFF4BF"/>
+<!-- AIR: wind currents -->
+<path d="M164 63c15-13 27-8 27 2-1 10-13 10-16 5M158 78c20-4 38-1 39 10 1 10-13 13-17 7M167 48c9-7 17-7 21-2" stroke="#D4E9F8" stroke-width="7"/>
+<!-- WATER: drop -->
+<path d="M60 164c0-10 9-21 19-34 11 14 19 25 19 35a19 19 0 0 1-38-1Z" fill="#63C8F7" stroke="#B1EAFF" stroke-width="4"/><path d="M68 166c-1-5 1-9 6-14" stroke="#FFFFFF" stroke-width="5"/>
+<!-- EARTH: crystal and growing leaf -->
+<path d="m162 156 18-20 16 14 8 23-24 15-23-10Z" fill="#88B78A" stroke="#C7E9AF" stroke-width="4"/><path d="M180 137v50m-17-30 17 7 16-14" stroke="#DDEACB" stroke-width="2.5"/><path d="M182 138c-5-15 3-26 17-29 0 14-5 23-17 29Z" fill="#9DE7A6" stroke="#D7FFCA" stroke-width="3"/>
+<!-- Central flask: alchemical discovery -->
+<path d="M116 46h24m-20 3v51l-33 52c-11 19-2 44 21 45h40c23-1 33-26 21-45l-33-52V49" fill="url(#glass)" stroke="#F1F5FF" stroke-width="8"/>
+<path d="M107 143c15-7 27 9 45 3l16 23c4 12-3 22-18 23h-44c-14-2-20-13-13-25Z" fill="url(#brew)" stroke="#D1FFF6" stroke-width="2"/>
+<path d="M120 55h16m-15 21h14" stroke="#FFFFFF" stroke-width="5"/><path d="m106 157 10 0m-9 14 7 0" stroke="#F1FFFC" stroke-width="5"/>
+<circle cx="128" cy="158" r="7" fill="#FFFFFF"/><circle cx="141" cy="178" r="3.5" fill="#FFFFFF"/>
+<path d="m128 110 4 12 11 4-11 4-4 11-4-11-11-4 11-4Z" fill="#FFE5A2" stroke="#FFF4D4" stroke-width="2"/>
+</g></g></svg>

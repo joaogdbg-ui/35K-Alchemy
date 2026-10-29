@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Bundle the fully offline 35K Alchemy V76 UI as a single file (no network required for legacy recipes)."""
+"""Bundle the fully offline Alchemy 10k UI as a single file (no network required for legacy recipes)."""
 from pathlib import Path
 import subprocess
 root=Path(__file__).resolve().parents[1]
@@ -60,9 +60,9 @@ family54=(root/'client/src/family-icons-v54.js').read_text(encoding='utf-8').rep
 html=(root/'client/index.html').read_text(encoding='utf-8')
 # Keep the favicon bundled into the fully offline HTML as an SVG data URI.
 from urllib.parse import quote
-favicon_link='<link rel="icon" type="image/svg+xml" href="./assets/brand/35k-alchemy-icon.svg" />'
+favicon_link='<link rel="icon" type="image/svg+xml" href="./assets/brand/alchemy-10k-icon.svg" />'
 if favicon_link not in html: raise SystemExit('Original favicon link missing')
-icon_svg=(root/'client/assets/brand/35k-alchemy-icon.svg').read_text(encoding='utf-8')
+icon_svg=(root/'client/assets/brand/alchemy-10k-icon.svg').read_text(encoding='utf-8')
 html=html.replace(favicon_link,'<link rel="icon" type="image/svg+xml" href="data:image/svg+xml,'+quote(icon_svg,safe='')+'" />')
 css=(root/'client/src/styles.css').read_text(encoding='utf-8')
 data=(root/'client/src/legacy-data.js').read_text(encoding='utf-8').replace('export const DATA =','const DATA =')
@@ -281,8 +281,10 @@ js=js.replace('window.__gameverseArt23=(function(){', 'window.__gameverseGaming2
 js='window.__gameverseOrganic81=(function(){'+organic81+'return {ORGANIC_V81};})();\nwindow.__gameverseOrganicArt81=(function(){'+organicart81+'return {ORGANIC_ART_V81};})();\n'+'window.__gameverseOrganic80=(function(){'+organic80+'return {ORGANIC_V80};})();\nwindow.__gameverseOrganicArt80=(function(){'+organicart80+'return {ORGANIC_ART_V80};})();\n'+'window.__gameverseOrganic79=(function(){'+organic79+'return {ORGANIC_V79};})();\nwindow.__gameverseOrganicArt79=(function(){'+organicart79+'return {ORGANIC_ART_V79};})();\n'+ 'window.__gameverseOrganic78=(function(){'+organic78+'return {ORGANIC_V78};})();\nwindow.__gameverseOrganicArt78=(function(){'+organicart78+'return {ORGANIC_ART_V78};})();\n'+ 'window.__gameverseOrganic77=(function(){'+organic77+'return {ORGANIC_V77};})();\nwindow.__gameverseOrganicArt77=(function(){'+organicart77+'return {ORGANIC_ART_V77};})();\n'+ 'window.__gameverseOrganic76=(function(){'+organic76+'return {ORGANIC_V76};})();\nwindow.__gameverseOrganicArt76=(function(){'+organicart76+'return {ORGANIC_ART_V76};})();\n'+'window.__gameverseOrganic75=(function(){'+organic75+'return {ORGANIC_V75};})();\nwindow.__gameverseOrganicArt75=(function(){'+organicart75+'return {ORGANIC_ART_V75};})();\n'+'window.__gameverseOrganic74=(function(){'+organic74+'return {ORGANIC_V74};})();\nwindow.__gameverseOrganicArt74=(function(){'+organicart74+'return {ORGANIC_ART_V74};})();\n'+'window.__gameverseOrganic73=(function(){'+organic73+'return {ORGANIC_V73};})();\nwindow.__gameverseOrganicArt73=(function(){'+organicart73+'return {ORGANIC_ART_V73};})();\n'+'window.__gameverseOrganic72=(function(){'+organic72+'return {ORGANIC_V72};})();\nwindow.__gameverseOrganicArt72=(function(){'+organicart72+'return {ORGANIC_ART_V72};})();\n'+'window.__gameverseOrganic71=(function(){'+organic71+'return {ORGANIC_V71};})();\nwindow.__gameverseOrganicArt71=(function(){'+organicart71+'return {ORGANIC_ART_V71};})();\n'+'window.__gameverseOrganicArt70=(function(){'+organicart70+'return {ORGANIC_ART_V70};})();\n'+'window.__gameverseOrganicArt69=(function(){'+organicart69+'return {ORGANIC_ART_V69};})();\n'+'window.__gameverseOrganic68=(function(){'+organic68+'return {ORGANIC_V68};})();\nwindow.__gameverseOrganicArt68=(function(){'+organicart68+'return {ORGANIC_ART_V68};})();\n'+'window.__gameverseOrganic67=(function(){'+organic67+'return {ORGANIC_V67};})();\nwindow.__gameverseOrganicArt67=(function(){'+organicart67+'return {ORGANIC_ART_V67};})();\n'+'window.__gameverseOrganic66=(function(){'+organic66+'return {ORGANIC_V66};})();\nwindow.__gameverseOrganicArt66=(function(){'+organicart66+'return {ORGANIC_ART_V66};})();\nwindow.__gameverseOrganic65=(function(){'+organic65+'return {ORGANIC_V65};})();\nwindow.__gameverseOrganicArt65=(function(){'+organicart65+'return {ORGANIC_ART_V65};})();\n'+js
 html=html.replace('<script type="module" src="./src/app.js"></script>','<script>\n'+js.replace('</script>','<\\/script>')+'\n</script>')
 # Preserve V70 original named artifact in history: 35K_Alchemy_V70_Offline.html
-out=root/'35K_Alchemy_V81_Offline.html'
+out=root/'Alchemy_10k_V81_Offline.html'
 out.write_text(html,encoding='utf-8')
+# Keep the old filename available as a build compatibility artifact, not as the public name.
+(root/'35K_Alchemy_V81_Offline.html').write_text(html,encoding='utf-8')
 (root/'35K_Alchemy_V80_Offline.html').write_text(html,encoding='utf-8')
 (root/'35K_Alchemy_V79_Offline.html').write_text(html,encoding='utf-8')
 (root/'35K_Alchemy_V78_Offline.html').write_text(html,encoding='utf-8')

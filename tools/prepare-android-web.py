@@ -3,7 +3,7 @@
 from pathlib import Path
 import shutil
 root=Path(__file__).resolve().parents[1]
-src=root/'35K_Alchemy_V81_Offline.html'
+src=root/'Alchemy_10k_V81_Offline.html'
 if not src.is_file():
     raise SystemExit('V81 HTML missing: run python tools/build-standalone.py')
 html=src.read_text(encoding='utf-8')

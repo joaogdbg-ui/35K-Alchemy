@@ -21,13 +21,13 @@ def save(im,path):
     assert path.stat().st_size>300,path
 for density,size in sizes.items():
     dst=res/('mipmap-'+density)
-    base=render('35k-alchemy-icon.svg',size)
+    base=render('alchemy-10k-icon.svg',size)
     save(base,dst/'ic_launcher.png')
     circle=Image.new('L',(size,size))
     ImageDraw.Draw(circle).ellipse((0,0,size-1,size-1),fill=255)
     rounded=base.copy();rounded.putalpha(circle)
     save(rounded,dst/'ic_launcher_round.png')
-    save(render('35k-alchemy-foreground.svg',round(size*108/48)),dst/'ic_launcher_foreground.png')
+    save(render('alchemy-10k-foreground.svg',round(size*108/48)),dst/'ic_launcher_foreground.png')
 adaptive='''<?xml version="1.0" encoding="utf-8"?>
 <adaptive-icon xmlns:android="http://schemas.android.com/apk/res/android">
   <background android:drawable="@color/alchemy_launcher_background"/>
@@ -41,4 +41,4 @@ for filename in ('ic_launcher','ic_launcher_round'):
 target=res/'values'/'alchemy_launcher_background.xml'
 target.parent.mkdir(parents=True,exist_ok=True)
 target.write_text('<?xml version="1.0" encoding="utf-8"?>\n<resources><color name="alchemy_launcher_background">#28223F</color></resources>\n',encoding='utf-8')
-print('Original 35K Alchemy launcher: generated legacy, round and adaptive PNGs across five densities')
+print('Original Alchemy 10k launcher: generated legacy, round and adaptive PNGs across five densities')

@@ -109,6 +109,8 @@ function uiName(item){return item?(PUBLIC_LABELS.get(item.id)||publicName(item))
 let recipes=classicRecipes;
 const familyCampaigns=new Map(FAMILY_CAMPAIGNS.families.map(f=>[f.id,{...f,itemSet:new Set(f.items),recipeMap:new Map(f.recipes)}]));
 const sharedCatalogIds=sharedMembership(FAMILY_CAMPAIGNS.families);
+// Rebrand is display-only: all historic save/storage keys remain untouched for upgrades.
+const ALCHEMY_TARGET_ELEMENTS=10000;
 const MODE_SELECTION_KEY='35k_mode_selected_v48', FAMILY_SAVES_KEY='35k_family_profiles_v48';
 const MERGE_PENDING_KEY='35k_family_merge_pending_v60'; // One credited ad can be resumed, never automatically rewarded.
 let currentMode='classic', currentFamilyId=null, classicSnapshot=null;
@@ -1010,8 +1012,8 @@ function renderDiscoveries(){
  $('discoveriesSummary').textContent=`${unlocked.size.toLocaleString('en-US')} of ${total.toLocaleString('en-US')} elements found · ${currentMode==='family'?'1 family':FAMILIES.length+' families'}`;
  $('familiesTotal').textContent=currentMode==='family'?'1 family':`${FAMILIES.length} families`;
  $('catalogTargetProgress').parentElement.querySelector('span').textContent=currentMode==='family'?'FAMILY PROGRESS':'CATALOG GROWTH';
- $('catalogTargetProgress').textContent=currentMode==='family'?`${unlocked.size} / ${total} found`:`${total.toLocaleString('en-US')} / ${GAMING_V24.targetElements.toLocaleString('en-US')} planned elements`;
- $('catalogTargetFill').style.width=Math.min(100,currentMode==='family'?100*unlocked.size/total:100*total/GAMING_V24.targetElements).toFixed(2)+'%';
+ $('catalogTargetProgress').textContent=currentMode==='family'?`${unlocked.size} / ${total} found`:`${total.toLocaleString('en-US')} / ${ALCHEMY_TARGET_ELEMENTS.toLocaleString('en-US')} planned elements`;
+ $('catalogTargetFill').style.width=Math.min(100,currentMode==='family'?100*unlocked.size/total:100*total/ALCHEMY_TARGET_ELEMENTS).toFixed(2)+'%';
  const setEl=$('thematicSets');if(setEl){setEl.hidden=currentMode==='family';setEl.innerHTML=COLLECTION_SETS.map(s=>{const count=setProgress(s),total=s.ids.length,pct=total?Math.round(100*count/total):0;
  return `<button class="theme-set" data-set="${s.id}" aria-label="${escapeText(s.name)}. ${escapeText(s.description)}. ${count} of ${total} found"><strong>${escapeText(s.name)}</strong><span class="theme-set-description">${escapeText(s.description)}</span><small>${count} / ${total} found · ${pct}%</small><span class="family-line"><i style="width:${pct}%"></i></span></button>`;
  }).join('');}
@@ -1173,7 +1175,7 @@ function exportProgress(){
  const progress={format:'35k-alchemy-backup',version:25,savedAt:new Date().toISOString(),data:{}};
  for(const key of BACKUP_KEYS){const raw=localStorage.getItem(key);if(raw!==null){try{progress.data[key]=JSON.parse(raw);}catch{}}}
  const blob=new Blob([JSON.stringify(progress,null,2)],{type:'application/json'}),url=URL.createObjectURL(blob),link=document.createElement('a');
- link.href=url;link.download='35K_Alchemy_Backup_'+new Date().toISOString().slice(0,10)+'.json';document.body.append(link);link.click();link.remove();
+ link.href=url;link.download='Alchemy_10k_Backup_'+new Date().toISOString().slice(0,10)+'.json';document.body.append(link);link.click();link.remove();
  setTimeout(()=>URL.revokeObjectURL(url),3000);toast('Backup exported');
 }
 function importProgress(file){
@@ -1291,7 +1293,7 @@ function settings(){
     <div class="settings-divider"></div>
     <details><summary>Where is progress saved?</summary><p>Progress is stored locally. Clearing app data or uninstalling the game may erase it. Cloud recovery is not available yet.</p></details>
    </div>
-   <div class="settings-about">35K Alchemy <span>v0.76.8 · Offline test build</span></div>
+   <div class="settings-about">Alchemy 10k <span>v0.81.0 · Offline test build</span></div>
   </section>
  </div>`);
  $('modal').setAttribute('aria-labelledby','settingsHeading');

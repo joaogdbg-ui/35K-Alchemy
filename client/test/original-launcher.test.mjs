@@ -3,7 +3,7 @@ import assert from 'node:assert/strict';
 import {readFileSync} from 'node:fs';
 const read=p=>readFileSync(new URL('../../'+p,import.meta.url),'utf8');
 test('Original launcher sources and native/web integration have no third-party logo or remote dependency',()=>{
- for(const path of ['client/assets/brand/35k-alchemy-icon.svg','client/assets/brand/35k-alchemy-foreground.svg']){
+ for(const path of ['client/assets/brand/alchemy-10k-icon.svg','client/assets/brand/alchemy-10k-foreground.svg']){
   const svg=read(path);assert.match(svg,/^<svg\b/);assert.match(svg,/<\/svg>\s*$/);
   assert.doesNotMatch(svg,/<(?:script|image|text|foreignObject|use)\b|xlink:href|<font\b/i);
   for(const part of ['FIRE','WATER','AIR','EARTH','Central flask'])assert.ok(svg.includes(part),part);
