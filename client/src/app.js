@@ -123,6 +123,7 @@ try{localStorage.setItem(FAMILY_SAVES_KEY,JSON.stringify(familyProfiles));}catch
 setIconCatalog(ITEMS);
 const byId=new Map(ITEMS.map(item=>[item.id,item]));
 const pairKey=(a,b)=>[a,b].sort().join('|');
+const CATALOG_GOAL=10000; // Current Alchemy 10K target; historical V24 target stays archived.
 const categoryNames={gamecraft:'Game creation',nature:'Nature',material:'Materials',life:'Life',science:'Science',culture:'Culture',concept:'Ideas',technology:'Technology',accessory:'Accessories',brand:'Brands',console:'Consoles',portable:'Handhelds',computer:'Computers',arcade:'Arcades',board:'Board Games',genre:'Genres',game:'Video Games',fantasy:'Fantasy',film:'Films',music:'Music',politician:'People',anime:'Anime & Manga',manga:'Manga',character:'Characters',film:'Films & TV',music:'Music',power:'Powers',object:'Objects',series:'Series'};
 let unlocked = new Set(['legacy:0','legacy:1','legacy:2','legacy:3']);
 let known = new Set(), recent=[], last=null, slots=[null,null],leftLocked=false,playFilter='all',playFamily='all',playQuery='',tab='Play',autoTimer=null,toastTimer=null;
@@ -1017,8 +1018,8 @@ function renderDiscoveries(){
  $('discoveriesSummary').textContent=`${unlocked.size.toLocaleString('en-US')} of ${total.toLocaleString('en-US')} elements found · ${currentMode==='family'?'1 family':FAMILIES.length+' families'}`;
  $('familiesTotal').textContent=currentMode==='family'?'1 family':`${FAMILIES.length} families`;
  $('catalogTargetProgress').parentElement.querySelector('span').textContent=currentMode==='family'?'FAMILY PROGRESS':'CATALOG GROWTH';
- $('catalogTargetProgress').textContent=currentMode==='family'?`${unlocked.size} / ${total} found`:`${total.toLocaleString('en-US')} / ${GAMING_V24.targetElements.toLocaleString('en-US')} planned elements`;
- $('catalogTargetFill').style.width=Math.min(100,currentMode==='family'?100*unlocked.size/total:100*total/GAMING_V24.targetElements).toFixed(2)+'%';
+ $('catalogTargetProgress').textContent=currentMode==='family'?`${unlocked.size} / ${total} found`:`${total.toLocaleString('en-US')} / ${CATALOG_GOAL.toLocaleString('en-US')} planned elements`;
+ $('catalogTargetFill').style.width=Math.min(100,currentMode==='family'?100*unlocked.size/total:100*total/CATALOG_GOAL).toFixed(2)+'%';
  const setEl=$('thematicSets');if(setEl){setEl.hidden=currentMode==='family';setEl.innerHTML=COLLECTION_SETS.map(s=>{const count=setProgress(s),total=s.ids.length,pct=total?Math.round(100*count/total):0;
  return `<button class="theme-set" data-set="${s.id}" aria-label="${escapeText(s.name)}. ${escapeText(s.description)}. ${count} of ${total} found"><strong>${escapeText(s.name)}</strong><span class="theme-set-description">${escapeText(s.description)}</span><small>${count} / ${total} found · ${pct}%</small><span class="family-line"><i style="width:${pct}%"></i></span></button>`;
  }).join('');}
