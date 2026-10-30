@@ -7,8 +7,8 @@
     "recipes": 14349
   },
   "expansion_goal": 200,
-  "authored_candidates": 12,
-  "remaining": 188,
+  "authored_candidates": 25,
+  "remaining": 175,
   "art_review": "NOT_APPROVED",
   "new_items": [
     {
@@ -200,6 +200,214 @@
         "mythology"
       ],
       "path": "client/assets/v83/basilisk.svg",
+      "art_mode": "bespoke-subject",
+      "editorial_qa": "pending"
+    },
+    {
+      "id": "organic83:griffin",
+      "name": "Griffin",
+      "category": "fantasy",
+      "summary": "A vigilant eagle-headed lion guards mountain treasures with broad, feathered wings.",
+      "ingredients": [
+        "organic82:horus",
+        "organic82:cerberus"
+      ],
+      "familyCampaigns": [
+        "mythology"
+      ],
+      "path": "client/assets/v83/griffin.svg",
+      "art_mode": "bespoke-subject",
+      "editorial_qa": "pending"
+    },
+    {
+      "id": "organic83:chimera",
+      "name": "Chimera",
+      "category": "fantasy",
+      "summary": "A legendary hybrid bears the jaws of a lion, a horned goat's head and a serpent tail.",
+      "ingredients": [
+        "organic82:cerberus",
+        "organic82:pegasus"
+      ],
+      "familyCampaigns": [
+        "mythology"
+      ],
+      "path": "client/assets/v83/chimera.svg",
+      "art_mode": "bespoke-subject",
+      "editorial_qa": "pending"
+    },
+    {
+      "id": "organic83:harpy",
+      "name": "Harpy",
+      "category": "fantasy",
+      "summary": "A wind-tossed bird spirit with a human face, broad pinions and gripping talons.",
+      "ingredients": [
+        "organic82:valkyrie",
+        "organic82:medusa"
+      ],
+      "familyCampaigns": [
+        "mythology"
+      ],
+      "path": "client/assets/v83/harpy.svg",
+      "art_mode": "bespoke-subject",
+      "editorial_qa": "pending"
+    },
+    {
+      "id": "organic83:centaur",
+      "name": "Centaur",
+      "category": "fantasy",
+      "summary": "A swift horse-bodied archer with a human torso crosses an ancient grassy plain.",
+      "ingredients": [
+        "organic82:pegasus",
+        "organic82:minotaur"
+      ],
+      "familyCampaigns": [
+        "mythology"
+      ],
+      "path": "client/assets/v83/centaur.svg",
+      "art_mode": "bespoke-subject",
+      "editorial_qa": "pending"
+    },
+    {
+      "id": "organic83:satyr",
+      "name": "Satyr",
+      "category": "fantasy",
+      "summary": "A horned woodland musician walks on goat legs and plays a set of panpipes.",
+      "ingredients": [
+        "organic82:dionysus",
+        "organic82:minotaur"
+      ],
+      "familyCampaigns": [
+        "mythology"
+      ],
+      "path": "client/assets/v83/satyr.svg",
+      "art_mode": "bespoke-subject",
+      "editorial_qa": "pending"
+    },
+    {
+      "id": "organic83:ocean-leviathan",
+      "name": "Ocean Leviathan",
+      "category": "fantasy",
+      "summary": "An immense armored sea serpent raises its crest above ocean swells.",
+      "ingredients": [
+        "organic82:poseidon",
+        "organic82:jormungandr"
+      ],
+      "familyCampaigns": [
+        "mythology"
+      ],
+      "path": "client/assets/v83/ocean-leviathan.svg",
+      "art_mode": "bespoke-subject",
+      "editorial_qa": "pending"
+    },
+    {
+      "id": "organic83:selkie",
+      "name": "Selkie",
+      "category": "fantasy",
+      "summary": "A seal-skin shapeshifter steps between her coastal home and a human form.",
+      "ingredients": [
+        "organic83:mythic-bestiary",
+        "organic82:poseidon"
+      ],
+      "familyCampaigns": [
+        "mythology"
+      ],
+      "path": "client/assets/v83/selkie.svg",
+      "art_mode": "bespoke-subject",
+      "editorial_qa": "pending"
+    },
+    {
+      "id": "organic83:solar-phoenix",
+      "name": "Solar Phoenix",
+      "category": "fantasy",
+      "summary": "An ancient radiant firebird rises from embers with a crest of golden flame.",
+      "ingredients": [
+        "organic82:ra",
+        "organic82:ragnarok"
+      ],
+      "familyCampaigns": [
+        "mythology"
+      ],
+      "path": "client/assets/v83/solar-phoenix.svg",
+      "art_mode": "bespoke-subject",
+      "editorial_qa": "pending"
+    },
+    {
+      "id": "organic83:thunderbird",
+      "name": "Thunderbird",
+      "category": "fantasy",
+      "summary": "A mighty storm bird spreads jagged wings as lightning flashes around its talons.",
+      "ingredients": [
+        "organic82:thor-of-asgard",
+        "organic82:horus"
+      ],
+      "familyCampaigns": [
+        "mythology"
+      ],
+      "path": "client/assets/v83/thunderbird.svg",
+      "art_mode": "bespoke-subject",
+      "editorial_qa": "pending"
+    },
+    {
+      "id": "organic83:giant-roc",
+      "name": "Giant Roc",
+      "category": "fantasy",
+      "summary": "A giant bird soars above an entire mountain ridge with colossal hooked claws.",
+      "ingredients": [
+        "organic82:horus",
+        "organic82:frost-giant"
+      ],
+      "familyCampaigns": [
+        "mythology"
+      ],
+      "path": "client/assets/v83/giant-roc.svg",
+      "art_mode": "bespoke-subject",
+      "editorial_qa": "pending"
+    },
+    {
+      "id": "organic83:ancient-tree-ent",
+      "name": "Ancient Tree Ent",
+      "category": "fantasy",
+      "summary": "An ancient tree guardian walks on knotted root legs and watches with a bark-carved face.",
+      "ingredients": [
+        "organic83:forest-dryad",
+        "organic82:frost-giant"
+      ],
+      "familyCampaigns": [
+        "mythology"
+      ],
+      "path": "client/assets/v83/ancient-tree-ent.svg",
+      "art_mode": "bespoke-subject",
+      "editorial_qa": "pending"
+    },
+    {
+      "id": "organic83:will-o-wisp",
+      "name": "Will-o'-the-Wisp",
+      "category": "fantasy",
+      "summary": "A wandering marsh ghostlight hangs above reeds, glowing blue and pearl white.",
+      "ingredients": [
+        "organic83:night-wraith",
+        "organic82:ra"
+      ],
+      "familyCampaigns": [
+        "mythology"
+      ],
+      "path": "client/assets/v83/will-o-wisp.svg",
+      "art_mode": "bespoke-subject",
+      "editorial_qa": "pending"
+    },
+    {
+      "id": "organic83:gargoyle",
+      "name": "Gargoyle",
+      "category": "fantasy",
+      "summary": "A carved winged sentinel crouches above a stone parapet with fangs and curled horns.",
+      "ingredients": [
+        "organic83:stone-golem",
+        "organic82:cerberus"
+      ],
+      "familyCampaigns": [
+        "mythology"
+      ],
+      "path": "client/assets/v83/gargoyle.svg",
       "art_mode": "bespoke-subject",
       "editorial_qa": "pending"
     }
