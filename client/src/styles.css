@@ -666,3 +666,6 @@ html[data-theme="dark"] .craft-motion-ghost,html[data-theme="dark"] .craft-motio
 html[data-theme="dark"] .craft-motion-full{background:linear-gradient(160deg,#2c3540,#263c36 75%,#20302d);color:#f2ede8}
 html[data-theme="dark"] .craft-motion-full .craft-motion-kicker{color:#a7d4b3}
 @media(prefers-reduced-motion:reduce){.craft-motion-ghost,.craft-motion-result,.craft-motion-full{display:none!important}}
+
+.craft-motion-full .craft-motion-pair{font-size:12px;font-weight:680;color:#57725e;opacity:.88}
+html[data-theme="dark"] .craft-motion-full .craft-motion-pair{color:#bad8ca}
