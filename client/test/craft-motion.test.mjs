@@ -45,7 +45,7 @@ test('incompatible right tile contacts left edge without overlap and bounces awa
  const frames=h.animations[0].frames;
  // Left outer edge ends at x=140. Right tile begins at x=178.
  // Every left edge throughout the motion is at least x=140.
- const xs=frames.map(frame=>Number(frame.transform.match(/translate3d\((-?[0-9.]+)px/)[1]));
+ const xs=frames.map(frame=>Number(frame.transform.match(/translate3d\((-?[0-9.]+)(?:px)?/)[1]));
  assert.ok(xs.every(x=>x>=-38), 'right tile must never enter the left tile');
  assert.ok(xs.includes(-38),'right tile touches the left edge precisely');
  assert.equal(h.animations[0].opts.duration,270);
