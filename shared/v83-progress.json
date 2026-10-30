@@ -7,8 +7,8 @@
     "recipes": 14349
   },
   "expansion_goal": 200,
-  "authored_candidates": 75,
-  "remaining": 125,
+  "authored_candidates": 100,
+  "remaining": 100,
   "art_review": "NOT_APPROVED",
   "new_items": [
     {
@@ -1158,6 +1158,356 @@
       ],
       "familyCampaigns": [],
       "path": "client/assets/v83/monster-bestiary-page.svg",
+      "art_mode": "bespoke-subject",
+      "editorial_qa": "pending"
+    },
+    {
+      "id": "organic83:arcade-marquee-panel",
+      "name": "Arcade Marquee Panel",
+      "category": "arcade",
+      "summary": "An illuminated curved arcade marquee frames a game's original emblem.",
+      "ingredients": [
+        "legacy:172",
+        "legacy:63"
+      ],
+      "familyCampaigns": [],
+      "path": "client/assets/v83/arcade-marquee-panel.svg",
+      "art_mode": "bespoke-subject",
+      "editorial_qa": "pending"
+    },
+    {
+      "id": "organic83:prize-capsule",
+      "name": "Prize Capsule",
+      "category": "arcade",
+      "summary": "A transparent toy capsule encloses a tiny stuffed creature won in an arcade claw game.",
+      "ingredients": [
+        "organic83:arcade-claw-machine",
+        "legacy:561"
+      ],
+      "familyCampaigns": [],
+      "path": "client/assets/v83/prize-capsule.svg",
+      "art_mode": "bespoke-subject",
+      "editorial_qa": "pending"
+    },
+    {
+      "id": "organic83:pinball-bumper",
+      "name": "Pinball Bumper",
+      "category": "arcade",
+      "summary": "A spring-mounted circular pinball bumper glows inside a metal playfield ring.",
+      "ingredients": [
+        "legacy:172",
+        "legacy:22"
+      ],
+      "familyCampaigns": [],
+      "path": "client/assets/v83/pinball-bumper.svg",
+      "art_mode": "bespoke-subject",
+      "editorial_qa": "pending"
+    },
+    {
+      "id": "organic83:pinball-plunger",
+      "name": "Pinball Plunger",
+      "category": "arcade",
+      "summary": "A sprung metal shooter launches a ball into a colorful pinball table.",
+      "ingredients": [
+        "legacy:83",
+        "legacy:22"
+      ],
+      "familyCampaigns": [],
+      "path": "client/assets/v83/pinball-plunger.svg",
+      "art_mode": "bespoke-subject",
+      "editorial_qa": "pending"
+    },
+    {
+      "id": "organic83:rhythm-note-lane",
+      "name": "Rhythm Note Lane",
+      "category": "arcade",
+      "summary": "Five scrolling music lanes catch falling note tiles in a timing arcade game.",
+      "ingredients": [
+        "legacy:171",
+        "legacy:139"
+      ],
+      "familyCampaigns": [],
+      "path": "client/assets/v83/rhythm-note-lane.svg",
+      "art_mode": "bespoke-subject",
+      "editorial_qa": "pending"
+    },
+    {
+      "id": "organic83:speedrun-split-timer",
+      "name": "Speedrun Split Timer",
+      "category": "gamecraft",
+      "summary": "A stopwatch shows the time between checkpoints in a high-speed game run.",
+      "ingredients": [
+        "organic83:checkpoint-banner",
+        "legacy:210"
+      ],
+      "familyCampaigns": [],
+      "path": "client/assets/v83/speedrun-split-timer.svg",
+      "art_mode": "bespoke-subject",
+      "editorial_qa": "pending"
+    },
+    {
+      "id": "organic83:replay-ghost",
+      "name": "Replay Ghost",
+      "category": "gamecraft",
+      "summary": "A translucent outline retraces an earlier run through the same challenge.",
+      "ingredients": [
+        "organic83:checkpoint-banner",
+        "legacy:66"
+      ],
+      "familyCampaigns": [],
+      "path": "client/assets/v83/replay-ghost.svg",
+      "art_mode": "bespoke-subject",
+      "editorial_qa": "pending"
+    },
+    {
+      "id": "organic83:combo-counter",
+      "name": "Combo Counter",
+      "category": "gamecraft",
+      "summary": "A glowing stacked score meter rewards consecutive successful actions.",
+      "ingredients": [
+        "organic83:boss-health-bar",
+        "legacy:96"
+      ],
+      "familyCampaigns": [],
+      "path": "client/assets/v83/combo-counter.svg",
+      "art_mode": "bespoke-subject",
+      "editorial_qa": "pending"
+    },
+    {
+      "id": "organic83:boss-warning-siren",
+      "name": "Boss Warning Siren",
+      "category": "fantasy",
+      "summary": "A flashing alarm light sounds when a sealed boss gate begins to open.",
+      "ingredients": [
+        "organic83:boss-arena-gate",
+        "legacy:62"
+      ],
+      "familyCampaigns": [],
+      "path": "client/assets/v83/boss-warning-siren.svg",
+      "art_mode": "bespoke-subject",
+      "editorial_qa": "pending"
+    },
+    {
+      "id": "organic83:loot-drop-beacon",
+      "name": "Loot Drop Beacon",
+      "category": "gamecraft",
+      "summary": "A vertical glimmer marks treasure left behind after a monster encounter.",
+      "ingredients": [
+        "organic83:treasure-mimic",
+        "legacy:63"
+      ],
+      "familyCampaigns": [],
+      "path": "client/assets/v83/loot-drop-beacon.svg",
+      "art_mode": "bespoke-subject",
+      "editorial_qa": "pending"
+    },
+    {
+      "id": "organic83:inventory-tile-grid",
+      "name": "Inventory Tile Grid",
+      "category": "gamecraft",
+      "summary": "A compact equipment inventory displays a sword, coin and healing flask in separate slots.",
+      "ingredients": [
+        "organic83:loot-satchel",
+        "legacy:76"
+      ],
+      "familyCampaigns": [],
+      "path": "client/assets/v83/inventory-tile-grid.svg",
+      "art_mode": "bespoke-subject",
+      "editorial_qa": "pending"
+    },
+    {
+      "id": "organic83:quick-access-ring",
+      "name": "Quick Access Ring",
+      "category": "gamecraft",
+      "summary": "A circular action wheel arranges frequently used equipment around its central slot.",
+      "ingredients": [
+        "organic83:skill-tree-diagram",
+        "legacy:83"
+      ],
+      "familyCampaigns": [],
+      "path": "client/assets/v83/quick-access-ring.svg",
+      "art_mode": "bespoke-subject",
+      "editorial_qa": "pending"
+    },
+    {
+      "id": "organic83:skill-point-token",
+      "name": "Skill Point Token",
+      "category": "gamecraft",
+      "summary": "An engraved coin with a branching tree symbolizes an earned ability upgrade.",
+      "ingredients": [
+        "organic83:skill-tree-diagram",
+        "legacy:108"
+      ],
+      "familyCampaigns": [],
+      "path": "client/assets/v83/skill-point-token.svg",
+      "art_mode": "bespoke-subject",
+      "editorial_qa": "pending"
+    },
+    {
+      "id": "organic83:ability-cooldown-dial",
+      "name": "Ability Cooldown Dial",
+      "category": "gamecraft",
+      "summary": "A circular timer darkens a skill icon until the action can be used again.",
+      "ingredients": [
+        "organic83:save-progress-meter",
+        "legacy:211"
+      ],
+      "familyCampaigns": [],
+      "path": "client/assets/v83/ability-cooldown-dial.svg",
+      "art_mode": "bespoke-subject",
+      "editorial_qa": "pending"
+    },
+    {
+      "id": "organic83:dialogue-choice-card",
+      "name": "Dialogue Choice Card",
+      "category": "gamecraft",
+      "summary": "A game conversation window offers branching response lines marked by a selection arrow.",
+      "ingredients": [
+        "organic83:quest-notice-board",
+        "legacy:106"
+      ],
+      "familyCampaigns": [],
+      "path": "client/assets/v83/dialogue-choice-card.svg",
+      "art_mode": "bespoke-subject",
+      "editorial_qa": "pending"
+    },
+    {
+      "id": "organic83:side-quest-emblem",
+      "name": "Side Quest Emblem",
+      "category": "gamecraft",
+      "summary": "A small quest marker combines a folded map with a violet side-objective seal.",
+      "ingredients": [
+        "organic83:quest-notice-board",
+        "legacy:354"
+      ],
+      "familyCampaigns": [],
+      "path": "client/assets/v83/side-quest-emblem.svg",
+      "art_mode": "bespoke-subject",
+      "editorial_qa": "pending"
+    },
+    {
+      "id": "organic83:pixel-damage-number",
+      "name": "Pixel Damage Number",
+      "category": "gamecraft",
+      "summary": "A blocky damage pop-up floats upward after a monster takes a hit.",
+      "ingredients": [
+        "organic83:pixel-heart-pickup",
+        "legacy:96"
+      ],
+      "familyCampaigns": [],
+      "path": "client/assets/v83/pixel-damage-number.svg",
+      "art_mode": "bespoke-subject",
+      "editorial_qa": "pending"
+    },
+    {
+      "id": "organic83:dungeon-fog-overlay",
+      "name": "Dungeon Fog Overlay",
+      "category": "gamecraft",
+      "summary": "A misted dungeon map fades unexplored corridors into shadow.",
+      "ingredients": [
+        "organic83:dungeon-minimap",
+        "legacy:66"
+      ],
+      "familyCampaigns": [],
+      "path": "client/assets/v83/dungeon-fog-overlay.svg",
+      "art_mode": "bespoke-subject",
+      "editorial_qa": "pending"
+    },
+    {
+      "id": "organic83:mini-boss-emblem",
+      "name": "Mini Boss Emblem",
+      "category": "gamecraft",
+      "summary": "A smaller horned boss medal identifies an elite enemy carrying extra rewards.",
+      "ingredients": [
+        "organic83:boss-health-bar",
+        "legacy:561"
+      ],
+      "familyCampaigns": [],
+      "path": "client/assets/v83/mini-boss-emblem.svg",
+      "art_mode": "bespoke-subject",
+      "editorial_qa": "pending"
+    },
+    {
+      "id": "organic83:secret-switch-plate",
+      "name": "Secret Switch Plate",
+      "category": "fantasy",
+      "summary": "A pressed stone plate retracts a hidden lever and opens a secret dungeon passage.",
+      "ingredients": [
+        "organic83:hidden-wall-lever",
+        "legacy:80"
+      ],
+      "familyCampaigns": [],
+      "path": "client/assets/v83/secret-switch-plate.svg",
+      "art_mode": "bespoke-subject",
+      "editorial_qa": "pending"
+    },
+    {
+      "id": "organic83:spike-warning-plaque",
+      "name": "Spike Warning Plaque",
+      "category": "fantasy",
+      "summary": "A triangular warning sign depicts a hidden floor trap with three upward spikes.",
+      "ingredients": [
+        "organic83:spike-trap-floor",
+        "legacy:106"
+      ],
+      "familyCampaigns": [],
+      "path": "client/assets/v83/spike-warning-plaque.svg",
+      "art_mode": "bespoke-subject",
+      "editorial_qa": "pending"
+    },
+    {
+      "id": "organic83:parry-training-dummy",
+      "name": "Parry Training Dummy",
+      "category": "fantasy",
+      "summary": "A straw practice knight with a hinged wooden shield helps teach defensive timing.",
+      "ingredients": [
+        "organic83:parry-spark",
+        "legacy:24"
+      ],
+      "familyCampaigns": [],
+      "path": "client/assets/v83/parry-training-dummy.svg",
+      "art_mode": "bespoke-subject",
+      "editorial_qa": "pending"
+    },
+    {
+      "id": "organic83:crafting-material-rack",
+      "name": "Crafting Material Rack",
+      "category": "fantasy",
+      "summary": "A workshop shelving unit stores iron ingots, timber planks and folded leather.",
+      "ingredients": [
+        "organic83:loot-satchel",
+        "legacy:22"
+      ],
+      "familyCampaigns": [],
+      "path": "client/assets/v83/crafting-material-rack.svg",
+      "art_mode": "bespoke-subject",
+      "editorial_qa": "pending"
+    },
+    {
+      "id": "organic83:teleport-anchor",
+      "name": "Teleport Anchor",
+      "category": "fantasy",
+      "summary": "An embedded iron anchor rune stabilizes a portal's landing point on the floor.",
+      "ingredients": [
+        "organic83:teleport-waystone",
+        "legacy:14"
+      ],
+      "familyCampaigns": [],
+      "path": "client/assets/v83/teleport-anchor.svg",
+      "art_mode": "bespoke-subject",
+      "editorial_qa": "pending"
+    },
+    {
+      "id": "organic83:portal-lens",
+      "name": "Portal Lens",
+      "category": "fantasy",
+      "summary": "A circular crystal lens refracts an active teleport gate into concentric rings.",
+      "ingredients": [
+        "organic83:teleport-waystone",
+        "legacy:23"
+      ],
+      "familyCampaigns": [],
+      "path": "client/assets/v83/portal-lens.svg",
       "art_mode": "bespoke-subject",
       "editorial_qa": "pending"
     }

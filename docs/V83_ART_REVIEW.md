@@ -1,4 +1,4 @@
-# Alchemy 10K — V83 WIP artwork review (75/200)
+# Alchemy 10K — V83 WIP artwork review (100/200)
 
 The first 50 SVG sources are distinct and subject-directed but **not signed off**. Source-based mythology recipe closure passes 159/159 at the current 50-candidate checkpoint. Assess Light/Dark readability and distinguishable silhouettes at 35px; 90px is diagnostic only.
 
@@ -83,3 +83,29 @@ The first 50 SVG sources are distinct and subject-directed but **not signed off*
 | Boss Arena Gate | `legacy:357` + `pack:dungeon-gate` | <img src="../client/assets/v83/boss-arena-gate.svg" width="35" height="35"> | <img src="../client/assets/v83/boss-arena-gate.svg" width="90" height="90"> |
 | Roguelite Relic | `legacy:237` + `pack:ancient-scroll` | <img src="../client/assets/v83/roguelite-relic.svg" width="35" height="35"> | <img src="../client/assets/v83/roguelite-relic.svg" width="90" height="90"> |
 | Monster Bestiary Page | `organic83:mythic-bestiary` + `legacy:51` | <img src="../client/assets/v83/monster-bestiary-page.svg" width="35" height="35"> | <img src="../client/assets/v83/monster-bestiary-page.svg" width="90" height="90"> |
+
+| Arcade Marquee Panel | `legacy:172` + `legacy:63` | <img src="../client/assets/v83/arcade-marquee-panel.svg" width="35" height="35"> | <img src="../client/assets/v83/arcade-marquee-panel.svg" width="90" height="90"> |
+| Prize Capsule | `organic83:arcade-claw-machine` + `legacy:561` | <img src="../client/assets/v83/prize-capsule.svg" width="35" height="35"> | <img src="../client/assets/v83/prize-capsule.svg" width="90" height="90"> |
+| Pinball Bumper | `legacy:172` + `legacy:22` | <img src="../client/assets/v83/pinball-bumper.svg" width="35" height="35"> | <img src="../client/assets/v83/pinball-bumper.svg" width="90" height="90"> |
+| Pinball Plunger | `legacy:83` + `legacy:22` | <img src="../client/assets/v83/pinball-plunger.svg" width="35" height="35"> | <img src="../client/assets/v83/pinball-plunger.svg" width="90" height="90"> |
+| Rhythm Note Lane | `legacy:171` + `legacy:139` | <img src="../client/assets/v83/rhythm-note-lane.svg" width="35" height="35"> | <img src="../client/assets/v83/rhythm-note-lane.svg" width="90" height="90"> |
+| Speedrun Split Timer | `organic83:checkpoint-banner` + `legacy:210` | <img src="../client/assets/v83/speedrun-split-timer.svg" width="35" height="35"> | <img src="../client/assets/v83/speedrun-split-timer.svg" width="90" height="90"> |
+| Replay Ghost | `organic83:checkpoint-banner` + `legacy:66` | <img src="../client/assets/v83/replay-ghost.svg" width="35" height="35"> | <img src="../client/assets/v83/replay-ghost.svg" width="90" height="90"> |
+| Combo Counter | `organic83:boss-health-bar` + `legacy:96` | <img src="../client/assets/v83/combo-counter.svg" width="35" height="35"> | <img src="../client/assets/v83/combo-counter.svg" width="90" height="90"> |
+| Boss Warning Siren | `organic83:boss-arena-gate` + `legacy:62` | <img src="../client/assets/v83/boss-warning-siren.svg" width="35" height="35"> | <img src="../client/assets/v83/boss-warning-siren.svg" width="90" height="90"> |
+| Loot Drop Beacon | `organic83:treasure-mimic` + `legacy:63` | <img src="../client/assets/v83/loot-drop-beacon.svg" width="35" height="35"> | <img src="../client/assets/v83/loot-drop-beacon.svg" width="90" height="90"> |
+| Inventory Tile Grid | `organic83:loot-satchel` + `legacy:76` | <img src="../client/assets/v83/inventory-tile-grid.svg" width="35" height="35"> | <img src="../client/assets/v83/inventory-tile-grid.svg" width="90" height="90"> |
+| Quick Access Ring | `organic83:skill-tree-diagram` + `legacy:83` | <img src="../client/assets/v83/quick-access-ring.svg" width="35" height="35"> | <img src="../client/assets/v83/quick-access-ring.svg" width="90" height="90"> |
+| Skill Point Token | `organic83:skill-tree-diagram` + `legacy:108` | <img src="../client/assets/v83/skill-point-token.svg" width="35" height="35"> | <img src="../client/assets/v83/skill-point-token.svg" width="90" height="90"> |
+| Ability Cooldown Dial | `organic83:save-progress-meter` + `legacy:211` | <img src="../client/assets/v83/ability-cooldown-dial.svg" width="35" height="35"> | <img src="../client/assets/v83/ability-cooldown-dial.svg" width="90" height="90"> |
+| Dialogue Choice Card | `organic83:quest-notice-board` + `legacy:106` | <img src="../client/assets/v83/dialogue-choice-card.svg" width="35" height="35"> | <img src="../client/assets/v83/dialogue-choice-card.svg" width="90" height="90"> |
+| Side Quest Emblem | `organic83:quest-notice-board` + `legacy:354` | <img src="../client/assets/v83/side-quest-emblem.svg" width="35" height="35"> | <img src="../client/assets/v83/side-quest-emblem.svg" width="90" height="90"> |
+| Pixel Damage Number | `organic83:pixel-heart-pickup` + `legacy:96` | <img src="../client/assets/v83/pixel-damage-number.svg" width="35" height="35"> | <img src="../client/assets/v83/pixel-damage-number.svg" width="90" height="90"> |
+| Dungeon Fog Overlay | `organic83:dungeon-minimap` + `legacy:66` | <img src="../client/assets/v83/dungeon-fog-overlay.svg" width="35" height="35"> | <img src="../client/assets/v83/dungeon-fog-overlay.svg" width="90" height="90"> |
+| Mini Boss Emblem | `organic83:boss-health-bar` + `legacy:561` | <img src="../client/assets/v83/mini-boss-emblem.svg" width="35" height="35"> | <img src="../client/assets/v83/mini-boss-emblem.svg" width="90" height="90"> |
+| Secret Switch Plate | `organic83:hidden-wall-lever` + `legacy:80` | <img src="../client/assets/v83/secret-switch-plate.svg" width="35" height="35"> | <img src="../client/assets/v83/secret-switch-plate.svg" width="90" height="90"> |
+| Spike Warning Plaque | `organic83:spike-trap-floor` + `legacy:106` | <img src="../client/assets/v83/spike-warning-plaque.svg" width="35" height="35"> | <img src="../client/assets/v83/spike-warning-plaque.svg" width="90" height="90"> |
+| Parry Training Dummy | `organic83:parry-spark` + `legacy:24` | <img src="../client/assets/v83/parry-training-dummy.svg" width="35" height="35"> | <img src="../client/assets/v83/parry-training-dummy.svg" width="90" height="90"> |
+| Crafting Material Rack | `organic83:loot-satchel` + `legacy:22` | <img src="../client/assets/v83/crafting-material-rack.svg" width="35" height="35"> | <img src="../client/assets/v83/crafting-material-rack.svg" width="90" height="90"> |
+| Teleport Anchor | `organic83:teleport-waystone` + `legacy:14` | <img src="../client/assets/v83/teleport-anchor.svg" width="35" height="35"> | <img src="../client/assets/v83/teleport-anchor.svg" width="90" height="90"> |
+| Portal Lens | `organic83:teleport-waystone` + `legacy:23` | <img src="../client/assets/v83/portal-lens.svg" width="35" height="35"> | <img src="../client/assets/v83/portal-lens.svg" width="90" height="90"> |
