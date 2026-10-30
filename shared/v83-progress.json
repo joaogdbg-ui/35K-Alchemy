@@ -7,8 +7,8 @@
     "recipes": 14349
   },
   "expansion_goal": 200,
-  "authored_candidates": 125,
-  "remaining": 75,
+  "authored_candidates": 150,
+  "remaining": 50,
   "art_review": "NOT_APPROVED",
   "new_items": [
     {
@@ -1860,28 +1860,378 @@
       "path": "client/assets/v83/boss-victory-banner.svg",
       "art_mode": "bespoke-subject",
       "editorial_qa": "pending"
+    },
+    {
+      "id": "organic83:pangolin",
+      "name": "Pangolin",
+      "category": "life",
+      "summary": "A shy insect-eating mammal curls its overlapping protective scales around its body.",
+      "ingredients": [
+        "organic38:insect",
+        "organic83:stone-troll"
+      ],
+      "familyCampaigns": [],
+      "path": "client/assets/v83/pangolin.svg",
+      "art_mode": "bespoke-subject",
+      "editorial_qa": "pending"
+    },
+    {
+      "id": "organic83:fennec-fox",
+      "name": "Fennec Fox",
+      "category": "life",
+      "summary": "A small desert fox listens for prey with enormous pale ears.",
+      "ingredients": [
+        "organic40:fox",
+        "legacy:1048"
+      ],
+      "familyCampaigns": [],
+      "path": "client/assets/v83/fennec-fox.svg",
+      "art_mode": "bespoke-subject",
+      "editorial_qa": "pending"
+    },
+    {
+      "id": "organic83:shoebill",
+      "name": "Shoebill",
+      "category": "life",
+      "summary": "A tall wetland bird waits motionless with its immense shoe-shaped beak.",
+      "ingredients": [
+        "organic38:bird",
+        "legacy:39"
+      ],
+      "familyCampaigns": [],
+      "path": "client/assets/v83/shoebill.svg",
+      "art_mode": "bespoke-subject",
+      "editorial_qa": "pending"
+    },
+    {
+      "id": "organic83:narwhal",
+      "name": "Narwhal",
+      "category": "life",
+      "summary": "An Arctic whale breaks through icy water with a single long spiral tusk.",
+      "ingredients": [
+        "organic83:ocean-leviathan",
+        "legacy:35"
+      ],
+      "familyCampaigns": [],
+      "path": "client/assets/v83/narwhal.svg",
+      "art_mode": "bespoke-subject",
+      "editorial_qa": "pending"
+    },
+    {
+      "id": "organic83:wombat",
+      "name": "Wombat",
+      "category": "life",
+      "summary": "A burrowing marsupial pads across the ground with short legs and a broad nose.",
+      "ingredients": [
+        "legacy:26",
+        "organic83:cave-troll"
+      ],
+      "familyCampaigns": [],
+      "path": "client/assets/v83/wombat.svg",
+      "art_mode": "bespoke-subject",
+      "editorial_qa": "pending"
+    },
+    {
+      "id": "organic83:platypus",
+      "name": "Platypus",
+      "category": "life",
+      "summary": "An egg-laying aquatic mammal has webbed feet, a flat bill and a paddle tail.",
+      "ingredients": [
+        "organic83:selkie",
+        "organic38:bird"
+      ],
+      "familyCampaigns": [],
+      "path": "client/assets/v83/platypus.svg",
+      "art_mode": "bespoke-subject",
+      "editorial_qa": "pending"
+    },
+    {
+      "id": "organic83:leafy-sea-dragon",
+      "name": "Leafy Sea Dragon",
+      "category": "life",
+      "summary": "A delicately camouflaged sea dragon looks like floating kelp fronds.",
+      "ingredients": [
+        "organic37:seahorse",
+        "organic42:kelp"
+      ],
+      "familyCampaigns": [],
+      "path": "client/assets/v83/leafy-sea-dragon.svg",
+      "art_mode": "bespoke-subject",
+      "editorial_qa": "pending"
+    },
+    {
+      "id": "organic83:arctic-tern",
+      "name": "Arctic Tern",
+      "category": "life",
+      "summary": "A long-distance seabird flies over ice with pointed wings and a forked tail.",
+      "ingredients": [
+        "organic38:bird",
+        "organic38:iceberg"
+      ],
+      "familyCampaigns": [],
+      "path": "client/assets/v83/arctic-tern.svg",
+      "art_mode": "bespoke-subject",
+      "editorial_qa": "pending"
+    },
+    {
+      "id": "organic83:quokka",
+      "name": "Quokka",
+      "category": "life",
+      "summary": "A small island marsupial has round ears, bright eyes and a famously gentle face.",
+      "ingredients": [
+        "legacy:558",
+        "legacy:26"
+      ],
+      "familyCampaigns": [],
+      "path": "client/assets/v83/quokka.svg",
+      "art_mode": "bespoke-subject",
+      "editorial_qa": "pending"
+    },
+    {
+      "id": "organic83:musk-ox",
+      "name": "Musk Ox",
+      "category": "life",
+      "summary": "A shaggy Arctic bovine stands beneath a pair of sweeping, curved horns.",
+      "ingredients": [
+        "organic82:frost-giant",
+        "legacy:26"
+      ],
+      "familyCampaigns": [],
+      "path": "client/assets/v83/musk-ox.svg",
+      "art_mode": "bespoke-subject",
+      "editorial_qa": "pending"
+    },
+    {
+      "id": "organic83:maned-wolf",
+      "name": "Maned Wolf",
+      "category": "life",
+      "summary": "A long-legged South American canid has reddish fur and a dark standing mane.",
+      "ingredients": [
+        "organic40:fox",
+        "organic83:barghest"
+      ],
+      "familyCampaigns": [],
+      "path": "client/assets/v83/maned-wolf.svg",
+      "art_mode": "bespoke-subject",
+      "editorial_qa": "pending"
+    },
+    {
+      "id": "organic83:saiga-antelope",
+      "name": "Saiga Antelope",
+      "category": "life",
+      "summary": "A steppe antelope has a distinctive enlarged, drooping nose and ringed horns.",
+      "ingredients": [
+        "organic83:centaur",
+        "legacy:1048"
+      ],
+      "familyCampaigns": [],
+      "path": "client/assets/v83/saiga-antelope.svg",
+      "art_mode": "bespoke-subject",
+      "editorial_qa": "pending"
+    },
+    {
+      "id": "organic83:aye-aye",
+      "name": "Aye-Aye",
+      "category": "life",
+      "summary": "A nocturnal lemur probes tree bark with an unusually long, delicate finger.",
+      "ingredients": [
+        "legacy:601",
+        "legacy:142"
+      ],
+      "familyCampaigns": [],
+      "path": "client/assets/v83/aye-aye.svg",
+      "art_mode": "bespoke-subject",
+      "editorial_qa": "pending"
+    },
+    {
+      "id": "organic83:okapi",
+      "name": "Okapi",
+      "category": "life",
+      "summary": "A shy rainforest giraffid has a dark brown body and zebra-striped hindquarters.",
+      "ingredients": [
+        "legacy:574",
+        "organic32:rainforest"
+      ],
+      "familyCampaigns": [],
+      "path": "client/assets/v83/okapi.svg",
+      "art_mode": "bespoke-subject",
+      "editorial_qa": "pending"
+    },
+    {
+      "id": "organic83:blue-ringed-octopus",
+      "name": "Blue-Ringed Octopus",
+      "category": "life",
+      "summary": "A small venomous octopus displays electric-blue rings across its yellow skin.",
+      "ingredients": [
+        "organic38:octopus",
+        "pack:venom"
+      ],
+      "familyCampaigns": [],
+      "path": "client/assets/v83/blue-ringed-octopus.svg",
+      "art_mode": "bespoke-subject",
+      "editorial_qa": "pending"
+    },
+    {
+      "id": "organic83:tardigrade",
+      "name": "Tardigrade",
+      "category": "life",
+      "summary": "A microscopic water bear lumbers on eight stubby legs and survives harsh conditions.",
+      "ingredients": [
+        "legacy:26",
+        "organic32:microscope"
+      ],
+      "familyCampaigns": [],
+      "path": "client/assets/v83/tardigrade.svg",
+      "art_mode": "bespoke-subject",
+      "editorial_qa": "pending"
+    },
+    {
+      "id": "organic83:proboscis-monkey",
+      "name": "Proboscis Monkey",
+      "category": "life",
+      "summary": "A Bornean monkey has an elongated nose and a warm chestnut coat.",
+      "ingredients": [
+        "legacy:601",
+        "legacy:39"
+      ],
+      "familyCampaigns": [],
+      "path": "client/assets/v83/proboscis-monkey.svg",
+      "art_mode": "bespoke-subject",
+      "editorial_qa": "pending"
+    },
+    {
+      "id": "organic83:giant-isopod",
+      "name": "Giant Isopod",
+      "category": "life",
+      "summary": "A large deep-sea crustacean has overlapping armored segments and many legs.",
+      "ingredients": [
+        "organic37:deep-sea",
+        "organic38:crab"
+      ],
+      "familyCampaigns": [],
+      "path": "client/assets/v83/giant-isopod.svg",
+      "art_mode": "bespoke-subject",
+      "editorial_qa": "pending"
+    },
+    {
+      "id": "organic83:binturong",
+      "name": "Binturong",
+      "category": "life",
+      "summary": "A shaggy tree-dwelling civet has long whiskers and a prehensile tail.",
+      "ingredients": [
+        "organic40:fox",
+        "legacy:19"
+      ],
+      "familyCampaigns": [],
+      "path": "client/assets/v83/binturong.svg",
+      "art_mode": "bespoke-subject",
+      "editorial_qa": "pending"
+    },
+    {
+      "id": "organic83:secretary-bird",
+      "name": "Secretary Bird",
+      "category": "life",
+      "summary": "A tall African raptor has slender legs and a dramatic dark feather crest.",
+      "ingredients": [
+        "organic38:bird",
+        "legacy:1048"
+      ],
+      "familyCampaigns": [],
+      "path": "client/assets/v83/secretary-bird.svg",
+      "art_mode": "bespoke-subject",
+      "editorial_qa": "pending"
+    },
+    {
+      "id": "organic83:sun-bear",
+      "name": "Sun Bear",
+      "category": "life",
+      "summary": "A small tropical bear has short dark fur and a golden crescent-shaped chest marking.",
+      "ingredients": [
+        "pack:panda",
+        "organic32:rainforest"
+      ],
+      "familyCampaigns": [],
+      "path": "client/assets/v83/sun-bear.svg",
+      "art_mode": "bespoke-subject",
+      "editorial_qa": "pending"
+    },
+    {
+      "id": "organic83:gerenuk",
+      "name": "Gerenuk",
+      "category": "life",
+      "summary": "A long-necked antelope stands upright to browse leaves beyond other grazers' reach.",
+      "ingredients": [
+        "organic83:centaur",
+        "organic83:ancient-tree-ent"
+      ],
+      "familyCampaigns": [],
+      "path": "client/assets/v83/gerenuk.svg",
+      "art_mode": "bespoke-subject",
+      "editorial_qa": "pending"
+    },
+    {
+      "id": "organic83:dumbo-octopus",
+      "name": "Dumbo Octopus",
+      "category": "life",
+      "summary": "A deep-sea octopus flaps rounded ear-like fins above its eight short arms.",
+      "ingredients": [
+        "organic38:octopus",
+        "organic37:deep-sea"
+      ],
+      "familyCampaigns": [],
+      "path": "client/assets/v83/dumbo-octopus.svg",
+      "art_mode": "bespoke-subject",
+      "editorial_qa": "pending"
+    },
+    {
+      "id": "organic83:flying-fish",
+      "name": "Flying Fish",
+      "category": "life",
+      "summary": "A marine fish glides above waves on two broad, wing-like pectoral fins.",
+      "ingredients": [
+        "legacy:27",
+        "organic38:bird"
+      ],
+      "familyCampaigns": [],
+      "path": "client/assets/v83/flying-fish.svg",
+      "art_mode": "bespoke-subject",
+      "editorial_qa": "pending"
+    },
+    {
+      "id": "organic83:gila-monster",
+      "name": "Gila Monster",
+      "category": "life",
+      "summary": "A chunky desert lizard has beaded black-and-coral scales and a thick tail.",
+      "ingredients": [
+        "legacy:1048",
+        "pack:venom"
+      ],
+      "familyCampaigns": [],
+      "path": "client/assets/v83/gila-monster.svg",
+      "art_mode": "bespoke-subject",
+      "editorial_qa": "pending"
     }
   ],
   "source_checkpoint": {
-    "at_candidates": 125,
+    "at_candidates": 150,
     "isolated_family": "mythology",
     "family_candidate_count": 50,
-    "classic_only_candidate_count": 75,
+    "classic_only_candidate_count": 100,
     "family_reachable": 159,
     "family_total": 159,
     "historical_organic_modules_checked": 39,
     "legacy_and_creative_catalogs_checked": true,
-    "new_pair_keys_unique": 125,
-    "new_ids_unique": 125,
-    "svg_paths_unique": 125,
-    "source_art_map_entries": 125,
-    "manifest_entries": 125,
+    "new_pair_keys_unique": 150,
+    "new_ids_unique": 150,
+    "svg_paths_unique": 150,
+    "source_art_map_entries": 150,
+    "manifest_entries": 150,
     "missing_recipe_inputs": 0,
     "forward_wip_recipe_dependencies": 0,
     "name_or_recipe_collisions_found_after_corrections": 0,
-    "scope": "WIP internal uniqueness and dependency checks only after 25 new gaming assets; prior history audit covered the first 100; new 25 still require full scan",
+    "scope": "Internal uniqueness and ordered dependencies only for new fauna candidates; source audit from prior 125 incomplete for last 25",
     "full_regression_test": "NOT_RUN",
     "human_35px_review": "PENDING",
-    "historical_name_pair_scan": "NEEDS_REFRESH_AT_125"
+    "historical_name_pair_scan": "NEEDS_REFRESH_AT_150"
   }
 }

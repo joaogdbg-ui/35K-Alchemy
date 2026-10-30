@@ -1,4 +1,4 @@
-# Alchemy 10K — V83 WIP artwork review (125/200)
+# Alchemy 10K — V83 WIP artwork review (150/200)
 
 The 100 WIP SVG sources are individually authored and have separate source paths, but visual similarity/readability **has not been signed off**. The 50 mythological candidates keep the independent family at 159/159 reachable members, while the 50 game-related candidates remain Classic-only. Full npm/CI, runtime comparison and real-device 35px review are still pending. Assess Light/Dark readability and distinguishable silhouettes at 35px; 90px is diagnostic only.
 
@@ -135,3 +135,29 @@ The 100 WIP SVG sources are individually authored and have separate source paths
 | Platform Jump Spring | `organic83:pinball-launch-rail` + `legacy:356` | <img src="../client/assets/v83/platform-jump-spring.svg" width="35" height="35"> | <img src="../client/assets/v83/platform-jump-spring.svg" width="90" height="90"> |
 | Puzzle Hint Dial | `legacy:224` + `organic83:quick-access-ring` | <img src="../client/assets/v83/puzzle-hint-dial.svg" width="35" height="35"> | <img src="../client/assets/v83/puzzle-hint-dial.svg" width="90" height="90"> |
 | Boss Victory Banner | `organic83:boss-health-bar` + `organic83:checkpoint-banner` | <img src="../client/assets/v83/boss-victory-banner.svg" width="35" height="35"> | <img src="../client/assets/v83/boss-victory-banner.svg" width="90" height="90"> |
+
+| Pangolin | `organic38:insect` + `organic83:stone-troll` | <img src="../client/assets/v83/pangolin.svg" width="35" height="35"> | <img src="../client/assets/v83/pangolin.svg" width="90" height="90"> |
+| Fennec Fox | `organic40:fox` + `legacy:1048` | <img src="../client/assets/v83/fennec-fox.svg" width="35" height="35"> | <img src="../client/assets/v83/fennec-fox.svg" width="90" height="90"> |
+| Shoebill | `organic38:bird` + `legacy:39` | <img src="../client/assets/v83/shoebill.svg" width="35" height="35"> | <img src="../client/assets/v83/shoebill.svg" width="90" height="90"> |
+| Narwhal | `organic83:ocean-leviathan` + `legacy:35` | <img src="../client/assets/v83/narwhal.svg" width="35" height="35"> | <img src="../client/assets/v83/narwhal.svg" width="90" height="90"> |
+| Wombat | `legacy:26` + `organic83:cave-troll` | <img src="../client/assets/v83/wombat.svg" width="35" height="35"> | <img src="../client/assets/v83/wombat.svg" width="90" height="90"> |
+| Platypus | `organic83:selkie` + `organic38:bird` | <img src="../client/assets/v83/platypus.svg" width="35" height="35"> | <img src="../client/assets/v83/platypus.svg" width="90" height="90"> |
+| Leafy Sea Dragon | `organic37:seahorse` + `organic42:kelp` | <img src="../client/assets/v83/leafy-sea-dragon.svg" width="35" height="35"> | <img src="../client/assets/v83/leafy-sea-dragon.svg" width="90" height="90"> |
+| Arctic Tern | `organic38:bird` + `organic38:iceberg` | <img src="../client/assets/v83/arctic-tern.svg" width="35" height="35"> | <img src="../client/assets/v83/arctic-tern.svg" width="90" height="90"> |
+| Quokka | `legacy:558` + `legacy:26` | <img src="../client/assets/v83/quokka.svg" width="35" height="35"> | <img src="../client/assets/v83/quokka.svg" width="90" height="90"> |
+| Musk Ox | `organic82:frost-giant` + `legacy:26` | <img src="../client/assets/v83/musk-ox.svg" width="35" height="35"> | <img src="../client/assets/v83/musk-ox.svg" width="90" height="90"> |
+| Maned Wolf | `organic40:fox` + `organic83:barghest` | <img src="../client/assets/v83/maned-wolf.svg" width="35" height="35"> | <img src="../client/assets/v83/maned-wolf.svg" width="90" height="90"> |
+| Saiga Antelope | `organic83:centaur` + `legacy:1048` | <img src="../client/assets/v83/saiga-antelope.svg" width="35" height="35"> | <img src="../client/assets/v83/saiga-antelope.svg" width="90" height="90"> |
+| Aye-Aye | `legacy:601` + `legacy:142` | <img src="../client/assets/v83/aye-aye.svg" width="35" height="35"> | <img src="../client/assets/v83/aye-aye.svg" width="90" height="90"> |
+| Okapi | `legacy:574` + `organic32:rainforest` | <img src="../client/assets/v83/okapi.svg" width="35" height="35"> | <img src="../client/assets/v83/okapi.svg" width="90" height="90"> |
+| Blue-Ringed Octopus | `organic38:octopus` + `pack:venom` | <img src="../client/assets/v83/blue-ringed-octopus.svg" width="35" height="35"> | <img src="../client/assets/v83/blue-ringed-octopus.svg" width="90" height="90"> |
+| Tardigrade | `legacy:26` + `organic32:microscope` | <img src="../client/assets/v83/tardigrade.svg" width="35" height="35"> | <img src="../client/assets/v83/tardigrade.svg" width="90" height="90"> |
+| Proboscis Monkey | `legacy:601` + `legacy:39` | <img src="../client/assets/v83/proboscis-monkey.svg" width="35" height="35"> | <img src="../client/assets/v83/proboscis-monkey.svg" width="90" height="90"> |
+| Giant Isopod | `organic37:deep-sea` + `organic38:crab` | <img src="../client/assets/v83/giant-isopod.svg" width="35" height="35"> | <img src="../client/assets/v83/giant-isopod.svg" width="90" height="90"> |
+| Binturong | `organic40:fox` + `legacy:19` | <img src="../client/assets/v83/binturong.svg" width="35" height="35"> | <img src="../client/assets/v83/binturong.svg" width="90" height="90"> |
+| Secretary Bird | `organic38:bird` + `legacy:1048` | <img src="../client/assets/v83/secretary-bird.svg" width="35" height="35"> | <img src="../client/assets/v83/secretary-bird.svg" width="90" height="90"> |
+| Sun Bear | `pack:panda` + `organic32:rainforest` | <img src="../client/assets/v83/sun-bear.svg" width="35" height="35"> | <img src="../client/assets/v83/sun-bear.svg" width="90" height="90"> |
+| Gerenuk | `organic83:centaur` + `organic83:ancient-tree-ent` | <img src="../client/assets/v83/gerenuk.svg" width="35" height="35"> | <img src="../client/assets/v83/gerenuk.svg" width="90" height="90"> |
+| Dumbo Octopus | `organic38:octopus` + `organic37:deep-sea` | <img src="../client/assets/v83/dumbo-octopus.svg" width="35" height="35"> | <img src="../client/assets/v83/dumbo-octopus.svg" width="90" height="90"> |
+| Flying Fish | `legacy:27` + `organic38:bird` | <img src="../client/assets/v83/flying-fish.svg" width="35" height="35"> | <img src="../client/assets/v83/flying-fish.svg" width="90" height="90"> |
+| Gila Monster | `legacy:1048` + `pack:venom` | <img src="../client/assets/v83/gila-monster.svg" width="35" height="35"> | <img src="../client/assets/v83/gila-monster.svg" width="90" height="90"> |
