@@ -88,3 +88,12 @@ Audited all **39 old organic packs plus legacy and creative**. Discovered three 
 - The 50 folklore-themed entries are now tagged category mythology; the 25 extinct species category prehistoric, matching their independently playable Family Only campaign; 125 Classic-only entries remain in their respective Discoveries families.
 - Baseline V82 6,012 elements/14,349 authored pairs; V83 +200 => **6,212 elements / 14,549 authored pairs**. **Mythology closure 159/159; Prehistory closure 141/141** in source-level data traversal. 200 distinct SVG sources pass structural preflight but HUMAN legibility assessment at 35px is pending.
 - `shared/v83-approved.json` is a manifest for the code gate, not approval for commercial release. A CI/Android QA run, IP/art review and physical-device check must pass before merging or publishing.
+
+## Experimental V83 QA — tactile craft motion (30 Oct 2026)
+
+- Unreleased preview on the same V83 draft branch only; V82 main unchanged, the 200-element V83 catalog remains unchanged.
+- A right-slot ingredient animates toward the left. Offline misses bump and return in 295ms; known results fuse at left and fade upward in 300ms; first discoveries fuse and expand as a full-screen tile then automatically fade.
+- Animations are fully visual (cloned fixed-position tiles); game updates, saves, Family Only closures, left lock, drag and inventory scroll are not awaited or changed. Pointer input immediately cancels any active animation. Reduced-motion settings use the original no-animation modal.
+- Test: `client/test/craft-motion.test.mjs` checks all three branches and input cancellation. No physical-device animation/frame-rate or accessibility QA yet.
+- Build version in the Help footer is now injected from `package.json` by the standalone builder, set to 0.83.0 for this preview; Android debug signing and package ID unchanged.
+- The QA workflow artifact filename now specifies V83 Motion to prevent accidental confusion with V82. Only install over existing app, do not uninstall. Do not merge/release until device test.
