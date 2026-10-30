@@ -49,7 +49,8 @@ test('Every V83 draft discovery has its own name, global pair and source-matched
     assert.ok(!names.has(it.name.toLowerCase()),'reused candidate name '+it.name);
     assert.ok(!knownNames.has(it.name.toLowerCase()),'reused known name '+it.name);
     names.add(it.name.toLowerCase());
-    assert.deepEqual(it.familyCampaigns,['mythology']);
+    assert.deepEqual(it.familyCampaigns,entry.familyCampaigns);
+    assert.ok(Array.isArray(it.familyCampaigns)&&it.familyCampaigns.every(f=>f==='mythology'),'unsupported Family Only membership '+it.name);
     const recipes=ORGANIC_V83.recipes.filter(x=>x[2]===it.id);
     assert.equal(recipes.length,1,'one new primary recipe '+it.name);
     const [a,b]=recipes[0],k=pair(a,b);
@@ -80,7 +81,7 @@ test('Mythology campaign can build ALL provisional V83 members from only its fou
   }
   const myth=buildThematicCampaigns(global,allItems).find(x=>x.id==='mythology');
   assert.ok(myth);
-  assert.equal(myth.items.length,109+ORGANIC_V83.items.length);
+  assert.equal(myth.items.length,109+ORGANIC_V83.items.filter(x=>x.familyCampaigns.includes('mythology')).length);
   const reached=new Set(myth.starters);
   for(let round=0;round<myth.items.length;round++){
     const prev=reached.size;
