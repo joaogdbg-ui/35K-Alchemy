@@ -1,5 +1,8 @@
 # Alchemy 10K — V83 WIP / continuation checkpoint
 
+**Meta definitiva: exatamente 10.000 elementos.** V82 tem 6.012, faltam 3.988; são 19 lotes normais de 200 (incluindo V83) até 9.812, seguidos de um lote final de 188, nunca até 10.012. A exceção de +188 só se aplica ao último lote e exige validação específica do gate antes da entrega.
+
+
 - Baseline: merged V82 `b75811874766a1270ac5ca908fd57719e1557c0a` — **6,012 elements, 14,349 recipes**.
 - Development branch: `wip/alchemy-10k-v83-fantasy-gaming`; target **exactly +200** -> **6,212 elements / 14,549 recipes**.
 - This checkpoint: **12/200 authored candidates**, **188 remaining**. The 12 are NOT ACTIVE IN THE GAME; import/integration only at finished quality-gated batch. No PR, CI or APK from WIP.

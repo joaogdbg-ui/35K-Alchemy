@@ -4,10 +4,10 @@ Ler primeiro `docs/WORKING_RULES_PT.md`, `docs/CONTENT_200_BATCH_POLICY_PT.md`, 
 
 ## Produção de conteúdo — REGRA ABSOLUTA
 
-- **Cada entrega de expansão após V80B exige exatamente +200 elementos NOVOS no catálogo verificado**, relativamente à baseline do PR. Não publicar lotes parciais de 8/20/40/50, não fazer merge desses parciais nem disponibilizar um APK de expansão antes dos 200. Ondas internas de 25/50 apenas em branch WIP; continuar até 200.
+- **Cada entrega de expansão exige exatamente +200 elementos NOVOS, exceto o ÚLTIMO lote de +188 para atingir 10.000 exatos**, relativamente à baseline do PR. Não publicar lotes parciais de 8/20/40/50, não fazer merge desses parciais nem disponibilizar um APK de expansão antes dos 200. Ondas internas de 25/50 apenas em branch WIP; continuar até 200.
 - **Nunca preencher artificialmente 200**: ID/nome/receita únicos e coerentes, origem/reachability, descrição em inglês, SVG próprio reconhecível a 35px e testes obrigatórios para cada elemento. Sem desenhos "genéricos diferentes por hash", falsos IDs ou receitas alternativas contadas como novos.
-- V80B e V81 são **histórico concluído**: a base atual V81 tem **5.812 elementos e 14.149 receitas**. Meta atual **Alchemy 10K**, pelo menos 10.000 elementos: **21 lotes futuros de exatamente +200** chegam a 10.012. O próximo lote editorial é V82, nunca publicar 1–199 novos elementos.
-- O gate `node tools/check-content-batch-200.mjs --base <SHA>` verifica o incremento real e deve passar em PR e build Android. Mudanças técnicas com **zero** novos elementos são permitidas, mas não contam como expansão.
+- V80B e V81 são **histórico concluído**: a base atual V81 tem **5.812 elementos e 14.149 receitas**. **Meta exata: 10.000 elementos**. A V82 está integrada: 6.012 elementos. Faltam **3.988**: **19 lotes de +200** (até 9.812), seguidos de **um único lote final de +188** (até 10.000). O próximo lote é a V83 (+200, alvo 6.212). Lotes de 1–199 continuam proibidos, salvo esta exceção final documentada e validada.
+- O gate `node tools/check-content-batch-200.mjs --base <SHA>` mantém +200 até 9.812. Antes do lote final, adaptar o gate e os testes para permitir **somente** +188 a partir de uma baseline real de 9.812 e com catálogo final exatamente 10.000; nunca aceitar +188 antecipadamente. Mudanças técnicas com **zero** novos elementos são permitidas, mas não contam como expansão.
 - Uma conversa interrompida deve deixar progresso WIP guardado e retomar na mesma branch; não confundir checkpoint com entrega, não alegar testes/arte/IP/QA não feitos.
 
 ## Invariantes imutáveis

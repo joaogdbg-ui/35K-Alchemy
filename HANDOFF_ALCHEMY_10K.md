@@ -1,9 +1,15 @@
+# Current status — 30 October 2026
+
+V82 was merged as commit `b75811874766a1270ac5ca908fd57719e1557c0a` and its signed debug/test APK built successfully. The **exact** catalog target is now **10,000** (not 10,012). From V82's 6,012, complete 19 further +200 batches to 9,812 then a final exceptional +188 to 10,000. See `HANDOFF_V83.md` for active development. Historical notes below predate the merge.
+
+---
+
 # Alchemy 10K — V82 candidate handoff (29 October 2026)
 
 ## Branch, goal and release truth
 - Development branch: `feature/alchemy-10k-mythology-prehistory`.
 - V81 baseline on main: SHA `2aba8395f48082964bc2af2ff20a468c56dd464b`, **5,812 original elements and 14,149 recipes**.
-- V82 authored candidate: **+200 permanent IDs and +200 new unordered global recipes**, giving **6,012 elements / 14,349 recipes** when passed and merged. This is the FIRST of 21 planned +200 expansions from V81; after V82 the goal of >=10,000 needs 20 more complete deliveries.
+- V82 authored candidate: **+200 permanent IDs and +200 new unordered global recipes**, giving **6,012 elements / 14,349 recipes** when passed and merged. This is the first batch since V81. The corrected exact target is 10,000: after V82, 19 regular +200 deliveries and the exceptional final +188.
 - V82 catalog mix: **93 mythology and 107 prehistory items**, all with exact source SVG files, entries in `client/src/organic-art-v82.js`, unique primary recipes and explicit familyCampaigns metadata.
 - Manifest `shared/v82-approved.json`: `expansion_progress=200`, `remaining_to_goal=0`, `cycle_complete=true`, `status=QA_PENDING_UNMERGED`. **Not published, not merged, no V82 APK**.
 - Rebranding: public `Alchemy 10K` display title, but original Android `appId=com.joaogdbg.alchemy35k` and legacy save keys intentionally retained.

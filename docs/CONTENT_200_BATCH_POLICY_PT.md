@@ -1,13 +1,13 @@
 # 35K Alchemy — política obrigatória de entregas de 200 elementos
 
-> **Atualização Alchemy 10K (29/10/2026):** a meta operacional passou para 10.000+ elementos. Base atual V81: 5.812 elementos / 14.149 receitas, próximo lote V82 de +200 para 6.012, 21 lotes de +200 até 10.012. A antiga aritmética V80B→35.012 abaixo mantém-se apenas como registo histórico; não é o plano atual. Continuam obrigatórios exatamente 200 por entrega, qualidade individual dos SVGs, receitas globais e Family Only 100% autónomo.
+> **Atualização Alchemy 10K (30/10/2026, substitui as metas anteriores):** objetivo **exatamente 10.000 elementos**, não 10.012. V82 integrada, catálogo 6.012. Faltam 3.988: 19 lotes de +200 até 9.812 e um único último lote de +188 até 10.000. O requisito de qualidade de cada elemento, receitas globais e Family Only 100% autónomo mantém-se. A aritmética antiga de 35K abaixo é apenas histórica.
 
 **Normativa a partir da V80B.** Ler antes de criar conteúdo: `AGENTS.md`, `docs/WORKING_RULES_PT.md`, `HANDOFF_V80.md`. Esta política substitui qualquer indicação histórica de "até 200", "200 como objetivo" ou publicação de sublotes de 8/20/40/50. Dados históricos não devem ser reescritos.
 
 ## 1. Contrato de entrega — OBRIGATÓRIO
 
-- **Uma entrega de expansão de conteúdo = exatamente 200 elementos NOVOS e efetivos**, contabilizados como diferença de IDs estáveis no catálogo face ao commit de base. Não basta juntar antigos elementos, receitas alternativas, variações cosméticas ou planos.
-- **Não publicar APK/HTML de expansão, integrar PR de conteúdo em `main`, nem declarar lote finalizado com 1–199 elementos.** Sub-lotes de desenvolvimento 20/25/50 podem existir em branches de trabalho/draft PR sem merge, sem release e sem entrega final ao utilizador. Trabalhar progressivamente e continuar a partir do estado guardado até perfazer 200.
+- **Uma entrega de expansão de conteúdo = exatamente 200 elementos NOVOS e efetivos, exceto a entrega final de +188 a partir de 9.812**, contabilizados como diferença de IDs estáveis no catálogo face ao commit de base. Não basta juntar antigos elementos, receitas alternativas, variações cosméticas ou planos.
+- **Não publicar APK/HTML de expansão, integrar PR de conteúdo em `main`, nem declarar lote finalizado com 1–199 elementos, exceto o lote final regulamentado de +188 para atingir precisamente 10.000.** Sub-lotes de desenvolvimento 20/25/50 podem existir em branches de trabalho/draft PR sem merge, sem release e sem entrega final ao utilizador. Trabalhar progressivamente e continuar a partir do estado guardado até perfazer 200.
 - PRs que **não criam elementos** (correção de bugs, UI, ícones existentes, documentação, segurança, build) são permitidos, mas não contam como "entrega de 200" nem reiniciam o progresso.
 - **Nunca fabricar números:** um elemento só conta quando existe de facto (ID, nome, descrição, receita global, SVG original, catálogo integrado, testes verdes). Um lote que falha um requisito permanece WIP. Recorrência da meta não autoriza shortcuts na qualidade.
 - A política aplica-se tanto a PRs como ao passo de build Android: `node tools/check-content-batch-200.mjs --base <SHA anterior>`. Não contornar o gate dividindo uma entrega em vários merges de 40.
@@ -55,8 +55,8 @@ Não baixar a meta nem preencher com combinações arbitrárias. **Parar o merge
 
 - O manifesto de versão `shared/vNN-approved.json` regista o subconjunto de cada pack com `new_items[]`, `ingredients[]`, `path`, `art_mode: bespoke-subject`, contagens reais e progresso editorial. Quando uma entrega atravessa ciclos (como 160 V80 + 40 V81), cada manifesto mantém os seus próprios dados; **o gate compara o delta agregado dos packs no PR/commit**, não um único manifesto fictício de 200.
 - `client/src/organic-pack-vNN.js` exporta dados JSON literais; `client/src/organic-art-vNN.js` contém SVGs idênticos aos ficheiros fonte. IDs e receitas antigas não podem ser reescritos. Novos packs exigem integração explícita no catálogo, validador, builder HTML e auditorias.
-- O gate `tools/check-content-batch-200.mjs` recusa incrementos de 1–199 ou mais de 200, IDs repetidos, fontes ausentes, recipes antigas modificadas, manifests inconsistentes e SVGs duplicados entre as 200 entradas. Não corrige nem gera arte automaticamente.
-- Em cada entrega, escrever: `baseline SHA`, elementos/receitas antes, **+200 IDs**, elementos/receitas depois, famílias/categorias, ícones revistos, CI URL/status, commit merged, build Android/status, APK real, anomalias e itens ainda por resolver. O reporte **não pode arredondar** números.
+- O gate `tools/check-content-batch-200.mjs` recusa incrementos de 1–199 ou mais de 200 até à última entrega; antes do lote final deverá permitir somente +188 com baseline 9.812 e total resultante 10.000, mantendo a recusa de IDs repetidos, fontes ausentes, recipes antigas modificadas, manifests inconsistentes e SVGs duplicados entre as 200 entradas. Não corrige nem gera arte automaticamente.
+- Em cada entrega, escrever: `baseline SHA`, elementos/receitas antes, **+200 IDs (ou +188 no lote final)**, elementos/receitas depois, famílias/categorias, ícones revistos, CI URL/status, commit merged, build Android/status, APK real, anomalias e itens ainda por resolver. O reporte **não pode arredondar** números.
 - **Não automatizar falsamente a revisão humana**: os relatórios distinguem claramente verificações automatizadas de testes físicos, artísticos e de IP.
 - Não mexer em anúncios recompensados, cloud/leaderboards ou assinatura de produção durante uma expansão sem testes separados.
 
@@ -68,4 +68,4 @@ A instrução "avança"/"continua" significa **continuar os 200 em curso**, não
 
 Antes de dar por concluído um lote de +200, aplicar integralmente `docs/FAMILIES_ONLY_CONTRACT_PT.md`. A inclusão de cada novo elemento numa família exige que o jogador o possa alcançar **a partir dos 4 starters daquela família**, mesmo sem partilhas de outras famílias. A partilha por ID único não substitui a completabilidade isolada.
 
-**Não executar Actions por 25/50/100/150:** conservar os SVG e as receitas na branch WIP, fazer validações locais e auditoria editorial. Só abrir PR com exatamente +200, executar a CI completa uma vez e gerar um único APK após merge. Detalhes em `docs/CI_BUDGET_POLICY_PT.md`.
+**Não executar Actions por 25/50/100/150:** conservar os SVG e as receitas na branch WIP, fazer validações locais e auditoria editorial. Só abrir PR com exatamente +200 (ou +188 na última entrega rumo a 10.000), executar a CI completa uma vez e gerar um único APK após merge. Detalhes em `docs/CI_BUDGET_POLICY_PT.md`.
