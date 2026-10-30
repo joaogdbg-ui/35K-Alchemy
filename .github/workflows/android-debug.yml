@@ -70,6 +70,8 @@ jobs:
         run: npx cap add android && npx cap sync android
       - name: Configure Android 16+ window insets and SystemBars
         run: python tools/configure-android-edge-to-edge.py
+      - name: Add Google Mobile Ads rewarded TEST ads (AdMob sample IDs)
+        run: python tools/configure-android-admob.py
 
       - name: Render original app launcher (all Android densities)
         run: python tools/generate-launcher-icons.py
@@ -162,7 +164,7 @@ jobs:
             Dedicated, stable 35K Alchemy debug-test certificate (NOT the Virtual Spectre certificate).
             Android debug versionCode = GitHub run ID modulo 2000000000 (monotonically increasing across workflows).
             This public debug signing key is NOT a production signing key.
-            Native rewarded ads and verified rewards are not implemented.
+            Rewarded ads use Google's TEST ad unit (labelled "Test Ad"): no real revenue. Server-side reward verification is not implemented.
             The first switch from the previous random debug-signed build may require reinstalling: back up saves first.
           files: dist/35K-Alchemy.apk
       - name: Remove obsolete app-debug.apk asset after publishing the new file
