@@ -92,3 +92,29 @@ test('Mythology campaign can build ALL provisional V83 members from only its fou
   }
   assert.equal(reached.size,myth.items.length,'WIP mythology must be autonomously reachable');
 });
+
+
+test('V83 draft names and recipes do not collide with ANY historical organic pack',async()=>{
+  const {readdirSync}=await import('node:fs');
+  const files=readdirSync(new URL('../src/',import.meta.url))
+    .filter(x=>/^organic-pack-v\d+\.js$/.test(x)&&Number(x.match(/v(\d+)/)[1])<83);
+  const names=new Map(),pairs=new Map();
+  const record=(name,id)=>{const normalized=String(name).normalize('NFKC').trim().toLowerCase().replace(/[^\p{L}\p{N}]+/gu,'');if(!names.has(normalized))names.set(normalized,id);};
+  DATA.items.forEach((row,i)=>record(row[0],'legacy:'+i));
+  PACK.items.forEach(row=>record(row.name,row.id));
+  for(const [a,b,c] of DATA.recipes)pairs.set(pair('legacy:'+a,'legacy:'+b),'legacy:'+c);
+  for(const [a,b,c] of PACK.recipes)pairs.set(pair(a,b),c);
+  for(const f of files){
+    const mod=await import(new URL('../src/'+f,import.meta.url).href);
+    const found=Object.values(mod).find(v=>v&&Array.isArray(v.items)&&Array.isArray(v.recipes));
+    assert.ok(found,'missing organic content export '+f);
+    for(const item of found.items)record(item.name,item.id);
+    for(const [a,b,c] of found.recipes)pairs.set(pair(a,b),c);
+  }
+  for(const item of ORGANIC_V83.items){
+    const k=String(item.name).normalize('NFKC').trim().toLowerCase().replace(/[^\p{L}\p{N}]+/gu,'');
+    assert.ok(!names.has(k),'V83 name collides with historic ID '+item.name+' -> '+names.get(k));
+  }
+  for(const [a,b,c] of ORGANIC_V83.recipes)
+    assert.ok(!pairs.has(pair(a,b)),'V83 pair conflicts with old result '+a+' + '+b+' = '+pairs.get(pair(a,b))+' (wanted '+c+')');
+});
