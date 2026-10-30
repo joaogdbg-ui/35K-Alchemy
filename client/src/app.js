@@ -932,7 +932,7 @@ async function connectToApi(){if(!apiBase)return;try{
 //  - new discovery:      the merged result tile floats up and morphs into the art of
 //                        the discovery window, which closes only with X (unchanged)
 const craftMotion={scene:null,morphCleanup:null};
-const CRAFT_MOTION={touch:150,bounce:180,fade:140,merge:170,pop:120,rise:380,morph:300};
+const CRAFT_MOTION={touch:150,bounce:180,fade:140,merge:170,pop:120,rise:380,morph:420};
 const craftMotionAllowed=()=>typeof Element.prototype.animate==='function'&&!(window.matchMedia?.('(prefers-reduced-motion: reduce)')?.matches);
 function captureCraftScene(){
  if(!craftMotionAllowed())return null;
@@ -997,22 +997,33 @@ async function craftRepeatMotion(sc,item){
 async function craftDiscoveryMotion(sc,item){
  const modal=$('modal'),card=modal.querySelector('.modal-card'),art=modal.querySelector('.modal-art');
  if(!card||!art||modal.hidden)return;
- const state={tile:null,cardAnim:null,modalAnim:null,done:false};
- const cleanup=()=>{if(state.done)return;state.done=true;modal.style.opacity='';art.style.visibility='';state.modalAnim?.cancel();state.cardAnim?.cancel();state.tile?.remove();};
+ const state={tile:null,morph:null,cardAnim:null,modalAnim:null,done:false};
+ const cleanup=()=>{if(state.done)return;state.done=true;modal.style.opacity='';art.style.visibility='';state.modalAnim?.cancel();state.cardAnim?.cancel();state.tile?.remove();state.morph?.remove();};
  cancelCraftMorph();craftMotion.morphCleanup=cleanup;
  modal.style.opacity='0';art.style.visibility='hidden';
  const tile=await craftMergeMotion(sc,item);
  if(state.done)return;
  if(!tile||modal.hidden||!art.isConnected){cleanup();return;}
- state.tile=tile;tile.classList.add('is-morphing');
- const from=tile.getBoundingClientRect(),to=art.getBoundingClientRect();
- const s=to.width&&from.width?to.width/from.width:1;
- const dx=(to.left+to.width/2)-(from.left+from.width/2),dy=(to.top+to.height/2)-(from.top+from.height/2);
- const cs=getComputedStyle(tile);
+ // V83.1: the artwork is drawn once at its final size, exactly over the window's art,
+ // and scaled up from the tile's art. It ends pixel-identical (crisp, no size snap).
+ state.tile=tile;
+ const tileArt=tile.querySelector('.slot-art')||tile,from=tileArt.getBoundingClientRect(),to=art.getBoundingClientRect();
+ if(!to.width||!from.width){cleanup();return;}
+ const morph=document.createElement('div');morph.className='craft-morph-art';morph.setAttribute('aria-hidden','true');
+ morph.innerHTML=art.innerHTML;
+ morph.style.cssText=`left:${to.left}px;top:${to.top}px;width:${to.width}px;height:${to.height}px`;
+ document.body.appendChild(morph);state.morph=morph;
+ const s0=from.width/to.width,dx=(from.left+from.width/2)-(to.left+to.width/2),dy=(from.top+from.height/2)-(to.top+to.height/2);
+ tileArt.style.visibility='hidden';
+ // The tile's card body dissolves while drifting toward the window.
+ tile.animate([{opacity:1,transform:'scale(1)'},{opacity:0,transform:`translate(${-dx*.35}px,${-dy*.35}px) scale(1.25)`}],{duration:Math.round(CRAFT_MOTION.morph*.6),easing:'ease-out',fill:'forwards'});
  state.modalAnim=modal.animate([{opacity:0},{opacity:1}],{duration:CRAFT_MOTION.morph,easing:'ease-out',fill:'forwards'});
- state.cardAnim=card.animate([{opacity:0,transform:'translateY(14px) scale(.95)'},{opacity:1,transform:'none'}],{duration:240,delay:90,easing:'ease-out',fill:'forwards'});
- await animateGhost(tile,[{transform:'translate(0,0) scale(1)',backgroundColor:cs.backgroundColor,borderColor:cs.borderColor,boxShadow:cs.boxShadow},{transform:`translate(${dx}px,${dy}px) scale(${s})`,backgroundColor:'transparent',borderColor:'transparent',boxShadow:'none'}],{duration:CRAFT_MOTION.morph,easing:'cubic-bezier(.3,.7,.2,1)'});
+ state.cardAnim=card.animate([{opacity:0},{opacity:1}],{duration:Math.round(CRAFT_MOTION.morph*.8),delay:Math.round(CRAFT_MOTION.morph*.2),easing:'ease-out',fill:'forwards'});
+ await animateGhost(morph,[{transform:`translate(${dx}px,${dy}px) scale(${s0})`},{transform:`translate(${dx*.06}px,${dy*.06}px) scale(${1+(1-s0)*.03})`,offset:.82},{transform:'translate(0,0) scale(1)'}],{duration:CRAFT_MOTION.morph,easing:'cubic-bezier(.25,.8,.3,1)'});
  if(state.done)return;
+ // Reveal the real art first, then drop the identical overlay on the next frame.
+ art.style.visibility='';
+ await new Promise(r=>requestAnimationFrame(()=>r()));
  craftMotion.morphCleanup=null;cleanup();
 }
 function playCraftMotion(sc,kind,item){
