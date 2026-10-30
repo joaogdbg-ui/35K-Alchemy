@@ -14,10 +14,10 @@ const read=p=>readFileSync(new URL('../../'+p,import.meta.url),'utf8');
 const manifest=JSON.parse(read('shared/v83-progress.json'));
 const pair=(a,b)=>[a,b].sort().join('|');
 
-test('V83 stays a non-integrated, non-published 200-item WIP',()=>{
-  assert.equal(manifest.status,'WIP_NOT_INTEGRATED_NOT_RELEASED');
+test('V83 authored exactly 200 unpublished QA content elements',()=>{
+  assert.equal(manifest.status,'WIP_200_AUTHORED_AWAITING_FULL_QA_AND_INTEGRATION');
   assert.equal(manifest.expansion_goal,200);
-  assert.ok(manifest.authored_candidates>0 && manifest.authored_candidates<200);
+  assert.equal(manifest.authored_candidates,200);
   assert.equal(manifest.authored_candidates,ORGANIC_V83.items.length);
   assert.equal(manifest.remaining,200-ORGANIC_V83.items.length);
   assert.equal(ORGANIC_V83.items.length,ORGANIC_V83.recipes.length);
@@ -50,7 +50,7 @@ test('Every V83 draft discovery has its own name, global pair and source-matched
     assert.ok(!knownNames.has(it.name.toLowerCase()),'reused known name '+it.name);
     names.add(it.name.toLowerCase());
     assert.deepEqual(it.familyCampaigns,entry.familyCampaigns);
-    assert.ok(Array.isArray(it.familyCampaigns)&&it.familyCampaigns.every(f=>f==='mythology'),'unsupported Family Only membership '+it.name);
+    assert.ok(Array.isArray(it.familyCampaigns)&&it.familyCampaigns.every(f=>['mythology','prehistoric'].includes(f)),'unsupported Family Only membership '+it.name);
     const recipes=ORGANIC_V83.recipes.filter(x=>x[2]===it.id);
     assert.equal(recipes.length,1,'one new primary recipe '+it.name);
     const [a,b]=recipes[0],k=pair(a,b);
@@ -92,6 +92,16 @@ test('Mythology campaign can build ALL provisional V83 members from only its fou
     if(reached.size===prev)break;
   }
   assert.equal(reached.size,myth.items.length,'WIP mythology must be autonomously reachable');
+  const prehistoric=buildThematicCampaigns(global,allItems).find(x=>x.id==='prehistoric');
+  assert.ok(prehistoric);
+  assert.equal(prehistoric.items.length,116+ORGANIC_V83.items.filter(x=>x.familyCampaigns.includes('prehistoric')).length);
+  const recovered=new Set(prehistoric.starters);
+  for(let round=0;round<prehistoric.items.length;round++){
+    const prior=recovered.size;
+    for(const [pair,out] of prehistoric.recipes){const [a,b]=pair.split('|');if(recovered.has(a)&&recovered.has(b))recovered.add(out);}
+    if(recovered.size===prior)break;
+  }
+  assert.equal(recovered.size,prehistoric.items.length,'WIP prehistory must be autonomously reachable');
 });
 
 
@@ -142,4 +152,16 @@ test('Every new V83 recipe references its WIP ancestors before the output',()=>{
    assert.ok(index.get(ancestor)<order,'forward dependency '+ancestor+' -> '+out);
   }
  }
+});
+
+
+test('V83 is registered in the app and native offline HTML build while preserving save keys',()=>{
+ const app=read('client/src/app.js'),bundle=read('tools/build-standalone.py');
+ assert.match(app,/ORGANIC_V81,ORGANIC_V82,ORGANIC_V83\]/);
+ assert.match(app,/ORGANIC_ART_V83\[itemName\]\|\|ORGANIC_ART_V82/);
+ assert.match(bundle,/window\.__gameverseOrganic83/);
+ assert.match(bundle,/window\.__gameverseOrganicArt83/);
+ assert.match(bundle,/validate-v83\.mjs/);
+ assert.match(bundle,/Alchemy_10K_V83_QA_Offline\.html/);
+ assert.match(app,/35k_family_profiles_v48/);
 });

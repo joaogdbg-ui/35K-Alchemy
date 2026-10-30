@@ -78,8 +78,8 @@ test('All new mythical and prehistoric discoveries are craftable in isolated Fam
 });
 test('V82 WIP code is registered in the application and offline builder, with old save IDs preserved',()=>{
  const app=read('client/src/app.js'),bundle=read('tools/build-standalone.py');
- assert.match(app,/ORGANIC_V80,ORGANIC_V81,ORGANIC_V82\]/);
- assert.match(app,/const newArt=ORGANIC_ART_V82\[itemName\]\|\|ORGANIC_ART_V81/);
+ assert.match(app,/ORGANIC_V80,ORGANIC_V81,ORGANIC_V82,ORGANIC_V83\]/);
+ assert.match(app,/const newArt=ORGANIC_ART_V83\[itemName\]\|\|ORGANIC_ART_V82\[itemName\]\|\|ORGANIC_ART_V81/);
  assert.match(bundle,/window\.__gameverseOrganic82/);
  assert.match(bundle,/window\.__gameverseOrganicArt82/);
  assert.match(bundle,/validate-v82\.mjs/);

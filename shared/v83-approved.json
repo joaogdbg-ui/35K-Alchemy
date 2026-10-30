@@ -1,0 +1,3014 @@
+{
+  "version": 83,
+  "status": "QA_PENDING_UNMERGED",
+  "base_commit": "b75811874766a1270ac5ca908fd57719e1557c0a",
+  "base_catalog": {
+    "elements": 6012,
+    "recipes": 14349
+  },
+  "expansion_goal": 200,
+  "authored_candidates": 200,
+  "remaining": 0,
+  "art_review": "NOT_APPROVED",
+  "new_items": [
+    {
+      "id": "organic83:mythic-bestiary",
+      "name": "Mythic Bestiary",
+      "category": "mythology",
+      "summary": "An illustrated field book catalogues legendary beasts and supernatural creatures.",
+      "ingredients": [
+        "organic82:mythology",
+        "pack:shapeshifter"
+      ],
+      "familyCampaigns": [
+        "mythology"
+      ],
+      "path": "client/assets/v83/mythic-bestiary.svg",
+      "art_mode": "bespoke-subject",
+      "editorial_qa": "pending"
+    },
+    {
+      "id": "organic83:cave-troll",
+      "name": "Cave Troll",
+      "category": "mythology",
+      "summary": "A hulking cave dweller with knotted arms and blunt tusks prowls underground passages.",
+      "ingredients": [
+        "organic83:mythic-bestiary",
+        "organic82:jotunheim"
+      ],
+      "familyCampaigns": [
+        "mythology"
+      ],
+      "path": "client/assets/v83/cave-troll.svg",
+      "art_mode": "bespoke-subject",
+      "editorial_qa": "pending"
+    },
+    {
+      "id": "organic83:stone-troll",
+      "name": "Stone Troll",
+      "category": "mythology",
+      "summary": "An ancient troll covered in slate slabs and granite ridges stands like a living boulder.",
+      "ingredients": [
+        "organic83:cave-troll",
+        "organic82:runestone"
+      ],
+      "familyCampaigns": [
+        "mythology"
+      ],
+      "path": "client/assets/v83/stone-troll.svg",
+      "art_mode": "bespoke-subject",
+      "editorial_qa": "pending"
+    },
+    {
+      "id": "organic83:forest-troll",
+      "name": "Forest Troll",
+      "category": "mythology",
+      "summary": "A shaggy woodland troll wears moss, bark and fern fronds as camouflage.",
+      "ingredients": [
+        "organic83:cave-troll",
+        "organic82:yggdrasil"
+      ],
+      "familyCampaigns": [
+        "mythology"
+      ],
+      "path": "client/assets/v83/forest-troll.svg",
+      "art_mode": "bespoke-subject",
+      "editorial_qa": "pending"
+    },
+    {
+      "id": "organic83:ulfhednar",
+      "name": "Ulfhednar",
+      "category": "mythology",
+      "summary": "A Norse wolf-cloaked berserker takes on the fierce aspect of Fenrir in battle.",
+      "ingredients": [
+        "organic82:fenrir",
+        "pack:shapeshifter"
+      ],
+      "familyCampaigns": [
+        "mythology"
+      ],
+      "path": "client/assets/v83/ulfhednar.svg",
+      "art_mode": "bespoke-subject",
+      "editorial_qa": "pending"
+    },
+    {
+      "id": "organic83:vrykolakas",
+      "name": "Vrykolakas",
+      "category": "mythology",
+      "summary": "A restless undead figure from Greek folklore returns from the grave beneath a dark cloak.",
+      "ingredients": [
+        "organic83:mythic-bestiary",
+        "organic82:greek-underworld"
+      ],
+      "familyCampaigns": [
+        "mythology"
+      ],
+      "path": "client/assets/v83/vrykolakas.svg",
+      "art_mode": "bespoke-subject",
+      "editorial_qa": "pending"
+    },
+    {
+      "id": "organic83:vampire-bat",
+      "name": "Vampire Bat",
+      "category": "mythology",
+      "summary": "A small sharp-fanged bat stretches its leathery wings beneath a moonlit sky.",
+      "ingredients": [
+        "organic83:vrykolakas",
+        "pack:shapeshifter"
+      ],
+      "familyCampaigns": [
+        "mythology"
+      ],
+      "path": "client/assets/v83/vampire-bat.svg",
+      "art_mode": "bespoke-subject",
+      "editorial_qa": "pending"
+    },
+    {
+      "id": "organic83:night-wraith",
+      "name": "Night Wraith",
+      "category": "mythology",
+      "summary": "A faceless spirit gathers in a hood of midnight mist and leaves a dissolving spectral trail.",
+      "ingredients": [
+        "organic83:mythic-bestiary",
+        "organic82:niflheim"
+      ],
+      "familyCampaigns": [
+        "mythology"
+      ],
+      "path": "client/assets/v83/night-wraith.svg",
+      "art_mode": "bespoke-subject",
+      "editorial_qa": "pending"
+    },
+    {
+      "id": "organic83:banshee",
+      "name": "Banshee",
+      "category": "mythology",
+      "summary": "A keening apparition with streaming silver hair warns of death in Irish folklore.",
+      "ingredients": [
+        "organic83:night-wraith",
+        "organic82:valkyrie"
+      ],
+      "familyCampaigns": [
+        "mythology"
+      ],
+      "path": "client/assets/v83/banshee.svg",
+      "art_mode": "bespoke-subject",
+      "editorial_qa": "pending"
+    },
+    {
+      "id": "organic83:stone-golem",
+      "name": "Stone Golem",
+      "category": "mythology",
+      "summary": "An animated granite guardian rises from carved blocks with a glowing rune at its core.",
+      "ingredients": [
+        "organic82:hephaestus",
+        "organic82:runestone"
+      ],
+      "familyCampaigns": [
+        "mythology"
+      ],
+      "path": "client/assets/v83/stone-golem.svg",
+      "art_mode": "bespoke-subject",
+      "editorial_qa": "pending"
+    },
+    {
+      "id": "organic83:forest-dryad",
+      "name": "Forest Dryad",
+      "category": "mythology",
+      "summary": "A woodland spirit with bark-textured skin and a crown of living branches protects ancient trees.",
+      "ingredients": [
+        "organic82:gaia",
+        "organic82:yggdrasil"
+      ],
+      "familyCampaigns": [
+        "mythology"
+      ],
+      "path": "client/assets/v83/forest-dryad.svg",
+      "art_mode": "bespoke-subject",
+      "editorial_qa": "pending"
+    },
+    {
+      "id": "organic83:basilisk",
+      "name": "Basilisk",
+      "category": "mythology",
+      "summary": "A venomous crowned serpent with a petrifying stare coils around an ancient pillar.",
+      "ingredients": [
+        "organic82:medusa",
+        "organic82:jormungandr"
+      ],
+      "familyCampaigns": [
+        "mythology"
+      ],
+      "path": "client/assets/v83/basilisk.svg",
+      "art_mode": "bespoke-subject",
+      "editorial_qa": "pending"
+    },
+    {
+      "id": "organic83:griffin",
+      "name": "Griffin",
+      "category": "mythology",
+      "summary": "A vigilant eagle-headed lion guards mountain treasures with broad, feathered wings.",
+      "ingredients": [
+        "organic82:horus",
+        "organic82:cerberus"
+      ],
+      "familyCampaigns": [
+        "mythology"
+      ],
+      "path": "client/assets/v83/griffin.svg",
+      "art_mode": "bespoke-subject",
+      "editorial_qa": "pending"
+    },
+    {
+      "id": "organic83:chimera",
+      "name": "Chimera",
+      "category": "mythology",
+      "summary": "A legendary hybrid bears the jaws of a lion, a horned goat's head and a serpent tail.",
+      "ingredients": [
+        "organic82:cerberus",
+        "organic82:pegasus"
+      ],
+      "familyCampaigns": [
+        "mythology"
+      ],
+      "path": "client/assets/v83/chimera.svg",
+      "art_mode": "bespoke-subject",
+      "editorial_qa": "pending"
+    },
+    {
+      "id": "organic83:harpy",
+      "name": "Harpy",
+      "category": "mythology",
+      "summary": "A wind-tossed bird spirit with a human face, broad pinions and gripping talons.",
+      "ingredients": [
+        "organic82:valkyrie",
+        "organic82:medusa"
+      ],
+      "familyCampaigns": [
+        "mythology"
+      ],
+      "path": "client/assets/v83/harpy.svg",
+      "art_mode": "bespoke-subject",
+      "editorial_qa": "pending"
+    },
+    {
+      "id": "organic83:centaur",
+      "name": "Centaur",
+      "category": "mythology",
+      "summary": "A swift horse-bodied archer with a human torso crosses an ancient grassy plain.",
+      "ingredients": [
+        "organic82:pegasus",
+        "organic82:minotaur"
+      ],
+      "familyCampaigns": [
+        "mythology"
+      ],
+      "path": "client/assets/v83/centaur.svg",
+      "art_mode": "bespoke-subject",
+      "editorial_qa": "pending"
+    },
+    {
+      "id": "organic83:satyr",
+      "name": "Satyr",
+      "category": "mythology",
+      "summary": "A horned woodland musician walks on goat legs and plays a set of panpipes.",
+      "ingredients": [
+        "organic82:dionysus",
+        "organic82:minotaur"
+      ],
+      "familyCampaigns": [
+        "mythology"
+      ],
+      "path": "client/assets/v83/satyr.svg",
+      "art_mode": "bespoke-subject",
+      "editorial_qa": "pending"
+    },
+    {
+      "id": "organic83:ocean-leviathan",
+      "name": "Ocean Leviathan",
+      "category": "mythology",
+      "summary": "An immense armored sea serpent raises its crest above ocean swells.",
+      "ingredients": [
+        "organic82:poseidon",
+        "organic82:jormungandr"
+      ],
+      "familyCampaigns": [
+        "mythology"
+      ],
+      "path": "client/assets/v83/ocean-leviathan.svg",
+      "art_mode": "bespoke-subject",
+      "editorial_qa": "pending"
+    },
+    {
+      "id": "organic83:selkie",
+      "name": "Selkie",
+      "category": "mythology",
+      "summary": "A seal-skin shapeshifter steps between her coastal home and a human form.",
+      "ingredients": [
+        "organic83:mythic-bestiary",
+        "organic82:poseidon"
+      ],
+      "familyCampaigns": [
+        "mythology"
+      ],
+      "path": "client/assets/v83/selkie.svg",
+      "art_mode": "bespoke-subject",
+      "editorial_qa": "pending"
+    },
+    {
+      "id": "organic83:solar-phoenix",
+      "name": "Solar Phoenix",
+      "category": "mythology",
+      "summary": "An ancient radiant firebird rises from embers with a crest of golden flame.",
+      "ingredients": [
+        "organic82:ra",
+        "organic82:ragnarok"
+      ],
+      "familyCampaigns": [
+        "mythology"
+      ],
+      "path": "client/assets/v83/solar-phoenix.svg",
+      "art_mode": "bespoke-subject",
+      "editorial_qa": "pending"
+    },
+    {
+      "id": "organic83:thunderbird",
+      "name": "Thunderbird",
+      "category": "mythology",
+      "summary": "A mighty storm bird spreads jagged wings as lightning flashes around its talons.",
+      "ingredients": [
+        "organic82:thor-of-asgard",
+        "organic82:horus"
+      ],
+      "familyCampaigns": [
+        "mythology"
+      ],
+      "path": "client/assets/v83/thunderbird.svg",
+      "art_mode": "bespoke-subject",
+      "editorial_qa": "pending"
+    },
+    {
+      "id": "organic83:giant-roc",
+      "name": "Giant Roc",
+      "category": "mythology",
+      "summary": "A giant bird soars above an entire mountain ridge with colossal hooked claws.",
+      "ingredients": [
+        "organic82:horus",
+        "organic82:frost-giant"
+      ],
+      "familyCampaigns": [
+        "mythology"
+      ],
+      "path": "client/assets/v83/giant-roc.svg",
+      "art_mode": "bespoke-subject",
+      "editorial_qa": "pending"
+    },
+    {
+      "id": "organic83:ancient-tree-ent",
+      "name": "Ancient Tree Ent",
+      "category": "mythology",
+      "summary": "An ancient tree guardian walks on knotted root legs and watches with a bark-carved face.",
+      "ingredients": [
+        "organic83:forest-dryad",
+        "organic82:frost-giant"
+      ],
+      "familyCampaigns": [
+        "mythology"
+      ],
+      "path": "client/assets/v83/ancient-tree-ent.svg",
+      "art_mode": "bespoke-subject",
+      "editorial_qa": "pending"
+    },
+    {
+      "id": "organic83:will-o-wisp",
+      "name": "Will-o'-the-Wisp",
+      "category": "mythology",
+      "summary": "A wandering marsh ghostlight hangs above reeds, glowing blue and pearl white.",
+      "ingredients": [
+        "organic83:night-wraith",
+        "organic82:ra"
+      ],
+      "familyCampaigns": [
+        "mythology"
+      ],
+      "path": "client/assets/v83/will-o-wisp.svg",
+      "art_mode": "bespoke-subject",
+      "editorial_qa": "pending"
+    },
+    {
+      "id": "organic83:gargoyle",
+      "name": "Gargoyle",
+      "category": "mythology",
+      "summary": "A carved winged sentinel crouches above a stone parapet with fangs and curled horns.",
+      "ingredients": [
+        "organic83:stone-golem",
+        "organic82:cerberus"
+      ],
+      "familyCampaigns": [
+        "mythology"
+      ],
+      "path": "client/assets/v83/gargoyle.svg",
+      "art_mode": "bespoke-subject",
+      "editorial_qa": "pending"
+    },
+    {
+      "id": "organic83:kelpie",
+      "name": "Kelpie",
+      "category": "mythology",
+      "summary": "A dark water horse rises from a loch with reeds tangled through its mane.",
+      "ingredients": [
+        "organic83:ocean-leviathan",
+        "organic83:centaur"
+      ],
+      "familyCampaigns": [
+        "mythology"
+      ],
+      "path": "client/assets/v83/kelpie.svg",
+      "art_mode": "bespoke-subject",
+      "editorial_qa": "pending"
+    },
+    {
+      "id": "organic83:barghest",
+      "name": "Barghest",
+      "category": "mythology",
+      "summary": "A spectral black hound stalks the moor with ember-red eyes and smoky paws.",
+      "ingredients": [
+        "organic82:fenrir",
+        "organic83:night-wraith"
+      ],
+      "familyCampaigns": [
+        "mythology"
+      ],
+      "path": "client/assets/v83/barghest.svg",
+      "art_mode": "bespoke-subject",
+      "editorial_qa": "pending"
+    },
+    {
+      "id": "organic83:black-shuck",
+      "name": "Black Shuck",
+      "category": "mythology",
+      "summary": "A massive one-eyed ghost dog prowls a stormy English coastline.",
+      "ingredients": [
+        "organic83:barghest",
+        "organic82:niflheim"
+      ],
+      "familyCampaigns": [
+        "mythology"
+      ],
+      "path": "client/assets/v83/black-shuck.svg",
+      "art_mode": "bespoke-subject",
+      "editorial_qa": "pending"
+    },
+    {
+      "id": "organic83:dullahan",
+      "name": "Dullahan",
+      "category": "mythology",
+      "summary": "A headless rider carries a lantern as a dark horse races through the night.",
+      "ingredients": [
+        "organic83:banshee",
+        "organic83:centaur"
+      ],
+      "familyCampaigns": [
+        "mythology"
+      ],
+      "path": "client/assets/v83/dullahan.svg",
+      "art_mode": "bespoke-subject",
+      "editorial_qa": "pending"
+    },
+    {
+      "id": "organic83:leshy",
+      "name": "Leshy",
+      "category": "mythology",
+      "summary": "A moss-bearded guardian wears a leafy crown and has hands like tangled branches.",
+      "ingredients": [
+        "organic83:forest-dryad",
+        "organic83:forest-troll"
+      ],
+      "familyCampaigns": [
+        "mythology"
+      ],
+      "path": "client/assets/v83/leshy.svg",
+      "art_mode": "bespoke-subject",
+      "editorial_qa": "pending"
+    },
+    {
+      "id": "organic83:baba-yaga",
+      "name": "Baba Yaga",
+      "category": "mythology",
+      "summary": "The witch of Slavic folktales lives in a crooked hut perched on giant chicken legs.",
+      "ingredients": [
+        "organic83:forest-dryad",
+        "organic83:night-wraith"
+      ],
+      "familyCampaigns": [
+        "mythology"
+      ],
+      "path": "client/assets/v83/baba-yaga.svg",
+      "art_mode": "bespoke-subject",
+      "editorial_qa": "pending"
+    },
+    {
+      "id": "organic83:tatzelwurm",
+      "name": "Tatzelwurm",
+      "category": "mythology",
+      "summary": "A cat-faced alpine worm winds between rocky peaks with two tiny clawed forelegs.",
+      "ingredients": [
+        "organic83:basilisk",
+        "organic83:cave-troll"
+      ],
+      "familyCampaigns": [
+        "mythology"
+      ],
+      "path": "client/assets/v83/tatzelwurm.svg",
+      "art_mode": "bespoke-subject",
+      "editorial_qa": "pending"
+    },
+    {
+      "id": "organic83:tarasque",
+      "name": "Tarasque",
+      "category": "mythology",
+      "summary": "A spiked armored beast of French legend has a lion-like face, heavy shell and sturdy legs.",
+      "ingredients": [
+        "organic83:basilisk",
+        "organic83:stone-troll"
+      ],
+      "familyCampaigns": [
+        "mythology"
+      ],
+      "path": "client/assets/v83/tarasque.svg",
+      "art_mode": "bespoke-subject",
+      "editorial_qa": "pending"
+    },
+    {
+      "id": "organic83:wyvern",
+      "name": "Wyvern",
+      "category": "mythology",
+      "summary": "A long-tailed winged dragon has two taloned legs and a forked, spiny crest.",
+      "ingredients": [
+        "organic83:griffin",
+        "organic83:basilisk"
+      ],
+      "familyCampaigns": [
+        "mythology"
+      ],
+      "path": "client/assets/v83/wyvern.svg",
+      "art_mode": "bespoke-subject",
+      "editorial_qa": "pending"
+    },
+    {
+      "id": "organic83:cockatrice",
+      "name": "Cockatrice",
+      "category": "mythology",
+      "summary": "A small rooster-headed serpent with a fan crest and barbed tail emerges from a nest.",
+      "ingredients": [
+        "organic83:thunderbird",
+        "organic83:basilisk"
+      ],
+      "familyCampaigns": [
+        "mythology"
+      ],
+      "path": "client/assets/v83/cockatrice.svg",
+      "art_mode": "bespoke-subject",
+      "editorial_qa": "pending"
+    },
+    {
+      "id": "organic83:manticore",
+      "name": "Manticore",
+      "category": "mythology",
+      "summary": "A lion-bodied monster wears a fierce mane and raises a venomous scorpion tail.",
+      "ingredients": [
+        "organic83:chimera",
+        "organic83:basilisk"
+      ],
+      "familyCampaigns": [
+        "mythology"
+      ],
+      "path": "client/assets/v83/manticore.svg",
+      "art_mode": "bespoke-subject",
+      "editorial_qa": "pending"
+    },
+    {
+      "id": "organic83:amphisbaena",
+      "name": "Amphisbaena",
+      "category": "mythology",
+      "summary": "A two-headed serpent carries a watchful scaled head at both ends of its coiled body.",
+      "ingredients": [
+        "organic82:jormungandr",
+        "organic83:basilisk"
+      ],
+      "familyCampaigns": [
+        "mythology"
+      ],
+      "path": "client/assets/v83/amphisbaena.svg",
+      "art_mode": "bespoke-subject",
+      "editorial_qa": "pending"
+    },
+    {
+      "id": "organic83:simurgh",
+      "name": "Simurgh",
+      "category": "mythology",
+      "summary": "A legendary wise bird spreads sweeping turquoise wings and a flowing jeweled tail.",
+      "ingredients": [
+        "organic83:solar-phoenix",
+        "organic83:griffin"
+      ],
+      "familyCampaigns": [
+        "mythology"
+      ],
+      "path": "client/assets/v83/simurgh.svg",
+      "art_mode": "bespoke-subject",
+      "editorial_qa": "pending"
+    },
+    {
+      "id": "organic83:hippocampus",
+      "name": "Hippocampus",
+      "category": "mythology",
+      "summary": "A mythic sea horse combines a proud equine head with a curling fish tail.",
+      "ingredients": [
+        "organic83:selkie",
+        "organic83:centaur"
+      ],
+      "familyCampaigns": [
+        "mythology"
+      ],
+      "path": "client/assets/v83/hippocampus.svg",
+      "art_mode": "bespoke-subject",
+      "editorial_qa": "pending"
+    },
+    {
+      "id": "organic83:naiad",
+      "name": "Naiad",
+      "category": "mythology",
+      "summary": "A freshwater nymph dances above a waterfall, her hair blending into clear streams.",
+      "ingredients": [
+        "organic83:forest-dryad",
+        "organic83:ocean-leviathan"
+      ],
+      "familyCampaigns": [
+        "mythology"
+      ],
+      "path": "client/assets/v83/naiad.svg",
+      "art_mode": "bespoke-subject",
+      "editorial_qa": "pending"
+    },
+    {
+      "id": "organic83:nereid",
+      "name": "Nereid",
+      "category": "mythology",
+      "summary": "A pearl-crowned sea nymph rides a translucent wave beneath a scallop shell.",
+      "ingredients": [
+        "organic83:naiad",
+        "organic82:poseidon"
+      ],
+      "familyCampaigns": [
+        "mythology"
+      ],
+      "path": "client/assets/v83/nereid.svg",
+      "art_mode": "bespoke-subject",
+      "editorial_qa": "pending"
+    },
+    {
+      "id": "organic83:lamia",
+      "name": "Lamia",
+      "category": "mythology",
+      "summary": "A serpent-bodied enchantress of Greek legend wears a golden circlet above emerald coils.",
+      "ingredients": [
+        "organic82:medusa",
+        "organic83:vrykolakas"
+      ],
+      "familyCampaigns": [
+        "mythology"
+      ],
+      "path": "client/assets/v83/lamia.svg",
+      "art_mode": "bespoke-subject",
+      "editorial_qa": "pending"
+    },
+    {
+      "id": "organic83:scylla",
+      "name": "Scylla",
+      "category": "mythology",
+      "summary": "A many-necked sea monster snaps from dark waves below a rocky strait.",
+      "ingredients": [
+        "organic83:ocean-leviathan",
+        "organic83:chimera"
+      ],
+      "familyCampaigns": [
+        "mythology"
+      ],
+      "path": "client/assets/v83/scylla.svg",
+      "art_mode": "bespoke-subject",
+      "editorial_qa": "pending"
+    },
+    {
+      "id": "organic83:charybdis",
+      "name": "Charybdis",
+      "category": "mythology",
+      "summary": "An ancient swallowing whirlpool curls into a dark funnel between jagged reefs.",
+      "ingredients": [
+        "organic83:ocean-leviathan",
+        "organic83:scylla"
+      ],
+      "familyCampaigns": [
+        "mythology"
+      ],
+      "path": "client/assets/v83/charybdis.svg",
+      "art_mode": "bespoke-subject",
+      "editorial_qa": "pending"
+    },
+    {
+      "id": "organic83:fomorian",
+      "name": "Fomorian",
+      "category": "mythology",
+      "summary": "A hulking one-eyed sea giant carries a jagged black trident through coastal spray.",
+      "ingredients": [
+        "organic82:frost-giant",
+        "organic83:ocean-leviathan"
+      ],
+      "familyCampaigns": [
+        "mythology"
+      ],
+      "path": "client/assets/v83/fomorian.svg",
+      "art_mode": "bespoke-subject",
+      "editorial_qa": "pending"
+    },
+    {
+      "id": "organic83:puca",
+      "name": "Puca",
+      "category": "mythology",
+      "summary": "A playful shape-changing spirit of Irish folklore appears as a long-eared black horse.",
+      "ingredients": [
+        "organic83:ulfhednar",
+        "organic83:selkie"
+      ],
+      "familyCampaigns": [
+        "mythology"
+      ],
+      "path": "client/assets/v83/puca.svg",
+      "art_mode": "bespoke-subject",
+      "editorial_qa": "pending"
+    },
+    {
+      "id": "organic83:undine",
+      "name": "Undine",
+      "category": "mythology",
+      "summary": "A freshwater elemental lifts a translucent body from twisting currents and bubbles.",
+      "ingredients": [
+        "organic83:naiad",
+        "organic83:mythic-bestiary"
+      ],
+      "familyCampaigns": [
+        "mythology"
+      ],
+      "path": "client/assets/v83/undine.svg",
+      "art_mode": "bespoke-subject",
+      "editorial_qa": "pending"
+    },
+    {
+      "id": "organic83:pixie",
+      "name": "Pixie",
+      "category": "mythology",
+      "summary": "A tiny forest fairy with translucent insect wings carries a luminous seed lantern.",
+      "ingredients": [
+        "organic83:forest-dryad",
+        "organic83:will-o-wisp"
+      ],
+      "familyCampaigns": [
+        "mythology"
+      ],
+      "path": "client/assets/v83/pixie.svg",
+      "art_mode": "bespoke-subject",
+      "editorial_qa": "pending"
+    },
+    {
+      "id": "organic83:kobold",
+      "name": "Kobold",
+      "category": "mythology",
+      "summary": "A small cave trickster with pointed ears carries a brass lantern and mineral pick.",
+      "ingredients": [
+        "organic83:cave-troll",
+        "organic83:mythic-bestiary"
+      ],
+      "familyCampaigns": [
+        "mythology"
+      ],
+      "path": "client/assets/v83/kobold.svg",
+      "art_mode": "bespoke-subject",
+      "editorial_qa": "pending"
+    },
+    {
+      "id": "organic83:wight",
+      "name": "Wight",
+      "category": "mythology",
+      "summary": "An armored revenant rises from cold mist with a tarnished crown and pale spectral eyes.",
+      "ingredients": [
+        "organic83:vrykolakas",
+        "organic83:night-wraith"
+      ],
+      "familyCampaigns": [
+        "mythology"
+      ],
+      "path": "client/assets/v83/wight.svg",
+      "art_mode": "bespoke-subject",
+      "editorial_qa": "pending"
+    },
+    {
+      "id": "organic83:quest-notice-board",
+      "name": "Quest Notice Board",
+      "category": "gamecraft",
+      "summary": "A town notice board displays pinned guild contracts, bounties and expedition requests.",
+      "ingredients": [
+        "legacy:107",
+        "pack:system-quest"
+      ],
+      "familyCampaigns": [],
+      "path": "client/assets/v83/quest-notice-board.svg",
+      "art_mode": "bespoke-subject",
+      "editorial_qa": "pending"
+    },
+    {
+      "id": "organic83:rune-locked-door",
+      "name": "Rune-Locked Door",
+      "category": "fantasy",
+      "summary": "A heavy dungeon doorway is sealed by glowing ancient runes and a central keyhole.",
+      "ingredients": [
+        "pack:dungeon-gate",
+        "organic82:runestone"
+      ],
+      "familyCampaigns": [],
+      "path": "client/assets/v83/rune-locked-door.svg",
+      "art_mode": "bespoke-subject",
+      "editorial_qa": "pending"
+    },
+    {
+      "id": "organic83:checkpoint-banner",
+      "name": "Checkpoint Banner",
+      "category": "gamecraft",
+      "summary": "A fluttering cloth marker confirms the player's last safe point in a level.",
+      "ingredients": [
+        "legacy:361",
+        "legacy:107"
+      ],
+      "familyCampaigns": [],
+      "path": "client/assets/v83/checkpoint-banner.svg",
+      "art_mode": "bespoke-subject",
+      "editorial_qa": "pending"
+    },
+    {
+      "id": "organic83:pixel-heart-pickup",
+      "name": "Pixel Heart Pickup",
+      "category": "gamecraft",
+      "summary": "A bright eight-bit heart floats as a health collectible in a retro adventure.",
+      "ingredients": [
+        "legacy:146",
+        "legacy:21"
+      ],
+      "familyCampaigns": [],
+      "path": "client/assets/v83/pixel-heart-pickup.svg",
+      "art_mode": "bespoke-subject",
+      "editorial_qa": "pending"
+    },
+    {
+      "id": "organic83:healing-campfire",
+      "name": "Healing Campfire",
+      "category": "fantasy",
+      "summary": "A restorative fire burns inside a ring of stones at an adventurer's resting place.",
+      "ingredients": [
+        "legacy:1",
+        "legacy:361"
+      ],
+      "familyCampaigns": [],
+      "path": "client/assets/v83/healing-campfire.svg",
+      "art_mode": "bespoke-subject",
+      "editorial_qa": "pending"
+    },
+    {
+      "id": "organic83:mana-flask",
+      "name": "Mana Flask",
+      "category": "fantasy",
+      "summary": "A corked glass vial holds swirling luminous blue essence for a spellcaster.",
+      "ingredients": [
+        "legacy:125",
+        "legacy:23"
+      ],
+      "familyCampaigns": [],
+      "path": "client/assets/v83/mana-flask.svg",
+      "art_mode": "bespoke-subject",
+      "editorial_qa": "pending"
+    },
+    {
+      "id": "organic83:treasure-mimic",
+      "name": "Treasure Mimic",
+      "category": "fantasy",
+      "summary": "A seemingly ordinary treasure chest reveals rows of sharp teeth and a startled tongue.",
+      "ingredients": [
+        "legacy:561",
+        "legacy:121"
+      ],
+      "familyCampaigns": [],
+      "path": "client/assets/v83/treasure-mimic.svg",
+      "art_mode": "bespoke-subject",
+      "editorial_qa": "pending"
+    },
+    {
+      "id": "organic83:quest-compass",
+      "name": "Quest Compass",
+      "category": "gamecraft",
+      "summary": "A brass compass with a violet quest needle points toward the next objective.",
+      "ingredients": [
+        "pack:system-quest",
+        "legacy:354"
+      ],
+      "familyCampaigns": [],
+      "path": "client/assets/v83/quest-compass.svg",
+      "art_mode": "bespoke-subject",
+      "editorial_qa": "pending"
+    },
+    {
+      "id": "organic83:dungeon-minimap",
+      "name": "Dungeon Minimap",
+      "category": "gamecraft",
+      "summary": "A compact top-down maze marks corridors, rooms and the explorer's position.",
+      "ingredients": [
+        "pack:dungeon-gate",
+        "legacy:354"
+      ],
+      "familyCampaigns": [],
+      "path": "client/assets/v83/dungeon-minimap.svg",
+      "art_mode": "bespoke-subject",
+      "editorial_qa": "pending"
+    },
+    {
+      "id": "organic83:boss-health-bar",
+      "name": "Boss Health Bar",
+      "category": "gamecraft",
+      "summary": "A dramatic red combat meter tracks a powerful enemy beneath a horned crest.",
+      "ingredients": [
+        "legacy:357",
+        "legacy:76"
+      ],
+      "familyCampaigns": [],
+      "path": "client/assets/v83/boss-health-bar.svg",
+      "art_mode": "bespoke-subject",
+      "editorial_qa": "pending"
+    },
+    {
+      "id": "organic83:loot-satchel",
+      "name": "Loot Satchel",
+      "category": "fantasy",
+      "summary": "A leather drawstring bag bulges with valuables recovered from an adventure.",
+      "ingredients": [
+        "legacy:561",
+        "legacy:29"
+      ],
+      "familyCampaigns": [],
+      "path": "client/assets/v83/loot-satchel.svg",
+      "art_mode": "bespoke-subject",
+      "editorial_qa": "pending"
+    },
+    {
+      "id": "organic83:teleport-waystone",
+      "name": "Teleport Waystone",
+      "category": "fantasy",
+      "summary": "A rune-carved standing stone opens a shimmering travel passage from a safe checkpoint.",
+      "ingredients": [
+        "legacy:361",
+        "organic82:runestone"
+      ],
+      "familyCampaigns": [],
+      "path": "client/assets/v83/teleport-waystone.svg",
+      "art_mode": "bespoke-subject",
+      "editorial_qa": "pending"
+    },
+    {
+      "id": "organic83:skill-tree-diagram",
+      "name": "Skill Tree Diagram",
+      "category": "gamecraft",
+      "summary": "A branching schematic displays upgrade nodes connected to a central skill.",
+      "ingredients": [
+        "legacy:19",
+        "legacy:356"
+      ],
+      "familyCampaigns": [],
+      "path": "client/assets/v83/skill-tree-diagram.svg",
+      "art_mode": "bespoke-subject",
+      "editorial_qa": "pending"
+    },
+    {
+      "id": "organic83:arcade-claw-machine",
+      "name": "Arcade Claw Machine",
+      "category": "arcade",
+      "summary": "A prize cabinet lowers a mechanical grabber toward a stuffed toy.",
+      "ingredients": [
+        "legacy:172",
+        "legacy:561"
+      ],
+      "familyCampaigns": [],
+      "path": "client/assets/v83/arcade-claw-machine.svg",
+      "art_mode": "bespoke-subject",
+      "editorial_qa": "pending"
+    },
+    {
+      "id": "organic83:prize-redemption-counter",
+      "name": "Prize Redemption Counter",
+      "category": "arcade",
+      "summary": "An arcade redemption desk exchanges stacks of tickets for toys and colorful prizes.",
+      "ingredients": [
+        "organic34:arcade-ticket",
+        "legacy:561"
+      ],
+      "familyCampaigns": [],
+      "path": "client/assets/v83/prize-redemption-counter.svg",
+      "art_mode": "bespoke-subject",
+      "editorial_qa": "pending"
+    },
+    {
+      "id": "organic83:hidden-wall-lever",
+      "name": "Hidden Wall Lever",
+      "category": "fantasy",
+      "summary": "A concealed metal handle unlocks a passage behind a cracked dungeon wall.",
+      "ingredients": [
+        "legacy:29",
+        "pack:dungeon-gate"
+      ],
+      "familyCampaigns": [],
+      "path": "client/assets/v83/hidden-wall-lever.svg",
+      "art_mode": "bespoke-subject",
+      "editorial_qa": "pending"
+    },
+    {
+      "id": "organic83:spike-trap-floor",
+      "name": "Spike Trap Floor",
+      "category": "fantasy",
+      "summary": "A dungeon floor plate conceals a row of spring-loaded metal spikes.",
+      "ingredients": [
+        "legacy:545",
+        "legacy:107"
+      ],
+      "familyCampaigns": [],
+      "path": "client/assets/v83/spike-trap-floor.svg",
+      "art_mode": "bespoke-subject",
+      "editorial_qa": "pending"
+    },
+    {
+      "id": "organic83:loot-rarity-gem",
+      "name": "Loot Rarity Gem",
+      "category": "fantasy",
+      "summary": "A radiant many-faceted gemstone marks unusually valuable equipment.",
+      "ingredients": [
+        "legacy:34",
+        "legacy:561"
+      ],
+      "familyCampaigns": [],
+      "path": "client/assets/v83/loot-rarity-gem.svg",
+      "art_mode": "bespoke-subject",
+      "editorial_qa": "pending"
+    },
+    {
+      "id": "organic83:parry-spark",
+      "name": "Parry Spark",
+      "category": "gamecraft",
+      "summary": "A bright burst at the crossing of two swords signals a perfectly timed defense.",
+      "ingredients": [
+        "legacy:545",
+        "legacy:18"
+      ],
+      "familyCampaigns": [],
+      "path": "client/assets/v83/parry-spark.svg",
+      "art_mode": "bespoke-subject",
+      "editorial_qa": "pending"
+    },
+    {
+      "id": "organic83:save-crystal",
+      "name": "Save Crystal",
+      "category": "fantasy",
+      "summary": "A tall faceted crystal set on a stone plinth stores an adventurer's progress.",
+      "ingredients": [
+        "legacy:361",
+        "legacy:34"
+      ],
+      "familyCampaigns": [],
+      "path": "client/assets/v83/save-crystal.svg",
+      "art_mode": "bespoke-subject",
+      "editorial_qa": "pending"
+    },
+    {
+      "id": "organic83:save-progress-meter",
+      "name": "Save Progress Meter",
+      "category": "gamecraft",
+      "summary": "A pixel-style progress indicator confirms that a checkpoint is writing a saved game.",
+      "ingredients": [
+        "legacy:361",
+        "legacy:76"
+      ],
+      "familyCampaigns": [],
+      "path": "client/assets/v83/save-progress-meter.svg",
+      "art_mode": "bespoke-subject",
+      "editorial_qa": "pending"
+    },
+    {
+      "id": "organic83:secret-treasure-cache",
+      "name": "Secret Treasure Cache",
+      "category": "fantasy",
+      "summary": "A small hidden chest is tucked into the shadows behind a cave wall.",
+      "ingredients": [
+        "legacy:561",
+        "legacy:37"
+      ],
+      "familyCampaigns": [],
+      "path": "client/assets/v83/secret-treasure-cache.svg",
+      "art_mode": "bespoke-subject",
+      "editorial_qa": "pending"
+    },
+    {
+      "id": "organic83:boss-arena-gate",
+      "name": "Boss Arena Gate",
+      "category": "fantasy",
+      "summary": "An ominous stone arch with a fiery seal stands before the final encounter.",
+      "ingredients": [
+        "legacy:357",
+        "pack:dungeon-gate"
+      ],
+      "familyCampaigns": [],
+      "path": "client/assets/v83/boss-arena-gate.svg",
+      "art_mode": "bespoke-subject",
+      "editorial_qa": "pending"
+    },
+    {
+      "id": "organic83:roguelite-relic",
+      "name": "Roguelite Relic",
+      "category": "fantasy",
+      "summary": "An old charm carries a shifting dungeon emblem treasured between repeated runs.",
+      "ingredients": [
+        "legacy:237",
+        "pack:ancient-scroll"
+      ],
+      "familyCampaigns": [],
+      "path": "client/assets/v83/roguelite-relic.svg",
+      "art_mode": "bespoke-subject",
+      "editorial_qa": "pending"
+    },
+    {
+      "id": "organic83:monster-bestiary-page",
+      "name": "Monster Bestiary Page",
+      "category": "gamecraft",
+      "summary": "A field-guide leaf sketches a creature's anatomy and lists its weaknesses.",
+      "ingredients": [
+        "organic83:mythic-bestiary",
+        "legacy:51"
+      ],
+      "familyCampaigns": [],
+      "path": "client/assets/v83/monster-bestiary-page.svg",
+      "art_mode": "bespoke-subject",
+      "editorial_qa": "pending"
+    },
+    {
+      "id": "organic83:arcade-marquee-panel",
+      "name": "Arcade Marquee Panel",
+      "category": "arcade",
+      "summary": "An illuminated curved arcade marquee frames a game's original emblem.",
+      "ingredients": [
+        "legacy:172",
+        "legacy:63"
+      ],
+      "familyCampaigns": [],
+      "path": "client/assets/v83/arcade-marquee-panel.svg",
+      "art_mode": "bespoke-subject",
+      "editorial_qa": "pending"
+    },
+    {
+      "id": "organic83:prize-capsule",
+      "name": "Prize Capsule",
+      "category": "arcade",
+      "summary": "A transparent toy capsule encloses a tiny stuffed creature won in an arcade claw game.",
+      "ingredients": [
+        "organic83:arcade-claw-machine",
+        "legacy:561"
+      ],
+      "familyCampaigns": [],
+      "path": "client/assets/v83/prize-capsule.svg",
+      "art_mode": "bespoke-subject",
+      "editorial_qa": "pending"
+    },
+    {
+      "id": "organic83:pinball-bumper",
+      "name": "Pinball Bumper",
+      "category": "arcade",
+      "summary": "A spring-mounted circular pinball bumper glows inside a metal playfield ring.",
+      "ingredients": [
+        "legacy:172",
+        "legacy:22"
+      ],
+      "familyCampaigns": [],
+      "path": "client/assets/v83/pinball-bumper.svg",
+      "art_mode": "bespoke-subject",
+      "editorial_qa": "pending"
+    },
+    {
+      "id": "organic83:pinball-launch-rail",
+      "name": "Pinball Launch Rail",
+      "category": "arcade",
+      "summary": "A spring-loaded steel ball shooter guides a pinball upward through a narrow launch track.",
+      "ingredients": [
+        "organic83:pinball-bumper",
+        "legacy:83"
+      ],
+      "familyCampaigns": [],
+      "path": "client/assets/v83/pinball-launch-rail.svg",
+      "art_mode": "bespoke-subject",
+      "editorial_qa": "pending"
+    },
+    {
+      "id": "organic83:rhythm-note-lane",
+      "name": "Rhythm Note Lane",
+      "category": "arcade",
+      "summary": "Five scrolling music lanes catch falling note tiles in a timing arcade game.",
+      "ingredients": [
+        "organic83:arcade-marquee-panel",
+        "legacy:139"
+      ],
+      "familyCampaigns": [],
+      "path": "client/assets/v83/rhythm-note-lane.svg",
+      "art_mode": "bespoke-subject",
+      "editorial_qa": "pending"
+    },
+    {
+      "id": "organic83:replay-ghost",
+      "name": "Replay Ghost",
+      "category": "gamecraft",
+      "summary": "A translucent outline retraces an earlier run through the same challenge.",
+      "ingredients": [
+        "organic83:checkpoint-banner",
+        "legacy:66"
+      ],
+      "familyCampaigns": [],
+      "path": "client/assets/v83/replay-ghost.svg",
+      "art_mode": "bespoke-subject",
+      "editorial_qa": "pending"
+    },
+    {
+      "id": "organic83:ghost-lap-stopwatch",
+      "name": "Ghost Lap Stopwatch",
+      "category": "gamecraft",
+      "summary": "A racing stopwatch compares the current lap against the translucent ghost of an earlier run.",
+      "ingredients": [
+        "organic83:replay-ghost",
+        "legacy:210"
+      ],
+      "familyCampaigns": [],
+      "path": "client/assets/v83/ghost-lap-stopwatch.svg",
+      "art_mode": "bespoke-subject",
+      "editorial_qa": "pending"
+    },
+    {
+      "id": "organic83:combo-counter",
+      "name": "Combo Counter",
+      "category": "gamecraft",
+      "summary": "A glowing stacked score meter rewards consecutive successful actions.",
+      "ingredients": [
+        "organic83:boss-health-bar",
+        "legacy:96"
+      ],
+      "familyCampaigns": [],
+      "path": "client/assets/v83/combo-counter.svg",
+      "art_mode": "bespoke-subject",
+      "editorial_qa": "pending"
+    },
+    {
+      "id": "organic83:boss-warning-siren",
+      "name": "Boss Warning Siren",
+      "category": "fantasy",
+      "summary": "A flashing alarm light sounds when a sealed boss gate begins to open.",
+      "ingredients": [
+        "organic83:boss-arena-gate",
+        "legacy:62"
+      ],
+      "familyCampaigns": [],
+      "path": "client/assets/v83/boss-warning-siren.svg",
+      "art_mode": "bespoke-subject",
+      "editorial_qa": "pending"
+    },
+    {
+      "id": "organic83:loot-drop-beacon",
+      "name": "Loot Drop Beacon",
+      "category": "gamecraft",
+      "summary": "A vertical glimmer marks treasure left behind after a monster encounter.",
+      "ingredients": [
+        "organic83:treasure-mimic",
+        "legacy:63"
+      ],
+      "familyCampaigns": [],
+      "path": "client/assets/v83/loot-drop-beacon.svg",
+      "art_mode": "bespoke-subject",
+      "editorial_qa": "pending"
+    },
+    {
+      "id": "organic83:inventory-tile-grid",
+      "name": "Inventory Tile Grid",
+      "category": "gamecraft",
+      "summary": "A compact equipment inventory displays a sword, coin and healing flask in separate slots.",
+      "ingredients": [
+        "organic83:loot-satchel",
+        "legacy:76"
+      ],
+      "familyCampaigns": [],
+      "path": "client/assets/v83/inventory-tile-grid.svg",
+      "art_mode": "bespoke-subject",
+      "editorial_qa": "pending"
+    },
+    {
+      "id": "organic83:quick-access-ring",
+      "name": "Quick Access Ring",
+      "category": "gamecraft",
+      "summary": "A circular action wheel arranges frequently used equipment around its central slot.",
+      "ingredients": [
+        "organic83:skill-tree-diagram",
+        "legacy:83"
+      ],
+      "familyCampaigns": [],
+      "path": "client/assets/v83/quick-access-ring.svg",
+      "art_mode": "bespoke-subject",
+      "editorial_qa": "pending"
+    },
+    {
+      "id": "organic83:skill-point-token",
+      "name": "Skill Point Token",
+      "category": "gamecraft",
+      "summary": "An engraved coin with a branching tree symbolizes an earned ability upgrade.",
+      "ingredients": [
+        "organic83:skill-tree-diagram",
+        "legacy:108"
+      ],
+      "familyCampaigns": [],
+      "path": "client/assets/v83/skill-point-token.svg",
+      "art_mode": "bespoke-subject",
+      "editorial_qa": "pending"
+    },
+    {
+      "id": "organic83:ability-cooldown-dial",
+      "name": "Ability Cooldown Dial",
+      "category": "gamecraft",
+      "summary": "A circular timer darkens a skill icon until the action can be used again.",
+      "ingredients": [
+        "organic83:save-progress-meter",
+        "legacy:211"
+      ],
+      "familyCampaigns": [],
+      "path": "client/assets/v83/ability-cooldown-dial.svg",
+      "art_mode": "bespoke-subject",
+      "editorial_qa": "pending"
+    },
+    {
+      "id": "organic83:dialogue-choice-card",
+      "name": "Dialogue Choice Card",
+      "category": "gamecraft",
+      "summary": "A game conversation window offers branching response lines marked by a selection arrow.",
+      "ingredients": [
+        "organic83:quest-notice-board",
+        "legacy:106"
+      ],
+      "familyCampaigns": [],
+      "path": "client/assets/v83/dialogue-choice-card.svg",
+      "art_mode": "bespoke-subject",
+      "editorial_qa": "pending"
+    },
+    {
+      "id": "organic83:side-quest-emblem",
+      "name": "Side Quest Emblem",
+      "category": "gamecraft",
+      "summary": "A small quest marker combines a folded map with a violet side-objective seal.",
+      "ingredients": [
+        "organic83:quest-notice-board",
+        "legacy:354"
+      ],
+      "familyCampaigns": [],
+      "path": "client/assets/v83/side-quest-emblem.svg",
+      "art_mode": "bespoke-subject",
+      "editorial_qa": "pending"
+    },
+    {
+      "id": "organic83:pixel-damage-number",
+      "name": "Pixel Damage Number",
+      "category": "gamecraft",
+      "summary": "A blocky damage pop-up floats upward after a monster takes a hit.",
+      "ingredients": [
+        "organic83:pixel-heart-pickup",
+        "legacy:96"
+      ],
+      "familyCampaigns": [],
+      "path": "client/assets/v83/pixel-damage-number.svg",
+      "art_mode": "bespoke-subject",
+      "editorial_qa": "pending"
+    },
+    {
+      "id": "organic83:dungeon-fog-overlay",
+      "name": "Dungeon Fog Overlay",
+      "category": "gamecraft",
+      "summary": "A misted dungeon map fades unexplored corridors into shadow.",
+      "ingredients": [
+        "organic83:dungeon-minimap",
+        "legacy:66"
+      ],
+      "familyCampaigns": [],
+      "path": "client/assets/v83/dungeon-fog-overlay.svg",
+      "art_mode": "bespoke-subject",
+      "editorial_qa": "pending"
+    },
+    {
+      "id": "organic83:mini-boss-emblem",
+      "name": "Mini Boss Emblem",
+      "category": "gamecraft",
+      "summary": "A smaller horned boss medal identifies an elite enemy carrying extra rewards.",
+      "ingredients": [
+        "organic83:boss-health-bar",
+        "legacy:561"
+      ],
+      "familyCampaigns": [],
+      "path": "client/assets/v83/mini-boss-emblem.svg",
+      "art_mode": "bespoke-subject",
+      "editorial_qa": "pending"
+    },
+    {
+      "id": "organic83:secret-switch-plate",
+      "name": "Secret Switch Plate",
+      "category": "fantasy",
+      "summary": "A pressed stone plate retracts a hidden lever and opens a secret dungeon passage.",
+      "ingredients": [
+        "organic83:hidden-wall-lever",
+        "legacy:80"
+      ],
+      "familyCampaigns": [],
+      "path": "client/assets/v83/secret-switch-plate.svg",
+      "art_mode": "bespoke-subject",
+      "editorial_qa": "pending"
+    },
+    {
+      "id": "organic83:spike-warning-plaque",
+      "name": "Spike Warning Plaque",
+      "category": "fantasy",
+      "summary": "A triangular warning sign depicts a hidden floor trap with three upward spikes.",
+      "ingredients": [
+        "organic83:spike-trap-floor",
+        "legacy:106"
+      ],
+      "familyCampaigns": [],
+      "path": "client/assets/v83/spike-warning-plaque.svg",
+      "art_mode": "bespoke-subject",
+      "editorial_qa": "pending"
+    },
+    {
+      "id": "organic83:parry-training-dummy",
+      "name": "Parry Training Dummy",
+      "category": "fantasy",
+      "summary": "A straw practice knight with a hinged wooden shield helps teach defensive timing.",
+      "ingredients": [
+        "organic83:parry-spark",
+        "legacy:24"
+      ],
+      "familyCampaigns": [],
+      "path": "client/assets/v83/parry-training-dummy.svg",
+      "art_mode": "bespoke-subject",
+      "editorial_qa": "pending"
+    },
+    {
+      "id": "organic83:crafting-material-rack",
+      "name": "Crafting Material Rack",
+      "category": "fantasy",
+      "summary": "A workshop shelving unit stores iron ingots, timber planks and folded leather.",
+      "ingredients": [
+        "organic83:loot-satchel",
+        "legacy:22"
+      ],
+      "familyCampaigns": [],
+      "path": "client/assets/v83/crafting-material-rack.svg",
+      "art_mode": "bespoke-subject",
+      "editorial_qa": "pending"
+    },
+    {
+      "id": "organic83:teleport-anchor",
+      "name": "Teleport Anchor",
+      "category": "fantasy",
+      "summary": "An embedded iron anchor rune stabilizes a portal's landing point on the floor.",
+      "ingredients": [
+        "organic83:teleport-waystone",
+        "legacy:14"
+      ],
+      "familyCampaigns": [],
+      "path": "client/assets/v83/teleport-anchor.svg",
+      "art_mode": "bespoke-subject",
+      "editorial_qa": "pending"
+    },
+    {
+      "id": "organic83:portal-lens",
+      "name": "Portal Lens",
+      "category": "fantasy",
+      "summary": "A circular crystal lens refracts an active teleport gate into concentric rings.",
+      "ingredients": [
+        "organic83:teleport-waystone",
+        "legacy:23"
+      ],
+      "familyCampaigns": [],
+      "path": "client/assets/v83/portal-lens.svg",
+      "art_mode": "bespoke-subject",
+      "editorial_qa": "pending"
+    },
+    {
+      "id": "organic83:arcade-token-hopper",
+      "name": "Arcade Token Hopper",
+      "category": "arcade",
+      "summary": "A coin-fed arcade hopper releases brass tokens into a collection tray.",
+      "ingredients": [
+        "organic83:prize-redemption-counter",
+        "legacy:108"
+      ],
+      "familyCampaigns": [],
+      "path": "client/assets/v83/arcade-token-hopper.svg",
+      "art_mode": "bespoke-subject",
+      "editorial_qa": "pending"
+    },
+    {
+      "id": "organic83:cabinet-coin-door",
+      "name": "Cabinet Coin Door",
+      "category": "arcade",
+      "summary": "A hinged arcade coin door houses a metal slot and a locked cashbox.",
+      "ingredients": [
+        "organic83:arcade-marquee-panel",
+        "legacy:108"
+      ],
+      "familyCampaigns": [],
+      "path": "client/assets/v83/cabinet-coin-door.svg",
+      "art_mode": "bespoke-subject",
+      "editorial_qa": "pending"
+    },
+    {
+      "id": "organic83:pinball-tilt-sensor",
+      "name": "Pinball Tilt Sensor",
+      "category": "arcade",
+      "summary": "A hanging pendulum sensor detects when a pinball cabinet is shaken.",
+      "ingredients": [
+        "organic83:pinball-bumper",
+        "legacy:86"
+      ],
+      "familyCampaigns": [],
+      "path": "client/assets/v83/pinball-tilt-sensor.svg",
+      "art_mode": "bespoke-subject",
+      "editorial_qa": "pending"
+    },
+    {
+      "id": "organic83:rhythm-step-sensor",
+      "name": "Rhythm Step Sensor",
+      "category": "arcade",
+      "summary": "An arcade dance mat senses each footstep through illuminated pressure pads.",
+      "ingredients": [
+        "organic83:rhythm-note-lane",
+        "legacy:116"
+      ],
+      "familyCampaigns": [],
+      "path": "client/assets/v83/rhythm-step-sensor.svg",
+      "art_mode": "bespoke-subject",
+      "editorial_qa": "pending"
+    },
+    {
+      "id": "organic83:prize-crane-joystick",
+      "name": "Prize Crane Joystick",
+      "category": "arcade",
+      "summary": "A ball-topped lever controls the moving claw in a prize cabinet.",
+      "ingredients": [
+        "organic83:arcade-claw-machine",
+        "legacy:83"
+      ],
+      "familyCampaigns": [],
+      "path": "client/assets/v83/prize-crane-joystick.svg",
+      "art_mode": "bespoke-subject",
+      "editorial_qa": "pending"
+    },
+    {
+      "id": "organic83:ticket-counting-tray",
+      "name": "Ticket Counting Tray",
+      "category": "arcade",
+      "summary": "A shallow counter tray sorts numbered arcade tickets into tidy stacks.",
+      "ingredients": [
+        "organic83:prize-redemption-counter",
+        "legacy:96"
+      ],
+      "familyCampaigns": [],
+      "path": "client/assets/v83/ticket-counting-tray.svg",
+      "art_mode": "bespoke-subject",
+      "editorial_qa": "pending"
+    },
+    {
+      "id": "organic83:cartridge-cleaning-swab",
+      "name": "Cartridge Cleaning Swab",
+      "category": "accessory",
+      "summary": "A cotton cleaning swab removes dirt from a cartridge connector.",
+      "ingredients": [
+        "legacy:151",
+        "organic83:crafting-material-rack"
+      ],
+      "familyCampaigns": [],
+      "path": "client/assets/v83/cartridge-cleaning-swab.svg",
+      "art_mode": "bespoke-subject",
+      "editorial_qa": "pending"
+    },
+    {
+      "id": "organic83:game-manual-foldout",
+      "name": "Game Manual Foldout",
+      "category": "gamecraft",
+      "summary": "A printed game manual unfolds into control instructions and a tiny level map.",
+      "ingredients": [
+        "organic83:quest-notice-board",
+        "legacy:51"
+      ],
+      "familyCampaigns": [],
+      "path": "client/assets/v83/game-manual-foldout.svg",
+      "art_mode": "bespoke-subject",
+      "editorial_qa": "pending"
+    },
+    {
+      "id": "organic83:memory-card-sleeve",
+      "name": "Memory Card Sleeve",
+      "category": "accessory",
+      "summary": "A soft protective pouch holds a removable console memory card.",
+      "ingredients": [
+        "legacy:337",
+        "organic83:inventory-tile-grid"
+      ],
+      "familyCampaigns": [],
+      "path": "client/assets/v83/memory-card-sleeve.svg",
+      "art_mode": "bespoke-subject",
+      "editorial_qa": "pending"
+    },
+    {
+      "id": "organic83:controller-cable-reel",
+      "name": "Controller Cable Reel",
+      "category": "accessory",
+      "summary": "A circular spool keeps a game controller cable coiled without tangling.",
+      "ingredients": [
+        "legacy:68",
+        "organic83:quick-access-ring"
+      ],
+      "familyCampaigns": [],
+      "path": "client/assets/v83/controller-cable-reel.svg",
+      "art_mode": "bespoke-subject",
+      "editorial_qa": "pending"
+    },
+    {
+      "id": "organic83:handheld-dock-cable-stand",
+      "name": "Handheld Dock Cable Stand",
+      "category": "accessory",
+      "summary": "A folding desk stand charges a portable game console through a tucked cable.",
+      "ingredients": [
+        "legacy:169",
+        "organic83:controller-cable-reel"
+      ],
+      "familyCampaigns": [],
+      "path": "client/assets/v83/handheld-dock-cable-stand.svg",
+      "art_mode": "bespoke-subject",
+      "editorial_qa": "pending"
+    },
+    {
+      "id": "organic83:touchscreen-thumb-grip",
+      "name": "Touchscreen Thumb Grip",
+      "category": "accessory",
+      "summary": "A small textured silicone thumb cap improves control on a touchscreen.",
+      "ingredients": [
+        "legacy:84",
+        "organic83:quick-access-ring"
+      ],
+      "familyCampaigns": [],
+      "path": "client/assets/v83/touchscreen-thumb-grip.svg",
+      "art_mode": "bespoke-subject",
+      "editorial_qa": "pending"
+    },
+    {
+      "id": "organic83:light-gun-holster",
+      "name": "Light Gun Holster",
+      "category": "accessory",
+      "summary": "A padded side holster stores an arcade light gun when not in use.",
+      "ingredients": [
+        "legacy:327",
+        "organic83:loot-satchel"
+      ],
+      "familyCampaigns": [],
+      "path": "client/assets/v83/light-gun-holster.svg",
+      "art_mode": "bespoke-subject",
+      "editorial_qa": "pending"
+    },
+    {
+      "id": "organic83:co-op-lobby-card",
+      "name": "Co-op Lobby Card",
+      "category": "gamecraft",
+      "summary": "A multiplayer lobby panel shows two players ready for a shared adventure.",
+      "ingredients": [
+        "legacy:365",
+        "organic83:quest-notice-board"
+      ],
+      "familyCampaigns": [],
+      "path": "client/assets/v83/co-op-lobby-card.svg",
+      "art_mode": "bespoke-subject",
+      "editorial_qa": "pending"
+    },
+    {
+      "id": "organic83:party-game-scorepad",
+      "name": "Party Game Scorepad",
+      "category": "board",
+      "summary": "A cardboard scoreboard tracks points for several players in a party game.",
+      "ingredients": [
+        "organic83:combo-counter",
+        "legacy:107"
+      ],
+      "familyCampaigns": [],
+      "path": "client/assets/v83/party-game-scorepad.svg",
+      "art_mode": "bespoke-subject",
+      "editorial_qa": "pending"
+    },
+    {
+      "id": "organic83:dice-rolling-chute",
+      "name": "Dice Rolling Chute",
+      "category": "board",
+      "summary": "A sloping wooden chute tumbles dice into an enclosed tabletop tray.",
+      "ingredients": [
+        "organic83:crafting-material-rack",
+        "legacy:223"
+      ],
+      "familyCampaigns": [],
+      "path": "client/assets/v83/dice-rolling-chute.svg",
+      "art_mode": "bespoke-subject",
+      "editorial_qa": "pending"
+    },
+    {
+      "id": "organic83:dungeon-dice-set",
+      "name": "Dungeon Dice Set",
+      "category": "board",
+      "summary": "A collection of polyhedral dice accompanies an adventurer's tabletop map.",
+      "ingredients": [
+        "organic83:dungeon-minimap",
+        "legacy:223"
+      ],
+      "familyCampaigns": [],
+      "path": "client/assets/v83/dungeon-dice-set.svg",
+      "art_mode": "bespoke-subject",
+      "editorial_qa": "pending"
+    },
+    {
+      "id": "organic83:miniature-paint-station",
+      "name": "Miniature Paint Station",
+      "category": "board",
+      "summary": "A hobby workbench holds tiny painted figurines, brushes and a paint palette.",
+      "ingredients": [
+        "legacy:1260",
+        "organic83:crafting-material-rack"
+      ],
+      "familyCampaigns": [],
+      "path": "client/assets/v83/miniature-paint-station.svg",
+      "art_mode": "bespoke-subject",
+      "editorial_qa": "pending"
+    },
+    {
+      "id": "organic83:map-tile-organizer",
+      "name": "Map Tile Organizer",
+      "category": "board",
+      "summary": "Divided storage compartments keep modular dungeon-map tiles sorted by shape.",
+      "ingredients": [
+        "organic83:dungeon-minimap",
+        "legacy:153"
+      ],
+      "familyCampaigns": [],
+      "path": "client/assets/v83/map-tile-organizer.svg",
+      "art_mode": "bespoke-subject",
+      "editorial_qa": "pending"
+    },
+    {
+      "id": "organic83:card-sleeve-binder",
+      "name": "Card Sleeve Binder",
+      "category": "board",
+      "summary": "A ring binder protects a collection of trading cards inside clear pockets.",
+      "ingredients": [
+        "legacy:163",
+        "organic83:inventory-tile-grid"
+      ],
+      "familyCampaigns": [],
+      "path": "client/assets/v83/card-sleeve-binder.svg",
+      "art_mode": "bespoke-subject",
+      "editorial_qa": "pending"
+    },
+    {
+      "id": "organic83:board-game-storage-insert",
+      "name": "Board Game Storage Insert",
+      "category": "board",
+      "summary": "A fitted cardboard tray organizes game pieces in a box without mixing them.",
+      "ingredients": [
+        "legacy:107",
+        "organic83:crafting-material-rack"
+      ],
+      "familyCampaigns": [],
+      "path": "client/assets/v83/board-game-storage-insert.svg",
+      "art_mode": "bespoke-subject",
+      "editorial_qa": "pending"
+    },
+    {
+      "id": "organic83:pixel-sprite-flipbook",
+      "name": "Pixel Sprite Flipbook",
+      "category": "gamecraft",
+      "summary": "A stack of animation frames shows a tiny hero running across successive pages.",
+      "ingredients": [
+        "legacy:219",
+        "organic83:monster-bestiary-page"
+      ],
+      "familyCampaigns": [],
+      "path": "client/assets/v83/pixel-sprite-flipbook.svg",
+      "art_mode": "bespoke-subject",
+      "editorial_qa": "pending"
+    },
+    {
+      "id": "organic83:platform-jump-spring",
+      "name": "Platform Jump Spring",
+      "category": "gamecraft",
+      "summary": "A bright metal coil launches a platforming hero from the floor.",
+      "ingredients": [
+        "organic83:pinball-launch-rail",
+        "legacy:356"
+      ],
+      "familyCampaigns": [],
+      "path": "client/assets/v83/platform-jump-spring.svg",
+      "art_mode": "bespoke-subject",
+      "editorial_qa": "pending"
+    },
+    {
+      "id": "organic83:puzzle-hint-dial",
+      "name": "Puzzle Hint Dial",
+      "category": "gamecraft",
+      "summary": "A rotating clue dial reveals one section of a hidden solution at a time.",
+      "ingredients": [
+        "legacy:224",
+        "organic83:quick-access-ring"
+      ],
+      "familyCampaigns": [],
+      "path": "client/assets/v83/puzzle-hint-dial.svg",
+      "art_mode": "bespoke-subject",
+      "editorial_qa": "pending"
+    },
+    {
+      "id": "organic83:boss-victory-banner",
+      "name": "Boss Victory Banner",
+      "category": "gamecraft",
+      "summary": "An embroidered trophy banner unfurls after a final boss has been defeated.",
+      "ingredients": [
+        "organic83:boss-health-bar",
+        "organic83:checkpoint-banner"
+      ],
+      "familyCampaigns": [],
+      "path": "client/assets/v83/boss-victory-banner.svg",
+      "art_mode": "bespoke-subject",
+      "editorial_qa": "pending"
+    },
+    {
+      "id": "organic83:pangolin",
+      "name": "Pangolin",
+      "category": "life",
+      "summary": "A shy insect-eating mammal curls its overlapping protective scales around its body.",
+      "ingredients": [
+        "organic38:insect",
+        "organic83:stone-troll"
+      ],
+      "familyCampaigns": [],
+      "path": "client/assets/v83/pangolin.svg",
+      "art_mode": "bespoke-subject",
+      "editorial_qa": "pending"
+    },
+    {
+      "id": "organic83:fennec-fox",
+      "name": "Fennec Fox",
+      "category": "life",
+      "summary": "A small desert fox listens for prey with enormous pale ears.",
+      "ingredients": [
+        "organic40:fox",
+        "legacy:1048"
+      ],
+      "familyCampaigns": [],
+      "path": "client/assets/v83/fennec-fox.svg",
+      "art_mode": "bespoke-subject",
+      "editorial_qa": "pending"
+    },
+    {
+      "id": "organic83:shoebill",
+      "name": "Shoebill",
+      "category": "life",
+      "summary": "A tall wetland bird waits motionless with its immense shoe-shaped beak.",
+      "ingredients": [
+        "organic38:bird",
+        "organic83:naiad"
+      ],
+      "familyCampaigns": [],
+      "path": "client/assets/v83/shoebill.svg",
+      "art_mode": "bespoke-subject",
+      "editorial_qa": "pending"
+    },
+    {
+      "id": "organic83:narwhal",
+      "name": "Narwhal",
+      "category": "life",
+      "summary": "An Arctic whale breaks through icy water with a single long spiral tusk.",
+      "ingredients": [
+        "organic83:ocean-leviathan",
+        "legacy:35"
+      ],
+      "familyCampaigns": [],
+      "path": "client/assets/v83/narwhal.svg",
+      "art_mode": "bespoke-subject",
+      "editorial_qa": "pending"
+    },
+    {
+      "id": "organic83:wombat",
+      "name": "Wombat",
+      "category": "life",
+      "summary": "A burrowing marsupial pads across the ground with short legs and a broad nose.",
+      "ingredients": [
+        "legacy:26",
+        "organic83:cave-troll"
+      ],
+      "familyCampaigns": [],
+      "path": "client/assets/v83/wombat.svg",
+      "art_mode": "bespoke-subject",
+      "editorial_qa": "pending"
+    },
+    {
+      "id": "organic83:platypus",
+      "name": "Platypus",
+      "category": "life",
+      "summary": "An egg-laying aquatic mammal has webbed feet, a flat bill and a paddle tail.",
+      "ingredients": [
+        "organic83:selkie",
+        "organic38:bird"
+      ],
+      "familyCampaigns": [],
+      "path": "client/assets/v83/platypus.svg",
+      "art_mode": "bespoke-subject",
+      "editorial_qa": "pending"
+    },
+    {
+      "id": "organic83:leafy-sea-dragon",
+      "name": "Leafy Sea Dragon",
+      "category": "life",
+      "summary": "A delicately camouflaged sea dragon looks like floating kelp fronds.",
+      "ingredients": [
+        "organic37:seahorse",
+        "organic83:forest-dryad"
+      ],
+      "familyCampaigns": [],
+      "path": "client/assets/v83/leafy-sea-dragon.svg",
+      "art_mode": "bespoke-subject",
+      "editorial_qa": "pending"
+    },
+    {
+      "id": "organic83:arctic-tern",
+      "name": "Arctic Tern",
+      "category": "life",
+      "summary": "A long-distance seabird flies over ice with pointed wings and a forked tail.",
+      "ingredients": [
+        "organic38:bird",
+        "organic38:iceberg"
+      ],
+      "familyCampaigns": [],
+      "path": "client/assets/v83/arctic-tern.svg",
+      "art_mode": "bespoke-subject",
+      "editorial_qa": "pending"
+    },
+    {
+      "id": "organic83:quokka",
+      "name": "Quokka",
+      "category": "life",
+      "summary": "A small island marsupial has round ears, bright eyes and a famously gentle face.",
+      "ingredients": [
+        "legacy:558",
+        "legacy:26"
+      ],
+      "familyCampaigns": [],
+      "path": "client/assets/v83/quokka.svg",
+      "art_mode": "bespoke-subject",
+      "editorial_qa": "pending"
+    },
+    {
+      "id": "organic83:musk-ox",
+      "name": "Musk Ox",
+      "category": "life",
+      "summary": "A shaggy Arctic bovine stands beneath a pair of sweeping, curved horns.",
+      "ingredients": [
+        "organic82:frost-giant",
+        "legacy:26"
+      ],
+      "familyCampaigns": [],
+      "path": "client/assets/v83/musk-ox.svg",
+      "art_mode": "bespoke-subject",
+      "editorial_qa": "pending"
+    },
+    {
+      "id": "organic83:maned-wolf",
+      "name": "Maned Wolf",
+      "category": "life",
+      "summary": "A long-legged South American canid has reddish fur and a dark standing mane.",
+      "ingredients": [
+        "organic40:fox",
+        "organic83:barghest"
+      ],
+      "familyCampaigns": [],
+      "path": "client/assets/v83/maned-wolf.svg",
+      "art_mode": "bespoke-subject",
+      "editorial_qa": "pending"
+    },
+    {
+      "id": "organic83:saiga-antelope",
+      "name": "Saiga Antelope",
+      "category": "life",
+      "summary": "A steppe antelope has a distinctive enlarged, drooping nose and ringed horns.",
+      "ingredients": [
+        "organic83:centaur",
+        "legacy:1048"
+      ],
+      "familyCampaigns": [],
+      "path": "client/assets/v83/saiga-antelope.svg",
+      "art_mode": "bespoke-subject",
+      "editorial_qa": "pending"
+    },
+    {
+      "id": "organic83:aye-aye",
+      "name": "Aye-Aye",
+      "category": "life",
+      "summary": "A nocturnal lemur probes tree bark with an unusually long, delicate finger.",
+      "ingredients": [
+        "legacy:601",
+        "legacy:142"
+      ],
+      "familyCampaigns": [],
+      "path": "client/assets/v83/aye-aye.svg",
+      "art_mode": "bespoke-subject",
+      "editorial_qa": "pending"
+    },
+    {
+      "id": "organic83:okapi",
+      "name": "Okapi",
+      "category": "life",
+      "summary": "A shy rainforest giraffid has a dark brown body and zebra-striped hindquarters.",
+      "ingredients": [
+        "legacy:574",
+        "organic32:rainforest"
+      ],
+      "familyCampaigns": [],
+      "path": "client/assets/v83/okapi.svg",
+      "art_mode": "bespoke-subject",
+      "editorial_qa": "pending"
+    },
+    {
+      "id": "organic83:blue-ringed-octopus",
+      "name": "Blue-Ringed Octopus",
+      "category": "life",
+      "summary": "A small venomous octopus displays electric-blue rings across its yellow skin.",
+      "ingredients": [
+        "organic38:octopus",
+        "pack:venom"
+      ],
+      "familyCampaigns": [],
+      "path": "client/assets/v83/blue-ringed-octopus.svg",
+      "art_mode": "bespoke-subject",
+      "editorial_qa": "pending"
+    },
+    {
+      "id": "organic83:tardigrade",
+      "name": "Tardigrade",
+      "category": "life",
+      "summary": "A microscopic water bear lumbers on eight stubby legs and survives harsh conditions.",
+      "ingredients": [
+        "legacy:26",
+        "organic32:microscope"
+      ],
+      "familyCampaigns": [],
+      "path": "client/assets/v83/tardigrade.svg",
+      "art_mode": "bespoke-subject",
+      "editorial_qa": "pending"
+    },
+    {
+      "id": "organic83:proboscis-monkey",
+      "name": "Proboscis Monkey",
+      "category": "life",
+      "summary": "A Bornean monkey has an elongated nose and a warm chestnut coat.",
+      "ingredients": [
+        "legacy:601",
+        "legacy:39"
+      ],
+      "familyCampaigns": [],
+      "path": "client/assets/v83/proboscis-monkey.svg",
+      "art_mode": "bespoke-subject",
+      "editorial_qa": "pending"
+    },
+    {
+      "id": "organic83:giant-isopod",
+      "name": "Giant Isopod",
+      "category": "life",
+      "summary": "A large deep-sea crustacean has overlapping armored segments and many legs.",
+      "ingredients": [
+        "organic38:crab",
+        "organic83:ocean-leviathan"
+      ],
+      "familyCampaigns": [],
+      "path": "client/assets/v83/giant-isopod.svg",
+      "art_mode": "bespoke-subject",
+      "editorial_qa": "pending"
+    },
+    {
+      "id": "organic83:binturong",
+      "name": "Binturong",
+      "category": "life",
+      "summary": "A shaggy tree-dwelling civet has long whiskers and a prehensile tail.",
+      "ingredients": [
+        "organic40:fox",
+        "legacy:19"
+      ],
+      "familyCampaigns": [],
+      "path": "client/assets/v83/binturong.svg",
+      "art_mode": "bespoke-subject",
+      "editorial_qa": "pending"
+    },
+    {
+      "id": "organic83:secretary-bird",
+      "name": "Secretary Bird",
+      "category": "life",
+      "summary": "A tall African raptor has slender legs and a dramatic dark feather crest.",
+      "ingredients": [
+        "organic38:bird",
+        "legacy:1048"
+      ],
+      "familyCampaigns": [],
+      "path": "client/assets/v83/secretary-bird.svg",
+      "art_mode": "bespoke-subject",
+      "editorial_qa": "pending"
+    },
+    {
+      "id": "organic83:sun-bear",
+      "name": "Sun Bear",
+      "category": "life",
+      "summary": "A small tropical bear has short dark fur and a golden crescent-shaped chest marking.",
+      "ingredients": [
+        "pack:panda",
+        "organic32:rainforest"
+      ],
+      "familyCampaigns": [],
+      "path": "client/assets/v83/sun-bear.svg",
+      "art_mode": "bespoke-subject",
+      "editorial_qa": "pending"
+    },
+    {
+      "id": "organic83:gerenuk",
+      "name": "Gerenuk",
+      "category": "life",
+      "summary": "A long-necked antelope stands upright to browse leaves beyond other grazers' reach.",
+      "ingredients": [
+        "organic83:centaur",
+        "organic83:ancient-tree-ent"
+      ],
+      "familyCampaigns": [],
+      "path": "client/assets/v83/gerenuk.svg",
+      "art_mode": "bespoke-subject",
+      "editorial_qa": "pending"
+    },
+    {
+      "id": "organic83:dumbo-octopus",
+      "name": "Dumbo Octopus",
+      "category": "life",
+      "summary": "A deep-sea octopus flaps rounded ear-like fins above its eight short arms.",
+      "ingredients": [
+        "organic38:octopus",
+        "organic37:deep-sea"
+      ],
+      "familyCampaigns": [],
+      "path": "client/assets/v83/dumbo-octopus.svg",
+      "art_mode": "bespoke-subject",
+      "editorial_qa": "pending"
+    },
+    {
+      "id": "organic83:flying-fish",
+      "name": "Flying Fish",
+      "category": "life",
+      "summary": "A marine fish glides above waves on two broad, wing-like pectoral fins.",
+      "ingredients": [
+        "legacy:27",
+        "organic38:bird"
+      ],
+      "familyCampaigns": [],
+      "path": "client/assets/v83/flying-fish.svg",
+      "art_mode": "bespoke-subject",
+      "editorial_qa": "pending"
+    },
+    {
+      "id": "organic83:gila-monster",
+      "name": "Gila Monster",
+      "category": "life",
+      "summary": "A chunky desert lizard has beaded black-and-coral scales and a thick tail.",
+      "ingredients": [
+        "legacy:1048",
+        "pack:venom"
+      ],
+      "familyCampaigns": [],
+      "path": "client/assets/v83/gila-monster.svg",
+      "art_mode": "bespoke-subject",
+      "editorial_qa": "pending"
+    },
+    {
+      "id": "organic83:olenellus",
+      "name": "Olenellus",
+      "category": "prehistoric",
+      "summary": "A Cambrian trilobite with long curved cheek spines and a broad head shield.",
+      "ingredients": [
+        "organic82:trilobite",
+        "organic82:fossil-skeleton"
+      ],
+      "familyCampaigns": [
+        "prehistoric"
+      ],
+      "path": "client/assets/v83/olenellus.svg",
+      "art_mode": "bespoke-subject",
+      "editorial_qa": "pending"
+    },
+    {
+      "id": "organic83:aegirocassis",
+      "name": "Aegirocassis",
+      "category": "prehistoric",
+      "summary": "A filter-feeding Cambrian radiodont with broad swimming flaps and a comb-like head.",
+      "ingredients": [
+        "organic82:anomalocaris",
+        "organic82:prehistoric-ocean"
+      ],
+      "familyCampaigns": [
+        "prehistoric"
+      ],
+      "path": "client/assets/v83/aegirocassis.svg",
+      "art_mode": "bespoke-subject",
+      "editorial_qa": "pending"
+    },
+    {
+      "id": "organic83:hallucigenia",
+      "name": "Hallucigenia",
+      "category": "prehistoric",
+      "summary": "A tiny Cambrian lobopodian walks on soft legs beneath tall defensive spines.",
+      "ingredients": [
+        "organic82:cambrian-period",
+        "organic82:fossil-skeleton"
+      ],
+      "familyCampaigns": [
+        "prehistoric"
+      ],
+      "path": "client/assets/v83/hallucigenia.svg",
+      "art_mode": "bespoke-subject",
+      "editorial_qa": "pending"
+    },
+    {
+      "id": "organic83:opabinia",
+      "name": "Opabinia",
+      "category": "prehistoric",
+      "summary": "An odd Cambrian swimmer has five stalked eyes and a flexible claw-tipped proboscis.",
+      "ingredients": [
+        "organic82:anomalocaris",
+        "organic82:cambrian-period"
+      ],
+      "familyCampaigns": [
+        "prehistoric"
+      ],
+      "path": "client/assets/v83/opabinia.svg",
+      "art_mode": "bespoke-subject",
+      "editorial_qa": "pending"
+    },
+    {
+      "id": "organic83:wiwaxia",
+      "name": "Wiwaxia",
+      "category": "prehistoric",
+      "summary": "A Cambrian mollusc-like creature carries overlapping armor plates and curved spines.",
+      "ingredients": [
+        "organic82:trilobite",
+        "organic83:hallucigenia"
+      ],
+      "familyCampaigns": [
+        "prehistoric"
+      ],
+      "path": "client/assets/v83/wiwaxia.svg",
+      "art_mode": "bespoke-subject",
+      "editorial_qa": "pending"
+    },
+    {
+      "id": "organic83:pikaia",
+      "name": "Pikaia",
+      "category": "prehistoric",
+      "summary": "A slender Cambrian chordate swims with a striped flexible tail.",
+      "ingredients": [
+        "organic82:prehistoric-ocean",
+        "organic83:opabinia"
+      ],
+      "familyCampaigns": [
+        "prehistoric"
+      ],
+      "path": "client/assets/v83/pikaia.svg",
+      "art_mode": "bespoke-subject",
+      "editorial_qa": "pending"
+    },
+    {
+      "id": "organic83:hurdia",
+      "name": "Hurdia",
+      "category": "prehistoric",
+      "summary": "A Cambrian radiodont has a rounded head shield and grasping frontal appendages.",
+      "ingredients": [
+        "organic82:anomalocaris",
+        "organic82:fossil-skeleton"
+      ],
+      "familyCampaigns": [
+        "prehistoric"
+      ],
+      "path": "client/assets/v83/hurdia.svg",
+      "art_mode": "bespoke-subject",
+      "editorial_qa": "pending"
+    },
+    {
+      "id": "organic83:cameroceras",
+      "name": "Cameroceras",
+      "category": "prehistoric",
+      "summary": "An enormous straight-shelled nautiloid extends tentacles from a tapering conical shell.",
+      "ingredients": [
+        "organic82:ammonite",
+        "organic82:prehistoric-ocean"
+      ],
+      "familyCampaigns": [
+        "prehistoric"
+      ],
+      "path": "client/assets/v83/cameroceras.svg",
+      "art_mode": "bespoke-subject",
+      "editorial_qa": "pending"
+    },
+    {
+      "id": "organic83:helicoprion",
+      "name": "Helicoprion",
+      "category": "prehistoric",
+      "summary": "A prehistoric shark relative shows a distinctive spiral tooth whorl beneath its jaw.",
+      "ingredients": [
+        "organic82:paleozoic-era",
+        "organic82:megalodon"
+      ],
+      "familyCampaigns": [
+        "prehistoric"
+      ],
+      "path": "client/assets/v83/helicoprion.svg",
+      "art_mode": "bespoke-subject",
+      "editorial_qa": "pending"
+    },
+    {
+      "id": "organic83:stethacanthus",
+      "name": "Stethacanthus",
+      "category": "prehistoric",
+      "summary": "A Carboniferous shark displays a strange anvil-shaped dorsal fin.",
+      "ingredients": [
+        "organic82:carboniferous-period",
+        "organic82:megalodon"
+      ],
+      "familyCampaigns": [
+        "prehistoric"
+      ],
+      "path": "client/assets/v83/stethacanthus.svg",
+      "art_mode": "bespoke-subject",
+      "editorial_qa": "pending"
+    },
+    {
+      "id": "organic83:tiktaalik",
+      "name": "Tiktaalik",
+      "category": "prehistoric",
+      "summary": "A flat-headed Devonian lobe-finned fish pushes onto a shallow mudflat.",
+      "ingredients": [
+        "organic82:prehistoric-ocean",
+        "organic82:marine-reptile"
+      ],
+      "familyCampaigns": [
+        "prehistoric"
+      ],
+      "path": "client/assets/v83/tiktaalik.svg",
+      "art_mode": "bespoke-subject",
+      "editorial_qa": "pending"
+    },
+    {
+      "id": "organic83:acanthostega",
+      "name": "Acanthostega",
+      "category": "prehistoric",
+      "summary": "An early amphibian-like tetrapod swims with many-toed limbs.",
+      "ingredients": [
+        "organic83:tiktaalik",
+        "organic82:paleozoic-era"
+      ],
+      "familyCampaigns": [
+        "prehistoric"
+      ],
+      "path": "client/assets/v83/acanthostega.svg",
+      "art_mode": "bespoke-subject",
+      "editorial_qa": "pending"
+    },
+    {
+      "id": "organic83:diplocaulus",
+      "name": "Diplocaulus",
+      "category": "prehistoric",
+      "summary": "An extinct amphibian has a boomerang-shaped head with wide lateral horns.",
+      "ingredients": [
+        "organic83:acanthostega",
+        "organic82:carboniferous-period"
+      ],
+      "familyCampaigns": [
+        "prehistoric"
+      ],
+      "path": "client/assets/v83/diplocaulus.svg",
+      "art_mode": "bespoke-subject",
+      "editorial_qa": "pending"
+    },
+    {
+      "id": "organic83:dimetrodon",
+      "name": "Dimetrodon",
+      "category": "prehistoric",
+      "summary": "A Permian sail-backed synapsid walks on four stout legs.",
+      "ingredients": [
+        "organic82:carboniferous-period",
+        "organic82:prehistoric-mammal"
+      ],
+      "familyCampaigns": [
+        "prehistoric"
+      ],
+      "path": "client/assets/v83/dimetrodon.svg",
+      "art_mode": "bespoke-subject",
+      "editorial_qa": "pending"
+    },
+    {
+      "id": "organic83:gorgonops",
+      "name": "Gorgonops",
+      "category": "prehistoric",
+      "summary": "A Permian sabre-toothed predator stands low on muscular forelimbs.",
+      "ingredients": [
+        "organic82:paleozoic-era",
+        "organic82:prehistoric-mammal"
+      ],
+      "familyCampaigns": [
+        "prehistoric"
+      ],
+      "path": "client/assets/v83/gorgonops.svg",
+      "art_mode": "bespoke-subject",
+      "editorial_qa": "pending"
+    },
+    {
+      "id": "organic83:lystrosaurus",
+      "name": "Lystrosaurus",
+      "category": "prehistoric",
+      "summary": "A stocky early Triassic dicynodont has a beak and two downward-pointing tusks.",
+      "ingredients": [
+        "organic82:triassic-period",
+        "organic82:prehistoric-mammal"
+      ],
+      "familyCampaigns": [
+        "prehistoric"
+      ],
+      "path": "client/assets/v83/lystrosaurus.svg",
+      "art_mode": "bespoke-subject",
+      "editorial_qa": "pending"
+    },
+    {
+      "id": "organic83:tanystropheus",
+      "name": "Tanystropheus",
+      "category": "prehistoric",
+      "summary": "A Triassic reptile carries a remarkably long rigid neck above a small body.",
+      "ingredients": [
+        "organic82:triassic-period",
+        "organic82:nothosaurus"
+      ],
+      "familyCampaigns": [
+        "prehistoric"
+      ],
+      "path": "client/assets/v83/tanystropheus.svg",
+      "art_mode": "bespoke-subject",
+      "editorial_qa": "pending"
+    },
+    {
+      "id": "organic83:shonisaurus",
+      "name": "Shonisaurus",
+      "category": "prehistoric",
+      "summary": "A giant Triassic ichthyosaur glides through deep water with a long beak.",
+      "ingredients": [
+        "organic82:triassic-period",
+        "organic82:ichthyosaurus"
+      ],
+      "familyCampaigns": [
+        "prehistoric"
+      ],
+      "path": "client/assets/v83/shonisaurus.svg",
+      "art_mode": "bespoke-subject",
+      "editorial_qa": "pending"
+    },
+    {
+      "id": "organic83:elasmotherium",
+      "name": "Elasmotherium",
+      "category": "prehistoric",
+      "summary": "An Ice Age rhinoceros relative bears one long horn on its forehead.",
+      "ingredients": [
+        "organic82:ice-age",
+        "organic82:woolly-rhinoceros"
+      ],
+      "familyCampaigns": [
+        "prehistoric"
+      ],
+      "path": "client/assets/v83/elasmotherium.svg",
+      "art_mode": "bespoke-subject",
+      "editorial_qa": "pending"
+    },
+    {
+      "id": "organic83:homotherium",
+      "name": "Homotherium",
+      "category": "prehistoric",
+      "summary": "A prehistoric scimitar-toothed cat has a strong neck and long forelimbs.",
+      "ingredients": [
+        "organic82:smilodon",
+        "organic82:prehistoric-mammal"
+      ],
+      "familyCampaigns": [
+        "prehistoric"
+      ],
+      "path": "client/assets/v83/homotherium.svg",
+      "art_mode": "bespoke-subject",
+      "editorial_qa": "pending"
+    },
+    {
+      "id": "organic83:kelenken",
+      "name": "Kelenken",
+      "category": "prehistoric",
+      "summary": "An enormous flightless terror bird has powerful legs and a heavy hooked beak.",
+      "ingredients": [
+        "organic82:terror-bird",
+        "organic82:cenozoic-era"
+      ],
+      "familyCampaigns": [
+        "prehistoric"
+      ],
+      "path": "client/assets/v83/kelenken.svg",
+      "art_mode": "bespoke-subject",
+      "editorial_qa": "pending"
+    },
+    {
+      "id": "organic83:doedicurus",
+      "name": "Doedicurus",
+      "category": "prehistoric",
+      "summary": "A giant extinct armadillo carries a domed shell and mace-like spiked tail.",
+      "ingredients": [
+        "organic82:glyptodon",
+        "organic82:prehistoric-mammal"
+      ],
+      "familyCampaigns": [
+        "prehistoric"
+      ],
+      "path": "client/assets/v83/doedicurus.svg",
+      "art_mode": "bespoke-subject",
+      "editorial_qa": "pending"
+    },
+    {
+      "id": "organic83:hatzegopteryx",
+      "name": "Hatzegopteryx",
+      "category": "prehistoric",
+      "summary": "A gigantic azhdarchid pterosaur strides on long limbs with a massive beak.",
+      "ingredients": [
+        "organic82:quetzalcoatlus",
+        "organic82:late-cretaceous"
+      ],
+      "familyCampaigns": [
+        "prehistoric"
+      ],
+      "path": "client/assets/v83/hatzegopteryx.svg",
+      "art_mode": "bespoke-subject",
+      "editorial_qa": "pending"
+    },
+    {
+      "id": "organic83:yutyrannus",
+      "name": "Yutyrannus",
+      "category": "prehistoric",
+      "summary": "A large feathered tyrannosauroid has a shaggy coat and powerful hind legs.",
+      "ingredients": [
+        "organic82:feathered-dinosaur",
+        "organic82:cretaceous-period"
+      ],
+      "familyCampaigns": [
+        "prehistoric"
+      ],
+      "path": "client/assets/v83/yutyrannus.svg",
+      "art_mode": "bespoke-subject",
+      "editorial_qa": "pending"
+    },
+    {
+      "id": "organic83:kosmoceratops",
+      "name": "Kosmoceratops",
+      "category": "prehistoric",
+      "summary": "A horned Cretaceous dinosaur bears an elaborate crown of curved frill spikes.",
+      "ingredients": [
+        "organic82:styracosaurus",
+        "organic82:late-cretaceous"
+      ],
+      "familyCampaigns": [
+        "prehistoric"
+      ],
+      "path": "client/assets/v83/kosmoceratops.svg",
+      "art_mode": "bespoke-subject",
+      "editorial_qa": "pending"
+    },
+    {
+      "id": "organic83:stealth-detection-cone",
+      "name": "Stealth Detection Cone",
+      "category": "gamecraft",
+      "summary": "A security camera projects a triangular field of view across a stealth map.",
+      "ingredients": [
+        "organic83:dungeon-minimap",
+        "legacy:85"
+      ],
+      "familyCampaigns": [],
+      "path": "client/assets/v83/stealth-detection-cone.svg",
+      "art_mode": "bespoke-subject",
+      "editorial_qa": "pending"
+    },
+    {
+      "id": "organic83:patrol-route-marker",
+      "name": "Patrol Route Marker",
+      "category": "gamecraft",
+      "summary": "A dotted patrol route curves between numbered waypoints on a guard map.",
+      "ingredients": [
+        "organic83:stealth-detection-cone",
+        "legacy:354"
+      ],
+      "familyCampaigns": [],
+      "path": "client/assets/v83/patrol-route-marker.svg",
+      "art_mode": "bespoke-subject",
+      "editorial_qa": "pending"
+    },
+    {
+      "id": "organic83:noise-decoy-pebble",
+      "name": "Noise Decoy Pebble",
+      "category": "fantasy",
+      "summary": "A small thrown stone radiates sound ripples to distract a nearby guard.",
+      "ingredients": [
+        "organic83:stealth-detection-cone",
+        "legacy:14"
+      ],
+      "familyCampaigns": [],
+      "path": "client/assets/v83/noise-decoy-pebble.svg",
+      "art_mode": "bespoke-subject",
+      "editorial_qa": "pending"
+    },
+    {
+      "id": "organic83:guard-alert-beacon",
+      "name": "Guard Alert Beacon",
+      "category": "gamecraft",
+      "summary": "An illuminated warning beacon activates when a sentry notices the intruder.",
+      "ingredients": [
+        "organic83:boss-warning-siren",
+        "organic83:stealth-detection-cone"
+      ],
+      "familyCampaigns": [],
+      "path": "client/assets/v83/guard-alert-beacon.svg",
+      "art_mode": "bespoke-subject",
+      "editorial_qa": "pending"
+    },
+    {
+      "id": "organic83:tactical-cover-marker",
+      "name": "Tactical Cover Marker",
+      "category": "gamecraft",
+      "summary": "A shield-shaped map pin identifies waist-high cover in a tactical encounter.",
+      "ingredients": [
+        "organic83:dungeon-minimap",
+        "organic83:secret-switch-plate"
+      ],
+      "familyCampaigns": [],
+      "path": "client/assets/v83/tactical-cover-marker.svg",
+      "art_mode": "bespoke-subject",
+      "editorial_qa": "pending"
+    },
+    {
+      "id": "organic83:silent-footstep-emblem",
+      "name": "Silent Footstep Emblem",
+      "category": "gamecraft",
+      "summary": "A faded pair of footprints indicates crouched movement without attracting enemies.",
+      "ingredients": [
+        "organic83:replay-ghost",
+        "organic83:patrol-route-marker"
+      ],
+      "familyCampaigns": [],
+      "path": "client/assets/v83/silent-footstep-emblem.svg",
+      "art_mode": "bespoke-subject",
+      "editorial_qa": "pending"
+    },
+    {
+      "id": "organic83:lockpick-kit",
+      "name": "Lockpick Kit",
+      "category": "fantasy",
+      "summary": "A leather locksmith roll contains tension tools, hooks and narrow metal picks.",
+      "ingredients": [
+        "organic83:rune-locked-door",
+        "organic83:crafting-material-rack"
+      ],
+      "familyCampaigns": [],
+      "path": "client/assets/v83/lockpick-kit.svg",
+      "art_mode": "bespoke-subject",
+      "editorial_qa": "pending"
+    },
+    {
+      "id": "organic83:hacking-circuit-board",
+      "name": "Hacking Circuit Board",
+      "category": "gamecraft",
+      "summary": "A green security board shows crossed traces and a bypassed access chip.",
+      "ingredients": [
+        "organic83:lockpick-kit",
+        "legacy:91"
+      ],
+      "familyCampaigns": [],
+      "path": "client/assets/v83/hacking-circuit-board.svg",
+      "art_mode": "bespoke-subject",
+      "editorial_qa": "pending"
+    },
+    {
+      "id": "organic83:laser-tripwire-emitter",
+      "name": "Laser Tripwire Emitter",
+      "category": "gamecraft",
+      "summary": "A compact sensor projects thin red beams across a security corridor.",
+      "ingredients": [
+        "organic83:hacking-circuit-board",
+        "legacy:63"
+      ],
+      "familyCampaigns": [],
+      "path": "client/assets/v83/laser-tripwire-emitter.svg",
+      "art_mode": "bespoke-subject",
+      "editorial_qa": "pending"
+    },
+    {
+      "id": "organic83:disguise-wardrobe",
+      "name": "Disguise Wardrobe",
+      "category": "fantasy",
+      "summary": "A costume closet contains a uniform, a hat and a false identification badge.",
+      "ingredients": [
+        "organic83:quest-notice-board",
+        "organic83:crafting-material-rack"
+      ],
+      "familyCampaigns": [],
+      "path": "client/assets/v83/disguise-wardrobe.svg",
+      "art_mode": "bespoke-subject",
+      "editorial_qa": "pending"
+    },
+    {
+      "id": "organic83:radar-scan-sweep",
+      "name": "Radar Scan Sweep",
+      "category": "gamecraft",
+      "summary": "A round radar screen sweeps a glowing beam across enemy blips.",
+      "ingredients": [
+        "organic83:stealth-detection-cone",
+        "legacy:85"
+      ],
+      "familyCampaigns": [],
+      "path": "client/assets/v83/radar-scan-sweep.svg",
+      "art_mode": "bespoke-subject",
+      "editorial_qa": "pending"
+    },
+    {
+      "id": "organic83:camouflage-fabric-roll",
+      "name": "Camouflage Fabric Roll",
+      "category": "fantasy",
+      "summary": "A folded roll of mottled cloth is prepared for a forest stealth outfit.",
+      "ingredients": [
+        "organic83:forest-dryad",
+        "organic83:crafting-material-rack"
+      ],
+      "familyCampaigns": [],
+      "path": "client/assets/v83/camouflage-fabric-roll.svg",
+      "art_mode": "bespoke-subject",
+      "editorial_qa": "pending"
+    },
+    {
+      "id": "organic83:security-camera-blindspot",
+      "name": "Security Camera Blindspot",
+      "category": "gamecraft",
+      "summary": "A map highlights the dark wedge outside a surveillance camera's view.",
+      "ingredients": [
+        "organic83:stealth-detection-cone",
+        "legacy:66"
+      ],
+      "familyCampaigns": [],
+      "path": "client/assets/v83/security-camera-blindspot.svg",
+      "art_mode": "bespoke-subject",
+      "editorial_qa": "pending"
+    },
+    {
+      "id": "organic83:grappling-hook-launcher",
+      "name": "Grappling Hook Launcher",
+      "category": "fantasy",
+      "summary": "A compact launcher fires a three-pronged hook attached to a braided rope.",
+      "ingredients": [
+        "organic83:lockpick-kit",
+        "legacy:68"
+      ],
+      "familyCampaigns": [],
+      "path": "client/assets/v83/grappling-hook-launcher.svg",
+      "art_mode": "bespoke-subject",
+      "editorial_qa": "pending"
+    },
+    {
+      "id": "organic83:movement-grid-compass",
+      "name": "Movement Grid Compass",
+      "category": "gamecraft",
+      "summary": "An isometric grid compass points a party toward its next move.",
+      "ingredients": [
+        "organic83:dungeon-minimap",
+        "organic83:quest-compass"
+      ],
+      "familyCampaigns": [],
+      "path": "client/assets/v83/movement-grid-compass.svg",
+      "art_mode": "bespoke-subject",
+      "editorial_qa": "pending"
+    },
+    {
+      "id": "organic83:turn-order-track",
+      "name": "Turn Order Track",
+      "category": "gamecraft",
+      "summary": "A numbered track advances colored tokens to show whose turn comes next.",
+      "ingredients": [
+        "organic83:movement-grid-compass",
+        "legacy:210"
+      ],
+      "familyCampaigns": [],
+      "path": "client/assets/v83/turn-order-track.svg",
+      "art_mode": "bespoke-subject",
+      "editorial_qa": "pending"
+    },
+    {
+      "id": "organic83:initiative-dice-tray",
+      "name": "Initiative Dice Tray",
+      "category": "board",
+      "summary": "A shallow felt tray holds two initiative dice beside the turn-order track.",
+      "ingredients": [
+        "organic83:dungeon-dice-set",
+        "organic83:turn-order-track"
+      ],
+      "familyCampaigns": [],
+      "path": "client/assets/v83/initiative-dice-tray.svg",
+      "art_mode": "bespoke-subject",
+      "editorial_qa": "pending"
+    },
+    {
+      "id": "organic83:elemental-spell-codex",
+      "name": "Elemental Spell Codex",
+      "category": "fantasy",
+      "summary": "A gilded spellbook opens to pages showing fire, frost and wind symbols.",
+      "ingredients": [
+        "organic83:monster-bestiary-page",
+        "legacy:125"
+      ],
+      "familyCampaigns": [],
+      "path": "client/assets/v83/elemental-spell-codex.svg",
+      "art_mode": "bespoke-subject",
+      "editorial_qa": "pending"
+    },
+    {
+      "id": "organic83:frost-rune-trap",
+      "name": "Frost Rune Trap",
+      "category": "fantasy",
+      "summary": "A hexagonal stone trap freezes its center around a glowing snowflake rune.",
+      "ingredients": [
+        "organic83:elemental-spell-codex",
+        "legacy:35"
+      ],
+      "familyCampaigns": [],
+      "path": "client/assets/v83/frost-rune-trap.svg",
+      "art_mode": "bespoke-subject",
+      "editorial_qa": "pending"
+    },
+    {
+      "id": "organic83:fireball-spell-focus",
+      "name": "Fireball Spell Focus",
+      "category": "fantasy",
+      "summary": "A ruby focus suspends a small swirling fireball above a caster's palm.",
+      "ingredients": [
+        "organic83:elemental-spell-codex",
+        "legacy:1"
+      ],
+      "familyCampaigns": [],
+      "path": "client/assets/v83/fireball-spell-focus.svg",
+      "art_mode": "bespoke-subject",
+      "editorial_qa": "pending"
+    },
+    {
+      "id": "organic83:summoning-circle-chalk",
+      "name": "Summoning Circle Chalk",
+      "category": "fantasy",
+      "summary": "An engraved summoning circle surrounds a glowing triangular sigil.",
+      "ingredients": [
+        "organic83:elemental-spell-codex",
+        "legacy:14"
+      ],
+      "familyCampaigns": [],
+      "path": "client/assets/v83/summoning-circle-chalk.svg",
+      "art_mode": "bespoke-subject",
+      "editorial_qa": "pending"
+    },
+    {
+      "id": "organic83:mana-recharge-shrine",
+      "name": "Mana Recharge Shrine",
+      "category": "fantasy",
+      "summary": "A small arcane altar replenishes a blue mana flask beneath a crystal halo.",
+      "ingredients": [
+        "organic83:mana-flask",
+        "organic83:teleport-waystone"
+      ],
+      "familyCampaigns": [],
+      "path": "client/assets/v83/mana-recharge-shrine.svg",
+      "art_mode": "bespoke-subject",
+      "editorial_qa": "pending"
+    },
+    {
+      "id": "organic83:dungeon-shortcut-ladder",
+      "name": "Dungeon Shortcut Ladder",
+      "category": "fantasy",
+      "summary": "A retractable ladder links two otherwise separated dungeon floors.",
+      "ingredients": [
+        "organic83:dungeon-minimap",
+        "organic83:crafting-material-rack"
+      ],
+      "familyCampaigns": [],
+      "path": "client/assets/v83/dungeon-shortcut-ladder.svg",
+      "art_mode": "bespoke-subject",
+      "editorial_qa": "pending"
+    },
+    {
+      "id": "organic83:relic-socket-pedestal",
+      "name": "Relic Socket Pedestal",
+      "category": "fantasy",
+      "summary": "A carved display plinth accepts an enchanted roguelite relic in its central socket.",
+      "ingredients": [
+        "organic83:roguelite-relic",
+        "organic83:crafting-material-rack"
+      ],
+      "familyCampaigns": [],
+      "path": "client/assets/v83/relic-socket-pedestal.svg",
+      "art_mode": "bespoke-subject",
+      "editorial_qa": "pending"
+    },
+    {
+      "id": "organic83:quest-reward-parcel",
+      "name": "Quest Reward Parcel",
+      "category": "gamecraft",
+      "summary": "A tied cloth parcel contains coins and a quest completion voucher.",
+      "ingredients": [
+        "organic83:quest-notice-board",
+        "organic83:loot-satchel"
+      ],
+      "familyCampaigns": [],
+      "path": "client/assets/v83/quest-reward-parcel.svg",
+      "art_mode": "bespoke-subject",
+      "editorial_qa": "pending"
+    }
+  ],
+  "source_checkpoint": {
+    "at_candidates": 200,
+    "isolated_family": "mythology",
+    "family_candidate_count": 75,
+    "classic_only_candidate_count": 125,
+    "family_reachable": 159,
+    "family_total": 159,
+    "historical_organic_modules_checked": 39,
+    "legacy_and_creative_catalogs_checked": true,
+    "new_pair_keys_unique": 200,
+    "new_ids_unique": 200,
+    "svg_paths_unique": 200,
+    "source_art_map_entries": 200,
+    "manifest_entries": 200,
+    "missing_recipe_inputs": 0,
+    "forward_wip_recipe_dependencies": 0,
+    "name_or_recipe_collisions_found_after_corrections": 0,
+    "scope": "authored 200 WIP entries, internal checks; full source historical scan and end-to-end integration not yet complete",
+    "full_regression_test": "NOT_RUN",
+    "human_35px_review": "PENDING",
+    "historical_name_pair_scan": "PASS 41 sources; zero collisions",
+    "unique_ids": 150,
+    "unique_pair_keys": 150,
+    "used_organic_input_versions": [
+      32,
+      34,
+      37,
+      38,
+      40,
+      82,
+      83
+    ],
+    "all_recipe_inputs_resolved": true,
+    "android_device_test": "NOT_RUN_FOR_V83",
+    "mythology_members": 159,
+    "prehistoric_members": 141,
+    "family_closure": "159/159 Mythology, 141/141 Prehistory in source graph",
+    "runtime_integration": "SOURCE_WIRED_AWAITING_CI"
+  },
+  "cycle_complete": true,
+  "cohort_count": 200,
+  "expansion_progress": 200,
+  "remaining_to_goal": 0,
+  "expected_catalog": {
+    "elements": 6212,
+    "recipes": 14549
+  },
+  "release_status": "NOT_PUBLISHED_PENDING_CI_DEVICE_AND_ART",
+  "approval_scope": "QA source candidate, not human aesthetic approval"
+}

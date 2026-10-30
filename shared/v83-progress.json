@@ -14,7 +14,7 @@
     {
       "id": "organic83:mythic-bestiary",
       "name": "Mythic Bestiary",
-      "category": "fantasy",
+      "category": "mythology",
       "summary": "An illustrated field book catalogues legendary beasts and supernatural creatures.",
       "ingredients": [
         "organic82:mythology",
@@ -30,7 +30,7 @@
     {
       "id": "organic83:cave-troll",
       "name": "Cave Troll",
-      "category": "fantasy",
+      "category": "mythology",
       "summary": "A hulking cave dweller with knotted arms and blunt tusks prowls underground passages.",
       "ingredients": [
         "organic83:mythic-bestiary",
@@ -46,7 +46,7 @@
     {
       "id": "organic83:stone-troll",
       "name": "Stone Troll",
-      "category": "fantasy",
+      "category": "mythology",
       "summary": "An ancient troll covered in slate slabs and granite ridges stands like a living boulder.",
       "ingredients": [
         "organic83:cave-troll",
@@ -62,7 +62,7 @@
     {
       "id": "organic83:forest-troll",
       "name": "Forest Troll",
-      "category": "fantasy",
+      "category": "mythology",
       "summary": "A shaggy woodland troll wears moss, bark and fern fronds as camouflage.",
       "ingredients": [
         "organic83:cave-troll",
@@ -78,7 +78,7 @@
     {
       "id": "organic83:ulfhednar",
       "name": "Ulfhednar",
-      "category": "fantasy",
+      "category": "mythology",
       "summary": "A Norse wolf-cloaked berserker takes on the fierce aspect of Fenrir in battle.",
       "ingredients": [
         "organic82:fenrir",
@@ -94,7 +94,7 @@
     {
       "id": "organic83:vrykolakas",
       "name": "Vrykolakas",
-      "category": "fantasy",
+      "category": "mythology",
       "summary": "A restless undead figure from Greek folklore returns from the grave beneath a dark cloak.",
       "ingredients": [
         "organic83:mythic-bestiary",
@@ -110,7 +110,7 @@
     {
       "id": "organic83:vampire-bat",
       "name": "Vampire Bat",
-      "category": "fantasy",
+      "category": "mythology",
       "summary": "A small sharp-fanged bat stretches its leathery wings beneath a moonlit sky.",
       "ingredients": [
         "organic83:vrykolakas",
@@ -126,7 +126,7 @@
     {
       "id": "organic83:night-wraith",
       "name": "Night Wraith",
-      "category": "fantasy",
+      "category": "mythology",
       "summary": "A faceless spirit gathers in a hood of midnight mist and leaves a dissolving spectral trail.",
       "ingredients": [
         "organic83:mythic-bestiary",
@@ -142,7 +142,7 @@
     {
       "id": "organic83:banshee",
       "name": "Banshee",
-      "category": "fantasy",
+      "category": "mythology",
       "summary": "A keening apparition with streaming silver hair warns of death in Irish folklore.",
       "ingredients": [
         "organic83:night-wraith",
@@ -158,7 +158,7 @@
     {
       "id": "organic83:stone-golem",
       "name": "Stone Golem",
-      "category": "fantasy",
+      "category": "mythology",
       "summary": "An animated granite guardian rises from carved blocks with a glowing rune at its core.",
       "ingredients": [
         "organic82:hephaestus",
@@ -174,7 +174,7 @@
     {
       "id": "organic83:forest-dryad",
       "name": "Forest Dryad",
-      "category": "fantasy",
+      "category": "mythology",
       "summary": "A woodland spirit with bark-textured skin and a crown of living branches protects ancient trees.",
       "ingredients": [
         "organic82:gaia",
@@ -190,7 +190,7 @@
     {
       "id": "organic83:basilisk",
       "name": "Basilisk",
-      "category": "fantasy",
+      "category": "mythology",
       "summary": "A venomous crowned serpent with a petrifying stare coils around an ancient pillar.",
       "ingredients": [
         "organic82:medusa",
@@ -206,7 +206,7 @@
     {
       "id": "organic83:griffin",
       "name": "Griffin",
-      "category": "fantasy",
+      "category": "mythology",
       "summary": "A vigilant eagle-headed lion guards mountain treasures with broad, feathered wings.",
       "ingredients": [
         "organic82:horus",
@@ -222,7 +222,7 @@
     {
       "id": "organic83:chimera",
       "name": "Chimera",
-      "category": "fantasy",
+      "category": "mythology",
       "summary": "A legendary hybrid bears the jaws of a lion, a horned goat's head and a serpent tail.",
       "ingredients": [
         "organic82:cerberus",
@@ -238,7 +238,7 @@
     {
       "id": "organic83:harpy",
       "name": "Harpy",
-      "category": "fantasy",
+      "category": "mythology",
       "summary": "A wind-tossed bird spirit with a human face, broad pinions and gripping talons.",
       "ingredients": [
         "organic82:valkyrie",
@@ -254,7 +254,7 @@
     {
       "id": "organic83:centaur",
       "name": "Centaur",
-      "category": "fantasy",
+      "category": "mythology",
       "summary": "A swift horse-bodied archer with a human torso crosses an ancient grassy plain.",
       "ingredients": [
         "organic82:pegasus",
@@ -270,7 +270,7 @@
     {
       "id": "organic83:satyr",
       "name": "Satyr",
-      "category": "fantasy",
+      "category": "mythology",
       "summary": "A horned woodland musician walks on goat legs and plays a set of panpipes.",
       "ingredients": [
         "organic82:dionysus",
@@ -286,7 +286,7 @@
     {
       "id": "organic83:ocean-leviathan",
       "name": "Ocean Leviathan",
-      "category": "fantasy",
+      "category": "mythology",
       "summary": "An immense armored sea serpent raises its crest above ocean swells.",
       "ingredients": [
         "organic82:poseidon",
@@ -302,7 +302,7 @@
     {
       "id": "organic83:selkie",
       "name": "Selkie",
-      "category": "fantasy",
+      "category": "mythology",
       "summary": "A seal-skin shapeshifter steps between her coastal home and a human form.",
       "ingredients": [
         "organic83:mythic-bestiary",
@@ -318,7 +318,7 @@
     {
       "id": "organic83:solar-phoenix",
       "name": "Solar Phoenix",
-      "category": "fantasy",
+      "category": "mythology",
       "summary": "An ancient radiant firebird rises from embers with a crest of golden flame.",
       "ingredients": [
         "organic82:ra",
@@ -334,7 +334,7 @@
     {
       "id": "organic83:thunderbird",
       "name": "Thunderbird",
-      "category": "fantasy",
+      "category": "mythology",
       "summary": "A mighty storm bird spreads jagged wings as lightning flashes around its talons.",
       "ingredients": [
         "organic82:thor-of-asgard",
@@ -350,7 +350,7 @@
     {
       "id": "organic83:giant-roc",
       "name": "Giant Roc",
-      "category": "fantasy",
+      "category": "mythology",
       "summary": "A giant bird soars above an entire mountain ridge with colossal hooked claws.",
       "ingredients": [
         "organic82:horus",
@@ -366,7 +366,7 @@
     {
       "id": "organic83:ancient-tree-ent",
       "name": "Ancient Tree Ent",
-      "category": "fantasy",
+      "category": "mythology",
       "summary": "An ancient tree guardian walks on knotted root legs and watches with a bark-carved face.",
       "ingredients": [
         "organic83:forest-dryad",
@@ -382,7 +382,7 @@
     {
       "id": "organic83:will-o-wisp",
       "name": "Will-o'-the-Wisp",
-      "category": "fantasy",
+      "category": "mythology",
       "summary": "A wandering marsh ghostlight hangs above reeds, glowing blue and pearl white.",
       "ingredients": [
         "organic83:night-wraith",
@@ -398,7 +398,7 @@
     {
       "id": "organic83:gargoyle",
       "name": "Gargoyle",
-      "category": "fantasy",
+      "category": "mythology",
       "summary": "A carved winged sentinel crouches above a stone parapet with fangs and curled horns.",
       "ingredients": [
         "organic83:stone-golem",
@@ -414,7 +414,7 @@
     {
       "id": "organic83:kelpie",
       "name": "Kelpie",
-      "category": "fantasy",
+      "category": "mythology",
       "summary": "A dark water horse rises from a loch with reeds tangled through its mane.",
       "ingredients": [
         "organic83:ocean-leviathan",
@@ -430,7 +430,7 @@
     {
       "id": "organic83:barghest",
       "name": "Barghest",
-      "category": "fantasy",
+      "category": "mythology",
       "summary": "A spectral black hound stalks the moor with ember-red eyes and smoky paws.",
       "ingredients": [
         "organic82:fenrir",
@@ -446,7 +446,7 @@
     {
       "id": "organic83:black-shuck",
       "name": "Black Shuck",
-      "category": "fantasy",
+      "category": "mythology",
       "summary": "A massive one-eyed ghost dog prowls a stormy English coastline.",
       "ingredients": [
         "organic83:barghest",
@@ -462,7 +462,7 @@
     {
       "id": "organic83:dullahan",
       "name": "Dullahan",
-      "category": "fantasy",
+      "category": "mythology",
       "summary": "A headless rider carries a lantern as a dark horse races through the night.",
       "ingredients": [
         "organic83:banshee",
@@ -478,7 +478,7 @@
     {
       "id": "organic83:leshy",
       "name": "Leshy",
-      "category": "fantasy",
+      "category": "mythology",
       "summary": "A moss-bearded guardian wears a leafy crown and has hands like tangled branches.",
       "ingredients": [
         "organic83:forest-dryad",
@@ -494,7 +494,7 @@
     {
       "id": "organic83:baba-yaga",
       "name": "Baba Yaga",
-      "category": "fantasy",
+      "category": "mythology",
       "summary": "The witch of Slavic folktales lives in a crooked hut perched on giant chicken legs.",
       "ingredients": [
         "organic83:forest-dryad",
@@ -510,7 +510,7 @@
     {
       "id": "organic83:tatzelwurm",
       "name": "Tatzelwurm",
-      "category": "fantasy",
+      "category": "mythology",
       "summary": "A cat-faced alpine worm winds between rocky peaks with two tiny clawed forelegs.",
       "ingredients": [
         "organic83:basilisk",
@@ -526,7 +526,7 @@
     {
       "id": "organic83:tarasque",
       "name": "Tarasque",
-      "category": "fantasy",
+      "category": "mythology",
       "summary": "A spiked armored beast of French legend has a lion-like face, heavy shell and sturdy legs.",
       "ingredients": [
         "organic83:basilisk",
@@ -542,7 +542,7 @@
     {
       "id": "organic83:wyvern",
       "name": "Wyvern",
-      "category": "fantasy",
+      "category": "mythology",
       "summary": "A long-tailed winged dragon has two taloned legs and a forked, spiny crest.",
       "ingredients": [
         "organic83:griffin",
@@ -558,7 +558,7 @@
     {
       "id": "organic83:cockatrice",
       "name": "Cockatrice",
-      "category": "fantasy",
+      "category": "mythology",
       "summary": "A small rooster-headed serpent with a fan crest and barbed tail emerges from a nest.",
       "ingredients": [
         "organic83:thunderbird",
@@ -574,7 +574,7 @@
     {
       "id": "organic83:manticore",
       "name": "Manticore",
-      "category": "fantasy",
+      "category": "mythology",
       "summary": "A lion-bodied monster wears a fierce mane and raises a venomous scorpion tail.",
       "ingredients": [
         "organic83:chimera",
@@ -590,7 +590,7 @@
     {
       "id": "organic83:amphisbaena",
       "name": "Amphisbaena",
-      "category": "fantasy",
+      "category": "mythology",
       "summary": "A two-headed serpent carries a watchful scaled head at both ends of its coiled body.",
       "ingredients": [
         "organic82:jormungandr",
@@ -606,7 +606,7 @@
     {
       "id": "organic83:simurgh",
       "name": "Simurgh",
-      "category": "fantasy",
+      "category": "mythology",
       "summary": "A legendary wise bird spreads sweeping turquoise wings and a flowing jeweled tail.",
       "ingredients": [
         "organic83:solar-phoenix",
@@ -622,7 +622,7 @@
     {
       "id": "organic83:hippocampus",
       "name": "Hippocampus",
-      "category": "fantasy",
+      "category": "mythology",
       "summary": "A mythic sea horse combines a proud equine head with a curling fish tail.",
       "ingredients": [
         "organic83:selkie",
@@ -638,7 +638,7 @@
     {
       "id": "organic83:naiad",
       "name": "Naiad",
-      "category": "fantasy",
+      "category": "mythology",
       "summary": "A freshwater nymph dances above a waterfall, her hair blending into clear streams.",
       "ingredients": [
         "organic83:forest-dryad",
@@ -654,7 +654,7 @@
     {
       "id": "organic83:nereid",
       "name": "Nereid",
-      "category": "fantasy",
+      "category": "mythology",
       "summary": "A pearl-crowned sea nymph rides a translucent wave beneath a scallop shell.",
       "ingredients": [
         "organic83:naiad",
@@ -670,7 +670,7 @@
     {
       "id": "organic83:lamia",
       "name": "Lamia",
-      "category": "fantasy",
+      "category": "mythology",
       "summary": "A serpent-bodied enchantress of Greek legend wears a golden circlet above emerald coils.",
       "ingredients": [
         "organic82:medusa",
@@ -686,7 +686,7 @@
     {
       "id": "organic83:scylla",
       "name": "Scylla",
-      "category": "fantasy",
+      "category": "mythology",
       "summary": "A many-necked sea monster snaps from dark waves below a rocky strait.",
       "ingredients": [
         "organic83:ocean-leviathan",
@@ -702,7 +702,7 @@
     {
       "id": "organic83:charybdis",
       "name": "Charybdis",
-      "category": "fantasy",
+      "category": "mythology",
       "summary": "An ancient swallowing whirlpool curls into a dark funnel between jagged reefs.",
       "ingredients": [
         "organic83:ocean-leviathan",
@@ -718,7 +718,7 @@
     {
       "id": "organic83:fomorian",
       "name": "Fomorian",
-      "category": "fantasy",
+      "category": "mythology",
       "summary": "A hulking one-eyed sea giant carries a jagged black trident through coastal spray.",
       "ingredients": [
         "organic82:frost-giant",
@@ -734,7 +734,7 @@
     {
       "id": "organic83:puca",
       "name": "Puca",
-      "category": "fantasy",
+      "category": "mythology",
       "summary": "A playful shape-changing spirit of Irish folklore appears as a long-eared black horse.",
       "ingredients": [
         "organic83:ulfhednar",
@@ -750,7 +750,7 @@
     {
       "id": "organic83:undine",
       "name": "Undine",
-      "category": "fantasy",
+      "category": "mythology",
       "summary": "A freshwater elemental lifts a translucent body from twisting currents and bubbles.",
       "ingredients": [
         "organic83:naiad",
@@ -766,7 +766,7 @@
     {
       "id": "organic83:pixie",
       "name": "Pixie",
-      "category": "fantasy",
+      "category": "mythology",
       "summary": "A tiny forest fairy with translucent insect wings carries a luminous seed lantern.",
       "ingredients": [
         "organic83:forest-dryad",
@@ -782,7 +782,7 @@
     {
       "id": "organic83:kobold",
       "name": "Kobold",
-      "category": "fantasy",
+      "category": "mythology",
       "summary": "A small cave trickster with pointed ears carries a brass lantern and mineral pick.",
       "ingredients": [
         "organic83:cave-troll",
@@ -798,7 +798,7 @@
     {
       "id": "organic83:wight",
       "name": "Wight",
-      "category": "fantasy",
+      "category": "mythology",
       "summary": "An armored revenant rises from cold mist with a tarnished crown and pale spectral eyes.",
       "ingredients": [
         "organic83:vrykolakas",
@@ -2214,7 +2214,7 @@
     {
       "id": "organic83:olenellus",
       "name": "Olenellus",
-      "category": "life",
+      "category": "prehistoric",
       "summary": "A Cambrian trilobite with long curved cheek spines and a broad head shield.",
       "ingredients": [
         "organic82:trilobite",
@@ -2230,7 +2230,7 @@
     {
       "id": "organic83:aegirocassis",
       "name": "Aegirocassis",
-      "category": "life",
+      "category": "prehistoric",
       "summary": "A filter-feeding Cambrian radiodont with broad swimming flaps and a comb-like head.",
       "ingredients": [
         "organic82:anomalocaris",
@@ -2246,7 +2246,7 @@
     {
       "id": "organic83:hallucigenia",
       "name": "Hallucigenia",
-      "category": "life",
+      "category": "prehistoric",
       "summary": "A tiny Cambrian lobopodian walks on soft legs beneath tall defensive spines.",
       "ingredients": [
         "organic82:cambrian-period",
@@ -2262,7 +2262,7 @@
     {
       "id": "organic83:opabinia",
       "name": "Opabinia",
-      "category": "life",
+      "category": "prehistoric",
       "summary": "An odd Cambrian swimmer has five stalked eyes and a flexible claw-tipped proboscis.",
       "ingredients": [
         "organic82:anomalocaris",
@@ -2278,7 +2278,7 @@
     {
       "id": "organic83:wiwaxia",
       "name": "Wiwaxia",
-      "category": "life",
+      "category": "prehistoric",
       "summary": "A Cambrian mollusc-like creature carries overlapping armor plates and curved spines.",
       "ingredients": [
         "organic82:trilobite",
@@ -2294,7 +2294,7 @@
     {
       "id": "organic83:pikaia",
       "name": "Pikaia",
-      "category": "life",
+      "category": "prehistoric",
       "summary": "A slender Cambrian chordate swims with a striped flexible tail.",
       "ingredients": [
         "organic82:prehistoric-ocean",
@@ -2310,7 +2310,7 @@
     {
       "id": "organic83:hurdia",
       "name": "Hurdia",
-      "category": "life",
+      "category": "prehistoric",
       "summary": "A Cambrian radiodont has a rounded head shield and grasping frontal appendages.",
       "ingredients": [
         "organic82:anomalocaris",
@@ -2326,7 +2326,7 @@
     {
       "id": "organic83:cameroceras",
       "name": "Cameroceras",
-      "category": "life",
+      "category": "prehistoric",
       "summary": "An enormous straight-shelled nautiloid extends tentacles from a tapering conical shell.",
       "ingredients": [
         "organic82:ammonite",
@@ -2342,7 +2342,7 @@
     {
       "id": "organic83:helicoprion",
       "name": "Helicoprion",
-      "category": "life",
+      "category": "prehistoric",
       "summary": "A prehistoric shark relative shows a distinctive spiral tooth whorl beneath its jaw.",
       "ingredients": [
         "organic82:paleozoic-era",
@@ -2358,7 +2358,7 @@
     {
       "id": "organic83:stethacanthus",
       "name": "Stethacanthus",
-      "category": "life",
+      "category": "prehistoric",
       "summary": "A Carboniferous shark displays a strange anvil-shaped dorsal fin.",
       "ingredients": [
         "organic82:carboniferous-period",
@@ -2374,7 +2374,7 @@
     {
       "id": "organic83:tiktaalik",
       "name": "Tiktaalik",
-      "category": "life",
+      "category": "prehistoric",
       "summary": "A flat-headed Devonian lobe-finned fish pushes onto a shallow mudflat.",
       "ingredients": [
         "organic82:prehistoric-ocean",
@@ -2390,7 +2390,7 @@
     {
       "id": "organic83:acanthostega",
       "name": "Acanthostega",
-      "category": "life",
+      "category": "prehistoric",
       "summary": "An early amphibian-like tetrapod swims with many-toed limbs.",
       "ingredients": [
         "organic83:tiktaalik",
@@ -2406,7 +2406,7 @@
     {
       "id": "organic83:diplocaulus",
       "name": "Diplocaulus",
-      "category": "life",
+      "category": "prehistoric",
       "summary": "An extinct amphibian has a boomerang-shaped head with wide lateral horns.",
       "ingredients": [
         "organic83:acanthostega",
@@ -2422,7 +2422,7 @@
     {
       "id": "organic83:dimetrodon",
       "name": "Dimetrodon",
-      "category": "life",
+      "category": "prehistoric",
       "summary": "A Permian sail-backed synapsid walks on four stout legs.",
       "ingredients": [
         "organic82:carboniferous-period",
@@ -2438,7 +2438,7 @@
     {
       "id": "organic83:gorgonops",
       "name": "Gorgonops",
-      "category": "life",
+      "category": "prehistoric",
       "summary": "A Permian sabre-toothed predator stands low on muscular forelimbs.",
       "ingredients": [
         "organic82:paleozoic-era",
@@ -2454,7 +2454,7 @@
     {
       "id": "organic83:lystrosaurus",
       "name": "Lystrosaurus",
-      "category": "life",
+      "category": "prehistoric",
       "summary": "A stocky early Triassic dicynodont has a beak and two downward-pointing tusks.",
       "ingredients": [
         "organic82:triassic-period",
@@ -2470,7 +2470,7 @@
     {
       "id": "organic83:tanystropheus",
       "name": "Tanystropheus",
-      "category": "life",
+      "category": "prehistoric",
       "summary": "A Triassic reptile carries a remarkably long rigid neck above a small body.",
       "ingredients": [
         "organic82:triassic-period",
@@ -2486,7 +2486,7 @@
     {
       "id": "organic83:shonisaurus",
       "name": "Shonisaurus",
-      "category": "life",
+      "category": "prehistoric",
       "summary": "A giant Triassic ichthyosaur glides through deep water with a long beak.",
       "ingredients": [
         "organic82:triassic-period",
@@ -2502,7 +2502,7 @@
     {
       "id": "organic83:elasmotherium",
       "name": "Elasmotherium",
-      "category": "life",
+      "category": "prehistoric",
       "summary": "An Ice Age rhinoceros relative bears one long horn on its forehead.",
       "ingredients": [
         "organic82:ice-age",
@@ -2518,7 +2518,7 @@
     {
       "id": "organic83:homotherium",
       "name": "Homotherium",
-      "category": "life",
+      "category": "prehistoric",
       "summary": "A prehistoric scimitar-toothed cat has a strong neck and long forelimbs.",
       "ingredients": [
         "organic82:smilodon",
@@ -2534,7 +2534,7 @@
     {
       "id": "organic83:kelenken",
       "name": "Kelenken",
-      "category": "life",
+      "category": "prehistoric",
       "summary": "An enormous flightless terror bird has powerful legs and a heavy hooked beak.",
       "ingredients": [
         "organic82:terror-bird",
@@ -2550,7 +2550,7 @@
     {
       "id": "organic83:doedicurus",
       "name": "Doedicurus",
-      "category": "life",
+      "category": "prehistoric",
       "summary": "A giant extinct armadillo carries a domed shell and mace-like spiked tail.",
       "ingredients": [
         "organic82:glyptodon",
@@ -2566,7 +2566,7 @@
     {
       "id": "organic83:hatzegopteryx",
       "name": "Hatzegopteryx",
-      "category": "life",
+      "category": "prehistoric",
       "summary": "A gigantic azhdarchid pterosaur strides on long limbs with a massive beak.",
       "ingredients": [
         "organic82:quetzalcoatlus",
@@ -2582,7 +2582,7 @@
     {
       "id": "organic83:yutyrannus",
       "name": "Yutyrannus",
-      "category": "life",
+      "category": "prehistoric",
       "summary": "A large feathered tyrannosauroid has a shaggy coat and powerful hind legs.",
       "ingredients": [
         "organic82:feathered-dinosaur",
@@ -2598,7 +2598,7 @@
     {
       "id": "organic83:kosmoceratops",
       "name": "Kosmoceratops",
-      "category": "life",
+      "category": "prehistoric",
       "summary": "A horned Cretaceous dinosaur bears an elaborate crown of curved frill spikes.",
       "ingredients": [
         "organic82:styracosaurus",
@@ -2982,7 +2982,7 @@
     "scope": "authored 200 WIP entries, internal checks; full source historical scan and end-to-end integration not yet complete",
     "full_regression_test": "NOT_RUN",
     "human_35px_review": "PENDING",
-    "historical_name_pair_scan": "PENDING_FULL_200_SCAN",
+    "historical_name_pair_scan": "PASS 41 sources; zero collisions",
     "unique_ids": 150,
     "unique_pair_keys": 150,
     "used_organic_input_versions": [
@@ -2995,6 +2995,10 @@
       83
     ],
     "all_recipe_inputs_resolved": true,
-    "android_device_test": "NOT_RUN_FOR_V83"
+    "android_device_test": "NOT_RUN_FOR_V83",
+    "mythology_members": 159,
+    "prehistoric_members": 141,
+    "family_closure": "159/159 Mythology, 141/141 Prehistory in source graph",
+    "runtime_integration": "SOURCE_WIRED_AWAITING_CI"
   }
 }
