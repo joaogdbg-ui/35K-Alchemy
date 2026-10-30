@@ -33,7 +33,7 @@ for i, a in enumerate(names):
         (hard if d <= 3 else soft if d <= 5 else []).append((d, a, b)) if d <= 5 else None
     for b, v in ref.items():
         d = bin(h[a] ^ v).count('1')
-        if d <= 3:
+        if d <= 3 and frozenset((a, b)) not in reviewed:
             hard.append((d, a, b))
 for d, a, b in sorted(soft):
     print(f'check d={d}: {a} ~ {b}')
