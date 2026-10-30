@@ -821,7 +821,79 @@ function updateCounts(){
 }
 function updateSlotUI(){slots.forEach((id,i)=>{const target=$(`slot${i}`),item=byId.get(id);target.classList.toggle('filled',!!item);target.innerHTML=item?`<span class="slot-art">${staticArt(item)}</span><span class="slot-name">${escapeText(uiName(item))}</span>`:'<span class="slot-plus">+</span>';});$('lockLeft').setAttribute('aria-pressed',String(leftLocked));$('batchOpen').hidden=!(leftLocked&&slots[0]);}
 function updateLatest(){ /* V35: the last ID remains in saved progress, but no screen-space widget. */ }
-function place(index,id){if(batchState?.phase==='scanning')return;if(!byId.has(id)||!unlocked.has(id))return;clearTimeout(autoTimer);slots[index]=id;updateSlotUI();if(slots.every(Boolean))autoTimer=setTimeout(combine,180);}
+// Short non-blocking tile motion: every animation owns disposable visual clones.
+// Game state and input timing are never delayed by an effect.
+let activeCraftMotion=null;
+function stopCraftMotion(){
+ const m=activeCraftMotion;if(!m)return;
+ activeCraftMotion=null;m.cancelled=true;
+ for(const node of m.nodes)node.remove();
+}
+function playCraftMotion(rightId,resultId,isNew){
+ stopCraftMotion();
+ if(tab!=='Play'||document.visibilityState==='hidden'||window.matchMedia?.('(prefers-reduced-motion: reduce)')?.matches)return false;
+ const left=$('slot0'),right=$('slot1'),ingredient=byId.get(rightId),result=byId.get(resultId);
+ if(!ingredient||!left||!right||typeof right.animate!=='function')return false;
+ const l=left.getBoundingClientRect(),r=right.getBoundingClientRect();
+ if(!l.width||!r.width)return false;
+ const m={cancelled:false,nodes:[]};activeCraftMotion=m;
+ const active=()=>activeCraftMotion===m&&!m.cancelled;
+ const add=(node)=>{document.body.appendChild(node);m.nodes.push(node);return node;};
+ const run=(node,frames,options)=>node.animate(frames,{fill:'forwards',easing:'ease-out',...options}).finished.catch(()=>{});
+ const ghost=document.createElement('div');ghost.className='craft-motion-ghost';ghost.setAttribute('aria-hidden','true');
+ ghost.innerHTML=right.innerHTML;
+ Object.assign(ghost.style,{left:r.left+'px',top:r.top+'px',width:r.width+'px',height:r.height+'px'});add(ghost);
+ const dx=l.left-r.left,dy=l.top-r.top;
+ const revealMarkup=()=>`<div class="craft-motion-art">${staticArt(result)}</div><div class="craft-motion-name">${escapeText(uiName(result))}</div>`;
+ async function sequence(){
+  if(!result){
+   await run(ghost,[
+    {transform:'translate3d(0,0,0) scale(1)',offset:0},
+    {transform:`translate3d(${dx*.92}px,${dy}px,0) scale(.98)`,offset:.40},
+    {transform:`translate3d(${dx}px,${dy}px,0) scale(.90)`,offset:.52},
+    {transform:`translate3d(${dx+17}px,${dy}px,0) scale(.96)`,offset:.65},
+    {transform:'translate3d(0,0,0) scale(1)',opacity:0,offset:1}
+   ],{duration:295,easing:'ease-in-out'});
+  }else{
+   await run(ghost,[
+    {transform:'translate3d(0,0,0) scale(1)',opacity:1},
+    {transform:`translate3d(${dx}px,${dy}px,0) scale(.85)`,opacity:.2}
+   ],{duration:165});
+   if(!active())return;ghost.remove();
+   if(!isNew){
+    const formed=document.createElement('div');formed.className='craft-motion-result';formed.setAttribute('aria-hidden','true');
+    formed.innerHTML=revealMarkup();
+    Object.assign(formed.style,{left:l.left+'px',top:l.top+'px',width:l.width+'px',height:l.height+'px'});add(formed);
+    await run(formed,[
+     {transform:'translate3d(0,6px,0) scale(.88)',opacity:0,offset:0},
+     {transform:'translate3d(0,0,0) scale(1)',opacity:1,offset:.24},
+     {transform:'translate3d(0,-48px,0) scale(1.06)',opacity:0,offset:1}
+    ],{duration:300,easing:'ease-out'});
+   }else{
+    const full=document.createElement('div');full.className='craft-motion-full';full.setAttribute('aria-hidden','true');
+    full.innerHTML=`<div class="craft-motion-full-inner"><div class="craft-motion-kicker">✦ NEW DISCOVERY</div>${revealMarkup()}<div class="craft-motion-pair">${escapeText(uiName(byId.get(slots[0])||ingredient))}</div></div>`;
+    // Use the actual ingredient names from the captured combination, not the slots cleared after crafting.
+    full.querySelector('.craft-motion-pair').textContent='';
+    add(full);
+    const vw=window.innerWidth,vh=window.innerHeight;
+    await run(full,[
+     {transform:`translate3d(${l.left}px,${l.top}px,0) scale(${l.width/vw},${l.height/vh})`,borderRadius:'19px',offset:0},
+     {transform:`translate3d(${l.left*.60}px,${l.top+26}px,0) scale(.50,.50)`,borderRadius:'16px',offset:.26},
+     {transform:'translate3d(0,0,0) scale(1)',borderRadius:'0px',offset:1}
+    ],{duration:380,easing:'cubic-bezier(.19,.72,.25,1)'});
+    if(!active())return;
+    await new Promise(resolve=>setTimeout(resolve,850));
+    if(active())await run(full,[{opacity:1},{opacity:0}],{duration:170});
+   }
+  }
+  if(active())stopCraftMotion();
+ }
+ void sequence();
+ return true;
+}
+// An active effect disappears on the next touch; the new touch proceeds normally.
+document.addEventListener('pointerdown',stopCraftMotion,{capture:true,passive:true});
+function place(index,id){if(batchState?.phase==='scanning')return;if(!byId.has(id)||!unlocked.has(id))return;stopCraftMotion();clearTimeout(autoTimer);slots[index]=id;updateSlotUI();if(slots.every(Boolean))autoTimer=setTimeout(combine,180);}
 // V54: pulsing feedback follows an actual ingredient selection (tap, pointer or keyboard).
 // The visual state is short-lived and never alters the recipes or the inventory order.
 function pulseSelectedElement(id){
@@ -926,22 +998,28 @@ async function connectToApi(){if(!apiBase)return;try{
  const created=await apiJson('/v1/session',{method:'POST',auth:false});if(!created.token||!created.playerId)throw Error('invalid session');sessionToken=created.token;localStorage.setItem('gameverse_session_v11:'+apiBase,sessionToken);await syncOnline();
  }catch(err){console.warn('Connect failed:',err.message);toast('Connection failed; offline play still works');}}
 // This is the sole completion path: legacy, repeated, deterministic reuse, remote approval.
-function completeCombination(resultId,a,b,kind='recipe'){
+function completeCombination(resultId,a,b,kind='recipe',showPopup=true){
  if(!byId.has(resultId)||(currentMode==='family'&&!familyCampaigns.get(currentFamilyId).itemSet.has(resultId)))return;
  const key=pairKey(a,b),fresh=!unlocked.has(resultId);
  recipes.set(key,resultId);known.add(key);unlocked.add(resultId);last=resultId;
  if(fresh&&!STARTERS.has(resultId))discoveryLedger.set(resultId,{at:new Date().toISOString(),source:kind,ingredients:[a,b]});
  recent=[resultId,...recent.filter(i=>i!==resultId)].slice(0,350);
  save();updateCounts();updateLatest();
- if(fresh){announceCraft('new','New discovery · '+uiName(byId.get(resultId)));rerenderCollections();if(tab==='World')renderDiscoveries();showDiscovery(resultId,a,b);}
+ if(fresh){announceCraft('new','New discovery · '+uiName(byId.get(resultId)));rerenderCollections();if(tab==='World')renderDiscoveries();if(showPopup)showDiscovery(resultId,a,b);}
  else {announceCraft('repeat','Already discovered · '+uiName(byId.get(resultId)));}
 }
 async function combine(){
  if(!slots[0]||!slots[1])return;
- const [a,b]=slots;finishSlots();const key=pairKey(a,b),cached=recipes.get(key);
- if(cached){completeCombination(cached,a,b);return;}
- const local=currentMode==='classic'?resolveLocalRedundancy(byId.get(a),byId.get(b)):null;
- if(local){completeCombination(local,a,b,'redundant');return;}
+ const [a,b]=slots,key=pairKey(a,b),cached=recipes.get(key);
+ const local=!cached&&currentMode==='classic'?resolveLocalRedundancy(byId.get(a),byId.get(b)):null;
+ const result=cached||local;
+ if(result){
+  const allowed=byId.has(result)&&(currentMode!=='family'||familyCampaigns.get(currentFamilyId)?.itemSet.has(result));
+  const animated=allowed&&playCraftMotion(b,result,!unlocked.has(result));
+  finishSlots();completeCombination(result,a,b,cached?'recipe':'redundant',!animated);return;
+ }
+ if(!apiBase)playCraftMotion(b,null,false);
+ finishSlots();
  if(!apiBase){clearCraftFeedback();return;}
  toast('Discovering…');
  try{
