@@ -1232,20 +1232,6 @@
       "editorial_qa": "pending"
     },
     {
-      "id": "organic83:ghost-lap-stopwatch",
-      "name": "Ghost Lap Stopwatch",
-      "category": "gamecraft",
-      "summary": "A racing stopwatch compares the current lap against the translucent ghost of an earlier run.",
-      "ingredients": [
-        "organic83:replay-ghost",
-        "legacy:210"
-      ],
-      "familyCampaigns": [],
-      "path": "client/assets/v83/ghost-lap-stopwatch.svg",
-      "art_mode": "bespoke-subject",
-      "editorial_qa": "pending"
-    },
-    {
       "id": "organic83:replay-ghost",
       "name": "Replay Ghost",
       "category": "gamecraft",
@@ -1256,6 +1242,20 @@
       ],
       "familyCampaigns": [],
       "path": "client/assets/v83/replay-ghost.svg",
+      "art_mode": "bespoke-subject",
+      "editorial_qa": "pending"
+    },
+    {
+      "id": "organic83:ghost-lap-stopwatch",
+      "name": "Ghost Lap Stopwatch",
+      "category": "gamecraft",
+      "summary": "A racing stopwatch compares the current lap against the translucent ghost of an earlier run.",
+      "ingredients": [
+        "organic83:replay-ghost",
+        "legacy:210"
+      ],
+      "familyCampaigns": [],
+      "path": "client/assets/v83/ghost-lap-stopwatch.svg",
       "art_mode": "bespoke-subject",
       "editorial_qa": "pending"
     },

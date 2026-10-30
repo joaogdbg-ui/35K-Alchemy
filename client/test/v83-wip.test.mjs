@@ -133,3 +133,15 @@ test('V83 games, arcade and fantasy discoveries use actual supported family cate
   }
  }
 });
+
+
+test('Every new V83 recipe references its WIP ancestors before the output',()=>{
+ const index=new Map(ORGANIC_V83.items.map((item,i)=>[item.id,i]));
+ for(const [a,b,out] of ORGANIC_V83.recipes){
+  const order=index.get(out);assert.ok(Number.isInteger(order),'unknown output '+out);
+  for(const ancestor of [a,b])if(ancestor.startsWith('organic83:')){
+   assert.ok(index.has(ancestor),'missing proposed ancestor '+ancestor);
+   assert.ok(index.get(ancestor)<order,'forward dependency '+ancestor+' -> '+out);
+  }
+ }
+});

@@ -44,3 +44,6 @@ Added 25 drafts spanning physical arcade components (marquee, prize capsule, pin
 
 ## Full-history QA collision remediation at 100/200
 The scan found pre-existing `Pinball Plunger` (V73), `Speedrun Split Timer` (V81), `Joystick + Metal` (already V77 -> Joystick Spring) and `Arcade + Music` (legacy result 286). The WIP candidates were corrected to unique subjects `Pinball Launch Rail` and `Ghost Lap Stopwatch` with newly authored illustrations and global recipes. The proposed `Rhythm Note Lane` now uses `Arcade Marquee Panel + Music`; no original result was changed. Recheck the full catalog after edits.
+
+## WIP dependency order fixed
+At the 100/200 checkpoint, `Ghost Lap Stopwatch` depended on `Replay Ghost` but was listed one position earlier. The WIP array and manifest were topologically reordered without touching IDs or global recipe pairs. A dedicated test now rejects any V83 ingredient appearing after its result.
