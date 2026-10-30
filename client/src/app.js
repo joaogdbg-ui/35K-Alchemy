@@ -829,7 +829,7 @@ function stopCraftMotion(){
  activeCraftMotion=null;m.cancelled=true;
  for(const node of m.nodes)node.remove();
 }
-function playCraftMotion(rightId,resultId,isNew){
+function playCraftMotion(leftId,rightId,resultId,isNew){
  stopCraftMotion();
  if(tab!=='Play'||document.visibilityState==='hidden'||window.matchMedia?.('(prefers-reduced-motion: reduce)')?.matches)return false;
  const left=$('slot0'),right=$('slot1'),ingredient=byId.get(rightId),result=byId.get(resultId);
@@ -871,9 +871,7 @@ function playCraftMotion(rightId,resultId,isNew){
     ],{duration:300,easing:'ease-out'});
    }else{
     const full=document.createElement('div');full.className='craft-motion-full';full.setAttribute('aria-hidden','true');
-    full.innerHTML=`<div class="craft-motion-full-inner"><div class="craft-motion-kicker">✦ NEW DISCOVERY</div>${revealMarkup()}<div class="craft-motion-pair">${escapeText(uiName(byId.get(slots[0])||ingredient))}</div></div>`;
-    // Use the actual ingredient names from the captured combination, not the slots cleared after crafting.
-    full.querySelector('.craft-motion-pair').textContent='';
+    full.innerHTML=`<div class="craft-motion-full-inner"><div class="craft-motion-kicker">✦ NEW DISCOVERY</div>${revealMarkup()}<div class="craft-motion-pair">${escapeText(uiName(byId.get(leftId)))} + ${escapeText(uiName(ingredient))}</div></div>`;
     add(full);
     const vw=window.innerWidth,vh=window.innerHeight;
     await run(full,[
@@ -1015,10 +1013,10 @@ async function combine(){
  const result=cached||local;
  if(result){
   const allowed=byId.has(result)&&(currentMode!=='family'||familyCampaigns.get(currentFamilyId)?.itemSet.has(result));
-  const animated=allowed&&playCraftMotion(b,result,!unlocked.has(result));
+  const animated=allowed&&playCraftMotion(a,b,result,!unlocked.has(result));
   finishSlots();completeCombination(result,a,b,cached?'recipe':'redundant',!animated);return;
  }
- if(!apiBase)playCraftMotion(b,null,false);
+ if(!apiBase)playCraftMotion(a,b,null,false);
  finishSlots();
  if(!apiBase){clearCraftFeedback();return;}
  toast('Discovering…');
@@ -1383,7 +1381,7 @@ function settings(){
     <div class="settings-divider"></div>
     <details><summary>Where is progress saved?</summary><p>Progress is stored locally. Clearing app data or uninstalling the game may erase it. Cloud recovery is not available yet.</p></details>
    </div>
-   <div class="settings-about">Alchemy 10K <span>v0.81.1 · Offline test build</span></div>
+   <div class="settings-about">Alchemy 10K <span>v${escapeText(window.__ALCHEMY_VERSION__ || '0.83.0')} · Offline test build</span></div>
   </section>
  </div>`);
  $('modal').setAttribute('aria-labelledby','settingsHeading');
