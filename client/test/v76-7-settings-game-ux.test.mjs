@@ -19,7 +19,7 @@ test('V76.8 all controls are real and preserve player preferences',()=>{
  for(const theme of ['light','dark','system'])assert.ok(menu.includes('data-theme-choice="'+theme+'"'));
  assert.match(menu,/localStorage\.setItem\(THEME_KEY,selectedTheme\)/);
  assert.match(menu,/\$\('changeGameMode'\)\.onclick=\(\)=>modePicker\(false\)/);
- assert.match(menu,/\$\('settingsMergeClassic'\)\.onclick=mergeModal/);
+ assert.match(menu,/\$\('settingsMergeClassic'\)\.onclick=mergeHub/);
 });
 test('V76.8 Profile and Help have genuine navigation, and cloud actions remain disabled',()=>{
  assert.match(menu,/\$\('settingsProfileLink'\)\.onclick=/);
@@ -28,7 +28,7 @@ test('V76.8 Profile and Help have genuine navigation, and cloud actions remain d
  assert.match(menu,/id="recoverFromCloud" disabled/);
  assert.match(menu,/id="settingsLeaderboard" disabled/);
  assert.match(menu,/Google Play Games is not connected/);
- assert.equal((menu.match(/<details>/g)||[]).length,3);
+ assert.equal((menu.match(/<details>/g)||[]).length,4); // V85 adds the Shiny help entry
  assert.match(menu,/Escape/);
 });
 test('V76.8 responsive, dark-mode UI does not consume entire game screen',()=>{

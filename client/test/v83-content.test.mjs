@@ -31,7 +31,7 @@ test('every element has its own SVG, byte-identical to the asset file, no duplic
 test('V83 is wired into the game and the offline build',()=>{
  const app=read('client/src/app.js'),build=read('tools/build-standalone.py');
  assert.match(app,/ORGANIC_V82,ORGANIC_V83\]\);/);
- assert.match(app,/const newArt=ORGANIC_ART_V83\[itemName\]\|\|/);
+ assert.match(app,/const newArt=ORGANIC_ART_V85\[itemName\]\|\|ORGANIC_ART_V83\[itemName\]\|\|/);
  assert.match(app,/\|\|item\?\.wit\|\|''/);
  assert.match(build,/tools\/validate-v83\.mjs/);
  assert.match(build,/tools\/audit-v83-art\.py/);

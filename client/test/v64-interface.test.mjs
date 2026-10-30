@@ -27,7 +27,7 @@ test('V64: result feedback is a separate row, not wrapper of hint',()=>{
 });
 test('V64: repeat combinations only announce once and do not toast',()=>{
  // V83: the ghost-tile motion call joins the single announcement; still no toast.
- assert.match(js,/else \{announceCraft\('repeat','Already discovered · '\+uiName\(byId.get\(resultId\)\)\);playCraftMotion\(scene,'repeat',byId\.get\(resultId\)\);\}/);
+ assert.match(js,/else \{announceCraft\('repeat',\(gotShiny\?'✦ Shiny · ':'Already discovered · '\)\+uiName\(byId.get\(resultId\)\)\);playCraftMotion\(scene,'repeat',byId\.get\(resultId\)\);/);
  assert.doesNotMatch(js,/toast\(\(kind==='redundant'/);
 });
 test('V64: sound switch lives in Settings and persists user choice',()=>{

@@ -19,6 +19,7 @@
       <div class="workspace">
         <div class="workspace-content">
           <div class="craft-heading" hidden><span id="pendingChip" class="pending-chip" hidden aria-live="polite"></span></div>
+          <div class="family-banner" id="familyBanner" hidden role="status" aria-live="polite"><span class="family-banner-art" id="familyBannerArt" aria-hidden="true"></span><span class="family-banner-text"><small>Family mode</small><strong id="familyBannerName">Family</strong></span><span class="family-banner-progress" id="familyBannerProgress"></span><button type="button" class="family-banner-merge" id="playMergeBtn" hidden aria-label="Merge discoveries between Classic and Families">⇄ Merge</button><i class="family-banner-bar" aria-hidden="true"></i></div>
           <div class="craft-card">
             <div class="craft-row" aria-label="Combine two elements">
               <div class="left-container">
@@ -48,6 +49,7 @@
             <button type="button" class="filter-pill show-chip" data-show-chip="open" aria-pressed="false">To explore</button>
             <button type="button" class="filter-pill show-chip" data-show-chip="done" aria-pressed="false">Completed ★</button>
             <button type="button" class="filter-pill show-chip" data-show-chip="saved" aria-pressed="false">Saved</button>
+            <button type="button" class="filter-pill show-chip shiny-chip" data-show-chip="shiny" aria-pressed="false" hidden>✦ Shiny</button>
           </div>
         </div>
         <div id="inventoryScroll" class="inventory-scroll"><div id="inventoryVirtual" class="virtual-inner"></div></div>
@@ -57,7 +59,7 @@
       <div id="discoverFamilies" class="discover-panel">
         <div id="familiesOverview" class="families-overview">
           <div class="section-head discover-head"><h1>Collection</h1><p id="discoveriesSummary">Your elements and recipes, organised by family.</p></div>
-          <div class="catalog-target" aria-label="Your collection progress"><div class="catalog-target-head"><span>Your collection</span><strong id="catalogTargetProgress"></strong></div><div class="catalog-target-track"><i id="catalogTargetFill"></i></div><div class="discoveries-overview-stats" aria-label="Your discovery totals"><span><strong id="statCollected">4</strong> collected</span><span><strong id="statPersonal">0</strong> my finds</span></div></div>
+          <div class="catalog-target" aria-label="Your collection progress"><div class="catalog-target-head"><span>Your collection</span><strong id="catalogTargetProgress"></strong></div><div class="catalog-target-track"><i id="catalogTargetFill"></i></div><div class="discoveries-overview-stats" aria-label="Your discovery totals"><span><strong id="statCollected">4</strong> collected</span><span><strong id="statPersonal">0</strong> my finds</span><span class="stat-shiny"><strong id="statShiny">0</strong> ✦ shiny</span></div></div>
           <div class="merge-classic-toolbar"><button id="mergeClassicBtn" class="merge-classic-btn" type="button" hidden aria-label="Merge Family Only discoveries into Classic with two rewarded ads">Merge into Classic · 2 ads</button></div>
           <div class="discover-caption"><span>Families</span><span id="familiesTotal"></span></div>
           <div id="familiesGrid" class="families-grid"></div>
