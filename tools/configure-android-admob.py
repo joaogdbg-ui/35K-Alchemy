@@ -1,10 +1,12 @@
 #!/usr/bin/env python3
-"""Add Google Mobile Ads (rewarded, TEST IDs) to the generated Capacitor Android project.
+"""Add Alchemy 10K native plugins to the generated Capacitor Android project:
+Google Mobile Ads (rewarded, TEST IDs) and the backup share-sheet plugin.
 
 Run after `npx cap add android && npx cap sync android` and AFTER
 tools/configure-android-edge-to-edge.py (it adds MainActivity.onCreate).
 
-- copies native/android/GameverseRewardedAdsPlugin.java into the app package
+- copies every native/android/*Plugin.java into the app package (ads + backup)
+- checks that Capacitor's FileProvider shares the cache directory (backup export)
 - adds play-services-ads + UMP dependencies to android/app/build.gradle
 - writes the AdMob APPLICATION_ID meta-data into AndroidManifest.xml
 - registers the plugin in MainActivity before super.onCreate()
@@ -37,8 +39,12 @@ def main():
     pkg_dir = app / "src/main/java" / Path(*PACKAGE.split("."))
     if not pkg_dir.is_dir():
         fail(f"unexpected package directory {pkg_dir}")
-    src = ROOT / "native/android/GameverseRewardedAdsPlugin.java"
-    shutil.copyfile(src, pkg_dir / src.name)
+    plugins = sorted((ROOT / "native/android").glob("*Plugin.java"))
+    names = [p.stem for p in plugins]
+    if "GameverseRewardedAdsPlugin" not in names or "AlchemyBackupPlugin" not in names:
+        fail(f"missing native plugin sources: {names}")
+    for src in plugins:
+        shutil.copyfile(src, pkg_dir / src.name)
 
     # 2) Gradle dependencies.
     gradle = app / "build.gradle"
@@ -60,25 +66,37 @@ def main():
             fail("no <application> tag in AndroidManifest.xml")
         manifest.write_text(m, encoding="utf-8")
 
-    # 4) Register the local plugin before the bridge starts.
+    # 3b) Backup export shares a cache file through Capacitor's FileProvider.
+    if "androidx.core.content.FileProvider" not in m or ".fileprovider" not in m:
+        fail("Capacitor FileProvider missing from AndroidManifest.xml")
+    paths = app / "src/main/res/xml/file_paths.xml"
+    if not paths.is_file():
+        fail("res/xml/file_paths.xml missing")
+    x = paths.read_text(encoding="utf-8")
+    if "<cache-path" not in x:
+        x, n = re.subn(r"</paths>", '    <cache-path name="alchemy_cache" path="." />\n</paths>', x, count=1)
+        if n != 1:
+            fail("unexpected file_paths.xml")
+        paths.write_text(x, encoding="utf-8")
+
+    # 4) Register the local plugins before the bridge starts.
     acts = list((app / "src/main/java").rglob("MainActivity.java"))
     if len(acts) != 1:
         fail(f"expected one MainActivity.java, found {len(acts)}")
     a = acts[0].read_text(encoding="utf-8")
-    if "registerPlugin(GameverseRewardedAdsPlugin.class)" not in a:
+    regs = "".join(f"registerPlugin({n}.class);\n        " for n in names if f"registerPlugin({n}.class)" not in a)
+    if regs:
         if "super.onCreate(savedInstanceState);" in a:
-            a = a.replace("super.onCreate(savedInstanceState);",
-                          "registerPlugin(GameverseRewardedAdsPlugin.class);\n        super.onCreate(savedInstanceState);", 1)
+            a = a.replace("super.onCreate(savedInstanceState);", regs + "super.onCreate(savedInstanceState);", 1)
         else:
             a, n = re.subn(r"(public\s+class\s+MainActivity\s+extends\s+BridgeActivity\s*\{)",
-                           r"\1\n    @Override\n    public void onCreate(android.os.Bundle savedInstanceState) {\n"
-                           r"        registerPlugin(GameverseRewardedAdsPlugin.class);\n"
-                           r"        super.onCreate(savedInstanceState);\n    }\n", a, count=1)
+                           lambda mm: mm.group(1) + "\n    @Override\n    public void onCreate(android.os.Bundle savedInstanceState) {\n        "
+                           + regs + "super.onCreate(savedInstanceState);\n    }\n", a, count=1)
             if n != 1:
                 fail("unknown MainActivity shape")
         acts[0].write_text(a, encoding="utf-8")
 
-    print("AdMob TEST rewarded ads configured:", pkg_dir / src.name)
+    print("Native plugins configured (AdMob TEST ads + backup):", ", ".join(names))
 
 
 if __name__ == "__main__":

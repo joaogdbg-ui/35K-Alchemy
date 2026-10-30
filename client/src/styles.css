@@ -654,3 +654,23 @@ html[data-theme="dark"] .craft-ghost.craft-ghost{box-shadow:0 6px 18px #00000055
 .craft-morph-art{position:fixed;margin:0;z-index:90;pointer-events:none;display:grid;place-items:center;transform-origin:50% 50%;will-change:transform}
 .craft-morph-art svg,.craft-morph-art img{width:100%;height:100%;object-fit:contain}
 @media(prefers-reduced-motion:reduce){.craft-morph-art{display:none!important}}
+/* V83: Sort & filter sheet, compact inventory, progress tools. */
+.sort-section-title{font-size:11px;font-weight:750;letter-spacing:.08em;text-transform:uppercase;color:var(--muted);text-align:left;margin:14px 2px 7px}
+.sort-segment{display:flex;gap:6px;flex-wrap:wrap}
+.sort-segment button{flex:1 1 auto;min-height:38px;border:1px solid var(--line);border-radius:11px;background:var(--surface);color:var(--ink);font-size:12px;font-weight:700;padding:7px 10px}
+.sort-segment button[aria-pressed="true"]{border-color:#bc9a71;background:#fbf3e8;color:#6b4a2b}
+.sort-hint{font-size:11px!important;line-height:1.35!important;text-align:left;margin:7px 2px 0;color:var(--muted)!important}
+#recentBtn[data-filtered="true"]{position:relative;border-color:#bc9a71}
+#recentBtn[data-filtered="true"]::after{content:"";position:absolute;top:5px;right:6px;width:7px;height:7px;border-radius:50%;background:#d08a4c}
+.virtual-inner.is-compact .element-chip{height:42px;padding:4px 14px 4px 5px;gap:5px;border-radius:11px}
+.virtual-inner.is-compact .chip-art{width:28px;height:28px}
+.virtual-inner.is-compact .chip-art svg,.virtual-inner.is-compact .chip-art img{width:27px;height:27px}
+.virtual-inner.is-compact .chip-label{font-size:10.5px;line-height:1.12}
+.virtual-inner.is-compact .chip-completed{right:4px;top:3px;font-size:9px}
+.settings-link.settings-danger>span:first-child{color:#a94438}
+.modal-button.danger{background:#a94438;color:#fff}
+.backup-code{width:100%;box-sizing:border-box;margin:10px 0 2px;border:1px solid var(--line);border-radius:11px;padding:9px;font:11px/1.35 ui-monospace,Menlo,monospace;background:#faf8f6;color:#3b342e;resize:vertical}
+html[data-theme="dark"] .sort-segment button[aria-pressed="true"]{background:#3a302b;border-color:#c6a27a;color:#f2d7a9}
+html[data-theme="dark"] .settings-link.settings-danger>span:first-child{color:#f0a196}
+html[data-theme="dark"] .modal-button.danger{background:#c25a4c;color:#fff}
+html[data-theme="dark"] .backup-code{background:#32363c;border-color:#50535a;color:#f2eee8}
