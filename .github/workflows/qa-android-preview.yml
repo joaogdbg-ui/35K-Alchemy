@@ -65,6 +65,8 @@ jobs:
         run: npx cap add android && npx cap sync android
       - name: Configure Android 16+ window insets and SystemBars
         run: python tools/configure-android-edge-to-edge.py
+      - name: Add Google Mobile Ads rewarded TEST ads (AdMob sample IDs)
+        run: python tools/configure-android-admob.py
 
       - name: Render original app launcher (all Android densities)
         run: python tools/generate-launcher-icons.py

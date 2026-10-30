@@ -112,3 +112,16 @@ controlos do sistema.
 Esta configuração **substitui**, sem eliminar, a correção anterior de
 safe-area que evitava a sobreposição da barra de estado. A assinatura
 exclusiva do Alchemy e o ficheiro `35K-Alchemy.apk` mantêm-se.
+
+## Rewarded ads — Google TEST ads packaged (V83, 30 October 2026)
+
+The APK now contains a real Google Mobile Ads SDK integration (`play-services-ads` 25.5.0 + UMP 3.2.0):
+
+- Source: `native/android/GameverseRewardedAdsPlugin.java` (Capacitor plugin `GameverseRewardedAds`).
+- CI step `python tools/configure-android-admob.py` (after the edge-to-edge patch) copies the plugin into the generated app, adds the Gradle dependencies, writes the AdMob `APPLICATION_ID` meta-data and registers the plugin in `MainActivity` before `super.onCreate`.
+- IDs are Google's public **test** IDs (app `ca-app-pub-3940256099942544~3347511713`, rewarded unit `ca-app-pub-3940256099942544/5224354917`). Ads show the "Test Ad" label and earn nothing.
+- `showRewarded()` resolves `{earned:true}` only when the SDK reward listener fired, after the ad closes; load failure (15 s timeout), dismissal and show failure never reward. Ads are preloaded after each show.
+- UMP consent runs at startup; Settings → Privacy & ads shows status and opens the UMP privacy options form.
+- Placements (JS, unchanged contract): recipe hint, batch combine per family, Classic ↔ Families mode switch (first choice free), and two-ad Merge into Classic.
+
+**Before a Play release:** create the AdMob app and rewarded unit, replace both test IDs, configure the GDPR message in AdMob Privacy & messaging, consider SSV for Merge, decide the target audience (Families policy), and use a private release signing key.

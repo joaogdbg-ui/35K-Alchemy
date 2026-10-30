@@ -2453,6 +2453,24 @@ function getRewardBridge(){
  return native&&typeof native.showRewarded==='function'?native:null;
 }
 function rewardedAvailable(){return Boolean(getRewardBridge());}
+const APP_VERSION='0.81.4';
+// V83: status line + Google consent (UMP) privacy options, required for EEA players.
+async function refreshAdStatus(){
+ const el=$('settingsAdStatus'),bridge=getRewardBridge();
+ if(!el||!bridge||typeof bridge.getStatus!=='function')return;
+ try{
+  const st=await bridge.getStatus();if(!el.isConnected)return;
+  const label=st?.adReady?'Ad ready':st?.loading?'Loading ad…':st?.sdkReady?'No ad loaded yet':'Starting ads…';
+  el.textContent=`${st?.test?'Test ads · ':''}${label}${st?.privacyOptionsRequired?' · Consent options':''}`;
+ }catch(e){el.textContent='Ads unavailable';}
+}
+async function openAdPrivacyOptions(){
+ const bridge=getRewardBridge();
+ if(!bridge||typeof bridge.showPrivacyOptions!=='function'){toast('Ad privacy options are available in the Android app');return;}
+ try{const r=await bridge.showPrivacyOptions();if(r?.shown===false)toast('No ad consent options are required on this device');}
+ catch(e){toast('Ad privacy options unavailable right now','error');}
+ refreshAdStatus();
+}
 
 try{
  const old=JSON.parse(localStorage.getItem('gameverse_alchemy_v2')||'null');
@@ -3475,6 +3493,8 @@ function settings(){
     <button type="button" id="settingsProfileLink" class="settings-link"><span>Profile &amp; cloud</span><span aria-hidden="true">›</span></button>
     <div class="settings-divider"></div>
     <button type="button" id="settingsHelpLink" class="settings-link"><span>Help &amp; about</span><span aria-hidden="true">›</span></button>
+    <div class="settings-divider"></div>
+    <button type="button" id="settingsPrivacyAds" class="settings-link"><span>Privacy &amp; ads<small id="settingsAdStatus">${rewardedAvailable()?'Checking ads…':'Ads need the Android app'}</small></span><span aria-hidden="true">›</span></button>
    </div>
    <p class="settings-footnote">Progress saved on this device.</p>
   </section>
@@ -3504,12 +3524,14 @@ function settings(){
     <div class="settings-divider"></div>
     <details><summary>Where is progress saved?</summary><p>Progress is stored locally. Clearing app data or uninstalling the game may erase it. Cloud recovery is not available yet.</p></details>
    </div>
-   <div class="settings-about">Alchemy 10K <span>v0.81.1 · Offline test build</span></div>
+   <div class="settings-about">Alchemy 10K <span>v${APP_VERSION} · ${rewardedAvailable()?'Test ads build':'Offline test build'}</span></div>
   </section>
  </div>`);
  $('modal').setAttribute('aria-labelledby','settingsHeading');
  $('settingsProfileLink').onclick=()=>selectSettingsPage('profile',{focus:true});
  $('settingsHelpLink').onclick=()=>selectSettingsPage('help',{focus:true});
+ $('settingsPrivacyAds').onclick=openAdPrivacyOptions;
+ refreshAdStatus();
  $('settingsBack').onclick=()=>selectSettingsPage('main',{focus:true});
  // Escape returns from child pages before dismissing the sheet.
  $('modalContent').onkeydown=e=>{
