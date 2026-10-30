@@ -7,15 +7,24 @@
   "batch_size": 200,
   "target_minimum_elements": 10000,
   "deliveries_to_target": 21,
-  "expected_after_next_delivery_elements": 6012,
+  "expected_after_next_delivery_elements": 6212,
   "next_delivery_outline": {
-    "new_v82_elements": 200,
-    "mythology_and_prehistory_first": true
+    "new_v83_elements": 200,
+    "focus": "fantasy folklore and gaming",
+    "release_only_at_full_validated_batch": true
   },
   "historical_v80_approved": 40,
   "partial_content_merges_allowed": false,
   "zero_content_maintenance_allowed": true,
   "human_review_required": true,
   "previous_goal_elements": 35000,
-  "goal_brand": "Alchemy 10K"
+  "goal_brand": "Alchemy 10K",
+  "target_exact_elements": 10000,
+  "current_merged_baseline_commit": "b75811874766a1270ac5ca908fd57719e1557c0a",
+  "current_merged_elements": 6012,
+  "remaining_to_exact_target": 3988,
+  "full_batches_remaining": 19,
+  "last_batch_elements": 188,
+  "deliveries_remaining": 20,
+  "final_exception_rule": "Only permit 188 new IDs if the previous published catalog has exactly 9812 IDs and the resulting catalog reaches exactly 10000. Until then require 200."
 }

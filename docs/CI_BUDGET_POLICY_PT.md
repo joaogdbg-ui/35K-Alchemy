@@ -2,7 +2,9 @@
 
 ## Regra de produção: só testar no GitHub quando o lote completo estiver pronto
 
-**Fluxo obrigatório de uma entrega de +200 elementos:**
+**Fluxo obrigatório das entregas normais de +200 elementos:**
+
+A meta final é **10.000 exatos**. O último lote será excecionalmente **+188**, mas **apenas** depois de existir uma baseline publicada de 9.812; até lá o gate continua a exigir +200. O último lote terá a mesma CI e revisão rigorosa.
 
 1. Trabalhar em `wip/...`, guardar o trabalho editorial, SVGs e manifests progressivamente **sem workflows automáticos por push**. Os subgrupos de 25/50 são etapas de edição, **não** entregas.
 2. Pré-validar deduplicação, receitas e SVGs com verificações leves locais ou em memória; rever visualmente a 35px. Fazer o máximo de correções antes do primeiro CI cobrado.

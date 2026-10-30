@@ -3,7 +3,7 @@ _Last edited: 29 October 2026. Planned names below are not necessarily implement
 
 ## Actual V81 baseline and this maintenance branch
 - Baseline main commit: `2aba8395f48082964bc2af2ff20a468c56dd464b`; **5,812 real IDs**, **14,149 global unordered recipes**.
-- Active target: **10,000+ genuine discoveries**. Twenty-one releases of **exactly +200** reach **10,012**. Historical 35K notes are obsolete for the active target.
+- Active target: **exactly 10,000 genuine discoveries**. From the V81 historical baseline, 20 regular +200 releases (V82 included) plus one exceptional final +188 reach exactly 10,000. From the merged V82 baseline of 6,012, 19 regular +200 remain and the final +188. No 10,012 overshoot. Historical 35K notes are obsolete for the active target.
 - The branch has **200/200 new V82 catalog IDs, 200 unique pair recipes and 200 individual SVG sources** (93 mythology, 107 prehistoric). The candidate total is **6,012 IDs and 14,349 recipes**, but remains **unmerged and unreleased, with full-history CI, Android and artwork QA pending**. Original thematic baselines were 16/16 and 9/9; V82 family graphs now reach **109/109** and **116/116** respectively. All four campaign closures were tested by direct traversal of current source data.
 - Existing V53 Nature & Science: 476/476, but the four Nature starters are still exactly Classic's (tracked defect). Existing People & Culture: 211/211. Preserve historical IDs and save format.
 

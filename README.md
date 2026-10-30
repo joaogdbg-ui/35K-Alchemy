@@ -1,3 +1,15 @@
+# Alchemy 10K — V82 merged; V83 in development
+
+**Exact target: 10,000 elements, not 10,012.** The V82 batch of +200 was merged into `main` in commit `b75811874766a1270ac5ca908fd57719e1557c0a`: **6,012 elements / 14,349 global recipes**. From here the remaining 3,988 elements require **19 regular +200 deliveries**, reaching 9,812, then **one exceptional final +188 delivery** reaching precisely 10,000. The last-batch gate must be adapted only when that final baseline is reached.
+
+**Current WIP:** [V83 fantasy and gaming branch](https://github.com/joaogdbg-ui/35K-Alchemy/tree/wip/alchemy-10k-v83-fantasy-gaming), with 200 authored candidates WIRED TO THE GAME for QA but NOT YET RELEASED. V83 has 200 proposed global recipes and 200 subject-specific SVG source files: 50 mythology, 25 prehistoric, 100 Classic-only gaming items and 25 Classic-only modern animals. Source-level checks at 150/200: 41 historical content sources inspected (39 organic modules plus legacy and creative), no remaining V83 normalized-name or global-pair collisions after correction, all WIP recipe ingredients defined and new-on-new dependencies ordered. Mythology remains autonomously reachable 159/159 from four starters. Native 35px artistic QA and full CI remain pending. V83 will be released only at +200, targeting 6,212 elements.
+
+**Android:** V82 signed debug/test APK successfully built after merge, [latest test APK](https://github.com/joaogdbg-ui/35K-Alchemy/releases/download/latest/35K-Alchemy.apk). Production signing and actual rewarded ads are not implemented.
+
+---
+
+## Historical development notes (may describe earlier pre-merge states)
+
 # Alchemy 10K — V82 content complete (200/200), release QA pending
 
 The V81 **main** baseline is **5,812 distinct elements / 14,149 stable unordered recipes**. The V82 feature branch has **200 additional authored elements, 200 global recipes and 200 source-matched standalone SVG illustrations**: 93 Mythology & Gods and 107 Prehistory & Dinosaurs. Candidate catalog: **6,012 elements / 14,349 recipes**, not yet merged or released. The active goal remains **10,000+ genuine discoveries** in exact +200 batches; after this proposed +200 increment another **20 complete batches** would reach 10,012.

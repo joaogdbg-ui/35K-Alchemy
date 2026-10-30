@@ -33,7 +33,7 @@ for(const approved of m.new_items){
  check(!arts.has(raw)&&ORGANIC_ART_V80[it.name.toLowerCase()]===raw,'duplicate/source mismatch '+it.name);arts.add(raw);
 }
 const app=readFileSync('client/src/app.js','utf8'),build=readFileSync('tools/build-standalone.py','utf8');
-check(app.includes('ORGANIC_V78,ORGANIC_V79,ORGANIC_V80,ORGANIC_V81,ORGANIC_V82]'),'missing Classic V80');
+check(app.includes('ORGANIC_V78,ORGANIC_V79,ORGANIC_V80,ORGANIC_V81,ORGANIC_V82,ORGANIC_V83]'),'missing Classic V80');
 check(app.includes('ORGANIC_ART_V81[itemName]||ORGANIC_ART_V80[itemName]||ORGANIC_ART_V79[itemName]'),'V80 illustration not displayed');
 check(build.includes('window.__gameverseOrganic80')&&build.includes('window.__gameverseOrganicArt80'),'offline integration incomplete');
 if(!process.argv.includes('--quiet'))console.log(`V80 COMPLETE PASS: ${next.items.length} elements / ${next.recipes.size} recipes; ${m.cohort_count}/200, pending +200 release.`);

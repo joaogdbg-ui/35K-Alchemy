@@ -30,14 +30,14 @@ test('Every V79 item has a unique recipe, bespoke SVG source and valid summary',
 });
 test('V79 is wired to game, offline bundle, IP scan and Android packaging without altering settings',()=>{
  const app=read('client/src/app.js'),build=read('tools/build-standalone.py');
- assert.match(app,/ORGANIC_V78,ORGANIC_V79,ORGANIC_V80,ORGANIC_V81,ORGANIC_V82\]/);
+ assert.match(app,/ORGANIC_V78,ORGANIC_V79,ORGANIC_V80,ORGANIC_V81,ORGANIC_V82,ORGANIC_V83\]/);
  assert.match(app,/ORGANIC_ART_V80\[itemName\]\|\|ORGANIC_ART_V79\[itemName\]\|\|ORGANIC_ART_V78/);
  assert.match(build,/window\.__gameverseOrganic79/);
  assert.match(build,/window\.__gameverseOrganicArt79/);
  assert.match(build,/35K_Alchemy_V81_Offline\.html/);
  assert.match(read('tools/prepare-android-web.py'),/35K_Alchemy_V81_Offline\.html/);
  assert.match(read('tools/audit-ip-safe-names.mjs'),/organic-v79/);
- assert.match(read('tools/audit-active-artwork.mjs'),/,79,80,81,82\]/);
+ assert.match(read('tools/audit-active-artwork.mjs'),/,79,80,81,82,83\]/);
  assert.match(app,/function selectSettingsPage\(next/);
  assert.match(app,/No cloud backup exists in this version/);
 });
