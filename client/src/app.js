@@ -821,13 +821,24 @@ function updateCounts(){
 }
 function updateSlotUI(){slots.forEach((id,i)=>{const target=$(`slot${i}`),item=byId.get(id);target.classList.toggle('filled',!!item);target.innerHTML=item?`<span class="slot-art">${staticArt(item)}</span><span class="slot-name">${escapeText(uiName(item))}</span>`:'<span class="slot-plus">+</span>';});$('lockLeft').setAttribute('aria-pressed',String(leftLocked));$('batchOpen').hidden=!(leftLocked&&slots[0]);}
 function updateLatest(){ /* V35: the last ID remains in saved progress, but no screen-space widget. */ }
-// Short non-blocking tile motion: every animation owns disposable visual clones.
-// Game state and input timing are never delayed by an effect.
+// Motion-only visual clones: combinations and saves are processed immediately.
+// The original discovery modal stays open until the user explicitly closes it.
 let activeCraftMotion=null;
 function stopCraftMotion(){
  const m=activeCraftMotion;if(!m)return;
  activeCraftMotion=null;m.cancelled=true;
+ if(m.modalCard)m.modalCard.style.visibility='';
+ if(m.modalAnimation&&m.modalAnimation.playState!=='finished')m.modalAnimation.cancel();
  for(const node of m.nodes)node.remove();
+}
+function attachDiscoveryMotion(resultId){
+ const m=activeCraftMotion;
+ if(!m||!m.isNew||m.resultId!==resultId)return;
+ const modal=$('modal'),card=modal?.querySelector('.modal-card');
+ if(!modal||modal.hidden||!card)return;
+ m.modalCard=card;
+ // This is the ORIGINAL discovery card, not a short-lived replacement.
+ card.style.visibility='hidden';
 }
 function playCraftMotion(leftId,rightId,resultId,isNew){
  stopCraftMotion();
@@ -836,60 +847,67 @@ function playCraftMotion(leftId,rightId,resultId,isNew){
  if(!ingredient||!left||!right||typeof right.animate!=='function')return false;
  const l=left.getBoundingClientRect(),r=right.getBoundingClientRect();
  if(!l.width||!r.width)return false;
- const m={cancelled:false,nodes:[]};activeCraftMotion=m;
+ const m={cancelled:false,nodes:[],resultId,isNew:!!result&&!!isNew,modalCard:null,modalAnimation:null};
+ activeCraftMotion=m;
  const active=()=>activeCraftMotion===m&&!m.cancelled;
- const add=(node)=>{document.body.appendChild(node);m.nodes.push(node);return node;};
+ const add=node=>{document.body.appendChild(node);m.nodes.push(node);return node;};
  const run=(node,frames,options)=>node.animate(frames,{fill:'forwards',easing:'ease-out',...options}).finished.catch(()=>{});
- const ghost=document.createElement('div');ghost.className='craft-motion-ghost';ghost.setAttribute('aria-hidden','true');
- ghost.innerHTML=right.innerHTML;
- Object.assign(ghost.style,{left:r.left+'px',top:r.top+'px',width:r.width+'px',height:r.height+'px'});add(ghost);
+ const ghost=document.createElement('div');ghost.className='craft-motion-ghost';
+ ghost.dataset.motion=!result?'invalid':isNew?'new':'repeat';
+ ghost.setAttribute('aria-hidden','true');ghost.innerHTML=right.innerHTML;
+ Object.assign(ghost.style,{left:r.left+'px',top:r.top+'px',width:r.width+'px',height:r.height+'px'});
+ add(ghost);
  const dx=l.left-r.left,dy=l.top-r.top;
  const revealMarkup=()=>`<div class="craft-motion-art">${staticArt(result)}</div><div class="craft-motion-name">${escapeText(uiName(result))}</div>`;
  async function sequence(){
   if(!result){
+   // Only touch the LEFT TILE'S OUTER EDGE; never overlap it by even 1px.
+   const contactX=Math.min(0,l.right-r.left);
    await run(ghost,[
-    {transform:'translate3d(0,0,0) scale(1)',offset:0},
-    {transform:`translate3d(${dx*.92}px,${dy}px,0) scale(.98)`,offset:.40},
-    {transform:`translate3d(${dx}px,${dy}px,0) scale(.90)`,offset:.52},
-    {transform:`translate3d(${dx+17}px,${dy}px,0) scale(.96)`,offset:.65},
-    {transform:'translate3d(0,0,0) scale(1)',opacity:0,offset:1}
-   ],{duration:295,easing:'ease-in-out'});
+    {transform:'translate3d(0,0,0) scaleX(1)',offset:0},
+    {transform:`translate3d(${contactX}px,${dy}px,0) scaleX(1)`,offset:.34},
+    {transform:`translate3d(${contactX}px,${dy}px,0) scaleX(.93)`,offset:.48},
+    {transform:`translate3d(${contactX+8}px,${dy}px,0) scaleX(1)`,offset:.63},
+    {transform:'translate3d(0,0,0) scaleX(1)',opacity:0,offset:1}
+   ],{duration:270,easing:'ease-in-out'});
   }else{
    await run(ghost,[
     {transform:'translate3d(0,0,0) scale(1)',opacity:1},
-    {transform:`translate3d(${dx}px,${dy}px,0) scale(.85)`,opacity:.2}
+    {transform:`translate3d(${dx}px,${dy}px,0) scale(.85)`,opacity:.15}
    ],{duration:165});
-   if(!active())return;ghost.remove();
+   if(!active())return;
+   ghost.remove();
    if(!isNew){
-    const formed=document.createElement('div');formed.className='craft-motion-result';formed.setAttribute('aria-hidden','true');
+    const formed=document.createElement('div');
+    formed.className='craft-motion-result';formed.setAttribute('aria-hidden','true');
     formed.innerHTML=revealMarkup();
-    Object.assign(formed.style,{left:l.left+'px',top:l.top+'px',width:l.width+'px',height:l.height+'px'});add(formed);
+    Object.assign(formed.style,{left:l.left+'px',top:l.top+'px',width:l.width+'px',height:l.height+'px'});
+    add(formed);
     await run(formed,[
      {transform:'translate3d(0,6px,0) scale(.88)',opacity:0,offset:0},
      {transform:'translate3d(0,0,0) scale(1)',opacity:1,offset:.24},
      {transform:'translate3d(0,-48px,0) scale(1.06)',opacity:0,offset:1}
     ],{duration:300,easing:'ease-out'});
-   }else{
-    const full=document.createElement('div');full.className='craft-motion-full';full.setAttribute('aria-hidden','true');
-    full.innerHTML=`<div class="craft-motion-full-inner"><div class="craft-motion-kicker">✦ NEW DISCOVERY</div>${revealMarkup()}<div class="craft-motion-pair">${escapeText(uiName(byId.get(leftId)))} + ${escapeText(uiName(ingredient))}</div></div>`;
-    add(full);
-    const vw=window.innerWidth,vh=window.innerHeight;
-    await run(full,[
-     {transform:`translate3d(${l.left}px,${l.top}px,0) scale(${l.width/vw},${l.height/vh})`,borderRadius:'19px',offset:0},
-     {transform:`translate3d(${l.left*.60}px,${l.top+26}px,0) scale(.50,.50)`,borderRadius:'16px',offset:.26},
-     {transform:'translate3d(0,0,0) scale(1)',borderRadius:'0px',offset:1}
-    ],{duration:380,easing:'cubic-bezier(.19,.72,.25,1)'});
-    if(!active())return;
-    await new Promise(resolve=>setTimeout(resolve,850));
-    if(active())await run(full,[{opacity:1},{opacity:0}],{duration:170});
+   }else if(m.modalCard){
+    const card=m.modalCard,final=card.getBoundingClientRect();
+    if(final.width&&final.height){
+     const x=l.left-final.left,y=l.top-final.top;
+     const sx=l.width/final.width,sy=l.height/final.height;
+     m.modalAnimation=card.animate([
+      {transform:`translate3d(${x}px,${y}px,0) scale(${sx},${sy})`,opacity:.75,borderRadius:'19px'},
+      {transform:'translate3d(0,0,0) scale(1)',opacity:1,borderRadius:'23px'}
+     ],{duration:390,fill:'both',easing:'cubic-bezier(.19,.72,.25,1)'});
+     card.style.visibility='';
+     await m.modalAnimation.finished.catch(()=>{});
+    }else card.style.visibility='';
    }
   }
   if(active())stopCraftMotion();
  }
- void sequence();
+ void sequence().catch(error=>{console.warn('Craft animation unavailable; discovery remains accessible',error);if(active())stopCraftMotion();});
  return true;
 }
-// An active effect disappears on the next touch; the new touch proceeds normally.
+// A fresh selection always supersedes a cosmetic animation, never the saved result.
 document.addEventListener('pointerdown',stopCraftMotion,{capture:true,passive:true});
 function place(index,id){if(batchState?.phase==='scanning')return;if(!byId.has(id)||!unlocked.has(id))return;stopCraftMotion();clearTimeout(autoTimer);slots[index]=id;updateSlotUI();if(slots.every(Boolean))autoTimer=setTimeout(combine,180);}
 // V54: pulsing feedback follows an actual ingredient selection (tap, pointer or keyboard).
@@ -1013,8 +1031,8 @@ async function combine(){
  const result=cached||local;
  if(result){
   const allowed=byId.has(result)&&(currentMode!=='family'||familyCampaigns.get(currentFamilyId)?.itemSet.has(result));
-  const animated=allowed&&playCraftMotion(a,b,result,!unlocked.has(result));
-  finishSlots();completeCombination(result,a,b,cached?'recipe':'redundant',!animated);return;
+  if(allowed)playCraftMotion(a,b,result,!unlocked.has(result));
+  finishSlots();completeCombination(result,a,b,cached?'recipe':'redundant');return;
  }
  if(!apiBase)playCraftMotion(a,b,null,false);
  finishSlots();
@@ -1057,6 +1075,7 @@ function showDiscovery(id,a,b){
  const it=byId.get(id),isFirst=worldFirsts.has(id),earned=[...unlocked].filter(x=>!STARTERS.has(x)).length;
  showModal(`<div class="modal-tag ${isFirst?'world-first-tag':''}">${isFirst?'★ WORLD FIRST':'✦ NEW DISCOVERY'}</div><div class="modal-art">${staticArt(it)}</div><h2>${escapeText(uiName(it))}</h2><p>${escapeText(uiName(byId.get(a)))} + ${escapeText(uiName(byId.get(b)))}</p>${wittyDiscovery(it)?`<p class="discovery-wit">${escapeText(publicText(wittyDiscovery(it)))}</p>`:""}<div class="modal-milestone">${earned.toLocaleString('en-US')} personal discoveries</div>`);
  $('continueBtn')?.remove();$('modal').dataset.dismiss='x-only';
+ attachDiscoveryMotion(id);
 }
 function detail(id){const it=byId.get(id);if(!it)return;const extra=familiesFor(it).length>1?`<p class="mini-muted">Shared across: ${familiesFor(it).map(f=>escapeText(FAMILIES.find(x=>x.id===f)?.name||f)).join(' · ')}</p>`:'';showModal(`<div class="modal-art">${staticArt(it)}</div><h2>${escapeText(uiName(it))}</h2><p>${escapeText(categoryNames[it.category]||it.category)}</p>${extra}<button class="modal-button" id="useBtn">Use in craft table</button>`);$('useBtn').onclick=()=>{closeModal();switchTab('Play');if(!slots[0])place(0,id);else place(1,id);};}
 const allIds=()=>[...unlocked].filter(id=>byId.has(id));

@@ -97,3 +97,11 @@ Audited all **39 old organic packs plus legacy and creative**. Discovered three 
 - Test: `client/test/craft-motion.test.mjs` checks all three branches and input cancellation. No physical-device animation/frame-rate or accessibility QA yet.
 - Build version in the Help footer is now injected from `package.json` by the standalone builder, set to 0.83.0 for this preview; Android debug signing and package ID unchanged.
 - The QA workflow artifact filename now specifies V83 Motion to prevent accidental confusion with V82. Only install over existing app, do not uninstall. Do not merge/release until device test.
+
+## V83 Motion UX correction (30 Oct 2026)
+
+- Based on physical Android feedback, original new-discovery modal is restored EXACTLY (same original content, persistent close-X-only behavior). The right tile still fuses into the left. The original modal-card itself now animates via FLIP from the left slot's exact rectangle into its final centered card size; no automatic dismiss or new fullscreen substitute.
+- Invalid recipes now stop at the outside boundary of the left tile. A squash-and-rebound uses left-center transform origin and no overlap. Original offline no-message behavior retained.
+- New-input cancellation restores the modal's visibility; reduced-motion accessibility falls back to the original modal. All save keys, deterministic global pairs, Family Only, and the V83 200-element catalog unchanged.
+- Test: updated `client/test/craft-motion.test.mjs` asserts collision boundary, persistent original popup, and animation cancellation.
+- Mobile device visual QA required before merging/publishing. Test APK is QA-only.
