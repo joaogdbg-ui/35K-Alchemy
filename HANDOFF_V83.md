@@ -5,13 +5,13 @@
 
 - Baseline: merged V82 `b75811874766a1270ac5ca908fd57719e1557c0a` — **6,012 elements, 14,349 recipes**.
 - Development branch: `wip/alchemy-10k-v83-fantasy-gaming`; target **exactly +200** -> **6,212 elements / 14,549 recipes**.
-- This checkpoint: **150/200 authored candidates**, **50 remaining**. The 150 are NOT ACTIVE IN THE GAME; import/integration only at finished quality-gated batch. No PR, CI or APK from WIP.
+- This checkpoint: **175/200 authored candidates**, **25 remaining**. The 175 are NOT ACTIVE IN THE GAME; import/integration only at finished quality-gated batch. No PR, CI or APK from WIP.
 - Each candidate has an English name, permanent proposed ID, one unique ordered-independent global pair, family membership hypothesis and custom source SVG. These are editorial candidates requiring collision scans, isolated Family Only closure, native 35px art review and all existing catalog validations before release. In particular, do not present these as player-available discoveries yet.
 - Wave 1 COMPLETE (25 candidate IDs): bespoke folklore and fantasy characters/creatures: trolls, Ulfhednar, Vrykolakas, wraith, banshee, dryad, basilisk, golem, griffin, chimera, harpy, centaur, satyr, leviathan, selkie, firebird, thunderbird, roc, walking tree, marsh ghostlight and gargoyle. Subject-specific vector art has been committed; 35px human QA remains outstanding.
 - Planned 200 allocation: 50 folklore creatures/environments; 50 original gaming fantasy objects/genres; 50 gaming systems/arcade/board-adjacent artefacts; 50 science, fauna and cross-family recipes. The gaming component must remain meaningful, without arbitrary console+monster crossovers.
 - New mythology family items must be verifiably completable from Human, History, Magic, Sky with the GLOBAL A+B=C recipe table. New V83 ancestors use existing reachable V82 nodes or earlier Wave 1 nodes. Verify against full recipe catalog, not just this set.
 - Never change previously published IDs, results, save keys, the Android package, or verified-ad contracts; never perform WIP CI Actions builds. Nature & Science's classic-starter discrepancy remains a separate known issue.
-- All 150 icon sketches are subject specific and not yet confirmed on a physical device; reject/rework anything unreadable at 35 px.
+- All 175 icon sketches are subject specific and not yet confirmed on a physical device; reject/rework anything unreadable at 35 px.
 
 See [candidate JSON](shared/v83-progress.json), [source pack](client/src/organic-pack-v83.js), [art review](docs/V83_ART_REVIEW.md).
 
@@ -74,3 +74,6 @@ Audited all **39 old organic packs plus legacy and creative**. Discovered three 
 - Corrected the WIP test's category mappings to include accessory→Consoles, board→Arcades, and life→Nature.
 - Source-only assertion is not a substitute for **npm tests, 35px artistic QA, Classic end-to-end run, Family Only regression or native Android device testing**. Local Git clone unavailable in this environment due DNS resolution failure; GitHub Actions intentionally not triggered at 150/200.
 - Next: **50 more approved distinct items** plus full audit and integration. V82 main remains 6,012, final exact target 10,000.
+
+## V83 Seventh wave — 175/200 WIP
+25 extinct taxa with individually composed vector subjects: Olenellus, Aegirocassis, Hallucigenia, Opabinia, Wiwaxia, Pikaia, Hurdia, Cameroceras, Helicoprion, Stethacanthus, Tiktaalik, Acanthostega, Diplocaulus, Dimetrodon, Gorgonops, Lystrosaurus, Tanystropheus, Shonisaurus, Elasmotherium, Homotherium, Kelenken, Doedicurus, Hatzegopteryx, Yutyrannus, Kosmoceratops. All have **prehistoric** thematic membership, with ingredients from that same independently playable campaign; WIP family closure requires re-verification. 25 remaining until V83 200. No CI/APK release of incomplete pack.

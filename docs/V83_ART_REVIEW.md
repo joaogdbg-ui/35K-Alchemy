@@ -1,4 +1,4 @@
-# Alchemy 10K — V83 WIP artwork review (150/200)
+# Alchemy 10K — V83 WIP artwork review (175/200)
 
 The 150 WIP SVG sources are individually authored and have separate source paths, but visual similarity/readability **has not been signed off**. The 50 mythological candidates keep the independent family at 159/159 reachable members, while the 75 game-related candidates and 25 modern fauna candidates remain Classic-only. Full npm/CI, runtime comparison and real-device 35px review are still pending. Assess Light/Dark readability and distinguishable silhouettes at 35px; 90px is diagnostic only.
 
@@ -161,3 +161,29 @@ The 150 WIP SVG sources are individually authored and have separate source paths
 | Dumbo Octopus | `organic38:octopus` + `organic37:deep-sea` | <img src="../client/assets/v83/dumbo-octopus.svg" width="35" height="35"> | <img src="../client/assets/v83/dumbo-octopus.svg" width="90" height="90"> |
 | Flying Fish | `legacy:27` + `organic38:bird` | <img src="../client/assets/v83/flying-fish.svg" width="35" height="35"> | <img src="../client/assets/v83/flying-fish.svg" width="90" height="90"> |
 | Gila Monster | `legacy:1048` + `pack:venom` | <img src="../client/assets/v83/gila-monster.svg" width="35" height="35"> | <img src="../client/assets/v83/gila-monster.svg" width="90" height="90"> |
+
+| Olenellus | `organic82:trilobite` + `organic82:fossil-skeleton` | <img src="../client/assets/v83/olenellus.svg" width="35" height="35"> | <img src="../client/assets/v83/olenellus.svg" width="90" height="90"> |
+| Aegirocassis | `organic82:anomalocaris` + `organic82:prehistoric-ocean` | <img src="../client/assets/v83/aegirocassis.svg" width="35" height="35"> | <img src="../client/assets/v83/aegirocassis.svg" width="90" height="90"> |
+| Hallucigenia | `organic82:cambrian-period` + `organic82:fossil-skeleton` | <img src="../client/assets/v83/hallucigenia.svg" width="35" height="35"> | <img src="../client/assets/v83/hallucigenia.svg" width="90" height="90"> |
+| Opabinia | `organic82:anomalocaris` + `organic82:cambrian-period` | <img src="../client/assets/v83/opabinia.svg" width="35" height="35"> | <img src="../client/assets/v83/opabinia.svg" width="90" height="90"> |
+| Wiwaxia | `organic82:trilobite` + `organic83:hallucigenia` | <img src="../client/assets/v83/wiwaxia.svg" width="35" height="35"> | <img src="../client/assets/v83/wiwaxia.svg" width="90" height="90"> |
+| Pikaia | `organic82:prehistoric-ocean` + `organic83:opabinia` | <img src="../client/assets/v83/pikaia.svg" width="35" height="35"> | <img src="../client/assets/v83/pikaia.svg" width="90" height="90"> |
+| Hurdia | `organic82:anomalocaris` + `organic82:fossil-skeleton` | <img src="../client/assets/v83/hurdia.svg" width="35" height="35"> | <img src="../client/assets/v83/hurdia.svg" width="90" height="90"> |
+| Cameroceras | `organic82:ammonite` + `organic82:prehistoric-ocean` | <img src="../client/assets/v83/cameroceras.svg" width="35" height="35"> | <img src="../client/assets/v83/cameroceras.svg" width="90" height="90"> |
+| Helicoprion | `organic82:paleozoic-era` + `organic82:megalodon` | <img src="../client/assets/v83/helicoprion.svg" width="35" height="35"> | <img src="../client/assets/v83/helicoprion.svg" width="90" height="90"> |
+| Stethacanthus | `organic82:carboniferous-period` + `organic82:megalodon` | <img src="../client/assets/v83/stethacanthus.svg" width="35" height="35"> | <img src="../client/assets/v83/stethacanthus.svg" width="90" height="90"> |
+| Tiktaalik | `organic82:prehistoric-ocean` + `organic82:marine-reptile` | <img src="../client/assets/v83/tiktaalik.svg" width="35" height="35"> | <img src="../client/assets/v83/tiktaalik.svg" width="90" height="90"> |
+| Acanthostega | `organic83:tiktaalik` + `organic82:paleozoic-era` | <img src="../client/assets/v83/acanthostega.svg" width="35" height="35"> | <img src="../client/assets/v83/acanthostega.svg" width="90" height="90"> |
+| Diplocaulus | `organic83:acanthostega` + `organic82:carboniferous-period` | <img src="../client/assets/v83/diplocaulus.svg" width="35" height="35"> | <img src="../client/assets/v83/diplocaulus.svg" width="90" height="90"> |
+| Dimetrodon | `organic82:carboniferous-period` + `organic82:prehistoric-mammal` | <img src="../client/assets/v83/dimetrodon.svg" width="35" height="35"> | <img src="../client/assets/v83/dimetrodon.svg" width="90" height="90"> |
+| Gorgonops | `organic82:paleozoic-era` + `organic82:prehistoric-mammal` | <img src="../client/assets/v83/gorgonops.svg" width="35" height="35"> | <img src="../client/assets/v83/gorgonops.svg" width="90" height="90"> |
+| Lystrosaurus | `organic82:triassic-period` + `organic82:prehistoric-mammal` | <img src="../client/assets/v83/lystrosaurus.svg" width="35" height="35"> | <img src="../client/assets/v83/lystrosaurus.svg" width="90" height="90"> |
+| Tanystropheus | `organic82:triassic-period` + `organic82:nothosaurus` | <img src="../client/assets/v83/tanystropheus.svg" width="35" height="35"> | <img src="../client/assets/v83/tanystropheus.svg" width="90" height="90"> |
+| Shonisaurus | `organic82:triassic-period` + `organic82:ichthyosaurus` | <img src="../client/assets/v83/shonisaurus.svg" width="35" height="35"> | <img src="../client/assets/v83/shonisaurus.svg" width="90" height="90"> |
+| Elasmotherium | `organic82:ice-age` + `organic82:woolly-rhinoceros` | <img src="../client/assets/v83/elasmotherium.svg" width="35" height="35"> | <img src="../client/assets/v83/elasmotherium.svg" width="90" height="90"> |
+| Homotherium | `organic82:smilodon` + `organic82:prehistoric-mammal` | <img src="../client/assets/v83/homotherium.svg" width="35" height="35"> | <img src="../client/assets/v83/homotherium.svg" width="90" height="90"> |
+| Kelenken | `organic82:terror-bird` + `organic82:cenozoic-era` | <img src="../client/assets/v83/kelenken.svg" width="35" height="35"> | <img src="../client/assets/v83/kelenken.svg" width="90" height="90"> |
+| Doedicurus | `organic82:glyptodon` + `organic82:prehistoric-mammal` | <img src="../client/assets/v83/doedicurus.svg" width="35" height="35"> | <img src="../client/assets/v83/doedicurus.svg" width="90" height="90"> |
+| Hatzegopteryx | `organic82:quetzalcoatlus` + `organic82:late-cretaceous` | <img src="../client/assets/v83/hatzegopteryx.svg" width="35" height="35"> | <img src="../client/assets/v83/hatzegopteryx.svg" width="90" height="90"> |
+| Yutyrannus | `organic82:feathered-dinosaur` + `organic82:cretaceous-period` | <img src="../client/assets/v83/yutyrannus.svg" width="35" height="35"> | <img src="../client/assets/v83/yutyrannus.svg" width="90" height="90"> |
+| Kosmoceratops | `organic82:styracosaurus` + `organic82:late-cretaceous` | <img src="../client/assets/v83/kosmoceratops.svg" width="35" height="35"> | <img src="../client/assets/v83/kosmoceratops.svg" width="90" height="90"> |

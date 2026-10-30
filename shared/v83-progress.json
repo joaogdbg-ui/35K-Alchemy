@@ -7,8 +7,8 @@
     "recipes": 14349
   },
   "expansion_goal": 200,
-  "authored_candidates": 150,
-  "remaining": 50,
+  "authored_candidates": 175,
+  "remaining": 25,
   "art_review": "NOT_APPROVED",
   "new_items": [
     {
@@ -2210,29 +2210,429 @@
       "path": "client/assets/v83/gila-monster.svg",
       "art_mode": "bespoke-subject",
       "editorial_qa": "pending"
+    },
+    {
+      "id": "organic83:olenellus",
+      "name": "Olenellus",
+      "category": "life",
+      "summary": "A Cambrian trilobite with long curved cheek spines and a broad head shield.",
+      "ingredients": [
+        "organic82:trilobite",
+        "organic82:fossil-skeleton"
+      ],
+      "familyCampaigns": [
+        "prehistoric"
+      ],
+      "path": "client/assets/v83/olenellus.svg",
+      "art_mode": "bespoke-subject",
+      "editorial_qa": "pending"
+    },
+    {
+      "id": "organic83:aegirocassis",
+      "name": "Aegirocassis",
+      "category": "life",
+      "summary": "A filter-feeding Cambrian radiodont with broad swimming flaps and a comb-like head.",
+      "ingredients": [
+        "organic82:anomalocaris",
+        "organic82:prehistoric-ocean"
+      ],
+      "familyCampaigns": [
+        "prehistoric"
+      ],
+      "path": "client/assets/v83/aegirocassis.svg",
+      "art_mode": "bespoke-subject",
+      "editorial_qa": "pending"
+    },
+    {
+      "id": "organic83:hallucigenia",
+      "name": "Hallucigenia",
+      "category": "life",
+      "summary": "A tiny Cambrian lobopodian walks on soft legs beneath tall defensive spines.",
+      "ingredients": [
+        "organic82:cambrian-period",
+        "organic82:fossil-skeleton"
+      ],
+      "familyCampaigns": [
+        "prehistoric"
+      ],
+      "path": "client/assets/v83/hallucigenia.svg",
+      "art_mode": "bespoke-subject",
+      "editorial_qa": "pending"
+    },
+    {
+      "id": "organic83:opabinia",
+      "name": "Opabinia",
+      "category": "life",
+      "summary": "An odd Cambrian swimmer has five stalked eyes and a flexible claw-tipped proboscis.",
+      "ingredients": [
+        "organic82:anomalocaris",
+        "organic82:cambrian-period"
+      ],
+      "familyCampaigns": [
+        "prehistoric"
+      ],
+      "path": "client/assets/v83/opabinia.svg",
+      "art_mode": "bespoke-subject",
+      "editorial_qa": "pending"
+    },
+    {
+      "id": "organic83:wiwaxia",
+      "name": "Wiwaxia",
+      "category": "life",
+      "summary": "A Cambrian mollusc-like creature carries overlapping armor plates and curved spines.",
+      "ingredients": [
+        "organic82:trilobite",
+        "organic83:hallucigenia"
+      ],
+      "familyCampaigns": [
+        "prehistoric"
+      ],
+      "path": "client/assets/v83/wiwaxia.svg",
+      "art_mode": "bespoke-subject",
+      "editorial_qa": "pending"
+    },
+    {
+      "id": "organic83:pikaia",
+      "name": "Pikaia",
+      "category": "life",
+      "summary": "A slender Cambrian chordate swims with a striped flexible tail.",
+      "ingredients": [
+        "organic82:prehistoric-ocean",
+        "organic83:opabinia"
+      ],
+      "familyCampaigns": [
+        "prehistoric"
+      ],
+      "path": "client/assets/v83/pikaia.svg",
+      "art_mode": "bespoke-subject",
+      "editorial_qa": "pending"
+    },
+    {
+      "id": "organic83:hurdia",
+      "name": "Hurdia",
+      "category": "life",
+      "summary": "A Cambrian radiodont has a rounded head shield and grasping frontal appendages.",
+      "ingredients": [
+        "organic82:anomalocaris",
+        "organic82:fossil-skeleton"
+      ],
+      "familyCampaigns": [
+        "prehistoric"
+      ],
+      "path": "client/assets/v83/hurdia.svg",
+      "art_mode": "bespoke-subject",
+      "editorial_qa": "pending"
+    },
+    {
+      "id": "organic83:cameroceras",
+      "name": "Cameroceras",
+      "category": "life",
+      "summary": "An enormous straight-shelled nautiloid extends tentacles from a tapering conical shell.",
+      "ingredients": [
+        "organic82:ammonite",
+        "organic82:prehistoric-ocean"
+      ],
+      "familyCampaigns": [
+        "prehistoric"
+      ],
+      "path": "client/assets/v83/cameroceras.svg",
+      "art_mode": "bespoke-subject",
+      "editorial_qa": "pending"
+    },
+    {
+      "id": "organic83:helicoprion",
+      "name": "Helicoprion",
+      "category": "life",
+      "summary": "A prehistoric shark relative shows a distinctive spiral tooth whorl beneath its jaw.",
+      "ingredients": [
+        "organic82:paleozoic-era",
+        "organic82:megalodon"
+      ],
+      "familyCampaigns": [
+        "prehistoric"
+      ],
+      "path": "client/assets/v83/helicoprion.svg",
+      "art_mode": "bespoke-subject",
+      "editorial_qa": "pending"
+    },
+    {
+      "id": "organic83:stethacanthus",
+      "name": "Stethacanthus",
+      "category": "life",
+      "summary": "A Carboniferous shark displays a strange anvil-shaped dorsal fin.",
+      "ingredients": [
+        "organic82:carboniferous-period",
+        "organic82:megalodon"
+      ],
+      "familyCampaigns": [
+        "prehistoric"
+      ],
+      "path": "client/assets/v83/stethacanthus.svg",
+      "art_mode": "bespoke-subject",
+      "editorial_qa": "pending"
+    },
+    {
+      "id": "organic83:tiktaalik",
+      "name": "Tiktaalik",
+      "category": "life",
+      "summary": "A flat-headed Devonian lobe-finned fish pushes onto a shallow mudflat.",
+      "ingredients": [
+        "organic82:prehistoric-ocean",
+        "organic82:marine-reptile"
+      ],
+      "familyCampaigns": [
+        "prehistoric"
+      ],
+      "path": "client/assets/v83/tiktaalik.svg",
+      "art_mode": "bespoke-subject",
+      "editorial_qa": "pending"
+    },
+    {
+      "id": "organic83:acanthostega",
+      "name": "Acanthostega",
+      "category": "life",
+      "summary": "An early amphibian-like tetrapod swims with many-toed limbs.",
+      "ingredients": [
+        "organic83:tiktaalik",
+        "organic82:paleozoic-era"
+      ],
+      "familyCampaigns": [
+        "prehistoric"
+      ],
+      "path": "client/assets/v83/acanthostega.svg",
+      "art_mode": "bespoke-subject",
+      "editorial_qa": "pending"
+    },
+    {
+      "id": "organic83:diplocaulus",
+      "name": "Diplocaulus",
+      "category": "life",
+      "summary": "An extinct amphibian has a boomerang-shaped head with wide lateral horns.",
+      "ingredients": [
+        "organic83:acanthostega",
+        "organic82:carboniferous-period"
+      ],
+      "familyCampaigns": [
+        "prehistoric"
+      ],
+      "path": "client/assets/v83/diplocaulus.svg",
+      "art_mode": "bespoke-subject",
+      "editorial_qa": "pending"
+    },
+    {
+      "id": "organic83:dimetrodon",
+      "name": "Dimetrodon",
+      "category": "life",
+      "summary": "A Permian sail-backed synapsid walks on four stout legs.",
+      "ingredients": [
+        "organic82:carboniferous-period",
+        "organic82:prehistoric-mammal"
+      ],
+      "familyCampaigns": [
+        "prehistoric"
+      ],
+      "path": "client/assets/v83/dimetrodon.svg",
+      "art_mode": "bespoke-subject",
+      "editorial_qa": "pending"
+    },
+    {
+      "id": "organic83:gorgonops",
+      "name": "Gorgonops",
+      "category": "life",
+      "summary": "A Permian sabre-toothed predator stands low on muscular forelimbs.",
+      "ingredients": [
+        "organic82:paleozoic-era",
+        "organic82:prehistoric-mammal"
+      ],
+      "familyCampaigns": [
+        "prehistoric"
+      ],
+      "path": "client/assets/v83/gorgonops.svg",
+      "art_mode": "bespoke-subject",
+      "editorial_qa": "pending"
+    },
+    {
+      "id": "organic83:lystrosaurus",
+      "name": "Lystrosaurus",
+      "category": "life",
+      "summary": "A stocky early Triassic dicynodont has a beak and two downward-pointing tusks.",
+      "ingredients": [
+        "organic82:triassic-period",
+        "organic82:prehistoric-mammal"
+      ],
+      "familyCampaigns": [
+        "prehistoric"
+      ],
+      "path": "client/assets/v83/lystrosaurus.svg",
+      "art_mode": "bespoke-subject",
+      "editorial_qa": "pending"
+    },
+    {
+      "id": "organic83:tanystropheus",
+      "name": "Tanystropheus",
+      "category": "life",
+      "summary": "A Triassic reptile carries a remarkably long rigid neck above a small body.",
+      "ingredients": [
+        "organic82:triassic-period",
+        "organic82:nothosaurus"
+      ],
+      "familyCampaigns": [
+        "prehistoric"
+      ],
+      "path": "client/assets/v83/tanystropheus.svg",
+      "art_mode": "bespoke-subject",
+      "editorial_qa": "pending"
+    },
+    {
+      "id": "organic83:shonisaurus",
+      "name": "Shonisaurus",
+      "category": "life",
+      "summary": "A giant Triassic ichthyosaur glides through deep water with a long beak.",
+      "ingredients": [
+        "organic82:triassic-period",
+        "organic82:ichthyosaurus"
+      ],
+      "familyCampaigns": [
+        "prehistoric"
+      ],
+      "path": "client/assets/v83/shonisaurus.svg",
+      "art_mode": "bespoke-subject",
+      "editorial_qa": "pending"
+    },
+    {
+      "id": "organic83:elasmotherium",
+      "name": "Elasmotherium",
+      "category": "life",
+      "summary": "An Ice Age rhinoceros relative bears one long horn on its forehead.",
+      "ingredients": [
+        "organic82:ice-age",
+        "organic82:woolly-rhinoceros"
+      ],
+      "familyCampaigns": [
+        "prehistoric"
+      ],
+      "path": "client/assets/v83/elasmotherium.svg",
+      "art_mode": "bespoke-subject",
+      "editorial_qa": "pending"
+    },
+    {
+      "id": "organic83:homotherium",
+      "name": "Homotherium",
+      "category": "life",
+      "summary": "A prehistoric scimitar-toothed cat has a strong neck and long forelimbs.",
+      "ingredients": [
+        "organic82:smilodon",
+        "organic82:prehistoric-mammal"
+      ],
+      "familyCampaigns": [
+        "prehistoric"
+      ],
+      "path": "client/assets/v83/homotherium.svg",
+      "art_mode": "bespoke-subject",
+      "editorial_qa": "pending"
+    },
+    {
+      "id": "organic83:kelenken",
+      "name": "Kelenken",
+      "category": "life",
+      "summary": "An enormous flightless terror bird has powerful legs and a heavy hooked beak.",
+      "ingredients": [
+        "organic82:terror-bird",
+        "organic82:cenozoic-era"
+      ],
+      "familyCampaigns": [
+        "prehistoric"
+      ],
+      "path": "client/assets/v83/kelenken.svg",
+      "art_mode": "bespoke-subject",
+      "editorial_qa": "pending"
+    },
+    {
+      "id": "organic83:doedicurus",
+      "name": "Doedicurus",
+      "category": "life",
+      "summary": "A giant extinct armadillo carries a domed shell and mace-like spiked tail.",
+      "ingredients": [
+        "organic82:glyptodon",
+        "organic82:prehistoric-mammal"
+      ],
+      "familyCampaigns": [
+        "prehistoric"
+      ],
+      "path": "client/assets/v83/doedicurus.svg",
+      "art_mode": "bespoke-subject",
+      "editorial_qa": "pending"
+    },
+    {
+      "id": "organic83:hatzegopteryx",
+      "name": "Hatzegopteryx",
+      "category": "life",
+      "summary": "A gigantic azhdarchid pterosaur strides on long limbs with a massive beak.",
+      "ingredients": [
+        "organic82:quetzalcoatlus",
+        "organic82:late-cretaceous"
+      ],
+      "familyCampaigns": [
+        "prehistoric"
+      ],
+      "path": "client/assets/v83/hatzegopteryx.svg",
+      "art_mode": "bespoke-subject",
+      "editorial_qa": "pending"
+    },
+    {
+      "id": "organic83:yutyrannus",
+      "name": "Yutyrannus",
+      "category": "life",
+      "summary": "A large feathered tyrannosauroid has a shaggy coat and powerful hind legs.",
+      "ingredients": [
+        "organic82:feathered-dinosaur",
+        "organic82:cretaceous-period"
+      ],
+      "familyCampaigns": [
+        "prehistoric"
+      ],
+      "path": "client/assets/v83/yutyrannus.svg",
+      "art_mode": "bespoke-subject",
+      "editorial_qa": "pending"
+    },
+    {
+      "id": "organic83:kosmoceratops",
+      "name": "Kosmoceratops",
+      "category": "life",
+      "summary": "A horned Cretaceous dinosaur bears an elaborate crown of curved frill spikes.",
+      "ingredients": [
+        "organic82:styracosaurus",
+        "organic82:late-cretaceous"
+      ],
+      "familyCampaigns": [
+        "prehistoric"
+      ],
+      "path": "client/assets/v83/kosmoceratops.svg",
+      "art_mode": "bespoke-subject",
+      "editorial_qa": "pending"
     }
   ],
   "source_checkpoint": {
-    "at_candidates": 150,
+    "at_candidates": 175,
     "isolated_family": "mythology",
-    "family_candidate_count": 50,
+    "family_candidate_count": 75,
     "classic_only_candidate_count": 100,
     "family_reachable": 159,
     "family_total": 159,
     "historical_organic_modules_checked": 39,
     "legacy_and_creative_catalogs_checked": true,
-    "new_pair_keys_unique": 150,
-    "new_ids_unique": 150,
-    "svg_paths_unique": 150,
-    "source_art_map_entries": 150,
-    "manifest_entries": 150,
+    "new_pair_keys_unique": 175,
+    "new_ids_unique": 175,
+    "svg_paths_unique": 175,
+    "source_art_map_entries": 175,
+    "manifest_entries": 175,
     "missing_recipe_inputs": 0,
     "forward_wip_recipe_dependencies": 0,
     "name_or_recipe_collisions_found_after_corrections": 0,
-    "scope": "source-only static and historical audits; npm/Android/physical 35px review NOT run",
+    "scope": "WIP internal uniqueness plus prehistoric input plan; full historical scan after +25 pending",
     "full_regression_test": "NOT_RUN",
     "human_35px_review": "PENDING",
-    "historical_name_pair_scan": "PASS across 39 organic pack modules plus legacy and creative at 150/200 after 3 fixes",
+    "historical_name_pair_scan": "NEEDS_REFRESH_AT_175",
     "unique_ids": 150,
     "unique_pair_keys": 150,
     "used_organic_input_versions": [
