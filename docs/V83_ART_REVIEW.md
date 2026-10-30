@@ -58,7 +58,7 @@ The first 50 SVG sources are distinct and subject-directed but **not signed off*
 | Kobold | `organic83:cave-troll` + `organic83:mythic-bestiary` | <img src="../client/assets/v83/kobold.svg" width="35" height="35"> | <img src="../client/assets/v83/kobold.svg" width="90" height="90"> |
 | Wight | `organic83:vrykolakas` + `organic83:night-wraith` | <img src="../client/assets/v83/wight.svg" width="35" height="35"> | <img src="../client/assets/v83/wight.svg" width="90" height="90"> |
 
-| Quest Journal | `legacy:51` + `pack:system-quest` | <img src="../client/assets/v83/quest-journal.svg" width="35" height="35"> | <img src="../client/assets/v83/quest-journal.svg" width="90" height="90"> |
+| Quest Notice Board | `legacy:107` + `pack:system-quest` | <img src="../client/assets/v83/quest-notice-board.svg" width="35" height="35"> | <img src="../client/assets/v83/quest-notice-board.svg" width="90" height="90"> |
 | Rune-Locked Door | `pack:dungeon-gate` + `organic82:runestone` | <img src="../client/assets/v83/rune-locked-door.svg" width="35" height="35"> | <img src="../client/assets/v83/rune-locked-door.svg" width="90" height="90"> |
 | Checkpoint Banner | `legacy:361` + `legacy:107` | <img src="../client/assets/v83/checkpoint-banner.svg" width="35" height="35"> | <img src="../client/assets/v83/checkpoint-banner.svg" width="90" height="90"> |
 | Pixel Heart Pickup | `legacy:146` + `legacy:21` | <img src="../client/assets/v83/pixel-heart-pickup.svg" width="35" height="35"> | <img src="../client/assets/v83/pixel-heart-pickup.svg" width="90" height="90"> |
@@ -72,13 +72,13 @@ The first 50 SVG sources are distinct and subject-directed but **not signed off*
 | Teleport Waystone | `legacy:361` + `organic82:runestone` | <img src="../client/assets/v83/teleport-waystone.svg" width="35" height="35"> | <img src="../client/assets/v83/teleport-waystone.svg" width="90" height="90"> |
 | Skill Tree Diagram | `legacy:19` + `legacy:356` | <img src="../client/assets/v83/skill-tree-diagram.svg" width="35" height="35"> | <img src="../client/assets/v83/skill-tree-diagram.svg" width="90" height="90"> |
 | Arcade Claw Machine | `legacy:172` + `legacy:561` | <img src="../client/assets/v83/arcade-claw-machine.svg" width="35" height="35"> | <img src="../client/assets/v83/arcade-claw-machine.svg" width="90" height="90"> |
-| Arcade Ticket Roll | `legacy:171` + `legacy:106` | <img src="../client/assets/v83/arcade-ticket-roll.svg" width="35" height="35"> | <img src="../client/assets/v83/arcade-ticket-roll.svg" width="90" height="90"> |
+| Prize Redemption Counter | `organic34:arcade-ticket` + `legacy:561` | <img src="../client/assets/v83/prize-redemption-counter.svg" width="35" height="35"> | <img src="../client/assets/v83/prize-redemption-counter.svg" width="90" height="90"> |
 | Hidden Wall Lever | `legacy:29` + `pack:dungeon-gate` | <img src="../client/assets/v83/hidden-wall-lever.svg" width="35" height="35"> | <img src="../client/assets/v83/hidden-wall-lever.svg" width="90" height="90"> |
 | Spike Trap Floor | `legacy:545` + `legacy:107` | <img src="../client/assets/v83/spike-trap-floor.svg" width="35" height="35"> | <img src="../client/assets/v83/spike-trap-floor.svg" width="90" height="90"> |
 | Loot Rarity Gem | `legacy:34` + `legacy:561` | <img src="../client/assets/v83/loot-rarity-gem.svg" width="35" height="35"> | <img src="../client/assets/v83/loot-rarity-gem.svg" width="90" height="90"> |
 | Parry Spark | `legacy:545` + `legacy:18` | <img src="../client/assets/v83/parry-spark.svg" width="35" height="35"> | <img src="../client/assets/v83/parry-spark.svg" width="90" height="90"> |
 | Save Crystal | `legacy:361` + `legacy:34` | <img src="../client/assets/v83/save-crystal.svg" width="35" height="35"> | <img src="../client/assets/v83/save-crystal.svg" width="90" height="90"> |
-| Retro Loading Bar | `legacy:146` + `legacy:76` | <img src="../client/assets/v83/retro-loading-bar.svg" width="35" height="35"> | <img src="../client/assets/v83/retro-loading-bar.svg" width="90" height="90"> |
+| Save Progress Meter | `legacy:361` + `legacy:76` | <img src="../client/assets/v83/save-progress-meter.svg" width="35" height="35"> | <img src="../client/assets/v83/save-progress-meter.svg" width="90" height="90"> |
 | Secret Treasure Cache | `legacy:561` + `legacy:37` | <img src="../client/assets/v83/secret-treasure-cache.svg" width="35" height="35"> | <img src="../client/assets/v83/secret-treasure-cache.svg" width="90" height="90"> |
 | Boss Arena Gate | `legacy:357` + `pack:dungeon-gate` | <img src="../client/assets/v83/boss-arena-gate.svg" width="35" height="35"> | <img src="../client/assets/v83/boss-arena-gate.svg" width="90" height="90"> |
 | Roguelite Relic | `legacy:237` + `pack:ancient-scroll` | <img src="../client/assets/v83/roguelite-relic.svg" width="35" height="35"> | <img src="../client/assets/v83/roguelite-relic.svg" width="90" height="90"> |

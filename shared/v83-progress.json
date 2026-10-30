@@ -812,16 +812,16 @@
       "editorial_qa": "pending"
     },
     {
-      "id": "organic83:quest-journal",
-      "name": "Quest Journal",
+      "id": "organic83:quest-notice-board",
+      "name": "Quest Notice Board",
       "category": "gaming",
-      "summary": "A worn adventurer's notebook tracks objectives with hand-drawn maps and a feather bookmark.",
+      "summary": "A town notice board displays pinned guild contracts, bounties and expedition requests.",
       "ingredients": [
-        "legacy:51",
+        "legacy:107",
         "pack:system-quest"
       ],
       "familyCampaigns": [],
-      "path": "client/assets/v83/quest-journal.svg",
+      "path": "client/assets/v83/quest-notice-board.svg",
       "art_mode": "bespoke-subject",
       "editorial_qa": "pending"
     },
@@ -1008,16 +1008,16 @@
       "editorial_qa": "pending"
     },
     {
-      "id": "organic83:arcade-ticket-roll",
-      "name": "Arcade Ticket Roll",
+      "id": "organic83:prize-redemption-counter",
+      "name": "Prize Redemption Counter",
       "category": "gaming",
-      "summary": "A curl of numbered redemption tickets waits to be exchanged for arcade prizes.",
+      "summary": "An arcade redemption desk exchanges stacks of tickets for toys and colorful prizes.",
       "ingredients": [
-        "legacy:171",
-        "legacy:106"
+        "organic34:arcade-ticket",
+        "legacy:561"
       ],
       "familyCampaigns": [],
-      "path": "client/assets/v83/arcade-ticket-roll.svg",
+      "path": "client/assets/v83/prize-redemption-counter.svg",
       "art_mode": "bespoke-subject",
       "editorial_qa": "pending"
     },
@@ -1092,16 +1092,16 @@
       "editorial_qa": "pending"
     },
     {
-      "id": "organic83:retro-loading-bar",
-      "name": "Retro Loading Bar",
+      "id": "organic83:save-progress-meter",
+      "name": "Save Progress Meter",
       "category": "gaming",
-      "summary": "A chunky eight-bit progress meter fills a retro game's start screen.",
+      "summary": "A pixel-style progress indicator confirms that a checkpoint is writing a saved game.",
       "ingredients": [
-        "legacy:146",
+        "legacy:361",
         "legacy:76"
       ],
       "familyCampaigns": [],
-      "path": "client/assets/v83/retro-loading-bar.svg",
+      "path": "client/assets/v83/save-progress-meter.svg",
       "art_mode": "bespoke-subject",
       "editorial_qa": "pending"
     },
