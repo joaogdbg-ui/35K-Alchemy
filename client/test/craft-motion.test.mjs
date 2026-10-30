@@ -73,7 +73,7 @@ test('new result grows into ORIGINAL modal card and remains open until X',async(
  assert.equal(h.modal.hidden,false);
  assert.ok(h.nodes.every(n=>n.removed));
  assert.doesNotMatch(css,/craft-motion-full/);
- assert.match(app,/\$('modal'\)\.dataset\.dismiss='x-only';\s*attachDiscoveryMotion\(id\)/);
+ assert.ok(app.includes("$(\x27modal\x27).dataset.dismiss=\x27x-only\x27;\n attachDiscoveryMotion(id);"));
 });
 test('interrupted entrance restores the same modal rather than hiding it',async()=>{
  const h=harness();
