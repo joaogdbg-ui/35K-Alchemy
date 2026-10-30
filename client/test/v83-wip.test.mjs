@@ -118,3 +118,17 @@ test('V83 draft names and recipes do not collide with ANY historical organic pac
   for(const [a,b,c] of ORGANIC_V83.recipes)
     assert.ok(!pairs.has(pair(a,b)),'V83 pair conflicts with old result '+a+' + '+b+' = '+pairs.get(pair(a,b))+' (wanted '+c+')');
 });
+
+
+test('V83 games, arcade and fantasy discoveries use actual supported family categories',async()=>{
+ const {familyFor}=await import('../src/discoveries.js');
+ const valid=new Set(['gamecraft','arcade','fantasy']);
+ for(const item of ORGANIC_V83.items){
+  assert.ok(item.category!=='gaming','unsupported category '+item.name);
+  if(item.familyCampaigns?.length===0){
+   assert.ok(valid.has(item.category),'unsupported game-item category '+item.name);
+   const expected=item.category==='gamecraft'?'games':item.category==='arcade'?'arcades':'fantasy';
+   assert.equal(familyFor(item),expected,'wrong Discoveries family for '+item.name);
+  }
+ }
+});

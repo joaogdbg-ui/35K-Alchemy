@@ -35,3 +35,6 @@ Kelpie, Barghest, Black Shuck, Dullahan, Leshy, Baba Yaga, Tatzelwurm, Tarasque,
 
 ## Historical collision remediation (gaming wave)
 After scanning 39 organic pack modules plus legacy and creative, found previously authored names Quest Journal (V77) and Arcade Ticket Roll (V80), and conflicting Pixel + Screen (already V77 screen-calibration-grid). Replaced those with **Quest Notice Board**, **Prize Redemption Counter**, and **Save Progress Meter**, each with a new recipe and genuinely different custom SVG. No historical IDs/outputs were changed. The new pairs require another full-history scan before the 200-item merge.
+
+## Discovery family classification correction
+The Discoveries module recognizes `gamecraft`, `arcade`, and `fantasy`, but **not `gaming`** (which would silently display in Fantasy). Reclassified the 25 Wave 3 candidates into 10 gamecraft, 2 arcade and 13 fantasy using their actual subject matter. `familyCampaigns: []` still marks them as Classic-only for independent Family Only campaign progress.

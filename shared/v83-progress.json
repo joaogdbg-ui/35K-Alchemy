@@ -814,7 +814,7 @@
     {
       "id": "organic83:quest-notice-board",
       "name": "Quest Notice Board",
-      "category": "gaming",
+      "category": "gamecraft",
       "summary": "A town notice board displays pinned guild contracts, bounties and expedition requests.",
       "ingredients": [
         "legacy:107",
@@ -828,7 +828,7 @@
     {
       "id": "organic83:rune-locked-door",
       "name": "Rune-Locked Door",
-      "category": "gaming",
+      "category": "fantasy",
       "summary": "A heavy dungeon doorway is sealed by glowing ancient runes and a central keyhole.",
       "ingredients": [
         "pack:dungeon-gate",
@@ -842,7 +842,7 @@
     {
       "id": "organic83:checkpoint-banner",
       "name": "Checkpoint Banner",
-      "category": "gaming",
+      "category": "gamecraft",
       "summary": "A fluttering cloth marker confirms the player's last safe point in a level.",
       "ingredients": [
         "legacy:361",
@@ -856,7 +856,7 @@
     {
       "id": "organic83:pixel-heart-pickup",
       "name": "Pixel Heart Pickup",
-      "category": "gaming",
+      "category": "gamecraft",
       "summary": "A bright eight-bit heart floats as a health collectible in a retro adventure.",
       "ingredients": [
         "legacy:146",
@@ -870,7 +870,7 @@
     {
       "id": "organic83:healing-campfire",
       "name": "Healing Campfire",
-      "category": "gaming",
+      "category": "fantasy",
       "summary": "A restorative fire burns inside a ring of stones at an adventurer's resting place.",
       "ingredients": [
         "legacy:1",
@@ -884,7 +884,7 @@
     {
       "id": "organic83:mana-flask",
       "name": "Mana Flask",
-      "category": "gaming",
+      "category": "fantasy",
       "summary": "A corked glass vial holds swirling luminous blue essence for a spellcaster.",
       "ingredients": [
         "legacy:125",
@@ -898,7 +898,7 @@
     {
       "id": "organic83:treasure-mimic",
       "name": "Treasure Mimic",
-      "category": "gaming",
+      "category": "fantasy",
       "summary": "A seemingly ordinary treasure chest reveals rows of sharp teeth and a startled tongue.",
       "ingredients": [
         "legacy:561",
@@ -912,7 +912,7 @@
     {
       "id": "organic83:quest-compass",
       "name": "Quest Compass",
-      "category": "gaming",
+      "category": "gamecraft",
       "summary": "A brass compass with a violet quest needle points toward the next objective.",
       "ingredients": [
         "pack:system-quest",
@@ -926,7 +926,7 @@
     {
       "id": "organic83:dungeon-minimap",
       "name": "Dungeon Minimap",
-      "category": "gaming",
+      "category": "gamecraft",
       "summary": "A compact top-down maze marks corridors, rooms and the explorer's position.",
       "ingredients": [
         "pack:dungeon-gate",
@@ -940,7 +940,7 @@
     {
       "id": "organic83:boss-health-bar",
       "name": "Boss Health Bar",
-      "category": "gaming",
+      "category": "gamecraft",
       "summary": "A dramatic red combat meter tracks a powerful enemy beneath a horned crest.",
       "ingredients": [
         "legacy:357",
@@ -954,7 +954,7 @@
     {
       "id": "organic83:loot-satchel",
       "name": "Loot Satchel",
-      "category": "gaming",
+      "category": "fantasy",
       "summary": "A leather drawstring bag bulges with valuables recovered from an adventure.",
       "ingredients": [
         "legacy:561",
@@ -968,7 +968,7 @@
     {
       "id": "organic83:teleport-waystone",
       "name": "Teleport Waystone",
-      "category": "gaming",
+      "category": "fantasy",
       "summary": "A rune-carved standing stone opens a shimmering travel passage from a safe checkpoint.",
       "ingredients": [
         "legacy:361",
@@ -982,7 +982,7 @@
     {
       "id": "organic83:skill-tree-diagram",
       "name": "Skill Tree Diagram",
-      "category": "gaming",
+      "category": "gamecraft",
       "summary": "A branching schematic displays upgrade nodes connected to a central skill.",
       "ingredients": [
         "legacy:19",
@@ -996,7 +996,7 @@
     {
       "id": "organic83:arcade-claw-machine",
       "name": "Arcade Claw Machine",
-      "category": "gaming",
+      "category": "arcade",
       "summary": "A prize cabinet lowers a mechanical grabber toward a stuffed toy.",
       "ingredients": [
         "legacy:172",
@@ -1010,7 +1010,7 @@
     {
       "id": "organic83:prize-redemption-counter",
       "name": "Prize Redemption Counter",
-      "category": "gaming",
+      "category": "arcade",
       "summary": "An arcade redemption desk exchanges stacks of tickets for toys and colorful prizes.",
       "ingredients": [
         "organic34:arcade-ticket",
@@ -1024,7 +1024,7 @@
     {
       "id": "organic83:hidden-wall-lever",
       "name": "Hidden Wall Lever",
-      "category": "gaming",
+      "category": "fantasy",
       "summary": "A concealed metal handle unlocks a passage behind a cracked dungeon wall.",
       "ingredients": [
         "legacy:29",
@@ -1038,7 +1038,7 @@
     {
       "id": "organic83:spike-trap-floor",
       "name": "Spike Trap Floor",
-      "category": "gaming",
+      "category": "fantasy",
       "summary": "A dungeon floor plate conceals a row of spring-loaded metal spikes.",
       "ingredients": [
         "legacy:545",
@@ -1052,7 +1052,7 @@
     {
       "id": "organic83:loot-rarity-gem",
       "name": "Loot Rarity Gem",
-      "category": "gaming",
+      "category": "fantasy",
       "summary": "A radiant many-faceted gemstone marks unusually valuable equipment.",
       "ingredients": [
         "legacy:34",
@@ -1066,7 +1066,7 @@
     {
       "id": "organic83:parry-spark",
       "name": "Parry Spark",
-      "category": "gaming",
+      "category": "gamecraft",
       "summary": "A bright burst at the crossing of two swords signals a perfectly timed defense.",
       "ingredients": [
         "legacy:545",
@@ -1080,7 +1080,7 @@
     {
       "id": "organic83:save-crystal",
       "name": "Save Crystal",
-      "category": "gaming",
+      "category": "fantasy",
       "summary": "A tall faceted crystal set on a stone plinth stores an adventurer's progress.",
       "ingredients": [
         "legacy:361",
@@ -1094,7 +1094,7 @@
     {
       "id": "organic83:save-progress-meter",
       "name": "Save Progress Meter",
-      "category": "gaming",
+      "category": "gamecraft",
       "summary": "A pixel-style progress indicator confirms that a checkpoint is writing a saved game.",
       "ingredients": [
         "legacy:361",
@@ -1108,7 +1108,7 @@
     {
       "id": "organic83:secret-treasure-cache",
       "name": "Secret Treasure Cache",
-      "category": "gaming",
+      "category": "fantasy",
       "summary": "A small hidden chest is tucked into the shadows behind a cave wall.",
       "ingredients": [
         "legacy:561",
@@ -1122,7 +1122,7 @@
     {
       "id": "organic83:boss-arena-gate",
       "name": "Boss Arena Gate",
-      "category": "gaming",
+      "category": "fantasy",
       "summary": "An ominous stone arch with a fiery seal stands before the final encounter.",
       "ingredients": [
         "legacy:357",
@@ -1136,7 +1136,7 @@
     {
       "id": "organic83:roguelite-relic",
       "name": "Roguelite Relic",
-      "category": "gaming",
+      "category": "fantasy",
       "summary": "An old charm carries a shifting dungeon emblem treasured between repeated runs.",
       "ingredients": [
         "legacy:237",
@@ -1150,7 +1150,7 @@
     {
       "id": "organic83:monster-bestiary-page",
       "name": "Monster Bestiary Page",
-      "category": "gaming",
+      "category": "gamecraft",
       "summary": "A field-guide leaf sketches a creature's anatomy and lists its weaknesses.",
       "ingredients": [
         "organic83:mythic-bestiary",
