@@ -23,3 +23,9 @@ Kelpie, Barghest, Black Shuck, Dullahan, Leshy, Baba Yaga, Tatzelwurm, Tarasque,
 
 ## First 50/200 ready for offline editorial QA
 50 draft IDs, 50 draft recipes, 50 source-matched SVG illustrations. The second group adds Hippocampus, Naiad, Nereid, Lamia, Scylla, Charybdis, Fomorian, Puca, Undine, Pixie, Kobold and Wight. **Not yet integrated in the app or validated through CI/Android**. Global exact goal remains 10,000.
+
+## Structural checkpoint — verified without CI/Android build
+- 50/50 proposed IDs, English names, unordered pair keys and SVG paths distinct.
+- Source-level independent **Mythology & Gods family closure: 159/159** members reachable from Human, History, Magic and Sky. This is a data traversal (legacy+creative+V41+V42+V82+WIP V83), not a physical-device test.
+- No new pair-result conflict in this same source-level reconciliation (historical subset). 50 V83 artwork strings are distinct. Full historical catalog regression test has been authored but **not executed**; continue validation before integration.
+- No GitHub Actions triggered for this WIP checkpoint, and no APK was published.

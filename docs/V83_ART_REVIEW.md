@@ -1,6 +1,6 @@
 # Alchemy 10K — V83 WIP artwork review (50/200)
 
-SVG sources are subject-specific but **not signed off**. Assess Light/Dark readability and distinguishable silhouettes at 35px; 90px is diagnostic only.
+The first 50 SVG sources are distinct and subject-directed but **not signed off**. Source-based mythology recipe closure passes 159/159 at the current 50-candidate checkpoint. Assess Light/Dark readability and distinguishable silhouettes at 35px; 90px is diagnostic only.
 
 | Candidate | Proposed global ingredients | 35px | 90px |
 |---|---|---|---|

@@ -2,7 +2,7 @@
 
 **Exact target: 10,000 elements, not 10,012.** The V82 batch of +200 was merged into `main` in commit `b75811874766a1270ac5ca908fd57719e1557c0a`: **6,012 elements / 14,349 global recipes**. From here the remaining 3,988 elements require **19 regular +200 deliveries**, reaching 9,812, then **one exceptional final +188 delivery** reaching precisely 10,000. The last-batch gate must be adapted only when that final baseline is reached.
 
-**Current WIP:** [V83 fantasy and gaming branch](https://github.com/joaogdbg-ui/35K-Alchemy/tree/wip/alchemy-10k-v83-fantasy-gaming), with 12 authored candidates NOT integrated into the game. V83 will be released only at +200, targeting 6,212 elements.
+**Current WIP:** [V83 fantasy and gaming branch](https://github.com/joaogdbg-ui/35K-Alchemy/tree/wip/alchemy-10k-v83-fantasy-gaming), with 50 authored candidates NOT integrated into the game. V83 has 50 proposed global recipes and 50 subject-specific SVG sources. All 50 candidate family recipes are source-reachable from four isolated Mythology starters (159/159 including existing members). Native 35px artistic QA and full CI remain pending. V83 will be released only at +200, targeting 6,212 elements.
 
 **Android:** V82 signed debug/test APK successfully built after merge, [latest test APK](https://github.com/joaogdbg-ui/35K-Alchemy/releases/download/latest/35K-Alchemy.apk). Production signing and actual rewarded ads are not implemented.
 

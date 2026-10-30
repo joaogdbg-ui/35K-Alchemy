@@ -811,5 +811,17 @@
       "art_mode": "bespoke-subject",
       "editorial_qa": "pending"
     }
-  ]
+  ],
+  "source_checkpoint": {
+    "at_candidates": 50,
+    "isolated_family": "mythology",
+    "family_reachable": 159,
+    "family_total": 159,
+    "new_pair_keys_unique": 50,
+    "new_ids_unique": 50,
+    "svg_paths_unique": 50,
+    "scope": "source-only subset traversal, not full CI or device QA",
+    "full_regression_test": "NOT_RUN",
+    "human_35px_review": "PENDING"
+  }
 }
