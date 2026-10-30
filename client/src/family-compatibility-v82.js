@@ -13,7 +13,7 @@ export const HISTORICAL_FAMILY_REPAIRS_V82 = Object.freeze([
  {family:'nature', old:'legacy:10|organic38:pond',output:'organic42:lagoon',
   ingredients:['legacy:10','organic34:coral-reef'],rationale:'Sea and a coral reef enclose a lagoon'},
  {family:'nature',old:'legacy:16|legacy:34',output:'legacy:218',
-  ingredients:['legacy:34','organic32:microscope'],rationale:'Crystalline patterns examined under a microscope reveal geometry'},
+  ingredients:['organic32:microscope','organic37:honeycomb'],rationale:'The microscope reveals repeating hexagonal geometry in a honeycomb'},
  {family:'nature',old:'legacy:63|organic41:fog',output:'organic46:lighthouse-beam',
   ingredients:['legacy:63','organic47:coastal-fog'],rationale:'A light shone through coastal fog becomes a lighthouse beam'},
  {family:'people',old:'legacy:207|legacy:46',output:'organic37:harvest',
