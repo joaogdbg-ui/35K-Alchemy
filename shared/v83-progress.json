@@ -7,8 +7,8 @@
     "recipes": 14349
   },
   "expansion_goal": 200,
-  "authored_candidates": 25,
-  "remaining": 175,
+  "authored_candidates": 38,
+  "remaining": 162,
   "art_review": "NOT_APPROVED",
   "new_items": [
     {
@@ -408,6 +408,214 @@
         "mythology"
       ],
       "path": "client/assets/v83/gargoyle.svg",
+      "art_mode": "bespoke-subject",
+      "editorial_qa": "pending"
+    },
+    {
+      "id": "organic83:kelpie",
+      "name": "Kelpie",
+      "category": "fantasy",
+      "summary": "A dark water horse rises from a loch with reeds tangled through its mane.",
+      "ingredients": [
+        "organic83:ocean-leviathan",
+        "organic83:centaur"
+      ],
+      "familyCampaigns": [
+        "mythology"
+      ],
+      "path": "client/assets/v83/kelpie.svg",
+      "art_mode": "bespoke-subject",
+      "editorial_qa": "pending"
+    },
+    {
+      "id": "organic83:barghest",
+      "name": "Barghest",
+      "category": "fantasy",
+      "summary": "A spectral black hound stalks the moor with ember-red eyes and smoky paws.",
+      "ingredients": [
+        "organic82:fenrir",
+        "organic83:night-wraith"
+      ],
+      "familyCampaigns": [
+        "mythology"
+      ],
+      "path": "client/assets/v83/barghest.svg",
+      "art_mode": "bespoke-subject",
+      "editorial_qa": "pending"
+    },
+    {
+      "id": "organic83:black-shuck",
+      "name": "Black Shuck",
+      "category": "fantasy",
+      "summary": "A massive one-eyed ghost dog prowls a stormy English coastline.",
+      "ingredients": [
+        "organic83:barghest",
+        "organic82:niflheim"
+      ],
+      "familyCampaigns": [
+        "mythology"
+      ],
+      "path": "client/assets/v83/black-shuck.svg",
+      "art_mode": "bespoke-subject",
+      "editorial_qa": "pending"
+    },
+    {
+      "id": "organic83:dullahan",
+      "name": "Dullahan",
+      "category": "fantasy",
+      "summary": "A headless rider carries a lantern as a dark horse races through the night.",
+      "ingredients": [
+        "organic83:banshee",
+        "organic83:centaur"
+      ],
+      "familyCampaigns": [
+        "mythology"
+      ],
+      "path": "client/assets/v83/dullahan.svg",
+      "art_mode": "bespoke-subject",
+      "editorial_qa": "pending"
+    },
+    {
+      "id": "organic83:leshy",
+      "name": "Leshy",
+      "category": "fantasy",
+      "summary": "A moss-bearded guardian wears a leafy crown and has hands like tangled branches.",
+      "ingredients": [
+        "organic83:forest-dryad",
+        "organic83:forest-troll"
+      ],
+      "familyCampaigns": [
+        "mythology"
+      ],
+      "path": "client/assets/v83/leshy.svg",
+      "art_mode": "bespoke-subject",
+      "editorial_qa": "pending"
+    },
+    {
+      "id": "organic83:baba-yaga",
+      "name": "Baba Yaga",
+      "category": "fantasy",
+      "summary": "The witch of Slavic folktales lives in a crooked hut perched on giant chicken legs.",
+      "ingredients": [
+        "organic83:forest-dryad",
+        "organic83:night-wraith"
+      ],
+      "familyCampaigns": [
+        "mythology"
+      ],
+      "path": "client/assets/v83/baba-yaga.svg",
+      "art_mode": "bespoke-subject",
+      "editorial_qa": "pending"
+    },
+    {
+      "id": "organic83:tatzelwurm",
+      "name": "Tatzelwurm",
+      "category": "fantasy",
+      "summary": "A cat-faced alpine worm winds between rocky peaks with two tiny clawed forelegs.",
+      "ingredients": [
+        "organic83:basilisk",
+        "organic83:cave-troll"
+      ],
+      "familyCampaigns": [
+        "mythology"
+      ],
+      "path": "client/assets/v83/tatzelwurm.svg",
+      "art_mode": "bespoke-subject",
+      "editorial_qa": "pending"
+    },
+    {
+      "id": "organic83:tarasque",
+      "name": "Tarasque",
+      "category": "fantasy",
+      "summary": "A spiked armored beast of French legend has a lion-like face, heavy shell and sturdy legs.",
+      "ingredients": [
+        "organic83:basilisk",
+        "organic83:stone-troll"
+      ],
+      "familyCampaigns": [
+        "mythology"
+      ],
+      "path": "client/assets/v83/tarasque.svg",
+      "art_mode": "bespoke-subject",
+      "editorial_qa": "pending"
+    },
+    {
+      "id": "organic83:wyvern",
+      "name": "Wyvern",
+      "category": "fantasy",
+      "summary": "A long-tailed winged dragon has two taloned legs and a forked, spiny crest.",
+      "ingredients": [
+        "organic83:griffin",
+        "organic83:basilisk"
+      ],
+      "familyCampaigns": [
+        "mythology"
+      ],
+      "path": "client/assets/v83/wyvern.svg",
+      "art_mode": "bespoke-subject",
+      "editorial_qa": "pending"
+    },
+    {
+      "id": "organic83:cockatrice",
+      "name": "Cockatrice",
+      "category": "fantasy",
+      "summary": "A small rooster-headed serpent with a fan crest and barbed tail emerges from a nest.",
+      "ingredients": [
+        "organic83:thunderbird",
+        "organic83:basilisk"
+      ],
+      "familyCampaigns": [
+        "mythology"
+      ],
+      "path": "client/assets/v83/cockatrice.svg",
+      "art_mode": "bespoke-subject",
+      "editorial_qa": "pending"
+    },
+    {
+      "id": "organic83:manticore",
+      "name": "Manticore",
+      "category": "fantasy",
+      "summary": "A lion-bodied monster wears a fierce mane and raises a venomous scorpion tail.",
+      "ingredients": [
+        "organic83:chimera",
+        "organic83:basilisk"
+      ],
+      "familyCampaigns": [
+        "mythology"
+      ],
+      "path": "client/assets/v83/manticore.svg",
+      "art_mode": "bespoke-subject",
+      "editorial_qa": "pending"
+    },
+    {
+      "id": "organic83:amphisbaena",
+      "name": "Amphisbaena",
+      "category": "fantasy",
+      "summary": "A two-headed serpent carries a watchful scaled head at both ends of its coiled body.",
+      "ingredients": [
+        "organic82:jormungandr",
+        "organic83:basilisk"
+      ],
+      "familyCampaigns": [
+        "mythology"
+      ],
+      "path": "client/assets/v83/amphisbaena.svg",
+      "art_mode": "bespoke-subject",
+      "editorial_qa": "pending"
+    },
+    {
+      "id": "organic83:simurgh",
+      "name": "Simurgh",
+      "category": "fantasy",
+      "summary": "A legendary wise bird spreads sweeping turquoise wings and a flowing jeweled tail.",
+      "ingredients": [
+        "organic83:solar-phoenix",
+        "organic83:griffin"
+      ],
+      "familyCampaigns": [
+        "mythology"
+      ],
+      "path": "client/assets/v83/simurgh.svg",
       "art_mode": "bespoke-subject",
       "editorial_qa": "pending"
     }

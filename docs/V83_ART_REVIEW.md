@@ -1,4 +1,4 @@
-# Alchemy 10K — V83 WIP artwork review (25/200)
+# Alchemy 10K — V83 WIP artwork review (38/200)
 
 SVG sources are subject-specific but **not signed off**. Assess Light/Dark readability and distinguishable silhouettes at 35px; 90px is diagnostic only.
 
@@ -30,3 +30,17 @@ SVG sources are subject-specific but **not signed off**. Assess Light/Dark reada
 | Ancient Tree Ent | `organic83:forest-dryad` + `organic82:frost-giant` | <img src="../client/assets/v83/ancient-tree-ent.svg" width="35" height="35"> | <img src="../client/assets/v83/ancient-tree-ent.svg" width="90" height="90"> |
 | Will-o'-the-Wisp | `organic83:night-wraith` + `organic82:ra` | <img src="../client/assets/v83/will-o-wisp.svg" width="35" height="35"> | <img src="../client/assets/v83/will-o-wisp.svg" width="90" height="90"> |
 | Gargoyle | `organic83:stone-golem` + `organic82:cerberus` | <img src="../client/assets/v83/gargoyle.svg" width="35" height="35"> | <img src="../client/assets/v83/gargoyle.svg" width="90" height="90"> |
+
+| Kelpie | `organic83:ocean-leviathan` + `organic83:centaur` | <img src="../client/assets/v83/kelpie.svg" width="35" height="35"> | <img src="../client/assets/v83/kelpie.svg" width="90" height="90"> |
+| Barghest | `organic82:fenrir` + `organic83:night-wraith` | <img src="../client/assets/v83/barghest.svg" width="35" height="35"> | <img src="../client/assets/v83/barghest.svg" width="90" height="90"> |
+| Black Shuck | `organic83:barghest` + `organic82:niflheim` | <img src="../client/assets/v83/black-shuck.svg" width="35" height="35"> | <img src="../client/assets/v83/black-shuck.svg" width="90" height="90"> |
+| Dullahan | `organic83:banshee` + `organic83:centaur` | <img src="../client/assets/v83/dullahan.svg" width="35" height="35"> | <img src="../client/assets/v83/dullahan.svg" width="90" height="90"> |
+| Leshy | `organic83:forest-dryad` + `organic83:forest-troll` | <img src="../client/assets/v83/leshy.svg" width="35" height="35"> | <img src="../client/assets/v83/leshy.svg" width="90" height="90"> |
+| Baba Yaga | `organic83:forest-dryad` + `organic83:night-wraith` | <img src="../client/assets/v83/baba-yaga.svg" width="35" height="35"> | <img src="../client/assets/v83/baba-yaga.svg" width="90" height="90"> |
+| Tatzelwurm | `organic83:basilisk` + `organic83:cave-troll` | <img src="../client/assets/v83/tatzelwurm.svg" width="35" height="35"> | <img src="../client/assets/v83/tatzelwurm.svg" width="90" height="90"> |
+| Tarasque | `organic83:basilisk` + `organic83:stone-troll` | <img src="../client/assets/v83/tarasque.svg" width="35" height="35"> | <img src="../client/assets/v83/tarasque.svg" width="90" height="90"> |
+| Wyvern | `organic83:griffin` + `organic83:basilisk` | <img src="../client/assets/v83/wyvern.svg" width="35" height="35"> | <img src="../client/assets/v83/wyvern.svg" width="90" height="90"> |
+| Cockatrice | `organic83:thunderbird` + `organic83:basilisk` | <img src="../client/assets/v83/cockatrice.svg" width="35" height="35"> | <img src="../client/assets/v83/cockatrice.svg" width="90" height="90"> |
+| Manticore | `organic83:chimera` + `organic83:basilisk` | <img src="../client/assets/v83/manticore.svg" width="35" height="35"> | <img src="../client/assets/v83/manticore.svg" width="90" height="90"> |
+| Amphisbaena | `organic82:jormungandr` + `organic83:basilisk` | <img src="../client/assets/v83/amphisbaena.svg" width="35" height="35"> | <img src="../client/assets/v83/amphisbaena.svg" width="90" height="90"> |
+| Simurgh | `organic83:solar-phoenix` + `organic83:griffin` | <img src="../client/assets/v83/simurgh.svg" width="35" height="35"> | <img src="../client/assets/v83/simurgh.svg" width="90" height="90"> |
