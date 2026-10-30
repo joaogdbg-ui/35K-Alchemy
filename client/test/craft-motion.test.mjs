@@ -52,7 +52,7 @@ test('new result uses original modal card without EVER hiding or auto-closing it
  assert.doesNotMatch(source,/style\.visibility='hidden'/);
  assert.match(app,/if\(showPopup\)showDiscovery\(resultId,a,b\)/);
  assert.match(app,/animateOriginalDiscoveryModal\(id\)/);
- assert.match(app,/\$('modal'\)\.dataset\.dismiss='x-only'/);
+ assert.ok(app.includes("dataset.dismiss='x-only'"));
 });
 test('interrupting an animated discovery leaves original popup visible',()=>{
  const h=harness();
