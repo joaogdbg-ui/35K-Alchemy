@@ -1,3 +1,15 @@
+# Alchemy 10K — active catalog roadmap (29 October 2026)
+
+V81 main baseline: **5,812 items / 14,149 global unordered recipes**. V82 authored QA candidate on `feature/alchemy-10k-mythology-prehistory`: **+200 real new IDs, +200 recipes and 200 SVG source files**. Candidate total **6,012 / 14,349**, of which **93 new mythology elements** and **107 new prehistory items**. Content count is full but branch is **unmerged and not an APK release**. Manual at-35px art review, full tests, CI and Android build remain pending.
+
+Four Family Only source-level isolated closure checks: Nature & Science **476/476**, People & Culture **211/211**, Mythology & Gods **109/109**, Prehistory & Dinosaurs **116/116**. Existing Nature campaign continues to use the historical Classic starters (known defect); the two new campaigns have four unique thematic starters. One global result for each unordered pair applies to Classic and all campaigns.
+
+Active minimum goal: **10,000+ unique elements** in full **+200 content releases**. Starting from V81 there are 21 batches to reach **10,012**; V82 would complete the first, leaving **20 more 200-item batches** and no filler allowed.
+
+Read the [200-illustration V82 art contact sheet](docs/V82_ART_REVIEW.md), [V82 handoff](HANDOFF_ALCHEMY_10K.md), [thematic contract](docs/ALCHEMY_10K_THEMATIC_EXPANSION.md), [Family Only invariants](docs/FAMILIES_ONLY_CONTRACT_PT.md) and [200-item release policy](docs/CONTENT_200_BATCH_POLICY_PT.md). The old 35K roadmap below is historical and not active development policy.
+
+---
+
 # Art-first content road map
 
 Goal: 35,000 recognizable, meaningful discoveries, not merely 35,000 nouns.

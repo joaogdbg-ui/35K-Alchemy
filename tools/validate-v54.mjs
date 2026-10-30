@@ -4,10 +4,10 @@ import {createHash} from 'node:crypto';
 import {FAMILIES} from '../client/src/discoveries.js';
 import {FAMILY_ICONS_V54} from '../client/src/family-icons-v54.js';
 const manifest=JSON.parse(readFileSync('shared/v54-family-art-manifest.json','utf8'));
-assert.equal(FAMILIES.length,9);
-assert.deepEqual(Object.keys(FAMILY_ICONS_V54).sort(),FAMILIES.map(x=>x.id).sort());
+assert.ok(FAMILIES.length>=9); // The original 9 family art keys remain the V54 baseline.
+assert.deepEqual(Object.keys(FAMILY_ICONS_V54).sort(),FAMILIES.slice(0,9).map(x=>x.id).sort());
 const unique=new Set();
-for(const f of FAMILIES){
+for(const f of FAMILIES.slice(0,9)){
  const file=readFileSync(`client/assets/families-v54/${f.id}.svg`);
  assert.equal(createHash('sha256').update(file).digest('hex'),manifest[f.id]);
  const encoded='data:image/svg+xml;base64,'+file.toString('base64');

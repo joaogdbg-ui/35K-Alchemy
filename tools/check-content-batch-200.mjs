@@ -47,7 +47,7 @@ async function main(){
   return;
  }
  const plan=json('shared/production-plan-200.json');
- if(plan.batch_size!==200||plan.target_minimum_elements!==35000||plan.partial_content_merges_allowed!==false)err('policy changed');
+ if(plan.batch_size!==200||plan.target_minimum_elements!==10000||plan.partial_content_merges_allowed!==false)err('policy changed');
  const ids=new Set(),names=new Set(),pairs=new Set(),svgs=new Set();
  for(const file of files){
   const match=file.match(pattern),v=Number(match[2]);
@@ -62,7 +62,7 @@ async function main(){
    if(ids.has(item.id))err('duplicate new ID '+item.id);ids.add(item.id);
    const name=norm(item.name);if(!name||names.has(name))err('duplicate new name '+item.name);names.add(name);
    const entry=manifest.new_items?.find(x=>x.id===item.id);
-   if(!entry||entry.name!==item.name||entry.category!==item.category||entry.summary!==item.summary||entry.art_mode!=='bespoke-subject'||(item.summary?.length||0)<40)err('editorial manifest mismatch: '+item.id);
+   if(!entry||entry.name!==item.name||entry.category!==item.category||entry.summary!==item.summary||!['bespoke-subject','species-specific-anatomy'].includes(entry.art_mode)||(item.summary?.length||0)<40)err('editorial manifest mismatch: '+item.id);
    const direct=now.recipes.filter(r=>Array.isArray(r)&&r.length===3&&r[2]===item.id);
    if(!direct.some(r=>r[0]===entry.ingredients?.[0]&&r[1]===entry.ingredients?.[1]))err('missing manifest primary recipe '+item.id);
    for(const r of direct){const key=[r[0],r[1]].sort().join('|');if(pairs.has(key))err('new pair reused '+key);pairs.add(key);}

@@ -1,3 +1,18 @@
+# Alchemy 10K — V82 content complete (200/200), release QA pending
+
+The V81 **main** baseline is **5,812 distinct elements / 14,149 stable unordered recipes**. The V82 feature branch has **200 additional authored elements, 200 global recipes and 200 source-matched standalone SVG illustrations**: 93 Mythology & Gods and 107 Prehistory & Dinosaurs. Candidate catalog: **6,012 elements / 14,349 recipes**, not yet merged or released. The active goal remains **10,000+ genuine discoveries** in exact +200 batches; after this proposed +200 increment another **20 complete batches** would reach 10,012.
+
+**Thematic Family Only** uses exactly four own starters for each campaign, reuses globally identical recipes and synchronizes truly earned cross-family IDs without transferring free starters. Direct independent recipe-closure checks on the current source achieved **Mythology 109/109 (105 family recipes)**, **Prehistory 116/116 (112)**, **Nature & Science 476/476 (1,781)**, and **People & Culture 211/211 (266)**. Nature & Science retains its known historical issue: starter ingredients currently match the Classic four. Stable historic saves, old recipes, original Android application ID and verified-ad rewards are not rewritten.
+
+**Artwork:** each V82 entry has its own 100×100 SVG source file and an identical entry in the runtime vector map. The initial 120 sources are individually composed drawings; the final 80 extinct animals use the custom species-parameterized anatomical vector renderer, not pasted stock graphics. Uniqueness and SVG structure are subject to automated gates. **Real-device recognizability at 35px still needs human QA.**
+
+**Links:** [200-SVG contact sheet at 35px / 90px](docs/V82_ART_REVIEW.md) · [200 V82 item definitions and recipes](client/src/organic-pack-v82.js) · [theme campaign contract](docs/FAMILIES_ONLY_CONTRACT_PT.md) · [V82 validator](tools/validate-v82.mjs) · [200-item delivery gate](tools/check-content-batch-200.mjs) · [complete development handoff](HANDOFF_ALCHEMY_10K.md) · [latest existing APK (earlier main build, NOT V82)](https://github.com/joaogdbg-ui/35K-Alchemy/releases/tag/latest).
+
+**Verification status:** 46 historical catalog source modules examined for proposed name collisions; identified and disambiguated `Hades the God` (distinct from the historical Hades game) and `Fossilized Dinosaur Egg` (distinct from a prior franchise prop). Direct source-based family closure and subset pair checks passed. **Full npm test / Node+Python audits / standalone HTML build / GitHub Actions / manual mobile art review / APK build have not yet been executed.** No V82 APK or merged content release is claimed.
+
+
+---
+
 # 35K Alchemy — V81 release candidate: 5,812 elements / 14,149 recipes
 
 This candidate delivers **exactly 200 new discoveries** since published V80B: **160 additional V80** plus **40 new V81** elements. All have individual original SVG illustrations and globally deterministic recipes. **Publication remains conditional on one complete CI check, merge, and Android APK build.** No fake rewarded ads or unfinished Google cloud integration.

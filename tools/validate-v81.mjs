@@ -53,7 +53,7 @@ for(const family of FAMILY_CAMPAIGNS.families){
  check(reachable.size===allowed.size&&[...allowed].every(id=>reachable.has(id)),'Family Only campaign not independently completable '+family.id);
 }
 const app=readFileSync('client/src/app.js','utf8'),builder=readFileSync('tools/build-standalone.py','utf8');
-check(app.includes('ORGANIC_V79,ORGANIC_V80,ORGANIC_V81]'),'V81 Classic registration missing');
-check(app.includes('const newArt=ORGANIC_ART_V81[itemName]||ORGANIC_ART_V80[itemName]'),'V81 SVG lookup absent');
+check(app.includes('ORGANIC_V79,ORGANIC_V80,ORGANIC_V81,ORGANIC_V82]'),'V81 Classic registration missing');
+check(app.includes('ORGANIC_ART_V81[itemName]||ORGANIC_ART_V80[itemName]'),'V81 SVG lookup absent');
 check(builder.includes('window.__gameverseOrganic81')&&builder.includes('window.__gameverseOrganicArt81'),'V81 absent from offline bundle');
 if(!process.argv.includes('--quiet'))console.log('V81 content PASS: 5812 elements, 14149 global recipes, 200 newly authored since V80B.');

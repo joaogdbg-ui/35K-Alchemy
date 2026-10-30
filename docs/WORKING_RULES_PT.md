@@ -1,4 +1,6 @@
-# Regras permanentes do 35K Alchemy
+# Regras permanentes do Alchemy 10K
+
+**Meta vigente desde 29/10/2026:** 10.000+ elementos; base V81 = 5.812 elementos / 14.149 receitas, 21 entregas futuras de exatamente +200 para 10.012. Qualquer referência abaixo à antiga meta 35K, ao antigo objetivo de 147 lotes ou à próxima entrega V80/V81 pertence ao histórico e está substituída por este contrato. Ver `docs/ALCHEMY_10K_THEMATIC_EXPANSION.md`.
 
 ## Conteúdo e motor
 

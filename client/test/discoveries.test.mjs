@@ -12,18 +12,18 @@ const initial=new Set(['legacy:0','legacy:1','legacy:2','legacy:3']);
 test('all 2774 original V19 element IDs preserved',()=>{
  assert.equal(items.length,2774);assert.equal(itemMap.size,2774);assert.equal(recipes.size,5078);
 });
-test('every element maps to one of the nine visible families',()=>{
- assert.equal(FAMILIES.length,9);
+test('all original elements retain a primary family and membership remains unique by catalog ID',()=>{
+ assert.equal(FAMILIES.slice(0,9).length,9);
  const ids=new Set(FAMILIES.map(f=>f.id));
  for(const item of items)assert.ok(ids.has(familyFor(item)),item.name);
  const groups=groupFamilies(items,initial);
- assert.equal(Object.values(groups).reduce((n,g)=>n+g.total,0),2774);
- assert.equal(Object.values(groups).reduce((n,g)=>n+g.found,0),4);
+ assert.equal(new Set(Object.values(groups).flatMap(g=>g.ids)).size,2774);
+ assert.equal(new Set(Object.values(groups).flatMap(g=>g.ids.filter(id=>initial.has(id)))).size,4);
  assert.ok(groups.games.total>300);
 });
 test('all unknown elements are available for four-character placeholder without exposing names',()=>{
  const groups=groupFamilies(items,initial);
- const unknown=Object.values(groups).flatMap(g=>g.ids).filter(id=>!initial.has(id));
+ const unknown=[...new Set(Object.values(groups).flatMap(g=>g.ids))].filter(id=>!initial.has(id));
  assert.equal(unknown.length,2770);
  assert.ok(unknown.every(id=>itemMap.has(id)));
 });

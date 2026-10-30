@@ -1,0 +1,710 @@
+{
+  "kind": "dinosaur-fauna",
+  "rows": [
+    [
+      "allosaurus",
+      "Allosaurus",
+      "theropod",
+      "jurassic-period",
+      "A large Jurassic hunter with strong legs, three-fingered arms and small brow crests.",
+      "theropod",
+      {
+        "color": "#96B3A0",
+        "crest": "brow",
+        "head": 1,
+        "tail": 1.2,
+        "scale": 1.15
+      }
+    ],
+    [
+      "spinosaurus",
+      "Spinosaurus",
+      "theropod",
+      "marine-reptile",
+      "A semi-aquatic Cretaceous theropod with an elongated crocodile-like snout and tall back sail.",
+      "theropod",
+      {
+        "color": "#8FB5B8",
+        "sail": true,
+        "head": 1.4,
+        "tail": 1.3,
+        "scale": 1.25
+      }
+    ],
+    [
+      "carnotaurus",
+      "Carnotaurus",
+      "theropod",
+      "dinosaur-armor",
+      "A fast abelisaurid from South America with two blunt horns above a short deep skull.",
+      "theropod",
+      {
+        "color": "#BA9E99",
+        "horns": 2,
+        "head": 0.85,
+        "arms": 0.55,
+        "scale": 1.18
+      }
+    ],
+    [
+      "giganotosaurus",
+      "Giganotosaurus",
+      "theropod",
+      "late-cretaceous",
+      "A massive South American predator with a long low skull and powerful two-legged stride.",
+      "theropod",
+      {
+        "color": "#9BB0AB",
+        "head": 1.45,
+        "scale": 1.35,
+        "tail": 1.35,
+        "stripes": 3
+      }
+    ],
+    [
+      "tarbosaurus",
+      "Tarbosaurus",
+      "giganotosaurus",
+      "theropod",
+      "A giant Asian tyrannosaur with a broad powerful skull and relatively short forelimbs.",
+      "theropod",
+      {
+        "color": "#A4A9BC",
+        "head": 1.17,
+        "scale": 1.3,
+        "arms": 0.6,
+        "tail": 1.1
+      }
+    ],
+    [
+      "dilophosaurus",
+      "Dilophosaurus",
+      "allosaurus",
+      "theropod",
+      "An Early Jurassic theropod recognized by its paired thin bony crests over the head.",
+      "theropod",
+      {
+        "color": "#B9B39E",
+        "crest": "double",
+        "head": 1,
+        "scale": 1.05
+      }
+    ],
+    [
+      "baryonyx",
+      "Baryonyx",
+      "spinosaurus",
+      "theropod",
+      "A fish-eating spinosaurid with narrow crocodile-like jaws and a large thumb claw.",
+      "theropod",
+      {
+        "color": "#8EAC9D",
+        "head": 1.5,
+        "claws": 2,
+        "tail": 1.1,
+        "scale": 1.15
+      }
+    ],
+    [
+      "deinonychus",
+      "Deinonychus",
+      "feathered-dinosaur",
+      "theropod",
+      "A feathered dromaeosaur with a rigid balancing tail and an enlarged sickle toe claw.",
+      "theropod",
+      {
+        "color": "#B4A4B9",
+        "feather": true,
+        "claws": 3,
+        "scale": 0.8,
+        "tail": 1.4
+      }
+    ],
+    [
+      "oviraptor",
+      "Oviraptor",
+      "dinosaur-egg",
+      "theropod",
+      "A beaked feathered theropod from Mongolia, often associated with fossil nests.",
+      "theropod",
+      {
+        "color": "#C2B6A0",
+        "beak": true,
+        "feather": true,
+        "crest": "oval",
+        "scale": 0.8
+      }
+    ],
+    [
+      "compsognathus",
+      "Compsognathus",
+      "theropod",
+      "fossil-footprint",
+      "A small slender Jurassic theropod with a long tail and light running legs.",
+      "theropod",
+      {
+        "color": "#95B9A7",
+        "scale": 0.65,
+        "head": 0.72,
+        "tail": 1.5
+      }
+    ],
+    [
+      "utahraptor",
+      "Utahraptor",
+      "deinonychus",
+      "feathered-dinosaur",
+      "A large Early Cretaceous raptor built with strong hind legs and a sickle-shaped toe claw.",
+      "theropod",
+      {
+        "color": "#99A5C5",
+        "feather": true,
+        "claws": 3,
+        "scale": 1.15,
+        "tail": 1.2
+      }
+    ],
+    [
+      "ceratosaurus",
+      "Ceratosaurus",
+      "allosaurus",
+      "dinosaur-armor",
+      "A horned Jurassic predator with a narrow nasal horn and rows of small bony scutes.",
+      "theropod",
+      {
+        "color": "#B6A3A2",
+        "horns": 1,
+        "crest": "spine",
+        "scale": 1.1
+      }
+    ],
+    [
+      "suchomimus",
+      "Suchomimus",
+      "spinosaurus",
+      "marine-reptile",
+      "A spinosaurid with long fish-catching jaws and large hooked claws on its forelimbs.",
+      "theropod",
+      {
+        "color": "#88B0B9",
+        "head": 1.6,
+        "claws": 2,
+        "scale": 1.2,
+        "tail": 1.2
+      }
+    ],
+    [
+      "albertosaurus",
+      "Albertosaurus",
+      "tarbosaurus",
+      "theropod",
+      "A comparatively agile North American tyrannosaur with a narrower snout and long legs.",
+      "theropod",
+      {
+        "color": "#B8A79D",
+        "head": 1.1,
+        "scale": 1.12,
+        "arms": 0.65
+      }
+    ],
+    [
+      "ornithomimus",
+      "Ornithomimus",
+      "feathered-dinosaur",
+      "fossil-footprint",
+      "A swift ostrich-like theropod with a toothless beak and long running legs.",
+      "theropod",
+      {
+        "color": "#ADBF9A",
+        "beak": true,
+        "legs": 1.45,
+        "head": 0.8,
+        "scale": 0.9
+      }
+    ],
+    [
+      "therizinosaurus",
+      "Therizinosaurus",
+      "feathered-dinosaur",
+      "dinosaur-armor",
+      "A tall feathered theropod with a broad belly and exceptionally long hand claws.",
+      "theropod",
+      {
+        "color": "#B8B5C4",
+        "feather": true,
+        "claws": 5,
+        "head": 0.9,
+        "scale": 1.2
+      }
+    ],
+    [
+      "brachiosaurus",
+      "Brachiosaurus",
+      "sauropod",
+      "jurassic-period",
+      "A Jurassic long-necked herbivore with longer front legs and a high-set feeding head.",
+      "sauropod",
+      {
+        "color": "#A0B6AB",
+        "neck": 1.3,
+        "front": 1.4,
+        "tail": 1
+      }
+    ],
+    [
+      "diplodocus",
+      "Diplodocus",
+      "sauropod",
+      "fossil-footprint",
+      "A slender Late Jurassic giant with an extraordinarily long whip-like balancing tail.",
+      "sauropod",
+      {
+        "color": "#B3BCA4",
+        "neck": 1,
+        "tail": 1.7,
+        "body": 0.9
+      }
+    ],
+    [
+      "apatosaurus",
+      "Apatosaurus",
+      "brachiosaurus",
+      "sauropod",
+      "A massive thick-necked Jurassic sauropod with stout column-like legs.",
+      "sauropod",
+      {
+        "color": "#AFA69B",
+        "neck": 0.92,
+        "body": 1.25,
+        "front": 1,
+        "tail": 1.2
+      }
+    ],
+    [
+      "argentinosaurus",
+      "Argentinosaurus",
+      "sauropod",
+      "late-cretaceous",
+      "A colossal Cretaceous titanosaur known from enormous vertebrae found in Patagonia.",
+      "sauropod",
+      {
+        "color": "#A7B6BE",
+        "neck": 1.22,
+        "body": 1.45,
+        "tail": 1.1
+      }
+    ],
+    [
+      "dreadnoughtus",
+      "Dreadnoughtus",
+      "argentinosaurus",
+      "sauropod",
+      "A gigantic long-necked South American titanosaur with broad hips and powerful limbs.",
+      "sauropod",
+      {
+        "color": "#B4A6B9",
+        "neck": 1.13,
+        "body": 1.52,
+        "front": 1.23
+      }
+    ],
+    [
+      "camarasaurus",
+      "Camarasaurus",
+      "apatosaurus",
+      "jurassic-period",
+      "A Jurassic sauropod with a comparatively short neck and distinctive blunt skull.",
+      "sauropod",
+      {
+        "color": "#BDAE92",
+        "neck": 0.83,
+        "body": 1.17,
+        "head": 1.15
+      }
+    ],
+    [
+      "saltasaurus",
+      "Saltasaurus",
+      "sauropod",
+      "dinosaur-armor",
+      "A smaller titanosaur from Argentina protected by patches of bony skin armor.",
+      "sauropod",
+      {
+        "color": "#9FB0A1",
+        "neck": 1.04,
+        "body": 1.03,
+        "armor": true
+      }
+    ],
+    [
+      "mamenchisaurus",
+      "Mamenchisaurus",
+      "diplodocus",
+      "jurassic-period",
+      "A Chinese Jurassic sauropod famous for an exceptionally elongated neck.",
+      "sauropod",
+      {
+        "color": "#A6B9C2",
+        "neck": 1.65,
+        "body": 0.93,
+        "tail": 1.25
+      }
+    ],
+    [
+      "amargasaurus",
+      "Amargasaurus",
+      "sauropod",
+      "fossil-skeleton",
+      "A South American sauropod with striking double rows of tall neck spines.",
+      "sauropod",
+      {
+        "color": "#B7A6A5",
+        "neck": 1,
+        "spines": true,
+        "body": 0.9
+      }
+    ],
+    [
+      "brontosaurus",
+      "Brontosaurus",
+      "apatosaurus",
+      "diplodocus",
+      "A robust Late Jurassic sauropod with a thick tail and strong low shoulders.",
+      "sauropod",
+      {
+        "color": "#A2B5AB",
+        "neck": 0.99,
+        "body": 1.23,
+        "tail": 1.4
+      }
+    ],
+    [
+      "triceratops",
+      "Triceratops",
+      "ceratopsian",
+      "late-cretaceous",
+      "A huge Late Cretaceous herbivore bearing three facial horns and a broad bony frill.",
+      "ceratopsian",
+      {
+        "color": "#B0B99A",
+        "horns": 3,
+        "frill": 1.18
+      }
+    ],
+    [
+      "styracosaurus",
+      "Styracosaurus",
+      "triceratops",
+      "ceratopsian",
+      "A spiky ceratopsian with an elongated nasal horn and long spikes around its frill.",
+      "ceratopsian",
+      {
+        "color": "#B8A898",
+        "horns": 1,
+        "frill": 1.25,
+        "spikes": 6
+      }
+    ],
+    [
+      "protoceratops",
+      "Protoceratops",
+      "ceratopsian",
+      "dinosaur-egg",
+      "A small Mongolian hornless ceratopsian with a compact neck frill and beak.",
+      "ceratopsian",
+      {
+        "color": "#BDB9A2",
+        "horns": 0,
+        "frill": 0.8,
+        "scale": 0.8
+      }
+    ],
+    [
+      "pachyrhinosaurus",
+      "Pachyrhinosaurus",
+      "ceratopsian",
+      "dinosaur-armor",
+      "A polar ceratopsian with thickened bone bosses instead of long nasal horns.",
+      "ceratopsian",
+      {
+        "color": "#B7A1A8",
+        "horns": 0,
+        "boss": true,
+        "frill": 1.22
+      }
+    ],
+    [
+      "centrosaurus",
+      "Centrosaurus",
+      "styracosaurus",
+      "ceratopsian",
+      "A herd-forming ceratopsian with a prominent curved nasal horn and decorated frill.",
+      "ceratopsian",
+      {
+        "color": "#A2B7AC",
+        "horns": 1,
+        "frill": 1.08,
+        "spikes": 2
+      }
+    ],
+    [
+      "pentaceratops",
+      "Pentaceratops",
+      "ceratopsian",
+      "fossil-skeleton",
+      "A large ceratopsian with a towering frill and prominent facial and cheek horns.",
+      "ceratopsian",
+      {
+        "color": "#C1B2A0",
+        "horns": 3,
+        "frill": 1.46,
+        "spikes": 1
+      }
+    ],
+    [
+      "chasmosaurus",
+      "Chasmosaurus",
+      "ceratopsian",
+      "fossil-footprint",
+      "A long-frilled Late Cretaceous ceratopsian with two elongated brow horns.",
+      "ceratopsian",
+      {
+        "color": "#A9AFBA",
+        "horns": 2,
+        "frill": 1.35
+      }
+    ],
+    [
+      "parasaurolophus",
+      "Parasaurolophus",
+      "hadrosaur",
+      "late-cretaceous",
+      "A duck-billed dinosaur with an elongated backward-curving hollow cranial crest.",
+      "hadrosaur",
+      {
+        "color": "#A2BBB0",
+        "crest": "long",
+        "scale": 1.1
+      }
+    ],
+    [
+      "corythosaurus",
+      "Corythosaurus",
+      "parasaurolophus",
+      "hadrosaur",
+      "A crested hadrosaur named for its tall helmet-shaped head ornament.",
+      "hadrosaur",
+      {
+        "color": "#B7B2A4",
+        "crest": "helmet"
+      }
+    ],
+    [
+      "edmontosaurus",
+      "Edmontosaurus",
+      "hadrosaur",
+      "dinosaur-egg",
+      "A large duck-billed herbivore with a long low profile and a soft-tissue head crest.",
+      "hadrosaur",
+      {
+        "color": "#ABB7C2",
+        "crest": "soft",
+        "scale": 1.16
+      }
+    ],
+    [
+      "lambeosaurus",
+      "Lambeosaurus",
+      "corythosaurus",
+      "hadrosaur",
+      "A North American hadrosaur recognized by its forward and backward forked crest.",
+      "hadrosaur",
+      {
+        "color": "#C0ACB2",
+        "crest": "forked"
+      }
+    ],
+    [
+      "maiasaura",
+      "Maiasaura",
+      "edmontosaurus",
+      "dinosaur-egg",
+      "A nesting hadrosaur whose name celebrates evidence of parental care for hatchlings.",
+      "hadrosaur",
+      {
+        "color": "#AABDA9",
+        "crest": "none",
+        "nest": true
+      }
+    ],
+    [
+      "kentrosaurus",
+      "Kentrosaurus",
+      "stegosaurus",
+      "dinosaur-armor",
+      "An African stegosaur with paired plates on its back and long shoulder and tail spikes.",
+      "armored",
+      {
+        "color": "#AAB99E",
+        "armor": "plates",
+        "spikes": 5,
+        "tail": "spike"
+      }
+    ],
+    [
+      "huayangosaurus",
+      "Huayangosaurus",
+      "stegosaurus",
+      "jurassic-period",
+      "An early Chinese stegosaur with shorter limbs, paired plates and defensive spikes.",
+      "armored",
+      {
+        "color": "#C1B0A0",
+        "armor": "plates",
+        "spikes": 3,
+        "scale": 0.9
+      }
+    ],
+    [
+      "euoplocephalus",
+      "Euoplocephalus",
+      "ankylosaurus",
+      "dinosaur-armor",
+      "An armored ankylosaur with heavy osteoderms, low skull and a powerful tail club.",
+      "armored",
+      {
+        "color": "#A2B1A0",
+        "armor": "scutes",
+        "tail": "club",
+        "body": 1.05
+      }
+    ],
+    [
+      "nodosaurus",
+      "Nodosaurus",
+      "dinosaur-armor",
+      "fossil-footprint",
+      "A broad armored dinosaur covered in bony plates but lacking a tail club.",
+      "armored",
+      {
+        "color": "#B2B2A1",
+        "armor": "scutes",
+        "tail": "plain"
+      }
+    ],
+    [
+      "borealopelta",
+      "Borealopelta",
+      "nodosaurus",
+      "dinosaur-armor",
+      "A beautifully preserved nodosaur with shoulder spikes and detailed body armor.",
+      "armored",
+      {
+        "color": "#B6A39C",
+        "armor": "scutes",
+        "spikes": 4,
+        "tail": "plain"
+      }
+    ],
+    [
+      "pachycephalosaurus",
+      "Pachycephalosaurus",
+      "dinosaur-armor",
+      "geological-timeline",
+      "A Late Cretaceous ornithischian with an extraordinarily thick rounded skull dome.",
+      "dome",
+      {
+        "color": "#B9A9AB",
+        "head": 1.2,
+        "scale": 1.05
+      }
+    ],
+    [
+      "microraptor",
+      "Microraptor",
+      "feathered-dinosaur",
+      "jurassic-period",
+      "A small feathered dinosaur famous for wing-like flight feathers on all four limbs.",
+      "theropod",
+      {
+        "color": "#99A9B8",
+        "feather": true,
+        "wings": 4,
+        "scale": 0.65,
+        "tail": 1.2
+      }
+    ],
+    [
+      "archaeopteryx",
+      "Archaeopteryx",
+      "feathered-dinosaur",
+      "dinosaur-egg",
+      "An early bird-like Jurassic dinosaur with feathered wings, teeth and a bony tail.",
+      "theropod",
+      {
+        "color": "#B5ADA1",
+        "feather": true,
+        "wings": 2,
+        "scale": 0.7,
+        "tail": 1.4
+      }
+    ],
+    [
+      "psittacosaurus",
+      "Psittacosaurus",
+      "ceratopsian",
+      "cretaceous-period",
+      "An early ceratopsian with a parrot-like beak and distinctive bristles near its tail.",
+      "ceratopsian",
+      {
+        "color": "#A1B7A5",
+        "horns": 0,
+        "frill": 0.55,
+        "quills": true,
+        "scale": 0.78
+      }
+    ],
+    [
+      "plateosaurus",
+      "Plateosaurus",
+      "sauropod",
+      "triassic-period",
+      "A long-tailed Triassic sauropodomorph able to browse with a long grasping neck.",
+      "sauropod",
+      {
+        "color": "#BEB1A2",
+        "neck": 0.9,
+        "body": 0.67,
+        "legs": 1.25
+      }
+    ],
+    [
+      "iguanodon",
+      "Iguanodon",
+      "hadrosaur",
+      "jurassic-period",
+      "An Early Cretaceous ornithopod bearing a conspicuous conical thumb spike.",
+      "hadrosaur",
+      {
+        "color": "#A0B5AA",
+        "crest": "none",
+        "thumb": true
+      }
+    ],
+    [
+      "gallimimus",
+      "Gallimimus",
+      "ornithomimus",
+      "theropod",
+      "An ostrich-like dinosaur with long running legs, a small toothless beak and slender build.",
+      "theropod",
+      {
+        "color": "#BDC1A7",
+        "beak": true,
+        "legs": 1.4,
+        "head": 0.78,
+        "scale": 0.9
+      }
+    ]
+  ]
+}

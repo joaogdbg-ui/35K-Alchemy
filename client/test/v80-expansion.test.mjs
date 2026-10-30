@@ -17,7 +17,7 @@ test('V80 completes the third editorial cycle with original illustrations and re
 });
 test('V80 is integrated alongside V81 with unchanged Settings',()=>{
  const app=read('client/src/app.js'),build=read('tools/build-standalone.py');
- assert.match(app,/ORGANIC_V79,ORGANIC_V80,ORGANIC_V81\]/);assert.match(app,/ORGANIC_ART_V80\[itemName\]\|\|ORGANIC_ART_V79/);
+ assert.match(app,/ORGANIC_V79,ORGANIC_V80,ORGANIC_V81,ORGANIC_V82\]/);assert.match(app,/ORGANIC_ART_V80\[itemName\]\|\|ORGANIC_ART_V79/);
  assert.match(build,/window\.__gameverseOrganic80/);assert.match(build,/window\.__gameverseOrganicArt80/);
  assert.match(read('tools/prepare-android-web.py'),/35K_Alchemy_V81_Offline\.html/);
  assert.match(app,/function selectSettingsPage\(next/);

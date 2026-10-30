@@ -29,6 +29,6 @@ test('new games are reachable from original four starters',()=>{
 });
 test('game entries have reverse recipes and belong to discoveries families',()=>{
  const found=new Set(['legacy:0','legacy:1','legacy:2','legacy:3']);const g=groupFamilies(all,found);
- assert.equal(Object.values(g).reduce((n,v)=>n+v.total,0),2962);
+ assert.equal(new Set(Object.values(g).flatMap(v=>v.ids)).size,2962);
  for(const it of GAMING_V22.items){assert.ok(g.games.ids.includes(it.id),it.name);assert.ok(recipesForTarget(it.id,map,found).some(p=>p.a!==it.id&&p.b!==it.id),it.name);}
 });

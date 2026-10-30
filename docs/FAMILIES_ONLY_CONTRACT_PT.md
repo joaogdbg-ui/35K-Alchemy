@@ -61,3 +61,9 @@ Interseção: **31 IDs multifamília** entre as duas campanhas. O módulo de sin
 6. Qualquer nova família ou novo elemento associado a uma família deve passar de novo todos os testes. Não aceitar "categoria correta" como substituto da progressão.
 
 Nenhuma campanha é considerada completa apenas porque mostra 100% num estado importado de outra família.
+
+## 7. Alchemy 10K / V82 — duas campanhas temáticas adicionais
+
+A aplicação compõe os dados históricos de `client/src/family-mode-v53-campaigns.js` com `client/src/family-campaigns-v82.js`, usando **exclusivamente a tabela de receitas globais Classic** para as novas campanhas. A seleção mostra quatro campanhas jogáveis, cada uma com quatro starters. Verificação estrutural no ramo de desenvolvimento: Nature & Science **476/476**, People & Culture **211/211**, Mythology & Gods **16/16** e Prehistory & Dinosaurs **9/9**; sem divergências de resultados entre os respetivos grafos. A Nature mantém o defeito histórico dos quatro starters iguais aos de Classic.
+
+Os 16/9 elementos das novas campanhas já existiam no catálogo V81, pelo que **não** se afirma ter criado Zeus, Odin, Triceratops ou outros elementos planeados. Futuros elementos só são inscritos automaticamente quando explicitamente identificados com `familyCampaigns: ['mythology']` e/ou `familyCampaigns: ['prehistoric']` no seu registo global e alcançáveis, nessa campanha, desde os quatro starters. O módulo lança erro de validação se a cadeia não for completável; não omite silenciosamente itens impossíveis. Os IDs partilhados continuam únicos. Elementos iniciais gratuitos nunca são propagados como descobertas conquistadas.

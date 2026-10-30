@@ -1,5 +1,7 @@
 # 35K Alchemy — política obrigatória de entregas de 200 elementos
 
+> **Atualização Alchemy 10K (29/10/2026):** a meta operacional passou para 10.000+ elementos. Base atual V81: 5.812 elementos / 14.149 receitas, próximo lote V82 de +200 para 6.012, 21 lotes de +200 até 10.012. A antiga aritmética V80B→35.012 abaixo mantém-se apenas como registo histórico; não é o plano atual. Continuam obrigatórios exatamente 200 por entrega, qualidade individual dos SVGs, receitas globais e Family Only 100% autónomo.
+
 **Normativa a partir da V80B.** Ler antes de criar conteúdo: `AGENTS.md`, `docs/WORKING_RULES_PT.md`, `HANDOFF_V80.md`. Esta política substitui qualquer indicação histórica de "até 200", "200 como objetivo" ou publicação de sublotes de 8/20/40/50. Dados históricos não devem ser reescritos.
 
 ## 1. Contrato de entrega — OBRIGATÓRIO
