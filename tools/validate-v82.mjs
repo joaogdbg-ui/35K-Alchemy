@@ -9,6 +9,7 @@ import {ORGANIC_V82} from '../client/src/organic-pack-v82.js';
 import {ORGANIC_ART_V82} from '../client/src/organic-art-v82.js';
 import {FAMILY_CAMPAIGNS} from '../client/src/family-mode-v53-campaigns.js';
 import {buildThematicCampaigns} from '../client/src/family-campaigns-v82.js';
+import {reconcileLegacyFamilies} from '../client/src/family-compatibility-v82.js';
 
 const insist=(value,message)=>{if(!value)throw Error('V82 QA: '+message);};
 const approved=JSON.parse(readFileSync('shared/v82-approved.json','utf8'));
@@ -64,7 +65,16 @@ for(const entry of approved.new_items){
  insist(!svgHashes.has(hash),'duplicate drawing '+it.name);svgHashes.add(hash);
  knownIds.add(it.id);itemNames.add(normalizeCatalogName(it.name));newPairs.add(pair);
 }
-const families=[...FAMILY_CAMPAIGNS.families,...buildThematicCampaigns(after.recipes,after.items)];
+// Runtime reconciliation is part of the playable global recipe book, not a separate
+// Family Only override. The V53 data included missing family pairs and eight
+// historical collisions; the Classic result always takes precedence.
+const reconciled=reconcileLegacyFamilies(new Map(after.recipes),FAMILY_CAMPAIGNS.families);
+insist(reconciled.addedGlobalRecipes.length===205,'expected 205 globally repaired historical family recipes');
+insist(reconciled.oldConflicts.length===8,'expected exactly eight resolved historical family conflicts');
+insist(reconciled.recipes.size===after.recipes.size+205,'reconciled global total is wrong');
+for(const [pair,result] of after.recipes)
+ insist(reconciled.recipes.get(pair)===result,'reconciliation changed an existing Classic result '+pair);
+const families=[...reconciled.families,...buildThematicCampaigns(reconciled.recipes,after.items)];
 for(const family of families){
  const allowed=new Set(family.items),known=new Set(family.starters);
  insist(family.starters.length===4&&new Set(family.starters).size===4,'invalid family starters '+family.name);
@@ -72,7 +82,7 @@ for(const family of families){
   const beforeSize=known.size;
   for(const [pair,result]of family.recipes){
    const [a,b]=pair.split('|');
-   insist(after.recipes.get([a,b].sort().join('|'))===result,'family recipe diverges from global pair '+pair);
+   insist(reconciled.recipes.get([a,b].sort().join('|'))===result,'family recipe diverges from global pair '+pair);
    if(known.has(a)&&known.has(b)&&allowed.has(result))known.add(result);
   }
   if(beforeSize===known.size)break;
@@ -81,4 +91,4 @@ for(const family of families){
 }
 insist(families.find(x=>x.id==='mythology').items.length===16+ORGANIC_V82.items.filter(x=>x.category==='mythology').length,'mythology totals');
 insist(families.find(x=>x.id==='prehistoric').items.length===9+ORGANIC_V82.items.filter(x=>x.category==='prehistoric').length,'prehistory totals');
-if(!process.argv.includes('--quiet')) console.log('V82 QA candidate validated: '+after.items.length+' IDs / '+after.recipes.size+' recipes, '+ORGANIC_V82.items.length+'/200 new items. Not a published release.');
+if(!process.argv.includes('--quiet')) console.log('V82 QA candidate: '+after.items.length+' IDs / '+after.recipes.size+' authored catalog recipes / '+reconciled.recipes.size+' playable global recipes, '+ORGANIC_V82.items.length+'/200 new items. Not a published release.');
