@@ -7,8 +7,8 @@
     "recipes": 14349
   },
   "expansion_goal": 200,
-  "authored_candidates": 50,
-  "remaining": 150,
+  "authored_candidates": 75,
+  "remaining": 125,
   "art_review": "NOT_APPROVED",
   "new_items": [
     {
@@ -808,6 +808,356 @@
         "mythology"
       ],
       "path": "client/assets/v83/wight.svg",
+      "art_mode": "bespoke-subject",
+      "editorial_qa": "pending"
+    },
+    {
+      "id": "organic83:quest-journal",
+      "name": "Quest Journal",
+      "category": "gaming",
+      "summary": "A worn adventurer's notebook tracks objectives with hand-drawn maps and a feather bookmark.",
+      "ingredients": [
+        "legacy:51",
+        "pack:system-quest"
+      ],
+      "familyCampaigns": [],
+      "path": "client/assets/v83/quest-journal.svg",
+      "art_mode": "bespoke-subject",
+      "editorial_qa": "pending"
+    },
+    {
+      "id": "organic83:rune-locked-door",
+      "name": "Rune-Locked Door",
+      "category": "gaming",
+      "summary": "A heavy dungeon doorway is sealed by glowing ancient runes and a central keyhole.",
+      "ingredients": [
+        "pack:dungeon-gate",
+        "organic82:runestone"
+      ],
+      "familyCampaigns": [],
+      "path": "client/assets/v83/rune-locked-door.svg",
+      "art_mode": "bespoke-subject",
+      "editorial_qa": "pending"
+    },
+    {
+      "id": "organic83:checkpoint-banner",
+      "name": "Checkpoint Banner",
+      "category": "gaming",
+      "summary": "A fluttering cloth marker confirms the player's last safe point in a level.",
+      "ingredients": [
+        "legacy:361",
+        "legacy:107"
+      ],
+      "familyCampaigns": [],
+      "path": "client/assets/v83/checkpoint-banner.svg",
+      "art_mode": "bespoke-subject",
+      "editorial_qa": "pending"
+    },
+    {
+      "id": "organic83:pixel-heart-pickup",
+      "name": "Pixel Heart Pickup",
+      "category": "gaming",
+      "summary": "A bright eight-bit heart floats as a health collectible in a retro adventure.",
+      "ingredients": [
+        "legacy:146",
+        "legacy:21"
+      ],
+      "familyCampaigns": [],
+      "path": "client/assets/v83/pixel-heart-pickup.svg",
+      "art_mode": "bespoke-subject",
+      "editorial_qa": "pending"
+    },
+    {
+      "id": "organic83:healing-campfire",
+      "name": "Healing Campfire",
+      "category": "gaming",
+      "summary": "A restorative fire burns inside a ring of stones at an adventurer's resting place.",
+      "ingredients": [
+        "legacy:1",
+        "legacy:361"
+      ],
+      "familyCampaigns": [],
+      "path": "client/assets/v83/healing-campfire.svg",
+      "art_mode": "bespoke-subject",
+      "editorial_qa": "pending"
+    },
+    {
+      "id": "organic83:mana-flask",
+      "name": "Mana Flask",
+      "category": "gaming",
+      "summary": "A corked glass vial holds swirling luminous blue essence for a spellcaster.",
+      "ingredients": [
+        "legacy:125",
+        "legacy:23"
+      ],
+      "familyCampaigns": [],
+      "path": "client/assets/v83/mana-flask.svg",
+      "art_mode": "bespoke-subject",
+      "editorial_qa": "pending"
+    },
+    {
+      "id": "organic83:treasure-mimic",
+      "name": "Treasure Mimic",
+      "category": "gaming",
+      "summary": "A seemingly ordinary treasure chest reveals rows of sharp teeth and a startled tongue.",
+      "ingredients": [
+        "legacy:561",
+        "legacy:121"
+      ],
+      "familyCampaigns": [],
+      "path": "client/assets/v83/treasure-mimic.svg",
+      "art_mode": "bespoke-subject",
+      "editorial_qa": "pending"
+    },
+    {
+      "id": "organic83:quest-compass",
+      "name": "Quest Compass",
+      "category": "gaming",
+      "summary": "A brass compass with a violet quest needle points toward the next objective.",
+      "ingredients": [
+        "pack:system-quest",
+        "legacy:354"
+      ],
+      "familyCampaigns": [],
+      "path": "client/assets/v83/quest-compass.svg",
+      "art_mode": "bespoke-subject",
+      "editorial_qa": "pending"
+    },
+    {
+      "id": "organic83:dungeon-minimap",
+      "name": "Dungeon Minimap",
+      "category": "gaming",
+      "summary": "A compact top-down maze marks corridors, rooms and the explorer's position.",
+      "ingredients": [
+        "pack:dungeon-gate",
+        "legacy:354"
+      ],
+      "familyCampaigns": [],
+      "path": "client/assets/v83/dungeon-minimap.svg",
+      "art_mode": "bespoke-subject",
+      "editorial_qa": "pending"
+    },
+    {
+      "id": "organic83:boss-health-bar",
+      "name": "Boss Health Bar",
+      "category": "gaming",
+      "summary": "A dramatic red combat meter tracks a powerful enemy beneath a horned crest.",
+      "ingredients": [
+        "legacy:357",
+        "legacy:76"
+      ],
+      "familyCampaigns": [],
+      "path": "client/assets/v83/boss-health-bar.svg",
+      "art_mode": "bespoke-subject",
+      "editorial_qa": "pending"
+    },
+    {
+      "id": "organic83:loot-satchel",
+      "name": "Loot Satchel",
+      "category": "gaming",
+      "summary": "A leather drawstring bag bulges with valuables recovered from an adventure.",
+      "ingredients": [
+        "legacy:561",
+        "legacy:29"
+      ],
+      "familyCampaigns": [],
+      "path": "client/assets/v83/loot-satchel.svg",
+      "art_mode": "bespoke-subject",
+      "editorial_qa": "pending"
+    },
+    {
+      "id": "organic83:teleport-waystone",
+      "name": "Teleport Waystone",
+      "category": "gaming",
+      "summary": "A rune-carved standing stone opens a shimmering travel passage from a safe checkpoint.",
+      "ingredients": [
+        "legacy:361",
+        "organic82:runestone"
+      ],
+      "familyCampaigns": [],
+      "path": "client/assets/v83/teleport-waystone.svg",
+      "art_mode": "bespoke-subject",
+      "editorial_qa": "pending"
+    },
+    {
+      "id": "organic83:skill-tree-diagram",
+      "name": "Skill Tree Diagram",
+      "category": "gaming",
+      "summary": "A branching schematic displays upgrade nodes connected to a central skill.",
+      "ingredients": [
+        "legacy:19",
+        "legacy:356"
+      ],
+      "familyCampaigns": [],
+      "path": "client/assets/v83/skill-tree-diagram.svg",
+      "art_mode": "bespoke-subject",
+      "editorial_qa": "pending"
+    },
+    {
+      "id": "organic83:arcade-claw-machine",
+      "name": "Arcade Claw Machine",
+      "category": "gaming",
+      "summary": "A prize cabinet lowers a mechanical grabber toward a stuffed toy.",
+      "ingredients": [
+        "legacy:172",
+        "legacy:561"
+      ],
+      "familyCampaigns": [],
+      "path": "client/assets/v83/arcade-claw-machine.svg",
+      "art_mode": "bespoke-subject",
+      "editorial_qa": "pending"
+    },
+    {
+      "id": "organic83:arcade-ticket-roll",
+      "name": "Arcade Ticket Roll",
+      "category": "gaming",
+      "summary": "A curl of numbered redemption tickets waits to be exchanged for arcade prizes.",
+      "ingredients": [
+        "legacy:171",
+        "legacy:106"
+      ],
+      "familyCampaigns": [],
+      "path": "client/assets/v83/arcade-ticket-roll.svg",
+      "art_mode": "bespoke-subject",
+      "editorial_qa": "pending"
+    },
+    {
+      "id": "organic83:hidden-wall-lever",
+      "name": "Hidden Wall Lever",
+      "category": "gaming",
+      "summary": "A concealed metal handle unlocks a passage behind a cracked dungeon wall.",
+      "ingredients": [
+        "legacy:29",
+        "pack:dungeon-gate"
+      ],
+      "familyCampaigns": [],
+      "path": "client/assets/v83/hidden-wall-lever.svg",
+      "art_mode": "bespoke-subject",
+      "editorial_qa": "pending"
+    },
+    {
+      "id": "organic83:spike-trap-floor",
+      "name": "Spike Trap Floor",
+      "category": "gaming",
+      "summary": "A dungeon floor plate conceals a row of spring-loaded metal spikes.",
+      "ingredients": [
+        "legacy:545",
+        "legacy:107"
+      ],
+      "familyCampaigns": [],
+      "path": "client/assets/v83/spike-trap-floor.svg",
+      "art_mode": "bespoke-subject",
+      "editorial_qa": "pending"
+    },
+    {
+      "id": "organic83:loot-rarity-gem",
+      "name": "Loot Rarity Gem",
+      "category": "gaming",
+      "summary": "A radiant many-faceted gemstone marks unusually valuable equipment.",
+      "ingredients": [
+        "legacy:34",
+        "legacy:561"
+      ],
+      "familyCampaigns": [],
+      "path": "client/assets/v83/loot-rarity-gem.svg",
+      "art_mode": "bespoke-subject",
+      "editorial_qa": "pending"
+    },
+    {
+      "id": "organic83:parry-spark",
+      "name": "Parry Spark",
+      "category": "gaming",
+      "summary": "A bright burst at the crossing of two swords signals a perfectly timed defense.",
+      "ingredients": [
+        "legacy:545",
+        "legacy:18"
+      ],
+      "familyCampaigns": [],
+      "path": "client/assets/v83/parry-spark.svg",
+      "art_mode": "bespoke-subject",
+      "editorial_qa": "pending"
+    },
+    {
+      "id": "organic83:save-crystal",
+      "name": "Save Crystal",
+      "category": "gaming",
+      "summary": "A tall faceted crystal set on a stone plinth stores an adventurer's progress.",
+      "ingredients": [
+        "legacy:361",
+        "legacy:34"
+      ],
+      "familyCampaigns": [],
+      "path": "client/assets/v83/save-crystal.svg",
+      "art_mode": "bespoke-subject",
+      "editorial_qa": "pending"
+    },
+    {
+      "id": "organic83:retro-loading-bar",
+      "name": "Retro Loading Bar",
+      "category": "gaming",
+      "summary": "A chunky eight-bit progress meter fills a retro game's start screen.",
+      "ingredients": [
+        "legacy:146",
+        "legacy:76"
+      ],
+      "familyCampaigns": [],
+      "path": "client/assets/v83/retro-loading-bar.svg",
+      "art_mode": "bespoke-subject",
+      "editorial_qa": "pending"
+    },
+    {
+      "id": "organic83:secret-treasure-cache",
+      "name": "Secret Treasure Cache",
+      "category": "gaming",
+      "summary": "A small hidden chest is tucked into the shadows behind a cave wall.",
+      "ingredients": [
+        "legacy:561",
+        "legacy:37"
+      ],
+      "familyCampaigns": [],
+      "path": "client/assets/v83/secret-treasure-cache.svg",
+      "art_mode": "bespoke-subject",
+      "editorial_qa": "pending"
+    },
+    {
+      "id": "organic83:boss-arena-gate",
+      "name": "Boss Arena Gate",
+      "category": "gaming",
+      "summary": "An ominous stone arch with a fiery seal stands before the final encounter.",
+      "ingredients": [
+        "legacy:357",
+        "pack:dungeon-gate"
+      ],
+      "familyCampaigns": [],
+      "path": "client/assets/v83/boss-arena-gate.svg",
+      "art_mode": "bespoke-subject",
+      "editorial_qa": "pending"
+    },
+    {
+      "id": "organic83:roguelite-relic",
+      "name": "Roguelite Relic",
+      "category": "gaming",
+      "summary": "An old charm carries a shifting dungeon emblem treasured between repeated runs.",
+      "ingredients": [
+        "legacy:237",
+        "pack:ancient-scroll"
+      ],
+      "familyCampaigns": [],
+      "path": "client/assets/v83/roguelite-relic.svg",
+      "art_mode": "bespoke-subject",
+      "editorial_qa": "pending"
+    },
+    {
+      "id": "organic83:monster-bestiary-page",
+      "name": "Monster Bestiary Page",
+      "category": "gaming",
+      "summary": "A field-guide leaf sketches a creature's anatomy and lists its weaknesses.",
+      "ingredients": [
+        "organic83:mythic-bestiary",
+        "legacy:51"
+      ],
+      "familyCampaigns": [],
+      "path": "client/assets/v83/monster-bestiary-page.svg",
       "art_mode": "bespoke-subject",
       "editorial_qa": "pending"
     }

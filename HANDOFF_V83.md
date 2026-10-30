@@ -5,13 +5,13 @@
 
 - Baseline: merged V82 `b75811874766a1270ac5ca908fd57719e1557c0a` — **6,012 elements, 14,349 recipes**.
 - Development branch: `wip/alchemy-10k-v83-fantasy-gaming`; target **exactly +200** -> **6,212 elements / 14,549 recipes**.
-- This checkpoint: **50/200 authored candidates**, **150 remaining**. The 50 are NOT ACTIVE IN THE GAME; import/integration only at finished quality-gated batch. No PR, CI or APK from WIP.
+- This checkpoint: **75/200 authored candidates**, **125 remaining**. The 75 are NOT ACTIVE IN THE GAME; import/integration only at finished quality-gated batch. No PR, CI or APK from WIP.
 - Each candidate has an English name, permanent proposed ID, one unique ordered-independent global pair, family membership hypothesis and custom source SVG. These are editorial candidates requiring collision scans, isolated Family Only closure, native 35px art review and all existing catalog validations before release. In particular, do not present these as player-available discoveries yet.
 - Wave 1 COMPLETE (25 candidate IDs): bespoke folklore and fantasy characters/creatures: trolls, Ulfhednar, Vrykolakas, wraith, banshee, dryad, basilisk, golem, griffin, chimera, harpy, centaur, satyr, leviathan, selkie, firebird, thunderbird, roc, walking tree, marsh ghostlight and gargoyle. Subject-specific vector art has been committed; 35px human QA remains outstanding.
 - Planned 200 allocation: 50 folklore creatures/environments; 50 original gaming fantasy objects/genres; 50 gaming systems/arcade/board-adjacent artefacts; 50 science, fauna and cross-family recipes. The gaming component must remain meaningful, without arbitrary console+monster crossovers.
 - New mythology family items must be verifiably completable from Human, History, Magic, Sky with the GLOBAL A+B=C recipe table. New V83 ancestors use existing reachable V82 nodes or earlier Wave 1 nodes. Verify against full recipe catalog, not just this set.
 - Never change previously published IDs, results, save keys, the Android package, or verified-ad contracts; never perform WIP CI Actions builds. Nature & Science's classic-starter discrepancy remains a separate known issue.
-- All 50 icon sketches are subject specific and not yet confirmed on a physical device; reject/rework anything unreadable at 35 px.
+- All 75 icon sketches are subject specific and not yet confirmed on a physical device; reject/rework anything unreadable at 35 px.
 
 See [candidate JSON](shared/v83-progress.json), [source pack](client/src/organic-pack-v83.js), [art review](docs/V83_ART_REVIEW.md).
 
@@ -29,3 +29,6 @@ Kelpie, Barghest, Black Shuck, Dullahan, Leshy, Baba Yaga, Tatzelwurm, Tarasque,
 - Source-level independent **Mythology & Gods family closure: 159/159** members reachable from Human, History, Magic and Sky. This is a data traversal (legacy+creative+V41+V42+V82+WIP V83), not a physical-device test.
 - No new pair-result conflict in this same source-level reconciliation (historical subset). 50 V83 artwork strings are distinct. Full historical catalog regression test has been authored but **not executed**; continue validation before integration.
 - No GitHub Actions triggered for this WIP checkpoint, and no APK was published.
+
+## Third wave — 25 original fantasy-gaming items
++25 gaming interface/equipment objects (Quest Journal, Rune-Locked Door, Checkpoint Banner, Pixel Heart Pickup, Healing Campfire, Mana Flask, Treasure Mimic, Quest Compass, Dungeon Minimap, Boss Health Bar, Loot Satchel, Teleport Waystone, Skill Tree Diagram, Arcade Claw Machine, Arcade Ticket Roll, Hidden Wall Lever, Spike Trap Floor, Loot Rarity Gem, Parry Spark, Save Crystal, Retro Loading Bar, Secret Treasure Cache, Boss Arena Gate, Roguelite Relic, Monster Bestiary Page). Every draft has its own detailed subject SVG and candidate global recipe. These entries are **Classic-only** for now, with `familyCampaigns: []`, because introducing them into independently finishable Family Only campaigns requires separate closed recipe chains. No content integrated into the game; full historical catalog audit and QA still pending.
