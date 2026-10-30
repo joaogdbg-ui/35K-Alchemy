@@ -8,6 +8,8 @@ from PIL import Image
 
 root = Path(__file__).resolve().parents[1]
 manifest = json.loads((root / 'tools/art-redraw-manifest.json').read_text(encoding='utf-8'))
+reviewed_path = root / 'tools/art-redraw-reviewed-pairs.json'
+reviewed = {frozenset(p[:2]) for p in json.loads(reviewed_path.read_text(encoding='utf-8'))} if reviewed_path.exists() else set()
 
 def dhash(raw):
     png = cairosvg.svg2png(bytestring=raw.encode('utf-8'), output_width=64, output_height=64, background_color='white')
@@ -26,6 +28,8 @@ hard, soft = [], []
 for i, a in enumerate(names):
     for b in names[i + 1:]:
         d = bin(h[a] ^ h[b]).count('1')
+        if frozenset((a, b)) in reviewed:
+            continue
         (hard if d <= 3 else soft if d <= 5 else []).append((d, a, b)) if d <= 5 else None
     for b, v in ref.items():
         d = bin(h[a] ^ v).count('1')
