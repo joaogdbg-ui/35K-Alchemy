@@ -1,0 +1,142 @@
+name: Alchemy 10K — Unpublished Android QA APK
+on:
+  pull_request:
+    branches: [main]
+    paths:
+      - '.github/workflows/qa-android-preview.yml'
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+concurrency:
+  group: alchemy-10k-qa-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  android:
+    runs-on: ubuntu-latest
+    timeout-minutes: 60
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+      - name: Check exactly 200 new catalog IDs on PR builds
+        env:
+          BASE_SHA: ${{ github.event.pull_request.base.sha }}
+        shell: bash
+        run: |
+          set -euo pipefail
+          if [ -n "$BASE_SHA" ]; then
+            node tools/check-content-batch-200.mjs --base "$BASE_SHA"
+          else
+            echo "Manual QA dispatch: relying on the full catalog and SVG validators."
+          fi
+      - name: Require complete game source
+        run: |
+          test -f client/src/app.js
+          test -f tools/build-standalone.py
+          test -f shared/v69-approved.json
+          test -f client/src/organic-art-v69.js
+          test -f ci/signing/35k-alchemy-debug-keystore.b64
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - uses: actions/setup-java@v4
+        with:
+          distribution: temurin
+          java-version: '21'
+      - uses: android-actions/setup-android@v3
+        with:
+          packages: 'platform-tools'
+      - name: Install Android API 36
+        run: sdkmanager 'platforms;android-36' 'build-tools;36.0.0' 'platform-tools'
+      - name: Install image QA dependencies
+        run: python -m pip install --disable-pip-version-check numpy opencv-python-headless cairosvg pillow
+      - run: npm install --no-audit --no-fund
+      - run: npm test
+      - name: Screen public IP labels and current vector assets
+        run: node tools/audit-ip-safe-names.mjs
+      - run: npm run web:build
+      - name: Create Capacitor project
+        run: npx cap add android && npx cap sync android
+      - name: Configure Android 16+ window insets and SystemBars
+        run: python tools/configure-android-edge-to-edge.py
+
+      - name: Render original app launcher (all Android densities)
+        run: python tools/generate-launcher-icons.py
+
+      - name: Install persistent ALCH-ONLY test signing key
+        shell: bash
+        run: |
+          set -euo pipefail
+          mkdir -p "$HOME/.android"
+          grep -v '^#' ci/signing/35k-alchemy-debug-keystore.b64 | tr -d '\n\r' | base64 --decode > "$HOME/.android/debug.keystore"
+          chmod 600 "$HOME/.android/debug.keystore"
+          keytool -list -v -keystore "$HOME/.android/debug.keystore" -storepass android -alias androiddebugkey > /tmp/alchemy-key.txt
+          grep -Fq 'B4:58:9E:5E:A8:9D:7B:0D:38:97:08:AA:F6:3D:D2:B3:88:B9:36:5F:0B:66:D2:AA:7C:BC:E4:00:47:DA:D5:2A' /tmp/alchemy-key.txt
+          echo 'Verified dedicated 35K Alchemy DEBUG-only signing key'
+
+      - name: Set increasing Android versionCode
+        env:
+          BUILD_NUMBER: ${{ github.run_id }}
+        shell: bash
+        run: |
+          python3 - <<'PY'
+          import json, os, re
+          from pathlib import Path
+          path = Path('android/app/build.gradle')
+          original = path.read_text(encoding='utf-8')
+          code = int(os.environ['BUILD_NUMBER']) % 2000000000
+          name = json.loads(Path('package.json').read_text(encoding='utf-8'))['version'] + '.' + str(code)
+          updated, ncode = re.subn(r'(?m)^([ \t]*versionCode[ \t]+)\d+', lambda m: m.group(1) + str(code), original, count=1)
+          updated, nname = re.subn(r'(?m)^([ \t]*versionName[ \t]+)["\'][^"\']+["\']', lambda m: m.group(1) + '"' + name + '"', updated, count=1)
+          if ncode != 1 or nname != 1:
+              raise SystemExit('Expected exactly one versionCode/versionName in android/app/build.gradle')
+          # The Android build system may use its own auto-generated debug keystore.
+          # Explicitly bind the debug buildType to 35K Alchemy's verified key.
+          def inject_signing(m):
+              indent = m.group(1)
+              return (
+                  indent + 'signingConfigs {\n'
+                  + indent + '    alchemyDebug {\n'
+                  + indent + '        storeFile file(System.getProperty("user.home") + "/.android/debug.keystore")\n'
+                  + indent + '        storePassword "android"\n'
+                  + indent + '        keyAlias "androiddebugkey"\n'
+                  + indent + '        keyPassword "android"\n'
+                  + indent + '    }\n'
+                  + indent + '}\n'
+                  + indent + 'buildTypes {\n'
+                  + indent + '    debug { signingConfig signingConfigs.alchemyDebug }'
+              )
+          updated, nsign = re.subn(r'(?m)^([ \t]*)buildTypes[ \t]*\{', inject_signing, updated, count=1)
+          if nsign != 1:
+              raise SystemExit('Could not force 35K Alchemy debug signingConfig')
+          path.write_text(updated, encoding='utf-8')
+          print('Android versionCode:', code, 'versionName:', name)
+          PY
+
+      - name: Compile signed Android APK
+        working-directory: android
+        run: chmod +x gradlew && ./gradlew --no-daemon assembleDebug
+      - name: Check signature and package, rename distributable APK
+        shell: bash
+        run: |
+          set -euo pipefail
+          APK='android/app/build/outputs/apk/debug/app-debug.apk'
+          test -s "$APK"
+          APKSIGNER="${ANDROID_HOME:-$ANDROID_SDK_ROOT}/build-tools/36.0.0/apksigner"
+          "$APKSIGNER" verify --verbose --print-certs "$APK" | tee /tmp/alchemy-apk-signature.txt
+          grep -Fqi 'b4589e5ea89d7b0d389708aaf63dd2b388b9365f0b66d2aa7cbce40047dad52a' /tmp/alchemy-apk-signature.txt
+          mkdir -p dist
+          cp "$APK" dist/Alchemy-10K-V82-QA.apk
+          test -s dist/Alchemy-10K-V82-QA.apk
+      - uses: actions/upload-artifact@v4
+        with:
+          name: Alchemy-10K-V82-QA-Android
+          path: dist/Alchemy-10K-V82-QA.apk
+          retention-days: 14
+          if-no-files-found: error
