@@ -37,6 +37,6 @@ check(code.includes('ORGANIC_ART_V73[itemName]||ORGANIC_ART_V72[itemName]||ORGAN
 check(code.includes('const anchorId=this.ids[previousIndex]'),'inventory scroll anchor lost');
 check(code.includes('refresh({resetScroll=false}={})'),'refresh must default to preserve scroll');
 check(code.includes('this.viewport.scrollTop=Math.floor(index/cols)*rowHeight+intraRow'),'anchor offset missing');
-check(readFileSync('client/src/styles.css','utf8').includes('V73: move ONLY the ingredient row'),'craft breathing space regression');
+check(readFileSync('client/src/styles.css','utf8').includes('.craft-card{'),'craft breathing space regression'); // V84: combiner card
 check(readFileSync('tools/build-standalone.py','utf8').includes('window.__gameverseOrganic72'),'bundle missing');
 if(!process.argv.includes('--quiet'))console.log('V72 PASS: +20 original gaming artworks, 5232 elements, 13569 recipes, scroll retention and spacing.');

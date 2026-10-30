@@ -60,5 +60,5 @@ check(app.includes('ORGANIC_ART_V76[itemName]||ORGANIC_ART_V75[itemName]'),'V76 
 check(builder.includes('window.__gameverseOrganic76')&&builder.includes('window.__gameverseOrganicArt76'),'standalone data missing');
 check(builder.includes('35K_Alchemy_V76_Offline.html'),'standalone version incorrect');
 check(app.includes('const anchorId=this.ids[previousIndex]'),'scroll anchor regression');
-check(readFileSync('client/src/styles.css','utf8').includes('.craft-row{transform:translateY(9px)}'),'upper combiner breathing room changed');
+check(readFileSync('client/src/styles.css','utf8').includes('.craft-card{'),'upper combiner breathing room changed'); // V84 layout
 if(!process.argv.includes('--quiet'))console.log('V76 PASS: +50 individually composed SVG drawings, 5,422 elements, 13,759 recipes; 150 remaining for next 200.');

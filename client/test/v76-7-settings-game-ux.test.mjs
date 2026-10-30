@@ -7,8 +7,9 @@ const pos=src.indexOf('function settings(){'),end=src.indexOf('// V28 family swe
 test('V76.8 shows five understandable setting groups without a tab bar or redundant actions',()=>{
  assert.ok(menu.indexOf('Sound effects')<menu.indexOf('Theme'));
  assert.ok(menu.indexOf('Theme')<menu.indexOf('Game mode'));
- assert.ok(menu.indexOf('Game mode')<menu.indexOf('Profile &amp; cloud'));
- assert.ok(menu.indexOf('Profile &amp; cloud')<menu.indexOf('Help &amp; about'));
+ // V84: the account row is labelled by the service it will connect to.
+ assert.ok(menu.indexOf('Game mode')<menu.indexOf('Google Play Games'));
+ assert.ok(menu.indexOf('Google Play Games')<menu.indexOf('Help &amp; about'));
  assert.doesNotMatch(menu,/role="tab"|role="tablist"|id="hintButton"|id="importBackup"|id="exportBackup"/);
 });
 test('V76.8 all controls are real and preserve player preferences',()=>{

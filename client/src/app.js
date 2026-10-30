@@ -372,7 +372,7 @@ function getRewardBridge(){
  return native&&typeof native.showRewarded==='function'?native:null;
 }
 function rewardedAvailable(){return Boolean(getRewardBridge());}
-const APP_VERSION='0.83.2';
+const APP_VERSION='0.84.0';
 // V83: status line + Google consent (UMP) privacy options, required for EEA players.
 async function refreshAdStatus(){
  const el=$('settingsAdStatus'),bridge=getRewardBridge();
@@ -1163,10 +1163,10 @@ function rerenderCollections(){playVirtual.refresh();if(tab==='World')renderDisc
 function discoverGroups(){return groupFamilies([...byId.values()],unlocked);}
 function renderDiscoveries(){
  const groups=discoverGroups(),total=currentMode==='family'?familyCampaigns.get(currentFamilyId).items.length:[...byId.values()].length;
- $('discoveriesSummary').textContent=`${unlocked.size.toLocaleString('en-US')} of ${total.toLocaleString('en-US')} elements found · ${currentMode==='family'?'1 family':FAMILIES.length+' families'}`;
+ $('discoveriesSummary').textContent=currentMode==='family'?`${FAMILIES.find(f=>f.id===currentFamilyId)?.name||'Family'} campaign · tap the family to browse recipes`:`${FAMILIES.length} families · tap one to see what you found and what is missing`;
  $('familiesTotal').textContent=currentMode==='family'?'1 family':`${FAMILIES.length} families`;
  // V83: players see their own collection progress; the 10K catalog goal is a development target.
- $('catalogTargetProgress').parentElement.querySelector('span').textContent=currentMode==='family'?'FAMILY PROGRESS':'YOUR COLLECTION';
+ $('catalogTargetProgress').parentElement.querySelector('span').textContent=currentMode==='family'?'Family progress':'Your collection';
  const pctFound=total?100*unlocked.size/total:0;
  $('catalogTargetProgress').textContent=`${unlocked.size.toLocaleString('en-US')} / ${total.toLocaleString('en-US')} · ${pctFound<1&&unlocked.size?'<1':Math.round(pctFound)}%`;
  $('catalogTargetFill').style.width=Math.min(100,pctFound).toFixed(2)+'%';
@@ -1204,7 +1204,7 @@ function discoveredRecipes(id){
 }
 function recipeLabel(recipe){return recipe ? `${uiName(byId.get(recipe.a))} + ${uiName(byId.get(recipe.b))}` : 'Starting element';}
 function elementState(id){return unlocked.has(id)?'found':hintState.clues[id]==='recipe'?'recipe':hintState.clues[id]==='hint'?'hint':'unknown';}
-function discoverMetric(id){return `${difficultyFor(id)} · Players found: —`;}
+function discoverMetric(id){return difficultyFor(id);} // V84: community counts are not collected offline, so the list shows only the difficulty estimate
 function recipeLine(id){
  if(!unlocked.has(id)){
   if(hintState.clues[id])return formatClue(id);
@@ -1453,7 +1453,7 @@ async function refreshPlayerServicesStatus(){
 function selectSettingsPage(next,{focus=false}={}){
  if(!['main','profile','help'].includes(next))return;
  settingsPage=next;
- const title=next==='profile'?'Profile':next==='help'?'Help':'Settings';
+ const title=next==='profile'?'Google Play Games':next==='help'?'Help':'Settings';
  $('settingsHeading').textContent=title;
  const back=$('settingsBack');
  back.hidden=next==='main';
@@ -1489,12 +1489,6 @@ function settings(){
    <div class="settings-section settings-links">
     <button type="button" id="changeGameMode" class="settings-link"><span>Game mode<small>${escapeText(mode)}</small></span><span aria-hidden="true">›</span></button>
     ${currentMode==='family'?'<div class="settings-divider"></div><button type="button" id="settingsMergeClassic" class="settings-link"><span>Merge into Classic<small>Requires 2 rewarded ads</small></span><span aria-hidden="true">›</span></button>':''}
-    <div class="settings-divider"></div>
-    <button type="button" id="settingsProfileLink" class="settings-link"><span>Profile &amp; cloud</span><span aria-hidden="true">›</span></button>
-    <div class="settings-divider"></div>
-    <button type="button" id="settingsHelpLink" class="settings-link"><span>Help &amp; about</span><span aria-hidden="true">›</span></button>
-    <div class="settings-divider"></div>
-    <button type="button" id="settingsPrivacyAds" class="settings-link"><span>Privacy &amp; ads<small id="settingsAdStatus">${rewardedAvailable()?'Checking ads…':'Ads need the Android app'}</small></span><span aria-hidden="true">›</span></button>
    </div>
    <div class="settings-section settings-links">
     <div class="settings-service-title">PROGRESS</div>
@@ -1504,7 +1498,14 @@ function settings(){
     <div class="settings-divider"></div>
     <button type="button" id="settingsDelete" class="settings-link settings-danger"><span>Delete progress<small>Classic, Families Only or everything</small></span><span aria-hidden="true">›</span></button>
    </div>
-   <p class="settings-footnote">Progress saved on this device.</p>
+   <div class="settings-section settings-links">
+    <button type="button" id="settingsProfileLink" class="settings-link"><span>Google Play Games<small>Sign-in, cloud save and leaderboards · coming soon</small></span><span aria-hidden="true">›</span></button>
+    <div class="settings-divider"></div>
+    <button type="button" id="settingsHelpLink" class="settings-link"><span>Help &amp; about</span><span aria-hidden="true">›</span></button>
+    <div class="settings-divider"></div>
+    <button type="button" id="settingsPrivacyAds" class="settings-link"><span>Privacy &amp; ads<small id="settingsAdStatus">${rewardedAvailable()?'Checking ads…':'Ads need the Android app'}</small></span><span aria-hidden="true">›</span></button>
+   </div>
+   <p class="settings-footnote">Progress is saved on this phone. Export a backup before changing device.</p>
   </section>
   <section id="settingsPanelProfile" class="settings-page" data-settings-page="profile" aria-label="Player profile" hidden>
    <div class="settings-section">
@@ -1784,27 +1785,30 @@ $('slot0').onclick=()=>{if(batchState?.phase==='scanning')return;slots[0]=null;c
 function syncSoundToggle(){const button=$('settingsSoundToggle');if(!button)return;button.setAttribute('aria-pressed',String(soundEnabled));button.setAttribute('aria-label',soundEnabled?'Mute sound effects':'Enable sound effects');button.textContent=soundEnabled?'On':'Off';}
 function toggleSoundEnabled(){soundEnabled=!soundEnabled;try{localStorage.setItem(SOUND_KEY,soundEnabled?'on':'off');}catch{}syncSoundToggle();if(soundEnabled){acquireSoundEngine();soundForResult('repeat');}}
 document.addEventListener('pointerdown',()=>{if(soundEnabled)acquireSoundEngine();},{passive:true});
+// V84: the search field is always visible; the trailing button clears it.
 function setSearchOpen(open){
  const toolbar=$('shelfToolbar'),field=$('playSearch'),toggle=$('searchToggle');
  toolbar.classList.toggle('search-open',open);
- field.hidden=!open;toggle.setAttribute('aria-expanded',String(open));
- toggle.setAttribute('aria-label',open?'Close element search':'Open element search');
- if(open){field.focus();}else{field.value='';playQuery='';field.blur();syncKeyboardViewport();playVirtual.refresh({resetScroll:true});}
+ if(open){field.focus();return;}
+ field.value='';playQuery='';toggle.hidden=true;field.blur();syncKeyboardViewport();playVirtual.refresh({resetScroll:true});
 }
-$('searchToggle').onclick=()=>setSearchOpen(!$('shelfToolbar').classList.contains('search-open'));
+$('searchToggle').onclick=()=>setSearchOpen(false);
 $('playSearch').addEventListener('keydown',e=>{if(e.key==='Escape'){e.preventDefault();setSearchOpen(false);}});
-$('playSearch').oninput=e=>{playQuery=e.target.value;playVirtual.refresh({resetScroll:true});};
+$('playSearch').oninput=e=>{playQuery=e.target.value;$('searchToggle').hidden=!playQuery;playVirtual.refresh({resetScroll:true});};
 // V55: touch-friendly in-game Sort chooser (no native Android <select>).
 // V83: the same sheet also filters (still open / completed / saved) and sets density.
 function syncInventoryButton(){const b=$('recentBtn');if(!b)return;b.dataset.sort=sortChoice;b.dataset.filtered=String(inventoryShow!=='all');
- b.setAttribute('aria-label','Sort and filter elements: '+({az:'A to Z',old:'Old first',new:'New first'}[sortChoice])+(inventoryShow!=='all'?', filtered':''));}
+ const label={az:'A–Z',old:'Oldest first',new:'Newest first'}[sortChoice];
+ b.textContent=label;b.setAttribute('aria-label','Sort elements: '+label);
+ document.querySelectorAll('[data-show-chip]').forEach(c=>c.setAttribute('aria-pressed',String(c.dataset.showChip===inventoryShow)));}
+document.querySelectorAll('[data-show-chip]').forEach(c=>c.onclick=()=>{inventoryShow=c.dataset.showChip;saveInventoryView();syncInventoryButton();playVirtual.refresh({resetScroll:true});});
 function openInventorySorter(){
  const order=[['az','A–Z','Alphabetical order'],['old','Old first','Earliest discoveries first'],['new','New first','Latest discoveries first']];
  const show=[['all','All'],['open','To explore'],['done','Completed ★'],['saved','Saved']];
  const view=[['normal','Normal'],['compact','Compact']];
  const orderHtml=order.map(([id,title,subtitle])=>`<button class="sort-option" type="button" data-sort-option="${id}" aria-pressed="${sortChoice===id}"><span class="sort-option-content"><strong>${title}</strong><small>${subtitle}</small></span><span class="sort-choice-mark" aria-hidden="true">${sortChoice===id?'✓':''}</span></button>`).join('');
  const seg=(name,list,cur)=>`<div class="sort-segment" role="group" aria-label="${name}">${list.map(([id,label])=>`<button type="button" data-${name}-option="${id}" aria-pressed="${cur===id}">${label}</button>`).join('')}</div>`;
- showModal(`<div class="modal-tag">ELEMENTS</div><h2>Sort &amp; filter</h2><div class="sort-choices" role="group" aria-label="Sort inventory">${orderHtml}</div><div class="sort-section-title">Show</div>${seg('show',show,inventoryShow)}<p class="sort-hint">To explore: elements that still make something new. ★ Completed: nothing left to discover with them.</p><div class="sort-section-title">View</div>${seg('density',view,inventoryDensity)}`);
+ showModal(`<div class="modal-tag">ELEMENTS</div><h2>Sort</h2><div class="sort-choices" role="group" aria-label="Sort inventory">${orderHtml}</div><div class="sort-section-title">Show</div>${seg('show',show,inventoryShow)}<p class="sort-hint">To explore: elements that still make something new. ★ Completed: nothing left to discover with them.</p><div class="sort-section-title">List size</div>${seg('density',view,inventoryDensity)}`);
  $('recentBtn').setAttribute('aria-expanded','true');
  const content=$('modalContent');
  const refresh=()=>{syncInventoryButton();playVirtual.refresh({resetScroll:true});};

@@ -13,6 +13,6 @@ test('discovering never resets inventory viewport to zero',()=>{
 test('craft top space is expanded only on phones with enough height',()=>{
  const css=src('client/src/styles.css');
  assert.match(css,/@media \(max-width:849px\) and \(min-height:701px\)/);
- assert.match(css,/\.craft-row\{transform:translateY\(9px\)\}/);
+ assert.match(css,/\.craft-card\{/); // V84: the combiner lives in one card; no translated rows
  assert.match(css,/\.workspace-content\{transform:none\}/);
 });

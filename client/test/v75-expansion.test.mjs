@@ -34,5 +34,5 @@ test('V75 keeps Android packaging, scroll anchors and targeted combiner spacing'
  assert.match(app,/const anchorId=this.ids\[previousIndex\]/);
  assert.match(build,/window\.__gameverseOrganicArt75/);
  assert.match(build,/35K_Alchemy_V76_Offline\.html/);
- assert.match(text('client/src/styles.css'),/\.craft-row\{transform:translateY\(9px\)\}/);
+ assert.match(text('client/src/styles.css'),/\.craft-card\{/);
 });

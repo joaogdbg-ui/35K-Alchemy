@@ -40,7 +40,7 @@ assert(app.includes('ORGANIC_ART_V70[itemName]||ORGANIC_ART_V69[itemName]'),'V70
 assert(app.includes('alchemy-android-immersive'),'Android layout class missing');
 const css=readFileSync('client/src/styles.css','utf8');
 assert(css.includes('html.alchemy-android-immersive .app')&&css.includes('padding-top:clamp(8px, env(safe-area-inset-top, 0px), 14px)'),'Android compact header regression');
-assert(css.includes('clamp(176px,22dvh,190px)'),'compact workspace regression');
+assert(css.includes('.craft-card{')&&css.includes('@media(max-height:680px) and (max-width:849px)'),'compact workspace regression'); // V84 card layout
 const build=readFileSync('tools/build-standalone.py','utf8');
 assert(build.includes('window.__gameverseOrganicArt70')&&build.includes('35K_Alchemy_V70_Offline.html'),'build does not include V70');
 if(!process.argv.includes('--quiet'))console.log('V70 VALID: 14/14 completed, 0 legacy motifs remaining, 5172 elements, 13509 recipes, UI compact.');
