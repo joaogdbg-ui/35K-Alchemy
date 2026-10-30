@@ -1513,14 +1513,23 @@
     }
   ],
   "source_checkpoint": {
-    "at_candidates": 50,
+    "at_candidates": 100,
     "isolated_family": "mythology",
+    "family_candidate_count": 50,
+    "classic_only_candidate_count": 50,
     "family_reachable": 159,
     "family_total": 159,
-    "new_pair_keys_unique": 50,
-    "new_ids_unique": 50,
-    "svg_paths_unique": 50,
-    "scope": "source-only subset traversal, not full CI or device QA",
+    "historical_organic_modules_checked": 39,
+    "legacy_and_creative_catalogs_checked": true,
+    "new_pair_keys_unique": 100,
+    "new_ids_unique": 100,
+    "svg_paths_unique": 100,
+    "source_art_map_entries": 100,
+    "manifest_entries": 100,
+    "missing_recipe_inputs": 0,
+    "forward_wip_recipe_dependencies": 0,
+    "name_or_recipe_collisions_found_after_corrections": 0,
+    "scope": "source-based checks; no Android build or full npm test run",
     "full_regression_test": "NOT_RUN",
     "human_35px_review": "PENDING"
   }

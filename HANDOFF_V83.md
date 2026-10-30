@@ -47,3 +47,10 @@ The scan found pre-existing `Pinball Plunger` (V73), `Speedrun Split Timer` (V81
 
 ## WIP dependency order fixed
 At the 100/200 checkpoint, `Ghost Lap Stopwatch` depended on `Replay Ghost` but was listed one position earlier. The WIP array and manifest were topologically reordered without touching IDs or global recipe pairs. A dedicated test now rejects any V83 ingredient appearing after its result.
+
+## Source checkpoint: 100/200 after full-history audit
+- New candidate data: **100 IDs**, **100 unique normalized names**, **100 unordered recipe pairs**, **100 source SVG paths**, **100 JS art entries**, **100 manifest entries**. Of these, 50 are proposed mythology-family members and 50 are Classic-only gaming/fantasy items.
+- Historical name/pair scan after corrections: **39 historical organic packs plus legacy and creative (41 sources)**, **zero WIP collisions**. This is a source-level comparison, not full integrated `npm test`.
+- Every draft ingredient ID exists in the checked source set, and all WIP-to-WIP recipe dependencies are ordered after their inputs. Added a regression test for forward dependencies.
+- The Mythology family is still independently craftable **159/159** in the data graph; Classic gameplay build/QA still pending.
+- **No new APK or release**. WIP branch only. 100 more required to finish V83 and 3,988 total remain from merged V82 to exact 10,000.
