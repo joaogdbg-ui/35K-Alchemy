@@ -5,8 +5,8 @@
  * It does not recognise character likenesses or protect names/marks automatically.
  */
 import {readFileSync} from 'node:fs';
-const versions=[32,34,37,38,40,41,42,43,44,45,46,47,50,52,53,55,56,57,58,59,61,62,63,65,66,67,68,69,70,71,72,73,74,75,76,77,78,79,80,81,82];
-const sources=[...versions.map(v=>'organic-art-v'+v+'.js'),'gameverse-art-v30-semantic.js'];
+const versions=[32,34,37,38,40,41,42,43,44,45,46,47,50,52,53,55,56,57,58,59,61,62,63,65,66,67,68,69,70,71,72,73,74,75,76,77,78,79,80,81,82,83];
+const sources=[...versions.map(v=>'organic-art-v'+v+'.js'),'gameverse-art-v30-semantic.js','art-redraw.js'];
 let examined=0, failures=[], groups=[];
 const unsafe=/<(?:script|image|text|foreignObject|iframe|audio|video)\b|\s(?:href|xlink:href|onload|onerror|onclick|onmouseover)\s*=|\b(?:javascript:|data:image\/(?:png|jpe?g|webp|gif))|\burl\s*\(\s*['"]?\s*https?:/i;
 for(const path of sources){

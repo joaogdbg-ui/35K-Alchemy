@@ -39,5 +39,5 @@ test('V81 is integrated in Classic, unique SVG priority and Android offline pack
  assert.match(build,/window\.__gameverseOrganicArt81/);
  assert.match(build,/35K_Alchemy_V81_Offline\.html/);
  assert.match(android,/35K_Alchemy_V81_Offline\.html/);
- assert.match(read('tools/audit-active-artwork.mjs'),/,80,81,82\]/);
+ assert.match(read('tools/audit-active-artwork.mjs'),/,80,81,82,83\]/);
 });

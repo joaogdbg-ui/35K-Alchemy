@@ -89,6 +89,7 @@ import { ORGANIC_ART_V80 } from './organic-art-v80.js';
 import { ORGANIC_ART_V81 } from './organic-art-v81.js';
 import { ORGANIC_ART_V82 } from './organic-art-v82.js';
 import { ORGANIC_ART_V83 } from './organic-art-v83.js';
+import { ART_REDRAW } from './art-redraw.js';
 import { ORGANIC_ART_V69 } from './organic-art-v69.js';
 import { ORGANIC_ART_V57 } from './organic-art-v57.js';
 import { ORGANIC_ART_V32 } from './organic-art-v32.js';
@@ -371,7 +372,7 @@ function getRewardBridge(){
  return native&&typeof native.showRewarded==='function'?native:null;
 }
 function rewardedAvailable(){return Boolean(getRewardBridge());}
-const APP_VERSION='0.83.0';
+const APP_VERSION='0.83.1';
 // V83: status line + Google consent (UMP) privacy options, required for EEA players.
 async function refreshAdStatus(){
  const el=$('settingsAdStatus'),bridge=getRewardBridge();
@@ -801,6 +802,8 @@ function v27StaticArt(item){
 
 function staticArt(item){
  if(!item)return fallbackIcon();
+ // 2026 art direction: redrawn icons replace older art by stable ID (names, recipes and saves unchanged).
+ const redrawn=ART_REDRAW[item.id];if(redrawn)return redrawn;
  // V30 highest-priority semantic art: only exact canonical names are eligible.
  // A sky is never rendered as a sword just because its name contains "sky".
  const itemName=String(item.name||'').toLowerCase();
