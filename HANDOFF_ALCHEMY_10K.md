@@ -39,6 +39,14 @@
 
 **Not done:** local complete repo checkout; full historical `node tools/validate-v82.mjs` execution; `npm test`; `python tools/audit-v82-art.py`; end-to-end HTML build; 35px physical Android light/dark visual review; CI; Android APK build and signing; full revenue/cloud/leaderboard integrations. Do not claim CI green or a released V82 APK.
 
+## Combiner motion (V83 technical change, zero new elements)
+- Three tile animations now run on fixed-position ghost tiles appended to `<body>`, never on the real slots: the slots are cleared the instant a pair resolves, so tapping the next ingredient is never delayed (`captureCraftScene` → `finishSlots` → `playCraftMotion` in `client/src/app.js`; CSS `.craft-ghost` in `client/src/styles.css`).
+- No recipe: the right tile slides until it touches the left one, bounces back and fades out; no sound, toast or feedback line (unchanged rule).
+- Already discovered: the right tile slides onto the left one, the result tile pops and floats up; the existing "Already discovered" feedback line is the only message.
+- New discovery: the merged result tile floats up and morphs into the artwork of the discovery window while the window fades in; the window still closes only with X.
+- A new ingredient entering a slot dismisses only the ghost covering that slot; `prefers-reduced-motion` disables all of it. Durations total under 0.9 s for a new discovery and under 0.5 s otherwise.
+- Checked locally in headless Chromium at 360×640, 390×820 and 1280×820 (light and dark, locked left, rapid consecutive pairs, no page errors) and with `npm test` (330/330, new `client/test/v83-combiner-motion.test.mjs`). Not yet checked on a physical Android device.
+
 ## Release checklist
 1. Run `npm test`, `node tools/validate-v82.mjs`, `python tools/audit-v82-art.py`, `node tools/audit-active-artwork.mjs`, and exact +200 Git diff gate against baseline.
 2. Run `python tools/build-standalone.py` and verify output `Alchemy_10K_V82_WIP_Offline.html` plus legacy output for Android compatibility.
