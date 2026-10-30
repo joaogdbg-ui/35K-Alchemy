@@ -20,8 +20,12 @@ test('Production policy has a pinned and arithmetically honest baseline',()=>{
  const p=JSON.parse(read('shared/production-plan-200.json'));
  assert.equal(p.batch_size,200);assert.equal(p.baseline_elements,5812);
  assert.equal(p.baseline_recipes,14149);assert.equal(p.target_minimum_elements,10000);
- assert.equal(p.deliveries_to_target,Math.ceil((p.target_minimum_elements-p.baseline_elements)/200));
- assert.equal(p.baseline_elements+200*p.deliveries_to_target,10012);
- assert.equal(p.next_delivery_outline.new_v82_elements,200);
+ assert.equal(p.target_exact_elements,10000);
+ assert.equal(p.deliveries_to_target,21);
+ assert.equal(p.baseline_elements+200*(p.deliveries_to_target-1)+p.last_batch_elements,10000);
+ assert.equal(p.current_merged_elements+200*p.full_batches_remaining+p.last_batch_elements,10000);
+ assert.equal(p.current_merged_elements,6012);
+ assert.equal(p.expected_after_next_delivery_elements,6212);
+ assert.equal(p.next_delivery_outline.new_v83_elements,200);
  assert.match(read('docs/WORKING_RULES_PT.md'),/OBRIGATÓRIO/);
 });
