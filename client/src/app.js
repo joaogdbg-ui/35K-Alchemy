@@ -134,6 +134,12 @@ let known = new Set(), recent=[], last=null, slots=[null,null],leftLocked=false,
 // V55: stable inventory ordering, independent from Family Only progression and search.
 const SORT_KEY='35k_inventory_sort_v55';
 let sortChoice='az';
+// V83: inventory filter (all / still has undiscovered outputs / completed / saved) and density.
+const INVENTORY_VIEW_KEY='alchemy10k_inventory_view_v1';
+let inventoryShow='all',inventoryDensity='normal';
+try{const v=JSON.parse(localStorage.getItem(INVENTORY_VIEW_KEY)||'null');if(['all','open','done','saved'].includes(v?.show))inventoryShow=v.show;if(v?.density==='compact')inventoryDensity='compact';}catch{}
+function saveInventoryView(){try{localStorage.setItem(INVENTORY_VIEW_KEY,JSON.stringify({show:inventoryShow,density:inventoryDensity}));}catch{}}
+const inventoryChip=()=>inventoryDensity==='compact'?{w:100,h:48}:{w:145,h:62};
 try {const value=localStorage.getItem(SORT_KEY);if(['az','old','new'].includes(value))sortChoice=value;}catch{}
 // The four starters are free ingredients, not earned discoveries.
 let STARTERS = new Set(['legacy:0','legacy:1','legacy:2','legacy:3']);
@@ -363,7 +369,7 @@ function getRewardBridge(){
  return native&&typeof native.showRewarded==='function'?native:null;
 }
 function rewardedAvailable(){return Boolean(getRewardBridge());}
-const APP_VERSION='0.81.4';
+const APP_VERSION='0.81.5';
 // V83: status line + Google consent (UMP) privacy options, required for EEA players.
 async function refreshAdStatus(){
  const el=$('settingsAdStatus'),bridge=getRewardBridge();
@@ -428,7 +434,7 @@ function snapshotPlayState(){return {
  unlocked:[...unlocked],known:[...known],recent:[...recent],last,
  ledger:[...discoveryLedger],order:[...discoveryOrder],clues:{...hintState.clues}
 };}
-function storeFamilyProfile(){if(currentMode!=='family'||!currentFamilyId)return;
+function storeFamilyProfile(){if(progressWiping||currentMode!=='family'||!currentFamilyId)return;
  familyProfiles[currentFamilyId]=snapshotPlayState();
  // A single shared ID is owned by all eligible Family Only campaigns.
  // This makes the unlock visible on the other campaign even before visiting it.
@@ -554,7 +560,7 @@ function persistClassicSnapshot(state){try{
  localStorage.setItem('gameverse_dynamic_v11',JSON.stringify({v:11,items:[...byId.values()].filter(i=>i.id.startsWith('generated:')).map(i=>({id:i.id,name:i.name,category:i.category,summary:i.summary||'',iconStatus:i.iconStatus||'pending',iconUrl:i.iconUrl||null,iconFamily:i.iconFamily||null,paletteVariant:i.paletteVariant||null})),recipes:[...classicRecipes.entries()].filter(([k,v])=>v.startsWith('generated:')||k.includes('generated:')),unlocked:u.filter(i=>!i.startsWith('legacy:')),recent:r.filter(i=>!i.startsWith('legacy:')).slice(0,350),last:(state.last&&!state.last.startsWith('legacy:'))?state.last:null}));
  }catch(e){console.warn('Classic progress save failed',e);return false;}return true;
 }
-const save=()=>{if(currentMode==='family'){storeFamilyProfile();return;}syncDiscoveryOrder();persistClassicSnapshot(snapshotPlayState());};
+const save=()=>{if(progressWiping)return;if(currentMode==='family'){storeFamilyProfile();return;}syncDiscoveryOrder();persistClassicSnapshot(snapshotPlayState());};
 // V60: Family -> Classic batch import costs TWO separately opted-in rewarded ads.
 // A completed first ad is retained if the second is unavailable or dismissed.
 // The snapshot is frozen at the first ad; newly earned family items require a later merge.
@@ -1087,9 +1093,9 @@ async function combine(){
   else toast('Discovery is temporarily unavailable','error');
  }catch(e){toast('Server unavailable · Offline progress preserved','error');console.warn(e);}
 }
-function showModal(content){cancelCraftMorph();$('modal').removeAttribute('aria-labelledby');$('modal').dataset.dismiss='any';$('modalContent').innerHTML=content;$('modal').hidden=false;}
+function showModal(content){cancelCraftMorph();settleTimedHint(false);$('modal').removeAttribute('aria-labelledby');$('modal').dataset.dismiss='any';$('modalContent').innerHTML=content;$('modal').hidden=false;}
 function closeModal(){
- cancelCraftMorph();
+ cancelCraftMorph();settleTimedHint(false);
  const st=batchState;
  if(st?.phase==='scanning'){batchState=null;slots[1]=null;updateSlotUI();announceCraft('idle','Family scan cancelled · No new results published');$('modal').hidden=true;$('modal').dataset.dismiss='any';return;}
  if(st?.phase==='review'){
@@ -1105,7 +1111,7 @@ function closeModal(){
 
 function showDiscovery(id,a,b,scene=null){
  const it=byId.get(id),isFirst=worldFirsts.has(id),earned=[...unlocked].filter(x=>!STARTERS.has(x)).length;
- showModal(`<div class="modal-tag ${isFirst?'world-first-tag':''}">${isFirst?'★ WORLD FIRST':'✦ NEW DISCOVERY'}</div><div class="modal-art">${staticArt(it)}</div><h2>${escapeText(uiName(it))}</h2><p>${escapeText(uiName(byId.get(a)))} + ${escapeText(uiName(byId.get(b)))}</p>${wittyDiscovery(it)?`<p class="discovery-wit">${escapeText(publicText(wittyDiscovery(it)))}</p>`:""}<div class="modal-milestone">${earned.toLocaleString('en-US')} personal discoveries</div>`);
+ showModal(`<div class="modal-tag ${isFirst?'world-first-tag':''}">${isFirst?'★ WORLD FIRST':'✦ NEW DISCOVERY'}</div><div class="modal-art">${staticArt(it)}</div><h2>${escapeText(uiName(it))}</h2><p>${escapeText(uiName(byId.get(a)))} + ${escapeText(uiName(byId.get(b)))}</p>${(wittyDiscovery(it)||it.summary)?`<p class="discovery-wit">${escapeText(publicText(wittyDiscovery(it)||it.summary))}</p>`:""}<div class="modal-milestone">${earned.toLocaleString('en-US')} personal discoveries</div>`);
  $('continueBtn')?.remove();$('modal').dataset.dismiss='x-only';
  playCraftMotion(scene,'new',it);
 }
@@ -1114,6 +1120,9 @@ const allIds=()=>[...unlocked].filter(id=>byId.has(id));
 function filtered(mode){
  let ids=allIds();if(currentMode==='family')ids=ids.filter(id=>familyCampaigns.get(currentFamilyId).itemSet.has(id));const q=playQuery.trim().toLowerCase();
  if(playFamily!=='all')ids=ids.filter(id=>familiesFor(byId.get(id)).includes(playFamily));
+ if(inventoryShow==='open')ids=ids.filter(id=>!elementIsComplete(id));
+ else if(inventoryShow==='done')ids=ids.filter(id=>elementIsComplete(id));
+ else if(inventoryShow==='saved')ids=ids.filter(id=>favorites.has(id));
  if(q)ids=ids.filter(id=>uiName(byId.get(id)).toLowerCase().includes(q));
  if(sortChoice==='old'||sortChoice==='new'){
   syncDiscoveryOrder();const rank=new Map(discoveryOrder.map((id,i)=>[id,i]));
@@ -1127,8 +1136,9 @@ class VirtualElements {
   // Preserve the visible row while a newly discovered element enters a
   // sorted list. Rebuilding virtual DOM must never jump back to the top.
   const before=this.viewport.scrollTop;
-  const cols=Math.max(1,Math.floor(((this.viewport.clientWidth||360)-28+8)/(145+8)));
-  const rowHeight=62;
+  const chip=inventoryChip();
+  const cols=Math.max(1,Math.floor(((this.viewport.clientWidth||360)-28+8)/(chip.w+8)));
+  const rowHeight=chip.h;
   const previousIndex=Math.floor(before/rowHeight)*cols;
   const anchorId=this.ids[previousIndex];
   const intraRow=before%rowHeight;
@@ -1140,7 +1150,7 @@ class VirtualElements {
   }else this.viewport.scrollTop=before;
   this.draw(true);
  }
- draw(force=false){let width=this.viewport.clientWidth,cols=Math.max(1,Math.floor((width-28+8)/(145+8))),rowHeight=62,rows=Math.ceil(this.ids.length/cols),top=Math.max(0,Math.floor(this.viewport.scrollTop/rowHeight)-4),end=Math.min(rows,Math.ceil((this.viewport.scrollTop+this.viewport.clientHeight)/rowHeight)+5);if(!force&&this.start===top&&this.end===end&&this.cols===cols)return;this.start=top;this.end=end;this.cols=cols;this.root.style.height=Math.max(40,rows*rowHeight)+'px';if(!this.ids.length){const msg='No elements found.';this.root.innerHTML='<div class="empty-list">'+msg+'</div>';return;}let shown=this.ids.slice(top*cols,end*cols);this.root.innerHTML=`<div class="virtual-grid" style="--cols:${cols};top:${top*rowHeight}px">${shown.map(id=>{const it=byId.get(id);return `<button class="element-chip ${worldFirsts.has(id)?'world-first-chip':''}" data-id="${escapeText(id)}" aria-label="Tap or drag ${escapeText(uiName(it))}"><span class="chip-art">${staticArt(it)}</span><span class="chip-label">${escapeText(uiName(it))}</span>${elementIsComplete(id)?'<span class="chip-completed" title="No undiscovered outputs in the offline catalogue" aria-label="Completed">★</span>':''}</button>`;}).join('')}</div>`;}
+ draw(force=false){const chip=inventoryChip();let width=this.viewport.clientWidth,cols=Math.max(1,Math.floor((width-28+8)/(chip.w+8))),rowHeight=chip.h,rows=Math.ceil(this.ids.length/cols),top=Math.max(0,Math.floor(this.viewport.scrollTop/rowHeight)-4),end=Math.min(rows,Math.ceil((this.viewport.scrollTop+this.viewport.clientHeight)/rowHeight)+5);if(!force&&this.start===top&&this.end===end&&this.cols===cols)return;this.start=top;this.end=end;this.cols=cols;this.root.style.height=Math.max(40,rows*rowHeight)+'px';this.root.classList.toggle('is-compact',inventoryDensity==='compact');if(!this.ids.length){const msg=inventoryShow!=='all'?'No elements match this filter.':'No elements found.';this.root.innerHTML='<div class="empty-list">'+msg+'</div>';return;}let shown=this.ids.slice(top*cols,end*cols);this.root.innerHTML=`<div class="virtual-grid" style="--cols:${cols};top:${top*rowHeight}px">${shown.map(id=>{const it=byId.get(id);return `<button class="element-chip ${worldFirsts.has(id)?'world-first-chip':''}" data-id="${escapeText(id)}" aria-label="Tap or drag ${escapeText(uiName(it))}"><span class="chip-art">${staticArt(it)}</span><span class="chip-label">${escapeText(uiName(it))}</span>${elementIsComplete(id)?'<span class="chip-completed" title="No undiscovered outputs in the offline catalogue" aria-label="Completed">★</span>':''}</button>`;}).join('')}</div>`;}
 }
 const playVirtual=new VirtualElements('inventoryVirtual','play');
 // One shared refresh path keeps Play and Discoveries in sync.
@@ -1150,9 +1160,11 @@ function renderDiscoveries(){
  const groups=discoverGroups(),total=currentMode==='family'?familyCampaigns.get(currentFamilyId).items.length:[...byId.values()].length;
  $('discoveriesSummary').textContent=`${unlocked.size.toLocaleString('en-US')} of ${total.toLocaleString('en-US')} elements found · ${currentMode==='family'?'1 family':FAMILIES.length+' families'}`;
  $('familiesTotal').textContent=currentMode==='family'?'1 family':`${FAMILIES.length} families`;
- $('catalogTargetProgress').parentElement.querySelector('span').textContent=currentMode==='family'?'FAMILY PROGRESS':'CATALOG GROWTH';
- $('catalogTargetProgress').textContent=currentMode==='family'?`${unlocked.size} / ${total} found`:`${total.toLocaleString('en-US')} / ${CATALOG_GOAL.toLocaleString('en-US')} planned elements`;
- $('catalogTargetFill').style.width=Math.min(100,currentMode==='family'?100*unlocked.size/total:100*total/CATALOG_GOAL).toFixed(2)+'%';
+ // V83: players see their own collection progress; the 10K catalog goal is a development target.
+ $('catalogTargetProgress').parentElement.querySelector('span').textContent=currentMode==='family'?'FAMILY PROGRESS':'YOUR COLLECTION';
+ const pctFound=total?100*unlocked.size/total:0;
+ $('catalogTargetProgress').textContent=`${unlocked.size.toLocaleString('en-US')} / ${total.toLocaleString('en-US')} · ${pctFound<1&&unlocked.size?'<1':Math.round(pctFound)}%`;
+ $('catalogTargetFill').style.width=Math.min(100,pctFound).toFixed(2)+'%';
  const setEl=$('thematicSets');if(setEl){setEl.hidden=currentMode==='family';setEl.innerHTML=COLLECTION_SETS.map(s=>{const count=setProgress(s),total=s.ids.length,pct=total?Math.round(100*count/total):0;
  return `<button class="theme-set" data-set="${s.id}" aria-label="${escapeText(s.name)}. ${escapeText(s.description)}. ${count} of ${total} found"><strong>${escapeText(s.name)}</strong><span class="theme-set-description">${escapeText(s.description)}</span><small>${count} / ${total} found · ${pct}%</small><span class="family-line"><i style="width:${pct}%"></i></span></button>`;
  }).join('');}
@@ -1265,23 +1277,44 @@ function explainAdUnavailable(){
  showModal(`<div class="modal-tag">REWARDED HINT</div><h2>Ads are unavailable here</h2><p>One completed rewarded ad reveals a full recipe. Ads need the installed Android app with a configured provider; they cannot play in this standalone HTML.</p><p class="mini-muted">Nothing was unlocked. The game remains playable offline.</p>`);
 }
 let rewardedHintBusy=false;
+// V83 (owner decision, 30/10/2026): when no rewarded ad can be shown, ONE free recipe hint
+// is available every 10 minutes. It is not a credit balance and never stacks; a dismissed ad
+// does not trigger it, only an unavailable or failed one.
+const TIMED_HINT_KEY='alchemy10k_timed_hint_next_v1',TIMED_HINT_COOLDOWN_MS=10*60*1000;
+let timedHintResolve=null;
+function timedHintNextAt(){try{return Number(localStorage.getItem(TIMED_HINT_KEY))||0;}catch{return 0;}}
+function settleTimedHint(value){const r=timedHintResolve;timedHintResolve=null;if(r)r(value);}
+function offerTimedHint(reason){
+ return new Promise(resolve=>{
+  const why=reason==='failed'?'The ad could not be loaded right now.':rewardedAvailable()?'No ad is available right now.':'Ads need the installed Android app.';
+  const wait=timedHintNextAt()-Date.now();
+  if(wait>0){const min=Math.ceil(wait/60000);showModal(`<div class="modal-tag">RECIPE HINT</div><h2>No ad available</h2><p>${why}</p><p>Your next free hint is ready in ${min} minute${min===1?'':'s'}.</p><p class="mini-muted">Nothing was unlocked. Keep experimenting!</p>`);resolve(false);return;}
+  showModal(`<div class="modal-tag">RECIPE HINT</div><h2>Free hint ready</h2><p>${why} You can use one free hint every 10 minutes instead.</p><button type="button" class="modal-button" id="useTimedHint">Use free hint</button>`);
+  timedHintResolve=resolve;
+  $('useTimedHint').onclick=()=>{try{localStorage.setItem(TIMED_HINT_KEY,String(Date.now()+TIMED_HINT_COOLDOWN_MS));}catch{}settleTimedHint(true);};
+ });
+}
+function grantRecipeHint(elementId){
+ hintState.clues[elementId]='recipe';saveHints();
+ if(tab==='World')renderDiscoveries();
+ return true;
+}
 async function earnRecipeByAd(elementId,family){
  const option=candidateFor(elementId);
  if(!option||unlocked.has(elementId))return false;
  if(hintState.clues[elementId]==='recipe')return true;
  const native=getRewardBridge();
- if(!native){explainAdUnavailable();return false;}
+ if(!native)return (await offerTimedHint('unavailable'))&&grantRecipeHint(elementId);
  if(rewardedHintBusy)return false;
  rewardedHintBusy=true;
  showModal(`<div class="modal-tag">REWARDED HINT</div><h2>Preparing your ad…</h2><p>The full recipe unlocks only after the ad confirms its reward.</p>`);
- let response=null;
+ let response=null,failed=false;
  try{response=await native.showRewarded({kind:'recipe',elementId,family});}
- catch(err){console.warn('Rewarded ad unavailable',err);}
+ catch(err){failed=true;console.warn('Rewarded ad unavailable',err);}
  finally{rewardedHintBusy=false;}
- if(response?.earned!==true){toast('Ad not completed · Recipe still hidden','error');showModal(`<div class="modal-tag">REWARDED HINT</div><h2>No reward received</h2><p>The ad was not completed or is unavailable. Your recipe is still hidden.</p>`);return false;}
- hintState.clues[elementId]='recipe';saveHints();
- if(tab==='World')renderDiscoveries();
- return true;
+ if(failed)return (await offerTimedHint('failed'))&&grantRecipeHint(elementId);
+ if(response?.earned!==true){toast('Ad not completed · Recipe still hidden','error');showModal(`<div class="modal-tag">REWARDED HINT</div><h2>No reward received</h2><p>The ad was not completed. Your recipe is still hidden.</p>`);return false;}
+ return grantRecipeHint(elementId);
 }
 async function revealRecipeWithAd(id){
  const option=candidateFor(id);
@@ -1310,17 +1343,45 @@ function switchTab(view){
  if(tab==='World')renderDiscoveries();else playVirtual.draw(true);
 }
 const BACKUP_KEYS=[FAMILY_SAVES_KEY,MODE_SELECTION_KEY,'gameverse_alchemy_v2','gameverse_dynamic_v11','gameverse_ledger_v16','gameverse_discovery_hints_v20',EXTRA_STORAGE,DISCOVERY_ORDER_KEY];
-function exportProgress(){
+function backupJson(){
+ save();
  const progress={format:'35k-alchemy-backup',version:25,savedAt:new Date().toISOString(),data:{}};
  for(const key of BACKUP_KEYS){const raw=localStorage.getItem(key);if(raw!==null){try{progress.data[key]=JSON.parse(raw);}catch{}}}
- const blob=new Blob([JSON.stringify(progress,null,2)],{type:'application/json'}),url=URL.createObjectURL(blob),link=document.createElement('a');
- link.href=url;link.download='Alchemy_10K_Backup_'+new Date().toISOString().slice(0,10)+'.json';document.body.append(link);link.click();link.remove();
- setTimeout(()=>URL.revokeObjectURL(url),3000);toast('Backup exported');
+ return JSON.stringify(progress,null,2);
+}
+// V83: Android WebViews ignore <a download>; the APK shares the file through the
+// native AlchemyBackup plugin (Drive, Files, e-mail...). Browsers download it.
+function backupBridge(){const cap=window.Capacitor;if(cap?.getPlatform?.()!=='android')return null;const b=cap.Plugins?.AlchemyBackup;return b&&typeof b.shareFile==='function'?b:null;}
+async function exportProgress(){
+ const json=backupJson(),filename='Alchemy_10K_Backup_'+new Date().toISOString().slice(0,10)+'.json';
+ const bridge=backupBridge();
+ if(bridge){try{await bridge.shareFile({filename,content:json});toast('Choose where to save your backup');return;}catch(e){console.warn('Backup share failed',e);}}
+ if(!window.Capacitor){
+  const blob=new Blob([json],{type:'application/json'}),url=URL.createObjectURL(blob),link=document.createElement('a');
+  link.href=url;link.download=filename;document.body.append(link);link.click();link.remove();
+  setTimeout(()=>URL.revokeObjectURL(url),3000);toast('Backup exported');return;
+ }
+ showBackupCode(json);
+}
+function showBackupCode(json){
+ showModal(`<div class="modal-tag">BACKUP</div><h2>Copy your backup</h2><p>Copy this code and keep it somewhere safe (notes, e-mail). Paste it in Import backup to restore.</p><textarea class="backup-code" id="backupCode" readonly rows="6"></textarea><button type="button" class="modal-button" id="copyBackup">Copy code</button>`);
+ $('backupCode').value=json;
+ $('copyBackup').onclick=async()=>{try{await navigator.clipboard.writeText(json);toast('Backup code copied');}catch{$('backupCode').select();toast('Select all and copy the code','error');}};
+}
+function openImportProgress(){
+ showModal(`<div class="modal-tag">IMPORT BACKUP</div><h2>Restore progress</h2><p>Importing replaces the progress saved on this device.</p><button type="button" class="modal-button" id="importPickFile">Choose backup file</button><input type="file" id="importFile" accept="application/json,.json,text/plain" hidden><div class="settings-divider"></div><textarea class="backup-code" id="importCode" rows="5" placeholder="…or paste a backup code here"></textarea><button type="button" class="modal-button secondary" id="importPasted">Import pasted code</button>`);
+ $('importPickFile').onclick=()=>$('importFile').click();
+ $('importFile').onchange=e=>importProgress(e.target.files?.[0]);
+ $('importPasted').onclick=()=>{const t=$('importCode').value.trim();if(!t){toast('Paste a backup code first','error');return;}importBackupText(t);};
 }
 function importProgress(file){
  if(!file||file.size>3_000_000){toast('Invalid backup size','error');return;}
- const reader=new FileReader();reader.onload=()=>{
-  try{const state=JSON.parse(String(reader.result));
+ const reader=new FileReader();reader.onload=()=>importBackupText(String(reader.result));
+ reader.readAsText(file);
+}
+function importBackupText(text){
+  if(typeof text!=='string'||text.length>3_000_000){toast('Invalid backup size','error');return;}
+  try{const state=JSON.parse(text);
     if(state.format!=='35k-alchemy-backup'||state.version!==25||!state.data||typeof state.data!=='object')throw Error('Incompatible backup');
     const allowed=Object.fromEntries(BACKUP_KEYS.filter(k=>Object.hasOwn(state.data,k)).map(k=>[k,state.data[k]]));
     if(allowed.gameverse_alchemy_v2&&allowed.gameverse_alchemy_v2.v!==2)throw Error('Invalid classic progress');
@@ -1334,7 +1395,31 @@ function importProgress(file){
     for(const [k,v] of entries)localStorage.setItem(k,v);
     toast('Progress imported · reloading');setTimeout(()=>location.reload(),450);
   }catch(e){toast('Could not import backup: '+e.message,'error');}
- };reader.onerror=()=>toast('Could not read backup','error');reader.readAsText(file);
+}
+// V83: delete progress. Families are wiped together because shared IDs re-synchronize
+// between campaigns. Settings, sound, theme, sort and ad privacy choices are kept.
+let progressWiping=false;
+function openDeleteProgress(){
+ const choices=[['classic','Classic progress','Classic discoveries, revealed recipes and order'],['families','Families Only progress','Every family campaign and any pending Merge'],['all','Everything','Classic, all families and saved favorites']];
+ showModal(`<div class="modal-tag">DELETE PROGRESS</div><h2>What should be deleted?</h2><div class="sort-choices">${choices.map(([id,t,d])=>`<button type="button" class="sort-option" data-wipe="${id}"><span class="sort-option-content"><strong>${t}</strong><small>${d}</small></span><span aria-hidden="true">›</span></button>`).join('')}</div><button type="button" class="modal-button secondary" id="wipeExportFirst">Export a backup first</button><p class="mini-muted">Sound, theme, sorting and ad privacy choices are kept.</p>`);
+ $('wipeExportFirst').onclick=exportProgress;
+ $('modalContent').querySelectorAll('[data-wipe]').forEach(b=>b.onclick=()=>confirmWipe(b.dataset.wipe));
+}
+function confirmWipe(target){
+ const label={classic:'Classic progress',families:'all Families Only progress',all:'everything'}[target];if(!label)return;
+ showModal(`<div class="modal-tag">DELETE PROGRESS</div><h2>Delete ${label}?</h2><p>This cannot be undone unless you have a backup.</p><button type="button" class="modal-button danger" id="wipeConfirm">Delete permanently</button><button type="button" class="modal-button secondary" id="wipeCancel">Cancel</button>`);
+ $('wipeCancel').onclick=openDeleteProgress;
+ $('wipeConfirm').onclick=()=>wipeProgress(target);
+}
+function wipeProgress(target){
+ const classicKeys=['gameverse_alchemy_v2','gameverse_dynamic_v11','gameverse_ledger_v16',HINT_STORAGE,DISCOVERY_ORDER_KEY];
+ const familyKeys=[FAMILY_SAVES_KEY,MERGE_PENDING_KEY];
+ const keys=target==='classic'?classicKeys:target==='families'?familyKeys:target==='all'?[...classicKeys,...familyKeys,EXTRA_STORAGE]:null;
+ if(!keys)return;
+ progressWiping=true;clearTimeout(autoTimer);
+ try{for(const k of keys)localStorage.removeItem(k);}catch{}
+ if(target==='all'){try{for(let i=localStorage.length-1;i>=0;i--){const k=localStorage.key(i);if(k&&k.startsWith('gameverse_verified_firsts_v16:'))localStorage.removeItem(k);}}catch{}}
+ $('modal').hidden=true;toast('Progress deleted · restarting','error');setTimeout(()=>location.reload(),450);
 }
 // V76.6: Settings uses three compact tabs. No simulated Google identity or cloud save.
 // V76.7: a game-first settings sheet. Profile and help are separate panels.
@@ -1406,6 +1491,14 @@ function settings(){
     <div class="settings-divider"></div>
     <button type="button" id="settingsPrivacyAds" class="settings-link"><span>Privacy &amp; ads<small id="settingsAdStatus">${rewardedAvailable()?'Checking ads…':'Ads need the Android app'}</small></span><span aria-hidden="true">›</span></button>
    </div>
+   <div class="settings-section settings-links">
+    <div class="settings-service-title">PROGRESS</div>
+    <button type="button" id="settingsExport" class="settings-link"><span>Export backup<small>Save or send a file with all modes</small></span><span aria-hidden="true">›</span></button>
+    <div class="settings-divider"></div>
+    <button type="button" id="settingsImport" class="settings-link"><span>Import backup<small>Restore from a backup file or code</small></span><span aria-hidden="true">›</span></button>
+    <div class="settings-divider"></div>
+    <button type="button" id="settingsDelete" class="settings-link settings-danger"><span>Delete progress<small>Classic, Families Only or everything</small></span><span aria-hidden="true">›</span></button>
+   </div>
    <p class="settings-footnote">Progress saved on this device.</p>
   </section>
   <section id="settingsPanelProfile" class="settings-page" data-settings-page="profile" aria-label="Player profile" hidden>
@@ -1424,7 +1517,7 @@ function settings(){
     <div class="settings-divider"></div>
     <button type="button" class="settings-link" id="recoverFromCloud" disabled><span>Recover from cloud<small>Not available yet</small></span><span aria-hidden="true">›</span></button>
    </div>
-   <p class="settings-footnote">No cloud backup exists in this version. Do not uninstall before cloud saves are enabled.</p>
+   <p class="settings-footnote">No cloud backup exists in this version. Use Settings → Export backup before uninstalling or changing phone.</p>
   </section>
   <section id="settingsPanelHelp" class="settings-page" data-settings-page="help" aria-label="Help and about" hidden>
    <div class="settings-section settings-help">
@@ -1441,6 +1534,9 @@ function settings(){
  $('settingsProfileLink').onclick=()=>selectSettingsPage('profile',{focus:true});
  $('settingsHelpLink').onclick=()=>selectSettingsPage('help',{focus:true});
  $('settingsPrivacyAds').onclick=openAdPrivacyOptions;
+ $('settingsExport').onclick=exportProgress;
+ $('settingsImport').onclick=openImportProgress;
+ $('settingsDelete').onclick=openDeleteProgress;
  refreshAdStatus();
  $('settingsBack').onclick=()=>selectSettingsPage('main',{focus:true});
  // Escape returns from child pages before dismissing the sheet.
@@ -1576,7 +1672,7 @@ function showBatchDiscovery(){
  const st=batchState;if(!st||st.phase!=='review')return;
  st.viewAll=false;
  const d=st.discoveries[st.reviewIndex],it=byId.get(d.id);
- showModal(`<div class="modal-tag">✦ NEW DISCOVERY · ${st.reviewIndex+1} OF ${st.discoveries.length}</div><div class="modal-art">${staticArt(it)}</div><h2>${escapeText(uiName(it))}</h2><p>${escapeText(uiName(byId.get(d.a)))} + ${escapeText(uiName(byId.get(d.b)))}</p>${wittyDiscovery(it)?`<p class="discovery-wit">${escapeText(publicText(wittyDiscovery(it)))}</p>`:""}<div class="modal-milestone">${st.fresh} new · ${st.repeat} repeated · ${st.miss} no match</div><button type="button" id="batchViewAll" class="modal-button secondary">View All Discoveries (${st.discoveries.length})</button><p class="mini-muted">Close using X to view the next discovery.</p>`);
+ showModal(`<div class="modal-tag">✦ NEW DISCOVERY · ${st.reviewIndex+1} OF ${st.discoveries.length}</div><div class="modal-art">${staticArt(it)}</div><h2>${escapeText(uiName(it))}</h2><p>${escapeText(uiName(byId.get(d.a)))} + ${escapeText(uiName(byId.get(d.b)))}</p>${(wittyDiscovery(it)||it.summary)?`<p class="discovery-wit">${escapeText(publicText(wittyDiscovery(it)||it.summary))}</p>`:""}<div class="modal-milestone">${st.fresh} new · ${st.repeat} repeated · ${st.miss} no match</div><button type="button" id="batchViewAll" class="modal-button secondary">View All Discoveries (${st.discoveries.length})</button><p class="mini-muted">Close using X to view the next discovery.</p>`);
  $('modal').dataset.dismiss='x-only';
  $('batchViewAll').onclick=showBatchAll;
 }
@@ -1694,20 +1790,34 @@ $('searchToggle').onclick=()=>setSearchOpen(!$('shelfToolbar').classList.contain
 $('playSearch').addEventListener('keydown',e=>{if(e.key==='Escape'){e.preventDefault();setSearchOpen(false);}});
 $('playSearch').oninput=e=>{playQuery=e.target.value;playVirtual.refresh({resetScroll:true});};
 // V55: touch-friendly in-game Sort chooser (no native Android <select>).
+// V83: the same sheet also filters (still open / completed / saved) and sets density.
+function syncInventoryButton(){const b=$('recentBtn');if(!b)return;b.dataset.sort=sortChoice;b.dataset.filtered=String(inventoryShow!=='all');
+ b.setAttribute('aria-label','Sort and filter elements: '+({az:'A to Z',old:'Old first',new:'New first'}[sortChoice])+(inventoryShow!=='all'?', filtered':''));}
 function openInventorySorter(){
- const choices=[['az','A–Z','Alphabetical order'],['old','Old first','Earliest discoveries first'],['new','New first','Latest discoveries first']];
- const content=choices.map(([id,title,subtitle])=>`<button class="sort-option" type="button" data-sort-option="${id}" aria-pressed="${sortChoice===id}"><span class="sort-option-content"><strong>${title}</strong><small>${subtitle}</small></span><span class="sort-choice-mark" aria-hidden="true">${sortChoice===id?'✓':''}</span></button>`).join('');
- showModal(`<div class="modal-tag">ELEMENT ORDER</div><h2>Sort elements</h2><div class="sort-choices" role="group" aria-label="Sort inventory">${content}</div>`);
+ const order=[['az','A–Z','Alphabetical order'],['old','Old first','Earliest discoveries first'],['new','New first','Latest discoveries first']];
+ const show=[['all','All'],['open','To explore'],['done','Completed ★'],['saved','Saved']];
+ const view=[['normal','Normal'],['compact','Compact']];
+ const orderHtml=order.map(([id,title,subtitle])=>`<button class="sort-option" type="button" data-sort-option="${id}" aria-pressed="${sortChoice===id}"><span class="sort-option-content"><strong>${title}</strong><small>${subtitle}</small></span><span class="sort-choice-mark" aria-hidden="true">${sortChoice===id?'✓':''}</span></button>`).join('');
+ const seg=(name,list,cur)=>`<div class="sort-segment" role="group" aria-label="${name}">${list.map(([id,label])=>`<button type="button" data-${name}-option="${id}" aria-pressed="${cur===id}">${label}</button>`).join('')}</div>`;
+ showModal(`<div class="modal-tag">ELEMENTS</div><h2>Sort &amp; filter</h2><div class="sort-choices" role="group" aria-label="Sort inventory">${orderHtml}</div><div class="sort-section-title">Show</div>${seg('show',show,inventoryShow)}<p class="sort-hint">To explore: elements that still make something new. ★ Completed: nothing left to discover with them.</p><div class="sort-section-title">View</div>${seg('density',view,inventoryDensity)}`);
  $('recentBtn').setAttribute('aria-expanded','true');
- $('modalContent').querySelectorAll('[data-sort-option]').forEach(button=>button.onclick=()=>{
+ const content=$('modalContent');
+ const refresh=()=>{syncInventoryButton();playVirtual.refresh({resetScroll:true});};
+ content.querySelectorAll('[data-sort-option]').forEach(button=>button.onclick=()=>{
   sortChoice=button.dataset.sortOption;
   try{localStorage.setItem(SORT_KEY,sortChoice);}catch{}
-  $('recentBtn').dataset.sort=sortChoice;
-  $('recentBtn').setAttribute('aria-label','Sort elements: '+({az:'A to Z',old:'Old first',new:'New first'}[sortChoice]));
-  closeModal();playVirtual.refresh({resetScroll:true});
+  closeModal();refresh();
+ });
+ content.querySelectorAll('[data-show-option]').forEach(button=>button.onclick=()=>{
+  inventoryShow=button.dataset.showOption;saveInventoryView();
+  content.querySelectorAll('[data-show-option]').forEach(b=>b.setAttribute('aria-pressed',String(b===button)));refresh();
+ });
+ content.querySelectorAll('[data-density-option]').forEach(button=>button.onclick=()=>{
+  inventoryDensity=button.dataset.densityOption;saveInventoryView();
+  content.querySelectorAll('[data-density-option]').forEach(b=>b.setAttribute('aria-pressed',String(b===button)));refresh();
  });
 }
-$('recentBtn').dataset.sort=sortChoice;
+syncInventoryButton();
 $('recentBtn').onclick=openInventorySorter;
 // V29.2: use the illustrated in-game family selector for inventory filters.
 // Unlike <select>, this does not launch Android's native dark full-screen picker.

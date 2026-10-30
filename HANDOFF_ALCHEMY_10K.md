@@ -48,7 +48,14 @@
 - A new ingredient entering a slot dismisses only the ghost covering that slot; `prefers-reduced-motion` disables all of it. Durations total under 0.9 s for a new discovery and under 0.5 s otherwise.
 - Checked locally in headless Chromium at 360×640, 390×820 and 1280×820 (light and dark, locked left, rapid consecutive pairs, no page errors) and with `npm test` (330/330, new `client/test/v83-combiner-motion.test.mjs`). Not yet checked on a physical Android device.
 
-## Release checklist
+## Phase 1 polish (V83 technical change, zero new elements, 30 October 2026)
+- Google rewarded TEST ads packaged in the APK (`native/android/GameverseRewardedAdsPlugin.java`, `tools/configure-android-admob.py`); Settings → Privacy & ads.
+- Settings → Progress: Export backup (Android share sheet via `native/android/AlchemyBackupPlugin.java`, browser download, or copyable code), Import backup (file or pasted code), Delete progress (Classic / all Families Only / everything, double confirmation, settings kept).
+- Discovery popups show the witty line or, failing that, the element's summary (4,421 elements have one).
+- Sort sheet is now Sort & filter: Show All / To explore / Completed ★ / Saved, View Normal / Compact (3 columns at 390 px).
+- Timed hint: one free recipe hint every 10 minutes only when no ad can be shown (owner decision; rule 7 in `docs/WORKING_RULES_PT.md`).
+- Discoveries header shows the player's collection (X / total · %) instead of the 10K development goal.
+
 1. Run `npm test`, `node tools/validate-v82.mjs`, `python tools/audit-v82-art.py`, `node tools/audit-active-artwork.mjs`, and exact +200 Git diff gate against baseline.
 2. Run `python tools/build-standalone.py` and verify output `Alchemy_10K_V82_WIP_Offline.html` plus legacy output for Android compatibility.
 3. Inspect the 200 thumbnails at 35px in dark/light mode at 320/360/390px and audit distinct recognizable silhouettes.

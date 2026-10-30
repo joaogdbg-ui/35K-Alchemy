@@ -19,7 +19,8 @@ test('Android builds package the AdMob test configuration',()=>{
  const py=src('tools/configure-android-admob.py');
  assert.match(py,/ca-app-pub-3940256099942544~3347511713/);
  assert.match(py,/play-services-ads:25\.5\.0/);
- assert.match(py,/registerPlugin\(GameverseRewardedAdsPlugin\.class\)/);
+ assert.match(py,/registerPlugin\(\{n\}\.class\)/);
+ assert.match(py,/"GameverseRewardedAdsPlugin" not in names or "AlchemyBackupPlugin" not in names/);
  for(const wf of ['.github/workflows/android-debug.yml','.github/workflows/qa-android-preview.yml']){
   const y=src(wf);
   const edge=y.indexOf('configure-android-edge-to-edge.py'),ads=y.indexOf('configure-android-admob.py');
