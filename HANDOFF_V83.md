@@ -4,10 +4,13 @@
 - Development branch: `wip/alchemy-10k-v83-fantasy-gaming`; target **exactly +200** -> **6,212 elements / 14,549 recipes**.
 - This checkpoint: **12/200 authored candidates**, **188 remaining**. The 12 are NOT ACTIVE IN THE GAME; import/integration only at finished quality-gated batch. No PR, CI or APK from WIP.
 - Each candidate has an English name, permanent proposed ID, one unique ordered-independent global pair, family membership hypothesis and custom source SVG. These are editorial candidates requiring collision scans, isolated Family Only closure, native 35px art review and all existing catalog validations before release. In particular, do not present these as player-available discoveries yet.
-- Wave 1: original folklore and fantasy creatures (trolls, werewolf, vampire, wraith, banshee, dryad, basilisk, golem).
+- Wave 1: original folklore and fantasy creatures (trolls, Ulfhednar, Vrykolakas, wraith, banshee, dryad, basilisk, golem).
 - Planned 200 allocation: 50 folklore creatures/environments; 50 original gaming fantasy objects/genres; 50 gaming systems/arcade/board-adjacent artefacts; 50 science, fauna and cross-family recipes. The gaming component must remain meaningful, without arbitrary console+monster crossovers.
 - New mythology family items must be verifiably completable from Human, History, Magic, Sky with the GLOBAL A+B=C recipe table. New V83 ancestors use existing reachable V82 nodes or earlier Wave 1 nodes. Verify against full recipe catalog, not just this set.
 - Never change previously published IDs, results, save keys, the Android package, or verified-ad contracts; never perform WIP CI Actions builds. Nature & Science's classic-starter discrepancy remains a separate known issue.
 - All 12 icon sketches are subject specific and not yet confirmed on a physical device; reject/rework anything unreadable at 35 px.
 
 See [candidate JSON](shared/v83-progress.json), [source pack](client/src/organic-pack-v83.js), [art review](docs/V83_ART_REVIEW.md).
+
+## Collision correction
+The preflight historical-catalog scan found existing exact names `Werewolf` (`legacy`) and `Vampire` (`pack`). The candidate IDs and vector paths were renamed to distinct folklore subjects `organic83:ulfhednar` and `organic83:vrykolakas`, without touching historical identities. Follow-up family graph and visual QA remain necessary.

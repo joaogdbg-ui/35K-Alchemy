@@ -76,10 +76,10 @@
       "editorial_qa": "pending"
     },
     {
-      "id": "organic83:werewolf",
-      "name": "Werewolf",
+      "id": "organic83:ulfhednar",
+      "name": "Ulfhednar",
       "category": "fantasy",
-      "summary": "A moon-haunting human-wolf shapeshifter bares claws, tufted ears and a long muzzle.",
+      "summary": "A Norse wolf-cloaked berserker takes on the fierce aspect of Fenrir in battle.",
       "ingredients": [
         "organic82:fenrir",
         "pack:shapeshifter"
@@ -87,15 +87,15 @@
       "familyCampaigns": [
         "mythology"
       ],
-      "path": "client/assets/v83/werewolf.svg",
+      "path": "client/assets/v83/ulfhednar.svg",
       "art_mode": "bespoke-subject",
       "editorial_qa": "pending"
     },
     {
-      "id": "organic83:vampire",
-      "name": "Vampire",
+      "id": "organic83:vrykolakas",
+      "name": "Vrykolakas",
       "category": "fantasy",
-      "summary": "An elegant nocturnal figure with a velvet cape and sharp fangs belongs to European folklore.",
+      "summary": "A restless undead figure from Greek folklore returns from the grave beneath a dark cloak.",
       "ingredients": [
         "organic83:mythic-bestiary",
         "organic82:greek-underworld"
@@ -103,7 +103,7 @@
       "familyCampaigns": [
         "mythology"
       ],
-      "path": "client/assets/v83/vampire.svg",
+      "path": "client/assets/v83/vrykolakas.svg",
       "art_mode": "bespoke-subject",
       "editorial_qa": "pending"
     },
@@ -113,7 +113,7 @@
       "category": "fantasy",
       "summary": "A small sharp-fanged bat stretches its leathery wings beneath a moonlit sky.",
       "ingredients": [
-        "organic83:vampire",
+        "organic83:vrykolakas",
         "pack:shapeshifter"
       ],
       "familyCampaigns": [
