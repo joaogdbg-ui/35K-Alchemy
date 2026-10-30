@@ -2,8 +2,10 @@ name: Alchemy 10K — Unpublished Android QA APK
 on:
   pull_request:
     branches: [main]
+    # Build Android QA for complete authored cohorts, not each WIP content increment.
     paths:
       - '.github/workflows/qa-android-preview.yml'
+      - 'shared/v*-approved.json'
   workflow_dispatch:
 
 permissions:
