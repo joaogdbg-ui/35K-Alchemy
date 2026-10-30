@@ -1,14 +1,14 @@
 {
   "version": 83,
-  "status": "WIP_NOT_INTEGRATED_NOT_RELEASED",
+  "status": "WIP_200_AUTHORED_AWAITING_FULL_QA_AND_INTEGRATION",
   "base_commit": "b75811874766a1270ac5ca908fd57719e1557c0a",
   "base_catalog": {
     "elements": 6012,
     "recipes": 14349
   },
   "expansion_goal": 200,
-  "authored_candidates": 175,
-  "remaining": 25,
+  "authored_candidates": 200,
+  "remaining": 0,
   "art_review": "NOT_APPROVED",
   "new_items": [
     {
@@ -2610,29 +2610,379 @@
       "path": "client/assets/v83/kosmoceratops.svg",
       "art_mode": "bespoke-subject",
       "editorial_qa": "pending"
+    },
+    {
+      "id": "organic83:stealth-detection-cone",
+      "name": "Stealth Detection Cone",
+      "category": "gamecraft",
+      "summary": "A security camera projects a triangular field of view across a stealth map.",
+      "ingredients": [
+        "organic83:dungeon-minimap",
+        "legacy:85"
+      ],
+      "familyCampaigns": [],
+      "path": "client/assets/v83/stealth-detection-cone.svg",
+      "art_mode": "bespoke-subject",
+      "editorial_qa": "pending"
+    },
+    {
+      "id": "organic83:patrol-route-marker",
+      "name": "Patrol Route Marker",
+      "category": "gamecraft",
+      "summary": "A dotted patrol route curves between numbered waypoints on a guard map.",
+      "ingredients": [
+        "organic83:stealth-detection-cone",
+        "legacy:354"
+      ],
+      "familyCampaigns": [],
+      "path": "client/assets/v83/patrol-route-marker.svg",
+      "art_mode": "bespoke-subject",
+      "editorial_qa": "pending"
+    },
+    {
+      "id": "organic83:noise-decoy-pebble",
+      "name": "Noise Decoy Pebble",
+      "category": "fantasy",
+      "summary": "A small thrown stone radiates sound ripples to distract a nearby guard.",
+      "ingredients": [
+        "organic83:stealth-detection-cone",
+        "legacy:14"
+      ],
+      "familyCampaigns": [],
+      "path": "client/assets/v83/noise-decoy-pebble.svg",
+      "art_mode": "bespoke-subject",
+      "editorial_qa": "pending"
+    },
+    {
+      "id": "organic83:guard-alert-beacon",
+      "name": "Guard Alert Beacon",
+      "category": "gamecraft",
+      "summary": "An illuminated warning beacon activates when a sentry notices the intruder.",
+      "ingredients": [
+        "organic83:boss-warning-siren",
+        "organic83:stealth-detection-cone"
+      ],
+      "familyCampaigns": [],
+      "path": "client/assets/v83/guard-alert-beacon.svg",
+      "art_mode": "bespoke-subject",
+      "editorial_qa": "pending"
+    },
+    {
+      "id": "organic83:tactical-cover-marker",
+      "name": "Tactical Cover Marker",
+      "category": "gamecraft",
+      "summary": "A shield-shaped map pin identifies waist-high cover in a tactical encounter.",
+      "ingredients": [
+        "organic83:dungeon-minimap",
+        "organic83:secret-switch-plate"
+      ],
+      "familyCampaigns": [],
+      "path": "client/assets/v83/tactical-cover-marker.svg",
+      "art_mode": "bespoke-subject",
+      "editorial_qa": "pending"
+    },
+    {
+      "id": "organic83:silent-footstep-emblem",
+      "name": "Silent Footstep Emblem",
+      "category": "gamecraft",
+      "summary": "A faded pair of footprints indicates crouched movement without attracting enemies.",
+      "ingredients": [
+        "organic83:replay-ghost",
+        "organic83:patrol-route-marker"
+      ],
+      "familyCampaigns": [],
+      "path": "client/assets/v83/silent-footstep-emblem.svg",
+      "art_mode": "bespoke-subject",
+      "editorial_qa": "pending"
+    },
+    {
+      "id": "organic83:lockpick-kit",
+      "name": "Lockpick Kit",
+      "category": "fantasy",
+      "summary": "A leather locksmith roll contains tension tools, hooks and narrow metal picks.",
+      "ingredients": [
+        "organic83:rune-locked-door",
+        "organic83:crafting-material-rack"
+      ],
+      "familyCampaigns": [],
+      "path": "client/assets/v83/lockpick-kit.svg",
+      "art_mode": "bespoke-subject",
+      "editorial_qa": "pending"
+    },
+    {
+      "id": "organic83:hacking-circuit-board",
+      "name": "Hacking Circuit Board",
+      "category": "gamecraft",
+      "summary": "A green security board shows crossed traces and a bypassed access chip.",
+      "ingredients": [
+        "organic83:lockpick-kit",
+        "legacy:91"
+      ],
+      "familyCampaigns": [],
+      "path": "client/assets/v83/hacking-circuit-board.svg",
+      "art_mode": "bespoke-subject",
+      "editorial_qa": "pending"
+    },
+    {
+      "id": "organic83:laser-tripwire-emitter",
+      "name": "Laser Tripwire Emitter",
+      "category": "gamecraft",
+      "summary": "A compact sensor projects thin red beams across a security corridor.",
+      "ingredients": [
+        "organic83:hacking-circuit-board",
+        "legacy:63"
+      ],
+      "familyCampaigns": [],
+      "path": "client/assets/v83/laser-tripwire-emitter.svg",
+      "art_mode": "bespoke-subject",
+      "editorial_qa": "pending"
+    },
+    {
+      "id": "organic83:disguise-wardrobe",
+      "name": "Disguise Wardrobe",
+      "category": "fantasy",
+      "summary": "A costume closet contains a uniform, a hat and a false identification badge.",
+      "ingredients": [
+        "organic83:quest-notice-board",
+        "organic83:crafting-material-rack"
+      ],
+      "familyCampaigns": [],
+      "path": "client/assets/v83/disguise-wardrobe.svg",
+      "art_mode": "bespoke-subject",
+      "editorial_qa": "pending"
+    },
+    {
+      "id": "organic83:radar-scan-sweep",
+      "name": "Radar Scan Sweep",
+      "category": "gamecraft",
+      "summary": "A round radar screen sweeps a glowing beam across enemy blips.",
+      "ingredients": [
+        "organic83:stealth-detection-cone",
+        "legacy:85"
+      ],
+      "familyCampaigns": [],
+      "path": "client/assets/v83/radar-scan-sweep.svg",
+      "art_mode": "bespoke-subject",
+      "editorial_qa": "pending"
+    },
+    {
+      "id": "organic83:camouflage-fabric-roll",
+      "name": "Camouflage Fabric Roll",
+      "category": "fantasy",
+      "summary": "A folded roll of mottled cloth is prepared for a forest stealth outfit.",
+      "ingredients": [
+        "organic83:forest-dryad",
+        "organic83:crafting-material-rack"
+      ],
+      "familyCampaigns": [],
+      "path": "client/assets/v83/camouflage-fabric-roll.svg",
+      "art_mode": "bespoke-subject",
+      "editorial_qa": "pending"
+    },
+    {
+      "id": "organic83:security-camera-blindspot",
+      "name": "Security Camera Blindspot",
+      "category": "gamecraft",
+      "summary": "A map highlights the dark wedge outside a surveillance camera's view.",
+      "ingredients": [
+        "organic83:stealth-detection-cone",
+        "legacy:66"
+      ],
+      "familyCampaigns": [],
+      "path": "client/assets/v83/security-camera-blindspot.svg",
+      "art_mode": "bespoke-subject",
+      "editorial_qa": "pending"
+    },
+    {
+      "id": "organic83:grappling-hook-launcher",
+      "name": "Grappling Hook Launcher",
+      "category": "fantasy",
+      "summary": "A compact launcher fires a three-pronged hook attached to a braided rope.",
+      "ingredients": [
+        "organic83:lockpick-kit",
+        "legacy:68"
+      ],
+      "familyCampaigns": [],
+      "path": "client/assets/v83/grappling-hook-launcher.svg",
+      "art_mode": "bespoke-subject",
+      "editorial_qa": "pending"
+    },
+    {
+      "id": "organic83:movement-grid-compass",
+      "name": "Movement Grid Compass",
+      "category": "gamecraft",
+      "summary": "An isometric grid compass points a party toward its next move.",
+      "ingredients": [
+        "organic83:dungeon-minimap",
+        "organic83:quest-compass"
+      ],
+      "familyCampaigns": [],
+      "path": "client/assets/v83/movement-grid-compass.svg",
+      "art_mode": "bespoke-subject",
+      "editorial_qa": "pending"
+    },
+    {
+      "id": "organic83:turn-order-track",
+      "name": "Turn Order Track",
+      "category": "gamecraft",
+      "summary": "A numbered track advances colored tokens to show whose turn comes next.",
+      "ingredients": [
+        "organic83:movement-grid-compass",
+        "legacy:210"
+      ],
+      "familyCampaigns": [],
+      "path": "client/assets/v83/turn-order-track.svg",
+      "art_mode": "bespoke-subject",
+      "editorial_qa": "pending"
+    },
+    {
+      "id": "organic83:initiative-dice-tray",
+      "name": "Initiative Dice Tray",
+      "category": "board",
+      "summary": "A shallow felt tray holds two initiative dice beside the turn-order track.",
+      "ingredients": [
+        "organic83:dungeon-dice-set",
+        "organic83:turn-order-track"
+      ],
+      "familyCampaigns": [],
+      "path": "client/assets/v83/initiative-dice-tray.svg",
+      "art_mode": "bespoke-subject",
+      "editorial_qa": "pending"
+    },
+    {
+      "id": "organic83:elemental-spell-codex",
+      "name": "Elemental Spell Codex",
+      "category": "fantasy",
+      "summary": "A gilded spellbook opens to pages showing fire, frost and wind symbols.",
+      "ingredients": [
+        "organic83:monster-bestiary-page",
+        "legacy:125"
+      ],
+      "familyCampaigns": [],
+      "path": "client/assets/v83/elemental-spell-codex.svg",
+      "art_mode": "bespoke-subject",
+      "editorial_qa": "pending"
+    },
+    {
+      "id": "organic83:frost-rune-trap",
+      "name": "Frost Rune Trap",
+      "category": "fantasy",
+      "summary": "A hexagonal stone trap freezes its center around a glowing snowflake rune.",
+      "ingredients": [
+        "organic83:elemental-spell-codex",
+        "legacy:35"
+      ],
+      "familyCampaigns": [],
+      "path": "client/assets/v83/frost-rune-trap.svg",
+      "art_mode": "bespoke-subject",
+      "editorial_qa": "pending"
+    },
+    {
+      "id": "organic83:fireball-spell-focus",
+      "name": "Fireball Spell Focus",
+      "category": "fantasy",
+      "summary": "A ruby focus suspends a small swirling fireball above a caster's palm.",
+      "ingredients": [
+        "organic83:elemental-spell-codex",
+        "legacy:1"
+      ],
+      "familyCampaigns": [],
+      "path": "client/assets/v83/fireball-spell-focus.svg",
+      "art_mode": "bespoke-subject",
+      "editorial_qa": "pending"
+    },
+    {
+      "id": "organic83:summoning-circle-chalk",
+      "name": "Summoning Circle Chalk",
+      "category": "fantasy",
+      "summary": "An engraved summoning circle surrounds a glowing triangular sigil.",
+      "ingredients": [
+        "organic83:elemental-spell-codex",
+        "legacy:14"
+      ],
+      "familyCampaigns": [],
+      "path": "client/assets/v83/summoning-circle-chalk.svg",
+      "art_mode": "bespoke-subject",
+      "editorial_qa": "pending"
+    },
+    {
+      "id": "organic83:mana-recharge-shrine",
+      "name": "Mana Recharge Shrine",
+      "category": "fantasy",
+      "summary": "A small arcane altar replenishes a blue mana flask beneath a crystal halo.",
+      "ingredients": [
+        "organic83:mana-flask",
+        "organic83:teleport-waystone"
+      ],
+      "familyCampaigns": [],
+      "path": "client/assets/v83/mana-recharge-shrine.svg",
+      "art_mode": "bespoke-subject",
+      "editorial_qa": "pending"
+    },
+    {
+      "id": "organic83:dungeon-shortcut-ladder",
+      "name": "Dungeon Shortcut Ladder",
+      "category": "fantasy",
+      "summary": "A retractable ladder links two otherwise separated dungeon floors.",
+      "ingredients": [
+        "organic83:dungeon-minimap",
+        "organic83:crafting-material-rack"
+      ],
+      "familyCampaigns": [],
+      "path": "client/assets/v83/dungeon-shortcut-ladder.svg",
+      "art_mode": "bespoke-subject",
+      "editorial_qa": "pending"
+    },
+    {
+      "id": "organic83:relic-socket-pedestal",
+      "name": "Relic Socket Pedestal",
+      "category": "fantasy",
+      "summary": "A carved display plinth accepts an enchanted roguelite relic in its central socket.",
+      "ingredients": [
+        "organic83:roguelite-relic",
+        "organic83:crafting-material-rack"
+      ],
+      "familyCampaigns": [],
+      "path": "client/assets/v83/relic-socket-pedestal.svg",
+      "art_mode": "bespoke-subject",
+      "editorial_qa": "pending"
+    },
+    {
+      "id": "organic83:quest-reward-parcel",
+      "name": "Quest Reward Parcel",
+      "category": "gamecraft",
+      "summary": "A tied cloth parcel contains coins and a quest completion voucher.",
+      "ingredients": [
+        "organic83:quest-notice-board",
+        "organic83:loot-satchel"
+      ],
+      "familyCampaigns": [],
+      "path": "client/assets/v83/quest-reward-parcel.svg",
+      "art_mode": "bespoke-subject",
+      "editorial_qa": "pending"
     }
   ],
   "source_checkpoint": {
-    "at_candidates": 175,
+    "at_candidates": 200,
     "isolated_family": "mythology",
     "family_candidate_count": 75,
-    "classic_only_candidate_count": 100,
+    "classic_only_candidate_count": 125,
     "family_reachable": 159,
     "family_total": 159,
     "historical_organic_modules_checked": 39,
     "legacy_and_creative_catalogs_checked": true,
-    "new_pair_keys_unique": 175,
-    "new_ids_unique": 175,
-    "svg_paths_unique": 175,
-    "source_art_map_entries": 175,
-    "manifest_entries": 175,
+    "new_pair_keys_unique": 200,
+    "new_ids_unique": 200,
+    "svg_paths_unique": 200,
+    "source_art_map_entries": 200,
+    "manifest_entries": 200,
     "missing_recipe_inputs": 0,
     "forward_wip_recipe_dependencies": 0,
     "name_or_recipe_collisions_found_after_corrections": 0,
-    "scope": "WIP internal uniqueness plus prehistoric input plan; full historical scan after +25 pending",
+    "scope": "authored 200 WIP entries, internal checks; full source historical scan and end-to-end integration not yet complete",
     "full_regression_test": "NOT_RUN",
     "human_35px_review": "PENDING",
-    "historical_name_pair_scan": "NEEDS_REFRESH_AT_175",
+    "historical_name_pair_scan": "PENDING_FULL_200_SCAN",
     "unique_ids": 150,
     "unique_pair_keys": 150,
     "used_organic_input_versions": [
