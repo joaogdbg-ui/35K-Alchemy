@@ -11,7 +11,7 @@ test('combiner motion animates ghost tiles, never the real slots',()=>{
  // Three outcomes: no recipe (touch and bounce), repeat (merge and rise), new (merge and morph).
  assert.match(app,/playCraftMotion\(takeCraftScene\(\),'invalid'\)/);
  assert.match(app,/playCraftMotion\(scene,'repeat',byId\.get\(resultId\)\)/);
- assert.match(app,/showDiscovery\(resultId,a,b,scene\)/);
+ assert.match(app,/showDiscovery\(resultId,a,b,scene,gotShiny\)/);
  assert.match(app,/playCraftMotion\(scene,'new',it\)/);
  // A new ingredient dismisses only the ghost covering its slot.
  assert.match(app,/settleGhosts\(index\);slots\[index\]=id;/);

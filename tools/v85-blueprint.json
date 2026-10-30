@@ -1,0 +1,2802 @@
+[
+ {
+  "suffix": "country",
+  "name": "Country",
+  "family": "world",
+  "category": "geography",
+  "summary": "A nation with its own territory, government and borders, drawn as a shape on the map.",
+  "wit": "Lines on a map, but very serious lines.",
+  "trivia": "There are 193 member states of the United Nations.",
+  "recipe": [
+   "legacy:354",
+   "legacy:140"
+  ],
+  "artBrief": "Generic green country outline with a dashed border on a beige map tile; green, beige, dark grey. Blob shape, no real country."
+ },
+ {
+  "suffix": "flag",
+  "name": "Flag",
+  "family": "world",
+  "category": "geography",
+  "summary": "A piece of cloth with colours and symbols that stands for a country or group.",
+  "wit": "A country you can wave.",
+  "trivia": "The study of flags is called vexillology.",
+  "recipe": [
+   "organic85:country",
+   "legacy:140"
+  ],
+  "artBrief": "Plain red flag waving on a grey pole, no emblem; red, grey, white highlight. Generic, unlike any national flag."
+ },
+ {
+  "suffix": "border",
+  "name": "Border",
+  "family": "world",
+  "category": "geography",
+  "summary": "The line where one country ends and another begins, sometimes marked by rivers or fences.",
+  "wit": "Where the map says \"you shall not pass\".",
+  "trivia": "Canada and the USA share the longest international border, about 8,890 km.",
+  "recipe": [
+   "organic85:country",
+   "organic85:country"
+  ],
+  "artBrief": "Two flat map areas (green and yellow) split by a bold red dashed line; green, yellow, red."
+ },
+ {
+  "suffix": "globe",
+  "name": "Globe",
+  "family": "world",
+  "category": "geography",
+  "summary": "A spherical model of Earth showing the continents and oceans in their true shapes.",
+  "wit": "A map that finally learned to spin.",
+  "trivia": "The oldest surviving terrestrial globe, the Erdapfel, was made in Nuremberg around 1492.",
+  "recipe": [
+   "legacy:354",
+   "legacy:354"
+  ],
+  "artBrief": "Classic desk globe on a brass stand, tilted; blue oceans, green land, gold stand."
+ },
+ {
+  "suffix": "equator",
+  "name": "Equator",
+  "family": "world",
+  "category": "geography",
+  "summary": "The imaginary line around the middle of Earth, equally distant from both poles.",
+  "wit": "The planet's belt. Very hot belt.",
+  "trivia": "The equator is about 40,075 km long.",
+  "recipe": [
+   "organic85:globe",
+   "organic85:border"
+  ],
+  "artBrief": "Blue-green globe with a bright red line across its middle, front view; blue, green, red."
+ },
+ {
+  "suffix": "south-pole",
+  "name": "South Pole",
+  "family": "world",
+  "category": "geography",
+  "summary": "The southernmost point on Earth, on the high ice sheet of Antarctica.",
+  "wit": "Every direction from here is north.",
+  "trivia": "Roald Amundsen's team first reached the South Pole on 14 December 1911.",
+  "recipe": [
+   "organic85:globe",
+   "organic41:explorer"
+  ],
+  "artBrief": "Striped barber-style marker pole topped by a small mirror ball on white snow; white, red, silver, pale blue sky."
+ },
+ {
+  "suffix": "valley",
+  "name": "Valley",
+  "family": "world",
+  "category": "geography",
+  "summary": "A low stretch of land between hills or mountains, often with a river along its floor.",
+  "wit": "What mountains leave between them.",
+  "trivia": "Many Alpine valleys were carved into a U shape by ancient glaciers.",
+  "recipe": [
+   "legacy:38",
+   "legacy:38"
+  ],
+  "artBrief": "Two green mountain slopes forming a V with a thin blue stream at the bottom; green, brown, blue."
+ },
+ {
+  "suffix": "peninsula",
+  "name": "Peninsula",
+  "family": "world",
+  "category": "geography",
+  "summary": "Land surrounded by water on three sides but still joined to the mainland.",
+  "wit": "An island that never fully left home.",
+  "trivia": "The word comes from Latin paene insula, meaning \"almost an island\".",
+  "recipe": [
+   "legacy:558",
+   "legacy:13"
+  ],
+  "artBrief": "Top-down view of a green finger of land poking into blue sea from a larger landmass; green, blue, sand."
+ },
+ {
+  "suffix": "fjord",
+  "name": "Fjord",
+  "family": "world",
+  "category": "geography",
+  "summary": "A long, narrow sea inlet filling a steep valley carved out by an ancient glacier.",
+  "wit": "A glacier's scratch, filled with sea.",
+  "trivia": "\"Fjord\" is one of the few English words borrowed from Norwegian.",
+  "recipe": [
+   "organic85:valley",
+   "legacy:10"
+  ],
+  "artBrief": "Deep blue water channel between two tall grey cliffs, viewed from the water; blue, grey, green tops."
+ },
+ {
+  "suffix": "archipelago",
+  "name": "Archipelago",
+  "family": "world",
+  "category": "geography",
+  "summary": "A group or chain of islands scattered across a stretch of sea.",
+  "wit": "Islands that travel in packs.",
+  "trivia": "The word originally named the Aegean Sea, dotted with Greek islands.",
+  "recipe": [
+   "legacy:558",
+   "legacy:558"
+  ],
+  "artBrief": "Top-down blue sea with five small green islands in an arc; blue, green, sand-yellow edges."
+ },
+ {
+  "suffix": "wall",
+  "name": "Wall",
+  "family": "world",
+  "category": "geography",
+  "summary": "A long defensive barrier built along a frontier to keep out invaders.",
+  "wit": "Border, but make it stone.",
+  "trivia": "Rome's Aurelian Walls, built in the 270s AD, still surround much of the city.",
+  "recipe": [
+   "organic41:monument",
+   "organic85:border"
+  ],
+  "artBrief": "Long crenellated stone wall running diagonally across a hill; grey stone, green hill, sky blue. Generic, no towers."
+ },
+ {
+  "suffix": "temple",
+  "name": "Temple",
+  "family": "world",
+  "category": "geography",
+  "summary": "A sacred building where people gather to worship, pray and celebrate holy days.",
+  "wit": "A quiet house for big feelings.",
+  "trivia": "Göbekli Tepe in Turkey, over 11,000 years old, is often called the oldest known temple.",
+  "recipe": [
+   "organic41:monument",
+   "organic85:festival"
+  ],
+  "artBrief": "Simple generic shrine with a stepped base, columns and a peaked roof; cream, terracotta, gold accent. No specific faith symbols."
+ },
+ {
+  "suffix": "palace",
+  "name": "Palace",
+  "family": "world",
+  "category": "geography",
+  "summary": "A grand residence built for a ruler, filled with halls, gardens and ceremony.",
+  "wit": "A castle that traded swords for banquets.",
+  "trivia": "The word comes from Rome's Palatine Hill, where emperors built their homes.",
+  "recipe": [
+   "legacy:562",
+   "organic85:feast"
+  ],
+  "artBrief": "Wide symmetrical palace facade with a central dome and many windows; cream, gold, royal blue roof."
+ },
+ {
+  "suffix": "skyscraper",
+  "name": "Skyscraper",
+  "family": "world",
+  "category": "geography",
+  "summary": "A very tall building with many floors, made possible by steel frames and elevators.",
+  "wit": "Tower, but with an elevator pitch.",
+  "trivia": "Chicago's Home Insurance Building (1885) is often called the first skyscraper.",
+  "recipe": [
+   "organic41:tower",
+   "organic41:tower"
+  ],
+  "artBrief": "Single glass-and-steel tower with window grid seen from below; steel blue, grey, white glints. No spire."
+ },
+ {
+  "suffix": "feast",
+  "name": "Feast",
+  "family": "world",
+  "category": "geography",
+  "summary": "A large, festive meal shared by many people to mark a special occasion.",
+  "wit": "Food, but with more chairs.",
+  "trivia": "\"Feast\" comes from Latin festa, the same root as \"festival\".",
+  "recipe": [
+   "pack:food",
+   "pack:food"
+  ],
+  "artBrief": "Long table seen at an angle with a roast, bread and fruit bowls; brown wood, golden food, red fruit."
+ },
+ {
+  "suffix": "festival",
+  "name": "Festival",
+  "family": "world",
+  "category": "geography",
+  "summary": "A day or season of celebration with music, food, decorations and traditions.",
+  "wit": "A feast that brought the bunting.",
+  "trivia": "UNESCO lists many festivals worldwide as Intangible Cultural Heritage.",
+  "recipe": [
+   "organic85:feast",
+   "legacy:140"
+  ],
+  "artBrief": "Strings of triangular bunting over a confetti burst; red, yellow, blue, green on light background."
+ },
+ {
+  "suffix": "costume",
+  "name": "Costume",
+  "family": "world",
+  "category": "geography",
+  "summary": "Traditional clothing worn to show cultural identity, often on holidays and special days.",
+  "wit": "Your heritage, on a hanger.",
+  "trivia": "Many traditional garments are made by hand and passed down within families.",
+  "recipe": [
+   "organic85:festival",
+   "legacy:140"
+  ],
+  "artBrief": "Generic embroidered robe on a hanger with patterned trim; deep red, gold, cream. Not any specific national dress."
+ },
+ {
+  "suffix": "safari",
+  "name": "Safari",
+  "family": "world",
+  "category": "geography",
+  "summary": "An expedition to watch wild animals in their natural habitat, especially in East Africa.",
+  "wit": "Sightseeing where the sights look back.",
+  "trivia": "\"Safari\" is the Swahili word for \"journey\".",
+  "recipe": [
+   "organic85:africa",
+   "organic41:explorer"
+  ],
+  "artBrief": "Open-top jeep with binoculars in front of an acacia tree at sunset; khaki, orange, dark green."
+ },
+ {
+  "suffix": "africa",
+  "name": "Africa",
+  "family": "world",
+  "category": "geography",
+  "summary": "The second-largest continent, home to 54 countries, the Sahara and the Nile.",
+  "wit": "The continent the equator cuts neatly in half.",
+  "trivia": "Africa is the only continent crossed by the equator and both tropics.",
+  "recipe": [
+   "legacy:13",
+   "organic85:equator"
+  ],
+  "artBrief": "Silhouette of the African continent in warm orange on a blue circle; orange, blue, cream outline."
+ },
+ {
+  "suffix": "north-america",
+  "name": "North America",
+  "family": "world",
+  "category": "geography",
+  "summary": "The continent stretching from the Arctic to Central America, including Canada, the USA and Mexico.",
+  "wit": "Big lakes, big canyons, big everything.",
+  "trivia": "Greenland, the world's largest island, is geographically part of North America.",
+  "recipe": [
+   "legacy:13",
+   "organic38:canyon"
+  ],
+  "artBrief": "Silhouette of North America in green on a blue circle; green, blue, white outline."
+ },
+ {
+  "suffix": "south-america",
+  "name": "South America",
+  "family": "world",
+  "category": "geography",
+  "summary": "The continent of the Andes and the Amazon, home to 12 sovereign countries.",
+  "wit": "Half rainforest, half mountain, all spectacular.",
+  "trivia": "The Andes run about 7,000 km, the longest continental mountain range.",
+  "recipe": [
+   "legacy:13",
+   "organic32:rainforest"
+  ],
+  "artBrief": "Silhouette of South America in deep green on a blue circle; dark green, blue, yellow outline."
+ },
+ {
+  "suffix": "oceania",
+  "name": "Oceania",
+  "family": "world",
+  "category": "geography",
+  "summary": "The region of Australia, New Zealand and thousands of Pacific islands.",
+  "wit": "Named after what surrounds it.",
+  "trivia": "Oceania takes its name from the ocean, since most of its area is Pacific water.",
+  "recipe": [
+   "legacy:13",
+   "legacy:591"
+  ],
+  "artBrief": "Australia silhouette plus scattered island dots in a blue circle; sand-orange, blue, green dots."
+ },
+ {
+  "suffix": "antarctica",
+  "name": "Antarctica",
+  "family": "world",
+  "category": "geography",
+  "summary": "The icy southern continent with no permanent population, set aside for science by treaty.",
+  "wit": "The world's biggest freezer.",
+  "trivia": "Antarctica's ice holds about 70% of the world's fresh water.",
+  "recipe": [
+   "legacy:13",
+   "organic85:south-pole"
+  ],
+  "artBrief": "White Antarctica silhouette on a dark blue circle, seen from above; white, ice blue, navy."
+ },
+ {
+  "suffix": "france",
+  "name": "France",
+  "family": "world",
+  "category": "geography",
+  "summary": "A Western European country known for Paris, fine cuisine, wine and the Eiffel Tower.",
+  "wit": "Where lunch is a two-hour event.",
+  "trivia": "France is the most visited country in the world by international tourists.",
+  "recipe": [
+   "legacy:130",
+   "organic85:feast"
+  ],
+  "artBrief": "France hexagon outline in blue with a small baguette; blue, cream, red."
+ },
+ {
+  "suffix": "italy",
+  "name": "Italy",
+  "family": "world",
+  "category": "geography",
+  "summary": "A boot-shaped Mediterranean peninsula, home of ancient Rome, the Renaissance and pizza.",
+  "wit": "The boot that kicked off the Renaissance.",
+  "trivia": "Italy has one of the highest numbers of UNESCO World Heritage Sites of any country.",
+  "recipe": [
+   "legacy:130",
+   "organic85:peninsula"
+  ],
+  "artBrief": "Italy boot outline in green kicking a small ball (Sicily) in blue sea; green, blue, white."
+ },
+ {
+  "suffix": "spain",
+  "name": "Spain",
+  "family": "world",
+  "category": "geography",
+  "summary": "An Iberian country famed for flamenco, paella, fiestas and Moorish palaces.",
+  "wit": "Siesta first, fiesta later.",
+  "trivia": "The region of Castile takes its name from its many castles.",
+  "recipe": [
+   "legacy:130",
+   "legacy:562"
+  ],
+  "artBrief": "Iberian Peninsula shape in warm red-orange with a tiny castle; red, yellow, blue sea."
+ },
+ {
+  "suffix": "greece",
+  "name": "Greece",
+  "family": "world",
+  "category": "geography",
+  "summary": "A Mediterranean country of islands and ancient ruins, birthplace of democracy and the Olympics.",
+  "wit": "Old stones, new sunburn.",
+  "trivia": "Greece has around 6,000 islands, but only about 200 are inhabited.",
+  "recipe": [
+   "legacy:130",
+   "organic41:ruins"
+  ],
+  "artBrief": "Greek mainland and island dots in white on blue sea with a broken column; white, blue, marble grey."
+ },
+ {
+  "suffix": "switzerland",
+  "name": "Switzerland",
+  "family": "world",
+  "category": "geography",
+  "summary": "A mountainous Alpine country known for lakes, cheese, chocolate and clocks.",
+  "wit": "Neutral on everything except chocolate.",
+  "trivia": "Switzerland has four national languages: German, French, Italian and Romansh.",
+  "recipe": [
+   "legacy:130",
+   "legacy:40"
+  ],
+  "artBrief": "Switzerland outline in green with small blue lakes and a snowy peak; green, blue, white."
+ },
+ {
+  "suffix": "norway",
+  "name": "Norway",
+  "family": "world",
+  "category": "geography",
+  "summary": "A Scandinavian country of dramatic fjords, northern lights and the midnight sun.",
+  "wit": "Coastline: mostly squiggle.",
+  "trivia": "Norway has given London a Christmas tree for Trafalgar Square every year since 1947.",
+  "recipe": [
+   "legacy:130",
+   "organic85:fjord"
+  ],
+  "artBrief": "Long thin Norway outline in dark green with jagged fjord coast; dark green, blue, aurora green streak."
+ },
+ {
+  "suffix": "iceland",
+  "name": "Iceland",
+  "family": "world",
+  "category": "geography",
+  "summary": "A North Atlantic island nation of glaciers, volcanoes, geysers and hot springs.",
+  "wit": "Fire and ice, but mostly wind.",
+  "trivia": "Iceland's parliament, the Althing, founded in 930, is one of the oldest in the world.",
+  "recipe": [
+   "legacy:130",
+   "organic38:glacier"
+  ],
+  "artBrief": "Iceland island outline in white-ice with a small orange volcano glow; white, ice blue, orange."
+ },
+ {
+  "suffix": "netherlands",
+  "name": "Netherlands",
+  "family": "world",
+  "category": "geography",
+  "summary": "A low-lying European country of canals, windmills, tulips and bicycles.",
+  "wit": "Flat, wet and pedalling.",
+  "trivia": "About a quarter of the Netherlands lies below sea level.",
+  "recipe": [
+   "legacy:130",
+   "organic38:delta"
+  ],
+  "artBrief": "Small Netherlands outline in orange with a windmill silhouette; orange, blue water, white."
+ },
+ {
+  "suffix": "germany",
+  "name": "Germany",
+  "family": "world",
+  "category": "geography",
+  "summary": "A central European country known for castles, forests, engineering and festivals.",
+  "wit": "Neighbours: nine and counting.",
+  "trivia": "Germany borders nine countries, more than any other EU member.",
+  "recipe": [
+   "legacy:130",
+   "organic85:border"
+  ],
+  "artBrief": "Germany outline in dark grey with thick border line and small forest dots; grey, green, gold outline."
+ },
+ {
+  "suffix": "portugal",
+  "name": "Portugal",
+  "family": "world",
+  "category": "geography",
+  "summary": "A seafaring country on Europe's Atlantic edge, famous for explorers, fado and blue tiles.",
+  "wit": "Faces the ocean, always has.",
+  "trivia": "Portugal's border with Spain, fixed in 1297, is among the oldest in Europe.",
+  "recipe": [
+   "legacy:130",
+   "legacy:591"
+  ],
+  "artBrief": "Narrow Portugal outline in green beside big blue Atlantic waves; green, blue, tile white."
+ },
+ {
+  "suffix": "russia",
+  "name": "Russia",
+  "family": "world",
+  "category": "geography",
+  "summary": "The world's largest country by area, spanning eastern Europe and northern Asia.",
+  "wit": "Two continents, one very long train ride.",
+  "trivia": "Russia spans 11 time zones.",
+  "recipe": [
+   "legacy:130",
+   "legacy:1203"
+  ],
+  "artBrief": "Very wide Russia outline stretched across the tile in pale green; pale green, white, light blue."
+ },
+ {
+  "suffix": "india",
+  "name": "India",
+  "family": "world",
+  "category": "geography",
+  "summary": "A vast South Asian country of many languages, spices, festivals and ancient temples.",
+  "wit": "Twenty-two scheduled languages, one big flavour.",
+  "trivia": "India is the world's largest producer of spices.",
+  "recipe": [
+   "legacy:1203",
+   "organic38:spice"
+  ],
+  "artBrief": "India outline in saffron with small piles of colourful spice; saffron, green, red."
+ },
+ {
+  "suffix": "nepal",
+  "name": "Nepal",
+  "family": "world",
+  "category": "geography",
+  "summary": "A Himalayan country between China and India, home to Mount Everest.",
+  "wit": "A country that is mostly uphill.",
+  "trivia": "Eight of the world's 14 peaks over 8,000 m lie in Nepal.",
+  "recipe": [
+   "organic85:country",
+   "organic85:himalayas"
+  ],
+  "artBrief": "Nepal outline in crimson with white snowy peaks along its top edge; crimson, white, blue."
+ },
+ {
+  "suffix": "thailand",
+  "name": "Thailand",
+  "family": "world",
+  "category": "geography",
+  "summary": "A Southeast Asian kingdom of golden temples, tropical beaches and street food.",
+  "wit": "The land of smiles and spicy noodles.",
+  "trivia": "Thailand is the only Southeast Asian country never colonised by a European power.",
+  "recipe": [
+   "legacy:1203",
+   "organic85:temple"
+  ],
+  "artBrief": "Thailand outline (elephant-head shape) in gold with a tiny temple spire; gold, green, blue."
+ },
+ {
+  "suffix": "indonesia",
+  "name": "Indonesia",
+  "family": "world",
+  "category": "geography",
+  "summary": "The world's largest archipelagic country, spread across more than 17,000 islands.",
+  "wit": "Seventeen thousand islands, zero boredom.",
+  "trivia": "Indonesia has more active volcanoes than any other country.",
+  "recipe": [
+   "legacy:1203",
+   "organic85:archipelago"
+  ],
+  "artBrief": "Chain of green islands stretched across blue sea; green, blue, red accent."
+ },
+ {
+  "suffix": "south-korea",
+  "name": "South Korea",
+  "family": "world",
+  "category": "geography",
+  "summary": "An East Asian country on the southern Korean Peninsula, known for K-pop and kimchi.",
+  "wit": "Fast internet, faster kimchi.",
+  "trivia": "The Korean alphabet, Hangul, was created in 1443 under King Sejong.",
+  "recipe": [
+   "legacy:1203",
+   "organic85:peninsula"
+  ],
+  "artBrief": "South Korea outline in white with small blue and red dot; white, blue, red, sea teal."
+ },
+ {
+  "suffix": "cambodia",
+  "name": "Cambodia",
+  "family": "world",
+  "category": "geography",
+  "summary": "A Southeast Asian kingdom, heart of the ancient Khmer Empire and Angkor.",
+  "wit": "Home of the world's biggest temple.",
+  "trivia": "Cambodia's national flag features Angkor Wat.",
+  "recipe": [
+   "legacy:1203",
+   "organic41:ruins"
+  ],
+  "artBrief": "Cambodia outline in jungle green with tiny stone towers; green, stone grey, red."
+ },
+ {
+  "suffix": "vietnam",
+  "name": "Vietnam",
+  "family": "world",
+  "category": "geography",
+  "summary": "A long S-shaped Southeast Asian country of rice paddies, the Mekong Delta and pho.",
+  "wit": "Shaped like an S, tastes like pho.",
+  "trivia": "Vietnam is one of the world's largest rice exporters.",
+  "recipe": [
+   "legacy:1203",
+   "organic38:delta"
+  ],
+  "artBrief": "S-shaped Vietnam outline in red with green rice-paddy stripes; red, green, gold."
+ },
+ {
+  "suffix": "jordan",
+  "name": "Jordan",
+  "family": "world",
+  "category": "geography",
+  "summary": "A Middle Eastern kingdom of desert landscapes such as Wadi Rum and the rose-red city of Petra.",
+  "wit": "Red sand, rose stone.",
+  "trivia": "Jordan's red Wadi Rum desert has stood in for Mars in several films.",
+  "recipe": [
+   "legacy:1203",
+   "legacy:1048"
+  ],
+  "artBrief": "Jordan outline in rose-red over sand dunes; rose red, sand, dark brown."
+ },
+ {
+  "suffix": "united-arab-emirates",
+  "name": "United Arab Emirates",
+  "family": "world",
+  "category": "geography",
+  "summary": "A federation of seven emirates on the Arabian Peninsula, known for desert and record-breaking skyscrapers.",
+  "wit": "Built tall, built fast.",
+  "trivia": "The UAE is made up of seven emirates, including Abu Dhabi and Dubai.",
+  "recipe": [
+   "legacy:1203",
+   "organic85:skyscraper"
+  ],
+  "artBrief": "UAE outline in sand colour with a tiny skyline; sand, silver, green."
+ },
+ {
+  "suffix": "egypt",
+  "name": "Egypt",
+  "family": "world",
+  "category": "geography",
+  "summary": "A North African country along the Nile, home of the pharaohs, pyramids and the Sphinx.",
+  "wit": "Mostly desert, entirely famous.",
+  "trivia": "The Greek historian Herodotus called Egypt \"the gift of the Nile\".",
+  "recipe": [
+   "organic85:country",
+   "organic85:nile"
+  ],
+  "artBrief": "Egypt square outline in sand with a blue Nile line running north; sand, blue, green strip."
+ },
+ {
+  "suffix": "kenya",
+  "name": "Kenya",
+  "family": "world",
+  "category": "geography",
+  "summary": "An East African country of savanna, safaris, wildlife and long-distance runners.",
+  "wit": "Great for running and for watching who's running.",
+  "trivia": "The wildebeest Great Migration crosses into Kenya's Maasai Mara each year.",
+  "recipe": [
+   "organic85:africa",
+   "organic85:safari"
+  ],
+  "artBrief": "Kenya outline in savanna yellow with an acacia tree silhouette; yellow, black, green."
+ },
+ {
+  "suffix": "tanzania",
+  "name": "Tanzania",
+  "family": "world",
+  "category": "geography",
+  "summary": "An East African country home to Kilimanjaro, the Serengeti and Zanzibar.",
+  "wit": "Has Africa's rooftop and its best islands.",
+  "trivia": "Tanzania's name joins Tanganyika and Zanzibar, which united in 1964.",
+  "recipe": [
+   "organic85:country",
+   "organic85:mount-kilimanjaro"
+  ],
+  "artBrief": "Tanzania outline in green with a small snow-capped peak; green, white, blue."
+ },
+ {
+  "suffix": "morocco",
+  "name": "Morocco",
+  "family": "world",
+  "category": "geography",
+  "summary": "A North African kingdom of spice markets, desert, mountains and mosaic-tiled cities.",
+  "wit": "Every street smells like dinner.",
+  "trivia": "Morocco is only about 14 km from Spain across the Strait of Gibraltar.",
+  "recipe": [
+   "organic85:africa",
+   "organic38:spice"
+  ],
+  "artBrief": "Morocco outline in terracotta with a mosaic star tile pattern; terracotta, teal, gold."
+ },
+ {
+  "suffix": "south-africa",
+  "name": "South Africa",
+  "family": "world",
+  "category": "geography",
+  "summary": "The country at Africa's southern tip, bordered by the Atlantic and Indian oceans.",
+  "wit": "Where two oceans shake hands.",
+  "trivia": "South Africa has three capital cities: Pretoria, Cape Town and Bloemfontein.",
+  "recipe": [
+   "organic85:africa",
+   "legacy:591"
+  ],
+  "artBrief": "South Africa outline in green with blue waves on both coasts; green, blue, gold."
+ },
+ {
+  "suffix": "madagascar",
+  "name": "Madagascar",
+  "family": "world",
+  "category": "geography",
+  "summary": "A huge island nation off Africa's east coast, home to lemurs found nowhere else.",
+  "wit": "An island with its own rulebook for animals.",
+  "trivia": "Madagascar is the fourth-largest island in the world.",
+  "recipe": [
+   "organic85:africa",
+   "legacy:558"
+  ],
+  "artBrief": "Madagascar island outline in green on blue sea with a lemur tail curl; green, blue, black-white stripes."
+ },
+ {
+  "suffix": "ethiopia",
+  "name": "Ethiopia",
+  "family": "world",
+  "category": "geography",
+  "summary": "An ancient East African highland nation, often called the birthplace of coffee.",
+  "wit": "Coffee's hometown.",
+  "trivia": "Ethiopia uses its own calendar, which has 13 months.",
+  "recipe": [
+   "organic85:africa",
+   "organic38:coffee"
+  ],
+  "artBrief": "Ethiopia outline in highland green with a steaming coffee cup; green, brown, gold."
+ },
+ {
+  "suffix": "zimbabwe",
+  "name": "Zimbabwe",
+  "family": "world",
+  "category": "geography",
+  "summary": "A southern African country named after the medieval stone city of Great Zimbabwe.",
+  "wit": "Named after a very impressive pile of stones.",
+  "trivia": "The name Zimbabwe comes from Shona words meaning \"houses of stone\".",
+  "recipe": [
+   "organic85:africa",
+   "organic41:ruins"
+  ],
+  "artBrief": "Zimbabwe outline in gold with a small curved stone wall; gold, stone grey, green."
+ },
+ {
+  "suffix": "canada",
+  "name": "Canada",
+  "family": "world",
+  "category": "geography",
+  "summary": "The world's second-largest country, famous for lakes, forests, maple syrup and hockey.",
+  "wit": "Sorry, but it's huge.",
+  "trivia": "Canada has more lakes than any other country.",
+  "recipe": [
+   "organic85:north-america",
+   "legacy:40"
+  ],
+  "artBrief": "Canada outline in red with many small blue lake dots; red, blue, white."
+ },
+ {
+  "suffix": "mexico",
+  "name": "Mexico",
+  "family": "world",
+  "category": "geography",
+  "summary": "A North American country of ancient pyramids, mariachi, tacos and colourful festivals.",
+  "wit": "Pyramids with a side of salsa.",
+  "trivia": "Mexico's Great Pyramid of Cholula is the largest pyramid in the world by volume.",
+  "recipe": [
+   "organic85:north-america",
+   "organic41:pyramid"
+  ],
+  "artBrief": "Mexico outline in green with a tiny stepped pyramid; green, terracotta, red."
+ },
+ {
+  "suffix": "panama",
+  "name": "Panama",
+  "family": "world",
+  "category": "geography",
+  "summary": "A narrow Central American country linking North and South America, famous for its canal.",
+  "wit": "The world's most useful shortcut.",
+  "trivia": "Panama's S shape lets you watch the sun rise over the Pacific.",
+  "recipe": [
+   "organic85:north-america",
+   "organic85:south-america"
+  ],
+  "artBrief": "Thin S-shaped Panama strip joining two continent edges; green, blue, red."
+ },
+ {
+  "suffix": "brazil",
+  "name": "Brazil",
+  "family": "world",
+  "category": "geography",
+  "summary": "South America's largest country, home to most of the Amazon, samba and football.",
+  "wit": "Plays football, grows coffee, dances samba.",
+  "trivia": "Brazil has been the world's largest coffee producer for over 150 years.",
+  "recipe": [
+   "organic85:south-america",
+   "organic38:coffee"
+  ],
+  "artBrief": "Brazil outline in green with a yellow coffee bean; green, yellow, blue."
+ },
+ {
+  "suffix": "peru",
+  "name": "Peru",
+  "family": "world",
+  "category": "geography",
+  "summary": "An Andean country of Inca heritage, Machu Picchu and Lake Titicaca.",
+  "wit": "Ancient stones, very high altitude.",
+  "trivia": "Peru is home to around 3,000 varieties of potato.",
+  "recipe": [
+   "organic85:south-america",
+   "organic41:ruins"
+  ],
+  "artBrief": "Peru outline in red with stepped stone terraces; red, stone grey, green."
+ },
+ {
+  "suffix": "chile",
+  "name": "Chile",
+  "family": "world",
+  "category": "geography",
+  "summary": "A long, narrow Pacific country stretching from the Atacama Desert to Patagonian glaciers.",
+  "wit": "The world's longest noodle of a country.",
+  "trivia": "Chile is about 4,300 km long but averages only about 177 km wide.",
+  "recipe": [
+   "organic85:south-america",
+   "legacy:1048"
+  ],
+  "artBrief": "Very thin tall Chile strip, sand at top fading to ice white at bottom; sand, red, white."
+ },
+ {
+  "suffix": "argentina",
+  "name": "Argentina",
+  "family": "world",
+  "category": "geography",
+  "summary": "A large South American country of pampas, Patagonian glaciers, tango and asado.",
+  "wit": "From ice fields to barbecue fields.",
+  "trivia": "Argentina's Perito Moreno Glacier is one of the few in Patagonia that is not retreating.",
+  "recipe": [
+   "organic85:south-america",
+   "organic38:glacier"
+  ],
+  "artBrief": "Argentina outline in sky blue with icy tip and sun dot; sky blue, white, gold."
+ },
+ {
+  "suffix": "ecuador",
+  "name": "Ecuador",
+  "family": "world",
+  "category": "geography",
+  "summary": "A South American country on the equator, which gave it its name, and home of the Galápagos.",
+  "wit": "Literally named after a line.",
+  "trivia": "\"Ecuador\" is Spanish for \"equator\".",
+  "recipe": [
+   "organic85:south-america",
+   "organic85:equator"
+  ],
+  "artBrief": "Ecuador outline in yellow with a red equator line crossing it; yellow, red, blue."
+ },
+ {
+  "suffix": "venezuela",
+  "name": "Venezuela",
+  "family": "world",
+  "category": "geography",
+  "summary": "A South American country of Caribbean coast, Andes peaks and the world's highest waterfall.",
+  "wit": "Falls for waterfalls.",
+  "trivia": "Venezuela has the world's largest proven oil reserves.",
+  "recipe": [
+   "organic85:country",
+   "organic85:angel-falls"
+  ],
+  "artBrief": "Venezuela outline in yellow with a thin white waterfall streak; yellow, blue, white."
+ },
+ {
+  "suffix": "australia",
+  "name": "Australia",
+  "family": "world",
+  "category": "geography",
+  "summary": "A country-continent of red outback deserts, coral reefs and unique wildlife.",
+  "wit": "Everything is either cute or venomous.",
+  "trivia": "Australia is the driest inhabited continent.",
+  "recipe": [
+   "organic85:oceania",
+   "legacy:1048"
+  ],
+  "artBrief": "Australia outline in red-orange outback colour with a blue coastline; red-orange, blue, ochre."
+ },
+ {
+  "suffix": "new-zealand",
+  "name": "New Zealand",
+  "family": "world",
+  "category": "geography",
+  "summary": "A Pacific island nation of fjords, mountains, volcanoes and Māori culture.",
+  "wit": "More sheep than people, more views than both.",
+  "trivia": "New Zealand was the first country to give women the vote, in 1893.",
+  "recipe": [
+   "organic85:oceania",
+   "organic85:fjord"
+  ],
+  "artBrief": "Two NZ islands in green with a snowy ridge and fjord inlet; green, white, blue."
+ },
+ {
+  "suffix": "fiji",
+  "name": "Fiji",
+  "family": "world",
+  "category": "geography",
+  "summary": "A South Pacific nation of over 300 islands, coral reefs and white beaches.",
+  "wit": "Postcard, but real.",
+  "trivia": "Fiji has about 330 islands, around 110 of them inhabited.",
+  "recipe": [
+   "organic85:oceania",
+   "legacy:558"
+  ],
+  "artBrief": "Cluster of tiny green islands with palm on turquoise sea; turquoise, green, sand."
+ },
+ {
+  "suffix": "flag-of-japan",
+  "name": "Flag of Japan",
+  "family": "world",
+  "category": "geography",
+  "summary": "The Hinomaru: a red disc on a white field, symbolising the rising sun.",
+  "wit": "Minimalism, nationally.",
+  "trivia": "The Hinomaru was legally made the national flag in 1999.",
+  "recipe": [
+   "legacy:244",
+   "organic85:flag"
+  ],
+  "artBrief": "White rectangle with centred red disc; white, red, thin grey outline."
+ },
+ {
+  "suffix": "flag-of-france",
+  "name": "Flag of France",
+  "family": "world",
+  "category": "geography",
+  "summary": "The Tricolore: three vertical bands of blue, white and red.",
+  "wit": "Three stripes, one revolution.",
+  "trivia": "The Tricolore dates from the French Revolution in the 1790s.",
+  "recipe": [
+   "organic85:france",
+   "organic85:flag"
+  ],
+  "artBrief": "Vertical blue-white-red tricolour, flat; blue, white, red."
+ },
+ {
+  "suffix": "flag-of-italy",
+  "name": "Flag of Italy",
+  "family": "world",
+  "category": "geography",
+  "summary": "Il Tricolore: three vertical bands of green, white and red.",
+  "wit": "Basil, mozzarella, tomato.",
+  "trivia": "Italy's tricolour was inspired by the French flag of the 1790s.",
+  "recipe": [
+   "organic85:italy",
+   "organic85:flag"
+  ],
+  "artBrief": "Vertical green-white-red tricolour; green, white, red. Differs from France by green band."
+ },
+ {
+  "suffix": "flag-of-germany",
+  "name": "Flag of Germany",
+  "family": "world",
+  "category": "geography",
+  "summary": "Three horizontal bands of black, red and gold.",
+  "wit": "Stripes that mean business.",
+  "trivia": "The colours trace back to the Lützow Free Corps uniforms of 1813.",
+  "recipe": [
+   "organic85:germany",
+   "organic85:flag"
+  ],
+  "artBrief": "Horizontal black-red-gold bands; black, red, gold."
+ },
+ {
+  "suffix": "flag-of-canada",
+  "name": "Flag of Canada",
+  "family": "world",
+  "category": "geography",
+  "summary": "A red maple leaf on a white square between two red bands.",
+  "wit": "A leaf that means \"hello, sorry\".",
+  "trivia": "The maple leaf flag was first raised on 15 February 1965.",
+  "recipe": [
+   "organic85:canada",
+   "organic85:flag"
+  ],
+  "artBrief": "Red-white-red vertical bands with simple 11-point red maple leaf; red, white."
+ },
+ {
+  "suffix": "flag-of-switzerland",
+  "name": "Flag of Switzerland",
+  "family": "world",
+  "category": "geography",
+  "summary": "A white cross on a red square, one of only two square national flags.",
+  "wit": "A plus sign you can salute.",
+  "trivia": "Only Switzerland and Vatican City have square national flags.",
+  "recipe": [
+   "organic85:switzerland",
+   "organic85:flag"
+  ],
+  "artBrief": "Square red flag with bold white cross; red, white. Square, not rectangular."
+ },
+ {
+  "suffix": "flag-of-united-states",
+  "name": "Flag of United States",
+  "family": "world",
+  "category": "geography",
+  "summary": "The Stars and Stripes: 13 red and white stripes and 50 white stars on blue.",
+  "wit": "Fifty stars, thirteen stripes, zero chill.",
+  "trivia": "The 13 stripes stand for the original 13 colonies.",
+  "recipe": [
+   "legacy:129",
+   "organic85:flag"
+  ],
+  "artBrief": "Simplified stars and stripes: red/white stripes, blue canton with dot-stars; red, white, navy."
+ },
+ {
+  "suffix": "flag-of-united-kingdom",
+  "name": "Flag of United Kingdom",
+  "family": "world",
+  "category": "geography",
+  "summary": "The Union Jack, combining the crosses of England, Scotland and Ireland.",
+  "wit": "Three crosses, one flag.",
+  "trivia": "The Union Flag combines the crosses of St George, St Andrew and St Patrick.",
+  "recipe": [
+   "legacy:131",
+   "organic85:flag"
+  ],
+  "artBrief": "Union Jack: blue field, white and red diagonal and upright crosses; navy, red, white."
+ },
+ {
+  "suffix": "flag-of-greece",
+  "name": "Flag of Greece",
+  "family": "world",
+  "category": "geography",
+  "summary": "Nine blue and white stripes with a white cross in a blue canton.",
+  "wit": "Sea and sky, nine times.",
+  "trivia": "Its nine stripes are said to match the syllables of \"Freedom or Death\" in Greek.",
+  "recipe": [
+   "organic85:greece",
+   "organic85:flag"
+  ],
+  "artBrief": "Nine horizontal blue-white stripes, blue canton with white cross; blue, white."
+ },
+ {
+  "suffix": "flag-of-norway",
+  "name": "Flag of Norway",
+  "family": "world",
+  "category": "geography",
+  "summary": "A blue Nordic cross outlined in white on a red field.",
+  "wit": "A cross that leans to the left.",
+  "trivia": "Norway's flag has been called \"the mother of flags\" for holding others' colours.",
+  "recipe": [
+   "organic85:norway",
+   "organic85:flag"
+  ],
+  "artBrief": "Red field, white-bordered blue off-centre Nordic cross; red, white, blue."
+ },
+ {
+  "suffix": "flag-of-iceland",
+  "name": "Flag of Iceland",
+  "family": "world",
+  "category": "geography",
+  "summary": "A red Nordic cross outlined in white on a blue field.",
+  "wit": "Norway's flag, inverted by the sea.",
+  "trivia": "The colours stand for fire, ice and the sky or mountains.",
+  "recipe": [
+   "organic85:iceland",
+   "organic85:flag"
+  ],
+  "artBrief": "Blue field, white-bordered red Nordic cross; blue, white, red. Inverse of Norway icon."
+ },
+ {
+  "suffix": "flag-of-netherlands",
+  "name": "Flag of Netherlands",
+  "family": "world",
+  "category": "geography",
+  "summary": "Three horizontal bands of red, white and blue.",
+  "wit": "France, lying down.",
+  "trivia": "It is one of the oldest tricolours; the red stripe was once orange.",
+  "recipe": [
+   "organic85:netherlands",
+   "organic85:flag"
+  ],
+  "artBrief": "Horizontal red-white-blue bands; red, white, blue. Horizontal, unlike France."
+ },
+ {
+  "suffix": "flag-of-russia",
+  "name": "Flag of Russia",
+  "family": "world",
+  "category": "geography",
+  "summary": "Three horizontal bands of white, blue and red.",
+  "wit": "The Netherlands, upside down and re-shuffled.",
+  "trivia": "Its white-blue-red tricolour dates back to the late 1600s.",
+  "recipe": [
+   "organic85:russia",
+   "organic85:flag"
+  ],
+  "artBrief": "Horizontal white-blue-red bands; white, blue, red. White on top distinguishes it."
+ },
+ {
+  "suffix": "flag-of-india",
+  "name": "Flag of India",
+  "family": "world",
+  "category": "geography",
+  "summary": "The Tiranga: saffron, white and green bands with a navy wheel of 24 spokes.",
+  "wit": "A wheel that keeps rolling.",
+  "trivia": "The navy wheel in the centre is the Ashoka Chakra, with 24 spokes.",
+  "recipe": [
+   "organic85:india",
+   "organic85:flag"
+  ],
+  "artBrief": "Horizontal saffron-white-green bands, small navy spoked wheel at centre; saffron, white, green, navy."
+ },
+ {
+  "suffix": "flag-of-nepal",
+  "name": "Flag of Nepal",
+  "family": "world",
+  "category": "geography",
+  "summary": "Two stacked crimson pennants with blue borders and white sun and moon.",
+  "wit": "The only flag that refuses to be a rectangle.",
+  "trivia": "Nepal's is the only national flag that is not rectangular.",
+  "recipe": [
+   "organic85:nepal",
+   "organic85:flag"
+  ],
+  "artBrief": "Two stacked crimson triangles with blue edge, white moon top and sun below; crimson, blue, white."
+ },
+ {
+  "suffix": "flag-of-china",
+  "name": "Flag of China",
+  "family": "world",
+  "category": "geography",
+  "summary": "A red field with one large and four small yellow stars.",
+  "wit": "Five stars, one red sky.",
+  "trivia": "The flag was first raised on 1 October 1949.",
+  "recipe": [
+   "legacy:1335",
+   "organic85:flag"
+  ],
+  "artBrief": "Red rectangle, big yellow star top-left with four small stars arcing; red, yellow."
+ },
+ {
+  "suffix": "flag-of-south-korea",
+  "name": "Flag of South Korea",
+  "family": "world",
+  "category": "geography",
+  "summary": "The Taegukgi: a red and blue yin-yang circle with four black trigrams on white.",
+  "wit": "Balance, in flag form.",
+  "trivia": "The four trigrams stand for heaven, earth, water and fire.",
+  "recipe": [
+   "organic85:south-korea",
+   "organic85:flag"
+  ],
+  "artBrief": "White field, central red-over-blue circle, four black bar trigrams at corners; white, red, blue, black."
+ },
+ {
+  "suffix": "flag-of-thailand",
+  "name": "Flag of Thailand",
+  "family": "world",
+  "category": "geography",
+  "summary": "Five horizontal stripes of red, white, blue, white and red.",
+  "wit": "Symmetry you can salute.",
+  "trivia": "The Trairanga flag was adopted in 1917; its blue stripe is double width.",
+  "recipe": [
+   "organic85:thailand",
+   "organic85:flag"
+  ],
+  "artBrief": "Horizontal red-white-wide blue-white-red stripes; red, white, blue."
+ },
+ {
+  "suffix": "flag-of-indonesia",
+  "name": "Flag of Indonesia",
+  "family": "world",
+  "category": "geography",
+  "summary": "Two equal horizontal bands of red over white, called Sang Saka Merah-Putih.",
+  "wit": "Simple, bold, done.",
+  "trivia": "It is almost identical to Monaco's flag, differing only in proportions.",
+  "recipe": [
+   "organic85:indonesia",
+   "organic85:flag"
+  ],
+  "artBrief": "Red top half, white bottom half; red, white. Wider ratio than Poland-style icons."
+ },
+ {
+  "suffix": "flag-of-vietnam",
+  "name": "Flag of Vietnam",
+  "family": "world",
+  "category": "geography",
+  "summary": "A yellow five-pointed star on a red field.",
+  "wit": "One star, one big red stage.",
+  "trivia": "The five points of the star are often said to represent workers, farmers, soldiers, intellectuals and youth.",
+  "recipe": [
+   "organic85:vietnam",
+   "organic85:flag"
+  ],
+  "artBrief": "Red rectangle with big centred yellow star; red, yellow."
+ },
+ {
+  "suffix": "flag-of-tanzania",
+  "name": "Flag of Tanzania",
+  "family": "world",
+  "category": "geography",
+  "summary": "Green and blue triangles split by a yellow-edged black diagonal band.",
+  "wit": "A diagonal decision.",
+  "trivia": "It merges the flags of Tanganyika and Zanzibar from 1964.",
+  "recipe": [
+   "organic85:tanzania",
+   "organic85:flag"
+  ],
+  "artBrief": "Diagonal black band edged yellow, green upper-left, blue lower-right; green, blue, black, yellow."
+ },
+ {
+  "suffix": "flag-of-south-africa",
+  "name": "Flag of South Africa",
+  "family": "world",
+  "category": "geography",
+  "summary": "A sideways green Y edged in white and gold, with red, blue and black fields.",
+  "wit": "Six colours, one rainbow nation.",
+  "trivia": "It was adopted in 1994 and has six colours.",
+  "recipe": [
+   "organic85:south-africa",
+   "organic85:flag"
+  ],
+  "artBrief": "Horizontal Y shape in green with white and gold edges, black triangle, red top, blue bottom."
+ },
+ {
+  "suffix": "flag-of-morocco",
+  "name": "Flag of Morocco",
+  "family": "world",
+  "category": "geography",
+  "summary": "A green five-pointed interlaced star on a red field.",
+  "wit": "Red with a green star outline.",
+  "trivia": "The green star is a pentagram known as the Seal of Solomon.",
+  "recipe": [
+   "organic85:morocco",
+   "organic85:flag"
+  ],
+  "artBrief": "Red rectangle with green outlined pentagram; red, green."
+ },
+ {
+  "suffix": "flag-of-panama",
+  "name": "Flag of Panama",
+  "family": "world",
+  "category": "geography",
+  "summary": "Four quarters of white and colour, with one blue and one red star.",
+  "wit": "A flag divided fairly.",
+  "trivia": "Its blue and red stand for the country's two historic political parties.",
+  "recipe": [
+   "organic85:panama",
+   "organic85:flag"
+  ],
+  "artBrief": "Quartered flag: white with blue star, red, blue, white with red star; white, red, blue."
+ },
+ {
+  "suffix": "flag-of-chile",
+  "name": "Flag of Chile",
+  "family": "world",
+  "category": "geography",
+  "summary": "White and red bands with a blue canton holding a single white star.",
+  "wit": "The lone star of the south.",
+  "trivia": "Chile's flag is nicknamed La Estrella Solitaria, \"the lone star\".",
+  "recipe": [
+   "organic85:chile",
+   "organic85:flag"
+  ],
+  "artBrief": "Upper white band, lower red band, blue square top-left with white star; white, red, blue."
+ },
+ {
+  "suffix": "great-pyramid-of-giza",
+  "name": "Great Pyramid of Giza",
+  "family": "world",
+  "category": "geography",
+  "summary": "The largest of the Giza pyramids, built as a tomb for Pharaoh Khufu around 2560 BC.",
+  "wit": "The original tall building.",
+  "trivia": "It was the tallest human-made structure on Earth for about 3,800 years.",
+  "recipe": [
+   "organic85:egypt",
+   "organic41:pyramid"
+  ],
+  "artBrief": "Single huge sand-gold pyramid with smaller ones behind, desert horizon; gold, sand, blue sky."
+ },
+ {
+  "suffix": "great-sphinx-of-giza",
+  "name": "Great Sphinx of Giza",
+  "family": "world",
+  "category": "geography",
+  "summary": "A colossal limestone statue with a lion's body and a human head, guarding the Giza plateau.",
+  "wit": "Still waiting for the right answer.",
+  "trivia": "It is about 73 m long and 20 m high.",
+  "recipe": [
+   "organic85:egypt",
+   "organic41:monument"
+  ],
+  "artBrief": "Side view of the reclining Sphinx with a pyramid tip behind; sand, ochre, blue sky."
+ },
+ {
+  "suffix": "suez-canal",
+  "name": "Suez Canal",
+  "family": "world",
+  "category": "geography",
+  "summary": "An Egyptian canal linking the Mediterranean and Red seas, opened in 1869.",
+  "wit": "Africa's favourite shortcut.",
+  "trivia": "It lets ships avoid the long voyage around Africa.",
+  "recipe": [
+   "organic85:egypt",
+   "organic41:canal"
+  ],
+  "artBrief": "Straight blue canal through sand with a container ship; sand, blue, red ship."
+ },
+ {
+  "suffix": "eiffel-tower",
+  "name": "Eiffel Tower",
+  "family": "world",
+  "category": "geography",
+  "summary": "Paris's wrought-iron lattice tower, built by Gustave Eiffel's company for the 1889 World's Fair.",
+  "wit": "The world's most famous iron hat-rack.",
+  "trivia": "It was originally meant to stand for only 20 years.",
+  "recipe": [
+   "organic85:france",
+   "organic41:tower"
+  ],
+  "artBrief": "Eiffel Tower front view, tapering iron lattice; bronze-brown, pale blue sky, green lawn."
+ },
+ {
+  "suffix": "notre-dame-de-paris",
+  "name": "Notre-Dame de Paris",
+  "family": "world",
+  "category": "geography",
+  "summary": "A Gothic cathedral on Paris's Île de la Cité, famed for its rose window and gargoyles.",
+  "wit": "Gargoyles included, no extra charge.",
+  "trivia": "It reopened in December 2024 after the 2019 fire.",
+  "recipe": [
+   "organic85:france",
+   "organic41:cathedral"
+  ],
+  "artBrief": "Twin square towers facade with central rose window; limestone beige, blue rose window, grey."
+ },
+ {
+  "suffix": "palace-of-versailles",
+  "name": "Palace of Versailles",
+  "family": "world",
+  "category": "geography",
+  "summary": "The opulent royal palace near Paris of Louis XIV, famed for its Hall of Mirrors.",
+  "wit": "Mirror, mirror, times 357.",
+  "trivia": "The Hall of Mirrors contains 357 mirrors.",
+  "recipe": [
+   "organic85:france",
+   "organic85:palace"
+  ],
+  "artBrief": "Long golden-gated palace facade with formal garden; cream, gold, green."
+ },
+ {
+  "suffix": "mont-saint-michel",
+  "name": "Mont-Saint-Michel",
+  "family": "world",
+  "category": "geography",
+  "summary": "A tidal island in Normandy crowned by a medieval abbey.",
+  "wit": "An island when it feels like it.",
+  "trivia": "At high tide the sea can cut it off from the mainland.",
+  "recipe": [
+   "organic85:france",
+   "legacy:558"
+  ],
+  "artBrief": "Rocky island cone topped by spired abbey surrounded by tidal water; grey stone, blue, sand."
+ },
+ {
+  "suffix": "colosseum",
+  "name": "Colosseum",
+  "family": "world",
+  "category": "geography",
+  "summary": "Rome's giant ancient amphitheatre, completed in AD 80 for games and spectacles.",
+  "wit": "The original stadium tour.",
+  "trivia": "It could hold an estimated 50,000 spectators.",
+  "recipe": [
+   "organic85:italy",
+   "organic41:monument"
+  ],
+  "artBrief": "Oval ruined amphitheatre with arched tiers, one side broken; travertine beige, blue sky, brown."
+ },
+ {
+  "suffix": "leaning-tower-of-pisa",
+  "name": "Leaning Tower of Pisa",
+  "family": "world",
+  "category": "geography",
+  "summary": "The bell tower of Pisa Cathedral, leaning since construction began in 1173.",
+  "wit": "Tilting since 1173.",
+  "trivia": "It began leaning during construction because of soft ground.",
+  "recipe": [
+   "organic85:italy",
+   "organic41:tower"
+  ],
+  "artBrief": "Clearly tilted white cylindrical tower with arcades; white marble, green lawn, blue."
+ },
+ {
+  "suffix": "sagrada-familia",
+  "name": "Sagrada Família",
+  "family": "world",
+  "category": "geography",
+  "summary": "Antoni Gaudí's towering basilica in Barcelona, under construction since 1882.",
+  "wit": "The world's most patient building site.",
+  "trivia": "Gaudí worked on it for over 40 years, until his death in 1926.",
+  "recipe": [
+   "organic85:spain",
+   "organic41:cathedral"
+  ],
+  "artBrief": "Cluster of tall organic spires with a crane beside; sandstone ochre, green tips, blue sky."
+ },
+ {
+  "suffix": "alhambra",
+  "name": "Alhambra",
+  "family": "world",
+  "category": "geography",
+  "summary": "A palace and fortress complex in Granada, a masterpiece of Nasrid Moorish architecture.",
+  "wit": "Red walls, golden afternoons.",
+  "trivia": "Its name comes from Arabic for \"the red one\".",
+  "recipe": [
+   "organic85:spain",
+   "organic85:palace"
+  ],
+  "artBrief": "Reddish fortress walls on a hill with snowy mountains behind; red-ochre, green, white."
+ },
+ {
+  "suffix": "parthenon",
+  "name": "Parthenon",
+  "family": "world",
+  "category": "geography",
+  "summary": "A marble temple to Athena on the Acropolis of Athens, completed in 438 BC.",
+  "wit": "Ancient columns, perfect posture.",
+  "trivia": "Its columns bulge slightly so they look perfectly straight from afar.",
+  "recipe": [
+   "organic85:greece",
+   "organic85:temple"
+  ],
+  "artBrief": "Columned temple on a rocky hill, partly ruined pediment; marble white, honey, blue sky."
+ },
+ {
+  "suffix": "big-ben",
+  "name": "Big Ben",
+  "family": "world",
+  "category": "geography",
+  "summary": "The nickname of the Great Bell in the clock tower of London's Palace of Westminster.",
+  "wit": "Always on time for tea.",
+  "trivia": "The clock tower was renamed Elizabeth Tower in 2012.",
+  "recipe": [
+   "legacy:131",
+   "organic41:tower"
+  ],
+  "artBrief": "Gothic clock tower with big white clock face; gold-beige, white, navy sky."
+ },
+ {
+  "suffix": "stonehenge",
+  "name": "Stonehenge",
+  "family": "world",
+  "category": "geography",
+  "summary": "A prehistoric ring of standing stones on Salisbury Plain, built around 3000–2000 BC.",
+  "wit": "Ancient sundial or giant's furniture?",
+  "trivia": "Its stones align with the sunrise on the summer solstice.",
+  "recipe": [
+   "legacy:131",
+   "organic41:monument"
+  ],
+  "artBrief": "Ring of grey standing stones with lintels on green grass at sunrise; grey, green, orange."
+ },
+ {
+  "suffix": "hadrian-s-wall",
+  "name": "Hadrian's Wall",
+  "family": "world",
+  "category": "geography",
+  "summary": "A Roman stone wall across northern England, begun in AD 122.",
+  "wit": "Rome's \"keep out\" sign.",
+  "trivia": "It ran about 117 km from coast to coast.",
+  "recipe": [
+   "legacy:131",
+   "organic85:wall"
+  ],
+  "artBrief": "Low stone wall snaking over green hills; grey, green, cloudy white."
+ },
+ {
+  "suffix": "neuschwanstein-castle",
+  "name": "Neuschwanstein Castle",
+  "family": "world",
+  "category": "geography",
+  "summary": "A fairy-tale 19th-century castle in Bavaria, built for King Ludwig II.",
+  "wit": "Real-life princess-castle template.",
+  "trivia": "It inspired Sleeping Beauty Castle at Disneyland.",
+  "recipe": [
+   "organic85:germany",
+   "legacy:562"
+  ],
+  "artBrief": "White castle with slim blue-roofed turrets on a forested cliff; white, slate blue, green."
+ },
+ {
+  "suffix": "brandenburg-gate",
+  "name": "Brandenburg Gate",
+  "family": "world",
+  "category": "geography",
+  "summary": "Berlin's neoclassical gate, completed in 1791, a symbol of German reunification.",
+  "wit": "A gate everyone walks through.",
+  "trivia": "It is topped by the Quadriga, a chariot drawn by four horses.",
+  "recipe": [
+   "organic85:germany",
+   "organic41:monument"
+  ],
+  "artBrief": "Front view of six-column gate with chariot statue on top; sandstone, green copper, blue."
+ },
+ {
+  "suffix": "st-basil-s-cathedral",
+  "name": "St. Basil's Cathedral",
+  "family": "world",
+  "category": "geography",
+  "summary": "A 16th-century cathedral on Moscow's Red Square, famous for colourful onion domes.",
+  "wit": "Domes like swirled ice cream.",
+  "trivia": "It was built in the 1550s on the orders of Ivan the Terrible.",
+  "recipe": [
+   "organic85:russia",
+   "organic41:cathedral"
+  ],
+  "artBrief": "Cluster of striped onion domes in red, green, blue, gold over red brick."
+ },
+ {
+  "suffix": "great-wall-of-china",
+  "name": "Great Wall of China",
+  "family": "world",
+  "category": "geography",
+  "summary": "A series of fortifications stretching across northern China, built over many centuries.",
+  "wit": "China's longest project.",
+  "trivia": "Including all its branches, it measures about 21,000 km.",
+  "recipe": [
+   "legacy:1335",
+   "organic85:wall"
+  ],
+  "artBrief": "Wall with watchtowers snaking over green mountain ridges; grey stone, green, misty blue."
+ },
+ {
+  "suffix": "forbidden-city",
+  "name": "Forbidden City",
+  "family": "world",
+  "category": "geography",
+  "summary": "The vast imperial palace in Beijing, home to emperors for nearly 500 years.",
+  "wit": "Now very much allowed.",
+  "trivia": "It has nearly 1,000 buildings.",
+  "recipe": [
+   "legacy:1335",
+   "organic85:palace"
+  ],
+  "artBrief": "Red-walled hall with sweeping yellow-tiled roof; red, golden yellow, white steps."
+ },
+ {
+  "suffix": "temple-of-heaven",
+  "name": "Temple of Heaven",
+  "family": "world",
+  "category": "geography",
+  "summary": "A 15th-century complex in Beijing where emperors prayed for good harvests.",
+  "wit": "Where harvests were asked for politely.",
+  "trivia": "Its round Hall of Prayer is built of wood with no nails.",
+  "recipe": [
+   "legacy:1335",
+   "organic85:temple"
+  ],
+  "artBrief": "Round three-tiered blue-roofed hall on white marble terraces; blue, red, white."
+ },
+ {
+  "suffix": "taj-mahal",
+  "name": "Taj Mahal",
+  "family": "world",
+  "category": "geography",
+  "summary": "A white marble mausoleum in Agra built by Emperor Shah Jahan for his wife Mumtaz Mahal.",
+  "wit": "A love letter in marble.",
+  "trivia": "About 20,000 workers built it over roughly 20 years.",
+  "recipe": [
+   "organic85:india",
+   "organic41:monument"
+  ],
+  "artBrief": "White domed mausoleum with four minarets reflected in a pool; white, sky blue, green."
+ },
+ {
+  "suffix": "golden-temple",
+  "name": "Golden Temple",
+  "family": "world",
+  "category": "geography",
+  "summary": "Harmandir Sahib in Amritsar, the holiest gurdwara of Sikhism, covered in gold.",
+  "wit": "Gold outside, welcome inside.",
+  "trivia": "Its community kitchen serves free meals to tens of thousands of people daily.",
+  "recipe": [
+   "organic85:india",
+   "organic85:temple"
+  ],
+  "artBrief": "Golden domed temple on a pool with a causeway; gold, white marble, blue water."
+ },
+ {
+  "suffix": "kinkaku-ji",
+  "name": "Kinkaku-ji",
+  "family": "world",
+  "category": "geography",
+  "summary": "Kyoto's Golden Pavilion, a Zen Buddhist temple covered in gold leaf beside a pond.",
+  "wit": "Shiny, but very calm about it.",
+  "trivia": "The current building is a 1955 reconstruction after a fire in 1950.",
+  "recipe": [
+   "legacy:244",
+   "organic85:temple"
+  ],
+  "artBrief": "Three-storey gold pavilion reflected in a pond with pine trees; gold, green, blue."
+ },
+ {
+  "suffix": "himeji-castle",
+  "name": "Himeji Castle",
+  "family": "world",
+  "category": "geography",
+  "summary": "Japan's finest surviving feudal castle, nicknamed the \"White Heron Castle\".",
+  "wit": "A castle dressed for a wedding.",
+  "trivia": "It survived WWII bombing and many earthquakes largely intact.",
+  "recipe": [
+   "legacy:244",
+   "legacy:562"
+  ],
+  "artBrief": "White multi-tiered castle with grey curved roofs on stone base; white, grey, green."
+ },
+ {
+  "suffix": "tokyo-skytree",
+  "name": "Tokyo Skytree",
+  "family": "world",
+  "category": "geography",
+  "summary": "A broadcasting and observation tower in Tokyo, 634 m tall, opened in 2012.",
+  "wit": "A tower that really commits.",
+  "trivia": "It is the tallest tower in the world.",
+  "recipe": [
+   "legacy:244",
+   "organic41:tower"
+  ],
+  "artBrief": "Slim white lattice tower with two observation rings against blue sky; white, pale blue, silver."
+ },
+ {
+  "suffix": "angkor-wat",
+  "name": "Angkor Wat",
+  "family": "world",
+  "category": "geography",
+  "summary": "A vast 12th-century temple complex in Cambodia, first Hindu and later Buddhist.",
+  "wit": "The biggest temple, ever.",
+  "trivia": "It is the largest religious monument in the world.",
+  "recipe": [
+   "organic85:cambodia",
+   "organic85:temple"
+  ],
+  "artBrief": "Five lotus-bud towers reflected in a moat at sunrise; grey stone, orange sky, green."
+ },
+ {
+  "suffix": "grand-palace",
+  "name": "Grand Palace",
+  "family": "world",
+  "category": "geography",
+  "summary": "Bangkok's dazzling royal palace complex, home to the Temple of the Emerald Buddha.",
+  "wit": "Gold on gold on gold.",
+  "trivia": "It was built in 1782 when Bangkok became the capital.",
+  "recipe": [
+   "organic85:thailand",
+   "organic85:palace"
+  ],
+  "artBrief": "Tiered orange-green roofs with golden spires; gold, orange, green."
+ },
+ {
+  "suffix": "borobudur",
+  "name": "Borobudur",
+  "family": "world",
+  "category": "geography",
+  "summary": "A 9th-century Buddhist temple in Java, built as a giant stepped stone mandala.",
+  "wit": "A temple you walk up like a spiral.",
+  "trivia": "It is the largest Buddhist temple in the world.",
+  "recipe": [
+   "organic85:indonesia",
+   "organic85:temple"
+  ],
+  "artBrief": "Stepped grey-stone pyramid of terraces with bell-shaped stupas; grey, green jungle, misty blue."
+ },
+ {
+  "suffix": "gyeongbokgung",
+  "name": "Gyeongbokgung",
+  "family": "world",
+  "category": "geography",
+  "summary": "Seoul's main royal palace of the Joseon dynasty, first built in 1395.",
+  "wit": "Royal roofs, mountain backdrop.",
+  "trivia": "Its name means \"Palace Greatly Blessed by Heaven\".",
+  "recipe": [
+   "organic85:south-korea",
+   "organic85:palace"
+  ],
+  "artBrief": "Painted wooden hall with upturned roof and mountain behind; red, green, blue patterns."
+ },
+ {
+  "suffix": "petra",
+  "name": "Petra",
+  "family": "world",
+  "category": "geography",
+  "summary": "An ancient city carved into rose-red sandstone cliffs by the Nabataeans.",
+  "wit": "A city carved, not built.",
+  "trivia": "It was named one of the New Seven Wonders of the World in 2007.",
+  "recipe": [
+   "organic85:jordan",
+   "organic41:ruins"
+  ],
+  "artBrief": "Columned facade carved into pink cliff seen through a narrow gorge; rose pink, sand, shadow brown."
+ },
+ {
+  "suffix": "burj-khalifa",
+  "name": "Burj Khalifa",
+  "family": "world",
+  "category": "geography",
+  "summary": "The world's tallest building, an 828 m skyscraper in Dubai, opened in 2010.",
+  "wit": "Needs a very long ladder for window cleaning.",
+  "trivia": "Its tip can be seen from about 95 km away.",
+  "recipe": [
+   "organic85:united-arab-emirates",
+   "organic41:tower"
+  ],
+  "artBrief": "Very tall stepped silver needle tower with tiny skyline below; silver, blue, sand."
+ },
+ {
+  "suffix": "statue-of-liberty",
+  "name": "Statue of Liberty",
+  "family": "world",
+  "category": "geography",
+  "summary": "A copper statue on Liberty Island in New York Harbor, a gift from France in 1886.",
+  "wit": "Holding that torch since 1886.",
+  "trivia": "Its copper skin turned green through natural weathering.",
+  "recipe": [
+   "legacy:129",
+   "organic41:monument"
+  ],
+  "artBrief": "Green statue raising a torch, crown spikes, on a pedestal; verdigris green, gold flame, blue."
+ },
+ {
+  "suffix": "empire-state-building",
+  "name": "Empire State Building",
+  "family": "world",
+  "category": "geography",
+  "summary": "A 102-storey Art Deco skyscraper in New York City, completed in 1931.",
+  "wit": "Climbed by a famous gorilla.",
+  "trivia": "It was built in just over a year, about 410 days.",
+  "recipe": [
+   "legacy:129",
+   "organic85:skyscraper"
+  ],
+  "artBrief": "Art Deco stepped skyscraper with spire at dusk; grey, gold lights, purple sky."
+ },
+ {
+  "suffix": "cn-tower",
+  "name": "CN Tower",
+  "family": "world",
+  "category": "geography",
+  "summary": "Toronto's 553 m communications and observation tower, completed in 1976.",
+  "wit": "Toronto's tall exclamation mark.",
+  "trivia": "It was the world's tallest free-standing structure for over 30 years.",
+  "recipe": [
+   "organic85:canada",
+   "organic41:tower"
+  ],
+  "artBrief": "Concrete needle tower with a pod near the top beside a lake; grey, red light, blue."
+ },
+ {
+  "suffix": "teotihuacan",
+  "name": "Teotihuacan",
+  "family": "world",
+  "category": "geography",
+  "summary": "An ancient Mesoamerican city near Mexico City, with the Pyramids of the Sun and Moon.",
+  "wit": "A city for giants and gods.",
+  "trivia": "Its main road is called the Avenue of the Dead.",
+  "recipe": [
+   "organic85:mexico",
+   "organic41:pyramid"
+  ],
+  "artBrief": "Wide stepped Pyramid of the Sun with avenue in front; terracotta, grey, blue sky."
+ },
+ {
+  "suffix": "chichen-itza",
+  "name": "Chichén Itzá",
+  "family": "world",
+  "category": "geography",
+  "summary": "A great Maya city in Yucatán, crowned by the stepped pyramid El Castillo.",
+  "wit": "A pyramid with its own shadow show.",
+  "trivia": "At the equinoxes, shadows form a serpent sliding down its steps.",
+  "recipe": [
+   "organic85:mexico",
+   "organic41:ruins"
+  ],
+  "artBrief": "Four-sided stepped pyramid with central staircase and temple top; grey stone, green, blue."
+ },
+ {
+  "suffix": "panama-canal",
+  "name": "Panama Canal",
+  "family": "world",
+  "category": "geography",
+  "summary": "An 82 km canal across Panama linking the Atlantic and Pacific, opened in 1914.",
+  "wit": "The ocean-to-ocean elevator.",
+  "trivia": "Locks lift ships about 26 m to Gatun Lake and back down.",
+  "recipe": [
+   "organic85:panama",
+   "organic41:canal"
+  ],
+  "artBrief": "Canal lock with ship between gates, green banks; blue, green, orange ship."
+ },
+ {
+  "suffix": "christ-the-redeemer",
+  "name": "Christ the Redeemer",
+  "family": "world",
+  "category": "geography",
+  "summary": "The 30 m statue with outstretched arms atop Corcovado mountain in Rio de Janeiro.",
+  "wit": "The world's biggest welcome hug.",
+  "trivia": "It was completed in 1931 and is often struck by lightning.",
+  "recipe": [
+   "organic85:brazil",
+   "organic41:monument"
+  ],
+  "artBrief": "White statue with outstretched arms on a green peak above the bay; white, green, blue."
+ },
+ {
+  "suffix": "machu-picchu",
+  "name": "Machu Picchu",
+  "family": "world",
+  "category": "geography",
+  "summary": "A 15th-century Inca citadel high on an Andean ridge above the Urubamba Valley.",
+  "wit": "A city with a mountain-top view.",
+  "trivia": "Its name means \"old mountain\" in Quechua.",
+  "recipe": [
+   "organic85:peru",
+   "legacy:38"
+  ],
+  "artBrief": "Stone terraces and ruins on a ridge with pointed green peak behind; stone grey, green, misty white."
+ },
+ {
+  "suffix": "moai",
+  "name": "Moai",
+  "family": "world",
+  "category": "geography",
+  "summary": "Monolithic human figures carved by the Rapa Nui people on Easter Island.",
+  "wit": "Very good at staring contests.",
+  "trivia": "There are nearly 1,000 moai on the island.",
+  "recipe": [
+   "organic85:chile",
+   "organic41:monument"
+  ],
+  "artBrief": "Three stone head-and-torso figures on grass by the sea; dark grey, green, blue."
+ },
+ {
+  "suffix": "sydney-opera-house",
+  "name": "Sydney Opera House",
+  "family": "world",
+  "category": "geography",
+  "summary": "A performing arts centre on Sydney Harbour with sail-shaped roofs, opened in 1973.",
+  "wit": "Sails that never leave the harbour.",
+  "trivia": "It was designed by Danish architect Jørn Utzon.",
+  "recipe": [
+   "organic85:australia",
+   "organic41:monument"
+  ],
+  "artBrief": "White overlapping shell roofs on harbour water; white, blue, beige base."
+ },
+ {
+  "suffix": "great-zimbabwe",
+  "name": "Great Zimbabwe",
+  "family": "world",
+  "category": "geography",
+  "summary": "The ruins of a medieval stone city in Zimbabwe, built without mortar.",
+  "wit": "Stone walls, no glue needed.",
+  "trivia": "Its Great Enclosure walls stand up to 11 m high.",
+  "recipe": [
+   "organic85:zimbabwe",
+   "organic41:ruins"
+  ],
+  "artBrief": "Curved dry-stone wall and conical tower in grassland; grey-brown stone, gold grass, blue."
+ },
+ {
+  "suffix": "himalayas",
+  "name": "Himalayas",
+  "family": "world",
+  "category": "geography",
+  "summary": "Asia's highest mountain range, home to Everest and most of the world's tallest peaks.",
+  "wit": "The roof of the world.",
+  "trivia": "The Himalayas are still rising by a few millimetres each year.",
+  "recipe": [
+   "legacy:1203",
+   "legacy:38"
+  ],
+  "artBrief": "Long range of jagged snowy peaks under deep blue sky; white, blue, grey."
+ },
+ {
+  "suffix": "mount-everest",
+  "name": "Mount Everest",
+  "family": "world",
+  "category": "geography",
+  "summary": "Earth's highest mountain above sea level, 8,849 m, on the border of Nepal and China.",
+  "wit": "The final boss of mountains.",
+  "trivia": "Tenzing Norgay and Edmund Hillary first reached the summit in 1953.",
+  "recipe": [
+   "organic85:nepal",
+   "legacy:38"
+  ],
+  "artBrief": "Single pyramid snowy peak with summit plume, prayer flags in front; white, blue, multicolour flags."
+ },
+ {
+  "suffix": "mount-kilimanjaro",
+  "name": "Mount Kilimanjaro",
+  "family": "world",
+  "category": "geography",
+  "summary": "Africa's highest mountain, a dormant volcano in Tanzania rising to 5,895 m.",
+  "wit": "Snow near the equator: show-off.",
+  "trivia": "It is the world's tallest free-standing mountain.",
+  "recipe": [
+   "organic85:africa",
+   "legacy:38"
+  ],
+  "artBrief": "Broad flat-topped snowy volcano above savanna with acacia; white, blue, gold."
+ },
+ {
+  "suffix": "andes",
+  "name": "Andes",
+  "family": "world",
+  "category": "geography",
+  "summary": "The longest continental mountain range, running along South America's west coast.",
+  "wit": "South America's spine.",
+  "trivia": "Aconcagua, at 6,961 m, is the highest peak in the Andes.",
+  "recipe": [
+   "organic85:south-america",
+   "legacy:38"
+  ],
+  "artBrief": "Long chain of brown and snow peaks with a llama silhouette; brown, white, blue."
+ },
+ {
+  "suffix": "alps",
+  "name": "Alps",
+  "family": "world",
+  "category": "geography",
+  "summary": "Europe's great mountain range, stretching across eight countries from France to Slovenia.",
+  "wit": "Europe's ski slope.",
+  "trivia": "Mont Blanc, about 4,806 m, is the highest peak of the Alps.",
+  "recipe": [
+   "legacy:130",
+   "legacy:38"
+  ],
+  "artBrief": "Snowy peaks over green meadow with a wooden chalet; white, green, blue."
+ },
+ {
+  "suffix": "matterhorn",
+  "name": "Matterhorn",
+  "family": "world",
+  "category": "geography",
+  "summary": "A pyramid-shaped Alpine peak of 4,478 m on the Swiss–Italian border.",
+  "wit": "The mountain that looks like a mountain.",
+  "trivia": "It was first climbed in 1865 by Edward Whymper's party.",
+  "recipe": [
+   "organic85:switzerland",
+   "legacy:38"
+  ],
+  "artBrief": "Single sharp hooked pyramid peak, snowy, with pink alpenglow; white, pink, grey."
+ },
+ {
+  "suffix": "mount-fuji",
+  "name": "Mount Fuji",
+  "family": "world",
+  "category": "geography",
+  "summary": "Japan's highest mountain, a 3,776 m volcano with a famously symmetrical cone.",
+  "wit": "Perfect cone, perfect postcard.",
+  "trivia": "It last erupted in 1707.",
+  "recipe": [
+   "legacy:244",
+   "legacy:38"
+  ],
+  "artBrief": "Symmetrical snow-capped cone with cherry blossom branch; blue-grey, white, pink."
+ },
+ {
+  "suffix": "mount-vesuvius",
+  "name": "Mount Vesuvius",
+  "family": "world",
+  "category": "geography",
+  "summary": "An active volcano overlooking the Bay of Naples, famous for burying Pompeii.",
+  "wit": "Pompeii's worst neighbour.",
+  "trivia": "Its eruption in AD 79 buried Pompeii and Herculaneum under ash.",
+  "recipe": [
+   "organic85:italy",
+   "legacy:38"
+  ],
+  "artBrief": "Wide two-humped volcano with smoke plume above a blue bay; grey-brown, blue, white smoke."
+ },
+ {
+  "suffix": "uluru",
+  "name": "Uluru",
+  "family": "world",
+  "category": "geography",
+  "summary": "A giant sandstone monolith in central Australia, sacred to the Aṉangu people.",
+  "wit": "The outback's red heart.",
+  "trivia": "Climbing Uluru has been banned since 2019 out of respect.",
+  "recipe": [
+   "organic85:australia",
+   "legacy:38"
+  ],
+  "artBrief": "Long rounded red rock on flat desert at sunset; red-orange, purple sky, ochre."
+ },
+ {
+  "suffix": "grand-canyon",
+  "name": "Grand Canyon",
+  "family": "world",
+  "category": "geography",
+  "summary": "A vast Arizona canyon carved by the Colorado River, up to about 1.8 km deep.",
+  "wit": "A very deep scratch in the Earth.",
+  "trivia": "Its rock layers record nearly 2 billion years of Earth's history.",
+  "recipe": [
+   "legacy:129",
+   "organic38:canyon"
+  ],
+  "artBrief": "Layered red-orange canyon walls with a thin river below; red, orange, blue."
+ },
+ {
+  "suffix": "victoria-falls",
+  "name": "Victoria Falls",
+  "family": "world",
+  "category": "geography",
+  "summary": "A huge waterfall on the Zambezi River between Zambia and Zimbabwe.",
+  "wit": "Thunder with a rainbow.",
+  "trivia": "Locally it is called Mosi-oa-Tunya, \"the smoke that thunders\".",
+  "recipe": [
+   "organic85:africa",
+   "organic34:waterfall"
+  ],
+  "artBrief": "Wide curtain waterfall with rising mist and rainbow; white, blue, green."
+ },
+ {
+  "suffix": "angel-falls",
+  "name": "Angel Falls",
+  "family": "world",
+  "category": "geography",
+  "summary": "The world's highest uninterrupted waterfall, dropping 979 m in Venezuela.",
+  "wit": "The longest drop in the world.",
+  "trivia": "It is named after US aviator Jimmie Angel, who flew over it in 1933.",
+  "recipe": [
+   "organic85:south-america",
+   "organic34:waterfall"
+  ],
+  "artBrief": "Thin white ribbon of water falling from a flat-topped cliff; white, dark green, grey."
+ },
+ {
+  "suffix": "niagara-falls",
+  "name": "Niagara Falls",
+  "family": "world",
+  "category": "geography",
+  "summary": "A group of three waterfalls on the Niagara River between Canada and the USA.",
+  "wit": "Honeymoon with extra splash.",
+  "trivia": "In 1901 Annie Edson Taylor became the first to go over it in a barrel.",
+  "recipe": [
+   "organic85:north-america",
+   "organic34:waterfall"
+  ],
+  "artBrief": "Horseshoe-shaped falls with a small boat in the mist; blue, white, green."
+ },
+ {
+  "suffix": "great-barrier-reef",
+  "name": "Great Barrier Reef",
+  "family": "world",
+  "category": "geography",
+  "summary": "The world's largest coral reef system, stretching over 2,300 km off Queensland.",
+  "wit": "A city of coral, visible from space.",
+  "trivia": "It is the largest structure built by living things and can be seen from space.",
+  "recipe": [
+   "organic85:australia",
+   "organic42:reef"
+  ],
+  "artBrief": "Turquoise water with colourful coral and a clownfish, top view; turquoise, coral pink, orange."
+ },
+ {
+  "suffix": "sahara",
+  "name": "Sahara",
+  "family": "world",
+  "category": "geography",
+  "summary": "The largest hot desert on Earth, covering much of North Africa.",
+  "wit": "Sand, with more sand on the side.",
+  "trivia": "Its name comes from the Arabic word for \"desert\".",
+  "recipe": [
+   "organic85:africa",
+   "legacy:1048"
+  ],
+  "artBrief": "Rolling golden dunes with a camel silhouette under the sun; gold, orange, pale blue."
+ },
+ {
+  "suffix": "lake-baikal",
+  "name": "Lake Baikal",
+  "family": "world",
+  "category": "geography",
+  "summary": "A Siberian rift lake, the world's deepest and oldest freshwater lake.",
+  "wit": "Deep thoughts, deeper water.",
+  "trivia": "It holds about 20% of the world's unfrozen surface fresh water.",
+  "recipe": [
+   "organic85:russia",
+   "legacy:40"
+  ],
+  "artBrief": "Clear turquoise ice cracks on a lake with distant hills; turquoise, white, dark green."
+ },
+ {
+  "suffix": "amazon-rainforest",
+  "name": "Amazon Rainforest",
+  "family": "world",
+  "category": "geography",
+  "summary": "The largest tropical rainforest on Earth, spread over nine countries, mostly Brazil.",
+  "wit": "The planet's green lung.",
+  "trivia": "About 10% of all known species live in the Amazon.",
+  "recipe": [
+   "organic85:brazil",
+   "organic32:rainforest"
+  ],
+  "artBrief": "Dense green canopy with a winding brown river and a red macaw; green, brown, red."
+ },
+ {
+  "suffix": "galapagos-islands",
+  "name": "Galápagos Islands",
+  "family": "world",
+  "category": "geography",
+  "summary": "Volcanic Pacific islands of Ecuador, famous for giant tortoises and Darwin's studies.",
+  "wit": "Evolution's favourite classroom.",
+  "trivia": "Charles Darwin visited in 1835 aboard HMS Beagle.",
+  "recipe": [
+   "organic85:ecuador",
+   "legacy:558"
+  ],
+  "artBrief": "Giant tortoise on black volcanic rock with blue sea; brown, black, blue."
+ },
+ {
+  "suffix": "nile",
+  "name": "Nile",
+  "family": "world",
+  "category": "geography",
+  "summary": "A great river flowing north through eastern Africa into the Mediterranean, the lifeline of Egypt.",
+  "wit": "Flows north and doesn't care what you think.",
+  "trivia": "At about 6,650 km it is often listed as the world's longest river.",
+  "recipe": [
+   "organic85:africa",
+   "legacy:39"
+  ],
+  "artBrief": "Blue river winding north through yellow desert with green banks and a felucca sail; blue, gold, green."
+ },
+ {
+  "suffix": "amazon-river",
+  "name": "Amazon River",
+  "family": "world",
+  "category": "geography",
+  "summary": "The giant river of South America's rainforest, with the greatest flow of any river.",
+  "wit": "So big it has its own weather.",
+  "trivia": "It carries about a fifth of all river water flowing into the oceans.",
+  "recipe": [
+   "organic85:south-america",
+   "legacy:39"
+  ],
+  "artBrief": "Wide brown river through dense green jungle, top view; brown, green, blue sky."
+ },
+ {
+  "suffix": "mississippi-river",
+  "name": "Mississippi River",
+  "family": "world",
+  "category": "geography",
+  "summary": "A major US river flowing about 3,770 km from Minnesota south past New Orleans to the sea.",
+  "wit": "Famously hard to spell.",
+  "trivia": "Its basin drains all or part of 31 US states.",
+  "recipe": [
+   "legacy:129",
+   "legacy:39"
+  ],
+  "artBrief": "Broad river bend with a white paddle steamer; brown-blue, white, red paddle."
+ },
+ {
+  "suffix": "yangtze-river",
+  "name": "Yangtze River",
+  "family": "world",
+  "category": "geography",
+  "summary": "Asia's longest river, flowing about 6,300 km across China to the East China Sea.",
+  "wit": "China's main street, liquid edition.",
+  "trivia": "The Three Gorges Dam on the Yangtze is the world's largest power station.",
+  "recipe": [
+   "legacy:1335",
+   "legacy:39"
+  ],
+  "artBrief": "River between steep misty gorge cliffs with a junk boat; blue-green, grey, mist white."
+ },
+ {
+  "suffix": "ganges",
+  "name": "Ganges",
+  "family": "world",
+  "category": "geography",
+  "summary": "A great river of northern India and Bangladesh, held sacred in Hinduism.",
+  "wit": "A river of prayers and lamps.",
+  "trivia": "The Ganges–Brahmaputra delta is the largest delta in the world.",
+  "recipe": [
+   "organic85:india",
+   "legacy:39"
+  ],
+  "artBrief": "River at dusk with small floating oil lamps on the water; deep blue, orange glow, gold."
+ },
+ {
+  "suffix": "danube",
+  "name": "Danube",
+  "family": "world",
+  "category": "geography",
+  "summary": "Europe's second-longest river, flowing from Germany's Black Forest to the Black Sea.",
+  "wit": "Ten countries, one waltz.",
+  "trivia": "It flows through or along 10 countries, more than any other river.",
+  "recipe": [
+   "organic85:germany",
+   "legacy:39"
+  ],
+  "artBrief": "Blue river curving through green hills under a stone bridge; blue, green, grey."
+ },
+ {
+  "suffix": "rhine",
+  "name": "Rhine",
+  "family": "world",
+  "category": "geography",
+  "summary": "A major European river that rises in the Swiss Alps and flows to the North Sea.",
+  "wit": "Castles on both banks, barges in the middle.",
+  "trivia": "The Rhine passes through Lake Constance on its way north.",
+  "recipe": [
+   "organic85:switzerland",
+   "legacy:39"
+  ],
+  "artBrief": "River with a hilltop castle and vineyard terraces; blue, green, sandstone."
+ },
+ {
+  "suffix": "thames",
+  "name": "Thames",
+  "family": "world",
+  "category": "geography",
+  "summary": "The river flowing through London, the longest river entirely in England.",
+  "wit": "London's liquid high street.",
+  "trivia": "Frost fairs were held on the frozen Thames until 1814.",
+  "recipe": [
+   "legacy:131",
+   "legacy:39"
+  ],
+  "artBrief": "River curving past a bascule bridge silhouette; grey-blue, stone, navy."
+ },
+ {
+  "suffix": "seine",
+  "name": "Seine",
+  "family": "world",
+  "category": "geography",
+  "summary": "The river through Paris, flowing past Notre-Dame and the Eiffel Tower to the English Channel.",
+  "wit": "Paris's romantic water feature.",
+  "trivia": "Thirty-seven bridges cross the Seine in Paris.",
+  "recipe": [
+   "organic85:france",
+   "legacy:39"
+  ],
+  "artBrief": "River with an arched stone bridge and bookstall stand; blue, cream, green."
+ },
+ {
+  "suffix": "tiber",
+  "name": "Tiber",
+  "family": "world",
+  "category": "geography",
+  "summary": "The river of Rome, flowing from the Apennines to the Tyrrhenian Sea.",
+  "wit": "Rome's oldest neighbour.",
+  "trivia": "Legend says Romulus and Remus were set adrift on the Tiber.",
+  "recipe": [
+   "organic85:italy",
+   "legacy:39"
+  ],
+  "artBrief": "Green-brown river with Roman arched bridge and pine tree; olive, terracotta, blue."
+ },
+ {
+  "suffix": "volga",
+  "name": "Volga",
+  "family": "world",
+  "category": "geography",
+  "summary": "Europe's longest river, flowing about 3,530 km through Russia to the Caspian Sea.",
+  "wit": "Europe's longest, by a long way.",
+  "trivia": "Russians often call it \"Mother Volga\".",
+  "recipe": [
+   "organic85:russia",
+   "legacy:39"
+  ],
+  "artBrief": "Very wide calm river with birch trees on the bank; blue, white bark, green."
+ },
+ {
+  "suffix": "mekong",
+  "name": "Mekong",
+  "family": "world",
+  "category": "geography",
+  "summary": "A great Southeast Asian river flowing from the Tibetan Plateau to Vietnam's delta.",
+  "wit": "Six countries, one floating market.",
+  "trivia": "The Mekong flows through six countries.",
+  "recipe": [
+   "organic85:vietnam",
+   "legacy:39"
+  ],
+  "artBrief": "River with a floating market canoe full of fruit; brown water, green, orange fruit."
+ },
+ {
+  "suffix": "zambezi",
+  "name": "Zambezi",
+  "family": "world",
+  "category": "geography",
+  "summary": "Southern Africa's longest east-flowing river, home of Victoria Falls.",
+  "wit": "Calm, then very much not.",
+  "trivia": "Victoria Falls and Lake Kariba both lie on the Zambezi.",
+  "recipe": [
+   "organic85:zimbabwe",
+   "legacy:39"
+  ],
+  "artBrief": "River rushing to a cliff edge with mist rising; blue, white, green."
+ },
+ {
+  "suffix": "murray-river",
+  "name": "Murray River",
+  "family": "world",
+  "category": "geography",
+  "summary": "Australia's longest river, flowing about 2,500 km through the south-east.",
+  "wit": "Australia's main water vein.",
+  "trivia": "Paddle steamers still cruise the Murray today.",
+  "recipe": [
+   "organic85:australia",
+   "legacy:39"
+  ],
+  "artBrief": "Ochre-banked river with gum trees and a small paddle steamer; brown, eucalyptus green, red."
+ },
+ {
+  "suffix": "st-lawrence-river",
+  "name": "St. Lawrence River",
+  "family": "world",
+  "category": "geography",
+  "summary": "A great river linking the Great Lakes to the Atlantic, past Montreal and Quebec City.",
+  "wit": "The Great Lakes' exit door.",
+  "trivia": "The St. Lawrence Seaway lets ships sail from the Atlantic to the Great Lakes.",
+  "recipe": [
+   "organic85:canada",
+   "legacy:39"
+  ],
+  "artBrief": "Wide river with a cargo ship and red maple trees on shore; blue, red, green."
+ },
+ {
+  "suffix": "rio-grande",
+  "name": "Rio Grande",
+  "family": "world",
+  "category": "geography",
+  "summary": "A North American river that forms much of the border between Mexico and the USA.",
+  "wit": "Two names, one river.",
+  "trivia": "In Mexico it is called the Río Bravo.",
+  "recipe": [
+   "organic85:mexico",
+   "legacy:39"
+  ],
+  "artBrief": "Shallow river winding through desert scrub; blue, tan, sage green."
+ },
+ {
+  "suffix": "colorado-river",
+  "name": "Colorado River",
+  "family": "world",
+  "category": "geography",
+  "summary": "A south-western US river that carved the Grand Canyon over millions of years.",
+  "wit": "A river with sculpting skills.",
+  "trivia": "The Hoover Dam holds back the Colorado to form Lake Mead.",
+  "recipe": [
+   "organic85:grand-canyon",
+   "legacy:39"
+  ],
+  "artBrief": "Green river at the bottom of red canyon walls; green, red, orange."
+ },
+ {
+  "suffix": "rio-de-la-plata",
+  "name": "Río de la Plata",
+  "family": "world",
+  "category": "geography",
+  "summary": "The broad estuary of the Paraná and Uruguay rivers between Argentina and Uruguay.",
+  "wit": "A river so wide it looks like sea.",
+  "trivia": "It is up to about 220 km wide, among the widest estuaries on Earth.",
+  "recipe": [
+   "organic85:argentina",
+   "legacy:39"
+  ],
+  "artBrief": "Very wide brown estuary meeting blue sea with a distant city line; brown, blue, silver."
+ },
+ {
+  "suffix": "orinoco",
+  "name": "Orinoco",
+  "family": "world",
+  "category": "geography",
+  "summary": "One of South America's longest rivers, flowing through Venezuela to the Atlantic.",
+  "wit": "Jungle river, crocodile approved.",
+  "trivia": "It is home to the critically endangered Orinoco crocodile.",
+  "recipe": [
+   "organic85:venezuela",
+   "legacy:39"
+  ],
+  "artBrief": "Jungle river with a crocodile snout on the surface; olive, brown, green."
+ },
+ {
+  "suffix": "tagus",
+  "name": "Tagus",
+  "family": "world",
+  "category": "geography",
+  "summary": "The longest river of the Iberian Peninsula, flowing through Spain and Portugal to Lisbon.",
+  "wit": "Iberia's longest road to the sea.",
+  "trivia": "Lisbon's Vasco da Gama Bridge over the Tagus is over 12 km long.",
+  "recipe": [
+   "organic85:portugal",
+   "legacy:39"
+  ],
+  "artBrief": "River mouth with long low bridge and yellow tram on the bank; blue, yellow, white."
+ },
+ {
+  "suffix": "sushi",
+  "name": "Sushi",
+  "family": "world",
+  "category": "geography",
+  "summary": "A Japanese dish of vinegared rice with raw fish, seafood or vegetables.",
+  "wit": "Rice with a fishy plan.",
+  "trivia": "Washoku, traditional Japanese cuisine, joined UNESCO's heritage list in 2013.",
+  "recipe": [
+   "legacy:244",
+   "pack:food"
+  ],
+  "artBrief": "Two nigiri pieces and a maki roll on a wooden board; white rice, salmon orange, nori black."
+ },
+ {
+  "suffix": "paella",
+  "name": "Paella",
+  "family": "world",
+  "category": "geography",
+  "summary": "A Valencian rice dish cooked in a wide, shallow pan with saffron.",
+  "wit": "Rice that got a tan.",
+  "trivia": "The crispy rice at the bottom of the pan is called socarrat.",
+  "recipe": [
+   "organic85:spain",
+   "pack:food"
+  ],
+  "artBrief": "Wide two-handled pan of yellow rice with prawns and lemon; yellow, red, green."
+ },
+ {
+  "suffix": "tacos",
+  "name": "Tacos",
+  "family": "world",
+  "category": "geography",
+  "summary": "Folded corn tortillas filled with meat, beans, salsa and more, a Mexican staple.",
+  "wit": "Handheld happiness.",
+  "trivia": "Corn tortillas have been eaten in Mexico for thousands of years.",
+  "recipe": [
+   "organic85:mexico",
+   "pack:food"
+  ],
+  "artBrief": "Three folded tacos with salsa and lime wedge; corn yellow, red, green."
+ },
+ {
+  "suffix": "curry",
+  "name": "Curry",
+  "family": "world",
+  "category": "geography",
+  "summary": "A family of spiced South Asian dishes with rich sauces built on spice blends.",
+  "wit": "Spice, organised.",
+  "trivia": "The word may come from Tamil \"kari\", meaning sauce.",
+  "recipe": [
+   "organic85:india",
+   "pack:food"
+  ],
+  "artBrief": "Bowl of orange curry beside rice and naan; orange, white, brown."
+ },
+ {
+  "suffix": "kimchi",
+  "name": "Kimchi",
+  "family": "world",
+  "category": "geography",
+  "summary": "Korea's spicy fermented vegetable dish, usually made with napa cabbage and chili.",
+  "wit": "Cabbage with attitude.",
+  "trivia": "Kimjang, the communal making of kimchi, is on UNESCO's heritage list.",
+  "recipe": [
+   "organic85:south-korea",
+   "pack:food"
+  ],
+  "artBrief": "Red-orange fermented cabbage in a clay jar; red, pale green, brown."
+ },
+ {
+  "suffix": "pho",
+  "name": "Pho",
+  "family": "world",
+  "category": "geography",
+  "summary": "Vietnam's fragrant noodle soup with clear broth, rice noodles and fresh herbs.",
+  "wit": "Breakfast with chopsticks.",
+  "trivia": "Pho is traditionally eaten for breakfast in Vietnam.",
+  "recipe": [
+   "organic85:vietnam",
+   "pack:food"
+  ],
+  "artBrief": "Steaming bowl of noodle soup with herbs and chopsticks; amber broth, green herbs, white."
+ },
+ {
+  "suffix": "pad-thai",
+  "name": "Pad Thai",
+  "family": "world",
+  "category": "geography",
+  "summary": "Thailand's stir-fried rice noodle dish with egg, tamarind, peanuts and lime.",
+  "wit": "Noodles on holiday.",
+  "trivia": "Pad Thai was promoted as a national dish in Thailand in the 1930s–40s.",
+  "recipe": [
+   "organic85:thailand",
+   "pack:food"
+  ],
+  "artBrief": "Plate of stir-fried noodles with lime wedge and peanuts; tan, green, orange."
+ },
+ {
+  "suffix": "feijoada",
+  "name": "Feijoada",
+  "family": "world",
+  "category": "geography",
+  "summary": "Brazil's hearty black bean and pork stew, served with rice and orange slices.",
+  "wit": "Beans that mean business.",
+  "trivia": "In Brazil it is traditionally eaten on Wednesdays and Saturdays.",
+  "recipe": [
+   "organic85:brazil",
+   "pack:food"
+  ],
+  "artBrief": "Clay pot of dark bean stew with orange slices and rice; black-brown, orange, white."
+ },
+ {
+  "suffix": "ceviche",
+  "name": "Ceviche",
+  "family": "world",
+  "category": "geography",
+  "summary": "Peru's dish of raw fish cured in lime juice with chili and red onion.",
+  "wit": "Cooked by lime, not fire.",
+  "trivia": "Peru celebrates National Ceviche Day on 28 June.",
+  "recipe": [
+   "organic85:peru",
+   "pack:food"
+  ],
+  "artBrief": "Bowl of white fish cubes with red onion, chili and corn; white, purple-red, yellow."
+ },
+ {
+  "suffix": "poutine",
+  "name": "Poutine",
+  "family": "world",
+  "category": "geography",
+  "summary": "A Quebec dish of fries topped with cheese curds and hot gravy.",
+  "wit": "Fries in a cosy blanket.",
+  "trivia": "Poutine was created in rural Quebec in the 1950s.",
+  "recipe": [
+   "organic85:canada",
+   "pack:food"
+  ],
+  "artBrief": "Box of fries with white curds and brown gravy; gold, white, brown."
+ },
+ {
+  "suffix": "fish-and-chips",
+  "name": "Fish and Chips",
+  "family": "world",
+  "category": "geography",
+  "summary": "Battered fried fish with thick-cut chips, a British seaside classic.",
+  "wit": "Best eaten with a seagull nearby.",
+  "trivia": "It was one of the few foods not rationed in Britain during WWII.",
+  "recipe": [
+   "legacy:131",
+   "pack:food"
+  ],
+  "artBrief": "Battered fish and chips on paper with a lemon wedge; golden, white paper, yellow."
+ },
+ {
+  "suffix": "couscous",
+  "name": "Couscous",
+  "family": "world",
+  "category": "geography",
+  "summary": "Steamed semolina granules served with stew, a staple of North Africa and Morocco.",
+  "wit": "Tiny grains, big tradition.",
+  "trivia": "Couscous traditions joined UNESCO's list in 2020, shared by four countries.",
+  "recipe": [
+   "organic85:morocco",
+   "pack:food"
+  ],
+  "artBrief": "Cone-shaped clay tagine lid beside a mound of couscous with vegetables; terracotta, yellow, orange."
+ },
+ {
+  "suffix": "injera",
+  "name": "Injera",
+  "family": "world",
+  "category": "geography",
+  "summary": "Ethiopia's spongy sourdough flatbread made from teff, used to scoop up stews.",
+  "wit": "Plate, spoon and bread in one.",
+  "trivia": "Teff, the grain used for injera, has some of the tiniest seeds of any cereal.",
+  "recipe": [
+   "organic85:ethiopia",
+   "pack:food"
+  ],
+  "artBrief": "Large round spongy flatbread with colourful stew dollops, top view; beige, red, green."
+ },
+ {
+  "suffix": "fondue",
+  "name": "Fondue",
+  "family": "world",
+  "category": "geography",
+  "summary": "A Swiss pot of melted cheese and wine, shared by dipping bread on long forks.",
+  "wit": "Group dipping, approved.",
+  "trivia": "The Swiss Cheese Union promoted fondue as a national dish in the 1930s.",
+  "recipe": [
+   "organic85:switzerland",
+   "pack:food"
+  ],
+  "artBrief": "Red pot of melted yellow cheese with bread on a long fork; red, yellow, brown."
+ },
+ {
+  "suffix": "moussaka",
+  "name": "Moussaka",
+  "family": "world",
+  "category": "geography",
+  "summary": "A Greek baked dish of layered aubergine, spiced meat and creamy béchamel.",
+  "wit": "Lasagna's Greek cousin.",
+  "trivia": "The modern Greek version was popularised by chef Nikolaos Tselementes in the 1920s.",
+  "recipe": [
+   "organic85:greece",
+   "pack:food"
+  ],
+  "artBrief": "Square slice showing purple aubergine and meat layers under golden top; purple, brown, gold."
+ },
+ {
+  "suffix": "peking-duck",
+  "name": "Peking Duck",
+  "family": "world",
+  "category": "geography",
+  "summary": "A Beijing dish of roast duck with crisp skin, served with thin pancakes and sauce.",
+  "wit": "Crispy, glossy and famous.",
+  "trivia": "Peking duck has been prepared in Beijing since imperial times.",
+  "recipe": [
+   "legacy:1335",
+   "pack:food"
+  ],
+  "artBrief": "Glossy roast duck slices with pancakes and spring onions; mahogany, cream, green."
+ },
+ {
+  "suffix": "rio-carnival",
+  "name": "Rio Carnival",
+  "family": "world",
+  "category": "geography",
+  "summary": "Rio de Janeiro's huge pre-Lent festival of samba parades, feathers and floats.",
+  "wit": "The world's biggest party.",
+  "trivia": "Samba schools parade in the Sambadrome, opened in 1984.",
+  "recipe": [
+   "organic85:brazil",
+   "organic85:festival"
+  ],
+  "artBrief": "Feathered carnival headdress with sequins; gold, magenta, green, blue."
+ },
+ {
+  "suffix": "day-of-the-dead",
+  "name": "Day of the Dead",
+  "family": "world",
+  "category": "geography",
+  "summary": "Mexico's festival honouring departed loved ones with altars, marigolds and sugar skulls.",
+  "wit": "Remembering with flowers and colour.",
+  "trivia": "It is celebrated on 1 and 2 November.",
+  "recipe": [
+   "organic85:mexico",
+   "organic85:festival"
+  ],
+  "artBrief": "Decorated sugar skull with marigold flowers; white, orange, pink, turquoise."
+ },
+ {
+  "suffix": "oktoberfest",
+  "name": "Oktoberfest",
+  "family": "world",
+  "category": "geography",
+  "summary": "Munich's giant folk festival, held most years since 1810.",
+  "wit": "Mostly happens in September.",
+  "trivia": "It began as a celebration of a royal wedding in 1810.",
+  "recipe": [
+   "organic85:germany",
+   "organic85:festival"
+  ],
+  "artBrief": "Pretzel and a beer stein on a blue-white diamond tablecloth; gold, blue, white."
+ },
+ {
+  "suffix": "diwali",
+  "name": "Diwali",
+  "family": "world",
+  "category": "geography",
+  "summary": "The festival of lights celebrated by Hindus, Sikhs and Jains with lamps, sweets and fireworks.",
+  "wit": "Light wins.",
+  "trivia": "Homes are lit with small clay oil lamps called diyas.",
+  "recipe": [
+   "organic85:india",
+   "organic85:festival"
+  ],
+  "artBrief": "Glowing clay oil lamps on a colourful rangoli pattern; orange flame, magenta, gold."
+ },
+ {
+  "suffix": "chinese-new-year",
+  "name": "Chinese New Year",
+  "family": "world",
+  "category": "geography",
+  "summary": "The Spring Festival marking the lunar new year, with red lanterns, dumplings and dragon dances.",
+  "wit": "Red everything, for luck.",
+  "trivia": "Each year is linked to one of 12 zodiac animals.",
+  "recipe": [
+   "legacy:1335",
+   "organic85:festival"
+  ],
+  "artBrief": "Two red paper lanterns with gold tassels and firecracker string; red, gold."
+ },
+ {
+  "suffix": "songkran",
+  "name": "Songkran",
+  "family": "world",
+  "category": "geography",
+  "summary": "Thailand's New Year festival in April, famous for joyful water fights.",
+  "wit": "A new year that soaks you.",
+  "trivia": "Songkran is celebrated from 13 to 15 April.",
+  "recipe": [
+   "organic85:thailand",
+   "organic85:festival"
+  ],
+  "artBrief": "Water splash from a bowl with jasmine flowers; blue, white, gold."
+ },
+ {
+  "suffix": "la-tomatina",
+  "name": "La Tomatina",
+  "family": "world",
+  "category": "geography",
+  "summary": "A festival in Buñol, Spain, where crowds throw tomatoes at each other.",
+  "wit": "Ketchup, extreme edition.",
+  "trivia": "It is held on the last Wednesday of August.",
+  "recipe": [
+   "organic85:spain",
+   "organic85:festival"
+  ],
+  "artBrief": "Tomato bursting with red splatter; red, green stem, white."
+ },
+ {
+  "suffix": "hanami",
+  "name": "Hanami",
+  "family": "world",
+  "category": "geography",
+  "summary": "The Japanese custom of picnicking under blooming cherry blossoms in spring.",
+  "wit": "Picnic, but make it pink.",
+  "trivia": "Forecasters track the \"cherry blossom front\" as it moves north each spring.",
+  "recipe": [
+   "legacy:244",
+   "organic85:festival"
+  ],
+  "artBrief": "Cherry blossom branch over a picnic mat; pink, brown, light blue."
+ },
+ {
+  "suffix": "inti-raymi",
+  "name": "Inti Raymi",
+  "family": "world",
+  "category": "geography",
+  "summary": "The Inca Festival of the Sun, revived each June in Cusco, Peru.",
+  "wit": "A party for the sun.",
+  "trivia": "It is held on 24 June, near the southern winter solstice.",
+  "recipe": [
+   "organic85:peru",
+   "organic85:festival"
+  ],
+  "artBrief": "Golden sun disc with rays over Andean stone wall; gold, red, grey."
+ },
+ {
+  "suffix": "carnival-of-venice",
+  "name": "Carnival of Venice",
+  "family": "world",
+  "category": "geography",
+  "summary": "Venice's pre-Lent festival famous for elaborate masks and costumes.",
+  "wit": "Mystery, with sequins.",
+  "trivia": "Masks once let Venetians of all classes mingle anonymously.",
+  "recipe": [
+   "organic85:italy",
+   "organic85:festival"
+  ],
+  "artBrief": "Ornate gold and white Venetian eye mask with feather; gold, white, deep purple."
+ },
+ {
+  "suffix": "kimono",
+  "name": "Kimono",
+  "family": "world",
+  "category": "geography",
+  "summary": "Japan's traditional T-shaped robe with wide sleeves, tied with an obi sash.",
+  "wit": "Elegance with very big sleeves.",
+  "trivia": "\"Kimono\" literally means \"thing to wear\".",
+  "recipe": [
+   "legacy:244",
+   "organic85:costume"
+  ],
+  "artBrief": "Folded T-shaped robe with floral pattern and wide sash; indigo, pink, gold obi."
+ },
+ {
+  "suffix": "sari",
+  "name": "Sari",
+  "family": "world",
+  "category": "geography",
+  "summary": "A long, unstitched drape of fabric worn elegantly across India and South Asia.",
+  "wit": "Several metres of style.",
+  "trivia": "A sari is usually 4.5 to 9 metres long.",
+  "recipe": [
+   "organic85:india",
+   "organic85:costume"
+  ],
+  "artBrief": "Flowing draped fabric with gold border, shown on a stand; magenta, gold, emerald."
+ },
+ {
+  "suffix": "hanbok",
+  "name": "Hanbok",
+  "family": "world",
+  "category": "geography",
+  "summary": "Korea's traditional dress with a short jacket and a full, high-waisted skirt.",
+  "wit": "Bright colours, graceful lines.",
+  "trivia": "Koreans often wear hanbok for Chuseok and Lunar New Year.",
+  "recipe": [
+   "organic85:south-korea",
+   "organic85:costume"
+  ],
+  "artBrief": "Short jacket with long ribbon tie above bell-shaped skirt; pink jacket, blue skirt, white ribbon."
+ },
+ {
+  "suffix": "flamenco",
+  "name": "Flamenco",
+  "family": "world",
+  "category": "geography",
+  "summary": "Andalusia's passionate art of song, guitar, dance and rhythmic hand-clapping.",
+  "wit": "Stamp, clap, olé.",
+  "trivia": "Flamenco was added to UNESCO's heritage list in 2010.",
+  "recipe": [
+   "organic85:spain",
+   "legacy:564"
+  ],
+  "artBrief": "Red ruffled dress mid-twirl with a fan; red, black, white polka dots."
+ },
+ {
+  "suffix": "tango",
+  "name": "Tango",
+  "family": "world",
+  "category": "geography",
+  "summary": "A dramatic partner dance and music born in Buenos Aires and Montevideo.",
+  "wit": "It takes two.",
+  "trivia": "Tango was added to UNESCO's heritage list in 2009.",
+  "recipe": [
+   "organic85:argentina",
+   "legacy:564"
+  ],
+  "artBrief": "Silhouette of two dancers in a dip with a rose; black, red, warm amber."
+ }
+]

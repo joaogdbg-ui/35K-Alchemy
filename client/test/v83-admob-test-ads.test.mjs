@@ -20,7 +20,7 @@ test('Android builds package the AdMob test configuration',()=>{
  assert.match(py,/ca-app-pub-3940256099942544~3347511713/);
  assert.match(py,/play-services-ads:25\.5\.0/);
  assert.match(py,/registerPlugin\(\{n\}\.class\)/);
- assert.match(py,/"GameverseRewardedAdsPlugin" not in names or "AlchemyBackupPlugin" not in names/);
+ assert.match(py,/\{"GameverseRewardedAdsPlugin", "AlchemyBackupPlugin", "AlchemyBillingPlugin"\} <= set\(names\)/);
  for(const wf of ['.github/workflows/android-debug.yml','.github/workflows/qa-android-preview.yml']){
   const y=src(wf);
   const edge=y.indexOf('configure-android-edge-to-edge.py'),ads=y.indexOf('configure-android-admob.py');
@@ -29,8 +29,8 @@ test('Android builds package the AdMob test configuration',()=>{
 });
 test('every paid action still requires {earned:true} from the native bridge',()=>{
  const app=src('client/src/app.js');
- for(const kind of ['mode_switch','merge_to_classic','recipe','batch_family'])assert.match(app,new RegExp(`showRewarded\\(\\{kind:'${kind}'`));
- assert.equal((app.match(/earned!==true/g)||[]).length,4);
+ for(const kind of ['mode_switch','merge_to_classic','merge_to_families','recipe','batch_family'])assert.match(app,new RegExp(`showRewarded\\(\\{kind:'${kind}'`));
+ assert.equal((app.match(/earned!==true/g)||[]).length,5);
  assert.match(app,/cap\.Plugins\?\.GameverseRewardedAds/);
  assert.match(app,/id="settingsPrivacyAds"/);
 });

@@ -1,0 +1,1582 @@
+{
+ "starters": [
+  "pack:anime",
+  "pack:manga",
+  "legacy:118",
+  "legacy:5"
+ ],
+ "addMembers": [
+  "pack:anime",
+  "legacy:118",
+  "pack:shonen",
+  "legacy:5",
+  "pack:superpower",
+  "pack:manga",
+  "pack:antihero",
+  "pack:spirit",
+  "pack:ki",
+  "pack:friend",
+  "pack:rival",
+  "pack:shonen-jump",
+  "pack:anime-film",
+  "legacy:125",
+  "pack:dark-magic",
+  "pack:transformation",
+  "pack:magic-anime",
+  "pack:dark-hero",
+  "legacy:119",
+  "pack:supervillain",
+  "pack:seinen",
+  "pack:soul",
+  "pack:ghost",
+  "legacy:555",
+  "pack:curse",
+  "pack:cursed-energy",
+  "pack:god",
+  "pack:angel",
+  "pack:legend",
+  "pack:martial-arts",
+  "pack:martial-artist",
+  "pack:sensei",
+  "pack:mentor",
+  "legacy:52",
+  "legacy:53",
+  "pack:wizard",
+  "pack:alchemist",
+  "pack:team",
+  "pack:romance",
+  "pack:family",
+  "pack:superhero-team",
+  "legacy:159",
+  "pack:leader",
+  "pack:prince",
+  "legacy:120",
+  "pack:magic-girl",
+  "pack:witch",
+  "pack:psychic",
+  "pack:shapeshifter",
+  "legacy:121",
+  "legacy:122",
+  "pack:giant",
+  "pack:titan",
+  "legacy:26",
+  "legacy:199",
+  "legacy:566",
+  "legacy:556",
+  "legacy:64",
+  "legacy:567",
+  "legacy:545",
+  "pack:assassin",
+  "legacy:126",
+  "legacy:650",
+  "pack:notebook",
+  "pack:comic-book",
+  "legacy:124",
+  "legacy:123",
+  "legacy:609",
+  "pack:pilot",
+  "legacy:186",
+  "legacy:547",
+  "pack:adventure-guild",
+  "pack:space-opera",
+  "pack:power-level",
+  "legacy:193",
+  "legacy:189",
+  "pack:fire-magic",
+  "pack:lightning-magic",
+  "pack:wind-magic",
+  "pack:earth-magic",
+  "pack:ice-magic",
+  "pack:water-magic",
+  "pack:fantasy-anime",
+  "pack:dark-fantasy",
+  "pack:isekai",
+  "pack:battle-anime",
+  "pack:horror-anime",
+  "pack:mecha-anime",
+  "pack:sports-anime",
+  "pack:magical-girl-anime",
+  "legacy:740",
+  "pack:actor",
+  "pack:live-action",
+  "legacy:649",
+  "pack:tv-series",
+  "pack:star-wars",
+  "pack:harry-potter",
+  "pack:fantasy-film",
+  "pack:the-lord-of-the-rings",
+  "pack:digital-world",
+  "pack:the-matrix",
+  "pack:jurassic-park",
+  "pack:time-machine",
+  "pack:back-to-the-future",
+  "pack:time-travel",
+  "pack:doctor-who",
+  "pack:superhero-film",
+  "pack:the-avengers",
+  "pack:batman",
+  "pack:superman",
+  "pack:ghostbusters",
+  "pack:pirates-of-the-caribbean",
+  "pack:indiana-jones",
+  "legacy:627",
+  "pack:toy-story",
+  "pack:the-lion-king",
+  "pack:frozen",
+  "pack:horror-film",
+  "pack:wednesday",
+  "pack:stranger-things",
+  "pack:breaking-bad",
+  "pack:saiyan",
+  "pack:super-saiyan",
+  "pack:god-ki",
+  "pack:ultra-instinct",
+  "pack:fusion",
+  "pack:chakra",
+  "pack:jutsu",
+  "pack:hokage",
+  "pack:sharingan",
+  "pack:byakugan",
+  "pack:rinnegan",
+  "pack:sage-mode",
+  "pack:shadow-clone",
+  "pack:chidori",
+  "pack:susanoo",
+  "pack:devil-fruit",
+  "pack:haki",
+  "pack:gear-fourth",
+  "pack:gear-fifth",
+  "pack:zanpakuto",
+  "pack:shinigami",
+  "pack:soul-reaper",
+  "pack:bankai",
+  "pack:hollow",
+  "pack:attack-titan",
+  "pack:founding-titan",
+  "pack:water-breathing",
+  "pack:thunder-breathing",
+  "pack:flame-breathing",
+  "pack:sun-breathing",
+  "pack:domain-expansion",
+  "pack:ten-shadows",
+  "pack:one-for-all",
+  "pack:pokemon-trainer",
+  "pack:poke-ball",
+  "pack:evolution-stone",
+  "pack:philosopher-stone",
+  "pack:automail",
+  "pack:evangelion-unit-01",
+  "pack:chainsaw-devil",
+  "pack:stand-power",
+  "pack:star-platinum",
+  "pack:the-world",
+  "pack:nen",
+  "pack:moon-prism",
+  "pack:grimoire",
+  "pack:shadow-monarch"
+ ],
+ "recipes": [
+  [
+   "legacy:5",
+   "pack:manga",
+   "pack:spirit"
+  ],
+  [
+   "pack:anime",
+   "legacy:5",
+   "pack:ki"
+  ],
+  [
+   "legacy:118",
+   "legacy:118",
+   "pack:friend"
+  ],
+  [
+   "legacy:118",
+   "pack:shonen",
+   "pack:rival"
+  ],
+  [
+   "pack:anime",
+   "pack:anime",
+   "pack:anime-film"
+  ],
+  [
+   "pack:spirit",
+   "legacy:5",
+   "legacy:125"
+  ],
+  [
+   "pack:rival",
+   "pack:dark-magic",
+   "legacy:119"
+  ],
+  [
+   "pack:anime",
+   "pack:antihero",
+   "pack:seinen"
+  ],
+  [
+   "pack:spirit",
+   "legacy:118",
+   "pack:soul"
+  ],
+  [
+   "pack:spirit",
+   "pack:dark-magic",
+   "pack:ghost"
+  ],
+  [
+   "legacy:119",
+   "pack:spirit",
+   "legacy:555"
+  ],
+  [
+   "pack:dark-magic",
+   "pack:soul",
+   "pack:curse"
+  ],
+  [
+   "pack:superpower",
+   "pack:spirit",
+   "pack:god"
+  ],
+  [
+   "pack:god",
+   "pack:spirit",
+   "pack:angel"
+  ],
+  [
+   "legacy:118",
+   "pack:god",
+   "pack:legend"
+  ],
+  [
+   "legacy:118",
+   "pack:ki",
+   "pack:martial-arts"
+  ],
+  [
+   "pack:martial-arts",
+   "legacy:118",
+   "pack:martial-artist"
+  ],
+  [
+   "pack:martial-arts",
+   "pack:ki",
+   "pack:sensei"
+  ],
+  [
+   "pack:sensei",
+   "legacy:118",
+   "pack:mentor"
+  ],
+  [
+   "pack:mentor",
+   "pack:manga",
+   "legacy:52"
+  ],
+  [
+   "pack:friend",
+   "pack:friend",
+   "pack:team"
+  ],
+  [
+   "pack:friend",
+   "legacy:118",
+   "pack:romance"
+  ],
+  [
+   "pack:romance",
+   "pack:romance",
+   "pack:family"
+  ],
+  [
+   "pack:team",
+   "legacy:159",
+   "pack:leader"
+  ],
+  [
+   "pack:leader",
+   "pack:family",
+   "pack:prince"
+  ],
+  [
+   "pack:prince",
+   "pack:romance",
+   "legacy:120"
+  ],
+  [
+   "pack:dark-magic",
+   "pack:magic-girl",
+   "pack:witch"
+  ],
+  [
+   "pack:spirit",
+   "pack:ki",
+   "pack:psychic"
+  ],
+  [
+   "pack:transformation",
+   "pack:transformation",
+   "pack:shapeshifter"
+  ],
+  [
+   "legacy:555",
+   "pack:transformation",
+   "legacy:121"
+  ],
+  [
+   "legacy:121",
+   "legacy:125",
+   "legacy:122"
+  ],
+  [
+   "pack:transformation",
+   "pack:superpower",
+   "pack:giant"
+  ],
+  [
+   "legacy:121",
+   "pack:friend",
+   "legacy:26"
+  ],
+  [
+   "legacy:52",
+   "pack:martial-arts",
+   "legacy:159"
+  ],
+  [
+   "legacy:159",
+   "legacy:52",
+   "legacy:556"
+  ],
+  [
+   "pack:martial-artist",
+   "legacy:64",
+   "legacy:567"
+  ],
+  [
+   "legacy:567",
+   "pack:martial-arts",
+   "legacy:545"
+  ],
+  [
+   "legacy:566",
+   "legacy:119",
+   "pack:assassin"
+  ],
+  [
+   "pack:legend",
+   "legacy:52",
+   "legacy:64"
+  ],
+  [
+   "pack:manga",
+   "pack:manga",
+   "pack:notebook"
+  ],
+  [
+   "legacy:650",
+   "pack:notebook",
+   "pack:comic-book"
+  ],
+  [
+   "legacy:126",
+   "legacy:121",
+   "legacy:124"
+  ],
+  [
+   "legacy:53",
+   "legacy:118",
+   "legacy:123"
+  ],
+  [
+   "legacy:609",
+   "legacy:118",
+   "pack:pilot"
+  ],
+  [
+   "pack:shonen",
+   "pack:friend",
+   "legacy:186"
+  ],
+  [
+   "pack:antihero",
+   "legacy:186",
+   "legacy:547"
+  ],
+  [
+   "legacy:126",
+   "legacy:186",
+   "pack:space-opera"
+  ],
+  [
+   "pack:ki",
+   "legacy:53",
+   "pack:power-level"
+  ],
+  [
+   "legacy:186",
+   "pack:power-level",
+   "legacy:193"
+  ],
+  [
+   "pack:team",
+   "pack:rival",
+   "legacy:189"
+  ],
+  [
+   "legacy:125",
+   "legacy:5",
+   "pack:fire-magic"
+  ],
+  [
+   "legacy:125",
+   "pack:ki",
+   "pack:lightning-magic"
+  ],
+  [
+   "legacy:125",
+   "pack:spirit",
+   "pack:wind-magic"
+  ],
+  [
+   "legacy:125",
+   "pack:giant",
+   "pack:earth-magic"
+  ],
+  [
+   "legacy:125",
+   "pack:ghost",
+   "pack:ice-magic"
+  ],
+  [
+   "pack:ice-magic",
+   "pack:fire-magic",
+   "pack:water-magic"
+  ],
+  [
+   "pack:anime",
+   "pack:wizard",
+   "pack:fantasy-anime"
+  ],
+  [
+   "pack:fantasy-anime",
+   "pack:dark-magic",
+   "pack:dark-fantasy"
+  ],
+  [
+   "pack:fantasy-anime",
+   "legacy:118",
+   "pack:isekai"
+  ],
+  [
+   "pack:anime",
+   "pack:martial-arts",
+   "pack:battle-anime"
+  ],
+  [
+   "pack:anime",
+   "pack:ghost",
+   "pack:horror-anime"
+  ],
+  [
+   "pack:sports-anime",
+   "pack:rival",
+   "pack:blue-lock"
+  ],
+  [
+   "legacy:121",
+   "pack:anime",
+   "legacy:740"
+  ],
+  [
+   "legacy:118",
+   "pack:anime-film",
+   "pack:actor"
+  ],
+  [
+   "pack:manga",
+   "pack:actor",
+   "pack:live-action"
+  ],
+  [
+   "pack:live-action",
+   "pack:anime-film",
+   "legacy:649"
+  ],
+  [
+   "pack:anime",
+   "pack:live-action",
+   "pack:tv-series"
+  ],
+  [
+   "legacy:649",
+   "pack:fantasy-anime",
+   "pack:fantasy-film"
+  ],
+  [
+   "pack:isekai",
+   "legacy:126",
+   "pack:digital-world"
+  ],
+  [
+   "legacy:649",
+   "legacy:121",
+   "pack:jurassic-park"
+  ],
+  [
+   "legacy:126",
+   "legacy:123",
+   "pack:time-machine"
+  ],
+  [
+   "pack:time-machine",
+   "legacy:118",
+   "pack:time-travel"
+  ],
+  [
+   "legacy:650",
+   "legacy:124",
+   "pack:superman"
+  ],
+  [
+   "legacy:650",
+   "legacy:26",
+   "pack:spider-man"
+  ],
+  [
+   "legacy:649",
+   "legacy:547",
+   "pack:pirates-of-the-caribbean"
+  ],
+  [
+   "legacy:649",
+   "legacy:186",
+   "pack:indiana-jones"
+  ],
+  [
+   "pack:anime",
+   "pack:comic-book",
+   "legacy:627"
+  ],
+  [
+   "legacy:649",
+   "legacy:627",
+   "pack:toy-story"
+  ],
+  [
+   "legacy:649",
+   "pack:ice-magic",
+   "pack:frozen"
+  ],
+  [
+   "legacy:649",
+   "pack:horror-anime",
+   "pack:horror-film"
+  ],
+  [
+   "pack:tv-series",
+   "legacy:53",
+   "pack:breaking-bad"
+  ],
+  [
+   "pack:dragon-ball",
+   "legacy:124",
+   "pack:saiyan"
+  ],
+  [
+   "pack:god-ki",
+   "pack:martial-arts",
+   "pack:ultra-instinct"
+  ],
+  [
+   "pack:transformation",
+   "pack:friend",
+   "pack:fusion"
+  ],
+  [
+   "legacy:566",
+   "pack:leader",
+   "pack:hokage"
+  ],
+  [
+   "pack:naruto",
+   "pack:superpower",
+   "pack:sharingan"
+  ],
+  [
+   "pack:naruto",
+   "pack:psychic",
+   "pack:byakugan"
+  ],
+  [
+   "pack:sharingan",
+   "pack:god",
+   "pack:rinnegan"
+  ],
+  [
+   "pack:chakra",
+   "pack:sensei",
+   "pack:sage-mode"
+  ],
+  [
+   "pack:jutsu",
+   "pack:jutsu",
+   "pack:shadow-clone"
+  ],
+  [
+   "pack:jutsu",
+   "pack:lightning-magic",
+   "pack:chidori"
+  ],
+  [
+   "pack:sharingan",
+   "pack:giant",
+   "pack:susanoo"
+  ],
+  [
+   "pack:one-piece",
+   "legacy:555",
+   "pack:devil-fruit"
+  ],
+  [
+   "pack:one-piece",
+   "pack:ki",
+   "pack:haki"
+  ],
+  [
+   "pack:gear-second",
+   "pack:power-level",
+   "pack:gear-fourth"
+  ],
+  [
+   "pack:gear-fourth",
+   "pack:god",
+   "pack:gear-fifth"
+  ],
+  [
+   "pack:bleach",
+   "pack:shinigami",
+   "pack:soul-reaper"
+  ],
+  [
+   "pack:zanpakuto",
+   "pack:power-level",
+   "pack:bankai"
+  ],
+  [
+   "pack:soul",
+   "legacy:121",
+   "pack:hollow"
+  ],
+  [
+   "pack:titan",
+   "pack:transformation",
+   "pack:attack-titan"
+  ],
+  [
+   "pack:titan",
+   "pack:god",
+   "pack:founding-titan"
+  ],
+  [
+   "pack:demon-slayer",
+   "pack:water-magic",
+   "pack:water-breathing"
+  ],
+  [
+   "pack:demon-slayer",
+   "pack:lightning-magic",
+   "pack:thunder-breathing"
+  ],
+  [
+   "pack:demon-slayer",
+   "pack:fire-magic",
+   "pack:flame-breathing"
+  ],
+  [
+   "pack:flame-breathing",
+   "pack:legend",
+   "pack:sun-breathing"
+  ],
+  [
+   "pack:cursed-energy",
+   "pack:power-level",
+   "pack:domain-expansion"
+  ],
+  [
+   "pack:cursed-energy",
+   "pack:dark-magic",
+   "pack:ten-shadows"
+  ],
+  [
+   "pack:quirk",
+   "pack:mentor",
+   "pack:one-for-all"
+  ],
+  [
+   "pack:pokemon-trainer",
+   "legacy:53",
+   "pack:poke-ball"
+  ],
+  [
+   "legacy:740",
+   "pack:sensei",
+   "pack:pokemon-trainer"
+  ],
+  [
+   "legacy:740",
+   "pack:power-level",
+   "pack:evolution-stone"
+  ],
+  [
+   "pack:alchemist",
+   "pack:soul",
+   "pack:philosopher-stone"
+  ],
+  [
+   "legacy:123",
+   "pack:alchemist",
+   "pack:automail"
+  ],
+  [
+   "pack:ghost",
+   "pack:god",
+   "pack:shinigami"
+  ],
+  [
+   "pack:chainsaw-man",
+   "legacy:555",
+   "pack:chainsaw-devil"
+  ],
+  [
+   "pack:stand-power",
+   "legacy:118",
+   "pack:star-platinum"
+  ],
+  [
+   "pack:stand-power",
+   "legacy:119",
+   "pack:the-world"
+  ],
+  [
+   "pack:sailor-moon",
+   "legacy:125",
+   "pack:moon-prism"
+  ],
+  [
+   "legacy:125",
+   "pack:notebook",
+   "pack:grimoire"
+  ],
+  [
+   "pack:solo-leveling",
+   "pack:dark-magic",
+   "pack:shadow-monarch"
+  ]
+ ],
+ "misfiled": [
+  {
+   "id": "pack:luke-skywalker",
+   "to": "cinema",
+   "reason": "Live-action film/TV character (Star Wars), not anime or manga"
+  },
+  {
+   "id": "pack:darth-vader",
+   "to": "cinema",
+   "reason": "Live-action film/TV character (Star Wars), not anime or manga"
+  },
+  {
+   "id": "pack:leia-organa",
+   "to": "cinema",
+   "reason": "Live-action film/TV character (Star Wars), not anime or manga"
+  },
+  {
+   "id": "pack:han-solo",
+   "to": "cinema",
+   "reason": "Live-action film/TV character (Star Wars), not anime or manga"
+  },
+  {
+   "id": "pack:obi-wan-kenobi",
+   "to": "cinema",
+   "reason": "Live-action film/TV character (Star Wars), not anime or manga"
+  },
+  {
+   "id": "pack:yoda",
+   "to": "cinema",
+   "reason": "Live-action film/TV character (Star Wars), not anime or manga"
+  },
+  {
+   "id": "pack:chewbacca",
+   "to": "cinema",
+   "reason": "Live-action film/TV character (Star Wars), not anime or manga"
+  },
+  {
+   "id": "pack:r2-d2",
+   "to": "cinema",
+   "reason": "Live-action film/TV character (Star Wars), not anime or manga"
+  },
+  {
+   "id": "pack:c-3po",
+   "to": "cinema",
+   "reason": "Live-action film/TV character (Star Wars), not anime or manga"
+  },
+  {
+   "id": "pack:rey",
+   "to": "cinema",
+   "reason": "Live-action film/TV character (Star Wars), not anime or manga"
+  },
+  {
+   "id": "pack:kylo-ren",
+   "to": "cinema",
+   "reason": "Live-action film/TV character (Star Wars), not anime or manga"
+  },
+  {
+   "id": "pack:palpatine",
+   "to": "cinema",
+   "reason": "Live-action film/TV character (Star Wars), not anime or manga"
+  },
+  {
+   "id": "pack:boba-fett",
+   "to": "cinema",
+   "reason": "Live-action film/TV character (Star Wars), not anime or manga"
+  },
+  {
+   "id": "pack:ahsoka-tano",
+   "to": "cinema",
+   "reason": "Live-action film/TV character (Star Wars), not anime or manga"
+  },
+  {
+   "id": "pack:mandalorian",
+   "to": "cinema",
+   "reason": "Live-action film/TV character (Star Wars), not anime or manga"
+  },
+  {
+   "id": "pack:hermione-granger",
+   "to": "cinema",
+   "reason": "Live-action film/TV character (Harry Potter), not anime or manga"
+  },
+  {
+   "id": "pack:ron-weasley",
+   "to": "cinema",
+   "reason": "Live-action film/TV character (Harry Potter), not anime or manga"
+  },
+  {
+   "id": "pack:albus-dumbledore",
+   "to": "cinema",
+   "reason": "Live-action film/TV character (Harry Potter), not anime or manga"
+  },
+  {
+   "id": "pack:lord-voldemort",
+   "to": "cinema",
+   "reason": "Live-action film/TV character (Harry Potter), not anime or manga"
+  },
+  {
+   "id": "pack:severus-snape",
+   "to": "cinema",
+   "reason": "Live-action film/TV character (Harry Potter), not anime or manga"
+  },
+  {
+   "id": "pack:draco-malfoy",
+   "to": "cinema",
+   "reason": "Live-action film/TV character (Harry Potter), not anime or manga"
+  },
+  {
+   "id": "pack:rubeus-hagrid",
+   "to": "cinema",
+   "reason": "Live-action film/TV character (Harry Potter), not anime or manga"
+  },
+  {
+   "id": "pack:luna-lovegood",
+   "to": "cinema",
+   "reason": "Live-action film/TV character (Harry Potter), not anime or manga"
+  },
+  {
+   "id": "pack:sirius-black",
+   "to": "cinema",
+   "reason": "Live-action film/TV character (Harry Potter), not anime or manga"
+  },
+  {
+   "id": "pack:bellatrix-lestrange",
+   "to": "cinema",
+   "reason": "Live-action film/TV character (Harry Potter), not anime or manga"
+  },
+  {
+   "id": "pack:dobby",
+   "to": "cinema",
+   "reason": "Live-action film/TV character (Harry Potter), not anime or manga"
+  },
+  {
+   "id": "pack:frodo-baggins",
+   "to": "cinema",
+   "reason": "Live-action film/TV character (The Lord of the Rings), not anime or manga"
+  },
+  {
+   "id": "pack:samwise-gamgee",
+   "to": "cinema",
+   "reason": "Live-action film/TV character (The Lord of the Rings), not anime or manga"
+  },
+  {
+   "id": "pack:gandalf",
+   "to": "cinema",
+   "reason": "Live-action film/TV character (The Lord of the Rings), not anime or manga"
+  },
+  {
+   "id": "pack:aragorn",
+   "to": "cinema",
+   "reason": "Live-action film/TV character (The Lord of the Rings), not anime or manga"
+  },
+  {
+   "id": "pack:legolas",
+   "to": "cinema",
+   "reason": "Live-action film/TV character (The Lord of the Rings), not anime or manga"
+  },
+  {
+   "id": "pack:gimli",
+   "to": "cinema",
+   "reason": "Live-action film/TV character (The Lord of the Rings), not anime or manga"
+  },
+  {
+   "id": "pack:gollum",
+   "to": "cinema",
+   "reason": "Live-action film/TV character (The Lord of the Rings), not anime or manga"
+  },
+  {
+   "id": "pack:sauron",
+   "to": "cinema",
+   "reason": "Live-action film/TV character (The Lord of the Rings), not anime or manga"
+  },
+  {
+   "id": "pack:saruman",
+   "to": "cinema",
+   "reason": "Live-action film/TV character (The Lord of the Rings), not anime or manga"
+  },
+  {
+   "id": "pack:galadriel",
+   "to": "cinema",
+   "reason": "Live-action film/TV character (The Lord of the Rings), not anime or manga"
+  },
+  {
+   "id": "pack:boromir",
+   "to": "cinema",
+   "reason": "Live-action film/TV character (The Lord of the Rings), not anime or manga"
+  },
+  {
+   "id": "pack:bilbo-baggins",
+   "to": "cinema",
+   "reason": "Live-action film/TV character (The Lord of the Rings), not anime or manga"
+  },
+  {
+   "id": "pack:neo",
+   "to": "cinema",
+   "reason": "Live-action film/TV character (The Matrix), not anime or manga"
+  },
+  {
+   "id": "pack:trinity",
+   "to": "cinema",
+   "reason": "Live-action film/TV character (The Matrix), not anime or manga"
+  },
+  {
+   "id": "pack:morpheus",
+   "to": "cinema",
+   "reason": "Live-action film/TV character (The Matrix), not anime or manga"
+  },
+  {
+   "id": "pack:agent-smith",
+   "to": "cinema",
+   "reason": "Live-action film/TV character (The Matrix), not anime or manga"
+  },
+  {
+   "id": "pack:the-oracle",
+   "to": "cinema",
+   "reason": "Live-action film/TV character (The Matrix), not anime or manga"
+  },
+  {
+   "id": "pack:niobe",
+   "to": "cinema",
+   "reason": "Live-action film/TV character (The Matrix), not anime or manga"
+  },
+  {
+   "id": "pack:the-architect",
+   "to": "cinema",
+   "reason": "Live-action film/TV character (The Matrix), not anime or manga"
+  },
+  {
+   "id": "pack:merovingian",
+   "to": "cinema",
+   "reason": "Live-action film/TV character (The Matrix), not anime or manga"
+  },
+  {
+   "id": "pack:alan-grant",
+   "to": "cinema",
+   "reason": "Live-action film/TV character (Jurassic Park), not anime or manga"
+  },
+  {
+   "id": "pack:ellie-sattler",
+   "to": "cinema",
+   "reason": "Live-action film/TV character (Jurassic Park), not anime or manga"
+  },
+  {
+   "id": "pack:ian-malcolm",
+   "to": "cinema",
+   "reason": "Live-action film/TV character (Jurassic Park), not anime or manga"
+  },
+  {
+   "id": "pack:john-hammond",
+   "to": "cinema",
+   "reason": "Live-action film/TV character (Jurassic Park), not anime or manga"
+  },
+  {
+   "id": "pack:robert-muldoon",
+   "to": "cinema",
+   "reason": "Live-action film/TV character (Jurassic Park), not anime or manga"
+  },
+  {
+   "id": "pack:dennis-nedry",
+   "to": "cinema",
+   "reason": "Live-action film/TV character (Jurassic Park), not anime or manga"
+  },
+  {
+   "id": "pack:marty-mcfly",
+   "to": "cinema",
+   "reason": "Live-action film/TV character (Back to the Future), not anime or manga"
+  },
+  {
+   "id": "pack:doc-brown",
+   "to": "cinema",
+   "reason": "Live-action film/TV character (Back to the Future), not anime or manga"
+  },
+  {
+   "id": "pack:biff-tannen",
+   "to": "cinema",
+   "reason": "Live-action film/TV character (Back to the Future), not anime or manga"
+  },
+  {
+   "id": "pack:jennifer-parker",
+   "to": "cinema",
+   "reason": "Live-action film/TV character (Back to the Future), not anime or manga"
+  },
+  {
+   "id": "pack:george-mcfly",
+   "to": "cinema",
+   "reason": "Live-action film/TV character (Back to the Future), not anime or manga"
+  },
+  {
+   "id": "pack:lorraine-baines",
+   "to": "cinema",
+   "reason": "Live-action film/TV character (Back to the Future), not anime or manga"
+  },
+  {
+   "id": "pack:iron-man",
+   "to": "cinema",
+   "reason": "Live-action film/TV character (The Avengers), not anime or manga"
+  },
+  {
+   "id": "pack:captain-america",
+   "to": "cinema",
+   "reason": "Live-action film/TV character (The Avengers), not anime or manga"
+  },
+  {
+   "id": "pack:thor",
+   "to": "cinema",
+   "reason": "Live-action film/TV character (The Avengers), not anime or manga"
+  },
+  {
+   "id": "pack:hulk",
+   "to": "cinema",
+   "reason": "Live-action film/TV character (The Avengers), not anime or manga"
+  },
+  {
+   "id": "pack:black-widow",
+   "to": "cinema",
+   "reason": "Live-action film/TV character (The Avengers), not anime or manga"
+  },
+  {
+   "id": "pack:hawkeye",
+   "to": "cinema",
+   "reason": "Live-action film/TV character (The Avengers), not anime or manga"
+  },
+  {
+   "id": "pack:loki",
+   "to": "cinema",
+   "reason": "Live-action film/TV character (The Avengers), not anime or manga"
+  },
+  {
+   "id": "pack:nick-fury",
+   "to": "cinema",
+   "reason": "Live-action film/TV character (The Avengers), not anime or manga"
+  },
+  {
+   "id": "pack:doctor-strange",
+   "to": "cinema",
+   "reason": "Live-action film/TV character (The Avengers), not anime or manga"
+  },
+  {
+   "id": "pack:scarlet-witch",
+   "to": "cinema",
+   "reason": "Live-action film/TV character (The Avengers), not anime or manga"
+  },
+  {
+   "id": "pack:black-panther",
+   "to": "cinema",
+   "reason": "Live-action film/TV character (The Avengers), not anime or manga"
+  },
+  {
+   "id": "pack:ant-man",
+   "to": "cinema",
+   "reason": "Live-action film/TV character (The Avengers), not anime or manga"
+  },
+  {
+   "id": "pack:bruce-wayne",
+   "to": "cinema",
+   "reason": "Live-action film/TV character (Batman), not anime or manga"
+  },
+  {
+   "id": "pack:joker",
+   "to": "cinema",
+   "reason": "Live-action film/TV character (Batman), not anime or manga"
+  },
+  {
+   "id": "pack:alfred-pennyworth",
+   "to": "cinema",
+   "reason": "Live-action film/TV character (Batman), not anime or manga"
+  },
+  {
+   "id": "pack:robin",
+   "to": "cinema",
+   "reason": "Live-action film/TV character (Batman), not anime or manga"
+  },
+  {
+   "id": "pack:catwoman",
+   "to": "cinema",
+   "reason": "Live-action film/TV character (Batman), not anime or manga"
+  },
+  {
+   "id": "pack:harley-quinn",
+   "to": "cinema",
+   "reason": "Live-action film/TV character (Batman), not anime or manga"
+  },
+  {
+   "id": "pack:bane",
+   "to": "cinema",
+   "reason": "Live-action film/TV character (Batman), not anime or manga"
+  },
+  {
+   "id": "pack:riddler",
+   "to": "cinema",
+   "reason": "Live-action film/TV character (Batman), not anime or manga"
+  },
+  {
+   "id": "pack:penguin",
+   "to": "cinema",
+   "reason": "Live-action film/TV character (Batman), not anime or manga"
+  },
+  {
+   "id": "pack:two-face",
+   "to": "cinema",
+   "reason": "Live-action film/TV character (Batman), not anime or manga"
+  },
+  {
+   "id": "pack:clark-kent",
+   "to": "cinema",
+   "reason": "Live-action film/TV character (Superman), not anime or manga"
+  },
+  {
+   "id": "pack:lois-lane",
+   "to": "cinema",
+   "reason": "Live-action film/TV character (Superman), not anime or manga"
+  },
+  {
+   "id": "pack:lex-luthor",
+   "to": "cinema",
+   "reason": "Live-action film/TV character (Superman), not anime or manga"
+  },
+  {
+   "id": "pack:general-zod",
+   "to": "cinema",
+   "reason": "Live-action film/TV character (Superman), not anime or manga"
+  },
+  {
+   "id": "pack:supergirl",
+   "to": "cinema",
+   "reason": "Live-action film/TV character (Superman), not anime or manga"
+  },
+  {
+   "id": "pack:krypto",
+   "to": "cinema",
+   "reason": "Live-action film/TV character (Superman), not anime or manga"
+  },
+  {
+   "id": "pack:jimmy-olsen",
+   "to": "cinema",
+   "reason": "Live-action film/TV character (Superman), not anime or manga"
+  },
+  {
+   "id": "pack:peter-parker",
+   "to": "cinema",
+   "reason": "Live-action film/TV character (Spider-Man), not anime or manga"
+  },
+  {
+   "id": "pack:mary-jane-watson",
+   "to": "cinema",
+   "reason": "Live-action film/TV character (Spider-Man), not anime or manga"
+  },
+  {
+   "id": "pack:aunt-may",
+   "to": "cinema",
+   "reason": "Live-action film/TV character (Spider-Man), not anime or manga"
+  },
+  {
+   "id": "pack:green-goblin",
+   "to": "cinema",
+   "reason": "Live-action film/TV character (Spider-Man), not anime or manga"
+  },
+  {
+   "id": "pack:doctor-octopus",
+   "to": "cinema",
+   "reason": "Live-action film/TV character (Spider-Man), not anime or manga"
+  },
+  {
+   "id": "pack:venom",
+   "to": "cinema",
+   "reason": "Live-action film/TV character (Spider-Man), not anime or manga"
+  },
+  {
+   "id": "pack:miles-morales",
+   "to": "cinema",
+   "reason": "Live-action film/TV character (Spider-Man), not anime or manga"
+  },
+  {
+   "id": "pack:gwen-stacy",
+   "to": "cinema",
+   "reason": "Live-action film/TV character (Spider-Man), not anime or manga"
+  },
+  {
+   "id": "pack:j-jonah-jameson",
+   "to": "cinema",
+   "reason": "Live-action film/TV character (Spider-Man), not anime or manga"
+  },
+  {
+   "id": "pack:peter-venkman",
+   "to": "cinema",
+   "reason": "Live-action film/TV character (Ghostbusters), not anime or manga"
+  },
+  {
+   "id": "pack:ray-stantz",
+   "to": "cinema",
+   "reason": "Live-action film/TV character (Ghostbusters), not anime or manga"
+  },
+  {
+   "id": "pack:egon-spengler",
+   "to": "cinema",
+   "reason": "Live-action film/TV character (Ghostbusters), not anime or manga"
+  },
+  {
+   "id": "pack:winston-zeddemore",
+   "to": "cinema",
+   "reason": "Live-action film/TV character (Ghostbusters), not anime or manga"
+  },
+  {
+   "id": "pack:dana-barrett",
+   "to": "cinema",
+   "reason": "Live-action film/TV character (Ghostbusters), not anime or manga"
+  },
+  {
+   "id": "pack:slimer",
+   "to": "cinema",
+   "reason": "Live-action film/TV character (Ghostbusters), not anime or manga"
+  },
+  {
+   "id": "pack:jack-sparrow",
+   "to": "cinema",
+   "reason": "Live-action film/TV character (Pirates of the Caribbean), not anime or manga"
+  },
+  {
+   "id": "pack:will-turner",
+   "to": "cinema",
+   "reason": "Live-action film/TV character (Pirates of the Caribbean), not anime or manga"
+  },
+  {
+   "id": "pack:elizabeth-swann",
+   "to": "cinema",
+   "reason": "Live-action film/TV character (Pirates of the Caribbean), not anime or manga"
+  },
+  {
+   "id": "pack:davy-jones",
+   "to": "cinema",
+   "reason": "Live-action film/TV character (Pirates of the Caribbean), not anime or manga"
+  },
+  {
+   "id": "pack:hector-barbossa",
+   "to": "cinema",
+   "reason": "Live-action film/TV character (Pirates of the Caribbean), not anime or manga"
+  },
+  {
+   "id": "pack:cutler-beckett",
+   "to": "cinema",
+   "reason": "Live-action film/TV character (Pirates of the Caribbean), not anime or manga"
+  },
+  {
+   "id": "pack:tia-dalma",
+   "to": "cinema",
+   "reason": "Live-action film/TV character (Pirates of the Caribbean), not anime or manga"
+  },
+  {
+   "id": "pack:marion-ravenwood",
+   "to": "cinema",
+   "reason": "Live-action film/TV character (Indiana Jones), not anime or manga"
+  },
+  {
+   "id": "pack:henry-jones-sr",
+   "to": "cinema",
+   "reason": "Live-action film/TV character (Indiana Jones), not anime or manga"
+  },
+  {
+   "id": "pack:short-round",
+   "to": "cinema",
+   "reason": "Live-action film/TV character (Indiana Jones), not anime or manga"
+  },
+  {
+   "id": "pack:belloq",
+   "to": "cinema",
+   "reason": "Live-action film/TV character (Indiana Jones), not anime or manga"
+  },
+  {
+   "id": "pack:woody",
+   "to": "cinema",
+   "reason": "Live-action film/TV character (Toy Story), not anime or manga"
+  },
+  {
+   "id": "pack:buzz-lightyear",
+   "to": "cinema",
+   "reason": "Live-action film/TV character (Toy Story), not anime or manga"
+  },
+  {
+   "id": "pack:jessie",
+   "to": "cinema",
+   "reason": "Live-action film/TV character (Toy Story), not anime or manga"
+  },
+  {
+   "id": "pack:rex",
+   "to": "cinema",
+   "reason": "Live-action film/TV character (Toy Story), not anime or manga"
+  },
+  {
+   "id": "pack:bo-peep",
+   "to": "cinema",
+   "reason": "Live-action film/TV character (Toy Story), not anime or manga"
+  },
+  {
+   "id": "pack:lotso",
+   "to": "cinema",
+   "reason": "Live-action film/TV character (Toy Story), not anime or manga"
+  },
+  {
+   "id": "pack:simba",
+   "to": "cinema",
+   "reason": "Live-action film/TV character (The Lion King), not anime or manga"
+  },
+  {
+   "id": "pack:mufasa",
+   "to": "cinema",
+   "reason": "Live-action film/TV character (The Lion King), not anime or manga"
+  },
+  {
+   "id": "pack:nala",
+   "to": "cinema",
+   "reason": "Live-action film/TV character (The Lion King), not anime or manga"
+  },
+  {
+   "id": "pack:timon",
+   "to": "cinema",
+   "reason": "Live-action film/TV character (The Lion King), not anime or manga"
+  },
+  {
+   "id": "pack:pumbaa",
+   "to": "cinema",
+   "reason": "Live-action film/TV character (The Lion King), not anime or manga"
+  },
+  {
+   "id": "pack:rafiki",
+   "to": "cinema",
+   "reason": "Live-action film/TV character (The Lion King), not anime or manga"
+  },
+  {
+   "id": "pack:elsa",
+   "to": "cinema",
+   "reason": "Live-action film/TV character (Frozen), not anime or manga"
+  },
+  {
+   "id": "pack:anna",
+   "to": "cinema",
+   "reason": "Live-action film/TV character (Frozen), not anime or manga"
+  },
+  {
+   "id": "pack:olaf",
+   "to": "cinema",
+   "reason": "Live-action film/TV character (Frozen), not anime or manga"
+  },
+  {
+   "id": "pack:kristoff",
+   "to": "cinema",
+   "reason": "Live-action film/TV character (Frozen), not anime or manga"
+  },
+  {
+   "id": "pack:sven",
+   "to": "cinema",
+   "reason": "Live-action film/TV character (Frozen), not anime or manga"
+  },
+  {
+   "id": "pack:hans",
+   "to": "cinema",
+   "reason": "Live-action film/TV character (Frozen), not anime or manga"
+  },
+  {
+   "id": "pack:eleven",
+   "to": "cinema",
+   "reason": "Live-action film/TV character (Stranger Things), not anime or manga"
+  },
+  {
+   "id": "pack:mike-wheeler",
+   "to": "cinema",
+   "reason": "Live-action film/TV character (Stranger Things), not anime or manga"
+  },
+  {
+   "id": "pack:dustin-henderson",
+   "to": "cinema",
+   "reason": "Live-action film/TV character (Stranger Things), not anime or manga"
+  },
+  {
+   "id": "pack:lucas-sinclair",
+   "to": "cinema",
+   "reason": "Live-action film/TV character (Stranger Things), not anime or manga"
+  },
+  {
+   "id": "pack:will-byers",
+   "to": "cinema",
+   "reason": "Live-action film/TV character (Stranger Things), not anime or manga"
+  },
+  {
+   "id": "pack:max-mayfield",
+   "to": "cinema",
+   "reason": "Live-action film/TV character (Stranger Things), not anime or manga"
+  },
+  {
+   "id": "pack:jim-hopper",
+   "to": "cinema",
+   "reason": "Live-action film/TV character (Stranger Things), not anime or manga"
+  },
+  {
+   "id": "pack:vecna",
+   "to": "cinema",
+   "reason": "Live-action film/TV character (Stranger Things), not anime or manga"
+  },
+  {
+   "id": "pack:steve-harrington",
+   "to": "cinema",
+   "reason": "Live-action film/TV character (Stranger Things), not anime or manga"
+  },
+  {
+   "id": "pack:walter-white",
+   "to": "cinema",
+   "reason": "Live-action film/TV character (Breaking Bad), not anime or manga"
+  },
+  {
+   "id": "pack:jesse-pinkman",
+   "to": "cinema",
+   "reason": "Live-action film/TV character (Breaking Bad), not anime or manga"
+  },
+  {
+   "id": "pack:saul-goodman",
+   "to": "cinema",
+   "reason": "Live-action film/TV character (Breaking Bad), not anime or manga"
+  },
+  {
+   "id": "pack:gus-fring",
+   "to": "cinema",
+   "reason": "Live-action film/TV character (Breaking Bad), not anime or manga"
+  },
+  {
+   "id": "pack:hank-schrader",
+   "to": "cinema",
+   "reason": "Live-action film/TV character (Breaking Bad), not anime or manga"
+  },
+  {
+   "id": "pack:skyler-white",
+   "to": "cinema",
+   "reason": "Live-action film/TV character (Breaking Bad), not anime or manga"
+  },
+  {
+   "id": "pack:the-doctor",
+   "to": "cinema",
+   "reason": "Live-action film/TV character (Doctor Who), not anime or manga"
+  },
+  {
+   "id": "pack:dalek",
+   "to": "cinema",
+   "reason": "Live-action film/TV character (Doctor Who), not anime or manga"
+  },
+  {
+   "id": "pack:cyberman",
+   "to": "cinema",
+   "reason": "Live-action film/TV character (Doctor Who), not anime or manga"
+  },
+  {
+   "id": "pack:the-master",
+   "to": "cinema",
+   "reason": "Live-action film/TV character (Doctor Who), not anime or manga"
+  },
+  {
+   "id": "pack:rose-tyler",
+   "to": "cinema",
+   "reason": "Live-action film/TV character (Doctor Who), not anime or manga"
+  },
+  {
+   "id": "pack:donna-noble",
+   "to": "cinema",
+   "reason": "Live-action film/TV character (Doctor Who), not anime or manga"
+  },
+  {
+   "id": "pack:river-song",
+   "to": "cinema",
+   "reason": "Live-action film/TV character (Doctor Who), not anime or manga"
+  },
+  {
+   "id": "pack:wednesday-addams",
+   "to": "cinema",
+   "reason": "Live-action film/TV character (Wednesday), not anime or manga"
+  },
+  {
+   "id": "pack:enid-sinclair",
+   "to": "cinema",
+   "reason": "Live-action film/TV character (Wednesday), not anime or manga"
+  },
+  {
+   "id": "pack:thing",
+   "to": "cinema",
+   "reason": "Live-action film/TV character (Wednesday), not anime or manga"
+  },
+  {
+   "id": "pack:morticia-addams",
+   "to": "cinema",
+   "reason": "Live-action film/TV character (Wednesday), not anime or manga"
+  },
+  {
+   "id": "pack:gomez-addams",
+   "to": "cinema",
+   "reason": "Live-action film/TV character (Wednesday), not anime or manga"
+  },
+  {
+   "id": "pack:tyler-galpin",
+   "to": "cinema",
+   "reason": "Live-action film/TV character (Wednesday), not anime or manga"
+  },
+  {
+   "id": "pack:spider-man",
+   "to": "cinema",
+   "reason": "Live-action/comic superhero film franchise, not anime or manga"
+  }
+ ]
+}

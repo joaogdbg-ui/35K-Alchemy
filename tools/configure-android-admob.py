@@ -1,6 +1,7 @@
 #!/usr/bin/env python3
 """Add Alchemy 10K native plugins to the generated Capacitor Android project:
-Google Mobile Ads (rewarded, TEST IDs) and the backup share-sheet plugin.
+Google Mobile Ads (rewarded, TEST IDs), the backup share-sheet plugin and
+the Google Play Billing "Remove ads" purchase (product id no_ads).
 
 Run after `npx cap add android && npx cap sync android` and AFTER
 tools/configure-android-edge-to-edge.py (it adds MainActivity.onCreate).
@@ -24,6 +25,7 @@ PACKAGE = "com.joaogdbg.alchemy35k"
 TEST_APP_ID = "ca-app-pub-3940256099942544~3347511713"  # Google sample AdMob app ID
 ADS_DEP = 'implementation "com.google.android.gms:play-services-ads:25.5.0"'
 UMP_DEP = 'implementation "com.google.android.ump:user-messaging-platform:3.2.0"'
+BILLING_DEP = 'implementation "com.android.billingclient:billing:8.0.0"'  # V85 Remove-ads purchase
 
 
 def fail(msg):
@@ -41,7 +43,7 @@ def main():
         fail(f"unexpected package directory {pkg_dir}")
     plugins = sorted((ROOT / "native/android").glob("*Plugin.java"))
     names = [p.stem for p in plugins]
-    if "GameverseRewardedAdsPlugin" not in names or "AlchemyBackupPlugin" not in names:
+    if not {"GameverseRewardedAdsPlugin", "AlchemyBackupPlugin", "AlchemyBillingPlugin"} <= set(names):
         fail(f"missing native plugin sources: {names}")
     for src in plugins:
         shutil.copyfile(src, pkg_dir / src.name)
@@ -49,6 +51,11 @@ def main():
     # 2) Gradle dependencies.
     gradle = app / "build.gradle"
     g = gradle.read_text(encoding="utf-8")
+    if "com.android.billingclient:billing" not in g:
+        g, n = re.subn(r"(?m)^dependencies\s*\{", "dependencies {\n    " + BILLING_DEP, g, count=1)
+        if n != 1:
+            fail("no top-level dependencies block in app/build.gradle")
+        gradle.write_text(g, encoding="utf-8")
     if "play-services-ads" not in g:
         g, n = re.subn(r"(?m)^dependencies\s*\{", "dependencies {\n    " + ADS_DEP + "\n    " + UMP_DEP, g, count=1)
         if n != 1:

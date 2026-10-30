@@ -16,7 +16,7 @@ test('native Android integration is required; a web shim is not an ad provider',
   assert.match(app,/cap\.getPlatform\(\)!=='android'/);
   assert.match(app,/cap\.Plugins\?\.GameverseRewardedAds/);
   assert.doesNotMatch(app,/window\.GameverseRewardedAds/);
-  assert.match(app,/if\(!native\)return \(await offerTimedHint\('unavailable'\)\)&&grantRecipeHint\(elementId\);/);
+  assert.match(app,/if\(!native\)return adFree\(\)\?false:\(await offerTimedHint\('unavailable'\)\)&&grantRecipeHint\(elementId\);/);
 });
 test('failed / cancelled ads never reveal recipes',()=>{
   assert.match(app,/if\(response\?\.earned!==true\)\{toast\('Ad not completed/);

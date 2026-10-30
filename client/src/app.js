@@ -98,9 +98,13 @@ import { GAMEVERSE_ART_V27_VARIANTS } from './gameverse-art-v27-variants.js';
 import { GAMEVERSE_ART_V30_SEMANTIC } from './gameverse-art-v30-semantic.js';
 import { legacyIcon, fallbackIcon, sharedIcon, setIconCatalog } from './icons.js';
 import { resolveLocalRedundancy } from './semantic.js';
-import { FAMILIES, familyFor, familiesFor, groupFamilies, recipesForTarget, candidatesForFamily } from './discoveries.js';
+import { FAMILIES, familyFor, familiesFor, groupFamilies, recipesForTarget, candidatesForFamily, registerFamilyMembership } from './discoveries.js';
 import { FAMILY_CAMPAIGNS } from './family-mode-v53-campaigns.js';
 import { buildThematicCampaigns } from './family-campaigns-v82.js';
+import { buildCompleteFamilyCampaigns } from './family-campaigns-v85.js';
+import { FAMILY_DATA_V85 } from './family-data-v85.js';
+import { ORGANIC_V85 } from './organic-pack-v85.js';
+import { ORGANIC_ART_V85 } from './organic-art-v85.js';
 import { reconcileLegacyFamilies } from './family-compatibility-v82.js';
 import { synchronizeFamilyProfiles, sharedMembership } from './family-shared-v51.js';
 import { eligibleFamilyMerge, mergeIntoClassicState, verifyMergePending } from './family-merge-v60.js';
@@ -109,13 +113,16 @@ const $ = (id) => document.getElementById(id);
 const escapeText = (s) => String(s).replace(/[&<>"']/g, (c) => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
 // V39: the same strict catalog contract runs in the browser, the build and CI.
 // No hidden first-wins recipe collisions or duplicated catalog entries.
-const {items: ITEMS,recipes:classicRecipes} = buildCatalog(DATA,[PACK,GAMING_V22,GAMING_V23,GAMING_V24,GAMING_V26,GAMING_V27,GAMING_V30,ORGANIC_V32,ORGANIC_V34,ORGANIC_V37,ORGANIC_V38,ORGANIC_V40,ORGANIC_V41,ORGANIC_V42,ORGANIC_V43,ORGANIC_V44,ORGANIC_V45,ORGANIC_V46,ORGANIC_V47,ORGANIC_V50,ORGANIC_V52,ORGANIC_V53,ORGANIC_V55,ORGANIC_V56,ORGANIC_V57,ORGANIC_V58,ORGANIC_V59,ORGANIC_V61,ORGANIC_V62,ORGANIC_V63,ORGANIC_V65,ORGANIC_V66,ORGANIC_V67,ORGANIC_V68,ORGANIC_V71,ORGANIC_V72,ORGANIC_V73,ORGANIC_V74,ORGANIC_V75,ORGANIC_V76,ORGANIC_V77,ORGANIC_V78,ORGANIC_V79,ORGANIC_V80,ORGANIC_V81,ORGANIC_V82,ORGANIC_V83]);
+const {items: ITEMS,recipes:classicRecipes} = buildCatalog(DATA,[PACK,GAMING_V22,GAMING_V23,GAMING_V24,GAMING_V26,GAMING_V27,GAMING_V30,ORGANIC_V85,ORGANIC_V32,ORGANIC_V34,ORGANIC_V37,ORGANIC_V38,ORGANIC_V40,ORGANIC_V41,ORGANIC_V42,ORGANIC_V43,ORGANIC_V44,ORGANIC_V45,ORGANIC_V46,ORGANIC_V47,ORGANIC_V50,ORGANIC_V52,ORGANIC_V53,ORGANIC_V55,ORGANIC_V56,ORGANIC_V57,ORGANIC_V58,ORGANIC_V59,ORGANIC_V61,ORGANIC_V62,ORGANIC_V63,ORGANIC_V65,ORGANIC_V66,ORGANIC_V67,ORGANIC_V68,ORGANIC_V71,ORGANIC_V72,ORGANIC_V73,ORGANIC_V74,ORGANIC_V75,ORGANIC_V76,ORGANIC_V77,ORGANIC_V78,ORGANIC_V79,ORGANIC_V80,ORGANIC_V81,ORGANIC_V82,ORGANIC_V83]);
 // V76.1: change only public labels. Historic recipe IDs and artwork keys are immutable.
 const PUBLIC_LABELS=buildPublicNameIndex(ITEMS);
 function uiName(item){return item?(PUBLIC_LABELS.get(item.id)||publicName(item)):'';}
 let recipes=classicRecipes;
 const reconciledHistorical = reconcileLegacyFamilies(classicRecipes,FAMILY_CAMPAIGNS.families);
-const ALL_CAMPAIGNS=[...reconciledHistorical.families,...buildThematicCampaigns(classicRecipes,ITEMS)];
+// V85: every family is a complete, independent campaign (own 4 starters, in-family recipes only).
+registerFamilyMembership(FAMILY_DATA_V85.families);
+const ALL_CAMPAIGNS=buildCompleteFamilyCampaigns(classicRecipes,ITEMS,FAMILIES,familiesFor,FAMILY_DATA_V85,[...reconciledHistorical.families,...buildThematicCampaigns(classicRecipes,ITEMS)]);
+if(ALL_CAMPAIGNS.report.conflicts.length||Object.keys(ALL_CAMPAIGNS.report.dropped).length)console.warn('V85 family campaigns',ALL_CAMPAIGNS.report);
 const familyCampaigns=new Map(ALL_CAMPAIGNS.map(f=>[f.id,{...f,itemSet:new Set(f.items),recipeMap:new Map(f.recipes)}]));
 const sharedCatalogIds=sharedMembership(ALL_CAMPAIGNS);
 const MODE_SELECTION_KEY='35k_mode_selected_v48', FAMILY_SAVES_KEY='35k_family_profiles_v48';
@@ -140,7 +147,7 @@ let sortChoice='az';
 // V83: inventory filter (all / still has undiscovered outputs / completed / saved) and density.
 const INVENTORY_VIEW_KEY='alchemy10k_inventory_view_v1';
 let inventoryShow='all',inventoryDensity='normal';
-try{const v=JSON.parse(localStorage.getItem(INVENTORY_VIEW_KEY)||'null');if(['all','open','done','saved'].includes(v?.show))inventoryShow=v.show;if(v?.density==='compact')inventoryDensity='compact';}catch{}
+try{const v=JSON.parse(localStorage.getItem(INVENTORY_VIEW_KEY)||'null');if(['all','open','done','saved','shiny'].includes(v?.show))inventoryShow=v.show;if(v?.density==='compact')inventoryDensity='compact';}catch{}
 function saveInventoryView(){try{localStorage.setItem(INVENTORY_VIEW_KEY,JSON.stringify({show:inventoryShow,density:inventoryDensity}));}catch{}}
 const inventoryChip=()=>inventoryDensity==='compact'?{w:100,h:48}:{w:145,h:62};
 try {const value=localStorage.getItem(SORT_KEY);if(['az','old','new'].includes(value))sortChoice=value;}catch{}
@@ -372,7 +379,77 @@ function getRewardBridge(){
  return native&&typeof native.showRewarded==='function'?native:null;
 }
 function rewardedAvailable(){return Boolean(getRewardBridge());}
-const APP_VERSION='0.84.0';
+// V85: one-time "Remove ads" purchase (Google Play Billing, product id no_ads, owner price EUR 1.50).
+// Only Play's own purchase record unlocks it; the cached flag keeps it working offline.
+const NO_ADS_KEY='alchemy10k_no_ads_v1';
+let noAds=false;try{noAds=localStorage.getItem(NO_ADS_KEY)==='1';}catch{}
+let billingPrice='€1.50',billingProductReady=false;
+function billingBridge(){const cap=window.Capacitor;if(cap?.getPlatform?.()!=='android')return null;const b=cap.Plugins?.AlchemyBilling;return b&&typeof b.getStatus==='function'?b:null;}
+function adFree(){return noAds;}
+function setNoAds(on){
+ if(noAds===on)return;noAds=on;
+ try{if(on)localStorage.setItem(NO_ADS_KEY,'1');else localStorage.removeItem(NO_ADS_KEY);}catch{}
+ if(on&&!hintBank.started){hintBank={count:HINT_BANK_MAX,next:0,started:true};saveHintBank();}
+ refreshMonetizedLabels();
+}
+function applyBillingStatus(st){
+ if(!st||typeof st!=='object')return;
+ if(typeof st.price==='string'&&st.price)billingPrice=st.price;
+ billingProductReady=st.available===true;
+ if(st.noAds===true)setNoAds(true);
+ else if(st.noAds===false&&st.available===true)setNoAds(false); // refunded or revoked by Play
+}
+async function refreshBilling(){const b=billingBridge();if(!b)return;try{applyBillingStatus(await b.getStatus());}catch(e){console.warn('Billing status unavailable',e);}}
+function openRemoveAds(){
+ if(adFree()){showModal(`<div class="modal-tag">REMOVE ADS</div><h2>Ads removed</h2><p>Thank you for supporting Alchemy 10K! Mode switches, Batch and Merge are free, you keep a bank of ${HINT_BANK_MAX} hints that refills one every 15 minutes, and Shiny elements appear 5× more often.</p><p class="mini-muted">Optional ads remain only if you want extra hints when your bank is empty.</p><button type="button" class="modal-button secondary" id="removeAdsClose">Close</button>`);$('removeAdsClose').onclick=closeModal;return;}
+ const b=billingBridge();
+ showModal(`<div class="modal-tag">REMOVE ADS</div><h2>Play without ads · ${escapeText(billingPrice)}</h2><ul class="perk-list"><li>No ads for mode switches, Batch or Merge</li><li>${HINT_BANK_MAX} hints included, +1 free hint every 15 minutes</li><li>Shiny chance 5% instead of 1%</li><li>Optional ads only for extra hints</li></ul><button type="button" class="modal-button" id="buyNoAds" ${b?'':'disabled'}>Buy · ${escapeText(billingPrice)}</button><button type="button" class="modal-button secondary" id="restoreNoAds" ${b?'':'disabled'}>Restore purchase</button><p class="mini-muted">${b?'One-time purchase through Google Play.':'Purchases need the Android app from Google Play.'}</p>`);
+ if(!b)return;
+ $('buyNoAds').onclick=async()=>{$('buyNoAds').disabled=true;try{const r=await b.purchaseNoAds();applyBillingStatus(r);if(r?.noAds===true){openRemoveAds();return;}toast(r?.cancelled?'Purchase cancelled':r?.pending?'Purchase pending · it unlocks when Google Play confirms it':'Purchase not completed','repeat');}catch(e){console.warn(e);toast('Google Play purchase is not available yet','error');}if(!$('modal').hidden&&$('buyNoAds'))$('buyNoAds').disabled=false;};
+ $('restoreNoAds').onclick=async()=>{await refreshBilling();if(adFree())openRemoveAds();else toast('No previous purchase found','repeat');};
+}
+// V85 ad-free hint bank: 10 included; using one starts a timer that adds one free hint every
+// 15 minutes until the bank is full. With an empty bank, an optional rewarded ad still works.
+const HINT_BANK_KEY='alchemy10k_hint_bank_v1',HINT_BANK_MAX=10,HINT_BANK_REFILL_MS=15*60*1000;
+let hintBank={count:HINT_BANK_MAX,next:0,started:false};
+try{const raw=JSON.parse(localStorage.getItem(HINT_BANK_KEY)||'null');if(raw&&Number.isFinite(raw.count))hintBank={count:Math.max(0,Math.min(HINT_BANK_MAX,Math.floor(raw.count))),next:Number(raw.next)||0,started:true};}catch{}
+function saveHintBank(){try{localStorage.setItem(HINT_BANK_KEY,JSON.stringify(hintBank));}catch{}}
+function syncHintBank(){
+ const now=Date.now();
+ if(hintBank.count>=HINT_BANK_MAX){hintBank.next=0;return;}
+ if(!hintBank.next)hintBank.next=now+HINT_BANK_REFILL_MS;
+ while(hintBank.count<HINT_BANK_MAX&&now>=hintBank.next){hintBank.count++;hintBank.next+=HINT_BANK_REFILL_MS;}
+ if(hintBank.count>=HINT_BANK_MAX)hintBank.next=0;
+ saveHintBank();
+}
+function takeBankHint(){syncHintBank();if(hintBank.count<=0)return false;hintBank.count--;if(!hintBank.next)hintBank.next=Date.now()+HINT_BANK_REFILL_MS;saveHintBank();refreshMonetizedLabels();return true;}
+function minutesUntil(at){return Math.max(1,Math.ceil((at-Date.now())/60000));}
+function refreshMonetizedLabels(){
+ const h=$('compassBtn');
+ if(h){if(adFree()){syncHintBank();h.textContent=hintBank.count>0?`Hint · ${hintBank.count}`:'Hint · ad';h.title=hintBank.count>0?`${hintBank.count} of ${HINT_BANK_MAX} hints left`:`Next free hint in ${minutesUntil(hintBank.next)} min, or watch an optional ad`;}
+  else{h.textContent='Hint · ad';h.title='Watch a rewarded ad to reveal a craftable recipe';}}
+ refreshMergeButton();
+}
+// V85: after one rewarded mode-switch ad, switching again within 5 minutes is free
+// (so the player can go back without another ad).
+const MODE_GRACE_KEY='alchemy10k_mode_switch_grace_v1',MODE_GRACE_MS=5*60*1000;
+function modeGraceLeft(){try{return Math.max(0,(Number(localStorage.getItem(MODE_GRACE_KEY))||0)-Date.now());}catch{return 0;}}
+function modeSwitchFree(){return adFree()||modeGraceLeft()>0;}
+function modeCostNote(){if(adFree())return 'Switching is free without ads.';const g=modeGraceLeft();if(g>0)return `Free switch for ${minutesUntil(Date.now()+g)} more min.`;return 'Changing modes or families requires a rewarded ad; after it, switching again is free for 5 minutes.';}
+// V85 Shiny elements: every successful combination has a 1% chance (5% without ads) to turn
+// its result Shiny: same element, a twinkling star overlay and a trivia card. Shared by all modes.
+const SHINY_KEY='alchemy10k_shiny_v1';
+let shiny=new Set();
+try{const raw=JSON.parse(localStorage.getItem(SHINY_KEY)||'null');if(Array.isArray(raw?.ids))shiny=new Set(raw.ids.filter(x=>typeof x==='string'));}catch{}
+function saveShiny(){try{localStorage.setItem(SHINY_KEY,JSON.stringify({v:1,ids:[...shiny]}));}catch{}}
+function shinyChance(){return adFree()?0.05:0.01;}
+function rollShiny(id){if(shiny.has(id))return false;if(Math.random()>=shinyChance())return false;shiny.add(id);saveShiny();return true;}
+function shinyTrivia(item){return item?.trivia||item?.wit||wittyDiscovery(item)||item?.summary||'';}
+function shinyCard(item){return `<p class="shiny-trivia"><span aria-hidden="true">✦</span> ${escapeText(publicText(shinyTrivia(item)))}</p>`;}
+function showShinyFound(id){const it=byId.get(id);if(!it)return;
+ showModal(`<div class="modal-tag shiny-tag">✦ SHINY ELEMENT</div><div class="modal-art is-shiny">${staticArt(it)}</div><h2>Shiny ${escapeText(uiName(it))}</h2>${shinyCard(it)}<div class="modal-milestone">${shiny.size.toLocaleString('en-US')} shiny ${shiny.size===1?'element':'elements'} · ${Math.round(shinyChance()*100)}% chance per combination</div>`);
+}
+const APP_VERSION='0.85.0';
 // V83: status line + Google consent (UMP) privacy options, required for EEA players.
 async function refreshAdStatus(){
  const el=$('settingsAdStatus'),bridge=getRewardBridge();
@@ -459,8 +536,21 @@ function syncModeButton(){const c=$('modeBtn');if(!c)return;
  c.textContent=currentMode==='family'?'Family':'Classic';
  c.setAttribute('aria-label','Game mode: '+(currentMode==='family'?'Family Only':'Classic')+' — open modes');
  document.body.dataset.gameMode=currentMode;
+ if(currentMode==='family')document.body.dataset.family=currentFamilyId;else delete document.body.dataset.family;
+ syncFamilyBanner();
  const label=$('playFamilyLabel');if(label)label.textContent=currentMode==='family'?(FAMILIES.find(f=>f.id===currentFamilyId)?.name||'Family'):'All families';
  const picker=$('playFamily');if(picker)picker.disabled=currentMode==='family';
+}
+function syncFamilyBanner(){
+ const bar=$('familyBanner');if(!bar)return;
+ bar.hidden=currentMode!=='family';
+ if(bar.hidden)return;
+ const f=FAMILIES.find(x=>x.id===currentFamilyId),c=familyCampaigns.get(currentFamilyId);
+ $('familyBannerArt').innerHTML=f?familyCardArtwork(f):'';
+ $('familyBannerName').textContent=f?.name||'Family';
+ const found=c?[...unlocked].filter(id=>c.itemSet.has(id)).length:unlocked.size;
+ $('familyBannerProgress').textContent=c?`${found.toLocaleString('en-US')} / ${c.items.length.toLocaleString('en-US')}`:'';
+ const pct=c&&c.items.length?Math.min(100,100*found/c.items.length):0;bar.style.setProperty('--family-progress',pct.toFixed(1)+'%');
 }
 function activateMode(next,familyId=null){
  if(next==='family'&&!familyCampaigns.has(familyId))return false;
@@ -493,8 +583,8 @@ function activateMode(next,familyId=null){
 // after the user chooses an AVAILABLE family. A first choice remains free.
 function modePicker(firstChoice=false){
  const cards=`<button type="button" class="mode-selection-card mode-main-card" data-mode-choice="classic"><span class="mode-main-picture" aria-hidden="true">${GAMEVERSE_ART.crystal?`<img src="${GAMEVERSE_ART.crystal}" alt="">`:fallbackIcon()}</span><span class="mode-main-copy"><strong>Classic</strong><small>Begin with Water, Fire, Earth &amp; Air. Discover all ${ITEMS.length.toLocaleString('en-US')} elements.</small><em>${firstChoice?'Play for free':currentMode==='classic'?'Current mode':'Watch Ad to switch'}</em></span><span class="mode-main-arrow" aria-hidden="true">›</span></button>
- <button type="button" class="mode-selection-card mode-main-card" data-mode-choice="families"><span class="mode-main-picture" aria-hidden="true">${FAMILY_ICONS_V54.nature?`<img src="${FAMILY_ICONS_V54.nature}" alt="">`:fallbackIcon()}</span><span class="mode-main-copy"><strong>Families Only</strong><small>Choose one themed collection. Four starters, family-only combinations.</small><em>Choose a family</em></span><span class="mode-main-arrow" aria-hidden="true">›</span></button>`;
- showModal(`<div class="modal-tag">${firstChoice?'FIRST LAUNCH':'GAME MODES'}</div><h2>Choose your mode</h2><p>Choose how you want to discover. Each mode saves its own progress.</p><div class="mode-selection-list mode-main-list">${cards}</div><p class="mini-muted">${firstChoice?'Your first choice is free. Later changes require a rewarded ad.':'Changing modes or family campaigns requires a completed rewarded ad.'}</p>`);
+ <button type="button" class="mode-selection-card mode-main-card" data-mode-choice="families"><span class="mode-main-picture" aria-hidden="true">${FAMILY_ICONS_V54.nature?`<img src="${FAMILY_ICONS_V54.nature}" alt="">`:fallbackIcon()}</span><span class="mode-main-copy"><strong>Families Only</strong><small>Pick one family and complete it on its own: four starters, in-family recipes.</small><em>Choose a family</em></span><span class="mode-main-arrow" aria-hidden="true">›</span></button>`;
+ showModal(`<div class="modal-tag">${firstChoice?'FIRST LAUNCH':'GAME MODES'}</div><h2>Choose your mode</h2><p>Choose how you want to discover. Each mode saves its own progress.</p><div class="mode-selection-list mode-main-list">${cards}</div><p class="mini-muted">${firstChoice?'Your first choice is free. Later changes require a rewarded ad.':escapeText(modeCostNote())}</p>`);
  $('modal').dataset.dismiss=firstChoice?'x-only':'any';$('modalClose').hidden=firstChoice;
  $('modalContent').querySelector('[data-mode-choice="classic"]').onclick=()=>requestModeActivation('classic',null,firstChoice);
  $('modalContent').querySelector('[data-mode-choice="families"]').onclick=()=>familyModePicker(firstChoice);
@@ -508,7 +598,7 @@ function familyCardArtwork(f){
  const src=FAMILY_ICONS_V54[f.id];
  if(src)return `<img src="${src}" alt="" loading="lazy" decoding="async">`;
  // Original in-game fallback, if a new family has not been illustrated.
- const itemNames={nature:'Tree',people:'Human'};
+ const itemNames={nature:'Tree',people:'Human',world:'Globe'};
  if(itemNames[f.id]){const item=ITEMS.find(item=>item.name===itemNames[f.id]);if(item)return staticArt(item);}
  if(GAMEVERSE_ART[f.icon])return `<img src="${GAMEVERSE_ART[f.icon]}" alt="" loading="lazy" decoding="async">`;
  return fallbackIcon();
@@ -523,7 +613,7 @@ function familyModePicker(firstChoice=false){
   const detail=ready?`${found.toLocaleString('en-US')} / ${campaign.items.length.toLocaleString('en-US')} discovered · 4 starters${sharedCount?' · '+sharedCount+' shared':''}`:'Family recipes in development';
   return `<button type="button" class="family-hero-card ${ready?'is-ready':'is-locked'}" data-campaign-id="${f.id}" ${ready?'':'disabled'} aria-label="${escapeText(f.name)}: ${status}"><span class="family-hero-art" aria-hidden="true">${familyCardArtwork(f)}</span><span class="family-hero-copy"><strong>${escapeText(f.name)}</strong><small>${detail}</small><em>${status}</em></span><span class="family-hero-edge" aria-hidden="true">${ready?'›':'🔒'}</span></button>`;
  }).join('');
- showModal(`<div class="modal-tag">FAMILIES ONLY</div><h2>Choose a family</h2><p>Four starters per family. Shared elements unlock automatically in every family they belong to; recipes stay family-specific.</p><div class="family-campaign-gallery" role="group" aria-label="Select a family to play">${options}</div><button type="button" class="family-gallery-back" id="backToModes">‹ Back to modes</button><p class="mini-muted">${firstChoice?'First choice is free.':'Select an available family to watch an ad and switch.'} More families will unlock when their recipes are fully playable.</p>`);
+ showModal(`<div class="modal-tag">FAMILIES ONLY</div><h2>Choose a family</h2><p>Each family is complete on its own, from four starters. Shared elements unlock in every family they belong to.</p><div class="family-campaign-gallery" role="group" aria-label="Select a family to play">${options}</div><button type="button" class="family-gallery-back" id="backToModes">‹ Back to modes</button><p class="mini-muted">${firstChoice?'First choice is free.':escapeText(modeCostNote())} Every family is a complete campaign with its own four starters.</p>`);
  $('modal').dataset.dismiss=firstChoice?'x-only':'any';$('modalClose').hidden=firstChoice;
  $('backToModes').onclick=()=>modePicker(firstChoice);
  $('modalContent').querySelectorAll('[data-campaign-id]').forEach(btn=>btn.onclick=()=>requestModeActivation('family',btn.dataset.campaignId,firstChoice));
@@ -534,6 +624,13 @@ async function requestModeActivation(target,family,firstChoice=false){
  if(firstChoice){
   try{localStorage.setItem(MODE_SELECTION_KEY,JSON.stringify({mode:target,family}));}catch{}
   activateMode(target,family);$('modal').hidden=true;$('modalClose').hidden=false;return;
+ }
+ if(modeSwitchFree()){
+  activateMode(target,family);
+  try{localStorage.setItem(MODE_SELECTION_KEY,JSON.stringify({mode:target,family}));}catch{}
+  $('modal').hidden=true;$('modalClose').hidden=false;
+  if(!adFree())toast(`Free switch · ${minutesUntil(Date.now()+modeGraceLeft())} min left`,'repeat');
+  return;
  }
  if(!rewardedAvailable()){
   showModal(`<div class="modal-tag">REWARDED MODE SWITCH</div><h2>Ads unavailable</h2><p>Changing modes or families requires a completed rewarded ad in the Android app. This standalone HTML does not simulate ads.</p><p class="mini-muted">Your current mode and progress remain unchanged.</p><button type="button" id="returnToFamilyPicker" class="modal-button secondary">Back to modes</button>`);
@@ -546,9 +643,11 @@ async function requestModeActivation(target,family,firstChoice=false){
  catch(e){console.warn('Mode rewarded ad failed',e);}
  finally{rewardedHintBusy=false;}
  if(result?.earned!==true){showModal(`<h2>Mode unchanged</h2><p>The ad was unavailable, dismissed or not rewarded. Your game and progress were preserved.</p><button type="button" class="modal-button secondary" id="tryModesAgain">Back to modes</button>`);$('tryModesAgain').onclick=()=>modePicker(false);return;}
+ try{localStorage.setItem(MODE_GRACE_KEY,String(Date.now()+MODE_GRACE_MS));}catch{}
  activateMode(target,family);
  try{localStorage.setItem(MODE_SELECTION_KEY,JSON.stringify({mode:target,family}));}catch{}
  $('modal').hidden=true;$('modalClose').hidden=false;
+ toast('Mode changed · switching back is free for 5 minutes','repeat');
 }
 function showPendingCount(n){pendingCount=Math.max(0,Number(n)||0);const el=$('pendingChip');if(!el)return;el.hidden=pendingCount===0;el.textContent=`${pendingCount} pending`;}
 function resetWorldFirsts(){worldFirsts.clear();worldStatsVerified=false;}
@@ -571,7 +670,7 @@ let mergePending=null;
 try {const raw=JSON.parse(localStorage.getItem(MERGE_PENDING_KEY)||'null');if(verifyMergePending(raw))mergePending=raw;}catch{}
 function familyMergeCandidates(){
  if(currentMode==='family')storeFamilyProfile();
- return eligibleFamilyMerge(familyProfiles,ALL_CAMPAIGNS,classicSnapshot?.unlocked||[],byId);
+ return eligibleFamilyMerge(familyProfiles,ALL_CAMPAIGNS,liveClassicUnlocked(),byId);
 }
 function mergeStatus(){
  const current=familyMergeCandidates();
@@ -585,42 +684,106 @@ function mergeStatus(){
  return {current,pending:mergePending,count:mergePending?mergePending.ids.length:current.ids.length};
 }
 function savePendingMerge(){try{if(mergePending)localStorage.setItem(MERGE_PENDING_KEY,JSON.stringify(mergePending));else localStorage.removeItem(MERGE_PENDING_KEY);}catch{}}
+// V85: Merge works both ways. Classic -> Families copies Classic discoveries into every
+// family campaign that contains them (Classic starters excluded); 2 rewarded ads or free without ads.
+const MERGE_TO_FAMILIES_KEY='alchemy10k_merge_to_families_v1';
+let mergeToFamiliesCredit=0;
+try{mergeToFamiliesCredit=Math.max(0,Math.min(2,Number(JSON.parse(localStorage.getItem(MERGE_TO_FAMILIES_KEY)||'null')?.completed)||0));}catch{}
+function saveMergeToFamiliesCredit(){try{if(mergeToFamiliesCredit)localStorage.setItem(MERGE_TO_FAMILIES_KEY,JSON.stringify({v:1,completed:mergeToFamiliesCredit}));else localStorage.removeItem(MERGE_TO_FAMILIES_KEY);}catch{}}
+function liveClassicUnlocked(){return currentMode==='classic'?[...unlocked]:(classicSnapshot?.unlocked||[]);}
+function classicToFamiliesCandidates(){
+ if(currentMode==='family')storeFamilyProfile();
+ const classic=new Set(liveClassicUnlocked().filter(id=>byId.has(id)&&!['legacy:0','legacy:1','legacy:2','legacy:3'].includes(id)));
+ const byFamily={};let ids=new Set();
+ for(const c of ALL_CAMPAIGNS){const have=new Set([...(familyProfiles[c.id]?.unlocked||[]),...c.starters]);
+  const add=c.items.filter(id=>classic.has(id)&&!have.has(id));
+  if(add.length){byFamily[c.id]=add;add.forEach(id=>ids.add(id));}}
+ return {byFamily,count:ids.size};
+}
+function familyToClassicCount(){return mergeStatus().count;}
 function refreshMergeButton(){
- const b=$('mergeClassicBtn');if(!b)return;
- b.hidden=currentMode!=='family';if(b.hidden)return;
- const count=mergeStatus().count;
- b.disabled=count===0;
- b.textContent=count?`↗ Merge Elements into Classic · ${count} · 2 Ads`:'✓ Classic is up to date';
+ const toClassic=familyToClassicCount(),toFamilies=classicToFamiliesCandidates().count,total=toClassic+toFamilies;
+ const b=$('mergeClassicBtn');
+ if(b){b.hidden=false;b.disabled=false;b.textContent=total?`⇄ Merge Classic and Families · ${total.toLocaleString('en-US')}`:'⇄ Merge · everything is up to date';}
+ const p=$('playMergeBtn');
+ if(p){p.hidden=currentMode!=='family';p.textContent=total?`⇄ Merge · ${total.toLocaleString('en-US')}`:'⇄ Merge';p.classList.toggle('has-items',total>0);}
+}
+function mergeHub(){
+ const toClassic=familyToClassicCount(),c2f=classicToFamiliesCandidates();
+ const cost=adFree()?'Free · no ads':'2 rewarded ads';
+ showModal(`<div class="modal-tag">MERGE</div><h2>Merge progress</h2><p>Copy discoveries between Classic and Families Only. Nothing is ever removed.</p><div class="merge-hub">
+  <button type="button" class="merge-hub-option" id="mergeHubToClassic" ${toClassic?'':'disabled'}><span class="merge-hub-arrow" aria-hidden="true">↗</span><span><strong>Families → Classic</strong><small>${toClassic?`${toClassic.toLocaleString('en-US')} family discoveries missing in Classic · ${cost}`:'Classic already has every family discovery'}</small></span></button>
+  <button type="button" class="merge-hub-option" id="mergeHubToFamilies" ${c2f.count?'':'disabled'}><span class="merge-hub-arrow" aria-hidden="true">↙</span><span><strong>Classic → Families</strong><small>${c2f.count?`${c2f.count.toLocaleString('en-US')} Classic discoveries for ${Object.keys(c2f.byFamily).length} ${Object.keys(c2f.byFamily).length===1?'family':'families'} · ${cost}`:'Every family already has your Classic discoveries'}</small></span></button>
+ </div><button type="button" class="modal-button secondary" id="mergeHubClose">Close</button>`);
+ $('mergeHubToClassic').onclick=mergeModal;$('mergeHubToFamilies').onclick=mergeToFamiliesModal;$('mergeHubClose').onclick=closeModal;
+}
+function mergeToFamiliesModal(){
+ const c2f=classicToFamiliesCandidates();
+ if(!c2f.count){mergeHub();return;}
+ const credited=adFree()?2:mergeToFamiliesCredit;
+ const breakdown=Object.entries(c2f.byFamily).map(([id,a])=>`<span>${escapeText(FAMILIES.find(f=>f.id===id)?.name||id)}: ${a.length}</span>`).join(' · ');
+ showModal(`<div class="modal-tag">CLASSIC → FAMILIES</div><h2>Merge Classic into Families</h2><p><strong>${c2f.count.toLocaleString('en-US')} ${c2f.count===1?'element':'elements'}</strong> from Classic unlock in the family campaigns that contain them.</p>${adFree()?'':`<div class="merge-steps" role="status" aria-live="polite"><span class="${credited>=1?'is-complete':''}">${credited>=1?'✓':'1'} First ad</span><span class="${credited>=2?'is-complete':''}">2 Second ad</span></div>`}<p class="mini-muted">${breakdown}</p>${adFree()||rewardedAvailable()||credited===2?'':`<p class="merge-no-ads">Rewarded ads are unavailable in this offline HTML.</p>`}<button type="button" class="modal-button" id="mergeFamiliesGo" ${adFree()||rewardedAvailable()||credited===2?'':'disabled'}>${credited>=2?'Merge now':`Watch ad ${credited+1} of 2`}</button><button type="button" class="modal-button secondary" id="mergeFamiliesBack">Back</button>`);
+ $('mergeFamiliesGo').onclick=watchMergeToFamiliesAd;$('mergeFamiliesBack').onclick=mergeHub;
+}
+async function watchMergeToFamiliesAd(){
+ if(rewardedHintBusy)return;
+ if(adFree()||mergeToFamiliesCredit>=2){commitMergeToFamilies();return;}
+ if(!rewardedAvailable()){mergeToFamiliesModal();return;}
+ const step=mergeToFamiliesCredit+1,btn=$('mergeFamiliesGo');if(btn){btn.disabled=true;btn.textContent=`Showing ad ${step} of 2…`;}
+ rewardedHintBusy=true;let reward;
+ try{reward=await getRewardBridge().showRewarded({kind:'merge_to_families',step,total:2});}catch(e){console.warn('Merge ad unavailable',e);}
+ finally{rewardedHintBusy=false;}
+ if(reward?.earned!==true){mergeToFamiliesModal();return;}
+ mergeToFamiliesCredit=step;saveMergeToFamiliesCredit();
+ if(step<2){mergeToFamiliesModal();return;}
+ commitMergeToFamilies();
+}
+function commitMergeToFamilies(){
+ const c2f=classicToFamiliesCandidates(),at=new Date().toISOString();
+ for(const [fid,ids] of Object.entries(c2f.byFamily)){const c=familyCampaigns.get(fid);if(!c)continue;
+  const prof=familyProfiles[fid]||{unlocked:[...c.starters],known:[],recent:[],last:null,ledger:[],order:[],clues:{}};
+  const u=new Set([...(prof.unlocked||[]),...c.starters]);const ledger=new Map(prof.ledger||[]);const order=[...(prof.order||[])];
+  for(const id of ids){if(u.has(id))continue;u.add(id);ledger.set(id,{at,source:'merge-classic',ingredients:[]});order.push(id);}
+  familyProfiles[fid]={...prof,unlocked:[...u],ledger:[...ledger],order,recent:[...ids.slice(0,40),...(prof.recent||[])].slice(0,350)};
+ }
+ familyProfiles=synchronizeFamilyProfiles(familyProfiles,ALL_CAMPAIGNS).profiles;
+ try{localStorage.setItem(FAMILY_SAVES_KEY,JSON.stringify(familyProfiles));}catch{}
+ if(currentMode==='family'){const c=familyCampaigns.get(currentFamilyId);restorePlayState(familyProfiles[currentFamilyId],c.starters);updateCounts();rerenderCollections();syncFamilyBanner();}
+ mergeToFamiliesCredit=0;saveMergeToFamiliesCredit();refreshMergeButton();
+ showModal(`<div class="modal-tag">TRANSFER COMPLETE</div><h2>${c2f.count.toLocaleString('en-US')} ${c2f.count===1?'element':'elements'} merged</h2><p>Your Classic discoveries are now unlocked in ${Object.keys(c2f.byFamily).length} family ${Object.keys(c2f.byFamily).length===1?'campaign':'campaigns'}. Classic is unchanged.</p><button class="modal-button" id="mergeDone">Continue playing</button>`);
+ $('mergeDone').onclick=closeModal;
 }
 function mergeModal(){
- if(currentMode!=='family')return;
  const {current,pending,count}=mergeStatus();
- const credited=pending?.completed||0;
+ const credited=adFree()?2:(pending?.completed||0);
  if(!count){
-  showModal(`<div class="modal-tag">FAMILY → CLASSIC</div><h2>Nothing to merge yet</h2><p>Discover more Family Only elements that are not already collected in Classic. Free starting ingredients are not counted.</p><button class="modal-button secondary" id="mergeDone">Close</button>`);
-  $('mergeDone').onclick=closeModal;return;
+  showModal(`<div class="modal-tag">FAMILY → CLASSIC</div><h2>Nothing to merge yet</h2><p>Discover more Family Only elements that are not already collected in Classic. Free starting ingredients are not counted.</p><button class="modal-button secondary" id="mergeDone">Back</button>`);
+  $('mergeDone').onclick=mergeHub;return;
  }
  const breakdown=Object.entries(current.byFamily).filter(([,n])=>n>0).map(([id,n])=>`<span>${escapeText(FAMILIES.find(f=>f.id===id)?.name||id)}: ${n}</span>`).join(' · ');
- showModal(`<div class="modal-tag">FAMILY → CLASSIC</div><h2>Merge Elements into Classic</h2><p><strong>${count.toLocaleString('en-US')} ${count===1?'element':'elements'}</strong> ready for Classic. Existing recipes and Family Only progress stay unchanged.</p><div class="merge-steps" role="status" aria-live="polite"><span class="${credited>=1?'is-complete':''}">${credited>=1?'✓':'1'} First ad</span><span class="${credited>=2?'is-complete':''}">2 Second ad</span></div><p class="mini-muted">${breakdown||'Your Family Only discoveries'} · One batch costs 2 rewarded ads, each started by you. Shared items count once. Progress 1/2 is saved if you return later.</p>${rewardedAvailable()||credited===2?'':`<p class="merge-no-ads">Rewarded ads are unavailable in this offline HTML. No discoveries have been transferred.</p>`}<button type="button" class="modal-button" id="mergeWatchAd" ${rewardedAvailable()||credited===2?'':'disabled'}>${credited===2?'Finish transfer':`Watch ad ${credited+1} of 2`}</button><button type="button" class="modal-button secondary" id="mergeLater">Not now</button>`);
+ showModal(`<div class="modal-tag">FAMILY → CLASSIC</div><h2>Merge Elements into Classic</h2><p><strong>${count.toLocaleString('en-US')} ${count===1?'element':'elements'}</strong> ready for Classic. Existing recipes and Family Only progress stay unchanged.</p>${adFree()?'':`<div class="merge-steps" role="status" aria-live="polite"><span class="${credited>=1?'is-complete':''}">${credited>=1?'✓':'1'} First ad</span><span class="${credited>=2?'is-complete':''}">2 Second ad</span></div>`}<p class="mini-muted">${breakdown||'Your Family Only discoveries'} · ${adFree()?'Free without ads.':'One batch costs 2 rewarded ads, each started by you. Progress 1/2 is saved if you return later.'} Shared items count once.</p>${rewardedAvailable()||credited===2?'':`<p class="merge-no-ads">Rewarded ads are unavailable in this offline HTML. No discoveries have been transferred.</p>`}<button type="button" class="modal-button" id="mergeWatchAd" ${rewardedAvailable()||credited===2?'':'disabled'}>${credited===2?(adFree()?'Merge now':'Finish transfer'):`Watch ad ${credited+1} of 2`}</button><button type="button" class="modal-button secondary" id="mergeLater">Back</button>`);
  $('mergeWatchAd').onclick=watchFamilyMergeAd;
- $('mergeLater').onclick=closeModal;
+ $('mergeLater').onclick=mergeHub;
 }
 function commitFamilyMerge(){
  const eligible=new Set(familyMergeCandidates().ids);
  const transfer=mergePending.ids.filter(id=>eligible.has(id));
- const result=mergeIntoClassicState(classicSnapshot,transfer,byId,new Date().toISOString());
+ const base=currentMode==='classic'?snapshotPlayState():classicSnapshot;
+ const result=mergeIntoClassicState(base,transfer,byId,new Date().toISOString());
  if(!persistClassicSnapshot(result)){
   showModal(`<h2>Could not save</h2><p>Both rewarded ads were completed, but Classic progress could not be stored. The transfer stays pending so you can retry without watching another ad.</p><button id="retryMergeSave" class="modal-button">Try saving again</button>`);
   $('retryMergeSave').onclick=commitFamilyMerge;return;
  }
  classicSnapshot=result;
+ if(currentMode==='classic'){restorePlayState(result,[...STARTERS]);updateCounts();rerenderCollections();}
  mergePending=null;savePendingMerge();refreshMergeButton();
  showModal(`<div class="modal-tag">TRANSFER COMPLETE</div><h2>${transfer.length} ${transfer.length===1?'element':'elements'} merged</h2><p>Your newly unlocked Family Only discoveries are now available in Classic. You can continue playing this family; no recipes or Classic discoveries were removed.</p><button class="modal-button" id="mergeDone">Continue playing</button>`);
  $('mergeDone').onclick=closeModal;
 }
 async function watchFamilyMergeAd(){
- if(currentMode!=='family'||rewardedHintBusy)return;
+ if(rewardedHintBusy)return;
  const {current,pending,count}=mergeStatus();if(!count)return;
+ if(adFree()){mergePending={v:1,completed:2,ids:[...current.ids]};savePendingMerge();commitFamilyMerge();return;}
  if(pending?.completed===2){commitFamilyMerge();return;}
  if(!rewardedAvailable()){mergeModal();return;}
  // Take a stable snapshot *before* the first ad. Never charge 2 ads per element.
@@ -807,7 +970,7 @@ function staticArt(item){
  // V30 highest-priority semantic art: only exact canonical names are eligible.
  // A sky is never rendered as a sword just because its name contains "sky".
  const itemName=String(item.name||'').toLowerCase();
- const newArt=ORGANIC_ART_V83[itemName]||ORGANIC_ART_V82[itemName]||ORGANIC_ART_V81[itemName]||ORGANIC_ART_V80[itemName]||ORGANIC_ART_V79[itemName]||ORGANIC_ART_V78[itemName]||ORGANIC_ART_V77[itemName]||ORGANIC_ART_V76[itemName]||ORGANIC_ART_V75[itemName]||ORGANIC_ART_V74[itemName]||ORGANIC_ART_V73[itemName]||ORGANIC_ART_V72[itemName]||ORGANIC_ART_V71[itemName]||ORGANIC_ART_V70[itemName]||ORGANIC_ART_V69[itemName]||ORGANIC_ART_V68[itemName]||ORGANIC_ART_V67[itemName]||ORGANIC_ART_V66[itemName]||ORGANIC_ART_V65[itemName]||ORGANIC_ART_V63[itemName]||ORGANIC_ART_V62[itemName]||ORGANIC_ART_V61[itemName]||ORGANIC_ART_V59[itemName]||ORGANIC_ART_V58[itemName]||ORGANIC_ART_V57[itemName]||ORGANIC_ART_V56[itemName]||ORGANIC_ART_V55[itemName]||ORGANIC_ART_V53[itemName]||ORGANIC_ART_V52[itemName]||ORGANIC_ART_V50[itemName]||ORGANIC_ART_V47[itemName]||ORGANIC_ART_V46[itemName]||ORGANIC_ART_V45[itemName]||ORGANIC_ART_V44[itemName]||ORGANIC_ART_V43[itemName]||ORGANIC_ART_V42[itemName]||ORGANIC_ART_V41[itemName]||ORGANIC_ART_V40[itemName]||ORGANIC_ART_V38[itemName]||ORGANIC_ART_V37[itemName]||ORGANIC_ART_V34[itemName]||ORGANIC_ART_V32[itemName];if(newArt)return newArt;
+ const newArt=ORGANIC_ART_V85[itemName]||ORGANIC_ART_V83[itemName]||ORGANIC_ART_V82[itemName]||ORGANIC_ART_V81[itemName]||ORGANIC_ART_V80[itemName]||ORGANIC_ART_V79[itemName]||ORGANIC_ART_V78[itemName]||ORGANIC_ART_V77[itemName]||ORGANIC_ART_V76[itemName]||ORGANIC_ART_V75[itemName]||ORGANIC_ART_V74[itemName]||ORGANIC_ART_V73[itemName]||ORGANIC_ART_V72[itemName]||ORGANIC_ART_V71[itemName]||ORGANIC_ART_V70[itemName]||ORGANIC_ART_V69[itemName]||ORGANIC_ART_V68[itemName]||ORGANIC_ART_V67[itemName]||ORGANIC_ART_V66[itemName]||ORGANIC_ART_V65[itemName]||ORGANIC_ART_V63[itemName]||ORGANIC_ART_V62[itemName]||ORGANIC_ART_V61[itemName]||ORGANIC_ART_V59[itemName]||ORGANIC_ART_V58[itemName]||ORGANIC_ART_V57[itemName]||ORGANIC_ART_V56[itemName]||ORGANIC_ART_V55[itemName]||ORGANIC_ART_V53[itemName]||ORGANIC_ART_V52[itemName]||ORGANIC_ART_V50[itemName]||ORGANIC_ART_V47[itemName]||ORGANIC_ART_V46[itemName]||ORGANIC_ART_V45[itemName]||ORGANIC_ART_V44[itemName]||ORGANIC_ART_V43[itemName]||ORGANIC_ART_V42[itemName]||ORGANIC_ART_V41[itemName]||ORGANIC_ART_V40[itemName]||ORGANIC_ART_V38[itemName]||ORGANIC_ART_V37[itemName]||ORGANIC_ART_V34[itemName]||ORGANIC_ART_V32[itemName];if(newArt)return newArt;
  const semantic=GAMEVERSE_ART_V30_SEMANTIC[itemName];
  if(semantic)return semantic;
  const v27=v27StaticArt(item);
@@ -844,9 +1007,11 @@ function updateCounts(){
  $('discoveredCount').textContent=unlocked.size.toLocaleString('en-US');
  $('statCollected').textContent=unlocked.size.toLocaleString('en-US');
  $('statPersonal').textContent=earned.toLocaleString('en-US');
+ const sh=$('statShiny');if(sh)sh.textContent=shiny.size.toLocaleString('en-US');
+ const shChip=document.querySelector('[data-show-chip="shiny"]');if(shChip)shChip.hidden=shiny.size===0&&inventoryShow!=='shiny';
  refreshMergeButton();
 }
-function updateSlotUI(){slots.forEach((id,i)=>{const target=$(`slot${i}`),item=byId.get(id);target.classList.toggle('filled',!!item);target.innerHTML=item?`<span class="slot-art">${staticArt(item)}</span><span class="slot-name">${escapeText(uiName(item))}</span>`:'<span class="slot-plus">+</span>';});$('lockLeft').setAttribute('aria-pressed',String(leftLocked));$('batchOpen').hidden=!(leftLocked&&slots[0]);}
+function updateSlotUI(){slots.forEach((id,i)=>{const target=$(`slot${i}`),item=byId.get(id);target.classList.toggle('filled',!!item);target.classList.toggle('is-shiny',!!item&&shiny.has(id));target.innerHTML=item?`<span class="slot-art">${staticArt(item)}</span><span class="slot-name">${escapeText(uiName(item))}</span>`:'<span class="slot-plus">+</span>';});$('lockLeft').setAttribute('aria-pressed',String(leftLocked));$('batchOpen').hidden=!(leftLocked&&slots[0]);}
 function updateLatest(){ /* V35: the last ID remains in saved progress, but no screen-space widget. */ }
 function place(index,id){if(batchState?.phase==='scanning')return;if(!byId.has(id)||!unlocked.has(id))return;clearTimeout(autoTimer);settleGhosts(index);slots[index]=id;updateSlotUI();if(slots.every(Boolean))autoTimer=setTimeout(combine,180);}
 // V54: pulsing feedback follows an actual ingredient selection (tap, pointer or keyboard).
@@ -1067,9 +1232,10 @@ function completeCombination(resultId,a,b,kind='recipe'){
  recipes.set(key,resultId);known.add(key);unlocked.add(resultId);last=resultId;
  if(fresh&&!STARTERS.has(resultId))discoveryLedger.set(resultId,{at:new Date().toISOString(),source:kind,ingredients:[a,b]});
  recent=[resultId,...recent.filter(i=>i!==resultId)].slice(0,350);
- save();updateCounts();updateLatest();
- if(fresh){announceCraft('new','New discovery · '+uiName(byId.get(resultId)));rerenderCollections();if(tab==='World')renderDiscoveries();showDiscovery(resultId,a,b,scene);}
- else {announceCraft('repeat','Already discovered · '+uiName(byId.get(resultId)));playCraftMotion(scene,'repeat',byId.get(resultId));}
+ const gotShiny=kind!=='batch'&&rollShiny(resultId);
+ save();updateCounts();updateLatest();syncFamilyBanner();
+ if(fresh){announceCraft('new',(gotShiny?'✦ Shiny discovery · ':'New discovery · ')+uiName(byId.get(resultId)));rerenderCollections();if(tab==='World')renderDiscoveries();showDiscovery(resultId,a,b,scene,gotShiny);}
+ else {announceCraft('repeat',(gotShiny?'✦ Shiny · ':'Already discovered · ')+uiName(byId.get(resultId)));playCraftMotion(scene,'repeat',byId.get(resultId));if(gotShiny){playVirtual.refresh();setTimeout(()=>showShinyFound(resultId),480);}}
 }
 async function combine(){
  if(!slots[0]||!slots[1])return;
@@ -1114,9 +1280,9 @@ function closeModal(){
  const m=$('modal');m.hidden=true;m.dataset.dismiss='any';
 }
 
-function showDiscovery(id,a,b,scene=null){
+function showDiscovery(id,a,b,scene=null,isShiny=false){
  const it=byId.get(id),isFirst=worldFirsts.has(id),earned=[...unlocked].filter(x=>!STARTERS.has(x)).length;
- showModal(`<div class="modal-tag ${isFirst?'world-first-tag':''}">${isFirst?'★ WORLD FIRST':'✦ NEW DISCOVERY'}</div><div class="modal-art">${staticArt(it)}</div><h2>${escapeText(uiName(it))}</h2><p>${escapeText(uiName(byId.get(a)))} + ${escapeText(uiName(byId.get(b)))}</p>${(wittyDiscovery(it)||it.summary)?`<p class="discovery-wit">${escapeText(publicText(wittyDiscovery(it)||it.summary))}</p>`:""}<div class="modal-milestone">${earned.toLocaleString('en-US')} personal discoveries</div>`);
+ showModal(`<div class="modal-tag ${isShiny?'shiny-tag':isFirst?'world-first-tag':''}">${isShiny?'✦ SHINY DISCOVERY':isFirst?'★ WORLD FIRST':'✦ NEW DISCOVERY'}</div><div class="modal-art${isShiny?' is-shiny':''}">${staticArt(it)}</div><h2>${isShiny?'Shiny ':''}${escapeText(uiName(it))}</h2><p>${escapeText(uiName(byId.get(a)))} + ${escapeText(uiName(byId.get(b)))}</p>${isShiny?shinyCard(it):(wittyDiscovery(it)||it.summary)?`<p class="discovery-wit">${escapeText(publicText(wittyDiscovery(it)||it.summary))}</p>`:""}<div class="modal-milestone">${earned.toLocaleString('en-US')} personal discoveries</div>`);
  $('continueBtn')?.remove();$('modal').dataset.dismiss='x-only';
  playCraftMotion(scene,'new',it);
 }
@@ -1128,6 +1294,7 @@ function filtered(mode){
  if(inventoryShow==='open')ids=ids.filter(id=>!elementIsComplete(id));
  else if(inventoryShow==='done')ids=ids.filter(id=>elementIsComplete(id));
  else if(inventoryShow==='saved')ids=ids.filter(id=>favorites.has(id));
+ else if(inventoryShow==='shiny')ids=ids.filter(id=>shiny.has(id));
  if(q)ids=ids.filter(id=>uiName(byId.get(id)).toLowerCase().includes(q));
  if(sortChoice==='old'||sortChoice==='new'){
   syncDiscoveryOrder();const rank=new Map(discoveryOrder.map((id,i)=>[id,i]));
@@ -1155,7 +1322,7 @@ class VirtualElements {
   }else this.viewport.scrollTop=before;
   this.draw(true);
  }
- draw(force=false){const chip=inventoryChip();let width=this.viewport.clientWidth,cols=Math.max(1,Math.floor((width-28+8)/(chip.w+8))),rowHeight=chip.h,rows=Math.ceil(this.ids.length/cols),top=Math.max(0,Math.floor(this.viewport.scrollTop/rowHeight)-4),end=Math.min(rows,Math.ceil((this.viewport.scrollTop+this.viewport.clientHeight)/rowHeight)+5);if(!force&&this.start===top&&this.end===end&&this.cols===cols)return;this.start=top;this.end=end;this.cols=cols;this.root.style.height=Math.max(40,rows*rowHeight)+'px';this.root.classList.toggle('is-compact',inventoryDensity==='compact');if(!this.ids.length){const msg=inventoryShow!=='all'?'No elements match this filter.':'No elements found.';this.root.innerHTML='<div class="empty-list">'+msg+'</div>';return;}let shown=this.ids.slice(top*cols,end*cols);this.root.innerHTML=`<div class="virtual-grid" style="--cols:${cols};top:${top*rowHeight}px">${shown.map(id=>{const it=byId.get(id);return `<button class="element-chip ${worldFirsts.has(id)?'world-first-chip':''}" data-id="${escapeText(id)}" aria-label="Tap or drag ${escapeText(uiName(it))}"><span class="chip-art">${staticArt(it)}</span><span class="chip-label">${escapeText(uiName(it))}</span>${elementIsComplete(id)?'<span class="chip-completed" title="No undiscovered outputs in the offline catalogue" aria-label="Completed">★</span>':''}</button>`;}).join('')}</div>`;}
+ draw(force=false){const chip=inventoryChip();let width=this.viewport.clientWidth,cols=Math.max(1,Math.floor((width-28+8)/(chip.w+8))),rowHeight=chip.h,rows=Math.ceil(this.ids.length/cols),top=Math.max(0,Math.floor(this.viewport.scrollTop/rowHeight)-4),end=Math.min(rows,Math.ceil((this.viewport.scrollTop+this.viewport.clientHeight)/rowHeight)+5);if(!force&&this.start===top&&this.end===end&&this.cols===cols)return;this.start=top;this.end=end;this.cols=cols;this.root.style.height=Math.max(40,rows*rowHeight)+'px';this.root.classList.toggle('is-compact',inventoryDensity==='compact');if(!this.ids.length){const msg=inventoryShow!=='all'?'No elements match this filter.':'No elements found.';this.root.innerHTML='<div class="empty-list">'+msg+'</div>';return;}let shown=this.ids.slice(top*cols,end*cols);this.root.innerHTML=`<div class="virtual-grid" style="--cols:${cols};top:${top*rowHeight}px">${shown.map(id=>{const it=byId.get(id);return `<button class="element-chip ${worldFirsts.has(id)?'world-first-chip':''}${shiny.has(id)?' is-shiny':''}" data-id="${escapeText(id)}" aria-label="Tap or drag ${escapeText(uiName(it))}"><span class="chip-art">${staticArt(it)}</span><span class="chip-label">${escapeText(uiName(it))}</span>${elementIsComplete(id)?'<span class="chip-completed" title="No undiscovered outputs in the offline catalogue" aria-label="Completed">★</span>':''}</button>`;}).join('')}</div>`;}
 }
 const playVirtual=new VirtualElements('inventoryVirtual','play');
 // One shared refresh path keeps Play and Discoveries in sync.
@@ -1216,7 +1383,8 @@ function recipeLine(id){
 function openRecipePaths(id){
  if(!unlocked.has(id))return openDiscoverElement(id);
  const item=byId.get(id),paths=discoveredRecipes(id);
- showModal(`<div class="modal-art">${staticArt(item)}</div><h2>${escapeText(uiName(item))}</h2><p>${paths.length===0?'Starting element':paths.length+' recipe path'+(paths.length===1?'':'s')+'</p>'}${familiesFor(item).length>1?`<p class="mini-muted">Shared: ${familiesFor(item).map(f=>escapeText(FAMILIES.find(x=>x.id===f)?.name||f)).join(' · ')}</p>`:''}
+ const isShiny=shiny.has(id);
+ showModal(`${isShiny?'<div class="modal-tag shiny-tag">✦ SHINY</div>':''}<div class="modal-art${isShiny?' is-shiny':''}">${staticArt(item)}</div><h2>${isShiny?'Shiny ':''}${escapeText(uiName(item))}</h2>${isShiny?shinyCard(item):''}<p>${paths.length===0?'Starting element':paths.length+' recipe path'+(paths.length===1?'':'s')+'</p>'}${familiesFor(item).length>1?`<p class="mini-muted">Shared: ${familiesFor(item).map(f=>escapeText(FAMILIES.find(x=>x.id===f)?.name||f)).join(' · ')}</p>`:''}
  <div class="paths-list">${paths.length?paths.slice(0,30).map(p=>`<div class="path-line">${escapeText(recipeLabel(p))} <span>→ ${escapeText(uiName(item))}</span></div>`).join(''):'<div class="path-line">Available from the beginning</div>'}</div>
  <button class="modal-button" id="useDiscovered">Use in craft</button>`);
  $('useDiscovered').onclick=()=>{closeModal();switchTab('Play');insertDirect(id);};
@@ -1304,12 +1472,25 @@ function grantRecipeHint(elementId){
  if(tab==='World')renderDiscoveries();
  return true;
 }
+function offerEmptyBank(){
+ return new Promise(resolve=>{
+  const ad=rewardedAvailable(),m=minutesUntil(hintBank.next);
+  showModal(`<div class="modal-tag">HINTS</div><h2>No hints left</h2><p>Your next free hint arrives in ${m} minute${m===1?'':'s'} (up to ${HINT_BANK_MAX}).</p>${ad?'<button type="button" class="modal-button" id="bankAd">Watch an optional ad for a hint</button>':''}<button type="button" class="modal-button secondary" id="bankWait">Wait</button>`);
+  timedHintResolve=resolve;
+  if(ad)$('bankAd').onclick=()=>settleTimedHint(true);
+  $('bankWait').onclick=()=>{settleTimedHint(false);closeModal();};
+ });
+}
 async function earnRecipeByAd(elementId,family){
  const option=candidateFor(elementId);
  if(!option||unlocked.has(elementId))return false;
  if(hintState.clues[elementId]==='recipe')return true;
+ if(adFree()){
+  if(takeBankHint())return grantRecipeHint(elementId);
+  if(!(await offerEmptyBank()))return false;
+ }
  const native=getRewardBridge();
- if(!native)return (await offerTimedHint('unavailable'))&&grantRecipeHint(elementId);
+ if(!native)return adFree()?false:(await offerTimedHint('unavailable'))&&grantRecipeHint(elementId);
  if(rewardedHintBusy)return false;
  rewardedHintBusy=true;
  showModal(`<div class="modal-tag">REWARDED HINT</div><h2>Preparing your ad…</h2><p>The full recipe unlocks only after the ad confirms its reward.</p>`);
@@ -1347,7 +1528,7 @@ function switchTab(view){
  document.querySelectorAll('.tab').forEach(b=>{const active=b.dataset.view===tab;b.classList.toggle('active',active);b.setAttribute('aria-current',active?'page':'false');});
  if(tab==='World')renderDiscoveries();else playVirtual.draw(true);
 }
-const BACKUP_KEYS=[FAMILY_SAVES_KEY,MODE_SELECTION_KEY,'gameverse_alchemy_v2','gameverse_dynamic_v11','gameverse_ledger_v16','gameverse_discovery_hints_v20',EXTRA_STORAGE,DISCOVERY_ORDER_KEY];
+const BACKUP_KEYS=[SHINY_KEY,HINT_BANK_KEY,FAMILY_SAVES_KEY,MODE_SELECTION_KEY,'gameverse_alchemy_v2','gameverse_dynamic_v11','gameverse_ledger_v16','gameverse_discovery_hints_v20',EXTRA_STORAGE,DISCOVERY_ORDER_KEY];
 function backupJson(){
  save();
  const progress={format:'35k-alchemy-backup',version:25,savedAt:new Date().toISOString(),data:{}};
@@ -1405,7 +1586,7 @@ function importBackupText(text){
 // between campaigns. Settings, sound, theme, sort and ad privacy choices are kept.
 let progressWiping=false;
 function openDeleteProgress(){
- const choices=[['classic','Classic progress','Classic discoveries, revealed recipes and order'],['families','Families Only progress','Every family campaign and any pending Merge'],['all','Everything','Classic, all families and saved favorites']];
+ const choices=[['classic','Classic progress','Classic discoveries, revealed recipes and order'],['families','Families Only progress','Every family campaign and any pending Merge'],['all','Everything','Classic, all families, Shiny elements and saved favorites']];
  showModal(`<div class="modal-tag">DELETE PROGRESS</div><h2>What should be deleted?</h2><div class="sort-choices">${choices.map(([id,t,d])=>`<button type="button" class="sort-option" data-wipe="${id}"><span class="sort-option-content"><strong>${t}</strong><small>${d}</small></span><span aria-hidden="true">›</span></button>`).join('')}</div><button type="button" class="modal-button secondary" id="wipeExportFirst">Export a backup first</button><p class="mini-muted">Sound, theme, sorting and ad privacy choices are kept.</p>`);
  $('wipeExportFirst').onclick=exportProgress;
  $('modalContent').querySelectorAll('[data-wipe]').forEach(b=>b.onclick=()=>confirmWipe(b.dataset.wipe));
@@ -1418,8 +1599,8 @@ function confirmWipe(target){
 }
 function wipeProgress(target){
  const classicKeys=['gameverse_alchemy_v2','gameverse_dynamic_v11','gameverse_ledger_v16',HINT_STORAGE,DISCOVERY_ORDER_KEY];
- const familyKeys=[FAMILY_SAVES_KEY,MERGE_PENDING_KEY];
- const keys=target==='classic'?classicKeys:target==='families'?familyKeys:target==='all'?[...classicKeys,...familyKeys,EXTRA_STORAGE]:null;
+ const familyKeys=[FAMILY_SAVES_KEY,MERGE_PENDING_KEY,MERGE_TO_FAMILIES_KEY];
+ const keys=target==='classic'?classicKeys:target==='families'?familyKeys:target==='all'?[...classicKeys,...familyKeys,EXTRA_STORAGE,SHINY_KEY]:null;
  if(!keys)return;
  progressWiping=true;clearTimeout(autoTimer);
  try{for(const k of keys)localStorage.removeItem(k);}catch{}
@@ -1488,7 +1669,8 @@ function settings(){
    </div>
    <div class="settings-section settings-links">
     <button type="button" id="changeGameMode" class="settings-link"><span>Game mode<small>${escapeText(mode)}</small></span><span aria-hidden="true">›</span></button>
-    ${currentMode==='family'?'<div class="settings-divider"></div><button type="button" id="settingsMergeClassic" class="settings-link"><span>Merge into Classic<small>Requires 2 rewarded ads</small></span><span aria-hidden="true">›</span></button>':''}
+    <div class="settings-divider"></div><button type="button" id="settingsMergeClassic" class="settings-link"><span>Merge Classic and Families<small>Both directions · ${adFree()?'free':'2 rewarded ads'}</small></span><span aria-hidden="true">›</span></button>
+    <div class="settings-divider"></div><button type="button" id="settingsRemoveAds" class="settings-link"><span>${adFree()?'Ads removed ✓':'Remove ads · '+escapeText(billingPrice)}<small>${adFree()?'Thank you! 5% Shiny chance and a hint bank':'No forced ads, 10 hints included, 5% Shiny chance'}</small></span><span aria-hidden="true">›</span></button>
    </div>
    <div class="settings-section settings-links">
     <div class="settings-service-title">PROGRESS</div>
@@ -1529,7 +1711,9 @@ function settings(){
    <div class="settings-section settings-help">
     <details><summary>How do I combine elements?</summary><p>In Classic, start with Water, Fire, Earth and Air. Tap or drag any two discovered elements into the combiner.</p></details>
     <div class="settings-divider"></div>
-    <details><summary>How do hints and families work?</summary><p>Hints need a completed rewarded ad. Families Only offers four themed starters and separate progress for each family.</p></details>
+    <details><summary>How do hints and families work?</summary><p>Hints need a completed rewarded ad (or use your hint bank without ads). In Families Only, each family is a complete campaign from its own four starters, with separate progress. Merge copies discoveries between Classic and Families in either direction.</p></details>
+    <div class="settings-divider"></div>
+    <details><summary>What are Shiny elements?</summary><p>Every successful combination, including ones you already know, has a 1% chance (5% without ads) to make its result Shiny: it twinkles in your list and reveals a piece of trivia.</p></details>
     <div class="settings-divider"></div>
     <details><summary>Where is progress saved?</summary><p>Progress is stored locally. Clearing app data or uninstalling the game may erase it. Cloud recovery is not available yet.</p></details>
    </div>
@@ -1558,7 +1742,7 @@ function settings(){
   $('modalContent').querySelectorAll('[data-theme-choice]').forEach(choice=>choice.setAttribute('aria-pressed',String(choice.dataset.themeChoice===selectedTheme)));
  });
  syncSoundToggle();$('settingsSoundToggle').onclick=toggleSoundEnabled;
- if(currentMode==='family')$('settingsMergeClassic').onclick=mergeModal;
+ $('settingsMergeClassic').onclick=mergeHub;$('settingsRemoveAds').onclick=openRemoveAds;
  $('changeGameMode').onclick=()=>modePicker(false);
  selectSettingsPage('main');
  void refreshPlayerServicesStatus();
@@ -1587,7 +1771,7 @@ function batchChooser(){
   const icon=familyCardArtwork(f);
   return `<button type="button" class="batch-family-choice" data-batch-family="${f.id}" aria-pressed="${f.id===selected}" ${count?'':'disabled'}><span class="batch-family-picture">${icon}</span><span class="batch-family-data"><strong>${escapeText(f.name)}</strong><small>${count.toLocaleString('en-US')} found</small></span></button>`;
  }).join('');
- showModal(`<div class="modal-tag">FAMILY COMBINER</div><h2>Choose a family</h2><p class="batch-intro"><span class="batch-locked">♧ ${escapeText(uiName(byId.get(slots[0])))}</span> stays locked. Scan all collected elements, then review new discoveries.</p><div class="batch-family-grid" role="group" aria-label="Family to combine">${familyCards}</div><div class="batch-selection"><strong id="batchSelectedName"></strong><span id="batchEstimate"></span></div><div class="batch-actions"><button class="modal-button" id="batchDemo" ${batchTrialUsed||!selected?'disabled':''}>${batchTrialUsed?'Free trial used':'Free trial'}</button><button class="modal-button secondary" id="batchRewarded" ${rewardedAvailable()&&selected?'':'disabled'}>Watch Ad</button></div><p class="mini-muted batch-quiet-note">Offline fast scan · No per-element animations. Rewarded ads need a configured Android build.</p>`);
+ showModal(`<div class="modal-tag">FAMILY COMBINER</div><h2>Choose a family</h2><p class="batch-intro"><span class="batch-locked">♧ ${escapeText(uiName(byId.get(slots[0])))}</span> stays locked. Scan all collected elements, then review new discoveries.</p><div class="batch-family-grid" role="group" aria-label="Family to combine">${familyCards}</div><div class="batch-selection"><strong id="batchSelectedName"></strong><span id="batchEstimate"></span></div><div class="batch-actions"><button class="modal-button" id="batchDemo" ${batchTrialUsed||!selected?'disabled':''}>${batchTrialUsed?'Free trial used':'Free trial'}</button><button class="modal-button secondary" id="batchRewarded" ${(adFree()||rewardedAvailable())&&selected?'':'disabled'}>${adFree()?'Scan · free':'Watch Ad'}</button></div><p class="mini-muted batch-quiet-note">Offline fast scan · No per-element animations. Rewarded ads need a configured Android build.</p>`);
  const redraw=()=>{
   document.querySelectorAll('[data-batch-family]').forEach(b=>b.setAttribute('aria-pressed',String(b.dataset.batchFamily===selected)));
   $('batchSelectedName').textContent=FAMILIES.find(f=>f.id===selected)?.name||'No available elements';
@@ -1597,6 +1781,7 @@ function batchChooser(){
  redraw();
  $('batchDemo').onclick=()=>{if(batchTrialUsed||!selected)return;beginBatch(selected,'trial');};
  $('batchRewarded').onclick=async()=>{
+  if(adFree()&&selected){beginBatch(selected,'premium');return;}
   if(!rewardedAvailable()||!selected)return;
   const family=selected,locked=slots[0];
   $('batchRewarded').disabled=true;$('batchDemo').disabled=true;
@@ -1862,7 +2047,11 @@ $('thematicSets').onclick=e=>{const el=e.target.closest('[data-set]'),s=COLLECTI
  openFamily(s.family);activeSet=s.id;renderDiscoveries();};
 $('familyBack').onclick=closeFamily;
 $('familyHint').onclick=unlockInFamily;
-$('mergeClassicBtn').onclick=mergeModal;
+$('mergeClassicBtn').onclick=mergeHub;
+if($('playMergeBtn'))$('playMergeBtn').onclick=mergeHub;
+refreshMonetizedLabels();void refreshBilling();
+try{billingBridge()?.addListener?.('billingChanged',applyBillingStatus);}catch{}
+setInterval(()=>{if(adFree())refreshMonetizedLabels();},60000);
 $('discoverSearch').oninput=e=>{discoverQuery=e.target.value;$('discoverScroll').scrollTop=0;discoverVirtual.refresh();};
 $('discoverScroll').addEventListener('pointerdown',e=>e.stopPropagation());
 document.querySelectorAll('[data-dscope]').forEach(btn=>btn.onclick=()=>{discoveryScope=btn.dataset.dscope;document.querySelectorAll('[data-dscope]').forEach(b=>{b.classList.toggle('active',b===btn);b.setAttribute('aria-pressed',String(b===btn));});$('discoverScroll').scrollTop=0;discoverVirtual.refresh();});

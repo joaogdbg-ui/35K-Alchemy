@@ -11,6 +11,7 @@ export const FAMILIES = Object.freeze([
  {id:'people',name:'People & Culture',icon:'manga',category:'World',description:'Personalities and world history',categories:['politician','culture'],order:8},
  {id:'mythology',name:'Mythology & Gods',icon:'crystal',category:'World',description:'Gods, legends and ancient pantheons',categories:['mythology'],order:9},
  {id:'prehistoric',name:'Prehistory & Dinosaurs',icon:'dragon',category:'World',description:'Fossils, ancient life and dinosaurs',categories:['prehistoric'],order:10},
+ {id:'world',name:'Countries & Landmarks',icon:'crystal',category:'World',description:'Countries, flags, monuments, rivers and traditions',categories:['geography'],order:11},
 ]);
 const CATEGORY_FAMILY = new Map(FAMILIES.flatMap(f=>f.categories.map(c=>[c,f.id])));
 export const familyFor=(item)=>['Moon','Planet','Space','Star','Bread'].includes(item?.name)?'nature':CATEGORY_FAMILY.get(item.category)||'fantasy';
@@ -32,10 +33,18 @@ const EXTRA_THEMATIC_MEMBERSHIP = new Map([
  ['legacy:575',['prehistoric']],['legacy:580',['prehistoric']],
  ['organic41:monument',['prehistoric']],['organic42:limestone',['prehistoric']]
 ]);
+// V85: extra members each complete family campaign needs (FAMILY_DATA_V85.families[id].addMembers).
+const EXTRA_MEMBERSHIP_V85 = new Map();
+export function registerFamilyMembership(families){
+ EXTRA_MEMBERSHIP_V85.clear();
+ for(const [family,d] of Object.entries(families||{}))for(const id of d?.addMembers||[]){
+  if(!EXTRA_MEMBERSHIP_V85.has(id))EXTRA_MEMBERSHIP_V85.set(id,[]);EXTRA_MEMBERSHIP_V85.get(id).push(family);
+ }
+}
 export const familiesFor=(item)=>{
  const primary=familyFor(item), secondary=SECONDARY_FAMILY_IDS.get(item?.id);
  const declared=Array.isArray(item?.familyCampaigns)?item.familyCampaigns.filter(id=>FAMILIES.some(f=>f.id===id)):[];
- return [...new Set([primary,...(secondary?[secondary]:[]),...(EXTRA_THEMATIC_MEMBERSHIP.get(item?.id)||[]),...declared])];
+ return [...new Set([primary,...(secondary?[secondary]:[]),...(EXTRA_THEMATIC_MEMBERSHIP.get(item?.id)||[]),...(EXTRA_MEMBERSHIP_V85.get(item?.id)||[]),...declared])];
 };
 export function groupFamilies(items,unlocked){
  const groups=Object.fromEntries(FAMILIES.map(f=>[f.id,{...f,ids:[],found:0,total:0}]));

@@ -1,0 +1,1855 @@
+{
+ "addMembers": [
+  "organic32:telescope",
+  "organic34:weather-station"
+ ],
+ "recipes": [
+  [
+   "legacy:132",
+   "legacy:367",
+   "legacy:268"
+  ],
+  [
+   "legacy:132",
+   "legacy:1342",
+   "legacy:269"
+  ],
+  [
+   "legacy:269",
+   "legacy:170",
+   "legacy:278"
+  ],
+  [
+   "legacy:132",
+   "legacy:77",
+   "legacy:275"
+  ],
+  [
+   "legacy:132",
+   "legacy:343",
+   "legacy:276"
+  ],
+  [
+   "legacy:132",
+   "legacy:1421",
+   "legacy:277"
+  ],
+  [
+   "legacy:132",
+   "organic47:electric-relay",
+   "legacy:295"
+  ],
+  [
+   "legacy:132",
+   "legacy:133",
+   "legacy:297"
+  ],
+  [
+   "legacy:132",
+   "legacy:55",
+   "legacy:296"
+  ],
+  [
+   "legacy:295",
+   "legacy:83",
+   "legacy:287"
+  ],
+  [
+   "legacy:132",
+   "organic46:microcontroller",
+   "legacy:459"
+  ],
+  [
+   "legacy:132",
+   "legacy:146",
+   "legacy:283"
+  ],
+  [
+   "legacy:132",
+   "legacy:335",
+   "legacy:284"
+  ],
+  [
+   "legacy:132",
+   "organic32:circuit-board",
+   "legacy:285"
+  ],
+  [
+   "legacy:132",
+   "organic40:synthesizer",
+   "legacy:286"
+  ],
+  [
+   "legacy:132",
+   "legacy:152",
+   "legacy:294"
+  ],
+  [
+   "legacy:132",
+   "legacy:247",
+   "legacy:298"
+  ],
+  [
+   "legacy:92",
+   "legacy:414",
+   "legacy:288"
+  ],
+  [
+   "legacy:92",
+   "legacy:406",
+   "legacy:289"
+  ],
+  [
+   "legacy:92",
+   "legacy:531",
+   "legacy:290"
+  ],
+  [
+   "legacy:92",
+   "legacy:403",
+   "legacy:291"
+  ],
+  [
+   "legacy:92",
+   "legacy:435",
+   "legacy:292"
+  ],
+  [
+   "legacy:92",
+   "legacy:398",
+   "legacy:293"
+  ],
+  [
+   "legacy:92",
+   "legacy:390",
+   "legacy:299"
+  ],
+  [
+   "legacy:92",
+   "legacy:368",
+   "legacy:300"
+  ],
+  [
+   "legacy:92",
+   "legacy:516",
+   "legacy:301"
+  ],
+  [
+   "legacy:92",
+   "legacy:517",
+   "legacy:302"
+  ],
+  [
+   "legacy:92",
+   "legacy:418",
+   "legacy:303"
+  ],
+  [
+   "legacy:132",
+   "legacy:461",
+   "legacy:304"
+  ],
+  [
+   "legacy:92",
+   "legacy:282",
+   "legacy:305"
+  ],
+  [
+   "legacy:92",
+   "legacy:416",
+   "legacy:306"
+  ],
+  [
+   "legacy:92",
+   "legacy:530",
+   "legacy:307"
+  ],
+  [
+   "legacy:92",
+   "legacy:322",
+   "legacy:308"
+  ],
+  [
+   "legacy:92",
+   "legacy:254",
+   "legacy:345"
+  ],
+  [
+   "legacy:92",
+   "legacy:309",
+   "legacy:346"
+  ],
+  [
+   "legacy:136",
+   "legacy:1350",
+   "legacy:349"
+  ],
+  [
+   "legacy:345",
+   "legacy:150",
+   "legacy:344"
+  ],
+  [
+   "legacy:80",
+   "legacy:86",
+   "legacy:328"
+  ],
+  [
+   "legacy:328",
+   "legacy:22",
+   "legacy:341"
+  ],
+  [
+   "legacy:44",
+   "legacy:167",
+   "legacy:342"
+  ],
+  [
+   "legacy:99",
+   "legacy:340",
+   "legacy:364"
+  ],
+  [
+   "legacy:151",
+   "legacy:367",
+   "legacy:379"
+  ],
+  [
+   "legacy:183",
+   "legacy:180",
+   "legacy:452"
+  ],
+  [
+   "legacy:169",
+   "legacy:91",
+   "legacy:460"
+  ],
+  [
+   "legacy:485",
+   "legacy:312",
+   "legacy:486"
+  ],
+  [
+   "legacy:461",
+   "legacy:56",
+   "legacy:489"
+  ],
+  [
+   "legacy:489",
+   "legacy:90",
+   "legacy:490"
+  ],
+  [
+   "legacy:273",
+   "legacy:169",
+   "legacy:502"
+  ],
+  [
+   "legacy:169",
+   "legacy:93",
+   "legacy:506"
+  ],
+  [
+   "legacy:533",
+   "legacy:312",
+   "legacy:534"
+  ],
+  [
+   "legacy:461",
+   "legacy:85",
+   "legacy:1352"
+  ],
+  [
+   "legacy:1352",
+   "organic32:screenshot",
+   "legacy:1353"
+  ],
+  [
+   "legacy:406",
+   "legacy:86",
+   "legacy:1356"
+  ],
+  [
+   "legacy:1356",
+   "legacy:310",
+   "legacy:1360"
+  ],
+  [
+   "legacy:409",
+   "legacy:123",
+   "legacy:1362"
+  ],
+  [
+   "legacy:339",
+   "legacy:44",
+   "legacy:1363"
+  ],
+  [
+   "legacy:389",
+   "legacy:167",
+   "legacy:1371"
+  ],
+  [
+   "legacy:414",
+   "legacy:167",
+   "legacy:1388"
+  ],
+  [
+   "legacy:394",
+   "legacy:116",
+   "legacy:1373"
+  ],
+  [
+   "legacy:167",
+   "legacy:82",
+   "legacy:1395"
+  ],
+  [
+   "legacy:260",
+   "legacy:1370",
+   "legacy:1403"
+  ],
+  [
+   "legacy:468",
+   "legacy:116",
+   "legacy:1409"
+  ],
+  [
+   "legacy:231",
+   "organic32:circuit-board",
+   "legacy:1424"
+  ],
+  [
+   "legacy:231",
+   "legacy:302",
+   "legacy:1426"
+  ],
+  [
+   "legacy:231",
+   "legacy:441",
+   "legacy:1436"
+  ],
+  [
+   "legacy:73",
+   "organic46:thermostat",
+   "pack:frost-circuit"
+  ],
+  [
+   "legacy:70",
+   "organic56:camera-lens-filter",
+   "pack:shadow-circuit"
+  ],
+  [
+   "pack:shadow-circuit",
+   "legacy:73",
+   "pack:ghost-circuit"
+  ],
+  [
+   "organic46:drone-camera",
+   "organic50:thermal-camera",
+   "pack:fire-drone"
+  ],
+  [
+   "organic40:motor",
+   "legacy:22",
+   "organic40:piston"
+  ],
+  [
+   "organic40:piston",
+   "legacy:44",
+   "pack:steam-engine"
+  ],
+  [
+   "legacy:146",
+   "organic40:generator",
+   "pack:pixel-reactor"
+  ],
+  [
+   "legacy:110",
+   "legacy:83",
+   "organic32:portable-arcade"
+  ],
+  [
+   "legacy:76",
+   "legacy:211",
+   "organic32:loading-screen"
+  ],
+  [
+   "legacy:151",
+   "legacy:93",
+   "organic32:game-cartridge"
+  ],
+  [
+   "organic42:lens",
+   "organic42:lens",
+   "organic32:telescope"
+  ],
+  [
+   "organic41:thermometer",
+   "legacy:211",
+   "organic41:barometer"
+  ],
+  [
+   "organic41:barometer",
+   "organic41:thermometer",
+   "organic34:weather-station"
+  ],
+  [
+   "legacy:86",
+   "organic41:barometer",
+   "organic50:weather-sensor"
+  ],
+  [
+   "legacy:23",
+   "organic34:weather-station",
+   "organic44:rain-gauge"
+  ],
+  [
+   "organic44:rain-gauge",
+   "legacy:86",
+   "organic50:rain-sensor"
+  ],
+  [
+   "organic40:turbine",
+   "organic40:generator",
+   "organic32:wind-turbine"
+  ],
+  [
+   "organic50:weather-sensor",
+   "organic40:turbine",
+   "organic56:wind-speed-meter"
+  ],
+  [
+   "organic41:compass",
+   "organic40:turbine",
+   "organic44:weather-vane"
+  ],
+  [
+   "organic34:weather-station",
+   "organic41:compass",
+   "organic46:wind-vane"
+  ],
+  [
+   "organic40:turbine",
+   "legacy:56",
+   "organic40:windmill"
+  ],
+  [
+   "organic45:water-pump",
+   "legacy:44",
+   "organic40:watermill"
+  ],
+  [
+   "organic34:electric-motor",
+   "organic40:turbine",
+   "organic45:water-pump"
+  ],
+  [
+   "organic45:water-pump",
+   "organic56:camera-lens-filter",
+   "organic44:water-filter"
+  ],
+  [
+   "legacy:23",
+   "organic46:thermostat",
+   "organic34:greenhouse"
+  ],
+  [
+   "organic45:water-pump",
+   "organic34:greenhouse",
+   "organic37:irrigation"
+  ],
+  [
+   "organic45:water-pump",
+   "organic42:tripod",
+   "organic46:water-tower"
+  ],
+  [
+   "organic44:rain-gauge",
+   "organic46:water-tower",
+   "organic57:rainwater-reservoir"
+  ],
+  [
+   "legacy:153",
+   "organic44:rain-gauge",
+   "organic45:rain-barrel"
+  ],
+  [
+   "organic45:rain-barrel",
+   "legacy:22",
+   "organic47:rain-gutter"
+  ],
+  [
+   "organic37:irrigation",
+   "legacy:55",
+   "organic41:canal"
+  ],
+  [
+   "organic41:canal",
+   "organic46:water-tower",
+   "organic41:aqueduct"
+  ],
+  [
+   "organic38:sprinkler",
+   "legacy:211",
+   "organic57:garden-irrigation-timer"
+  ],
+  [
+   "organic32:solar-panel",
+   "organic45:water-pump",
+   "organic57:solar-water-pump"
+  ],
+  [
+   "organic37:irrigation",
+   "organic47:led-array",
+   "organic58:indoor-hydroponic-tray"
+  ],
+  [
+   "organic44:water-filter",
+   "legacy:23",
+   "organic57:aquarium-water-filter"
+  ],
+  [
+   "organic34:greenhouse",
+   "legacy:73",
+   "organic57:smart-plant-pot"
+  ],
+  [
+   "organic57:smart-plant-pot",
+   "legacy:86",
+   "organic57:plant-moisture-sensor"
+  ],
+  [
+   "organic47:temperature-probe",
+   "organic57:smart-plant-pot",
+   "organic57:electronic-soil-meter"
+  ],
+  [
+   "organic57:plant-moisture-sensor",
+   "legacy:111",
+   "organic58:moss-moisture-probe"
+  ],
+  [
+   "organic57:electronic-soil-meter",
+   "organic41:thermometer",
+   "organic58:smart-compost-monitor"
+  ],
+  [
+   "organic57:electronic-soil-meter",
+   "organic44:water-filter",
+   "organic59:mycelium-soil-filter"
+  ],
+  [
+   "organic34:greenhouse",
+   "organic41:barometer",
+   "organic58:greenhouse-humidity-gauge"
+  ],
+  [
+   "organic50:weather-sensor",
+   "organic34:greenhouse",
+   "organic57:microclimate-sensor"
+  ],
+  [
+   "organic32:solar-panel",
+   "organic47:led-array",
+   "organic50:solar-lantern"
+  ],
+  [
+   "organic50:solar-lantern",
+   "organic34:greenhouse",
+   "organic56:solar-garden-light"
+  ],
+  [
+   "organic47:studio-light",
+   "organic46:light-meter",
+   "organic45:streetlamp"
+  ],
+  [
+   "organic45:streetlamp",
+   "legacy:23",
+   "organic47:street-lantern"
+  ],
+  [
+   "organic45:streetlamp",
+   "organic42:lens",
+   "organic34:lighthouse"
+  ],
+  [
+   "organic34:lighthouse",
+   "legacy:99",
+   "organic41:buoy"
+  ],
+  [
+   "organic34:lighthouse",
+   "organic61:portable-radio-beacon",
+   "organic59:fog-beacon"
+  ],
+  [
+   "organic42:lens",
+   "legacy:111",
+   "organic47:macro-lens"
+  ],
+  [
+   "legacy:23",
+   "organic47:macro-lens",
+   "organic58:butterfly-observation-box"
+  ],
+  [
+   "organic34:greenhouse",
+   "legacy:111",
+   "organic41:insect-hotel"
+  ],
+  [
+   "organic47:studio-light",
+   "organic58:butterfly-observation-box",
+   "organic58:moth-light-trap"
+  ],
+  [
+   "organic58:camera-motion-trigger",
+   "legacy:69",
+   "organic50:wildlife-camera"
+  ],
+  [
+   "organic50:wildlife-camera",
+   "organic50:thermal-camera",
+   "organic58:owl-nest-camera"
+  ],
+  [
+   "legacy:116",
+   "organic50:wildlife-camera",
+   "organic57:wildlife-motion-detector"
+  ],
+  [
+   "organic50:wildlife-camera",
+   "organic46:drone-camera",
+   "organic59:forest-canopy-camera"
+  ],
+  [
+   "organic50:wildlife-camera",
+   "legacy:111",
+   "organic58:squirrel-trail-camera"
+  ],
+  [
+   "legacy:88",
+   "organic50:wildlife-camera",
+   "organic56:nature-audio-recorder"
+  ],
+  [
+   "legacy:88",
+   "organic59:forest-canopy-camera",
+   "organic57:forest-audio-recorder"
+  ],
+  [
+   "legacy:88",
+   "legacy:87",
+   "organic41:sonar"
+  ],
+  [
+   "organic32:digital-camera",
+   "legacy:99",
+   "organic50:underwater-camera"
+  ],
+  [
+   "legacy:88",
+   "organic41:sonar",
+   "organic57:underwater-microphone"
+  ],
+  [
+   "organic56:nature-audio-recorder",
+   "organic57:underwater-microphone",
+   "organic58:frog-call-recorder"
+  ],
+  [
+   "organic41:buoy",
+   "legacy:86",
+   "organic50:ocean-sensor"
+  ],
+  [
+   "organic41:buoy",
+   "organic40:generator",
+   "organic59:wave-energy-buoy"
+  ],
+  [
+   "legacy:211",
+   "organic41:buoy",
+   "organic59:tide-gauge-station"
+  ],
+  [
+   "legacy:211",
+   "organic34:lighthouse",
+   "organic59:harbor-tide-clock"
+  ],
+  [
+   "organic40:turbine",
+   "organic41:buoy",
+   "organic45:tidal-turbine"
+  ],
+  [
+   "organic45:tidal-turbine",
+   "organic56:portable-power-meter",
+   "organic58:tidal-energy-meter"
+  ],
+  [
+   "legacy:99",
+   "legacy:112",
+   "organic41:rudder"
+  ],
+  [
+   "legacy:99",
+   "organic32:wind-turbine",
+   "organic41:sail"
+  ],
+  [
+   "organic41:sail",
+   "organic41:rudder",
+   "organic34:sailboat"
+  ],
+  [
+   "organic41:sail",
+   "organic42:tripod",
+   "organic41:mast"
+  ],
+  [
+   "organic34:sailboat",
+   "legacy:514",
+   "organic41:anchor"
+  ],
+  [
+   "organic34:sailboat",
+   "organic61:portable-radio-beacon",
+   "organic41:lifeboat"
+  ],
+  [
+   "organic41:lifeboat",
+   "organic34:lighthouse",
+   "organic59:coastal-rescue-boat"
+  ],
+  [
+   "organic34:sailboat",
+   "legacy:153",
+   "organic41:cargo-ship"
+  ],
+  [
+   "organic41:sail",
+   "organic46:thermostat",
+   "organic44:hot-air-balloon"
+  ],
+  [
+   "legacy:68",
+   "legacy:68",
+   "organic46:loom"
+  ],
+  [
+   "legacy:44",
+   "legacy:68",
+   "organic46:spinning-wheel"
+  ],
+  [
+   "organic46:loom",
+   "organic41:buoy",
+   "organic41:fishing-net"
+  ],
+  [
+   "organic41:fishing-net",
+   "organic58:coral-nursery-rack",
+   "organic59:reef-cleanup-net"
+  ],
+  [
+   "organic34:greenhouse",
+   "organic41:buoy",
+   "organic58:coral-nursery-rack"
+  ],
+  [
+   "organic58:coral-nursery-rack",
+   "legacy:86",
+   "organic59:coral-growth-monitor"
+  ],
+  [
+   "organic58:coral-nursery-rack",
+   "legacy:23",
+   "organic58:reef-observation-window"
+  ],
+  [
+   "organic47:robot-gripper",
+   "organic41:buoy",
+   "organic58:beach-cleanup-kit"
+  ],
+  [
+   "organic50:weather-sensor",
+   "legacy:87",
+   "organic58:storm-warning-bell"
+  ],
+  [
+   "organic58:glass-solar-lantern",
+   "organic34:sailboat",
+   "organic58:glass-bottom-lantern"
+  ],
+  [
+   "legacy:123",
+   "organic34:greenhouse",
+   "organic58:automated-seed-dispenser"
+  ],
+  [
+   "organic58:automated-seed-dispenser",
+   "organic40:gearbox",
+   "organic58:mechanical-seed-sorter"
+  ],
+  [
+   "organic32:solar-panel",
+   "organic58:automated-seed-dispenser",
+   "organic58:solar-powered-bird-feeder"
+  ],
+  [
+   "legacy:89",
+   "organic34:weather-station",
+   "organic58:emergency-weather-beacon"
+  ],
+  [
+   "legacy:89",
+   "organic50:weather-sensor",
+   "organic59:thunder-listening-station"
+  ],
+  [
+   "organic50:rain-sensor",
+   "legacy:23",
+   "organic58:rain-activated-skylight"
+  ],
+  [
+   "legacy:112",
+   "organic57:smart-plant-pot",
+   "organic59:fern-study-press"
+  ],
+  [
+   "organic50:3d-scanner",
+   "organic57:smart-plant-pot",
+   "organic57:digital-herbarium"
+  ],
+  [
+   "organic34:weather-station",
+   "legacy:77",
+   "organic57:digital-weather-station"
+  ],
+  [
+   "organic80:touchscreen-drawing-stylus",
+   "legacy:110",
+   "organic57:digital-field-notebook"
+  ],
+  [
+   "legacy:23",
+   "organic32:solar-panel",
+   "organic57:glass-solar-panel"
+  ],
+  [
+   "organic32:solar-panel",
+   "legacy:123",
+   "organic40:satellite"
+  ],
+  [
+   "organic40:satellite",
+   "legacy:85",
+   "organic47:orbiting-satellite"
+  ],
+  [
+   "organic40:satellite",
+   "legacy:23",
+   "organic57:spacecraft-window"
+  ],
+  [
+   "organic32:telescope",
+   "organic32:telescope",
+   "organic40:observatory"
+  ],
+  [
+   "organic40:observatory",
+   "organic56:star-tracker",
+   "organic58:comet-watch-station"
+  ],
+  [
+   "organic42:projector",
+   "organic32:telescope",
+   "organic58:backyard-planetarium"
+  ],
+  [
+   "legacy:321",
+   "organic56:camera-lens-filter",
+   "organic46:eclipse-glasses"
+  ],
+  [
+   "organic42:aperture",
+   "organic42:projector",
+   "organic45:camera-obscura"
+  ],
+  [
+   "legacy:211",
+   "organic32:solar-panel",
+   "organic57:solar-clock-face"
+  ],
+  [
+   "organic57:solar-clock-face",
+   "organic41:compass",
+   "organic56:solar-sundial"
+  ],
+  [
+   "organic56:solar-sundial",
+   "organic34:weather-station",
+   "organic59:cloud-shadow-clock"
+  ],
+  [
+   "organic32:mechanical-clock",
+   "organic45:streetlamp",
+   "organic47:town-clock"
+  ],
+  [
+   "organic47:town-clock",
+   "organic32:solar-panel",
+   "organic58:solar-street-clock"
+  ],
+  [
+   "organic32:mechanical-clock",
+   "legacy:87",
+   "organic56:kitchen-timer"
+  ],
+  [
+   "organic32:mechanical-clock",
+   "organic40:synthesizer",
+   "organic40:metronome"
+  ],
+  [
+   "legacy:514",
+   "legacy:87",
+   "organic40:music-box"
+  ],
+  [
+   "legacy:98",
+   "organic40:amplifier",
+   "organic40:vinyl"
+  ],
+  [
+   "legacy:55",
+   "legacy:217",
+   "organic40:blueprint"
+  ],
+  [
+   "legacy:44",
+   "legacy:44",
+   "organic40:bicycle"
+  ],
+  [
+   "organic42:lens",
+   "organic32:solar-panel",
+   "organic45:solar-oven"
+  ],
+  [
+   "organic45:solar-oven",
+   "legacy:22",
+   "organic46:forge"
+  ],
+  [
+   "organic46:forge",
+   "legacy:23",
+   "organic40:kiln"
+  ],
+  [
+   "legacy:29",
+   "legacy:29",
+   "organic46:workbench"
+  ],
+  [
+   "legacy:112",
+   "legacy:514",
+   "organic46:drawbridge"
+  ],
+  [
+   "organic80:touchscreen-drawing-stylus",
+   "legacy:22",
+   "organic46:fountain-pen"
+  ],
+  [
+   "organic42:tripod",
+   "organic42:tripod",
+   "organic41:scaffold"
+  ],
+  [
+   "organic41:scaffold",
+   "legacy:55",
+   "organic47:pedestrian-bridge"
+  ],
+  [
+   "organic41:sail",
+   "legacy:112",
+   "organic34:umbrella"
+  ],
+  [
+   "organic32:wind-turbine",
+   "organic41:scaffold",
+   "organic55:hilltop-turbine"
+  ],
+  [
+   "legacy:85",
+   "legacy:211",
+   "organic42:shutter"
+  ],
+  [
+   "legacy:85",
+   "organic47:studio-light",
+   "organic42:flash"
+  ],
+  [
+   "legacy:85",
+   "legacy:99",
+   "organic42:negative"
+  ],
+  [
+   "organic42:negative",
+   "organic42:shutter",
+   "organic47:photo-negative"
+  ],
+  [
+   "organic42:negative",
+   "legacy:22",
+   "organic47:film-canister"
+  ],
+  [
+   "organic47:photo-negative",
+   "organic47:studio-light",
+   "organic47:contact-sheet"
+  ],
+  [
+   "organic42:projector",
+   "legacy:23",
+   "organic42:slide"
+  ],
+  [
+   "organic32:digital-camera",
+   "organic42:tripod",
+   "organic55:camera-tripod"
+  ],
+  [
+   "legacy:22",
+   "organic50:weather-sensor",
+   "organic44:lightning-rod"
+  ],
+  [
+   "legacy:86",
+   "organic32:solar-panel",
+   "organic46:photodiode"
+  ],
+  [
+   "organic50:thermal-camera",
+   "legacy:86",
+   "organic46:infrared-sensor"
+  ],
+  [
+   "organic32:solar-panel",
+   "legacy:68",
+   "organic46:solar-charger"
+  ],
+  [
+   "legacy:110",
+   "organic46:solar-charger",
+   "organic58:portable-solar-charger"
+  ],
+  [
+   "legacy:88",
+   "legacy:86",
+   "organic46:sound-meter"
+  ]
+ ],
+ "misfiled": [
+  {
+   "id": "legacy:283",
+   "to": "games",
+   "reason": "not console/gaming hardware: a game studio/publisher"
+  },
+  {
+   "id": "legacy:284",
+   "to": "games",
+   "reason": "not console/gaming hardware: a game studio/publisher"
+  },
+  {
+   "id": "legacy:285",
+   "to": "games",
+   "reason": "not console/gaming hardware: a game studio/publisher"
+  },
+  {
+   "id": "legacy:286",
+   "to": "games",
+   "reason": "not console/gaming hardware: a game studio/publisher"
+  },
+  {
+   "id": "legacy:294",
+   "to": "games",
+   "reason": "not console/gaming hardware: a game studio/publisher"
+  },
+  {
+   "id": "legacy:298",
+   "to": "games",
+   "reason": "not console/gaming hardware: a game studio/publisher"
+  },
+  {
+   "id": "legacy:288",
+   "to": "games",
+   "reason": "not console/gaming hardware: a game studio/publisher"
+  },
+  {
+   "id": "legacy:289",
+   "to": "games",
+   "reason": "not console/gaming hardware: a game studio/publisher"
+  },
+  {
+   "id": "legacy:290",
+   "to": "games",
+   "reason": "not console/gaming hardware: a game studio/publisher"
+  },
+  {
+   "id": "legacy:291",
+   "to": "games",
+   "reason": "not console/gaming hardware: a game studio/publisher"
+  },
+  {
+   "id": "legacy:292",
+   "to": "games",
+   "reason": "not console/gaming hardware: a game studio/publisher"
+  },
+  {
+   "id": "legacy:293",
+   "to": "games",
+   "reason": "not console/gaming hardware: a game studio/publisher"
+  },
+  {
+   "id": "legacy:299",
+   "to": "games",
+   "reason": "not console/gaming hardware: a game studio/publisher"
+  },
+  {
+   "id": "legacy:300",
+   "to": "games",
+   "reason": "not console/gaming hardware: a game studio/publisher"
+  },
+  {
+   "id": "legacy:301",
+   "to": "games",
+   "reason": "not console/gaming hardware: a game studio/publisher"
+  },
+  {
+   "id": "legacy:302",
+   "to": "games",
+   "reason": "not console/gaming hardware: a game studio/publisher"
+  },
+  {
+   "id": "legacy:303",
+   "to": "games",
+   "reason": "not console/gaming hardware: a game studio/publisher"
+  },
+  {
+   "id": "legacy:304",
+   "to": "games",
+   "reason": "not console/gaming hardware: a game studio/publisher"
+  },
+  {
+   "id": "legacy:305",
+   "to": "games",
+   "reason": "not console/gaming hardware: a game studio/publisher"
+  },
+  {
+   "id": "legacy:306",
+   "to": "games",
+   "reason": "not console/gaming hardware: a game studio/publisher"
+  },
+  {
+   "id": "legacy:307",
+   "to": "games",
+   "reason": "not console/gaming hardware: a game studio/publisher"
+  },
+  {
+   "id": "legacy:308",
+   "to": "games",
+   "reason": "not console/gaming hardware: a game studio/publisher"
+  },
+  {
+   "id": "legacy:345",
+   "to": "games",
+   "reason": "a game-release concept, not hardware"
+  },
+  {
+   "id": "legacy:346",
+   "to": "games",
+   "reason": "a game-release concept, not hardware"
+  },
+  {
+   "id": "legacy:349",
+   "to": "games",
+   "reason": "a game-release concept, not hardware"
+  },
+  {
+   "id": "legacy:344",
+   "to": "games",
+   "reason": "a game-release concept, not hardware"
+  },
+  {
+   "id": "organic41:barometer",
+   "to": "nature",
+   "reason": "not console/gaming hardware: a nature/everyday gadget"
+  },
+  {
+   "id": "organic50:weather-sensor",
+   "to": "nature",
+   "reason": "not console/gaming hardware: a nature/everyday gadget"
+  },
+  {
+   "id": "organic44:rain-gauge",
+   "to": "nature",
+   "reason": "not console/gaming hardware: a nature/everyday gadget"
+  },
+  {
+   "id": "organic50:rain-sensor",
+   "to": "nature",
+   "reason": "not console/gaming hardware: a nature/everyday gadget"
+  },
+  {
+   "id": "organic32:wind-turbine",
+   "to": "nature",
+   "reason": "not console/gaming hardware: a nature/everyday gadget"
+  },
+  {
+   "id": "organic56:wind-speed-meter",
+   "to": "nature",
+   "reason": "not console/gaming hardware: a nature/everyday gadget"
+  },
+  {
+   "id": "organic44:weather-vane",
+   "to": "nature",
+   "reason": "not console/gaming hardware: a nature/everyday gadget"
+  },
+  {
+   "id": "organic46:wind-vane",
+   "to": "nature",
+   "reason": "not console/gaming hardware: a nature/everyday gadget"
+  },
+  {
+   "id": "organic40:windmill",
+   "to": "nature",
+   "reason": "not console/gaming hardware: a nature/everyday gadget"
+  },
+  {
+   "id": "organic40:watermill",
+   "to": "nature",
+   "reason": "not console/gaming hardware: a nature/everyday gadget"
+  },
+  {
+   "id": "organic45:water-pump",
+   "to": "nature",
+   "reason": "not console/gaming hardware: a nature/everyday gadget"
+  },
+  {
+   "id": "organic44:water-filter",
+   "to": "nature",
+   "reason": "not console/gaming hardware: a nature/everyday gadget"
+  },
+  {
+   "id": "organic34:greenhouse",
+   "to": "nature",
+   "reason": "not console/gaming hardware: a nature/everyday gadget"
+  },
+  {
+   "id": "organic37:irrigation",
+   "to": "nature",
+   "reason": "not console/gaming hardware: a nature/everyday gadget"
+  },
+  {
+   "id": "organic46:water-tower",
+   "to": "nature",
+   "reason": "not console/gaming hardware: a nature/everyday gadget"
+  },
+  {
+   "id": "organic57:rainwater-reservoir",
+   "to": "nature",
+   "reason": "not console/gaming hardware: a nature/everyday gadget"
+  },
+  {
+   "id": "organic45:rain-barrel",
+   "to": "nature",
+   "reason": "not console/gaming hardware: a nature/everyday gadget"
+  },
+  {
+   "id": "organic47:rain-gutter",
+   "to": "nature",
+   "reason": "not console/gaming hardware: a nature/everyday gadget"
+  },
+  {
+   "id": "organic41:canal",
+   "to": "nature",
+   "reason": "not console/gaming hardware: a nature/everyday gadget"
+  },
+  {
+   "id": "organic41:aqueduct",
+   "to": "nature",
+   "reason": "not console/gaming hardware: a nature/everyday gadget"
+  },
+  {
+   "id": "organic57:garden-irrigation-timer",
+   "to": "nature",
+   "reason": "not console/gaming hardware: a nature/everyday gadget"
+  },
+  {
+   "id": "organic57:solar-water-pump",
+   "to": "nature",
+   "reason": "not console/gaming hardware: a nature/everyday gadget"
+  },
+  {
+   "id": "organic58:indoor-hydroponic-tray",
+   "to": "nature",
+   "reason": "not console/gaming hardware: a nature/everyday gadget"
+  },
+  {
+   "id": "organic57:aquarium-water-filter",
+   "to": "nature",
+   "reason": "not console/gaming hardware: a nature/everyday gadget"
+  },
+  {
+   "id": "organic57:smart-plant-pot",
+   "to": "nature",
+   "reason": "not console/gaming hardware: a nature/everyday gadget"
+  },
+  {
+   "id": "organic57:plant-moisture-sensor",
+   "to": "nature",
+   "reason": "not console/gaming hardware: a nature/everyday gadget"
+  },
+  {
+   "id": "organic57:electronic-soil-meter",
+   "to": "nature",
+   "reason": "not console/gaming hardware: a nature/everyday gadget"
+  },
+  {
+   "id": "organic58:moss-moisture-probe",
+   "to": "nature",
+   "reason": "not console/gaming hardware: a nature/everyday gadget"
+  },
+  {
+   "id": "organic58:smart-compost-monitor",
+   "to": "nature",
+   "reason": "not console/gaming hardware: a nature/everyday gadget"
+  },
+  {
+   "id": "organic59:mycelium-soil-filter",
+   "to": "nature",
+   "reason": "not console/gaming hardware: a nature/everyday gadget"
+  },
+  {
+   "id": "organic58:greenhouse-humidity-gauge",
+   "to": "nature",
+   "reason": "not console/gaming hardware: a nature/everyday gadget"
+  },
+  {
+   "id": "organic57:microclimate-sensor",
+   "to": "nature",
+   "reason": "not console/gaming hardware: a nature/everyday gadget"
+  },
+  {
+   "id": "organic50:solar-lantern",
+   "to": "nature",
+   "reason": "not console/gaming hardware: a nature/everyday gadget"
+  },
+  {
+   "id": "organic56:solar-garden-light",
+   "to": "nature",
+   "reason": "not console/gaming hardware: a nature/everyday gadget"
+  },
+  {
+   "id": "organic45:streetlamp",
+   "to": "nature",
+   "reason": "not console/gaming hardware: a nature/everyday gadget"
+  },
+  {
+   "id": "organic47:street-lantern",
+   "to": "nature",
+   "reason": "not console/gaming hardware: a nature/everyday gadget"
+  },
+  {
+   "id": "organic34:lighthouse",
+   "to": "nature",
+   "reason": "not console/gaming hardware: a nature/everyday gadget"
+  },
+  {
+   "id": "organic41:buoy",
+   "to": "nature",
+   "reason": "not console/gaming hardware: a nature/everyday gadget"
+  },
+  {
+   "id": "organic59:fog-beacon",
+   "to": "nature",
+   "reason": "not console/gaming hardware: a nature/everyday gadget"
+  },
+  {
+   "id": "organic47:macro-lens",
+   "to": "nature",
+   "reason": "not console/gaming hardware: a nature/everyday gadget"
+  },
+  {
+   "id": "organic58:butterfly-observation-box",
+   "to": "nature",
+   "reason": "not console/gaming hardware: a nature/everyday gadget"
+  },
+  {
+   "id": "organic41:insect-hotel",
+   "to": "nature",
+   "reason": "not console/gaming hardware: a nature/everyday gadget"
+  },
+  {
+   "id": "organic58:moth-light-trap",
+   "to": "nature",
+   "reason": "not console/gaming hardware: a nature/everyday gadget"
+  },
+  {
+   "id": "organic50:wildlife-camera",
+   "to": "nature",
+   "reason": "not console/gaming hardware: a nature/everyday gadget"
+  },
+  {
+   "id": "organic58:owl-nest-camera",
+   "to": "nature",
+   "reason": "not console/gaming hardware: a nature/everyday gadget"
+  },
+  {
+   "id": "organic57:wildlife-motion-detector",
+   "to": "nature",
+   "reason": "not console/gaming hardware: a nature/everyday gadget"
+  },
+  {
+   "id": "organic59:forest-canopy-camera",
+   "to": "nature",
+   "reason": "not console/gaming hardware: a nature/everyday gadget"
+  },
+  {
+   "id": "organic58:squirrel-trail-camera",
+   "to": "nature",
+   "reason": "not console/gaming hardware: a nature/everyday gadget"
+  },
+  {
+   "id": "organic56:nature-audio-recorder",
+   "to": "nature",
+   "reason": "not console/gaming hardware: a nature/everyday gadget"
+  },
+  {
+   "id": "organic57:forest-audio-recorder",
+   "to": "nature",
+   "reason": "not console/gaming hardware: a nature/everyday gadget"
+  },
+  {
+   "id": "organic41:sonar",
+   "to": "nature",
+   "reason": "not console/gaming hardware: a nature/everyday gadget"
+  },
+  {
+   "id": "organic50:underwater-camera",
+   "to": "nature",
+   "reason": "not console/gaming hardware: a nature/everyday gadget"
+  },
+  {
+   "id": "organic57:underwater-microphone",
+   "to": "nature",
+   "reason": "not console/gaming hardware: a nature/everyday gadget"
+  },
+  {
+   "id": "organic58:frog-call-recorder",
+   "to": "nature",
+   "reason": "not console/gaming hardware: a nature/everyday gadget"
+  },
+  {
+   "id": "organic50:ocean-sensor",
+   "to": "nature",
+   "reason": "not console/gaming hardware: a nature/everyday gadget"
+  },
+  {
+   "id": "organic59:wave-energy-buoy",
+   "to": "nature",
+   "reason": "not console/gaming hardware: a nature/everyday gadget"
+  },
+  {
+   "id": "organic59:tide-gauge-station",
+   "to": "nature",
+   "reason": "not console/gaming hardware: a nature/everyday gadget"
+  },
+  {
+   "id": "organic59:harbor-tide-clock",
+   "to": "nature",
+   "reason": "not console/gaming hardware: a nature/everyday gadget"
+  },
+  {
+   "id": "organic45:tidal-turbine",
+   "to": "nature",
+   "reason": "not console/gaming hardware: a nature/everyday gadget"
+  },
+  {
+   "id": "organic58:tidal-energy-meter",
+   "to": "nature",
+   "reason": "not console/gaming hardware: a nature/everyday gadget"
+  },
+  {
+   "id": "organic41:rudder",
+   "to": "nature",
+   "reason": "not console/gaming hardware: a nature/everyday gadget"
+  },
+  {
+   "id": "organic41:sail",
+   "to": "nature",
+   "reason": "not console/gaming hardware: a nature/everyday gadget"
+  },
+  {
+   "id": "organic34:sailboat",
+   "to": "nature",
+   "reason": "not console/gaming hardware: a nature/everyday gadget"
+  },
+  {
+   "id": "organic41:mast",
+   "to": "nature",
+   "reason": "not console/gaming hardware: a nature/everyday gadget"
+  },
+  {
+   "id": "organic41:anchor",
+   "to": "nature",
+   "reason": "not console/gaming hardware: a nature/everyday gadget"
+  },
+  {
+   "id": "organic41:lifeboat",
+   "to": "nature",
+   "reason": "not console/gaming hardware: a nature/everyday gadget"
+  },
+  {
+   "id": "organic59:coastal-rescue-boat",
+   "to": "nature",
+   "reason": "not console/gaming hardware: a nature/everyday gadget"
+  },
+  {
+   "id": "organic41:cargo-ship",
+   "to": "nature",
+   "reason": "not console/gaming hardware: a nature/everyday gadget"
+  },
+  {
+   "id": "organic44:hot-air-balloon",
+   "to": "nature",
+   "reason": "not console/gaming hardware: a nature/everyday gadget"
+  },
+  {
+   "id": "organic46:loom",
+   "to": "nature",
+   "reason": "not console/gaming hardware: a nature/everyday gadget"
+  },
+  {
+   "id": "organic46:spinning-wheel",
+   "to": "nature",
+   "reason": "not console/gaming hardware: a nature/everyday gadget"
+  },
+  {
+   "id": "organic41:fishing-net",
+   "to": "nature",
+   "reason": "not console/gaming hardware: a nature/everyday gadget"
+  },
+  {
+   "id": "organic59:reef-cleanup-net",
+   "to": "nature",
+   "reason": "not console/gaming hardware: a nature/everyday gadget"
+  },
+  {
+   "id": "organic58:coral-nursery-rack",
+   "to": "nature",
+   "reason": "not console/gaming hardware: a nature/everyday gadget"
+  },
+  {
+   "id": "organic59:coral-growth-monitor",
+   "to": "nature",
+   "reason": "not console/gaming hardware: a nature/everyday gadget"
+  },
+  {
+   "id": "organic58:reef-observation-window",
+   "to": "nature",
+   "reason": "not console/gaming hardware: a nature/everyday gadget"
+  },
+  {
+   "id": "organic58:beach-cleanup-kit",
+   "to": "nature",
+   "reason": "not console/gaming hardware: a nature/everyday gadget"
+  },
+  {
+   "id": "organic58:storm-warning-bell",
+   "to": "nature",
+   "reason": "not console/gaming hardware: a nature/everyday gadget"
+  },
+  {
+   "id": "organic58:glass-bottom-lantern",
+   "to": "nature",
+   "reason": "not console/gaming hardware: a nature/everyday gadget"
+  },
+  {
+   "id": "organic58:automated-seed-dispenser",
+   "to": "nature",
+   "reason": "not console/gaming hardware: a nature/everyday gadget"
+  },
+  {
+   "id": "organic58:mechanical-seed-sorter",
+   "to": "nature",
+   "reason": "not console/gaming hardware: a nature/everyday gadget"
+  },
+  {
+   "id": "organic58:solar-powered-bird-feeder",
+   "to": "nature",
+   "reason": "not console/gaming hardware: a nature/everyday gadget"
+  },
+  {
+   "id": "organic58:emergency-weather-beacon",
+   "to": "nature",
+   "reason": "not console/gaming hardware: a nature/everyday gadget"
+  },
+  {
+   "id": "organic59:thunder-listening-station",
+   "to": "nature",
+   "reason": "not console/gaming hardware: a nature/everyday gadget"
+  },
+  {
+   "id": "organic58:rain-activated-skylight",
+   "to": "nature",
+   "reason": "not console/gaming hardware: a nature/everyday gadget"
+  },
+  {
+   "id": "organic59:fern-study-press",
+   "to": "nature",
+   "reason": "not console/gaming hardware: a nature/everyday gadget"
+  },
+  {
+   "id": "organic57:digital-herbarium",
+   "to": "nature",
+   "reason": "not console/gaming hardware: a nature/everyday gadget"
+  },
+  {
+   "id": "organic57:digital-weather-station",
+   "to": "nature",
+   "reason": "not console/gaming hardware: a nature/everyday gadget"
+  },
+  {
+   "id": "organic57:digital-field-notebook",
+   "to": "nature",
+   "reason": "not console/gaming hardware: a nature/everyday gadget"
+  },
+  {
+   "id": "organic57:glass-solar-panel",
+   "to": "nature",
+   "reason": "not console/gaming hardware: a nature/everyday gadget"
+  },
+  {
+   "id": "organic40:satellite",
+   "to": "nature",
+   "reason": "not console/gaming hardware: a nature/everyday gadget"
+  },
+  {
+   "id": "organic47:orbiting-satellite",
+   "to": "nature",
+   "reason": "not console/gaming hardware: a nature/everyday gadget"
+  },
+  {
+   "id": "organic57:spacecraft-window",
+   "to": "nature",
+   "reason": "not console/gaming hardware: a nature/everyday gadget"
+  },
+  {
+   "id": "organic40:observatory",
+   "to": "nature",
+   "reason": "not console/gaming hardware: a nature/everyday gadget"
+  },
+  {
+   "id": "organic58:comet-watch-station",
+   "to": "nature",
+   "reason": "not console/gaming hardware: a nature/everyday gadget"
+  },
+  {
+   "id": "organic58:backyard-planetarium",
+   "to": "nature",
+   "reason": "not console/gaming hardware: a nature/everyday gadget"
+  },
+  {
+   "id": "organic46:eclipse-glasses",
+   "to": "nature",
+   "reason": "not console/gaming hardware: a nature/everyday gadget"
+  },
+  {
+   "id": "organic45:camera-obscura",
+   "to": "nature",
+   "reason": "not console/gaming hardware: a nature/everyday gadget"
+  },
+  {
+   "id": "organic57:solar-clock-face",
+   "to": "nature",
+   "reason": "not console/gaming hardware: a nature/everyday gadget"
+  },
+  {
+   "id": "organic56:solar-sundial",
+   "to": "nature",
+   "reason": "not console/gaming hardware: a nature/everyday gadget"
+  },
+  {
+   "id": "organic59:cloud-shadow-clock",
+   "to": "nature",
+   "reason": "not console/gaming hardware: a nature/everyday gadget"
+  },
+  {
+   "id": "organic47:town-clock",
+   "to": "nature",
+   "reason": "not console/gaming hardware: a nature/everyday gadget"
+  },
+  {
+   "id": "organic58:solar-street-clock",
+   "to": "nature",
+   "reason": "not console/gaming hardware: a nature/everyday gadget"
+  },
+  {
+   "id": "organic56:kitchen-timer",
+   "to": "nature",
+   "reason": "not console/gaming hardware: a nature/everyday gadget"
+  },
+  {
+   "id": "organic40:metronome",
+   "to": "nature",
+   "reason": "not console/gaming hardware: a nature/everyday gadget"
+  },
+  {
+   "id": "organic40:music-box",
+   "to": "nature",
+   "reason": "not console/gaming hardware: a nature/everyday gadget"
+  },
+  {
+   "id": "organic40:vinyl",
+   "to": "nature",
+   "reason": "not console/gaming hardware: a nature/everyday gadget"
+  },
+  {
+   "id": "organic40:blueprint",
+   "to": "nature",
+   "reason": "not console/gaming hardware: a nature/everyday gadget"
+  },
+  {
+   "id": "organic40:bicycle",
+   "to": "nature",
+   "reason": "not console/gaming hardware: a nature/everyday gadget"
+  },
+  {
+   "id": "organic45:solar-oven",
+   "to": "nature",
+   "reason": "not console/gaming hardware: a nature/everyday gadget"
+  },
+  {
+   "id": "organic46:forge",
+   "to": "nature",
+   "reason": "not console/gaming hardware: a nature/everyday gadget"
+  },
+  {
+   "id": "organic40:kiln",
+   "to": "nature",
+   "reason": "not console/gaming hardware: a nature/everyday gadget"
+  },
+  {
+   "id": "organic46:workbench",
+   "to": "nature",
+   "reason": "not console/gaming hardware: a nature/everyday gadget"
+  },
+  {
+   "id": "organic46:drawbridge",
+   "to": "nature",
+   "reason": "not console/gaming hardware: a nature/everyday gadget"
+  },
+  {
+   "id": "organic46:fountain-pen",
+   "to": "nature",
+   "reason": "not console/gaming hardware: a nature/everyday gadget"
+  },
+  {
+   "id": "organic41:scaffold",
+   "to": "nature",
+   "reason": "not console/gaming hardware: a nature/everyday gadget"
+  },
+  {
+   "id": "organic47:pedestrian-bridge",
+   "to": "nature",
+   "reason": "not console/gaming hardware: a nature/everyday gadget"
+  },
+  {
+   "id": "organic34:umbrella",
+   "to": "nature",
+   "reason": "not console/gaming hardware: a nature/everyday gadget"
+  },
+  {
+   "id": "organic55:hilltop-turbine",
+   "to": "nature",
+   "reason": "not console/gaming hardware: a nature/everyday gadget"
+  },
+  {
+   "id": "organic42:shutter",
+   "to": "nature",
+   "reason": "not console/gaming hardware: a nature/everyday gadget"
+  },
+  {
+   "id": "organic42:flash",
+   "to": "nature",
+   "reason": "not console/gaming hardware: a nature/everyday gadget"
+  },
+  {
+   "id": "organic42:negative",
+   "to": "nature",
+   "reason": "not console/gaming hardware: a nature/everyday gadget"
+  },
+  {
+   "id": "organic47:photo-negative",
+   "to": "nature",
+   "reason": "not console/gaming hardware: a nature/everyday gadget"
+  },
+  {
+   "id": "organic47:film-canister",
+   "to": "nature",
+   "reason": "not console/gaming hardware: a nature/everyday gadget"
+  },
+  {
+   "id": "organic47:contact-sheet",
+   "to": "nature",
+   "reason": "not console/gaming hardware: a nature/everyday gadget"
+  },
+  {
+   "id": "organic42:slide",
+   "to": "nature",
+   "reason": "not console/gaming hardware: a nature/everyday gadget"
+  },
+  {
+   "id": "organic55:camera-tripod",
+   "to": "nature",
+   "reason": "not console/gaming hardware: a nature/everyday gadget"
+  },
+  {
+   "id": "organic44:lightning-rod",
+   "to": "nature",
+   "reason": "not console/gaming hardware: a nature/everyday gadget"
+  },
+  {
+   "id": "organic46:photodiode",
+   "to": "nature",
+   "reason": "not console/gaming hardware: a nature/everyday gadget"
+  },
+  {
+   "id": "organic46:infrared-sensor",
+   "to": "nature",
+   "reason": "not console/gaming hardware: a nature/everyday gadget"
+  },
+  {
+   "id": "organic46:solar-charger",
+   "to": "nature",
+   "reason": "not console/gaming hardware: a nature/everyday gadget"
+  },
+  {
+   "id": "organic58:portable-solar-charger",
+   "to": "nature",
+   "reason": "not console/gaming hardware: a nature/everyday gadget"
+  },
+  {
+   "id": "organic46:sound-meter",
+   "to": "nature",
+   "reason": "not console/gaming hardware: a nature/everyday gadget"
+  }
+ ]
+}

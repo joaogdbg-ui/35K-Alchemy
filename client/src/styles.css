@@ -439,3 +439,43 @@ body.keyboard-open .view-play .shelf{flex:1;min-height:0;border-top:0;border-rad
 body.keyboard-open .tabbar{display:none!important}
 @media(prefers-reduced-motion:reduce){*,*::before,*::after{scroll-behavior:auto!important;animation:none!important;transition:none!important}.element-chip.element-chip-pulse{outline:2px solid var(--accent);outline-offset:1px}.craft-morph-art{display:none!important}}
 @media(prefers-reduced-motion:reduce){.craft-ghost{display:none!important}}
+
+/* ---------- V85: Families Only looks different from Classic ---------- */
+.family-banner{position:relative;display:flex;align-items:center;gap:10px;margin:0 0 10px;padding:8px 10px 10px;border-radius:16px;background:var(--good-2);border:1px solid color-mix(in srgb,var(--good) 35%,transparent);overflow:hidden}
+.family-banner[hidden]{display:none}
+.family-banner-art{width:34px;height:34px;flex:0 0 34px;display:grid;place-items:center}
+.family-banner-art svg,.family-banner-art img{width:34px;height:34px}
+.family-banner-text{display:flex;flex-direction:column;min-width:0;flex:1}
+.family-banner-text small{font-size:10.5px;letter-spacing:.06em;text-transform:uppercase;color:var(--good);font-weight:700}
+.family-banner-text strong{font-size:15px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.family-banner-progress{font-size:12.5px;font-weight:700;color:var(--ink-2,var(--slate));white-space:nowrap}
+.family-banner-merge{flex:0 0 auto;border:1px solid var(--good);background:var(--surface);color:var(--good);border-radius:999px;padding:7px 12px;font-weight:700;font-size:13px;min-height:36px}
+.family-banner-merge.has-items{background:var(--good);color:#fff}
+.family-banner-bar{position:absolute;left:0;bottom:0;height:3px;width:var(--family-progress,0%);background:var(--good);border-radius:0 3px 3px 0;transition:width .4s ease}
+body[data-game-mode="family"] .craft-card{border-color:color-mix(in srgb,var(--good) 40%,var(--line));box-shadow:0 0 0 3px color-mix(in srgb,var(--good) 12%,transparent),var(--shadow)}
+body[data-game-mode="family"] .craft-slot{border-color:color-mix(in srgb,var(--good) 45%,var(--line))}
+body[data-game-mode="family"] .tab.active{color:var(--good);background:var(--good-2)}
+/* ---------- V85: Shiny elements ---------- */
+.is-shiny{position:relative}
+.element-chip.is-shiny{border-color:#e2b84d;background:linear-gradient(135deg,var(--surface) 60%,#fbf0cf)}
+html[data-theme="dark"] .element-chip.is-shiny{background:linear-gradient(135deg,var(--surface) 60%,#4a3d1d)}
+.element-chip.is-shiny .chip-art,.craft-slot.is-shiny .slot-art,.modal-art.is-shiny{position:relative}
+.element-chip.is-shiny .chip-art::after,.craft-slot.is-shiny .slot-art::after,.modal-art.is-shiny::after{content:"";position:absolute;inset:-4px;pointer-events:none;
+ background:radial-gradient(circle at 18% 22%,#fff6c8 0 1.6px,transparent 2.6px),radial-gradient(circle at 80% 30%,#ffe27a 0 1.8px,transparent 2.8px),radial-gradient(circle at 62% 82%,#fff6c8 0 1.4px,transparent 2.4px),radial-gradient(circle at 28% 74%,#ffd34d 0 1.2px,transparent 2.2px);
+ animation:shiny-twinkle 1.8s ease-in-out infinite}
+.modal-art.is-shiny::after{inset:-10px;background:radial-gradient(circle at 15% 20%,#fff6c8 0 3px,transparent 5px),radial-gradient(circle at 85% 25%,#ffe27a 0 3.5px,transparent 5.5px),radial-gradient(circle at 70% 85%,#fff6c8 0 2.5px,transparent 4.5px),radial-gradient(circle at 25% 80%,#ffd34d 0 2.5px,transparent 4.5px),radial-gradient(circle at 50% 8%,#ffe27a 0 2px,transparent 4px)}
+@keyframes shiny-twinkle{0%,100%{opacity:.35;transform:scale(.96)}50%{opacity:1;transform:scale(1.04)}}
+@media(prefers-reduced-motion:reduce){.element-chip.is-shiny .chip-art::after,.craft-slot.is-shiny .slot-art::after,.modal-art.is-shiny::after{animation:none;opacity:.85}}
+.modal-tag.shiny-tag{background:#fbf0cf;color:#8a6414}
+html[data-theme="dark"] .modal-tag.shiny-tag{background:#4a3d1d;color:#f3d27a}
+.shiny-trivia{margin:10px auto 0;max-width:34ch;padding:10px 12px;border-radius:12px;background:#fbf0cf;color:#5c4510;font-size:14px;line-height:1.4}
+html[data-theme="dark"] .shiny-trivia{background:#3d3218;color:#f3e2b3}
+.shiny-chip[aria-pressed="true"]{background:#fbf0cf;border-color:#e2b84d;color:#8a6414}
+.stat-shiny strong{color:#b8891d}
+/* ---------- V85: Merge hub and Remove-ads sheet ---------- */
+.merge-hub{display:flex;flex-direction:column;gap:8px;margin:12px 0}
+.merge-hub-option{display:flex;align-items:center;gap:12px;text-align:left;padding:12px;border-radius:14px;border:1px solid var(--line);background:var(--surface)}
+.merge-hub-option:disabled{opacity:.55}
+.merge-hub-option strong{display:block;font-size:15px}.merge-hub-option small{display:block;color:var(--muted,var(--slate));font-size:12.5px;margin-top:2px}
+.merge-hub-arrow{width:36px;height:36px;flex:0 0 36px;display:grid;place-items:center;border-radius:50%;background:var(--good-2);color:var(--good);font-weight:800;font-size:18px}
+.perk-list{text-align:left;margin:10px auto 14px;padding-left:20px;max-width:34ch;line-height:1.55}

@@ -1,0 +1,3018 @@
+{
+ "version": 83,
+ "status": "QA_PENDING_UNMERGED",
+ "cohort_count": 200,
+ "expansion_goal": 200,
+ "expansion_progress": 200,
+ "remaining_to_goal": 0,
+ "cycle_complete": true,
+ "themes": {
+  "world": 200
+ },
+ "base_catalog": {
+  "elements": 6212
+ },
+ "alternative_recipes_for_existing_items": 0,
+ "new_items": [
+  {
+   "id": "organic85:country",
+   "name": "Country",
+   "category": "geography",
+   "summary": "A nation with its own territory, government and borders, drawn as a shape on the map.",
+   "familyCampaigns": [
+    "world"
+   ],
+   "ingredients": [
+    "legacy:354",
+    "legacy:140"
+   ],
+   "art_mode": "bespoke-subject",
+   "path": "client/assets/v85/country.svg"
+  },
+  {
+   "id": "organic85:flag",
+   "name": "Flag",
+   "category": "geography",
+   "summary": "A piece of cloth with colours and symbols that stands for a country or group.",
+   "familyCampaigns": [
+    "world"
+   ],
+   "ingredients": [
+    "organic85:country",
+    "legacy:140"
+   ],
+   "art_mode": "bespoke-subject",
+   "path": "client/assets/v85/flag.svg"
+  },
+  {
+   "id": "organic85:border",
+   "name": "Border",
+   "category": "geography",
+   "summary": "The line where one country ends and another begins, sometimes marked by rivers or fences.",
+   "familyCampaigns": [
+    "world"
+   ],
+   "ingredients": [
+    "organic85:country",
+    "organic85:country"
+   ],
+   "art_mode": "bespoke-subject",
+   "path": "client/assets/v85/border.svg"
+  },
+  {
+   "id": "organic85:globe",
+   "name": "Globe",
+   "category": "geography",
+   "summary": "A spherical model of Earth showing the continents and oceans in their true shapes.",
+   "familyCampaigns": [
+    "world"
+   ],
+   "ingredients": [
+    "legacy:354",
+    "legacy:354"
+   ],
+   "art_mode": "bespoke-subject",
+   "path": "client/assets/v85/globe.svg"
+  },
+  {
+   "id": "organic85:equator",
+   "name": "Equator",
+   "category": "geography",
+   "summary": "The imaginary line around the middle of Earth, equally distant from both poles.",
+   "familyCampaigns": [
+    "world"
+   ],
+   "ingredients": [
+    "organic85:globe",
+    "organic85:border"
+   ],
+   "art_mode": "bespoke-subject",
+   "path": "client/assets/v85/equator.svg"
+  },
+  {
+   "id": "organic85:south-pole",
+   "name": "South Pole",
+   "category": "geography",
+   "summary": "The southernmost point on Earth, on the high ice sheet of Antarctica.",
+   "familyCampaigns": [
+    "world"
+   ],
+   "ingredients": [
+    "organic85:globe",
+    "organic41:explorer"
+   ],
+   "art_mode": "bespoke-subject",
+   "path": "client/assets/v85/south-pole.svg"
+  },
+  {
+   "id": "organic85:valley",
+   "name": "Valley",
+   "category": "geography",
+   "summary": "A low stretch of land between hills or mountains, often with a river along its floor.",
+   "familyCampaigns": [
+    "world"
+   ],
+   "ingredients": [
+    "legacy:38",
+    "legacy:38"
+   ],
+   "art_mode": "bespoke-subject",
+   "path": "client/assets/v85/valley.svg"
+  },
+  {
+   "id": "organic85:peninsula",
+   "name": "Peninsula",
+   "category": "geography",
+   "summary": "Land surrounded by water on three sides but still joined to the mainland.",
+   "familyCampaigns": [
+    "world"
+   ],
+   "ingredients": [
+    "legacy:558",
+    "legacy:13"
+   ],
+   "art_mode": "bespoke-subject",
+   "path": "client/assets/v85/peninsula.svg"
+  },
+  {
+   "id": "organic85:fjord",
+   "name": "Fjord",
+   "category": "geography",
+   "summary": "A long, narrow sea inlet filling a steep valley carved out by an ancient glacier.",
+   "familyCampaigns": [
+    "world"
+   ],
+   "ingredients": [
+    "organic85:valley",
+    "legacy:10"
+   ],
+   "art_mode": "bespoke-subject",
+   "path": "client/assets/v85/fjord.svg"
+  },
+  {
+   "id": "organic85:archipelago",
+   "name": "Archipelago",
+   "category": "geography",
+   "summary": "A group or chain of islands scattered across a stretch of sea.",
+   "familyCampaigns": [
+    "world"
+   ],
+   "ingredients": [
+    "legacy:558",
+    "legacy:558"
+   ],
+   "art_mode": "bespoke-subject",
+   "path": "client/assets/v85/archipelago.svg"
+  },
+  {
+   "id": "organic85:wall",
+   "name": "Wall",
+   "category": "geography",
+   "summary": "A long defensive barrier built along a frontier to keep out invaders.",
+   "familyCampaigns": [
+    "world"
+   ],
+   "ingredients": [
+    "organic41:monument",
+    "organic85:border"
+   ],
+   "art_mode": "bespoke-subject",
+   "path": "client/assets/v85/wall.svg"
+  },
+  {
+   "id": "organic85:temple",
+   "name": "Temple",
+   "category": "geography",
+   "summary": "A sacred building where people gather to worship, pray and celebrate holy days.",
+   "familyCampaigns": [
+    "world"
+   ],
+   "ingredients": [
+    "organic41:monument",
+    "organic85:festival"
+   ],
+   "art_mode": "bespoke-subject",
+   "path": "client/assets/v85/temple.svg"
+  },
+  {
+   "id": "organic85:palace",
+   "name": "Palace",
+   "category": "geography",
+   "summary": "A grand residence built for a ruler, filled with halls, gardens and ceremony.",
+   "familyCampaigns": [
+    "world"
+   ],
+   "ingredients": [
+    "legacy:562",
+    "organic85:feast"
+   ],
+   "art_mode": "bespoke-subject",
+   "path": "client/assets/v85/palace.svg"
+  },
+  {
+   "id": "organic85:skyscraper",
+   "name": "Skyscraper",
+   "category": "geography",
+   "summary": "A very tall building with many floors, made possible by steel frames and elevators.",
+   "familyCampaigns": [
+    "world"
+   ],
+   "ingredients": [
+    "organic41:tower",
+    "organic41:tower"
+   ],
+   "art_mode": "bespoke-subject",
+   "path": "client/assets/v85/skyscraper.svg"
+  },
+  {
+   "id": "organic85:feast",
+   "name": "Feast",
+   "category": "geography",
+   "summary": "A large, festive meal shared by many people to mark a special occasion.",
+   "familyCampaigns": [
+    "world"
+   ],
+   "ingredients": [
+    "pack:food",
+    "pack:food"
+   ],
+   "art_mode": "bespoke-subject",
+   "path": "client/assets/v85/feast.svg"
+  },
+  {
+   "id": "organic85:festival",
+   "name": "Festival",
+   "category": "geography",
+   "summary": "A day or season of celebration with music, food, decorations and traditions.",
+   "familyCampaigns": [
+    "world"
+   ],
+   "ingredients": [
+    "organic85:feast",
+    "legacy:140"
+   ],
+   "art_mode": "bespoke-subject",
+   "path": "client/assets/v85/festival.svg"
+  },
+  {
+   "id": "organic85:costume",
+   "name": "Costume",
+   "category": "geography",
+   "summary": "Traditional clothing worn to show cultural identity, often on holidays and special days.",
+   "familyCampaigns": [
+    "world"
+   ],
+   "ingredients": [
+    "organic85:festival",
+    "legacy:140"
+   ],
+   "art_mode": "bespoke-subject",
+   "path": "client/assets/v85/costume.svg"
+  },
+  {
+   "id": "organic85:safari",
+   "name": "Safari",
+   "category": "geography",
+   "summary": "An expedition to watch wild animals in their natural habitat, especially in East Africa.",
+   "familyCampaigns": [
+    "world"
+   ],
+   "ingredients": [
+    "organic85:africa",
+    "organic41:explorer"
+   ],
+   "art_mode": "bespoke-subject",
+   "path": "client/assets/v85/safari.svg"
+  },
+  {
+   "id": "organic85:africa",
+   "name": "Africa",
+   "category": "geography",
+   "summary": "The second-largest continent, home to 54 countries, the Sahara and the Nile.",
+   "familyCampaigns": [
+    "world"
+   ],
+   "ingredients": [
+    "legacy:13",
+    "organic85:equator"
+   ],
+   "art_mode": "bespoke-subject",
+   "path": "client/assets/v85/africa.svg"
+  },
+  {
+   "id": "organic85:north-america",
+   "name": "North America",
+   "category": "geography",
+   "summary": "The continent stretching from the Arctic to Central America, including Canada, the USA and Mexico.",
+   "familyCampaigns": [
+    "world"
+   ],
+   "ingredients": [
+    "legacy:13",
+    "organic38:canyon"
+   ],
+   "art_mode": "bespoke-subject",
+   "path": "client/assets/v85/north-america.svg"
+  },
+  {
+   "id": "organic85:south-america",
+   "name": "South America",
+   "category": "geography",
+   "summary": "The continent of the Andes and the Amazon, home to 12 sovereign countries.",
+   "familyCampaigns": [
+    "world"
+   ],
+   "ingredients": [
+    "legacy:13",
+    "organic32:rainforest"
+   ],
+   "art_mode": "bespoke-subject",
+   "path": "client/assets/v85/south-america.svg"
+  },
+  {
+   "id": "organic85:oceania",
+   "name": "Oceania",
+   "category": "geography",
+   "summary": "The region of Australia, New Zealand and thousands of Pacific islands.",
+   "familyCampaigns": [
+    "world"
+   ],
+   "ingredients": [
+    "legacy:13",
+    "legacy:591"
+   ],
+   "art_mode": "bespoke-subject",
+   "path": "client/assets/v85/oceania.svg"
+  },
+  {
+   "id": "organic85:antarctica",
+   "name": "Antarctica",
+   "category": "geography",
+   "summary": "The icy southern continent with no permanent population, set aside for science by treaty.",
+   "familyCampaigns": [
+    "world"
+   ],
+   "ingredients": [
+    "legacy:13",
+    "organic85:south-pole"
+   ],
+   "art_mode": "bespoke-subject",
+   "path": "client/assets/v85/antarctica.svg"
+  },
+  {
+   "id": "organic85:france",
+   "name": "France",
+   "category": "geography",
+   "summary": "A Western European country known for Paris, fine cuisine, wine and the Eiffel Tower.",
+   "familyCampaigns": [
+    "world"
+   ],
+   "ingredients": [
+    "legacy:130",
+    "organic85:feast"
+   ],
+   "art_mode": "bespoke-subject",
+   "path": "client/assets/v85/france.svg"
+  },
+  {
+   "id": "organic85:italy",
+   "name": "Italy",
+   "category": "geography",
+   "summary": "A boot-shaped Mediterranean peninsula, home of ancient Rome, the Renaissance and pizza.",
+   "familyCampaigns": [
+    "world"
+   ],
+   "ingredients": [
+    "legacy:130",
+    "organic85:peninsula"
+   ],
+   "art_mode": "bespoke-subject",
+   "path": "client/assets/v85/italy.svg"
+  },
+  {
+   "id": "organic85:spain",
+   "name": "Spain",
+   "category": "geography",
+   "summary": "An Iberian country famed for flamenco, paella, fiestas and Moorish palaces.",
+   "familyCampaigns": [
+    "world"
+   ],
+   "ingredients": [
+    "legacy:130",
+    "legacy:562"
+   ],
+   "art_mode": "bespoke-subject",
+   "path": "client/assets/v85/spain.svg"
+  },
+  {
+   "id": "organic85:greece",
+   "name": "Greece",
+   "category": "geography",
+   "summary": "A Mediterranean country of islands and ancient ruins, birthplace of democracy and the Olympics.",
+   "familyCampaigns": [
+    "world"
+   ],
+   "ingredients": [
+    "legacy:130",
+    "organic41:ruins"
+   ],
+   "art_mode": "bespoke-subject",
+   "path": "client/assets/v85/greece.svg"
+  },
+  {
+   "id": "organic85:switzerland",
+   "name": "Switzerland",
+   "category": "geography",
+   "summary": "A mountainous Alpine country known for lakes, cheese, chocolate and clocks.",
+   "familyCampaigns": [
+    "world"
+   ],
+   "ingredients": [
+    "legacy:130",
+    "legacy:40"
+   ],
+   "art_mode": "bespoke-subject",
+   "path": "client/assets/v85/switzerland.svg"
+  },
+  {
+   "id": "organic85:norway",
+   "name": "Norway",
+   "category": "geography",
+   "summary": "A Scandinavian country of dramatic fjords, northern lights and the midnight sun.",
+   "familyCampaigns": [
+    "world"
+   ],
+   "ingredients": [
+    "legacy:130",
+    "organic85:fjord"
+   ],
+   "art_mode": "bespoke-subject",
+   "path": "client/assets/v85/norway.svg"
+  },
+  {
+   "id": "organic85:iceland",
+   "name": "Iceland",
+   "category": "geography",
+   "summary": "A North Atlantic island nation of glaciers, volcanoes, geysers and hot springs.",
+   "familyCampaigns": [
+    "world"
+   ],
+   "ingredients": [
+    "legacy:130",
+    "organic38:glacier"
+   ],
+   "art_mode": "bespoke-subject",
+   "path": "client/assets/v85/iceland.svg"
+  },
+  {
+   "id": "organic85:netherlands",
+   "name": "Netherlands",
+   "category": "geography",
+   "summary": "A low-lying European country of canals, windmills, tulips and bicycles.",
+   "familyCampaigns": [
+    "world"
+   ],
+   "ingredients": [
+    "legacy:130",
+    "organic38:delta"
+   ],
+   "art_mode": "bespoke-subject",
+   "path": "client/assets/v85/netherlands.svg"
+  },
+  {
+   "id": "organic85:germany",
+   "name": "Germany",
+   "category": "geography",
+   "summary": "A central European country known for castles, forests, engineering and festivals.",
+   "familyCampaigns": [
+    "world"
+   ],
+   "ingredients": [
+    "legacy:130",
+    "organic85:border"
+   ],
+   "art_mode": "bespoke-subject",
+   "path": "client/assets/v85/germany.svg"
+  },
+  {
+   "id": "organic85:portugal",
+   "name": "Portugal",
+   "category": "geography",
+   "summary": "A seafaring country on Europe's Atlantic edge, famous for explorers, fado and blue tiles.",
+   "familyCampaigns": [
+    "world"
+   ],
+   "ingredients": [
+    "legacy:130",
+    "legacy:591"
+   ],
+   "art_mode": "bespoke-subject",
+   "path": "client/assets/v85/portugal.svg"
+  },
+  {
+   "id": "organic85:russia",
+   "name": "Russia",
+   "category": "geography",
+   "summary": "The world's largest country by area, spanning eastern Europe and northern Asia.",
+   "familyCampaigns": [
+    "world"
+   ],
+   "ingredients": [
+    "legacy:130",
+    "legacy:1203"
+   ],
+   "art_mode": "bespoke-subject",
+   "path": "client/assets/v85/russia.svg"
+  },
+  {
+   "id": "organic85:india",
+   "name": "India",
+   "category": "geography",
+   "summary": "A vast South Asian country of many languages, spices, festivals and ancient temples.",
+   "familyCampaigns": [
+    "world"
+   ],
+   "ingredients": [
+    "legacy:1203",
+    "organic38:spice"
+   ],
+   "art_mode": "bespoke-subject",
+   "path": "client/assets/v85/india.svg"
+  },
+  {
+   "id": "organic85:nepal",
+   "name": "Nepal",
+   "category": "geography",
+   "summary": "A Himalayan country between China and India, home to Mount Everest.",
+   "familyCampaigns": [
+    "world"
+   ],
+   "ingredients": [
+    "organic85:country",
+    "organic85:himalayas"
+   ],
+   "art_mode": "bespoke-subject",
+   "path": "client/assets/v85/nepal.svg"
+  },
+  {
+   "id": "organic85:thailand",
+   "name": "Thailand",
+   "category": "geography",
+   "summary": "A Southeast Asian kingdom of golden temples, tropical beaches and street food.",
+   "familyCampaigns": [
+    "world"
+   ],
+   "ingredients": [
+    "legacy:1203",
+    "organic85:temple"
+   ],
+   "art_mode": "bespoke-subject",
+   "path": "client/assets/v85/thailand.svg"
+  },
+  {
+   "id": "organic85:indonesia",
+   "name": "Indonesia",
+   "category": "geography",
+   "summary": "The world's largest archipelagic country, spread across more than 17,000 islands.",
+   "familyCampaigns": [
+    "world"
+   ],
+   "ingredients": [
+    "legacy:1203",
+    "organic85:archipelago"
+   ],
+   "art_mode": "bespoke-subject",
+   "path": "client/assets/v85/indonesia.svg"
+  },
+  {
+   "id": "organic85:south-korea",
+   "name": "South Korea",
+   "category": "geography",
+   "summary": "An East Asian country on the southern Korean Peninsula, known for K-pop and kimchi.",
+   "familyCampaigns": [
+    "world"
+   ],
+   "ingredients": [
+    "legacy:1203",
+    "organic85:peninsula"
+   ],
+   "art_mode": "bespoke-subject",
+   "path": "client/assets/v85/south-korea.svg"
+  },
+  {
+   "id": "organic85:cambodia",
+   "name": "Cambodia",
+   "category": "geography",
+   "summary": "A Southeast Asian kingdom, heart of the ancient Khmer Empire and Angkor.",
+   "familyCampaigns": [
+    "world"
+   ],
+   "ingredients": [
+    "legacy:1203",
+    "organic41:ruins"
+   ],
+   "art_mode": "bespoke-subject",
+   "path": "client/assets/v85/cambodia.svg"
+  },
+  {
+   "id": "organic85:vietnam",
+   "name": "Vietnam",
+   "category": "geography",
+   "summary": "A long S-shaped Southeast Asian country of rice paddies, the Mekong Delta and pho.",
+   "familyCampaigns": [
+    "world"
+   ],
+   "ingredients": [
+    "legacy:1203",
+    "organic38:delta"
+   ],
+   "art_mode": "bespoke-subject",
+   "path": "client/assets/v85/vietnam.svg"
+  },
+  {
+   "id": "organic85:jordan",
+   "name": "Jordan",
+   "category": "geography",
+   "summary": "A Middle Eastern kingdom of desert landscapes such as Wadi Rum and the rose-red city of Petra.",
+   "familyCampaigns": [
+    "world"
+   ],
+   "ingredients": [
+    "legacy:1203",
+    "legacy:1048"
+   ],
+   "art_mode": "bespoke-subject",
+   "path": "client/assets/v85/jordan.svg"
+  },
+  {
+   "id": "organic85:united-arab-emirates",
+   "name": "United Arab Emirates",
+   "category": "geography",
+   "summary": "A federation of seven emirates on the Arabian Peninsula, known for desert and record-breaking skyscrapers.",
+   "familyCampaigns": [
+    "world"
+   ],
+   "ingredients": [
+    "legacy:1203",
+    "organic85:skyscraper"
+   ],
+   "art_mode": "bespoke-subject",
+   "path": "client/assets/v85/united-arab-emirates.svg"
+  },
+  {
+   "id": "organic85:egypt",
+   "name": "Egypt",
+   "category": "geography",
+   "summary": "A North African country along the Nile, home of the pharaohs, pyramids and the Sphinx.",
+   "familyCampaigns": [
+    "world"
+   ],
+   "ingredients": [
+    "organic85:country",
+    "organic85:nile"
+   ],
+   "art_mode": "bespoke-subject",
+   "path": "client/assets/v85/egypt.svg"
+  },
+  {
+   "id": "organic85:kenya",
+   "name": "Kenya",
+   "category": "geography",
+   "summary": "An East African country of savanna, safaris, wildlife and long-distance runners.",
+   "familyCampaigns": [
+    "world"
+   ],
+   "ingredients": [
+    "organic85:africa",
+    "organic85:safari"
+   ],
+   "art_mode": "bespoke-subject",
+   "path": "client/assets/v85/kenya.svg"
+  },
+  {
+   "id": "organic85:tanzania",
+   "name": "Tanzania",
+   "category": "geography",
+   "summary": "An East African country home to Kilimanjaro, the Serengeti and Zanzibar.",
+   "familyCampaigns": [
+    "world"
+   ],
+   "ingredients": [
+    "organic85:country",
+    "organic85:mount-kilimanjaro"
+   ],
+   "art_mode": "bespoke-subject",
+   "path": "client/assets/v85/tanzania.svg"
+  },
+  {
+   "id": "organic85:morocco",
+   "name": "Morocco",
+   "category": "geography",
+   "summary": "A North African kingdom of spice markets, desert, mountains and mosaic-tiled cities.",
+   "familyCampaigns": [
+    "world"
+   ],
+   "ingredients": [
+    "organic85:africa",
+    "organic38:spice"
+   ],
+   "art_mode": "bespoke-subject",
+   "path": "client/assets/v85/morocco.svg"
+  },
+  {
+   "id": "organic85:south-africa",
+   "name": "South Africa",
+   "category": "geography",
+   "summary": "The country at Africa's southern tip, bordered by the Atlantic and Indian oceans.",
+   "familyCampaigns": [
+    "world"
+   ],
+   "ingredients": [
+    "organic85:africa",
+    "legacy:591"
+   ],
+   "art_mode": "bespoke-subject",
+   "path": "client/assets/v85/south-africa.svg"
+  },
+  {
+   "id": "organic85:madagascar",
+   "name": "Madagascar",
+   "category": "geography",
+   "summary": "A huge island nation off Africa's east coast, home to lemurs found nowhere else.",
+   "familyCampaigns": [
+    "world"
+   ],
+   "ingredients": [
+    "organic85:africa",
+    "legacy:558"
+   ],
+   "art_mode": "bespoke-subject",
+   "path": "client/assets/v85/madagascar.svg"
+  },
+  {
+   "id": "organic85:ethiopia",
+   "name": "Ethiopia",
+   "category": "geography",
+   "summary": "An ancient East African highland nation, often called the birthplace of coffee.",
+   "familyCampaigns": [
+    "world"
+   ],
+   "ingredients": [
+    "organic85:africa",
+    "organic38:coffee"
+   ],
+   "art_mode": "bespoke-subject",
+   "path": "client/assets/v85/ethiopia.svg"
+  },
+  {
+   "id": "organic85:zimbabwe",
+   "name": "Zimbabwe",
+   "category": "geography",
+   "summary": "A southern African country named after the medieval stone city of Great Zimbabwe.",
+   "familyCampaigns": [
+    "world"
+   ],
+   "ingredients": [
+    "organic85:africa",
+    "organic41:ruins"
+   ],
+   "art_mode": "bespoke-subject",
+   "path": "client/assets/v85/zimbabwe.svg"
+  },
+  {
+   "id": "organic85:canada",
+   "name": "Canada",
+   "category": "geography",
+   "summary": "The world's second-largest country, famous for lakes, forests, maple syrup and hockey.",
+   "familyCampaigns": [
+    "world"
+   ],
+   "ingredients": [
+    "organic85:north-america",
+    "legacy:40"
+   ],
+   "art_mode": "bespoke-subject",
+   "path": "client/assets/v85/canada.svg"
+  },
+  {
+   "id": "organic85:mexico",
+   "name": "Mexico",
+   "category": "geography",
+   "summary": "A North American country of ancient pyramids, mariachi, tacos and colourful festivals.",
+   "familyCampaigns": [
+    "world"
+   ],
+   "ingredients": [
+    "organic85:north-america",
+    "organic41:pyramid"
+   ],
+   "art_mode": "bespoke-subject",
+   "path": "client/assets/v85/mexico.svg"
+  },
+  {
+   "id": "organic85:panama",
+   "name": "Panama",
+   "category": "geography",
+   "summary": "A narrow Central American country linking North and South America, famous for its canal.",
+   "familyCampaigns": [
+    "world"
+   ],
+   "ingredients": [
+    "organic85:north-america",
+    "organic85:south-america"
+   ],
+   "art_mode": "bespoke-subject",
+   "path": "client/assets/v85/panama.svg"
+  },
+  {
+   "id": "organic85:brazil",
+   "name": "Brazil",
+   "category": "geography",
+   "summary": "South America's largest country, home to most of the Amazon, samba and football.",
+   "familyCampaigns": [
+    "world"
+   ],
+   "ingredients": [
+    "organic85:south-america",
+    "organic38:coffee"
+   ],
+   "art_mode": "bespoke-subject",
+   "path": "client/assets/v85/brazil.svg"
+  },
+  {
+   "id": "organic85:peru",
+   "name": "Peru",
+   "category": "geography",
+   "summary": "An Andean country of Inca heritage, Machu Picchu and Lake Titicaca.",
+   "familyCampaigns": [
+    "world"
+   ],
+   "ingredients": [
+    "organic85:south-america",
+    "organic41:ruins"
+   ],
+   "art_mode": "bespoke-subject",
+   "path": "client/assets/v85/peru.svg"
+  },
+  {
+   "id": "organic85:chile",
+   "name": "Chile",
+   "category": "geography",
+   "summary": "A long, narrow Pacific country stretching from the Atacama Desert to Patagonian glaciers.",
+   "familyCampaigns": [
+    "world"
+   ],
+   "ingredients": [
+    "organic85:south-america",
+    "legacy:1048"
+   ],
+   "art_mode": "bespoke-subject",
+   "path": "client/assets/v85/chile.svg"
+  },
+  {
+   "id": "organic85:argentina",
+   "name": "Argentina",
+   "category": "geography",
+   "summary": "A large South American country of pampas, Patagonian glaciers, tango and asado.",
+   "familyCampaigns": [
+    "world"
+   ],
+   "ingredients": [
+    "organic85:south-america",
+    "organic38:glacier"
+   ],
+   "art_mode": "bespoke-subject",
+   "path": "client/assets/v85/argentina.svg"
+  },
+  {
+   "id": "organic85:ecuador",
+   "name": "Ecuador",
+   "category": "geography",
+   "summary": "A South American country on the equator, which gave it its name, and home of the Galápagos.",
+   "familyCampaigns": [
+    "world"
+   ],
+   "ingredients": [
+    "organic85:south-america",
+    "organic85:equator"
+   ],
+   "art_mode": "bespoke-subject",
+   "path": "client/assets/v85/ecuador.svg"
+  },
+  {
+   "id": "organic85:venezuela",
+   "name": "Venezuela",
+   "category": "geography",
+   "summary": "A South American country of Caribbean coast, Andes peaks and the world's highest waterfall.",
+   "familyCampaigns": [
+    "world"
+   ],
+   "ingredients": [
+    "organic85:country",
+    "organic85:angel-falls"
+   ],
+   "art_mode": "bespoke-subject",
+   "path": "client/assets/v85/venezuela.svg"
+  },
+  {
+   "id": "organic85:australia",
+   "name": "Australia",
+   "category": "geography",
+   "summary": "A country-continent of red outback deserts, coral reefs and unique wildlife.",
+   "familyCampaigns": [
+    "world"
+   ],
+   "ingredients": [
+    "organic85:oceania",
+    "legacy:1048"
+   ],
+   "art_mode": "bespoke-subject",
+   "path": "client/assets/v85/australia.svg"
+  },
+  {
+   "id": "organic85:new-zealand",
+   "name": "New Zealand",
+   "category": "geography",
+   "summary": "A Pacific island nation of fjords, mountains, volcanoes and Māori culture.",
+   "familyCampaigns": [
+    "world"
+   ],
+   "ingredients": [
+    "organic85:oceania",
+    "organic85:fjord"
+   ],
+   "art_mode": "bespoke-subject",
+   "path": "client/assets/v85/new-zealand.svg"
+  },
+  {
+   "id": "organic85:fiji",
+   "name": "Fiji",
+   "category": "geography",
+   "summary": "A South Pacific nation of over 300 islands, coral reefs and white beaches.",
+   "familyCampaigns": [
+    "world"
+   ],
+   "ingredients": [
+    "organic85:oceania",
+    "legacy:558"
+   ],
+   "art_mode": "bespoke-subject",
+   "path": "client/assets/v85/fiji.svg"
+  },
+  {
+   "id": "organic85:flag-of-japan",
+   "name": "Flag of Japan",
+   "category": "geography",
+   "summary": "The Hinomaru: a red disc on a white field, symbolising the rising sun.",
+   "familyCampaigns": [
+    "world"
+   ],
+   "ingredients": [
+    "legacy:244",
+    "organic85:flag"
+   ],
+   "art_mode": "bespoke-subject",
+   "path": "client/assets/v85/flag-of-japan.svg"
+  },
+  {
+   "id": "organic85:flag-of-france",
+   "name": "Flag of France",
+   "category": "geography",
+   "summary": "The Tricolore: three vertical bands of blue, white and red.",
+   "familyCampaigns": [
+    "world"
+   ],
+   "ingredients": [
+    "organic85:france",
+    "organic85:flag"
+   ],
+   "art_mode": "bespoke-subject",
+   "path": "client/assets/v85/flag-of-france.svg"
+  },
+  {
+   "id": "organic85:flag-of-italy",
+   "name": "Flag of Italy",
+   "category": "geography",
+   "summary": "Il Tricolore: three vertical bands of green, white and red.",
+   "familyCampaigns": [
+    "world"
+   ],
+   "ingredients": [
+    "organic85:italy",
+    "organic85:flag"
+   ],
+   "art_mode": "bespoke-subject",
+   "path": "client/assets/v85/flag-of-italy.svg"
+  },
+  {
+   "id": "organic85:flag-of-germany",
+   "name": "Flag of Germany",
+   "category": "geography",
+   "summary": "Three horizontal bands of black, red and gold.",
+   "familyCampaigns": [
+    "world"
+   ],
+   "ingredients": [
+    "organic85:germany",
+    "organic85:flag"
+   ],
+   "art_mode": "bespoke-subject",
+   "path": "client/assets/v85/flag-of-germany.svg"
+  },
+  {
+   "id": "organic85:flag-of-canada",
+   "name": "Flag of Canada",
+   "category": "geography",
+   "summary": "A red maple leaf on a white square between two red bands.",
+   "familyCampaigns": [
+    "world"
+   ],
+   "ingredients": [
+    "organic85:canada",
+    "organic85:flag"
+   ],
+   "art_mode": "bespoke-subject",
+   "path": "client/assets/v85/flag-of-canada.svg"
+  },
+  {
+   "id": "organic85:flag-of-switzerland",
+   "name": "Flag of Switzerland",
+   "category": "geography",
+   "summary": "A white cross on a red square, one of only two square national flags.",
+   "familyCampaigns": [
+    "world"
+   ],
+   "ingredients": [
+    "organic85:switzerland",
+    "organic85:flag"
+   ],
+   "art_mode": "bespoke-subject",
+   "path": "client/assets/v85/flag-of-switzerland.svg"
+  },
+  {
+   "id": "organic85:flag-of-united-states",
+   "name": "Flag of United States",
+   "category": "geography",
+   "summary": "The Stars and Stripes: 13 red and white stripes and 50 white stars on blue.",
+   "familyCampaigns": [
+    "world"
+   ],
+   "ingredients": [
+    "legacy:129",
+    "organic85:flag"
+   ],
+   "art_mode": "bespoke-subject",
+   "path": "client/assets/v85/flag-of-united-states.svg"
+  },
+  {
+   "id": "organic85:flag-of-united-kingdom",
+   "name": "Flag of United Kingdom",
+   "category": "geography",
+   "summary": "The Union Jack, combining the crosses of England, Scotland and Ireland.",
+   "familyCampaigns": [
+    "world"
+   ],
+   "ingredients": [
+    "legacy:131",
+    "organic85:flag"
+   ],
+   "art_mode": "bespoke-subject",
+   "path": "client/assets/v85/flag-of-united-kingdom.svg"
+  },
+  {
+   "id": "organic85:flag-of-greece",
+   "name": "Flag of Greece",
+   "category": "geography",
+   "summary": "Nine blue and white stripes with a white cross in a blue canton.",
+   "familyCampaigns": [
+    "world"
+   ],
+   "ingredients": [
+    "organic85:greece",
+    "organic85:flag"
+   ],
+   "art_mode": "bespoke-subject",
+   "path": "client/assets/v85/flag-of-greece.svg"
+  },
+  {
+   "id": "organic85:flag-of-norway",
+   "name": "Flag of Norway",
+   "category": "geography",
+   "summary": "A blue Nordic cross outlined in white on a red field.",
+   "familyCampaigns": [
+    "world"
+   ],
+   "ingredients": [
+    "organic85:norway",
+    "organic85:flag"
+   ],
+   "art_mode": "bespoke-subject",
+   "path": "client/assets/v85/flag-of-norway.svg"
+  },
+  {
+   "id": "organic85:flag-of-iceland",
+   "name": "Flag of Iceland",
+   "category": "geography",
+   "summary": "A red Nordic cross outlined in white on a blue field.",
+   "familyCampaigns": [
+    "world"
+   ],
+   "ingredients": [
+    "organic85:iceland",
+    "organic85:flag"
+   ],
+   "art_mode": "bespoke-subject",
+   "path": "client/assets/v85/flag-of-iceland.svg"
+  },
+  {
+   "id": "organic85:flag-of-netherlands",
+   "name": "Flag of Netherlands",
+   "category": "geography",
+   "summary": "Three horizontal bands of red, white and blue.",
+   "familyCampaigns": [
+    "world"
+   ],
+   "ingredients": [
+    "organic85:netherlands",
+    "organic85:flag"
+   ],
+   "art_mode": "bespoke-subject",
+   "path": "client/assets/v85/flag-of-netherlands.svg"
+  },
+  {
+   "id": "organic85:flag-of-russia",
+   "name": "Flag of Russia",
+   "category": "geography",
+   "summary": "Three horizontal bands of white, blue and red.",
+   "familyCampaigns": [
+    "world"
+   ],
+   "ingredients": [
+    "organic85:russia",
+    "organic85:flag"
+   ],
+   "art_mode": "bespoke-subject",
+   "path": "client/assets/v85/flag-of-russia.svg"
+  },
+  {
+   "id": "organic85:flag-of-india",
+   "name": "Flag of India",
+   "category": "geography",
+   "summary": "The Tiranga: saffron, white and green bands with a navy wheel of 24 spokes.",
+   "familyCampaigns": [
+    "world"
+   ],
+   "ingredients": [
+    "organic85:india",
+    "organic85:flag"
+   ],
+   "art_mode": "bespoke-subject",
+   "path": "client/assets/v85/flag-of-india.svg"
+  },
+  {
+   "id": "organic85:flag-of-nepal",
+   "name": "Flag of Nepal",
+   "category": "geography",
+   "summary": "Two stacked crimson pennants with blue borders and white sun and moon.",
+   "familyCampaigns": [
+    "world"
+   ],
+   "ingredients": [
+    "organic85:nepal",
+    "organic85:flag"
+   ],
+   "art_mode": "bespoke-subject",
+   "path": "client/assets/v85/flag-of-nepal.svg"
+  },
+  {
+   "id": "organic85:flag-of-china",
+   "name": "Flag of China",
+   "category": "geography",
+   "summary": "A red field with one large and four small yellow stars.",
+   "familyCampaigns": [
+    "world"
+   ],
+   "ingredients": [
+    "legacy:1335",
+    "organic85:flag"
+   ],
+   "art_mode": "bespoke-subject",
+   "path": "client/assets/v85/flag-of-china.svg"
+  },
+  {
+   "id": "organic85:flag-of-south-korea",
+   "name": "Flag of South Korea",
+   "category": "geography",
+   "summary": "The Taegukgi: a red and blue yin-yang circle with four black trigrams on white.",
+   "familyCampaigns": [
+    "world"
+   ],
+   "ingredients": [
+    "organic85:south-korea",
+    "organic85:flag"
+   ],
+   "art_mode": "bespoke-subject",
+   "path": "client/assets/v85/flag-of-south-korea.svg"
+  },
+  {
+   "id": "organic85:flag-of-thailand",
+   "name": "Flag of Thailand",
+   "category": "geography",
+   "summary": "Five horizontal stripes of red, white, blue, white and red.",
+   "familyCampaigns": [
+    "world"
+   ],
+   "ingredients": [
+    "organic85:thailand",
+    "organic85:flag"
+   ],
+   "art_mode": "bespoke-subject",
+   "path": "client/assets/v85/flag-of-thailand.svg"
+  },
+  {
+   "id": "organic85:flag-of-indonesia",
+   "name": "Flag of Indonesia",
+   "category": "geography",
+   "summary": "Two equal horizontal bands of red over white, called Sang Saka Merah-Putih.",
+   "familyCampaigns": [
+    "world"
+   ],
+   "ingredients": [
+    "organic85:indonesia",
+    "organic85:flag"
+   ],
+   "art_mode": "bespoke-subject",
+   "path": "client/assets/v85/flag-of-indonesia.svg"
+  },
+  {
+   "id": "organic85:flag-of-vietnam",
+   "name": "Flag of Vietnam",
+   "category": "geography",
+   "summary": "A yellow five-pointed star on a red field.",
+   "familyCampaigns": [
+    "world"
+   ],
+   "ingredients": [
+    "organic85:vietnam",
+    "organic85:flag"
+   ],
+   "art_mode": "bespoke-subject",
+   "path": "client/assets/v85/flag-of-vietnam.svg"
+  },
+  {
+   "id": "organic85:flag-of-tanzania",
+   "name": "Flag of Tanzania",
+   "category": "geography",
+   "summary": "Green and blue triangles split by a yellow-edged black diagonal band.",
+   "familyCampaigns": [
+    "world"
+   ],
+   "ingredients": [
+    "organic85:tanzania",
+    "organic85:flag"
+   ],
+   "art_mode": "bespoke-subject",
+   "path": "client/assets/v85/flag-of-tanzania.svg"
+  },
+  {
+   "id": "organic85:flag-of-south-africa",
+   "name": "Flag of South Africa",
+   "category": "geography",
+   "summary": "A sideways green Y edged in white and gold, with red, blue and black fields.",
+   "familyCampaigns": [
+    "world"
+   ],
+   "ingredients": [
+    "organic85:south-africa",
+    "organic85:flag"
+   ],
+   "art_mode": "bespoke-subject",
+   "path": "client/assets/v85/flag-of-south-africa.svg"
+  },
+  {
+   "id": "organic85:flag-of-morocco",
+   "name": "Flag of Morocco",
+   "category": "geography",
+   "summary": "A green five-pointed interlaced star on a red field.",
+   "familyCampaigns": [
+    "world"
+   ],
+   "ingredients": [
+    "organic85:morocco",
+    "organic85:flag"
+   ],
+   "art_mode": "bespoke-subject",
+   "path": "client/assets/v85/flag-of-morocco.svg"
+  },
+  {
+   "id": "organic85:flag-of-panama",
+   "name": "Flag of Panama",
+   "category": "geography",
+   "summary": "Four quarters of white and colour, with one blue and one red star.",
+   "familyCampaigns": [
+    "world"
+   ],
+   "ingredients": [
+    "organic85:panama",
+    "organic85:flag"
+   ],
+   "art_mode": "bespoke-subject",
+   "path": "client/assets/v85/flag-of-panama.svg"
+  },
+  {
+   "id": "organic85:flag-of-chile",
+   "name": "Flag of Chile",
+   "category": "geography",
+   "summary": "White and red bands with a blue canton holding a single white star.",
+   "familyCampaigns": [
+    "world"
+   ],
+   "ingredients": [
+    "organic85:chile",
+    "organic85:flag"
+   ],
+   "art_mode": "bespoke-subject",
+   "path": "client/assets/v85/flag-of-chile.svg"
+  },
+  {
+   "id": "organic85:great-pyramid-of-giza",
+   "name": "Great Pyramid of Giza",
+   "category": "geography",
+   "summary": "The largest of the Giza pyramids, built as a tomb for Pharaoh Khufu around 2560 BC.",
+   "familyCampaigns": [
+    "world"
+   ],
+   "ingredients": [
+    "organic85:egypt",
+    "organic41:pyramid"
+   ],
+   "art_mode": "bespoke-subject",
+   "path": "client/assets/v85/great-pyramid-of-giza.svg"
+  },
+  {
+   "id": "organic85:great-sphinx-of-giza",
+   "name": "Great Sphinx of Giza",
+   "category": "geography",
+   "summary": "A colossal limestone statue with a lion's body and a human head, guarding the Giza plateau.",
+   "familyCampaigns": [
+    "world"
+   ],
+   "ingredients": [
+    "organic85:egypt",
+    "organic41:monument"
+   ],
+   "art_mode": "bespoke-subject",
+   "path": "client/assets/v85/great-sphinx-of-giza.svg"
+  },
+  {
+   "id": "organic85:suez-canal",
+   "name": "Suez Canal",
+   "category": "geography",
+   "summary": "An Egyptian canal linking the Mediterranean and Red seas, opened in 1869.",
+   "familyCampaigns": [
+    "world"
+   ],
+   "ingredients": [
+    "organic85:egypt",
+    "organic41:canal"
+   ],
+   "art_mode": "bespoke-subject",
+   "path": "client/assets/v85/suez-canal.svg"
+  },
+  {
+   "id": "organic85:eiffel-tower",
+   "name": "Eiffel Tower",
+   "category": "geography",
+   "summary": "Paris's wrought-iron lattice tower, built by Gustave Eiffel's company for the 1889 World's Fair.",
+   "familyCampaigns": [
+    "world"
+   ],
+   "ingredients": [
+    "organic85:france",
+    "organic41:tower"
+   ],
+   "art_mode": "bespoke-subject",
+   "path": "client/assets/v85/eiffel-tower.svg"
+  },
+  {
+   "id": "organic85:notre-dame-de-paris",
+   "name": "Notre-Dame de Paris",
+   "category": "geography",
+   "summary": "A Gothic cathedral on Paris's Île de la Cité, famed for its rose window and gargoyles.",
+   "familyCampaigns": [
+    "world"
+   ],
+   "ingredients": [
+    "organic85:france",
+    "organic41:cathedral"
+   ],
+   "art_mode": "bespoke-subject",
+   "path": "client/assets/v85/notre-dame-de-paris.svg"
+  },
+  {
+   "id": "organic85:palace-of-versailles",
+   "name": "Palace of Versailles",
+   "category": "geography",
+   "summary": "The opulent royal palace near Paris of Louis XIV, famed for its Hall of Mirrors.",
+   "familyCampaigns": [
+    "world"
+   ],
+   "ingredients": [
+    "organic85:france",
+    "organic85:palace"
+   ],
+   "art_mode": "bespoke-subject",
+   "path": "client/assets/v85/palace-of-versailles.svg"
+  },
+  {
+   "id": "organic85:mont-saint-michel",
+   "name": "Mont-Saint-Michel",
+   "category": "geography",
+   "summary": "A tidal island in Normandy crowned by a medieval abbey.",
+   "familyCampaigns": [
+    "world"
+   ],
+   "ingredients": [
+    "organic85:france",
+    "legacy:558"
+   ],
+   "art_mode": "bespoke-subject",
+   "path": "client/assets/v85/mont-saint-michel.svg"
+  },
+  {
+   "id": "organic85:colosseum",
+   "name": "Colosseum",
+   "category": "geography",
+   "summary": "Rome's giant ancient amphitheatre, completed in AD 80 for games and spectacles.",
+   "familyCampaigns": [
+    "world"
+   ],
+   "ingredients": [
+    "organic85:italy",
+    "organic41:monument"
+   ],
+   "art_mode": "bespoke-subject",
+   "path": "client/assets/v85/colosseum.svg"
+  },
+  {
+   "id": "organic85:leaning-tower-of-pisa",
+   "name": "Leaning Tower of Pisa",
+   "category": "geography",
+   "summary": "The bell tower of Pisa Cathedral, leaning since construction began in 1173.",
+   "familyCampaigns": [
+    "world"
+   ],
+   "ingredients": [
+    "organic85:italy",
+    "organic41:tower"
+   ],
+   "art_mode": "bespoke-subject",
+   "path": "client/assets/v85/leaning-tower-of-pisa.svg"
+  },
+  {
+   "id": "organic85:sagrada-familia",
+   "name": "Sagrada Família",
+   "category": "geography",
+   "summary": "Antoni Gaudí's towering basilica in Barcelona, under construction since 1882.",
+   "familyCampaigns": [
+    "world"
+   ],
+   "ingredients": [
+    "organic85:spain",
+    "organic41:cathedral"
+   ],
+   "art_mode": "bespoke-subject",
+   "path": "client/assets/v85/sagrada-familia.svg"
+  },
+  {
+   "id": "organic85:alhambra",
+   "name": "Alhambra",
+   "category": "geography",
+   "summary": "A palace and fortress complex in Granada, a masterpiece of Nasrid Moorish architecture.",
+   "familyCampaigns": [
+    "world"
+   ],
+   "ingredients": [
+    "organic85:spain",
+    "organic85:palace"
+   ],
+   "art_mode": "bespoke-subject",
+   "path": "client/assets/v85/alhambra.svg"
+  },
+  {
+   "id": "organic85:parthenon",
+   "name": "Parthenon",
+   "category": "geography",
+   "summary": "A marble temple to Athena on the Acropolis of Athens, completed in 438 BC.",
+   "familyCampaigns": [
+    "world"
+   ],
+   "ingredients": [
+    "organic85:greece",
+    "organic85:temple"
+   ],
+   "art_mode": "bespoke-subject",
+   "path": "client/assets/v85/parthenon.svg"
+  },
+  {
+   "id": "organic85:big-ben",
+   "name": "Big Ben",
+   "category": "geography",
+   "summary": "The nickname of the Great Bell in the clock tower of London's Palace of Westminster.",
+   "familyCampaigns": [
+    "world"
+   ],
+   "ingredients": [
+    "legacy:131",
+    "organic41:tower"
+   ],
+   "art_mode": "bespoke-subject",
+   "path": "client/assets/v85/big-ben.svg"
+  },
+  {
+   "id": "organic85:stonehenge",
+   "name": "Stonehenge",
+   "category": "geography",
+   "summary": "A prehistoric ring of standing stones on Salisbury Plain, built around 3000–2000 BC.",
+   "familyCampaigns": [
+    "world"
+   ],
+   "ingredients": [
+    "legacy:131",
+    "organic41:monument"
+   ],
+   "art_mode": "bespoke-subject",
+   "path": "client/assets/v85/stonehenge.svg"
+  },
+  {
+   "id": "organic85:hadrian-s-wall",
+   "name": "Hadrian's Wall",
+   "category": "geography",
+   "summary": "A Roman stone wall across northern England, begun in AD 122.",
+   "familyCampaigns": [
+    "world"
+   ],
+   "ingredients": [
+    "legacy:131",
+    "organic85:wall"
+   ],
+   "art_mode": "bespoke-subject",
+   "path": "client/assets/v85/hadrian-s-wall.svg"
+  },
+  {
+   "id": "organic85:neuschwanstein-castle",
+   "name": "Neuschwanstein Castle",
+   "category": "geography",
+   "summary": "A fairy-tale 19th-century castle in Bavaria, built for King Ludwig II.",
+   "familyCampaigns": [
+    "world"
+   ],
+   "ingredients": [
+    "organic85:germany",
+    "legacy:562"
+   ],
+   "art_mode": "bespoke-subject",
+   "path": "client/assets/v85/neuschwanstein-castle.svg"
+  },
+  {
+   "id": "organic85:brandenburg-gate",
+   "name": "Brandenburg Gate",
+   "category": "geography",
+   "summary": "Berlin's neoclassical gate, completed in 1791, a symbol of German reunification.",
+   "familyCampaigns": [
+    "world"
+   ],
+   "ingredients": [
+    "organic85:germany",
+    "organic41:monument"
+   ],
+   "art_mode": "bespoke-subject",
+   "path": "client/assets/v85/brandenburg-gate.svg"
+  },
+  {
+   "id": "organic85:st-basil-s-cathedral",
+   "name": "St. Basil's Cathedral",
+   "category": "geography",
+   "summary": "A 16th-century cathedral on Moscow's Red Square, famous for colourful onion domes.",
+   "familyCampaigns": [
+    "world"
+   ],
+   "ingredients": [
+    "organic85:russia",
+    "organic41:cathedral"
+   ],
+   "art_mode": "bespoke-subject",
+   "path": "client/assets/v85/st-basil-s-cathedral.svg"
+  },
+  {
+   "id": "organic85:great-wall-of-china",
+   "name": "Great Wall of China",
+   "category": "geography",
+   "summary": "A series of fortifications stretching across northern China, built over many centuries.",
+   "familyCampaigns": [
+    "world"
+   ],
+   "ingredients": [
+    "legacy:1335",
+    "organic85:wall"
+   ],
+   "art_mode": "bespoke-subject",
+   "path": "client/assets/v85/great-wall-of-china.svg"
+  },
+  {
+   "id": "organic85:forbidden-city",
+   "name": "Forbidden City",
+   "category": "geography",
+   "summary": "The vast imperial palace in Beijing, home to emperors for nearly 500 years.",
+   "familyCampaigns": [
+    "world"
+   ],
+   "ingredients": [
+    "legacy:1335",
+    "organic85:palace"
+   ],
+   "art_mode": "bespoke-subject",
+   "path": "client/assets/v85/forbidden-city.svg"
+  },
+  {
+   "id": "organic85:temple-of-heaven",
+   "name": "Temple of Heaven",
+   "category": "geography",
+   "summary": "A 15th-century complex in Beijing where emperors prayed for good harvests.",
+   "familyCampaigns": [
+    "world"
+   ],
+   "ingredients": [
+    "legacy:1335",
+    "organic85:temple"
+   ],
+   "art_mode": "bespoke-subject",
+   "path": "client/assets/v85/temple-of-heaven.svg"
+  },
+  {
+   "id": "organic85:taj-mahal",
+   "name": "Taj Mahal",
+   "category": "geography",
+   "summary": "A white marble mausoleum in Agra built by Emperor Shah Jahan for his wife Mumtaz Mahal.",
+   "familyCampaigns": [
+    "world"
+   ],
+   "ingredients": [
+    "organic85:india",
+    "organic41:monument"
+   ],
+   "art_mode": "bespoke-subject",
+   "path": "client/assets/v85/taj-mahal.svg"
+  },
+  {
+   "id": "organic85:golden-temple",
+   "name": "Golden Temple",
+   "category": "geography",
+   "summary": "Harmandir Sahib in Amritsar, the holiest gurdwara of Sikhism, covered in gold.",
+   "familyCampaigns": [
+    "world"
+   ],
+   "ingredients": [
+    "organic85:india",
+    "organic85:temple"
+   ],
+   "art_mode": "bespoke-subject",
+   "path": "client/assets/v85/golden-temple.svg"
+  },
+  {
+   "id": "organic85:kinkaku-ji",
+   "name": "Kinkaku-ji",
+   "category": "geography",
+   "summary": "Kyoto's Golden Pavilion, a Zen Buddhist temple covered in gold leaf beside a pond.",
+   "familyCampaigns": [
+    "world"
+   ],
+   "ingredients": [
+    "legacy:244",
+    "organic85:temple"
+   ],
+   "art_mode": "bespoke-subject",
+   "path": "client/assets/v85/kinkaku-ji.svg"
+  },
+  {
+   "id": "organic85:himeji-castle",
+   "name": "Himeji Castle",
+   "category": "geography",
+   "summary": "Japan's finest surviving feudal castle, nicknamed the \"White Heron Castle\".",
+   "familyCampaigns": [
+    "world"
+   ],
+   "ingredients": [
+    "legacy:244",
+    "legacy:562"
+   ],
+   "art_mode": "bespoke-subject",
+   "path": "client/assets/v85/himeji-castle.svg"
+  },
+  {
+   "id": "organic85:tokyo-skytree",
+   "name": "Tokyo Skytree",
+   "category": "geography",
+   "summary": "A broadcasting and observation tower in Tokyo, 634 m tall, opened in 2012.",
+   "familyCampaigns": [
+    "world"
+   ],
+   "ingredients": [
+    "legacy:244",
+    "organic41:tower"
+   ],
+   "art_mode": "bespoke-subject",
+   "path": "client/assets/v85/tokyo-skytree.svg"
+  },
+  {
+   "id": "organic85:angkor-wat",
+   "name": "Angkor Wat",
+   "category": "geography",
+   "summary": "A vast 12th-century temple complex in Cambodia, first Hindu and later Buddhist.",
+   "familyCampaigns": [
+    "world"
+   ],
+   "ingredients": [
+    "organic85:cambodia",
+    "organic85:temple"
+   ],
+   "art_mode": "bespoke-subject",
+   "path": "client/assets/v85/angkor-wat.svg"
+  },
+  {
+   "id": "organic85:grand-palace",
+   "name": "Grand Palace",
+   "category": "geography",
+   "summary": "Bangkok's dazzling royal palace complex, home to the Temple of the Emerald Buddha.",
+   "familyCampaigns": [
+    "world"
+   ],
+   "ingredients": [
+    "organic85:thailand",
+    "organic85:palace"
+   ],
+   "art_mode": "bespoke-subject",
+   "path": "client/assets/v85/grand-palace.svg"
+  },
+  {
+   "id": "organic85:borobudur",
+   "name": "Borobudur",
+   "category": "geography",
+   "summary": "A 9th-century Buddhist temple in Java, built as a giant stepped stone mandala.",
+   "familyCampaigns": [
+    "world"
+   ],
+   "ingredients": [
+    "organic85:indonesia",
+    "organic85:temple"
+   ],
+   "art_mode": "bespoke-subject",
+   "path": "client/assets/v85/borobudur.svg"
+  },
+  {
+   "id": "organic85:gyeongbokgung",
+   "name": "Gyeongbokgung",
+   "category": "geography",
+   "summary": "Seoul's main royal palace of the Joseon dynasty, first built in 1395.",
+   "familyCampaigns": [
+    "world"
+   ],
+   "ingredients": [
+    "organic85:south-korea",
+    "organic85:palace"
+   ],
+   "art_mode": "bespoke-subject",
+   "path": "client/assets/v85/gyeongbokgung.svg"
+  },
+  {
+   "id": "organic85:petra",
+   "name": "Petra",
+   "category": "geography",
+   "summary": "An ancient city carved into rose-red sandstone cliffs by the Nabataeans.",
+   "familyCampaigns": [
+    "world"
+   ],
+   "ingredients": [
+    "organic85:jordan",
+    "organic41:ruins"
+   ],
+   "art_mode": "bespoke-subject",
+   "path": "client/assets/v85/petra.svg"
+  },
+  {
+   "id": "organic85:burj-khalifa",
+   "name": "Burj Khalifa",
+   "category": "geography",
+   "summary": "The world's tallest building, an 828 m skyscraper in Dubai, opened in 2010.",
+   "familyCampaigns": [
+    "world"
+   ],
+   "ingredients": [
+    "organic85:united-arab-emirates",
+    "organic41:tower"
+   ],
+   "art_mode": "bespoke-subject",
+   "path": "client/assets/v85/burj-khalifa.svg"
+  },
+  {
+   "id": "organic85:statue-of-liberty",
+   "name": "Statue of Liberty",
+   "category": "geography",
+   "summary": "A copper statue on Liberty Island in New York Harbor, a gift from France in 1886.",
+   "familyCampaigns": [
+    "world"
+   ],
+   "ingredients": [
+    "legacy:129",
+    "organic41:monument"
+   ],
+   "art_mode": "bespoke-subject",
+   "path": "client/assets/v85/statue-of-liberty.svg"
+  },
+  {
+   "id": "organic85:empire-state-building",
+   "name": "Empire State Building",
+   "category": "geography",
+   "summary": "A 102-storey Art Deco skyscraper in New York City, completed in 1931.",
+   "familyCampaigns": [
+    "world"
+   ],
+   "ingredients": [
+    "legacy:129",
+    "organic85:skyscraper"
+   ],
+   "art_mode": "bespoke-subject",
+   "path": "client/assets/v85/empire-state-building.svg"
+  },
+  {
+   "id": "organic85:cn-tower",
+   "name": "CN Tower",
+   "category": "geography",
+   "summary": "Toronto's 553 m communications and observation tower, completed in 1976.",
+   "familyCampaigns": [
+    "world"
+   ],
+   "ingredients": [
+    "organic85:canada",
+    "organic41:tower"
+   ],
+   "art_mode": "bespoke-subject",
+   "path": "client/assets/v85/cn-tower.svg"
+  },
+  {
+   "id": "organic85:teotihuacan",
+   "name": "Teotihuacan",
+   "category": "geography",
+   "summary": "An ancient Mesoamerican city near Mexico City, with the Pyramids of the Sun and Moon.",
+   "familyCampaigns": [
+    "world"
+   ],
+   "ingredients": [
+    "organic85:mexico",
+    "organic41:pyramid"
+   ],
+   "art_mode": "bespoke-subject",
+   "path": "client/assets/v85/teotihuacan.svg"
+  },
+  {
+   "id": "organic85:chichen-itza",
+   "name": "Chichén Itzá",
+   "category": "geography",
+   "summary": "A great Maya city in Yucatán, crowned by the stepped pyramid El Castillo.",
+   "familyCampaigns": [
+    "world"
+   ],
+   "ingredients": [
+    "organic85:mexico",
+    "organic41:ruins"
+   ],
+   "art_mode": "bespoke-subject",
+   "path": "client/assets/v85/chichen-itza.svg"
+  },
+  {
+   "id": "organic85:panama-canal",
+   "name": "Panama Canal",
+   "category": "geography",
+   "summary": "An 82 km canal across Panama linking the Atlantic and Pacific, opened in 1914.",
+   "familyCampaigns": [
+    "world"
+   ],
+   "ingredients": [
+    "organic85:panama",
+    "organic41:canal"
+   ],
+   "art_mode": "bespoke-subject",
+   "path": "client/assets/v85/panama-canal.svg"
+  },
+  {
+   "id": "organic85:christ-the-redeemer",
+   "name": "Christ the Redeemer",
+   "category": "geography",
+   "summary": "The 30 m statue with outstretched arms atop Corcovado mountain in Rio de Janeiro.",
+   "familyCampaigns": [
+    "world"
+   ],
+   "ingredients": [
+    "organic85:brazil",
+    "organic41:monument"
+   ],
+   "art_mode": "bespoke-subject",
+   "path": "client/assets/v85/christ-the-redeemer.svg"
+  },
+  {
+   "id": "organic85:machu-picchu",
+   "name": "Machu Picchu",
+   "category": "geography",
+   "summary": "A 15th-century Inca citadel high on an Andean ridge above the Urubamba Valley.",
+   "familyCampaigns": [
+    "world"
+   ],
+   "ingredients": [
+    "organic85:peru",
+    "legacy:38"
+   ],
+   "art_mode": "bespoke-subject",
+   "path": "client/assets/v85/machu-picchu.svg"
+  },
+  {
+   "id": "organic85:moai",
+   "name": "Moai",
+   "category": "geography",
+   "summary": "Monolithic human figures carved by the Rapa Nui people on Easter Island.",
+   "familyCampaigns": [
+    "world"
+   ],
+   "ingredients": [
+    "organic85:chile",
+    "organic41:monument"
+   ],
+   "art_mode": "bespoke-subject",
+   "path": "client/assets/v85/moai.svg"
+  },
+  {
+   "id": "organic85:sydney-opera-house",
+   "name": "Sydney Opera House",
+   "category": "geography",
+   "summary": "A performing arts centre on Sydney Harbour with sail-shaped roofs, opened in 1973.",
+   "familyCampaigns": [
+    "world"
+   ],
+   "ingredients": [
+    "organic85:australia",
+    "organic41:monument"
+   ],
+   "art_mode": "bespoke-subject",
+   "path": "client/assets/v85/sydney-opera-house.svg"
+  },
+  {
+   "id": "organic85:great-zimbabwe",
+   "name": "Great Zimbabwe",
+   "category": "geography",
+   "summary": "The ruins of a medieval stone city in Zimbabwe, built without mortar.",
+   "familyCampaigns": [
+    "world"
+   ],
+   "ingredients": [
+    "organic85:zimbabwe",
+    "organic41:ruins"
+   ],
+   "art_mode": "bespoke-subject",
+   "path": "client/assets/v85/great-zimbabwe.svg"
+  },
+  {
+   "id": "organic85:himalayas",
+   "name": "Himalayas",
+   "category": "geography",
+   "summary": "Asia's highest mountain range, home to Everest and most of the world's tallest peaks.",
+   "familyCampaigns": [
+    "world"
+   ],
+   "ingredients": [
+    "legacy:1203",
+    "legacy:38"
+   ],
+   "art_mode": "bespoke-subject",
+   "path": "client/assets/v85/himalayas.svg"
+  },
+  {
+   "id": "organic85:mount-everest",
+   "name": "Mount Everest",
+   "category": "geography",
+   "summary": "Earth's highest mountain above sea level, 8,849 m, on the border of Nepal and China.",
+   "familyCampaigns": [
+    "world"
+   ],
+   "ingredients": [
+    "organic85:nepal",
+    "legacy:38"
+   ],
+   "art_mode": "bespoke-subject",
+   "path": "client/assets/v85/mount-everest.svg"
+  },
+  {
+   "id": "organic85:mount-kilimanjaro",
+   "name": "Mount Kilimanjaro",
+   "category": "geography",
+   "summary": "Africa's highest mountain, a dormant volcano in Tanzania rising to 5,895 m.",
+   "familyCampaigns": [
+    "world"
+   ],
+   "ingredients": [
+    "organic85:africa",
+    "legacy:38"
+   ],
+   "art_mode": "bespoke-subject",
+   "path": "client/assets/v85/mount-kilimanjaro.svg"
+  },
+  {
+   "id": "organic85:andes",
+   "name": "Andes",
+   "category": "geography",
+   "summary": "The longest continental mountain range, running along South America's west coast.",
+   "familyCampaigns": [
+    "world"
+   ],
+   "ingredients": [
+    "organic85:south-america",
+    "legacy:38"
+   ],
+   "art_mode": "bespoke-subject",
+   "path": "client/assets/v85/andes.svg"
+  },
+  {
+   "id": "organic85:alps",
+   "name": "Alps",
+   "category": "geography",
+   "summary": "Europe's great mountain range, stretching across eight countries from France to Slovenia.",
+   "familyCampaigns": [
+    "world"
+   ],
+   "ingredients": [
+    "legacy:130",
+    "legacy:38"
+   ],
+   "art_mode": "bespoke-subject",
+   "path": "client/assets/v85/alps.svg"
+  },
+  {
+   "id": "organic85:matterhorn",
+   "name": "Matterhorn",
+   "category": "geography",
+   "summary": "A pyramid-shaped Alpine peak of 4,478 m on the Swiss–Italian border.",
+   "familyCampaigns": [
+    "world"
+   ],
+   "ingredients": [
+    "organic85:switzerland",
+    "legacy:38"
+   ],
+   "art_mode": "bespoke-subject",
+   "path": "client/assets/v85/matterhorn.svg"
+  },
+  {
+   "id": "organic85:mount-fuji",
+   "name": "Mount Fuji",
+   "category": "geography",
+   "summary": "Japan's highest mountain, a 3,776 m volcano with a famously symmetrical cone.",
+   "familyCampaigns": [
+    "world"
+   ],
+   "ingredients": [
+    "legacy:244",
+    "legacy:38"
+   ],
+   "art_mode": "bespoke-subject",
+   "path": "client/assets/v85/mount-fuji.svg"
+  },
+  {
+   "id": "organic85:mount-vesuvius",
+   "name": "Mount Vesuvius",
+   "category": "geography",
+   "summary": "An active volcano overlooking the Bay of Naples, famous for burying Pompeii.",
+   "familyCampaigns": [
+    "world"
+   ],
+   "ingredients": [
+    "organic85:italy",
+    "legacy:38"
+   ],
+   "art_mode": "bespoke-subject",
+   "path": "client/assets/v85/mount-vesuvius.svg"
+  },
+  {
+   "id": "organic85:uluru",
+   "name": "Uluru",
+   "category": "geography",
+   "summary": "A giant sandstone monolith in central Australia, sacred to the Aṉangu people.",
+   "familyCampaigns": [
+    "world"
+   ],
+   "ingredients": [
+    "organic85:australia",
+    "legacy:38"
+   ],
+   "art_mode": "bespoke-subject",
+   "path": "client/assets/v85/uluru.svg"
+  },
+  {
+   "id": "organic85:grand-canyon",
+   "name": "Grand Canyon",
+   "category": "geography",
+   "summary": "A vast Arizona canyon carved by the Colorado River, up to about 1.8 km deep.",
+   "familyCampaigns": [
+    "world"
+   ],
+   "ingredients": [
+    "legacy:129",
+    "organic38:canyon"
+   ],
+   "art_mode": "bespoke-subject",
+   "path": "client/assets/v85/grand-canyon.svg"
+  },
+  {
+   "id": "organic85:victoria-falls",
+   "name": "Victoria Falls",
+   "category": "geography",
+   "summary": "A huge waterfall on the Zambezi River between Zambia and Zimbabwe.",
+   "familyCampaigns": [
+    "world"
+   ],
+   "ingredients": [
+    "organic85:africa",
+    "organic34:waterfall"
+   ],
+   "art_mode": "bespoke-subject",
+   "path": "client/assets/v85/victoria-falls.svg"
+  },
+  {
+   "id": "organic85:angel-falls",
+   "name": "Angel Falls",
+   "category": "geography",
+   "summary": "The world's highest uninterrupted waterfall, dropping 979 m in Venezuela.",
+   "familyCampaigns": [
+    "world"
+   ],
+   "ingredients": [
+    "organic85:south-america",
+    "organic34:waterfall"
+   ],
+   "art_mode": "bespoke-subject",
+   "path": "client/assets/v85/angel-falls.svg"
+  },
+  {
+   "id": "organic85:niagara-falls",
+   "name": "Niagara Falls",
+   "category": "geography",
+   "summary": "A group of three waterfalls on the Niagara River between Canada and the USA.",
+   "familyCampaigns": [
+    "world"
+   ],
+   "ingredients": [
+    "organic85:north-america",
+    "organic34:waterfall"
+   ],
+   "art_mode": "bespoke-subject",
+   "path": "client/assets/v85/niagara-falls.svg"
+  },
+  {
+   "id": "organic85:great-barrier-reef",
+   "name": "Great Barrier Reef",
+   "category": "geography",
+   "summary": "The world's largest coral reef system, stretching over 2,300 km off Queensland.",
+   "familyCampaigns": [
+    "world"
+   ],
+   "ingredients": [
+    "organic85:australia",
+    "organic42:reef"
+   ],
+   "art_mode": "bespoke-subject",
+   "path": "client/assets/v85/great-barrier-reef.svg"
+  },
+  {
+   "id": "organic85:sahara",
+   "name": "Sahara",
+   "category": "geography",
+   "summary": "The largest hot desert on Earth, covering much of North Africa.",
+   "familyCampaigns": [
+    "world"
+   ],
+   "ingredients": [
+    "organic85:africa",
+    "legacy:1048"
+   ],
+   "art_mode": "bespoke-subject",
+   "path": "client/assets/v85/sahara.svg"
+  },
+  {
+   "id": "organic85:lake-baikal",
+   "name": "Lake Baikal",
+   "category": "geography",
+   "summary": "A Siberian rift lake, the world's deepest and oldest freshwater lake.",
+   "familyCampaigns": [
+    "world"
+   ],
+   "ingredients": [
+    "organic85:russia",
+    "legacy:40"
+   ],
+   "art_mode": "bespoke-subject",
+   "path": "client/assets/v85/lake-baikal.svg"
+  },
+  {
+   "id": "organic85:amazon-rainforest",
+   "name": "Amazon Rainforest",
+   "category": "geography",
+   "summary": "The largest tropical rainforest on Earth, spread over nine countries, mostly Brazil.",
+   "familyCampaigns": [
+    "world"
+   ],
+   "ingredients": [
+    "organic85:brazil",
+    "organic32:rainforest"
+   ],
+   "art_mode": "bespoke-subject",
+   "path": "client/assets/v85/amazon-rainforest.svg"
+  },
+  {
+   "id": "organic85:galapagos-islands",
+   "name": "Galápagos Islands",
+   "category": "geography",
+   "summary": "Volcanic Pacific islands of Ecuador, famous for giant tortoises and Darwin's studies.",
+   "familyCampaigns": [
+    "world"
+   ],
+   "ingredients": [
+    "organic85:ecuador",
+    "legacy:558"
+   ],
+   "art_mode": "bespoke-subject",
+   "path": "client/assets/v85/galapagos-islands.svg"
+  },
+  {
+   "id": "organic85:nile",
+   "name": "Nile",
+   "category": "geography",
+   "summary": "A great river flowing north through eastern Africa into the Mediterranean, the lifeline of Egypt.",
+   "familyCampaigns": [
+    "world"
+   ],
+   "ingredients": [
+    "organic85:africa",
+    "legacy:39"
+   ],
+   "art_mode": "bespoke-subject",
+   "path": "client/assets/v85/nile.svg"
+  },
+  {
+   "id": "organic85:amazon-river",
+   "name": "Amazon River",
+   "category": "geography",
+   "summary": "The giant river of South America's rainforest, with the greatest flow of any river.",
+   "familyCampaigns": [
+    "world"
+   ],
+   "ingredients": [
+    "organic85:south-america",
+    "legacy:39"
+   ],
+   "art_mode": "bespoke-subject",
+   "path": "client/assets/v85/amazon-river.svg"
+  },
+  {
+   "id": "organic85:mississippi-river",
+   "name": "Mississippi River",
+   "category": "geography",
+   "summary": "A major US river flowing about 3,770 km from Minnesota south past New Orleans to the sea.",
+   "familyCampaigns": [
+    "world"
+   ],
+   "ingredients": [
+    "legacy:129",
+    "legacy:39"
+   ],
+   "art_mode": "bespoke-subject",
+   "path": "client/assets/v85/mississippi-river.svg"
+  },
+  {
+   "id": "organic85:yangtze-river",
+   "name": "Yangtze River",
+   "category": "geography",
+   "summary": "Asia's longest river, flowing about 6,300 km across China to the East China Sea.",
+   "familyCampaigns": [
+    "world"
+   ],
+   "ingredients": [
+    "legacy:1335",
+    "legacy:39"
+   ],
+   "art_mode": "bespoke-subject",
+   "path": "client/assets/v85/yangtze-river.svg"
+  },
+  {
+   "id": "organic85:ganges",
+   "name": "Ganges",
+   "category": "geography",
+   "summary": "A great river of northern India and Bangladesh, held sacred in Hinduism.",
+   "familyCampaigns": [
+    "world"
+   ],
+   "ingredients": [
+    "organic85:india",
+    "legacy:39"
+   ],
+   "art_mode": "bespoke-subject",
+   "path": "client/assets/v85/ganges.svg"
+  },
+  {
+   "id": "organic85:danube",
+   "name": "Danube",
+   "category": "geography",
+   "summary": "Europe's second-longest river, flowing from Germany's Black Forest to the Black Sea.",
+   "familyCampaigns": [
+    "world"
+   ],
+   "ingredients": [
+    "organic85:germany",
+    "legacy:39"
+   ],
+   "art_mode": "bespoke-subject",
+   "path": "client/assets/v85/danube.svg"
+  },
+  {
+   "id": "organic85:rhine",
+   "name": "Rhine",
+   "category": "geography",
+   "summary": "A major European river that rises in the Swiss Alps and flows to the North Sea.",
+   "familyCampaigns": [
+    "world"
+   ],
+   "ingredients": [
+    "organic85:switzerland",
+    "legacy:39"
+   ],
+   "art_mode": "bespoke-subject",
+   "path": "client/assets/v85/rhine.svg"
+  },
+  {
+   "id": "organic85:thames",
+   "name": "Thames",
+   "category": "geography",
+   "summary": "The river flowing through London, the longest river entirely in England.",
+   "familyCampaigns": [
+    "world"
+   ],
+   "ingredients": [
+    "legacy:131",
+    "legacy:39"
+   ],
+   "art_mode": "bespoke-subject",
+   "path": "client/assets/v85/thames.svg"
+  },
+  {
+   "id": "organic85:seine",
+   "name": "Seine",
+   "category": "geography",
+   "summary": "The river through Paris, flowing past Notre-Dame and the Eiffel Tower to the English Channel.",
+   "familyCampaigns": [
+    "world"
+   ],
+   "ingredients": [
+    "organic85:france",
+    "legacy:39"
+   ],
+   "art_mode": "bespoke-subject",
+   "path": "client/assets/v85/seine.svg"
+  },
+  {
+   "id": "organic85:tiber",
+   "name": "Tiber",
+   "category": "geography",
+   "summary": "The river of Rome, flowing from the Apennines to the Tyrrhenian Sea.",
+   "familyCampaigns": [
+    "world"
+   ],
+   "ingredients": [
+    "organic85:italy",
+    "legacy:39"
+   ],
+   "art_mode": "bespoke-subject",
+   "path": "client/assets/v85/tiber.svg"
+  },
+  {
+   "id": "organic85:volga",
+   "name": "Volga",
+   "category": "geography",
+   "summary": "Europe's longest river, flowing about 3,530 km through Russia to the Caspian Sea.",
+   "familyCampaigns": [
+    "world"
+   ],
+   "ingredients": [
+    "organic85:russia",
+    "legacy:39"
+   ],
+   "art_mode": "bespoke-subject",
+   "path": "client/assets/v85/volga.svg"
+  },
+  {
+   "id": "organic85:mekong",
+   "name": "Mekong",
+   "category": "geography",
+   "summary": "A great Southeast Asian river flowing from the Tibetan Plateau to Vietnam's delta.",
+   "familyCampaigns": [
+    "world"
+   ],
+   "ingredients": [
+    "organic85:vietnam",
+    "legacy:39"
+   ],
+   "art_mode": "bespoke-subject",
+   "path": "client/assets/v85/mekong.svg"
+  },
+  {
+   "id": "organic85:zambezi",
+   "name": "Zambezi",
+   "category": "geography",
+   "summary": "Southern Africa's longest east-flowing river, home of Victoria Falls.",
+   "familyCampaigns": [
+    "world"
+   ],
+   "ingredients": [
+    "organic85:zimbabwe",
+    "legacy:39"
+   ],
+   "art_mode": "bespoke-subject",
+   "path": "client/assets/v85/zambezi.svg"
+  },
+  {
+   "id": "organic85:murray-river",
+   "name": "Murray River",
+   "category": "geography",
+   "summary": "Australia's longest river, flowing about 2,500 km through the south-east.",
+   "familyCampaigns": [
+    "world"
+   ],
+   "ingredients": [
+    "organic85:australia",
+    "legacy:39"
+   ],
+   "art_mode": "bespoke-subject",
+   "path": "client/assets/v85/murray-river.svg"
+  },
+  {
+   "id": "organic85:st-lawrence-river",
+   "name": "St. Lawrence River",
+   "category": "geography",
+   "summary": "A great river linking the Great Lakes to the Atlantic, past Montreal and Quebec City.",
+   "familyCampaigns": [
+    "world"
+   ],
+   "ingredients": [
+    "organic85:canada",
+    "legacy:39"
+   ],
+   "art_mode": "bespoke-subject",
+   "path": "client/assets/v85/st-lawrence-river.svg"
+  },
+  {
+   "id": "organic85:rio-grande",
+   "name": "Rio Grande",
+   "category": "geography",
+   "summary": "A North American river that forms much of the border between Mexico and the USA.",
+   "familyCampaigns": [
+    "world"
+   ],
+   "ingredients": [
+    "organic85:mexico",
+    "legacy:39"
+   ],
+   "art_mode": "bespoke-subject",
+   "path": "client/assets/v85/rio-grande.svg"
+  },
+  {
+   "id": "organic85:colorado-river",
+   "name": "Colorado River",
+   "category": "geography",
+   "summary": "A south-western US river that carved the Grand Canyon over millions of years.",
+   "familyCampaigns": [
+    "world"
+   ],
+   "ingredients": [
+    "organic85:grand-canyon",
+    "legacy:39"
+   ],
+   "art_mode": "bespoke-subject",
+   "path": "client/assets/v85/colorado-river.svg"
+  },
+  {
+   "id": "organic85:rio-de-la-plata",
+   "name": "Río de la Plata",
+   "category": "geography",
+   "summary": "The broad estuary of the Paraná and Uruguay rivers between Argentina and Uruguay.",
+   "familyCampaigns": [
+    "world"
+   ],
+   "ingredients": [
+    "organic85:argentina",
+    "legacy:39"
+   ],
+   "art_mode": "bespoke-subject",
+   "path": "client/assets/v85/rio-de-la-plata.svg"
+  },
+  {
+   "id": "organic85:orinoco",
+   "name": "Orinoco",
+   "category": "geography",
+   "summary": "One of South America's longest rivers, flowing through Venezuela to the Atlantic.",
+   "familyCampaigns": [
+    "world"
+   ],
+   "ingredients": [
+    "organic85:venezuela",
+    "legacy:39"
+   ],
+   "art_mode": "bespoke-subject",
+   "path": "client/assets/v85/orinoco.svg"
+  },
+  {
+   "id": "organic85:tagus",
+   "name": "Tagus",
+   "category": "geography",
+   "summary": "The longest river of the Iberian Peninsula, flowing through Spain and Portugal to Lisbon.",
+   "familyCampaigns": [
+    "world"
+   ],
+   "ingredients": [
+    "organic85:portugal",
+    "legacy:39"
+   ],
+   "art_mode": "bespoke-subject",
+   "path": "client/assets/v85/tagus.svg"
+  },
+  {
+   "id": "organic85:sushi",
+   "name": "Sushi",
+   "category": "geography",
+   "summary": "A Japanese dish of vinegared rice with raw fish, seafood or vegetables.",
+   "familyCampaigns": [
+    "world"
+   ],
+   "ingredients": [
+    "legacy:244",
+    "pack:food"
+   ],
+   "art_mode": "bespoke-subject",
+   "path": "client/assets/v85/sushi.svg"
+  },
+  {
+   "id": "organic85:paella",
+   "name": "Paella",
+   "category": "geography",
+   "summary": "A Valencian rice dish cooked in a wide, shallow pan with saffron.",
+   "familyCampaigns": [
+    "world"
+   ],
+   "ingredients": [
+    "organic85:spain",
+    "pack:food"
+   ],
+   "art_mode": "bespoke-subject",
+   "path": "client/assets/v85/paella.svg"
+  },
+  {
+   "id": "organic85:tacos",
+   "name": "Tacos",
+   "category": "geography",
+   "summary": "Folded corn tortillas filled with meat, beans, salsa and more, a Mexican staple.",
+   "familyCampaigns": [
+    "world"
+   ],
+   "ingredients": [
+    "organic85:mexico",
+    "pack:food"
+   ],
+   "art_mode": "bespoke-subject",
+   "path": "client/assets/v85/tacos.svg"
+  },
+  {
+   "id": "organic85:curry",
+   "name": "Curry",
+   "category": "geography",
+   "summary": "A family of spiced South Asian dishes with rich sauces built on spice blends.",
+   "familyCampaigns": [
+    "world"
+   ],
+   "ingredients": [
+    "organic85:india",
+    "pack:food"
+   ],
+   "art_mode": "bespoke-subject",
+   "path": "client/assets/v85/curry.svg"
+  },
+  {
+   "id": "organic85:kimchi",
+   "name": "Kimchi",
+   "category": "geography",
+   "summary": "Korea's spicy fermented vegetable dish, usually made with napa cabbage and chili.",
+   "familyCampaigns": [
+    "world"
+   ],
+   "ingredients": [
+    "organic85:south-korea",
+    "pack:food"
+   ],
+   "art_mode": "bespoke-subject",
+   "path": "client/assets/v85/kimchi.svg"
+  },
+  {
+   "id": "organic85:pho",
+   "name": "Pho",
+   "category": "geography",
+   "summary": "Vietnam's fragrant noodle soup with clear broth, rice noodles and fresh herbs.",
+   "familyCampaigns": [
+    "world"
+   ],
+   "ingredients": [
+    "organic85:vietnam",
+    "pack:food"
+   ],
+   "art_mode": "bespoke-subject",
+   "path": "client/assets/v85/pho.svg"
+  },
+  {
+   "id": "organic85:pad-thai",
+   "name": "Pad Thai",
+   "category": "geography",
+   "summary": "Thailand's stir-fried rice noodle dish with egg, tamarind, peanuts and lime.",
+   "familyCampaigns": [
+    "world"
+   ],
+   "ingredients": [
+    "organic85:thailand",
+    "pack:food"
+   ],
+   "art_mode": "bespoke-subject",
+   "path": "client/assets/v85/pad-thai.svg"
+  },
+  {
+   "id": "organic85:feijoada",
+   "name": "Feijoada",
+   "category": "geography",
+   "summary": "Brazil's hearty black bean and pork stew, served with rice and orange slices.",
+   "familyCampaigns": [
+    "world"
+   ],
+   "ingredients": [
+    "organic85:brazil",
+    "pack:food"
+   ],
+   "art_mode": "bespoke-subject",
+   "path": "client/assets/v85/feijoada.svg"
+  },
+  {
+   "id": "organic85:ceviche",
+   "name": "Ceviche",
+   "category": "geography",
+   "summary": "Peru's dish of raw fish cured in lime juice with chili and red onion.",
+   "familyCampaigns": [
+    "world"
+   ],
+   "ingredients": [
+    "organic85:peru",
+    "pack:food"
+   ],
+   "art_mode": "bespoke-subject",
+   "path": "client/assets/v85/ceviche.svg"
+  },
+  {
+   "id": "organic85:poutine",
+   "name": "Poutine",
+   "category": "geography",
+   "summary": "A Quebec dish of fries topped with cheese curds and hot gravy.",
+   "familyCampaigns": [
+    "world"
+   ],
+   "ingredients": [
+    "organic85:canada",
+    "pack:food"
+   ],
+   "art_mode": "bespoke-subject",
+   "path": "client/assets/v85/poutine.svg"
+  },
+  {
+   "id": "organic85:fish-and-chips",
+   "name": "Fish and Chips",
+   "category": "geography",
+   "summary": "Battered fried fish with thick-cut chips, a British seaside classic.",
+   "familyCampaigns": [
+    "world"
+   ],
+   "ingredients": [
+    "legacy:131",
+    "pack:food"
+   ],
+   "art_mode": "bespoke-subject",
+   "path": "client/assets/v85/fish-and-chips.svg"
+  },
+  {
+   "id": "organic85:couscous",
+   "name": "Couscous",
+   "category": "geography",
+   "summary": "Steamed semolina granules served with stew, a staple of North Africa and Morocco.",
+   "familyCampaigns": [
+    "world"
+   ],
+   "ingredients": [
+    "organic85:morocco",
+    "pack:food"
+   ],
+   "art_mode": "bespoke-subject",
+   "path": "client/assets/v85/couscous.svg"
+  },
+  {
+   "id": "organic85:injera",
+   "name": "Injera",
+   "category": "geography",
+   "summary": "Ethiopia's spongy sourdough flatbread made from teff, used to scoop up stews.",
+   "familyCampaigns": [
+    "world"
+   ],
+   "ingredients": [
+    "organic85:ethiopia",
+    "pack:food"
+   ],
+   "art_mode": "bespoke-subject",
+   "path": "client/assets/v85/injera.svg"
+  },
+  {
+   "id": "organic85:fondue",
+   "name": "Fondue",
+   "category": "geography",
+   "summary": "A Swiss pot of melted cheese and wine, shared by dipping bread on long forks.",
+   "familyCampaigns": [
+    "world"
+   ],
+   "ingredients": [
+    "organic85:switzerland",
+    "pack:food"
+   ],
+   "art_mode": "bespoke-subject",
+   "path": "client/assets/v85/fondue.svg"
+  },
+  {
+   "id": "organic85:moussaka",
+   "name": "Moussaka",
+   "category": "geography",
+   "summary": "A Greek baked dish of layered aubergine, spiced meat and creamy béchamel.",
+   "familyCampaigns": [
+    "world"
+   ],
+   "ingredients": [
+    "organic85:greece",
+    "pack:food"
+   ],
+   "art_mode": "bespoke-subject",
+   "path": "client/assets/v85/moussaka.svg"
+  },
+  {
+   "id": "organic85:peking-duck",
+   "name": "Peking Duck",
+   "category": "geography",
+   "summary": "A Beijing dish of roast duck with crisp skin, served with thin pancakes and sauce.",
+   "familyCampaigns": [
+    "world"
+   ],
+   "ingredients": [
+    "legacy:1335",
+    "pack:food"
+   ],
+   "art_mode": "bespoke-subject",
+   "path": "client/assets/v85/peking-duck.svg"
+  },
+  {
+   "id": "organic85:rio-carnival",
+   "name": "Rio Carnival",
+   "category": "geography",
+   "summary": "Rio de Janeiro's huge pre-Lent festival of samba parades, feathers and floats.",
+   "familyCampaigns": [
+    "world"
+   ],
+   "ingredients": [
+    "organic85:brazil",
+    "organic85:festival"
+   ],
+   "art_mode": "bespoke-subject",
+   "path": "client/assets/v85/rio-carnival.svg"
+  },
+  {
+   "id": "organic85:day-of-the-dead",
+   "name": "Day of the Dead",
+   "category": "geography",
+   "summary": "Mexico's festival honouring departed loved ones with altars, marigolds and sugar skulls.",
+   "familyCampaigns": [
+    "world"
+   ],
+   "ingredients": [
+    "organic85:mexico",
+    "organic85:festival"
+   ],
+   "art_mode": "bespoke-subject",
+   "path": "client/assets/v85/day-of-the-dead.svg"
+  },
+  {
+   "id": "organic85:oktoberfest",
+   "name": "Oktoberfest",
+   "category": "geography",
+   "summary": "Munich's giant folk festival, held most years since 1810.",
+   "familyCampaigns": [
+    "world"
+   ],
+   "ingredients": [
+    "organic85:germany",
+    "organic85:festival"
+   ],
+   "art_mode": "bespoke-subject",
+   "path": "client/assets/v85/oktoberfest.svg"
+  },
+  {
+   "id": "organic85:diwali",
+   "name": "Diwali",
+   "category": "geography",
+   "summary": "The festival of lights celebrated by Hindus, Sikhs and Jains with lamps, sweets and fireworks.",
+   "familyCampaigns": [
+    "world"
+   ],
+   "ingredients": [
+    "organic85:india",
+    "organic85:festival"
+   ],
+   "art_mode": "bespoke-subject",
+   "path": "client/assets/v85/diwali.svg"
+  },
+  {
+   "id": "organic85:chinese-new-year",
+   "name": "Chinese New Year",
+   "category": "geography",
+   "summary": "The Spring Festival marking the lunar new year, with red lanterns, dumplings and dragon dances.",
+   "familyCampaigns": [
+    "world"
+   ],
+   "ingredients": [
+    "legacy:1335",
+    "organic85:festival"
+   ],
+   "art_mode": "bespoke-subject",
+   "path": "client/assets/v85/chinese-new-year.svg"
+  },
+  {
+   "id": "organic85:songkran",
+   "name": "Songkran",
+   "category": "geography",
+   "summary": "Thailand's New Year festival in April, famous for joyful water fights.",
+   "familyCampaigns": [
+    "world"
+   ],
+   "ingredients": [
+    "organic85:thailand",
+    "organic85:festival"
+   ],
+   "art_mode": "bespoke-subject",
+   "path": "client/assets/v85/songkran.svg"
+  },
+  {
+   "id": "organic85:la-tomatina",
+   "name": "La Tomatina",
+   "category": "geography",
+   "summary": "A festival in Buñol, Spain, where crowds throw tomatoes at each other.",
+   "familyCampaigns": [
+    "world"
+   ],
+   "ingredients": [
+    "organic85:spain",
+    "organic85:festival"
+   ],
+   "art_mode": "bespoke-subject",
+   "path": "client/assets/v85/la-tomatina.svg"
+  },
+  {
+   "id": "organic85:hanami",
+   "name": "Hanami",
+   "category": "geography",
+   "summary": "The Japanese custom of picnicking under blooming cherry blossoms in spring.",
+   "familyCampaigns": [
+    "world"
+   ],
+   "ingredients": [
+    "legacy:244",
+    "organic85:festival"
+   ],
+   "art_mode": "bespoke-subject",
+   "path": "client/assets/v85/hanami.svg"
+  },
+  {
+   "id": "organic85:inti-raymi",
+   "name": "Inti Raymi",
+   "category": "geography",
+   "summary": "The Inca Festival of the Sun, revived each June in Cusco, Peru.",
+   "familyCampaigns": [
+    "world"
+   ],
+   "ingredients": [
+    "organic85:peru",
+    "organic85:festival"
+   ],
+   "art_mode": "bespoke-subject",
+   "path": "client/assets/v85/inti-raymi.svg"
+  },
+  {
+   "id": "organic85:carnival-of-venice",
+   "name": "Carnival of Venice",
+   "category": "geography",
+   "summary": "Venice's pre-Lent festival famous for elaborate masks and costumes.",
+   "familyCampaigns": [
+    "world"
+   ],
+   "ingredients": [
+    "organic85:italy",
+    "organic85:festival"
+   ],
+   "art_mode": "bespoke-subject",
+   "path": "client/assets/v85/carnival-of-venice.svg"
+  },
+  {
+   "id": "organic85:kimono",
+   "name": "Kimono",
+   "category": "geography",
+   "summary": "Japan's traditional T-shaped robe with wide sleeves, tied with an obi sash.",
+   "familyCampaigns": [
+    "world"
+   ],
+   "ingredients": [
+    "legacy:244",
+    "organic85:costume"
+   ],
+   "art_mode": "bespoke-subject",
+   "path": "client/assets/v85/kimono.svg"
+  },
+  {
+   "id": "organic85:sari",
+   "name": "Sari",
+   "category": "geography",
+   "summary": "A long, unstitched drape of fabric worn elegantly across India and South Asia.",
+   "familyCampaigns": [
+    "world"
+   ],
+   "ingredients": [
+    "organic85:india",
+    "organic85:costume"
+   ],
+   "art_mode": "bespoke-subject",
+   "path": "client/assets/v85/sari.svg"
+  },
+  {
+   "id": "organic85:hanbok",
+   "name": "Hanbok",
+   "category": "geography",
+   "summary": "Korea's traditional dress with a short jacket and a full, high-waisted skirt.",
+   "familyCampaigns": [
+    "world"
+   ],
+   "ingredients": [
+    "organic85:south-korea",
+    "organic85:costume"
+   ],
+   "art_mode": "bespoke-subject",
+   "path": "client/assets/v85/hanbok.svg"
+  },
+  {
+   "id": "organic85:flamenco",
+   "name": "Flamenco",
+   "category": "geography",
+   "summary": "Andalusia's passionate art of song, guitar, dance and rhythmic hand-clapping.",
+   "familyCampaigns": [
+    "world"
+   ],
+   "ingredients": [
+    "organic85:spain",
+    "legacy:564"
+   ],
+   "art_mode": "bespoke-subject",
+   "path": "client/assets/v85/flamenco.svg"
+  },
+  {
+   "id": "organic85:tango",
+   "name": "Tango",
+   "category": "geography",
+   "summary": "A dramatic partner dance and music born in Buenos Aires and Montevideo.",
+   "familyCampaigns": [
+    "world"
+   ],
+   "ingredients": [
+    "organic85:argentina",
+    "legacy:564"
+   ],
+   "art_mode": "bespoke-subject",
+   "path": "client/assets/v85/tango.svg"
+  }
+ ]
+}
