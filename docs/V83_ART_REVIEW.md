@@ -1,4 +1,4 @@
-# Alchemy 10K — V83 WIP artwork review (38/200)
+# Alchemy 10K — V83 WIP artwork review (50/200)
 
 SVG sources are subject-specific but **not signed off**. Assess Light/Dark readability and distinguishable silhouettes at 35px; 90px is diagnostic only.
 
@@ -44,3 +44,16 @@ SVG sources are subject-specific but **not signed off**. Assess Light/Dark reada
 | Manticore | `organic83:chimera` + `organic83:basilisk` | <img src="../client/assets/v83/manticore.svg" width="35" height="35"> | <img src="../client/assets/v83/manticore.svg" width="90" height="90"> |
 | Amphisbaena | `organic82:jormungandr` + `organic83:basilisk` | <img src="../client/assets/v83/amphisbaena.svg" width="35" height="35"> | <img src="../client/assets/v83/amphisbaena.svg" width="90" height="90"> |
 | Simurgh | `organic83:solar-phoenix` + `organic83:griffin` | <img src="../client/assets/v83/simurgh.svg" width="35" height="35"> | <img src="../client/assets/v83/simurgh.svg" width="90" height="90"> |
+
+| Hippocampus | `organic83:selkie` + `organic83:centaur` | <img src="../client/assets/v83/hippocampus.svg" width="35" height="35"> | <img src="../client/assets/v83/hippocampus.svg" width="90" height="90"> |
+| Naiad | `organic83:forest-dryad` + `organic83:ocean-leviathan` | <img src="../client/assets/v83/naiad.svg" width="35" height="35"> | <img src="../client/assets/v83/naiad.svg" width="90" height="90"> |
+| Nereid | `organic83:naiad` + `organic82:poseidon` | <img src="../client/assets/v83/nereid.svg" width="35" height="35"> | <img src="../client/assets/v83/nereid.svg" width="90" height="90"> |
+| Lamia | `organic82:medusa` + `organic83:vrykolakas` | <img src="../client/assets/v83/lamia.svg" width="35" height="35"> | <img src="../client/assets/v83/lamia.svg" width="90" height="90"> |
+| Scylla | `organic83:ocean-leviathan` + `organic83:chimera` | <img src="../client/assets/v83/scylla.svg" width="35" height="35"> | <img src="../client/assets/v83/scylla.svg" width="90" height="90"> |
+| Charybdis | `organic83:ocean-leviathan` + `organic83:scylla` | <img src="../client/assets/v83/charybdis.svg" width="35" height="35"> | <img src="../client/assets/v83/charybdis.svg" width="90" height="90"> |
+| Fomorian | `organic82:frost-giant` + `organic83:ocean-leviathan` | <img src="../client/assets/v83/fomorian.svg" width="35" height="35"> | <img src="../client/assets/v83/fomorian.svg" width="90" height="90"> |
+| Puca | `organic83:ulfhednar` + `organic83:selkie` | <img src="../client/assets/v83/puca.svg" width="35" height="35"> | <img src="../client/assets/v83/puca.svg" width="90" height="90"> |
+| Undine | `organic83:naiad` + `organic83:mythic-bestiary` | <img src="../client/assets/v83/undine.svg" width="35" height="35"> | <img src="../client/assets/v83/undine.svg" width="90" height="90"> |
+| Pixie | `organic83:forest-dryad` + `organic83:will-o-wisp` | <img src="../client/assets/v83/pixie.svg" width="35" height="35"> | <img src="../client/assets/v83/pixie.svg" width="90" height="90"> |
+| Kobold | `organic83:cave-troll` + `organic83:mythic-bestiary` | <img src="../client/assets/v83/kobold.svg" width="35" height="35"> | <img src="../client/assets/v83/kobold.svg" width="90" height="90"> |
+| Wight | `organic83:vrykolakas` + `organic83:night-wraith` | <img src="../client/assets/v83/wight.svg" width="35" height="35"> | <img src="../client/assets/v83/wight.svg" width="90" height="90"> |

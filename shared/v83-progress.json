@@ -7,8 +7,8 @@
     "recipes": 14349
   },
   "expansion_goal": 200,
-  "authored_candidates": 38,
-  "remaining": 162,
+  "authored_candidates": 50,
+  "remaining": 150,
   "art_review": "NOT_APPROVED",
   "new_items": [
     {
@@ -616,6 +616,198 @@
         "mythology"
       ],
       "path": "client/assets/v83/simurgh.svg",
+      "art_mode": "bespoke-subject",
+      "editorial_qa": "pending"
+    },
+    {
+      "id": "organic83:hippocampus",
+      "name": "Hippocampus",
+      "category": "fantasy",
+      "summary": "A mythic sea horse combines a proud equine head with a curling fish tail.",
+      "ingredients": [
+        "organic83:selkie",
+        "organic83:centaur"
+      ],
+      "familyCampaigns": [
+        "mythology"
+      ],
+      "path": "client/assets/v83/hippocampus.svg",
+      "art_mode": "bespoke-subject",
+      "editorial_qa": "pending"
+    },
+    {
+      "id": "organic83:naiad",
+      "name": "Naiad",
+      "category": "fantasy",
+      "summary": "A freshwater nymph dances above a waterfall, her hair blending into clear streams.",
+      "ingredients": [
+        "organic83:forest-dryad",
+        "organic83:ocean-leviathan"
+      ],
+      "familyCampaigns": [
+        "mythology"
+      ],
+      "path": "client/assets/v83/naiad.svg",
+      "art_mode": "bespoke-subject",
+      "editorial_qa": "pending"
+    },
+    {
+      "id": "organic83:nereid",
+      "name": "Nereid",
+      "category": "fantasy",
+      "summary": "A pearl-crowned sea nymph rides a translucent wave beneath a scallop shell.",
+      "ingredients": [
+        "organic83:naiad",
+        "organic82:poseidon"
+      ],
+      "familyCampaigns": [
+        "mythology"
+      ],
+      "path": "client/assets/v83/nereid.svg",
+      "art_mode": "bespoke-subject",
+      "editorial_qa": "pending"
+    },
+    {
+      "id": "organic83:lamia",
+      "name": "Lamia",
+      "category": "fantasy",
+      "summary": "A serpent-bodied enchantress of Greek legend wears a golden circlet above emerald coils.",
+      "ingredients": [
+        "organic82:medusa",
+        "organic83:vrykolakas"
+      ],
+      "familyCampaigns": [
+        "mythology"
+      ],
+      "path": "client/assets/v83/lamia.svg",
+      "art_mode": "bespoke-subject",
+      "editorial_qa": "pending"
+    },
+    {
+      "id": "organic83:scylla",
+      "name": "Scylla",
+      "category": "fantasy",
+      "summary": "A many-necked sea monster snaps from dark waves below a rocky strait.",
+      "ingredients": [
+        "organic83:ocean-leviathan",
+        "organic83:chimera"
+      ],
+      "familyCampaigns": [
+        "mythology"
+      ],
+      "path": "client/assets/v83/scylla.svg",
+      "art_mode": "bespoke-subject",
+      "editorial_qa": "pending"
+    },
+    {
+      "id": "organic83:charybdis",
+      "name": "Charybdis",
+      "category": "fantasy",
+      "summary": "An ancient swallowing whirlpool curls into a dark funnel between jagged reefs.",
+      "ingredients": [
+        "organic83:ocean-leviathan",
+        "organic83:scylla"
+      ],
+      "familyCampaigns": [
+        "mythology"
+      ],
+      "path": "client/assets/v83/charybdis.svg",
+      "art_mode": "bespoke-subject",
+      "editorial_qa": "pending"
+    },
+    {
+      "id": "organic83:fomorian",
+      "name": "Fomorian",
+      "category": "fantasy",
+      "summary": "A hulking one-eyed sea giant carries a jagged black trident through coastal spray.",
+      "ingredients": [
+        "organic82:frost-giant",
+        "organic83:ocean-leviathan"
+      ],
+      "familyCampaigns": [
+        "mythology"
+      ],
+      "path": "client/assets/v83/fomorian.svg",
+      "art_mode": "bespoke-subject",
+      "editorial_qa": "pending"
+    },
+    {
+      "id": "organic83:puca",
+      "name": "Puca",
+      "category": "fantasy",
+      "summary": "A playful shape-changing spirit of Irish folklore appears as a long-eared black horse.",
+      "ingredients": [
+        "organic83:ulfhednar",
+        "organic83:selkie"
+      ],
+      "familyCampaigns": [
+        "mythology"
+      ],
+      "path": "client/assets/v83/puca.svg",
+      "art_mode": "bespoke-subject",
+      "editorial_qa": "pending"
+    },
+    {
+      "id": "organic83:undine",
+      "name": "Undine",
+      "category": "fantasy",
+      "summary": "A freshwater elemental lifts a translucent body from twisting currents and bubbles.",
+      "ingredients": [
+        "organic83:naiad",
+        "organic83:mythic-bestiary"
+      ],
+      "familyCampaigns": [
+        "mythology"
+      ],
+      "path": "client/assets/v83/undine.svg",
+      "art_mode": "bespoke-subject",
+      "editorial_qa": "pending"
+    },
+    {
+      "id": "organic83:pixie",
+      "name": "Pixie",
+      "category": "fantasy",
+      "summary": "A tiny forest fairy with translucent insect wings carries a luminous seed lantern.",
+      "ingredients": [
+        "organic83:forest-dryad",
+        "organic83:will-o-wisp"
+      ],
+      "familyCampaigns": [
+        "mythology"
+      ],
+      "path": "client/assets/v83/pixie.svg",
+      "art_mode": "bespoke-subject",
+      "editorial_qa": "pending"
+    },
+    {
+      "id": "organic83:kobold",
+      "name": "Kobold",
+      "category": "fantasy",
+      "summary": "A small cave trickster with pointed ears carries a brass lantern and mineral pick.",
+      "ingredients": [
+        "organic83:cave-troll",
+        "organic83:mythic-bestiary"
+      ],
+      "familyCampaigns": [
+        "mythology"
+      ],
+      "path": "client/assets/v83/kobold.svg",
+      "art_mode": "bespoke-subject",
+      "editorial_qa": "pending"
+    },
+    {
+      "id": "organic83:wight",
+      "name": "Wight",
+      "category": "fantasy",
+      "summary": "An armored revenant rises from cold mist with a tarnished crown and pale spectral eyes.",
+      "ingredients": [
+        "organic83:vrykolakas",
+        "organic83:night-wraith"
+      ],
+      "familyCampaigns": [
+        "mythology"
+      ],
+      "path": "client/assets/v83/wight.svg",
       "art_mode": "bespoke-subject",
       "editorial_qa": "pending"
     }
