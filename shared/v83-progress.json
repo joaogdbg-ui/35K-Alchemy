@@ -2229,11 +2229,22 @@
     "missing_recipe_inputs": 0,
     "forward_wip_recipe_dependencies": 0,
     "name_or_recipe_collisions_found_after_corrections": 0,
-    "scope": "cross-source historical collision scan and WIP dependency order; no full npm/Android or human art QA",
+    "scope": "source-only static and historical audits; npm/Android/physical 35px review NOT run",
     "full_regression_test": "NOT_RUN",
     "human_35px_review": "PENDING",
-    "historical_name_pair_scan": "PASS: 39 historical organic modules + legacy + creative after 3 collision fixes",
+    "historical_name_pair_scan": "PASS across 39 organic pack modules plus legacy and creative at 150/200 after 3 fixes",
     "unique_ids": 150,
-    "unique_pair_keys": 150
+    "unique_pair_keys": 150,
+    "used_organic_input_versions": [
+      32,
+      34,
+      37,
+      38,
+      40,
+      82,
+      83
+    ],
+    "all_recipe_inputs_resolved": true,
+    "android_device_test": "NOT_RUN_FOR_V83"
   }
 }

@@ -67,3 +67,10 @@ All new items have empty `familyCampaigns` and thus are Classic-only until indep
 
 ## Historical-catalog correction at 150/200
 Audited all **39 old organic packs plus legacy and creative**. Discovered three already-defined global pairs: Bird + River -> Kingfisher Bird (V62), Seahorse + Kelp -> Seahorse Nursery (V46), Deep Sea + Crab -> Lobster (V38). Changed only the proposed V83 Shoebill, Leafy Sea Dragon and Giant Isopod recipes to unique pairs involving WIP source elements. No old recipe, ID, save, or item changed. Post-fix WIP: 150 unique names, 150 keys, no forward dependency. Audit does not prove intrinsic human recipe quality, native UI, or 35px readability.
+
+## Source-only validation after 150/200 checkpoint
+- **150 proposed unique IDs, 150 global unordered pairs, 150 artwork map entries and 150 SVG source paths**. Historical names/recipes compared to all **39 previous organic packs**, legacy and creative. Three conflicting historical recipes were rewritten in WIP with no changes to old results.
+- Every proposed recipe's ingredient ID was resolved against the WIP pack and relevant historical source packs (legacy, creative, organic32/34/37/38/40/82). **Zero missing ingredients** and **zero forward dependencies**.
+- Corrected the WIP test's category mappings to include accessory→Consoles, board→Arcades, and life→Nature.
+- Source-only assertion is not a substitute for **npm tests, 35px artistic QA, Classic end-to-end run, Family Only regression or native Android device testing**. Local Git clone unavailable in this environment due DNS resolution failure; GitHub Actions intentionally not triggered at 150/200.
+- Next: **50 more approved distinct items** plus full audit and integration. V82 main remains 6,012, final exact target 10,000.

@@ -1,6 +1,6 @@
 # Alchemy 10K — V83 WIP artwork review (150/200)
 
-The 100 WIP SVG sources are individually authored and have separate source paths, but visual similarity/readability **has not been signed off**. The 50 mythological candidates keep the independent family at 159/159 reachable members, while the 50 game-related candidates remain Classic-only. Full npm/CI, runtime comparison and real-device 35px review are still pending. Assess Light/Dark readability and distinguishable silhouettes at 35px; 90px is diagnostic only.
+The 150 WIP SVG sources are individually authored and have separate source paths, but visual similarity/readability **has not been signed off**. The 50 mythological candidates keep the independent family at 159/159 reachable members, while the 75 game-related candidates and 25 modern fauna candidates remain Classic-only. Full npm/CI, runtime comparison and real-device 35px review are still pending. Assess Light/Dark readability and distinguishable silhouettes at 35px; 90px is diagnostic only.
 
 | Candidate | Proposed global ingredients | 35px | 90px |
 |---|---|---|---|
