@@ -1,0 +1,2602 @@
+[
+ {
+  "suffix": "mythical-beast",
+  "name": "Mythical Beast",
+  "family": "mythology",
+  "category": "mythology",
+  "summary": "A composite creature of legend joins the parts of several animals into one impossible guardian.",
+  "wit": "Assembled from spare parts of a dozen nightmares.",
+  "recipe": [
+   "legacy:185",
+   "pack:shapeshifter"
+  ],
+  "artBrief": "Ornate open bestiary book seen at an angle with three creature silhouettes rising off its pages (horned head, bat-like wing, curling serpent tail); parchment cream, oxblood leather, teal silhouettes. Book framing keeps it apart from Griffin."
+ },
+ {
+  "suffix": "griffin",
+  "name": "Griffin",
+  "family": "mythology",
+  "category": "mythology",
+  "summary": "A lion-bodied, eagle-headed guardian of ancient legend soars with broad feathered wings.",
+  "wit": "Half king of beasts, half king of birds, fully in charge.",
+  "recipe": [
+   "organic83:mythical-beast",
+   "legacy:65"
+  ],
+  "artBrief": "Griffin in flight seen from below, wings spread wide in a V, eagle head turned left, lion hind legs trailing; golden tan, white, sky blue."
+ },
+ {
+  "suffix": "phoenix",
+  "name": "Phoenix",
+  "family": "mythology",
+  "category": "mythology",
+  "summary": "A radiant firebird of legend is reborn from the ashes of its own flames.",
+  "wit": "Burns out, starts over, looks fantastic doing it.",
+  "recipe": [
+   "organic83:mythical-beast",
+   "organic82:sacred-hearth"
+  ],
+  "artBrief": "Upright firebird rising from a small ash pile, wings raised in a flame-shaped crown, long curling tail feathers; scarlet, orange, gold. No sun disk (keeps it apart from Bennu/Ra)."
+ },
+ {
+  "suffix": "kraken",
+  "name": "Kraken",
+  "family": "mythology",
+  "category": "mythology",
+  "summary": "A colossal sea monster of northern legend drags ships beneath the waves with giant tentacles.",
+  "wit": "Calamari, but it orders you.",
+  "recipe": [
+   "organic83:mythical-beast",
+   "organic82:poseidon"
+  ],
+  "artBrief": "Giant tentacles rising from a wave line and curling around a tiny tilted sailing ship; deep purple-red tentacles with pale suckers, navy sea."
+ },
+ {
+  "suffix": "heracles",
+  "name": "Heracles",
+  "family": "mythology",
+  "category": "mythology",
+  "summary": "The mightiest Greek hero, son of Zeus, wears a lion-skin hood and carries a heavy olive-wood club.",
+  "wit": "Twelve labours and still no day off.",
+  "recipe": [
+   "legacy:118",
+   "organic82:zeus"
+  ],
+  "artBrief": "Bust of a bearded muscular hero wearing a tawny lion-head hood over his head, knotted wooden club on shoulder; tawny gold, olive brown, skin tone."
+ },
+ {
+  "suffix": "nemean-lion",
+  "name": "Nemean Lion",
+  "family": "mythology",
+  "category": "mythology",
+  "summary": "The invulnerable golden lion of Nemea was the first monster faced in the labours of Heracles.",
+  "wit": "Arrows bounced off. So did the excuses.",
+  "recipe": [
+   "organic83:heracles",
+   "organic83:mythical-beast"
+  ],
+  "artBrief": "Huge golden lion in full-body side view, roaring, with an arrow snapping harmlessly against its shining hide; gold, amber, dark brown mane."
+ },
+ {
+  "suffix": "hydra",
+  "name": "Hydra",
+  "family": "mythology",
+  "category": "mythology",
+  "summary": "The many-headed water serpent of Lerna grew two new heads for every one that was cut off.",
+  "wit": "Cut one off, get two. Terrible negotiating partner.",
+  "recipe": [
+   "organic82:cerberus",
+   "organic82:medusa"
+  ],
+  "artBrief": "Five serpent necks fanning upward from one coiled body in a marsh pool, each head open-mouthed; swamp green, yellow belly, murky blue water. Different from Jormungandr (single ring) and Medusa (face)."
+ },
+ {
+  "suffix": "perseus",
+  "name": "Perseus",
+  "family": "mythology",
+  "category": "mythology",
+  "summary": "The Greek hero Perseus used a mirrored shield and winged sandals to defeat the gorgon Medusa.",
+  "wit": "Never make eye contact. Use the shield.",
+  "recipe": [
+   "legacy:118",
+   "organic82:medusa"
+  ],
+  "artBrief": "Round polished bronze shield seen front-on reflecting a small snake-haired silhouette, curved sword (harpe) crossing behind; bronze, silver, green."
+ },
+ {
+  "suffix": "theseus",
+  "name": "Theseus",
+  "family": "mythology",
+  "category": "mythology",
+  "summary": "The Athenian hero Theseus found his way through the labyrinth by following a red thread.",
+  "wit": "Navigation tip: always bring string.",
+  "recipe": [
+   "legacy:118",
+   "organic82:minotaur"
+  ],
+  "artBrief": "Young hero in short tunic walking right, holding a ball of red thread that unspools behind him in a long wavy line; red thread dominant, beige tunic, stone grey."
+ },
+ {
+  "suffix": "labyrinth",
+  "name": "Labyrinth",
+  "family": "mythology",
+  "category": "mythology",
+  "summary": "The winding maze built by Daedalus at Knossos was designed so that no one could escape the Minotaur.",
+  "wit": "Every turn is the wrong one, by design.",
+  "recipe": [
+   "organic82:minotaur",
+   "organic41:ancient-city"
+  ],
+  "artBrief": "Top-down square classical meander maze with one entrance and a tiny bull-horn mark at the centre; terracotta walls, sand floor."
+ },
+ {
+  "suffix": "daedalus",
+  "name": "Daedalus",
+  "family": "mythology",
+  "category": "mythology",
+  "summary": "The legendary Athenian inventor Daedalus designed the labyrinth and crafted wings of feathers and wax.",
+  "wit": "Brilliant engineer. Terrible at safety briefings.",
+  "recipe": [
+   "organic83:labyrinth",
+   "legacy:28"
+  ],
+  "artBrief": "Older bearded craftsman at a workbench binding a single large feather wing with string, compass tool beside; walnut brown, cream feathers, slate."
+ },
+ {
+  "suffix": "icarus",
+  "name": "Icarus",
+  "family": "mythology",
+  "category": "mythology",
+  "summary": "Icarus flew too close to the sun on wings of wax and feathers and fell into the sea.",
+  "wit": "Proof that altitude limits exist for a reason.",
+  "recipe": [
+   "organic83:daedalus",
+   "legacy:65"
+  ],
+  "artBrief": "Small falling figure diagonally top-right to bottom-left, wings shedding loose feathers, large pale sun in upper corner; white feathers, honey wax, warm yellow, light blue."
+ },
+ {
+  "suffix": "odysseus",
+  "name": "Odysseus",
+  "family": "mythology",
+  "category": "mythology",
+  "summary": "The clever king of Ithaca outwitted a Cyclops on his ten-year voyage home from Troy.",
+  "wit": "Name's Nobody. Remember that.",
+  "recipe": [
+   "legacy:118",
+   "organic82:cyclops"
+  ],
+  "artBrief": "Bearded hero in a conical pilos cap drawing a great bow, the arrow flying through a row of axe-head rings (the bow contest of Ithaca); bronze, navy tunic, iron grey. No ship (Argo and Charon carry the boat motif)."
+ },
+ {
+  "suffix": "trojan-war",
+  "name": "Trojan War",
+  "family": "mythology",
+  "category": "mythology",
+  "summary": "A ten-year siege of Troy united Greek kings against a walled city in the most famous war of legend.",
+  "wit": "Ten years, one apple, zero chill.",
+  "recipe": [
+   "organic82:ares",
+   "organic41:ancient-city"
+  ],
+  "artBrief": "High stone city wall with two towers, crossed spears and a round Greek shield leaning in the foreground; sandstone, bronze, crimson."
+ },
+ {
+  "suffix": "achilles",
+  "name": "Achilles",
+  "family": "mythology",
+  "category": "mythology",
+  "summary": "The near-invincible Greek warrior Achilles could be wounded only at his heel.",
+  "wit": "Invincible, terms and conditions apply to the heel.",
+  "recipe": [
+   "legacy:118",
+   "organic83:trojan-war"
+  ],
+  "artBrief": "Close-up of a bronze greave and bare heel with a single arrow striking the heel, crest of a helmet in the background; bronze, skin, red crest."
+ },
+ {
+  "suffix": "trojan-horse",
+  "name": "Trojan Horse",
+  "family": "mythology",
+  "category": "mythology",
+  "summary": "A giant hollow wooden horse hid Greek warriors and was wheeled into Troy as a false gift.",
+  "wit": "Never accept a gift that requires a crane.",
+  "recipe": [
+   "organic83:trojan-war",
+   "organic83:odysseus"
+  ],
+  "artBrief": "Large wooden horse on a wheeled platform in side view, visible planks, small hatch in its belly; warm wood browns, iron rivets."
+ },
+ {
+  "suffix": "prometheus",
+  "name": "Prometheus",
+  "family": "mythology",
+  "category": "mythology",
+  "summary": "The Titan Prometheus stole fire from the gods and carried it to humanity in a fennel stalk.",
+  "wit": "Brought fire to humans. Liver paid the bill.",
+  "recipe": [
+   "legacy:28",
+   "organic82:sacred-hearth"
+  ],
+  "artBrief": "Titan figure striding left holding a hollow stalk with a bright flame at its tip, flame reaching towards a tiny human silhouette; orange flame, grey-blue Titan, green stalk."
+ },
+ {
+  "suffix": "pandoras-jar",
+  "name": "Pandora's Jar",
+  "family": "mythology",
+  "category": "mythology",
+  "summary": "Pandora's great storage jar released every trouble into the world, leaving only hope inside.",
+  "wit": "Do not open. Seriously. Ok, hope survived.",
+  "recipe": [
+   "organic83:prometheus",
+   "organic82:zeus"
+  ],
+  "artBrief": "Large Greek pithos amphora with lid lifting, dark wisps escaping and a tiny bright light remaining inside; terracotta with black meander band, smoky grey, small gold glow."
+ },
+ {
+  "suffix": "atlas-the-sky-bearer",
+  "name": "Atlas the Sky-Bearer",
+  "family": "mythology",
+  "category": "mythology",
+  "summary": "The Titan Atlas was condemned to hold up the heavens on his shoulders for eternity.",
+  "wit": "World's longest shift, no breaks.",
+  "recipe": [
+   "organic82:cronus",
+   "legacy:65"
+  ],
+  "artBrief": "Kneeling Titan from behind/side supporting a huge star-dotted celestial sphere on his shoulders; dark blue sphere with gold stars, stone-grey figure."
+ },
+ {
+  "suffix": "hestia",
+  "name": "Hestia",
+  "family": "mythology",
+  "category": "mythology",
+  "summary": "The gentle Greek goddess of the hearth tends the central flame of every home and temple.",
+  "wit": "The goddess who keeps the home fires (and peace) burning.",
+  "recipe": [
+   "organic82:sacred-hearth",
+   "organic82:greek-pantheon"
+  ],
+  "artBrief": "Veiled seated goddess in front view holding a shallow bowl with a small flame, round central hearth-stone base; soft peach veil, warm orange, cream. Must differ from Vesta (V82 standing veiled figure before flame): seated, bowl in hands."
+ },
+ {
+  "suffix": "helios",
+  "name": "Helios",
+  "family": "mythology",
+  "category": "mythology",
+  "summary": "The Titan Helios drives the chariot of the sun across the sky every day.",
+  "wit": "Daily commute: east to west, four fire horses.",
+  "recipe": [
+   "organic82:apollo",
+   "legacy:65"
+  ],
+  "artBrief": "Golden chariot wheel and two rearing horse silhouettes pulling a blazing sun disk across a gradient sky; gold, orange, light blue."
+ },
+ {
+  "suffix": "eros",
+  "name": "Eros",
+  "family": "mythology",
+  "category": "mythology",
+  "summary": "The winged Greek god of desire shoots golden arrows that make mortals fall in love.",
+  "wit": "One arrow, instant crush.",
+  "recipe": [
+   "organic82:aphrodite",
+   "legacy:28"
+  ],
+  "artBrief": "Young winged youth drawing a bow, gold-tipped arrow aimed right, white wings; pale pink, gold, white. Differs from Cupid by being a slim youth not a chubby infant."
+ },
+ {
+  "suffix": "oracle-of-delphi",
+  "name": "Oracle of Delphi",
+  "family": "mythology",
+  "category": "mythology",
+  "summary": "The priestess of Apollo at Delphi spoke prophecies while seated above rising sacred vapours.",
+  "wit": "Answers guaranteed. Clarity not included.",
+  "recipe": [
+   "organic82:apollo",
+   "pack:psychic"
+  ],
+  "artBrief": "Priestess seated on a tall bronze tripod with swirling vapour rising from a rock cleft beneath; bronze, lavender vapour, white robe."
+ },
+ {
+  "suffix": "three-fates",
+  "name": "Three Fates",
+  "family": "mythology",
+  "category": "mythology",
+  "summary": "The three Greek Moirai spin, measure and cut the thread of every mortal life.",
+  "wit": "Spin, measure, snip. No refunds.",
+  "recipe": [
+   "organic82:greek-pantheon",
+   "legacy:64"
+  ],
+  "artBrief": "Single horizontal thread running across the icon: a spindle on the left, measuring rod in the middle, open shears on the right about to cut; golden thread, wood brown, steel."
+ },
+ {
+  "suffix": "river-styx",
+  "name": "River Styx",
+  "family": "mythology",
+  "category": "mythology",
+  "summary": "The dark river Styx marks the boundary between the world of the living and the Greek underworld.",
+  "wit": "Swimming not recommended. Ferry only.",
+  "recipe": [
+   "organic82:greek-underworld",
+   "organic82:poseidon"
+  ],
+  "artBrief": "Winding black-violet river seen from above between grey banks with faint ghostly wisps over the water; black-violet, ash grey, pale green wisps. No gate (V82 Underworld uses an obsidian gate)."
+ },
+ {
+  "suffix": "charon",
+  "name": "Charon",
+  "family": "mythology",
+  "category": "mythology",
+  "summary": "The hooded ferryman Charon poles the souls of the dead across the river Styx for a single coin.",
+  "wit": "Exact change only: one obol.",
+  "recipe": [
+   "organic83:river-styx",
+   "legacy:28"
+  ],
+  "artBrief": "Hooded cloaked ferryman standing at the stern of a narrow boat, holding a long pole, small lantern at the prow; charcoal cloak, dim teal water, yellow lantern."
+ },
+ {
+  "suffix": "elysium",
+  "name": "Elysium",
+  "family": "mythology",
+  "category": "mythology",
+  "summary": "The Elysian Fields are the sunlit paradise where Greek heroes rest after death.",
+  "wit": "Retirement plan for heroes.",
+  "recipe": [
+   "organic82:greek-underworld",
+   "legacy:118"
+  ],
+  "artBrief": "Rolling green meadow with white asphodel flowers and a single small column under a soft golden sky; meadow green, white, pale gold."
+ },
+ {
+  "suffix": "tartarus",
+  "name": "Tartarus",
+  "family": "mythology",
+  "category": "mythology",
+  "summary": "The deepest abyss beneath the Greek underworld imprisons the defeated Titans behind bronze gates.",
+  "wit": "Titans checked in, never checked out.",
+  "recipe": [
+   "organic82:greek-underworld",
+   "organic82:cronus"
+  ],
+  "artBrief": "Deep vertical pit seen in cross-section with a chained bronze gate at the bottom and red glow below; black, bronze, ember red."
+ },
+ {
+  "suffix": "centaur",
+  "name": "Centaur",
+  "family": "mythology",
+  "category": "mythology",
+  "summary": "A centaur has the upper body of a human joined to the body and legs of a horse.",
+  "wit": "Twice the legs, half the parking options.",
+  "recipe": [
+   "legacy:28",
+   "organic82:pegasus"
+  ],
+  "artBrief": "Centaur galloping in side view, human torso holding a bow upright, chestnut horse body, no wings; chestnut, skin tone, cream tail."
+ },
+ {
+  "suffix": "siren",
+  "name": "Siren",
+  "family": "mythology",
+  "category": "mythology",
+  "summary": "The sirens of Greek legend sang so sweetly that passing sailors steered onto the rocks.",
+  "wit": "Great voice. Terrible venue.",
+  "recipe": [
+   "organic83:odysseus",
+   "organic82:aphrodite"
+  ],
+  "artBrief": "Bird-bodied siren with a woman's face perched on a sea rock, open beak-like mouth with music swirls drifting out; teal-grey feathers, rock brown, white sea foam. Classical bird form, not a mermaid."
+ },
+ {
+  "suffix": "argo",
+  "name": "Argo",
+  "family": "mythology",
+  "category": "mythology",
+  "summary": "The Argo carried Jason and the Argonauts on their quest for the Golden Fleece.",
+  "wit": "Fifty heroes, one boat, endless arguments about rowing.",
+  "recipe": [
+   "legacy:118",
+   "organic82:poseidon"
+  ],
+  "artBrief": "Long Greek galley in side view with a row of oars, painted eye on the prow and a single square sail with a ram emblem; ochre hull, blue eye, cream sail."
+ },
+ {
+  "suffix": "ambrosia",
+  "name": "Ambrosia",
+  "family": "mythology",
+  "category": "mythology",
+  "summary": "Ambrosia is the golden food of the Olympian gods that grants immortality.",
+  "wit": "One bite and you never need a birthday again.",
+  "recipe": [
+   "organic82:mount-olympus",
+   "organic82:demeter"
+  ],
+  "artBrief": "Shallow golden bowl overflowing with glowing honey-gold food, a small dripping ladle beside; gold, honey amber, white sparkle."
+ },
+ {
+  "suffix": "cupid",
+  "name": "Cupid",
+  "family": "mythology",
+  "category": "mythology",
+  "summary": "The Roman god of love is shown as a winged child aiming his golden arrows.",
+  "wit": "Small, winged, and armed with feelings.",
+  "recipe": [
+   "organic83:eros",
+   "organic82:roman-pantheon"
+  ],
+  "artBrief": "Chubby winged infant floating with a heart-tipped arrow nocked on a small bow, front view; rosy pink, white wings, gold."
+ },
+ {
+  "suffix": "aeneas",
+  "name": "Aeneas",
+  "family": "mythology",
+  "category": "mythology",
+  "summary": "The Trojan hero Aeneas escaped burning Troy and became the legendary ancestor of the Romans.",
+  "wit": "Lost a city, founded a civilisation. Net positive.",
+  "recipe": [
+   "organic83:trojan-war",
+   "organic82:roman-pantheon"
+  ],
+  "artBrief": "Warrior carrying an old man on his back and leading a child by the hand, walking away from flames; bronze armour, grey, orange flames."
+ },
+ {
+  "suffix": "romulus-and-remus",
+  "name": "Romulus and Remus",
+  "family": "mythology",
+  "category": "mythology",
+  "summary": "The twin sons of Mars were raised by a she-wolf and went on to found the city of Rome.",
+  "wit": "Raised by a wolf, founded an empire. Strong parenting.",
+  "recipe": [
+   "organic82:mars-the-war-god",
+   "organic41:ancient-city"
+  ],
+  "artBrief": "Grey she-wolf in side view standing protectively over two tiny infants beneath her, low Roman hills behind; wolf grey, skin tone, olive."
+ },
+ {
+  "suffix": "fortuna",
+  "name": "Fortuna",
+  "family": "mythology",
+  "category": "mythology",
+  "summary": "The Roman goddess of luck turns a great wheel that raises and lowers mortal fortunes.",
+  "wit": "Spin the wheel. Results may vary.",
+  "recipe": [
+   "organic83:three-fates",
+   "organic82:roman-pantheon"
+  ],
+  "artBrief": "Large spoked wheel of fortune with a cornucopia overflowing beside it; gold wheel, green-brown horn, fruit reds."
+ },
+ {
+  "suffix": "sol-invictus",
+  "name": "Sol Invictus",
+  "family": "mythology",
+  "category": "mythology",
+  "summary": "The Unconquered Sun was honoured by later Romans with a radiant crown of light.",
+  "wit": "Unconquered, and very much unclouded.",
+  "recipe": [
+   "organic83:helios",
+   "organic82:roman-pantheon"
+  ],
+  "artBrief": "Bust in profile wearing a spiky radiant crown of seven rays, laurel at neck, coin-like circular frame; gold, bronze, warm white. Coin-style profile keeps it different from Helios chariot."
+ },
+ {
+  "suffix": "proserpina",
+  "name": "Proserpina",
+  "family": "mythology",
+  "category": "mythology",
+  "summary": "The Roman queen of the underworld returns to the surface each spring, bringing the flowers with her.",
+  "wit": "Half the year in the dark, half in bloom.",
+  "recipe": [
+   "organic82:persephone",
+   "organic82:roman-pantheon"
+  ],
+  "artBrief": "Young goddess emerging from a crack in the ground holding a bunch of fresh flowers, dark below and green sprouts above; spring green, violet, dark brown."
+ },
+ {
+  "suffix": "lares",
+  "name": "Lares",
+  "family": "mythology",
+  "category": "mythology",
+  "summary": "The Lares were Roman household guardian spirits honoured at a small shrine in every home.",
+  "wit": "Tiny gods, big opinions about tidiness.",
+  "recipe": [
+   "organic82:sacred-hearth",
+   "legacy:586"
+  ],
+  "artBrief": "Small Roman house shrine (lararium) niche with two little dancing bronze figurines holding drinking horns; terracotta wall, bronze figures, red niche."
+ },
+ {
+  "suffix": "cumaean-sibyl",
+  "name": "Cumaean Sibyl",
+  "family": "mythology",
+  "category": "mythology",
+  "summary": "The prophetess of Cumae wrote her oracles on leaves inside a cave of a hundred openings.",
+  "wit": "Prophecies delivered on leaves. Do not open the window.",
+  "recipe": [
+   "organic82:roman-augur",
+   "organic83:oracle-of-delphi"
+  ],
+  "artBrief": "Dark cave mouth with oak-leaf pages swirling out on a wind, a hooded profile at the edge; dark umber, leaf green, parchment."
+ },
+ {
+  "suffix": "huginn-and-muninn",
+  "name": "Huginn and Muninn",
+  "family": "mythology",
+  "category": "mythology",
+  "summary": "Odin's two ravens, Thought and Memory, fly over the world each day and report back to him.",
+  "wit": "Two ravens, one inbox, full of world news.",
+  "recipe": [
+   "organic82:odin",
+   "pack:psychic"
+  ],
+  "artBrief": "Two black ravens in flight crossing paths in a circular loop, one larger, against a pale sky; black, slate blue, pale grey. No hat or Odin figure."
+ },
+ {
+  "suffix": "mimirs-well",
+  "name": "Mimir's Well",
+  "family": "mythology",
+  "category": "mythology",
+  "summary": "Mimir's well of wisdom lies beneath a root of Yggdrasil, where Odin traded an eye for a drink.",
+  "wit": "Wisdom on tap. Price: one eye.",
+  "recipe": [
+   "organic82:odin",
+   "organic82:ancient-wisdom"
+  ],
+  "artBrief": "Round stone well among thick tree roots with a drinking horn resting on its rim and a single glowing eye reflected in the water; mossy grey stone, dark teal water, ivory horn. Explicitly no severed head (avoids modern-game depictions)."
+ },
+ {
+  "suffix": "norns",
+  "name": "Norns",
+  "family": "mythology",
+  "category": "mythology",
+  "summary": "The three Norns weave the destinies of gods and humans at the well beneath the world tree.",
+  "wit": "Past, present and future, carved in one tree trunk.",
+  "recipe": [
+   "organic82:yggdrasil",
+   "organic83:three-fates"
+  ],
+  "artBrief": "Three hooded figures in a row at a tree base, one carving runes into the trunk, one weaving, one pouring water; dark blue hoods, bark brown, rune cyan."
+ },
+ {
+  "suffix": "nidhogg",
+  "name": "Nidhogg",
+  "family": "mythology",
+  "category": "mythology",
+  "summary": "The dragon Nidhogg gnaws at the deepest roots of the world tree Yggdrasil.",
+  "wit": "Eats roots. Destroys cosmology. Very rude.",
+  "recipe": [
+   "organic82:yggdrasil",
+   "organic82:jormungandr"
+  ],
+  "artBrief": "Dark winged dragon curled at the bottom of the icon chewing a thick tree root that climbs upward; dark olive dragon, bark brown, bone white teeth."
+ },
+ {
+  "suffix": "muspelheim",
+  "name": "Muspelheim",
+  "family": "mythology",
+  "category": "mythology",
+  "summary": "Muspelheim is the blazing Norse realm of fire, home of the fire giants.",
+  "wit": "The realm where the thermostat is stuck on 'lava'.",
+  "recipe": [
+   "organic82:nine-realms",
+   "organic82:sacred-hearth"
+  ],
+  "artBrief": "Glowing realm sphere/landscape of jagged black rock with rivers of lava and rising sparks; black, molten orange, red."
+ },
+ {
+  "suffix": "surtr",
+  "name": "Surtr",
+  "family": "mythology",
+  "category": "mythology",
+  "summary": "The fire giant Surtr guards Muspelheim with a flaming sword destined to set the world ablaze.",
+  "wit": "Brings a flaming sword to every party.",
+  "recipe": [
+   "organic83:muspelheim",
+   "organic82:frost-giant"
+  ],
+  "artBrief": "Towering dark giant silhouette with ember cracks across his body raising a long flaming sword; charcoal, ember orange, yellow. Contrast with blue Frost Giant."
+ },
+ {
+  "suffix": "svartalfheim",
+  "name": "Svartalfheim",
+  "family": "mythology",
+  "category": "mythology",
+  "summary": "Svartalfheim is the underground Norse realm of master smiths who forged the treasures of the gods.",
+  "wit": "Underground forges. Best craftsmanship in nine worlds.",
+  "recipe": [
+   "organic82:nine-realms",
+   "organic82:hephaestus"
+  ],
+  "artBrief": "Cutaway mountain with a glowing forge cave inside, an anvil and small hammer silhouettes at the fire; dark slate, forge orange, rock brown."
+ },
+ {
+  "suffix": "draupnir",
+  "name": "Draupnir",
+  "family": "mythology",
+  "category": "mythology",
+  "summary": "Odin's golden ring Draupnir drips eight new rings of equal weight every ninth night.",
+  "wit": "The original compound interest.",
+  "recipe": [
+   "organic83:svartalfheim",
+   "organic82:odin"
+  ],
+  "artBrief": "Thick gold arm-ring in front view with three smaller rings dropping from it in a cascade; gold, deep amber, dark blue background shadow."
+ },
+ {
+  "suffix": "brisingamen",
+  "name": "Brisingamen",
+  "family": "mythology",
+  "category": "mythology",
+  "summary": "The radiant necklace Brisingamen was forged by dwarven smiths for the goddess Freyja.",
+  "wit": "Four smiths, one necklace, one very determined goddess.",
+  "recipe": [
+   "organic83:svartalfheim",
+   "organic82:freyja"
+  ],
+  "artBrief": "Heavy ornate gold necklace laid in a U-shape with amber pendants, centered fiery gem; gold, amber, red."
+ },
+ {
+  "suffix": "njord",
+  "name": "Njord",
+  "family": "mythology",
+  "category": "mythology",
+  "summary": "The Norse god of the sea, wind and fishing is the father of Freyr and Freyja.",
+  "wit": "Patron of sailors, fishers and everyone who smells like the sea.",
+  "recipe": [
+   "organic82:freyja",
+   "organic82:freyr"
+  ],
+  "artBrief": "Bearded sea god wading knee-deep at a shoreline holding up a fishing net full of silver fish, a gull above; sea green, rope beige, silver. No boat."
+ },
+ {
+  "suffix": "apples-of-idunn",
+  "name": "Apples of Idunn",
+  "family": "mythology",
+  "category": "mythology",
+  "summary": "The golden apples kept by the goddess Idunn keep the Norse gods eternally young.",
+  "wit": "An apple a day keeps Ragnarok... slightly further away.",
+  "recipe": [
+   "organic82:asgard",
+   "organic83:ambrosia"
+  ],
+  "artBrief": "Woven wicker basket holding three shining golden apples with leaves, one apple in front; gold, leaf green, wicker brown."
+ },
+ {
+  "suffix": "gjallarhorn",
+  "name": "Gjallarhorn",
+  "family": "mythology",
+  "category": "mythology",
+  "summary": "Heimdall's great horn Gjallarhorn will sound across all realms to announce Ragnarok.",
+  "wit": "The world's loudest alarm clock. Do not snooze.",
+  "recipe": [
+   "organic82:heimdall",
+   "organic82:ragnarok"
+  ],
+  "artBrief": "Huge curved horn alone with metal bands and runes, sound waves bursting from its bell to the right; ivory, silver bands, cyan runes. Object only (V82 Heimdall shows the god blowing a horn)."
+ },
+ {
+  "suffix": "einherjar",
+  "name": "Einherjar",
+  "family": "mythology",
+  "category": "mythology",
+  "summary": "The Einherjar are the chosen fallen warriors who feast and train in Valhalla until Ragnarok.",
+  "wit": "Fight all day, feast all night, repeat until doomsday.",
+  "recipe": [
+   "organic82:valhalla",
+   "legacy:118"
+  ],
+  "artBrief": "Three round Viking shields overlapping in a row with spears and a raised drinking horn above them; red, blue, yellow shields, wood brown."
+ },
+ {
+  "suffix": "ymir-the-first-giant",
+  "name": "Ymir the First Giant",
+  "family": "mythology",
+  "category": "mythology",
+  "summary": "The primordial giant Ymir was born where the ice of Niflheim met the fire of Muspelheim.",
+  "wit": "Born from ice meeting fire. Very awkward family reunions.",
+  "recipe": [
+   "organic82:niflheim",
+   "organic83:muspelheim"
+  ],
+  "artBrief": "Enormous sleeping giant lying horizontally, half his body frost-blue and half ember-warm, with a tiny cow licking ice at his feet; ice blue, ember orange, grey."
+ },
+ {
+  "suffix": "sigurd",
+  "name": "Sigurd",
+  "family": "mythology",
+  "category": "mythology",
+  "summary": "The Norse hero Sigurd slew the dragon Fafnir with a reforged sword.",
+  "wit": "Reforged sword, reformed dragon (it's dead).",
+  "recipe": [
+   "legacy:118",
+   "organic82:norse-mythology"
+  ],
+  "artBrief": "Young hero raising a long straight sword with a visible repaired notch, round shield on arm, braided hair; steel, forest green, gold."
+ },
+ {
+  "suffix": "fafnir",
+  "name": "Fafnir",
+  "family": "mythology",
+  "category": "mythology",
+  "summary": "Fafnir was transformed by greed into a great dragon guarding a hoard of cursed gold.",
+  "wit": "Greed: turns you into a dragon, guaranteed.",
+  "recipe": [
+   "organic83:sigurd",
+   "organic83:mythical-beast"
+  ],
+  "artBrief": "Wingless serpentine dragon coiled around a pile of gold coins and rings, glaring; dark green, gold, red eye."
+ },
+ {
+  "suffix": "ankh",
+  "name": "Ankh",
+  "family": "mythology",
+  "category": "mythology",
+  "summary": "The ankh is the ancient Egyptian hieroglyph for life, carried by gods as a sacred symbol.",
+  "wit": "The key to eternal life, in loop form.",
+  "recipe": [
+   "organic82:ancient-egypt",
+   "legacy:125"
+  ],
+  "artBrief": "Single large ankh symbol upright, gold with turquoise inlay bands, subtle shadow on sandstone background; gold, turquoise, sand."
+ },
+ {
+  "suffix": "khepri",
+  "name": "Khepri",
+  "family": "mythology",
+  "category": "mythology",
+  "summary": "The scarab god Khepri rolls the morning sun into the sky each dawn.",
+  "wit": "Pushes the sun uphill every morning. Respect.",
+  "recipe": [
+   "organic82:ra",
+   "pack:transformation"
+  ],
+  "artBrief": "Scarab beetle seen from above pushing a small red sun disk upward, wings slightly open; lapis blue beetle, red-orange sun, gold edges."
+ },
+ {
+  "suffix": "bennu",
+  "name": "Bennu",
+  "family": "mythology",
+  "category": "mythology",
+  "summary": "The Bennu is the sacred Egyptian heron of creation and renewal, linked to the sun.",
+  "wit": "The heron that inspired the phoenix's whole brand.",
+  "recipe": [
+   "organic83:phoenix",
+   "organic82:egyptian-mythology"
+  ],
+  "artBrief": "Grey heron with two long crest feathers standing on a tall stone (benben) in profile, not on fire; blue-grey, white, sandstone, small gold sun behind."
+ },
+ {
+  "suffix": "sphinx",
+  "name": "Sphinx",
+  "family": "mythology",
+  "category": "mythology",
+  "summary": "The sphinx joins a lion's body with a human head as a guardian of Egyptian temples and tombs.",
+  "wit": "Answer the riddle or wait another thousand years.",
+  "recipe": [
+   "organic82:ancient-egypt",
+   "organic83:mythical-beast"
+  ],
+  "artBrief": "Reclining sphinx in side view with striped nemes headdress, paws forward, on a desert line; sandstone, blue-gold stripes. Distinct from Pyramid icon: no pyramid in frame."
+ },
+ {
+  "suffix": "book-of-the-dead",
+  "name": "Book of the Dead",
+  "family": "mythology",
+  "category": "mythology",
+  "summary": "The Egyptian Book of the Dead is a papyrus scroll of spells guiding the deceased through the afterlife.",
+  "wit": "A travel guide for the afterlife. Five stars from the departed.",
+  "recipe": [
+   "organic82:thoth",
+   "organic82:osiris"
+  ],
+  "artBrief": "Long unrolled papyrus scroll in a gentle S with hieroglyph rows and a small vignette panel; papyrus beige, black ink, red accents."
+ },
+ {
+  "suffix": "maat",
+  "name": "Ma'at",
+  "family": "mythology",
+  "category": "mythology",
+  "summary": "The Egyptian goddess Ma'at embodies truth, balance and cosmic order, marked by a single ostrich feather.",
+  "wit": "Truth, order and balance. Also, one excellent feather.",
+  "recipe": [
+   "organic82:egyptian-pantheon",
+   "legacy:48"
+  ],
+  "artBrief": "Standing goddess in Egyptian profile with one oversized tall white ostrich feather in her headband as the dominant shape, holding a was-scepter; white feather, turquoise, gold. No wings."
+ },
+ {
+  "suffix": "weighing-of-the-heart",
+  "name": "Weighing of the Heart",
+  "family": "mythology",
+  "category": "mythology",
+  "summary": "In the Egyptian afterlife a heart is weighed against the feather of Ma'at to judge a life.",
+  "wit": "Light heart: paradise. Heavy heart: snack for Ammit.",
+  "recipe": [
+   "organic82:anubis",
+   "organic83:maat"
+  ],
+  "artBrief": "Large balance scale with a red heart-shaped jar on one pan and a white feather on the other, beam perfectly level; gold scale, red, white."
+ },
+ {
+  "suffix": "duat",
+  "name": "Duat",
+  "family": "mythology",
+  "category": "mythology",
+  "summary": "The Duat is the Egyptian underworld traversed each night by the sun and by the souls of the dead.",
+  "wit": "Twelve hours of night, twelve gates, zero shortcuts.",
+  "recipe": [
+   "organic82:ancient-egypt",
+   "organic82:greek-underworld"
+  ],
+  "artBrief": "Star-studded dark blue arch (Nut-like curve) over a narrow underworld river with a row of small gate pylons; midnight blue, gold stars, sand pylons."
+ },
+ {
+  "suffix": "solar-barque",
+  "name": "Solar Barque",
+  "family": "mythology",
+  "category": "mythology",
+  "summary": "Ra's sacred boat carries the sun through the sky by day and the Duat by night.",
+  "wit": "The sun commutes by boat.",
+  "recipe": [
+   "organic82:ra",
+   "organic83:duat"
+  ],
+  "artBrief": "Elegant crescent papyrus boat with upturned ends carrying a large gold sun disk in a shrine at its centre, on a thin water line; gold, papyrus green, blue."
+ },
+ {
+  "suffix": "nut-the-sky-goddess",
+  "name": "Nut the Sky Goddess",
+  "family": "mythology",
+  "category": "mythology",
+  "summary": "The Egyptian sky goddess Nut arches her star-covered body over the earth.",
+  "wit": "Literally holds up the night sky with a backbend.",
+  "recipe": [
+   "organic82:egyptian-pantheon",
+   "legacy:65"
+  ],
+  "artBrief": "Arched elongated goddess body forming a semicircle over a flat horizon, body covered in gold stars; deep blue, gold, sand horizon."
+ },
+ {
+  "suffix": "geb",
+  "name": "Geb",
+  "family": "mythology",
+  "category": "mythology",
+  "summary": "Geb is the Egyptian god of the earth, often shown reclining green beneath the sky.",
+  "wit": "The ground floor of Egyptian cosmology.",
+  "recipe": [
+   "organic82:egyptian-pantheon",
+   "organic82:gaia"
+  ],
+  "artBrief": "Reclining green-skinned god lying on his side along the bottom of the icon, a goose crown on his head, plants sprouting from his body; leaf green, earth brown, white goose."
+ },
+ {
+  "suffix": "canopic-jars",
+  "name": "Canopic Jars",
+  "family": "mythology",
+  "category": "mythology",
+  "summary": "Four canopic jars with animal and human-headed lids preserved organs during mummification.",
+  "wit": "Four jars, four lids, one very organised afterlife.",
+  "recipe": [
+   "organic82:anubis",
+   "organic82:ancient-egypt"
+  ],
+  "artBrief": "Row of four short alabaster jars with distinct lids (human, baboon, jackal, falcon); cream alabaster, blue-gold lid details."
+ },
+ {
+  "suffix": "cuneiform-tablet",
+  "name": "Cuneiform Tablet",
+  "family": "mythology",
+  "category": "mythology",
+  "summary": "Clay tablets pressed with wedge-shaped cuneiform signs preserve the earliest written stories of Mesopotamia.",
+  "wit": "The first draft of history, written in mud.",
+  "recipe": [
+   "organic41:ancient-city",
+   "legacy:64"
+  ],
+  "artBrief": "Rounded rectangular clay tablet slightly tilted with neat rows of wedge marks and a reed stylus beside it; clay ochre, dark brown wedges, reed tan."
+ },
+ {
+  "suffix": "mesopotamian-mythology",
+  "name": "Mesopotamian Mythology",
+  "family": "mythology",
+  "category": "mythology",
+  "summary": "The myths of Sumer, Akkad and Babylon tell of creation, floods and the first heroes between two rivers.",
+  "wit": "Two rivers, a few thousand gods, the first epic.",
+  "recipe": [
+   "organic82:mythology",
+   "organic83:cuneiform-tablet"
+  ],
+  "artBrief": "Two wavy blue rivers converging into a V (Tigris and Euphrates) under a gold winged sun disk, reed tufts on the banks; river blue, gold, reed green. No building (Ziggurat owns the tower)."
+ },
+ {
+  "suffix": "ziggurat",
+  "name": "Ziggurat",
+  "family": "mythology",
+  "category": "mythology",
+  "summary": "A ziggurat is a massive stepped temple tower of mud brick built to bring the gods closer to earth.",
+  "wit": "Stairway to heaven, mud-brick edition.",
+  "recipe": [
+   "organic83:mesopotamian-mythology",
+   "organic41:ancient-city"
+  ],
+  "artBrief": "Three-tier stepped tower with a central front staircase and a small shrine on top, three-quarter view; sun-baked tan, shadowed brown, blue glazed shrine. Distinct from Pyramid (flat terraces, staircase)."
+ },
+ {
+  "suffix": "anunnaki",
+  "name": "Anunnaki",
+  "family": "mythology",
+  "category": "mythology",
+  "summary": "The Anunnaki are the great assembly of Mesopotamian gods who decree the fates of the land.",
+  "wit": "The original council meeting, minutes in clay.",
+  "recipe": [
+   "organic83:mesopotamian-mythology",
+   "pack:god"
+  ],
+  "artBrief": "Seven small robed deity silhouettes with horned caps seated in a semicircle council around a central clay tablet, top-down three-quarter view; lapis blue, gold horns, clay ochre."
+ },
+ {
+  "suffix": "anu",
+  "name": "Anu",
+  "family": "mythology",
+  "category": "mythology",
+  "summary": "Anu is the ancient Mesopotamian god of the heavens and father of many gods.",
+  "wit": "Top of the sky, top of the family tree.",
+  "recipe": [
+   "organic83:anunnaki",
+   "legacy:65"
+  ],
+  "artBrief": "Great horned crown floating above a dome of stars, eight-pointed star symbol at centre; lapis blue, gold, white stars."
+ },
+ {
+  "suffix": "enki",
+  "name": "Enki",
+  "family": "mythology",
+  "category": "mythology",
+  "summary": "Enki, god of wisdom and fresh water, is shown with streams of water and fish flowing from his shoulders.",
+  "wit": "Wise, crafty, and always has a fish on him.",
+  "recipe": [
+   "organic83:anunnaki",
+   "organic82:ancient-wisdom"
+  ],
+  "artBrief": "Seated bearded god in tiered robe with two streams of water pouring from his shoulders, small fish swimming in them; teal water, gold, beige robe."
+ },
+ {
+  "suffix": "inanna",
+  "name": "Inanna",
+  "family": "mythology",
+  "category": "mythology",
+  "summary": "Inanna, queen of heaven, is the Mesopotamian goddess of love, war and the morning star.",
+  "wit": "Love and war. Usually in that order.",
+  "recipe": [
+   "organic83:anunnaki",
+   "organic82:aphrodite"
+  ],
+  "artBrief": "Goddess standing on the back of a striding lion, an eight-pointed star shining above her head, holding a ringed staff; deep red, gold star, lion tan. No wings (V82 Isis owns spread wings)."
+ },
+ {
+  "suffix": "ereshkigal",
+  "name": "Ereshkigal",
+  "family": "mythology",
+  "category": "mythology",
+  "summary": "Ereshkigal rules the Mesopotamian underworld, the land of no return.",
+  "wit": "Queen of the land of no return. Visiting hours: none.",
+  "recipe": [
+   "organic83:anunnaki",
+   "organic82:greek-underworld"
+  ],
+  "artBrief": "Seated queen on a dark throne inside a low arched gateway descending underground, seven steps below; dark plum, dust grey, dull gold."
+ },
+ {
+  "suffix": "babylon",
+  "name": "Babylon",
+  "family": "mythology",
+  "category": "mythology",
+  "summary": "Babylon was the great Mesopotamian city famed for its glazed gates and towering temple.",
+  "wit": "Big city, bright blue gates, legendary tower.",
+  "recipe": [
+   "organic83:ziggurat",
+   "legacy:47"
+  ],
+  "artBrief": "Blue-glazed city gate arch with gold animal reliefs and crenellated towers, front view; cobalt blue, gold, sand."
+ },
+ {
+  "suffix": "marduk",
+  "name": "Marduk",
+  "family": "mythology",
+  "category": "mythology",
+  "summary": "Marduk is the patron god of Babylon who defeated the chaos dragon Tiamat.",
+  "wit": "Babylon's champion, dragon-slayer and city manager.",
+  "recipe": [
+   "organic83:babylon",
+   "pack:god"
+  ],
+  "artBrief": "Bearded god in tall horned crown striding right holding a spear-like spade (marru) aloft, a small dragon emblem at his feet; lapis, gold, red."
+ },
+ {
+  "suffix": "tiamat",
+  "name": "Tiamat",
+  "family": "mythology",
+  "category": "mythology",
+  "summary": "Tiamat is the primordial goddess of the salt sea, imagined as a vast chaos serpent.",
+  "wit": "Primordial chaos with a very long tail.",
+  "recipe": [
+   "organic83:mesopotamian-mythology",
+   "organic83:mythical-beast"
+  ],
+  "artBrief": "Single huge sea serpent rising from swirling salt-water spirals, horned head and long wavy body; deep sea green, foam white, purple shadow. One head only, explicitly not a five-headed dragon (avoid tabletop-game design)."
+ },
+ {
+  "suffix": "lamassu",
+  "name": "Lamassu",
+  "family": "mythology",
+  "category": "mythology",
+  "summary": "The lamassu is a winged bull with a human head that guarded Assyrian palace gates.",
+  "wit": "Bull body, eagle wings, beard on fleek.",
+  "recipe": [
+   "organic83:babylon",
+   "organic83:mythical-beast"
+  ],
+  "artBrief": "Stone relief of a winged bull with bearded human head and horned cap in side view, five legs carved; limestone grey, sand, dark blue background."
+ },
+ {
+  "suffix": "gilgamesh",
+  "name": "Gilgamesh",
+  "family": "mythology",
+  "category": "mythology",
+  "summary": "Gilgamesh is the legendary king of Uruk whose quest for immortality became the oldest great epic.",
+  "wit": "Two-thirds god, one-third hero, all ambition.",
+  "recipe": [
+   "legacy:118",
+   "organic83:mesopotamian-mythology"
+  ],
+  "artBrief": "Bearded king in profile with curled beard and hair, holding a small lion under one arm, Assyrian relief style; clay red, black hair, gold. Avoid any modern anime/game design."
+ },
+ {
+  "suffix": "humbaba",
+  "name": "Humbaba",
+  "family": "mythology",
+  "category": "mythology",
+  "summary": "Humbaba is the monstrous guardian of the Cedar Forest slain by Gilgamesh and Enkidu.",
+  "wit": "Cedar forest security: monstrous, effective.",
+  "recipe": [
+   "organic83:gilgamesh",
+   "organic83:mythical-beast"
+  ],
+  "artBrief": "Grotesque wrinkled lion-like face mask framed by tall cedar trees, face front-on; cedar green, clay orange, dark brown."
+ },
+ {
+  "suffix": "epic-of-gilgamesh",
+  "name": "Epic of Gilgamesh",
+  "family": "mythology",
+  "category": "mythology",
+  "summary": "The Epic of Gilgamesh is one of the oldest surviving works of literature, written on clay tablets.",
+  "wit": "The world's oldest bestseller. Twelve tablets long.",
+  "recipe": [
+   "organic83:gilgamesh",
+   "organic83:cuneiform-tablet"
+  ],
+  "artBrief": "Stack of several clay tablets leaning together like a book set, top one showing a tiny relief of a crowned figure; clay ochre, brown, gold."
+ },
+ {
+  "suffix": "tablet-of-destinies",
+  "name": "Tablet of Destinies",
+  "family": "mythology",
+  "category": "mythology",
+  "summary": "The Tablet of Destinies grants whoever holds it supreme authority over the fate of the universe.",
+  "wit": "Whoever holds it writes the rules.",
+  "recipe": [
+   "organic83:cuneiform-tablet",
+   "organic83:three-fates"
+  ],
+  "artBrief": "Single glowing clay tablet floating with light rays and a golden wedge-mark star in its centre; clay ochre, radiant gold, deep violet background."
+ },
+ {
+  "suffix": "druid",
+  "name": "Druid",
+  "family": "mythology",
+  "category": "mythology",
+  "summary": "Druids were the learned priests, judges and keepers of lore among the ancient Celtic peoples.",
+  "wit": "Knows every tree by name, and most of them by gossip.",
+  "recipe": [
+   "legacy:586",
+   "organic82:ancient-wisdom"
+  ],
+  "artBrief": "Hooded white-robed figure holding a sprig of mistletoe and a gnarled oak staff; white, oak brown, mistletoe green."
+ },
+ {
+  "suffix": "celtic-mythology",
+  "name": "Celtic Mythology",
+  "family": "mythology",
+  "category": "mythology",
+  "summary": "The myths of the Irish, Welsh and Gaulish Celts are filled with otherworlds, heroes and shape-shifting gods.",
+  "wit": "Otherworlds, heroes, and a lot of clever knotwork.",
+  "recipe": [
+   "organic83:druid",
+   "organic82:mythology"
+  ],
+  "artBrief": "Triskele triple spiral in the centre of a round knotwork border; emerald green, bronze, cream."
+ },
+ {
+  "suffix": "tuatha-de-danann",
+  "name": "Tuatha De Danann",
+  "family": "mythology",
+  "category": "mythology",
+  "summary": "The Tuatha De Danann are the divine race of Irish myth who arrived in Ireland wrapped in mist.",
+  "wit": "Arrived in a cloud of mist. Very dramatic entrance.",
+  "recipe": [
+   "organic83:celtic-mythology",
+   "pack:god"
+  ],
+  "artBrief": "Line of four tall cloaked silhouettes emerging from a bank of mist on green hills, each holding a different treasure (spear, sword, stone, cauldron); misty silver, deep green, gold."
+ },
+ {
+  "suffix": "the-dagda",
+  "name": "The Dagda",
+  "family": "mythology",
+  "category": "mythology",
+  "summary": "The Dagda is the great father god of Irish myth, master of a club, a harp and a cauldron.",
+  "wit": "Club in one hand, harp in the other, dinner always ready.",
+  "recipe": [
+   "organic83:tuatha-de-danann",
+   "pack:leader"
+  ],
+  "artBrief": "Burly bearded god in a short cloak holding a huge wooden club resting on his shoulder and a small harp at his hip; earthy brown, green cloak, gold harp."
+ },
+ {
+  "suffix": "cauldron-of-the-dagda",
+  "name": "Cauldron of the Dagda",
+  "family": "mythology",
+  "category": "mythology",
+  "summary": "The Dagda's cauldron of plenty never empties and leaves no one hungry.",
+  "wit": "Bottomless soup. No one leaves hungry.",
+  "recipe": [
+   "organic83:the-dagda",
+   "organic83:ambrosia"
+  ],
+  "artBrief": "Large round black iron cauldron with knotwork band, steam and overflowing stew, ladle handle sticking out; iron black, bronze band, warm steam white."
+ },
+ {
+  "suffix": "lugh",
+  "name": "Lugh",
+  "family": "mythology",
+  "category": "mythology",
+  "summary": "Lugh is the radiant Irish god skilled in every art and wielder of an unstoppable spear.",
+  "wit": "Master of all crafts. Show-off of most.",
+  "recipe": [
+   "organic83:tuatha-de-danann",
+   "legacy:118"
+  ],
+  "artBrief": "Young god with a sun-like halo of hair throwing a long fiery-tipped spear diagonally upward; gold, flame orange, green cloak."
+ },
+ {
+  "suffix": "brigid",
+  "name": "Brigid",
+  "family": "mythology",
+  "category": "mythology",
+  "summary": "Brigid is the Irish goddess of poetry, healing and the smith's fire.",
+  "wit": "Poetry, healing and blacksmithing. Overachiever.",
+  "recipe": [
+   "organic83:tuatha-de-danann",
+   "organic82:sacred-hearth"
+  ],
+  "artBrief": "Woven rush Brigid's cross (four arms around a square centre) with a small flame above; straw gold, flame orange, green background circle."
+ },
+ {
+  "suffix": "morrigan",
+  "name": "Morrigan",
+  "family": "mythology",
+  "category": "mythology",
+  "summary": "The Morrigan is the Irish goddess of fate and battle who appears as a crow over the field.",
+  "wit": "Shows up as a crow. You do not want that RSVP.",
+  "recipe": [
+   "organic83:tuatha-de-danann",
+   "organic82:valkyrie"
+  ],
+  "artBrief": "Single black crow perched on a spear shaft, wings half spread, a red moon behind; black, crimson, steel. One crow, distinct from the two-raven Huginn and Muninn icon."
+ },
+ {
+  "suffix": "cernunnos",
+  "name": "Cernunnos",
+  "family": "mythology",
+  "category": "mythology",
+  "summary": "Cernunnos is the antlered Celtic god of wild animals, forests and abundance.",
+  "wit": "Antlers, torc and the respect of every deer in the forest.",
+  "recipe": [
+   "organic83:celtic-mythology",
+   "organic83:mythical-beast"
+  ],
+  "artBrief": "Seated cross-legged antlered god holding a gold torc in one hand and a ram-horned serpent in the other, front view; forest green, antler beige, gold."
+ },
+ {
+  "suffix": "sidhe-mound",
+  "name": "Sidhe Mound",
+  "family": "mythology",
+  "category": "mythology",
+  "summary": "The sidhe mounds are grassy hills where the Tuatha De Danann withdrew into hidden halls.",
+  "wit": "Looks like a hill. Is actually a party.",
+  "recipe": [
+   "organic83:tuatha-de-danann",
+   "organic41:ancient-city"
+  ],
+  "artBrief": "Round grassy hill with a glowing doorway in its side and a stone kerb ring at the base, starry dusk sky; grass green, soft gold glow, dusk purple."
+ },
+ {
+  "suffix": "banshee",
+  "name": "Banshee",
+  "family": "mythology",
+  "category": "mythology",
+  "summary": "The banshee is a spirit woman of the sidhe whose keening wail foretells a death in the family.",
+  "wit": "Her singing voice is... a warning.",
+  "recipe": [
+   "organic83:sidhe-mound",
+   "legacy:28"
+  ],
+  "artBrief": "Pale long-haired spirit woman with flowing hair and open mouth, wail lines spiralling out, translucent lower body; pale grey-blue, white, dark navy."
+ },
+ {
+  "suffix": "tir-na-nog",
+  "name": "Tir na nOg",
+  "family": "mythology",
+  "category": "mythology",
+  "summary": "Tir na nOg is the Irish otherworld land of eternal youth across the western sea.",
+  "wit": "Land of eternal youth. No birthdays allowed.",
+  "recipe": [
+   "organic83:celtic-mythology",
+   "organic83:elysium"
+  ],
+  "artBrief": "Small green island with a single blossoming apple tree and a golden glow, far across calm sea at sunset; emerald, apple blossom pink, gold, teal."
+ },
+ {
+  "suffix": "selkie",
+  "name": "Selkie",
+  "family": "mythology",
+  "category": "mythology",
+  "summary": "Selkies are seal-folk of Celtic and Norse coastal legend who shed their skins to walk on land.",
+  "wit": "Seal by day, dancer by night. Hides its coat carefully.",
+  "recipe": [
+   "organic83:celtic-mythology",
+   "pack:shapeshifter"
+  ],
+  "artBrief": "Grey seal on a rock with its sealskin half pulled back revealing a human hand, sea spray; seal grey, skin tone, sea blue."
+ },
+ {
+  "suffix": "cu-chulainn",
+  "name": "Cu Chulainn",
+  "family": "mythology",
+  "category": "mythology",
+  "summary": "Cu Chulainn is the great hero of Ulster, son of the god Lugh, who held a ford alone against an army.",
+  "wit": "One hero, one ford, one very unlucky army.",
+  "recipe": [
+   "organic83:lugh",
+   "legacy:118"
+  ],
+  "artBrief": "Young hero holding a curved hurley stick and ball, a large grey hound sitting loyally at his side (Cu = hound), red cloak; red, hound grey, wood brown. No spear (Lugh owns the spear throw)."
+ },
+ {
+  "suffix": "salmon-of-knowledge",
+  "name": "Salmon of Knowledge",
+  "family": "mythology",
+  "category": "mythology",
+  "summary": "The Salmon of Knowledge grants all the world's wisdom to the first person who tastes it.",
+  "wit": "Contains 100% of your daily wisdom.",
+  "recipe": [
+   "organic83:celtic-mythology",
+   "organic82:ancient-wisdom"
+  ],
+  "artBrief": "Silver salmon leaping in an arc above a pool beneath hazel branches, hazelnuts falling; silver-pink fish, hazel brown, teal water."
+ },
+ {
+  "suffix": "ogham-stone",
+  "name": "Ogham Stone",
+  "family": "mythology",
+  "category": "mythology",
+  "summary": "Ogham stones carry the notched alphabet of early Ireland cut along their edges.",
+  "wit": "Early Irish text messages, carved in granite.",
+  "recipe": [
+   "organic83:druid",
+   "organic82:runestone"
+  ],
+  "artBrief": "Tall narrow standing stone with notch strokes cut along one vertical edge line (no rune shapes), lichen spots; granite grey, moss green. Distinct from V82 Runestone (blue rune shapes on face)."
+ },
+ {
+  "suffix": "precambrian-eon",
+  "name": "Precambrian Eon",
+  "family": "prehistoric",
+  "category": "prehistoric",
+  "summary": "The Precambrian covers nearly nine-tenths of Earth's history, from its formation to the first complex animals.",
+  "wit": "Four billion years of 'not much happening'. Allegedly.",
+  "recipe": [
+   "organic82:geological-timeline",
+   "legacy:21"
+  ],
+  "artBrief": "Steaming volcanic coastline under a reddish sky with a thin green-blue microbial film at the water's edge, no animals; rust orange, basalt grey, teal film. Landscape, not a globe (Snowball Earth and Pangaea are globes)."
+ },
+ {
+  "suffix": "stromatolite",
+  "name": "Stromatolite",
+  "family": "prehistoric",
+  "category": "prehistoric",
+  "summary": "Stromatolites are layered rock mounds built by microbial mats, among the oldest evidence of life.",
+  "wit": "Earth's first skyscrapers, built by bacteria.",
+  "recipe": [
+   "organic83:precambrian-eon",
+   "organic42:limestone"
+  ],
+  "artBrief": "Cut-away dome-shaped rock mounds in shallow water showing fine wavy internal layers; tan and cream bands, turquoise water line."
+ },
+ {
+  "suffix": "dickinsonia",
+  "name": "Dickinsonia",
+  "family": "prehistoric",
+  "category": "prehistoric",
+  "summary": "Dickinsonia is a flat, ribbed Ediacaran organism and one of the earliest known animals.",
+  "wit": "A living bath mat, 560 million years ahead of fashion.",
+  "recipe": [
+   "organic83:precambrian-eon",
+   "legacy:26"
+  ],
+  "artBrief": "Top-down oval quilted disk with a central groove and many fine ribs, imprinted in sandstone; sandy beige, soft rose, brown shadow."
+ },
+ {
+  "suffix": "snowball-earth",
+  "name": "Snowball Earth",
+  "family": "prehistoric",
+  "category": "prehistoric",
+  "summary": "During Snowball Earth episodes, ice sheets may have covered almost the entire planet.",
+  "wit": "The planet went fully frosted. Twice.",
+  "recipe": [
+   "organic83:precambrian-eon",
+   "organic82:ice-age"
+  ],
+  "artBrief": "Whole globe almost completely white and pale blue with tiny dark equatorial strip, cracks in the ice, small black space background; white, ice blue, navy."
+ },
+ {
+  "suffix": "ordovician-period",
+  "name": "Ordovician Period",
+  "family": "prehistoric",
+  "category": "prehistoric",
+  "summary": "The Ordovician seas filled with reefs, giant nautiloids and early jawless fish.",
+  "wit": "Seas full, land empty. Beach houses available.",
+  "recipe": [
+   "organic82:geological-timeline",
+   "organic82:cambrian-period"
+  ],
+  "artBrief": "Underwater reef of branching bryozoans and honeycomb corals with a small jawless armoured fish swimming over; aqua, coral pink, sand, bronze fish. No cone shell (Orthoceras owns it)."
+ },
+ {
+  "suffix": "silurian-period",
+  "name": "Silurian Period",
+  "family": "prehistoric",
+  "category": "prehistoric",
+  "summary": "In the Silurian, the first small plants colonised the land while sea scorpions ruled the reefs.",
+  "wit": "First plants step ashore. Very small steps.",
+  "recipe": [
+   "organic82:geological-timeline",
+   "organic83:ordovician-period"
+  ],
+  "artBrief": "Shoreline split view: tiny green forked stems on bare grey rock above, a curved coral reef below the waterline, no animals; grey rock, bright green, coral pink, blue."
+ },
+ {
+  "suffix": "devonian-period",
+  "name": "Devonian Period",
+  "family": "prehistoric",
+  "category": "prehistoric",
+  "summary": "The Devonian is the Age of Fishes, when armoured fish thrived and the first forests appeared.",
+  "wit": "The Age of Fishes. Fins were very in.",
+  "recipe": [
+   "organic82:geological-timeline",
+   "organic83:silurian-period"
+  ],
+  "artBrief": "Murky river delta with an armoured fish shape underwater and early tree silhouettes on the bank; olive water, bronze fish, dark green trees."
+ },
+ {
+  "suffix": "permian-period",
+  "name": "Permian Period",
+  "family": "prehistoric",
+  "category": "prehistoric",
+  "summary": "The Permian saw dry inland deserts on a single supercontinent and sail-backed synapsids.",
+  "wit": "Desert vibes, sail-backed neighbours.",
+  "recipe": [
+   "organic82:geological-timeline",
+   "organic82:carboniferous-period"
+  ],
+  "artBrief": "Red desert dunes with a lone scaly conifer, cracked dry ground and a hazy white-hot sun; brick red, ochre, pale yellow. No animal silhouette."
+ },
+ {
+  "suffix": "pangaea",
+  "name": "Pangaea",
+  "family": "prehistoric",
+  "category": "prehistoric",
+  "summary": "Pangaea was the supercontinent that joined almost all of Earth's land into one mass.",
+  "wit": "All the continents in one group chat.",
+  "recipe": [
+   "organic83:permian-period",
+   "organic82:triassic-period"
+  ],
+  "artBrief": "Globe showing a single C-shaped tan-green supercontinent surrounded by one blue ocean, slight latitude lines; ocean blue, land khaki-green."
+ },
+ {
+  "suffix": "gondwana",
+  "name": "Gondwana",
+  "family": "prehistoric",
+  "category": "prehistoric",
+  "summary": "Gondwana was the southern supercontinent that split away from Pangaea and later broke into the southern continents.",
+  "wit": "South America and Africa used to be very close.",
+  "recipe": [
+   "organic83:pangaea",
+   "organic82:jurassic-period"
+  ],
+  "artBrief": "Flat map-like view of southern continents fitted together like jigsaw pieces with a visible crack line opening between them; green-tan land pieces, blue gap."
+ },
+ {
+  "suffix": "chicxulub-impact",
+  "name": "Chicxulub Impact",
+  "family": "prehistoric",
+  "category": "prehistoric",
+  "summary": "A huge asteroid struck the Yucatan region 66 million years ago, ending the Cretaceous.",
+  "wit": "Worst. Delivery. Ever.",
+  "recipe": [
+   "organic82:late-cretaceous",
+   "legacy:14"
+  ],
+  "artBrief": "Glowing rock with a fiery trail streaking diagonally down toward a coastline, shockwave arc where it touches; orange-white fire, dark rock, blue-green coast."
+ },
+ {
+  "suffix": "mass-extinction",
+  "name": "Mass Extinction",
+  "family": "prehistoric",
+  "category": "prehistoric",
+  "summary": "A mass extinction wipes out a large share of Earth's species in a geologically short time.",
+  "wit": "Nature pressed Ctrl+Alt+Delete.",
+  "recipe": [
+   "legacy:575",
+   "organic83:chicxulub-impact"
+  ],
+  "artBrief": "Dark ash-grey landscape with a lone fossil skull half buried and a dim orange sky; ash grey, charcoal, muted orange."
+ },
+ {
+  "suffix": "great-dying",
+  "name": "Great Dying",
+  "family": "prehistoric",
+  "category": "prehistoric",
+  "summary": "The end-Permian Great Dying was the worst extinction in Earth's history, erasing most marine species.",
+  "wit": "Even worse than the one with the asteroid.",
+  "recipe": [
+   "organic83:mass-extinction",
+   "organic83:permian-period"
+  ],
+  "artBrief": "Cracked volcanic fissure pouring lava across a barren plain with an empty spiral shell in the foreground; lava red, basalt black, pale shell."
+ },
+ {
+  "suffix": "paleogene-period",
+  "name": "Paleogene Period",
+  "family": "prehistoric",
+  "category": "prehistoric",
+  "summary": "The Paleogene followed the dinosaurs' extinction, as mammals and birds rapidly diversified.",
+  "wit": "Dinosaurs out. Mammals: 'Is this seat taken?'",
+  "recipe": [
+   "organic82:cenozoic-era",
+   "organic83:chicxulub-impact"
+  ],
+  "artBrief": "Lush tropical forest under a clear sky with a small furry mammal climbing a palm trunk; jungle green, warm brown, light blue."
+ },
+ {
+  "suffix": "index-fossil",
+  "name": "Index Fossil",
+  "family": "prehistoric",
+  "category": "prehistoric",
+  "summary": "Index fossils such as trilobites lived for a short, well-known time span and are used to date the rock layers they are found in.",
+  "wit": "A fossil that doubles as a calendar.",
+  "recipe": [
+   "organic82:geological-timeline",
+   "organic82:trilobite"
+  ],
+  "artBrief": "Magnifying glass held over a single small trilobite embedded in one highlighted band of a three-band rock chip, with a bracket mark beside that band; magnifier gold rim, slate rock, amber highlight. Focus on the lens, so it differs from V82 Geological Timeline (layer stack) and Trilobite (whole animal)."
+ },
+ {
+  "suffix": "burgess-shale",
+  "name": "Burgess Shale",
+  "family": "prehistoric",
+  "category": "prehistoric",
+  "summary": "The Burgess Shale is a famous Cambrian fossil bed that preserves even soft-bodied animals.",
+  "wit": "A rock library of weird Cambrian creatures.",
+  "recipe": [
+   "organic82:cambrian-period",
+   "legacy:41"
+  ],
+  "artBrief": "Dark grey split shale slab with several silvery flattened animal imprints, a geologist hammer leaning on it; slate grey, silver, wood brown."
+ },
+ {
+  "suffix": "hallucigenia",
+  "name": "Hallucigenia",
+  "family": "prehistoric",
+  "category": "prehistoric",
+  "summary": "Hallucigenia was a tiny Cambrian worm-like animal with paired spines on its back and slender legs below.",
+  "wit": "Scientists drew it upside down at first. Fair.",
+  "recipe": [
+   "organic83:burgess-shale",
+   "organic82:dinosaur-armor"
+  ],
+  "artBrief": "Side-view tube body with a row of tall paired spines on top and thin tentacle legs below, tiny head; pink-beige body, ivory spines, deep blue water."
+ },
+ {
+  "suffix": "opabinia",
+  "name": "Opabinia",
+  "family": "prehistoric",
+  "category": "prehistoric",
+  "summary": "Opabinia had five stalked eyes and a long flexible nozzle tipped with a grasping claw.",
+  "wit": "Five eyes, one vacuum-cleaner nose.",
+  "recipe": [
+   "organic83:burgess-shale",
+   "organic82:anomalocaris"
+  ],
+  "artBrief": "Segmented swimmer seen from above with five eyes on stalks at the head and a long curling nozzle ending in a claw; rust orange, cream, aqua."
+ },
+ {
+  "suffix": "pikaia",
+  "name": "Pikaia",
+  "family": "prehistoric",
+  "category": "prehistoric",
+  "summary": "Pikaia is a small eel-like Cambrian chordate, an early relative of animals with backbones.",
+  "wit": "Your great-great-(x10 million) grandparent, maybe.",
+  "recipe": [
+   "organic83:burgess-shale",
+   "legacy:21"
+  ],
+  "artBrief": "Small translucent ribbon-like swimmer with visible zigzag muscle bands and a faint rod down its length, swimming in an S; pale peach, light blue."
+ },
+ {
+  "suffix": "orthoceras",
+  "name": "Orthoceras",
+  "family": "prehistoric",
+  "category": "prehistoric",
+  "summary": "Orthoceras was a straight-shelled nautiloid whose cone-shaped fossils are common in Ordovician rocks.",
+  "wit": "Like an ammonite, but someone straightened it out.",
+  "recipe": [
+   "organic83:ordovician-period",
+   "organic82:ammonite"
+  ],
+  "artBrief": "Long straight cone shell pointing diagonally with banded chambers and a squid-like head with short tentacles at the open end; caramel bands, cream, soft pink."
+ },
+ {
+  "suffix": "sea-lily",
+  "name": "Sea Lily",
+  "family": "prehistoric",
+  "category": "prehistoric",
+  "summary": "Sea lilies, or crinoids, are stalked animals whose fossil stems form whole beds of limestone.",
+  "wit": "An animal pretending very hard to be a flower.",
+  "recipe": [
+   "organic83:ordovician-period",
+   "organic42:limestone"
+  ],
+  "artBrief": "Tall slender segmented stalk rising from seabed topped by a feathery cup of branching arms; plum purple, cream segments, sea green."
+ },
+ {
+  "suffix": "sea-scorpion",
+  "name": "Sea Scorpion",
+  "family": "prehistoric",
+  "category": "prehistoric",
+  "summary": "Eurypterids, or sea scorpions, were large predatory arthropods of Silurian seas.",
+  "wit": "A scorpion the size of a person. Swimming. No thanks.",
+  "recipe": [
+   "organic83:silurian-period",
+   "organic82:prehistoric-ocean"
+  ],
+  "artBrief": "Top-down eurypterid with broad paddle legs, spiny front limbs and a long tapered tail spike; rusty brown, amber, sand floor."
+ },
+ {
+  "suffix": "cooksonia",
+  "name": "Cooksonia",
+  "family": "prehistoric",
+  "category": "prehistoric",
+  "summary": "Cooksonia was one of the first land plants, a tiny leafless stem forking into spore-bearing tips.",
+  "wit": "The first lawn on Earth was 3 centimetres tall.",
+  "recipe": [
+   "organic83:silurian-period",
+   "legacy:21"
+  ],
+  "artBrief": "Close-up of a few tiny green forked stems with round brown caps at each tip growing from bare wet rock; bright green, brown, grey rock."
+ },
+ {
+  "suffix": "archaeopteris",
+  "name": "Archaeopteris",
+  "family": "prehistoric",
+  "category": "prehistoric",
+  "summary": "Archaeopteris was a Devonian tree that formed some of the first forests on Earth.",
+  "wit": "First tree. Invented shade.",
+  "recipe": [
+   "organic83:devonian-period",
+   "organic83:cooksonia"
+  ],
+  "artBrief": "Single tall straight-trunked tree with layered fern-like flat branches, small for scale ground plants; dark green, bark brown, pale sky."
+ },
+ {
+  "suffix": "tiktaalik",
+  "name": "Tiktaalik",
+  "family": "prehistoric",
+  "category": "prehistoric",
+  "summary": "Tiktaalik was a Devonian fish with sturdy fins and a neck, a step toward four-legged animals.",
+  "wit": "Fish with ambitions. Mostly about walking.",
+  "recipe": [
+   "organic83:devonian-period",
+   "organic82:fossil-footprint"
+  ],
+  "artBrief": "Flat-headed lobe-finned fish half out of the water, propped on two stout front fins on a muddy bank; olive green, mud brown, blue water."
+ },
+ {
+  "suffix": "coelacanth",
+  "name": "Coelacanth",
+  "family": "prehistoric",
+  "category": "prehistoric",
+  "summary": "The coelacanth is a lobe-finned fish lineage from the Devonian, rediscovered alive in 1938.",
+  "wit": "Declared extinct, then showed up at a fish market.",
+  "recipe": [
+   "organic83:devonian-period",
+   "organic82:prehistoric-ocean"
+  ],
+  "artBrief": "Chunky steel-blue fish in side view with white speckles, fleshy lobed fins and a three-lobed tail; steel blue, white spots, navy."
+ },
+ {
+  "suffix": "arthropleura",
+  "name": "Arthropleura",
+  "family": "prehistoric",
+  "category": "prehistoric",
+  "summary": "Arthropleura was a giant millipede-like arthropod over two metres long in Carboniferous forests.",
+  "wit": "Two metres of legs. Count them if you dare.",
+  "recipe": [
+   "organic82:carboniferous-period",
+   "organic82:trilobite"
+  ],
+  "artBrief": "Giant millipede seen from above coiled into a loose spiral on leaf litter, many tiny legs along the edge; dark red-brown plates, cream legs, forest-floor green. Coil shape avoids the S-curve used by Pikaia and Basilosaurus."
+ },
+ {
+  "suffix": "scale-tree",
+  "name": "Scale Tree",
+  "family": "prehistoric",
+  "category": "prehistoric",
+  "summary": "Scale trees like Lepidodendron grew in Carboniferous swamps and their remains formed coal.",
+  "wit": "Grew fast, died young, became coal.",
+  "recipe": [
+   "organic82:carboniferous-period",
+   "organic82:cycad"
+  ],
+  "artBrief": "Tall straight trunk with a diamond scale pattern and a forked crown of grass-like leaf tufts above swamp water; olive green, diamond pattern dark green, brown water."
+ },
+ {
+  "suffix": "dimetrodon",
+  "name": "Dimetrodon",
+  "family": "prehistoric",
+  "category": "prehistoric",
+  "summary": "Dimetrodon was a sail-backed Permian synapsid, more closely related to mammals than to dinosaurs.",
+  "wit": "Not a dinosaur. Please stop putting it in dinosaur toy sets.",
+  "recipe": [
+   "organic83:permian-period",
+   "organic82:spinosaurus"
+  ],
+  "artBrief": "Sprawling four-legged reptile-like synapsid side view with a tall rounded spine sail and big toothy head; rust red sail, olive body, sand ground. Sprawling legs and low body distinguish it from bipedal Spinosaurus."
+ },
+ {
+  "suffix": "edaphosaurus",
+  "name": "Edaphosaurus",
+  "family": "prehistoric",
+  "category": "prehistoric",
+  "summary": "Edaphosaurus was a plant-eating sail-backed synapsid whose sail spines carried knobby crossbars.",
+  "wit": "Same sail, vegetarian menu.",
+  "recipe": [
+   "organic83:dimetrodon",
+   "organic82:cycad"
+  ],
+  "artBrief": "Three-quarter top view of a stout small-headed synapsid nibbling a plant, sail with visible crossbar knobs; dusty blue body, cream knobs, green plant."
+ },
+ {
+  "suffix": "gorgonops",
+  "name": "Gorgonops",
+  "family": "prehistoric",
+  "category": "prehistoric",
+  "summary": "Gorgonops was a Permian top predator with long sabre-like canine teeth, long before sabre-toothed cats.",
+  "wit": "Invented sabre teeth 250 million years before the cats.",
+  "recipe": [
+   "organic83:permian-period",
+   "organic82:smilodon"
+  ],
+  "artBrief": "Close-up skull in profile with very long upper canines and a low snout, on a dark rock; bone ivory, charcoal, rust."
+ },
+ {
+  "suffix": "lystrosaurus",
+  "name": "Lystrosaurus",
+  "family": "prehistoric",
+  "category": "prehistoric",
+  "summary": "Lystrosaurus was a stocky tusked mammal relative that survived the Great Dying and spread across Pangaea.",
+  "wit": "Survived the worst extinction ever by being aggressively average.",
+  "recipe": [
+   "organic82:triassic-period",
+   "organic82:prehistoric-mammal"
+  ],
+  "artBrief": "Squat pig-sized four-legged animal with a short beaked face and two small downward tusks, side view; khaki, cream tusks, brown ground."
+ },
+ {
+  "suffix": "diplocaulus",
+  "name": "Diplocaulus",
+  "family": "prehistoric",
+  "category": "prehistoric",
+  "summary": "Diplocaulus was a Permian amphibian with a remarkable boomerang-shaped head.",
+  "wit": "Head shaped like a boomerang. Still came back.",
+  "recipe": [
+   "organic83:permian-period",
+   "organic83:tiktaalik"
+  ],
+  "artBrief": "Top-down salamander-like body with a wide boomerang/arrowhead-shaped head, swimming; teal-green, yellow belly spots, dark water."
+ },
+ {
+  "suffix": "helicoprion",
+  "name": "Helicoprion",
+  "family": "prehistoric",
+  "category": "prehistoric",
+  "summary": "Helicoprion was a Permian shark relative with a spiral whorl of teeth in its lower jaw.",
+  "wit": "Jaw like a buzz saw, fossil like a cinnamon roll.",
+  "recipe": [
+   "organic83:permian-period",
+   "organic82:megalodon"
+  ],
+  "artBrief": "Large spiral tooth whorl in the centre with serrated triangular teeth spiralling inwards, faint fish outline around; ivory teeth, dark slate, blue."
+ },
+ {
+  "suffix": "ginkgo",
+  "name": "Ginkgo",
+  "family": "prehistoric",
+  "category": "prehistoric",
+  "summary": "Ginkgo trees have survived since the age of dinosaurs and still grow today as living fossils.",
+  "wit": "Outlived the dinosaurs. Still sheds leaves every autumn.",
+  "recipe": [
+   "organic82:cycad",
+   "organic82:triassic-period"
+  ],
+  "artBrief": "Single large fan-shaped ginkgo leaf with a notch in the middle and radiating veins, golden-yellow on green; yellow, green, brown stem."
+ },
+ {
+  "suffix": "first-flower",
+  "name": "First Flower",
+  "family": "prehistoric",
+  "category": "prehistoric",
+  "summary": "Early Cretaceous plants such as Archaefructus were among the first flowering plants.",
+  "wit": "Flowers arrive. Bees start planning.",
+  "recipe": [
+   "organic82:cretaceous-period",
+   "organic82:cycad"
+  ],
+  "artBrief": "Simple small pale flower with few petals on a thin water-plant stem rising from a pond, magnolia-like; white-cream, pale yellow, teal water."
+ },
+ {
+  "suffix": "petrified-wood",
+  "name": "Petrified Wood",
+  "family": "prehistoric",
+  "category": "prehistoric",
+  "summary": "Petrified wood forms when minerals replace a buried tree, turning it to colourful stone.",
+  "wit": "Wood that became so stressed it turned to stone.",
+  "recipe": [
+   "organic82:cycad",
+   "legacy:14"
+  ],
+  "artBrief": "Cross-section log slice with rainbow quartz rings and cracked bark edge, lying on sand; amber, red, purple rings, grey bark."
+ },
+ {
+  "suffix": "eoraptor",
+  "name": "Eoraptor",
+  "family": "prehistoric",
+  "category": "prehistoric",
+  "summary": "Eoraptor, the 'dawn thief', was one of the earliest known dinosaurs, small and lightly built.",
+  "wit": "First at the dinosaur party.",
+  "recipe": [
+   "legacy:575",
+   "organic82:triassic-period"
+  ],
+  "artBrief": "Small lightly built dinosaur perched on top of a red sandstone boulder, looking back over its shoulder, a low dawn sun disc behind it (the 'dawn thief'); rust red rock, sandy tan body, pale yellow sun. Perched pose + dawn disc keep it apart from V82 Compsognathus."
+ },
+ {
+  "suffix": "herrerasaurus",
+  "name": "Herrerasaurus",
+  "family": "prehistoric",
+  "category": "prehistoric",
+  "summary": "Herrerasaurus was a large early predatory dinosaur from the Triassic of Argentina.",
+  "wit": "Triassic top dog, back when dinosaurs were the new kids.",
+  "recipe": [
+   "organic83:eoraptor",
+   "organic82:theropod"
+  ],
+  "artBrief": "Early predator lunging diagonally toward the viewer with jaws wide open and long three-fingered hands reaching forward, dark back stripes, ferns at feet; tawny, dark brown stripes, fern green. Head-on lunge, not the V82 side-walk template."
+ },
+ {
+  "suffix": "coelophysis",
+  "name": "Coelophysis",
+  "family": "prehistoric",
+  "category": "prehistoric",
+  "summary": "Coelophysis was a slender, fast Triassic theropod known from hundreds of skeletons found together.",
+  "wit": "Built like a greyhound, ran in gangs.",
+  "recipe": [
+   "organic82:theropod",
+   "organic82:triassic-period"
+  ],
+  "artBrief": "Very slender theropod in mid-leap with both feet off the ground, body stretched horizontally, snapping a small insect from the air with a long narrow snout; olive-tan, rust markings, pale sky. Airborne pose differs from V82 small theropods."
+ },
+ {
+  "suffix": "megalosaurus",
+  "name": "Megalosaurus",
+  "family": "prehistoric",
+  "category": "prehistoric",
+  "summary": "Megalosaurus was the first dinosaur ever scientifically named, in 1824, from a fossil jaw.",
+  "wit": "Dinosaur number one, officially.",
+  "recipe": [
+   "organic82:theropod",
+   "legacy:41"
+  ],
+  "artBrief": "Fossil lower jaw bone in side view with a row of curved blade-like teeth, one replacement tooth emerging, on a museum-label plinth without text; bone ivory, brown, slate. Bespoke because a generic theropod body would duplicate Allosaurus."
+ },
+ {
+  "suffix": "majungasaurus",
+  "name": "Majungasaurus",
+  "family": "prehistoric",
+  "category": "prehistoric",
+  "summary": "Majungasaurus was a short-armed abelisaurid from Madagascar with a single knob on its skull.",
+  "wit": "Tiny arms, big attitude, Madagascar address.",
+  "recipe": [
+   "organic82:carnotaurus",
+   "organic82:theropod"
+  ],
+  "artBrief": "Head-and-neck portrait in profile of a deep-snouted abelisaur with one rounded forehead knob and rough skull texture, a stubby arm just visible, baobab silhouette behind; plum-grey, cream teeth, baobab brown. Portrait framing differs from V82 Carnotaurus/Ceratosaurus full bodies."
+ },
+ {
+  "suffix": "yutyrannus",
+  "name": "Yutyrannus",
+  "family": "prehistoric",
+  "category": "prehistoric",
+  "summary": "Yutyrannus was a large early tyrannosaur covered in long filament-like feathers.",
+  "wit": "Proof that big predators can be fluffy.",
+  "recipe": [
+   "organic82:feathered-dinosaur",
+   "organic82:tarbosaurus"
+  ],
+  "artBrief": "Large tyrannosaur covered in long shaggy grey-brown feathers standing in falling snow, front three-quarter view with visible breath cloud; grey-brown fluff, white snow, cold blue. Snow setting and shaggy coat differ from V82 Therizinosaurus/Utahraptor."
+ },
+ {
+  "suffix": "sinosauropteryx",
+  "name": "Sinosauropteryx",
+  "family": "prehistoric",
+  "category": "prehistoric",
+  "summary": "Sinosauropteryx was the first non-bird dinosaur found with feathers, with a ginger-and-white banded tail.",
+  "wit": "First feathered dinosaur, and colour-coordinated too.",
+  "recipe": [
+   "organic82:feathered-dinosaur",
+   "organic82:compsognathus"
+  ],
+  "artBrief": "Small fuzzy dinosaur seen from the side with its very long tail curled into a big spiral showing alternating ginger and white bands, dark 'bandit mask' over the eye; ginger, white, leaf green. Tail spiral is the dominant shape."
+ },
+ {
+  "suffix": "troodon",
+  "name": "Troodon",
+  "family": "prehistoric",
+  "category": "prehistoric",
+  "summary": "Troodon was a small, big-eyed feathered dinosaur with one of the largest brains for its size.",
+  "wit": "Big eyes, big brain, big plans after dark.",
+  "recipe": [
+   "organic82:feathered-dinosaur",
+   "organic82:late-cretaceous"
+  ],
+  "artBrief": "Head-and-shoulders close-up of a feathered troodontid with a huge forward-facing amber eye under a crescent moon; mottled brown feathers, amber eye, night blue. Bespoke to avoid duplicating Deinonychus body."
+ },
+ {
+  "suffix": "bonebed",
+  "name": "Bonebed",
+  "family": "prehistoric",
+  "category": "prehistoric",
+  "summary": "A bonebed is a rock layer packed with the jumbled fossil bones of many animals.",
+  "wit": "Where the herd ended up, all at once.",
+  "recipe": [
+   "organic82:fossil-skeleton",
+   "organic82:fossil-skeleton"
+  ],
+  "artBrief": "Top-down rock slab crowded with jumbled ribs, vertebrae and a few horn cores at random angles; ochre rock, ivory bones, brown shadows."
+ },
+ {
+  "suffix": "mapusaurus",
+  "name": "Mapusaurus",
+  "family": "prehistoric",
+  "category": "prehistoric",
+  "summary": "Mapusaurus was a giant South American predator whose bonebed suggests it may have lived in groups.",
+  "wit": "Giant predator, possibly with a giant friend group.",
+  "recipe": [
+   "organic82:giganotosaurus",
+   "organic83:bonebed"
+  ],
+  "artBrief": "Two overlapping large theropod silhouettes walking together, one adult and one smaller juvenile, low sun behind; dusky red-brown, dark grey, peach sky. Pack composition distinguishes it from Giganotosaurus."
+ },
+ {
+  "suffix": "patagotitan",
+  "name": "Patagotitan",
+  "family": "prehistoric",
+  "category": "prehistoric",
+  "summary": "Patagotitan is one of the largest known titanosaurs, with thigh bones taller than a person.",
+  "wit": "Its thigh bone needs its own room.",
+  "recipe": [
+   "organic82:argentinosaurus",
+   "organic82:fossil-skeleton"
+  ],
+  "artBrief": "Enormous upright femur fossil next to a tiny human silhouette for scale, simple museum floor; bone ivory, sandy brown, grey figure."
+ },
+ {
+  "suffix": "nigersaurus",
+  "name": "Nigersaurus",
+  "family": "prehistoric",
+  "category": "prehistoric",
+  "summary": "Nigersaurus was a short-necked sauropod with a broad straight-edged mouth packed with hundreds of teeth.",
+  "wit": "Nature's lawnmower, 500 teeth included.",
+  "recipe": [
+   "organic82:sauropod",
+   "organic82:cretaceous-period"
+  ],
+  "artBrief": "Close-up head lowered to the ground with a very wide square vacuum-like mouth lined with tiny teeth, cropping ferns; sage green, ivory teeth, fern green."
+ },
+ {
+  "suffix": "supersaurus",
+  "name": "Supersaurus",
+  "family": "prehistoric",
+  "category": "prehistoric",
+  "summary": "Supersaurus was among the longest dinosaurs, a diplodocid with an extremely long neck and tail.",
+  "wit": "Super long, super sauropod, super name.",
+  "recipe": [
+   "organic82:diplodocus",
+   "organic82:sauropod"
+  ],
+  "artBrief": "Extreme horizontal composition: neck and tail run off both edges of the icon (cropped) in one long shallow arc, small body in the centre, tiny conifer for scale underneath; blue-grey body, dark green tree, sand line. Cropped length is the identity cue (V82 sauropods fit inside the frame)."
+ },
+ {
+  "suffix": "shunosaurus",
+  "name": "Shunosaurus",
+  "family": "prehistoric",
+  "category": "prehistoric",
+  "summary": "Shunosaurus was a Jurassic sauropod from China with a small spiked club at the end of its tail.",
+  "wit": "A sauropod that brought a mace.",
+  "recipe": [
+   "organic82:sauropod",
+   "organic82:ankylosaurus"
+  ],
+  "artBrief": "Short-necked sauropod side view with the tail end curling forward to show a spiked bony club; tan-olive, ivory spikes, brown ground. Needs bespoke: renderer has no sauropod tail club."
+ },
+ {
+  "suffix": "mussaurus",
+  "name": "Mussaurus",
+  "family": "prehistoric",
+  "category": "prehistoric",
+  "summary": "Mussaurus, the 'mouse lizard', was first described from tiny hatchlings of an early sauropodomorph.",
+  "wit": "Named after its baby photos.",
+  "recipe": [
+   "organic82:plateosaurus",
+   "organic82:dinosaur-egg"
+  ],
+  "artBrief": "Tiny big-eyed hatchling sauropodomorph stepping out of a cracked egg, oversized head, long tail; peach-tan baby, cream shell, soft green ground."
+ },
+ {
+  "suffix": "ouranosaurus",
+  "name": "Ouranosaurus",
+  "family": "prehistoric",
+  "category": "prehistoric",
+  "summary": "Ouranosaurus was an iguanodont herbivore from Africa with a tall sail or hump along its back.",
+  "wit": "Iguanodon body, sail-back accessory pack.",
+  "recipe": [
+   "organic82:iguanodon",
+   "organic82:spinosaurus"
+  ],
+  "artBrief": "Four-legged iguanodont with a tall rectangular back sail, duck-like snout, thumb spike visible; sand yellow body, terracotta sail, green ground."
+ },
+ {
+  "suffix": "shantungosaurus",
+  "name": "Shantungosaurus",
+  "family": "prehistoric",
+  "category": "prehistoric",
+  "summary": "Shantungosaurus was the largest known hadrosaur, a giant duck-billed plant-eater from China.",
+  "wit": "The biggest duck bill in history.",
+  "recipe": [
+   "organic82:edmontosaurus",
+   "organic82:hadrosaur"
+  ],
+  "artBrief": "Close-up of a giant duck-billed head in profile with the jaw cut away to show the dense diamond-patterned grinding tooth battery, leaf in the beak; lavender-grey, ivory teeth, leaf green. Head/tooth focus differs from V82 hadrosaur bodies."
+ },
+ {
+  "suffix": "torosaurus",
+  "name": "Torosaurus",
+  "family": "prehistoric",
+  "category": "prehistoric",
+  "summary": "Torosaurus had one of the largest skulls of any land animal, with a huge frill pierced by two openings.",
+  "wit": "The biggest head on land. Hats sold separately.",
+  "recipe": [
+   "organic82:triceratops",
+   "organic82:chasmosaurus"
+  ],
+  "artBrief": "Front three-quarter head view dominated by an enormous wide frill with two large oval windows, two brow horns; olive-tan, rust edge, cream horns. Bespoke: head-focused frill windows."
+ },
+ {
+  "suffix": "kosmoceratops",
+  "name": "Kosmoceratops",
+  "family": "prehistoric",
+  "category": "prehistoric",
+  "summary": "Kosmoceratops had the most ornate skull of any ceratopsian, with a fringe of downward-curling hooks.",
+  "wit": "Fifteen horns. Absolutely no chill.",
+  "recipe": [
+   "organic82:ceratopsian",
+   "organic82:pentaceratops"
+  ],
+  "artBrief": "Front-facing head with a short frill topped by a row of downward-curling hooks like bangs, sideways brow horns; teal-grey, ivory hooks, warm orange accent."
+ },
+ {
+  "suffix": "einiosaurus",
+  "name": "Einiosaurus",
+  "family": "prehistoric",
+  "category": "prehistoric",
+  "summary": "Einiosaurus was a centrosaurine with a nose horn bent sharply forward like a can opener, known from bonebeds.",
+  "wit": "Nose horn shaped like a bottle opener.",
+  "recipe": [
+   "organic82:centrosaurus",
+   "organic83:bonebed"
+  ],
+  "artBrief": "Profile head with a large forward-hooked nose horn and two straight frill spikes, simple background; dusty purple, ivory, sand."
+ },
+ {
+  "suffix": "confuciusornis",
+  "name": "Confuciusornis",
+  "family": "prehistoric",
+  "category": "prehistoric",
+  "summary": "Confuciusornis was a toothless early bird from China whose males had two long ribbon tail feathers.",
+  "wit": "First bird with a beak and a fashion statement.",
+  "recipe": [
+   "organic82:archaeopteryx",
+   "organic82:cretaceous-period"
+  ],
+  "artBrief": "Perched crow-sized early bird on a branch with two very long streamer tail feathers hanging down, clawed wing fingers; black-brown, white spots, branch brown."
+ },
+ {
+  "suffix": "hesperornis",
+  "name": "Hesperornis",
+  "family": "prehistoric",
+  "category": "prehistoric",
+  "summary": "Hesperornis was a large flightless diving bird with teeth that hunted fish in Cretaceous seas.",
+  "wit": "Gave up flying. Took up swimming. Kept the teeth.",
+  "recipe": [
+   "organic82:feathered-dinosaur",
+   "organic82:prehistoric-ocean"
+  ],
+  "artBrief": "Loon-like diving bird swimming underwater with tiny vestigial wings, toothy beak chasing a fish, bubbles; dark grey-blue, white belly, aqua."
+ },
+ {
+  "suffix": "hatzegopteryx",
+  "name": "Hatzegopteryx",
+  "family": "prehistoric",
+  "category": "prehistoric",
+  "summary": "Hatzegopteryx was a robust giant azhdarchid pterosaur that was likely the top predator of its island.",
+  "wit": "Giraffe-height, walks on its wings, eats dinosaurs.",
+  "recipe": [
+   "organic82:quetzalcoatlus",
+   "organic82:fossil-skeleton"
+  ],
+  "artBrief": "Stocky giant pterosaur walking on all fours with folded wings, massive broad head held low over a small dinosaur silhouette; charcoal brown, pale beak, sunset orange."
+ },
+ {
+  "suffix": "pterodaustro",
+  "name": "Pterodaustro",
+  "family": "prehistoric",
+  "category": "prehistoric",
+  "summary": "Pterodaustro was a pterosaur with an upturned lower jaw of fine bristle-like teeth for filter feeding.",
+  "wit": "Basically a flying flamingo with a comb.",
+  "recipe": [
+   "organic82:pterosaur",
+   "organic82:prehistoric-ocean"
+  ],
+  "artBrief": "Pink pterosaur standing in shallow water with a long upward-curving jaw lined with fine bristles; flamingo pink, white, light blue water."
+ },
+ {
+  "suffix": "tylosaurus",
+  "name": "Tylosaurus",
+  "family": "prehistoric",
+  "category": "prehistoric",
+  "summary": "Tylosaurus was a huge mosasaur with a bony, battering-ram snout.",
+  "wit": "Uses its face as a battering ram.",
+  "recipe": [
+   "organic82:mosasaurus",
+   "organic82:dinosaur-armor"
+  ],
+  "artBrief": "Mosasaur diving steeply downward with a pointed bony snout tip and fluked tail curling above, bubbles; deep blue-grey, pale belly, ocean gradient. Vertical composition differs from V82 Mosasaurus."
+ },
+ {
+  "suffix": "shonisaurus",
+  "name": "Shonisaurus",
+  "family": "prehistoric",
+  "category": "prehistoric",
+  "summary": "Shonisaurus was a giant Triassic ichthyosaur as long as a bus.",
+  "wit": "An ichthyosaur the size of a bus. Please hold on.",
+  "recipe": [
+   "organic82:ichthyosaurus",
+   "organic82:triassic-period"
+  ],
+  "artBrief": "Huge whale-sized ichthyosaur swimming past a tiny normal fish for scale, small eye, long thin snout; slate blue, white underside, teal."
+ },
+ {
+  "suffix": "tanystropheus",
+  "name": "Tanystropheus",
+  "family": "prehistoric",
+  "category": "prehistoric",
+  "summary": "Tanystropheus was a Triassic reptile whose stiff neck was longer than the rest of its body.",
+  "wit": "All neck. Some lizard.",
+  "recipe": [
+   "organic82:plesiosaurus",
+   "organic82:triassic-period"
+  ],
+  "artBrief": "Lizard-like body on a shoreline rock with an absurdly long stiff straight neck reaching out over water to snap a fish; olive brown, rock grey, blue."
+ },
+ {
+  "suffix": "archelon",
+  "name": "Archelon",
+  "family": "prehistoric",
+  "category": "prehistoric",
+  "summary": "Archelon was a giant Cretaceous sea turtle more than four metres long with a leathery shell.",
+  "wit": "Sea turtle, extra-large, no takeaway lid.",
+  "recipe": [
+   "organic82:marine-reptile",
+   "organic82:dinosaur-armor"
+  ],
+  "artBrief": "Top-down giant sea turtle with ridged leathery shell and huge front flippers; dark teal shell, grey-green flippers, light blue sea."
+ },
+ {
+  "suffix": "sarcosuchus",
+  "name": "Sarcosuchus",
+  "family": "prehistoric",
+  "category": "prehistoric",
+  "summary": "Sarcosuchus was a giant Cretaceous crocodile relative with a long snout ending in a bulbous tip.",
+  "wit": "The 'SuperCroc'. Tooth count: lots.",
+  "recipe": [
+   "organic82:marine-reptile",
+   "organic82:cretaceous-period"
+  ],
+  "artBrief": "Top-down giant crocodile with very long narrow snout ending in a round bulla knob, armour scutes on back; olive, dark green scutes, river brown."
+ },
+ {
+  "suffix": "deinosuchus",
+  "name": "Deinosuchus",
+  "family": "prehistoric",
+  "category": "prehistoric",
+  "summary": "Deinosuchus was a giant alligator relative that ambushed dinosaurs at the water's edge.",
+  "wit": "Ate dinosaurs for lunch. Literally.",
+  "recipe": [
+   "organic83:sarcosuchus",
+   "organic82:late-cretaceous"
+  ],
+  "artBrief": "Side-view huge alligator head bursting from water with open jaws toward a shoreline, splash; dark grey-green, ivory teeth, brown-blue water."
+ },
+ {
+  "suffix": "eohippus",
+  "name": "Eohippus",
+  "family": "prehistoric",
+  "category": "prehistoric",
+  "summary": "Eohippus, the 'dawn horse', was a dog-sized early horse with several toes on each foot.",
+  "wit": "Grandfather of horses, the size of a terrier.",
+  "recipe": [
+   "organic82:prehistoric-mammal",
+   "organic83:paleogene-period"
+  ],
+  "artBrief": "Small fox-sized horse ancestor in side view with arched back, short neck and multi-toed feet in forest litter; chestnut with pale spots, green ferns."
+ },
+ {
+  "suffix": "paraceratherium",
+  "name": "Paraceratherium",
+  "family": "prehistoric",
+  "category": "prehistoric",
+  "summary": "Paraceratherium was a hornless giant rhinoceros relative, one of the largest land mammals ever.",
+  "wit": "A rhino that tried to be a sauropod.",
+  "recipe": [
+   "organic82:prehistoric-mammal",
+   "organic82:sauropod"
+  ],
+  "artBrief": "Towering hornless long-legged rhino with a long neck browsing leaves from a tree top, side view; warm grey, olive leaves, beige ground."
+ },
+ {
+  "suffix": "basilosaurus",
+  "name": "Basilosaurus",
+  "family": "prehistoric",
+  "category": "prehistoric",
+  "summary": "Basilosaurus was an early serpent-like whale that was once mistaken for a giant reptile.",
+  "wit": "A whale named 'king lizard'. Awkward.",
+  "recipe": [
+   "organic82:prehistoric-mammal",
+   "organic82:prehistoric-ocean"
+  ],
+  "artBrief": "Very long eel-like whale body undulating across the frame with small front flippers and toothy jaws; blue-grey, white belly, navy sea."
+ },
+ {
+  "suffix": "ambulocetus",
+  "name": "Ambulocetus",
+  "family": "prehistoric",
+  "category": "prehistoric",
+  "summary": "Ambulocetus, the 'walking whale', was an early whale that could move on land and in water.",
+  "wit": "Whale with legs. Evolution's beta version.",
+  "recipe": [
+   "organic83:basilosaurus",
+   "organic82:fossil-footprint"
+  ],
+  "artBrief": "Otter-like furry early whale walking on land at a riverbank on big webbed hind feet, long toothed snout, wet fur; brown fur, pink feet, blue water. Furry body differentiates it from the crocodilians."
+ },
+ {
+  "suffix": "doedicurus",
+  "name": "Doedicurus",
+  "family": "prehistoric",
+  "category": "prehistoric",
+  "summary": "Doedicurus was a giant armoured glyptodont with a spiked club at the end of its tail.",
+  "wit": "Armadillo shell, ankylosaur tail. Accessorised.",
+  "recipe": [
+   "organic82:glyptodon",
+   "organic82:ankylosaurus"
+  ],
+  "artBrief": "Dome-shelled armadillo-like giant from rear three-quarter view, tail raised showing a mace-like spiked club; tan shell with hex pattern, dark brown, ivory spikes. Tail club focus distinguishes it from V82 Glyptodon."
+ },
+ {
+  "suffix": "cave-lion",
+  "name": "Cave Lion",
+  "family": "prehistoric",
+  "category": "prehistoric",
+  "summary": "The cave lion was a large Ice Age cat painted on cave walls by early humans.",
+  "wit": "Ice Age king of beasts. No mane, still majestic.",
+  "recipe": [
+   "organic82:cave-bear",
+   "organic82:smilodon"
+  ],
+  "artBrief": "Three-quarter head-and-shoulders of a pale maneless lion with faint stripes on a snowy background, normal canines (not sabres); cream-buff fur, amber eye, snow white."
+ },
+ {
+  "suffix": "steppe-bison",
+  "name": "Steppe Bison",
+  "family": "prehistoric",
+  "category": "prehistoric",
+  "summary": "The steppe bison was a large long-horned Ice Age bison of the mammoth steppe.",
+  "wit": "Horns like handlebars, coat like a carpet.",
+  "recipe": [
+   "organic82:irish-elk",
+   "organic82:ice-age"
+  ],
+  "artBrief": "Side-view heavy humped bison with long sweeping horns and shaggy front, walking on a snowy grass steppe; dark chocolate, cream horns, pale grass."
+ },
+ {
+  "suffix": "prehistoric-ape",
+  "name": "Prehistoric Ape",
+  "family": "prehistoric",
+  "category": "prehistoric",
+  "summary": "Early apes of the Miocene lived in forests and include the ancestors of later great apes and humans.",
+  "wit": "The family tree starts getting very familiar.",
+  "recipe": [
+   "organic82:prehistoric-mammal",
+   "legacy:64"
+  ],
+  "artBrief": "Small tailless ape hanging by one arm from a forest branch, looking at viewer; reddish-brown fur, leaf green, bark brown."
+ },
+ {
+  "suffix": "gigantopithecus",
+  "name": "Gigantopithecus",
+  "family": "prehistoric",
+  "category": "prehistoric",
+  "summary": "Gigantopithecus was a giant ape of Pleistocene Asia, known mostly from huge fossil teeth and jaws.",
+  "wit": "Three metres of ape, mostly known from its dental records.",
+  "recipe": [
+   "organic83:prehistoric-ape",
+   "organic82:pleistocene-epoch"
+  ],
+  "artBrief": "Huge dark ape seated in a bamboo grove holding a bamboo stalk, tiny human outline far behind; dark brown-black fur, bamboo green, cream."
+ },
+ {
+  "suffix": "australopithecus",
+  "name": "Australopithecus",
+  "family": "prehistoric",
+  "category": "prehistoric",
+  "summary": "Australopithecus walked upright on two legs, as shown by famous fossil footprints in volcanic ash.",
+  "wit": "Walked upright, kept the eyebrows.",
+  "recipe": [
+   "organic83:prehistoric-ape",
+   "organic82:fossil-footprint"
+  ],
+  "artBrief": "Top-down trail of small human footprints across pale volcanic ash running diagonally, a tiny upright figure at the far end; ash grey, warm brown prints, golden grass edge. Footprints dominate; human prints contrast with the V82 three-toed dinosaur track."
+ },
+ {
+  "suffix": "homo-habilis",
+  "name": "Homo Habilis",
+  "family": "prehistoric",
+  "category": "prehistoric",
+  "summary": "Homo habilis, the 'handy man', is associated with the earliest stone tool industries.",
+  "wit": "Invented the toolbox. The box was a rock.",
+  "recipe": [
+   "organic83:australopithecus",
+   "legacy:14"
+  ],
+  "artBrief": "Crouching hominin striking one stone against another with chips flying, front three-quarter view; brown skin, grey stones, dusty yellow ground."
+ },
+ {
+  "suffix": "homo-erectus",
+  "name": "Homo Erectus",
+  "family": "prehistoric",
+  "category": "prehistoric",
+  "summary": "Homo erectus was a tall, long-legged human species that spread across Africa and Asia and used fire.",
+  "wit": "First to go on a really long walk out of Africa.",
+  "recipe": [
+   "organic83:homo-habilis",
+   "organic82:pleistocene-epoch"
+  ],
+  "artBrief": "Tall striding human figure in side view carrying a burning torch held high, distant hills; warm brown, flame orange, dusk blue."
+ },
+ {
+  "suffix": "neanderthal",
+  "name": "Neanderthal",
+  "family": "prehistoric",
+  "category": "prehistoric",
+  "summary": "Neanderthals were Ice Age humans of Europe and western Asia, skilled toolmakers and hunters.",
+  "wit": "Big brain, strong brow, great at winter.",
+  "recipe": [
+   "organic83:homo-erectus",
+   "organic82:ice-age"
+  ],
+  "artBrief": "Profile bust of a Neanderthal with prominent brow ridge, broad nose and a fur hood, snowflakes; warm skin brown, fur grey-brown, ice blue. Dignified, not caricatured."
+ },
+ {
+  "suffix": "cro-magnon",
+  "name": "Cro-Magnon",
+  "family": "prehistoric",
+  "category": "prehistoric",
+  "summary": "Cro-Magnon is the name for early modern humans of Ice Age Europe, first excavated at a French rock shelter.",
+  "wit": "Modern humans, Ice Age edition.",
+  "recipe": [
+   "organic83:neanderthal",
+   "legacy:580"
+  ],
+  "artBrief": "Front bust of an early modern human wearing a sewn fur parka and a pierced-shell necklace, rock-shelter arch behind; tan fur, shell white, limestone grey."
+ },
+ {
+  "suffix": "oldowan-chopper",
+  "name": "Oldowan Chopper",
+  "family": "prehistoric",
+  "category": "prehistoric",
+  "summary": "Oldowan choppers are among the oldest known stone tools, made by knocking flakes from a river cobble.",
+  "wit": "Version 1.0 of the knife. Very beta.",
+  "recipe": [
+   "organic83:homo-habilis",
+   "legacy:14"
+  ],
+  "artBrief": "Single rounded grey river cobble with a jagged chipped cutting edge on one side, a few flakes beside it; grey stone, white chip scars, sand."
+ },
+ {
+  "suffix": "stone-hand-axe",
+  "name": "Stone Hand Axe",
+  "family": "prehistoric",
+  "category": "prehistoric",
+  "summary": "The teardrop-shaped Acheulean hand axe was the all-purpose tool of Homo erectus for over a million years.",
+  "wit": "The Swiss Army knife of the Stone Age.",
+  "recipe": [
+   "organic83:homo-erectus",
+   "legacy:14"
+  ],
+  "artBrief": "Symmetrical teardrop flint hand axe face-on with overlapping flake scars, held at a tilt; honey-brown flint, cream scars, dark outline."
+ },
+ {
+  "suffix": "flint-spearhead",
+  "name": "Flint Spearhead",
+  "family": "prehistoric",
+  "category": "prehistoric",
+  "summary": "Neanderthals hafted sharp flint points onto wooden shafts to make hunting spears.",
+  "wit": "Sharp idea, well attached.",
+  "recipe": [
+   "organic83:neanderthal",
+   "legacy:14"
+  ],
+  "artBrief": "Leaf-shaped knapped flint point bound with sinew cord to the end of a wooden shaft, diagonal; dark grey-black flint, tan sinew, wood brown."
+ },
+ {
+  "suffix": "mammoth-hunt",
+  "name": "Mammoth Hunt",
+  "family": "prehistoric",
+  "category": "prehistoric",
+  "summary": "Ice Age hunters worked together with spears to bring down mammoths for meat, hide and bone.",
+  "wit": "Teamwork makes the mammoth work.",
+  "recipe": [
+   "organic82:woolly-mammoth",
+   "organic83:flint-spearhead"
+  ],
+  "artBrief": "Large mammoth silhouette on the right with three small human hunter silhouettes with raised spears on the left, snowy ground; dark brown, black figures, white snow."
+ },
+ {
+  "suffix": "mammoth-bone-hut",
+  "name": "Mammoth Bone Hut",
+  "family": "prehistoric",
+  "category": "prehistoric",
+  "summary": "Ice Age people built dome-shaped shelters from stacked mammoth bones and tusks covered with hides.",
+  "wit": "Architect's material of choice: leftover mammoth.",
+  "recipe": [
+   "organic83:cro-magnon",
+   "organic82:woolly-mammoth"
+  ],
+  "artBrief": "Dome hut built from interlocking bones and jawbones with two crossed tusks forming an arched entrance, snow; bone ivory, hide brown, snow blue-white."
+ },
+ {
+  "suffix": "atlatl",
+  "name": "Atlatl",
+  "family": "prehistoric",
+  "category": "prehistoric",
+  "summary": "The atlatl, or spear-thrower, let Ice Age hunters hurl darts much farther and faster.",
+  "wit": "An extra arm, sold separately.",
+  "recipe": [
+   "organic83:cro-magnon",
+   "organic83:flint-spearhead"
+  ],
+  "artBrief": "Carved wooden spear-thrower with a hooked end holding a long feather-fletched dart, both diagonal, motion lines; wood brown, feather red-white, flint grey."
+ },
+ {
+  "suffix": "ochre-hand-stencil",
+  "name": "Ochre Hand Stencil",
+  "family": "prehistoric",
+  "category": "prehistoric",
+  "summary": "Ice Age artists blew red ochre around their hands to leave stencils on cave walls.",
+  "wit": "The original 'I was here'.",
+  "recipe": [
+   "organic83:cro-magnon",
+   "organic41:monument"
+  ],
+  "artBrief": "Negative hand outline in sprayed red ochre on a rough beige rock wall, fingers spread; red ochre, beige limestone, brown speckles."
+ },
+ {
+  "suffix": "bone-flute",
+  "name": "Bone Flute",
+  "family": "prehistoric",
+  "category": "prehistoric",
+  "summary": "Flutes carved from bird bone and mammoth ivory are among the oldest known musical instruments.",
+  "wit": "Stone Age playlist: one song, very hollow.",
+  "recipe": [
+   "organic83:cro-magnon",
+   "organic82:fossil-skeleton"
+  ],
+  "artBrief": "Thin hollow bone flute lying diagonally with five round finger holes and a notch, small music notes drifting off; bone ivory, brown holes, soft blue notes."
+ },
+ {
+  "suffix": "lion-man-figurine",
+  "name": "Lion-Man Figurine",
+  "family": "prehistoric",
+  "category": "prehistoric",
+  "summary": "The Lion-Man is a 40,000-year-old ivory figure combining a human body with a cave lion's head.",
+  "wit": "Ice Age sculpture: half lion, half person, all mystery.",
+  "recipe": [
+   "organic83:cave-lion",
+   "organic83:cro-magnon"
+  ],
+  "artBrief": "Small upright ivory statuette with a lion head and human body standing, carved line marks on the arm, on a dark plinth; ivory cream, brown cracks, dark grey."
+ },
+ {
+  "suffix": "paleontologist",
+  "name": "Paleontologist",
+  "family": "prehistoric",
+  "category": "prehistoric",
+  "summary": "A paleontologist studies ancient life by finding and interpreting fossils.",
+  "wit": "Professional dinosaur detective.",
+  "recipe": [
+   "legacy:580",
+   "legacy:575"
+  ],
+  "artBrief": "Kneeling scientist in a wide-brim hat brushing dust from a large fossil claw in rock; khaki, bone ivory, sand."
+ },
+ {
+  "suffix": "dinosaur-quarry",
+  "name": "Dinosaur Quarry",
+  "family": "prehistoric",
+  "category": "prehistoric",
+  "summary": "A dinosaur quarry is a dig site where fossil bones are exposed layer by layer in the rock.",
+  "wit": "Dig here. Then dig there. Then for ten more years.",
+  "recipe": [
+   "organic83:paleontologist",
+   "legacy:41"
+  ],
+  "artBrief": "Rock face with a grid of string lines over partially exposed bones, a shovel and bucket at the edge; ochre rock, white string, ivory bones."
+ },
+ {
+  "suffix": "plaster-field-jacket",
+  "name": "Plaster Field Jacket",
+  "family": "prehistoric",
+  "category": "prehistoric",
+  "summary": "Fragile fossils are wrapped in plaster-soaked burlap jackets before being carried from the field.",
+  "wit": "A cast for a bone that broke 70 million years ago.",
+  "recipe": [
+   "organic83:paleontologist",
+   "organic82:fossil-skeleton"
+  ],
+  "artBrief": "White rounded plaster-wrapped block with burlap texture, a bone end poking out and a field number painted as abstract marks; white, burlap tan, red marking."
+ },
+ {
+  "suffix": "mounted-skeleton",
+  "name": "Mounted Skeleton",
+  "family": "prehistoric",
+  "category": "prehistoric",
+  "summary": "A mounted skeleton assembles fossil bones on a frame to show a prehistoric animal standing as in life.",
+  "wit": "Back on its feet after 66 million years.",
+  "recipe": [
+   "organic82:fossil-skeleton",
+   "organic41:monument"
+  ],
+  "artBrief": "Full theropod skeleton standing on a steel armature on a low museum plinth, three-quarter view; bone ivory, steel grey, dark plinth."
+ },
+ {
+  "suffix": "coprolite",
+  "name": "Coprolite",
+  "family": "prehistoric",
+  "category": "prehistoric",
+  "summary": "A coprolite is fossilised dung that reveals what prehistoric animals ate.",
+  "wit": "Not every fossil is a bone. Some are... worse.",
+  "recipe": [
+   "legacy:575",
+   "legacy:41"
+  ],
+  "artBrief": "Polished coiled brown fossil specimen on a small display stand with a cut face showing bits of bone fragments inside; chestnut brown, amber cut face, grey stand."
+ },
+ {
+  "suffix": "gastrolith",
+  "name": "Gastrolith",
+  "family": "prehistoric",
+  "category": "prehistoric",
+  "summary": "Gastroliths are polished stomach stones that some dinosaurs swallowed to help grind food.",
+  "wit": "Swallowed rocks for digestion. Do not try at home.",
+  "recipe": [
+   "organic82:sauropod",
+   "legacy:14"
+  ],
+  "artBrief": "Small cluster of smooth glossy pebbles inside a faint ribcage outline; glossy grey, rose, ivory rib lines."
+ },
+ {
+  "suffix": "fossil-shark-tooth",
+  "name": "Fossil Shark Tooth",
+  "family": "prehistoric",
+  "category": "prehistoric",
+  "summary": "Fossil shark teeth are among the most common fossils, shed by the thousands over a shark's life.",
+  "wit": "Sharks lose teeth constantly. Fossil hunters say thanks.",
+  "recipe": [
+   "organic82:megalodon",
+   "legacy:41"
+  ],
+  "artBrief": "Single large triangular serrated fossil tooth held between two fingers for scale, glossy enamel; slate grey-blue enamel, brown root, skin tone."
+ },
+ {
+  "suffix": "tar-pit",
+  "name": "Tar Pit",
+  "family": "prehistoric",
+  "category": "prehistoric",
+  "summary": "Asphalt seeps like the La Brea tar pits trapped and preserved thousands of Ice Age animals.",
+  "wit": "Shiny puddle. Terrible idea.",
+  "recipe": [
+   "organic82:dire-wolf",
+   "organic82:smilodon"
+  ],
+  "artBrief": "Glossy black pool with bubbles and a sabre-toothed skull and bones sinking at the edge, dry grass around; glossy black, tan, ivory."
+ },
+ {
+  "suffix": "feather-impression",
+  "name": "Feather Impression",
+  "family": "prehistoric",
+  "category": "prehistoric",
+  "summary": "Fine-grained limestone can preserve the delicate imprint of individual dinosaur feathers.",
+  "wit": "A feather, written in stone.",
+  "recipe": [
+   "organic82:feathered-dinosaur",
+   "organic42:limestone"
+  ],
+  "artBrief": "Single detailed fossil feather imprint on a cream limestone slab with dendrite stains; cream, warm grey, rust dendrites."
+ },
+ {
+  "suffix": "dinosaur-nest",
+  "name": "Dinosaur Nest",
+  "family": "prehistoric",
+  "category": "prehistoric",
+  "summary": "Fossil nests show how dinosaurs arranged their eggs and, in some species, cared for their young.",
+  "wit": "Good parenting, fossilised.",
+  "recipe": [
+   "organic82:dinosaur-egg",
+   "organic82:maiasaura"
+  ],
+  "artBrief": "Top-down ring of a dozen elongated eggs arranged in a spiral in a shallow mud mound with a tiny hatchling head peeking; sand, speckled blue-grey eggs, mud brown."
+ }
+]

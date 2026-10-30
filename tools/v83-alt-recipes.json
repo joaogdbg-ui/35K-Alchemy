@@ -1,0 +1,506 @@
+[
+ {
+  "family": "mythology",
+  "recipe": [
+   "pack:god",
+   "legacy:64"
+  ],
+  "recipeNames": [
+   "God",
+   "History"
+  ],
+  "result": "organic82:mythology",
+  "resultName": "Mythology",
+  "rationale": "Gods + recorded history = the body of myth."
+ },
+ {
+  "family": "mythology",
+  "recipe": [
+   "organic82:zeus",
+   "organic82:ancient-wisdom"
+  ],
+  "recipeNames": [
+   "Zeus",
+   "Ancient Wisdom"
+  ],
+  "result": "organic82:athena",
+  "resultName": "Athena",
+  "rationale": "Athena was born fully armed from the head of Zeus."
+ },
+ {
+  "family": "mythology",
+  "recipe": [
+   "organic82:zeus",
+   "organic82:hera"
+  ],
+  "recipeNames": [
+   "Zeus",
+   "Hera"
+  ],
+  "result": "organic82:ares",
+  "resultName": "Ares",
+  "rationale": "Ares is the son of Zeus and Hera."
+ },
+ {
+  "family": "mythology",
+  "recipe": [
+   "organic82:demeter",
+   "organic82:zeus"
+  ],
+  "recipeNames": [
+   "Demeter",
+   "Zeus"
+  ],
+  "result": "organic82:persephone",
+  "resultName": "Persephone",
+  "rationale": "Persephone is the daughter of Demeter and Zeus."
+ },
+ {
+  "family": "mythology",
+  "recipe": [
+   "pack:god",
+   "organic82:divine-thunderbolt"
+  ],
+  "recipeNames": [
+   "God",
+   "Divine Thunderbolt"
+  ],
+  "result": "organic82:zeus",
+  "resultName": "Zeus",
+  "rationale": "A god wielding the thunderbolt is the classic image of Zeus."
+ },
+ {
+  "family": "mythology",
+  "recipe": [
+   "pack:god",
+   "organic82:sacred-trident"
+  ],
+  "recipeNames": [
+   "God",
+   "Sacred Trident"
+  ],
+  "result": "organic82:poseidon",
+  "resultName": "Poseidon",
+  "rationale": "A god with a trident reads as Poseidon."
+ },
+ {
+  "family": "mythology",
+  "recipe": [
+   "organic82:greek-underworld",
+   "pack:god"
+  ],
+  "recipeNames": [
+   "Greek Underworld",
+   "God"
+  ],
+  "result": "organic82:hades",
+  "resultName": "Hades the God",
+  "rationale": "The god of the Greek underworld."
+ },
+ {
+  "family": "mythology",
+  "recipe": [
+   "organic82:zeus",
+   "organic82:roman-pantheon"
+  ],
+  "recipeNames": [
+   "Zeus",
+   "Roman Pantheon"
+  ],
+  "result": "organic82:jupiter",
+  "resultName": "Jupiter",
+  "rationale": "Follows the V82 'Greek god + Roman Pantheon = Roman name' pattern."
+ },
+ {
+  "family": "mythology",
+  "recipe": [
+   "organic82:athena",
+   "pack:transformation"
+  ],
+  "recipeNames": [
+   "Athena",
+   "Transformation"
+  ],
+  "result": "organic82:medusa",
+  "resultName": "Medusa",
+  "rationale": "In Ovid, Athena transforms Medusa into a gorgon."
+ },
+ {
+  "family": "mythology",
+  "recipe": [
+   "organic82:medusa",
+   "legacy:65"
+  ],
+  "recipeNames": [
+   "Medusa",
+   "Sky"
+  ],
+  "result": "organic82:pegasus",
+  "resultName": "Pegasus",
+  "rationale": "Pegasus sprang from Medusa and flew to the heavens."
+ },
+ {
+  "family": "mythology",
+  "recipe": [
+   "organic82:mount-olympus",
+   "pack:god"
+  ],
+  "recipeNames": [
+   "Mount Olympus",
+   "God"
+  ],
+  "result": "organic82:greek-pantheon",
+  "resultName": "Greek Pantheon",
+  "rationale": "The gods who live on Olympus."
+ },
+ {
+  "family": "mythology",
+  "recipe": [
+   "organic82:odin",
+   "organic82:divine-thunderbolt"
+  ],
+  "recipeNames": [
+   "Odin",
+   "Divine Thunderbolt"
+  ],
+  "result": "organic82:thor-of-asgard",
+  "resultName": "Thor of Asgard",
+  "rationale": "Odin's son, the thunder god."
+ },
+ {
+  "family": "mythology",
+  "recipe": [
+   "organic82:loki-of-asgard",
+   "organic82:odin"
+  ],
+  "recipeNames": [
+   "Loki of Asgard",
+   "Odin"
+  ],
+  "result": "organic82:sleipnir",
+  "resultName": "Sleipnir",
+  "rationale": "Loki bore Sleipnir and gave him to Odin."
+ },
+ {
+  "family": "mythology",
+  "recipe": [
+   "organic82:loki-of-asgard",
+   "organic82:tyr-the-oathkeeper"
+  ],
+  "recipeNames": [
+   "Loki of Asgard",
+   "Tyr the Oathkeeper"
+  ],
+  "result": "organic82:fenrir",
+  "resultName": "Fenrir",
+  "rationale": "Fenrir is Loki's son; Tyr lost his hand binding him."
+ },
+ {
+  "family": "mythology",
+  "recipe": [
+   "organic82:norse-mythology",
+   "pack:god"
+  ],
+  "recipeNames": [
+   "Norse Mythology",
+   "God"
+  ],
+  "result": "organic82:odin",
+  "resultName": "Odin",
+  "rationale": "The All-Father of Norse myth."
+ },
+ {
+  "family": "mythology",
+  "recipe": [
+   "organic82:runestone",
+   "organic82:mythology"
+  ],
+  "recipeNames": [
+   "Runestone",
+   "Mythology"
+  ],
+  "result": "organic82:norse-mythology",
+  "resultName": "Norse Mythology",
+  "rationale": "Runes are the signature script of Norse myth."
+ },
+ {
+  "family": "mythology",
+  "recipe": [
+   "organic82:niflheim",
+   "pack:god"
+  ],
+  "recipeNames": [
+   "Niflheim",
+   "God"
+  ],
+  "result": "organic82:hel",
+  "resultName": "Hel",
+  "rationale": "Hel rules the cold realm beneath Niflheim."
+ },
+ {
+  "family": "mythology",
+  "recipe": [
+   "organic82:isis",
+   "organic82:osiris"
+  ],
+  "recipeNames": [
+   "Isis",
+   "Osiris"
+  ],
+  "result": "organic82:horus",
+  "resultName": "Horus",
+  "rationale": "Horus is the son of Isis and Osiris."
+ },
+ {
+  "family": "mythology",
+  "recipe": [
+   "organic82:ancient-egypt",
+   "pack:god"
+  ],
+  "recipeNames": [
+   "Ancient Egypt",
+   "God"
+  ],
+  "result": "organic82:egyptian-pantheon",
+  "resultName": "Egyptian Pantheon",
+  "rationale": "The gods of ancient Egypt."
+ },
+ {
+  "family": "mythology",
+  "recipe": [
+   "organic82:egyptian-mythology",
+   "legacy:65"
+  ],
+  "recipeNames": [
+   "Egyptian Mythology",
+   "Sky"
+  ],
+  "result": "organic82:ra",
+  "resultName": "Ra",
+  "rationale": "The sun in the Egyptian sky."
+ },
+ {
+  "family": "prehistoric",
+  "recipe": [
+   "legacy:575",
+   "organic42:limestone"
+  ],
+  "recipeNames": [
+   "Dinosaur",
+   "Limestone"
+  ],
+  "result": "organic82:fossil-footprint",
+  "resultName": "Fossil Footprint",
+  "rationale": "Dinosaur tracks are often preserved in limestone mudflats."
+ },
+ {
+  "family": "prehistoric",
+  "recipe": [
+   "organic82:mastodon",
+   "organic82:ice-age"
+  ],
+  "recipeNames": [
+   "Mastodon",
+   "Ice Age"
+  ],
+  "result": "organic82:woolly-mammoth",
+  "resultName": "Woolly Mammoth",
+  "rationale": "A proboscidean adapted to the Ice Age."
+ },
+ {
+  "family": "prehistoric",
+  "recipe": [
+   "organic82:prehistoric-ocean",
+   "organic42:limestone"
+  ],
+  "recipeNames": [
+   "Prehistoric Ocean",
+   "Limestone"
+  ],
+  "result": "organic82:ammonite",
+  "resultName": "Ammonite",
+  "rationale": "Ammonites are classic fossils of marine limestone."
+ },
+ {
+  "family": "prehistoric",
+  "recipe": [
+   "organic82:paleozoic-era",
+   "legacy:41"
+  ],
+  "recipeNames": [
+   "Paleozoic Era",
+   "Fossil"
+  ],
+  "result": "organic82:trilobite",
+  "resultName": "Trilobite",
+  "rationale": "The iconic Paleozoic fossil."
+ },
+ {
+  "family": "prehistoric",
+  "recipe": [
+   "organic82:triassic-period",
+   "organic82:geological-timeline"
+  ],
+  "recipeNames": [
+   "Triassic Period",
+   "Geological Timeline"
+  ],
+  "result": "organic82:jurassic-period",
+  "resultName": "Jurassic Period",
+  "rationale": "V83 'timeline advances to the next period' pattern."
+ },
+ {
+  "family": "prehistoric",
+  "recipe": [
+   "organic82:jurassic-period",
+   "organic82:geological-timeline"
+  ],
+  "recipeNames": [
+   "Jurassic Period",
+   "Geological Timeline"
+  ],
+  "result": "organic82:cretaceous-period",
+  "resultName": "Cretaceous Period",
+  "rationale": "V83 'timeline advances to the next period' pattern."
+ },
+ {
+  "family": "prehistoric",
+  "recipe": [
+   "organic83:permian-period",
+   "organic82:geological-timeline"
+  ],
+  "recipeNames": [
+   "Permian Period",
+   "Geological Timeline"
+  ],
+  "result": "organic82:triassic-period",
+  "resultName": "Triassic Period",
+  "rationale": "V83 pattern; uses V83 Permian Period."
+ },
+ {
+  "family": "prehistoric",
+  "recipe": [
+   "organic83:devonian-period",
+   "organic82:geological-timeline"
+  ],
+  "recipeNames": [
+   "Devonian Period",
+   "Geological Timeline"
+  ],
+  "result": "organic82:carboniferous-period",
+  "resultName": "Carboniferous Period",
+  "rationale": "V83 pattern; uses V83 Devonian Period."
+ },
+ {
+  "family": "prehistoric",
+  "recipe": [
+   "legacy:26",
+   "organic82:cenozoic-era"
+  ],
+  "recipeNames": [
+   "Animal",
+   "Cenozoic Era"
+  ],
+  "result": "organic82:prehistoric-mammal",
+  "resultName": "Prehistoric Mammal",
+  "rationale": "Animals of the Cenozoic = age of mammals."
+ },
+ {
+  "family": "prehistoric",
+  "recipe": [
+   "legacy:575",
+   "organic82:jurassic-period"
+  ],
+  "recipeNames": [
+   "Dinosaur",
+   "Jurassic Period"
+  ],
+  "result": "organic82:sauropod",
+  "resultName": "Sauropod",
+  "rationale": "The giant dinosaurs of the Jurassic."
+ },
+ {
+  "family": "prehistoric",
+  "recipe": [
+   "legacy:575",
+   "organic82:prehistoric-ocean"
+  ],
+  "recipeNames": [
+   "Dinosaur",
+   "Prehistoric Ocean"
+  ],
+  "result": "organic82:marine-reptile",
+  "resultName": "Marine Reptile",
+  "rationale": "Player-intuitive 'sea dinosaur' (summary already says they are not dinosaurs)."
+ },
+ {
+  "family": "prehistoric",
+  "recipe": [
+   "legacy:575",
+   "legacy:21"
+  ],
+  "recipeNames": [
+   "Dinosaur",
+   "Life"
+  ],
+  "result": "organic82:dinosaur-egg",
+  "resultName": "Fossilized Dinosaur Egg",
+  "rationale": "New dinosaur life begins in an egg."
+ },
+ {
+  "family": "prehistoric",
+  "recipe": [
+   "organic82:theropod",
+   "organic82:prehistoric-ocean"
+  ],
+  "recipeNames": [
+   "Theropod",
+   "Prehistoric Ocean"
+  ],
+  "result": "organic82:spinosaurus",
+  "resultName": "Spinosaurus",
+  "rationale": "The fish-hunting theropod."
+ },
+ {
+  "family": "prehistoric",
+  "recipe": [
+   "organic82:marine-reptile",
+   "organic82:sauropod"
+  ],
+  "recipeNames": [
+   "Marine Reptile",
+   "Sauropod"
+  ],
+  "result": "organic82:plesiosaurus",
+  "resultName": "Plesiosaurus",
+  "rationale": "Long-necked giant of the sea (body-plan analogy)."
+ },
+ {
+  "family": "prehistoric",
+  "recipe": [
+   "organic82:paleozoic-era",
+   "legacy:21"
+  ],
+  "recipeNames": [
+   "Paleozoic Era",
+   "Life"
+  ],
+  "result": "organic82:cambrian-period",
+  "resultName": "Cambrian Period",
+  "rationale": "The Cambrian explosion of life opens the Paleozoic."
+ },
+ {
+  "family": "prehistoric",
+  "recipe": [
+   "organic82:woolly-mammoth",
+   "legacy:41"
+  ],
+  "recipeNames": [
+   "Woolly Mammoth",
+   "Fossil"
+  ],
+  "result": "organic82:mastodon",
+  "resultName": "Mastodon",
+  "rationale": "Fossil proboscidean relative."
+ }
+]

@@ -1,0 +1,3019 @@
+{
+ "version": 83,
+ "status": "QA_PENDING_UNMERGED",
+ "cohort_count": 200,
+ "expansion_goal": 200,
+ "expansion_progress": 200,
+ "remaining_to_goal": 0,
+ "cycle_complete": true,
+ "themes": {
+  "mythology": 100,
+  "prehistoric": 100
+ },
+ "base_catalog": {
+  "elements": 6012
+ },
+ "alternative_recipes_for_existing_items": 36,
+ "new_items": [
+  {
+   "id": "organic83:mythical-beast",
+   "name": "Mythical Beast",
+   "category": "mythology",
+   "summary": "A composite creature of legend joins the parts of several animals into one impossible guardian.",
+   "familyCampaigns": [
+    "mythology"
+   ],
+   "ingredients": [
+    "legacy:185",
+    "pack:shapeshifter"
+   ],
+   "art_mode": "bespoke-subject",
+   "path": "client/assets/v83/mythical-beast.svg"
+  },
+  {
+   "id": "organic83:griffin",
+   "name": "Griffin",
+   "category": "mythology",
+   "summary": "A lion-bodied, eagle-headed guardian of ancient legend soars with broad feathered wings.",
+   "familyCampaigns": [
+    "mythology"
+   ],
+   "ingredients": [
+    "organic83:mythical-beast",
+    "legacy:65"
+   ],
+   "art_mode": "bespoke-subject",
+   "path": "client/assets/v83/griffin.svg"
+  },
+  {
+   "id": "organic83:phoenix",
+   "name": "Phoenix",
+   "category": "mythology",
+   "summary": "A radiant firebird of legend is reborn from the ashes of its own flames.",
+   "familyCampaigns": [
+    "mythology"
+   ],
+   "ingredients": [
+    "organic83:mythical-beast",
+    "organic82:sacred-hearth"
+   ],
+   "art_mode": "bespoke-subject",
+   "path": "client/assets/v83/phoenix.svg"
+  },
+  {
+   "id": "organic83:kraken",
+   "name": "Kraken",
+   "category": "mythology",
+   "summary": "A colossal sea monster of northern legend drags ships beneath the waves with giant tentacles.",
+   "familyCampaigns": [
+    "mythology"
+   ],
+   "ingredients": [
+    "organic83:mythical-beast",
+    "organic82:poseidon"
+   ],
+   "art_mode": "bespoke-subject",
+   "path": "client/assets/v83/kraken.svg"
+  },
+  {
+   "id": "organic83:heracles",
+   "name": "Heracles",
+   "category": "mythology",
+   "summary": "The mightiest Greek hero, son of Zeus, wears a lion-skin hood and carries a heavy olive-wood club.",
+   "familyCampaigns": [
+    "mythology"
+   ],
+   "ingredients": [
+    "legacy:118",
+    "organic82:zeus"
+   ],
+   "art_mode": "bespoke-subject",
+   "path": "client/assets/v83/heracles.svg"
+  },
+  {
+   "id": "organic83:nemean-lion",
+   "name": "Nemean Lion",
+   "category": "mythology",
+   "summary": "The invulnerable golden lion of Nemea was the first monster faced in the labours of Heracles.",
+   "familyCampaigns": [
+    "mythology"
+   ],
+   "ingredients": [
+    "organic83:heracles",
+    "organic83:mythical-beast"
+   ],
+   "art_mode": "bespoke-subject",
+   "path": "client/assets/v83/nemean-lion.svg"
+  },
+  {
+   "id": "organic83:hydra",
+   "name": "Hydra",
+   "category": "mythology",
+   "summary": "The many-headed water serpent of Lerna grew two new heads for every one that was cut off.",
+   "familyCampaigns": [
+    "mythology"
+   ],
+   "ingredients": [
+    "organic82:cerberus",
+    "organic82:medusa"
+   ],
+   "art_mode": "bespoke-subject",
+   "path": "client/assets/v83/hydra.svg"
+  },
+  {
+   "id": "organic83:perseus",
+   "name": "Perseus",
+   "category": "mythology",
+   "summary": "The Greek hero Perseus used a mirrored shield and winged sandals to defeat the gorgon Medusa.",
+   "familyCampaigns": [
+    "mythology"
+   ],
+   "ingredients": [
+    "legacy:118",
+    "organic82:medusa"
+   ],
+   "art_mode": "bespoke-subject",
+   "path": "client/assets/v83/perseus.svg"
+  },
+  {
+   "id": "organic83:theseus",
+   "name": "Theseus",
+   "category": "mythology",
+   "summary": "The Athenian hero Theseus found his way through the labyrinth by following a red thread.",
+   "familyCampaigns": [
+    "mythology"
+   ],
+   "ingredients": [
+    "legacy:118",
+    "organic82:minotaur"
+   ],
+   "art_mode": "bespoke-subject",
+   "path": "client/assets/v83/theseus.svg"
+  },
+  {
+   "id": "organic83:labyrinth",
+   "name": "Labyrinth",
+   "category": "mythology",
+   "summary": "The winding maze built by Daedalus at Knossos was designed so that no one could escape the Minotaur.",
+   "familyCampaigns": [
+    "mythology"
+   ],
+   "ingredients": [
+    "organic82:minotaur",
+    "organic41:ancient-city"
+   ],
+   "art_mode": "bespoke-subject",
+   "path": "client/assets/v83/labyrinth.svg"
+  },
+  {
+   "id": "organic83:daedalus",
+   "name": "Daedalus",
+   "category": "mythology",
+   "summary": "The legendary Athenian inventor Daedalus designed the labyrinth and crafted wings of feathers and wax.",
+   "familyCampaigns": [
+    "mythology"
+   ],
+   "ingredients": [
+    "organic83:labyrinth",
+    "legacy:28"
+   ],
+   "art_mode": "bespoke-subject",
+   "path": "client/assets/v83/daedalus.svg"
+  },
+  {
+   "id": "organic83:icarus",
+   "name": "Icarus",
+   "category": "mythology",
+   "summary": "Icarus flew too close to the sun on wings of wax and feathers and fell into the sea.",
+   "familyCampaigns": [
+    "mythology"
+   ],
+   "ingredients": [
+    "organic83:daedalus",
+    "legacy:65"
+   ],
+   "art_mode": "bespoke-subject",
+   "path": "client/assets/v83/icarus.svg"
+  },
+  {
+   "id": "organic83:odysseus",
+   "name": "Odysseus",
+   "category": "mythology",
+   "summary": "The clever king of Ithaca outwitted a Cyclops on his ten-year voyage home from Troy.",
+   "familyCampaigns": [
+    "mythology"
+   ],
+   "ingredients": [
+    "legacy:118",
+    "organic82:cyclops"
+   ],
+   "art_mode": "bespoke-subject",
+   "path": "client/assets/v83/odysseus.svg"
+  },
+  {
+   "id": "organic83:trojan-war",
+   "name": "Trojan War",
+   "category": "mythology",
+   "summary": "A ten-year siege of Troy united Greek kings against a walled city in the most famous war of legend.",
+   "familyCampaigns": [
+    "mythology"
+   ],
+   "ingredients": [
+    "organic82:ares",
+    "organic41:ancient-city"
+   ],
+   "art_mode": "bespoke-subject",
+   "path": "client/assets/v83/trojan-war.svg"
+  },
+  {
+   "id": "organic83:achilles",
+   "name": "Achilles",
+   "category": "mythology",
+   "summary": "The near-invincible Greek warrior Achilles could be wounded only at his heel.",
+   "familyCampaigns": [
+    "mythology"
+   ],
+   "ingredients": [
+    "legacy:118",
+    "organic83:trojan-war"
+   ],
+   "art_mode": "bespoke-subject",
+   "path": "client/assets/v83/achilles.svg"
+  },
+  {
+   "id": "organic83:trojan-horse",
+   "name": "Trojan Horse",
+   "category": "mythology",
+   "summary": "A giant hollow wooden horse hid Greek warriors and was wheeled into Troy as a false gift.",
+   "familyCampaigns": [
+    "mythology"
+   ],
+   "ingredients": [
+    "organic83:trojan-war",
+    "organic83:odysseus"
+   ],
+   "art_mode": "bespoke-subject",
+   "path": "client/assets/v83/trojan-horse.svg"
+  },
+  {
+   "id": "organic83:prometheus",
+   "name": "Prometheus",
+   "category": "mythology",
+   "summary": "The Titan Prometheus stole fire from the gods and carried it to humanity in a fennel stalk.",
+   "familyCampaigns": [
+    "mythology"
+   ],
+   "ingredients": [
+    "legacy:28",
+    "organic82:sacred-hearth"
+   ],
+   "art_mode": "bespoke-subject",
+   "path": "client/assets/v83/prometheus.svg"
+  },
+  {
+   "id": "organic83:pandoras-jar",
+   "name": "Pandora's Jar",
+   "category": "mythology",
+   "summary": "Pandora's great storage jar released every trouble into the world, leaving only hope inside.",
+   "familyCampaigns": [
+    "mythology"
+   ],
+   "ingredients": [
+    "organic83:prometheus",
+    "organic82:zeus"
+   ],
+   "art_mode": "bespoke-subject",
+   "path": "client/assets/v83/pandoras-jar.svg"
+  },
+  {
+   "id": "organic83:atlas-the-sky-bearer",
+   "name": "Atlas the Sky-Bearer",
+   "category": "mythology",
+   "summary": "The Titan Atlas was condemned to hold up the heavens on his shoulders for eternity.",
+   "familyCampaigns": [
+    "mythology"
+   ],
+   "ingredients": [
+    "organic82:cronus",
+    "legacy:65"
+   ],
+   "art_mode": "bespoke-subject",
+   "path": "client/assets/v83/atlas-the-sky-bearer.svg"
+  },
+  {
+   "id": "organic83:hestia",
+   "name": "Hestia",
+   "category": "mythology",
+   "summary": "The gentle Greek goddess of the hearth tends the central flame of every home and temple.",
+   "familyCampaigns": [
+    "mythology"
+   ],
+   "ingredients": [
+    "organic82:sacred-hearth",
+    "organic82:greek-pantheon"
+   ],
+   "art_mode": "bespoke-subject",
+   "path": "client/assets/v83/hestia.svg"
+  },
+  {
+   "id": "organic83:helios",
+   "name": "Helios",
+   "category": "mythology",
+   "summary": "The Titan Helios drives the chariot of the sun across the sky every day.",
+   "familyCampaigns": [
+    "mythology"
+   ],
+   "ingredients": [
+    "organic82:apollo",
+    "legacy:65"
+   ],
+   "art_mode": "bespoke-subject",
+   "path": "client/assets/v83/helios.svg"
+  },
+  {
+   "id": "organic83:eros",
+   "name": "Eros",
+   "category": "mythology",
+   "summary": "The winged Greek god of desire shoots golden arrows that make mortals fall in love.",
+   "familyCampaigns": [
+    "mythology"
+   ],
+   "ingredients": [
+    "organic82:aphrodite",
+    "legacy:28"
+   ],
+   "art_mode": "bespoke-subject",
+   "path": "client/assets/v83/eros.svg"
+  },
+  {
+   "id": "organic83:oracle-of-delphi",
+   "name": "Oracle of Delphi",
+   "category": "mythology",
+   "summary": "The priestess of Apollo at Delphi spoke prophecies while seated above rising sacred vapours.",
+   "familyCampaigns": [
+    "mythology"
+   ],
+   "ingredients": [
+    "organic82:apollo",
+    "pack:psychic"
+   ],
+   "art_mode": "bespoke-subject",
+   "path": "client/assets/v83/oracle-of-delphi.svg"
+  },
+  {
+   "id": "organic83:three-fates",
+   "name": "Three Fates",
+   "category": "mythology",
+   "summary": "The three Greek Moirai spin, measure and cut the thread of every mortal life.",
+   "familyCampaigns": [
+    "mythology"
+   ],
+   "ingredients": [
+    "organic82:greek-pantheon",
+    "legacy:64"
+   ],
+   "art_mode": "bespoke-subject",
+   "path": "client/assets/v83/three-fates.svg"
+  },
+  {
+   "id": "organic83:river-styx",
+   "name": "River Styx",
+   "category": "mythology",
+   "summary": "The dark river Styx marks the boundary between the world of the living and the Greek underworld.",
+   "familyCampaigns": [
+    "mythology"
+   ],
+   "ingredients": [
+    "organic82:greek-underworld",
+    "organic82:poseidon"
+   ],
+   "art_mode": "bespoke-subject",
+   "path": "client/assets/v83/river-styx.svg"
+  },
+  {
+   "id": "organic83:charon",
+   "name": "Charon",
+   "category": "mythology",
+   "summary": "The hooded ferryman Charon poles the souls of the dead across the river Styx for a single coin.",
+   "familyCampaigns": [
+    "mythology"
+   ],
+   "ingredients": [
+    "organic83:river-styx",
+    "legacy:28"
+   ],
+   "art_mode": "bespoke-subject",
+   "path": "client/assets/v83/charon.svg"
+  },
+  {
+   "id": "organic83:elysium",
+   "name": "Elysium",
+   "category": "mythology",
+   "summary": "The Elysian Fields are the sunlit paradise where Greek heroes rest after death.",
+   "familyCampaigns": [
+    "mythology"
+   ],
+   "ingredients": [
+    "organic82:greek-underworld",
+    "legacy:118"
+   ],
+   "art_mode": "bespoke-subject",
+   "path": "client/assets/v83/elysium.svg"
+  },
+  {
+   "id": "organic83:tartarus",
+   "name": "Tartarus",
+   "category": "mythology",
+   "summary": "The deepest abyss beneath the Greek underworld imprisons the defeated Titans behind bronze gates.",
+   "familyCampaigns": [
+    "mythology"
+   ],
+   "ingredients": [
+    "organic82:greek-underworld",
+    "organic82:cronus"
+   ],
+   "art_mode": "bespoke-subject",
+   "path": "client/assets/v83/tartarus.svg"
+  },
+  {
+   "id": "organic83:centaur",
+   "name": "Centaur",
+   "category": "mythology",
+   "summary": "A centaur has the upper body of a human joined to the body and legs of a horse.",
+   "familyCampaigns": [
+    "mythology"
+   ],
+   "ingredients": [
+    "legacy:28",
+    "organic82:pegasus"
+   ],
+   "art_mode": "bespoke-subject",
+   "path": "client/assets/v83/centaur.svg"
+  },
+  {
+   "id": "organic83:siren",
+   "name": "Siren",
+   "category": "mythology",
+   "summary": "The sirens of Greek legend sang so sweetly that passing sailors steered onto the rocks.",
+   "familyCampaigns": [
+    "mythology"
+   ],
+   "ingredients": [
+    "organic83:odysseus",
+    "organic82:aphrodite"
+   ],
+   "art_mode": "bespoke-subject",
+   "path": "client/assets/v83/siren.svg"
+  },
+  {
+   "id": "organic83:argo",
+   "name": "Argo",
+   "category": "mythology",
+   "summary": "The Argo carried Jason and the Argonauts on their quest for the Golden Fleece.",
+   "familyCampaigns": [
+    "mythology"
+   ],
+   "ingredients": [
+    "legacy:118",
+    "organic82:poseidon"
+   ],
+   "art_mode": "bespoke-subject",
+   "path": "client/assets/v83/argo.svg"
+  },
+  {
+   "id": "organic83:ambrosia",
+   "name": "Ambrosia",
+   "category": "mythology",
+   "summary": "Ambrosia is the golden food of the Olympian gods that grants immortality.",
+   "familyCampaigns": [
+    "mythology"
+   ],
+   "ingredients": [
+    "organic82:mount-olympus",
+    "organic82:demeter"
+   ],
+   "art_mode": "bespoke-subject",
+   "path": "client/assets/v83/ambrosia.svg"
+  },
+  {
+   "id": "organic83:cupid",
+   "name": "Cupid",
+   "category": "mythology",
+   "summary": "The Roman god of love is shown as a winged child aiming his golden arrows.",
+   "familyCampaigns": [
+    "mythology"
+   ],
+   "ingredients": [
+    "organic83:eros",
+    "organic82:roman-pantheon"
+   ],
+   "art_mode": "bespoke-subject",
+   "path": "client/assets/v83/cupid.svg"
+  },
+  {
+   "id": "organic83:aeneas",
+   "name": "Aeneas",
+   "category": "mythology",
+   "summary": "The Trojan hero Aeneas escaped burning Troy and became the legendary ancestor of the Romans.",
+   "familyCampaigns": [
+    "mythology"
+   ],
+   "ingredients": [
+    "organic83:trojan-war",
+    "organic82:roman-pantheon"
+   ],
+   "art_mode": "bespoke-subject",
+   "path": "client/assets/v83/aeneas.svg"
+  },
+  {
+   "id": "organic83:romulus-and-remus",
+   "name": "Romulus and Remus",
+   "category": "mythology",
+   "summary": "The twin sons of Mars were raised by a she-wolf and went on to found the city of Rome.",
+   "familyCampaigns": [
+    "mythology"
+   ],
+   "ingredients": [
+    "organic82:mars-the-war-god",
+    "organic41:ancient-city"
+   ],
+   "art_mode": "bespoke-subject",
+   "path": "client/assets/v83/romulus-and-remus.svg"
+  },
+  {
+   "id": "organic83:fortuna",
+   "name": "Fortuna",
+   "category": "mythology",
+   "summary": "The Roman goddess of luck turns a great wheel that raises and lowers mortal fortunes.",
+   "familyCampaigns": [
+    "mythology"
+   ],
+   "ingredients": [
+    "organic83:three-fates",
+    "organic82:roman-pantheon"
+   ],
+   "art_mode": "bespoke-subject",
+   "path": "client/assets/v83/fortuna.svg"
+  },
+  {
+   "id": "organic83:sol-invictus",
+   "name": "Sol Invictus",
+   "category": "mythology",
+   "summary": "The Unconquered Sun was honoured by later Romans with a radiant crown of light.",
+   "familyCampaigns": [
+    "mythology"
+   ],
+   "ingredients": [
+    "organic83:helios",
+    "organic82:roman-pantheon"
+   ],
+   "art_mode": "bespoke-subject",
+   "path": "client/assets/v83/sol-invictus.svg"
+  },
+  {
+   "id": "organic83:proserpina",
+   "name": "Proserpina",
+   "category": "mythology",
+   "summary": "The Roman queen of the underworld returns to the surface each spring, bringing the flowers with her.",
+   "familyCampaigns": [
+    "mythology"
+   ],
+   "ingredients": [
+    "organic82:persephone",
+    "organic82:roman-pantheon"
+   ],
+   "art_mode": "bespoke-subject",
+   "path": "client/assets/v83/proserpina.svg"
+  },
+  {
+   "id": "organic83:lares",
+   "name": "Lares",
+   "category": "mythology",
+   "summary": "The Lares were Roman household guardian spirits honoured at a small shrine in every home.",
+   "familyCampaigns": [
+    "mythology"
+   ],
+   "ingredients": [
+    "organic82:sacred-hearth",
+    "legacy:586"
+   ],
+   "art_mode": "bespoke-subject",
+   "path": "client/assets/v83/lares.svg"
+  },
+  {
+   "id": "organic83:cumaean-sibyl",
+   "name": "Cumaean Sibyl",
+   "category": "mythology",
+   "summary": "The prophetess of Cumae wrote her oracles on leaves inside a cave of a hundred openings.",
+   "familyCampaigns": [
+    "mythology"
+   ],
+   "ingredients": [
+    "organic82:roman-augur",
+    "organic83:oracle-of-delphi"
+   ],
+   "art_mode": "bespoke-subject",
+   "path": "client/assets/v83/cumaean-sibyl.svg"
+  },
+  {
+   "id": "organic83:huginn-and-muninn",
+   "name": "Huginn and Muninn",
+   "category": "mythology",
+   "summary": "Odin's two ravens, Thought and Memory, fly over the world each day and report back to him.",
+   "familyCampaigns": [
+    "mythology"
+   ],
+   "ingredients": [
+    "organic82:odin",
+    "pack:psychic"
+   ],
+   "art_mode": "bespoke-subject",
+   "path": "client/assets/v83/huginn-and-muninn.svg"
+  },
+  {
+   "id": "organic83:mimirs-well",
+   "name": "Mimir's Well",
+   "category": "mythology",
+   "summary": "Mimir's well of wisdom lies beneath a root of Yggdrasil, where Odin traded an eye for a drink.",
+   "familyCampaigns": [
+    "mythology"
+   ],
+   "ingredients": [
+    "organic82:odin",
+    "organic82:ancient-wisdom"
+   ],
+   "art_mode": "bespoke-subject",
+   "path": "client/assets/v83/mimirs-well.svg"
+  },
+  {
+   "id": "organic83:norns",
+   "name": "Norns",
+   "category": "mythology",
+   "summary": "The three Norns weave the destinies of gods and humans at the well beneath the world tree.",
+   "familyCampaigns": [
+    "mythology"
+   ],
+   "ingredients": [
+    "organic82:yggdrasil",
+    "organic83:three-fates"
+   ],
+   "art_mode": "bespoke-subject",
+   "path": "client/assets/v83/norns.svg"
+  },
+  {
+   "id": "organic83:nidhogg",
+   "name": "Nidhogg",
+   "category": "mythology",
+   "summary": "The dragon Nidhogg gnaws at the deepest roots of the world tree Yggdrasil.",
+   "familyCampaigns": [
+    "mythology"
+   ],
+   "ingredients": [
+    "organic82:yggdrasil",
+    "organic82:jormungandr"
+   ],
+   "art_mode": "bespoke-subject",
+   "path": "client/assets/v83/nidhogg.svg"
+  },
+  {
+   "id": "organic83:muspelheim",
+   "name": "Muspelheim",
+   "category": "mythology",
+   "summary": "Muspelheim is the blazing Norse realm of fire, home of the fire giants.",
+   "familyCampaigns": [
+    "mythology"
+   ],
+   "ingredients": [
+    "organic82:nine-realms",
+    "organic82:sacred-hearth"
+   ],
+   "art_mode": "bespoke-subject",
+   "path": "client/assets/v83/muspelheim.svg"
+  },
+  {
+   "id": "organic83:surtr",
+   "name": "Surtr",
+   "category": "mythology",
+   "summary": "The fire giant Surtr guards Muspelheim with a flaming sword destined to set the world ablaze.",
+   "familyCampaigns": [
+    "mythology"
+   ],
+   "ingredients": [
+    "organic83:muspelheim",
+    "organic82:frost-giant"
+   ],
+   "art_mode": "bespoke-subject",
+   "path": "client/assets/v83/surtr.svg"
+  },
+  {
+   "id": "organic83:svartalfheim",
+   "name": "Svartalfheim",
+   "category": "mythology",
+   "summary": "Svartalfheim is the underground Norse realm of master smiths who forged the treasures of the gods.",
+   "familyCampaigns": [
+    "mythology"
+   ],
+   "ingredients": [
+    "organic82:nine-realms",
+    "organic82:hephaestus"
+   ],
+   "art_mode": "bespoke-subject",
+   "path": "client/assets/v83/svartalfheim.svg"
+  },
+  {
+   "id": "organic83:draupnir",
+   "name": "Draupnir",
+   "category": "mythology",
+   "summary": "Odin's golden ring Draupnir drips eight new rings of equal weight every ninth night.",
+   "familyCampaigns": [
+    "mythology"
+   ],
+   "ingredients": [
+    "organic83:svartalfheim",
+    "organic82:odin"
+   ],
+   "art_mode": "bespoke-subject",
+   "path": "client/assets/v83/draupnir.svg"
+  },
+  {
+   "id": "organic83:brisingamen",
+   "name": "Brisingamen",
+   "category": "mythology",
+   "summary": "The radiant necklace Brisingamen was forged by dwarven smiths for the goddess Freyja.",
+   "familyCampaigns": [
+    "mythology"
+   ],
+   "ingredients": [
+    "organic83:svartalfheim",
+    "organic82:freyja"
+   ],
+   "art_mode": "bespoke-subject",
+   "path": "client/assets/v83/brisingamen.svg"
+  },
+  {
+   "id": "organic83:njord",
+   "name": "Njord",
+   "category": "mythology",
+   "summary": "The Norse god of the sea, wind and fishing is the father of Freyr and Freyja.",
+   "familyCampaigns": [
+    "mythology"
+   ],
+   "ingredients": [
+    "organic82:freyja",
+    "organic82:freyr"
+   ],
+   "art_mode": "bespoke-subject",
+   "path": "client/assets/v83/njord.svg"
+  },
+  {
+   "id": "organic83:apples-of-idunn",
+   "name": "Apples of Idunn",
+   "category": "mythology",
+   "summary": "The golden apples kept by the goddess Idunn keep the Norse gods eternally young.",
+   "familyCampaigns": [
+    "mythology"
+   ],
+   "ingredients": [
+    "organic82:asgard",
+    "organic83:ambrosia"
+   ],
+   "art_mode": "bespoke-subject",
+   "path": "client/assets/v83/apples-of-idunn.svg"
+  },
+  {
+   "id": "organic83:gjallarhorn",
+   "name": "Gjallarhorn",
+   "category": "mythology",
+   "summary": "Heimdall's great horn Gjallarhorn will sound across all realms to announce Ragnarok.",
+   "familyCampaigns": [
+    "mythology"
+   ],
+   "ingredients": [
+    "organic82:heimdall",
+    "organic82:ragnarok"
+   ],
+   "art_mode": "bespoke-subject",
+   "path": "client/assets/v83/gjallarhorn.svg"
+  },
+  {
+   "id": "organic83:einherjar",
+   "name": "Einherjar",
+   "category": "mythology",
+   "summary": "The Einherjar are the chosen fallen warriors who feast and train in Valhalla until Ragnarok.",
+   "familyCampaigns": [
+    "mythology"
+   ],
+   "ingredients": [
+    "organic82:valhalla",
+    "legacy:118"
+   ],
+   "art_mode": "bespoke-subject",
+   "path": "client/assets/v83/einherjar.svg"
+  },
+  {
+   "id": "organic83:ymir-the-first-giant",
+   "name": "Ymir the First Giant",
+   "category": "mythology",
+   "summary": "The primordial giant Ymir was born where the ice of Niflheim met the fire of Muspelheim.",
+   "familyCampaigns": [
+    "mythology"
+   ],
+   "ingredients": [
+    "organic82:niflheim",
+    "organic83:muspelheim"
+   ],
+   "art_mode": "bespoke-subject",
+   "path": "client/assets/v83/ymir-the-first-giant.svg"
+  },
+  {
+   "id": "organic83:sigurd",
+   "name": "Sigurd",
+   "category": "mythology",
+   "summary": "The Norse hero Sigurd slew the dragon Fafnir with a reforged sword.",
+   "familyCampaigns": [
+    "mythology"
+   ],
+   "ingredients": [
+    "legacy:118",
+    "organic82:norse-mythology"
+   ],
+   "art_mode": "bespoke-subject",
+   "path": "client/assets/v83/sigurd.svg"
+  },
+  {
+   "id": "organic83:fafnir",
+   "name": "Fafnir",
+   "category": "mythology",
+   "summary": "Fafnir was transformed by greed into a great dragon guarding a hoard of cursed gold.",
+   "familyCampaigns": [
+    "mythology"
+   ],
+   "ingredients": [
+    "organic83:sigurd",
+    "organic83:mythical-beast"
+   ],
+   "art_mode": "bespoke-subject",
+   "path": "client/assets/v83/fafnir.svg"
+  },
+  {
+   "id": "organic83:ankh",
+   "name": "Ankh",
+   "category": "mythology",
+   "summary": "The ankh is the ancient Egyptian hieroglyph for life, carried by gods as a sacred symbol.",
+   "familyCampaigns": [
+    "mythology"
+   ],
+   "ingredients": [
+    "organic82:ancient-egypt",
+    "legacy:125"
+   ],
+   "art_mode": "bespoke-subject",
+   "path": "client/assets/v83/ankh.svg"
+  },
+  {
+   "id": "organic83:khepri",
+   "name": "Khepri",
+   "category": "mythology",
+   "summary": "The scarab god Khepri rolls the morning sun into the sky each dawn.",
+   "familyCampaigns": [
+    "mythology"
+   ],
+   "ingredients": [
+    "organic82:ra",
+    "pack:transformation"
+   ],
+   "art_mode": "bespoke-subject",
+   "path": "client/assets/v83/khepri.svg"
+  },
+  {
+   "id": "organic83:bennu",
+   "name": "Bennu",
+   "category": "mythology",
+   "summary": "The Bennu is the sacred Egyptian heron of creation and renewal, linked to the sun.",
+   "familyCampaigns": [
+    "mythology"
+   ],
+   "ingredients": [
+    "organic83:phoenix",
+    "organic82:egyptian-mythology"
+   ],
+   "art_mode": "bespoke-subject",
+   "path": "client/assets/v83/bennu.svg"
+  },
+  {
+   "id": "organic83:sphinx",
+   "name": "Sphinx",
+   "category": "mythology",
+   "summary": "The sphinx joins a lion's body with a human head as a guardian of Egyptian temples and tombs.",
+   "familyCampaigns": [
+    "mythology"
+   ],
+   "ingredients": [
+    "organic82:ancient-egypt",
+    "organic83:mythical-beast"
+   ],
+   "art_mode": "bespoke-subject",
+   "path": "client/assets/v83/sphinx.svg"
+  },
+  {
+   "id": "organic83:book-of-the-dead",
+   "name": "Book of the Dead",
+   "category": "mythology",
+   "summary": "The Egyptian Book of the Dead is a papyrus scroll of spells guiding the deceased through the afterlife.",
+   "familyCampaigns": [
+    "mythology"
+   ],
+   "ingredients": [
+    "organic82:thoth",
+    "organic82:osiris"
+   ],
+   "art_mode": "bespoke-subject",
+   "path": "client/assets/v83/book-of-the-dead.svg"
+  },
+  {
+   "id": "organic83:maat",
+   "name": "Ma'at",
+   "category": "mythology",
+   "summary": "The Egyptian goddess Ma'at embodies truth, balance and cosmic order, marked by a single ostrich feather.",
+   "familyCampaigns": [
+    "mythology"
+   ],
+   "ingredients": [
+    "organic82:egyptian-pantheon",
+    "legacy:48"
+   ],
+   "art_mode": "bespoke-subject",
+   "path": "client/assets/v83/maat.svg"
+  },
+  {
+   "id": "organic83:weighing-of-the-heart",
+   "name": "Weighing of the Heart",
+   "category": "mythology",
+   "summary": "In the Egyptian afterlife a heart is weighed against the feather of Ma'at to judge a life.",
+   "familyCampaigns": [
+    "mythology"
+   ],
+   "ingredients": [
+    "organic82:anubis",
+    "organic83:maat"
+   ],
+   "art_mode": "bespoke-subject",
+   "path": "client/assets/v83/weighing-of-the-heart.svg"
+  },
+  {
+   "id": "organic83:duat",
+   "name": "Duat",
+   "category": "mythology",
+   "summary": "The Duat is the Egyptian underworld traversed each night by the sun and by the souls of the dead.",
+   "familyCampaigns": [
+    "mythology"
+   ],
+   "ingredients": [
+    "organic82:ancient-egypt",
+    "organic82:greek-underworld"
+   ],
+   "art_mode": "bespoke-subject",
+   "path": "client/assets/v83/duat.svg"
+  },
+  {
+   "id": "organic83:solar-barque",
+   "name": "Solar Barque",
+   "category": "mythology",
+   "summary": "Ra's sacred boat carries the sun through the sky by day and the Duat by night.",
+   "familyCampaigns": [
+    "mythology"
+   ],
+   "ingredients": [
+    "organic82:ra",
+    "organic83:duat"
+   ],
+   "art_mode": "bespoke-subject",
+   "path": "client/assets/v83/solar-barque.svg"
+  },
+  {
+   "id": "organic83:nut-the-sky-goddess",
+   "name": "Nut the Sky Goddess",
+   "category": "mythology",
+   "summary": "The Egyptian sky goddess Nut arches her star-covered body over the earth.",
+   "familyCampaigns": [
+    "mythology"
+   ],
+   "ingredients": [
+    "organic82:egyptian-pantheon",
+    "legacy:65"
+   ],
+   "art_mode": "bespoke-subject",
+   "path": "client/assets/v83/nut-the-sky-goddess.svg"
+  },
+  {
+   "id": "organic83:geb",
+   "name": "Geb",
+   "category": "mythology",
+   "summary": "Geb is the Egyptian god of the earth, often shown reclining green beneath the sky.",
+   "familyCampaigns": [
+    "mythology"
+   ],
+   "ingredients": [
+    "organic82:egyptian-pantheon",
+    "organic82:gaia"
+   ],
+   "art_mode": "bespoke-subject",
+   "path": "client/assets/v83/geb.svg"
+  },
+  {
+   "id": "organic83:canopic-jars",
+   "name": "Canopic Jars",
+   "category": "mythology",
+   "summary": "Four canopic jars with animal and human-headed lids preserved organs during mummification.",
+   "familyCampaigns": [
+    "mythology"
+   ],
+   "ingredients": [
+    "organic82:anubis",
+    "organic82:ancient-egypt"
+   ],
+   "art_mode": "bespoke-subject",
+   "path": "client/assets/v83/canopic-jars.svg"
+  },
+  {
+   "id": "organic83:cuneiform-tablet",
+   "name": "Cuneiform Tablet",
+   "category": "mythology",
+   "summary": "Clay tablets pressed with wedge-shaped cuneiform signs preserve the earliest written stories of Mesopotamia.",
+   "familyCampaigns": [
+    "mythology"
+   ],
+   "ingredients": [
+    "organic41:ancient-city",
+    "legacy:64"
+   ],
+   "art_mode": "bespoke-subject",
+   "path": "client/assets/v83/cuneiform-tablet.svg"
+  },
+  {
+   "id": "organic83:mesopotamian-mythology",
+   "name": "Mesopotamian Mythology",
+   "category": "mythology",
+   "summary": "The myths of Sumer, Akkad and Babylon tell of creation, floods and the first heroes between two rivers.",
+   "familyCampaigns": [
+    "mythology"
+   ],
+   "ingredients": [
+    "organic82:mythology",
+    "organic83:cuneiform-tablet"
+   ],
+   "art_mode": "bespoke-subject",
+   "path": "client/assets/v83/mesopotamian-mythology.svg"
+  },
+  {
+   "id": "organic83:ziggurat",
+   "name": "Ziggurat",
+   "category": "mythology",
+   "summary": "A ziggurat is a massive stepped temple tower of mud brick built to bring the gods closer to earth.",
+   "familyCampaigns": [
+    "mythology"
+   ],
+   "ingredients": [
+    "organic83:mesopotamian-mythology",
+    "organic41:ancient-city"
+   ],
+   "art_mode": "bespoke-subject",
+   "path": "client/assets/v83/ziggurat.svg"
+  },
+  {
+   "id": "organic83:anunnaki",
+   "name": "Anunnaki",
+   "category": "mythology",
+   "summary": "The Anunnaki are the great assembly of Mesopotamian gods who decree the fates of the land.",
+   "familyCampaigns": [
+    "mythology"
+   ],
+   "ingredients": [
+    "organic83:mesopotamian-mythology",
+    "pack:god"
+   ],
+   "art_mode": "bespoke-subject",
+   "path": "client/assets/v83/anunnaki.svg"
+  },
+  {
+   "id": "organic83:anu",
+   "name": "Anu",
+   "category": "mythology",
+   "summary": "Anu is the ancient Mesopotamian god of the heavens and father of many gods.",
+   "familyCampaigns": [
+    "mythology"
+   ],
+   "ingredients": [
+    "organic83:anunnaki",
+    "legacy:65"
+   ],
+   "art_mode": "bespoke-subject",
+   "path": "client/assets/v83/anu.svg"
+  },
+  {
+   "id": "organic83:enki",
+   "name": "Enki",
+   "category": "mythology",
+   "summary": "Enki, god of wisdom and fresh water, is shown with streams of water and fish flowing from his shoulders.",
+   "familyCampaigns": [
+    "mythology"
+   ],
+   "ingredients": [
+    "organic83:anunnaki",
+    "organic82:ancient-wisdom"
+   ],
+   "art_mode": "bespoke-subject",
+   "path": "client/assets/v83/enki.svg"
+  },
+  {
+   "id": "organic83:inanna",
+   "name": "Inanna",
+   "category": "mythology",
+   "summary": "Inanna, queen of heaven, is the Mesopotamian goddess of love, war and the morning star.",
+   "familyCampaigns": [
+    "mythology"
+   ],
+   "ingredients": [
+    "organic83:anunnaki",
+    "organic82:aphrodite"
+   ],
+   "art_mode": "bespoke-subject",
+   "path": "client/assets/v83/inanna.svg"
+  },
+  {
+   "id": "organic83:ereshkigal",
+   "name": "Ereshkigal",
+   "category": "mythology",
+   "summary": "Ereshkigal rules the Mesopotamian underworld, the land of no return.",
+   "familyCampaigns": [
+    "mythology"
+   ],
+   "ingredients": [
+    "organic83:anunnaki",
+    "organic82:greek-underworld"
+   ],
+   "art_mode": "bespoke-subject",
+   "path": "client/assets/v83/ereshkigal.svg"
+  },
+  {
+   "id": "organic83:babylon",
+   "name": "Babylon",
+   "category": "mythology",
+   "summary": "Babylon was the great Mesopotamian city famed for its glazed gates and towering temple.",
+   "familyCampaigns": [
+    "mythology"
+   ],
+   "ingredients": [
+    "organic83:ziggurat",
+    "legacy:47"
+   ],
+   "art_mode": "bespoke-subject",
+   "path": "client/assets/v83/babylon.svg"
+  },
+  {
+   "id": "organic83:marduk",
+   "name": "Marduk",
+   "category": "mythology",
+   "summary": "Marduk is the patron god of Babylon who defeated the chaos dragon Tiamat.",
+   "familyCampaigns": [
+    "mythology"
+   ],
+   "ingredients": [
+    "organic83:babylon",
+    "pack:god"
+   ],
+   "art_mode": "bespoke-subject",
+   "path": "client/assets/v83/marduk.svg"
+  },
+  {
+   "id": "organic83:tiamat",
+   "name": "Tiamat",
+   "category": "mythology",
+   "summary": "Tiamat is the primordial goddess of the salt sea, imagined as a vast chaos serpent.",
+   "familyCampaigns": [
+    "mythology"
+   ],
+   "ingredients": [
+    "organic83:mesopotamian-mythology",
+    "organic83:mythical-beast"
+   ],
+   "art_mode": "bespoke-subject",
+   "path": "client/assets/v83/tiamat.svg"
+  },
+  {
+   "id": "organic83:lamassu",
+   "name": "Lamassu",
+   "category": "mythology",
+   "summary": "The lamassu is a winged bull with a human head that guarded Assyrian palace gates.",
+   "familyCampaigns": [
+    "mythology"
+   ],
+   "ingredients": [
+    "organic83:babylon",
+    "organic83:mythical-beast"
+   ],
+   "art_mode": "bespoke-subject",
+   "path": "client/assets/v83/lamassu.svg"
+  },
+  {
+   "id": "organic83:gilgamesh",
+   "name": "Gilgamesh",
+   "category": "mythology",
+   "summary": "Gilgamesh is the legendary king of Uruk whose quest for immortality became the oldest great epic.",
+   "familyCampaigns": [
+    "mythology"
+   ],
+   "ingredients": [
+    "legacy:118",
+    "organic83:mesopotamian-mythology"
+   ],
+   "art_mode": "bespoke-subject",
+   "path": "client/assets/v83/gilgamesh.svg"
+  },
+  {
+   "id": "organic83:humbaba",
+   "name": "Humbaba",
+   "category": "mythology",
+   "summary": "Humbaba is the monstrous guardian of the Cedar Forest slain by Gilgamesh and Enkidu.",
+   "familyCampaigns": [
+    "mythology"
+   ],
+   "ingredients": [
+    "organic83:gilgamesh",
+    "organic83:mythical-beast"
+   ],
+   "art_mode": "bespoke-subject",
+   "path": "client/assets/v83/humbaba.svg"
+  },
+  {
+   "id": "organic83:epic-of-gilgamesh",
+   "name": "Epic of Gilgamesh",
+   "category": "mythology",
+   "summary": "The Epic of Gilgamesh is one of the oldest surviving works of literature, written on clay tablets.",
+   "familyCampaigns": [
+    "mythology"
+   ],
+   "ingredients": [
+    "organic83:gilgamesh",
+    "organic83:cuneiform-tablet"
+   ],
+   "art_mode": "bespoke-subject",
+   "path": "client/assets/v83/epic-of-gilgamesh.svg"
+  },
+  {
+   "id": "organic83:tablet-of-destinies",
+   "name": "Tablet of Destinies",
+   "category": "mythology",
+   "summary": "The Tablet of Destinies grants whoever holds it supreme authority over the fate of the universe.",
+   "familyCampaigns": [
+    "mythology"
+   ],
+   "ingredients": [
+    "organic83:cuneiform-tablet",
+    "organic83:three-fates"
+   ],
+   "art_mode": "bespoke-subject",
+   "path": "client/assets/v83/tablet-of-destinies.svg"
+  },
+  {
+   "id": "organic83:druid",
+   "name": "Druid",
+   "category": "mythology",
+   "summary": "Druids were the learned priests, judges and keepers of lore among the ancient Celtic peoples.",
+   "familyCampaigns": [
+    "mythology"
+   ],
+   "ingredients": [
+    "legacy:586",
+    "organic82:ancient-wisdom"
+   ],
+   "art_mode": "bespoke-subject",
+   "path": "client/assets/v83/druid.svg"
+  },
+  {
+   "id": "organic83:celtic-mythology",
+   "name": "Celtic Mythology",
+   "category": "mythology",
+   "summary": "The myths of the Irish, Welsh and Gaulish Celts are filled with otherworlds, heroes and shape-shifting gods.",
+   "familyCampaigns": [
+    "mythology"
+   ],
+   "ingredients": [
+    "organic83:druid",
+    "organic82:mythology"
+   ],
+   "art_mode": "bespoke-subject",
+   "path": "client/assets/v83/celtic-mythology.svg"
+  },
+  {
+   "id": "organic83:tuatha-de-danann",
+   "name": "Tuatha De Danann",
+   "category": "mythology",
+   "summary": "The Tuatha De Danann are the divine race of Irish myth who arrived in Ireland wrapped in mist.",
+   "familyCampaigns": [
+    "mythology"
+   ],
+   "ingredients": [
+    "organic83:celtic-mythology",
+    "pack:god"
+   ],
+   "art_mode": "bespoke-subject",
+   "path": "client/assets/v83/tuatha-de-danann.svg"
+  },
+  {
+   "id": "organic83:the-dagda",
+   "name": "The Dagda",
+   "category": "mythology",
+   "summary": "The Dagda is the great father god of Irish myth, master of a club, a harp and a cauldron.",
+   "familyCampaigns": [
+    "mythology"
+   ],
+   "ingredients": [
+    "organic83:tuatha-de-danann",
+    "pack:leader"
+   ],
+   "art_mode": "bespoke-subject",
+   "path": "client/assets/v83/the-dagda.svg"
+  },
+  {
+   "id": "organic83:cauldron-of-the-dagda",
+   "name": "Cauldron of the Dagda",
+   "category": "mythology",
+   "summary": "The Dagda's cauldron of plenty never empties and leaves no one hungry.",
+   "familyCampaigns": [
+    "mythology"
+   ],
+   "ingredients": [
+    "organic83:the-dagda",
+    "organic83:ambrosia"
+   ],
+   "art_mode": "bespoke-subject",
+   "path": "client/assets/v83/cauldron-of-the-dagda.svg"
+  },
+  {
+   "id": "organic83:lugh",
+   "name": "Lugh",
+   "category": "mythology",
+   "summary": "Lugh is the radiant Irish god skilled in every art and wielder of an unstoppable spear.",
+   "familyCampaigns": [
+    "mythology"
+   ],
+   "ingredients": [
+    "organic83:tuatha-de-danann",
+    "legacy:118"
+   ],
+   "art_mode": "bespoke-subject",
+   "path": "client/assets/v83/lugh.svg"
+  },
+  {
+   "id": "organic83:brigid",
+   "name": "Brigid",
+   "category": "mythology",
+   "summary": "Brigid is the Irish goddess of poetry, healing and the smith's fire.",
+   "familyCampaigns": [
+    "mythology"
+   ],
+   "ingredients": [
+    "organic83:tuatha-de-danann",
+    "organic82:sacred-hearth"
+   ],
+   "art_mode": "bespoke-subject",
+   "path": "client/assets/v83/brigid.svg"
+  },
+  {
+   "id": "organic83:morrigan",
+   "name": "Morrigan",
+   "category": "mythology",
+   "summary": "The Morrigan is the Irish goddess of fate and battle who appears as a crow over the field.",
+   "familyCampaigns": [
+    "mythology"
+   ],
+   "ingredients": [
+    "organic83:tuatha-de-danann",
+    "organic82:valkyrie"
+   ],
+   "art_mode": "bespoke-subject",
+   "path": "client/assets/v83/morrigan.svg"
+  },
+  {
+   "id": "organic83:cernunnos",
+   "name": "Cernunnos",
+   "category": "mythology",
+   "summary": "Cernunnos is the antlered Celtic god of wild animals, forests and abundance.",
+   "familyCampaigns": [
+    "mythology"
+   ],
+   "ingredients": [
+    "organic83:celtic-mythology",
+    "organic83:mythical-beast"
+   ],
+   "art_mode": "bespoke-subject",
+   "path": "client/assets/v83/cernunnos.svg"
+  },
+  {
+   "id": "organic83:sidhe-mound",
+   "name": "Sidhe Mound",
+   "category": "mythology",
+   "summary": "The sidhe mounds are grassy hills where the Tuatha De Danann withdrew into hidden halls.",
+   "familyCampaigns": [
+    "mythology"
+   ],
+   "ingredients": [
+    "organic83:tuatha-de-danann",
+    "organic41:ancient-city"
+   ],
+   "art_mode": "bespoke-subject",
+   "path": "client/assets/v83/sidhe-mound.svg"
+  },
+  {
+   "id": "organic83:banshee",
+   "name": "Banshee",
+   "category": "mythology",
+   "summary": "The banshee is a spirit woman of the sidhe whose keening wail foretells a death in the family.",
+   "familyCampaigns": [
+    "mythology"
+   ],
+   "ingredients": [
+    "organic83:sidhe-mound",
+    "legacy:28"
+   ],
+   "art_mode": "bespoke-subject",
+   "path": "client/assets/v83/banshee.svg"
+  },
+  {
+   "id": "organic83:tir-na-nog",
+   "name": "Tir na nOg",
+   "category": "mythology",
+   "summary": "Tir na nOg is the Irish otherworld land of eternal youth across the western sea.",
+   "familyCampaigns": [
+    "mythology"
+   ],
+   "ingredients": [
+    "organic83:celtic-mythology",
+    "organic83:elysium"
+   ],
+   "art_mode": "bespoke-subject",
+   "path": "client/assets/v83/tir-na-nog.svg"
+  },
+  {
+   "id": "organic83:selkie",
+   "name": "Selkie",
+   "category": "mythology",
+   "summary": "Selkies are seal-folk of Celtic and Norse coastal legend who shed their skins to walk on land.",
+   "familyCampaigns": [
+    "mythology"
+   ],
+   "ingredients": [
+    "organic83:celtic-mythology",
+    "pack:shapeshifter"
+   ],
+   "art_mode": "bespoke-subject",
+   "path": "client/assets/v83/selkie.svg"
+  },
+  {
+   "id": "organic83:cu-chulainn",
+   "name": "Cu Chulainn",
+   "category": "mythology",
+   "summary": "Cu Chulainn is the great hero of Ulster, son of the god Lugh, who held a ford alone against an army.",
+   "familyCampaigns": [
+    "mythology"
+   ],
+   "ingredients": [
+    "organic83:lugh",
+    "legacy:118"
+   ],
+   "art_mode": "bespoke-subject",
+   "path": "client/assets/v83/cu-chulainn.svg"
+  },
+  {
+   "id": "organic83:salmon-of-knowledge",
+   "name": "Salmon of Knowledge",
+   "category": "mythology",
+   "summary": "The Salmon of Knowledge grants all the world's wisdom to the first person who tastes it.",
+   "familyCampaigns": [
+    "mythology"
+   ],
+   "ingredients": [
+    "organic83:celtic-mythology",
+    "organic82:ancient-wisdom"
+   ],
+   "art_mode": "bespoke-subject",
+   "path": "client/assets/v83/salmon-of-knowledge.svg"
+  },
+  {
+   "id": "organic83:ogham-stone",
+   "name": "Ogham Stone",
+   "category": "mythology",
+   "summary": "Ogham stones carry the notched alphabet of early Ireland cut along their edges.",
+   "familyCampaigns": [
+    "mythology"
+   ],
+   "ingredients": [
+    "organic83:druid",
+    "organic82:runestone"
+   ],
+   "art_mode": "bespoke-subject",
+   "path": "client/assets/v83/ogham-stone.svg"
+  },
+  {
+   "id": "organic83:precambrian-eon",
+   "name": "Precambrian Eon",
+   "category": "prehistoric",
+   "summary": "The Precambrian covers nearly nine-tenths of Earth's history, from its formation to the first complex animals.",
+   "familyCampaigns": [
+    "prehistoric"
+   ],
+   "ingredients": [
+    "organic82:geological-timeline",
+    "legacy:21"
+   ],
+   "art_mode": "bespoke-subject",
+   "path": "client/assets/v83/precambrian-eon.svg"
+  },
+  {
+   "id": "organic83:stromatolite",
+   "name": "Stromatolite",
+   "category": "prehistoric",
+   "summary": "Stromatolites are layered rock mounds built by microbial mats, among the oldest evidence of life.",
+   "familyCampaigns": [
+    "prehistoric"
+   ],
+   "ingredients": [
+    "organic83:precambrian-eon",
+    "organic42:limestone"
+   ],
+   "art_mode": "bespoke-subject",
+   "path": "client/assets/v83/stromatolite.svg"
+  },
+  {
+   "id": "organic83:dickinsonia",
+   "name": "Dickinsonia",
+   "category": "prehistoric",
+   "summary": "Dickinsonia is a flat, ribbed Ediacaran organism and one of the earliest known animals.",
+   "familyCampaigns": [
+    "prehistoric"
+   ],
+   "ingredients": [
+    "organic83:precambrian-eon",
+    "legacy:26"
+   ],
+   "art_mode": "bespoke-subject",
+   "path": "client/assets/v83/dickinsonia.svg"
+  },
+  {
+   "id": "organic83:snowball-earth",
+   "name": "Snowball Earth",
+   "category": "prehistoric",
+   "summary": "During Snowball Earth episodes, ice sheets may have covered almost the entire planet.",
+   "familyCampaigns": [
+    "prehistoric"
+   ],
+   "ingredients": [
+    "organic83:precambrian-eon",
+    "organic82:ice-age"
+   ],
+   "art_mode": "bespoke-subject",
+   "path": "client/assets/v83/snowball-earth.svg"
+  },
+  {
+   "id": "organic83:ordovician-period",
+   "name": "Ordovician Period",
+   "category": "prehistoric",
+   "summary": "The Ordovician seas filled with reefs, giant nautiloids and early jawless fish.",
+   "familyCampaigns": [
+    "prehistoric"
+   ],
+   "ingredients": [
+    "organic82:geological-timeline",
+    "organic82:cambrian-period"
+   ],
+   "art_mode": "bespoke-subject",
+   "path": "client/assets/v83/ordovician-period.svg"
+  },
+  {
+   "id": "organic83:silurian-period",
+   "name": "Silurian Period",
+   "category": "prehistoric",
+   "summary": "In the Silurian, the first small plants colonised the land while sea scorpions ruled the reefs.",
+   "familyCampaigns": [
+    "prehistoric"
+   ],
+   "ingredients": [
+    "organic82:geological-timeline",
+    "organic83:ordovician-period"
+   ],
+   "art_mode": "bespoke-subject",
+   "path": "client/assets/v83/silurian-period.svg"
+  },
+  {
+   "id": "organic83:devonian-period",
+   "name": "Devonian Period",
+   "category": "prehistoric",
+   "summary": "The Devonian is the Age of Fishes, when armoured fish thrived and the first forests appeared.",
+   "familyCampaigns": [
+    "prehistoric"
+   ],
+   "ingredients": [
+    "organic82:geological-timeline",
+    "organic83:silurian-period"
+   ],
+   "art_mode": "bespoke-subject",
+   "path": "client/assets/v83/devonian-period.svg"
+  },
+  {
+   "id": "organic83:permian-period",
+   "name": "Permian Period",
+   "category": "prehistoric",
+   "summary": "The Permian saw dry inland deserts on a single supercontinent and sail-backed synapsids.",
+   "familyCampaigns": [
+    "prehistoric"
+   ],
+   "ingredients": [
+    "organic82:geological-timeline",
+    "organic82:carboniferous-period"
+   ],
+   "art_mode": "bespoke-subject",
+   "path": "client/assets/v83/permian-period.svg"
+  },
+  {
+   "id": "organic83:pangaea",
+   "name": "Pangaea",
+   "category": "prehistoric",
+   "summary": "Pangaea was the supercontinent that joined almost all of Earth's land into one mass.",
+   "familyCampaigns": [
+    "prehistoric"
+   ],
+   "ingredients": [
+    "organic83:permian-period",
+    "organic82:triassic-period"
+   ],
+   "art_mode": "bespoke-subject",
+   "path": "client/assets/v83/pangaea.svg"
+  },
+  {
+   "id": "organic83:gondwana",
+   "name": "Gondwana",
+   "category": "prehistoric",
+   "summary": "Gondwana was the southern supercontinent that split away from Pangaea and later broke into the southern continents.",
+   "familyCampaigns": [
+    "prehistoric"
+   ],
+   "ingredients": [
+    "organic83:pangaea",
+    "organic82:jurassic-period"
+   ],
+   "art_mode": "bespoke-subject",
+   "path": "client/assets/v83/gondwana.svg"
+  },
+  {
+   "id": "organic83:chicxulub-impact",
+   "name": "Chicxulub Impact",
+   "category": "prehistoric",
+   "summary": "A huge asteroid struck the Yucatan region 66 million years ago, ending the Cretaceous.",
+   "familyCampaigns": [
+    "prehistoric"
+   ],
+   "ingredients": [
+    "organic82:late-cretaceous",
+    "legacy:14"
+   ],
+   "art_mode": "bespoke-subject",
+   "path": "client/assets/v83/chicxulub-impact.svg"
+  },
+  {
+   "id": "organic83:mass-extinction",
+   "name": "Mass Extinction",
+   "category": "prehistoric",
+   "summary": "A mass extinction wipes out a large share of Earth's species in a geologically short time.",
+   "familyCampaigns": [
+    "prehistoric"
+   ],
+   "ingredients": [
+    "legacy:575",
+    "organic83:chicxulub-impact"
+   ],
+   "art_mode": "bespoke-subject",
+   "path": "client/assets/v83/mass-extinction.svg"
+  },
+  {
+   "id": "organic83:great-dying",
+   "name": "Great Dying",
+   "category": "prehistoric",
+   "summary": "The end-Permian Great Dying was the worst extinction in Earth's history, erasing most marine species.",
+   "familyCampaigns": [
+    "prehistoric"
+   ],
+   "ingredients": [
+    "organic83:mass-extinction",
+    "organic83:permian-period"
+   ],
+   "art_mode": "bespoke-subject",
+   "path": "client/assets/v83/great-dying.svg"
+  },
+  {
+   "id": "organic83:paleogene-period",
+   "name": "Paleogene Period",
+   "category": "prehistoric",
+   "summary": "The Paleogene followed the dinosaurs' extinction, as mammals and birds rapidly diversified.",
+   "familyCampaigns": [
+    "prehistoric"
+   ],
+   "ingredients": [
+    "organic82:cenozoic-era",
+    "organic83:chicxulub-impact"
+   ],
+   "art_mode": "bespoke-subject",
+   "path": "client/assets/v83/paleogene-period.svg"
+  },
+  {
+   "id": "organic83:index-fossil",
+   "name": "Index Fossil",
+   "category": "prehistoric",
+   "summary": "Index fossils such as trilobites lived for a short, well-known time span and are used to date the rock layers they are found in.",
+   "familyCampaigns": [
+    "prehistoric"
+   ],
+   "ingredients": [
+    "organic82:geological-timeline",
+    "organic82:trilobite"
+   ],
+   "art_mode": "bespoke-subject",
+   "path": "client/assets/v83/index-fossil.svg"
+  },
+  {
+   "id": "organic83:burgess-shale",
+   "name": "Burgess Shale",
+   "category": "prehistoric",
+   "summary": "The Burgess Shale is a famous Cambrian fossil bed that preserves even soft-bodied animals.",
+   "familyCampaigns": [
+    "prehistoric"
+   ],
+   "ingredients": [
+    "organic82:cambrian-period",
+    "legacy:41"
+   ],
+   "art_mode": "bespoke-subject",
+   "path": "client/assets/v83/burgess-shale.svg"
+  },
+  {
+   "id": "organic83:hallucigenia",
+   "name": "Hallucigenia",
+   "category": "prehistoric",
+   "summary": "Hallucigenia was a tiny Cambrian worm-like animal with paired spines on its back and slender legs below.",
+   "familyCampaigns": [
+    "prehistoric"
+   ],
+   "ingredients": [
+    "organic83:burgess-shale",
+    "organic82:dinosaur-armor"
+   ],
+   "art_mode": "bespoke-subject",
+   "path": "client/assets/v83/hallucigenia.svg"
+  },
+  {
+   "id": "organic83:opabinia",
+   "name": "Opabinia",
+   "category": "prehistoric",
+   "summary": "Opabinia had five stalked eyes and a long flexible nozzle tipped with a grasping claw.",
+   "familyCampaigns": [
+    "prehistoric"
+   ],
+   "ingredients": [
+    "organic83:burgess-shale",
+    "organic82:anomalocaris"
+   ],
+   "art_mode": "bespoke-subject",
+   "path": "client/assets/v83/opabinia.svg"
+  },
+  {
+   "id": "organic83:pikaia",
+   "name": "Pikaia",
+   "category": "prehistoric",
+   "summary": "Pikaia is a small eel-like Cambrian chordate, an early relative of animals with backbones.",
+   "familyCampaigns": [
+    "prehistoric"
+   ],
+   "ingredients": [
+    "organic83:burgess-shale",
+    "legacy:21"
+   ],
+   "art_mode": "bespoke-subject",
+   "path": "client/assets/v83/pikaia.svg"
+  },
+  {
+   "id": "organic83:orthoceras",
+   "name": "Orthoceras",
+   "category": "prehistoric",
+   "summary": "Orthoceras was a straight-shelled nautiloid whose cone-shaped fossils are common in Ordovician rocks.",
+   "familyCampaigns": [
+    "prehistoric"
+   ],
+   "ingredients": [
+    "organic83:ordovician-period",
+    "organic82:ammonite"
+   ],
+   "art_mode": "bespoke-subject",
+   "path": "client/assets/v83/orthoceras.svg"
+  },
+  {
+   "id": "organic83:sea-lily",
+   "name": "Sea Lily",
+   "category": "prehistoric",
+   "summary": "Sea lilies, or crinoids, are stalked animals whose fossil stems form whole beds of limestone.",
+   "familyCampaigns": [
+    "prehistoric"
+   ],
+   "ingredients": [
+    "organic83:ordovician-period",
+    "organic42:limestone"
+   ],
+   "art_mode": "bespoke-subject",
+   "path": "client/assets/v83/sea-lily.svg"
+  },
+  {
+   "id": "organic83:sea-scorpion",
+   "name": "Sea Scorpion",
+   "category": "prehistoric",
+   "summary": "Eurypterids, or sea scorpions, were large predatory arthropods of Silurian seas.",
+   "familyCampaigns": [
+    "prehistoric"
+   ],
+   "ingredients": [
+    "organic83:silurian-period",
+    "organic82:prehistoric-ocean"
+   ],
+   "art_mode": "bespoke-subject",
+   "path": "client/assets/v83/sea-scorpion.svg"
+  },
+  {
+   "id": "organic83:cooksonia",
+   "name": "Cooksonia",
+   "category": "prehistoric",
+   "summary": "Cooksonia was one of the first land plants, a tiny leafless stem forking into spore-bearing tips.",
+   "familyCampaigns": [
+    "prehistoric"
+   ],
+   "ingredients": [
+    "organic83:silurian-period",
+    "legacy:21"
+   ],
+   "art_mode": "bespoke-subject",
+   "path": "client/assets/v83/cooksonia.svg"
+  },
+  {
+   "id": "organic83:archaeopteris",
+   "name": "Archaeopteris",
+   "category": "prehistoric",
+   "summary": "Archaeopteris was a Devonian tree that formed some of the first forests on Earth.",
+   "familyCampaigns": [
+    "prehistoric"
+   ],
+   "ingredients": [
+    "organic83:devonian-period",
+    "organic83:cooksonia"
+   ],
+   "art_mode": "bespoke-subject",
+   "path": "client/assets/v83/archaeopteris.svg"
+  },
+  {
+   "id": "organic83:tiktaalik",
+   "name": "Tiktaalik",
+   "category": "prehistoric",
+   "summary": "Tiktaalik was a Devonian fish with sturdy fins and a neck, a step toward four-legged animals.",
+   "familyCampaigns": [
+    "prehistoric"
+   ],
+   "ingredients": [
+    "organic83:devonian-period",
+    "organic82:fossil-footprint"
+   ],
+   "art_mode": "bespoke-subject",
+   "path": "client/assets/v83/tiktaalik.svg"
+  },
+  {
+   "id": "organic83:coelacanth",
+   "name": "Coelacanth",
+   "category": "prehistoric",
+   "summary": "The coelacanth is a lobe-finned fish lineage from the Devonian, rediscovered alive in 1938.",
+   "familyCampaigns": [
+    "prehistoric"
+   ],
+   "ingredients": [
+    "organic83:devonian-period",
+    "organic82:prehistoric-ocean"
+   ],
+   "art_mode": "bespoke-subject",
+   "path": "client/assets/v83/coelacanth.svg"
+  },
+  {
+   "id": "organic83:arthropleura",
+   "name": "Arthropleura",
+   "category": "prehistoric",
+   "summary": "Arthropleura was a giant millipede-like arthropod over two metres long in Carboniferous forests.",
+   "familyCampaigns": [
+    "prehistoric"
+   ],
+   "ingredients": [
+    "organic82:carboniferous-period",
+    "organic82:trilobite"
+   ],
+   "art_mode": "bespoke-subject",
+   "path": "client/assets/v83/arthropleura.svg"
+  },
+  {
+   "id": "organic83:scale-tree",
+   "name": "Scale Tree",
+   "category": "prehistoric",
+   "summary": "Scale trees like Lepidodendron grew in Carboniferous swamps and their remains formed coal.",
+   "familyCampaigns": [
+    "prehistoric"
+   ],
+   "ingredients": [
+    "organic82:carboniferous-period",
+    "organic82:cycad"
+   ],
+   "art_mode": "bespoke-subject",
+   "path": "client/assets/v83/scale-tree.svg"
+  },
+  {
+   "id": "organic83:dimetrodon",
+   "name": "Dimetrodon",
+   "category": "prehistoric",
+   "summary": "Dimetrodon was a sail-backed Permian synapsid, more closely related to mammals than to dinosaurs.",
+   "familyCampaigns": [
+    "prehistoric"
+   ],
+   "ingredients": [
+    "organic83:permian-period",
+    "organic82:spinosaurus"
+   ],
+   "art_mode": "bespoke-subject",
+   "path": "client/assets/v83/dimetrodon.svg"
+  },
+  {
+   "id": "organic83:edaphosaurus",
+   "name": "Edaphosaurus",
+   "category": "prehistoric",
+   "summary": "Edaphosaurus was a plant-eating sail-backed synapsid whose sail spines carried knobby crossbars.",
+   "familyCampaigns": [
+    "prehistoric"
+   ],
+   "ingredients": [
+    "organic83:dimetrodon",
+    "organic82:cycad"
+   ],
+   "art_mode": "bespoke-subject",
+   "path": "client/assets/v83/edaphosaurus.svg"
+  },
+  {
+   "id": "organic83:gorgonops",
+   "name": "Gorgonops",
+   "category": "prehistoric",
+   "summary": "Gorgonops was a Permian top predator with long sabre-like canine teeth, long before sabre-toothed cats.",
+   "familyCampaigns": [
+    "prehistoric"
+   ],
+   "ingredients": [
+    "organic83:permian-period",
+    "organic82:smilodon"
+   ],
+   "art_mode": "bespoke-subject",
+   "path": "client/assets/v83/gorgonops.svg"
+  },
+  {
+   "id": "organic83:lystrosaurus",
+   "name": "Lystrosaurus",
+   "category": "prehistoric",
+   "summary": "Lystrosaurus was a stocky tusked mammal relative that survived the Great Dying and spread across Pangaea.",
+   "familyCampaigns": [
+    "prehistoric"
+   ],
+   "ingredients": [
+    "organic82:triassic-period",
+    "organic82:prehistoric-mammal"
+   ],
+   "art_mode": "bespoke-subject",
+   "path": "client/assets/v83/lystrosaurus.svg"
+  },
+  {
+   "id": "organic83:diplocaulus",
+   "name": "Diplocaulus",
+   "category": "prehistoric",
+   "summary": "Diplocaulus was a Permian amphibian with a remarkable boomerang-shaped head.",
+   "familyCampaigns": [
+    "prehistoric"
+   ],
+   "ingredients": [
+    "organic83:permian-period",
+    "organic83:tiktaalik"
+   ],
+   "art_mode": "bespoke-subject",
+   "path": "client/assets/v83/diplocaulus.svg"
+  },
+  {
+   "id": "organic83:helicoprion",
+   "name": "Helicoprion",
+   "category": "prehistoric",
+   "summary": "Helicoprion was a Permian shark relative with a spiral whorl of teeth in its lower jaw.",
+   "familyCampaigns": [
+    "prehistoric"
+   ],
+   "ingredients": [
+    "organic83:permian-period",
+    "organic82:megalodon"
+   ],
+   "art_mode": "bespoke-subject",
+   "path": "client/assets/v83/helicoprion.svg"
+  },
+  {
+   "id": "organic83:ginkgo",
+   "name": "Ginkgo",
+   "category": "prehistoric",
+   "summary": "Ginkgo trees have survived since the age of dinosaurs and still grow today as living fossils.",
+   "familyCampaigns": [
+    "prehistoric"
+   ],
+   "ingredients": [
+    "organic82:cycad",
+    "organic82:triassic-period"
+   ],
+   "art_mode": "bespoke-subject",
+   "path": "client/assets/v83/ginkgo.svg"
+  },
+  {
+   "id": "organic83:first-flower",
+   "name": "First Flower",
+   "category": "prehistoric",
+   "summary": "Early Cretaceous plants such as Archaefructus were among the first flowering plants.",
+   "familyCampaigns": [
+    "prehistoric"
+   ],
+   "ingredients": [
+    "organic82:cretaceous-period",
+    "organic82:cycad"
+   ],
+   "art_mode": "bespoke-subject",
+   "path": "client/assets/v83/first-flower.svg"
+  },
+  {
+   "id": "organic83:petrified-wood",
+   "name": "Petrified Wood",
+   "category": "prehistoric",
+   "summary": "Petrified wood forms when minerals replace a buried tree, turning it to colourful stone.",
+   "familyCampaigns": [
+    "prehistoric"
+   ],
+   "ingredients": [
+    "organic82:cycad",
+    "legacy:14"
+   ],
+   "art_mode": "bespoke-subject",
+   "path": "client/assets/v83/petrified-wood.svg"
+  },
+  {
+   "id": "organic83:eoraptor",
+   "name": "Eoraptor",
+   "category": "prehistoric",
+   "summary": "Eoraptor, the 'dawn thief', was one of the earliest known dinosaurs, small and lightly built.",
+   "familyCampaigns": [
+    "prehistoric"
+   ],
+   "ingredients": [
+    "legacy:575",
+    "organic82:triassic-period"
+   ],
+   "art_mode": "bespoke-subject",
+   "path": "client/assets/v83/eoraptor.svg"
+  },
+  {
+   "id": "organic83:herrerasaurus",
+   "name": "Herrerasaurus",
+   "category": "prehistoric",
+   "summary": "Herrerasaurus was a large early predatory dinosaur from the Triassic of Argentina.",
+   "familyCampaigns": [
+    "prehistoric"
+   ],
+   "ingredients": [
+    "organic83:eoraptor",
+    "organic82:theropod"
+   ],
+   "art_mode": "bespoke-subject",
+   "path": "client/assets/v83/herrerasaurus.svg"
+  },
+  {
+   "id": "organic83:coelophysis",
+   "name": "Coelophysis",
+   "category": "prehistoric",
+   "summary": "Coelophysis was a slender, fast Triassic theropod known from hundreds of skeletons found together.",
+   "familyCampaigns": [
+    "prehistoric"
+   ],
+   "ingredients": [
+    "organic82:theropod",
+    "organic82:triassic-period"
+   ],
+   "art_mode": "bespoke-subject",
+   "path": "client/assets/v83/coelophysis.svg"
+  },
+  {
+   "id": "organic83:megalosaurus",
+   "name": "Megalosaurus",
+   "category": "prehistoric",
+   "summary": "Megalosaurus was the first dinosaur ever scientifically named, in 1824, from a fossil jaw.",
+   "familyCampaigns": [
+    "prehistoric"
+   ],
+   "ingredients": [
+    "organic82:theropod",
+    "legacy:41"
+   ],
+   "art_mode": "bespoke-subject",
+   "path": "client/assets/v83/megalosaurus.svg"
+  },
+  {
+   "id": "organic83:majungasaurus",
+   "name": "Majungasaurus",
+   "category": "prehistoric",
+   "summary": "Majungasaurus was a short-armed abelisaurid from Madagascar with a single knob on its skull.",
+   "familyCampaigns": [
+    "prehistoric"
+   ],
+   "ingredients": [
+    "organic82:carnotaurus",
+    "organic82:theropod"
+   ],
+   "art_mode": "bespoke-subject",
+   "path": "client/assets/v83/majungasaurus.svg"
+  },
+  {
+   "id": "organic83:yutyrannus",
+   "name": "Yutyrannus",
+   "category": "prehistoric",
+   "summary": "Yutyrannus was a large early tyrannosaur covered in long filament-like feathers.",
+   "familyCampaigns": [
+    "prehistoric"
+   ],
+   "ingredients": [
+    "organic82:feathered-dinosaur",
+    "organic82:tarbosaurus"
+   ],
+   "art_mode": "bespoke-subject",
+   "path": "client/assets/v83/yutyrannus.svg"
+  },
+  {
+   "id": "organic83:sinosauropteryx",
+   "name": "Sinosauropteryx",
+   "category": "prehistoric",
+   "summary": "Sinosauropteryx was the first non-bird dinosaur found with feathers, with a ginger-and-white banded tail.",
+   "familyCampaigns": [
+    "prehistoric"
+   ],
+   "ingredients": [
+    "organic82:feathered-dinosaur",
+    "organic82:compsognathus"
+   ],
+   "art_mode": "bespoke-subject",
+   "path": "client/assets/v83/sinosauropteryx.svg"
+  },
+  {
+   "id": "organic83:troodon",
+   "name": "Troodon",
+   "category": "prehistoric",
+   "summary": "Troodon was a small, big-eyed feathered dinosaur with one of the largest brains for its size.",
+   "familyCampaigns": [
+    "prehistoric"
+   ],
+   "ingredients": [
+    "organic82:feathered-dinosaur",
+    "organic82:late-cretaceous"
+   ],
+   "art_mode": "bespoke-subject",
+   "path": "client/assets/v83/troodon.svg"
+  },
+  {
+   "id": "organic83:bonebed",
+   "name": "Bonebed",
+   "category": "prehistoric",
+   "summary": "A bonebed is a rock layer packed with the jumbled fossil bones of many animals.",
+   "familyCampaigns": [
+    "prehistoric"
+   ],
+   "ingredients": [
+    "organic82:fossil-skeleton",
+    "organic82:fossil-skeleton"
+   ],
+   "art_mode": "bespoke-subject",
+   "path": "client/assets/v83/bonebed.svg"
+  },
+  {
+   "id": "organic83:mapusaurus",
+   "name": "Mapusaurus",
+   "category": "prehistoric",
+   "summary": "Mapusaurus was a giant South American predator whose bonebed suggests it may have lived in groups.",
+   "familyCampaigns": [
+    "prehistoric"
+   ],
+   "ingredients": [
+    "organic82:giganotosaurus",
+    "organic83:bonebed"
+   ],
+   "art_mode": "bespoke-subject",
+   "path": "client/assets/v83/mapusaurus.svg"
+  },
+  {
+   "id": "organic83:patagotitan",
+   "name": "Patagotitan",
+   "category": "prehistoric",
+   "summary": "Patagotitan is one of the largest known titanosaurs, with thigh bones taller than a person.",
+   "familyCampaigns": [
+    "prehistoric"
+   ],
+   "ingredients": [
+    "organic82:argentinosaurus",
+    "organic82:fossil-skeleton"
+   ],
+   "art_mode": "bespoke-subject",
+   "path": "client/assets/v83/patagotitan.svg"
+  },
+  {
+   "id": "organic83:nigersaurus",
+   "name": "Nigersaurus",
+   "category": "prehistoric",
+   "summary": "Nigersaurus was a short-necked sauropod with a broad straight-edged mouth packed with hundreds of teeth.",
+   "familyCampaigns": [
+    "prehistoric"
+   ],
+   "ingredients": [
+    "organic82:sauropod",
+    "organic82:cretaceous-period"
+   ],
+   "art_mode": "bespoke-subject",
+   "path": "client/assets/v83/nigersaurus.svg"
+  },
+  {
+   "id": "organic83:supersaurus",
+   "name": "Supersaurus",
+   "category": "prehistoric",
+   "summary": "Supersaurus was among the longest dinosaurs, a diplodocid with an extremely long neck and tail.",
+   "familyCampaigns": [
+    "prehistoric"
+   ],
+   "ingredients": [
+    "organic82:diplodocus",
+    "organic82:sauropod"
+   ],
+   "art_mode": "bespoke-subject",
+   "path": "client/assets/v83/supersaurus.svg"
+  },
+  {
+   "id": "organic83:shunosaurus",
+   "name": "Shunosaurus",
+   "category": "prehistoric",
+   "summary": "Shunosaurus was a Jurassic sauropod from China with a small spiked club at the end of its tail.",
+   "familyCampaigns": [
+    "prehistoric"
+   ],
+   "ingredients": [
+    "organic82:sauropod",
+    "organic82:ankylosaurus"
+   ],
+   "art_mode": "bespoke-subject",
+   "path": "client/assets/v83/shunosaurus.svg"
+  },
+  {
+   "id": "organic83:mussaurus",
+   "name": "Mussaurus",
+   "category": "prehistoric",
+   "summary": "Mussaurus, the 'mouse lizard', was first described from tiny hatchlings of an early sauropodomorph.",
+   "familyCampaigns": [
+    "prehistoric"
+   ],
+   "ingredients": [
+    "organic82:plateosaurus",
+    "organic82:dinosaur-egg"
+   ],
+   "art_mode": "bespoke-subject",
+   "path": "client/assets/v83/mussaurus.svg"
+  },
+  {
+   "id": "organic83:ouranosaurus",
+   "name": "Ouranosaurus",
+   "category": "prehistoric",
+   "summary": "Ouranosaurus was an iguanodont herbivore from Africa with a tall sail or hump along its back.",
+   "familyCampaigns": [
+    "prehistoric"
+   ],
+   "ingredients": [
+    "organic82:iguanodon",
+    "organic82:spinosaurus"
+   ],
+   "art_mode": "bespoke-subject",
+   "path": "client/assets/v83/ouranosaurus.svg"
+  },
+  {
+   "id": "organic83:shantungosaurus",
+   "name": "Shantungosaurus",
+   "category": "prehistoric",
+   "summary": "Shantungosaurus was the largest known hadrosaur, a giant duck-billed plant-eater from China.",
+   "familyCampaigns": [
+    "prehistoric"
+   ],
+   "ingredients": [
+    "organic82:edmontosaurus",
+    "organic82:hadrosaur"
+   ],
+   "art_mode": "bespoke-subject",
+   "path": "client/assets/v83/shantungosaurus.svg"
+  },
+  {
+   "id": "organic83:torosaurus",
+   "name": "Torosaurus",
+   "category": "prehistoric",
+   "summary": "Torosaurus had one of the largest skulls of any land animal, with a huge frill pierced by two openings.",
+   "familyCampaigns": [
+    "prehistoric"
+   ],
+   "ingredients": [
+    "organic82:triceratops",
+    "organic82:chasmosaurus"
+   ],
+   "art_mode": "bespoke-subject",
+   "path": "client/assets/v83/torosaurus.svg"
+  },
+  {
+   "id": "organic83:kosmoceratops",
+   "name": "Kosmoceratops",
+   "category": "prehistoric",
+   "summary": "Kosmoceratops had the most ornate skull of any ceratopsian, with a fringe of downward-curling hooks.",
+   "familyCampaigns": [
+    "prehistoric"
+   ],
+   "ingredients": [
+    "organic82:ceratopsian",
+    "organic82:pentaceratops"
+   ],
+   "art_mode": "bespoke-subject",
+   "path": "client/assets/v83/kosmoceratops.svg"
+  },
+  {
+   "id": "organic83:einiosaurus",
+   "name": "Einiosaurus",
+   "category": "prehistoric",
+   "summary": "Einiosaurus was a centrosaurine with a nose horn bent sharply forward like a can opener, known from bonebeds.",
+   "familyCampaigns": [
+    "prehistoric"
+   ],
+   "ingredients": [
+    "organic82:centrosaurus",
+    "organic83:bonebed"
+   ],
+   "art_mode": "bespoke-subject",
+   "path": "client/assets/v83/einiosaurus.svg"
+  },
+  {
+   "id": "organic83:confuciusornis",
+   "name": "Confuciusornis",
+   "category": "prehistoric",
+   "summary": "Confuciusornis was a toothless early bird from China whose males had two long ribbon tail feathers.",
+   "familyCampaigns": [
+    "prehistoric"
+   ],
+   "ingredients": [
+    "organic82:archaeopteryx",
+    "organic82:cretaceous-period"
+   ],
+   "art_mode": "bespoke-subject",
+   "path": "client/assets/v83/confuciusornis.svg"
+  },
+  {
+   "id": "organic83:hesperornis",
+   "name": "Hesperornis",
+   "category": "prehistoric",
+   "summary": "Hesperornis was a large flightless diving bird with teeth that hunted fish in Cretaceous seas.",
+   "familyCampaigns": [
+    "prehistoric"
+   ],
+   "ingredients": [
+    "organic82:feathered-dinosaur",
+    "organic82:prehistoric-ocean"
+   ],
+   "art_mode": "bespoke-subject",
+   "path": "client/assets/v83/hesperornis.svg"
+  },
+  {
+   "id": "organic83:hatzegopteryx",
+   "name": "Hatzegopteryx",
+   "category": "prehistoric",
+   "summary": "Hatzegopteryx was a robust giant azhdarchid pterosaur that was likely the top predator of its island.",
+   "familyCampaigns": [
+    "prehistoric"
+   ],
+   "ingredients": [
+    "organic82:quetzalcoatlus",
+    "organic82:fossil-skeleton"
+   ],
+   "art_mode": "bespoke-subject",
+   "path": "client/assets/v83/hatzegopteryx.svg"
+  },
+  {
+   "id": "organic83:pterodaustro",
+   "name": "Pterodaustro",
+   "category": "prehistoric",
+   "summary": "Pterodaustro was a pterosaur with an upturned lower jaw of fine bristle-like teeth for filter feeding.",
+   "familyCampaigns": [
+    "prehistoric"
+   ],
+   "ingredients": [
+    "organic82:pterosaur",
+    "organic82:prehistoric-ocean"
+   ],
+   "art_mode": "bespoke-subject",
+   "path": "client/assets/v83/pterodaustro.svg"
+  },
+  {
+   "id": "organic83:tylosaurus",
+   "name": "Tylosaurus",
+   "category": "prehistoric",
+   "summary": "Tylosaurus was a huge mosasaur with a bony, battering-ram snout.",
+   "familyCampaigns": [
+    "prehistoric"
+   ],
+   "ingredients": [
+    "organic82:mosasaurus",
+    "organic82:dinosaur-armor"
+   ],
+   "art_mode": "bespoke-subject",
+   "path": "client/assets/v83/tylosaurus.svg"
+  },
+  {
+   "id": "organic83:shonisaurus",
+   "name": "Shonisaurus",
+   "category": "prehistoric",
+   "summary": "Shonisaurus was a giant Triassic ichthyosaur as long as a bus.",
+   "familyCampaigns": [
+    "prehistoric"
+   ],
+   "ingredients": [
+    "organic82:ichthyosaurus",
+    "organic82:triassic-period"
+   ],
+   "art_mode": "bespoke-subject",
+   "path": "client/assets/v83/shonisaurus.svg"
+  },
+  {
+   "id": "organic83:tanystropheus",
+   "name": "Tanystropheus",
+   "category": "prehistoric",
+   "summary": "Tanystropheus was a Triassic reptile whose stiff neck was longer than the rest of its body.",
+   "familyCampaigns": [
+    "prehistoric"
+   ],
+   "ingredients": [
+    "organic82:plesiosaurus",
+    "organic82:triassic-period"
+   ],
+   "art_mode": "bespoke-subject",
+   "path": "client/assets/v83/tanystropheus.svg"
+  },
+  {
+   "id": "organic83:archelon",
+   "name": "Archelon",
+   "category": "prehistoric",
+   "summary": "Archelon was a giant Cretaceous sea turtle more than four metres long with a leathery shell.",
+   "familyCampaigns": [
+    "prehistoric"
+   ],
+   "ingredients": [
+    "organic82:marine-reptile",
+    "organic82:dinosaur-armor"
+   ],
+   "art_mode": "bespoke-subject",
+   "path": "client/assets/v83/archelon.svg"
+  },
+  {
+   "id": "organic83:sarcosuchus",
+   "name": "Sarcosuchus",
+   "category": "prehistoric",
+   "summary": "Sarcosuchus was a giant Cretaceous crocodile relative with a long snout ending in a bulbous tip.",
+   "familyCampaigns": [
+    "prehistoric"
+   ],
+   "ingredients": [
+    "organic82:marine-reptile",
+    "organic82:cretaceous-period"
+   ],
+   "art_mode": "bespoke-subject",
+   "path": "client/assets/v83/sarcosuchus.svg"
+  },
+  {
+   "id": "organic83:deinosuchus",
+   "name": "Deinosuchus",
+   "category": "prehistoric",
+   "summary": "Deinosuchus was a giant alligator relative that ambushed dinosaurs at the water's edge.",
+   "familyCampaigns": [
+    "prehistoric"
+   ],
+   "ingredients": [
+    "organic83:sarcosuchus",
+    "organic82:late-cretaceous"
+   ],
+   "art_mode": "bespoke-subject",
+   "path": "client/assets/v83/deinosuchus.svg"
+  },
+  {
+   "id": "organic83:eohippus",
+   "name": "Eohippus",
+   "category": "prehistoric",
+   "summary": "Eohippus, the 'dawn horse', was a dog-sized early horse with several toes on each foot.",
+   "familyCampaigns": [
+    "prehistoric"
+   ],
+   "ingredients": [
+    "organic82:prehistoric-mammal",
+    "organic83:paleogene-period"
+   ],
+   "art_mode": "bespoke-subject",
+   "path": "client/assets/v83/eohippus.svg"
+  },
+  {
+   "id": "organic83:paraceratherium",
+   "name": "Paraceratherium",
+   "category": "prehistoric",
+   "summary": "Paraceratherium was a hornless giant rhinoceros relative, one of the largest land mammals ever.",
+   "familyCampaigns": [
+    "prehistoric"
+   ],
+   "ingredients": [
+    "organic82:prehistoric-mammal",
+    "organic82:sauropod"
+   ],
+   "art_mode": "bespoke-subject",
+   "path": "client/assets/v83/paraceratherium.svg"
+  },
+  {
+   "id": "organic83:basilosaurus",
+   "name": "Basilosaurus",
+   "category": "prehistoric",
+   "summary": "Basilosaurus was an early serpent-like whale that was once mistaken for a giant reptile.",
+   "familyCampaigns": [
+    "prehistoric"
+   ],
+   "ingredients": [
+    "organic82:prehistoric-mammal",
+    "organic82:prehistoric-ocean"
+   ],
+   "art_mode": "bespoke-subject",
+   "path": "client/assets/v83/basilosaurus.svg"
+  },
+  {
+   "id": "organic83:ambulocetus",
+   "name": "Ambulocetus",
+   "category": "prehistoric",
+   "summary": "Ambulocetus, the 'walking whale', was an early whale that could move on land and in water.",
+   "familyCampaigns": [
+    "prehistoric"
+   ],
+   "ingredients": [
+    "organic83:basilosaurus",
+    "organic82:fossil-footprint"
+   ],
+   "art_mode": "bespoke-subject",
+   "path": "client/assets/v83/ambulocetus.svg"
+  },
+  {
+   "id": "organic83:doedicurus",
+   "name": "Doedicurus",
+   "category": "prehistoric",
+   "summary": "Doedicurus was a giant armoured glyptodont with a spiked club at the end of its tail.",
+   "familyCampaigns": [
+    "prehistoric"
+   ],
+   "ingredients": [
+    "organic82:glyptodon",
+    "organic82:ankylosaurus"
+   ],
+   "art_mode": "bespoke-subject",
+   "path": "client/assets/v83/doedicurus.svg"
+  },
+  {
+   "id": "organic83:cave-lion",
+   "name": "Cave Lion",
+   "category": "prehistoric",
+   "summary": "The cave lion was a large Ice Age cat painted on cave walls by early humans.",
+   "familyCampaigns": [
+    "prehistoric"
+   ],
+   "ingredients": [
+    "organic82:cave-bear",
+    "organic82:smilodon"
+   ],
+   "art_mode": "bespoke-subject",
+   "path": "client/assets/v83/cave-lion.svg"
+  },
+  {
+   "id": "organic83:steppe-bison",
+   "name": "Steppe Bison",
+   "category": "prehistoric",
+   "summary": "The steppe bison was a large long-horned Ice Age bison of the mammoth steppe.",
+   "familyCampaigns": [
+    "prehistoric"
+   ],
+   "ingredients": [
+    "organic82:irish-elk",
+    "organic82:ice-age"
+   ],
+   "art_mode": "bespoke-subject",
+   "path": "client/assets/v83/steppe-bison.svg"
+  },
+  {
+   "id": "organic83:prehistoric-ape",
+   "name": "Prehistoric Ape",
+   "category": "prehistoric",
+   "summary": "Early apes of the Miocene lived in forests and include the ancestors of later great apes and humans.",
+   "familyCampaigns": [
+    "prehistoric"
+   ],
+   "ingredients": [
+    "organic82:prehistoric-mammal",
+    "legacy:64"
+   ],
+   "art_mode": "bespoke-subject",
+   "path": "client/assets/v83/prehistoric-ape.svg"
+  },
+  {
+   "id": "organic83:gigantopithecus",
+   "name": "Gigantopithecus",
+   "category": "prehistoric",
+   "summary": "Gigantopithecus was a giant ape of Pleistocene Asia, known mostly from huge fossil teeth and jaws.",
+   "familyCampaigns": [
+    "prehistoric"
+   ],
+   "ingredients": [
+    "organic83:prehistoric-ape",
+    "organic82:pleistocene-epoch"
+   ],
+   "art_mode": "bespoke-subject",
+   "path": "client/assets/v83/gigantopithecus.svg"
+  },
+  {
+   "id": "organic83:australopithecus",
+   "name": "Australopithecus",
+   "category": "prehistoric",
+   "summary": "Australopithecus walked upright on two legs, as shown by famous fossil footprints in volcanic ash.",
+   "familyCampaigns": [
+    "prehistoric"
+   ],
+   "ingredients": [
+    "organic83:prehistoric-ape",
+    "organic82:fossil-footprint"
+   ],
+   "art_mode": "bespoke-subject",
+   "path": "client/assets/v83/australopithecus.svg"
+  },
+  {
+   "id": "organic83:homo-habilis",
+   "name": "Homo Habilis",
+   "category": "prehistoric",
+   "summary": "Homo habilis, the 'handy man', is associated with the earliest stone tool industries.",
+   "familyCampaigns": [
+    "prehistoric"
+   ],
+   "ingredients": [
+    "organic83:australopithecus",
+    "legacy:14"
+   ],
+   "art_mode": "bespoke-subject",
+   "path": "client/assets/v83/homo-habilis.svg"
+  },
+  {
+   "id": "organic83:homo-erectus",
+   "name": "Homo Erectus",
+   "category": "prehistoric",
+   "summary": "Homo erectus was a tall, long-legged human species that spread across Africa and Asia and used fire.",
+   "familyCampaigns": [
+    "prehistoric"
+   ],
+   "ingredients": [
+    "organic83:homo-habilis",
+    "organic82:pleistocene-epoch"
+   ],
+   "art_mode": "bespoke-subject",
+   "path": "client/assets/v83/homo-erectus.svg"
+  },
+  {
+   "id": "organic83:neanderthal",
+   "name": "Neanderthal",
+   "category": "prehistoric",
+   "summary": "Neanderthals were Ice Age humans of Europe and western Asia, skilled toolmakers and hunters.",
+   "familyCampaigns": [
+    "prehistoric"
+   ],
+   "ingredients": [
+    "organic83:homo-erectus",
+    "organic82:ice-age"
+   ],
+   "art_mode": "bespoke-subject",
+   "path": "client/assets/v83/neanderthal.svg"
+  },
+  {
+   "id": "organic83:cro-magnon",
+   "name": "Cro-Magnon",
+   "category": "prehistoric",
+   "summary": "Cro-Magnon is the name for early modern humans of Ice Age Europe, first excavated at a French rock shelter.",
+   "familyCampaigns": [
+    "prehistoric"
+   ],
+   "ingredients": [
+    "organic83:neanderthal",
+    "legacy:580"
+   ],
+   "art_mode": "bespoke-subject",
+   "path": "client/assets/v83/cro-magnon.svg"
+  },
+  {
+   "id": "organic83:oldowan-chopper",
+   "name": "Oldowan Chopper",
+   "category": "prehistoric",
+   "summary": "Oldowan choppers are among the oldest known stone tools, made by knocking flakes from a river cobble.",
+   "familyCampaigns": [
+    "prehistoric"
+   ],
+   "ingredients": [
+    "organic83:homo-habilis",
+    "legacy:14"
+   ],
+   "art_mode": "bespoke-subject",
+   "path": "client/assets/v83/oldowan-chopper.svg"
+  },
+  {
+   "id": "organic83:stone-hand-axe",
+   "name": "Stone Hand Axe",
+   "category": "prehistoric",
+   "summary": "The teardrop-shaped Acheulean hand axe was the all-purpose tool of Homo erectus for over a million years.",
+   "familyCampaigns": [
+    "prehistoric"
+   ],
+   "ingredients": [
+    "organic83:homo-erectus",
+    "legacy:14"
+   ],
+   "art_mode": "bespoke-subject",
+   "path": "client/assets/v83/stone-hand-axe.svg"
+  },
+  {
+   "id": "organic83:flint-spearhead",
+   "name": "Flint Spearhead",
+   "category": "prehistoric",
+   "summary": "Neanderthals hafted sharp flint points onto wooden shafts to make hunting spears.",
+   "familyCampaigns": [
+    "prehistoric"
+   ],
+   "ingredients": [
+    "organic83:neanderthal",
+    "legacy:14"
+   ],
+   "art_mode": "bespoke-subject",
+   "path": "client/assets/v83/flint-spearhead.svg"
+  },
+  {
+   "id": "organic83:mammoth-hunt",
+   "name": "Mammoth Hunt",
+   "category": "prehistoric",
+   "summary": "Ice Age hunters worked together with spears to bring down mammoths for meat, hide and bone.",
+   "familyCampaigns": [
+    "prehistoric"
+   ],
+   "ingredients": [
+    "organic82:woolly-mammoth",
+    "organic83:flint-spearhead"
+   ],
+   "art_mode": "bespoke-subject",
+   "path": "client/assets/v83/mammoth-hunt.svg"
+  },
+  {
+   "id": "organic83:mammoth-bone-hut",
+   "name": "Mammoth Bone Hut",
+   "category": "prehistoric",
+   "summary": "Ice Age people built dome-shaped shelters from stacked mammoth bones and tusks covered with hides.",
+   "familyCampaigns": [
+    "prehistoric"
+   ],
+   "ingredients": [
+    "organic83:cro-magnon",
+    "organic82:woolly-mammoth"
+   ],
+   "art_mode": "bespoke-subject",
+   "path": "client/assets/v83/mammoth-bone-hut.svg"
+  },
+  {
+   "id": "organic83:atlatl",
+   "name": "Atlatl",
+   "category": "prehistoric",
+   "summary": "The atlatl, or spear-thrower, let Ice Age hunters hurl darts much farther and faster.",
+   "familyCampaigns": [
+    "prehistoric"
+   ],
+   "ingredients": [
+    "organic83:cro-magnon",
+    "organic83:flint-spearhead"
+   ],
+   "art_mode": "bespoke-subject",
+   "path": "client/assets/v83/atlatl.svg"
+  },
+  {
+   "id": "organic83:ochre-hand-stencil",
+   "name": "Ochre Hand Stencil",
+   "category": "prehistoric",
+   "summary": "Ice Age artists blew red ochre around their hands to leave stencils on cave walls.",
+   "familyCampaigns": [
+    "prehistoric"
+   ],
+   "ingredients": [
+    "organic83:cro-magnon",
+    "organic41:monument"
+   ],
+   "art_mode": "bespoke-subject",
+   "path": "client/assets/v83/ochre-hand-stencil.svg"
+  },
+  {
+   "id": "organic83:bone-flute",
+   "name": "Bone Flute",
+   "category": "prehistoric",
+   "summary": "Flutes carved from bird bone and mammoth ivory are among the oldest known musical instruments.",
+   "familyCampaigns": [
+    "prehistoric"
+   ],
+   "ingredients": [
+    "organic83:cro-magnon",
+    "organic82:fossil-skeleton"
+   ],
+   "art_mode": "bespoke-subject",
+   "path": "client/assets/v83/bone-flute.svg"
+  },
+  {
+   "id": "organic83:lion-man-figurine",
+   "name": "Lion-Man Figurine",
+   "category": "prehistoric",
+   "summary": "The Lion-Man is a 40,000-year-old ivory figure combining a human body with a cave lion's head.",
+   "familyCampaigns": [
+    "prehistoric"
+   ],
+   "ingredients": [
+    "organic83:cave-lion",
+    "organic83:cro-magnon"
+   ],
+   "art_mode": "bespoke-subject",
+   "path": "client/assets/v83/lion-man-figurine.svg"
+  },
+  {
+   "id": "organic83:paleontologist",
+   "name": "Paleontologist",
+   "category": "prehistoric",
+   "summary": "A paleontologist studies ancient life by finding and interpreting fossils.",
+   "familyCampaigns": [
+    "prehistoric"
+   ],
+   "ingredients": [
+    "legacy:580",
+    "legacy:575"
+   ],
+   "art_mode": "bespoke-subject",
+   "path": "client/assets/v83/paleontologist.svg"
+  },
+  {
+   "id": "organic83:dinosaur-quarry",
+   "name": "Dinosaur Quarry",
+   "category": "prehistoric",
+   "summary": "A dinosaur quarry is a dig site where fossil bones are exposed layer by layer in the rock.",
+   "familyCampaigns": [
+    "prehistoric"
+   ],
+   "ingredients": [
+    "organic83:paleontologist",
+    "legacy:41"
+   ],
+   "art_mode": "bespoke-subject",
+   "path": "client/assets/v83/dinosaur-quarry.svg"
+  },
+  {
+   "id": "organic83:plaster-field-jacket",
+   "name": "Plaster Field Jacket",
+   "category": "prehistoric",
+   "summary": "Fragile fossils are wrapped in plaster-soaked burlap jackets before being carried from the field.",
+   "familyCampaigns": [
+    "prehistoric"
+   ],
+   "ingredients": [
+    "organic83:paleontologist",
+    "organic82:fossil-skeleton"
+   ],
+   "art_mode": "bespoke-subject",
+   "path": "client/assets/v83/plaster-field-jacket.svg"
+  },
+  {
+   "id": "organic83:mounted-skeleton",
+   "name": "Mounted Skeleton",
+   "category": "prehistoric",
+   "summary": "A mounted skeleton assembles fossil bones on a frame to show a prehistoric animal standing as in life.",
+   "familyCampaigns": [
+    "prehistoric"
+   ],
+   "ingredients": [
+    "organic82:fossil-skeleton",
+    "organic41:monument"
+   ],
+   "art_mode": "bespoke-subject",
+   "path": "client/assets/v83/mounted-skeleton.svg"
+  },
+  {
+   "id": "organic83:coprolite",
+   "name": "Coprolite",
+   "category": "prehistoric",
+   "summary": "A coprolite is fossilised dung that reveals what prehistoric animals ate.",
+   "familyCampaigns": [
+    "prehistoric"
+   ],
+   "ingredients": [
+    "legacy:575",
+    "legacy:41"
+   ],
+   "art_mode": "bespoke-subject",
+   "path": "client/assets/v83/coprolite.svg"
+  },
+  {
+   "id": "organic83:gastrolith",
+   "name": "Gastrolith",
+   "category": "prehistoric",
+   "summary": "Gastroliths are polished stomach stones that some dinosaurs swallowed to help grind food.",
+   "familyCampaigns": [
+    "prehistoric"
+   ],
+   "ingredients": [
+    "organic82:sauropod",
+    "legacy:14"
+   ],
+   "art_mode": "bespoke-subject",
+   "path": "client/assets/v83/gastrolith.svg"
+  },
+  {
+   "id": "organic83:fossil-shark-tooth",
+   "name": "Fossil Shark Tooth",
+   "category": "prehistoric",
+   "summary": "Fossil shark teeth are among the most common fossils, shed by the thousands over a shark's life.",
+   "familyCampaigns": [
+    "prehistoric"
+   ],
+   "ingredients": [
+    "organic82:megalodon",
+    "legacy:41"
+   ],
+   "art_mode": "bespoke-subject",
+   "path": "client/assets/v83/fossil-shark-tooth.svg"
+  },
+  {
+   "id": "organic83:tar-pit",
+   "name": "Tar Pit",
+   "category": "prehistoric",
+   "summary": "Asphalt seeps like the La Brea tar pits trapped and preserved thousands of Ice Age animals.",
+   "familyCampaigns": [
+    "prehistoric"
+   ],
+   "ingredients": [
+    "organic82:dire-wolf",
+    "organic82:smilodon"
+   ],
+   "art_mode": "bespoke-subject",
+   "path": "client/assets/v83/tar-pit.svg"
+  },
+  {
+   "id": "organic83:feather-impression",
+   "name": "Feather Impression",
+   "category": "prehistoric",
+   "summary": "Fine-grained limestone can preserve the delicate imprint of individual dinosaur feathers.",
+   "familyCampaigns": [
+    "prehistoric"
+   ],
+   "ingredients": [
+    "organic82:feathered-dinosaur",
+    "organic42:limestone"
+   ],
+   "art_mode": "bespoke-subject",
+   "path": "client/assets/v83/feather-impression.svg"
+  },
+  {
+   "id": "organic83:dinosaur-nest",
+   "name": "Dinosaur Nest",
+   "category": "prehistoric",
+   "summary": "Fossil nests show how dinosaurs arranged their eggs and, in some species, cared for their young.",
+   "familyCampaigns": [
+    "prehistoric"
+   ],
+   "ingredients": [
+    "organic82:dinosaur-egg",
+    "organic82:maiasaura"
+   ],
+   "art_mode": "bespoke-subject",
+   "path": "client/assets/v83/dinosaur-nest.svg"
+  }
+ ]
+}
