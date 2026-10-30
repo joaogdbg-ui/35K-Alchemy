@@ -1381,7 +1381,7 @@ function settings(){
     <div class="settings-divider"></div>
     <details><summary>Where is progress saved?</summary><p>Progress is stored locally. Clearing app data or uninstalling the game may erase it. Cloud recovery is not available yet.</p></details>
    </div>
-   <div class="settings-about">Alchemy 10K <span>v${escapeText(window.__ALCHEMY_VERSION__ || '0.83.0')} · Offline test build</span></div>
+   <div class="settings-about">Alchemy 10K <span>${escapeText(window.__ALCHEMY_VERSION__ ? 'v'+window.__ALCHEMY_VERSION__ : 'Development')} · Offline test build</span></div>
   </section>
  </div>`);
  $('modal').setAttribute('aria-labelledby','settingsHeading');
