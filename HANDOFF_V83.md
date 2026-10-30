@@ -105,3 +105,11 @@ Audited all **39 old organic packs plus legacy and creative**. Discovered three 
 - New-input cancellation restores the modal's visibility; reduced-motion accessibility falls back to the original modal. All save keys, deterministic global pairs, Family Only, and the V83 200-element catalog unchanged.
 - Test: updated `client/test/craft-motion.test.mjs` asserts collision boundary, persistent original popup, and animation cancellation.
 - Mobile device visual QA required before merging/publishing. Test APK is QA-only.
+
+## V83 Motion regression fix: restore original popup reliably (30 Oct 2026)
+
+- Physical QA reported missing discovery popup and unchanged invalid bump. This replaces the unreliable hidden-card asynchronous sequence.
+- Fresh discovery calls the ORIGINAL `showDiscovery` immediately; the real existing `.modal-card` is animated with a three-stop WAAPI motion from right tile → left tile → natural centered modal. The modal is NEVER hidden via inline CSS and stays until X. If animation fails or user cancels, the original popup is still visible.
+- Invalid pairing animates the actual right `.craft-slot` (not a clone), with exact left/right edge contact and no overlap; the right ingredient is only cleared after its full return, with 65ms brief hold. Input cancels any pending timer and keeps fast taps responsive.
+- Repeat result remains a short clone fusion/fade. Reduced-motion keeps the original nonanimated popup. No catalogue, save, advertised rewards or Family Only changes.
+- Motion tests cover actual tile movement, physical no-overlap, original persistent modal, cancellation, repeats and accessibility.

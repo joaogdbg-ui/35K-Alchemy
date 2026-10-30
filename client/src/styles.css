@@ -641,17 +641,12 @@ html[data-theme="dark"] .settings-link:active:not(:disabled){background:#38393f}
 }
 @media(max-width:355px){.modal:has(.settings-shell) .modal-card{padding-inline:12px}.settings-link{font-size:13px}}
 
-/* V83 Motion Fix: visual tiles only; the original persistent discovery popup is unchanged. */
-.craft-motion-ghost,.craft-motion-result{
- position:fixed;z-index:51;pointer-events:none;display:flex;align-items:center;justify-content:center;
- flex-direction:column;gap:2px;border:1px solid #e1dcd7;border-radius:19px;background:#fff;
- padding:8px 6px;overflow:hidden;will-change:transform,opacity;box-shadow:0 8px 18px #0002;
-}
-.craft-motion-ghost[data-motion="invalid"]{transform-origin:left center}
-.craft-motion-ghost[data-motion="new"]{z-index:90}
-.craft-motion-ghost .slot-art,.craft-motion-result .craft-motion-art{width:55px;height:55px;display:grid;place-items:center}
-.craft-motion-ghost .slot-art svg,.craft-motion-ghost .slot-art img,
-.craft-motion-result .craft-motion-art svg,.craft-motion-result .craft-motion-art img{width:100%;height:100%;object-fit:contain}
-.craft-motion-ghost .slot-name,.craft-motion-result .craft-motion-name{max-width:100%;font-size:11px;font-weight:750;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
-html[data-theme="dark"] .craft-motion-ghost,html[data-theme="dark"] .craft-motion-result{background:#33353b;border-color:#5d5b5d;color:#eee}
-@media(prefers-reduced-motion:reduce){.craft-motion-ghost,.craft-motion-result{display:none!important}}
+/* V83: actual right tile touches the left tile's outer edge and rebounds. */
+.craft-slot.craft-bumping{position:relative;z-index:3;transform-origin:left center;will-change:transform}
+/* Only repeated recipes use a disposable tile; fresh discoveries animate the ORIGINAL popup. */
+.craft-motion-ghost{position:fixed;z-index:51;pointer-events:none;display:flex;align-items:center;justify-content:center;flex-direction:column;gap:2px;border:1px solid #e1dcd7;border-radius:19px;background:#fff;padding:8px 6px;overflow:hidden;will-change:transform,opacity;box-shadow:0 8px 18px #0002}
+.craft-motion-ghost .slot-art,.craft-motion-ghost .craft-motion-art{width:55px;height:55px;display:grid;place-items:center}
+.craft-motion-ghost .slot-art svg,.craft-motion-ghost .slot-art img,.craft-motion-ghost .craft-motion-art svg,.craft-motion-ghost .craft-motion-art img{width:100%;height:100%;object-fit:contain}
+.craft-motion-ghost .slot-name,.craft-motion-ghost .craft-motion-name{max-width:100%;font-size:11px;font-weight:750;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+html[data-theme="dark"] .craft-motion-ghost{background:#33353b;border-color:#5d5b5d;color:#eee}
+@media(prefers-reduced-motion:reduce){.craft-motion-ghost{display:none!important}}

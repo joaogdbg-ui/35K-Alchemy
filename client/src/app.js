@@ -821,93 +821,115 @@ function updateCounts(){
 }
 function updateSlotUI(){slots.forEach((id,i)=>{const target=$(`slot${i}`),item=byId.get(id);target.classList.toggle('filled',!!item);target.innerHTML=item?`<span class="slot-art">${staticArt(item)}</span><span class="slot-name">${escapeText(uiName(item))}</span>`:'<span class="slot-plus">+</span>';});$('lockLeft').setAttribute('aria-pressed',String(leftLocked));$('batchOpen').hidden=!(leftLocked&&slots[0]);}
 function updateLatest(){ /* V35: the last ID remains in saved progress, but no screen-space widget. */ }
-// Motion-only visual clones: combinations and saves are processed immediately.
-// The original discovery modal stays open until the user explicitly closes it.
+// Motion is visual only. A new discovery opens the ORIGINAL modal synchronously.
+// No code path may hide that card while an animation is pending.
 let activeCraftMotion=null;
 function stopCraftMotion(){
- const m=activeCraftMotion;if(!m)return;
- activeCraftMotion=null;m.cancelled=true;
- if(m.modalCard)m.modalCard.style.visibility='';
- if(m.modalAnimation&&m.modalAnimation.playState!=='finished')m.modalAnimation.cancel();
- for(const node of m.nodes)node.remove();
-}
-function attachDiscoveryMotion(resultId){
  const m=activeCraftMotion;
- if(!m||!m.isNew||m.resultId!==resultId)return;
- const modal=$('modal'),card=modal?.querySelector('.modal-card');
- if(!modal||modal.hidden||!card)return;
- m.modalCard=card;
- // This is the ORIGINAL discovery card, not a short-lived replacement.
- card.style.visibility='hidden';
+ if(!m)return;
+ activeCraftMotion=null;
+ if(m.timer)clearTimeout(m.timer);
+ if(m.animation&&m.animation.playState!=='finished')m.animation.cancel();
+ if(m.node)m.node.remove();
+ if(m.element)m.element.classList.remove('craft-bumping');
+ if(m.card)m.card.style.transformOrigin='';
+}
+function craftMotionSupported(){
+ return tab==='Play'&&document.visibilityState!=='hidden'&&!window.matchMedia?.('(prefers-reduced-motion: reduce)')?.matches;
 }
 function playCraftMotion(leftId,rightId,resultId,isNew){
  stopCraftMotion();
- if(tab!=='Play'||document.visibilityState==='hidden'||window.matchMedia?.('(prefers-reduced-motion: reduce)')?.matches)return false;
- const left=$('slot0'),right=$('slot1'),ingredient=byId.get(rightId),result=byId.get(resultId);
- if(!ingredient||!left||!right||typeof right.animate!=='function')return false;
+ if(!craftMotionSupported())return false;
+ const left=$('slot0'),right=$('slot1'),item=byId.get(rightId);
+ if(!left||!right||!item||typeof right.animate!=='function')return false;
  const l=left.getBoundingClientRect(),r=right.getBoundingClientRect();
  if(!l.width||!r.width)return false;
- const m={cancelled:false,nodes:[],resultId,isNew:!!result&&!!isNew,modalCard:null,modalAnimation:null};
- activeCraftMotion=m;
- const active=()=>activeCraftMotion===m&&!m.cancelled;
- const add=node=>{document.body.appendChild(node);m.nodes.push(node);return node;};
- const run=(node,frames,options)=>node.animate(frames,{fill:'forwards',easing:'ease-out',...options}).finished.catch(()=>{});
- const ghost=document.createElement('div');ghost.className='craft-motion-ghost';
- ghost.dataset.motion=!result?'invalid':isNew?'new':'repeat';
- ghost.setAttribute('aria-hidden','true');ghost.innerHTML=right.innerHTML;
- Object.assign(ghost.style,{left:r.left+'px',top:r.top+'px',width:r.width+'px',height:r.height+'px'});
- add(ghost);
- const dx=l.left-r.left,dy=l.top-r.top;
- const revealMarkup=()=>`<div class="craft-motion-art">${staticArt(result)}</div><div class="craft-motion-name">${escapeText(uiName(result))}</div>`;
- async function sequence(){
-  if(!result){
-   // Only touch the LEFT TILE'S OUTER EDGE; never overlap it by even 1px.
-   const contactX=Math.min(0,l.right-r.left);
-   await run(ghost,[
+ // Invalid pairing: animate the ACTUAL right slot so it stays visible while moving.
+ if(!resultId){
+  const contactX=l.right-r.left;
+  if(contactX>=0)return false;
+  const m={kind:'invalid',element:right,animation:null,timer:null};
+  activeCraftMotion=m;
+  right.classList.add('craft-bumping');
+  try{
+   m.animation=right.animate([
     {transform:'translate3d(0,0,0) scaleX(1)',offset:0},
-    {transform:`translate3d(${contactX}px,${dy}px,0) scaleX(1)`,offset:.34},
-    {transform:`translate3d(${contactX}px,${dy}px,0) scaleX(.93)`,offset:.48},
-    {transform:`translate3d(${contactX+8}px,${dy}px,0) scaleX(1)`,offset:.63},
-    {transform:'translate3d(0,0,0) scaleX(1)',opacity:0,offset:1}
-   ],{duration:270,easing:'ease-in-out'});
-  }else{
-   await run(ghost,[
-    {transform:'translate3d(0,0,0) scale(1)',opacity:1},
-    {transform:`translate3d(${dx}px,${dy}px,0) scale(.85)`,opacity:.15}
-   ],{duration:165});
-   if(!active())return;
-   ghost.remove();
-   if(!isNew){
-    const formed=document.createElement('div');
-    formed.className='craft-motion-result';formed.setAttribute('aria-hidden','true');
-    formed.innerHTML=revealMarkup();
-    Object.assign(formed.style,{left:l.left+'px',top:l.top+'px',width:l.width+'px',height:l.height+'px'});
-    add(formed);
-    await run(formed,[
-     {transform:'translate3d(0,6px,0) scale(.88)',opacity:0,offset:0},
-     {transform:'translate3d(0,0,0) scale(1)',opacity:1,offset:.24},
-     {transform:'translate3d(0,-48px,0) scale(1.06)',opacity:0,offset:1}
-    ],{duration:300,easing:'ease-out'});
-   }else if(m.modalCard){
-    const card=m.modalCard,final=card.getBoundingClientRect();
-    if(final.width&&final.height){
-     const x=l.left-final.left,y=l.top-final.top;
-     const sx=l.width/final.width,sy=l.height/final.height;
-     m.modalAnimation=card.animate([
-      {transform:`translate3d(${x}px,${y}px,0) scale(${sx},${sy})`,opacity:.75,borderRadius:'19px'},
-      {transform:'translate3d(0,0,0) scale(1)',opacity:1,borderRadius:'23px'}
-     ],{duration:390,fill:'both',easing:'cubic-bezier(.19,.72,.25,1)'});
-     card.style.visibility='';
-     await m.modalAnimation.finished.catch(()=>{});
-    }else card.style.visibility='';
-   }
-  }
-  if(active())stopCraftMotion();
+    {transform:`translate3d(${contactX}px,0,0) scaleX(1)`,offset:.38},
+    {transform:`translate3d(${contactX}px,0,0) scaleX(.94)`,offset:.48},
+    {transform:`translate3d(${contactX+7}px,0,0) scaleX(1)`,offset:.58},
+    {transform:'translate3d(0,0,0) scaleX(1)',offset:1}
+   ],{duration:235,easing:'ease-in-out',fill:'none'});
+   void m.animation.finished.then(()=>{
+    if(activeCraftMotion!==m)return;
+    m.timer=setTimeout(()=>{
+     if(activeCraftMotion!==m)return;
+     stopCraftMotion();
+     if(slots[0]===leftId&&slots[1]===rightId)finishSlots();
+    },65);
+   }).catch(()=>{if(activeCraftMotion===m)stopCraftMotion();});
+   return true;
+  }catch(error){stopCraftMotion();console.warn('Craft bump unavailable',error);return false;}
  }
- void sequence().catch(error=>{console.warn('Craft animation unavailable; discovery remains accessible',error);if(active())stopCraftMotion();});
+ // A new discovery uses the real original modal as the expanding tile.
+ if(isNew){
+  activeCraftMotion={kind:'new',resultId,left:l,right:r,animation:null,card:null};
+  return true;
+ }
+ // Previously discovered recipe: a disposable visual clone merges and fades up.
+ const ghost=document.createElement('div');
+ ghost.className='craft-motion-ghost';ghost.setAttribute('aria-hidden','true');
+ ghost.innerHTML=right.innerHTML;
+ Object.assign(ghost.style,{left:r.left+'px',top:r.top+'px',width:r.width+'px',height:r.height+'px'});
+ document.body.appendChild(ghost);
+ const m={kind:'repeat',node:ghost,animation:null};
+ activeCraftMotion=m;
+ const dx=l.left-r.left,dy=l.top-r.top;
+ async function repeatMotion(){
+  const slide=ghost.animate([
+   {transform:'translate3d(0,0,0) scale(1)',opacity:1},
+   {transform:`translate3d(${dx}px,${dy}px,0) scale(.91)`,opacity:1}
+  ],{duration:155,fill:'forwards',easing:'ease-in-out'});
+  m.animation=slide;
+  await slide.finished;
+  if(activeCraftMotion!==m)return;
+  ghost.innerHTML=`<span class="craft-motion-art">${staticArt(byId.get(resultId))}</span><span class="craft-motion-name">${escapeText(uiName(byId.get(resultId)))}</span>`;
+  const rise=ghost.animate([
+   {transform:`translate3d(${dx}px,${dy}px,0) scale(.91)`,opacity:1},
+   {transform:`translate3d(${dx}px,${dy-50}px,0) scale(1.05)`,opacity:0}
+  ],{duration:230,fill:'forwards',easing:'ease-out'});
+  m.animation=rise;
+  await rise.finished;
+  if(activeCraftMotion===m)stopCraftMotion();
+ }
+ void repeatMotion().catch(()=>{if(activeCraftMotion===m)stopCraftMotion();});
  return true;
 }
-// A fresh selection always supersedes a cosmetic animation, never the saved result.
+function animateOriginalDiscoveryModal(resultId){
+ const modal=$('modal'),card=modal?.querySelector('.modal-card');
+ if(!card)return;
+ // Defensive recovery: NO modal visibility changes are permitted.
+ card.style.visibility='';
+ const m=activeCraftMotion;
+ if(!m||m.kind!=='new'||m.resultId!==resultId||modal.hidden)return;
+ const target=card.getBoundingClientRect();
+ if(!target.width||!target.height||typeof card.animate!=='function'){stopCraftMotion();return;}
+ const frame=(rect)=>({
+  transform:`translate3d(${rect.left-target.left}px,${rect.top-target.top}px,0) scale(${rect.width/target.width},${rect.height/target.height})`,
+  opacity:1
+ });
+ m.card=card;
+ card.style.transformOrigin='top left';
+ try{
+  // The original discovery card flies from RIGHT to LEFT, then opens to its natural size.
+  m.animation=card.animate([
+   {...frame(m.right),offset:0},
+   {...frame(m.left),offset:.38},
+   {transform:'translate3d(0,0,0) scale(1)',opacity:1,offset:1}
+  ],{duration:430,fill:'none',easing:'cubic-bezier(.2,.7,.28,1)'});
+  void m.animation.finished.then(()=>{if(activeCraftMotion===m)stopCraftMotion();}).catch(()=>{if(activeCraftMotion===m)stopCraftMotion();});
+ }catch(error){stopCraftMotion();console.warn('Discovery motion unavailable; original window remains open',error);}
+}
+// A touch cancels cosmetic motion but never the original dialog or saved discoveries.
 document.addEventListener('pointerdown',stopCraftMotion,{capture:true,passive:true});
 function place(index,id){if(batchState?.phase==='scanning')return;if(!byId.has(id)||!unlocked.has(id))return;stopCraftMotion();clearTimeout(autoTimer);slots[index]=id;updateSlotUI();if(slots.every(Boolean))autoTimer=setTimeout(combine,180);}
 // V54: pulsing feedback follows an actual ingredient selection (tap, pointer or keyboard).
@@ -1034,9 +1056,12 @@ async function combine(){
   if(allowed)playCraftMotion(a,b,result,!unlocked.has(result));
   finishSlots();completeCombination(result,a,b,cached?'recipe':'redundant');return;
  }
- if(!apiBase)playCraftMotion(a,b,null,false);
+ if(!apiBase){
+  const moving=playCraftMotion(a,b,null,false);
+  if(!moving)finishSlots();
+  clearCraftFeedback();return;
+ }
  finishSlots();
- if(!apiBase){clearCraftFeedback();return;}
  toast('Discovering…');
  try{
   const response=await fetch(`${apiBase}/v1/combinations/resolve`,{method:'POST',headers:{'Content-Type':'application/json',...authHeaders()},body:JSON.stringify({leftId:a,rightId:b})});
@@ -1056,7 +1081,7 @@ async function combine(){
   else toast('Discovery is temporarily unavailable','error');
  }catch(e){toast('Server unavailable · Offline progress preserved','error');console.warn(e);}
 }
-function showModal(content){$('modal').removeAttribute('aria-labelledby');$('modal').dataset.dismiss='any';$('modalContent').innerHTML=content;$('modal').hidden=false;}
+function showModal(content){$('modal').removeAttribute('aria-labelledby');$('modal').dataset.dismiss='any';$('modalContent').innerHTML=content;const card=$('modal').querySelector('.modal-card');if(card)card.style.visibility='';$('modal').hidden=false;}
 function closeModal(){
  const st=batchState;
  if(st?.phase==='scanning'){batchState=null;slots[1]=null;updateSlotUI();announceCraft('idle','Family scan cancelled · No new results published');$('modal').hidden=true;$('modal').dataset.dismiss='any';return;}
@@ -1068,14 +1093,14 @@ function closeModal(){
  if(st?.phase==='summary')batchState=null;
  $('playFamily').setAttribute('aria-expanded','false');
  $('recentBtn').setAttribute('aria-expanded','false');
- const m=$('modal');m.hidden=true;m.dataset.dismiss='any';
+ stopCraftMotion();const m=$('modal');m.hidden=true;m.dataset.dismiss='any';
 }
 
 function showDiscovery(id,a,b){
  const it=byId.get(id),isFirst=worldFirsts.has(id),earned=[...unlocked].filter(x=>!STARTERS.has(x)).length;
  showModal(`<div class="modal-tag ${isFirst?'world-first-tag':''}">${isFirst?'★ WORLD FIRST':'✦ NEW DISCOVERY'}</div><div class="modal-art">${staticArt(it)}</div><h2>${escapeText(uiName(it))}</h2><p>${escapeText(uiName(byId.get(a)))} + ${escapeText(uiName(byId.get(b)))}</p>${wittyDiscovery(it)?`<p class="discovery-wit">${escapeText(publicText(wittyDiscovery(it)))}</p>`:""}<div class="modal-milestone">${earned.toLocaleString('en-US')} personal discoveries</div>`);
  $('continueBtn')?.remove();$('modal').dataset.dismiss='x-only';
- attachDiscoveryMotion(id);
+ animateOriginalDiscoveryModal(id);
 }
 function detail(id){const it=byId.get(id);if(!it)return;const extra=familiesFor(it).length>1?`<p class="mini-muted">Shared across: ${familiesFor(it).map(f=>escapeText(FAMILIES.find(x=>x.id===f)?.name||f)).join(' · ')}</p>`:'';showModal(`<div class="modal-art">${staticArt(it)}</div><h2>${escapeText(uiName(it))}</h2><p>${escapeText(categoryNames[it.category]||it.category)}</p>${extra}<button class="modal-button" id="useBtn">Use in craft table</button>`);$('useBtn').onclick=()=>{closeModal();switchTab('Play');if(!slots[0])place(0,id);else place(1,id);};}
 const allIds=()=>[...unlocked].filter(id=>byId.has(id));
