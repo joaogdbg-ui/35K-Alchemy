@@ -7,8 +7,8 @@
     "recipes": 14349
   },
   "expansion_goal": 200,
-  "authored_candidates": 100,
-  "remaining": 100,
+  "authored_candidates": 125,
+  "remaining": 75,
   "art_review": "NOT_APPROVED",
   "new_items": [
     {
@@ -1510,27 +1510,378 @@
       "path": "client/assets/v83/portal-lens.svg",
       "art_mode": "bespoke-subject",
       "editorial_qa": "pending"
+    },
+    {
+      "id": "organic83:arcade-token-hopper",
+      "name": "Arcade Token Hopper",
+      "category": "arcade",
+      "summary": "A coin-fed arcade hopper releases brass tokens into a collection tray.",
+      "ingredients": [
+        "organic83:prize-redemption-counter",
+        "legacy:108"
+      ],
+      "familyCampaigns": [],
+      "path": "client/assets/v83/arcade-token-hopper.svg",
+      "art_mode": "bespoke-subject",
+      "editorial_qa": "pending"
+    },
+    {
+      "id": "organic83:cabinet-coin-door",
+      "name": "Cabinet Coin Door",
+      "category": "arcade",
+      "summary": "A hinged arcade coin door houses a metal slot and a locked cashbox.",
+      "ingredients": [
+        "organic83:arcade-marquee-panel",
+        "legacy:108"
+      ],
+      "familyCampaigns": [],
+      "path": "client/assets/v83/cabinet-coin-door.svg",
+      "art_mode": "bespoke-subject",
+      "editorial_qa": "pending"
+    },
+    {
+      "id": "organic83:pinball-tilt-sensor",
+      "name": "Pinball Tilt Sensor",
+      "category": "arcade",
+      "summary": "A hanging pendulum sensor detects when a pinball cabinet is shaken.",
+      "ingredients": [
+        "organic83:pinball-bumper",
+        "legacy:86"
+      ],
+      "familyCampaigns": [],
+      "path": "client/assets/v83/pinball-tilt-sensor.svg",
+      "art_mode": "bespoke-subject",
+      "editorial_qa": "pending"
+    },
+    {
+      "id": "organic83:rhythm-step-sensor",
+      "name": "Rhythm Step Sensor",
+      "category": "arcade",
+      "summary": "An arcade dance mat senses each footstep through illuminated pressure pads.",
+      "ingredients": [
+        "organic83:rhythm-note-lane",
+        "legacy:116"
+      ],
+      "familyCampaigns": [],
+      "path": "client/assets/v83/rhythm-step-sensor.svg",
+      "art_mode": "bespoke-subject",
+      "editorial_qa": "pending"
+    },
+    {
+      "id": "organic83:prize-crane-joystick",
+      "name": "Prize Crane Joystick",
+      "category": "arcade",
+      "summary": "A ball-topped lever controls the moving claw in a prize cabinet.",
+      "ingredients": [
+        "organic83:arcade-claw-machine",
+        "legacy:83"
+      ],
+      "familyCampaigns": [],
+      "path": "client/assets/v83/prize-crane-joystick.svg",
+      "art_mode": "bespoke-subject",
+      "editorial_qa": "pending"
+    },
+    {
+      "id": "organic83:ticket-counting-tray",
+      "name": "Ticket Counting Tray",
+      "category": "arcade",
+      "summary": "A shallow counter tray sorts numbered arcade tickets into tidy stacks.",
+      "ingredients": [
+        "organic83:prize-redemption-counter",
+        "legacy:96"
+      ],
+      "familyCampaigns": [],
+      "path": "client/assets/v83/ticket-counting-tray.svg",
+      "art_mode": "bespoke-subject",
+      "editorial_qa": "pending"
+    },
+    {
+      "id": "organic83:cartridge-cleaning-swab",
+      "name": "Cartridge Cleaning Swab",
+      "category": "accessory",
+      "summary": "A cotton cleaning swab removes dirt from a cartridge connector.",
+      "ingredients": [
+        "legacy:151",
+        "organic83:crafting-material-rack"
+      ],
+      "familyCampaigns": [],
+      "path": "client/assets/v83/cartridge-cleaning-swab.svg",
+      "art_mode": "bespoke-subject",
+      "editorial_qa": "pending"
+    },
+    {
+      "id": "organic83:game-manual-foldout",
+      "name": "Game Manual Foldout",
+      "category": "gamecraft",
+      "summary": "A printed game manual unfolds into control instructions and a tiny level map.",
+      "ingredients": [
+        "organic83:quest-notice-board",
+        "legacy:51"
+      ],
+      "familyCampaigns": [],
+      "path": "client/assets/v83/game-manual-foldout.svg",
+      "art_mode": "bespoke-subject",
+      "editorial_qa": "pending"
+    },
+    {
+      "id": "organic83:memory-card-sleeve",
+      "name": "Memory Card Sleeve",
+      "category": "accessory",
+      "summary": "A soft protective pouch holds a removable console memory card.",
+      "ingredients": [
+        "legacy:337",
+        "organic83:inventory-tile-grid"
+      ],
+      "familyCampaigns": [],
+      "path": "client/assets/v83/memory-card-sleeve.svg",
+      "art_mode": "bespoke-subject",
+      "editorial_qa": "pending"
+    },
+    {
+      "id": "organic83:controller-cable-reel",
+      "name": "Controller Cable Reel",
+      "category": "accessory",
+      "summary": "A circular spool keeps a game controller cable coiled without tangling.",
+      "ingredients": [
+        "legacy:68",
+        "organic83:quick-access-ring"
+      ],
+      "familyCampaigns": [],
+      "path": "client/assets/v83/controller-cable-reel.svg",
+      "art_mode": "bespoke-subject",
+      "editorial_qa": "pending"
+    },
+    {
+      "id": "organic83:handheld-dock-cable-stand",
+      "name": "Handheld Dock Cable Stand",
+      "category": "accessory",
+      "summary": "A folding desk stand charges a portable game console through a tucked cable.",
+      "ingredients": [
+        "legacy:169",
+        "organic83:controller-cable-reel"
+      ],
+      "familyCampaigns": [],
+      "path": "client/assets/v83/handheld-dock-cable-stand.svg",
+      "art_mode": "bespoke-subject",
+      "editorial_qa": "pending"
+    },
+    {
+      "id": "organic83:touchscreen-thumb-grip",
+      "name": "Touchscreen Thumb Grip",
+      "category": "accessory",
+      "summary": "A small textured silicone thumb cap improves control on a touchscreen.",
+      "ingredients": [
+        "legacy:84",
+        "organic83:quick-access-ring"
+      ],
+      "familyCampaigns": [],
+      "path": "client/assets/v83/touchscreen-thumb-grip.svg",
+      "art_mode": "bespoke-subject",
+      "editorial_qa": "pending"
+    },
+    {
+      "id": "organic83:light-gun-holster",
+      "name": "Light Gun Holster",
+      "category": "accessory",
+      "summary": "A padded side holster stores an arcade light gun when not in use.",
+      "ingredients": [
+        "legacy:327",
+        "organic83:loot-satchel"
+      ],
+      "familyCampaigns": [],
+      "path": "client/assets/v83/light-gun-holster.svg",
+      "art_mode": "bespoke-subject",
+      "editorial_qa": "pending"
+    },
+    {
+      "id": "organic83:co-op-lobby-card",
+      "name": "Co-op Lobby Card",
+      "category": "gamecraft",
+      "summary": "A multiplayer lobby panel shows two players ready for a shared adventure.",
+      "ingredients": [
+        "legacy:365",
+        "organic83:quest-notice-board"
+      ],
+      "familyCampaigns": [],
+      "path": "client/assets/v83/co-op-lobby-card.svg",
+      "art_mode": "bespoke-subject",
+      "editorial_qa": "pending"
+    },
+    {
+      "id": "organic83:party-game-scorepad",
+      "name": "Party Game Scorepad",
+      "category": "board",
+      "summary": "A cardboard scoreboard tracks points for several players in a party game.",
+      "ingredients": [
+        "organic83:combo-counter",
+        "legacy:107"
+      ],
+      "familyCampaigns": [],
+      "path": "client/assets/v83/party-game-scorepad.svg",
+      "art_mode": "bespoke-subject",
+      "editorial_qa": "pending"
+    },
+    {
+      "id": "organic83:dice-rolling-chute",
+      "name": "Dice Rolling Chute",
+      "category": "board",
+      "summary": "A sloping wooden chute tumbles dice into an enclosed tabletop tray.",
+      "ingredients": [
+        "organic83:crafting-material-rack",
+        "legacy:223"
+      ],
+      "familyCampaigns": [],
+      "path": "client/assets/v83/dice-rolling-chute.svg",
+      "art_mode": "bespoke-subject",
+      "editorial_qa": "pending"
+    },
+    {
+      "id": "organic83:dungeon-dice-set",
+      "name": "Dungeon Dice Set",
+      "category": "board",
+      "summary": "A collection of polyhedral dice accompanies an adventurer's tabletop map.",
+      "ingredients": [
+        "organic83:dungeon-minimap",
+        "legacy:223"
+      ],
+      "familyCampaigns": [],
+      "path": "client/assets/v83/dungeon-dice-set.svg",
+      "art_mode": "bespoke-subject",
+      "editorial_qa": "pending"
+    },
+    {
+      "id": "organic83:miniature-paint-station",
+      "name": "Miniature Paint Station",
+      "category": "board",
+      "summary": "A hobby workbench holds tiny painted figurines, brushes and a paint palette.",
+      "ingredients": [
+        "legacy:1260",
+        "organic83:crafting-material-rack"
+      ],
+      "familyCampaigns": [],
+      "path": "client/assets/v83/miniature-paint-station.svg",
+      "art_mode": "bespoke-subject",
+      "editorial_qa": "pending"
+    },
+    {
+      "id": "organic83:map-tile-organizer",
+      "name": "Map Tile Organizer",
+      "category": "board",
+      "summary": "Divided storage compartments keep modular dungeon-map tiles sorted by shape.",
+      "ingredients": [
+        "organic83:dungeon-minimap",
+        "legacy:153"
+      ],
+      "familyCampaigns": [],
+      "path": "client/assets/v83/map-tile-organizer.svg",
+      "art_mode": "bespoke-subject",
+      "editorial_qa": "pending"
+    },
+    {
+      "id": "organic83:card-sleeve-binder",
+      "name": "Card Sleeve Binder",
+      "category": "board",
+      "summary": "A ring binder protects a collection of trading cards inside clear pockets.",
+      "ingredients": [
+        "legacy:163",
+        "organic83:inventory-tile-grid"
+      ],
+      "familyCampaigns": [],
+      "path": "client/assets/v83/card-sleeve-binder.svg",
+      "art_mode": "bespoke-subject",
+      "editorial_qa": "pending"
+    },
+    {
+      "id": "organic83:board-game-storage-insert",
+      "name": "Board Game Storage Insert",
+      "category": "board",
+      "summary": "A fitted cardboard tray organizes game pieces in a box without mixing them.",
+      "ingredients": [
+        "legacy:107",
+        "organic83:crafting-material-rack"
+      ],
+      "familyCampaigns": [],
+      "path": "client/assets/v83/board-game-storage-insert.svg",
+      "art_mode": "bespoke-subject",
+      "editorial_qa": "pending"
+    },
+    {
+      "id": "organic83:pixel-sprite-flipbook",
+      "name": "Pixel Sprite Flipbook",
+      "category": "gamecraft",
+      "summary": "A stack of animation frames shows a tiny hero running across successive pages.",
+      "ingredients": [
+        "legacy:219",
+        "organic83:monster-bestiary-page"
+      ],
+      "familyCampaigns": [],
+      "path": "client/assets/v83/pixel-sprite-flipbook.svg",
+      "art_mode": "bespoke-subject",
+      "editorial_qa": "pending"
+    },
+    {
+      "id": "organic83:platform-jump-spring",
+      "name": "Platform Jump Spring",
+      "category": "gamecraft",
+      "summary": "A bright metal coil launches a platforming hero from the floor.",
+      "ingredients": [
+        "organic83:pinball-launch-rail",
+        "legacy:356"
+      ],
+      "familyCampaigns": [],
+      "path": "client/assets/v83/platform-jump-spring.svg",
+      "art_mode": "bespoke-subject",
+      "editorial_qa": "pending"
+    },
+    {
+      "id": "organic83:puzzle-hint-dial",
+      "name": "Puzzle Hint Dial",
+      "category": "gamecraft",
+      "summary": "A rotating clue dial reveals one section of a hidden solution at a time.",
+      "ingredients": [
+        "legacy:224",
+        "organic83:quick-access-ring"
+      ],
+      "familyCampaigns": [],
+      "path": "client/assets/v83/puzzle-hint-dial.svg",
+      "art_mode": "bespoke-subject",
+      "editorial_qa": "pending"
+    },
+    {
+      "id": "organic83:boss-victory-banner",
+      "name": "Boss Victory Banner",
+      "category": "gamecraft",
+      "summary": "An embroidered trophy banner unfurls after a final boss has been defeated.",
+      "ingredients": [
+        "organic83:boss-health-bar",
+        "organic83:checkpoint-banner"
+      ],
+      "familyCampaigns": [],
+      "path": "client/assets/v83/boss-victory-banner.svg",
+      "art_mode": "bespoke-subject",
+      "editorial_qa": "pending"
     }
   ],
   "source_checkpoint": {
-    "at_candidates": 100,
+    "at_candidates": 125,
     "isolated_family": "mythology",
     "family_candidate_count": 50,
-    "classic_only_candidate_count": 50,
+    "classic_only_candidate_count": 75,
     "family_reachable": 159,
     "family_total": 159,
     "historical_organic_modules_checked": 39,
     "legacy_and_creative_catalogs_checked": true,
-    "new_pair_keys_unique": 100,
-    "new_ids_unique": 100,
-    "svg_paths_unique": 100,
-    "source_art_map_entries": 100,
-    "manifest_entries": 100,
+    "new_pair_keys_unique": 125,
+    "new_ids_unique": 125,
+    "svg_paths_unique": 125,
+    "source_art_map_entries": 125,
+    "manifest_entries": 125,
     "missing_recipe_inputs": 0,
     "forward_wip_recipe_dependencies": 0,
     "name_or_recipe_collisions_found_after_corrections": 0,
-    "scope": "source-based checks; no Android build or full npm test run",
+    "scope": "WIP internal uniqueness and dependency checks only after 25 new gaming assets; prior history audit covered the first 100; new 25 still require full scan",
     "full_regression_test": "NOT_RUN",
-    "human_35px_review": "PENDING"
+    "human_35px_review": "PENDING",
+    "historical_name_pair_scan": "NEEDS_REFRESH_AT_125"
   }
 }
