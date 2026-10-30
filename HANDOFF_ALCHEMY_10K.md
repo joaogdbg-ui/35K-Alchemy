@@ -87,3 +87,5 @@ Preserve 200-per-batch policy and do not start another content release on top of
 - **Mode-switch grace**: after a rewarded mode-switch ad, switching again within 5 minutes is free.
 - **Shiny elements**: each successful combination (not Batch) has 1% chance (5% without ads) to make its result Shiny — twinkling overlay, Shiny filter chip, trivia card (`item.trivia`, else wit/summary). Saved in `alchemy10k_shiny_v1`, included in backups.
 - **Remove ads** (Google Play Billing, `native/android/AlchemyBillingPlugin.java`, product id `no_ads`, owner price €1.50): no forced ads (mode switch, Batch, Merge free), 10-hint bank +1 every 15 min, optional ad for extra hints, 5% Shiny. **Owner must create the in-app product `no_ads` in Play Console**; until then the purchase button reports it is unavailable.
+
+- **Art redraw wave 3 (V85, done): 3,991 icons** — every remaining older element. All 6,012 pre-V83 elements now use the 2026 art direction (`ART_REDRAW`), plus 200 V83 and 200 V85 originals. Six near-duplicates found by the audit were redrawn; 36 reviewed false alarms are in `tools/art-redraw-reviewed-pairs.json` (the audit now also honours them for V83 comparisons).
