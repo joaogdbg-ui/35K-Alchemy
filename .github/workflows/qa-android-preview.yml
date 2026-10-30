@@ -134,11 +134,11 @@ jobs:
           "$APKSIGNER" verify --verbose --print-certs "$APK" | tee /tmp/alchemy-apk-signature.txt
           grep -Fqi 'b4589e5ea89d7b0d389708aaf63dd2b388b9365f0b66d2aa7cbce40047dad52a' /tmp/alchemy-apk-signature.txt
           mkdir -p dist
-          cp "$APK" dist/Alchemy-10K-V82-QA.apk
-          test -s dist/Alchemy-10K-V82-QA.apk
+          cp "$APK" dist/Alchemy-10K-V83-Motion-QA.apk
+          test -s dist/Alchemy-10K-V83-Motion-QA.apk
       - uses: actions/upload-artifact@v4
         with:
-          name: Alchemy-10K-V82-QA-Android
-          path: dist/Alchemy-10K-V82-QA.apk
+          name: Alchemy-10K-V83-Motion-QA-Android
+          path: dist/Alchemy-10K-V83-Motion-QA.apk
           retention-days: 14
           if-no-files-found: error
