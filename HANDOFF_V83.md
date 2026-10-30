@@ -41,3 +41,6 @@ The Discoveries module recognizes `gamecraft`, `arcade`, and `fantasy`, but **no
 
 ## Fourth wave: 25 original gameplay/interface objects (100/200)
 Added 25 drafts spanning physical arcade components (marquee, prize capsule, pinball mechanisms, rhythm lanes), game HUD (speedrun timer, replay ghost, combo counter, health pickups/gear grid), dungeon equipment and signs (warning siren, parry dummy, switch plate, portal lens). Every illustration is source-authored, not a generic hashed composition. These 25 are Classic-only; no new Family Only membership until independently valid routes exist. Still WIP; 100 more required to ship V83, and all 100 require full history and 35px review.
+
+## Full-history QA collision remediation at 100/200
+The scan found pre-existing `Pinball Plunger` (V73), `Speedrun Split Timer` (V81), `Joystick + Metal` (already V77 -> Joystick Spring) and `Arcade + Music` (legacy result 286). The WIP candidates were corrected to unique subjects `Pinball Launch Rail` and `Ghost Lap Stopwatch` with newly authored illustrations and global recipes. The proposed `Rhythm Note Lane` now uses `Arcade Marquee Panel + Music`; no original result was changed. Recheck the full catalog after edits.

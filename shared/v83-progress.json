@@ -1204,16 +1204,16 @@
       "editorial_qa": "pending"
     },
     {
-      "id": "organic83:pinball-plunger",
-      "name": "Pinball Plunger",
+      "id": "organic83:pinball-launch-rail",
+      "name": "Pinball Launch Rail",
       "category": "arcade",
-      "summary": "A sprung metal shooter launches a ball into a colorful pinball table.",
+      "summary": "A spring-loaded steel ball shooter guides a pinball upward through a narrow launch track.",
       "ingredients": [
-        "legacy:83",
-        "legacy:22"
+        "organic83:pinball-bumper",
+        "legacy:83"
       ],
       "familyCampaigns": [],
-      "path": "client/assets/v83/pinball-plunger.svg",
+      "path": "client/assets/v83/pinball-launch-rail.svg",
       "art_mode": "bespoke-subject",
       "editorial_qa": "pending"
     },
@@ -1223,7 +1223,7 @@
       "category": "arcade",
       "summary": "Five scrolling music lanes catch falling note tiles in a timing arcade game.",
       "ingredients": [
-        "legacy:171",
+        "organic83:arcade-marquee-panel",
         "legacy:139"
       ],
       "familyCampaigns": [],
@@ -1232,16 +1232,16 @@
       "editorial_qa": "pending"
     },
     {
-      "id": "organic83:speedrun-split-timer",
-      "name": "Speedrun Split Timer",
+      "id": "organic83:ghost-lap-stopwatch",
+      "name": "Ghost Lap Stopwatch",
       "category": "gamecraft",
-      "summary": "A stopwatch shows the time between checkpoints in a high-speed game run.",
+      "summary": "A racing stopwatch compares the current lap against the translucent ghost of an earlier run.",
       "ingredients": [
-        "organic83:checkpoint-banner",
+        "organic83:replay-ghost",
         "legacy:210"
       ],
       "familyCampaigns": [],
-      "path": "client/assets/v83/speedrun-split-timer.svg",
+      "path": "client/assets/v83/ghost-lap-stopwatch.svg",
       "art_mode": "bespoke-subject",
       "editorial_qa": "pending"
     },
