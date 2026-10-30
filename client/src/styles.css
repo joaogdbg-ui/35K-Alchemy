@@ -650,3 +650,7 @@ html[data-theme="dark"] .settings-link:active:not(:disabled){background:#38393f}
 .craft-ghost.is-morphing{z-index:90;box-shadow:none}
 html[data-theme="dark"] .craft-ghost.craft-ghost{box-shadow:0 6px 18px #00000055}
 @media(prefers-reduced-motion:reduce){.craft-ghost{display:none!important}}
+/* V83.1: final-size discovery art used for the smooth grow into the window. */
+.craft-morph-art{position:fixed;margin:0;z-index:90;pointer-events:none;display:grid;place-items:center;transform-origin:50% 50%;will-change:transform}
+.craft-morph-art svg,.craft-morph-art img{width:100%;height:100%;object-fit:contain}
+@media(prefers-reduced-motion:reduce){.craft-morph-art{display:none!important}}

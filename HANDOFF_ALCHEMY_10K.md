@@ -44,6 +44,7 @@
 - No recipe: the right tile slides until it touches the left one, bounces back and fades out; no sound, toast or feedback line (unchanged rule).
 - Already discovered: the right tile slides onto the left one, the result tile pops and floats up; the existing "Already discovered" feedback line is the only message.
 - New discovery: the merged result tile floats up and morphs into the artwork of the discovery window while the window fades in; the window still closes only with X.
+- V83.1: the discovery art is drawn at its final size over the window art and scaled up from the tile art, so it ends pixel-identical (no size snap, no blur).
 - A new ingredient entering a slot dismisses only the ghost covering that slot; `prefers-reduced-motion` disables all of it. Durations total under 0.9 s for a new discovery and under 0.5 s otherwise.
 - Checked locally in headless Chromium at 360×640, 390×820 and 1280×820 (light and dark, locked left, rapid consecutive pairs, no page errors) and with `npm test` (330/330, new `client/test/v83-combiner-motion.test.mjs`). Not yet checked on a physical Android device.
 
