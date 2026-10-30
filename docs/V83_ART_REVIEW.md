@@ -138,11 +138,11 @@ The 100 WIP SVG sources are individually authored and have separate source paths
 
 | Pangolin | `organic38:insect` + `organic83:stone-troll` | <img src="../client/assets/v83/pangolin.svg" width="35" height="35"> | <img src="../client/assets/v83/pangolin.svg" width="90" height="90"> |
 | Fennec Fox | `organic40:fox` + `legacy:1048` | <img src="../client/assets/v83/fennec-fox.svg" width="35" height="35"> | <img src="../client/assets/v83/fennec-fox.svg" width="90" height="90"> |
-| Shoebill | `organic38:bird` + `legacy:39` | <img src="../client/assets/v83/shoebill.svg" width="35" height="35"> | <img src="../client/assets/v83/shoebill.svg" width="90" height="90"> |
+| Shoebill | `organic38:bird` + `organic83:naiad` | <img src="../client/assets/v83/shoebill.svg" width="35" height="35"> | <img src="../client/assets/v83/shoebill.svg" width="90" height="90"> |
 | Narwhal | `organic83:ocean-leviathan` + `legacy:35` | <img src="../client/assets/v83/narwhal.svg" width="35" height="35"> | <img src="../client/assets/v83/narwhal.svg" width="90" height="90"> |
 | Wombat | `legacy:26` + `organic83:cave-troll` | <img src="../client/assets/v83/wombat.svg" width="35" height="35"> | <img src="../client/assets/v83/wombat.svg" width="90" height="90"> |
 | Platypus | `organic83:selkie` + `organic38:bird` | <img src="../client/assets/v83/platypus.svg" width="35" height="35"> | <img src="../client/assets/v83/platypus.svg" width="90" height="90"> |
-| Leafy Sea Dragon | `organic37:seahorse` + `organic42:kelp` | <img src="../client/assets/v83/leafy-sea-dragon.svg" width="35" height="35"> | <img src="../client/assets/v83/leafy-sea-dragon.svg" width="90" height="90"> |
+| Leafy Sea Dragon | `organic37:seahorse` + `organic83:forest-dryad` | <img src="../client/assets/v83/leafy-sea-dragon.svg" width="35" height="35"> | <img src="../client/assets/v83/leafy-sea-dragon.svg" width="90" height="90"> |
 | Arctic Tern | `organic38:bird` + `organic38:iceberg` | <img src="../client/assets/v83/arctic-tern.svg" width="35" height="35"> | <img src="../client/assets/v83/arctic-tern.svg" width="90" height="90"> |
 | Quokka | `legacy:558` + `legacy:26` | <img src="../client/assets/v83/quokka.svg" width="35" height="35"> | <img src="../client/assets/v83/quokka.svg" width="90" height="90"> |
 | Musk Ox | `organic82:frost-giant` + `legacy:26` | <img src="../client/assets/v83/musk-ox.svg" width="35" height="35"> | <img src="../client/assets/v83/musk-ox.svg" width="90" height="90"> |
@@ -153,7 +153,7 @@ The 100 WIP SVG sources are individually authored and have separate source paths
 | Blue-Ringed Octopus | `organic38:octopus` + `pack:venom` | <img src="../client/assets/v83/blue-ringed-octopus.svg" width="35" height="35"> | <img src="../client/assets/v83/blue-ringed-octopus.svg" width="90" height="90"> |
 | Tardigrade | `legacy:26` + `organic32:microscope` | <img src="../client/assets/v83/tardigrade.svg" width="35" height="35"> | <img src="../client/assets/v83/tardigrade.svg" width="90" height="90"> |
 | Proboscis Monkey | `legacy:601` + `legacy:39` | <img src="../client/assets/v83/proboscis-monkey.svg" width="35" height="35"> | <img src="../client/assets/v83/proboscis-monkey.svg" width="90" height="90"> |
-| Giant Isopod | `organic37:deep-sea` + `organic38:crab` | <img src="../client/assets/v83/giant-isopod.svg" width="35" height="35"> | <img src="../client/assets/v83/giant-isopod.svg" width="90" height="90"> |
+| Giant Isopod | `organic38:crab` + `organic83:ocean-leviathan` | <img src="../client/assets/v83/giant-isopod.svg" width="35" height="35"> | <img src="../client/assets/v83/giant-isopod.svg" width="90" height="90"> |
 | Binturong | `organic40:fox` + `legacy:19` | <img src="../client/assets/v83/binturong.svg" width="35" height="35"> | <img src="../client/assets/v83/binturong.svg" width="90" height="90"> |
 | Secretary Bird | `organic38:bird` + `legacy:1048` | <img src="../client/assets/v83/secretary-bird.svg" width="35" height="35"> | <img src="../client/assets/v83/secretary-bird.svg" width="90" height="90"> |
 | Sun Bear | `pack:panda` + `organic32:rainforest` | <img src="../client/assets/v83/sun-bear.svg" width="35" height="35"> | <img src="../client/assets/v83/sun-bear.svg" width="90" height="90"> |

@@ -1896,7 +1896,7 @@
       "summary": "A tall wetland bird waits motionless with its immense shoe-shaped beak.",
       "ingredients": [
         "organic38:bird",
-        "legacy:39"
+        "organic83:naiad"
       ],
       "familyCampaigns": [],
       "path": "client/assets/v83/shoebill.svg",
@@ -1952,7 +1952,7 @@
       "summary": "A delicately camouflaged sea dragon looks like floating kelp fronds.",
       "ingredients": [
         "organic37:seahorse",
-        "organic42:kelp"
+        "organic83:forest-dryad"
       ],
       "familyCampaigns": [],
       "path": "client/assets/v83/leafy-sea-dragon.svg",
@@ -2105,8 +2105,8 @@
       "category": "life",
       "summary": "A large deep-sea crustacean has overlapping armored segments and many legs.",
       "ingredients": [
-        "organic37:deep-sea",
-        "organic38:crab"
+        "organic38:crab",
+        "organic83:ocean-leviathan"
       ],
       "familyCampaigns": [],
       "path": "client/assets/v83/giant-isopod.svg",
@@ -2229,9 +2229,11 @@
     "missing_recipe_inputs": 0,
     "forward_wip_recipe_dependencies": 0,
     "name_or_recipe_collisions_found_after_corrections": 0,
-    "scope": "Internal uniqueness and ordered dependencies only for new fauna candidates; source audit from prior 125 incomplete for last 25",
+    "scope": "cross-source historical collision scan and WIP dependency order; no full npm/Android or human art QA",
     "full_regression_test": "NOT_RUN",
     "human_35px_review": "PENDING",
-    "historical_name_pair_scan": "NEEDS_REFRESH_AT_150"
+    "historical_name_pair_scan": "PASS: 39 historical organic modules + legacy + creative after 3 collision fixes",
+    "unique_ids": 150,
+    "unique_pair_keys": 150
   }
 }
