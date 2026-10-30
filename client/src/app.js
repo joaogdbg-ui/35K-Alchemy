@@ -819,7 +819,7 @@ function updateCounts(){
 }
 function updateSlotUI(){slots.forEach((id,i)=>{const target=$(`slot${i}`),item=byId.get(id);target.classList.toggle('filled',!!item);target.innerHTML=item?`<span class="slot-art">${staticArt(item)}</span><span class="slot-name">${escapeText(uiName(item))}</span>`:'<span class="slot-plus">+</span>';});$('lockLeft').setAttribute('aria-pressed',String(leftLocked));$('batchOpen').hidden=!(leftLocked&&slots[0]);}
 function updateLatest(){ /* V35: the last ID remains in saved progress, but no screen-space widget. */ }
-function place(index,id){if(batchState?.phase==='scanning')return;if(!byId.has(id)||!unlocked.has(id))return;clearTimeout(autoTimer);slots[index]=id;updateSlotUI();if(slots.every(Boolean))autoTimer=setTimeout(combine,180);}
+function place(index,id){if(batchState?.phase==='scanning')return;if(!byId.has(id)||!unlocked.has(id))return;clearTimeout(autoTimer);settleGhosts(index);slots[index]=id;updateSlotUI();if(slots.every(Boolean))autoTimer=setTimeout(combine,180);}
 // V54: pulsing feedback follows an actual ingredient selection (tap, pointer or keyboard).
 // The visual state is short-lived and never alters the recipes or the inventory order.
 function pulseSelectedElement(id){
@@ -923,24 +923,122 @@ async function connectToApi(){if(!apiBase)return;try{
  const existing=sessionToken;if(existing){try{await apiJson('/v1/me/discoveries?limit=1');await syncOnline();return;}catch(err){if(!/session_required/.test(err.message))throw err;}}
  const created=await apiJson('/v1/session',{method:'POST',auth:false});if(!created.token||!created.playerId)throw Error('invalid session');sessionToken=created.token;localStorage.setItem('gameverse_session_v11:'+apiBase,sessionToken);await syncOnline();
  }catch(err){console.warn('Connect failed:',err.message);toast('Connection failed; offline play still works');}}
+// V83: combiner motion. Every animation runs on fixed-position ghost tiles appended
+// to <body>, never on the real slots, so the slots are cleared and tappable the very
+// instant a combination resolves. The next ingredient never waits for a ghost.
+//  - no recipe:          right tile nudges the left one, bounces back, fades out
+//  - already discovered: right tile slides onto the left one, the result tile pops
+//                        and floats up; the feedback line says "Already discovered"
+//  - new discovery:      the merged result tile floats up and morphs into the art of
+//                        the discovery window, which closes only with X (unchanged)
+const craftMotion={scene:null,morphCleanup:null};
+const CRAFT_MOTION={touch:150,bounce:180,fade:140,merge:170,pop:120,rise:380,morph:300};
+const craftMotionAllowed=()=>typeof Element.prototype.animate==='function'&&!(window.matchMedia?.('(prefers-reduced-motion: reduce)')?.matches);
+function captureCraftScene(){
+ if(!craftMotionAllowed())return null;
+ const l=$('slot0'),r=$('slot1');if(!l||!r)return null;
+ const L=l.getBoundingClientRect(),R=r.getBoundingClientRect();if(!L.width||!R.width)return null;
+ return {at:Date.now(),left:{rect:L,html:l.innerHTML},right:{rect:R,html:r.innerHTML},keepLeft:leftLocked};
+}
+function takeCraftScene(){const s=craftMotion.scene;craftMotion.scene=null;return s&&Date.now()-s.at<1500?s:null;}
+function makeGhost(rect,html,slot,extra=''){
+ const g=document.createElement('div');g.className='craft-slot filled craft-ghost'+(extra?' '+extra:'');g.setAttribute('aria-hidden','true');
+ if(slot!=null)g.dataset.slot=String(slot);g.innerHTML=html;
+ g.style.cssText=`left:${rect.left}px;top:${rect.top}px;width:${rect.width}px;height:${rect.height}px`;
+ document.body.appendChild(g);return g;
+}
+function animateGhost(g,frames,opts){
+ return new Promise(resolve=>{if(!g.isConnected)return resolve(false);const a=g.animate(frames,{fill:'forwards',...opts});a.onfinish=()=>resolve(g.isConnected);a.oncancel=()=>resolve(false);});
+}
+// Freeze whatever the ghost is doing and fade it out from there (no jump back).
+function fadeGhost(g,duration=CRAFT_MOTION.fade,shrink=false){
+ if(!g?.isConnected)return;
+ for(const a of g.getAnimations()){try{a.commitStyles();}catch{}a.cancel();}
+ const base=g.style.transform||'none';
+ const a=g.animate([{opacity:1,transform:base},{opacity:0,transform:shrink?`${base==='none'?'':base+' '}scale(.82)`:base}],{duration,easing:'ease-out',fill:'forwards'});
+ a.onfinish=a.oncancel=()=>g.remove();
+}
+// A new ingredient entering a slot dismisses only the ghost still covering that slot.
+function settleGhosts(slot){document.querySelectorAll(`body>.craft-ghost[data-slot="${slot}"]`).forEach(g=>fadeGhost(g,90));}
+function cancelCraftMorph(){const c=craftMotion.morphCleanup;craftMotion.morphCleanup=null;if(c)c();}
+async function craftInvalidMotion(sc){
+ const left=sc.keepLeft?null:makeGhost(sc.left.rect,sc.left.html,0);
+ const right=makeGhost(sc.right.rect,sc.right.html,1);
+ const dx=Math.round(sc.left.rect.right-sc.right.rect.left+3);
+ const touched=await animateGhost(right,[{transform:'translateX(0)'},{transform:`translateX(${dx}px)`}],{duration:CRAFT_MOTION.touch,easing:'cubic-bezier(.45,0,.75,1)'});
+ if(!touched){if(left)fadeGhost(left,90);return;}
+ const nudged=left||(sc.keepLeft?$('slot0'):null);
+ nudged?.animate([{transform:'translateX(0)'},{transform:'translateX(-4px)'},{transform:'translateX(0)'}],{duration:170,easing:'ease-out'});
+ const back=await animateGhost(right,[{transform:`translateX(${dx}px)`},{transform:'translateX(0)'}],{duration:CRAFT_MOTION.bounce,easing:'cubic-bezier(.2,.9,.3,1.25)'});
+ if(!back){if(left)fadeGhost(left,90);return;}
+ fadeGhost(right,CRAFT_MOTION.fade,true);
+ if(left)fadeGhost(left,CRAFT_MOTION.fade);
+}
+async function craftMergeMotion(sc,item){
+ const left=sc.keepLeft?null:makeGhost(sc.left.rect,sc.left.html,0);
+ const right=makeGhost(sc.right.rect,sc.right.html,1);
+ const dx=Math.round(sc.left.rect.left-sc.right.rect.left),dy=Math.round(sc.left.rect.top-sc.right.rect.top);
+ const merged=await animateGhost(right,[{transform:'translate(0,0) scale(1)',opacity:1},{transform:`translate(${dx}px,${dy}px) scale(.94)`,opacity:.9}],{duration:CRAFT_MOTION.merge,easing:'cubic-bezier(.4,0,.6,1)'});
+ right.remove();if(left)left.remove();
+ if(!merged)return null;
+ const size=Math.round(Math.min(68,Math.max(48,sc.left.rect.height+8)));
+ const cx=sc.left.rect.left+sc.left.rect.width/2,cy=sc.left.rect.top+sc.left.rect.height/2;
+ const tile=makeGhost({left:cx-size/2,top:cy-size/2,width:size,height:size},`<span class="slot-art">${staticArt(item)}</span>`,null,'craft-ghost-result');
+ const popped=await animateGhost(tile,[{transform:'scale(.5)',opacity:0},{transform:'scale(1.1)',opacity:1,offset:.7},{transform:'scale(1)',opacity:1}],{duration:CRAFT_MOTION.pop,easing:'ease-out'});
+ return popped?tile:null;
+}
+async function craftRepeatMotion(sc,item){
+ const tile=await craftMergeMotion(sc,item);if(!tile)return;
+ await animateGhost(tile,[{transform:'translateY(0) scale(1)',opacity:1},{transform:'translateY(-58px) scale(1.12)',opacity:0}],{duration:CRAFT_MOTION.rise,easing:'cubic-bezier(.2,.6,.3,1)'});
+ tile.remove();
+}
+// The discovery window is already in the DOM (invisible); the result tile travels to
+// the exact place of its artwork while the card fades in beneath it.
+async function craftDiscoveryMotion(sc,item){
+ const modal=$('modal'),card=modal.querySelector('.modal-card'),art=modal.querySelector('.modal-art');
+ if(!card||!art||modal.hidden)return;
+ const state={tile:null,cardAnim:null,modalAnim:null,done:false};
+ const cleanup=()=>{if(state.done)return;state.done=true;modal.style.opacity='';art.style.visibility='';state.modalAnim?.cancel();state.cardAnim?.cancel();state.tile?.remove();};
+ cancelCraftMorph();craftMotion.morphCleanup=cleanup;
+ modal.style.opacity='0';art.style.visibility='hidden';
+ const tile=await craftMergeMotion(sc,item);
+ if(state.done)return;
+ if(!tile||modal.hidden||!art.isConnected){cleanup();return;}
+ state.tile=tile;tile.classList.add('is-morphing');
+ const from=tile.getBoundingClientRect(),to=art.getBoundingClientRect();
+ const s=to.width&&from.width?to.width/from.width:1;
+ const dx=(to.left+to.width/2)-(from.left+from.width/2),dy=(to.top+to.height/2)-(from.top+from.height/2);
+ const cs=getComputedStyle(tile);
+ state.modalAnim=modal.animate([{opacity:0},{opacity:1}],{duration:CRAFT_MOTION.morph,easing:'ease-out',fill:'forwards'});
+ state.cardAnim=card.animate([{opacity:0,transform:'translateY(14px) scale(.95)'},{opacity:1,transform:'none'}],{duration:240,delay:90,easing:'ease-out',fill:'forwards'});
+ await animateGhost(tile,[{transform:'translate(0,0) scale(1)',backgroundColor:cs.backgroundColor,borderColor:cs.borderColor,boxShadow:cs.boxShadow},{transform:`translate(${dx}px,${dy}px) scale(${s})`,backgroundColor:'transparent',borderColor:'transparent',boxShadow:'none'}],{duration:CRAFT_MOTION.morph,easing:'cubic-bezier(.3,.7,.2,1)'});
+ if(state.done)return;
+ craftMotion.morphCleanup=null;cleanup();
+}
+function playCraftMotion(sc,kind,item){
+ if(!sc)return;
+ try{(kind==='invalid'?craftInvalidMotion(sc):kind==='repeat'?craftRepeatMotion(sc,item):craftDiscoveryMotion(sc,item)).catch(e=>console.warn('Combiner motion skipped:',e));}
+ catch(e){console.warn('Combiner motion skipped:',e);}
+}
 // This is the sole completion path: legacy, repeated, deterministic reuse, remote approval.
 function completeCombination(resultId,a,b,kind='recipe'){
  if(!byId.has(resultId)||(currentMode==='family'&&!familyCampaigns.get(currentFamilyId).itemSet.has(resultId)))return;
- const key=pairKey(a,b),fresh=!unlocked.has(resultId);
+ const key=pairKey(a,b),fresh=!unlocked.has(resultId),scene=takeCraftScene();
  recipes.set(key,resultId);known.add(key);unlocked.add(resultId);last=resultId;
  if(fresh&&!STARTERS.has(resultId))discoveryLedger.set(resultId,{at:new Date().toISOString(),source:kind,ingredients:[a,b]});
  recent=[resultId,...recent.filter(i=>i!==resultId)].slice(0,350);
  save();updateCounts();updateLatest();
- if(fresh){announceCraft('new','New discovery · '+uiName(byId.get(resultId)));rerenderCollections();if(tab==='World')renderDiscoveries();showDiscovery(resultId,a,b);}
- else {announceCraft('repeat','Already discovered · '+uiName(byId.get(resultId)));}
+ if(fresh){announceCraft('new','New discovery · '+uiName(byId.get(resultId)));rerenderCollections();if(tab==='World')renderDiscoveries();showDiscovery(resultId,a,b,scene);}
+ else {announceCraft('repeat','Already discovered · '+uiName(byId.get(resultId)));playCraftMotion(scene,'repeat',byId.get(resultId));}
 }
 async function combine(){
  if(!slots[0]||!slots[1])return;
- const [a,b]=slots;finishSlots();const key=pairKey(a,b),cached=recipes.get(key);
+ const [a,b]=slots;const scene=captureCraftScene();finishSlots();const key=pairKey(a,b),cached=recipes.get(key);
+ craftMotion.scene=scene;
  if(cached){completeCombination(cached,a,b);return;}
  const local=currentMode==='classic'?resolveLocalRedundancy(byId.get(a),byId.get(b)):null;
  if(local){completeCombination(local,a,b,'redundant');return;}
- if(!apiBase){clearCraftFeedback();return;}
+ if(!apiBase){clearCraftFeedback();playCraftMotion(takeCraftScene(),'invalid');return;}
  toast('Discovering…');
  try{
   const response=await fetch(`${apiBase}/v1/combinations/resolve`,{method:'POST',headers:{'Content-Type':'application/json',...authHeaders()},body:JSON.stringify({leftId:a,rightId:b})});
@@ -960,8 +1058,9 @@ async function combine(){
   else toast('Discovery is temporarily unavailable','error');
  }catch(e){toast('Server unavailable · Offline progress preserved','error');console.warn(e);}
 }
-function showModal(content){$('modal').removeAttribute('aria-labelledby');$('modal').dataset.dismiss='any';$('modalContent').innerHTML=content;$('modal').hidden=false;}
+function showModal(content){cancelCraftMorph();$('modal').removeAttribute('aria-labelledby');$('modal').dataset.dismiss='any';$('modalContent').innerHTML=content;$('modal').hidden=false;}
 function closeModal(){
+ cancelCraftMorph();
  const st=batchState;
  if(st?.phase==='scanning'){batchState=null;slots[1]=null;updateSlotUI();announceCraft('idle','Family scan cancelled · No new results published');$('modal').hidden=true;$('modal').dataset.dismiss='any';return;}
  if(st?.phase==='review'){
@@ -975,10 +1074,11 @@ function closeModal(){
  const m=$('modal');m.hidden=true;m.dataset.dismiss='any';
 }
 
-function showDiscovery(id,a,b){
+function showDiscovery(id,a,b,scene=null){
  const it=byId.get(id),isFirst=worldFirsts.has(id),earned=[...unlocked].filter(x=>!STARTERS.has(x)).length;
  showModal(`<div class="modal-tag ${isFirst?'world-first-tag':''}">${isFirst?'★ WORLD FIRST':'✦ NEW DISCOVERY'}</div><div class="modal-art">${staticArt(it)}</div><h2>${escapeText(uiName(it))}</h2><p>${escapeText(uiName(byId.get(a)))} + ${escapeText(uiName(byId.get(b)))}</p>${wittyDiscovery(it)?`<p class="discovery-wit">${escapeText(publicText(wittyDiscovery(it)))}</p>`:""}<div class="modal-milestone">${earned.toLocaleString('en-US')} personal discoveries</div>`);
  $('continueBtn')?.remove();$('modal').dataset.dismiss='x-only';
+ playCraftMotion(scene,'new',it);
 }
 function detail(id){const it=byId.get(id);if(!it)return;const extra=familiesFor(it).length>1?`<p class="mini-muted">Shared across: ${familiesFor(it).map(f=>escapeText(FAMILIES.find(x=>x.id===f)?.name||f)).join(' · ')}</p>`:'';showModal(`<div class="modal-art">${staticArt(it)}</div><h2>${escapeText(uiName(it))}</h2><p>${escapeText(categoryNames[it.category]||it.category)}</p>${extra}<button class="modal-button" id="useBtn">Use in craft table</button>`);$('useBtn').onclick=()=>{closeModal();switchTab('Play');if(!slots[0])place(0,id);else place(1,id);};}
 const allIds=()=>[...unlocked].filter(id=>byId.has(id));
