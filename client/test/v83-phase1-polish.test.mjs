@@ -17,7 +17,7 @@ test('Settings exposes backup export, import and delete progress',()=>{
 });
 test('every discovery shows a witty line or the element description',()=>{
  assert.equal((app.match(/\(wittyDiscovery\(it\)\|\|it\.summary\)\?/g)||[]).length,2);
- assert.match(app,/'YOUR COLLECTION'/);
+ assert.match(app,/'Your collection'/);
  assert.doesNotMatch(app,/planned elements/);
 });
 test('inventory filters and compact density persist',()=>{

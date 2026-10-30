@@ -48,7 +48,7 @@ check(app.includes('ORGANIC_V71,ORGANIC_V72,ORGANIC_V73,ORGANIC_V74,ORGANIC_V75,
 check(app.includes('ORGANIC_ART_V76[itemName]||ORGANIC_ART_V75[itemName]||ORGANIC_ART_V74[itemName]||ORGANIC_ART_V73[itemName]||ORGANIC_ART_V72[itemName]'),'V73 icon precedence missing');
 check(app.includes('const anchorId=this.ids[previousIndex]'),'scroll anchor regression');
 const css=readFileSync('client/src/styles.css','utf8');
-check(css.includes('.craft-row{transform:translateY(9px)}'),'ingredient row not moved');
+check(css.includes('.craft-card{'),'combiner card missing'); // V84 layout
 check(css.includes('.workspace-content{transform:none}'),'previous whole-workspace translation active');
 const builder=readFileSync('tools/build-standalone.py','utf8');
 check(builder.includes('window.__gameverseOrganic73')&&builder.includes('35K_Alchemy_V76_Offline.html'),'V73 offline bundle missing');

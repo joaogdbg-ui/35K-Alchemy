@@ -48,7 +48,13 @@
 - A new ingredient entering a slot dismisses only the ghost covering that slot; `prefers-reduced-motion` disables all of it. Durations total under 0.9 s for a new discovery and under 0.5 s otherwise.
 - Checked locally in headless Chromium at 360×640, 390×820 and 1280×820 (light and dark, locked left, rapid consecutive pairs, no page errors) and with `npm test` (330/330, new `client/test/v83-combiner-motion.test.mjs`). Not yet checked on a physical Android device.
 
-## Art redraw (2026 art direction, owner request 30 October 2026)
+## V84 interface redesign (30 October 2026, owner request)
+- `client/src/styles.css` rewritten as one system (tokens, warm paper + white cards, slate outlines matching the icons, one ochre accent); `client/index.html` restructured. All element IDs and functions kept.
+- Play: one combiner card (two slots, corner lock, status line, Hint · ad / Batch row); search always visible; filter chips on the shelf (sort, family, All / To explore / Completed / Saved); Sort sheet keeps order + list size.
+- Collection (tab label; `data-view="World"` unchanged): progress card, family grid, themed collections carousel, family detail with scrollable chips ("Missing" instead of "????").
+- Dialogs are bottom sheets on phones, centred cards from 850 px. Settings order: Sound, Theme, Game mode, Progress (backup/restore/delete), Google Play Games, Help, Privacy & ads.
+- Old V71–V76 layout nudges (`.craft-row{transform:translateY(9px)}`, workspace flex-basis clamps) are gone; their validators/tests now assert the `.craft-card` layout.
+, owner request 30 October 2026)
 - Owner chose the V83 art direction for the whole game, replaced in waves, earliest-seen first. Mechanism: `client/src/art-redraw.js` (`ART_REDRAW`, keyed by stable element ID) is checked first in `staticArt()`; names, recipes and saves are unchanged.
 - Sources: `tools/art-redraw-manifest.json` ({id, name, file, wave}) + `client/assets/redraw/*.svg` → `python tools/redraw-assemble.py`. Gates: `tools/validate-art-redraw.mjs` (in the build), `tools/audit-art-redraw.py` (perceptual pairs), `client/test/art-redraw.test.mjs`. Style kit + illustrator brief: `docs/ART_REDRAW_KIT.md`.
 - **Wave 1 (done): 1,080 icons** — every element of Classic generations 0–5 plus all older Mythology & Gods and Prehistory & Dinosaurs members. **Wave 2 (done): 941 icons** — Classic generations 6–7. Total redrawn: 2,021. Remaining ≈3,990 older icons, in Classic generation order (gen 8: ~483, gen 9: ~393, gen 10: ~767, gen 11: ~646, gen 12+: ~1,900). Reviewed false-alarm pairs for the perceptual audit live in `tools/art-redraw-reviewed-pairs.json`, ~27 icons per illustrator batch with contact-sheet review.

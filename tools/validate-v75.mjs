@@ -59,5 +59,5 @@ check(app.includes('ORGANIC_V73,ORGANIC_V74,ORGANIC_V75,ORGANIC_V76,ORGANIC_V77,
 check(app.includes('ORGANIC_ART_V76[itemName]||ORGANIC_ART_V75[itemName]||ORGANIC_ART_V74[itemName]'),'V75 bespoke icon not prioritized');
 check(builder.includes('window.__gameverseOrganicArt75')&&builder.includes('window.__gameverseOrganic75')&&builder.includes('35K_Alchemy_V76_Offline.html'),'V75 standalone/Android packaging missing');
 check(app.includes('const anchorId=this.ids[previousIndex]'),'inventory scroll fix regressed');
-check(readFileSync('client/src/styles.css','utf8').includes('.craft-row{transform:translateY(9px)}'),'combiner spacing regressed');
+check(readFileSync('client/src/styles.css','utf8').includes('.craft-card{'),'combiner spacing regressed'); // V84 layout
 if(!process.argv.includes('--quiet'))console.log('V75 PASS: +68 individually authored SVGs, 5,372 elements, 13,709 fixed recipes, 200/200 expansion complete.');

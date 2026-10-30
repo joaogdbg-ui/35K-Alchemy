@@ -4,12 +4,12 @@ import {readFileSync} from 'node:fs';
 const source=p=>readFileSync(new URL('../../'+p,import.meta.url),'utf8');
 test('V73 moves only the two slots rather than moving the Hint or controls',()=>{
  const css=source('client/src/styles.css');
- const scoped=css.slice(css.indexOf('/* V73: move ONLY'));
- assert.match(scoped,/\.workspace-content\{transform:none\}/);
- assert.match(scoped,/\.craft-row\{transform:translateY\(9px\)\}/);
+ // V84: the combiner is one card; the Hint row and the feedback line are never translated.
+ const scoped=css;
+ assert.match(scoped,/\.craft-card\{/);
  assert.doesNotMatch(scoped,/\.craft-actions\s*\{[^}]*transform/);
  assert.doesNotMatch(scoped,/\.combine-feedback\s*\{[^}]*transform/);
- assert.match(scoped,/max-height:700px/);
+ assert.match(scoped,/@media\(max-height:680px\) and \(max-width:849px\)/);
 });
 test('V73 is wired into the offline app, catalog and art',()=>{
  const app=source('client/src/app.js'),build=source('tools/build-standalone.py');
