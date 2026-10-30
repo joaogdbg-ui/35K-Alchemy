@@ -43,3 +43,11 @@ jobs:
       - run: node tools/audit-ip-safe-names.mjs
       - run: node tools/audit-active-artwork.mjs
       - run: python tools/build-standalone.py
+      - name: Upload Alchemy 10K standalone QA preview (not an APK or release)
+        if: success()
+        uses: actions/upload-artifact@v4
+        with:
+          name: Alchemy-10K-V82-HTML-QA
+          path: Alchemy_10K_V82_WIP_Offline.html
+          if-no-files-found: error
+          retention-days: 7
