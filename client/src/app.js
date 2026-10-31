@@ -114,6 +114,7 @@ import { FAMILY_DATA_V89 } from './family-data-v89.js';
 import { HOME_OBJECTS_V89 } from './home-objects-v89.js';
 import { createHomeSystem, HOME_STORAGE_KEY } from './home-engine-v90.js';
 import { ROOM_SPRITES_V90 } from './room-sprites-v90.js';
+import { createGamesSystem, GAMES_STORAGE_KEY } from './games-v93.js';
 import { COMPANIONS_V86, COMPANION_SPRITES_V86 } from './companions-v86.js';
 import { createCompanionSystem, COMPANION_STORAGE_KEY } from './companion-engine-v86.js';
 import { PUBLIC_LABELS_V86 } from './public-labels-v86.js';
@@ -471,7 +472,7 @@ function shinyCard(item){return `<p class="shiny-trivia"><span aria-hidden="true
 function showShinyFound(id){const it=byId.get(id);if(!it)return;
  showModal(`<div class="modal-tag shiny-tag">✦ SHINY ELEMENT</div><div class="modal-art is-shiny">${staticArt(it)}</div><h2>Shiny ${escapeText(uiName(it))}</h2>${shinyCard(it)}<div class="modal-milestone">${shiny.size.toLocaleString('en-US')} shiny ${shiny.size===1?'element':'elements'} · ${Math.round(shinyChance()*100)}% chance per combination</div>`);
 }
-const APP_VERSION='0.92.0';
+const APP_VERSION='0.93.0';
 // V83: status line + Google consent (UMP) privacy options, required for EEA players.
 async function refreshAdStatus(){
  const el=$('settingsAdStatus'),bridge=getRewardBridge();
@@ -1035,7 +1036,7 @@ function clearCraftFeedback(){
 function toast(msg,kind='info'){
  const el=$('toast');el.textContent=msg;el.dataset.kind=kind;el.hidden=false;clearTimeout(toastTimer);toastTimer=setTimeout(()=>el.hidden=true,kind==='error'?2600:2100);
 }
-function updateCounts(){
+function updateCounts(){try{syncGamesTab();}catch{}
  const earned=[...unlocked].filter(id=>!STARTERS.has(id)).length;
  $('discoveredCount').textContent=unlocked.size.toLocaleString('en-US');
  $('statCollected').textContent=unlocked.size.toLocaleString('en-US');
@@ -1567,8 +1568,9 @@ function unlockInFamily(){
  revealRecipeWithAd(candidate.id);
 }
 function switchTab(view){
- tab=view==='World'?'World':view==='Pets'?'Pets':'Play';
- for(const name of ['Play','World','Pets'])$(`view${name}`).hidden=name!==tab;
+ tab=view==='World'?'World':view==='Pets'?'Pets':view==='Games'&&gamesUnlocked()?'Games':'Play';
+ for(const name of ['Play','World','Pets','Games'])$(`view${name}`).hidden=name!==tab;
+ if(tab==='Games'){games.render($('viewGames'));gamesSeen();}
  document.querySelectorAll('.tab').forEach(b=>{const active=b.dataset.view===tab;b.classList.toggle('active',active);b.setAttribute('aria-current',active?'page':'false');});
  if(tab==='World')renderDiscoveries();else if(tab==='Pets')companions.renderTab();else playVirtual.draw(true);
  if(tab==='Pets')companions.markSeen();else companions.syncSeen();
@@ -1658,7 +1660,15 @@ async function checkIdleFinds(){
   try{result=await getRewardBridge().showRewarded({kind:'idle_finds',count:finds.length});}catch(e){console.warn('Idle rewarded ad failed',e);}finally{rewardedHintBusy=false;}
   if(result?.earned!==true){toast('Ad not completed · keeping the free ones','repeat');finish(free);return;}finish(finds.length);};
 }
-const BACKUP_KEYS=[COMPANION_STORAGE_KEY,HOME_STORAGE_KEY,SHINY_KEY,HINT_BANK_KEY,FAMILY_SAVES_KEY,MODE_SELECTION_KEY,'gameverse_alchemy_v2','gameverse_dynamic_v11','gameverse_ledger_v16','gameverse_discovery_hints_v20',EXTRA_STORAGE,DISCOVERY_ORDER_KEY];
+// V93: the Games tab (races + sparring ring) appears once the player has a house and a companion.
+const GAMES_SEEN_KEY='alchemy10k_games_seen_v1';
+function gamesUnlocked(){try{return homes.ownedHouses().length>0&&companions.unlocked().length>0;}catch{return false;}}
+function syncGamesTab(){const t=document.querySelector('.tab-games');if(!t)return;const on=gamesUnlocked();t.hidden=!on;let seen=false;try{seen=localStorage.getItem(GAMES_SEEN_KEY)==='1';}catch{}const b=$('gamesBadge');if(b)b.hidden=!(on&&!seen);}
+function gamesSeen(){try{localStorage.setItem(GAMES_SEEN_KEY,'1');}catch{}syncGamesTab();}
+const games=createGamesSystem({$,escapeText,roster:COMPANIONS_V86,sprites:COMPANION_SPRITES_V86,byId,uiName,isDiscovered:discoveredAnywhere,companionInfo:id=>companions.info(id),activeId:()=>companions.state().active,
+ onResult:(id,kind,focus,place)=>{const amt=[0,12,8,5,3,3][place]||3;const stats=kind==='spar'?['power','hp']:focus==='all'?['run','swim','fly','power']:focus==='stamina'?['stamina','run']:[focus,'stamina'];return companions.gameReward(id,stats,amt);},
+ showModal,closeModal,toast,reducedMotion:()=>Boolean(window.matchMedia?.('(prefers-reduced-motion: reduce)')?.matches)});
+const BACKUP_KEYS=[COMPANION_STORAGE_KEY,HOME_STORAGE_KEY,GAMES_STORAGE_KEY,SHINY_KEY,HINT_BANK_KEY,FAMILY_SAVES_KEY,MODE_SELECTION_KEY,'gameverse_alchemy_v2','gameverse_dynamic_v11','gameverse_ledger_v16','gameverse_discovery_hints_v20',EXTRA_STORAGE,DISCOVERY_ORDER_KEY];
 function backupJson(){
  save();
  const progress={format:'35k-alchemy-backup',version:25,savedAt:new Date().toISOString(),data:{}};
@@ -1730,7 +1740,7 @@ function confirmWipe(target){
 function wipeProgress(target){
  const classicKeys=['gameverse_alchemy_v2','gameverse_dynamic_v11','gameverse_ledger_v16',HINT_STORAGE,DISCOVERY_ORDER_KEY];
  const familyKeys=[FAMILY_SAVES_KEY,MERGE_PENDING_KEY,MERGE_TO_FAMILIES_KEY];
- const keys=target==='classic'?classicKeys:target==='families'?familyKeys:target==='all'?[...classicKeys,...familyKeys,EXTRA_STORAGE,SHINY_KEY,COMPANION_STORAGE_KEY,HOME_STORAGE_KEY]:null;
+ const keys=target==='classic'?classicKeys:target==='families'?familyKeys:target==='all'?[...classicKeys,...familyKeys,EXTRA_STORAGE,SHINY_KEY,COMPANION_STORAGE_KEY,HOME_STORAGE_KEY,GAMES_STORAGE_KEY,GAMES_SEEN_KEY]:null;
  if(!keys)return;
  progressWiping=true;clearTimeout(autoTimer);
  try{for(const k of keys)localStorage.removeItem(k);}catch{}
@@ -2193,7 +2203,7 @@ updateCounts();updateSlotUI();updateLatest();rerenderCollections();switchTab('Pl
 classicSnapshot=snapshotPlayState();
 try{const preferred=JSON.parse(localStorage.getItem(MODE_SELECTION_KEY)||'null');if(preferred?.mode==='family'&&familyCampaigns.has(canonicalFamilyId(preferred.family)))activateMode('family',canonicalFamilyId(preferred.family));else if(!preferred)modePicker(true);}catch{modePicker(true);}
 syncModeButton();
-companions.start();companions.syncSeen();
+companions.start();companions.syncSeen();syncGamesTab();
 setTimeout(checkIdleFinds,1200);setInterval(idleTouch,60000);
 document.addEventListener('visibilitychange',()=>{if(document.visibilityState==='hidden')idleTouch();else setTimeout(checkIdleFinds,600);});
 // V19 Offline Edition: intentionally no automatic API connection.
