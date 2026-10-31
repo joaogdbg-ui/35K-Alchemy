@@ -35,6 +35,6 @@ test('V99: each course has its own route; one continuous track drawn with the ap
    if(z.kind==='wall')assert.equal(z.h1,z.h0+1,'a wall climbs one level and the race carries on up there');if(z.kind==='glide')assert.ok(z.h1<=z.h0,'glides land lower or level');}
   assert.equal(C.zones.at(-1).h1,C.zones.at(-1).h0,'the finish straight is flat');assert.ok(Math.abs(C.L-g.planFor(c,l).reduce((n,s)=>n+s.len,0))<1e-6);
   if(c.id==='grand')assert.ok(C.zones.some(z=>z.kind==='puzzle'),'alchemy gates in the Championship');
-  const svg=g.courseSvg(C);assert.match(svg,/^<svg/);assert.ok(!/GOAL|START|rainbow/i.test(svg),'no copied Chao Race props');
-  const art=Object.fromEntries(['run','climb','swim','fly','start','finish'].map(k=>[k,'<svg/>']));assert.match(g.courseSvg(C,art),/<image href="data:image\/svg\+xml/,'drawn with the approved V95 art');}
+  const svg=g.courseSvg(C);assert.match(svg,/^<svg/);assert.ok(!/GOAL|START|rainbow/i.test(svg),'no copied Chao Race props');assert.match(g.courseFrontSvg(C),/rc-front/,'gate posts drawn in front of the racers');
+  const art=Object.fromEntries(['run','climb','swim'].map(k=>[k,'<svg/>']));assert.match(g.courseSvg(C,art),/<image href="data:image\/svg\+xml/,'drawn with the approved V95 art');}
 });

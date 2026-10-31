@@ -1214,13 +1214,15 @@ details.pets-help summary{font-weight:800;cursor:pointer}
 .g-actor.on-wall::after{display:none}
 
 /* V99 Championship course: one continuous side-view track */
-.g-track.is-v99{top:50%;height:400px;margin-top:-235px}
-.g-track.is-v99 .rc-svg{position:absolute;left:0;top:0;display:block}
-.g-stage.is-race .g-stage-body:has(.is-v99){background:linear-gradient(180deg,#bfe2f0 0,#d7eef5 60%,#9fcf86 60%,#86bd6e 100%)}
-.g-stage-body:has(.is-v99) .g-sky{height:calc(50% - 150px)}
-.g-stage-body:has(.is-v99) .g-mid{top:calc(50% - 300px);height:150px;opacity:.75}
-.g-stage-body:has(.is-v99) .g-fore{top:calc(50% + 140px);z-index:3}
-.g-track.is-v99 .g-actor.companion{transform:translate(calc(var(--x,150px) - 32px),calc(var(--y,210px) - 62px));z-index:calc(5 + var(--lane,0))}
+.g-track.is-v99{top:50%;height:1000px;margin-top:-250px}
+.g-track.is-v99 .rc-svg,.g-track.is-v99 .rc-front{position:absolute;left:0;top:0;display:block}
+.g-track.is-v99 .rc-front{z-index:30;pointer-events:none}
+.g-tag.is-mini{padding:1px;background:rgba(32,38,43,.45)}
+.g-stage.is-race .g-stage-body.has-v99{background:linear-gradient(180deg,#bfe2f0 0,#d7eef5 60%,#9fcf86 60%,#86bd6e 100%)}
+.g-stage-body.has-v99 .g-sky{height:calc(50% - 10px)}
+.g-stage-body.has-v99 .g-mid{top:calc(50% - 175px);height:150px;opacity:.8}
+.g-stage-body.has-v99 .g-fore{display:none}
+.g-track.is-v99 .g-actor.companion{transform:translate(calc(var(--x,150px) - 28px),calc(var(--y,210px) - 54px));z-index:calc(5 + var(--lane,0))}
 .g-track.is-v99 .g-actor.seg-climb .companion-art{animation:home-climb .7s ease-in-out infinite;transform:rotate(-6deg)}
 .g-track.is-v99 .g-actor.seg-fly .companion-art{transform:rotate(-8deg);animation:g-glide 1s ease-in-out infinite}
 .g-track.is-v99 .g-actor.seg-swim .companion-art{clip-path:inset(0 0 30% 0)}
@@ -1235,3 +1237,5 @@ details.pets-help summary{font-weight:800;cursor:pointer}
 .g-progress b{position:absolute;top:0;bottom:0;border-radius:2px}
 .g-progress b.is-swim{background:#5aaed2}.g-progress b.is-wall{background:#9a8571;min-width:4px}.g-progress b.is-glide{background:#9bc8dc}.g-progress b.is-puzzle{background:#9b7fc4}
 .g-progress #gProg{position:absolute;top:-4px;width:16px;height:16px;margin-left:-8px;border-radius:50%;background:#d08a4c;border:3px solid #fff;box-shadow:0 1px 3px rgba(0,0,0,.3);z-index:1}
+
+.g-track.is-v99 .g-actor.companion{width:56px;height:56px}

@@ -90,6 +90,13 @@ Preserve 200-per-batch policy and do not start another content release on top of
 
 - **Art redraw wave 3 (V85, done): 3,991 icons** — every remaining older element. All 6,012 pre-V83 elements now use the 2026 art direction (`ART_REDRAW`), plus 200 V83 and 200 V85 originals. Six near-duplicates found by the audit were redrawn; 36 reviewed false alarms are in `tools/art-redraw-reviewed-pairs.json` (the audit now also honours them for V83 comparisons).
 
+## V100 — track with depth, gates across the path (31 October 2026)
+- Owner feedback: vertical start/finish lines, track too thin (racers piled up), walls/pools looked pasted on, background floating.
+- Oblique view (`RC.SK=0.32`, `BAND=100`): the path has depth and the 5 lanes run side by side (`laneD`); walls are the riser face of the next step (racers climb its face at their lane depth); pools are sunk into the path; the chasm shows the far cliff's face.
+- Start/finish are lines painted across the path; the back post and banner are in the course SVG, the front post in `courseFrontSvg` (overlay above racers).
+- The earth runs to the bottom of the screen (SVG 1000px tall, darker with depth); hills sit on the horizon; the foreground fence layer is hidden in races. Rival tags show only the place number.
+- APP_VERSION 1.0.0.
+
 ## V99 — one continuous race track, own route per course (31 October 2026)
 - Owner: take the Chao Race STRUCTURE (sections that flow into each other, climb and carry on above, glides, THINK), adapted to our game, keeping the approved V95 2D art. No copied props.
 - `buildCourse(plan)` → zones (run / swim / wall / glide / puzzle) in race units + world px; `groundAt`, `posAt` shared by renderer and racers. Heights 0..3 steps (`RC.LVL=50`). Walls climb one step and the race continues on top; glides land a step lower; the finish straight stays flat (Boulder Wall ends on the summit).
