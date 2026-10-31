@@ -29,5 +29,7 @@ test('V97: higher levels are longer and more varied; climb sections are a standi
   const kinds=l=>new Set(g.planFor(c,l).map(x=>x.t)).size;assert.ok(kinds(4)>=kinds(0),c.id);
   const total=l=>g.planFor(c,l).reduce((n,x)=>n+x.len,0);assert.ok(total(4)>total(0)*2,c.id);}
  const src=(await import('node:fs')).readFileSync(new URL('../src/games-v93.js',import.meta.url),'utf8');
- assert.match(src,/class="g-wall"/);assert.match(src,/const WALL=170;/);
+ assert.match(src,/class="g-step/);
+ const e=g.elevate([{t:'run'},{t:'climb'},{t:'run'},{t:'climb'},{t:'fly'},{t:'swim'},{t:'climb'},{t:'run'}]);
+ assert.deepEqual(e.map(x=>x.elev),[0,1,1,2,2,0,1,0],'climb raises the ground and the race continues on top; water and finish bring it down');
 });

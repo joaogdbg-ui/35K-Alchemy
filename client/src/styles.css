@@ -1208,9 +1208,12 @@ details.pets-help summary{font-weight:800;cursor:pointer}
 .g-stage[data-level="3"] .g-tint{background:linear-gradient(180deg,rgba(255,150,90,.35),rgba(255,120,140,.22) 50%,rgba(90,60,120,.18));mix-blend-mode:multiply}
 .g-stage[data-level="4"] .g-tint{background:radial-gradient(circle 2px at 12% 10%,#fff 98%,transparent),radial-gradient(circle 1.5px at 40% 6%,#fff 98%,transparent),radial-gradient(circle 2px at 70% 14%,#fff 98%,transparent),radial-gradient(circle 1.5px at 88% 8%,#fff 98%,transparent),radial-gradient(circle 1.5px at 55% 18%,#fff 98%,transparent),linear-gradient(180deg,rgba(30,40,80,.55),rgba(30,40,80,.35) 50%,rgba(30,40,80,.4));mix-blend-mode:multiply}
 .g-stage[data-level="4"] .g-actor.is-me::before{box-shadow:0 0 0 2px rgba(255,255,255,.6),0 0 14px #f1c26b}
-.g-wall{position:absolute;top:-178px;bottom:0;width:68px;background-repeat:repeat;background-size:200px 300px;border:3px solid #657d89;border-radius:10px 10px 0 0;box-shadow:inset -10px 0 0 rgba(0,0,0,.14),8px 0 0 rgba(0,0,0,.08);z-index:1}
-.g-wall i{position:absolute;left:-6px;right:-6px;top:-8px;height:14px;border-radius:7px;background:#8dbf8a;border:3px solid #657d89}
-.g-actor.on-wall .companion-art{animation:home-climb .9s ease-in-out infinite}
+.g-cliff{position:absolute;bottom:0;background-repeat:repeat;background-size:200px 300px;filter:brightness(.7) saturate(.85);border-top:5px solid #4f7d5c;box-shadow:inset 0 10px 12px -6px rgba(0,0,0,.45);z-index:0}
+.g-step{position:absolute;width:28px;background-repeat:repeat;background-size:200px 300px;border:3px solid #657d89;border-radius:6px;box-shadow:6px 0 0 rgba(0,0,0,.12);z-index:1}
+.g-step.is-up::before{content:"";position:absolute;left:-5px;right:-5px;top:-7px;height:10px;border-radius:5px;background:#8dbf8a;border:3px solid #657d89}
+.g-step.is-down{filter:brightness(.9)}
+.g-seg{z-index:0}
+.g-actor.on-wall .companion-art{animation:home-climb .7s ease-in-out infinite;transform:rotate(-8deg)}
 .g-actor.on-wall{z-index:6}
 .g-actor.seg-climb .companion-art{animation:none}
 .g-actor.on-wall::after{display:none}

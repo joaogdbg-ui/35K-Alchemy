@@ -90,6 +90,13 @@ Preserve 200-per-batch policy and do not start another content release on top of
 
 - **Art redraw wave 3 (V85, done): 3,991 icons** — every remaining older element. All 6,012 pre-V83 elements now use the 2026 art direction (`ART_REDRAW`), plus 200 V83 and 200 V85 originals. Six near-duplicates found by the audit were redrawn; 36 reviewed false alarms are in `tools/art-redraw-reviewed-pairs.json` (the audit now also honours them for V83 comparisons).
 
+## V98 — climbs are steps: the race continues on top (31 October 2026)
+- Owner feedback (drawing): the climb should be a step — run, climb the wall, keep running on the higher ground.
+- `elevate(segs)` (pure, exported) gives each section `elev0/elev`: a climb raises the ground one level (max 2, `STEP_H=56px`), the race continues up there; the next water section (dive + splash) or the final section brings it back to 0.
+- Elevated sections render raised with a `.g-cliff` rock face beneath; `.g-step` rock strips mark every level change.
+- On the first 30% of a climb section the racer is pinned to the rock face (Power-driven speed, `on-wall`); afterwards it runs on top at Run speed. Drops are a short hop down.
+- Test: V97 planFor test now also checks `elevate`.
+
 ## V97 — climbing walls and different levels (31 October 2026)
 
 - **Climb sections are a standing rock wall** (like Chao Race walls): racers run up to it, climb straight up ~170 px (Power decides the speed, a little Stamina), then jump down the far side. Wall drawn with the climb art, a grassy top and side shading.
