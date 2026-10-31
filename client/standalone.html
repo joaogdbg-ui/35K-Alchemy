@@ -816,35 +816,27 @@ body.companion-knock .app{animation:cp-screen-knock .18s ease-out 1}
 .pet-card.is-shiny .pet-main strong{color:#b8891d}
 .pet-activate{border:1px solid var(--line);background:var(--bg);border-radius:999px;padding:7px 12px;font-weight:700;font-size:13px;color:var(--ink)}
 .pet-activate[aria-pressed="true"]{background:var(--good);border-color:var(--good);color:#fff}
-/* V86.2 Chao-style stat panel: name, points, Lv, grade, pink progress bar, blue notched level bar */
-.cs-panel{display:grid;gap:7px;margin-top:10px;padding:10px 10px 8px;border-radius:14px;background:#30405a;color:#fff;box-shadow:inset 0 0 0 2px rgba(255,255,255,.12)}
-html[data-theme="dark"] .cs-panel{background:#1f2a3b}
-.cs-row{display:grid;grid-template-columns:1fr auto;grid-template-areas:"name points" "lv bar" "grade lvbar";column-gap:10px;row-gap:3px;align-items:center;font-size:13px}
-.cs-name{grid-area:name;font-weight:800;letter-spacing:.02em;text-shadow:0 1px 0 rgba(0,0,0,.35)}
-.cs-points{grid-area:points;font-variant-numeric:tabular-nums;font-weight:800;font-size:16px;letter-spacing:.14em;text-shadow:0 1px 0 rgba(0,0,0,.4)}
-.cs-lv{grid-area:lv;color:#e9ea7e;font-weight:800;font-size:12px}.cs-lv b{font-size:14px}
-.cs-grade{grid-area:grade;width:18px;height:18px;border-radius:5px;display:grid;place-items:center;font-size:11px;font-weight:900;background:#c9c9c9;color:#30405a}
-.cs-grade[data-grade="S"]{background:#ffd34d}.cs-grade[data-grade="A"]{background:#f3a26d}.cs-grade[data-grade="B"]{background:#a7d7a0}.cs-grade[data-grade="C"]{background:#9fc6ea}.cs-grade[data-grade="D"]{background:#cbb6e8}.cs-grade[data-grade="E"]{background:#d6d6d6}
-.cs-bar{grid-area:bar;display:block;height:7px;border-radius:4px;background:#5b2a3a;box-shadow:inset 0 1px 2px rgba(0,0,0,.5);overflow:hidden;min-width:120px}
-.cs-bar-prog{display:block;height:100%;width:0;border-radius:4px;background:linear-gradient(#ffb3d2,#ff6fa8 55%,#e63c7d);transition:none}
-.cs-lvbar{grid-area:lvbar;display:grid;grid-template-columns:repeat(10,1fr);gap:2px;height:8px}
-.cs-lvbar i{display:block;border-radius:2px;background:#1b2a44;box-shadow:inset 0 1px 1px rgba(0,0,0,.5)}
-.cs-lvbar i.on{background:linear-gradient(#8fd0ff,#2f8be0 60%,#1d5fa8)}
-.cs-lvbar i.half{background:linear-gradient(90deg,#2f8be0 50%,#1b2a44 50%)}
+/* V86.2/3 stat panel in the game's own palette: paper card, slate outlines, ochre progress, slate notches */
+.cs-panel{display:grid;gap:7px;margin-top:8px;padding:9px 10px;border-radius:12px;background:var(--bg);border:1px solid var(--line)}
+.cs-row{display:grid;grid-template-columns:58px 40px 1fr 18px;column-gap:8px;align-items:center;font-size:12px;color:var(--ink)}
+.cs-name{font-weight:800;color:var(--slate)}
+.cs-lv{font-weight:800;font-size:11px;color:var(--accent-ink);text-align:right;font-variant-numeric:tabular-nums}.cs-lv b{font-size:12px}
+.cs-grade{width:18px;height:18px;border-radius:6px;display:grid;place-items:center;font-size:10px;font-weight:900;background:var(--line);color:var(--slate)}
+.cs-grade[data-grade="S"]{background:var(--accent);color:#fff}.cs-grade[data-grade="A"]{background:var(--accent-2);color:var(--accent-ink)}.cs-grade[data-grade="B"]{background:var(--good-2);color:var(--good)}
+.cs-bar{display:block;height:8px;border-radius:4px;background:var(--line);overflow:hidden}
+.cs-bar-prog{display:block;height:100%;width:0;border-radius:4px;background:var(--accent)}
 .cs-row.is-levelup .cs-lv{animation:cs-lvflash .7s ease-out 1}
-.cs-row.is-levelup .cs-points{animation:cs-ptsflash .7s ease-out 1}
-.cs-row.is-levelup .cs-lvbar{animation:cs-barflash .6s ease-out 1}
-@keyframes cs-lvflash{0%{transform:scale(1.5);color:#fff;text-shadow:0 0 10px #fff}100%{transform:scale(1)}}
-@keyframes cs-ptsflash{0%{transform:scale(1.25);color:#ffe27a}100%{transform:scale(1)}}
-@keyframes cs-barflash{0%{filter:brightness(2.2)}100%{filter:brightness(1)}}
-/* floating window beside the companion while it eats */
-.companion-statwin{position:absolute;left:0;top:0;width:220px;transform:translate(var(--x),var(--y)) scale(.6);opacity:0;pointer-events:none;border-radius:14px;background:#30405a;color:#fff;padding:8px 10px 10px;box-shadow:0 8px 24px rgba(0,0,0,.25);display:grid;gap:7px;transition:transform .35s cubic-bezier(.2,1.4,.4,1),opacity .3s}
+.cs-row.is-levelup .cs-bar{animation:cs-barflash .6s ease-out 1}
+@keyframes cs-lvflash{0%{transform:scale(1.5);color:var(--accent)}100%{transform:scale(1)}}
+@keyframes cs-barflash{0%{filter:brightness(1.6)}100%{filter:brightness(1)}}
+/* compact floating window beside the companion while it eats */
+.companion-statwin{position:absolute;left:0;top:0;width:196px;transform:translate(var(--x),var(--y)) scale(.7);opacity:0;pointer-events:none;border-radius:12px;background:var(--surface);border:1px solid var(--line);color:var(--ink);padding:6px 8px 8px;box-shadow:var(--shadow);display:grid;gap:5px;transition:transform .32s cubic-bezier(.2,1.4,.4,1),opacity .28s}
 .companion-statwin[hidden]{display:none}
 .companion-statwin.is-in{transform:translate(var(--x),var(--y)) scale(1);opacity:1}
-.companion-statwin.is-out{transform:translate(var(--x),calc(var(--y) - 12px)) scale(.9);opacity:0}
-.companion-statwin .cs-head{display:flex;align-items:center;gap:8px;font-size:13px}
-.companion-statwin .cs-face{width:26px;height:26px;display:block}.companion-statwin .cs-face svg{width:100%;height:100%}
-.companion-statwin .cs-row{font-size:12px}.companion-statwin .cs-points{font-size:14px}.companion-statwin .cs-bar{min-width:90px}
+.companion-statwin.is-out{transform:translate(var(--x),calc(var(--y) - 10px)) scale(.92);opacity:0}
+.companion-statwin .cs-head{display:flex;align-items:center;gap:6px;font-size:12px;color:var(--slate)}
+.companion-statwin .cs-face{width:20px;height:20px;display:block}.companion-statwin .cs-face svg{width:100%;height:100%}
+.companion-statwin .cs-row{font-size:11px;grid-template-columns:46px 36px 1fr 16px}.companion-statwin .cs-grade{width:16px;height:16px;font-size:9px}
 .pet-mini{display:inline-flex;gap:3px;align-items:flex-end;height:16px;margin-top:5px}
 .pet-mini i{display:block;width:7px;height:100%;background:var(--line);border-radius:2px;position:relative;overflow:hidden}.pet-mini b{position:absolute;left:0;right:0;bottom:0;background:var(--slate)}
 .pet-quirk{margin:8px 0 0;font-size:12.5px;color:var(--muted,var(--slate))}
@@ -1380,8 +1372,7 @@ function createCompanionSystem(ctx){
  function likes(meta,item){const fam=familyFor(item);if(fam===meta.family)return 'love';if(meta.family==='games'&&['life','nature','food'].includes(item.category))return 'no';if(['nature','prehistoric'].includes(meta.family)&&['technology','brand','console','portable','computer'].includes(item.category))return 'no';if(meta.family==='anime'&&['material','science'].includes(item.category))return 'no';return 'ok';}
  function feedPlan(meta,item){const fam=familyFor(item);const [main,second]=FAMILY_FEEDS[fam]||['stamina','hp'];const own=fam===meta.family;const mult=isShiny(item.id)?2:1;return own?[{stat:main,amount:40*mult},{stat:second,amount:16*mult}]:[{stat:main,amount:24*mult},{stat:second,amount:10*mult}];}
  let statWin=null,statWinTimer=null;
- function fmtBar(st){const seg=10;return `<span class="cs-bar"><i class="cs-bar-prog" style="width:${st.bar}%"></i></span><span class="cs-lvbar">${Array.from({length:seg},(_,i)=>`<i class="${i<Math.floor(st.level/seg)?'on':i===Math.floor(st.level/seg)&&st.level%seg?'half':''}"></i>`).join('')}</span>`;}
- function statRow(stat,st,g){return `<div class="cs-row" data-stat="${stat}"><span class="cs-name">${STAT_LABEL[stat]}</span><span class="cs-points" data-points="${st.points}">${String(st.points).padStart(4,'0')}</span><span class="cs-lv">Lv.<b>${String(st.level).padStart(2,'0')}</b></span><span class="cs-grade" data-grade="${GRADES[g]}">${GRADES[g]}</span>${fmtBar(st)}</div>`;}
+ function statRow(stat,st,g){return `<div class="cs-row" data-stat="${stat}"><span class="cs-name">${STAT_LABEL[stat]}</span><span class="cs-lv">Lv.<b>${String(st.level).padStart(2,'0')}</b></span><span class="cs-bar"><i class="cs-bar-prog" style="width:${st.bar}%"></i></span><span class="cs-grade" data-grade="${GRADES[g]}">${GRADES[g]}</span></div>`;}
  /** Animated floating window: rows for the touched stats, bars filling from the previous value. */
  function showStatWindow(meta,changes,hold=2600){
   if(!layerFront)return;const p=pet(meta.id),grades=companionGrades(meta,isShiny(meta.id));
@@ -1390,18 +1381,17 @@ function createCompanionSystem(ctx){
   const rows=changes.filter((c,i,arr)=>arr.findIndex(x=>x.stat===c.stat)===i);
   statWin.innerHTML=`<div class="cs-head"><span class="cs-face">${sprites[meta.id]||''}</span><strong>${escapeText(uiName(byId.get(meta.id))||meta.name)}</strong></div>`+rows.map(c=>{const st=p.stats[c.stat];
    // show the state BEFORE the gain, then animate to the new values
-   const beforeLevel=st.level-c.levelUps,beforePts=st.points-c.pointsGained;let beforeBar=st.bar-c.amount;while(beforeBar<0)beforeBar+=100;if(c.levelUps&&st.level>=COMPANION_MAX_LEVEL)beforeBar=Math.max(0,100-c.amount%100);
-   return statRow(c.stat,{level:beforeLevel,bar:Math.max(0,Math.min(99,beforeBar)),points:beforePts},grades[c.stat]);}).join('');
+   const beforeLevel=st.level-c.levelUps;let beforeBar=st.bar-c.amount;while(beforeBar<0)beforeBar+=100;if(c.levelUps&&st.level>=COMPANION_MAX_LEVEL)beforeBar=Math.max(0,100-c.amount%100);
+   return statRow(c.stat,{level:beforeLevel,bar:Math.max(0,Math.min(99,beforeBar))},grades[c.stat]);}).join('');
   statWin.hidden=false;const h=statWin.offsetHeight||140;const left=Math.max(6,Math.min(window.innerWidth-226,pos.x+(pos.face>0?SIZE+8:-228))),top=Math.max(6,Math.min(window.innerHeight-h-70,pos.y-20));
   statWin.style.setProperty('--x',left+'px');statWin.style.setProperty('--y',top+'px');statWin.classList.remove('is-out');void statWin.offsetWidth;statWin.classList.add('is-in');
   // animate each row: bar fills (wrapping on level-up), points count up, level flips with a flash
-  rows.forEach((c,i)=>{const row=statWin.querySelector(`[data-stat="${c.stat}"]`);const st=p.stats[c.stat];const prog=row.querySelector('.cs-bar-prog'),pts=row.querySelector('.cs-points'),lv=row.querySelector('.cs-lv b');
-   const startBar=parseFloat(prog.style.width)||0,startPts=st.points-c.pointsGained,startLv=st.level-c.levelUps;
+  rows.forEach((c,i)=>{const row=statWin.querySelector(`[data-stat="${c.stat}"]`);const st=p.stats[c.stat];const prog=row.querySelector('.cs-bar-prog'),lv=row.querySelector('.cs-lv b');
+   const startBar=parseFloat(prog.style.width)||0,startLv=st.level-c.levelUps;
    const total=startBar+c.amount,dur=900+Math.min(1400,c.amount*12);const t0=performance.now()+250+i*180;
    const stepFn=now=>{const k=Math.max(0,Math.min(1,(now-t0)/dur));const e=1-Math.pow(1-k,3);const v=startBar+(total-startBar)*e;const ups=Math.min(c.levelUps,Math.floor(v/100));
     prog.style.width=(st.level>=COMPANION_MAX_LEVEL&&k===1?0:v%100).toFixed(1)+'%';
-    const curLv=startLv+ups;if(Number(lv.textContent)!==curLv){lv.textContent=String(curLv).padStart(2,'0');row.classList.remove('is-levelup');void row.offsetWidth;row.classList.add('is-levelup');row.querySelector('.cs-lvbar').innerHTML=fmtBar({level:curLv,bar:0}).match(/<span class="cs-lvbar">(.*)<\/span>$/)[1];}
-    const curPts=ups>=c.levelUps?st.points:startPts+Math.round(c.pointsGained*(ups/Math.max(1,c.levelUps)));pts.textContent=String(curPts).padStart(4,'0');
+    const curLv=startLv+ups;if(Number(lv.textContent)!==curLv){lv.textContent=String(curLv).padStart(2,'0');row.classList.remove('is-levelup');void row.offsetWidth;row.classList.add('is-levelup');}
     if(k<1)requestAnimationFrame(stepFn);};
    requestAnimationFrame(stepFn);});
   statWinTimer=setTimeout(()=>{statWin.classList.remove('is-in');statWin.classList.add('is-out');setTimeout(()=>{if(statWin)statWin.hidden=true;},400);},hold+rows.length*300+1800);
