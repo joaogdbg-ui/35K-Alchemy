@@ -475,7 +475,7 @@ function shinyCard(item){return `<p class="shiny-trivia"><span aria-hidden="true
 function showShinyFound(id){const it=byId.get(id);if(!it)return;
  showModal(`<div class="modal-tag shiny-tag">✦ SHINY ELEMENT</div><div class="modal-art is-shiny">${staticArt(it)}</div><h2>Shiny ${escapeText(uiName(it))}</h2>${shinyCard(it)}<div class="modal-milestone">${shiny.size.toLocaleString('en-US')} shiny ${shiny.size===1?'element':'elements'} · ${Math.round(shinyChance()*100)}% chance per combination</div>`);
 }
-const APP_VERSION='1.0.6';
+const APP_VERSION='1.0.7';
 // V83: status line + Google consent (UMP) privacy options, required for EEA players.
 async function refreshAdStatus(){
  const el=$('settingsAdStatus'),bridge=getRewardBridge();
@@ -1329,7 +1329,7 @@ function homeCallout(id){const h=HOME_OBJECTS_V89[id];if(!h||h.kind==='material'
  return `<div class="home-callout"><span>${txt}</span></div>`;}
 /** V104: element sheet opened by a long press in Alchemy: description, what it does, quick actions. */
 function elementInfo(id){const it=byId.get(id);if(!it)return;const fams=familiesFor(it).map(f=>FAMILIES.find(x=>x.id===f)?.name||f);const text=wittyDiscovery(it)||it.summary;
- showModal(`<div class="modal-tag">${escapeText((categoryNames[it.category]||it.category||'ELEMENT').toUpperCase())}</div><div class="modal-art">${COMPANION_SPRITES_V86[id]||staticArt(it)}</div><h2>${escapeText(uiName(it))}</h2>${text?`<p class="discovery-wit">${escapeText(publicText(text))}</p>`:''}${companionCallout(id)}${homeCallout(id)}${fams.length?`<p class="mini-muted">${escapeText(fams.join(' · '))}</p>`:''}
+ showModal(`<div class="modal-tag">ABOUT THIS ELEMENT · ${escapeText((categoryNames[it.category]||it.category||'').toUpperCase())}</div><div class="modal-art is-info">${COMPANION_SPRITES_V86[id]||staticArt(it)}</div><h2>${escapeText(uiName(it))}</h2>${text?`<p class="discovery-wit">${escapeText(publicText(text))}</p>`:''}${companionCallout(id)}${homeCallout(id)}${fams.length?`<p class="mini-muted">${escapeText(fams.join(' · '))}</p>`:''}
   <button type="button" class="modal-button" id="infoUse">Use in craft table</button><button type="button" class="modal-button secondary" id="infoPaths">Recipes</button>`);
  $('infoUse').onclick=()=>{closeModal();insertDirect(id);};$('infoPaths').onclick=()=>{closeModal();openRecipePaths(id);};}
 function showDiscovery(id,a,b,scene=null,isShiny=false){
@@ -2112,11 +2112,13 @@ $('compassBtn').onclick=hint;
 let dragging=null;
 function clearDrag(){if(dragging?.art?.hasPointerCapture?.(dragging.pointer))try{dragging.art.releasePointerCapture(dragging.pointer);}catch{} dragging=null;$('dragGhost').hidden=true;document.querySelectorAll('.craft-slot').forEach(x=>x.classList.remove('drop-target'));}
 // V104: long press an element in Alchemy opens its description (same sheet as the Collection).
-let longPress=null;const cancelLong=()=>{if(longPress){clearTimeout(longPress.t);longPress=null;}};
+// V107: a slow tap must never be read as a long press (it opened the element sheet instead of combining):
+// 700 ms hold, a ring fills on the chip from 200 ms so the long press is a clear, separate gesture.
+let longPress=null;const cancelLong=()=>{if(longPress){clearTimeout(longPress.t);clearTimeout(longPress.h);longPress.c?.classList.remove('is-holding');longPress=null;}};
 for(const v of [playVirtual]){
  const root=v.root;
  root.addEventListener('contextmenu',e=>{if(e.target.closest('.element-chip'))e.preventDefault();});
- root.addEventListener('pointerdown',e=>{const c=e.target.closest('.element-chip');if(c&&!(e.pointerType==='mouse'&&e.button!==0)){cancelLong();const id=c.dataset.id,x=e.clientX,y=e.clientY;longPress={x,y,t:setTimeout(()=>{longPress=null;if(dragging?.active)return;clearDrag();v.dragEnded=Date.now();navigator.vibrate?.(12);elementInfo(id);},480)};}},true);
+ root.addEventListener('pointerdown',e=>{const c=e.target.closest('.element-chip');if(c&&!(e.pointerType==='mouse'&&e.button!==0)){cancelLong();const id=c.dataset.id,x=e.clientX,y=e.clientY;longPress={x,y,c,h:setTimeout(()=>{if(longPress&&!dragging?.active)c.classList.add('is-holding');},200),t:setTimeout(()=>{c.classList.remove('is-holding');longPress=null;if(dragging?.active)return;clearDrag();v.dragEnded=Date.now();navigator.vibrate?.(12);elementInfo(id);},700)};}},true);
  root.addEventListener('pointermove',e=>{if(longPress&&Math.hypot(e.clientX-longPress.x,e.clientY-longPress.y)>9)cancelLong();},true);
  root.addEventListener('pointerup',cancelLong,true);root.addEventListener('pointercancel',cancelLong,true);
  root.addEventListener('pointerdown',e=>{const art=e.target.closest('.chip-art'),card=e.target.closest('.element-chip');if(!art||!card|| (e.pointerType==='mouse'&&e.button!==0))return;dragging={id:card.dataset.id,pointer:e.pointerId,x:e.clientX,y:e.clientY,active:false,art,view:v};art.setPointerCapture(e.pointerId);});
