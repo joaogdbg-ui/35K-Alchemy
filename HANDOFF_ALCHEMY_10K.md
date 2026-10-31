@@ -90,6 +90,10 @@ Preserve 200-per-batch policy and do not start another content release on top of
 
 - **Art redraw wave 3 (V85, done): 3,991 icons** — every remaining older element. All 6,012 pre-V83 elements now use the 2026 art direction (`ART_REDRAW`), plus 200 V83 and 200 V85 originals. Six near-duplicates found by the audit were redrawn; 36 reviewed false alarms are in `tools/art-redraw-reviewed-pairs.json` (the audit now also honours them for V83 comparisons).
 
+## V102 — ravines instead of a black void; grounded background (31 October 2026)
+- Chasms are ravines cut into the earth: shaded rock back wall (`rcShade` over `rcRock`), the far cliff face and the grass/water floor. No dark void.
+- Background: the stage has continuous meadow (#A9CF8E) below the horizon behind the hills (mid layer at full opacity, sky ends above it), so no sky ever shows under the track.
+
 ## V101 — glides can fall short (31 October 2026)
 - `glideReach(fly)` = 0.35 + 0.75×Fly/99 (Fly 87+ always crosses). A racer short of the far side, or out of stamina mid-air ("NO STAMINA!"), drops to the chasm floor, crosses it (grass = Run, water = Swim) and climbs the far cliff with Power. CHEER mid-air adds +0.08 reach.
 - Chasms now have a floor (`z.floor` water/grass, `z.floorY`) drawn in the course SVG; the far cliff riser goes down to it.

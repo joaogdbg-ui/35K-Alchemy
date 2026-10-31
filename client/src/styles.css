@@ -1218,9 +1218,9 @@ details.pets-help summary{font-weight:800;cursor:pointer}
 .g-track.is-v99 .rc-svg,.g-track.is-v99 .rc-front{position:absolute;left:0;top:0;display:block}
 .g-track.is-v99 .rc-front{z-index:30;pointer-events:none}
 .g-tag.is-mini{padding:1px;background:rgba(32,38,43,.45)}
-.g-stage.is-race .g-stage-body.has-v99{background:linear-gradient(180deg,#bfe2f0 0,#d7eef5 60%,#9fcf86 60%,#86bd6e 100%)}
-.g-stage-body.has-v99 .g-sky{height:calc(50% - 10px)}
-.g-stage-body.has-v99 .g-mid{top:calc(50% - 175px);height:150px;opacity:.8}
+.g-stage.is-race .g-stage-body.has-v99{background:linear-gradient(180deg,#bfe2f0 0,#d7eef5 calc(50% - 100px),#A9CF8E calc(50% - 100px),#9cc483 100%)}
+.g-stage-body.has-v99 .g-sky{height:calc(50% - 95px)}
+.g-stage-body.has-v99 .g-mid{top:calc(50% - 175px);height:150px}
 .g-stage-body.has-v99 .g-fore{display:none}
 .g-track.is-v99 .g-actor.companion{transform:translate(calc(var(--x,150px) - 28px),calc(var(--y,210px) - 54px));z-index:calc(5 + var(--lane,0))}
 .g-track.is-v99 .g-actor.seg-climb .companion-art{animation:home-climb .7s ease-in-out infinite;transform:rotate(-6deg)}
