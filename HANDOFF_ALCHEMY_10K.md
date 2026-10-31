@@ -90,6 +90,11 @@ Preserve 200-per-batch policy and do not start another content release on top of
 
 - **Art redraw wave 3 (V85, done): 3,991 icons** — every remaining older element. All 6,012 pre-V83 elements now use the 2026 art direction (`ART_REDRAW`), plus 200 V83 and 200 V85 originals. Six near-duplicates found by the audit were redrawn; 36 reviewed false alarms are in `tools/art-redraw-reviewed-pairs.json` (the audit now also honours them for V83 comparisons).
 
+## V97 — climbing walls and different levels (31 October 2026)
+
+- **Climb sections are a standing rock wall** (like Chao Race walls): racers run up to it, climb straight up ~170 px (Power decides the speed, a little Stamina), then jump down the far side. Wall drawn with the climb art, a grassy top and side shading.
+- **Each level is its own course** (`planFor(course, level)`): Rookie 6 sections → Junior 8 → Pro 10 → Expert 12 → Champion 14, more section types and longer sections at higher levels (total length more than doubles). Time of day changes per level (morning, noon, afternoon, sunset, night with stars). The event sheet shows the next level's section count and layout strip.
+
 ## V96 — simple Stadium hub, Classic-discoveries growth bonus (31 October 2026)
 
 - **Alchemy bonus**: companions grow faster with the player's Classic progress — +10% per 400 elements found in Classic, up to ×2 at 4,000 (`alchemyGrowth()`, multiplied into `growthFor`; future gains only, like houses). Shown on the Stadium entrant card and in the companion stats card.
