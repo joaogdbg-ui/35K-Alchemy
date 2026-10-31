@@ -105,6 +105,7 @@ export function createCompanionSystem(ctx){
   for(const g of art.querySelectorAll('[data-part]')){const p=(g.dataset.pivot||'50 50').split(/\s+/).map(Number);g.style.transformOrigin=`${p[0]}px ${p[1]}px`;g.style.transformBox='view-box';}
   sprite.dataset.move=meta.move;sprite.dataset.quirk=meta.quirkAnim||'wiggle';sprite.dataset.companion=meta.id;sprite.classList.toggle('is-shiny',isShiny(meta.id));
   const svgEl=art.querySelector('svg');if(svgEl){svgEl.setAttribute('width','100%');svgEl.setAttribute('height','100%');}
+  try{ctx.wear?.(sprite.parentElement||sprite);}catch{}
  }
  function rect(sel){const el=document.querySelector(sel);if(!el||el.hidden)return null;const r=el.getBoundingClientRect();return r.width>0&&r.height>0?r:null;}
  // Rails are the top edges of the interface cards. Each edge exists twice: in FRONT (standing on
@@ -387,6 +388,7 @@ export function createCompanionSystem(ctx){
   root.querySelectorAll('[data-card]').forEach(b=>b.onclick=()=>openCard(b.dataset.card));
   const d=$('petDismiss');if(d)d.onclick=()=>setActive(null);
   try{ctx.renderExtra?.(root);}catch(e){console.warn('home',e);}
+  try{ctx.wear?.(root);}catch{}
   if(!root.hidden)markSeen();
  }
  function rename(id){const meta=metaById.get(id);if(!meta||!isDiscovered(id))return;const p=pet(id);
@@ -394,7 +396,7 @@ export function createCompanionSystem(ctx){
   const inp=$('petNameInput');setTimeout(()=>inp?.focus(),50);
   $('petNameSave').onclick=()=>{const v=String(inp.value||'').replace(/[\u0000-\u001f<>]/g,'').trim().slice(0,NICK_MAX);if(v)p.nick=v;else delete p.nick;save();closeModal();refreshViews();};
   $('petNameCancel').onclick=closeModal;}
- function openCard(id){const meta=metaById.get(id);if(!meta)return;if(!isDiscovered(id)){showModal(`<div class="modal-tag">COMPANION</div>${cardHtml(meta,{full:true})}<button type="button" class="modal-button secondary" id="petCardClose">Close</button>`);$('petCardClose').onclick=closeModal;return;}const hl=ctx.houseLine?.(id)||'';showModal(`<div class="modal-tag">COMPANION</div>${cardHtml(meta,{full:true})}${hl?`<p class="pet-house-line">${hl}</p>`:''}<p class="mini-muted">Drag an element from your list onto ${escapeText(nameOf(meta))} to feed it. Rub it with your finger to pet it. Tap its gifts when they appear.</p><button type="button" class="modal-button secondary" id="petCardClose">Close</button>`);$('petCardClose').onclick=closeModal;$('modalContent').querySelectorAll('[data-activate]').forEach(b=>b.onclick=async()=>{closeModal();await choose(b.dataset.activate);});$('modalContent').querySelectorAll('[data-rename]').forEach(b=>b.onclick=()=>rename(b.dataset.rename));}
+ function openCard(id){const meta=metaById.get(id);if(!meta)return;if(!isDiscovered(id)){showModal(`<div class="modal-tag">COMPANION</div>${cardHtml(meta,{full:true})}<button type="button" class="modal-button secondary" id="petCardClose">Close</button>`);$('petCardClose').onclick=closeModal;return;}const hl=ctx.houseLine?.(id)||'';showModal(`<div class="modal-tag">COMPANION</div>${cardHtml(meta,{full:true})}${hl?`<p class="pet-house-line">${hl}</p>`:''}<p class="mini-muted">Drag an element from your list onto ${escapeText(nameOf(meta))} to feed it. Rub it with your finger to pet it. Tap its gifts when they appear.</p><button type="button" class="modal-button secondary" id="petCardClose">Close</button>`);$('petCardClose').onclick=closeModal;$('modalContent').querySelectorAll('[data-activate]').forEach(b=>b.onclick=async()=>{closeModal();await choose(b.dataset.activate);});$('modalContent').querySelectorAll('[data-rename]').forEach(b=>b.onclick=()=>rename(b.dataset.rename));try{ctx.wear?.($('modalContent'));}catch{}}
  listeners.add(renderTab);
  // V90: a resident using furniture in a companion house. Training pieces add stat progress
  // (capped at HOME_DAILY_CAP bar points per companion per day), food fills the belly, beds and

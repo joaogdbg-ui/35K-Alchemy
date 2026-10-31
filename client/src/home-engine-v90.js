@@ -40,7 +40,7 @@ export function growthMultiplier(capacity,house,objects,kind){const base=HOUSE_G
 export function houseSummary(house,objects){const out={};for(const f of house?.furniture||[]){const e=objects[f.id]?.effect;if(e)out[e]=(out[e]||0)+1;}return out;}
 
 export function createHomeSystem(ctx){
- const {$,escapeText,byId,uiName,staticArt,isDiscovered,objects,roomSprites,roster,sprites,companionName,statsHtml,applyEffect,showModal,closeModal,toast,reducedMotion,onChange}=ctx;
+ const {$,escapeText,byId,uiName,staticArt,isDiscovered,objects,roomSprites,roster,sprites,companionName,statsHtml,wear,applyEffect,showModal,closeModal,toast,reducedMotion,onChange}=ctx;
  const RS=roomSprites||{};
  let state={v:1,active:null,houses:{}};
  try{const raw=JSON.parse(localStorage.getItem(HOME_STORAGE_KEY)||'null');if(raw&&raw.houses&&typeof raw.houses==='object')state={v:1,active:raw.active||null,houses:raw.houses};}catch{}
@@ -105,7 +105,7 @@ export function createHomeSystem(ctx){
   mount.querySelectorAll('[data-res]').forEach(r=>r.onclick=()=>tapResident(mount,hid,r.dataset.res));
   const add=$('homeAddRes');if(add)add.onclick=()=>pickResident(mount,hid);
   const cm=$('homeCancelMove');if(cm)cm.onclick=()=>{moving=null;render(mount);};
-  startWander(mount,hid);
+  startWander(mount,hid);try{wear?.(mount);}catch{}
  }
  // While moving a piece, a tap that lands on another piece still means "this tile".
  function spotFromEvent(mount,e,hid){const L=layoutFor(objects[hid].capacity);const fl=mount.querySelector('#homeFloor').getBoundingClientRect(),wl=mount.querySelector('#homeWall').getBoundingClientRect();
@@ -208,6 +208,7 @@ export function createHomeSystem(ctx){
   const walkers=h.residents.filter(isDiscovered).map((cid,i)=>{const el=document.createElement('span');el.className='companion home-walker';el.dataset.anim='idle';el.dataset.companion=cid;
    const art=document.createElement('span');art.className='companion-art';rig(art,cid);el.append(art);const fx=document.createElement('span');fx.className='home-fx';el.append(fx);box.append(el);
    const p={x:(i*2+1)%L.cols,y:L.rows-1-(i%L.rows),face:1};place(el,p);return {cid,el,p,busyUntil:0,taken:null};});
+  try{wear?.(box);}catch{}
   if(!walkers.length||reducedMotion())return;
   const taken=new Set();
   const tick=()=>{if(!document.body.contains(box))return stopWander();const now=Date.now();

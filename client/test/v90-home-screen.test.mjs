@@ -13,7 +13,7 @@ test('V90: Home tab hosts companion houses; room sprites exist for every furnitu
   if(s.layer==='floor')assert.ok(s.side,id);
   for(const v of ['front','back','side'])if(s[v])assert.doesNotMatch(s[v],/<(script|image|use|text|foreignObject)\b/,id);}
  assert.match(src('client/index.html'),/<span>Home<\/span>/);
- assert.match(src('client/src/app.js'),/roomSprites:ROOM_SPRITES_V90,applyEffect:\(cid,eff\)=>companions\.homeEffect\(cid,eff\)/);
+ assert.match(src('client/src/app.js'),/roomSprites:ROOM_SPRITES,wear:wearAll,applyEffect:\(cid,eff\)=>companions\.homeEffect\(cid,eff\)/);
  assert.match(src('tools/build-standalone.py'),/home-engine-v90\.js/);assert.match(src('tools/build-standalone.py'),/room-sprites-v90\.js/);
 });
 test('V90: placement rules — layers, rotation footprint, wall row',async()=>{

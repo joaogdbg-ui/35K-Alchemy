@@ -90,6 +90,14 @@ Preserve 200-per-batch policy and do not start another content release on top of
 
 - **Art redraw wave 3 (V85, done): 3,991 icons** — every remaining older element. All 6,012 pre-V83 elements now use the 2026 art direction (`ART_REDRAW`), plus 200 V83 and 200 V85 originals. Six near-duplicates found by the audit were redrawn; 36 reviewed false alarms are in `tools/art-redraw-reviewed-pairs.json` (the audit now also honours them for V83 comparisons).
 
+## V94 — Stadium redesign, prizes and belts (31 October 2026)
+
+- Games tab rebuilt as the **Stadium** (Chao Stadium model): entrant card (big sprite, name, total Lv, six stat grades E–S with levels, belt), Change picker with levels, then Races / Karate / Prizes tabs. `client/src/games-v93.js` (V94 content), `client/src/prizes-v94.js`.
+- **Races**: countdown 3-2-1-GO, parallax sky/hills, richer sections (waves, bridge posts, climbing holds), name tags with live place, dust/splash/wind/pebble FX, speed lines on cheer, section banners (RUN/SWIM/FLY/CLIMB), overtaking pops, sweat when exhausted, confetti on a win, podium + medal drop in results. Terrain strip and prize preview on each course card.
+- **Karate**: best of three rounds, ROUND/FIGHT!/K.O. banners, portraits + HP + zeal bars, lunge, hit sparks, screen shake on big hits, dodge afterimage (Fly), block ring (Swim as defence), breath when out of zeal, KO fall with stars.
+- **Prizes (Chao Garden model)**: Champion gold on a course gives a **toy for the house** (Pond Fountain, Cliff Kite, Meadow Flag, Boulder Stone, Trail Lantern, Grand Cup — placeable furniture with their own room sprites); winning a karate level ties a **belt** (white → black) the winner wears everywhere (drawn on the body of the rigged sprite: screen, Home, houses, Stadium). Prizes tab lists toys and belts.
+- Cheer button with pop/dim/“no” feedback; cheering spends Stamina.
+
 ## V93 — Games tab: Chao-style races and sparring (31 October 2026)
 
 - 4th tab **Games** (hidden until the player has a house and a companion; `!` badge first time). `client/src/games-v93.js`, state `alchemy10k_games_v1`.

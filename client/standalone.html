@@ -1008,81 +1008,182 @@ details.pets-help summary{font-weight:800;cursor:pointer}
 .home-res-head{display:flex;align-items:center;gap:12px;text-align:left;margin:6px 0 8px}.home-res-head h2{margin:0}.home-res-head small{color:var(--muted)}
 .home-res-big{width:64px;height:64px;flex:0 0 auto}.home-res-big svg{width:100%;height:100%}
 .pet-house-line{font-size:13px;color:var(--good);font-weight:700;margin:6px 0}
-/* ---------- V93 Games: races + sparring ring ---------- */
+/* ---------- V94 Stadium: hub ---------- */
 .view-games{overflow:hidden}
 .pet-ava-lv{font-style:normal;font-size:9.5px;font-weight:800;color:var(--accent-ink);background:var(--accent-2);border-radius:999px;padding:0 6px;line-height:15px}
 .g-head{display:flex;align-items:center;justify-content:space-between}
 .g-tally{display:flex;align-items:center;gap:4px;font-weight:800;font-size:13px;color:var(--ink-2)}.g-tally .g-medal{margin-left:6px}
-.g-medal{display:inline-block;width:14px;height:14px;border-radius:50%;box-shadow:inset 0 -2px 0 rgba(0,0,0,.15),0 0 0 1.5px rgba(0,0,0,.08);vertical-align:middle}
+.g-medal{display:inline-block;width:14px;height:14px;border-radius:50%;box-shadow:inset 0 -2px 0 rgba(0,0,0,.15),0 0 0 1.5px rgba(0,0,0,.08);vertical-align:middle;flex:0 0 auto}
 .g-medal.is-gold{background:radial-gradient(circle at 35% 35%,#ffe9a3,#e0a82e)}.g-medal.is-silver{background:radial-gradient(circle at 35% 35%,#f4f6f8,#a9b4bc)}.g-medal.is-bronze{background:radial-gradient(circle at 35% 35%,#f3c9a1,#b9763f)}
 .g-medal.is-none{background:var(--line-2)}.g-medal.is-empty{background:transparent;box-shadow:inset 0 0 0 1.5px var(--line-2)}
-.g-medal.is-big{width:72px;height:72px;box-shadow:inset 0 -6px 0 rgba(0,0,0,.15),0 4px 10px rgba(0,0,0,.12)}
-.g-result{display:grid;place-items:center;margin:8px 0}
+.g-medal.is-big{width:72px;height:72px;box-shadow:inset 0 -6px 0 rgba(0,0,0,.15),0 4px 10px rgba(0,0,0,.12);animation:g-medal-drop .7s cubic-bezier(.2,1.5,.4,1) 1}
+@keyframes g-medal-drop{from{transform:translateY(-40px) scale(.4);opacity:0}to{transform:none;opacity:1}}
+.g-result{display:grid;place-items:center;margin:6px 0}
 .g-unlock{color:var(--good);font-weight:800}
-.g-card{background:var(--surface);border:1px solid var(--line);border-radius:18px;box-shadow:var(--shadow);padding:10px 12px;margin-bottom:6px}
-.g-picks{display:flex;gap:6px;overflow-x:auto;padding-bottom:6px;scrollbar-width:none}
-.g-pick{flex:0 0 auto;width:48px;height:48px;border-radius:14px;border:1px solid var(--line);background:var(--surface-2);padding:3px}.g-pick span,.g-pick svg{display:block;width:100%;height:100%}
-.g-pick.is-active{border-color:var(--accent);background:var(--accent-2);box-shadow:0 0 0 2px color-mix(in srgb,var(--accent) 25%,transparent)}
-.g-who strong{display:block;margin:2px 2px 6px}
-.g-stats{display:grid;grid-template-columns:repeat(6,1fr);gap:4px}
-.g-stat{display:grid;justify-items:center;background:var(--surface-2);border-radius:10px;padding:4px 0}.g-stat i{font-style:normal;font-size:10px;font-weight:800;color:var(--slate)}.g-stat b{font-size:14px}
-.g-list{display:grid;gap:8px}
-.g-course{background:var(--surface);border:1px solid var(--line);border-radius:16px;padding:10px 12px}
-.g-course.is-locked{opacity:.6}
-.g-course-head{display:flex;align-items:center;gap:10px;margin-bottom:8px}.g-course-head strong{display:block;font-size:14.5px}.g-course-head small{color:var(--muted);font-size:12px}
-.g-course-ico{width:34px;height:34px;border-radius:10px;flex:0 0 auto;background:var(--surface-2);position:relative}
-.g-course-ico::after{content:"";position:absolute;inset:7px;border-radius:50%}
-.g-course-ico[data-focus="swim"]{background:#d6eef6}.g-course-ico[data-focus="swim"]::after{background:#5aaed2;border-radius:50% 50% 50% 0;transform:rotate(-45deg)}
-.g-course-ico[data-focus="fly"]{background:#e7eefb}.g-course-ico[data-focus="fly"]::after{background:#8aa6e0;clip-path:polygon(0 60%,50% 20%,100% 60%,50% 45%)}
-.g-course-ico[data-focus="run"]{background:#e3f1dc}.g-course-ico[data-focus="run"]::after{background:#6fae62;clip-path:polygon(0 70%,60% 70%,60% 40%,100% 85%,60% 100%,60% 85%,0 85%)}
-.g-course-ico[data-focus="power"]{background:#efe3d6}.g-course-ico[data-focus="power"]::after{background:#a98463;clip-path:polygon(10% 100%,25% 40%,45% 60%,65% 15%,90% 100%)}
-.g-course-ico[data-focus="stamina"]{background:#fbe9e2}.g-course-ico[data-focus="stamina"]::after{background:#e0675a;clip-path:path('M10 18C3 13 1 10 1 7a4 4 0 0 1 9-2 4 4 0 0 1 9 2c0 3-2 6-9 11Z')}
-.g-course-ico[data-focus="all"]{background:#f6ecd4}.g-course-ico[data-focus="all"]::after{background:#e0a82e;clip-path:polygon(50% 0,61% 35%,98% 35%,68% 57%,79% 91%,50% 70%,21% 91%,32% 57%,2% 35%,39% 35%)}
-.g-course-ico[data-focus="spar"]{background:#f3e0dc}.g-course-ico[data-focus="spar"]::after{background:#b4483b;border-radius:40% 40% 30% 30%}
-.g-levels{display:grid;grid-template-columns:repeat(5,1fr);gap:5px}
-.g-level{display:grid;justify-items:center;gap:3px;border:1px solid var(--line);background:var(--surface-2);border-radius:10px;padding:6px 0 5px;font-size:10.5px;font-weight:800;color:var(--ink-2)}
-.g-level.is-locked{opacity:.45}
-/* stage */
+.st-entrant{display:grid;grid-template-columns:84px 1fr auto;gap:10px;align-items:start;background:var(--surface);border:1px solid var(--line);border-radius:18px;box-shadow:var(--shadow);padding:10px 12px;margin-bottom:8px}
+.st-entrant-art{position:relative;width:84px;height:84px;background:var(--surface-2);border-radius:16px;padding:6px}.st-entrant-art .companion-art{display:block;width:100%;height:100%}
+.st-entrant-belt{position:absolute;right:-4px;bottom:-4px;background:var(--surface);border-radius:50%;padding:2px;box-shadow:0 0 0 1px var(--line)}
+.st-entrant-main strong{display:block;font-size:16px}.st-entrant-main small{display:block;color:var(--muted);font-size:12px;margin-bottom:6px}
+.st-grades{display:grid;grid-template-columns:repeat(6,1fr);gap:3px}
+.st-grade{display:grid;justify-items:center;background:var(--surface-2);border-radius:9px;padding:3px 0 2px;line-height:1.1}
+.st-grade i{font-style:normal;font-size:8.5px;font-weight:800;color:var(--slate)}.st-grade b{font-size:15px;font-weight:900}.st-grade em{font-style:normal;font-size:8.5px;color:var(--muted);font-weight:700}
+.st-grade[data-g="S"] b{color:#d08a4c}.st-grade[data-g="A"] b{color:#b8891d}.st-grade[data-g="B"] b{color:#3f8f6b}.st-grade[data-g="E"] b{color:var(--muted)}
+.st-change{align-self:center;padding:7px 10px;border-radius:999px;border:1px solid var(--line-2);background:var(--surface);font-size:12px;font-weight:800;color:var(--ink-2)}
+.st-picker{display:grid;grid-template-columns:repeat(5,1fr);gap:6px;margin-bottom:8px}
+.st-pick{display:grid;justify-items:center;gap:1px;border:1px solid var(--line);background:var(--surface);border-radius:14px;padding:6px 2px 4px;min-width:0}
+.st-pick .companion{display:block;width:44px;height:44px}.st-pick .companion-art{display:block;width:100%;height:100%}
+.st-pick small{font-size:10px;font-weight:700;max-width:100%;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}.st-pick em{font-style:normal;font-size:9.5px;color:var(--accent-ink);font-weight:800}
+.st-pick.is-active{border-color:var(--accent);background:var(--accent-2)}
+.st-tabs{display:grid;grid-template-columns:repeat(3,1fr);gap:4px;background:var(--surface-2);border-radius:14px;padding:4px;margin-bottom:10px}
+.st-tab{border:0;background:transparent;border-radius:11px;padding:8px 0;font-weight:800;font-size:13px;color:var(--muted)}.st-tab.is-active{background:var(--surface);color:var(--ink);box-shadow:var(--shadow)}
+.st-list{display:grid;gap:8px}
+.st-course{background:var(--surface);border:1px solid var(--line);border-radius:16px;padding:10px 12px}
+.st-course.is-locked{opacity:.6}
+.st-course-head{display:flex;align-items:center;gap:10px;margin-bottom:8px}.st-course-text{flex:1;min-width:0}.st-course-text strong{display:block;font-size:14.5px}.st-course-text small{color:var(--muted);font-size:12px;line-height:1.3}
+.st-course-ico{width:36px;height:36px;border-radius:11px;flex:0 0 auto;background:var(--surface-2);position:relative}
+.st-course-ico::after{content:"";position:absolute;inset:8px;border-radius:50%}
+.st-course-ico[data-focus="swim"]{background:#d6eef6}.st-course-ico[data-focus="swim"]::after{background:#5aaed2;border-radius:50% 50% 50% 0;transform:rotate(-45deg)}
+.st-course-ico[data-focus="fly"]{background:#e7eefb}.st-course-ico[data-focus="fly"]::after{background:#8aa6e0;clip-path:polygon(0 60%,50% 20%,100% 60%,50% 45%)}
+.st-course-ico[data-focus="run"]{background:#e3f1dc}.st-course-ico[data-focus="run"]::after{background:#6fae62;clip-path:polygon(0 70%,60% 70%,60% 40%,100% 85%,60% 100%,60% 85%,0 85%)}
+.st-course-ico[data-focus="power"]{background:#efe3d6}.st-course-ico[data-focus="power"]::after{background:#a98463;clip-path:polygon(10% 100%,25% 40%,45% 60%,65% 15%,90% 100%)}
+.st-course-ico[data-focus="stamina"]{background:#fbe9e2}.st-course-ico[data-focus="stamina"]::after{background:#e0675a;clip-path:path('M10 18C3 13 1 10 1 7a4 4 0 0 1 9-2 4 4 0 0 1 9 2c0 3-2 6-9 11Z')}
+.st-course-ico[data-focus="all"]{background:#f6ecd4}.st-course-ico[data-focus="all"]::after{background:#e0a82e;clip-path:polygon(50% 0,61% 35%,98% 35%,68% 57%,79% 91%,50% 70%,21% 91%,32% 57%,2% 35%,39% 35%)}
+.st-course-ico[data-focus="karate"]{background:#f3e0dc}.st-course-ico[data-focus="karate"]::after{background:#b4483b;border-radius:40% 40% 30% 30%}
+.st-prize{width:40px;height:40px;flex:0 0 auto;border-radius:10px;background:var(--surface-2);padding:3px;filter:grayscale(1);opacity:.45}.st-prize svg{width:100%;height:100%}.st-prize.is-won{filter:none;opacity:1;background:#fbf0cf}
+.st-strip{display:flex;height:8px;border-radius:4px;overflow:hidden;margin-bottom:8px}.st-strip i{flex:1}
+.st-strip .is-run{background:#8dbf8a}.st-strip .is-swim{background:#6bb6d6}.st-strip .is-fly{background:#cfe0f3}.st-strip .is-climb{background:#a98463}
+.st-levels{display:grid;grid-template-columns:repeat(5,1fr);gap:5px}
+.st-level{display:grid;justify-items:center;gap:3px;border:1px solid var(--line);background:var(--surface-2);border-radius:10px;padding:6px 0 5px;font-size:10.5px;font-weight:800;color:var(--ink-2)}
+.st-level.is-locked{opacity:.4}.st-level.is-gold{background:#fbf0cf;border-color:#e0a82e}
+.st-foot{display:block;margin-top:7px;font-size:11.5px;color:var(--muted);font-weight:700}
+.st-belts{display:grid;grid-template-columns:repeat(5,1fr);gap:5px;margin:4px 0 8px}
+.st-belt{display:grid;justify-items:center;gap:2px;opacity:.35;filter:grayscale(1)}.st-belt.is-won{opacity:1;filter:none}.st-belt small{font-size:10px;font-weight:800;color:var(--ink-2)}
+.st-h{display:block;font-size:12px;letter-spacing:.06em;text-transform:uppercase;color:var(--slate);margin:4px 0 8px}
+.st-toys{display:grid;grid-template-columns:repeat(3,1fr);gap:6px;margin-bottom:12px}
+.st-toy{display:grid;justify-items:center;gap:2px;text-align:center;background:var(--surface-2);border-radius:12px;padding:8px 4px}.st-toy-art{width:48px;height:48px;filter:grayscale(1);opacity:.4}.st-toy-art svg{width:100%;height:100%}.st-toy.is-won .st-toy-art{filter:none;opacity:1}
+.st-toy small{font-size:11px;font-weight:800}.st-toy em{font-style:normal;font-size:9.5px;color:var(--muted)}
+.st-beltrows{display:grid;gap:6px}.st-beltrow{display:flex;align-items:center;gap:8px;font-size:13px}.st-beltrow small{color:var(--muted)}
+.st-tip{margin:12px 2px 0;font-size:12px}
+/* ---------- V94 Stadium: stage ---------- */
 .g-stage{position:fixed;inset:0;z-index:90;background:#cfe7f0;display:grid;grid-template-rows:auto 1fr auto;touch-action:none;user-select:none;-webkit-user-select:none}
-.g-stage-top{display:flex;justify-content:space-between;align-items:center;padding:calc(env(safe-area-inset-top,0px) + 12px) 14px 8px;background:rgba(255,255,255,.7)}
+.g-stage.is-shake{animation:g-shake .25s linear 1}
+@keyframes g-shake{0%,100%{transform:none}25%{transform:translate(-4px,2px)}50%{transform:translate(4px,-2px)}75%{transform:translate(-2px,-2px)}}
+.g-stage-top{display:flex;justify-content:space-between;align-items:center;padding:calc(env(safe-area-inset-top,0px) + 12px) 14px 8px;background:rgba(255,255,255,.72);font-size:14px}
 .g-quit{width:36px;height:36px;border-radius:12px;border:0;background:var(--surface);font-weight:900;color:var(--ink-2)}
-.g-stage-body{position:relative;overflow:hidden;background:radial-gradient(ellipse 60px 22px at 18% 16%,#fff 98%,transparent),radial-gradient(ellipse 80px 26px at 72% 10%,#fff 98%,transparent),linear-gradient(180deg,#bfe2f0 0 40%,#cfe9c4 40% 100%)}
-.g-stage-body::after{content:"";position:absolute;left:0;right:0;bottom:0;height:18%;background:repeating-linear-gradient(90deg,#9fd08c 0 30px,#93c680 30px 60px);opacity:.6}
-.g-track{position:absolute;left:0;top:50%;height:290px;margin-top:-145px;will-change:transform}
-.g-seg{position:absolute;top:0;bottom:0;border-left:2px solid rgba(255,255,255,.5)}
-.g-seg.is-run{background:repeating-linear-gradient(180deg,#9fd08c 0 56px,#8fc47c 56px 58px)}
-.g-seg.is-swim{background:repeating-linear-gradient(180deg,#7cc3e0 0 56px,#6bb6d6 56px 58px);box-shadow:inset 0 10px 0 rgba(255,255,255,.25)}
-.g-seg.is-fly{background:linear-gradient(180deg,#e9f5fb,#cfe7f0);border-left:6px solid #a98463;border-right:6px solid #a98463}
+.g-stage-body{position:relative;overflow:hidden}
+.g-banner{position:absolute;left:50%;top:38%;transform:translate(-50%,-50%);font-size:42px;font-weight:900;color:#fff;text-shadow:0 3px 0 rgba(0,0,0,.18),0 0 18px rgba(0,0,0,.15);pointer-events:none;letter-spacing:.04em;z-index:95}
+.g-banner.is-in{animation:g-banner .8s cubic-bezier(.2,1.5,.4,1) 1}
+@keyframes g-banner{0%{transform:translate(-50%,-50%) scale(.3);opacity:0}30%{transform:translate(-50%,-50%) scale(1.15);opacity:1}100%{transform:translate(-50%,-50%) scale(1);opacity:1}}
+.g-banner.is-count{font-size:72px;color:#fff5d6}.g-banner.is-go{font-size:64px;color:#ffd166}
+.g-banner.is-seg{font-size:26px;padding:6px 16px;border-radius:999px;background:rgba(32,38,43,.55)}.g-banner.is-seg.is-swim{background:rgba(90,174,210,.85)}.g-banner.is-seg.is-fly{background:rgba(138,166,224,.85)}.g-banner.is-seg.is-climb{background:rgba(169,132,99,.85)}.g-banner.is-seg.is-run{background:rgba(111,174,98,.85)}
+.g-banner.is-pass{font-size:34px;color:#ffd166;top:28%}.g-banner.is-round{font-size:40px;color:#fff}.g-banner.is-ko{font-size:70px;color:#ff8a65;letter-spacing:.1em}.g-banner.is-miss{font-size:22px;color:#fff;top:30%}
+/* race world */
+.g-sky{position:absolute;inset:0;background:linear-gradient(180deg,#9fd3ea 0,#cfe9f3 55%,#e8f3d9 56%,#cfe3b6 100%)}
+.g-cloud{position:absolute;top:calc(8% + var(--d) * 9%);left:calc(var(--d) * 33%);width:90px;height:28px;border-radius:999px;background:#fff;opacity:.9;box-shadow:24px -12px 0 -4px #fff,-20px -8px 0 -6px #fff;animation:g-cloud 40s linear infinite;animation-delay:calc(var(--d) * -13s)}
+@keyframes g-cloud{from{transform:translateX(110vw)}to{transform:translateX(-140px)}}
+.g-hills{position:absolute;left:-10%;right:-60%;top:34%;height:30%;background:radial-gradient(ellipse 160px 90px at 10% 100%,#b6d7a2 98%,transparent),radial-gradient(ellipse 220px 120px at 40% 100%,#a8cf92 98%,transparent),radial-gradient(ellipse 180px 100px at 70% 100%,#b6d7a2 98%,transparent),radial-gradient(ellipse 240px 110px at 100% 100%,#a8cf92 98%,transparent);will-change:transform}
+.g-track{position:absolute;left:0;top:50%;height:300px;margin-top:-120px;will-change:transform}
+.g-seg{position:absolute;top:0;bottom:0}
+.g-seg b{position:absolute;inset:0;pointer-events:none}
+.g-seg.is-run{background:repeating-linear-gradient(180deg,#9fd08c 0 58px,#93c680 58px 60px)}
+.g-seg.is-run b{background:radial-gradient(circle 3px at 20% 30%,#6fae62 98%,transparent),radial-gradient(circle 3px at 70% 70%,#6fae62 98%,transparent) 0 0/70px 60px}
+.g-seg.is-swim{background:repeating-linear-gradient(180deg,#7cc3e0 0 58px,#6bb6d6 58px 60px);box-shadow:inset 0 0 0 4px #a98463}
+.g-seg.is-swim b{background:repeating-linear-gradient(90deg,transparent 0 30px,rgba(255,255,255,.35) 30px 46px,transparent 46px 60px) 0 14px/60px 60px;animation:g-waves 2.2s linear infinite}
+@keyframes g-waves{to{background-position:60px 14px}}
+.g-seg.is-fly{background:linear-gradient(180deg,#e6f3f9,#d2e6ef);box-shadow:inset 8px 0 0 #a98463,inset -8px 0 0 #a98463}
+.g-seg.is-fly b{background:repeating-linear-gradient(180deg,transparent 0 56px,rgba(169,132,99,.55) 56px 60px)}
 .g-seg.is-climb{background:repeating-linear-gradient(90deg,#b99274 0 22px,#a98463 22px 24px),#b99274}
-.g-finish{position:absolute;top:0;bottom:0;width:14px;background:repeating-linear-gradient(180deg,#20262b 0 14px,#fff 14px 28px)}
-.g-actor.companion{position:absolute;left:0;top:0;width:52px;height:52px;pointer-events:none;transform:translate(var(--x,120px),calc(var(--lane,0) * 58px + 2px))}
+.g-seg.is-climb b{background:radial-gradient(circle 5px at 30% 25%,#e0675a 98%,transparent),radial-gradient(circle 5px at 70% 60%,#f1c26b 98%,transparent),radial-gradient(circle 5px at 45% 85%,#5aaed2 98%,transparent) 0 0/60px 60px}
+.g-start{position:absolute;top:-10px;bottom:-10px;width:6px;background:#fff;opacity:.7}
+.g-finish{position:absolute;top:-16px;bottom:-16px;width:16px;background:repeating-linear-gradient(180deg,#20262b 0 14px,#fff 14px 28px)}
+.g-finish i{position:absolute;left:-2px;top:-26px;width:20px;height:0;border-left:3px solid #8c6a4e;height:26px}.g-finish i::after{content:"";position:absolute;left:3px;top:0;width:22px;height:14px;background:#e0675a;clip-path:polygon(0 0,100% 50%,0 100%)}
+.g-actor.companion{position:absolute;left:0;top:0;width:54px;height:54px;pointer-events:none;transform:translate(var(--x,120px),calc(var(--lane,0) * 60px + 2px));z-index:calc(2 + var(--lane,0))}
 .g-actor .companion-art{display:block;width:100%;height:100%}
-.g-actor.is-me::before{content:"";position:absolute;left:12px;right:12px;bottom:-4px;height:6px;border-radius:50%;background:#d08a4c;opacity:.7}
-.g-actor.seg-swim .companion-art{clip-path:inset(0 0 38% 0);animation:home-bob 1.2s ease-in-out infinite}
-.g-actor.seg-fly .companion-art{transform:translateY(-14px) rotate(-6deg)}
-.g-actor.seg-climb .companion-art{animation:home-climb 1.6s ease-in-out infinite}
+.g-actor.is-me::before{content:"";position:absolute;left:14px;right:14px;bottom:-3px;height:6px;border-radius:50%;background:#d08a4c;opacity:.75}
+.g-tag{position:absolute;left:50%;top:-16px;transform:translateX(-50%);white-space:nowrap;font-size:9px;font-weight:800;color:#fff;background:rgba(32,38,43,.6);border-radius:999px;padding:1px 6px 1px 2px;display:flex;align-items:center;gap:3px;line-height:12px}
+.g-tag em{font-style:normal;width:12px;height:12px;border-radius:50%;background:#fff;color:#20262b;font-size:8px;display:grid;place-items:center}
+.g-actor.is-me .g-tag{background:#d08a4c}
+.g-actor.seg-swim .companion-art{clip-path:inset(0 0 36% 0);animation:home-bob 1.2s ease-in-out infinite}
+.g-actor.seg-fly .companion-art{transform:translateY(-16px) rotate(-8deg);animation:g-glide 1s ease-in-out infinite}
+@keyframes g-glide{50%{transform:translateY(-22px) rotate(-5deg)}}
+.g-actor.seg-climb .companion-art{animation:home-climb 1.4s ease-in-out infinite}
+.g-actor.is-boost .companion-art{filter:brightness(1.1)}
+.g-actor.is-boost::after{content:"";position:absolute;left:-26px;top:30%;width:24px;height:16px;background:repeating-linear-gradient(180deg,#fff 0 2px,transparent 2px 6px);opacity:.8;animation:g-lines .25s linear infinite}
+@keyframes g-lines{to{transform:translateX(-8px);opacity:.2}}
+.g-actor.is-resting .companion-art{filter:saturate(.7)}
 .g-actor.g-tired .companion-art{filter:grayscale(.6)}
+.g-fx{position:absolute;width:14px;height:14px;pointer-events:none;z-index:1}
+.g-fx.is-dust{border-radius:50%;background:rgba(169,132,99,.55);animation:g-dust .6s ease-out 1 forwards}
+@keyframes g-dust{from{transform:scale(.4)}to{transform:translate(-16px,-6px) scale(1.6);opacity:0}}
+.g-fx.is-splash{width:18px;height:10px;border-radius:50%;border:2px solid rgba(255,255,255,.9);animation:g-splash .6s ease-out 1 forwards}
+@keyframes g-splash{from{transform:scale(.5)}to{transform:translateY(-10px) scale(1.5);opacity:0}}
+.g-fx.is-wind{width:22px;height:3px;background:rgba(255,255,255,.9);border-radius:2px;animation:g-wind .6s linear 1 forwards}
+@keyframes g-wind{to{transform:translateX(-22px);opacity:0}}
+.g-fx.is-pebble{width:6px;height:6px;border-radius:50%;background:#7d5236;animation:g-pebble .6s ease-in 1 forwards}
+@keyframes g-pebble{to{transform:translate(-8px,22px);opacity:0}}
+.g-fx.is-sweat{width:8px;height:11px;background:#5aaed2;border-radius:50% 50% 50% 50%/60% 60% 40% 40%;animation:g-sweat .9s ease-out 1 forwards}
+@keyframes g-sweat{to{transform:translate(10px,-14px);opacity:0}}
 .g-burst{position:absolute;left:-10px;top:30%;width:22px;height:22px;border-radius:50%;background:radial-gradient(circle,#fff 0 30%,rgba(255,255,255,0) 70%);animation:g-burst .5s ease-out 1 forwards}
-.g-burst.is-hit{left:30%;top:20%;background:radial-gradient(circle,#ffe39b 0 30%,rgba(255,200,80,0) 70%)}
 @keyframes g-burst{from{transform:scale(.4);opacity:1}to{transform:scale(2);opacity:0}}
-.g-hud{display:grid;grid-template-columns:1fr auto;gap:6px 12px;align-items:center;padding:10px 14px calc(env(safe-area-inset-bottom,0px) + 14px);background:rgba(255,255,255,.8)}
+.g-confetti{position:absolute;top:-10px;width:8px;height:12px;background:var(--c);border-radius:2px;animation:g-confetti 1.8s ease-in 1 forwards;animation-delay:calc(var(--i) * 30ms)}
+@keyframes g-confetti{to{transform:translateY(80vh) rotate(720deg);opacity:0}}
+/* hud */
+.g-hud{display:grid;gap:8px;padding:10px 14px calc(env(safe-area-inset-bottom,0px) + 14px);background:rgba(255,255,255,.85)}
+.g-hud-row{display:grid;grid-template-columns:1fr auto;gap:12px;align-items:center}
 .g-energy{display:grid;grid-template-columns:auto 1fr;gap:8px;align-items:center;font-size:12px;font-weight:800;color:var(--slate)}.g-energy i{font-style:normal}
 .g-energy b{display:block;height:10px;border-radius:5px;background:var(--line);overflow:hidden}.g-energy em{display:block;height:100%;background:#3f8f6b;transition:width .15s}
 .g-energy.is-low em{background:#b4483b}
-.g-place{font-size:20px;font-weight:900;color:var(--ink)}
-.g-tip{grid-column:1/-1;text-align:center;font-size:12px;color:var(--muted);font-weight:700}
-.g-ring{position:absolute;inset:0;display:grid;place-items:center}
-.g-ring-floor{position:absolute;left:8%;right:8%;top:30%;bottom:22%;border-radius:22px;background:#e9d6b8;border:6px solid #b4483b;box-shadow:inset 0 0 0 6px #f3e6d0}
-.g-ring .g-actor.companion{width:96px;height:96px;top:auto;bottom:30%;transform:none;transition:transform .2s}
-.g-ring .g-actor.is-left{left:22%}.g-ring .g-actor.is-right{left:auto;right:22%}
-.g-ring .g-actor.is-left.is-lunge{transform:translateX(28px)}.g-ring .g-actor.is-right.is-lunge{transform:translateX(-28px)}
-.g-ring .g-actor.is-hit .companion-art{filter:brightness(1.6) saturate(.6)}
-.g-ring .g-actor.is-left.is-dodge{transform:translate(-18px,-10px)}.g-ring .g-actor.is-right.is-dodge{transform:translate(18px,-10px)}
-.g-ring .g-actor.is-charged::after{content:"";position:absolute;inset:-6px;border-radius:50%;box-shadow:0 0 0 3px #e0a82e,0 0 14px #e0a82e;animation:g-charge .6s ease-in-out infinite alternate}
-@keyframes g-charge{to{opacity:.4}}
-.g-bars{grid-column:1/-1;display:grid;grid-template-columns:1fr auto 1fr;gap:10px;align-items:center}
-.g-hp b{display:block;height:12px;border-radius:6px;background:var(--line);overflow:hidden}.g-hp em{display:block;height:100%;background:#e0675a;transition:width .25s}.g-hp.is-me em{background:#3f8f6b}
-.g-vs{font-weight:900;color:var(--slate);font-size:12px}
+.g-place{font-size:22px;font-weight:900;color:var(--ink)}.g-place[data-place="1"]{color:#d08a4c}
+.g-cheer{position:relative;height:54px;border:0;border-radius:16px;background:linear-gradient(180deg,#e8a35f,#d08a4c);color:#fff;font-weight:900;font-size:17px;letter-spacing:.06em;box-shadow:0 4px 0 #a86a33;overflow:hidden}
+.g-cheer i{position:absolute;inset:0;background:radial-gradient(circle at 50% 50%,rgba(255,255,255,.5),transparent 60%);opacity:0}
+.g-cheer.is-pop{animation:g-cheer .35s ease-out 1}.g-cheer.is-pop i{animation:g-cheer-i .35s ease-out 1}
+@keyframes g-cheer{0%{transform:translateY(3px) scale(.98)}50%{transform:scale(1.03)}100%{transform:none}}
+@keyframes g-cheer-i{0%{opacity:1}100%{opacity:0}}
+.g-cheer.is-dim{filter:saturate(.3);box-shadow:none;transform:translateY(3px)}.g-cheer.is-no{animation:g-no .3s linear 1}
+@keyframes g-no{25%{transform:translateX(-5px)}75%{transform:translateX(5px)}}
+/* karate */
+.g-stage.is-karate{background:#f3e6d0}
+.g-dojo{position:absolute;inset:0;background:linear-gradient(180deg,#f7eee0 0 45%,#e9d6b8 45% 100%)}
+.g-dojo::before{content:"";position:absolute;left:0;right:0;top:12%;height:18%;background:radial-gradient(circle 14px at 10% 60%,#e8a0a8 98%,transparent),radial-gradient(circle 18px at 30% 40%,#f1b9bf 98%,transparent),radial-gradient(circle 12px at 55% 65%,#e8a0a8 98%,transparent),radial-gradient(circle 16px at 80% 45%,#f1b9bf 98%,transparent);opacity:.8}
+.g-crowd{position:absolute;left:0;right:0;top:36%;height:10%;background:radial-gradient(circle 7px at 50% 50%,#657d89 98%,transparent) 0 0/24px 24px;opacity:.25}
+.g-ring{position:absolute;inset:0}
+.g-ring-floor{position:absolute;left:6%;right:6%;top:46%;bottom:14%;border-radius:18px;background:#efe2c8;border:6px solid #b4483b;box-shadow:inset 0 0 0 6px #f7eee0,0 10px 0 #a9734f}
+.g-ring .g-actor.companion{width:104px;height:104px;top:auto;bottom:22%;transform:none;transition:transform .18s}
+.g-ring .g-actor.is-left{left:16%}.g-ring .g-actor.is-right{left:auto;right:16%}
+.g-ring .g-actor.is-left.is-lunge{transform:translateX(34px) rotate(4deg)}.g-ring .g-actor.is-right.is-lunge{transform:translateX(-34px) rotate(-4deg)}
+.g-ring .g-actor.is-hit{animation:g-hitback .3s ease-out 1}.g-ring .g-actor.is-right.is-hit{animation-name:g-hitback-r}
+@keyframes g-hitback{30%{transform:translateX(-18px)}}@keyframes g-hitback-r{30%{transform:translateX(18px)}}
+.g-ring .g-actor.is-hit .companion-art{filter:brightness(1.7) saturate(.5)}
+.g-ring .g-actor.is-left.is-dodge{transform:translate(-26px,-14px)}.g-ring .g-actor.is-right.is-dodge{transform:translate(26px,-14px)}
+.g-ring .g-actor.is-ghost{opacity:.35;filter:blur(1px);animation:g-ghost .35s ease-out 1 forwards}@keyframes g-ghost{to{opacity:0}}
+.g-ring .g-actor.is-charged::after{content:"";position:absolute;inset:-8px;border-radius:50%;box-shadow:0 0 0 3px #e0a82e,0 0 18px #e0a82e;animation:g-charge .5s ease-in-out infinite alternate}
+@keyframes g-charge{to{opacity:.4;transform:scale(1.06)}}
+.g-ring .g-actor.is-ko .companion-art{transform:rotate(80deg) translate(10%,-10%)}
+.g-ring .g-actor.is-breath .companion-art{animation:cp-sleep 1s ease-in-out 1}
+.g-fx.is-spark{width:26px;height:26px;background:#ffe39b;clip-path:polygon(50% 0,61% 35%,98% 35%,68% 57%,79% 91%,50% 70%,21% 91%,32% 57%,2% 35%,39% 35%);animation:g-spark .4s ease-out 1 forwards}
+.g-fx.is-spark.is-big{width:40px;height:40px;background:#ff8a65}
+@keyframes g-spark{from{transform:scale(.3) rotate(0)}to{transform:scale(1.6) rotate(40deg);opacity:0}}
+.g-fx.is-block{width:30px;height:30px;border-radius:50%;border:4px solid #5aaed2;animation:g-block .4s ease-out 1 forwards}@keyframes g-block{to{transform:scale(1.5);opacity:0}}
+.g-fx.is-stars{width:50px;height:20px;background:radial-gradient(circle 4px at 15% 50%,#f1c26b 98%,transparent),radial-gradient(circle 4px at 50% 30%,#f1c26b 98%,transparent),radial-gradient(circle 4px at 85% 50%,#f1c26b 98%,transparent);animation:g-stars 1.4s linear infinite}
+@keyframes g-stars{to{transform:rotateY(360deg)}}
+.g-fighters{display:grid;grid-template-columns:1fr 1fr;gap:10px}
+.g-fighter{display:grid;grid-template-columns:38px 1fr;gap:6px;align-items:center;position:relative}.g-fighter.is-them{grid-template-columns:1fr 38px;text-align:right}
+.g-port{width:38px;height:38px;border-radius:12px;background:var(--surface-2);padding:2px;display:block}.g-port .companion-art{display:block;width:100%;height:100%}
+.g-fighter b{display:block;font-size:12px;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+.g-hp b{display:block;height:11px;border-radius:6px;background:var(--line);overflow:hidden;margin-top:2px}.g-hp em{display:block;height:100%;background:#e0675a;transition:width .25s}.g-hp.is-me em{background:#3f8f6b}
+.g-fighter.is-them .g-hp em{margin-left:auto}
+.g-zeal{display:block;height:5px;border-radius:3px;background:var(--line);overflow:hidden;margin-top:3px}.g-zeal em{display:block;height:100%;background:#e0a82e;transition:width .25s}.g-fighter.is-them .g-zeal em{margin-left:auto}
+.g-rounds{position:absolute;top:-6px;left:40px;display:flex;gap:3px}.g-fighter.is-them .g-rounds{left:auto;right:40px}.g-rounds b{width:8px;height:8px;border-radius:50%;background:#e0a82e;display:block}
+/* results */
+.g-podium{display:flex;justify-content:center;align-items:flex-end;gap:6px;margin:8px 0 2px;height:120px}
+.g-pod{display:grid;justify-items:center;gap:2px}.g-pod .companion{display:block;width:56px;height:56px}.g-pod .companion-art{display:block;width:100%;height:100%}
+.g-pod b{width:64px;border-radius:8px 8px 0 0;background:var(--surface-2);color:var(--ink-2);font-size:14px;display:grid;place-items:start center;padding-top:4px}
+.g-pod.is-1{order:2}.g-pod.is-1 b{height:52px;background:#fbf0cf;color:#b8891d}.g-pod.is-2{order:1}.g-pod.is-2 b{height:36px}.g-pod.is-3{order:3}.g-pod.is-3 b{height:24px}
+.g-versus{display:flex;justify-content:center;align-items:center;gap:14px;margin:8px 0}.g-versus .companion{display:block;width:64px;height:64px}.g-versus .companion-art{display:block;width:100%;height:100%}.g-versus b{font-size:22px;font-weight:900}
+.g-prize{display:grid;grid-template-columns:56px 1fr;gap:10px;align-items:center;text-align:left;background:#fbf0cf;border-radius:14px;padding:8px 10px;margin:8px 0}.g-prize>span{width:56px;height:56px}.g-prize svg{width:100%;height:100%}.g-prize b{display:block;font-size:14px}.g-prize small{color:var(--ink-2)}
+@media (prefers-reduced-motion:reduce){.g-cloud,.g-seg b,.g-actor .companion-art,.g-banner.is-in,.g-medal.is-big{animation:none!important}}
+.g-pod .companion,.g-versus .companion,.g-port.companion,.st-pick .companion,.st-entrant-art.companion{position:relative;left:auto;top:auto;pointer-events:none}
+.g-fighter>div{min-width:0}
 
 </style>
 </head>
@@ -1460,7 +1561,7 @@ function growthMultiplier(capacity,house,objects,kind){const base=HOUSE_GROWTH[c
 function houseSummary(house,objects){const out={};for(const f of house?.furniture||[]){const e=objects[f.id]?.effect;if(e)out[e]=(out[e]||0)+1;}return out;}
 
 function createHomeSystem(ctx){
- const {$,escapeText,byId,uiName,staticArt,isDiscovered,objects,roomSprites,roster,sprites,companionName,statsHtml,applyEffect,showModal,closeModal,toast,reducedMotion,onChange}=ctx;
+ const {$,escapeText,byId,uiName,staticArt,isDiscovered,objects,roomSprites,roster,sprites,companionName,statsHtml,wear,applyEffect,showModal,closeModal,toast,reducedMotion,onChange}=ctx;
  const RS=roomSprites||{};
  let state={v:1,active:null,houses:{}};
  try{const raw=JSON.parse(localStorage.getItem(HOME_STORAGE_KEY)||'null');if(raw&&raw.houses&&typeof raw.houses==='object')state={v:1,active:raw.active||null,houses:raw.houses};}catch{}
@@ -1525,7 +1626,7 @@ function createHomeSystem(ctx){
   mount.querySelectorAll('[data-res]').forEach(r=>r.onclick=()=>tapResident(mount,hid,r.dataset.res));
   const add=$('homeAddRes');if(add)add.onclick=()=>pickResident(mount,hid);
   const cm=$('homeCancelMove');if(cm)cm.onclick=()=>{moving=null;render(mount);};
-  startWander(mount,hid);
+  startWander(mount,hid);try{wear?.(mount);}catch{}
  }
  // While moving a piece, a tap that lands on another piece still means "this tile".
  function spotFromEvent(mount,e,hid){const L=layoutFor(objects[hid].capacity);const fl=mount.querySelector('#homeFloor').getBoundingClientRect(),wl=mount.querySelector('#homeWall').getBoundingClientRect();
@@ -1628,6 +1729,7 @@ function createHomeSystem(ctx){
   const walkers=h.residents.filter(isDiscovered).map((cid,i)=>{const el=document.createElement('span');el.className='companion home-walker';el.dataset.anim='idle';el.dataset.companion=cid;
    const art=document.createElement('span');art.className='companion-art';rig(art,cid);el.append(art);const fx=document.createElement('span');fx.className='home-fx';el.append(fx);box.append(el);
    const p={x:(i*2+1)%L.cols,y:L.rows-1-(i%L.rows),face:1};place(el,p);return {cid,el,p,busyUntil:0,taken:null};});
+  try{wear?.(box);}catch{}
   if(!walkers.length||reducedMotion())return;
   const taken=new Set();
   const tick=()=>{if(!document.body.contains(box))return stopWander();const now=Date.now();
@@ -1670,181 +1772,281 @@ const ROOM_SPRITES_V90 = {"organic89:curtain":{"layer":"wall","front":"<svg xmln
 
 return {ROOM_SPRITES_V90};})();
 window.__games93=(function(){/**
- * V93 Companion Games (owner request 31/10/2026), modelled on the Chao Garden mini-games:
- *  - RACES: obstacle courses where each section uses a different stat — Run on the ground,
- *    Swim in water, Fly over gaps, Power to climb walls — while Stamina drains (a tired racer
- *    stops to rest, like a Chao sitting down). Five courses focus on one stat each and a sixth
- *    tests everything; each has five levels (Rookie → Champion) unlocked by winning the previous.
- *  - SPARRING: a 1-on-1 ring (like Chao Karate): HP is health, Power hits harder, Run dodges,
- *    Stamina keeps the punches coming.
- * The companion plays on its own; the player only taps to cheer (a short boost / power strike)
- * which spends Stamina, so cheering at the right moment matters. Gold, silver and bronze medals
- * per level. Course and level names are original. No imports (inlined by build-standalone.py).
+ * V94 Stadium (owner request 31/10/2026): the Games tab redone on the Chao Stadium model.
+ *  Hub: one entrant card (big sprite, name, total level, six stat grades, belt), then Races /
+ *  Karate / Prizes. Everything the player needs is on the card: levels, grades, mood.
+ *  RACES (Chao Race dynamics): sections use Run (ground), Swim (water), Fly (gaps), Power (rock
+ *  walls); Stamina drains and a tired racer sits down to rest. Six courses × five levels; each
+ *  level is opened by winning the previous one. Winning Champion gives a TOY for the house.
+ *  KARATE (Chao Karate dynamics): best of three rounds. HP = health, Power = damage, Swim =
+ *  defence, Fly = dodge, Run = attack speed, Stamina = zeal (tired fighters stop to breathe).
+ *  Winning a level gives a BELT the companion wears from then on.
+ *  The companion plays by itself; the player taps CHEER (a sprint / a power strike) which costs
+ *  Stamina. Feedback everywhere: countdown, section banners, dust, splashes, speed lines, place
+ *  pops, hit sparks, screen shake, KO stars, podium and medal drop. No imports.
  */
 const GAMES_STORAGE_KEY='alchemy10k_games_v1';
 const LEVELS=['Rookie','Junior','Pro','Expert','Champion'];
 const LEVEL_POWER=[0,12,28,48,72];
-const LEVEL_EASE=[0.96,0.98,1,1,1.03];   // Rookie rivals are a little slower than a fresh companion  // average opponent stat level per difficulty
+const LEVEL_EASE=[0.96,0.98,1,1,1.03];
 const COURSES=[
- {id:'pond',name:'Pebble Pond',focus:'swim',blurb:'Lots of water: Swim decides it.',plan:['run','swim','run','swim','swim','run','swim','run']},
- {id:'cliffs',name:'Breezy Cliffs',focus:'fly',blurb:'Glide over the gaps: Fly decides it.',plan:['run','fly','run','fly','run','fly','fly','run']},
- {id:'meadow',name:'Meadow Dash',focus:'run',blurb:'A long sprint: Run decides it.',plan:['run','run','swim','run','run','climb','run','run']},
- {id:'boulder',name:'Boulder Wall',focus:'power',blurb:'Climb the rock walls: Power decides it.',plan:['run','climb','run','climb','run','climb','climb','run']},
- {id:'trail',name:'Long Trail',focus:'stamina',blurb:'Twice as long: Stamina decides it.',plan:['run','swim','run','climb','run','fly','run','swim','run','climb','run','run']},
- {id:'grand',name:'Grand Circuit',focus:'all',blurb:'Every kind of section: all stats count.',plan:['run','swim','fly','climb','run','swim','fly','climb','run'],locked:true}
+ {id:'pond',name:'Pebble Pond',focus:'swim',blurb:'Shallow pools and reeds. Swim decides it.',plan:['run','swim','run','swim','swim','run','swim','run']},
+ {id:'cliffs',name:'Breezy Cliffs',focus:'fly',blurb:'Wooden bridges are out — glide the gaps. Fly decides it.',plan:['run','fly','run','fly','run','fly','fly','run']},
+ {id:'meadow',name:'Meadow Dash',focus:'run',blurb:'Open grass all the way. Run decides it.',plan:['run','run','swim','run','run','climb','run','run']},
+ {id:'boulder',name:'Boulder Wall',focus:'power',blurb:'Rock walls to climb. Power decides it.',plan:['run','climb','run','climb','run','climb','climb','run']},
+ {id:'trail',name:'Long Trail',focus:'stamina',blurb:'Twice as long, a bit of everything. Stamina decides it.',plan:['run','swim','run','climb','run','fly','run','swim','run','climb','run','run']},
+ {id:'grand',name:'Grand Circuit',focus:'all',blurb:'The champions’ course: every stat counts.',plan:['run','swim','fly','climb','run','swim','fly','climb','run'],locked:true}
 ];
 const SEG_STAT={run:'run',swim:'swim',fly:'fly',climb:'power'};
 const SEG_DRAIN={run:0.10,swim:0.14,climb:0.18,fly:0.05};
 const SEG_ANIM={run:'walk',swim:'hopwalk',fly:'fly',climb:'climb'};
+const SEG_WORD={run:'RUN',swim:'SWIM',fly:'FLY',climb:'CLIMB'};
 const SEG_LEN=90,UNIT_SPEED=80,PX=2.2;
-/** Pure: speed multiplier from a stat level (0 → 0.55, 99 → 1.45). */
 const statSpeed=lv=>0.55+Math.max(0,Math.min(99,lv))/99*0.9;
-/** Pure: stamina pool from the Stamina level. */
 const energyMax=lv=>60+Math.max(0,Math.min(99,lv))*1.6;
-/** Pure: opponent stat levels for a course/level (focus stat higher), deterministic per seed. */
 function opponentStats(course,level,seed){
  let s=seed*9301+level*49297+course.id.length*233;const rnd=()=>{s=(s*9301+49297)%233280;return s/233280;};
  const base=LEVEL_POWER[level],out={};
- for(const k of ['hp','stamina','run','power','swim','fly']){let v=base*(0.7+rnd()*0.6);if(course.focus===k||(course.focus==='all'))v*=1.25;out[k]=Math.round(Math.max(0,Math.min(99,v)));}
+ for(const k of ['hp','stamina','run','power','swim','fly']){let v=base*(0.7+rnd()*0.6);if(course.focus===k||course.focus==='all')v*=1.25;out[k]=Math.round(Math.max(0,Math.min(99,v)));}
  return out;
 }
 function medalFor(place){return place===1?'gold':place===2?'silver':place===3?'bronze':null;}
+const ORD=p=>p+(['st','nd','rd'][p-1]||'th');
 
 function createGamesSystem(ctx){
- const {$,escapeText,roster,sprites,byId,uiName,isDiscovered,companionInfo,onResult,showModal,closeModal,toast,reducedMotion,activeId}=ctx;
- let state={v:1,pick:null,races:{},spar:{}};
- try{const raw=JSON.parse(localStorage.getItem(GAMES_STORAGE_KEY)||'null');if(raw&&typeof raw==='object')state={v:1,pick:raw.pick||null,races:raw.races||{},spar:raw.spar||{}};}catch{}
+ const {$,escapeText,roster,sprites,isDiscovered,companionInfo,onResult,onBelt,wear,showModal,closeModal,toast,reducedMotion,activeId,prizes,belts}=ctx;
+ let state={v:2,pick:null,view:'race',races:{},karate:{},prizes:[],belts:{}};
+ try{const raw=JSON.parse(localStorage.getItem(GAMES_STORAGE_KEY)||'null');if(raw&&typeof raw==='object')state={v:2,pick:raw.pick||null,view:raw.view||'race',races:raw.races||{},karate:raw.karate||raw.spar?.ring&&{...raw.spar.ring}||{},prizes:raw.prizes||[],belts:raw.belts||{}};}catch{}
  const save=()=>{try{localStorage.setItem(GAMES_STORAGE_KEY,JSON.stringify(state));}catch{}};
  const owned=()=>roster.filter(c=>isDiscovered(c.id));
  const pick=()=>{const o=owned();if(!o.length)return null;if(!o.some(c=>c.id===state.pick))state.pick=(activeId?.()&&o.some(c=>c.id===activeId()))?activeId():o[0].id;return state.pick;};
- const best=(bag,id,l)=>bag[id]?.[l]||0;   // best place (1..n), 0 = never raced
- const levelOpen=(bag,id,l)=>l===0||best(bag,id,l-1)===1;
- const courseOpen=c=>!c.locked||COURSES.filter(x=>!x.locked).every(x=>best(state.races,x.id,0)===1);
- function medalCounts(){const n={gold:0,silver:0,bronze:0};for(const bag of [state.races,state.spar])for(const lv of Object.values(bag))for(const p of Object.values(lv)){const m=medalFor(p);if(m)n[m]++;}return n;}
- const medalDot=p=>{const m=medalFor(p);return m?`<i class="g-medal is-${m}" aria-label="${m}"></i>`:p?'<i class="g-medal is-none" aria-label="finished"></i>':'<i class="g-medal is-empty" aria-hidden="true"></i>';};
+ const best=(bag,l)=>bag?.[l]||0;
+ const levelOpen=(bag,l)=>l===0||best(bag,l-1)===1;
+ const courseOpen=c=>!c.locked||COURSES.filter(x=>!x.locked).every(x=>best(state.races[x.id],0)===1);
+ const beltOf=cid=>state.belts[cid]||null;
+ const hasPrize=id=>state.prizes.includes(id);
+ function medalCounts(){const n={gold:0,silver:0,bronze:0};const all=[...Object.values(state.races),state.karate];for(const lv of all)for(const p of Object.values(lv||{})){const m=medalFor(p);if(m)n[m]++;}return n;}
+ const medalDot=(p,big=false)=>{const m=medalFor(p);return `<i class="g-medal ${big?'is-big':''} ${m?'is-'+m:p?'is-none':'is-empty'}"></i>`;};
+ const totalLv=info=>Object.values(info.stats).reduce((n,s)=>n+(s.level||0),0);
+ const GR=['E','D','C','B','A','S'];
+ const rig=(el,id)=>{el.innerHTML=sprites[id]||'';for(const g of el.querySelectorAll('[data-part]')){const p=(g.dataset.pivot||'50 50').split(/\s+/).map(Number);g.style.transformOrigin=`${p[0]}px ${p[1]}px`;g.style.transformBox='view-box';}const svg=el.querySelector('svg');if(svg){svg.setAttribute('width','100%');svg.setAttribute('height','100%');}};
+ const dress=root=>{try{wear?.(root);}catch{}};
 
  // ---------- hub ----------
  function render(mount){
-  if(!mount)return;const pid=pick();const n=medalCounts();
-  if(!pid){mount.innerHTML='<div class="pets-scroll"><div class="section-head"><h2>Games</h2><p>Discover a companion to play.</p></div></div>';return;}
-  const info=companionInfo(pid);
-  const chips=owned().map(c=>`<button type="button" class="g-pick ${c.id===pid?'is-active':''}" data-gpick="${c.id}" aria-label="${escapeText(companionInfo(c.id).name)}"><span>${sprites[c.id]||''}</span></button>`).join('');
-  const stat=k=>`<span class="g-stat"><i>${({hp:'HP',stamina:'Sta',run:'Run',power:'Pow',swim:'Swim',fly:'Fly'})[k]}</i><b>${info.stats[k].level}</b></span>`;
-  mount.innerHTML=`<div class="pets-scroll"><div class="section-head g-head"><h2>Games</h2><span class="g-tally"><i class="g-medal is-gold"></i>${n.gold}<i class="g-medal is-silver"></i>${n.silver}<i class="g-medal is-bronze"></i>${n.bronze}</span></div>
-   <section class="g-card"><div class="g-picks">${chips}</div><div class="g-who"><strong>${escapeText(info.name)}</strong><div class="g-stats">${['hp','stamina','run','power','swim','fly'].map(stat).join('')}</div></div></section>
-   <h3 class="pets-family">Races</h3>
-   <div class="g-list">${COURSES.map(c=>{const open=courseOpen(c);return `<div class="g-course ${open?'':'is-locked'}"><div class="g-course-head"><span class="g-course-ico" data-focus="${c.focus}"></span><div><strong>${escapeText(c.name)}</strong><small>${open?escapeText(c.blurb):'Win the Rookie level of the other five courses'}</small></div></div>
-    <div class="g-levels">${LEVELS.map((l,i)=>{const ok=open&&levelOpen(state.races,c.id,i);return `<button type="button" class="g-level ${ok?'':'is-locked'}" data-race="${c.id}" data-level="${i}" ${ok?'':'disabled'}>${medalDot(best(state.races,c.id,i))}<span>${l}</span></button>`;}).join('')}</div></div>`;}).join('')}</div>
-   <h3 class="pets-family">Sparring ring</h3>
-   <div class="g-course"><div class="g-course-head"><span class="g-course-ico" data-focus="spar"></span><div><strong>Sparring Ring</strong><small>One-on-one bouts: HP, Power, Run and Stamina.</small></div></div>
-    <div class="g-levels">${LEVELS.map((l,i)=>{const ok=levelOpen(state.spar,'ring',i);return `<button type="button" class="g-level ${ok?'':'is-locked'}" data-spar="${i}" ${ok?'':'disabled'}>${medalDot(best(state.spar,'ring',i))}<span>${l}</span></button>`;}).join('')}</div></div>
-   <details class="pets-help"><summary>How the games work</summary><ul>
-    <li><strong>Your companion plays on its own.</strong> Tap the screen to cheer: in races it sprints for a moment, in the ring the next hit is a power strike. Every cheer spends Stamina — a tired companion has to stop and rest.</li>
-    <li><strong>Races:</strong> ground uses Run, water uses Swim, gaps use Fly, rock walls use Power; Stamina drains all the time. Each course focuses on one stat.</li>
-    <li><strong>Sparring:</strong> HP is health, Power hits harder, Run dodges, Stamina keeps the punches coming.</li>
-    <li><strong>Medals:</strong> 1st gold, 2nd silver, 3rd bronze. Win a level to open the next one. Every race and bout also trains the stats it used.</li>
-   </ul></details></div>`;
+  if(!mount)return;const pid=pick();
+  if(!pid){mount.innerHTML='<div class="pets-scroll"><div class="section-head"><h2>Stadium</h2><p>Discover a companion to enter the races.</p></div></div>';return;}
+  const info=companionInfo(pid),n=medalCounts(),belt=belts.find(b=>b.id===beltOf(pid));
+  const grade=k=>`<span class="st-grade" data-g="${GR[info.grades[k]]}"><i>${({hp:'HP',stamina:'STA',run:'RUN',power:'POW',swim:'SWIM',fly:'FLY'})[k]}</i><b>${GR[info.grades[k]]}</b><em>Lv ${info.stats[k].level}</em></span>`;
+  const tabs=[['race','Races'],['karate','Karate'],['prizes','Prizes']].map(([v,l])=>`<button type="button" class="st-tab ${state.view===v?'is-active':''}" data-view="${v}">${l}</button>`).join('');
+  let body='';
+  if(state.view==='race')body=`<div class="st-list">${COURSES.map(c=>{const open=courseOpen(c),bag=state.races[c.id]||{},golds=LEVELS.filter((_,i)=>best(bag,i)===1).length,prize=prizes.RACE_PRIZES[c.id],won=hasPrize(prize.id);
+   return `<div class="st-course ${open?'':'is-locked'}"><div class="st-course-head"><span class="st-course-ico" data-focus="${c.focus}"></span><div class="st-course-text"><strong>${escapeText(c.name)}</strong><small>${open?escapeText(c.blurb):'Win Rookie on the other five courses to open it'}</small></div><span class="st-prize ${won?'is-won':''}" title="${escapeText(prize.name)}">${prize.art}</span></div>
+    <div class="st-strip">${c.plan.map(t=>`<i class="is-${t}"></i>`).join('')}</div>
+    <div class="st-levels">${LEVELS.map((l,i)=>{const ok=open&&levelOpen(bag,i);return `<button type="button" class="st-level ${ok?'':'is-locked'} ${best(bag,i)===1?'is-gold':''}" data-race="${c.id}" data-level="${i}" ${ok?'':'disabled'}>${medalDot(best(bag,i))}<span>${l}</span></button>`;}).join('')}</div>
+    <small class="st-foot">${golds}/5 gold · ${won?'Toy won: '+escapeText(prize.name):'Champion gold wins the '+escapeText(prize.name)+' for your house'}</small></div>`;}).join('')}</div>`;
+  else if(state.view==='karate')body=`<div class="st-course st-dojo"><div class="st-course-head"><span class="st-course-ico" data-focus="karate"></span><div class="st-course-text"><strong>Karate Dojo</strong><small>Best of three rounds. HP is health, Power hits, Swim blocks, Fly dodges, Run strikes faster, Stamina keeps the fight going.</small></div></div>
+    <div class="st-belts">${belts.map((b,i)=>{const got=best(state.karate,i)===1;return `<span class="st-belt ${got?'is-won':''}">${prizes.beltSvg(b,30)}<small>${b.name.replace(' Belt','')}</small></span>`;}).join('')}</div>
+    <div class="st-levels">${LEVELS.map((l,i)=>{const ok=levelOpen(state.karate,i);return `<button type="button" class="st-level ${ok?'':'is-locked'} ${best(state.karate,i)===1?'is-gold':''}" data-karate="${i}" ${ok?'':'disabled'}>${medalDot(best(state.karate,i))}<span>${l}</span></button>`;}).join('')}</div>
+    <small class="st-foot">Each win ties a new belt on the winner — it keeps wearing it everywhere.</small></div>`;
+  else{const toys=Object.values(prizes.RACE_PRIZES);const beltRows=owned().filter(c=>beltOf(c.id)).map(c=>{const b=belts.find(x=>x.id===beltOf(c.id));return `<span class="st-beltrow">${prizes.beltSvg(b,26)}<b>${escapeText(companionInfo(c.id).name)}</b><small>${b.name}</small></span>`;}).join('');
+   body=`<div class="st-course"><strong class="st-h">Toys for the house</strong><div class="st-toys">${toys.map(p=>`<span class="st-toy ${hasPrize(p.id)?'is-won':''}"><span class="st-toy-art">${p.art}</span><small>${escapeText(p.name)}</small><em>${hasPrize(p.id)?'Place it from the Home tab':COURSES.find(c=>prizes.RACE_PRIZES[c.id]===p).name+' · Champion'}</em></span>`).join('')}</div>
+    <strong class="st-h">Belts</strong>${beltRows?`<div class="st-beltrows">${beltRows}</div>`:'<p class="mini-muted">No belts yet — win a Karate level.</p>'}</div>`;}
+  mount.innerHTML=`<div class="pets-scroll st-scroll"><div class="section-head g-head"><h2>Stadium</h2><span class="g-tally"><i class="g-medal is-gold"></i>${n.gold}<i class="g-medal is-silver"></i>${n.silver}<i class="g-medal is-bronze"></i>${n.bronze}</span></div>
+   <section class="st-entrant"><div class="st-entrant-art companion" data-companion="${pid}"><span class="companion-art"></span>${belt?`<span class="st-entrant-belt">${prizes.beltSvg(belt,24)}</span>`:''}</div>
+    <div class="st-entrant-main"><strong>${escapeText(info.name)}</strong><small>Total Lv ${totalLv(info)} · ${info.mood>=70?'Happy':info.mood<=30?'Sad':'Content'}${belt?' · '+escapeText(belt.name):''}</small><div class="st-grades">${['hp','stamina','run','power','swim','fly'].map(grade).join('')}</div></div>
+    <button type="button" class="st-change" id="stChange">Change</button></section>
+   <div class="st-picker" id="stPicker" hidden>${owned().map(c=>{const ci=companionInfo(c.id);return `<button type="button" class="st-pick ${c.id===pid?'is-active':''}" data-gpick="${c.id}"><span class="companion" data-companion="${c.id}"><span class="companion-art"></span></span><small>${escapeText(ci.name)}</small><em>Lv ${totalLv(ci)}</em></button>`;}).join('')}</div>
+   <div class="st-tabs">${tabs}</div>${body}
+   <p class="mini-muted st-tip">Your companion competes on its own. Tap CHEER for a sprint or a power strike — it costs Stamina, so pick your moments.</p></div>`;
+  mount.querySelectorAll('.companion[data-companion] .companion-art').forEach(a=>rig(a,a.parentElement.dataset.companion));dress(mount);
+  $('stChange').onclick=()=>{const p=$('stPicker');p.hidden=!p.hidden;};
   mount.querySelectorAll('[data-gpick]').forEach(b=>b.onclick=()=>{state.pick=b.dataset.gpick;save();render(mount);});
+  mount.querySelectorAll('[data-view]').forEach(b=>b.onclick=()=>{state.view=b.dataset.view;save();render(mount);});
   mount.querySelectorAll('[data-race]').forEach(b=>b.onclick=()=>startRace(mount,COURSES.find(c=>c.id===b.dataset.race),Number(b.dataset.level)));
-  mount.querySelectorAll('[data-spar]').forEach(b=>b.onclick=()=>startSpar(mount,Number(b.dataset.spar)));
+  mount.querySelectorAll('[data-karate]').forEach(b=>b.onclick=()=>startKarate(mount,Number(b.dataset.karate)));
  }
 
  // ---------- shared stage ----------
- function rig(el,id){el.innerHTML=sprites[id]||'';for(const g of el.querySelectorAll('[data-part]')){const p=(g.dataset.pivot||'50 50').split(/\s+/).map(Number);g.style.transformOrigin=`${p[0]}px ${p[1]}px`;g.style.transformBox='view-box';}const svg=el.querySelector('svg');if(svg){svg.setAttribute('width','100%');svg.setAttribute('height','100%');}}
- function actor(id,cls=''){const el=document.createElement('span');el.className='companion g-actor '+cls;el.dataset.anim='idle';el.dataset.face='right';const art=document.createElement('span');art.className='companion-art';rig(art,id);el.append(art);return el;}
- function stage(title){const st=document.createElement('div');st.className='g-stage';st.innerHTML=`<div class="g-stage-top"><strong>${escapeText(title)}</strong><button type="button" class="g-quit" aria-label="Quit">✕</button></div><div class="g-stage-body"></div><div class="g-hud"></div>`;document.body.append(st);return st;}
+ function actor(id,cls=''){const el=document.createElement('span');el.className='companion g-actor '+cls;el.dataset.anim='idle';el.dataset.face='right';el.dataset.companion=id;const art=document.createElement('span');art.className='companion-art';rig(art,id);el.append(art);return el;}
+ function stage(title,kind){const st=document.createElement('div');st.className='g-stage is-'+kind;st.innerHTML=`<div class="g-stage-top"><strong>${escapeText(title)}</strong><button type="button" class="g-quit" aria-label="Quit">✕</button></div><div class="g-stage-body"></div><div class="g-hud"></div><div class="g-banner" hidden></div>`;document.body.append(st);return st;}
+ function banner(st,text,cls='',ms=900){const b=st.querySelector('.g-banner');b.textContent=text;b.className='g-banner '+cls;b.hidden=false;b.classList.remove('is-in');void b.offsetWidth;b.classList.add('is-in');clearTimeout(b._t);b._t=setTimeout(()=>{b.hidden=true;},ms);}
+ const countdown=(st,done)=>{const seq=['3','2','1','GO!'];let i=0;const tick=()=>{banner(st,seq[i],seq[i]==='GO!'?'is-go':'is-count',seq[i]==='GO!'?700:800);i++;if(i<seq.length)setTimeout(tick,800);else setTimeout(done,150);};tick();};
+ const fxAt=(parent,cls,x,y,ms=700)=>{const f=document.createElement('i');f.className='g-fx '+cls;f.style.left=x+'px';f.style.top=y+'px';parent.append(f);setTimeout(()=>f.remove(),ms);return f;};
+ const shake=st=>{if(reducedMotion())return;st.classList.remove('is-shake');void st.offsetWidth;st.classList.add('is-shake');};
  const opponentsFor=(n,exclude)=>{const pool=roster.filter(c=>c.id!==exclude);const out=[];const used=new Set();while(out.length<n&&used.size<pool.length){const c=pool[Math.floor(Math.random()*pool.length)];if(used.has(c.id))continue;used.add(c.id);out.push(c);}return out;};
+ const cheerBtn=label=>`<button type="button" class="g-cheer" id="gCheer"><span>${label}</span><i></i></button>`;
 
  // ---------- race ----------
  function startRace(mount,course,level){
   const pid=pick();if(!pid)return;const me=companionInfo(pid);
-  const plan=course.plan,segs=[];let x=0;for(const t of plan){segs.push({t,x,len:SEG_LEN});x+=SEG_LEN;}const L=x;
+  const segs=[];let x=0;for(const t of course.plan){segs.push({t,x,len:SEG_LEN});x+=SEG_LEN;}const L=x;
   const rivals=opponentsFor(4,pid);
-  const st=stage(`${course.name} · ${LEVELS[level]}`);const body=st.querySelector('.g-stage-body'),hud=st.querySelector('.g-hud');
-  body.innerHTML=`<div class="g-track" style="width:${L*PX+260}px">${segs.map(s=>`<div class="g-seg is-${s.t}" style="left:${s.x*PX+120}px;width:${s.len*PX}px"></div>`).join('')}<div class="g-finish" style="left:${L*PX+120}px"></div></div>`;
-  const track=body.querySelector('.g-track');
-  const racers=[{id:pid,me:true,stats:Object.fromEntries(Object.entries(me.stats).map(([k,v])=>[k,v.level])),mood:me.mood},...rivals.map((c,i)=>({id:c.id,stats:opponentStats(course,level,i+1+Date.now()%97),mood:60}))];
-  racers.forEach((r,i)=>{r.x=0;r.lane=i;r.max=energyMax(r.stats.stamina);r.energy=r.max;r.rest=0;r.boost=0;r.done=false;r.ai=1+Math.random()*2;r.el=actor(r.id,r.me?'is-me':'');r.el.style.setProperty('--lane',i);track.append(r.el);});
-  hud.innerHTML=`<div class="g-energy"><i>Stamina</i><b><em id="gEnergy"></em></b></div><div class="g-place" id="gPlace">—</div><div class="g-tip">Tap anywhere to cheer!</div>`;
-  const energyEl=hud.querySelector('#gEnergy'),placeEl=hud.querySelector('#gPlace');
-  let raf=0,last=performance.now(),finished=[],quit=false,countdown=1.4;
+  const st=stage(`${course.name} · ${LEVELS[level]}`,'race');const body=st.querySelector('.g-stage-body'),hud=st.querySelector('.g-hud');
+  body.innerHTML=`<div class="g-sky"><i class="g-cloud" style="--d:0"></i><i class="g-cloud" style="--d:1"></i><i class="g-cloud" style="--d:2"></i></div><div class="g-hills"></div><div class="g-track" style="width:${L*PX+300}px"><div class="g-start" style="left:112px"></div>${segs.map(s=>`<div class="g-seg is-${s.t}" style="left:${s.x*PX+120}px;width:${s.len*PX}px"><b></b></div>`).join('')}<div class="g-finish" style="left:${L*PX+120}px"><i></i></div></div>`;
+  const track=body.querySelector('.g-track'),hills=body.querySelector('.g-hills');
+  const racers=[{id:pid,me:true,stats:Object.fromEntries(Object.entries(me.stats).map(([k,v])=>[k,v.level])),mood:me.mood,name:me.name},...rivals.map((c,i)=>({id:c.id,stats:opponentStats(course,level,i+1+Date.now()%97),mood:60,name:companionInfo(c.id).name}))];
+  racers.forEach((r,i)=>{r.x=0;r.lane=i;r.max=energyMax(r.stats.stamina);r.energy=r.max;r.rest=0;r.boost=0;r.done=false;r.ai=2+Math.random()*2;r.fx=0;r.seg=null;r.el=actor(r.id,r.me?'is-me':'');r.el.style.setProperty('--lane',i);
+   const tag=document.createElement('b');tag.className='g-tag';tag.innerHTML=`<em>${i+1}</em>${escapeText(r.name)}`;r.el.append(tag);r.tag=tag;track.append(r.el);});
+  dress(track);
+  hud.innerHTML=`<div class="g-hud-row"><div class="g-energy"><i>Stamina</i><b><em id="gEnergy"></em></b></div><div class="g-place" id="gPlace">—</div></div>${cheerBtn('CHEER')}`;
+  const energyEl=hud.querySelector('#gEnergy'),placeEl=hud.querySelector('#gPlace'),cheer=hud.querySelector('#gCheer');
+  let raf=0,last=0,finished=[],quit=false,running=false,lastPlace=0;
   const segAt=px=>segs.find(s=>px>=s.x&&px<s.x+s.len)||segs[segs.length-1];
-  const cheer=()=>{const r=racers[0];if(r.done||r.rest>0||countdown>0)return;if(r.energy<6){r.el.classList.add('g-tired');setTimeout(()=>r.el.classList.remove('g-tired'),300);return;}r.energy-=6;r.boost=0.8;burst(r);};
-  function burst(r){const b=document.createElement('i');b.className='g-burst';r.el.append(b);setTimeout(()=>b.remove(),500);}
-  body.addEventListener('pointerdown',cheer);
+  const doCheer=()=>{const r=racers[0];if(!running||r.done||r.rest>0)return;if(r.energy<6){r.el.classList.add('g-tired');cheer.classList.add('is-no');setTimeout(()=>{r.el.classList.remove('g-tired');cheer.classList.remove('is-no');},300);return;}
+   r.energy-=6;r.boost=0.8;cheer.classList.remove('is-pop');void cheer.offsetWidth;cheer.classList.add('is-pop');const b=document.createElement('i');b.className='g-burst';r.el.append(b);setTimeout(()=>b.remove(),500);r.el.classList.add('is-boost');setTimeout(()=>r.el.classList.remove('is-boost'),800);};
+  body.addEventListener('pointerdown',doCheer);cheer.addEventListener('pointerdown',e=>{e.stopPropagation();doCheer();});
   st.querySelector('.g-quit').onclick=()=>{quit=true;cancelAnimationFrame(raf);st.remove();};
-  const step=now=>{const dt=Math.min(0.05,(now-last)/1000);last=now;
-   if(countdown>0){countdown-=dt;placeEl.textContent=countdown>0.7?'Ready…':'Go!';raf=requestAnimationFrame(step);return;}
+  const step=now=>{if(quit)return;const dt=Math.min(0.05,(now-(last||now))/1000);last=now;
    for(const r of racers){if(r.done)continue;const seg=segAt(r.x);
-    if(r.rest>0){r.rest-=dt;r.el.dataset.anim='sleep';if(r.rest<=0){r.energy=r.max*0.5;}continue;}
-    if(!r.me){r.ai-=dt;if(r.ai<=0){r.ai=(4-level*0.6)+Math.random()*2.5;if(r.energy>r.max*0.4&&Math.random()<0.35+level*0.16){r.energy-=8;r.boost=0.9;}}}  // rivals cheer more at higher levels
+    if(r.seg!==seg){r.seg=seg;if(r.me&&seg.x>0)banner(st,SEG_WORD[seg.t],'is-seg is-'+seg.t,700);}
+    if(r.rest>0){r.rest-=dt;r.el.dataset.anim='sleep';r.el.className=`companion g-actor ${r.me?'is-me':''} is-resting`;if(r.rest<=0){r.energy=r.max*0.5;}continue;}
+    if(!r.me){r.ai-=dt;if(r.ai<=0){r.ai=(4-level*0.6)+Math.random()*2.5;if(r.energy>r.max*0.4&&Math.random()<0.35+level*0.16){r.energy-=8;r.boost=0.9;}}}
     const lv=r.stats[SEG_STAT[seg.t]],runLv=r.stats.run;
     let v=UNIT_SPEED*(seg.t==='run'?statSpeed(lv):0.8*statSpeed(lv)+0.2*statSpeed(runLv));
-    if(seg.t==='fly'&&lv<15)v*=0.75;          // weak flyers flutter down and paddle
+    if(seg.t==='fly'&&lv<15)v*=0.75;
     if(r.mood>=70)v*=1.05;else if(r.mood<=30)v*=0.92;
     if(!r.me)v*=LEVEL_EASE[level];
     if(r.boost>0){v*=1.6;r.boost-=dt;}
     const d=v*dt;r.x+=d;r.energy-=d*SEG_DRAIN[seg.t]*(r.boost>0?1.3:1);
-    if(r.energy<=0){r.energy=0;r.rest=1.1;}
-    r.el.dataset.anim=SEG_ANIM[seg.t];r.el.className=`companion g-actor ${r.me?'is-me':''} seg-${seg.t}`;
-    if(r.x>=L){r.x=L;r.done=true;finished.push(r);r.el.dataset.anim='idle';r.el.classList.add('is-happy');}
+    if(r.energy<=0){r.energy=0;r.rest=1.1;fxAt(r.el,'is-sweat',30,-6,900);}
+    r.el.dataset.anim=SEG_ANIM[seg.t];r.el.className=`companion g-actor ${r.me?'is-me':''} seg-${seg.t} ${r.boost>0?'is-boost':''}`;
+    r.fx-=dt;if(r.fx<=0&&!reducedMotion()){r.fx=seg.t==='swim'?0.35:0.22;fxAt(r.el,seg.t==='swim'?'is-splash':seg.t==='fly'?'is-wind':seg.t==='climb'?'is-pebble':'is-dust',seg.t==='fly'?-6:6,seg.t==='fly'?20:44,600);}
+    if(r.x>=L){r.x=L;r.done=true;finished.push(r);r.el.className=`companion g-actor ${r.me?'is-me':''} is-happy`;r.el.dataset.anim='idle';if(r.me&&finished.length===1)confetti(body);}
     r.el.style.setProperty('--x',(r.x*PX+120)+'px');}
-   const me=racers[0];const order=[...racers].sort((a,b)=>(b.done?1e6-finished.indexOf(b):b.x)-(a.done?1e6-finished.indexOf(a):a.x));
-   placeEl.textContent=`${order.indexOf(me)+1} / ${racers.length}`;
-   energyEl.style.width=(100*me.energy/me.max)+'%';energyEl.parentElement.classList.toggle('is-low',me.energy<me.max*0.2);
-   const vw=body.clientWidth;track.style.transform=`translateX(${Math.min(0,-(me.x*PX+120-vw*0.35))}px)`;
-   if(me.done&&!quit){cancelAnimationFrame(raf);const place=finished.indexOf(me)+1;setTimeout(()=>{st.remove();finishGame(mount,'race',course,level,place,racers.length);},900);return;}
+   const mine=racers[0];const order=[...racers].sort((a,b)=>(b.done?1e6-finished.indexOf(b):b.x)-(a.done?1e6-finished.indexOf(a):a.x));
+   const place=order.indexOf(mine)+1;if(place!==lastPlace){if(lastPlace&&place<lastPlace&&!mine.done)banner(st,ORD(place)+'!','is-pass',600);lastPlace=place;}
+   order.forEach((r,i)=>{r.tag.querySelector('em').textContent=i+1;});
+   placeEl.textContent=`${ORD(place)} / ${racers.length}`;placeEl.dataset.place=place;
+   energyEl.style.width=(100*mine.energy/mine.max)+'%';energyEl.parentElement.classList.toggle('is-low',mine.energy<mine.max*0.2);cheer.classList.toggle('is-dim',mine.energy<6||mine.rest>0);
+   const vw=body.clientWidth,cam=Math.min(0,-(mine.x*PX+120-vw*0.35));track.style.transform=`translateX(${cam}px)`;hills.style.transform=`translateX(${cam*0.35}px)`;
+   if(mine.done){cancelAnimationFrame(raf);setTimeout(()=>{if(quit)return;st.remove();finishRace(mount,course,level,finished.indexOf(mine)+1,racers,finished);},1100);return;}
    raf=requestAnimationFrame(step);};
-  raf=requestAnimationFrame(step);
+  racers.forEach(r=>{r.el.style.setProperty('--x','120px');});
+  setTimeout(()=>countdown(st,()=>{running=true;last=0;raf=requestAnimationFrame(step);}),400);
  }
-
- // ---------- sparring (Chao Karate-like) ----------
- function startSpar(mount,level){
-  const pid=pick();if(!pid)return;const me=companionInfo(pid);const rival=opponentsFor(1,pid)[0];
-  const ms=Object.fromEntries(Object.entries(me.stats).map(([k,v])=>[k,v.level]));
-  const rs=opponentStats({id:'ring',focus:'all'},level,7+level);
-  const st=stage(`Sparring Ring · ${LEVELS[level]}`);const body=st.querySelector('.g-stage-body'),hud=st.querySelector('.g-hud');
-  body.innerHTML=`<div class="g-ring"><div class="g-ring-floor"></div></div>`;const ring=body.querySelector('.g-ring');
-  const A={id:pid,s:ms,me:true},B={id:rival.id,s:rs};
-  for(const f of [A,B]){f.hpMax=100+f.s.hp*4;f.hp=f.hpMax;f.max=energyMax(f.s.stamina);f.energy=f.max;f.power=false;f.el=actor(f.id,f.me?'is-me is-left':'is-right');ring.append(f.el);}
-  B.el.dataset.face='left';
-  hud.innerHTML=`<div class="g-bars"><div class="g-hp is-me"><b><em id="gHpA"></em></b></div><div class="g-vs">VS</div><div class="g-hp"><b><em id="gHpB"></em></b></div></div><div class="g-energy"><i>Stamina</i><b><em id="gEnergy"></em></b></div><div class="g-tip">Tap to load a power strike!</div>`;
-  const upd=()=>{hud.querySelector('#gHpA').style.width=(100*A.hp/A.hpMax)+'%';hud.querySelector('#gHpB').style.width=(100*B.hp/B.hpMax)+'%';hud.querySelector('#gEnergy').style.width=(100*A.energy/A.max)+'%';};upd();
-  let over=false,turn=0,timer=0;
-  body.addEventListener('pointerdown',()=>{if(over||A.power)return;if(A.energy<20){A.el.classList.add('g-tired');setTimeout(()=>A.el.classList.remove('g-tired'),300);return;}A.energy-=20;A.power=true;A.el.classList.add('is-charged');upd();});
-  st.querySelector('.g-quit').onclick=()=>{over=true;clearTimeout(timer);st.remove();};
-  const hit=(att,def)=>{
-   if(att.energy<6){att.el.dataset.anim='sleep';att.energy+=att.max*0.25;return;}   // too tired to punch: catches its breath
-   att.energy-=6;att.el.dataset.anim='knock';att.el.classList.add('is-lunge');setTimeout(()=>{att.el.classList.remove('is-lunge');att.el.dataset.anim='idle';},420);
-   const dodge=Math.max(0.05,Math.min(0.4,0.15+(def.s.run-att.s.run)/250));
-   if(Math.random()<dodge){def.el.classList.add('is-dodge');setTimeout(()=>def.el.classList.remove('is-dodge'),400);att.power=false;att.el.classList.remove('is-charged');return;}
-   let dmg=(8+att.s.power/4)*(0.85+Math.random()*0.3)*(att.me?1:LEVEL_EASE[level]);if(att.power){dmg*=1.8;att.power=false;att.el.classList.remove('is-charged');}
-   if(!att.me&&Math.random()<0.15&&att.energy>att.max*0.5)dmg*=1.6;
-   def.hp=Math.max(0,def.hp-dmg);def.el.classList.add('is-hit');setTimeout(()=>def.el.classList.remove('is-hit'),300);
-   const b=document.createElement('i');b.className='g-burst is-hit';def.el.append(b);setTimeout(()=>b.remove(),450);};
-  const loop=()=>{if(over)return;const [att,def]=turn%2?[B,A]:[A,B];turn++;hit(att,def);upd();
-   if(A.hp<=0||B.hp<=0||turn>80){over=true;const win=B.hp<=0||(turn>80&&A.hp/A.hpMax>=B.hp/B.hpMax);(win?A:B).el.classList.add('is-happy');(win?B:A).el.dataset.anim='sleep';
-    setTimeout(()=>{st.remove();finishGame(mount,'spar',null,level,win?1:2,2);},1100);return;}
-   timer=setTimeout(loop,reducedMotion()?350:720);};
-  timer=setTimeout(loop,900);
- }
-
- // ---------- results ----------
- function finishGame(mount,kind,course,level,place,total){
-  const bag=kind==='race'?state.races:state.spar,key=kind==='race'?course.id:'ring';
-  bag[key]=bag[key]||{};const prev=bag[key][level]||0;const improved=!prev||place<prev;if(improved)bag[key][level]=place;save();
-  const medal=medalFor(kind==='race'?place:(place===1?1:0));
-  const trained=onResult?.(pick(),kind,course?.focus,place)||[];
-  const unlocked=place===1&&level<LEVELS.length-1&&!prev?`<p class="g-unlock">${LEVELS[level+1]} level unlocked!</p>`:'';
-  showModal(`<div class="modal-tag">${kind==='race'?escapeText(course.name):'SPARRING RING'} · ${LEVELS[level].toUpperCase()}</div><div class="g-result">${medal?`<i class="g-medal is-${medal} is-big"></i>`:'<i class="g-medal is-none is-big"></i>'}</div><h2>${kind==='race'?(place===1?'You won!':`Finished ${place}${['st','nd','rd'][place-1]||'th'} of ${total}`):(place===1?'Victory!':'Defeated')}</h2>${unlocked}${trained.length?`<p class="mini-muted">Trained ${trained.join(', ')}.</p>`:''}<button type="button" class="modal-button" id="gAgain">Play again</button><button type="button" class="modal-button secondary" id="gBack">Back</button>`);
-  $('gAgain').onclick=()=>{closeModal();kind==='race'?startRace(mount,course,level):startSpar(mount,level);};
+ function confetti(parent){if(reducedMotion())return;for(let i=0;i<26;i++){const f=document.createElement('i');f.className='g-confetti';f.style.setProperty('--i',i);f.style.left=(20+Math.random()*60)+'%';f.style.setProperty('--c',['#e0675a','#f1c26b','#5aaed2','#8dbf8a','#9b7fc4'][i%5]);parent.append(f);setTimeout(()=>f.remove(),1800);}}
+ function finishRace(mount,course,level,place,racers,finished){
+  const bag=state.races[course.id]=state.races[course.id]||{};const prev=bag[level]||0;const improved=!prev||place<prev;if(improved)bag[level]=place;
+  const prize=prizes.RACE_PRIZES[course.id];let newPrize=false;if(place===1&&level===LEVELS.length-1&&!hasPrize(prize.id)){state.prizes.push(prize.id);newPrize=true;}
+  save();
+  const trained=onResult?.(pick(),'race',course.focus,place)||[];
+  const podium=[0,1,2].map(i=>finished[i]||racers.find(r=>!finished.includes(r)&&r!==finished[0])).filter(Boolean);
+  const unlocked=place===1&&level<LEVELS.length-1&&!prev?`<p class="g-unlock">${LEVELS[level+1]} unlocked!</p>`:'';
+  showModal(`<div class="modal-tag">${escapeText(course.name)} · ${LEVELS[level].toUpperCase()}</div>
+   <div class="g-podium">${podium.map((r,i)=>`<div class="g-pod is-${i+1}"><span class="companion" data-companion="${r.id}"><span class="companion-art"></span></span><b>${i+1}</b></div>`).join('')}</div>
+   <div class="g-result">${medalDot(place,true)}</div><h2>${place===1?'You won!':`Finished ${ORD(place)} of ${racers.length}`}</h2>${unlocked}
+   ${newPrize?`<div class="g-prize"><span>${prize.art}</span><div><b>New toy for your house!</b><small>${escapeText(prize.name)} — place it from the Home tab.</small></div></div>`:''}
+   ${trained.length?`<p class="mini-muted">Trained ${trained.join(', ')}.</p>`:''}
+   <button type="button" class="modal-button" id="gAgain">Race again</button><button type="button" class="modal-button secondary" id="gBack">Back to the Stadium</button>`);
+  $('modalContent').querySelectorAll('.companion[data-companion] .companion-art').forEach(a=>rig(a,a.parentElement.dataset.companion));dress($('modalContent'));
+  $('gAgain').onclick=()=>{closeModal();startRace(mount,course,level);};
   $('gBack').onclick=()=>{closeModal();render(mount);};
   render(mount);
  }
- return {render,state:()=>state,medalCounts};
+
+ // ---------- karate (best of three rounds) ----------
+ function startKarate(mount,level){
+  const pid=pick();if(!pid)return;const me=companionInfo(pid);const rival=opponentsFor(1,pid)[0];
+  const ms=Object.fromEntries(Object.entries(me.stats).map(([k,v])=>[k,v.level]));const rs=opponentStats({id:'dojo',focus:'all'},level,7+level);
+  const st=stage(`Karate Dojo · ${LEVELS[level]}`,'karate');const body=st.querySelector('.g-stage-body'),hud=st.querySelector('.g-hud');
+  body.innerHTML=`<div class="g-dojo"><div class="g-crowd"></div><div class="g-ring"><div class="g-ring-floor"></div></div></div>`;const ring=body.querySelector('.g-ring');
+  const A={id:pid,s:ms,me:true,name:me.name,wins:0},B={id:rival.id,s:rs,name:companionInfo(rival.id).name,wins:0};
+  for(const f of [A,B]){f.hpMax=100+f.s.hp*4;f.max=energyMax(f.s.stamina);f.el=actor(f.id,f.me?'is-me is-left':'is-right');ring.append(f.el);}
+  B.el.dataset.face='left';dress(ring);
+  hud.innerHTML=`<div class="g-fighters"><div class="g-fighter is-me"><span class="g-port companion" data-companion="${A.id}"><span class="companion-art"></span></span><div><b>${escapeText(A.name)}</b><span class="g-hp is-me"><b><em id="gHpA"></em></b></span><span class="g-zeal"><em id="gZealA"></em></span></div><i class="g-rounds" id="gRoundsA"></i></div>
+   <div class="g-fighter is-them"><div><b>${escapeText(B.name)}</b><span class="g-hp"><b><em id="gHpB"></em></b></span><span class="g-zeal"><em id="gZealB"></em></span></div><span class="g-port companion" data-companion="${B.id}"><span class="companion-art"></span></span><i class="g-rounds" id="gRoundsB"></i></div></div>${cheerBtn('POWER STRIKE')}`;
+  hud.querySelectorAll('.companion[data-companion] .companion-art').forEach(a=>rig(a,a.parentElement.dataset.companion));dress(hud);
+  const el=id=>hud.querySelector('#'+id),cheer=el('gCheer');
+  const upd=()=>{el('gHpA').style.width=(100*A.hp/A.hpMax)+'%';el('gHpB').style.width=(100*B.hp/B.hpMax)+'%';el('gZealA').style.width=(100*A.energy/A.max)+'%';el('gZealB').style.width=(100*B.energy/B.max)+'%';el('gRoundsA').innerHTML='<b></b>'.repeat(A.wins);el('gRoundsB').innerHTML='<b></b>'.repeat(B.wins);cheer.classList.toggle('is-dim',A.energy<20||A.power);};
+  let over=false,turn=0,timer=0,round=0,live=false;
+  const arm=()=>{if(over||!live||A.power)return;if(A.energy<20){cheer.classList.add('is-no');setTimeout(()=>cheer.classList.remove('is-no'),300);return;}A.energy-=20;A.power=true;A.el.classList.add('is-charged');cheer.classList.remove('is-pop');void cheer.offsetWidth;cheer.classList.add('is-pop');upd();};
+  body.addEventListener('pointerdown',arm);cheer.addEventListener('pointerdown',e=>{e.stopPropagation();arm();});
+  st.querySelector('.g-quit').onclick=()=>{over=true;clearTimeout(timer);st.remove();};
+  const hit=(att,def)=>{
+   if(att.energy<6){att.el.dataset.anim='sleep';att.el.classList.add('is-breath');att.energy=Math.min(att.max,att.energy+att.max*0.3);setTimeout(()=>{att.el.classList.remove('is-breath');att.el.dataset.anim='idle';},500);return;}
+   att.energy-=6;att.el.dataset.anim='knock';att.el.classList.add('is-lunge');setTimeout(()=>{att.el.classList.remove('is-lunge');att.el.dataset.anim='idle';},380);
+   const dodge=Math.max(0.05,Math.min(0.4,0.12+(def.s.fly-att.s.run)/250));
+   if(Math.random()<dodge){def.el.classList.add('is-dodge');const ghost=def.el.cloneNode(true);ghost.className=def.el.className+' is-ghost';ring.append(ghost);setTimeout(()=>ghost.remove(),350);setTimeout(()=>def.el.classList.remove('is-dodge'),380);att.power=false;att.el.classList.remove('is-charged');banner(st,'MISS','is-miss',450);return;}
+   let dmg=(8+att.s.power/4)*(0.85+Math.random()*0.3)*(att.me?1:LEVEL_EASE[level]);
+   const block=Math.max(0,Math.min(0.5,def.s.swim/200));dmg*=1-block;
+   if(att.power){dmg*=1.8;att.power=false;att.el.classList.remove('is-charged');}
+   if(!att.me&&Math.random()<0.15&&att.energy>att.max*0.5)dmg*=1.6;
+   def.hp=Math.max(0,def.hp-dmg);def.el.classList.add('is-hit');setTimeout(()=>def.el.classList.remove('is-hit'),320);
+   const big=dmg>18;fxAt(def.el,big?'is-spark is-big':'is-spark',att.me?10:50,30,420);if(block>0.2)fxAt(def.el,'is-block',att.me?6:60,40,400);if(big)shake(st);
+   if(def.hp<=0){def.el.dataset.anim='sleep';def.el.classList.add('is-ko');fxAt(def.el,'is-stars',30,-10,1400);}};
+  const startRound=()=>{round++;for(const f of [A,B]){f.hp=f.hpMax;f.energy=f.max;f.power=false;f.el.className=`companion g-actor ${f.me?'is-me is-left':'is-right'}`;f.el.dataset.anim='idle';}upd();banner(st,`ROUND ${round}`,'is-round',900);setTimeout(()=>{banner(st,'FIGHT!','is-go',600);live=true;timer=setTimeout(loop,500);},1000);};
+  const loop=()=>{if(over)return;const [att,def]=turn%2?[B,A]:[A,B];turn++;hit(att,def);upd();
+   if(A.hp<=0||B.hp<=0){live=false;const w=B.hp<=0?A:B;w.wins++;upd();banner(st,'K.O.','is-ko',1000);w.el.classList.add('is-happy');
+    if(w.wins>=2){over=true;setTimeout(()=>{st.remove();finishKarate(mount,level,w===A,A,B);},1500);}else setTimeout(startRound,1700);return;}
+   const speed=Math.max(380,760-att.s.run*3);timer=setTimeout(loop,reducedMotion()?250:speed);};
+  setTimeout(startRound,500);
+ }
+ function finishKarate(mount,level,win,A,B){
+  const prev=state.karate[level]||0;if(win)state.karate[level]=1;else if(!prev)state.karate[level]=2;
+  let newBelt=null;if(win){const b=belts[level];const cur=belts.findIndex(x=>x.id===state.belts[A.id]);if(level>cur){state.belts[A.id]=b.id;newBelt=b;onBelt?.(A.id,b.id);}}
+  save();
+  const trained=onResult?.(pick(),'karate','all',win?1:2)||[];
+  const unlocked=win&&level<LEVELS.length-1&&prev!==1?`<p class="g-unlock">${LEVELS[level+1]} unlocked!</p>`:'';
+  showModal(`<div class="modal-tag">KARATE DOJO · ${LEVELS[level].toUpperCase()}</div><div class="g-versus"><span class="companion ${win?'is-happy':''}" data-companion="${A.id}"><span class="companion-art"></span></span><b>${A.wins} – ${B.wins}</b><span class="companion ${win?'':'is-happy'}" data-companion="${B.id}"><span class="companion-art"></span></span></div>
+   <div class="g-result">${medalDot(win?1:0,true)}</div><h2>${win?'Victory!':'Defeated'}</h2>${unlocked}
+   ${newBelt?`<div class="g-prize"><span>${prizes.beltSvg(newBelt,56)}</span><div><b>${escapeText(newBelt.name)} earned!</b><small>${escapeText(A.name)} wears it from now on.</small></div></div>`:''}
+   ${trained.length?`<p class="mini-muted">Trained ${trained.join(', ')}.</p>`:''}
+   <button type="button" class="modal-button" id="gAgain">Fight again</button><button type="button" class="modal-button secondary" id="gBack">Back to the Stadium</button>`);
+  $('modalContent').querySelectorAll('.companion[data-companion] .companion-art').forEach(a=>rig(a,a.parentElement.dataset.companion));dress($('modalContent'));
+  $('gAgain').onclick=()=>{closeModal();startKarate(mount,level);};
+  $('gBack').onclick=()=>{closeModal();render(mount);};
+  render(mount);
+ }
+ return {render,state:()=>state,medalCounts,hasPrize,beltOf,prizeIds:()=>[...state.prizes]};
 }
 
 return {createGamesSystem,GAMES_STORAGE_KEY};})();
+window.__prizes94=(function(){/**
+ * V94 Stadium prizes (Chao Garden model): winning the Champion level of a race course gives a
+ * TOY for the companion house (like the garden toys won in Chao Races); winning a karate level
+ * gives the companion a BELT it wears from then on (automatic, like a rank). Prizes are not
+ * catalog elements: they live in the games save and are drawn here. No imports.
+ */
+const S='#657D89';
+const trophyBase=(w,h,inner)=>`<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 ${w} ${h}"><g stroke-linejoin="round" stroke-linecap="round">${inner}</g></svg>`;
+// Icons (100×100) and room sprites (1×1 tile object: 100×160, symmetric → one view for all sides).
+const icon={
+ pond:`<ellipse cx="50" cy="92" rx="30" ry="3" fill="#88979B" opacity=".15"/><path d="M22 86h56v-8H22z" fill="#7FB3C9" stroke="${S}" stroke-width="3"/><path d="M28 78q22-14 44 0v-8q-22-10-44 0z" fill="#BFE3E8" stroke="${S}" stroke-width="2.5"/><path d="M50 30q-14 8-12 22 2 10 12 12 10-2 12-12 2-14-12-22z" fill="#5AAED2" stroke="${S}" stroke-width="3"/><circle cx="46" cy="46" r="3" fill="#fff"/><path d="M50 30v-6M42 36l-5-4M58 36l5-4" stroke="#BFE3E8" stroke-width="3"/>`,
+ cliffs:`<ellipse cx="50" cy="92" rx="30" ry="3" fill="#88979B" opacity=".15"/><path d="M50 88V46" stroke="#A98463" stroke-width="4"/><path d="M50 14 78 42 50 62 22 42z" fill="#E8826B" stroke="${S}" stroke-width="3"/><path d="M50 14v48M22 42h56" stroke="${S}" stroke-width="2"/><path d="M50 62q-8 10 0 18t0 10" fill="none" stroke="#F1C26B" stroke-width="3"/>`,
+ meadow:`<ellipse cx="50" cy="92" rx="30" ry="3" fill="#88979B" opacity=".15"/><path d="M30 88V16" stroke="#A98463" stroke-width="5"/><path d="M33 18h40l-10 12 10 12H33z" fill="#6FAE62" stroke="${S}" stroke-width="3"/><path d="M44 30l5 5 9-10" fill="none" stroke="#F4EFE6" stroke-width="3.5"/><path d="M20 90q10-6 20 0" fill="none" stroke="#8DBF8A" stroke-width="3"/>`,
+ boulder:`<ellipse cx="50" cy="92" rx="32" ry="3" fill="#88979B" opacity=".15"/><path d="M20 88h60v-10H20z" fill="#C9C1B4" stroke="${S}" stroke-width="3"/><path d="M30 78q-4-30 10-44 8-10 20-6 14 8 12 28-2 14 2 22z" fill="#A9A49A" stroke="${S}" stroke-width="3.5"/><path d="M40 60q8-6 16-2M36 46q8-8 18-4" fill="none" stroke="#7D7A74" stroke-width="2.5"/><path d="M62 36l3 7 7.5.8-5.6 5 1.7 7.4-6.6-4" fill="#F1C26B" stroke="${S}" stroke-width="2"/>`,
+ trail:`<ellipse cx="50" cy="92" rx="30" ry="3" fill="#88979B" opacity=".15"/><path d="M50 10v10" stroke="${S}" stroke-width="4"/><path d="M30 20h40l-4 60H34z" fill="#F7E7C0" stroke="${S}" stroke-width="3.5"/><path d="M30 20h40M34 80h32v8H34z" fill="#8C6A4E" stroke="${S}" stroke-width="3"/><path d="M50 42q-8 10 0 20t0 6" fill="#E0675A"/><path d="M50 36q-10 14 0 30 10-16 0-30z" fill="#F1C26B" stroke="#D08A4C" stroke-width="2"/>`,
+ grand:`<ellipse cx="50" cy="92" rx="30" ry="3" fill="#88979B" opacity=".15"/><path d="M32 88h36v-8H32z" fill="#8C6A4E" stroke="${S}" stroke-width="3"/><path d="M44 80h12l2-12H42z" fill="#E0A82E" stroke="${S}" stroke-width="3"/><path d="M26 18h48l-4 26q-4 18-20 20-16-2-20-20z" fill="#F1C26B" stroke="${S}" stroke-width="3.5"/><path d="M26 24q-14 2-10 16 4 10 14 8M74 24q14 2 10 16-4 10-14 8" fill="none" stroke="${S}" stroke-width="3.5"/><path d="M50 30l3 7 7.5.8-5.6 5 1.7 7.4-6.6-4-6.6 4 1.7-7.4-5.6-5 7.5-.8z" fill="#fff" stroke="#D08A4C" stroke-width="2"/>`
+};
+const room=k=>trophyBase(100,160,`<ellipse cx="50" cy="146" rx="30" ry="6" fill="#5a4a3a" opacity=".16"/><g transform="translate(5 44) scale(.9)">${icon[k]}</g>`);
+const RACE_PRIZES={
+ pond:{id:'prize:pond-fountain',name:'Pond Fountain',summary:'A little fish fountain won at Pebble Pond.',kind:'furniture',effect:'mood',size:[1,1]},
+ cliffs:{id:'prize:cliff-kite',name:'Cliff Kite',summary:'A red kite that never comes down, won at Breezy Cliffs.',kind:'furniture',effect:'mood',size:[1,1]},
+ meadow:{id:'prize:meadow-flag',name:'Meadow Flag',summary:'The finish flag of Meadow Dash.',kind:'furniture',effect:'decor',size:[1,1]},
+ boulder:{id:'prize:boulder-stone',name:'Boulder Stone',summary:'A piece of the Boulder Wall with a golden star.',kind:'furniture',effect:'decor',size:[1,1]},
+ trail:{id:'prize:trail-lantern',name:'Trail Lantern',summary:'The lantern that lights the Long Trail.',kind:'furniture',effect:'mood',size:[1,1]},
+ grand:{id:'prize:grand-cup',name:'Grand Cup',summary:'The golden cup of the Grand Circuit champion.',kind:'furniture',effect:'mood',size:[1,1]}
+};
+for(const [k,p] of Object.entries(RACE_PRIZES)){p.art=trophyBase(100,100,icon[k]);p.room={layer:'object',front:room(k),back:room(k),side:room(k)};p.prize=true;}
+const PRIZE_BY_ID=Object.fromEntries(Object.values(RACE_PRIZES).map(p=>[p.id,p]));
+/** Karate belts by level index; the companion wears the best one it won. */
+const BELTS=[{id:'white',name:'White Belt',color:'#F4EFE6'},{id:'blue',name:'Blue Belt',color:'#5AAED2'},{id:'purple',name:'Purple Belt',color:'#9B7FC4'},{id:'brown',name:'Brown Belt',color:'#8C6A4E'},{id:'black',name:'Black Belt',color:'#2F3B44'}];
+const beltSvg=(b,size=22)=>`<svg viewBox="0 0 40 40" width="${size}" height="${size}" aria-hidden="true"><path d="M4 16h32v8H4z" fill="${b.color}" stroke="${S}" stroke-width="2.5"/><path d="M20 24l-6 10M20 24l6 10" stroke="${b.color}" stroke-width="5" stroke-linecap="round"/><path d="M20 24l-6 10M20 24l6 10" fill="none" stroke="${S}" stroke-width="1.5"/><circle cx="20" cy="20" r="4" fill="${b.color}" stroke="${S}" stroke-width="2"/></svg>`;
+/**
+ * Draw a belt on a rigged companion SVG that is already in the DOM (needs getBBox):
+ * a band across the lower body with a knot, in the belt colour.
+ */
+function wearBelt(svgEl,beltId){
+ if(!svgEl||svgEl.querySelector('[data-acc="belt"]'))return;const b=BELTS.find(x=>x.id===beltId);if(!b)return;
+ const body=svgEl.querySelector('[data-part="body"]');if(!body)return;let bb;try{bb=body.getBBox();}catch{return;}if(!bb.width)return;
+ const y=bb.y+bb.height*0.62,h=Math.max(3,bb.height*0.1),x=bb.x+bb.width*0.08,w=bb.width*0.84;
+ const g=document.createElementNS('http://www.w3.org/2000/svg','g');g.setAttribute('data-acc','belt');
+ g.innerHTML=`<rect x="${x}" y="${y}" width="${w}" height="${h}" rx="${h/2}" fill="${b.color}" stroke="${S}" stroke-width="1.6"/><circle cx="${x+w*0.5}" cy="${y+h/2}" r="${h*0.55}" fill="${b.color}" stroke="${S}" stroke-width="1.4"/><path d="M${x+w*0.5} ${y+h}l-${h*0.6} ${h*1.3}M${x+w*0.5} ${y+h}l${h*0.6} ${h*1.3}" stroke="${b.color}" stroke-width="${h*0.6}" stroke-linecap="round"/>`;
+ (body.parentNode||svgEl).insertBefore(g,body.nextSibling);
+}
+
+return {RACE_PRIZES,PRIZE_BY_ID,BELTS,beltSvg,wearBelt};})();
 window.__recipePolish87=(function(){/**
  * V87 recipe polish (owner request 31/10/2026): "review the most forced combinations and make them
  * more logical without breaking anything; also add logical combos that currently give nothing"
@@ -1995,6 +2197,7 @@ function createCompanionSystem(ctx){
   for(const g of art.querySelectorAll('[data-part]')){const p=(g.dataset.pivot||'50 50').split(/\s+/).map(Number);g.style.transformOrigin=`${p[0]}px ${p[1]}px`;g.style.transformBox='view-box';}
   sprite.dataset.move=meta.move;sprite.dataset.quirk=meta.quirkAnim||'wiggle';sprite.dataset.companion=meta.id;sprite.classList.toggle('is-shiny',isShiny(meta.id));
   const svgEl=art.querySelector('svg');if(svgEl){svgEl.setAttribute('width','100%');svgEl.setAttribute('height','100%');}
+  try{ctx.wear?.(sprite.parentElement||sprite);}catch{}
  }
  function rect(sel){const el=document.querySelector(sel);if(!el||el.hidden)return null;const r=el.getBoundingClientRect();return r.width>0&&r.height>0?r:null;}
  // Rails are the top edges of the interface cards. Each edge exists twice: in FRONT (standing on
@@ -2277,6 +2480,7 @@ function createCompanionSystem(ctx){
   root.querySelectorAll('[data-card]').forEach(b=>b.onclick=()=>openCard(b.dataset.card));
   const d=$('petDismiss');if(d)d.onclick=()=>setActive(null);
   try{ctx.renderExtra?.(root);}catch(e){console.warn('home',e);}
+  try{ctx.wear?.(root);}catch{}
   if(!root.hidden)markSeen();
  }
  function rename(id){const meta=metaById.get(id);if(!meta||!isDiscovered(id))return;const p=pet(id);
@@ -2284,7 +2488,7 @@ function createCompanionSystem(ctx){
   const inp=$('petNameInput');setTimeout(()=>inp?.focus(),50);
   $('petNameSave').onclick=()=>{const v=String(inp.value||'').replace(/[\u0000-\u001f<>]/g,'').trim().slice(0,NICK_MAX);if(v)p.nick=v;else delete p.nick;save();closeModal();refreshViews();};
   $('petNameCancel').onclick=closeModal;}
- function openCard(id){const meta=metaById.get(id);if(!meta)return;if(!isDiscovered(id)){showModal(`<div class="modal-tag">COMPANION</div>${cardHtml(meta,{full:true})}<button type="button" class="modal-button secondary" id="petCardClose">Close</button>`);$('petCardClose').onclick=closeModal;return;}const hl=ctx.houseLine?.(id)||'';showModal(`<div class="modal-tag">COMPANION</div>${cardHtml(meta,{full:true})}${hl?`<p class="pet-house-line">${hl}</p>`:''}<p class="mini-muted">Drag an element from your list onto ${escapeText(nameOf(meta))} to feed it. Rub it with your finger to pet it. Tap its gifts when they appear.</p><button type="button" class="modal-button secondary" id="petCardClose">Close</button>`);$('petCardClose').onclick=closeModal;$('modalContent').querySelectorAll('[data-activate]').forEach(b=>b.onclick=async()=>{closeModal();await choose(b.dataset.activate);});$('modalContent').querySelectorAll('[data-rename]').forEach(b=>b.onclick=()=>rename(b.dataset.rename));}
+ function openCard(id){const meta=metaById.get(id);if(!meta)return;if(!isDiscovered(id)){showModal(`<div class="modal-tag">COMPANION</div>${cardHtml(meta,{full:true})}<button type="button" class="modal-button secondary" id="petCardClose">Close</button>`);$('petCardClose').onclick=closeModal;return;}const hl=ctx.houseLine?.(id)||'';showModal(`<div class="modal-tag">COMPANION</div>${cardHtml(meta,{full:true})}${hl?`<p class="pet-house-line">${hl}</p>`:''}<p class="mini-muted">Drag an element from your list onto ${escapeText(nameOf(meta))} to feed it. Rub it with your finger to pet it. Tap its gifts when they appear.</p><button type="button" class="modal-button secondary" id="petCardClose">Close</button>`);$('petCardClose').onclick=closeModal;$('modalContent').querySelectorAll('[data-activate]').forEach(b=>b.onclick=async()=>{closeModal();await choose(b.dataset.activate);});$('modalContent').querySelectorAll('[data-rename]').forEach(b=>b.onclick=()=>rename(b.dataset.rename));try{ctx.wear?.($('modalContent'));}catch{}}
  listeners.add(renderTab);
  // V90: a resident using furniture in a companion house. Training pieces add stat progress
  // (capped at HOME_DAILY_CAP bar points per companion per day), food fills the belly, beds and
@@ -3643,6 +3847,7 @@ const {HOME_OBJECTS_V89}=window.__homeObjects89;
 const {createHomeSystem,HOME_STORAGE_KEY}=window.__homeEngine90;
 const {ROOM_SPRITES_V90}=window.__roomSprites90;
 const {createGamesSystem,GAMES_STORAGE_KEY}=window.__games93;
+const {RACE_PRIZES,PRIZE_BY_ID,BELTS,beltSvg,wearBelt}=window.__prizes94;
 const {COMPANIONS_V86,COMPANION_SPRITES_V86}=window.__companions86;
 const {createCompanionSystem,COMPANION_STORAGE_KEY}=window.__companionEngine86;
 const {PUBLIC_LABELS_V86}=window.__publicLabels86;
@@ -4000,7 +4205,7 @@ function shinyCard(item){return `<p class="shiny-trivia"><span aria-hidden="true
 function showShinyFound(id){const it=byId.get(id);if(!it)return;
  showModal(`<div class="modal-tag shiny-tag">✦ SHINY ELEMENT</div><div class="modal-art is-shiny">${staticArt(it)}</div><h2>Shiny ${escapeText(uiName(it))}</h2>${shinyCard(it)}<div class="modal-milestone">${shiny.size.toLocaleString('en-US')} shiny ${shiny.size===1?'element':'elements'} · ${Math.round(shinyChance()*100)}% chance per combination</div>`);
 }
-const APP_VERSION='0.93.0';
+const APP_VERSION='0.94.0';
 // V83: status line + Google consent (UMP) privacy options, required for EEA players.
 async function refreshAdStatus(){
  const el=$('settingsAdStatus'),bridge=getRewardBridge();
@@ -5134,13 +5339,21 @@ async function requestCompanionActivation(meta){
 }
 function setPetsBadge(n){const b=$('petsBadge');if(b)b.hidden=!(n>0);}
 const companions=createCompanionSystem({roster:COMPANIONS_V86,sprites:COMPANION_SPRITES_V86,$,escapeText,byId,uiName,staticArt,familyFor,
- requestActivation:requestCompanionActivation,onBadge:setPetsBadge,renderExtra:()=>homes.render($('homeMount')),
+ requestActivation:requestCompanionActivation,onBadge:setPetsBadge,renderExtra:()=>homes.render($('homeMount')),wear:root=>wearAll(root),
  growthFor:(id,kind)=>homes.growthFor(id,kind),houseLine:id=>homes.houseLine(id),residentOf:id=>homes.residentOf(id),
  isDiscovered:discoveredAnywhere,isShiny:id=>shiny.has(id),elementIsUseful,getSlots:()=>slots,isLeftLocked:()=>leftLocked,toast,showModal,closeModal,
  reducedMotion:()=>Boolean(window.matchMedia?.('(prefers-reduced-motion: reduce)')?.matches),FAMILIES});
 // V90: companion houses (furniture placement, residents) on the Home tab.
-const homes=createHomeSystem({$,escapeText,byId,uiName,staticArt,isDiscovered:discoveredAnywhere,objects:HOME_OBJECTS_V89,sprites:COMPANION_SPRITES_V86,roster:COMPANIONS_V86,
- roomSprites:ROOM_SPRITES_V90,applyEffect:(cid,eff)=>companions.homeEffect(cid,eff),
+// V94: Stadium prizes (toys) are placeable house objects; belts are worn by the companions.
+const HOME_OBJECTS={...HOME_OBJECTS_V89,...Object.fromEntries(Object.values(RACE_PRIZES).map(p=>[p.id,{kind:p.kind,effect:p.effect,size:p.size}]))};
+const ROOM_SPRITES={...ROOM_SPRITES_V90,...Object.fromEntries(Object.values(RACE_PRIZES).map(p=>[p.id,p.room]))};
+const homeById={get:id=>PRIZE_BY_ID[id]||byId.get(id)};
+const homeUiName=it=>it?.prize?it.name:uiName(it);
+const homeStaticArt=it=>it?.prize?it.art:staticArt(it);
+const homeDiscovered=id=>PRIZE_BY_ID[id]?games.hasPrize(id):discoveredAnywhere(id);
+function wearAll(root){if(!root)return;const els=root.querySelectorAll?.('[data-companion], .pet-ava[data-card], .pet-card[data-pet], .home-res[data-res], .pets-now-art[data-card]')||[];for(const el of els){const id=el.dataset.companion||el.dataset.card||el.dataset.pet||el.dataset.res;const belt=games.beltOf(id);if(!belt)continue;const svg=el.querySelector('svg');if(svg)wearBelt(svg,belt);}}
+const homes=createHomeSystem({$,escapeText,byId:homeById,uiName:homeUiName,staticArt:homeStaticArt,isDiscovered:homeDiscovered,objects:HOME_OBJECTS,sprites:COMPANION_SPRITES_V86,roster:COMPANIONS_V86,
+ roomSprites:ROOM_SPRITES,wear:wearAll,applyEffect:(cid,eff)=>companions.homeEffect(cid,eff),
  companionName:id=>companions.state().pets[id]?.nick||uiName(byId.get(id)),statsHtml:id=>companions.statsHtml(id),showModal,closeModal,toast,reducedMotion:()=>Boolean(window.matchMedia?.('(prefers-reduced-motion: reduce)')?.matches)});
 // V91 idle discoveries: while the game is closed, companions living in houses find elements the
 // player could already craft right now (both ingredients owned, result not yet found). Rate grows
@@ -5194,7 +5407,8 @@ function gamesUnlocked(){try{return homes.ownedHouses().length>0&&companions.unl
 function syncGamesTab(){const t=document.querySelector('.tab-games');if(!t)return;const on=gamesUnlocked();t.hidden=!on;let seen=false;try{seen=localStorage.getItem(GAMES_SEEN_KEY)==='1';}catch{}const b=$('gamesBadge');if(b)b.hidden=!(on&&!seen);}
 function gamesSeen(){try{localStorage.setItem(GAMES_SEEN_KEY,'1');}catch{}syncGamesTab();}
 const games=createGamesSystem({$,escapeText,roster:COMPANIONS_V86,sprites:COMPANION_SPRITES_V86,byId,uiName,isDiscovered:discoveredAnywhere,companionInfo:id=>companions.info(id),activeId:()=>companions.state().active,
- onResult:(id,kind,focus,place)=>{const amt=[0,12,8,5,3,3][place]||3;const stats=kind==='spar'?['power','hp']:focus==='all'?['run','swim','fly','power']:focus==='stamina'?['stamina','run']:[focus,'stamina'];return companions.gameReward(id,stats,amt);},
+ prizes:{RACE_PRIZES,beltSvg},belts:BELTS,wear:wearAll,onBelt:()=>{companions.refreshViews();companions.start();},
+ onResult:(id,kind,focus,place)=>{const amt=[0,12,8,5,3,3][place]||3;const stats=kind==='karate'?['power','hp']:focus==='all'?['run','swim','fly','power']:focus==='stamina'?['stamina','run']:[focus,'stamina'];return companions.gameReward(id,stats,amt);},
  showModal,closeModal,toast,reducedMotion:()=>Boolean(window.matchMedia?.('(prefers-reduced-motion: reduce)')?.matches)});
 const BACKUP_KEYS=[COMPANION_STORAGE_KEY,HOME_STORAGE_KEY,GAMES_STORAGE_KEY,SHINY_KEY,HINT_BANK_KEY,FAMILY_SAVES_KEY,MODE_SELECTION_KEY,'gameverse_alchemy_v2','gameverse_dynamic_v11','gameverse_ledger_v16','gameverse_discovery_hints_v20',EXTRA_STORAGE,DISCOVERY_ORDER_KEY];
 function backupJson(){
