@@ -304,6 +304,7 @@ _v85=[('client/src/organic-pack-v85.js',['ORGANIC_V85'],'__gameverseOrganic85',"
  ('client/src/home-engine-v90.js',['createHomeSystem','HOME_STORAGE_KEY'],'__homeEngine90',"import { createHomeSystem, HOME_STORAGE_KEY } from './home-engine-v90.js';"),
  ('client/src/room-sprites-v90.js',['ROOM_SPRITES_V90'],'__roomSprites90',"import { ROOM_SPRITES_V90 } from './room-sprites-v90.js';"),
  ('client/src/recipe-polish-v87.js',['RECIPE_POLISH_V87'],'__recipePolish87',"import { RECIPE_POLISH_V87 } from './recipe-polish-v87.js';"),
+ ('client/src/recipe-polish-v91.js',['RECIPE_POLISH_V91'],'__recipePolish91',"import { RECIPE_POLISH_V91 } from './recipe-polish-v91.js';"),
  ('client/src/family-art-v88.js',['FAMILY_ART_V88'],'__familyArt88',"import { FAMILY_ART_V88 } from './family-art-v88.js';"),
  ('client/src/public-labels-v86.js',['PUBLIC_LABELS_V86'],'__publicLabels86',"import { PUBLIC_LABELS_V86 } from './public-labels-v86.js';"),
  ('client/src/companions-v86.js',['COMPANIONS_V86','COMPANION_SPRITES_V86'],'__companions86',"import { COMPANIONS_V86, COMPANION_SPRITES_V86 } from './companions-v86.js';"),

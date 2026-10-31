@@ -28,7 +28,7 @@ const key=(a,b)=>[a,b].sort().join('|');
 
 test('V87: app passes the recipe polish to the family builder and the standalone inlines it',()=>{
  assert.match(app,/import \{ RECIPE_POLISH_V87 \} from '\.\/recipe-polish-v87\.js';/);
- assert.match(app,/buildThematicCampaigns\(classicRecipes,ITEMS\)\],RECIPE_POLISH_V87\)/);
+ assert.match(app,/buildThematicCampaigns\(classicRecipes,ITEMS\)\],\{adds:\[\.\.\.RECIPE_POLISH_V87\.adds,\.\.\.RECIPE_POLISH_V91\.adds\]/);
  assert.match(readFileSync(resolve(root,'tools/build-standalone.py'),'utf8'),/recipe-polish-v87\.js/);
 });
 

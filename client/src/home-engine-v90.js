@@ -47,7 +47,7 @@ export function createHomeSystem(ctx){
  const furnitureOwned=()=>Object.entries(objects).filter(([id,o])=>o.kind==='furniture'&&isDiscovered(id)).map(([id])=>id);
  const placedAnywhere=id=>Object.entries(state.houses).find(([,h])=>h.furniture.some(f=>f.id===id))?.[0]||null;
  const residentOf=cid=>Object.entries(state.houses).find(([,h])=>h.residents.includes(cid))?.[0]||null;
- let moving=null,wanderTimer=null;
+ let moving=null,wanderTimer=null,dragEndedAt=0;
  function activeHouse(){const own=ownedHouses();if(!own.length)return null;if(!own.includes(state.active))state.active=own[own.length-1];return state.active;}
 
  // ---------- drawing ----------
@@ -65,8 +65,8 @@ export function createHomeSystem(ctx){
  function render(mount){
   if(!mount)return;stopWander();
   const hid=activeHouse();const own=ownedHouses();
-  const chips=houseIds().map(id=>{const o=objects[id],have=own.includes(id),it=byId.get(id);
-   return `<button type="button" class="home-chip ${id===hid?'is-active':''} ${have?'':'is-locked'}" data-house="${id}" ${have?'':'disabled'} aria-label="${have?escapeText(uiName(it)):'Undiscovered house'} · ${o.capacity}"><span class="home-chip-art">${have?staticArt(it):'<span class="home-q">?</span>'}</span><small>${o.capacity}</small></button>`;}).join('');
+  const chips=houseIds().map((id,tier)=>{const o=objects[id],have=own.includes(id),it=byId.get(id);
+   return `<button type="button" class="home-chip ${id===hid?'is-active':''} ${have?'':'is-locked'}" data-house="${id}" ${have?'':'disabled'} aria-label="${have?escapeText(uiName(it)):'Undiscovered house'} · ${o.capacity}"><span class="home-chip-art">${have?staticArt(it):'<span class="home-q">?</span>'}</span><small>${o.capacity}</small><i class="home-tier" aria-hidden="true">${'<b></b>'.repeat(tier+1)}</i></button>`;}).join('');
   if(!hid){mount.innerHTML=`<section class="home-card"><div class="home-chips">${chips}</div><div class="home-empty"><strong>No companion house yet</strong><small>Discover a house element (the smallest is the Companion Tent) to get a room where your companions live, play and train. Bigger houses fit more companions.</small></div></section>`;return;}
   const o=objects[hid],L=layoutFor(o.capacity),h=house(hid),it=byId.get(hid);
   const sum=houseSummary(h,objects);
@@ -89,14 +89,15 @@ export function createHomeSystem(ctx){
     </div>
     <div class="home-door" aria-hidden="true"></div>
    </div>
-   ${moving?`<p class="home-hint">Tap a free spot for ${escapeText(uiName(byId.get(h.furniture[moving.index]?.id)))} · <button type="button" class="home-link" id="homeCancelMove">Cancel</button></p>`:''}
+   ${moving?`<p class="home-hint">Drag ${escapeText(uiName(byId.get(h.furniture[moving.index]?.id)))} to its new spot · <button type="button" class="home-link" id="homeCancelMove">Done</button></p>`:'<p class="home-hint is-soft">Tip: press and hold a piece to drag it</p>'}
    <div class="home-effects">${sumHtml}</div>
    <div class="home-res-row"><span>Residents</span><div class="home-res-list">${resHtml}</div></div>
   </section>`;
   mount.querySelectorAll('[data-house]').forEach(b=>b.onclick=()=>{state.active=b.dataset.house;moving=null;save();render(mount);});
   mount.querySelectorAll('.home-tile').forEach(t=>t.onclick=()=>tapSpot(mount,hid,Number(t.dataset.x),Number(t.dataset.y),false));
   mount.querySelectorAll('.home-walltile').forEach(t=>t.onclick=()=>tapSpot(mount,hid,Number(t.dataset.wx),-1,true));
-  mount.querySelectorAll('[data-piece]').forEach(p=>p.onclick=e=>{if(moving){const t=spotFromEvent(mount,e,hid);if(t)tapSpot(mount,hid,t.x,t.y,t.wall);return;}tapPiece(mount,hid,Number(p.dataset.piece),spotFromEvent(mount,e,hid));});
+  mount.querySelectorAll('[data-piece]').forEach(p=>{wireDrag(mount,hid,p);});
+  mount.querySelectorAll('[data-piece]').forEach(p=>p.onclick=e=>{if(Date.now()-dragEndedAt<350)return;if(moving&&Number(p.dataset.piece)===moving.index)return;if(moving){const t=spotFromEvent(mount,e,hid);if(t)tapSpot(mount,hid,t.x,t.y,t.wall);return;}tapPiece(mount,hid,Number(p.dataset.piece),spotFromEvent(mount,e,hid));});
   mount.querySelectorAll('[data-res]').forEach(r=>r.onclick=()=>tapResident(mount,hid,r.dataset.res));
   const add=$('homeAddRes');if(add)add.onclick=()=>pickResident(mount,hid);
   const cm=$('homeCancelMove');if(cm)cm.onclick=()=>{moving=null;render(mount);};
@@ -106,6 +107,37 @@ export function createHomeSystem(ctx){
  function spotFromEvent(mount,e,hid){const L=layoutFor(objects[hid].capacity);const fl=mount.querySelector('#homeFloor').getBoundingClientRect(),wl=mount.querySelector('#homeWall').getBoundingClientRect();
   const tile=fl.width/L.cols;if(e.clientY<fl.top&&e.clientY>=wl.top)return {x:Math.floor((e.clientX-fl.left)/tile),y:-1,wall:true};
   return {x:Math.floor((e.clientX-fl.left)/tile),y:Math.floor((e.clientY-fl.top)/tile),wall:false};}
+
+ // ---------- drag and drop: press and hold a piece (or use Move) and drag it over the grid ----------
+ function wireDrag(mount,hid,el){
+  const hit=el.querySelector('.home-hit');if(!hit)return;
+  const i=Number(el.dataset.piece);let hold=null,drag=null;
+  hit.addEventListener('pointerdown',e=>{
+   const start=()=>{const h=house(hid),f=h.furniture[i];if(!f)return;const L=layoutFor(objects[hid].capacity);
+    const fl=mount.querySelector('#homeFloor').getBoundingClientRect(),tile=fl.width/L.cols;
+    const px=Math.floor((e.clientX-fl.left)/tile),py=Math.floor((e.clientY-fl.top)/tile);
+    drag={f,L,fl,tile,offX:px-f.x,offY:f.y<0?0:py-f.y,x:f.x,y:f.y,ok:true,wall:layerOf(RS,f.id)==='wall'};
+    el.classList.add('is-dragging');stopWander();try{hit.setPointerCapture(e.pointerId);}catch{}navigator.vibrate?.(12);};
+   if(moving&&moving.index===i){start();}
+   else hold=setTimeout(start,320);
+  });
+  hit.addEventListener('pointermove',e=>{
+   if(!drag){if(hold&&Math.abs(e.movementX)+Math.abs(e.movementY)>8){clearTimeout(hold);hold=null;}return;}
+   e.preventDefault();const {f,L,fl,tile}=drag;
+   const px=Math.floor((e.clientX-fl.left)/tile),py=Math.floor((e.clientY-fl.top)/tile);
+   const x=px-drag.offX,y=drag.wall?-1:py-drag.offY;
+   if(x===drag.x&&y===drag.y)return;drag.x=x;drag.y=y;
+   drag.ok=fits(house(hid),L,objects,RS,{...f,x,y},i);
+   const [,fh]=footprint(objects,f);
+   el.style.setProperty('--x',x);if(!drag.wall){el.style.setProperty('--y',y);el.style.setProperty('--z',10+(y+fh)*2);}
+   el.classList.toggle('is-bad',!drag.ok);el.classList.toggle('is-good',drag.ok);
+  });
+  const end=()=>{clearTimeout(hold);hold=null;if(!drag)return;const d=drag;drag=null;dragEndedAt=Date.now();
+   if(d.ok&&(d.x!==d.f.x||d.y!==d.f.y)){d.f.x=d.x;d.f.y=d.wall?-1:d.y;moving=null;save();}
+   else if(!d.ok)toast('It does not fit there','repeat');
+   render(mount);};
+  hit.addEventListener('pointerup',end);hit.addEventListener('pointercancel',end);
+ }
 
  // ---------- furniture ----------
  function tapSpot(mount,hid,x,y,wall){
