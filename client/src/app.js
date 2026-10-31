@@ -112,7 +112,7 @@ import { ORGANIC_V89 } from './organic-pack-v89.js';
 import { ORGANIC_ART_V89 } from './organic-art-v89.js';
 import { FAMILY_DATA_V89 } from './family-data-v89.js';
 import { HOME_OBJECTS_V89 } from './home-objects-v89.js';
-import { createHomeSystem, HOME_STORAGE_KEY } from './home-engine-v90.js';
+import { createHomeSystem, HOME_STORAGE_KEY, pieceQuality, starsText } from './home-engine-v90.js';
 import { ROOM_SPRITES_V90 } from './room-sprites-v90.js';
 import { createGamesSystem, GAMES_STORAGE_KEY } from './games-v93.js';
 import { RACE_PRIZES, PRIZE_BY_ID, BELTS, beltSvg, wearBelt } from './prizes-v94.js';
@@ -475,7 +475,7 @@ function shinyCard(item){return `<p class="shiny-trivia"><span aria-hidden="true
 function showShinyFound(id){const it=byId.get(id);if(!it)return;
  showModal(`<div class="modal-tag shiny-tag">✦ SHINY ELEMENT</div><div class="modal-art is-shiny">${staticArt(it)}</div><h2>Shiny ${escapeText(uiName(it))}</h2>${shinyCard(it)}<div class="modal-milestone">${shiny.size.toLocaleString('en-US')} shiny ${shiny.size===1?'element':'elements'} · ${Math.round(shinyChance()*100)}% chance per combination</div>`);
 }
-const APP_VERSION='1.0.3';
+const APP_VERSION='1.0.4';
 // V83: status line + Google consent (UMP) privacy options, required for EEA players.
 async function refreshAdStatus(){
  const el=$('settingsAdStatus'),bridge=getRewardBridge();
@@ -1325,8 +1325,13 @@ function companionCallout(id){if(!companions.isCompanion(id))return '';
 // V89: companion houses and furniture are flagged in the discovery sheet (the Home screen comes next).
 const HOME_EFFECT_LABEL={run:'trains Run',swim:'trains Swim',power:'trains Power',fly:'trains Fly',stamina:'trains Stamina',hp:'trains HP',mood:'cheers companions up',food:'feeds companions',discovery:'boosts idle discoveries',decor:'decoration'};
 function homeCallout(id){const h=HOME_OBJECTS_V89[id];if(!h||h.kind==='material')return '';
- const txt=h.kind==='house'?`<b>Companion house!</b> Room for ${h.capacity} companion${h.capacity>1?'s':''}.`:`<b>Furniture</b> for companion houses · ${HOME_EFFECT_LABEL[h.effect]||'decoration'}.`;
+ const q=pieceQuality(routeDepth.get(id));const txt=h.kind==='house'?`<b>Companion house!</b> Room for ${h.capacity} companion${h.capacity>1?'s':''}.`:`<b>Furniture</b> for companion houses · ${HOME_EFFECT_LABEL[h.effect]||'decoration'}${h.effect&&h.effect!=='decor'?` · +${q.pct}% <span class="home-stars">${starsText(q.stars)}</span>`:''}.`;
  return `<div class="home-callout"><span>${txt}</span></div>`;}
+/** V104: element sheet opened by a long press in Alchemy: description, what it does, quick actions. */
+function elementInfo(id){const it=byId.get(id);if(!it)return;const fams=familiesFor(it).map(f=>FAMILIES.find(x=>x.id===f)?.name||f);const text=wittyDiscovery(it)||it.summary;
+ showModal(`<div class="modal-tag">${escapeText((categoryNames[it.category]||it.category||'ELEMENT').toUpperCase())}</div><div class="modal-art">${COMPANION_SPRITES_V86[id]||staticArt(it)}</div><h2>${escapeText(uiName(it))}</h2>${text?`<p class="discovery-wit">${escapeText(publicText(text))}</p>`:''}${companionCallout(id)}${homeCallout(id)}${fams.length?`<p class="mini-muted">${escapeText(fams.join(' · '))}</p>`:''}
+  <button type="button" class="modal-button" id="infoUse">Use in craft table</button><button type="button" class="modal-button secondary" id="infoPaths">Recipes</button>`);
+ $('infoUse').onclick=()=>{closeModal();insertDirect(id);};$('infoPaths').onclick=()=>{closeModal();openRecipePaths(id);};}
 function showDiscovery(id,a,b,scene=null,isShiny=false){
  const it=byId.get(id),isFirst=worldFirsts.has(id),earned=[...unlocked].filter(x=>!STARTERS.has(x)).length,isComp=companions.isCompanion(id);
  showModal(`<div class="modal-tag ${isShiny?'shiny-tag':isFirst?'world-first-tag':isComp?'companion-tag':''}">${isShiny?'✦ SHINY DISCOVERY':isFirst?'★ WORLD FIRST':isComp?'NEW COMPANION':'✦ NEW DISCOVERY'}</div><div class="modal-art${isShiny?' is-shiny':''}${isComp?' is-companion':''}">${isComp&&COMPANION_SPRITES_V86[id]?COMPANION_SPRITES_V86[id]:staticArt(it)}</div><h2>${isShiny?'Shiny ':''}${escapeText(uiName(it))}</h2><p>${escapeText(uiName(byId.get(a)))} + ${escapeText(uiName(byId.get(b)))}</p>${isShiny?shinyCard(it):(wittyDiscovery(it)||it.summary)?`<p class="discovery-wit">${escapeText(publicText(wittyDiscovery(it)||it.summary))}</p>`:""}${companionCallout(id)}${homeCallout(id)}<div class="modal-milestone">${earned.toLocaleString('en-US')} personal discoveries</div>`);
@@ -2099,8 +2104,14 @@ $('compassBtn').onclick=hint;
 // Immediate drag from icon only, based on the proven V1/V2/V5 pointer-capture flow.
 let dragging=null;
 function clearDrag(){if(dragging?.art?.hasPointerCapture?.(dragging.pointer))try{dragging.art.releasePointerCapture(dragging.pointer);}catch{} dragging=null;$('dragGhost').hidden=true;document.querySelectorAll('.craft-slot').forEach(x=>x.classList.remove('drop-target'));}
+// V104: long press an element in Alchemy opens its description (same sheet as the Collection).
+let longPress=null;const cancelLong=()=>{if(longPress){clearTimeout(longPress.t);longPress=null;}};
 for(const v of [playVirtual]){
  const root=v.root;
+ root.addEventListener('contextmenu',e=>{if(e.target.closest('.element-chip'))e.preventDefault();});
+ root.addEventListener('pointerdown',e=>{const c=e.target.closest('.element-chip');if(c&&!(e.pointerType==='mouse'&&e.button!==0)){cancelLong();const id=c.dataset.id,x=e.clientX,y=e.clientY;longPress={x,y,t:setTimeout(()=>{longPress=null;if(dragging?.active)return;clearDrag();v.dragEnded=Date.now();navigator.vibrate?.(12);elementInfo(id);},480)};}},true);
+ root.addEventListener('pointermove',e=>{if(longPress&&Math.hypot(e.clientX-longPress.x,e.clientY-longPress.y)>9)cancelLong();},true);
+ root.addEventListener('pointerup',cancelLong,true);root.addEventListener('pointercancel',cancelLong,true);
  root.addEventListener('pointerdown',e=>{const art=e.target.closest('.chip-art'),card=e.target.closest('.element-chip');if(!art||!card|| (e.pointerType==='mouse'&&e.button!==0))return;dragging={id:card.dataset.id,pointer:e.pointerId,x:e.clientX,y:e.clientY,active:false,art,view:v};art.setPointerCapture(e.pointerId);});
  root.addEventListener('pointermove',e=>{if(!dragging||dragging.pointer!==e.pointerId)return;if(!dragging.active&&Math.hypot(e.clientX-dragging.x,e.clientY-dragging.y)>9){dragging.active=true;if(tab!=='Play')switchTab('Play');$('dragGhost').innerHTML=staticArt(byId.get(dragging.id));$('dragGhost').hidden=false;}
   if(dragging.active){e.preventDefault();$('dragGhost').style.left=e.clientX+'px';$('dragGhost').style.top=e.clientY+'px';const under=document.elementFromPoint(e.clientX,e.clientY),target=under?.closest('.craft-slot');document.querySelectorAll('.craft-slot').forEach(el=>el.classList.toggle('drop-target',el===target));}

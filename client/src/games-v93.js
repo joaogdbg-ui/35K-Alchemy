@@ -298,10 +298,14 @@ export function createGamesSystem(ctx){
      // THINK: stop at the panels, think (wits), step on one; wrong panels drop and the companion tries again.
      r.x=z.a+z.len*0.06;P=posAt(C,r.x,r.lane);px=P.px;anim='idle';cls='run is-think';
      if(!r.pz||r.pz.zi!==z.i){r.pz={zi:z.i,ph:'think',t:Math.max(0.35,1.7-1.2*r.wits)+Math.random()*0.4,left:[0,1,2,3]};if(r.me)sfx.tick();}
-     const q=r.pz;q.t-=dt;
-     if(q.ph==='pick'){px=panelPx(z,q.pick)+(14+r.lane*RC.LANE)*RC.SK;anim='jump';if(q.t<=0){if(q.pick===z.ans){r.solved.add(z.i);r.pz=null;r.x=z.a+z.len*0.66;fxAt(r.el,'is-ok',26,-10,700);if(r.me){flash(z,q.pick,true);sfx.pass();}}
-       else{q.left=q.left.filter(i=>i!==q.pick);q.ph='think';q.t=Math.max(0.3,1.1-0.8*r.wits);fxAt(r.el,'is-bad',26,-10,700);if(r.me){flash(z,q.pick,false);sfx.tired();}}}}
-     else if(q.t<=0){const ok=Math.random()<Math.max(1/q.left.length,Math.min(0.95,0.25+0.7*r.wits));const wrong=q.left.filter(i=>i!==z.ans);q.pick=ok||!wrong.length?z.ans:wrong[Math.floor(Math.random()*wrong.length)];q.ph='pick';q.t=0.5;if(r.me)sfx.flap();}
+     // V104: the companion WALKS to the stone it chose, hops on it, and walks back if it was wrong.
+     const q=r.pz,hold=px,stonePx=i=>panelPx(z,i)+(14+r.lane*RC.LANE)*RC.SK,at=t=>r.dpx!=null&&Math.abs(r.dpx-t)<1.5;
+     if(q.ph==='think'){q.t-=dt;if(!at(hold))anim='walk';
+      if(q.t<=0&&at(hold)){const ok=Math.random()<Math.max(1/q.left.length,Math.min(0.95,0.25+0.7*r.wits));const wrong=q.left.filter(i=>i!==z.ans);q.pick=ok||!wrong.length?z.ans:wrong[Math.floor(Math.random()*wrong.length)];q.ph='go';}}
+     else if(q.ph==='go'){px=stonePx(q.pick);cls='run';if(at(px)){q.ph='pick';q.t=0.45;if(r.me)sfx.flap();}}
+     else if(q.ph==='pick'){px=stonePx(q.pick);anim='jump';cls='run';q.t-=dt;if(q.t<=0){
+      if(q.pick===z.ans){r.solved.add(z.i);r.pz=null;r.x=z.a+z.len*Math.min(0.95,(stonePx(q.pick)-(14+r.lane*RC.LANE)*RC.SK-z.pa)/(z.pb-z.pa));fxAt(r.el,'is-ok',26,-10,700);if(r.me){flash(z,q.pick,true);sfx.pass();}}
+      else{q.left=q.left.filter(i=>i!==q.pick);q.ph='think';q.t=Math.max(0.3,1.1-0.8*r.wits);fxAt(r.el,'is-bad',26,-10,700);if(r.me){flash(z,q.pick,false);sfx.tired();}}}}
     }else{
      if(!r.me){r.ai-=dt;if(r.ai<=0){r.ai=(4-level*0.6)+Math.random()*2.5;if(r.energy>r.max*0.4&&Math.random()<0.35+level*0.16){r.energy-=8;r.boost=0.9;}}}
      const S=statSpeed,st_=r.stats;let v=UNIT_SPEED*(z.kind==='swim'?0.8*S(st_.swim)+0.2*S(st_.run):z.kind==='wall'?0.42*S(st_.power)+0.06*S(st_.stamina):z.kind==='glide'?(0.8*S(st_.fly)+0.2*S(st_.run))*(st_.fly<15?0.75:1):S(st_.run));
@@ -318,6 +322,8 @@ export function createGamesSystem(ctx){
      r.fx-=dt;if(r.fx<=0&&!reducedMotion()){r.fx=z.kind==='swim'?0.35:0.22;fxAt(r.el,z.kind==='swim'?'is-splash':z.kind==='glide'?'is-wind':z.kind==='wall'?'is-pebble':'is-dust',z.kind==='glide'?-6:6,z.kind==='glide'?20:50,600);}
     }
     if(r.x>=L){r.x=L;r.done=true;finished.push(r);P=posAt(C,L,r.lane);px=P.px+26;cls='run is-happy';anim='idle';if(r.me){if(finished.length===1){confetti(body);sfx.finish();banner(st,'WINNER!','is-go',1200);}else if(finished.length<=3){sfx.medal();banner(st,ORD(finished.length)+'!','is-pass',900);}else{sfx.lose();}}}
+    // V104: smooth walking inside alchemy gates (no teleporting between the stones).
+    if(z.kind==='puzzle'&&r.dpx!=null&&!r.done){const diff=px-r.dpx,max=(r.pz?120:300)*dt;if(Math.abs(diff)>1.5){r.dpx+=Math.sign(diff)*Math.min(Math.abs(diff),max);if(r.pz&&r.pz.ph!=='pick')anim='walk';r.el.dataset.face=diff<0?'left':'right';}else{r.dpx=px;r.el.dataset.face='right';}px=r.dpx;}else{const diff=px-(r.dpx??px);if(Math.abs(diff)>1.5&&!r.done&&!r.gl){r.dpx+=Math.sign(diff)*Math.min(Math.abs(diff),300*dt);px=r.dpx;}else r.dpx=px;if(r.el.dataset.face!=='right')r.el.dataset.face='right';}
     if(r.gl&&!r.done){const g=r.gl,zz=C.zones[g.zi],d=laneD(r.lane);
      if(g.ph==='air'&&g.reach<1){const k=Math.max(0,(r.x-zz.a)/zz.len);P={...P,y:glideY(zz,{k,reach:g.reach})+d};}
      else if(g.ph==='fall'){const e=Math.min(1,g.t/0.45);px=lerp(zz.pa,zz.pb,g.k)+d*RC.SK+e*10;P={...P,y:lerp(g.y0,zz.floorY+(zz.floor==='water'?8:0),e*e)+d};}

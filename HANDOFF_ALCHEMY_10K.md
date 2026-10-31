@@ -90,6 +90,11 @@ Preserve 200-per-batch policy and do not start another content release on top of
 
 - **Art redraw wave 3 (V85, done): 3,991 icons** — every remaining older element. All 6,012 pre-V83 elements now use the 2026 art direction (`ART_REDRAW`), plus 200 V83 and 200 V85 originals. Six near-duplicates found by the audit were redrawn; 36 reviewed false alarms are in `tools/art-redraw-reviewed-pairs.json` (the audit now also honours them for V83 comparisons).
 
+## V104 — gate walking, long-press element sheet (31 October 2026)
+- Alchemy gates: phases think → go (walk to the chosen stone) → pick (hop) → right: carry on from that stone / wrong: walk back and think again. Display x is smoothed (`r.dpx`, 120 px/s inside gates, 300 px/s catch-up elsewhere); racers face left when walking back.
+- Alchemy tab: long press (480 ms, no movement) on an element opens `elementInfo` (description, companion/house callouts, families, Use / Recipes). Tap and drag unchanged.
+- Discovery callout for furniture now shows its bonus and stars.
+
 ## V103 — furniture quality and bonus breakdown (31 October 2026)
 - A piece's bonus depends on its recipe depth (`ctx.depthOf` = routeDepth): ★ ≤5 +10%, ★★ ≤7 +15%, ★★★ ≤9 +20%, ★★★★ ≤11 +25%, ★★★★★ 12+ +30%; race prizes ★★★★★; decor 0. Per-bonus cap raised to +75%. `growthMultiplier(...,bonusOf)`.
 - The furniture picker and piece sheet show each piece's bonus and stars.
