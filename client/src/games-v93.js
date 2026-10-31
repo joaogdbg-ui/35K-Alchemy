@@ -29,6 +29,16 @@ const SEG_DRAIN={run:0.10,swim:0.14,climb:0.18,fly:0.05};
 const SEG_ANIM={run:'walk',swim:'hopwalk',fly:'fly',climb:'climb'};
 const SEG_WORD={run:'RUN',swim:'SWIM',fly:'FLY',climb:'CLIMB'};
 const SEG_LEN=90,UNIT_SPEED=80,PX=2.2,LANE0=34,LANE_H=52,ACTOR=64,GATE=120;
+const STEP_H=56,MAX_ELEV=2,WALL_PART=0.3,DROP_PART=0.18;
+/**
+ * Pure (V98): ground height of every section. A climb section starts with a cliff the racers climb
+ * and the race CONTINUES ON TOP (one level higher, max 2). Racers jump back down into the next
+ * water section (a dive with a splash) or before the finish. Returns segs with elev0 (start) / elev.
+ */
+export function elevate(segs){let e=0;const last=segs.length-1;return segs.map((sg,i)=>{const e0=e;
+ if(sg.t==='climb')e=Math.min(MAX_ELEV,e+1);
+ else if((sg.t==='swim'||i===last)&&e>0)e=0;
+ return {...sg,elev0:e0,elev:e};});}
 export const statSpeed=lv=>0.55+Math.max(0,Math.min(99,lv))/99*0.9;
 export const energyMax=lv=>60+Math.max(0,Math.min(99,lv))*1.6;
 export function opponentStats(course,level,seed){
@@ -140,10 +150,13 @@ export function createGamesSystem(ctx){
  // ---------- race ----------
  function startRace(mount,course,level){
   const pid=pick();if(!pid)return;const me=companionInfo(pid);
-  const segs=[];let x=0;for(const {t,len} of planFor(course,level)){segs.push({t,x,len});x+=len;}const L=x;
+  const raw=[];let x=0;for(const {t,len} of planFor(course,level)){raw.push({t,x,len});x+=len;}const L=x;const segs=elevate(raw);
   const rivals=opponentsFor(4,pid);
   const st=stage(`${course.name} · ${LEVELS[level]}`,'race');st.dataset.level=level;const body=st.querySelector('.g-stage-body'),hud=st.querySelector('.g-hud');
-  body.innerHTML=`<div class="g-sky" style="background-image:${bg('sky')}"><i class="g-cloud" style="--d:0"></i><i class="g-cloud" style="--d:1"></i><i class="g-cloud" style="--d:2"></i></div><div class="g-mid" style="background-image:${bg('mid')}"></div><div class="g-fore" style="background-image:${bg('mid')}"></div><div class="g-track" style="width:${L*PX+GATE+220}px"><div class="g-gate is-start" style="left:0;background-image:${bg('start')}"></div>${segs.map(s=>s.t==='climb'?`<div class="g-seg is-run" style="left:${s.x*PX+GATE}px;width:${s.len*PX}px;background-image:${bg('run')}"><b></b></div><div class="g-wall" style="left:${s.x*PX+GATE+s.len*PX*0.78-34}px;background-image:${bg('climb')}"><i></i></div>`:`<div class="g-seg is-${s.t}" style="left:${s.x*PX+GATE}px;width:${s.len*PX}px;background-image:${bg(s.t)}"><b></b></div>`).join('')}<div class="g-gate is-finish" style="left:${L*PX+GATE-10}px;background-image:${bg('finish')}"></div></div><div class="g-tint"></div>`;
+  body.innerHTML=`<div class="g-sky" style="background-image:${bg('sky')}"><i class="g-cloud" style="--d:0"></i><i class="g-cloud" style="--d:1"></i><i class="g-cloud" style="--d:2"></i></div><div class="g-mid" style="background-image:${bg('mid')}"></div><div class="g-fore" style="background-image:${bg('mid')}"></div><div class="g-track" style="width:${L*PX+GATE+220}px"><div class="g-gate is-start" style="left:0;background-image:${bg('start')}"></div>${segs.map(s=>{const left=s.x*PX+GATE,w=s.len*PX,up=s.elev*STEP_H,tile=s.t==='climb'?'run':s.t;
+   const block=`<div class="g-seg is-${tile}" style="left:${left}px;width:${w+1}px;top:${-up}px;bottom:${up}px;background-image:${bg(tile)}"><b></b></div>`+(up?`<div class="g-cliff" style="left:${left}px;width:${w+1}px;height:${up}px;background-image:${bg('climb')}"></div>`:'');
+   const step=s.elev!==s.elev0?`<div class="g-step ${s.elev>s.elev0?'is-up':'is-down'}" style="left:${left-14}px;top:${-Math.max(s.elev,s.elev0)*STEP_H}px;bottom:${Math.min(s.elev,s.elev0)*STEP_H}px;background-image:${bg('climb')}"></div>`:'';
+   return block+step;}).join('')}<div class="g-gate is-finish" style="left:${L*PX+GATE-10}px;background-image:${bg('finish')}"></div></div><div class="g-tint"></div>`;
   const track=body.querySelector('.g-track'),hills=body.querySelector('.g-mid');
   const racers=[{id:pid,me:true,stats:Object.fromEntries(Object.entries(me.stats).map(([k,v])=>[k,v.level])),mood:me.mood,name:me.name},...rivals.map((c,i)=>({id:c.id,stats:opponentStats(course,level,i+1+Date.now()%97),mood:60,name:companionInfo(c.id).name}))];
   racers.forEach((r,i)=>{r.x=0;r.lane=i;r.max=energyMax(r.stats.stamina);r.energy=r.max;r.rest=0;r.boost=0;r.done=false;r.ai=2+Math.random()*2;r.fx=0;r.seg=null;r.place=i+1;r.el=actor(r.id,r.me?'is-me':'');r.el.style.setProperty('--lane',i);
@@ -159,21 +172,26 @@ export function createGamesSystem(ctx){
   st.querySelector('.g-quit').onclick=()=>{quit=true;cancelAnimationFrame(raf);st.remove();};
   const step=now=>{if(quit)return;const dt=Math.min(0.05,(now-(last||now))/1000);last=now;
    for(const r of racers){if(r.done)continue;const seg=segAt(r.x);
-    if(r.seg!==seg){const prev=r.seg;r.seg=seg;if(r.me&&seg.x>0){banner(st,SEG_WORD[seg.t],'is-seg is-'+seg.t,700);sfx.section();}if(seg.t==='swim'&&prev)fxAt(r.el,'is-splash is-big',10,40,700),r.me&&sfx.splash();if(seg.t==='fly'&&prev&&r.me)sfx.flap();}
+    if(r.seg!==seg){const prev=r.seg;r.seg=seg;if(r.me&&seg.x>0){banner(st,SEG_WORD[seg.t],'is-seg is-'+seg.t,700);sfx.section();}if(seg.t==='swim'&&prev&&!seg.elev0)fxAt(r.el,'is-splash is-big',10,40,700),r.me&&sfx.splash();if(seg.t==='fly'&&prev&&r.me)sfx.flap();}
     if(r.rest>0){r.rest-=dt;r.el.dataset.anim='sleep';r.el.className=`companion g-actor ${r.me?'is-me':''} is-resting`;if(r.rest<=0){r.energy=r.max*0.5;}continue;}
     if(!r.me){r.ai-=dt;if(r.ai<=0){r.ai=(4-level*0.6)+Math.random()*2.5;if(r.energy>r.max*0.4&&Math.random()<0.35+level*0.16){r.energy-=8;r.boost=0.9;}}}
     const lv=r.stats[SEG_STAT[seg.t]],runLv=r.stats.run;
-    let v=UNIT_SPEED*(seg.t==='run'?statSpeed(lv):seg.t==='climb'?0.75*statSpeed(lv)+0.1*statSpeed(r.stats.stamina):0.8*statSpeed(lv)+0.2*statSpeed(runLv));
+    const onCliff=seg.t==='climb'&&seg.elev>seg.elev0&&(r.x-seg.x)/seg.len<WALL_PART;
+    let v=UNIT_SPEED*(seg.t==='run'||(seg.t==='climb'&&!onCliff)?statSpeed(seg.t==='climb'?runLv:lv):onCliff?0.42*statSpeed(r.stats.power)+0.06*statSpeed(r.stats.stamina):0.8*statSpeed(lv)+0.2*statSpeed(runLv));
     if(seg.t==='fly'&&lv<15)v*=0.75;
     if(r.mood>=70)v*=1.05;else if(r.mood<=30)v*=0.92;
     if(!r.me)v*=LEVEL_EASE[level];
     if(r.boost>0){v*=1.6;r.boost-=dt;}
     const d=v*dt;r.x+=d;r.energy-=d*SEG_DRAIN[seg.t]*(r.boost>0?1.3:1);
     if(r.energy<=0){r.energy=0;r.rest=1.1;fxAt(r.el,'is-sweat',30,-6,900);if(r.me)sfx.rest();}
-    let dx=0;let dy=0;if(seg.t==='climb'){const pr0=(r.x-seg.x)/seg.len;if(pr0>0.25&&pr0<0.8)dx=(seg.x+seg.len*0.78-r.x)*PX-30;const pr=(r.x-seg.x)/seg.len;const WALL=170;dy=pr<0.25?0:pr<0.8?-WALL*((pr-0.25)/0.55):-WALL*(1-(pr-0.8)/0.2)*(1-(pr-0.8)/0.2);if(pr>=0.8&&!r.dropping){r.dropping=true;if(r.me)sfx.flap();}}else r.dropping=false;
-    r.el.style.setProperty('--dy',dy.toFixed(1)+'px');r.el.style.setProperty('--dx',dx.toFixed(1)+'px');r.el.classList.toggle('on-wall',seg.t==='climb'&&dy<-4&&!r.dropping);
-    const onWall=seg.t==='climb'&&dy<-4&&!r.dropping;r.el.dataset.anim=seg.t==='climb'?(r.dropping?'jump':onWall?'climb':'walk'):SEG_ANIM[seg.t];r.el.className=`companion g-actor ${r.me?'is-me':''} seg-${seg.t} ${r.boost>0?'is-boost':''} ${r.dropping?'is-drop':''} ${onWall?'on-wall':''}`;
-    r.fx-=dt;if(r.fx<=0&&!reducedMotion()){r.fx=seg.t==='swim'?0.35:0.22;fxAt(r.el,seg.t==='swim'?'is-splash':seg.t==='fly'?'is-wind':seg.t==='climb'?'is-pebble':'is-dust',seg.t==='fly'?-6:6,seg.t==='fly'?20:44,600);}
+    // V98: ground height; on a cliff the racer is pinned to the rock and climbs straight up, then runs on top.
+    let dx=0,dy;const pr=(r.x-seg.x)/seg.len;const up=seg.elev>seg.elev0,down=seg.elev<seg.elev0;
+    if(up&&pr<WALL_PART){const k=pr/WALL_PART;dx=(seg.x-r.x)*PX-26;dy=-(seg.elev0+k*(seg.elev-seg.elev0))*STEP_H;r.climbing=true;r.dropping=false;}
+    else if(down&&pr<DROP_PART){const k=pr/DROP_PART;dy=-(seg.elev0*STEP_H)*(1-k*k)+(-18*Math.sin(Math.PI*k));r.climbing=false;if(!r.dropping){r.dropping=true;if(r.me)sfx.flap();}if(k>0.9&&seg.t==='swim'&&!r.splashed){r.splashed=true;fxAt(r.el,'is-splash is-big',10,40,700);if(r.me)sfx.splash();}}
+    else{dy=-seg.elev*STEP_H;if(r.climbing&&r.me){fxAt(r.el,'is-dust',20,44,500);}r.climbing=false;r.dropping=false;r.splashed=false;}
+    r.el.style.setProperty('--dy',dy.toFixed(1)+'px');r.el.style.setProperty('--dx',dx.toFixed(1)+'px');r.el.classList.toggle('on-wall',r.climbing);
+    const onWall=r.climbing;r.el.dataset.anim=onWall?'climb':r.dropping?'jump':seg.t==='climb'?'walk':SEG_ANIM[seg.t];r.el.className=`companion g-actor ${r.me?'is-me':''} seg-${seg.t} ${r.boost>0?'is-boost':''} ${r.dropping?'is-drop':''} ${onWall?'on-wall':''}`;
+    r.fx-=dt;if(r.fx<=0&&!reducedMotion()){r.fx=seg.t==='swim'?0.35:0.22;fxAt(r.el,seg.t==='swim'?'is-splash':seg.t==='fly'?'is-wind':r.climbing?'is-pebble':'is-dust',seg.t==='fly'?-6:6,seg.t==='fly'?20:44,600);}
     if(r.x>=L){r.x=L;r.done=true;finished.push(r);r.el.className=`companion g-actor ${r.me?'is-me':''} is-happy`;r.el.dataset.anim='idle';if(r.me){if(finished.length===1){confetti(body);sfx.finish();banner(st,'WINNER!','is-go',1200);}else if(finished.length<=3){sfx.medal();banner(st,ORD(finished.length)+'!','is-pass',900);}else{sfx.lose();}}}
     r.el.style.setProperty('--x',(r.x*PX+GATE)+'px');}
    const mine=racers[0];const order=[...racers].sort((a,b)=>(b.done?1e6-finished.indexOf(b):b.x)-(a.done?1e6-finished.indexOf(a):a.x));
