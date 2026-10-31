@@ -90,6 +90,14 @@ Preserve 200-per-batch policy and do not start another content release on top of
 
 - **Art redraw wave 3 (V85, done): 3,991 icons** — every remaining older element. All 6,012 pre-V83 elements now use the 2026 art direction (`ART_REDRAW`), plus 200 V83 and 200 V85 originals. Six near-duplicates found by the audit were redrawn; 36 reviewed false alarms are in `tools/art-redraw-reviewed-pairs.json` (the audit now also honours them for V83 comparisons).
 
+## V90 — Home screen: companion houses (31 October 2026)
+
+- The third tab is now **Home**: house selector (6 houses), a cosy 3/4 room per house (floor grid by capacity: 4×3 … 8×8, themed walls/floors), residents (up to capacity) and the companion roster below.
+- **Room sprites** for all 143 furniture pieces (`client/assets/v90-room/`, `tools/v90-assemble-room.py` → `room-sprites-v90.js`): footprint-sized, front/back/side so pieces rotate in 4 directions; layers floor (rugs, mats, pools — furniture may stand on them), object (depth-sorted) and wall (frames, clocks, curtains on the back wall).
+- Tap floor/wall → pick discovered furniture; tap a piece → Rotate / Move / Put away (rugs also "Put furniture on it"). One instance per element across houses.
+- Residents walk to pieces and **use** them (run in place, swim half-submerged with ripples, bounce on the trampoline, sleep lying down, eat, punch, climb). Effects are real via `companions.homeEffect`: training +2 bar points per use (max 200/day per companion), food +8 belly, mood pieces +2 mood.
+- State: `alchemy10k_homes_v1` (backup + reset). Next phase: idle discoveries while away.
+
 ## V89 — +200 Home & Living batch (31 October 2026)
 
 - **+200 elements** (6,412 → 6,612), `tools/v89-blueprint.json` → `tools/v89-assemble.py` → `organic-pack-v89.js`, `organic-art-v89.js`, `shared/v89-approved.json`, 200 SVGs in `client/assets/v89/`.

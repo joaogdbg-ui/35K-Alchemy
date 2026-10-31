@@ -111,6 +111,8 @@ import { ORGANIC_V89 } from './organic-pack-v89.js';
 import { ORGANIC_ART_V89 } from './organic-art-v89.js';
 import { FAMILY_DATA_V89 } from './family-data-v89.js';
 import { HOME_OBJECTS_V89 } from './home-objects-v89.js';
+import { createHomeSystem, HOME_STORAGE_KEY } from './home-engine-v90.js';
+import { ROOM_SPRITES_V90 } from './room-sprites-v90.js';
 import { COMPANIONS_V86, COMPANION_SPRITES_V86 } from './companions-v86.js';
 import { createCompanionSystem, COMPANION_STORAGE_KEY } from './companion-engine-v86.js';
 import { PUBLIC_LABELS_V86 } from './public-labels-v86.js';
@@ -468,7 +470,7 @@ function shinyCard(item){return `<p class="shiny-trivia"><span aria-hidden="true
 function showShinyFound(id){const it=byId.get(id);if(!it)return;
  showModal(`<div class="modal-tag shiny-tag">✦ SHINY ELEMENT</div><div class="modal-art is-shiny">${staticArt(it)}</div><h2>Shiny ${escapeText(uiName(it))}</h2>${shinyCard(it)}<div class="modal-milestone">${shiny.size.toLocaleString('en-US')} shiny ${shiny.size===1?'element':'elements'} · ${Math.round(shinyChance()*100)}% chance per combination</div>`);
 }
-const APP_VERSION='0.89.0';
+const APP_VERSION='0.90.0';
 // V83: status line + Google consent (UMP) privacy options, required for EEA players.
 async function refreshAdStatus(){
  const el=$('settingsAdStatus'),bridge=getRewardBridge();
@@ -1314,7 +1316,7 @@ function closeModal(){
 
 const PAW_SVG='<svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="7" cy="8" r="2.2"/><circle cx="12" cy="5.5" r="2.2"/><circle cx="17" cy="8" r="2.2"/><path d="M12 11c-3.5 0-6.5 2.6-6.5 5.4 0 1.9 1.4 3.1 3.1 3.1 1.3 0 2.1-.6 3.4-.6s2.1.6 3.4.6c1.7 0 3.1-1.2 3.1-3.1C18.5 13.6 15.5 11 12 11Z"/></svg>';
 function companionCallout(id){if(!companions.isCompanion(id))return '';
- return `<div class="companion-callout"><span class="companion-callout-icon">${PAW_SVG}</span><span><b>Companion element!</b> It can live on your screen, eat elements and level up. ${companions.freeChoiceLeft()?'Your first companion is free.':'Find it in the Companions tab.'}</span><button type="button" class="companion-callout-go" id="meetCompanion">Meet it</button></div>`;}
+ return `<div class="companion-callout"><span class="companion-callout-icon">${PAW_SVG}</span><span><b>Companion element!</b> It can live on your screen, eat elements and level up. ${companions.freeChoiceLeft()?'Your first companion is free.':'Find it in the Home tab.'}</span><button type="button" class="companion-callout-go" id="meetCompanion">Meet it</button></div>`;}
 // V89: companion houses and furniture are flagged in the discovery sheet (the Home screen comes next).
 const HOME_EFFECT_LABEL={run:'trains Run',swim:'trains Swim',power:'trains Power',fly:'trains Fly',stamina:'trains Stamina',hp:'trains HP',mood:'cheers companions up',food:'feeds companions',discovery:'boosts idle discoveries',decor:'decoration'};
 function homeCallout(id){const h=HOME_OBJECTS_V89[id];if(!h||h.kind==='material')return '';
@@ -1601,10 +1603,14 @@ async function requestCompanionActivation(meta){
 }
 function setPetsBadge(n){const b=$('petsBadge');if(b)b.hidden=!(n>0);}
 const companions=createCompanionSystem({roster:COMPANIONS_V86,sprites:COMPANION_SPRITES_V86,$,escapeText,byId,uiName,staticArt,familyFor,
- requestActivation:requestCompanionActivation,onBadge:setPetsBadge,
+ requestActivation:requestCompanionActivation,onBadge:setPetsBadge,renderExtra:()=>homes.render($('homeMount')),
  isDiscovered:discoveredAnywhere,isShiny:id=>shiny.has(id),elementIsUseful,getSlots:()=>slots,isLeftLocked:()=>leftLocked,toast,showModal,closeModal,
  reducedMotion:()=>Boolean(window.matchMedia?.('(prefers-reduced-motion: reduce)')?.matches),FAMILIES});
-const BACKUP_KEYS=[COMPANION_STORAGE_KEY,SHINY_KEY,HINT_BANK_KEY,FAMILY_SAVES_KEY,MODE_SELECTION_KEY,'gameverse_alchemy_v2','gameverse_dynamic_v11','gameverse_ledger_v16','gameverse_discovery_hints_v20',EXTRA_STORAGE,DISCOVERY_ORDER_KEY];
+// V90: companion houses (furniture placement, residents) on the Home tab.
+const homes=createHomeSystem({$,escapeText,byId,uiName,staticArt,isDiscovered:discoveredAnywhere,objects:HOME_OBJECTS_V89,sprites:COMPANION_SPRITES_V86,roster:COMPANIONS_V86,
+ roomSprites:ROOM_SPRITES_V90,applyEffect:(cid,eff)=>companions.homeEffect(cid,eff),
+ companionName:id=>companions.state().pets[id]?.nick||uiName(byId.get(id)),showModal,closeModal,toast,reducedMotion:()=>Boolean(window.matchMedia?.('(prefers-reduced-motion: reduce)')?.matches)});
+const BACKUP_KEYS=[COMPANION_STORAGE_KEY,HOME_STORAGE_KEY,SHINY_KEY,HINT_BANK_KEY,FAMILY_SAVES_KEY,MODE_SELECTION_KEY,'gameverse_alchemy_v2','gameverse_dynamic_v11','gameverse_ledger_v16','gameverse_discovery_hints_v20',EXTRA_STORAGE,DISCOVERY_ORDER_KEY];
 function backupJson(){
  save();
  const progress={format:'35k-alchemy-backup',version:25,savedAt:new Date().toISOString(),data:{}};
@@ -1676,7 +1682,7 @@ function confirmWipe(target){
 function wipeProgress(target){
  const classicKeys=['gameverse_alchemy_v2','gameverse_dynamic_v11','gameverse_ledger_v16',HINT_STORAGE,DISCOVERY_ORDER_KEY];
  const familyKeys=[FAMILY_SAVES_KEY,MERGE_PENDING_KEY,MERGE_TO_FAMILIES_KEY];
- const keys=target==='classic'?classicKeys:target==='families'?familyKeys:target==='all'?[...classicKeys,...familyKeys,EXTRA_STORAGE,SHINY_KEY,COMPANION_STORAGE_KEY]:null;
+ const keys=target==='classic'?classicKeys:target==='families'?familyKeys:target==='all'?[...classicKeys,...familyKeys,EXTRA_STORAGE,SHINY_KEY,COMPANION_STORAGE_KEY,HOME_STORAGE_KEY]:null;
  if(!keys)return;
  progressWiping=true;clearTimeout(autoTimer);
  try{for(const k of keys)localStorage.removeItem(k);}catch{}
@@ -1789,7 +1795,7 @@ function settings(){
     <div class="settings-divider"></div>
     <details><summary>How do hints and families work?</summary><p>Hints need a completed rewarded ad (or use your hint bank without ads). In Families Only, each family is a complete campaign from its own four starters, with separate progress. Merge copies discoveries between Classic and Families in either direction.</p></details>
     <div class="settings-divider"></div>
-    <details><summary>What are companions?</summary><p>Five elements per family are companions. Once discovered, choose one in the Companions tab: it walks around your screen, leaves gifts, and eats elements you drag onto it to level up (see the Companions tab for the full guide and the mini-game plan).</p></details>
+    <details><summary>What are companions?</summary><p>Five elements per family are companions. Once discovered, choose one in the Home tab: it walks around your screen, leaves gifts, and eats elements you drag onto it to level up. Companion houses (also in the Home tab) let several companions live, play and train together (see the Home tab for the full guide).</p></details>
     <div class="settings-divider"></div>
     <details><summary>What are Shiny elements?</summary><p>Every successful combination, including ones you already know, has a 1% chance (5% without ads) to make its result Shiny: it twinkles in your list and reveals a piece of trivia.</p></details>
     <div class="settings-divider"></div>
