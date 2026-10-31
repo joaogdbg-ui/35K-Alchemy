@@ -90,6 +90,14 @@ Preserve 200-per-batch policy and do not start another content release on top of
 
 - **Art redraw wave 3 (V85, done): 3,991 icons** — every remaining older element. All 6,012 pre-V83 elements now use the 2026 art direction (`ART_REDRAW`), plus 200 V83 and 200 V85 originals. Six near-duplicates found by the audit were redrawn; 36 reviewed false alarms are in `tools/art-redraw-reviewed-pairs.json` (the audit now also honours them for V83 comparisons).
 
+## V93 — Games tab: Chao-style races and sparring (31 October 2026)
+
+- 4th tab **Games** (hidden until the player has a house and a companion; `!` badge first time). `client/src/games-v93.js`, state `alchemy10k_games_v1`.
+- **Races** (Chao Race dynamics): sections use Run (ground), Swim (water), Fly (gaps), Power (rock walls); Stamina drains and a tired racer rests. Courses: Pebble Pond (Swim), Breezy Cliffs (Fly), Meadow Dash (Run), Boulder Wall (Power), Long Trail (Stamina, longer), Grand Circuit (all; opens after winning Rookie on the other five). Levels Rookie → Champion, each opened by winning the previous; rivals' stats scale per level.
+- **Sparring Ring** (Chao Karate-like): HP = health, Power = damage, Run = dodge, Stamina = punches; Rookie → Champion.
+- The companion plays on its own; tapping cheers (race sprint / power strike) and spends Stamina — over-cheering tires it out. Medals gold/silver/bronze; every race/bout trains the stats it used (growth multipliers apply).
+- Companion tiles in Home now show "Lv N".
+
 ## V92 — simpler Home tab, growth multipliers (31 October 2026)
 
 - **Houses give growth multipliers, never stats**: residents grow ×1.1 (Tent) … ×2 (Castle) faster from meals, gifts, discoveries and training; each training/food/fun/book piece adds +15% for its kind (max +60%). `growthMultiplier`, `homes.growthFor`; applied in the companion engine to future gains only — moving a companion never removes anything.
