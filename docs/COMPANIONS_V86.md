@@ -38,3 +38,10 @@ Bronze/silver/gold medals; goal = gold in every mini-game. Suggested first three
 - Continuous motion: a requestAnimationFrame mover with eased travel, parabolic jumps that swap the layer at the apex (so going behind a card is a visible jump), climbing the combiner's side, 8-step walk cycles synced to speed, counter-bobbing head, opposite arm swing.
 - Companions are now only characters with bodies (people, animals, creatures, robots): Game Controller/Dice/Arcade Machine/Band/Violin/Drum/Globe/Flag/Great Sphinx/Peking Duck were replaced by Hero, Werewolf, Pixel Artist, Singer, Ninja, Giant Robot, Flamenco, Tango, Rio Carnival, Day of the Dead.
 - Rig v2: every sprite has `mouth` or `jaw` and its quirk parts (`tongue`, `trunk`, `breath`, `flames`, `sparkle`, `flash`, `bee`, `sand`, `notes`, `smoke`, `antenna`, `screen`, `head-b/c`, `sword`, `brush`), validated by `tools/v86-assemble-companions.py`.
+
+## V86.2 — Chao-style stats (owner request, SA2B model)
+- Six stats, each with its own level 0–99, a 0–99 progress bar and points (cap 3,375): HP, Stamina, Run, Power, Swim, Fly. Each companion has a grade E–S per stat (`companionGrades`: family base + movement + signature overrides, Shiny +1 grade). Level-up gain = grade×3+13 ±2 (SA2B formula).
+- Feeding gives bar points by the element's family (`FAMILY_FEEDS`): main stat +24 (+40 if the companion's own family), secondary +10/+16; Shiny element ×2; 30-min cooldown per element still applies (eats anyway, no gain).
+- The companion grabs the element (`grab` → `hold-eat`), chews ~3 s while the held art loses bites, and a floating window (`.companion-statwin`) animates the touched rows: pink bar fills and wraps, Lv flips with a flash, points count up; stars burst on level-up.
+- Self-feeding: every 3–7 min it jumps onto the element list, the chip art lifts into its hands, it sniffs and eats.
+- Companions tab shows the SA2-style panel (name, points, Lv, grade, pink progress bar, blue 10-notch level bar). Run points raise on-screen speed.
