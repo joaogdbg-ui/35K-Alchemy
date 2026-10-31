@@ -90,6 +90,14 @@ Preserve 200-per-batch policy and do not start another content release on top of
 
 - **Art redraw wave 3 (V85, done): 3,991 icons** — every remaining older element. All 6,012 pre-V83 elements now use the 2026 art direction (`ART_REDRAW`), plus 200 V83 and 200 V85 originals. Six near-duplicates found by the audit were redrawn; 36 reviewed false alarms are in `tools/art-redraw-reviewed-pairs.json` (the audit now also honours them for V83 comparisons).
 
+## V92 — simpler Home tab, growth multipliers (31 October 2026)
+
+- **Houses give growth multipliers, never stats**: residents grow ×1.1 (Tent) … ×2 (Castle) faster from meals, gifts, discoveries and training; each training/food/fun/book piece adds +15% for its kind (max +60%). `growthMultiplier`, `homes.growthFor`; applied in the companion engine to future gains only — moving a companion never removes anything.
+- Tap a house chip → info sheet (summary, tier, room, ×growth, furniture bonuses, Go to this house). Undiscovered houses show tier/room/growth without the recipe.
+- Tap a resident → its stats (mood, belly, six stat rows) + Move out. Tap any companion in the roster → stats card (choose, rename).
+- Home tab simplified: house card, compact "On screen" row (Stats / Send home), companions as a 5-per-family avatar grid (green dot = on screen, ochre = lives in a house), help collapsed.
+- Room sprite fixes: punching bag side matches its A-frame, clearer radio, TVs, picket gate and drum kit side views.
+
 ## V91 — house tiers, drag & drop, idle discoveries (31 October 2026)
 
 - **House tiers**: upgrade chain Tent (House + Thread) → Hut (Tent + Wood) → Cabin → Cottage → Villa → Castle; measured generations 6 → 7 → 8 → 11 → 12 → 13. `recipe-polish-v91.js` (House + Wood now gives Floorboards). Chips show tier dots.

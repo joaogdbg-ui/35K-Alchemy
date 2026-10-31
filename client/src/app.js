@@ -471,7 +471,7 @@ function shinyCard(item){return `<p class="shiny-trivia"><span aria-hidden="true
 function showShinyFound(id){const it=byId.get(id);if(!it)return;
  showModal(`<div class="modal-tag shiny-tag">✦ SHINY ELEMENT</div><div class="modal-art is-shiny">${staticArt(it)}</div><h2>Shiny ${escapeText(uiName(it))}</h2>${shinyCard(it)}<div class="modal-milestone">${shiny.size.toLocaleString('en-US')} shiny ${shiny.size===1?'element':'elements'} · ${Math.round(shinyChance()*100)}% chance per combination</div>`);
 }
-const APP_VERSION='0.91.0';
+const APP_VERSION='0.92.0';
 // V83: status line + Google consent (UMP) privacy options, required for EEA players.
 async function refreshAdStatus(){
  const el=$('settingsAdStatus'),bridge=getRewardBridge();
@@ -1605,12 +1605,13 @@ async function requestCompanionActivation(meta){
 function setPetsBadge(n){const b=$('petsBadge');if(b)b.hidden=!(n>0);}
 const companions=createCompanionSystem({roster:COMPANIONS_V86,sprites:COMPANION_SPRITES_V86,$,escapeText,byId,uiName,staticArt,familyFor,
  requestActivation:requestCompanionActivation,onBadge:setPetsBadge,renderExtra:()=>homes.render($('homeMount')),
+ growthFor:(id,kind)=>homes.growthFor(id,kind),houseLine:id=>homes.houseLine(id),residentOf:id=>homes.residentOf(id),
  isDiscovered:discoveredAnywhere,isShiny:id=>shiny.has(id),elementIsUseful,getSlots:()=>slots,isLeftLocked:()=>leftLocked,toast,showModal,closeModal,
  reducedMotion:()=>Boolean(window.matchMedia?.('(prefers-reduced-motion: reduce)')?.matches),FAMILIES});
 // V90: companion houses (furniture placement, residents) on the Home tab.
 const homes=createHomeSystem({$,escapeText,byId,uiName,staticArt,isDiscovered:discoveredAnywhere,objects:HOME_OBJECTS_V89,sprites:COMPANION_SPRITES_V86,roster:COMPANIONS_V86,
  roomSprites:ROOM_SPRITES_V90,applyEffect:(cid,eff)=>companions.homeEffect(cid,eff),
- companionName:id=>companions.state().pets[id]?.nick||uiName(byId.get(id)),showModal,closeModal,toast,reducedMotion:()=>Boolean(window.matchMedia?.('(prefers-reduced-motion: reduce)')?.matches)});
+ companionName:id=>companions.state().pets[id]?.nick||uiName(byId.get(id)),statsHtml:id=>companions.statsHtml(id),showModal,closeModal,toast,reducedMotion:()=>Boolean(window.matchMedia?.('(prefers-reduced-motion: reduce)')?.matches)});
 // V91 idle discoveries: while the game is closed, companions living in houses find elements the
 // player could already craft right now (both ingredients owned, result not yet found). Rate grows
 // with residents, their total level and the discovery furniture; capped by time (8 h) and size.

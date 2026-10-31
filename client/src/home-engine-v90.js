@@ -13,6 +13,9 @@
  */
 export const HOME_STORAGE_KEY='alchemy10k_homes_v1';
 export const HOUSE_LAYOUTS={1:{cols:4,rows:3,theme:'tent'},2:{cols:5,rows:4,theme:'hut'},3:{cols:6,rows:5,theme:'cabin'},4:{cols:6,rows:6,theme:'cottage'},6:{cols:7,rows:7,theme:'villa'},8:{cols:8,rows:8,theme:'castle'}};
+// V92: houses speed up growth for every resident (multiplier on future gains, never on stats).
+export const HOUSE_GROWTH={1:1.1,2:1.2,3:1.35,4:1.5,6:1.75,8:2};
+export const FURNITURE_BONUS=0.15,FURNITURE_BONUS_MAX=0.6;
 export const EFFECT_LABEL={run:'Run',swim:'Swim',power:'Power',fly:'Fly',stamina:'Stamina',hp:'HP',mood:'Mood',food:'Food',discovery:'Discovery',decor:'Decor'};
 const BAND=0.6;   // sprite height band above the footprint (in tiles)
 // How a resident uses a piece: stand ON it, or stand IN FRONT of it.
@@ -32,10 +35,12 @@ export function fits(house,layout,objects,sprites,cand,ignoreIndex=-1){
   if(layer==='wall')return cand.x+w<=f.x||f.x+fw<=cand.x;
   return cand.x+w<=f.x||f.x+fw<=cand.x||cand.y+h<=f.y||f.y+fh<=cand.y;});
 }
+/** Pure: growth multiplier for one resident of `house` (capacity cap) for a stat or care kind. */
+export function growthMultiplier(capacity,house,objects,kind){const base=HOUSE_GROWTH[capacity]||1;const n=(house?.furniture||[]).filter(f=>objects[f.id]?.effect===kind).length;return Math.round(base*(1+Math.min(FURNITURE_BONUS_MAX,FURNITURE_BONUS*n))*100)/100;}
 export function houseSummary(house,objects){const out={};for(const f of house?.furniture||[]){const e=objects[f.id]?.effect;if(e)out[e]=(out[e]||0)+1;}return out;}
 
 export function createHomeSystem(ctx){
- const {$,escapeText,byId,uiName,staticArt,isDiscovered,objects,roomSprites,roster,sprites,companionName,applyEffect,showModal,closeModal,toast,reducedMotion,onChange}=ctx;
+ const {$,escapeText,byId,uiName,staticArt,isDiscovered,objects,roomSprites,roster,sprites,companionName,statsHtml,applyEffect,showModal,closeModal,toast,reducedMotion,onChange}=ctx;
  const RS=roomSprites||{};
  let state={v:1,active:null,houses:{}};
  try{const raw=JSON.parse(localStorage.getItem(HOME_STORAGE_KEY)||'null');if(raw&&raw.houses&&typeof raw.houses==='object')state={v:1,active:raw.active||null,houses:raw.houses};}catch{}
@@ -66,11 +71,10 @@ export function createHomeSystem(ctx){
   if(!mount)return;stopWander();
   const hid=activeHouse();const own=ownedHouses();
   const chips=houseIds().map((id,tier)=>{const o=objects[id],have=own.includes(id),it=byId.get(id);
-   return `<button type="button" class="home-chip ${id===hid?'is-active':''} ${have?'':'is-locked'}" data-house="${id}" ${have?'':'disabled'} aria-label="${have?escapeText(uiName(it)):'Undiscovered house'} · ${o.capacity}"><span class="home-chip-art">${have?staticArt(it):'<span class="home-q">?</span>'}</span><small>${o.capacity}</small><i class="home-tier" aria-hidden="true">${'<b></b>'.repeat(tier+1)}</i></button>`;}).join('');
+   return `<button type="button" class="home-chip ${id===hid?'is-active':''} ${have?'':'is-locked'}" data-house="${id}" aria-label="${have?escapeText(uiName(it)):'Undiscovered house'} · ${o.capacity}"><span class="home-chip-art">${have?staticArt(it):'<span class="home-q">?</span>'}</span><small>${o.capacity}</small><i class="home-tier" aria-hidden="true">${'<b></b>'.repeat(tier+1)}</i></button>`;}).join('');
   if(!hid){mount.innerHTML=`<section class="home-card"><div class="home-chips">${chips}</div><div class="home-empty"><strong>No companion house yet</strong><small>Discover a house element (the smallest is the Companion Tent) to get a room where your companions live, play and train. Bigger houses fit more companions.</small></div></section>`;return;}
   const o=objects[hid],L=layoutFor(o.capacity),h=house(hid),it=byId.get(hid);
-  const sum=houseSummary(h,objects);
-  const sumHtml=Object.keys(sum).length?Object.entries(sum).map(([e,n])=>`<span class="home-eff" data-eff="${e}">${EFFECT_LABEL[e]} ×${n}</span>`).join(''):'<span class="home-eff is-none">Tap the floor or the wall to add furniture</span>';
+  const sumHtml=bonusChips(hid);
   const residents=h.residents.filter(isDiscovered);
   const resHtml=residents.map(cid=>`<button type="button" class="home-res" data-res="${cid}" aria-label="${escapeText(companionName(cid))}"><span>${sprites[cid]||''}</span></button>`).join('')+(residents.length<o.capacity?`<button type="button" class="home-res is-add" id="homeAddRes" aria-label="Add a companion">+</button>`:'');
   mount.innerHTML=`<section class="home-card">
@@ -89,11 +93,11 @@ export function createHomeSystem(ctx){
     </div>
     <div class="home-door" aria-hidden="true"></div>
    </div>
-   ${moving?`<p class="home-hint">Drag ${escapeText(uiName(byId.get(h.furniture[moving.index]?.id)))} to its new spot · <button type="button" class="home-link" id="homeCancelMove">Done</button></p>`:'<p class="home-hint is-soft">Tip: press and hold a piece to drag it</p>'}
+   ${moving?`<p class="home-hint">Drag ${escapeText(uiName(byId.get(h.furniture[moving.index]?.id)))} to its new spot · <button type="button" class="home-link" id="homeCancelMove">Done</button></p>`:''}
    <div class="home-effects">${sumHtml}</div>
    <div class="home-res-row"><span>Residents</span><div class="home-res-list">${resHtml}</div></div>
   </section>`;
-  mount.querySelectorAll('[data-house]').forEach(b=>b.onclick=()=>{state.active=b.dataset.house;moving=null;save();render(mount);});
+  mount.querySelectorAll('[data-house]').forEach(b=>b.onclick=()=>houseInfo(mount,b.dataset.house));
   mount.querySelectorAll('.home-tile').forEach(t=>t.onclick=()=>tapSpot(mount,hid,Number(t.dataset.x),Number(t.dataset.y),false));
   mount.querySelectorAll('.home-walltile').forEach(t=>t.onclick=()=>tapSpot(mount,hid,Number(t.dataset.wx),-1,true));
   mount.querySelectorAll('[data-piece]').forEach(p=>{wireDrag(mount,hid,p);});
@@ -107,6 +111,22 @@ export function createHomeSystem(ctx){
  function spotFromEvent(mount,e,hid){const L=layoutFor(objects[hid].capacity);const fl=mount.querySelector('#homeFloor').getBoundingClientRect(),wl=mount.querySelector('#homeWall').getBoundingClientRect();
   const tile=fl.width/L.cols;if(e.clientY<fl.top&&e.clientY>=wl.top)return {x:Math.floor((e.clientX-fl.left)/tile),y:-1,wall:true};
   return {x:Math.floor((e.clientX-fl.left)/tile),y:Math.floor((e.clientY-fl.top)/tile),wall:false};}
+
+ // ---------- bonuses (growth multipliers) ----------
+ const BONUS_NAME={run:'Run',swim:'Swim',power:'Power',fly:'Fly',stamina:'Stamina',hp:'HP',food:'Meals',mood:'Fun',discovery:'Finds'};
+ function bonuses(hid){const h=house(hid),cap=objects[hid].capacity,out=[];const sum=houseSummary(h,objects);
+  for(const k of ['run','swim','power','fly','stamina','hp','food','mood','discovery'])if(sum[k]){const pct=Math.round(Math.min(FURNITURE_BONUS_MAX,FURNITURE_BONUS*sum[k])*100);out.push({k,pct,n:sum[k]});}
+  return {growth:HOUSE_GROWTH[cap]||1,list:out};}
+ function bonusChips(hid){const b=bonuses(hid);return `<span class="home-eff is-growth">Growth ×${b.growth}</span>`+b.list.map(x=>`<span class="home-eff" data-eff="${x.k}">${BONUS_NAME[x.k]} +${x.pct}%</span>`).join('');}
+ function houseInfo(mount,id){const o=objects[id],have=isDiscovered(id),it=byId.get(id),tier=houseIds().indexOf(id)+1,L=layoutFor(o.capacity);
+  if(!have){showModal(`<div class="modal-tag">COMPANION HOUSE · TIER ${tier}</div><div class="modal-art home-locked-art">${staticArt(it)}</div><h2>Undiscovered house</h2><p>Room for <b>${o.capacity}</b> companion${o.capacity>1?'s':''} · ${L.cols}×${L.rows} floor.</p><p class="home-bonus-line">Residents grow <b>×${HOUSE_GROWTH[o.capacity]}</b> faster.</p><p class="mini-muted">Better houses are upgrades of the previous one, so their recipes are longer.</p><button type="button" class="modal-button secondary" id="homeClose">Close</button>`);$('homeClose').onclick=closeModal;return;}
+  const b=bonuses(id),active=id===state.active;
+  showModal(`<div class="modal-tag">COMPANION HOUSE · TIER ${tier}</div><div class="modal-art">${staticArt(it)}</div><h2>${escapeText(uiName(it))}</h2><p>${escapeText(it.summary||'')}</p>
+   <div class="home-bonus"><div class="home-bonus-big">×${b.growth}<small>growth for every resident</small></div>
+   <ul>${b.list.length?b.list.map(x=>`<li><b>${BONUS_NAME[x.k]} +${x.pct}%</b> · ${x.n} piece${x.n>1?'s':''}</li>`).join(''):'<li>Add training, food, fun or book furniture for extra bonuses.</li>'}</ul></div>
+   <p class="mini-muted">Room for ${o.capacity} · ${L.cols}×${L.rows} floor. Bonuses only speed up growth from meals, gifts, discoveries and training — moving a companion to another house never takes away what it already earned.</p>
+   ${active?'':'<button type="button" class="modal-button" id="homeGo">Go to this house</button>'}<button type="button" class="modal-button secondary" id="homeClose">Close</button>`);
+  $('homeClose').onclick=closeModal;const go=$('homeGo');if(go)go.onclick=()=>{state.active=id;moving=null;save();closeModal();render(mount);};}
 
  // ---------- drag and drop: press and hold a piece (or use Move) and drag it over the grid ----------
  function wireDrag(mount,hid,el){
@@ -171,7 +191,8 @@ export function createHomeSystem(ctx){
   document.querySelectorAll('[data-inv]').forEach(b=>b.onclick=()=>{const cid=b.dataset.inv,w=residentOf(cid);if(w)state.houses[w].residents=state.houses[w].residents.filter(x=>x!==cid);if(h.residents.length<cap)h.residents.push(cid);save();closeModal();render(mount);});
  }
  function tapResident(mount,hid,cid){
-  showModal(`<div class="modal-tag">RESIDENT</div><div class="modal-art">${sprites[cid]||''}</div><h2>${escapeText(companionName(cid))}</h2><p>Lives in ${escapeText(uiName(byId.get(hid)))} and uses its furniture: training pieces raise its stats a little every day, food bowls fill its belly, beds and toys cheer it up.</p><button type="button" class="modal-button secondary" id="homeEvict">Move out</button><button type="button" class="modal-button secondary" id="homeClose">Close</button>`);
+  const g=HOUSE_GROWTH[objects[hid].capacity]||1;
+  showModal(`<div class="modal-tag">RESIDENT</div><div class="home-res-head"><span class="home-res-big">${sprites[cid]||''}</span><div><h2>${escapeText(companionName(cid))}</h2><small>Lives in ${escapeText(uiName(byId.get(hid)))} · grows ×${g} faster</small></div></div>${statsHtml?.(cid)||''}<button type="button" class="modal-button secondary" id="homeEvict">Move out</button><button type="button" class="modal-button secondary" id="homeClose">Close</button>`);
   $('homeClose').onclick=closeModal;$('homeEvict').onclick=()=>{const h=house(hid);h.residents=h.residents.filter(x=>x!==cid);save();closeModal();render(mount);};
  }
 
@@ -217,6 +238,8 @@ export function createHomeSystem(ctx){
  function place(el,p){el.style.setProperty('--x',p.x);el.style.setProperty('--y',p.y);el.style.setProperty('--z',11+(p.y+1)*2);el.dataset.face=p.face>0?'right':'left';}
  function stopWander(){clearTimeout(wanderTimer);wanderTimer=null;}
 
- return {render,stopWander,state:()=>state,summary:id=>houseSummary(house(id),objects),ownedHouses,residentOf,
+ function growthFor(cid,kind){const hid=residentOf(cid);if(!hid||!isDiscovered(hid))return 1;return growthMultiplier(objects[hid].capacity,house(hid),objects,kind);}
+ function houseLine(cid){const hid=residentOf(cid);if(!hid||!isDiscovered(hid))return '';return `Lives in ${escapeText(uiName(byId.get(hid)))} · grows ×${HOUSE_GROWTH[objects[hid].capacity]||1} faster`;}
+ return {render,stopWander,growthFor,houseLine,state:()=>state,summary:id=>houseSummary(house(id),objects),ownedHouses,residentOf,
   importState(raw){if(raw&&raw.houses){state={v:1,active:raw.active||null,houses:raw.houses};save();}}};
 }

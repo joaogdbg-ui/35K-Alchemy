@@ -58,7 +58,9 @@ export function moodLabel(m){return m>=MOOD.happy?'Happy':m<=MOOD.sad?'Sad':'Con
 
 export function createCompanionSystem(ctx){
  const {roster,sprites,$,escapeText,byId,uiName,staticArt,familyFor,isDiscovered,isShiny,elementIsUseful,getSlots,isLeftLocked,toast,showModal,closeModal,reducedMotion,FAMILIES}=ctx;
- const requestActivation=ctx.requestActivation||(async()=>true);const onBadge=ctx.onBadge||(()=>{});
+ const requestActivation=ctx.requestActivation||(async()=>true);
+ // V92: houses speed up growth (multipliers on future gains only — never on stats themselves).
+ const growth=(id,kind)=>{try{return Math.max(1,Number(ctx.growthFor?.(id,kind))||1);}catch{return 1;}};const onBadge=ctx.onBadge||(()=>{});
  const metaById=new Map(roster.map(c=>[c.id,c]));
  let state={active:null,pets:{},v:1};
  const normalize=raw=>({active:raw.active||null,pets:raw.pets,v:1,firstFreeUsed:Boolean(raw.firstFreeUsed||raw.active),seen:Array.isArray(raw.seen)?raw.seen.filter(x=>typeof x==='string'):null});
@@ -236,7 +238,7 @@ export function createCompanionSystem(ctx){
   if(!fromQuirk){busy=true;sprite.dataset.anim=meta.quirkAnim==='layegg'?'layegg':'gift';await wait(meta.quirkAnim==='layegg'?1500:900);}
   const g=document.createElement('button');g.type='button';g.className='companion-gift';g.setAttribute('aria-label','Tap to collect the '+meta.gift);g.innerHTML=giftArt(meta);
   g.style.setProperty('--x',(pos.x+(pos.face>0?-24:SIZE-10))+'px');g.style.setProperty('--y',(pos.y+SIZE-32)+'px');
-  g.onclick=()=>{g.classList.add('is-taken');setTimeout(()=>g.remove(),420);const p=pet(meta.id);p.gifts++;p.mood=Math.min(100,p.mood+6);const r=gainStat(p,meta,'stamina',10);save();fx('hearts',1300);showStatWindow(meta,[{stat:'stamina',amount:10,...r}],1800);refreshViews();};
+  g.onclick=()=>{g.classList.add('is-taken');setTimeout(()=>g.remove(),420);const p=pet(meta.id);p.gifts++;p.mood=Math.min(100,p.mood+6);const amt=Math.round(10*growth(meta.id,'stamina'));const r=gainStat(p,meta,'stamina',amt);save();fx('hearts',1300);showStatWindow(meta,[{stat:'stamina',amount:amt,...r}],1800);refreshViews();};
   layerFront.append(g);if(!fromQuirk){sprite.dataset.anim='idle';busy=false;}scheduleGift();}
 
  // ---------- feeding: the companion grabs the element, chews for a few seconds, and a floating
@@ -277,9 +279,9 @@ export function createCompanionSystem(ctx){
   // grab: the element flies into the hands and stays there while chewing
   const held=fx('held',3600);held.innerHTML=staticArt(item);sprite.dataset.anim='grab';await wait(450);
   sprite.dataset.anim='hold-eat';
-  const plan=fresh?feedPlan(meta,item):[];
+  const plan=fresh?feedPlan(meta,item).map(c=>({...c,amount:Math.round(c.amount*growth(meta.id,c.stat))})):[];
   const changes=plan.map(c=>({...c,...gainStat(p,meta,c.stat,c.amount)}));
-  p.mood=Math.min(100,p.mood+(taste==='love'?12:5));p.moodAt=now();p.belly=Math.min(100,p.belly+(fresh?25:10));p.bellyAt=now();if(fresh)p.fed[item.id]=now();p.meals++;save();
+  p.mood=Math.min(100,p.mood+(taste==='love'?12:5));p.moodAt=now();p.belly=Math.min(100,p.belly+Math.round((fresh?25:10)*growth(meta.id,'food')));p.bellyAt=now();if(fresh)p.fed[item.id]=now();p.meals++;save();
   if(changes.length)showStatWindow(meta,changes,2800);
   for(let i=0;i<4;i++){await wait(650);held.classList.add('bite-'+(i+1));}
   await wait(500);held.remove();
@@ -339,10 +341,11 @@ export function createCompanionSystem(ctx){
  function markSeen(){if(!Array.isArray(state.seen))state.seen=[];let changed=false;for(const c of unlocked())if(!state.seen.includes(c.id)){state.seen.push(c.id);changed=true;}if(changed)save();onBadge(0);}
  const isCompanion=id=>metaById.has(id);
  const freeChoiceLeft=()=>!state.firstFreeUsed;
- function onDiscovery(id){if(metaById.has(id)&&!state.pets[id]){pet(id);save();syncSeen();}if(state.active&&sprite&&!sprite.hidden){const p=pet(state.active),m=activeMeta();if(m){gainStat(p,m,'hp',4);save();}}}
+ function onDiscovery(id){if(metaById.has(id)&&!state.pets[id]){pet(id);save();syncSeen();}if(state.active&&sprite&&!sprite.hidden){const p=pet(state.active),m=activeMeta();if(m){gainStat(p,m,'hp',Math.round(4*growth(m.id,'hp')));save();}}}
 
  // ---------- views ----------
  const listeners=new Set();function refreshViews(){for(const fn of listeners)try{fn();}catch(e){console.warn(e);}}
+ function statsHtml(id){const meta=metaById.get(id);if(!meta||!isDiscovered(id))return '';const p=pet(id);settleMood(p);return `<span class="pet-needs"><span><i>Mood</i><b><em style="width:${p.mood}%"></em></b></span><span><i>Belly</i><b class="is-belly"><em style="width:${p.belly}%"></em></b></span></span>`+statPanel(meta,p);}
  function statPanel(meta,p){const g=companionGrades(meta,isShiny(meta.id));return `<div class="cs-panel">${COMPANION_STATS.map(k=>statRow(k,p.stats[k],g[k])).join('')}</div>`;}
  function cardHtml(meta,{full=false}={}){
   const have=isDiscovered(meta.id),p=have?pet(meta.id):null,sh=isShiny(meta.id);if(p)settleMood(p);
@@ -364,28 +367,24 @@ export function createCompanionSystem(ctx){
   const root=$('viewPets');if(!root)return;
   const act=activeMeta();const have=unlocked().length;
   const groups=FAMILIES.map(f=>({f,list:roster.filter(c=>c.family===f.id)})).filter(g=>g.list.length);
-  root.innerHTML=`<div class="pets-scroll"><div class="section-head"><h2>Home</h2><p>Your companion houses and companions · ${have} of ${roster.length} companions unlocked.</p></div>
+  const ava=c=>{const own=isDiscovered(c.id),p=own?pet(c.id):null,el=byId.get(c.id),house=own&&ctx.residentOf?ctx.residentOf(c.id):null;
+   return `<button type="button" class="pet-ava ${own?'is-unlocked':'is-locked'} ${state.active===c.id?'is-active':''} ${own&&isShiny(c.id)?'is-shiny':''}" data-card="${c.id}" aria-label="${own?escapeText(p.nick||uiName(el)):'Undiscovered companion'}"><span class="pet-ava-art">${own?(sprites[c.id]||staticArt(el)):'<span class="pet-silhouette">'+staticArt(el)+'</span>'}</span><small>${own?escapeText(p.nick||uiName(el)):'???'}</small>${state.active===c.id?'<i class="pet-ava-tag is-screen" title="On screen"></i>':house?'<i class="pet-ava-tag is-home" title="Lives in a house"></i>':''}</button>`;};
+  let now='';
+  if(act){const p=pet(act.id);settleMood(p);now=`<section class="pets-now"><button type="button" class="pets-now-art" data-card="${act.id}" aria-label="Stats">${sprites[act.id]||''}</button><div class="pets-now-main"><strong>${escapeText(nameOf(act))}</strong><small>On screen · Total Lv ${totalLevel(act.id)} · ${moodLabel(p.mood)}${hungry(p)?' · Hungry':''}</small><span class="pet-needs"><span><i>Mood</i><b><em style="width:${p.mood}%"></em></b></span><span><i>Belly</i><b class="is-belly"><em style="width:${p.belly}%"></em></b></span></span></div><div class="pets-now-actions"><button type="button" class="pets-btn" data-card="${act.id}">Stats</button><button type="button" class="pets-btn is-quiet" id="petDismiss">Send home</button></div></section>`;}
+  else now=`<section class="pets-now is-empty"><small>${have?'No companion on screen. Tap a companion below to choose one.':`Discover one of the ${roster.length} companion elements (five per family) to get your first companion.`}</small></section>`;
+  root.innerHTML=`<div class="pets-scroll"><div class="section-head home-title"><h2>Home</h2></div>
    <div id="homeMount"></div>
-   <h3 class="pets-family pets-on-screen">On screen</h3>
-   <section class="pets-hero">${act?cardHtml(act,{full:true}):`<div class="pets-empty"><strong>No companion active</strong><small>Discover one of the ${roster.length} companion elements (five per family) and tap Choose.</small></div>`}
-   ${act?`<button type="button" class="pet-dismiss" id="petDismiss">Send home</button>`:''}</section>
-   ${groups.map(g=>`<h3 class="pets-family">${escapeText(g.f.name)}</h3><div class="pets-grid">${g.list.map(c=>cardHtml(c)).join('')}</div>`).join('')}
-   <section class="pets-help"><h3>How companions work</h3><ul>
-    <li><strong>Houses:</strong> discover a companion house element (Tent 1, Hut 2, Cabin 3, Cottage 4, Villa 6, Castle 8 companions). Tap an empty floor tile to place furniture you discovered, tap a piece to move it or put it away, and tap + to invite companions. Residents wander, play and use the furniture. Each piece shows what it trains (Run, Swim, Power, Fly, Stamina, HP) or whether it cheers them up, feeds them or boosts discoveries.</li>
-    <li><strong>Unlock:</strong> discover the element in Classic or in its family campaign. The Home tab shows a <b>!</b> until you open it.</li>
-    <li><strong>Choosing:</strong> your first companion is free. Switching to another one needs a rewarded ad; after it, switching again is free for 5 minutes. Without ads, switching is always free. Sending a companion home is free.</li>
-    <li><strong>Petting:</strong> rub your finger across the companion: hearts float up and its mood rises (up to a limit every 10 minutes). A quick tap opens its card, where you can also rename it.</li>
-    <li><strong>Emotion orb:</strong> a little orb over its head shows how it feels: a heart when happy, a spiral when sad or when it refuses food, a bowl when hungry, a star burst on a level-up.</li>
-    <li><strong>Belly:</strong> slowly empties over a few hours. A hungry companion goes looking for food more often and its mood fades twice as fast. Each meal fills it.</li>
-    <li><strong>On screen:</strong> it walks along the cards, hops, climbs, knocks on the glass, passes behind the frames, and points at a locked ingredient that has no combination left.</li>
-    <li><strong>Gifts:</strong> every few minutes it leaves its gift (the Stegosaurus lays an egg). Tap it: a little Stamina and a happier companion.</li>
-    <li><strong>Feeding:</strong> drag any element from your list onto the companion, or wait: now and then it hops into your list and helps itself. It grabs the element, chews for a few seconds, and a floating window shows which stats grow. Each element feeds it once per 30 minutes; a few are refused.</li>
-    <li><strong>Which stats grow:</strong> the element's family decides, like coloured drives: Games → Run; Anime, Music &amp; Cinema → Power; Nature → Swim; Fantasy → Fly; People → Stamina &amp; HP; Mythology → Power &amp; Fly; Prehistory → Power &amp; HP; Countries → Run &amp; Swim. Its own family counts almost double; a Shiny element counts double.</li>
-    <li><strong>Six stats, each with its own level:</strong> HP, Stamina, Run, Power, Swim, Fly — Lv.0 to Lv.${COMPANION_MAX_LEVEL}. The bar fills to the next level. Every companion has a grade E–S per stat (its signature stat is S): a level-up gives grade×3+13 ±2 points, so an S stat can reach ${STAT_MAX_POINTS}. A Shiny companion has every grade one step higher.</li>
-    <li><strong>Mood:</strong> fades slowly over time; a sad companion moves slower. Feeding, gifts and new discoveries cheer it up. A high Run stat makes it move faster on screen.</li>
-   </ul><h3>Coming next: companion mini-games</h3><p>Each companion will unlock a different mini-game that it plays on its own (racing, climbing, swimming, digging, flying…). You only tap the screen for a boost, which spends Stamina; Run, Power, Swim, Fly and HP decide how it performs. The goal: a gold medal in every mini-game. Level up your companions now to be ready.</p></section></div>`;
-  root.querySelectorAll('[data-activate]').forEach(b=>b.onclick=()=>choose(b.dataset.activate));
-  root.querySelectorAll('[data-rename]').forEach(b=>b.onclick=()=>rename(b.dataset.rename));
+   <h3 class="pets-family">On screen</h3>${now}
+   <h3 class="pets-family">Companions <span>${have}/${roster.length}</span></h3>
+   <div class="pets-avatars">${groups.map(g=>`<div class="pets-ava-row"><span class="pets-ava-family">${escapeText(g.f.name)}</span><div class="pets-ava-list">${g.list.map(ava).join('')}</div></div>`).join('')}</div>
+   <details class="pets-help"><summary>How companions and houses work</summary><ul>
+    <li><strong>Companions:</strong> discover a companion element, tap it here and choose it. Your first one is free; switching later needs a rewarded ad (then 5 free minutes). It lives on your screen: drag elements onto it to feed it, rub it to pet it, tap its gifts.</li>
+    <li><strong>Stats:</strong> HP, Stamina, Run, Power, Swim, Fly, each Lv.0–${COMPANION_MAX_LEVEL} with a grade E–S. The element's family decides which stats a meal grows.</li>
+    <li><strong>Houses:</strong> discover house elements (Tent 1 → Castle 8 companions; better houses need longer recipes). Tap a house for its bonuses. Companions living in a house grow faster from everything they do — bonuses only speed up growth, so moving a companion never takes anything away.</li>
+    <li><strong>Furniture:</strong> tap the floor or the wall to place pieces, press and hold to drag them, tap one to rotate or put it away. Training pieces speed up their stat, food pieces make meals fill more, fun pieces lift mood faster, books and globes bring more finds while you are away.</li>
+    <li><strong>While you are away:</strong> residents find elements you could already craft. One or two are free; one ad keeps them all.</li>
+   </ul></details></div>`;
+  root.querySelectorAll('[data-card]').forEach(b=>b.onclick=()=>openCard(b.dataset.card));
   const d=$('petDismiss');if(d)d.onclick=()=>setActive(null);
   try{ctx.renderExtra?.(root);}catch(e){console.warn('home',e);}
   if(!root.hidden)markSeen();
@@ -395,7 +394,7 @@ export function createCompanionSystem(ctx){
   const inp=$('petNameInput');setTimeout(()=>inp?.focus(),50);
   $('petNameSave').onclick=()=>{const v=String(inp.value||'').replace(/[\u0000-\u001f<>]/g,'').trim().slice(0,NICK_MAX);if(v)p.nick=v;else delete p.nick;save();closeModal();refreshViews();};
   $('petNameCancel').onclick=closeModal;}
- function openCard(id){const meta=metaById.get(id);if(!meta)return;showModal(`<div class="modal-tag">COMPANION</div>${cardHtml(meta,{full:true})}<p class="mini-muted">Drag an element from your list onto ${escapeText(nameOf(meta))} to feed it. Rub it with your finger to pet it. Tap its gifts when they appear.</p><button type="button" class="modal-button secondary" id="petCardClose">Close</button>`);$('petCardClose').onclick=closeModal;$('modalContent').querySelectorAll('[data-activate]').forEach(b=>b.onclick=async()=>{closeModal();await choose(b.dataset.activate);});$('modalContent').querySelectorAll('[data-rename]').forEach(b=>b.onclick=()=>rename(b.dataset.rename));}
+ function openCard(id){const meta=metaById.get(id);if(!meta)return;if(!isDiscovered(id)){showModal(`<div class="modal-tag">COMPANION</div>${cardHtml(meta,{full:true})}<button type="button" class="modal-button secondary" id="petCardClose">Close</button>`);$('petCardClose').onclick=closeModal;return;}const hl=ctx.houseLine?.(id)||'';showModal(`<div class="modal-tag">COMPANION</div>${cardHtml(meta,{full:true})}${hl?`<p class="pet-house-line">${hl}</p>`:''}<p class="mini-muted">Drag an element from your list onto ${escapeText(nameOf(meta))} to feed it. Rub it with your finger to pet it. Tap its gifts when they appear.</p><button type="button" class="modal-button secondary" id="petCardClose">Close</button>`);$('petCardClose').onclick=closeModal;$('modalContent').querySelectorAll('[data-activate]').forEach(b=>b.onclick=async()=>{closeModal();await choose(b.dataset.activate);});$('modalContent').querySelectorAll('[data-rename]').forEach(b=>b.onclick=()=>rename(b.dataset.rename));}
  listeners.add(renderTab);
  // V90: a resident using furniture in a companion house. Training pieces add stat progress
  // (capped at HOME_DAILY_CAP bar points per companion per day), food fills the belly, beds and
@@ -403,12 +402,12 @@ export function createCompanionSystem(ctx){
  function homeEffect(id,effect){const meta=metaById.get(id);if(!meta||!isDiscovered(id))return false;const p=pet(id);settleMood(p);
   const day=new Date().toISOString().slice(0,10);if(p.homeDay!==day){p.homeDay=day;p.homeGain=0;}
   let changed=false;
-  if(COMPANION_STATS.includes(effect)){if(p.homeGain<HOME_DAILY_CAP){gainStat(p,meta,effect,2);p.homeGain+=2;changed=true;}}
-  else if(effect==='food'){if(p.belly<100){p.belly=Math.min(100,p.belly+8);p.bellyAt=now();changed=true;}}
-  else if(effect==='mood'){if(p.mood<100){p.mood=Math.min(100,p.mood+2);p.moodAt=now();changed=true;}}
+  if(COMPANION_STATS.includes(effect)){if(p.homeGain<HOME_DAILY_CAP){const g=Math.max(1,Math.round(1.5*growth(id,effect)));gainStat(p,meta,effect,g);p.homeGain+=g;changed=true;}}
+  else if(effect==='food'){if(p.belly<100){p.belly=Math.min(100,p.belly+Math.round(6*growth(id,'food')));p.bellyAt=now();changed=true;}}
+  else if(effect==='mood'){if(p.mood<100){p.mood=Math.min(100,p.mood+Math.round(2*growth(id,'mood')));p.moodAt=now();changed=true;}}
   if(effect==='hp'&&p.mood<100){p.mood=Math.min(100,p.mood+1);p.moodAt=now();}
   if(changed)save();return changed;}
- return {start,stop,setActive,choose,homeEffect,syncSeen,markSeen,isCompanion,freeChoiceLeft,emote,feed,hitTest,onDiscovery,renderTab,openCard,get active(){return activeMeta();},state:()=>state,unlocked,refreshViews,
+ return {start,stop,setActive,statsHtml,choose,homeEffect,syncSeen,markSeen,isCompanion,freeChoiceLeft,emote,feed,hitTest,onDiscovery,renderTab,openCard,get active(){return activeMeta();},state:()=>state,unlocked,refreshViews,
   onViewChange(){if(activeMeta()&&sprite&&!sprite.hidden)setTimeout(()=>{if(cancelMove)cancelMove();const r=pickRail();if(r){rail=r;setLayer(r.layer);place(clampX(r,pos.x),r.y);sprite.dataset.anim='idle';}},80);},
   importState(raw){if(raw&&raw.pets){state=normalize(raw);save();syncSeen();}},grades:companionGrades};
 }
