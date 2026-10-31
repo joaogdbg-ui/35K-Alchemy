@@ -5,7 +5,7 @@
 ## Conteúdo e motor
 
 1. Receita determinística e global: `A+B=C`, `B+A=C` e **nunca** `A+B=D` noutro modo.
-2. Não alterar IDs ou resultados anteriores, nem introduzir nomes normalizados e pares duplicados.
+2. Não alterar IDs ou resultados anteriores, nem introduzir nomes normalizados e pares duplicados. **Exceção decidida pelo dono a 31/10/2026 (V87):** receitas claramente forçadas podem mudar de resultado através de `client/src/recipe-polish-v87.js` (ou sucessor), só quando o resultado antigo mantém outra receita e a validação confirma Classic e todas as famílias a 100%. IDs, elementos e saves nunca mudam; pares livres podem receber receitas lógicas novas.
 3. Classic começa com Water, Fire, Earth e Air, deve alcançar todo o catálogo.
 4. Campanhas Families Only começam com quatro elementos temáticos diferentes; têm de ser alcançáveis autonomamente, com receitas compatíveis com Classic.
 5. Um ID multifamília é partilhado: descobri-lo numa campanha desbloqueia-o nas demais. Classic mantém progresso distinto.

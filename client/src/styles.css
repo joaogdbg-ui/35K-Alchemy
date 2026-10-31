@@ -835,3 +835,45 @@ body.companion-knock .app{animation:cp-screen-knock .18s ease-out 1}
 .pets-help h3{margin:0 0 6px;font-size:14px}.pets-help h3+p,.pets-help ul{margin:0 0 10px}.pets-help ul{padding-left:18px}
 .modal-card .pet-card{grid-template-columns:72px 1fr;border:0;padding:4px 0;background:none;text-align:left}
 .modal-card .pet-card .pet-activate{grid-column:1/-1;justify-self:start}
+/* ---------- V87 companions: petting, emotion orb, belly, rename, tab badge, discovery callout ---------- */
+.companion{touch-action:none;user-select:none;-webkit-user-select:none}
+.companion-emote{position:absolute;left:50%;top:-24px;width:24px;height:24px;margin-left:-12px;pointer-events:none;transform-origin:50% 100%}
+.companion-emote svg{width:100%;height:100%;display:block}
+.companion-emote.is-pop{animation:cp-emote-pop .35s cubic-bezier(.2,1.6,.4,1) 1,cp-emote-bob 1.4s ease-in-out .35s infinite}
+.companion-emote.is-fade{animation:cp-emote-fade .3s ease-in 1 forwards}
+.companion-emote[data-emote="spiral"] svg{animation:cp-emote-spin 2.4s linear infinite}
+.companion-emote[data-emote="burst"] svg{animation:cp-emote-spin 1.6s linear infinite}
+@keyframes cp-emote-pop{0%{transform:scale(0) translateY(10px);opacity:0}100%{transform:scale(1);opacity:1}}
+@keyframes cp-emote-bob{0%,100%{transform:translateY(0)}50%{transform:translateY(-3px)}}
+@keyframes cp-emote-fade{to{transform:scale(.4) translateY(-8px);opacity:0}}
+@keyframes cp-emote-spin{to{transform:rotate(360deg)}}
+.companion.is-petted.is-petted .companion-art{animation:cp-petted .55s ease-in-out infinite}
+.companion.is-petted.is-petted [data-part="head"]{animation:cp-petted-head .55s ease-in-out infinite}
+.companion.is-petted.is-petted [data-part="tail"]{animation:cp-petted-tail .3s ease-in-out infinite}
+.companion.is-petted.is-petted [data-part="eye-l"],.companion.is-petted.is-petted [data-part="eye-r"]{transform:scaleY(.25)}
+.companion.is-happy.is-happy .companion-art{animation:cp-happy .45s ease-out 2}
+@keyframes cp-petted{0%,100%{transform:scale(1,1)}50%{transform:scale(1.06,.94) translateY(2px)}}
+@keyframes cp-petted-head{0%,100%{transform:rotate(-8deg)}50%{transform:rotate(8deg)}}
+@keyframes cp-petted-tail{0%,100%{transform:rotate(-14deg)}50%{transform:rotate(14deg)}}
+@keyframes cp-happy{0%{transform:translateY(0) scale(1)}40%{transform:translateY(-12px) scale(.96,1.06)}80%{transform:translateY(0) scale(1.08,.92)}100%{transform:none}}
+.pet-needs{display:flex;gap:10px;margin:4px 0 2px}
+.pet-needs>span{flex:1;display:grid;grid-template-columns:auto 1fr;align-items:center;gap:6px;font-size:11px;font-weight:800;color:var(--slate)}
+.pet-needs i{font-style:normal}
+.pet-needs b{display:block;height:6px;border-radius:3px;background:var(--line);overflow:hidden}
+.pet-needs em{display:block;height:100%;border-radius:3px;background:var(--good)}
+.pet-needs b.is-belly em{background:var(--accent)}
+.pet-rename{margin-top:6px;padding:6px 12px;border-radius:999px;border:1px solid var(--line-2);background:var(--surface);color:var(--ink-2);font-size:12px;font-weight:800}
+.pet-name-input{width:100%;box-sizing:border-box;margin:10px 0 4px;padding:12px 14px;border-radius:12px;border:1px solid var(--line-2);background:var(--surface-2);color:var(--ink);font:inherit;font-size:16px}
+.tab{position:relative}
+.tab-badge{position:absolute;top:2px;right:calc(50% - 26px);min-width:16px;height:16px;padding:0 4px;box-sizing:border-box;border-radius:999px;background:var(--accent);color:#fff;font-style:normal;font-size:11px;font-weight:900;line-height:16px;text-align:center;box-shadow:0 0 0 2px var(--surface);animation:tab-badge-pop .5s cubic-bezier(.2,1.6,.4,1) 1,tab-badge-pulse 1.8s ease-in-out .6s infinite}
+.tab-badge[hidden]{display:none}
+@keyframes tab-badge-pop{from{transform:scale(0)}to{transform:scale(1)}}
+@keyframes tab-badge-pulse{0%,100%{transform:scale(1)}50%{transform:scale(1.15)}}
+.modal-tag.companion-tag{display:inline-block;padding:3px 10px;border-radius:999px;background:var(--good-2);color:var(--good)}
+.modal-art.is-companion{border-radius:50%;background:radial-gradient(circle,var(--good-2) 0 60%,transparent 61%);animation:cp-happy .6s ease-out 1}
+.modal-art.is-companion svg{width:100%;height:100%}
+.companion-callout{display:grid;grid-template-columns:30px 1fr;gap:8px 10px;align-items:center;margin:10px 0 4px;padding:10px 12px;border-radius:14px;background:var(--good-2);color:var(--ink);text-align:left;font-size:13px;line-height:1.35}
+.companion-callout-icon{width:30px;height:30px;border-radius:50%;background:var(--good);display:grid;place-items:center}
+.companion-callout-icon svg{width:18px;height:18px;fill:none;stroke:#fff;stroke-width:2;stroke-linecap:round;stroke-linejoin:round}
+.companion-callout-go{grid-column:1/-1;justify-self:stretch;padding:9px 12px;border-radius:12px;border:0;background:var(--good);color:#fff;font-weight:800;font-size:14px}
+@media (prefers-reduced-motion:reduce){.tab-badge,.companion-emote.is-pop{animation:none}}

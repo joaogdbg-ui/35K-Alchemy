@@ -1,0 +1,221 @@
+# V87 — missing-element ideas for the next +200 batch
+
+217 element ideas collected during the recipe polish (they need art and a full +200 batch; not added now).
+
+- **Diamond** — e.g. Coal + Pressure, Pressure + Coal
+- **Bat** — e.g. Animal + Night, Bird + Cave, Cave + Shadow
+- **Hourglass** — e.g. Clock + Sand, Glass + Sand, Glass + Time
+- **Jungle** — e.g. Animal + Rainforest, Forest + Plant, Monkey + Tree
+- **Kangaroo** — e.g. Animal + Australia, Australia + Animal, Jump + Animal
+- **Mermaid** — e.g. Fish + Human, Human + Fish
+- **Screenplay** — e.g. Camera + Writing, Cinema + Writing, Film Score + Writing
+- **Snowman** — e.g. Blizzard + Human, Snow + Human
+- **Steel** — e.g. Coal + Iron, Iron + Coal
+- **Axe** — e.g. Metal + Tree, Wood + Tool
+- **Beach** — e.g. Ocean + Sand, Sand + Sea
+- **Bear** — e.g. Animal + Ice, Forest + Honey
+- **Beer** — e.g. Bread + Water, Yeast + Wheat
+- **Camel** — e.g. Animal + Desert
+- **Candle** — e.g. Fire + Wax, Wax + Thread
+- **Chicken** — e.g. Bird + Farm, Farm + Egg
+- **Earthquake** — e.g. Earth + Energy
+- **Farmer** — e.g. Human + Field
+- **French Fries** — e.g. Cooking + Potato, Potato + Oil
+- **Fried Rice** — e.g. Egg + Rice, Oil + Rice
+- **Karaoke** — e.g. Microphone + Television, Song + Screen
+- **Latte** — e.g. Coffee + Milk
+- **Light Bulb** — e.g. Electricity + Glass, Electricity + Light
+- **Lion** — e.g. Animal + Africa, Animal + Desert
+- **Lizard** — e.g. Animal + Scale, Sun + Animal
+- **Magnet** — e.g. Iron + Electricity, Metal + Electricity
+- **Mangaka** — e.g. Human + Manga, Manga + Human
+- **Mirror** — e.g. Glass + Iron, Light + Metal
+- **Rust** — e.g. Metal + Water
+- **Scientist** — e.g. Human + Science
+- **Seagull** — e.g. Bird + Sea
+- **Statue** — e.g. Stone + Human
+- **Thunderbird** — e.g. Bird + Lightning, Storm + Bird
+- **Toast** — e.g. Bread + Fire
+- **Waterspout** — e.g. Ocean + Tornado, Sea + Tornado
+- **Wine** — e.g. Fruit + Time, Grape + Time
+- **Wolf** — e.g. Animal + Forest, Animal + Moon
+- **Acid Rain** — e.g. Rain + Smog
+- **Adobe House** — e.g. Desert + House
+- **Airport** — e.g. Airplane + House
+- **Airship** — e.g. Air + Ship
+- **Android** — e.g. Robot + Human
+- **Anime Convention** — e.g. Anime + Festival
+- **Anime Series** — e.g. Anime + TV Series
+- **Ashen Deities Ragnarök: Valhalla** — e.g. Ashen Deities Ragnarök + Sequel
+- **Atmosphere** — e.g. Planet + Air
+- **Atoll** — e.g. Coral + Island
+- **Avatar** — e.g. Human + Pixel
+- **Bamboo** — e.g. Grass + China
+- **Bathtub** — e.g. House + Water
+- **Bellerophon** — e.g. Human + Pegasus
+- **Binge-Watching** — e.g. Popcorn + Television
+- **Boat** — e.g. Car + Water
+- **Boiled Egg** — e.g. Egg + Water
+- **Bone** — e.g. Dinosaur + Fossil
+- **Bottle** — e.g. Glass + Water
+- **Bull** — e.g. Animal + Farm
+- **Calligraphy** — e.g. Ink + Book
+- **Cauldron** — e.g. Witch + Pottery
+- **Clothes** — e.g. Fabric + Human
+- **Commercial** — e.g. Television + Money
+- **Console War** — e.g. Console + War
+- **Cosplay** — e.g. Anime + Costume
+- **Cotton Candy** — e.g. Cloud + Sugar
+- **Cow** — e.g. Animal + Milk
+- **Crocodile** — e.g. Lizard + River
+- **Cuckoo Clock** — e.g. Clock + Bird
+- **Cup** — e.g. Clay + Fire
+- **Cyborg** — e.g. Human + Robot
+- **Death** — e.g. Human + Life
+- **DJ** — e.g. Musician + Vinyl
+- **Doctor** — e.g. Human + Hospital
+- **Dog** — e.g. Animal + House
+- **Dollhouse** — e.g. House + Toy
+- **Doughnut** — e.g. Dough + Oil
+- **Dragon Hoard** — e.g. Dragon + Gold
+- **Dried Herbs** — e.g. Vegetable + Wind
+- **Dwarf** — e.g. Human + Mountain
+- **E-book** — e.g. Book + Computer
+- **Echo** — e.g. Music + Mountain
+- **Elder** — e.g. Human + Time
+- **Electric Car** — e.g. Battery + Car
+- **Elephant** — e.g. Animal + Ice Age
+- **Elf** — e.g. Human + Forest
+- **Emulsion** — e.g. Oil + Water
+- **Engine** — e.g. Metal + Fire
+- **Engineer** — e.g. Human + Engineering
+- **Evolution** — e.g. Life + Time
+- **Fabric** — e.g. Cotton + Loom
+- **Fairy** — e.g. Human + Magic
+- **Family Tree** — e.g. Family + Tree
+- **Fate** — e.g. Prophecy + Soul
+- **Film Reel** — e.g. Cinema + Metal
+- **Firefighter** — e.g. Human + Fire
+- **Fireplace** — e.g. Campfire + House
+- **Firework** — e.g. Fire + Sky
+- **Fisherman** — e.g. Human + Fish
+- **Fishing Rod** — e.g. Fish + Tool
+- **Flashlight** — e.g. Battery + Light
+- **Footprint** — e.g. Dinosaur + Footprint
+- **Found Footage** — e.g. Camera + Horror
+- **Frankenstein's Monster** — e.g. Electricity + Life
+- **Fridge** — e.g. Ice + Box
+- **Frozen Lake** — e.g. Ice + Lake
+- **Game Show** — e.g. Television + Competition
+- **Gamer** — e.g. Human + Video Game
+- **Garage** — e.g. Car + House
+- **Genie** — e.g. Magic + Oil Lantern
+- **Gladiator** — e.g. Human + Colosseum
+- **Glitch** — e.g. Insect + Software
+- **Golem** — e.g. Clay + Life
+- **Grass** — e.g. Earth + Plant
+- **Heaven** — e.g. Angel + Cloud
+- **Hell** — e.g. Demon + Fire
+- **Horizon** — e.g. Sea + Sky
+- **Hot Chocolate** — e.g. Chocolate + Heat
+- **House of Cards** — e.g. Cards + Cards
+- **Iced Coffee** — e.g. Coffee + Ice
+- **Inventor** — e.g. Human + Invention
+- **J-Pop** — e.g. Japan + Music
+- **J-Pop Idol** — e.g. Singer + Japan
+- **Juice** — e.g. Fruit + Pressure
+- **Kelpie** — e.g. Water + Horse
+- **Kitchen** — e.g. House + Fire
+- **Kite** — e.g. Paper + Wind
+- **Knife** — e.g. Metal + Wood
+- **Knight** — e.g. Human + Horse
+- **Lantern** — e.g. Fire + Paper
+- **Laser** — e.g. Light + Crystal
+- **Leaf** — e.g. Tree + Wind
+- **Letter** — e.g. Ink + Envelope
+- **Love** — e.g. Human + Friendship
+- **Magnifying Glass** — e.g. Lens + Paper
+- **Maple Syrup** — e.g. Syrup + Tree
+- **Mars** — e.g. Desert + Planet
+- **Mayonnaise** — e.g. Egg + Oil
+- **Meat** — e.g. Animal + Farm
+- **Milk Tea** — e.g. Milk + Tea
+- **Milkshake** — e.g. Fruit + Ice Cream
+- **Moat** — e.g. Castle + Water
+- **Moon Rock** — e.g. Moon + Rock
+- **Mountain Goat** — e.g. Animal + Mountain
+- **Mountaineer** — e.g. Human + Mountain
+- **Movie Poster** — e.g. Cinema + Painting
+- **Movie Ticket** — e.g. Cinema + Paper
+- **Musical** — e.g. Music + Theater
+- **Necklace** — e.g. Pearl + Thread
+- **Needle** — e.g. Metal + Thread
+- **News Broadcast** — e.g. Television + Newspaper
+- **Olive** — e.g. Tree + Greece
+- **Ore** — e.g. Earth + Metal
+- **Otaku** — e.g. Anime + Manga
+- **Oven** — e.g. Stone + Fire
+- **Palm Tree** — e.g. Island + Tree
+- **Pencil** — e.g. Graphite + Wood
+- **Permafrost** — e.g. Ice + Soil
+- **Pharaoh** — e.g. Stone + Pharaoh
+- **Pinwheel** — e.g. Air + Wheel
+- **Pollution** — e.g. Factory + Sea
+- **Potion** — e.g. Magic + Water
+- **Power Drill** — e.g. Battery + Tool
+- **Proteus** — e.g. Ancient Wisdom + Shapeshifter
+- **Queen** — e.g. History + Princess
+- **Raven** — e.g. Bird + Night
+- **Religion** — e.g. God + Human
+- **Remote Control** — e.g. Television + Button
+- **Road** — e.g. Car + Concrete
+- **Romance Film** — e.g. Cinema + Romance
+- **Rome** — e.g. Italy + Empire
+- **Rune Stone** — e.g. Prophecy + Stone
+- **Sailor** — e.g. Human + Ship
+- **Sand Dune** — e.g. Desert + Sand
+- **Sandstone** — e.g. Sand + Stone
+- **Savanna** — e.g. Desert + Forest
+- **Scholar** — e.g. Human + Book
+- **Scissors** — e.g. Paper + Tool
+- **Sheep** — e.g. Animal + Grass
+- **Sidekick** — e.g. Friend + Hero
+- **Silk Road** — e.g. Silk + Trade
+- **Skull** — e.g. Human + Death
+- **Smartphone** — e.g. Phone + Computer
+- **Snail** — e.g. Seashell + Garden
+- **Snake** — e.g. Animal + Marsh
+- **Snowflake** — e.g. Snow + Crystal
+- **Soap** — e.g. Oil + Ash
+- **Soldier** — e.g. Human + War
+- **Spacetime** — e.g. Space + Time
+- **Spaghetti** — e.g. Pasta + Tomato
+- **Stone Circle** — e.g. Rock + Stone
+- **Sunset** — e.g. Sun + Sea
+- **Surfer** — e.g. Wave + Human
+- **Swamp** — e.g. Mud + Tree
+- **Sweater** — e.g. Wool + Needle
+- **Tabletop RPG** — e.g. Dice + Dragon
+- **Telephone** — e.g. Sound + Wire
+- **Torch** — e.g. Fire + Tool
+- **Trading Card Game** — e.g. Cards + Collector
+- **Traffic** — e.g. City + Car
+- **Troll** — e.g. Stone + Monster
+- **Tsunami** — e.g. Earthquake + Sea
+- **Tulip** — e.g. Flower + Netherlands
+- **Unicorn** — e.g. Horse + Magic
+- **Voice Actor** — e.g. Actor + Anime
+- **Volcanic Island** — e.g. Island + Volcano
+- **Wand** — e.g. Magic + Wood
+- **Water Balloon** — e.g. Balloon + Water
+- **Water Lily** — e.g. Lake + Flower
+- **Whale** — e.g. Fish + Ocean
+- **Wheat** — e.g. Plant + Farm
+- **Whipped Cream** — e.g. Cream + Air
+- **Wild Beehive** — e.g. Honey + Tree
+- **Wool** — e.g. Sheep + Tool
+- **Worm** — e.g. Soil + Life
+- **Writer** — e.g. Human + Writing
+- **Yen** — e.g. Japan + Money
+- **Yeti** — e.g. Snow + Monster
+- **Yogurt** — e.g. Milk + Bacteria
