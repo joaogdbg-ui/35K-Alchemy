@@ -14,9 +14,10 @@ test('V94: Stadium prizes — a toy per course (Champion) and five karate belts'
  assert.match(app,/const homeDiscovered=id=>PRIZE_BY_ID\[id\]\?games\.hasPrize\(id\):discoveredAnywhere\(id\);/);
  assert.match(app,/function wearAll\(root\)/);
 });
-test('V94: Stadium hub shows grades and levels on the entrant card; karate is best of three with KO feedback',()=>{
+test('V94/V96: Stadium hub is one entrant card + one event list; karate is best of three with KO feedback',()=>{
  const g=src('client/src/games-v93.js');
- assert.match(g,/class="st-grades"/);assert.match(g,/Total Lv \$\{totalLv\(info\)\}/);
+ assert.match(g,/class="st-rows"/);assert.match(g,/Lv \$\{totalLv\(info\)\}/);assert.doesNotMatch(g,/class="st-tabs"/);
+ assert.match(src('client/src/app.js'),/function alchemyGrowth\(\)\{return Math\.round\(\(1\+Math\.min\(1,classicDiscoveredCount\(\)\/4000\)\)\*100\)\/100;\}/);
  assert.match(g,/if\(w\.wins>=2\)/);assert.match(g,/banner\(st,'K\.O\.','is-ko'/);assert.match(g,/countdown\(st/);
  assert.match(g,/state\.prizes\.push\(prize\.id\)/);assert.match(g,/state\.belts\[A\.id\]=b\.id/);
 });

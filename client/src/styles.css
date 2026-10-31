@@ -1181,3 +1181,20 @@ details.pets-help summary{font-weight:800;cursor:pointer}
 @keyframes g-dmg{0%{transform:translateY(10px) scale(.6);opacity:0}25%{transform:translateY(-6px) scale(1.15);opacity:1}100%{transform:translateY(-40px) scale(1);opacity:0}}
 .g-pow{position:absolute;top:34%;padding:8px 16px;font-size:30px;font-weight:900;color:#20262b;background:#ffd166;border:4px solid #20262b;clip-path:polygon(4% 20%,20% 0,40% 14%,60% 0,80% 12%,100% 8%,92% 40%,100% 70%,82% 92%,60% 100%,40% 88%,20% 100%,6% 80%,0 50%);animation:g-pow .65s cubic-bezier(.2,1.5,.4,1) 1 forwards;z-index:5;pointer-events:none}
 @keyframes g-pow{0%{transform:scale(.2) rotate(-12deg);opacity:0}30%{transform:scale(1.1) rotate(-6deg);opacity:1}80%{transform:scale(1) rotate(-6deg);opacity:1}100%{transform:scale(1.1) rotate(-6deg);opacity:0}}
+/* ---------- V96 simple Stadium hub ---------- */
+.st-entrant.is-simple{grid-template-columns:72px 1fr auto;align-items:center}
+.st-entrant.is-simple .st-entrant-art{width:72px;height:72px;border:0}
+.st-entrant.is-simple .st-entrant-main{border:0;background:none;text-align:left;padding:0;color:var(--ink);min-width:0}
+.st-entrant.is-simple .st-entrant-main small{margin-bottom:2px}
+.st-entrant.is-simple .st-entrant-main em{display:block;font-style:normal;font-size:11px;font-weight:800;color:var(--good)}
+.st-rows{display:grid;gap:6px}
+.st-row{display:grid;grid-template-columns:36px 1fr auto;gap:10px;align-items:center;background:var(--surface);border:1px solid var(--line);border-radius:14px;padding:9px 10px 9px 12px;text-align:left;color:var(--ink);width:100%}
+.st-row.is-locked{opacity:.55}
+.st-row-main{min-width:0}.st-row-main strong{display:block;font-size:14.5px;line-height:1.2}.st-row-main small{color:var(--muted);font-size:12px}
+.st-dots{display:inline-flex;gap:3px;margin-top:3px}.st-dots .g-medal{width:11px;height:11px}
+.st-play{display:flex;align-items:center;gap:4px;padding:8px 10px 8px 12px;border-radius:999px;border:0;background:var(--accent);color:#fff;font-weight:800;font-size:12.5px}
+.st-play i{width:0;height:0;border-left:7px solid #fff;border-top:5px solid transparent;border-bottom:5px solid transparent;margin-left:2px}
+.st-lock{width:16px;height:16px;border-radius:4px;background:var(--line-2);position:relative;margin-right:10px}.st-lock::before{content:"";position:absolute;left:3px;top:-7px;width:6px;height:9px;border:2px solid var(--line-2);border-bottom:0;border-radius:5px 5px 0 0}
+.st-chev{font-size:22px;color:var(--muted);padding-right:6px}
+.st-prizeline{display:grid;grid-template-columns:44px 1fr;gap:8px;align-items:center;text-align:left;background:var(--surface-2);border-radius:12px;padding:6px 10px;margin:8px 0}.st-prizeline>span{width:44px;height:44px;filter:grayscale(1);opacity:.5}.st-prizeline.is-won>span{filter:none;opacity:1}.st-prizeline svg{width:100%;height:100%}.st-prizeline small{font-size:12.5px;color:var(--ink-2)}
+.modal-card .st-levels{margin:10px 0}.modal-card .st-strip{margin:8px 0}.modal-card .st-belts{margin:8px 0 4px}

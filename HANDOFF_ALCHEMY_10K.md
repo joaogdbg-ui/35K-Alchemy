@@ -90,6 +90,11 @@ Preserve 200-per-batch policy and do not start another content release on top of
 
 - **Art redraw wave 3 (V85, done): 3,991 icons** — every remaining older element. All 6,012 pre-V83 elements now use the 2026 art direction (`ART_REDRAW`), plus 200 V83 and 200 V85 originals. Six near-duplicates found by the audit were redrawn; 36 reviewed false alarms are in `tools/art-redraw-reviewed-pairs.json` (the audit now also honours them for V83 comparisons).
 
+## V96 — simple Stadium hub, Classic-discoveries growth bonus (31 October 2026)
+
+- **Alchemy bonus**: companions grow faster with the player's Classic progress — +10% per 400 elements found in Classic, up to ×2 at 4,000 (`alchemyGrowth()`, multiplied into `growthFor`; future gains only, like houses). Shown on the Stadium entrant card and in the companion stats card.
+- **Stadium hub simplified**: entrant card (sprite, name, Lv, mood, belt, growth line; tap → stats card), then one list: each race / the Karate Dojo as a row with five medal dots and a single button that starts the next level (or "Replay"); tapping a row opens a sheet with the description, terrain strip, prize and all levels; a Prizes row opens the toys/belts sheet. No tabs, no grades grid, no per-course level grids.
+
 ## V95 — Stadium scenery, sound, feedback; Alchemy tab (31 October 2026)
 
 - **Scenery** (`client/assets/v95-stadium/`, `tools/v95-assemble-stadium-art.py` → `stadium-art-v95.js`): seamless terrain tiles (meadow, pond with lily pads, ravine with broken bridge, rock wall with holds), sky with sun/hills/trees, hedge-and-fence mid layer (also used as a faster foreground), start and finish gates with bunting/crowd/trophy; karate dojo (shoji, pillars, lanterns, blossoms, spectators, taiko) and tatami ring with rope. Three-layer parallax.
