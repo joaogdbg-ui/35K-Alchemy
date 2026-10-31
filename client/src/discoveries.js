@@ -1,11 +1,10 @@
 // V20: stable offline discovery families. Every catalog category maps to exactly one family.
 export const FAMILIES = Object.freeze([
- {id:'games',name:'Video Games',icon:'game_case',category:'Gaming',description:'Games, genres and releases',categories:['game','genre','gamecraft'],order:0},
- {id:'consoles',name:'Consoles & Hardware',icon:'console',category:'Gaming',description:'Consoles, handhelds and computers',categories:['console','portable','computer','technology','brand','accessory'],order:1},
- {id:'arcades',name:'Arcade & Tabletop',icon:'arcade',category:'Gaming',description:'Arcades, board games and cabinets',categories:['arcade','board'],order:2},
- {id:'anime',name:'Anime & Manga',icon:'anime_hero',category:'Culture',description:'Series, characters and powers',categories:['anime','manga','character','power'],order:3},
- {id:'cinema',name:'Cinema & TV',icon:'cinema',category:'Culture',description:'Films, TV and series',categories:['film','series'],order:4},
- {id:'music',name:'Music',icon:'music',category:'Culture',description:'Artists, albums and instruments',categories:['music'],order:5},
+ // V86 (owner request): Video Games + Consoles & Hardware + Arcade & Tabletop are one family,
+ // and Anime & Manga + Music + Cinema & TV are one family. IDs 'games' and 'anime' are kept so
+ // saves, campaigns and art keys stay valid; the old ids are migrated in app.js.
+ {id:'games',name:'Games & Consoles',icon:'game_case',category:'Gaming',description:'Video games, consoles, arcades and tabletop',categories:['game','genre','gamecraft','console','portable','computer','technology','brand','accessory','arcade','board'],order:0},
+ {id:'anime',name:'Anime, Music & Cinema',icon:'anime_hero',category:'Culture',description:'Anime, manga, music, films and series',categories:['anime','manga','character','power','music','film','series'],order:1},
  {id:'nature',name:'Nature & Science',icon:'dragon',category:'World',description:'Natural elements, life and discovery',categories:['nature','material','life','science'],order:6},
  {id:'fantasy',name:'Fantasy & Objects',icon:'crystal',category:'World',description:'Imaginary worlds and inventions',categories:['fantasy','object','concept'],order:7},
  {id:'people',name:'People & Culture',icon:'manga',category:'World',description:'Personalities and world history',categories:['politician','culture'],order:8},
@@ -13,6 +12,9 @@ export const FAMILIES = Object.freeze([
  {id:'prehistoric',name:'Prehistory & Dinosaurs',icon:'dragon',category:'World',description:'Fossils, ancient life and dinosaurs',categories:['prehistoric'],order:10},
  {id:'world',name:'Countries & Landmarks',icon:'crystal',category:'World',description:'Countries, flags, monuments, rivers and traditions',categories:['geography'],order:11},
 ]);
+// V86: ids of families merged into the ones above (used to migrate saves and old data).
+export const MERGED_FAMILY_IDS = Object.freeze({consoles:'games',arcades:'games',music:'anime',cinema:'anime'});
+export const canonicalFamilyId=(id)=>MERGED_FAMILY_IDS[id]||id;
 const CATEGORY_FAMILY = new Map(FAMILIES.flatMap(f=>f.categories.map(c=>[c,f.id])));
 export const familyFor=(item)=>['Moon','Planet','Space','Star','Bread'].includes(item?.name)?'nature':CATEGORY_FAMILY.get(item.category)||'fantasy';
 // V50: explicit overlapping memberships. An element still exists just once in the catalog.
@@ -37,13 +39,13 @@ const EXTRA_THEMATIC_MEMBERSHIP = new Map([
 const EXTRA_MEMBERSHIP_V85 = new Map();
 export function registerFamilyMembership(families){
  EXTRA_MEMBERSHIP_V85.clear();
- for(const [family,d] of Object.entries(families||{}))for(const id of d?.addMembers||[]){
-  if(!EXTRA_MEMBERSHIP_V85.has(id))EXTRA_MEMBERSHIP_V85.set(id,[]);EXTRA_MEMBERSHIP_V85.get(id).push(family);
+ for(const [rawFamily,d] of Object.entries(families||{}))for(const id of d?.addMembers||[]){const family=canonicalFamilyId(rawFamily);
+  if(!EXTRA_MEMBERSHIP_V85.has(id))EXTRA_MEMBERSHIP_V85.set(id,[]);if(!EXTRA_MEMBERSHIP_V85.get(id).includes(family))EXTRA_MEMBERSHIP_V85.get(id).push(family);
  }
 }
 export const familiesFor=(item)=>{
  const primary=familyFor(item), secondary=SECONDARY_FAMILY_IDS.get(item?.id);
- const declared=Array.isArray(item?.familyCampaigns)?item.familyCampaigns.filter(id=>FAMILIES.some(f=>f.id===id)):[];
+ const declared=Array.isArray(item?.familyCampaigns)?item.familyCampaigns.map(canonicalFamilyId).filter(id=>FAMILIES.some(f=>f.id===id)):[];
  return [...new Set([primary,...(secondary?[secondary]:[]),...(EXTRA_THEMATIC_MEMBERSHIP.get(item?.id)||[]),...(EXTRA_MEMBERSHIP_V85.get(item?.id)||[]),...declared])];
 };
 export function groupFamilies(items,unlocked){

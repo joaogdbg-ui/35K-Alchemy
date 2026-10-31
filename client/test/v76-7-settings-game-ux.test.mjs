@@ -28,7 +28,7 @@ test('V76.8 Profile and Help have genuine navigation, and cloud actions remain d
  assert.match(menu,/id="recoverFromCloud" disabled/);
  assert.match(menu,/id="settingsLeaderboard" disabled/);
  assert.match(menu,/Google Play Games is not connected/);
- assert.equal((menu.match(/<details>/g)||[]).length,4); // V85 adds the Shiny help entry
+ assert.equal((menu.match(/<details>/g)||[]).length,5); // V85 Shiny + V86 Companions help entries
  assert.match(menu,/Escape/);
 });
 test('V76.8 responsive, dark-mode UI does not consume entire game screen',()=>{

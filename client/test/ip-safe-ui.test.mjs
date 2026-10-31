@@ -4,7 +4,7 @@ import {readFileSync} from 'node:fs';
 const read=p=>readFileSync(new URL('../../'+p,import.meta.url),'utf8');
 test('UI never prints raw canonical game name for player recipes and hints',()=>{
  const s=read('client/src/app.js');
- assert.match(s,/const PUBLIC_LABELS=buildPublicNameIndex\(ITEMS\)/);
+ assert.match(s,/const PUBLIC_LABELS=buildPublicNameIndex\(ITEMS,PUBLIC_LABELS_V86\)/);
  assert.match(s,/function uiName\(item\)/);
  assert.doesNotMatch(s,/escapeText\(byId\.get\([^)]*\)\.name\)/);
  assert.doesNotMatch(s,/escapeText\((?:it|item)\.name\)/);

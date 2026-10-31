@@ -7,7 +7,7 @@ const html = readFileSync(new URL('index.html',root),'utf8');
 const css = readFileSync(new URL('src/styles.css',root),'utf8');
 test('V25 maintains just two tabs and existing storage keys',()=>{
  assert.match(html,/<title>Alchemy 10K — Offline<\/title>/);
- assert.equal((html.match(/class="tab(?: active)?"/g)||[]).length,2);
+ assert.equal((html.match(/class="tab(?: active)?"/g)||[]).length,3) // V86: Play, Collection, Companions;
  for(const key of ['gameverse_alchemy_v2','gameverse_dynamic_v11','gameverse_discovery_hints_v20','gameverse_ledger_v16'])assert.ok(source.includes(key));
 });
 test('V25 unknown, recipe-known, found are explicitly different and recipes never unlock on reveal',()=>{
