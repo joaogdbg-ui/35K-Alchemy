@@ -1,0 +1,4418 @@
+[
+ {
+  "suffix": "companion-tent",
+  "name": "Companion Tent",
+  "category": "home",
+  "summary": "A small canvas tent stitched together for a single companion to nap in; the first and easiest companion house.",
+  "wit": "Room for one, snacks for two.",
+  "trivia": "Early tents were made from animal hides stretched over wooden poles.",
+  "recipe": [
+   "legacy:45",
+   "pack:thread"
+  ],
+  "recipeNames": [
+   "House",
+   "Thread"
+  ],
+  "artBrief": "Small triangular tent with open flap, sandy canvas, brown poles, dark entrance; centred, bold outline.",
+  "home": {
+   "kind": "house",
+   "capacity": 1
+  }
+ },
+ {
+  "suffix": "companion-hut",
+  "name": "Companion Hut",
+  "category": "home",
+  "summary": "A cosy wooden hut with a low doorway that shelters two companions from wind and rain.",
+  "wit": "Two roommates, zero chores.",
+  "trivia": "Huts are among the oldest kinds of shelter people have built, found on every inhabited continent.",
+  "recipe": [
+   "legacy:45",
+   "legacy:24"
+  ],
+  "recipeNames": [
+   "House",
+   "Wood"
+  ],
+  "artBrief": "Round log hut with cone roof and dark doorway, warm brown, tan roof, green base; front view.",
+  "home": {
+   "kind": "house",
+   "capacity": 2
+  }
+ },
+ {
+  "suffix": "companion-cabin",
+  "name": "Companion Cabin",
+  "category": "home",
+  "summary": "A sturdy log cabin with a proper front door, big enough for three companions to live together.",
+  "wit": "Knock knock. It is everyone.",
+  "trivia": "Log cabins became common in North America after settlers from Scandinavia and Finland brought the building style in the 1600s.",
+  "recipe": [
+   "organic89:companion-hut",
+   "organic89:door"
+  ],
+  "recipeNames": [
+   "Companion Hut",
+   "Door"
+  ],
+  "artBrief": "Log cabin with stacked logs, red door, small window; brown, red, cream; slight 3/4 view.",
+  "home": {
+   "kind": "house",
+   "capacity": 3
+  }
+ },
+ {
+  "suffix": "companion-cottage",
+  "name": "Companion Cottage",
+  "category": "home",
+  "summary": "A charming cottage with a smoking chimney and a warm fireplace inside, home for four companions.",
+  "wit": "Smoke signals mean dinner is ready.",
+  "trivia": "Many traditional cottages were built around a central hearth, with the chimney added later to carry smoke out.",
+  "recipe": [
+   "organic89:companion-cabin",
+   "organic89:chimney"
+  ],
+  "recipeNames": [
+   "Companion Cabin",
+   "Chimney"
+  ],
+  "artBrief": "White-walled cottage, red tiled roof, chimney with grey puff, yellow lit window; front view.",
+  "home": {
+   "kind": "house",
+   "capacity": 4
+  }
+ },
+ {
+  "suffix": "companion-villa",
+  "name": "Companion Villa",
+  "category": "home",
+  "summary": "A roomy two-storey villa with a grand staircase where six companions each get space to roam.",
+  "wit": "Upstairs, downstairs, everywhere-stairs.",
+  "trivia": "Roman villas were often country houses built around a courtyard and could include baths and gardens.",
+  "recipe": [
+   "organic89:companion-cottage",
+   "organic89:staircase"
+  ],
+  "recipeNames": [
+   "Companion Cottage",
+   "Staircase"
+  ],
+  "artBrief": "Two-storey cream villa, terracotta roof, arched windows, small balcony; cream, orange, teal.",
+  "home": {
+   "kind": "house",
+   "capacity": 6
+  }
+ },
+ {
+  "suffix": "companion-castle",
+  "name": "Companion Castle",
+  "category": "home",
+  "summary": "A grand little castle with towers and a winched gate, the largest companion house, sheltering eight companions.",
+  "wit": "Every companion is royalty here.",
+  "trivia": "Medieval castles often took a decade or more to build.",
+  "recipe": [
+   "organic89:companion-villa",
+   "organic89:castle-gate"
+  ],
+  "recipeNames": [
+   "Companion Villa",
+   "Castle Gate"
+  ],
+  "artBrief": "Small castle with two round towers, flag, arched gate; grey stone, blue roofs, red flag; front view.",
+  "home": {
+   "kind": "house",
+   "capacity": 8
+  }
+ },
+ {
+  "suffix": "fabric",
+  "name": "Fabric",
+  "category": "home",
+  "summary": "A soft sheet of woven cloth fresh off the loom, ready to be cut and sewn into home goods.",
+  "wit": "Woven, not stirred.",
+  "trivia": "Woven fabric is made by interlacing two sets of threads called the warp and the weft.",
+  "recipe": [
+   "organic46:loom",
+   "organic46:yarn"
+  ],
+  "recipeNames": [
+   "Loom",
+   "Yarn"
+  ],
+  "artBrief": "Folded stack of cloth with a visible weave texture; soft blue, lighter blue edge, white stitch.",
+  "home": {
+   "kind": "material"
+  }
+ },
+ {
+  "suffix": "rope",
+  "name": "Rope",
+  "category": "home",
+  "summary": "Strong twisted cord made by winding many strands of yarn together, used for tying and hanging.",
+  "wit": "Learning the ropes, one twist at a time.",
+  "trivia": "Traditional ropewalks used hand cranks to twist long strands of fibre into rope.",
+  "recipe": [
+   "organic46:yarn",
+   "legacy:514"
+  ],
+  "recipeNames": [
+   "Yarn",
+   "Crank Handle"
+  ],
+  "artBrief": "Coiled rope loop with twisted texture; tan and brown, dark outline; centred.",
+  "home": {
+   "kind": "material"
+  }
+ },
+ {
+  "suffix": "saw",
+  "name": "Saw",
+  "category": "home",
+  "summary": "A toothed hand saw that cuts logs and planks to size on the workbench.",
+  "wit": "It has seen things. Mostly wood.",
+  "trivia": "Saws with teeth date back to ancient Egypt, where copper saws were used to cut wood.",
+  "recipe": [
+   "legacy:29",
+   "organic46:workbench"
+  ],
+  "recipeNames": [
+   "Tool",
+   "Workbench"
+  ],
+  "artBrief": "Hand saw with wooden handle and toothed silver blade, diagonal; silver, brown, dark grey.",
+  "home": {
+   "kind": "material"
+  }
+ },
+ {
+  "suffix": "nail",
+  "name": "Nail",
+  "category": "home",
+  "summary": "A small pointed pin hammered into wood to fasten boards and furniture together.",
+  "wit": "Hit it on the head.",
+  "trivia": "Before machines, nails were made one at a time by blacksmiths and were valuable enough to be reused.",
+  "recipe": [
+   "legacy:29",
+   "organic55:workshop-bench"
+  ],
+  "recipeNames": [
+   "Tool",
+   "Workshop Bench"
+  ],
+  "artBrief": "Single nail, diagonal, round flat head; steel grey with light highlight; bold outline.",
+  "home": {
+   "kind": "material"
+  }
+ },
+ {
+  "suffix": "wooden-peg",
+  "name": "Wooden Peg",
+  "category": "home",
+  "summary": "A short rounded wooden pin used to join beams, hold shelves and hang things on walls.",
+  "wit": "A tiny stick with a big job.",
+  "trivia": "Old timber-frame houses were often held together with wooden pegs instead of metal nails.",
+  "recipe": [
+   "organic46:wooden-plank",
+   "organic89:saw"
+  ],
+  "recipeNames": [
+   "Wooden Plank",
+   "Saw"
+  ],
+  "artBrief": "Two short wooden dowel pegs crossed; light tan wood with darker end grain.",
+  "home": {
+   "kind": "material"
+  }
+ },
+ {
+  "suffix": "wooden-beam",
+  "name": "Wooden Beam",
+  "category": "home",
+  "summary": "A long squared timber cut from a log, the backbone of floors, roofs and frames.",
+  "wit": "Beaming with structural pride.",
+  "trivia": "Some oak beams in old buildings are over 600 years old and still holding up roofs.",
+  "recipe": [
+   "legacy:24",
+   "organic89:saw"
+  ],
+  "recipeNames": [
+   "Wood",
+   "Saw"
+  ],
+  "artBrief": "Long rectangular timber beam at an angle, wood grain lines; brown, dark brown, tan.",
+  "home": {
+   "kind": "material"
+  }
+ },
+ {
+  "suffix": "floorboards",
+  "name": "Floorboards",
+  "category": "home",
+  "summary": "Rows of planks laid side by side to make a smooth wooden floor inside a house.",
+  "wit": "Creaks included at no extra cost.",
+  "trivia": "Wide floorboards in old houses usually came from very large old-growth trees.",
+  "recipe": [
+   "organic46:wooden-plank",
+   "legacy:45"
+  ],
+  "recipeNames": [
+   "Wooden Plank",
+   "House"
+  ],
+  "artBrief": "Square of parallel wooden boards in perspective; honey, brown, dark seams.",
+  "home": {
+   "kind": "material"
+  }
+ },
+ {
+  "suffix": "wood-shavings",
+  "name": "Wood Shavings",
+  "category": "home",
+  "summary": "Thin curly ribbons of wood peeled off planks while smoothing them at the bench.",
+  "wit": "Curls without a hair salon.",
+  "trivia": "Fine wood shavings, called wood wool or excelsior, were once a common stuffing and packing material.",
+  "recipe": [
+   "organic46:wooden-plank",
+   "organic55:workshop-bench"
+  ],
+  "recipeNames": [
+   "Wooden Plank",
+   "Workshop Bench"
+  ],
+  "artBrief": "Pile of curly pale wood ribbons; cream, tan, light brown curls.",
+  "home": {
+   "kind": "material"
+  }
+ },
+ {
+  "suffix": "wooden-bucket",
+  "name": "Wooden Bucket",
+  "category": "home",
+  "summary": "A round bucket made from planks held tight by hoops, for carrying water, paint or glue.",
+  "wit": "Holds everything except secrets.",
+  "trivia": "Coopers build buckets and barrels from curved staves held together by hoops, without any glue.",
+  "recipe": [
+   "organic46:wooden-plank",
+   "legacy:44"
+  ],
+  "recipeNames": [
+   "Wooden Plank",
+   "Wheel"
+  ],
+  "artBrief": "Wooden bucket with two dark hoops and rope handle; brown staves, grey hoops; front view.",
+  "home": {
+   "kind": "material"
+  }
+ },
+ {
+  "suffix": "glue",
+  "name": "Glue",
+  "category": "home",
+  "summary": "A thick sticky paste for bonding wood, cloth and paper together in the workshop.",
+  "wit": "Sticks to its word.",
+  "trivia": "People have made glues for thousands of years; birch-bark tar used as glue is over 200,000 years old.",
+  "recipe": [
+   "organic46:sawdust",
+   "organic89:wooden-bucket"
+  ],
+  "recipeNames": [
+   "Sawdust",
+   "Wooden Bucket"
+  ],
+  "artBrief": "Small pot of white glue with drip on side and brush stick; white, cream, brown pot.",
+  "home": {
+   "kind": "material"
+  }
+ },
+ {
+  "suffix": "paint",
+  "name": "Paint",
+  "category": "home",
+  "summary": "A bucket of bright coloured paint for walls, doors and furniture.",
+  "wit": "Colour me impressed.",
+  "trivia": "Early paints were made by mixing ground minerals such as ochre with water, fat or egg.",
+  "recipe": [
+   "legacy:1288",
+   "organic89:wooden-bucket"
+  ],
+  "recipeNames": [
+   "Patchwork",
+   "Wooden Bucket"
+  ],
+  "artBrief": "Bucket of paint with a colourful drip over the rim; red, yellow, blue drips, grey bucket.",
+  "home": {
+   "kind": "material"
+  }
+ },
+ {
+  "suffix": "varnish",
+  "name": "Varnish",
+  "category": "home",
+  "summary": "A clear glossy coating brushed onto wood to protect it and make the grain shine.",
+  "wit": "Shiny on the outside, wood on the inside.",
+  "trivia": "Many traditional varnishes were made from tree resins dissolved in oil.",
+  "recipe": [
+   "organic89:paint",
+   "legacy:24"
+  ],
+  "recipeNames": [
+   "Paint",
+   "Wood"
+  ],
+  "artBrief": "Small jar of amber liquid with a gleam and brush; amber, gold, brown lid.",
+  "home": {
+   "kind": "material"
+  }
+ },
+ {
+  "suffix": "wallpaper",
+  "name": "Wallpaper",
+  "category": "home",
+  "summary": "A roll of patterned decorative sheets glued onto walls to brighten up a room.",
+  "wit": "Walls deserve outfits too.",
+  "trivia": "Wallpaper became popular in Europe in the 1500s as a cheaper alternative to tapestries.",
+  "recipe": [
+   "legacy:1288",
+   "organic89:glue"
+  ],
+  "recipeNames": [
+   "Patchwork",
+   "Glue"
+  ],
+  "artBrief": "Partly unrolled wallpaper roll with flower pattern; pink, cream, green.",
+  "home": {
+   "kind": "material"
+  }
+ },
+ {
+  "suffix": "door",
+  "name": "Door",
+  "category": "home",
+  "summary": "A hinged wooden door that fits into an archway and opens the way into any home.",
+  "wit": "The best way to make an entrance.",
+  "trivia": "Some of the oldest known doors, found in Switzerland, are around 5,000 years old.",
+  "recipe": [
+   "organic41:arch",
+   "organic46:wooden-plank"
+  ],
+  "recipeNames": [
+   "Arch",
+   "Wooden Plank"
+  ],
+  "artBrief": "Arched wooden door with round knob and plank lines; brown, darker brown, gold knob.",
+  "home": {
+   "kind": "material"
+  }
+ },
+ {
+  "suffix": "window-frame",
+  "name": "Window Frame",
+  "category": "home",
+  "summary": "A wooden frame with crossbars that holds a window in a wall and lets daylight in.",
+  "wit": "A frame with a view.",
+  "trivia": "The crossbars dividing window panes are called muntins.",
+  "recipe": [
+   "organic89:wooden-beam",
+   "organic41:arch"
+  ],
+  "recipeNames": [
+   "Wooden Beam",
+   "Arch"
+  ],
+  "artBrief": "Square wooden window frame with cross of bars, light blue panes; white frame, light blue.",
+  "home": {
+   "kind": "material"
+  }
+ },
+ {
+  "suffix": "curtain",
+  "name": "Curtain",
+  "category": "home",
+  "summary": "Soft fabric drapes hung across a window frame to keep out bright light and add colour.",
+  "wit": "Closing time for the sun.",
+  "trivia": "Theatre curtains inspired the phrase \"curtain call\", the moment performers return to bow.",
+  "recipe": [
+   "organic89:fabric",
+   "organic89:window-frame"
+  ],
+  "recipeNames": [
+   "Fabric",
+   "Window Frame"
+  ],
+  "artBrief": "Two red drapes tied back from a window frame; red, dark red folds, white frame.",
+  "home": {
+   "kind": "furniture",
+   "effect": "decor",
+   "size": [
+    1,
+    2
+   ]
+  }
+ },
+ {
+  "suffix": "roof",
+  "name": "Roof",
+  "category": "home",
+  "summary": "A sloped covering of beams and boards that keeps rain, snow and sun off a house.",
+  "wit": "Top of the house, top of the class.",
+  "trivia": "A steep roof sheds snow and rain faster, which is why many houses in snowy places have tall pointed roofs.",
+  "recipe": [
+   "legacy:45",
+   "organic89:wooden-beam"
+  ],
+  "recipeNames": [
+   "House",
+   "Wooden Beam"
+  ],
+  "artBrief": "Triangular roof with rafters visible underneath; red, brown, dark outline.",
+  "home": {
+   "kind": "material"
+  }
+ },
+ {
+  "suffix": "ladder",
+  "name": "Ladder",
+  "category": "home",
+  "summary": "Two wooden rails joined by pegged rungs, used to climb up to lofts, shelves and rooftops.",
+  "wit": "Step by step, rung by rung.",
+  "trivia": "Ladders are shown in Spanish cave paintings that are about 10,000 years old.",
+  "recipe": [
+   "organic89:wooden-beam",
+   "organic89:wooden-peg"
+  ],
+  "recipeNames": [
+   "Wooden Beam",
+   "Wooden Peg"
+  ],
+  "artBrief": "Upright wooden ladder with five rungs; light brown rails, darker rungs.",
+  "home": {
+   "kind": "material"
+  }
+ },
+ {
+  "suffix": "staircase",
+  "name": "Staircase",
+  "category": "home",
+  "summary": "A flight of wooden steps that joins one floor of a house to the next.",
+  "wit": "Taking things to the next level.",
+  "trivia": "The vertical part of a stair step is called the riser, and the part you step on is the tread.",
+  "recipe": [
+   "organic89:ladder",
+   "organic89:floorboards"
+  ],
+  "recipeNames": [
+   "Ladder",
+   "Floorboards"
+  ],
+  "artBrief": "Side view of a zigzag wooden staircase with handrail; brown, tan, dark rail.",
+  "home": {
+   "kind": "material"
+  }
+ },
+ {
+  "suffix": "shelf",
+  "name": "Shelf",
+  "category": "home",
+  "summary": "A flat board resting on pegs against the wall, ready to hold books, pots and treasures.",
+  "wit": "Self-improvement, but with a shelf.",
+  "trivia": "Adjustable bookshelves often use small pegs called shelf pins to hold each board.",
+  "recipe": [
+   "organic46:wooden-plank",
+   "organic89:wooden-peg"
+  ],
+  "recipeNames": [
+   "Wooden Plank",
+   "Wooden Peg"
+  ],
+  "artBrief": "Single wall shelf with two pegs and a tiny pot on top; brown, tan, green pot.",
+  "home": {
+   "kind": "material"
+  }
+ },
+ {
+  "suffix": "wooden-crate",
+  "name": "Wooden Crate",
+  "category": "home",
+  "summary": "A slatted box nailed together from planks, handy for storing and carrying things.",
+  "wit": "Thinking inside the box.",
+  "trivia": "Wooden crates were the main shipping containers before cardboard boxes became common in the 1900s.",
+  "recipe": [
+   "organic89:nail",
+   "organic46:wooden-plank"
+  ],
+  "recipeNames": [
+   "Nail",
+   "Wooden Plank"
+  ],
+  "artBrief": "Slatted wooden crate in 3/4 view with nail dots; light brown, dark slats.",
+  "home": {
+   "kind": "material"
+  }
+ },
+ {
+  "suffix": "drawer",
+  "name": "Drawer",
+  "category": "home",
+  "summary": "A sliding wooden box with a knob, the key part of dressers, desks and cabinets.",
+  "wit": "Pull yourself together.",
+  "trivia": "Chests of drawers became popular in the 1600s, replacing simple lidded chests.",
+  "recipe": [
+   "organic89:wooden-crate",
+   "organic89:shelf"
+  ],
+  "recipeNames": [
+   "Wooden Crate",
+   "Shelf"
+  ],
+  "artBrief": "Single wooden drawer pulled out slightly with round knob; brown, gold knob.",
+  "home": {
+   "kind": "material"
+  }
+ },
+ {
+  "suffix": "pillow-stuffing",
+  "name": "Pillow Stuffing",
+  "category": "home",
+  "summary": "A fluffy bundle of soft filling used to plump up pillows, cushions and mattresses.",
+  "wit": "Fluff with a purpose.",
+  "trivia": "Before modern fibres, pillows were stuffed with feathers, straw, wool or even wood wool.",
+  "recipe": [
+   "organic46:yarn",
+   "organic89:wood-shavings"
+  ],
+  "recipeNames": [
+   "Yarn",
+   "Wood Shavings"
+  ],
+  "artBrief": "Puffy cloud-like bundle of white fluff with a few fibre wisps; white, light grey, pale blue.",
+  "home": {
+   "kind": "material"
+  }
+ },
+ {
+  "suffix": "pillow",
+  "name": "Pillow",
+  "category": "home",
+  "summary": "A soft stuffed fabric pillow that makes beds and naps much more comfortable.",
+  "wit": "Dreams sold separately.",
+  "trivia": "Ancient Mesopotamians used pillows made of stone, mainly to keep their heads off the ground.",
+  "recipe": [
+   "organic89:fabric",
+   "organic89:pillow-stuffing"
+  ],
+  "recipeNames": [
+   "Fabric",
+   "Pillow Stuffing"
+  ],
+  "artBrief": "Plump rectangular white pillow with corner puffs; white, light blue shade.",
+  "home": {
+   "kind": "material"
+  }
+ },
+ {
+  "suffix": "cushion",
+  "name": "Cushion",
+  "category": "home",
+  "summary": "A plump square cushion placed on the floor where a companion can sit and relax.",
+  "wit": "Sit happens.",
+  "trivia": "Floor cushions are a traditional form of seating in many homes around the world, including Japan and the Middle East.",
+  "recipe": [
+   "organic89:pillow",
+   "organic89:floorboards"
+  ],
+  "recipeNames": [
+   "Pillow",
+   "Floorboards"
+  ],
+  "artBrief": "Square plump cushion with centre button tuft; purple, lighter purple, gold button.",
+  "home": {
+   "kind": "furniture",
+   "effect": "mood",
+   "size": [
+    1,
+    1
+   ]
+  }
+ },
+ {
+  "suffix": "quilt",
+  "name": "Quilt",
+  "category": "home",
+  "summary": "A warm quilt of patchwork squares sewn over a soft layer of stuffing.",
+  "wit": "Patch by patch, warmth by warmth.",
+  "trivia": "A quilt has three layers: a top, a soft middle called batting, and a backing.",
+  "recipe": [
+   "legacy:1288",
+   "organic89:pillow-stuffing"
+  ],
+  "recipeNames": [
+   "Patchwork",
+   "Pillow Stuffing"
+  ],
+  "artBrief": "Square patchwork quilt with coloured squares and stitch lines; red, yellow, blue, cream.",
+  "home": {
+   "kind": "material"
+  }
+ },
+ {
+  "suffix": "mattress",
+  "name": "Mattress",
+  "category": "home",
+  "summary": "A thick padded mattress that turns any bed frame into a proper place to sleep.",
+  "wit": "Like a pillow, but for everything.",
+  "trivia": "Early mattresses were stuffed with straw, wool or feathers and laid on the floor or on rope frames.",
+  "recipe": [
+   "organic89:pillow",
+   "organic89:pillow"
+  ],
+  "recipeNames": [
+   "Pillow",
+   "Pillow"
+  ],
+  "artBrief": "Thick rectangular mattress in 3/4 view with tufts; white, pale blue stripes.",
+  "home": {
+   "kind": "material"
+  }
+ },
+ {
+  "suffix": "bed-frame",
+  "name": "Bed Frame",
+  "category": "home",
+  "summary": "A sturdy wooden frame with legs and a headboard, waiting for a mattress on top.",
+  "wit": "All frame, no dreams yet.",
+  "trivia": "The phrase \"sleep tight\" is often linked to old beds whose rope supports had to be pulled tight.",
+  "recipe": [
+   "organic89:wooden-beam",
+   "organic89:nail"
+  ],
+  "recipeNames": [
+   "Wooden Beam",
+   "Nail"
+  ],
+  "artBrief": "Empty wooden bed frame with headboard in side view; brown, dark brown.",
+  "home": {
+   "kind": "material"
+  }
+ },
+ {
+  "suffix": "rug",
+  "name": "Rug",
+  "category": "home",
+  "summary": "A soft woven rug spread across the floorboards to make a room warm and colourful.",
+  "wit": "Floor fashion.",
+  "trivia": "The Pazyryk carpet, found in a frozen Siberian tomb, is about 2,400 years old.",
+  "recipe": [
+   "organic89:fabric",
+   "organic89:floorboards"
+  ],
+  "recipeNames": [
+   "Fabric",
+   "Floorboards"
+  ],
+  "artBrief": "Rectangular rug with border pattern and tassels, top view; red, gold, navy.",
+  "home": {
+   "kind": "furniture",
+   "effect": "decor",
+   "size": [
+    2,
+    2
+   ]
+  }
+ },
+ {
+  "suffix": "doormat",
+  "name": "Doormat",
+  "category": "home",
+  "summary": "A rough little mat placed by the door so companions can wipe their paws before coming in.",
+  "wit": "Welcome, but wipe your feet.",
+  "trivia": "Coir doormats are made from the tough fibres of coconut husks.",
+  "recipe": [
+   "organic89:rug",
+   "organic89:door"
+  ],
+  "recipeNames": [
+   "Rug",
+   "Door"
+  ],
+  "artBrief": "Small rectangular brown mat with a little paw print; tan, brown, dark paw.",
+  "home": {
+   "kind": "furniture",
+   "effect": "decor",
+   "size": [
+    1,
+    1
+   ]
+  }
+ },
+ {
+  "suffix": "lamp-shade",
+  "name": "Lamp Shade",
+  "category": "home",
+  "summary": "A round fabric shade stretched over a ring frame that softens the glow of a lamp.",
+  "wit": "Throwing shade, but kindly.",
+  "trivia": "Lamp shades became widespread with oil and then electric lamps, to soften harsh glare.",
+  "recipe": [
+   "organic89:fabric",
+   "legacy:44"
+  ],
+  "recipeNames": [
+   "Fabric",
+   "Wheel"
+  ],
+  "artBrief": "Drum-shaped fabric lamp shade, slightly tapered; cream, warm yellow glow, dark rim.",
+  "home": {
+   "kind": "material"
+  }
+ },
+ {
+  "suffix": "fence",
+  "name": "Fence",
+  "category": "home",
+  "summary": "A short picket fence of planks on beams that borders a companion yard.",
+  "wit": "Good fences make happy neighbours.",
+  "trivia": "Picket fences take their name from the pointed stakes, or pickets, used in old military defences.",
+  "recipe": [
+   "organic46:wooden-plank",
+   "organic89:wooden-beam"
+  ],
+  "recipeNames": [
+   "Wooden Plank",
+   "Wooden Beam"
+  ],
+  "artBrief": "Three white pickets with pointed tops on two rails; white, light grey, green grass strip.",
+  "home": {
+   "kind": "furniture",
+   "effect": "decor",
+   "size": [
+    3,
+    1
+   ]
+  }
+ },
+ {
+  "suffix": "toolbox",
+  "name": "Toolbox",
+  "category": "home",
+  "summary": "A handy wooden box with a carry handle that keeps every building tool in one place.",
+  "wit": "A place for every tool, and every tool in its place.",
+  "trivia": "Carpenters traditionally built their own tool chests as a showcase of their skill.",
+  "recipe": [
+   "legacy:29",
+   "organic89:wooden-crate"
+  ],
+  "recipeNames": [
+   "Tool",
+   "Wooden Crate"
+  ],
+  "artBrief": "Open wooden toolbox with handle, tool handles poking out; brown, red handle, silver.",
+  "home": {
+   "kind": "material"
+  }
+ },
+ {
+  "suffix": "basket",
+  "name": "Basket",
+  "category": "home",
+  "summary": "A woven basket with a handle for carrying snacks, yarn and small home treasures.",
+  "wit": "Holds eggs, not grudges.",
+  "trivia": "Basket weaving is one of the oldest crafts, with remains dating back over 10,000 years.",
+  "recipe": [
+   "organic89:rope",
+   "organic62:hand-loom"
+  ],
+  "recipeNames": [
+   "Rope",
+   "Hand Loom"
+  ],
+  "artBrief": "Woven basket with arched handle and criss-cross texture; tan, golden brown.",
+  "home": {
+   "kind": "material"
+  }
+ },
+ {
+  "suffix": "kindling",
+  "name": "Kindling",
+  "category": "home",
+  "summary": "A small bundle of dry twigs and shavings used to start a fire in a hearth.",
+  "wit": "Small sticks, big plans.",
+  "trivia": "Kindling sits between tinder and logs: it catches fire from tinder and then lights the bigger wood.",
+  "recipe": [
+   "legacy:24",
+   "organic89:wood-shavings"
+  ],
+  "recipeNames": [
+   "Wood",
+   "Wood Shavings"
+  ],
+  "artBrief": "Bundle of small sticks tied with string over curly shavings; tan, brown, cream.",
+  "home": {
+   "kind": "material"
+  }
+ },
+ {
+  "suffix": "fireplace",
+  "name": "Fireplace",
+  "category": "home",
+  "summary": "A warm arched fireplace with crackling kindling where companions gather to relax.",
+  "wit": "Hot seat in the house.",
+  "trivia": "Before central heating, the fireplace was often the only heat source and cooking spot in a home.",
+  "recipe": [
+   "organic89:kindling",
+   "organic41:arch"
+  ],
+  "recipeNames": [
+   "Kindling",
+   "Arch"
+  ],
+  "artBrief": "Brick fireplace arch with orange flames on logs; red-brown, orange, yellow, dark opening.",
+  "home": {
+   "kind": "furniture",
+   "effect": "mood",
+   "size": [
+    2,
+    1
+   ]
+  }
+ },
+ {
+  "suffix": "chimney",
+  "name": "Chimney",
+  "category": "home",
+  "summary": "A tall stack that rises through the roof and carries smoke up and away from the fireplace.",
+  "wit": "Up, up and away, says the smoke.",
+  "trivia": "Chimneys became common in European homes around the 1100s and 1200s.",
+  "recipe": [
+   "organic89:fireplace",
+   "organic89:roof"
+  ],
+  "recipeNames": [
+   "Fireplace",
+   "Roof"
+  ],
+  "artBrief": "Brick chimney on a roof slope with grey smoke puff; red brick, grey, brown roof.",
+  "home": {
+   "kind": "material"
+  }
+ },
+ {
+  "suffix": "castle-gate",
+  "name": "Castle Gate",
+  "category": "home",
+  "summary": "A heavy arched gate raised and lowered by a crank, the grand entrance of any castle.",
+  "wit": "Crank it up, let them in.",
+  "trivia": "The sliding grille gate of many castles is called a portcullis, raised by winches and chains.",
+  "recipe": [
+   "organic89:door",
+   "legacy:514"
+  ],
+  "recipeNames": [
+   "Door",
+   "Crank Handle"
+  ],
+  "artBrief": "Arched gate with vertical bars half raised and side crank wheel; grey, brown, dark opening.",
+  "home": {
+   "kind": "material"
+  }
+ },
+ {
+  "suffix": "blanket",
+  "name": "Blanket",
+  "category": "home",
+  "summary": "A thick soft blanket woven from yarn and fabric to keep companions warm at night.",
+  "wit": "Officially licensed to snuggle.",
+  "trivia": "The word blanket may come from blanc, French for white, the colour of undyed wool cloth.",
+  "recipe": [
+   "organic89:fabric",
+   "organic46:yarn"
+  ],
+  "recipeNames": [
+   "Fabric",
+   "Yarn"
+  ],
+  "artBrief": "Folded blanket with fringed edge and stripe; teal, cream stripe, soft shadow.",
+  "home": {
+   "kind": "material"
+  }
+ },
+ {
+  "suffix": "diamond",
+  "name": "Diamond",
+  "category": "material",
+  "summary": "A brilliant, ultra-hard gemstone of pure carbon, squeezed into shape deep underground over ages.",
+  "wit": "Coal that never gave up.",
+  "trivia": "Diamond is the hardest natural material on Earth.",
+  "recipe": [
+   "legacy:25",
+   "legacy:34"
+  ],
+  "recipeNames": [
+   "Coal",
+   "Crystal"
+  ],
+  "artBrief": "Faceted cut diamond, front view, pale cyan, white highlight, dark outline."
+ },
+ {
+  "suffix": "bat",
+  "name": "Bat",
+  "category": "life",
+  "summary": "A small furry flying mammal that sleeps upside down in caves and hunts insects at night.",
+  "wit": "Hangs out, literally.",
+  "trivia": "Bats are the only mammals capable of true powered flight.",
+  "recipe": [
+   "organic38:bird",
+   "legacy:37"
+  ],
+  "recipeNames": [
+   "Bird",
+   "Cave"
+  ],
+  "artBrief": "Dark purple bat with spread wings, small fangs, centered, lilac belly."
+ },
+ {
+  "suffix": "jungle",
+  "name": "Jungle",
+  "category": "nature",
+  "summary": "A dense, tangled tropical forest packed with hanging vines, huge leaves and noisy wildlife.",
+  "wit": "Nature forgot to trim.",
+  "trivia": "Jungles can hold more than half of all land species in a tiny area.",
+  "recipe": [
+   "organic32:rainforest",
+   "organic38:vine"
+  ],
+  "recipeNames": [
+   "Rainforest",
+   "Vine"
+  ],
+  "artBrief": "Thick green canopy with hanging vines, two shades of green and brown trunks."
+ },
+ {
+  "suffix": "bear",
+  "name": "Bear",
+  "category": "life",
+  "summary": "A big, strong furry mammal of the woods that loves fish, berries and especially honey.",
+  "wit": "Will hug for honey.",
+  "trivia": "Bears can smell food from several kilometres away.",
+  "recipe": [
+   "legacy:20",
+   "organic34:honey"
+  ],
+  "recipeNames": [
+   "Forest",
+   "Honey"
+  ],
+  "artBrief": "Brown bear sitting, holding a small yellow honey pot, round shapes."
+ },
+ {
+  "suffix": "camel",
+  "name": "Camel",
+  "category": "life",
+  "summary": "A long-legged desert animal with a hump that can walk for days between oases without drinking.",
+  "wit": "Packs its lunch in its back.",
+  "trivia": "A camel hump stores fat, not water.",
+  "recipe": [
+   "legacy:26",
+   "organic38:oasis"
+  ],
+  "recipeNames": [
+   "Animal",
+   "Oasis"
+  ],
+  "artBrief": "Tan one-hump camel in side view, sandy yellow ground line."
+ },
+ {
+  "suffix": "snowman",
+  "name": "Snowman",
+  "category": "nature",
+  "summary": "A friendly figure built from stacked snowballs, with a carrot nose and twig arms.",
+  "wit": "Cool under pressure until spring.",
+  "trivia": "The tallest snowman ever built was over 37 metres tall.",
+  "recipe": [
+   "legacy:28",
+   "organic46:snowdrift"
+  ],
+  "recipeNames": [
+   "Human",
+   "Snowdrift"
+  ],
+  "artBrief": "Three white snowballs stacked, orange carrot nose, red scarf, light blue outline."
+ },
+ {
+  "suffix": "steel",
+  "name": "Steel",
+  "category": "material",
+  "summary": "A strong, tough alloy of iron and a little carbon, used for bridges, tools and machines.",
+  "wit": "Iron with a gym membership.",
+  "trivia": "Ancient smiths made steel by heating iron with charcoal.",
+  "recipe": [
+   "legacy:31",
+   "organic43:charcoal"
+  ],
+  "recipeNames": [
+   "Iron",
+   "Charcoal"
+  ],
+  "artBrief": "Grey steel I-beam in perspective, blue-grey shading, white shine."
+ },
+ {
+  "suffix": "axe",
+  "name": "Axe",
+  "category": "material",
+  "summary": "A woodcutting tool with a heavy steel head on a wooden handle, used to chop logs and firewood.",
+  "wit": "Splits logs, not hairs.",
+  "trivia": "Stone axes are among the oldest tools humans ever made.",
+  "recipe": [
+   "organic89:steel",
+   "legacy:24"
+  ],
+  "recipeNames": [
+   "Steel",
+   "Wood"
+  ],
+  "artBrief": "Axe with brown wooden handle and grey steel head, diagonal."
+ },
+ {
+  "suffix": "beach",
+  "name": "Beach",
+  "category": "nature",
+  "summary": "A sunny strip of soft sand where the sea meets the land, full of shells and waves.",
+  "wit": "Sand in places you forgot existed.",
+  "trivia": "Some beaches have pink or black sand from coral or volcanic rock.",
+  "recipe": [
+   "legacy:16",
+   "legacy:558"
+  ],
+  "recipeNames": [
+   "Sand",
+   "Island"
+  ],
+  "artBrief": "Yellow sand strip, blue wave edge, small orange sun in corner."
+ },
+ {
+  "suffix": "candle",
+  "name": "Candle",
+  "category": "material",
+  "summary": "A stick of wax with a wick that burns slowly to give a small, steady flame of light.",
+  "wit": "A tiny campfire with good manners.",
+  "trivia": "Early candles were made from beeswax or animal fat.",
+  "recipe": [
+   "organic37:honeycomb",
+   "legacy:1"
+  ],
+  "recipeNames": [
+   "Honeycomb",
+   "Fire"
+  ],
+  "artBrief": "Cream wax candle with orange flame and yellow core, dripping wax."
+ },
+ {
+  "suffix": "grass",
+  "name": "Grass",
+  "category": "nature",
+  "summary": "Thin green blades that cover fields, lawns and meadows, feeding many grazing animals.",
+  "wit": "The planet's carpet.",
+  "trivia": "Grasslands cover about a quarter of Earth's land.",
+  "recipe": [
+   "organic34:sprout",
+   "legacy:2"
+  ],
+  "recipeNames": [
+   "Sprout",
+   "Earth"
+  ],
+  "artBrief": "Tuft of bright green grass blades on a brown soil strip."
+ },
+ {
+  "suffix": "wheat",
+  "name": "Wheat",
+  "category": "nature",
+  "summary": "A tall golden cereal grass whose grains are ground into flour for bread and pasta.",
+  "wit": "Bread, before it was bread.",
+  "trivia": "Wheat was one of the first crops farmed, over 10,000 years ago.",
+  "recipe": [
+   "organic89:grass",
+   "legacy:559"
+  ],
+  "recipeNames": [
+   "Grass",
+   "Field"
+  ],
+  "artBrief": "Three golden wheat stalks with grain heads, crossed, warm yellow."
+ },
+ {
+  "suffix": "chicken",
+  "name": "Chicken",
+  "category": "life",
+  "summary": "A farm bird that pecks at grain, clucks around the yard and lays eggs.",
+  "wit": "Crossed the road; sources unclear.",
+  "trivia": "There are more chickens on Earth than any other bird.",
+  "recipe": [
+   "organic38:bird",
+   "organic89:wheat"
+  ],
+  "recipeNames": [
+   "Bird",
+   "Wheat"
+  ],
+  "artBrief": "White hen with red comb, orange beak and feet, side view."
+ },
+ {
+  "suffix": "earthquake",
+  "name": "Earthquake",
+  "category": "nature",
+  "summary": "A sudden shaking of the ground caused by moving rock deep inside the Earth.",
+  "wit": "The ground having a bad day.",
+  "trivia": "Thousands of small earthquakes happen every day around the world.",
+  "recipe": [
+   "legacy:2",
+   "organic38:volcano"
+  ],
+  "recipeNames": [
+   "Earth",
+   "Volcano"
+  ],
+  "artBrief": "Brown ground split by a zigzag crack, small shake lines on both sides."
+ },
+ {
+  "suffix": "light-bulb",
+  "name": "Light Bulb",
+  "category": "science",
+  "summary": "A glass bulb with a glowing filament or LED that turns electricity into light.",
+  "wit": "Bright idea, literally.",
+  "trivia": "Early bulbs used carbonised bamboo filaments.",
+  "recipe": [
+   "organic89:candle",
+   "legacy:67"
+  ],
+  "recipeNames": [
+   "Candle",
+   "Electricity"
+  ],
+  "artBrief": "Classic yellow-glowing bulb with grey screw base, light rays."
+ },
+ {
+  "suffix": "seagull",
+  "name": "Seagull",
+  "category": "life",
+  "summary": "A noisy white-and-grey seabird that glides over coasts and steals snacks from beachgoers.",
+  "wit": "Your chips are its chips.",
+  "trivia": "Gulls can drink salt water and expel the salt through glands.",
+  "recipe": [
+   "organic38:bird",
+   "legacy:591"
+  ],
+  "recipeNames": [
+   "Bird",
+   "Ocean"
+  ],
+  "artBrief": "White gull with grey wings, yellow beak, gliding, light blue background dot."
+ },
+ {
+  "suffix": "palm-tree",
+  "name": "Palm Tree",
+  "category": "nature",
+  "summary": "A tall tropical tree with a bare trunk and a crown of big fan or feather leaves.",
+  "wit": "Built-in umbrella, coconuts included.",
+  "trivia": "Coconuts can float across oceans to start new palms.",
+  "recipe": [
+   "legacy:558",
+   "legacy:19"
+  ],
+  "recipeNames": [
+   "Island",
+   "Tree"
+  ],
+  "artBrief": "Curved brown trunk, green fronds, two brown coconuts."
+ },
+ {
+  "suffix": "wolf",
+  "name": "Wolf",
+  "category": "life",
+  "summary": "A wild grey canine that lives and hunts in packs and famously howls at night.",
+  "wit": "Sings to the moon, never off-key.",
+  "trivia": "Wolves are the wild ancestors of pet dogs.",
+  "recipe": [
+   "legacy:26",
+   "pack:moon"
+  ],
+  "recipeNames": [
+   "Animal",
+   "Moon"
+  ],
+  "artBrief": "Grey wolf sitting, head up howling, pale yellow moon behind."
+ },
+ {
+  "suffix": "dog",
+  "name": "Dog",
+  "category": "life",
+  "summary": "A loyal, playful companion animal descended from wolves and tamed by people long ago.",
+  "wit": "Will trade love for snacks.",
+  "trivia": "Dogs were the first animals humans domesticated.",
+  "recipe": [
+   "organic89:wolf",
+   "legacy:28"
+  ],
+  "recipeNames": [
+   "Wolf",
+   "Human"
+  ],
+  "artBrief": "Friendly brown dog sitting, tongue out, floppy ears."
+ },
+ {
+  "suffix": "cat",
+  "name": "Cat",
+  "category": "life",
+  "summary": "A small, curious furry pet with whiskers that purrs, naps in the sun and chases toys.",
+  "wit": "Owns you, technically.",
+  "trivia": "Cats spend about two thirds of their lives sleeping.",
+  "recipe": [
+   "legacy:26",
+   "organic38:milk"
+  ],
+  "recipeNames": [
+   "Animal",
+   "Milk"
+  ],
+  "artBrief": "Orange cat sitting, tail curled, green eyes, front view."
+ },
+ {
+  "suffix": "cow",
+  "name": "Cow",
+  "category": "life",
+  "summary": "A gentle farm animal that grazes on grass all day and gives milk.",
+  "wit": "Turns lawns into milkshakes.",
+  "trivia": "Cows have one stomach with four compartments.",
+  "recipe": [
+   "legacy:26",
+   "organic89:grass"
+  ],
+  "recipeNames": [
+   "Animal",
+   "Grass"
+  ],
+  "artBrief": "Black-and-white cow head, pink nose, small horns."
+ },
+ {
+  "suffix": "sheep",
+  "name": "Sheep",
+  "category": "life",
+  "summary": "A fluffy farm animal covered in soft wool that grazes in flocks.",
+  "wit": "A cloud that learned to walk.",
+  "trivia": "A sheep's wool never stops growing.",
+  "recipe": [
+   "legacy:26",
+   "legacy:17"
+  ],
+  "recipeNames": [
+   "Animal",
+   "Cloud"
+  ],
+  "artBrief": "Round white woolly sheep with black face and legs."
+ },
+ {
+  "suffix": "snake",
+  "name": "Snake",
+  "category": "life",
+  "summary": "A long, legless reptile that slithers through grass and marshes and flicks its tongue.",
+  "wit": "No legs, no problem.",
+  "trivia": "Snakes smell with their tongues.",
+  "recipe": [
+   "legacy:26",
+   "organic42:marsh"
+  ],
+  "recipeNames": [
+   "Animal",
+   "Marsh"
+  ],
+  "artBrief": "Green snake in an S curve, forked red tongue."
+ },
+ {
+  "suffix": "lizard",
+  "name": "Lizard",
+  "category": "life",
+  "summary": "A small scaly reptile with four legs and a long tail that loves basking in the sun.",
+  "wit": "Solar-powered, cold-blooded.",
+  "trivia": "Some lizards can drop and regrow their tails.",
+  "recipe": [
+   "legacy:26",
+   "legacy:141"
+  ],
+  "recipeNames": [
+   "Animal",
+   "Sun"
+  ],
+  "artBrief": "Green lizard top view, curled tail, yellow sun spot."
+ },
+ {
+  "suffix": "crocodile",
+  "name": "Crocodile",
+  "category": "life",
+  "summary": "A huge armoured reptile with powerful jaws that lurks in rivers waiting for prey.",
+  "wit": "Smiles a lot. Do not smile back.",
+  "trivia": "Crocodiles have barely changed since the age of dinosaurs.",
+  "recipe": [
+   "organic89:lizard",
+   "legacy:39"
+  ],
+  "recipeNames": [
+   "Lizard",
+   "River"
+  ],
+  "artBrief": "Dark green crocodile side view, open toothy jaws, blue water line."
+ },
+ {
+  "suffix": "whale",
+  "name": "Whale",
+  "category": "life",
+  "summary": "A gigantic ocean mammal that breathes air through a blowhole and sings deep songs.",
+  "wit": "Biggest splash in the ocean.",
+  "trivia": "The blue whale is the largest animal that has ever lived.",
+  "recipe": [
+   "legacy:591",
+   "organic38:dolphin"
+  ],
+  "recipeNames": [
+   "Ocean",
+   "Dolphin"
+  ],
+  "artBrief": "Big blue whale with water spout, pale belly, side view."
+ },
+ {
+  "suffix": "savanna",
+  "name": "Savanna",
+  "category": "nature",
+  "summary": "A warm, wide grassland with scattered trees, home to lions, zebras and giraffes.",
+  "wit": "Grass as far as the eye can roam.",
+  "trivia": "Savannas cover nearly half of Africa.",
+  "recipe": [
+   "legacy:1048",
+   "organic89:grass"
+  ],
+  "recipeNames": [
+   "Desert",
+   "Grass"
+  ],
+  "artBrief": "Yellow grass plain, flat-topped acacia tree, orange sky band."
+ },
+ {
+  "suffix": "lion",
+  "name": "Lion",
+  "category": "life",
+  "summary": "A big wild cat with a golden coat; males wear a shaggy mane and roar across the savanna.",
+  "wit": "King of the jungle, lives on the savanna.",
+  "trivia": "A lion's roar can be heard 8 km away.",
+  "recipe": [
+   "legacy:26",
+   "organic89:savanna"
+  ],
+  "recipeNames": [
+   "Animal",
+   "Savanna"
+  ],
+  "artBrief": "Lion head front view, golden face, big brown mane."
+ },
+ {
+  "suffix": "rust",
+  "name": "Rust",
+  "category": "material",
+  "summary": "The flaky reddish-brown coating that forms when iron is left in water and air.",
+  "wit": "Iron's bad hair day.",
+  "trivia": "Rust is iron oxide, the same compound that makes Mars red.",
+  "recipe": [
+   "legacy:31",
+   "legacy:0"
+  ],
+  "recipeNames": [
+   "Iron",
+   "Water"
+  ],
+  "artBrief": "Grey metal plate with orange-brown rust patches."
+ },
+ {
+  "suffix": "atoll",
+  "name": "Atoll",
+  "category": "nature",
+  "summary": "A ring-shaped coral reef or island circling a calm blue lagoon in the open ocean.",
+  "wit": "A donut made of coral.",
+  "trivia": "Atolls often form on top of sunken volcanoes.",
+  "recipe": [
+   "organic42:coral",
+   "legacy:558"
+  ],
+  "recipeNames": [
+   "Coral",
+   "Island"
+  ],
+  "artBrief": "Top view green-yellow ring island, turquoise lagoon, dark blue sea."
+ },
+ {
+  "suffix": "worm",
+  "name": "Worm",
+  "category": "life",
+  "summary": "A soft, wriggly creature that tunnels through mud and soil and keeps it healthy.",
+  "wit": "Professional dirt tester.",
+  "trivia": "Earthworms breathe through their skin.",
+  "recipe": [
+   "legacy:6",
+   "legacy:26"
+  ],
+  "recipeNames": [
+   "Mud",
+   "Animal"
+  ],
+  "artBrief": "Pink wiggly worm on brown soil band."
+ },
+ {
+  "suffix": "snowflake",
+  "name": "Snowflake",
+  "category": "nature",
+  "summary": "A tiny six-pointed ice crystal that drifts down from winter clouds.",
+  "wit": "Unique, just like everyone else.",
+  "trivia": "Nearly every snowflake has six sides.",
+  "recipe": [
+   "legacy:36",
+   "legacy:34"
+  ],
+  "recipeNames": [
+   "Snow",
+   "Crystal"
+  ],
+  "artBrief": "Six-point white snowflake on light blue circle."
+ },
+ {
+  "suffix": "soap",
+  "name": "Soap",
+  "category": "material",
+  "summary": "A bar made from oils and ash-lye that foams with water and washes dirt away.",
+  "wit": "Bubbles with a purpose.",
+  "trivia": "Ancient Babylonians made soap from fats and ash.",
+  "recipe": [
+   "legacy:42",
+   "organic43:ash"
+  ],
+  "recipeNames": [
+   "Oil",
+   "Ash"
+  ],
+  "artBrief": "Pink soap bar with three white bubbles."
+ },
+ {
+  "suffix": "milkshake",
+  "name": "Milkshake",
+  "category": "nature",
+  "summary": "A thick, cold drink of milk blended with ice cream, often topped with cream.",
+  "wit": "Dessert you can sip.",
+  "trivia": "Electric blenders made milkshakes popular in the 1920s.",
+  "recipe": [
+   "organic38:milk",
+   "organic38:ice-cream"
+  ],
+  "recipeNames": [
+   "Milk",
+   "Ice Cream"
+  ],
+  "artBrief": "Tall glass with pink shake, whipped cream, red cherry, striped straw."
+ },
+ {
+  "suffix": "mountain-goat",
+  "name": "Mountain Goat",
+  "category": "life",
+  "summary": "A sure-footed white goat that climbs steep rocky cliffs with ease.",
+  "wit": "Stairs? Who needs stairs.",
+  "trivia": "Mountain goats can jump nearly 4 metres in one bound.",
+  "recipe": [
+   "legacy:26",
+   "legacy:38"
+  ],
+  "recipeNames": [
+   "Animal",
+   "Mountain"
+  ],
+  "artBrief": "White goat with small black horns on a grey rock ledge."
+ },
+ {
+  "suffix": "french-fries",
+  "name": "French Fries",
+  "category": "nature",
+  "summary": "Crispy golden sticks of fried potato, sprinkled with salt.",
+  "wit": "Potatoes in their best outfit.",
+  "trivia": "Belgium and France both claim to have invented fries.",
+  "recipe": [
+   "organic38:potato",
+   "organic38:salt"
+  ],
+  "recipeNames": [
+   "Potato",
+   "Salt"
+  ],
+  "artBrief": "Red paper cone overflowing with golden fries."
+ },
+ {
+  "suffix": "grape",
+  "name": "Grape",
+  "category": "nature",
+  "summary": "Small sweet round fruits that grow in bunches on climbing vines.",
+  "wit": "Nature's bite-size snack.",
+  "trivia": "Raisins are just dried grapes.",
+  "recipe": [
+   "organic37:fruit",
+   "organic38:vine"
+  ],
+  "recipeNames": [
+   "Fruit",
+   "Vine"
+  ],
+  "artBrief": "Purple grape bunch with a green leaf."
+ },
+ {
+  "suffix": "mermaid",
+  "name": "Mermaid",
+  "category": "mythology",
+  "summary": "A legendary sea person with a human upper body and a shimmering fish tail.",
+  "wit": "Half swimmer, half fish, all legend.",
+  "trivia": "Mermaid legends appear in cultures all over the world.",
+  "recipe": [
+   "organic83:siren",
+   "legacy:28"
+  ],
+  "recipeNames": [
+   "Siren",
+   "Human"
+  ],
+  "artBrief": "Mermaid side view, teal tail, red hair, simple shapes."
+ },
+ {
+  "suffix": "unicorn",
+  "name": "Unicorn",
+  "category": "mythology",
+  "summary": "A magical white horse with a single spiral horn, said to be pure and very rare.",
+  "wit": "Sparkles sold separately.",
+  "trivia": "The unicorn is the national animal of Scotland.",
+  "recipe": [
+   "organic82:pegasus",
+   "legacy:125"
+  ],
+  "recipeNames": [
+   "Pegasus",
+   "Magic"
+  ],
+  "artBrief": "White horse head with golden spiral horn, pink mane."
+ },
+ {
+  "suffix": "fairy",
+  "name": "Fairy",
+  "category": "mythology",
+  "summary": "A tiny winged spirit of folklore who lives in hidden mounds and woods and grants small magic.",
+  "wit": "Small wings, big mischief.",
+  "trivia": "In Irish lore, fairies live in hills called sidhe.",
+  "recipe": [
+   "legacy:125",
+   "organic83:sidhe-mound"
+  ],
+  "recipeNames": [
+   "Magic",
+   "Sidhe Mound"
+  ],
+  "artBrief": "Tiny fairy with clear blue wings, green dress, sparkle trail."
+ },
+ {
+  "suffix": "thunderbird",
+  "name": "Thunderbird",
+  "category": "mythology",
+  "summary": "A giant legendary bird whose wing beats make thunder and whose eyes flash lightning.",
+  "wit": "Its flapping is in the forecast.",
+  "trivia": "The Thunderbird is a powerful spirit in many Indigenous North American traditions.",
+  "recipe": [
+   "organic83:phoenix",
+   "organic82:divine-thunderbolt"
+  ],
+  "recipeNames": [
+   "Phoenix",
+   "Divine Thunderbolt"
+  ],
+  "artBrief": "Big bird with spread wings, yellow lightning zigzags, dark blue."
+ },
+ {
+  "suffix": "yeti",
+  "name": "Yeti",
+  "category": "mythology",
+  "summary": "A shaggy white ape-like creature said to roam the snowy Himalayan mountains.",
+  "wit": "Bigfoot's chilly cousin.",
+  "trivia": "Yeti stories come from Himalayan folklore; many \"Yeti\" samples proved to be bears.",
+  "recipe": [
+   "organic82:frost-giant",
+   "organic83:mythical-beast"
+  ],
+  "recipeNames": [
+   "Frost Giant",
+   "Mythical Beast"
+  ],
+  "artBrief": "White furry creature with blue face, arms raised, snowy ground."
+ },
+ {
+  "suffix": "karaoke",
+  "name": "Karaoke",
+  "category": "music",
+  "summary": "Singing along to music while the lyrics scroll on a screen, just for fun.",
+  "wit": "Talent optional, courage required.",
+  "trivia": "The word karaoke is Japanese for \"empty orchestra\".",
+  "recipe": [
+   "pack:song",
+   "legacy:76"
+  ],
+  "recipeNames": [
+   "Song",
+   "Screen"
+  ],
+  "artBrief": "Microphone in front of a screen with lyric bars, purple and pink."
+ },
+ {
+  "suffix": "screenplay",
+  "name": "Screenplay",
+  "category": "object",
+  "summary": "The written script of a film, with scenes, dialogue and directions for the actors.",
+  "wit": "The movie before the movie.",
+  "trivia": "A screenplay page runs about one minute of screen time.",
+  "recipe": [
+   "legacy:649",
+   "legacy:51"
+  ],
+  "recipeNames": [
+   "Cinema",
+   "Book"
+  ],
+  "artBrief": "Stack of white script pages with brass fasteners and a film clapper icon."
+ },
+ {
+  "suffix": "hourglass",
+  "name": "Hourglass",
+  "category": "object",
+  "summary": "A two-bulb glass timer in which sand trickles from the top to the bottom.",
+  "wit": "Sand-powered stopwatch.",
+  "trivia": "Hourglasses were used on ships to measure speed.",
+  "recipe": [
+   "legacy:211",
+   "legacy:23"
+  ],
+  "recipeNames": [
+   "Clock",
+   "Glass"
+  ],
+  "artBrief": "Hourglass with wooden caps, yellow sand, light blue glass."
+ },
+ {
+  "suffix": "bed",
+  "name": "Bed",
+  "category": "home",
+  "summary": "A sturdy wooden bed frame topped with a soft mattress, where a companion sleeps and recovers health overnight.",
+  "wit": "Five more minutes. Then five more.",
+  "trivia": "Ancient Egyptian beds often sloped slightly and had a footboard so sleepers would not slide off.",
+  "recipe": [
+   "organic89:bed-frame",
+   "organic89:mattress"
+  ],
+  "recipeNames": [
+   "Bed Frame",
+   "Mattress"
+  ],
+  "artBrief": "Single bed side view, brown frame, white mattress, blue blanket; bold outline, flat colours.",
+  "home": {
+   "kind": "furniture",
+   "effect": "hp",
+   "size": [
+    2,
+    2
+   ]
+  }
+ },
+ {
+  "suffix": "pet-bed",
+  "name": "Pet Bed",
+  "category": "home",
+  "summary": "A round woven basket lined with a plump cushion, sized perfectly for a small companion to curl up in.",
+  "wit": "Circle three times, then flop.",
+  "trivia": "Many dogs and cats circle before lying down, an instinct thought to come from flattening grass in the wild.",
+  "recipe": [
+   "organic89:cushion",
+   "organic89:basket"
+  ],
+  "recipeNames": [
+   "Cushion",
+   "Basket"
+  ],
+  "artBrief": "Round wicker basket with red cushion, tan weave, top 3/4 view; centred, thick outline.",
+  "home": {
+   "kind": "furniture",
+   "effect": "hp",
+   "size": [
+    1,
+    1
+   ]
+  }
+ },
+ {
+  "suffix": "bunk-bed",
+  "name": "Bunk Bed",
+  "category": "home",
+  "summary": "Two beds stacked one above the other with a ladder up the side, so two companions can share a small room.",
+  "wit": "Dibs on the top bunk.",
+  "trivia": "Bunk beds have long been used on ships, in barracks and at camps where space is limited.",
+  "recipe": [
+   "organic89:bed",
+   "organic89:ladder"
+  ],
+  "recipeNames": [
+   "Bed",
+   "Ladder"
+  ],
+  "artBrief": "Two stacked beds with side ladder, brown wood, blue and red blankets; front view.",
+  "home": {
+   "kind": "furniture",
+   "effect": "hp",
+   "size": [
+    1,
+    2
+   ]
+  }
+ },
+ {
+  "suffix": "canopy-bed",
+  "name": "Canopy Bed",
+  "category": "home",
+  "summary": "A grand bed with four tall posts and flowing curtains draped overhead, making a cosy private nest for sleeping.",
+  "wit": "Royalty-level napping.",
+  "trivia": "Bed curtains once helped keep sleepers warm in cold, draughty castles and manor houses.",
+  "recipe": [
+   "organic89:bed",
+   "organic89:curtain"
+  ],
+  "recipeNames": [
+   "Bed",
+   "Curtain"
+  ],
+  "artBrief": "Four-poster bed with pink drapes tied at posts, brown wood, white sheets; front 3/4 view.",
+  "home": {
+   "kind": "furniture",
+   "effect": "mood",
+   "size": [
+    2,
+    2
+   ]
+  }
+ },
+ {
+  "suffix": "stool",
+  "name": "Stool",
+  "category": "home",
+  "summary": "A simple round wooden seat on three or four pegged legs, with no back and no arms, light enough to carry anywhere.",
+  "wit": "Sit down, stay humble.",
+  "trivia": "A three-legged stool never wobbles, because three points always rest steadily on any surface.",
+  "recipe": [
+   "legacy:24",
+   "organic89:wooden-peg"
+  ],
+  "recipeNames": [
+   "Wood",
+   "Wooden Peg"
+  ],
+  "artBrief": "Round-top three-legged stool, light brown, darker leg shading; side view, bold outline.",
+  "home": {
+   "kind": "furniture",
+   "effect": "mood",
+   "size": [
+    1,
+    1
+   ]
+  }
+ },
+ {
+  "suffix": "chair",
+  "name": "Chair",
+  "category": "home",
+  "summary": "A wooden seat with four legs and an upright backrest, the everyday chair every room eventually needs.",
+  "wit": "A stool that learned to lean back.",
+  "trivia": "For centuries chairs were rare luxuries, and most ordinary people sat on benches or stools.",
+  "recipe": [
+   "organic89:stool",
+   "organic46:wooden-plank"
+  ],
+  "recipeNames": [
+   "Stool",
+   "Wooden Plank"
+  ],
+  "artBrief": "Plain wooden chair with slatted back, mid brown, side 3/4 view; thick outline.",
+  "home": {
+   "kind": "furniture",
+   "effect": "mood",
+   "size": [
+    1,
+    1
+   ]
+  }
+ },
+ {
+  "suffix": "armchair",
+  "name": "Armchair",
+  "category": "home",
+  "summary": "A deep padded chair with soft armrests on both sides, perfect for sinking into after a long day.",
+  "wit": "Designed for one, defended by all.",
+  "trivia": "Upholstered armchairs became popular in the 1700s as padding and springs improved.",
+  "recipe": [
+   "organic89:chair",
+   "organic89:cushion"
+  ],
+  "recipeNames": [
+   "Chair",
+   "Cushion"
+  ],
+  "artBrief": "Chunky green armchair with rounded arms and cushion, front 3/4 view; green, dark green, brown feet.",
+  "home": {
+   "kind": "furniture",
+   "effect": "mood",
+   "size": [
+    1,
+    1
+   ]
+  }
+ },
+ {
+  "suffix": "sofa",
+  "name": "Sofa",
+  "category": "home",
+  "summary": "A long padded couch with room for several companions to sit, sprawl or doze side by side.",
+  "wit": "Where lost snacks go to live.",
+  "trivia": "The word sofa comes from an Arabic word for a raised platform covered with carpets and cushions.",
+  "recipe": [
+   "organic89:armchair",
+   "organic89:armchair"
+  ],
+  "recipeNames": [
+   "Armchair",
+   "Armchair"
+  ],
+  "artBrief": "Three-seat sofa, orange-red upholstery, two cushions, short brown legs; front view.",
+  "home": {
+   "kind": "furniture",
+   "effect": "hp",
+   "size": [
+    3,
+    1
+   ]
+  }
+ },
+ {
+  "suffix": "rocking-chair",
+  "name": "Rocking Chair",
+  "category": "home",
+  "summary": "A wooden chair set on two curved rockers so it sways gently back and forth when someone sits in it.",
+  "wit": "Going nowhere, very relaxingly.",
+  "trivia": "Rocking chairs became widely popular in North America in the 1700s.",
+  "recipe": [
+   "organic89:chair",
+   "organic41:arch"
+  ],
+  "recipeNames": [
+   "Chair",
+   "Arch"
+  ],
+  "artBrief": "Wooden rocking chair with curved runners, warm brown, red seat pad; side view.",
+  "home": {
+   "kind": "furniture",
+   "effect": "mood",
+   "size": [
+    1,
+    1
+   ]
+  }
+ },
+ {
+  "suffix": "footstool",
+  "name": "Footstool",
+  "category": "home",
+  "summary": "A low padded stool for resting tired feet, or for a tiny companion to use as a throne.",
+  "wit": "Feet deserve furniture too.",
+  "trivia": "Footstools were once a sign of status, keeping important feet off cold stone floors.",
+  "recipe": [
+   "organic89:stool",
+   "organic89:cushion"
+  ],
+  "recipeNames": [
+   "Stool",
+   "Cushion"
+  ],
+  "artBrief": "Low square padded footstool, purple top, gold trim, stubby brown legs; 3/4 view.",
+  "home": {
+   "kind": "furniture",
+   "effect": "mood",
+   "size": [
+    1,
+    1
+   ]
+  }
+ },
+ {
+  "suffix": "bean-bag",
+  "name": "Bean Bag",
+  "category": "home",
+  "summary": "A big floppy fabric sack filled with stuffing that squashes into whatever shape the sitter needs.",
+  "wit": "Sit down. Get swallowed.",
+  "trivia": "Bean bag chairs first became a hit in the late 1960s.",
+  "recipe": [
+   "organic89:cushion",
+   "organic89:pillow-stuffing"
+  ],
+  "recipeNames": [
+   "Cushion",
+   "Pillow Stuffing"
+  ],
+  "artBrief": "Slumped teardrop bean bag, bright blue with lighter highlight, seam line; front view.",
+  "home": {
+   "kind": "furniture",
+   "effect": "mood",
+   "size": [
+    1,
+    1
+   ]
+  }
+ },
+ {
+  "suffix": "side-table",
+  "name": "Side Table",
+  "category": "home",
+  "summary": "A small square wooden table that sits beside a chair or sofa to hold a lamp, a book or a cup of cocoa.",
+  "wit": "Small table, big responsibilities.",
+  "trivia": "Small occasional tables became popular in the 1700s as rooms filled with more movable furniture.",
+  "recipe": [
+   "organic89:floorboards",
+   "organic89:wooden-beam"
+  ],
+  "recipeNames": [
+   "Floorboards",
+   "Wooden Beam"
+  ],
+  "artBrief": "Small square wooden table on four legs, warm brown top, darker legs; 3/4 view.",
+  "home": {
+   "kind": "furniture",
+   "effect": "decor",
+   "size": [
+    1,
+    1
+   ]
+  }
+ },
+ {
+  "suffix": "coffee-table",
+  "name": "Coffee Table",
+  "category": "home",
+  "summary": "A low table placed in front of the sofa to hold cups, books and the occasional napping companion.",
+  "wit": "Low table, high expectations.",
+  "trivia": "Low tables in front of sofas became fashionable in Western homes in the late 1800s.",
+  "recipe": [
+   "organic89:side-table",
+   "organic89:saw"
+  ],
+  "recipeNames": [
+   "Side Table",
+   "Saw"
+  ],
+  "artBrief": "Low oval wooden table with short legs, honey brown, cup on top; front 3/4 view.",
+  "home": {
+   "kind": "furniture",
+   "effect": "decor",
+   "size": [
+    2,
+    1
+   ]
+  }
+ },
+ {
+  "suffix": "wardrobe",
+  "name": "Wardrobe",
+  "category": "home",
+  "summary": "A tall wooden cabinet with doors and drawers for hanging clothes, scarves and companion costumes.",
+  "wit": "Check the back for other worlds.",
+  "trivia": "Before built-in closets were common, most clothes were kept in freestanding wardrobes and chests.",
+  "recipe": [
+   "organic89:drawer",
+   "organic89:door"
+  ],
+  "recipeNames": [
+   "Drawer",
+   "Door"
+  ],
+  "artBrief": "Tall two-door wardrobe, dark brown, round gold knobs, drawer at base; front view.",
+  "home": {
+   "kind": "furniture",
+   "effect": "decor",
+   "size": [
+    2,
+    2
+   ]
+  }
+ },
+ {
+  "suffix": "dresser",
+  "name": "Dresser",
+  "category": "home",
+  "summary": "A wide chest of stacked drawers for folding away clothes, socks and treasured trinkets.",
+  "wit": "Every drawer has one lonely sock.",
+  "trivia": "Chests of drawers grew out of simple lidded chests during the 1600s.",
+  "recipe": [
+   "organic89:drawer",
+   "organic89:drawer"
+  ],
+  "recipeNames": [
+   "Drawer",
+   "Drawer"
+  ],
+  "artBrief": "Wide three-drawer dresser, light oak, round knobs, front view; tan, brown, gold.",
+  "home": {
+   "kind": "furniture",
+   "effect": "decor",
+   "size": [
+    2,
+    1
+   ]
+  }
+ },
+ {
+  "suffix": "nightstand",
+  "name": "Nightstand",
+  "category": "home",
+  "summary": "A small bedside table with a drawer, just right for a glass of water and a bedtime story.",
+  "wit": "Guardian of the midnight snack.",
+  "trivia": "Bedside cabinets were once used to hide chamber pots out of sight.",
+  "recipe": [
+   "organic89:drawer",
+   "organic89:bed"
+  ],
+  "recipeNames": [
+   "Drawer",
+   "Bed"
+  ],
+  "artBrief": "Small square bedside table with one drawer, brown, small knob; front view.",
+  "home": {
+   "kind": "furniture",
+   "effect": "decor",
+   "size": [
+    1,
+    1
+   ]
+  }
+ },
+ {
+  "suffix": "floor-lamp",
+  "name": "Floor Lamp",
+  "category": "home",
+  "summary": "A tall standing lamp with a fabric shade on a wooden pole that bathes a corner in warm light.",
+  "wit": "The tallest thing that never grows.",
+  "trivia": "Fabric lampshades soften and spread light so it is gentler on the eyes.",
+  "recipe": [
+   "organic89:lamp-shade",
+   "organic89:wooden-beam"
+  ],
+  "recipeNames": [
+   "Lamp Shade",
+   "Wooden Beam"
+  ],
+  "artBrief": "Tall lamp, cream cone shade glowing yellow, thin brown pole, round base; front view.",
+  "home": {
+   "kind": "furniture",
+   "effect": "decor",
+   "size": [
+    1,
+    2
+   ]
+  }
+ },
+ {
+  "suffix": "writing-desk",
+  "name": "Writing Desk",
+  "category": "home",
+  "summary": "A study desk with a smooth top and small drawers for paper and pens, where great ideas get written down.",
+  "wit": "Homework, but cosier.",
+  "trivia": "Some antique writing desks hid secret compartments for letters and valuables.",
+  "recipe": [
+   "organic89:side-table",
+   "organic89:drawer"
+  ],
+  "recipeNames": [
+   "Side Table",
+   "Drawer"
+  ],
+  "artBrief": "Wooden desk with drawers on one side, paper on top, brown and cream; 3/4 view.",
+  "home": {
+   "kind": "furniture",
+   "effect": "discovery",
+   "size": [
+    2,
+    1
+   ]
+  }
+ },
+ {
+  "suffix": "desk-lamp",
+  "name": "Desk Lamp",
+  "category": "home",
+  "summary": "A small adjustable lamp that shines a focused pool of light onto the desk for late-night reading.",
+  "wit": "Burning the midnight lamp.",
+  "trivia": "The balanced-arm desk lamp, which holds any position, was invented in the 1930s.",
+  "recipe": [
+   "organic89:lamp-shade",
+   "organic89:writing-desk"
+  ],
+  "recipeNames": [
+   "Lamp Shade",
+   "Writing Desk"
+  ],
+  "artBrief": "Angled desk lamp with bent arm, green shade, yellow light cone; side view.",
+  "home": {
+   "kind": "furniture",
+   "effect": "discovery",
+   "size": [
+    1,
+    1
+   ]
+  }
+ },
+ {
+  "suffix": "bookshelf",
+  "name": "Bookshelf",
+  "category": "home",
+  "summary": "A tall set of wooden shelves packed with books, maps and notes that spark new ideas.",
+  "wit": "Shelf after shelf of maybe-later.",
+  "trivia": "Libraries in ancient times stored scrolls in pigeonhole shelves rather than upright books.",
+  "recipe": [
+   "organic89:shelf",
+   "organic89:shelf"
+  ],
+  "recipeNames": [
+   "Shelf",
+   "Shelf"
+  ],
+  "artBrief": "Tall bookshelf with colourful book spines on three shelves, brown frame; front view.",
+  "home": {
+   "kind": "furniture",
+   "effect": "discovery",
+   "size": [
+    2,
+    2
+   ]
+  }
+ },
+ {
+  "suffix": "secret-bookcase",
+  "name": "Secret Bookcase",
+  "category": "home",
+  "summary": "A bookcase that swings open like a door when the right book is pulled, revealing a hidden study.",
+  "wit": "Pull the red one. No, the other red one.",
+  "trivia": "Hidden doors disguised as bookcases were built in some old houses to conceal passages and rooms.",
+  "recipe": [
+   "organic89:bookshelf",
+   "organic89:door"
+  ],
+  "recipeNames": [
+   "Bookshelf",
+   "Door"
+  ],
+  "artBrief": "Bookshelf half-swung open revealing dark gap, one tilted red book; brown, red, black.",
+  "home": {
+   "kind": "furniture",
+   "effect": "discovery",
+   "size": [
+    2,
+    2
+   ]
+  }
+ },
+ {
+  "suffix": "library-ladder",
+  "name": "Library Ladder",
+  "category": "home",
+  "summary": "A rolling ladder that slides along a tall bookcase so companions can reach the highest shelves.",
+  "wit": "Knowledge is up there somewhere.",
+  "trivia": "Rolling library ladders run on a rail fixed to the bookcase and have been used since the 1700s.",
+  "recipe": [
+   "organic89:ladder",
+   "organic89:bookshelf"
+  ],
+  "recipeNames": [
+   "Ladder",
+   "Bookshelf"
+  ],
+  "artBrief": "Tall bookcase with leaning wooden ladder on rail, brown, multicolour spines; front view.",
+  "home": {
+   "kind": "furniture",
+   "effect": "discovery",
+   "size": [
+    1,
+    2
+   ]
+  }
+ },
+ {
+  "suffix": "reading-chair",
+  "name": "Reading Chair",
+  "category": "home",
+  "summary": "A deep armchair tucked beside a glowing floor lamp, the perfect spot to lose an afternoon in a book.",
+  "wit": "One more chapter. Honest.",
+  "trivia": "Good reading light comes from behind or beside the reader to avoid glare on the page.",
+  "recipe": [
+   "organic89:armchair",
+   "organic89:floor-lamp"
+  ],
+  "recipeNames": [
+   "Armchair",
+   "Floor Lamp"
+  ],
+  "artBrief": "Armchair with tall lamp behind, open book on seat; green, cream, yellow glow.",
+  "home": {
+   "kind": "furniture",
+   "effect": "discovery",
+   "size": [
+    1,
+    1
+   ]
+  }
+ },
+ {
+  "suffix": "globe-stand",
+  "name": "Globe Stand",
+  "category": "home",
+  "summary": "A painted spinning sphere of the world mounted on a wooden stand, perfect for dreaming up journeys.",
+  "wit": "Spin it, point, pack a bag.",
+  "trivia": "The oldest surviving terrestrial globe, the Erdapfel, was made in Germany in 1492.",
+  "recipe": [
+   "legacy:44",
+   "organic89:paint"
+  ],
+  "recipeNames": [
+   "Wheel",
+   "Paint"
+  ],
+  "artBrief": "Blue globe with green continents on tilted brass ring, brown wooden stand; front view.",
+  "home": {
+   "kind": "furniture",
+   "effect": "discovery",
+   "size": [
+    1,
+    1
+   ]
+  }
+ },
+ {
+  "suffix": "window-seat",
+  "name": "Window Seat",
+  "category": "home",
+  "summary": "A cushioned bench built beneath a window, where companions watch the rain and daydream.",
+  "wit": "Front row seat to the weather.",
+  "trivia": "Window seats were common in Georgian and Victorian homes, often with storage hidden underneath.",
+  "recipe": [
+   "organic89:window-frame",
+   "organic89:cushion"
+  ],
+  "recipeNames": [
+   "Window Frame",
+   "Cushion"
+  ],
+  "artBrief": "Window with blue sky panes, cushioned bench below with pillows; white, blue, pink.",
+  "home": {
+   "kind": "furniture",
+   "effect": "mood",
+   "size": [
+    2,
+    1
+   ]
+  }
+ },
+ {
+  "suffix": "wall-clock",
+  "name": "Wall Clock",
+  "category": "home",
+  "summary": "A round clock hung on the wall from a nail, ticking away the hours of the companion day.",
+  "wit": "Tick, tock, snack o'clock.",
+  "trivia": "Clock hands move clockwise because they copy the way shadows move on a sundial in the Northern Hemisphere.",
+  "recipe": [
+   "legacy:44",
+   "organic89:nail"
+  ],
+  "recipeNames": [
+   "Wheel",
+   "Nail"
+  ],
+  "artBrief": "Round clock face with black hands and numbers, wooden rim; front view; cream, brown, black.",
+  "home": {
+   "kind": "furniture",
+   "effect": "decor",
+   "size": [
+    1,
+    1
+   ]
+  }
+ },
+ {
+  "suffix": "cuckoo-clock",
+  "name": "Cuckoo Clock",
+  "category": "home",
+  "summary": "A carved clock shaped like a little house, with a tiny bird that pops out to call every hour.",
+  "wit": "Cuckoo! It is exactly bird o'clock.",
+  "trivia": "Cuckoo clocks are strongly associated with the Black Forest region of Germany since the 1700s.",
+  "recipe": [
+   "organic89:wall-clock",
+   "organic89:roof"
+  ],
+  "recipeNames": [
+   "Wall Clock",
+   "Roof"
+  ],
+  "artBrief": "Small house-shaped clock with peaked roof, bird at little door, pinecone weights; brown, cream, red.",
+  "home": {
+   "kind": "furniture",
+   "effect": "mood",
+   "size": [
+    1,
+    1
+   ]
+  }
+ },
+ {
+  "suffix": "grandfather-clock",
+  "name": "Grandfather Clock",
+  "category": "home",
+  "summary": "A tall wooden case clock with a swinging pendulum and a deep chime that fills the whole house.",
+  "wit": "Old, tall and always on time.",
+  "trivia": "The name comes from an 1876 song about a clock that stopped when its owner died.",
+  "recipe": [
+   "organic89:wall-clock",
+   "organic89:wooden-beam"
+  ],
+  "recipeNames": [
+   "Wall Clock",
+   "Wooden Beam"
+  ],
+  "artBrief": "Tall narrow clock, round face on top, glass door with gold pendulum; dark brown, gold, cream.",
+  "home": {
+   "kind": "furniture",
+   "effect": "decor",
+   "size": [
+    1,
+    3
+   ]
+  }
+ },
+ {
+  "suffix": "picture-frame",
+  "name": "Picture Frame",
+  "category": "home",
+  "summary": "A wooden frame holding a small painting or portrait to hang on the wall and brighten the room.",
+  "wit": "Smile for the wall.",
+  "trivia": "Elaborate gilded frames were often more expensive than the paintings they held.",
+  "recipe": [
+   "organic89:paint",
+   "organic89:window-frame"
+  ],
+  "recipeNames": [
+   "Paint",
+   "Window Frame"
+  ],
+  "artBrief": "Gold rectangular frame around tiny green-hill painting; front view; gold, green, blue.",
+  "home": {
+   "kind": "furniture",
+   "effect": "decor",
+   "size": [
+    1,
+    1
+   ]
+  }
+ },
+ {
+  "suffix": "tapestry",
+  "name": "Tapestry",
+  "category": "home",
+  "summary": "A large woven wall hanging covered in colourful scenes that keeps a room warm and full of stories.",
+  "wit": "A rug that wanted to see the view.",
+  "trivia": "Woven wall hangings helped insulate cold stone walls in medieval castles.",
+  "recipe": [
+   "organic89:fabric",
+   "organic89:paint"
+  ],
+  "recipeNames": [
+   "Fabric",
+   "Paint"
+  ],
+  "artBrief": "Hanging cloth with rod on top, red border, small tree scene; red, gold, green.",
+  "home": {
+   "kind": "furniture",
+   "effect": "decor",
+   "size": [
+    2,
+    2
+   ]
+  }
+ },
+ {
+  "suffix": "toy-chest",
+  "name": "Toy Chest",
+  "category": "home",
+  "summary": "A painted wooden chest with a hinged lid, overflowing with balls, blocks and plush toys.",
+  "wit": "Tidy for exactly four seconds.",
+  "trivia": "Safe modern toy chests use lid supports so the lid cannot slam shut on small fingers.",
+  "recipe": [
+   "organic89:wooden-crate",
+   "organic89:paint"
+  ],
+  "recipeNames": [
+   "Wooden Crate",
+   "Paint"
+  ],
+  "artBrief": "Painted chest, lid open, ball and block peeking out; blue chest, yellow stars, red ball.",
+  "home": {
+   "kind": "furniture",
+   "effect": "mood",
+   "size": [
+    2,
+    1
+   ]
+  }
+ },
+ {
+  "suffix": "dollhouse",
+  "name": "Dollhouse",
+  "category": "home",
+  "summary": "A miniature house with tiny rooms and furniture, where companions stage little stories of their own.",
+  "wit": "A house for the house.",
+  "trivia": "Detailed miniature houses called baby houses were popular with wealthy adults in 1600s Europe.",
+  "recipe": [
+   "organic89:toy-chest",
+   "organic89:roof"
+  ],
+  "recipeNames": [
+   "Toy Chest",
+   "Roof"
+  ],
+  "artBrief": "Open-front miniature house with tiny rooms, pink walls, red roof, white trim; front view.",
+  "home": {
+   "kind": "furniture",
+   "effect": "mood",
+   "size": [
+    1,
+    1
+   ]
+  }
+ },
+ {
+  "suffix": "rocking-horse",
+  "name": "Rocking Horse",
+  "category": "home",
+  "summary": "A carved wooden horse on curved rockers with a yarn mane, ready for endless gallops going nowhere.",
+  "wit": "Fastest horse that never leaves.",
+  "trivia": "Rocking horses with bow-shaped rockers became popular in England in the 1700s.",
+  "recipe": [
+   "organic89:rocking-chair",
+   "organic46:yarn"
+  ],
+  "recipeNames": [
+   "Rocking Chair",
+   "Yarn"
+  ],
+  "artBrief": "Wooden horse on curved rockers, dapple white body, red saddle, brown yarn mane; side view.",
+  "home": {
+   "kind": "furniture",
+   "effect": "mood",
+   "size": [
+    2,
+    1
+   ]
+  }
+ },
+ {
+  "suffix": "hammock",
+  "name": "Hammock",
+  "category": "home",
+  "summary": "A swinging fabric sling tied up with rope, where a companion can sway gently into a deep nap.",
+  "wit": "Gravity, but make it cosy.",
+  "trivia": "Hammocks were developed by Indigenous peoples of the Americas and later adopted by sailors.",
+  "recipe": [
+   "organic89:rope",
+   "organic89:fabric"
+  ],
+  "recipeNames": [
+   "Rope",
+   "Fabric"
+  ],
+  "artBrief": "Curved striped hammock slung between two ropes; red, yellow, white stripes, side view.",
+  "home": {
+   "kind": "furniture",
+   "effect": "hp",
+   "size": [
+    2,
+    1
+   ]
+  }
+ },
+ {
+  "suffix": "night-light",
+  "name": "Night Light",
+  "category": "home",
+  "summary": "A tiny, soft glowing lamp that keeps the bedroom gently lit so no companion fears the dark.",
+  "wit": "Monsters hate this one weird trick.",
+  "trivia": "Dim warm light at night disturbs sleep less than bright blue-white light.",
+  "recipe": [
+   "organic89:lamp-shade",
+   "organic89:nightstand"
+  ],
+  "recipeNames": [
+   "Lamp Shade",
+   "Nightstand"
+  ],
+  "artBrief": "Small mushroom-shaped lamp glowing soft yellow on dark background; yellow, cream, navy.",
+  "home": {
+   "kind": "furniture",
+   "effect": "mood",
+   "size": [
+    1,
+    1
+   ]
+  }
+ },
+ {
+  "suffix": "coat-rack",
+  "name": "Coat Rack",
+  "category": "home",
+  "summary": "A tall wooden stand with pegs at the top for hanging coats, hats and scarves by the door.",
+  "wit": "A tree that only grows hats.",
+  "trivia": "Bentwood coat stands were mass produced in the 1800s using steam to bend the wood.",
+  "recipe": [
+   "organic89:wooden-peg",
+   "organic89:wardrobe"
+  ],
+  "recipeNames": [
+   "Wooden Peg",
+   "Wardrobe"
+  ],
+  "artBrief": "Tall coat stand with curved pegs, scarf and hat hanging; brown, red scarf, blue hat.",
+  "home": {
+   "kind": "furniture",
+   "effect": "decor",
+   "size": [
+    1,
+    2
+   ]
+  }
+ },
+ {
+  "suffix": "umbrella-stand",
+  "name": "Umbrella Stand",
+  "category": "home",
+  "summary": "A tall bucket by the front door where wet umbrellas and walking sticks drip dry.",
+  "wit": "Rainy days start here.",
+  "trivia": "Umbrella stands became common hallway furniture in Victorian homes.",
+  "recipe": [
+   "organic89:wooden-bucket",
+   "organic89:doormat"
+  ],
+  "recipeNames": [
+   "Wooden Bucket",
+   "Doormat"
+  ],
+  "artBrief": "Tall cylinder bucket with two umbrella handles poking out; brown, red, blue handles.",
+  "home": {
+   "kind": "furniture",
+   "effect": "decor",
+   "size": [
+    1,
+    1
+   ]
+  }
+ },
+ {
+  "suffix": "folding-screen",
+  "name": "Folding Screen",
+  "category": "home",
+  "summary": "A hinged wooden screen with fabric panels that folds out to divide a room or hide a messy corner.",
+  "wit": "Nothing to see here.",
+  "trivia": "Folding screens were invented in China and spread to Japan, where painted screens became an art form.",
+  "recipe": [
+   "organic89:curtain",
+   "organic89:fence"
+  ],
+  "recipeNames": [
+   "Curtain",
+   "Fence"
+  ],
+  "artBrief": "Three-panel zigzag folding screen, cream panels with pink blossom, brown frame; front view.",
+  "home": {
+   "kind": "furniture",
+   "effect": "decor",
+   "size": [
+    2,
+    1
+   ]
+  }
+ },
+ {
+  "suffix": "cradle",
+  "name": "Cradle",
+  "category": "home",
+  "summary": "A small rocking basket bed with a soft blanket where the youngest companions are lulled to sleep.",
+  "wit": "Rock-a-bye, snack-a-bye.",
+  "trivia": "Gentle rocking motion has been shown to help both babies and adults fall asleep faster.",
+  "recipe": [
+   "organic89:basket",
+   "organic89:rocking-chair"
+  ],
+  "recipeNames": [
+   "Basket",
+   "Rocking Chair"
+  ],
+  "artBrief": "Small wicker cradle on curved rockers, blue blanket, tan weave; side view.",
+  "home": {
+   "kind": "furniture",
+   "effect": "hp",
+   "size": [
+    1,
+    1
+   ]
+  }
+ },
+ {
+  "suffix": "blanket-fort",
+  "name": "Blanket Fort",
+  "category": "home",
+  "summary": "A secret hideout made by draping blankets over chairs, the cosiest headquarters in the whole house.",
+  "wit": "No grown-ups allowed.",
+  "trivia": "Building forts from blankets and furniture is a favourite childhood activity in many countries.",
+  "recipe": [
+   "organic89:blanket",
+   "organic89:chair"
+  ],
+  "recipeNames": [
+   "Blanket",
+   "Chair"
+  ],
+  "artBrief": "Blanket draped over two chairs forming a tent, peeking eyes in dark gap; purple, yellow, brown.",
+  "home": {
+   "kind": "furniture",
+   "effect": "mood",
+   "size": [
+    2,
+    2
+   ]
+  }
+ },
+ {
+  "suffix": "kitchen",
+  "name": "Kitchen",
+  "category": "home",
+  "summary": "The warm room of a house built around a cooking fire, where meals are prepared for everyone.",
+  "wit": "Where the snacks live.",
+  "trivia": "The word kitchen comes from the Latin coquina, meaning a place for cooking.",
+  "recipe": [
+   "legacy:45",
+   "organic89:fireplace"
+  ],
+  "recipeNames": [
+   "House",
+   "Fireplace"
+  ],
+  "artBrief": "A small house cut-away showing a hearth and a pot; warm orange, brown, cream.",
+  "home": {
+   "kind": "material"
+  }
+ },
+ {
+  "suffix": "bathroom",
+  "name": "Bathroom",
+  "category": "home",
+  "summary": "A small room of the house set aside for washing, bathing and splashing about.",
+  "wit": "The only room where puddles are allowed.",
+  "trivia": "For centuries many homes had no bathroom; people washed in a basin or at public baths.",
+  "recipe": [
+   "legacy:45",
+   "organic89:wooden-bucket"
+  ],
+  "recipeNames": [
+   "House",
+   "Wooden Bucket"
+  ],
+  "artBrief": "Small room cut-away with a wooden tub and bucket; light blue walls, brown wood, white.",
+  "home": {
+   "kind": "material"
+  }
+ },
+ {
+  "suffix": "wooden-bowl",
+  "name": "Wooden Bowl",
+  "category": "home",
+  "summary": "A round, shallow bowl carved from a single piece of wood, ready to hold food or water.",
+  "wit": "Half a bucket, twice as useful.",
+  "trivia": "Wooden bowls were traditionally turned on a lathe from green, freshly cut wood.",
+  "recipe": [
+   "organic89:wooden-bucket",
+   "organic89:saw"
+  ],
+  "recipeNames": [
+   "Wooden Bucket",
+   "Saw"
+  ],
+  "artBrief": "Single round wooden bowl seen from slight above; warm brown with darker grain rings.",
+  "home": {
+   "kind": "material"
+  }
+ },
+ {
+  "suffix": "chopping-board",
+  "name": "Chopping Board",
+  "category": "home",
+  "summary": "A thick, flat slab of hardwood used to chop vegetables and fruit without scratching the counter.",
+  "wit": "It takes every cut personally.",
+  "trivia": "Wood boards are naturally gentle on knife edges compared with glass or stone.",
+  "recipe": [
+   "organic46:wooden-plank",
+   "organic89:kitchen"
+  ],
+  "recipeNames": [
+   "Wooden Plank",
+   "Kitchen"
+  ],
+  "artBrief": "Rectangular wooden board with a handle hole and a few chopped carrot rounds; tan, orange.",
+  "home": {
+   "kind": "material"
+  }
+ },
+ {
+  "suffix": "rolling-pin",
+  "name": "Rolling Pin",
+  "category": "home",
+  "summary": "A smooth wooden cylinder with handles, rolled across dough to flatten it for bread and cookies.",
+  "wit": "Flattens dough, never moods.",
+  "trivia": "Some rolling pins are carved with patterns to press designs into cookies.",
+  "recipe": [
+   "organic89:wooden-peg",
+   "organic89:kitchen"
+  ],
+  "recipeNames": [
+   "Wooden Peg",
+   "Kitchen"
+  ],
+  "artBrief": "Horizontal wooden rolling pin with two knob handles; light tan, brown outline, flour dusting.",
+  "home": {
+   "kind": "material"
+  }
+ },
+ {
+  "suffix": "towel",
+  "name": "Towel",
+  "category": "home",
+  "summary": "A thick, soft square of absorbent cloth used to dry off after a bath or a splash.",
+  "wit": "Never leave home without one.",
+  "trivia": "Looped terry cloth towels became common in the 1800s once weaving machines could make the loops.",
+  "recipe": [
+   "organic89:fabric",
+   "organic89:bathroom"
+  ],
+  "recipeNames": [
+   "Fabric",
+   "Bathroom"
+  ],
+  "artBrief": "Folded fluffy towel with striped edge; soft teal, white stripe, grey shadow.",
+  "home": {
+   "kind": "material"
+  }
+ },
+ {
+  "suffix": "washtub",
+  "name": "Washtub",
+  "category": "home",
+  "summary": "A wide, low wooden tub made by sawing a barrel in half, used for laundry and baths.",
+  "wit": "Half a barrel, full of bubbles.",
+  "trivia": "Sawing an old barrel in half was a classic way to make a washtub or planter.",
+  "recipe": [
+   "organic89:water-barrel",
+   "organic89:saw"
+  ],
+  "recipeNames": [
+   "Water Barrel",
+   "Saw"
+  ],
+  "artBrief": "Low round wooden tub with metal hoops and soap suds; brown wood, grey hoops, white suds.",
+  "home": {
+   "kind": "material"
+  }
+ },
+ {
+  "suffix": "food-bowl",
+  "name": "Food Bowl",
+  "category": "home",
+  "summary": "A sturdy wooden bowl filled with tasty food; companions come here to eat and fill their bellies.",
+  "wit": "Breakfast, lunch and dinner, served in one bowl.",
+  "trivia": "Many pets prefer wide, shallow bowls so their whiskers do not brush the sides.",
+  "recipe": [
+   "organic89:wooden-bowl",
+   "organic89:kitchen"
+  ],
+  "recipeNames": [
+   "Wooden Bowl",
+   "Kitchen"
+  ],
+  "artBrief": "Wooden bowl heaped with brown kibble and a little bone on top; brown, tan, cream.",
+  "home": {
+   "kind": "furniture",
+   "effect": "food",
+   "size": [
+    1,
+    1
+   ]
+  }
+ },
+ {
+  "suffix": "water-bowl",
+  "name": "Water Bowl",
+  "category": "home",
+  "summary": "A wooden bowl kept full of fresh, cool water so thirsty companions can drink whenever they like.",
+  "wit": "Hydration station.",
+  "trivia": "Dogs drink by curling their tongue backwards to scoop water up like a ladle.",
+  "recipe": [
+   "organic89:wooden-bowl",
+   "organic89:wooden-bucket"
+  ],
+  "recipeNames": [
+   "Wooden Bowl",
+   "Wooden Bucket"
+  ],
+  "artBrief": "Wooden bowl with bright blue water and a ripple and a droplet above; brown, blue, white.",
+  "home": {
+   "kind": "furniture",
+   "effect": "food",
+   "size": [
+    1,
+    1
+   ]
+  }
+ },
+ {
+  "suffix": "feeding-trough",
+  "name": "Feeding Trough",
+  "category": "home",
+  "summary": "A long wooden trough that holds enough food for a whole house of hungry companions at once.",
+  "wit": "Everyone gets a seat at this table.",
+  "trivia": "Troughs have been used on farms for thousands of years to feed livestock together.",
+  "recipe": [
+   "organic89:food-bowl",
+   "organic89:wooden-beam"
+  ],
+  "recipeNames": [
+   "Food Bowl",
+   "Wooden Beam"
+  ],
+  "artBrief": "Long low wooden trough on short legs filled with grain; brown, gold, dark outline.",
+  "home": {
+   "kind": "furniture",
+   "effect": "food",
+   "size": [
+    2,
+    1
+   ]
+  }
+ },
+ {
+  "suffix": "dish-rack",
+  "name": "Dish Rack",
+  "category": "home",
+  "summary": "A slatted wooden rack beside the sink where freshly washed bowls and plates stand up to drip dry.",
+  "wit": "Drip, drip, done.",
+  "trivia": "Plate racks over the sink let dishes drip straight back into the basin as they dry.",
+  "recipe": [
+   "organic89:shelf",
+   "organic89:wooden-bowl"
+  ],
+  "recipeNames": [
+   "Shelf",
+   "Wooden Bowl"
+  ],
+  "artBrief": "Small wooden slatted rack holding three upright plates; brown, white plates, blue drips.",
+  "home": {
+   "kind": "furniture",
+   "effect": "decor",
+   "size": [
+    1,
+    1
+   ]
+  }
+ },
+ {
+  "suffix": "dining-chair",
+  "name": "Dining Chair",
+  "category": "home",
+  "summary": "A sturdy kitchen chair with a high back, made to pull up to the dining table at mealtimes.",
+  "wit": "Reserved for whoever gets there first.",
+  "trivia": "The word chair comes from the Greek kathedra, a seat, also the root of cathedral.",
+  "recipe": [
+   "organic89:chair",
+   "organic89:kitchen"
+  ],
+  "recipeNames": [
+   "Chair",
+   "Kitchen"
+  ],
+  "artBrief": "Wooden ladder-back chair with a red cushion; brown, red, side 3/4 view.",
+  "home": {
+   "kind": "furniture",
+   "effect": "mood",
+   "size": [
+    1,
+    1
+   ]
+  }
+ },
+ {
+  "suffix": "dining-bench",
+  "name": "Dining Bench",
+  "category": "home",
+  "summary": "A long wooden bench beside the dining table that seats several companions shoulder to shoulder.",
+  "wit": "Scoot over, there is always room.",
+  "trivia": "Benches were the usual seating at tables long before individual chairs became common.",
+  "recipe": [
+   "organic89:dining-chair",
+   "organic46:wooden-plank"
+  ],
+  "recipeNames": [
+   "Dining Chair",
+   "Wooden Plank"
+  ],
+  "artBrief": "Long plain wooden bench with four legs; warm brown, darker wood grain, side view.",
+  "home": {
+   "kind": "furniture",
+   "effect": "mood",
+   "size": [
+    2,
+    1
+   ]
+  }
+ },
+ {
+  "suffix": "highchair",
+  "name": "Highchair",
+  "category": "home",
+  "summary": "A tall wooden chair with a tray for the smallest companions, so they can eat at table height.",
+  "wit": "Small companion, big view.",
+  "trivia": "Highchairs for children appear in European paintings from at least the 1600s.",
+  "recipe": [
+   "organic89:dining-chair",
+   "organic89:ladder"
+  ],
+  "recipeNames": [
+   "Dining Chair",
+   "Ladder"
+  ],
+  "artBrief": "Tall wooden chair with long legs and a front tray; light brown, pastel yellow tray.",
+  "home": {
+   "kind": "furniture",
+   "effect": "mood",
+   "size": [
+    1,
+    1
+   ]
+  }
+ },
+ {
+  "suffix": "cupboard",
+  "name": "Cupboard",
+  "category": "home",
+  "summary": "A tall wooden cabinet with doors and shelves that keeps plates and snacks tidy and close at hand.",
+  "wit": "What is behind door number one? Snacks.",
+  "trivia": "Cupboard originally meant a board or table for displaying cups.",
+  "recipe": [
+   "organic89:shelf",
+   "organic89:door"
+  ],
+  "recipeNames": [
+   "Shelf",
+   "Door"
+  ],
+  "artBrief": "Tall wooden cupboard with two small doors and round knobs; brown, mustard knobs.",
+  "home": {
+   "kind": "furniture",
+   "effect": "food",
+   "size": [
+    1,
+    2
+   ]
+  }
+ },
+ {
+  "suffix": "pantry",
+  "name": "Pantry",
+  "category": "home",
+  "summary": "A small storage room off the kitchen stacked with jars, sacks and treats for hungry companions.",
+  "wit": "The door everyone pretends not to watch.",
+  "trivia": "Pantry comes from the old French paneterie, a place where bread was kept.",
+  "recipe": [
+   "organic89:kitchen",
+   "organic89:door"
+  ],
+  "recipeNames": [
+   "Kitchen",
+   "Door"
+  ],
+  "artBrief": "Open pantry door showing shelves of jars and a sack; brown, cream, red and green jars.",
+  "home": {
+   "kind": "furniture",
+   "effect": "food",
+   "size": [
+    2,
+    2
+   ]
+  }
+ },
+ {
+  "suffix": "kitchen-counter",
+  "name": "Kitchen Counter",
+  "category": "home",
+  "summary": "A long wooden work surface with drawers underneath, used for chopping and preparing meals.",
+  "wit": "Prep space for professional snack makers.",
+  "trivia": "Standard kitchen counters are usually around 90 centimetres high.",
+  "recipe": [
+   "organic89:chopping-board",
+   "organic89:drawer"
+  ],
+  "recipeNames": [
+   "Chopping Board",
+   "Drawer"
+  ],
+  "artBrief": "Wooden counter with two drawers and a chopping board on top; brown, light tan top.",
+  "home": {
+   "kind": "furniture",
+   "effect": "decor",
+   "size": [
+    2,
+    1
+   ]
+  }
+ },
+ {
+  "suffix": "wood-stove",
+  "name": "Wood Stove",
+  "category": "home",
+  "summary": "A cast-iron cooking stove fed with wood, warming the kitchen while it cooks hot meals.",
+  "wit": "Hot food, warm toes.",
+  "trivia": "Wood-burning cook stoves spread through homes in the 1800s, replacing open hearth cooking.",
+  "recipe": [
+   "organic89:kitchen",
+   "organic89:kindling"
+  ],
+  "recipeNames": [
+   "Kitchen",
+   "Kindling"
+  ],
+  "artBrief": "Squat black stove with small chimney pipe and orange glow in the door; black, orange, grey.",
+  "home": {
+   "kind": "furniture",
+   "effect": "food",
+   "size": [
+    1,
+    1
+   ]
+  }
+ },
+ {
+  "suffix": "bread-oven",
+  "name": "Bread Oven",
+  "category": "home",
+  "summary": "A domed brick oven heated with a wood fire, perfect for baking crusty loaves for everyone.",
+  "wit": "Smells like a hug.",
+  "trivia": "Domed bread ovens hold heat in their thick walls long after the fire is raked out.",
+  "recipe": [
+   "organic89:wood-stove",
+   "organic41:arch"
+  ],
+  "recipeNames": [
+   "Wood Stove",
+   "Arch"
+  ],
+  "artBrief": "Domed brick oven with an arched mouth and a loaf on a peel; terracotta, gold, black.",
+  "home": {
+   "kind": "furniture",
+   "effect": "food",
+   "size": [
+    2,
+    2
+   ]
+  }
+ },
+ {
+  "suffix": "icebox",
+  "name": "Icebox",
+  "category": "home",
+  "summary": "An insulated wooden chest that keeps food cool with a block of ice, the ancestor of the fridge.",
+  "wit": "Chill out, snacks.",
+  "trivia": "Iceboxes needed a fresh block of ice delivered every few days by the iceman.",
+  "recipe": [
+   "organic89:cupboard",
+   "organic89:wooden-bucket"
+  ],
+  "recipeNames": [
+   "Cupboard",
+   "Wooden Bucket"
+  ],
+  "artBrief": "Tall wooden box with metal latch and a pale blue ice block glimpse; brown, silver, ice blue.",
+  "home": {
+   "kind": "furniture",
+   "effect": "food",
+   "size": [
+    1,
+    2
+   ]
+  }
+ },
+ {
+  "suffix": "spice-shelf",
+  "name": "Spice Shelf",
+  "category": "home",
+  "summary": "A small wall shelf lined with little jars of colourful spices and dried herbs.",
+  "wit": "Every jar has a secret.",
+  "trivia": "Pepper was once so valuable it was used to pay rent and taxes.",
+  "recipe": [
+   "organic89:shelf",
+   "organic89:kitchen"
+  ],
+  "recipeNames": [
+   "Shelf",
+   "Kitchen"
+  ],
+  "artBrief": "Small wooden wall shelf with five tiny jars in red, yellow, green; brown shelf.",
+  "home": {
+   "kind": "furniture",
+   "effect": "decor",
+   "size": [
+    1,
+    1
+   ]
+  }
+ },
+ {
+  "suffix": "tea-kettle",
+  "name": "Tea Kettle",
+  "category": "home",
+  "summary": "A round kettle that whistles when the water boils, making warm drinks that cheer everyone up.",
+  "wit": "It sings when it is ready.",
+  "trivia": "Whistling kettles work by forcing steam through a small opening that vibrates like a whistle.",
+  "recipe": [
+   "organic89:wood-stove",
+   "organic89:wooden-bucket"
+  ],
+  "recipeNames": [
+   "Wood Stove",
+   "Wooden Bucket"
+  ],
+  "artBrief": "Round kettle with spout and a little steam curl; copper orange, black handle, white steam.",
+  "home": {
+   "kind": "furniture",
+   "effect": "mood",
+   "size": [
+    1,
+    1
+   ]
+  }
+ },
+ {
+  "suffix": "cookie-jar",
+  "name": "Cookie Jar",
+  "category": "home",
+  "summary": "A round jar with a lid, always filled with freshly baked cookies for companions who behave.",
+  "wit": "Hand in the jar? Paw in the jar.",
+  "trivia": "Cookie jars became popular kitchen keepsakes in the 1930s.",
+  "recipe": [
+   "organic89:rolling-pin",
+   "organic89:bread-oven"
+  ],
+  "recipeNames": [
+   "Rolling Pin",
+   "Bread Oven"
+  ],
+  "artBrief": "Round cream jar with lid knob and two cookies peeking out; cream, brown, light blue.",
+  "home": {
+   "kind": "furniture",
+   "effect": "food",
+   "size": [
+    1,
+    1
+   ]
+  }
+ },
+ {
+  "suffix": "bread-box",
+  "name": "Bread Box",
+  "category": "home",
+  "summary": "A wooden box with a roll-top lid that keeps fresh bread soft and ready for snacking.",
+  "wit": "Best thing since sliced bread, it holds sliced bread.",
+  "trivia": "Bread boxes keep bread fresh by holding in some moisture while letting it breathe.",
+  "recipe": [
+   "organic89:bread-oven",
+   "organic89:wooden-crate"
+  ],
+  "recipeNames": [
+   "Bread Oven",
+   "Wooden Crate"
+  ],
+  "artBrief": "Wooden box with a curved roll-top lid and a loaf inside; brown, golden loaf.",
+  "home": {
+   "kind": "furniture",
+   "effect": "food",
+   "size": [
+    1,
+    1
+   ]
+  }
+ },
+ {
+  "suffix": "picnic-basket",
+  "name": "Picnic Basket",
+  "category": "home",
+  "summary": "A woven basket with a lid, packed with sandwiches and a checked blanket for meals outdoors.",
+  "wit": "Lunch, but make it an adventure.",
+  "trivia": "Picnics grew popular in the 1800s as people sought relaxed outdoor meals in parks.",
+  "recipe": [
+   "organic89:basket",
+   "organic89:kitchen"
+  ],
+  "recipeNames": [
+   "Basket",
+   "Kitchen"
+  ],
+  "artBrief": "Woven wicker basket with two lids and a red checked cloth peeking; tan, red, white.",
+  "home": {
+   "kind": "furniture",
+   "effect": "food",
+   "size": [
+    1,
+    1
+   ]
+  }
+ },
+ {
+  "suffix": "sink",
+  "name": "Sink",
+  "category": "home",
+  "summary": "A basin set into the counter with a tap, where dishes and paws get washed after dinner.",
+  "wit": "Dishes go in, sparkles come out.",
+  "trivia": "Before indoor plumbing, sinks were filled and emptied by hand with buckets.",
+  "recipe": [
+   "organic89:kitchen-counter",
+   "organic89:wooden-bucket"
+  ],
+  "recipeNames": [
+   "Kitchen Counter",
+   "Wooden Bucket"
+  ],
+  "artBrief": "Counter with an inset basin and a curved tap with a water drop; grey, brown, blue.",
+  "home": {
+   "kind": "furniture",
+   "effect": "decor",
+   "size": [
+    1,
+    1
+   ]
+  }
+ },
+ {
+  "suffix": "water-barrel",
+  "name": "Water Barrel",
+  "category": "home",
+  "summary": "A tall wooden barrel held together with hoops, full of fresh water for drinking and washing.",
+  "wit": "Hoops, but for holding water.",
+  "trivia": "Barrel makers are called coopers, and their craft is thousands of years old.",
+  "recipe": [
+   "organic89:wooden-bucket",
+   "organic89:wooden-beam"
+  ],
+  "recipeNames": [
+   "Wooden Bucket",
+   "Wooden Beam"
+  ],
+  "artBrief": "Upright wooden barrel with dark hoops and a ladle on top; brown, grey, blue water.",
+  "home": {
+   "kind": "furniture",
+   "effect": "food",
+   "size": [
+    1,
+    1
+   ]
+  }
+ },
+ {
+  "suffix": "bathtub",
+  "name": "Bathtub",
+  "category": "home",
+  "summary": "A long tub to soak in warm water; a relaxing bath restores a companion's health.",
+  "wit": "Bubbles are mandatory.",
+  "trivia": "Clawfoot bathtubs became fashionable in the late 1800s.",
+  "recipe": [
+   "organic89:washtub",
+   "organic89:bathroom"
+  ],
+  "recipeNames": [
+   "Washtub",
+   "Bathroom"
+  ],
+  "artBrief": "White clawfoot tub with bubbles spilling over the rim; white, gold feet, pale blue.",
+  "home": {
+   "kind": "furniture",
+   "effect": "hp",
+   "size": [
+    2,
+    1
+   ]
+  }
+ },
+ {
+  "suffix": "soaking-tub",
+  "name": "Soaking Tub",
+  "category": "home",
+  "summary": "An extra deep wooden tub with a little ladder, deep enough for companions to practise swimming.",
+  "wit": "Shallow end: none.",
+  "trivia": "Japanese ofuro tubs are traditionally deep wooden tubs for soaking up to the shoulders.",
+  "recipe": [
+   "organic89:bathtub",
+   "organic89:ladder"
+  ],
+  "recipeNames": [
+   "Bathtub",
+   "Ladder"
+  ],
+  "artBrief": "Tall round wooden tub with a ladder on the side and blue water with a ripple; brown, blue.",
+  "home": {
+   "kind": "furniture",
+   "effect": "swim",
+   "size": [
+    2,
+    2
+   ]
+  }
+ },
+ {
+  "suffix": "shower",
+  "name": "Shower",
+  "category": "home",
+  "summary": "A barrel of water raised high that sprinkles down through holes for a quick, refreshing rinse.",
+  "wit": "Rain, but on demand.",
+  "trivia": "Simple gravity showers made from raised buckets are still used when camping.",
+  "recipe": [
+   "organic89:water-barrel",
+   "organic89:ladder"
+  ],
+  "recipeNames": [
+   "Water Barrel",
+   "Ladder"
+  ],
+  "artBrief": "Raised barrel with a sprinkler head and falling blue drops; brown, grey, light blue.",
+  "home": {
+   "kind": "furniture",
+   "effect": "hp",
+   "size": [
+    1,
+    1
+   ]
+  }
+ },
+ {
+  "suffix": "towel-rack",
+  "name": "Towel Rack",
+  "category": "home",
+  "summary": "A wooden wall rack with pegs where fluffy towels hang to dry after bath time.",
+  "wit": "A place for every towel and every towel in its place.",
+  "trivia": "Heated towel rails were first used in the early 1900s, warmed by hot water pipes.",
+  "recipe": [
+   "organic89:towel",
+   "organic89:wooden-peg"
+  ],
+  "recipeNames": [
+   "Towel",
+   "Wooden Peg"
+  ],
+  "artBrief": "Wooden wall rack with two pegs holding a teal towel; brown, teal, white.",
+  "home": {
+   "kind": "furniture",
+   "effect": "decor",
+   "size": [
+    1,
+    1
+   ]
+  }
+ },
+ {
+  "suffix": "bath-mat",
+  "name": "Bath Mat",
+  "category": "home",
+  "summary": "A soft, thick mat on the bathroom floor that catches drips from wet feet and paws.",
+  "wit": "Wet paws welcome.",
+  "trivia": "Bath mats help prevent slips by absorbing water on smooth floors.",
+  "recipe": [
+   "organic89:towel",
+   "organic89:floorboards"
+  ],
+  "recipeNames": [
+   "Towel",
+   "Floorboards"
+  ],
+  "artBrief": "Rectangular fluffy mat with fringe edges; soft pink, white, viewed from above.",
+  "home": {
+   "kind": "furniture",
+   "effect": "decor",
+   "size": [
+    1,
+    1
+   ]
+  }
+ },
+ {
+  "suffix": "laundry-basket",
+  "name": "Laundry Basket",
+  "category": "home",
+  "summary": "A big woven basket for carrying dirty clothes to the washtub and clean ones back again.",
+  "wit": "Half full or half empty, it is always laundry day.",
+  "trivia": "Before washing machines, laundry day often took a whole day each week.",
+  "recipe": [
+   "organic89:basket",
+   "organic89:washtub"
+  ],
+  "recipeNames": [
+   "Basket",
+   "Washtub"
+  ],
+  "artBrief": "Tall woven basket with a sock and shirt sticking out; tan, blue, white.",
+  "home": {
+   "kind": "furniture",
+   "effect": "decor",
+   "size": [
+    1,
+    1
+   ]
+  }
+ },
+ {
+  "suffix": "wash-basin",
+  "name": "Wash Basin",
+  "category": "home",
+  "summary": "A wide bowl of water on a small stand for washing faces, paws and whiskers.",
+  "wit": "Splash, rinse, shine.",
+  "trivia": "Wash basins with jugs were a standard bedroom fixture before running water.",
+  "recipe": [
+   "organic89:wooden-bowl",
+   "organic89:bathroom"
+  ],
+  "recipeNames": [
+   "Wooden Bowl",
+   "Bathroom"
+  ],
+  "artBrief": "Small wooden stand holding a round basin and a jug; brown, white, light blue water.",
+  "home": {
+   "kind": "furniture",
+   "effect": "hp",
+   "size": [
+    1,
+    1
+   ]
+  }
+ },
+ {
+  "suffix": "bath-duck",
+  "name": "Bath Duck",
+  "category": "home",
+  "summary": "A little carved wooden duck that bobs on the bath water, making bath time playful.",
+  "wit": "Quack-tastic floatation.",
+  "trivia": "Toy ducks made of rubber became popular in the 1940s, but carved floating toys are much older.",
+  "recipe": [
+   "organic89:bathtub",
+   "organic89:wood-shavings"
+  ],
+  "recipeNames": [
+   "Bathtub",
+   "Wood Shavings"
+  ],
+  "artBrief": "Small yellow duck with orange beak floating on a blue ripple; yellow, orange, blue.",
+  "home": {
+   "kind": "furniture",
+   "effect": "mood",
+   "size": [
+    1,
+    1
+   ]
+  }
+ },
+ {
+  "suffix": "treadmill",
+  "name": "Treadmill",
+  "category": "home",
+  "summary": "A hand-cranked walking belt made from a looped rug, so companions can jog in place for hours.",
+  "wit": "Miles of running, zero metres travelled.",
+  "trivia": "Early treadmills in the 1800s were powered by people or animals walking to turn mills.",
+  "recipe": [
+   "organic89:rug",
+   "legacy:514"
+  ],
+  "recipeNames": [
+   "Rug",
+   "Crank Handle"
+  ],
+  "artBrief": "Side view of a wooden-framed treadmill with a striped belt and crank; brown, red, cream.",
+  "home": {
+   "kind": "furniture",
+   "effect": "run",
+   "size": [
+    2,
+    1
+   ]
+  }
+ },
+ {
+  "suffix": "running-wheel",
+  "name": "Running Wheel",
+  "category": "home",
+  "summary": "A big upright wooden wheel with a plank track inside that spins as a companion runs within it.",
+  "wit": "Round and round, faster and faster.",
+  "trivia": "Hamsters can run several kilometres a night on an exercise wheel.",
+  "recipe": [
+   "legacy:44",
+   "organic89:floorboards"
+  ],
+  "recipeNames": [
+   "Wheel",
+   "Floorboards"
+  ],
+  "artBrief": "Large wooden wheel on a stand with plank rungs inside; tan, brown, dark outline.",
+  "home": {
+   "kind": "furniture",
+   "effect": "run",
+   "size": [
+    2,
+    2
+   ]
+  }
+ },
+ {
+  "suffix": "hurdles",
+  "name": "Hurdles",
+  "category": "home",
+  "summary": "A row of low wooden hurdles that companions sprint toward and leap over to build running speed.",
+  "wit": "Jump the fence, skip the gate.",
+  "trivia": "Hurdle races have been part of the modern Olympics since the first Games in 1896.",
+  "recipe": [
+   "organic89:fence",
+   "organic89:treadmill"
+  ],
+  "recipeNames": [
+   "Fence",
+   "Treadmill"
+  ],
+  "artBrief": "Three small white-and-red striped hurdles in a row, green ground strip; red, white, green.",
+  "home": {
+   "kind": "furniture",
+   "effect": "run",
+   "size": [
+    3,
+    1
+   ]
+  }
+ },
+ {
+  "suffix": "paddling-pool",
+  "name": "Paddling Pool",
+  "category": "home",
+  "summary": "A wide, shallow wooden tub filled with water where small companions learn to paddle and float.",
+  "wit": "A bucket that hit its growth spurt.",
+  "trivia": "Paddling pools are kept shallow so young swimmers can always touch the bottom.",
+  "recipe": [
+   "organic89:wooden-bucket",
+   "organic89:wooden-bucket"
+  ],
+  "recipeNames": [
+   "Wooden Bucket",
+   "Wooden Bucket"
+  ],
+  "artBrief": "Round wooden tub with blue water and a small ripple; brown staves, light blue, white highlights.",
+  "home": {
+   "kind": "furniture",
+   "effect": "swim",
+   "size": [
+    2,
+    2
+   ]
+  }
+ },
+ {
+  "suffix": "splash-tub",
+  "name": "Splash Tub",
+  "category": "home",
+  "summary": "A deep varnished tub that keeps water in, perfect for dunking, splashing and practising strokes.",
+  "wit": "Waterproof, splash-proof, fun-proof? No.",
+  "trivia": "Varnish seals wood so water cannot soak in and swell the planks.",
+  "recipe": [
+   "organic89:wooden-bucket",
+   "organic89:varnish"
+  ],
+  "recipeNames": [
+   "Wooden Bucket",
+   "Varnish"
+  ],
+  "artBrief": "Glossy dark-brown barrel tub brimming with blue water and splash drops; brown, blue, white.",
+  "home": {
+   "kind": "furniture",
+   "effect": "swim",
+   "size": [
+    1,
+    1
+   ]
+  }
+ },
+ {
+  "suffix": "water-slide",
+  "name": "Water Slide",
+  "category": "home",
+  "summary": "A slippery slide that ends in a splashy pool, training swimming with every exciting landing.",
+  "wit": "Whee! Splash! Again!",
+  "trivia": "The first water slides in the early 1900s were simple wooden chutes into lakes.",
+  "recipe": [
+   "organic89:paddling-pool",
+   "organic89:playground-slide"
+  ],
+  "recipeNames": [
+   "Paddling Pool",
+   "Playground Slide"
+  ],
+  "artBrief": "Curved blue slide descending into a round pool with splash; blue, yellow, light blue.",
+  "home": {
+   "kind": "furniture",
+   "effect": "swim",
+   "size": [
+    3,
+    2
+   ]
+  }
+ },
+ {
+  "suffix": "swim-ring",
+  "name": "Swim Ring",
+  "category": "home",
+  "summary": "A puffy ring-shaped float that helps nervous companions stay up while they kick and learn to swim.",
+  "wit": "Floats like a donut, never gets eaten.",
+  "trivia": "Swim rings are one of the oldest flotation aids, once made from cork or inflated animal skins.",
+  "recipe": [
+   "organic89:paddling-pool",
+   "organic89:pillow"
+  ],
+  "recipeNames": [
+   "Paddling Pool",
+   "Pillow"
+  ],
+  "artBrief": "Red-and-white striped ring float on blue water, top view; red, white, blue.",
+  "home": {
+   "kind": "furniture",
+   "effect": "swim",
+   "size": [
+    1,
+    1
+   ]
+  }
+ },
+ {
+  "suffix": "punching-bag",
+  "name": "Punching Bag",
+  "category": "home",
+  "summary": "A heavy canvas bag stuffed with sawdust and hung from a hook, ready to be thumped for strength.",
+  "wit": "It never hits back. Probably.",
+  "trivia": "Early punching bags were often filled with sand, grain or sawdust.",
+  "recipe": [
+   "organic89:fabric",
+   "organic46:sawdust"
+  ],
+  "recipeNames": [
+   "Fabric",
+   "Sawdust"
+  ],
+  "artBrief": "Hanging red cylinder bag on a chain, small dent mark; red, grey chain, dark outline.",
+  "home": {
+   "kind": "furniture",
+   "effect": "power",
+   "size": [
+    1,
+    2
+   ]
+  }
+ },
+ {
+  "suffix": "wooden-dumbbells",
+  "name": "Wooden Dumbbells",
+  "category": "home",
+  "summary": "A pair of chunky dumbbells carved from wooden bars and discs for companions to lift and grow stronger.",
+  "wit": "Lift, rest, snack, repeat.",
+  "trivia": "Ancient Greek athletes trained with stone or metal hand weights called halteres.",
+  "recipe": [
+   "organic89:wooden-beam",
+   "legacy:44"
+  ],
+  "recipeNames": [
+   "Wooden Beam",
+   "Wheel"
+  ],
+  "artBrief": "Two wooden dumbbells crossed, round discs on short bars; tan, brown, dark outline.",
+  "home": {
+   "kind": "furniture",
+   "effect": "power",
+   "size": [
+    1,
+    1
+   ]
+  }
+ },
+ {
+  "suffix": "tug-rope",
+  "name": "Tug Rope",
+  "category": "home",
+  "summary": "A thick knotted rope for friendly tug-of-war matches between companions, training pulling power.",
+  "wit": "Pull yourself together. Literally.",
+  "trivia": "Tug of war was an Olympic event from 1900 to 1920.",
+  "recipe": [
+   "organic89:rope",
+   "organic89:rope"
+  ],
+  "recipeNames": [
+   "Rope",
+   "Rope"
+  ],
+  "artBrief": "Thick braided rope with knots at both ends, stretched horizontally; beige, brown, red ribbon.",
+  "home": {
+   "kind": "furniture",
+   "effect": "power",
+   "size": [
+    2,
+    1
+   ]
+  }
+ },
+ {
+  "suffix": "log-lift",
+  "name": "Log Lift",
+  "category": "home",
+  "summary": "A sturdy log fitted with grips that strong companions heave above their heads to build raw power.",
+  "wit": "Timber! (said proudly, overhead).",
+  "trivia": "Log lifting is a classic strongman event, adapted from lumberjack contests.",
+  "recipe": [
+   "legacy:24",
+   "organic89:wooden-dumbbells"
+  ],
+  "recipeNames": [
+   "Wood",
+   "Wooden Dumbbells"
+  ],
+  "artBrief": "Horizontal log with two cut-in handles on a small rack; brown, tan, grey.",
+  "home": {
+   "kind": "furniture",
+   "effect": "power",
+   "size": [
+    2,
+    1
+   ]
+  }
+ },
+ {
+  "suffix": "trampoline",
+  "name": "Trampoline",
+  "category": "home",
+  "summary": "A springy mat laced tight with rope on a frame, bouncing companions high to train their flying.",
+  "wit": "The floor that throws you back up.",
+  "trivia": "The modern trampoline was built in 1936 by gymnast George Nissen.",
+  "recipe": [
+   "organic89:mattress",
+   "organic89:rope"
+  ],
+  "recipeNames": [
+   "Mattress",
+   "Rope"
+  ],
+  "artBrief": "Round black mat with blue padded rim and short legs; black, blue, grey.",
+  "home": {
+   "kind": "furniture",
+   "effect": "fly",
+   "size": [
+    2,
+    2
+   ]
+  }
+ },
+ {
+  "suffix": "rope-swing",
+  "name": "Rope Swing",
+  "category": "home",
+  "summary": "A plank seat hung on two ropes that swings companions high into the air to get used to flying.",
+  "wit": "Higher, higher, flying!",
+  "trivia": "Rope swings tied to trees are among the oldest playground toys in the world.",
+  "recipe": [
+   "organic89:rope",
+   "organic46:wooden-plank"
+  ],
+  "recipeNames": [
+   "Rope",
+   "Wooden Plank"
+  ],
+  "artBrief": "Plank seat on two long ropes from a top beam, mid-swing; brown, beige, sky blue.",
+  "home": {
+   "kind": "furniture",
+   "effect": "fly",
+   "size": [
+    1,
+    2
+   ]
+  }
+ },
+ {
+  "suffix": "glider-perch",
+  "name": "Glider Perch",
+  "category": "home",
+  "summary": "A tall ladder perch with a cloth wing banner where companions climb up and practise gliding down.",
+  "wit": "Climb up, spread out, float down.",
+  "trivia": "Otto Lilienthal made over 2,000 glider flights in the 1890s by jumping from hills.",
+  "recipe": [
+   "organic89:ladder",
+   "organic89:fabric"
+  ],
+  "recipeNames": [
+   "Ladder",
+   "Fabric"
+  ],
+  "artBrief": "Tall wooden perch with ladder and small fabric wing on top; brown, white, sky blue.",
+  "home": {
+   "kind": "furniture",
+   "effect": "fly",
+   "size": [
+    1,
+    3
+   ]
+  }
+ },
+ {
+  "suffix": "kite-stand",
+  "name": "Kite Stand",
+  "category": "home",
+  "summary": "A post with a colourful patchwork kite on a line, teaching companions to catch and ride the wind.",
+  "wit": "Wind not included.",
+  "trivia": "Kites were flown in China more than 2,000 years ago.",
+  "recipe": [
+   "organic89:rope",
+   "legacy:1288"
+  ],
+  "recipeNames": [
+   "Rope",
+   "Patchwork"
+  ],
+  "artBrief": "Diamond patchwork kite with tail tied to a short post; red, yellow, blue patches.",
+  "home": {
+   "kind": "furniture",
+   "effect": "fly",
+   "size": [
+    1,
+    2
+   ]
+  }
+ },
+ {
+  "suffix": "climbing-wall",
+  "name": "Climbing Wall",
+  "category": "home",
+  "summary": "A tall board wall dotted with chunky wooden pegs as handholds for long, tiring climbing sessions.",
+  "wit": "Up is the only way.",
+  "trivia": "The first purpose-built artificial climbing wall was made in England in 1964.",
+  "recipe": [
+   "organic89:floorboards",
+   "organic89:wooden-peg"
+  ],
+  "recipeNames": [
+   "Floorboards",
+   "Wooden Peg"
+  ],
+  "artBrief": "Upright plank wall with colourful round holds; tan, red, yellow, blue.",
+  "home": {
+   "kind": "furniture",
+   "effect": "stamina",
+   "size": [
+    2,
+    3
+   ]
+  }
+ },
+ {
+  "suffix": "jump-rope",
+  "name": "Jump Rope",
+  "category": "home",
+  "summary": "A light skipping rope with wooden handles that companions jump over again and again to build stamina.",
+  "wit": "Skip day? Never.",
+  "trivia": "Boxers use jump rope to improve footwork and endurance.",
+  "recipe": [
+   "organic89:rope",
+   "legacy:514"
+  ],
+  "recipeNames": [
+   "Rope",
+   "Crank Handle"
+  ],
+  "artBrief": "Looped skipping rope with two wooden handles, arc shape; red rope, tan handles.",
+  "home": {
+   "kind": "furniture",
+   "effect": "stamina",
+   "size": [
+    1,
+    1
+   ]
+  }
+ },
+ {
+  "suffix": "balance-beam",
+  "name": "Balance Beam",
+  "category": "home",
+  "summary": "A long narrow beam raised over a soft mat, where companions carefully walk to build steady endurance.",
+  "wit": "One foot, then the other, then panic.",
+  "trivia": "The Olympic balance beam is only 10 centimetres wide.",
+  "recipe": [
+   "organic89:wooden-beam",
+   "organic89:rug"
+  ],
+  "recipeNames": [
+   "Wooden Beam",
+   "Rug"
+  ],
+  "artBrief": "Long tan beam on two legs above a blue mat, side view; tan, blue, brown.",
+  "home": {
+   "kind": "furniture",
+   "effect": "stamina",
+   "size": [
+    3,
+    1
+   ]
+  }
+ },
+ {
+  "suffix": "monkey-bars",
+  "name": "Monkey Bars",
+  "category": "home",
+  "summary": "A sideways ladder raised on posts that companions cross hand over hand until their arms are tired.",
+  "wit": "Hang in there.",
+  "trivia": "Monkey bars were invented in the 1920s by lawyer Sebastian Hinton.",
+  "recipe": [
+   "organic89:ladder",
+   "organic89:ladder"
+  ],
+  "recipeNames": [
+   "Ladder",
+   "Ladder"
+  ],
+  "artBrief": "Horizontal ladder on two A-frame posts, side view; red bars, brown posts.",
+  "home": {
+   "kind": "furniture",
+   "effect": "stamina",
+   "size": [
+    3,
+    2
+   ]
+  }
+ },
+ {
+  "suffix": "yoga-mat",
+  "name": "Yoga Mat",
+  "category": "home",
+  "summary": "A soft padded mat for slow stretches and deep breathing that keeps companions healthy and strong.",
+  "wit": "Downward companion pose.",
+  "trivia": "Yoga originated in ancient India and has been practised for over two thousand years.",
+  "recipe": [
+   "organic89:rug",
+   "organic89:cushion"
+  ],
+  "recipeNames": [
+   "Rug",
+   "Cushion"
+  ],
+  "artBrief": "Purple padded mat partly rolled at one end, top 3/4 view; purple, lilac, dark outline.",
+  "home": {
+   "kind": "furniture",
+   "effect": "hp",
+   "size": [
+    2,
+    1
+   ]
+  }
+ },
+ {
+  "suffix": "nap-mat",
+  "name": "Nap Mat",
+  "category": "home",
+  "summary": "A cosy folded blanket laid on a rug where tired companions take restorative naps to recover health.",
+  "wit": "Do not disturb. Ever.",
+  "trivia": "Short naps of 10 to 20 minutes can improve alertness and mood.",
+  "recipe": [
+   "organic89:blanket",
+   "organic89:rug"
+  ],
+  "recipeNames": [
+   "Blanket",
+   "Rug"
+  ],
+  "artBrief": "Folded green blanket on beige mat with small Z letters; green, beige, white.",
+  "home": {
+   "kind": "furniture",
+   "effect": "hp",
+   "size": [
+    2,
+    1
+   ]
+  }
+ },
+ {
+  "suffix": "massage-roller",
+  "name": "Massage Roller",
+  "category": "home",
+  "summary": "A rolling wooden massager with little bumps that soothes sore muscles and keeps companions healthy.",
+  "wit": "Rolls the aches right away.",
+  "trivia": "Wooden massage rollers have been used in traditional therapies in many cultures.",
+  "recipe": [
+   "organic89:wooden-peg",
+   "legacy:44"
+  ],
+  "recipeNames": [
+   "Wooden Peg",
+   "Wheel"
+  ],
+  "artBrief": "Wooden roller with bumpy wheels and a short handle; light tan, brown, dark outline.",
+  "home": {
+   "kind": "furniture",
+   "effect": "hp",
+   "size": [
+    1,
+    1
+   ]
+  }
+ },
+ {
+  "suffix": "ball-pit",
+  "name": "Ball Pit",
+  "category": "home",
+  "summary": "A pool filled with soft yarn balls that companions dive and roll in for pure happy play.",
+  "wit": "Lost a companion? Check the bottom.",
+  "trivia": "Ball pits became popular in play centres in the 1970s and 80s.",
+  "recipe": [
+   "organic89:paddling-pool",
+   "organic46:yarn"
+  ],
+  "recipeNames": [
+   "Paddling Pool",
+   "Yarn"
+  ],
+  "artBrief": "Round pit full of colourful balls, one head peeking; red, yellow, blue, green.",
+  "home": {
+   "kind": "furniture",
+   "effect": "mood",
+   "size": [
+    2,
+    2
+   ]
+  }
+ },
+ {
+  "suffix": "sandbox",
+  "name": "Sandbox",
+  "category": "home",
+  "summary": "A low wooden box of soft fine filling for digging, building and burying favourite treasures.",
+  "wit": "Dig now, explain later.",
+  "trivia": "Sandboxes for children were popularised in Germany in the 1850s as 'sand gardens'.",
+  "recipe": [
+   "organic89:wooden-crate",
+   "organic46:sawdust"
+  ],
+  "recipeNames": [
+   "Wooden Crate",
+   "Sawdust"
+  ],
+  "artBrief": "Square wooden box with beige filling and a small toy spade; brown, beige, red.",
+  "home": {
+   "kind": "furniture",
+   "effect": "mood",
+   "size": [
+    2,
+    2
+   ]
+  }
+ },
+ {
+  "suffix": "playground-slide",
+  "name": "Playground Slide",
+  "category": "home",
+  "summary": "A ladder up to a smooth varnished chute that companions slide down giggling, again and again.",
+  "wit": "Climb slow, slide fast.",
+  "trivia": "The first playground slide is often credited to Charles Wicksteed in England in 1922.",
+  "recipe": [
+   "organic89:ladder",
+   "organic89:varnish"
+  ],
+  "recipeNames": [
+   "Ladder",
+   "Varnish"
+  ],
+  "artBrief": "Ladder with yellow slide curving down, side view; yellow, red, brown.",
+  "home": {
+   "kind": "furniture",
+   "effect": "mood",
+   "size": [
+    2,
+    2
+   ]
+  }
+ },
+ {
+  "suffix": "seesaw",
+  "name": "Seesaw",
+  "category": "home",
+  "summary": "A long plank balanced on a box so two companions can bounce up and down taking turns.",
+  "wit": "What goes up must come down. Then up.",
+  "trivia": "A seesaw is a simple lever balanced on a pivot point called a fulcrum.",
+  "recipe": [
+   "organic46:wooden-plank",
+   "organic89:wooden-crate"
+  ],
+  "recipeNames": [
+   "Wooden Plank",
+   "Wooden Crate"
+  ],
+  "artBrief": "Long plank tilted on a central box, seats at ends; orange, brown, red.",
+  "home": {
+   "kind": "furniture",
+   "effect": "mood",
+   "size": [
+    3,
+    1
+   ]
+  }
+ },
+ {
+  "suffix": "scratching-post",
+  "name": "Scratching Post",
+  "category": "home",
+  "summary": "A wooden post wrapped tight in rope that companions scratch and climb to stay calm and happy.",
+  "wit": "Save the sofa, use the post.",
+  "trivia": "Cats scratch to keep claws healthy and to leave scent marks.",
+  "recipe": [
+   "organic89:rope",
+   "organic89:wooden-beam"
+  ],
+  "recipeNames": [
+   "Rope",
+   "Wooden Beam"
+  ],
+  "artBrief": "Vertical post wrapped in beige rope on square base, small top pad; beige, brown, red.",
+  "home": {
+   "kind": "furniture",
+   "effect": "mood",
+   "size": [
+    1,
+    2
+   ]
+  }
+ },
+ {
+  "suffix": "spinning-top",
+  "name": "Spinning Top",
+  "category": "home",
+  "summary": "A painted wooden top that whirls on its tip, making curious companions wonder how things work.",
+  "wit": "Dizzy science.",
+  "trivia": "Spinning tops are among the oldest toys, found at ancient archaeological sites.",
+  "recipe": [
+   "organic89:wooden-peg",
+   "organic46:spinning-wheel"
+  ],
+  "recipeNames": [
+   "Wooden Peg",
+   "Spinning Wheel"
+  ],
+  "artBrief": "Striped wooden top spinning on its point with motion lines; red, yellow, tan.",
+  "home": {
+   "kind": "furniture",
+   "effect": "discovery",
+   "size": [
+    1,
+    1
+   ]
+  }
+ },
+ {
+  "suffix": "building-blocks",
+  "name": "Building Blocks",
+  "category": "home",
+  "summary": "A stack of painted wooden blocks that companions build into towers, sparking new ideas and discoveries.",
+  "wit": "Architects start somewhere.",
+  "trivia": "Friedrich Froebel, founder of kindergarten, designed wooden block sets in the 1800s.",
+  "recipe": [
+   "organic89:wooden-beam",
+   "organic89:paint"
+  ],
+  "recipeNames": [
+   "Wooden Beam",
+   "Paint"
+  ],
+  "artBrief": "Small tower of colourful cube blocks with letters; red, blue, yellow, green.",
+  "home": {
+   "kind": "furniture",
+   "effect": "discovery",
+   "size": [
+    1,
+    1
+   ]
+  }
+ },
+ {
+  "suffix": "puzzle-board",
+  "name": "Puzzle Board",
+  "category": "home",
+  "summary": "A picture board cut into interlocking pieces that companions fit together, sharpening their minds.",
+  "wit": "One piece is always missing.",
+  "trivia": "The first jigsaw puzzles were maps cut into pieces to teach geography in the 1760s.",
+  "recipe": [
+   "organic89:wallpaper",
+   "organic89:saw"
+  ],
+  "recipeNames": [
+   "Wallpaper",
+   "Saw"
+  ],
+  "artBrief": "Square board with jigsaw pieces, one piece lifted out; blue, green, yellow.",
+  "home": {
+   "kind": "furniture",
+   "effect": "discovery",
+   "size": [
+    2,
+    1
+   ]
+  }
+ },
+ {
+  "suffix": "garden-bench",
+  "name": "Garden Bench",
+  "category": "home",
+  "summary": "A slatted wooden bench for the garden where companions sit and watch the clouds roll by.",
+  "wit": "Reserved for professional sitting.",
+  "trivia": "Public park benches became common in the 1800s as city parks opened.",
+  "recipe": [
+   "organic89:fence",
+   "organic46:wooden-plank"
+  ],
+  "recipeNames": [
+   "Fence",
+   "Wooden Plank"
+  ],
+  "artBrief": "Slatted wooden bench with curved armrests, front view; brown, tan, green grass strip.",
+  "home": {
+   "kind": "furniture",
+   "effect": "decor",
+   "size": [
+    2,
+    1
+   ]
+  }
+ },
+ {
+  "suffix": "flower-box",
+  "name": "Flower Box",
+  "category": "home",
+  "summary": "A long window box planted with bright flowers that brightens up any wall or garden corner.",
+  "wit": "Petals on the sill.",
+  "trivia": "Window boxes were popular in ancient Rome for growing herbs and flowers in cities.",
+  "recipe": [
+   "organic89:wooden-crate",
+   "organic89:window-frame"
+  ],
+  "recipeNames": [
+   "Wooden Crate",
+   "Window Frame"
+  ],
+  "artBrief": "Wooden box under a window frame with pink and yellow flowers; brown, pink, yellow, green.",
+  "home": {
+   "kind": "furniture",
+   "effect": "decor",
+   "size": [
+    1,
+    1
+   ]
+  }
+ },
+ {
+  "suffix": "bird-bath",
+  "name": "Bird Bath",
+  "category": "home",
+  "summary": "A shallow water basin on a pedestal where little birds come to drink and splash in the garden.",
+  "wit": "Free spa for feathered guests.",
+  "trivia": "Birds bathe to keep their feathers clean and in good flying shape.",
+  "recipe": [
+   "organic89:wooden-bucket",
+   "organic41:arch"
+  ],
+  "recipeNames": [
+   "Wooden Bucket",
+   "Arch"
+  ],
+  "artBrief": "Shallow bowl of water on a pedestal with a small bird on rim; grey, light blue, brown.",
+  "home": {
+   "kind": "furniture",
+   "effect": "decor",
+   "size": [
+    1,
+    1
+   ]
+  }
+ },
+ {
+  "suffix": "garden-lantern",
+  "name": "Garden Lantern",
+  "category": "home",
+  "summary": "A lantern on a fence post that glows softly at night, lighting the garden paths for companions.",
+  "wit": "Night light for the great outdoors.",
+  "trivia": "Stone garden lanterns have lit Japanese temple gardens for over a thousand years.",
+  "recipe": [
+   "organic89:lamp-shade",
+   "organic89:fence"
+  ],
+  "recipeNames": [
+   "Lamp Shade",
+   "Fence"
+  ],
+  "artBrief": "Post-top lantern with warm yellow glow, short wooden post; yellow, brown, dark blue.",
+  "home": {
+   "kind": "furniture",
+   "effect": "decor",
+   "size": [
+    1,
+    2
+   ]
+  }
+ },
+ {
+  "suffix": "picket-gate",
+  "name": "Picket Gate",
+  "category": "home",
+  "summary": "A small white picket gate that opens onto the companion garden, welcoming visitors with a creak.",
+  "wit": "Creak means hello.",
+  "trivia": "White picket fences became a classic symbol of a cosy home in the 1900s.",
+  "recipe": [
+   "organic89:fence",
+   "organic89:door"
+  ],
+  "recipeNames": [
+   "Fence",
+   "Door"
+  ],
+  "artBrief": "White picket gate with pointed tops and small latch, front view; white, grey, green.",
+  "home": {
+   "kind": "furniture",
+   "effect": "decor",
+   "size": [
+    1,
+    1
+   ]
+  }
+ }
+]

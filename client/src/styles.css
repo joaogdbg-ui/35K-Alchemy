@@ -877,3 +877,4 @@ body.companion-knock .app{animation:cp-screen-knock .18s ease-out 1}
 .companion-callout-icon svg{width:18px;height:18px;fill:none;stroke:#fff;stroke-width:2;stroke-linecap:round;stroke-linejoin:round}
 .companion-callout-go{grid-column:1/-1;justify-self:stretch;padding:9px 12px;border-radius:12px;border:0;background:var(--good);color:#fff;font-weight:800;font-size:14px}
 @media (prefers-reduced-motion:reduce){.tab-badge,.companion-emote.is-pop{animation:none}}
+.home-callout{margin:10px 0 4px;padding:9px 12px;border-radius:14px;background:var(--accent-2);color:var(--accent-ink);font-size:13px;line-height:1.35;text-align:left}

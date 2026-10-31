@@ -90,6 +90,13 @@ Preserve 200-per-batch policy and do not start another content release on top of
 
 - **Art redraw wave 3 (V85, done): 3,991 icons** — every remaining older element. All 6,012 pre-V83 elements now use the 2026 art direction (`ART_REDRAW`), plus 200 V83 and 200 V85 originals. Six near-duplicates found by the audit were redrawn; 36 reviewed false alarms are in `tools/art-redraw-reviewed-pairs.json` (the audit now also honours them for V83 comparisons).
 
+## V89 — +200 Home & Living batch (31 October 2026)
+
+- **+200 elements** (6,412 → 6,612), `tools/v89-blueprint.json` → `tools/v89-assemble.py` → `organic-pack-v89.js`, `organic-art-v89.js`, `shared/v89-approved.json`, 200 SVGs in `client/assets/v89/`.
+- **New family Home & Living** (`home`, category `home`): starters House, Wood, Tool, Thread; existing members (Workbench, Yarn, Loom, Wooden Plank…) in `tools/v89-home-family.json` → `family-data-v89.js`, merged with V85 data by `mergeFamilyData`. 172 members, 100% craftable in-family.
+- **Companion houses**: Tent 1, Hut 2, Cabin 3, Cottage 4, Villa 6, Castle 8 (deeper recipes for bigger ones). **Furniture** with effects (run/swim/power/fly/stamina/hp training, mood, food, discovery, decor) and tile sizes in `home-objects-v89.js` (also 34 existing elements such as Television, Piano, Telescope). Discovery sheet shows a "Companion house!" / "Furniture" note. The Home screen (map, placement) is the next phase.
+- 45 missing classics from the V87 review: Diamond, Bat, Lion, Bear, Camel, Cow, Cat, Dog, Wolf, Snowman, Beach, Jungle, Earthquake, Light Bulb, Candle, Mermaid, Unicorn, Fairy, Yeti…
+
 ## V88 — Collection cleanup, family art, launcher (31 October 2026)
 
 - Themed collections removed from the Collection tab (obsolete; data kept for old saves).

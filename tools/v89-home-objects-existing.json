@@ -1,0 +1,274 @@
+{
+ "legacy:90": {
+  "kind": "furniture",
+  "effect": "mood",
+  "size": [
+   2,
+   1
+  ]
+ },
+ "legacy:143": {
+  "kind": "furniture",
+  "effect": "mood",
+  "size": [
+   2,
+   1
+  ]
+ },
+ "organic46:workbench": {
+  "kind": "furniture",
+  "effect": "power",
+  "size": [
+   2,
+   1
+  ]
+ },
+ "legacy:332": {
+  "kind": "furniture",
+  "effect": "mood",
+  "size": [
+   1,
+   1
+  ]
+ },
+ "legacy:174": {
+  "kind": "furniture",
+  "effect": "mood",
+  "size": [
+   1,
+   1
+  ]
+ },
+ "legacy:211": {
+  "kind": "furniture",
+  "effect": "decor",
+  "size": [
+   1,
+   1
+  ]
+ },
+ "organic32:mechanical-clock": {
+  "kind": "furniture",
+  "effect": "decor",
+  "size": [
+   1,
+   1
+  ]
+ },
+ "legacy:208": {
+  "kind": "furniture",
+  "effect": "decor",
+  "size": [
+   1,
+   1
+  ]
+ },
+ "organic46:loom": {
+  "kind": "furniture",
+  "effect": "stamina",
+  "size": [
+   2,
+   1
+  ]
+ },
+ "legacy:203": {
+  "kind": "furniture",
+  "effect": "mood",
+  "size": [
+   1,
+   1
+  ]
+ },
+ "legacy:109": {
+  "kind": "furniture",
+  "effect": "run",
+  "size": [
+   1,
+   1
+  ]
+ },
+ "pack:piano": {
+  "kind": "furniture",
+  "effect": "mood",
+  "size": [
+   2,
+   1
+  ]
+ },
+ "legacy:598": {
+  "kind": "furniture",
+  "effect": "mood",
+  "size": [
+   1,
+   1
+  ]
+ },
+ "legacy:599": {
+  "kind": "furniture",
+  "effect": "power",
+  "size": [
+   2,
+   1
+  ]
+ },
+ "organic32:telescope": {
+  "kind": "furniture",
+  "effect": "discovery",
+  "size": [
+   1,
+   1
+  ]
+ },
+ "organic32:microscope": {
+  "kind": "furniture",
+  "effect": "discovery",
+  "size": [
+   1,
+   1
+  ]
+ },
+ "organic85:globe": {
+  "kind": "furniture",
+  "effect": "discovery",
+  "size": [
+   1,
+   1
+  ]
+ },
+ "organic45:aquarium": {
+  "kind": "furniture",
+  "effect": "mood",
+  "size": [
+   2,
+   1
+  ]
+ },
+ "legacy:89": {
+  "kind": "furniture",
+  "effect": "mood",
+  "size": [
+   1,
+   1
+  ]
+ },
+ "legacy:91": {
+  "kind": "furniture",
+  "effect": "discovery",
+  "size": [
+   1,
+   1
+  ]
+ },
+ "organic45:bird-feeder": {
+  "kind": "furniture",
+  "effect": "decor",
+  "size": [
+   1,
+   1
+  ]
+ },
+ "organic38:bonsai": {
+  "kind": "furniture",
+  "effect": "decor",
+  "size": [
+   1,
+   1
+  ]
+ },
+ "organic63:snow-globe": {
+  "kind": "furniture",
+  "effect": "decor",
+  "size": [
+   1,
+   1
+  ]
+ },
+ "organic47:photo-album": {
+  "kind": "furniture",
+  "effect": "mood",
+  "size": [
+   1,
+   1
+  ]
+ },
+ "legacy:225": {
+  "kind": "furniture",
+  "effect": "discovery",
+  "size": [
+   1,
+   1
+  ]
+ },
+ "legacy:1196": {
+  "kind": "furniture",
+  "effect": "discovery",
+  "size": [
+   1,
+   1
+  ]
+ },
+ "legacy:162": {
+  "kind": "furniture",
+  "effect": "mood",
+  "size": [
+   1,
+   1
+  ]
+ },
+ "legacy:646": {
+  "kind": "furniture",
+  "effect": "discovery",
+  "size": [
+   1,
+   1
+  ]
+ },
+ "organic40:vinyl": {
+  "kind": "furniture",
+  "effect": "mood",
+  "size": [
+   1,
+   1
+  ]
+ },
+ "legacy:87": {
+  "kind": "furniture",
+  "effect": "mood",
+  "size": [
+   1,
+   1
+  ]
+ },
+ "organic40:bicycle": {
+  "kind": "furniture",
+  "effect": "run",
+  "size": [
+   2,
+   1
+  ]
+ },
+ "organic44:campfire": {
+  "kind": "furniture",
+  "effect": "mood",
+  "size": [
+   1,
+   1
+  ]
+ },
+ "organic38:hot-spring": {
+  "kind": "furniture",
+  "effect": "hp",
+  "size": [
+   2,
+   2
+  ]
+ },
+ "legacy:144": {
+  "kind": "furniture",
+  "effect": "discovery",
+  "size": [
+   1,
+   1
+  ]
+ }
+}

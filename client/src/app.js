@@ -101,12 +101,16 @@ import { resolveLocalRedundancy } from './semantic.js';
 import { FAMILIES, familyFor, familiesFor, groupFamilies, recipesForTarget, candidatesForFamily, registerFamilyMembership, MERGED_FAMILY_IDS, canonicalFamilyId } from './discoveries.js';
 import { FAMILY_CAMPAIGNS } from './family-mode-v53-campaigns.js';
 import { buildThematicCampaigns } from './family-campaigns-v82.js';
-import { buildCompleteFamilyCampaigns } from './family-campaigns-v85.js';
+import { buildCompleteFamilyCampaigns, mergeFamilyData } from './family-campaigns-v85.js';
 import { FAMILY_DATA_V85 } from './family-data-v85.js';
 import { RECIPE_POLISH_V87 } from './recipe-polish-v87.js';
 import { FAMILY_ART_V88 } from './family-art-v88.js';
 import { ORGANIC_V85 } from './organic-pack-v85.js';
 import { ORGANIC_ART_V85 } from './organic-art-v85.js';
+import { ORGANIC_V89 } from './organic-pack-v89.js';
+import { ORGANIC_ART_V89 } from './organic-art-v89.js';
+import { FAMILY_DATA_V89 } from './family-data-v89.js';
+import { HOME_OBJECTS_V89 } from './home-objects-v89.js';
 import { COMPANIONS_V86, COMPANION_SPRITES_V86 } from './companions-v86.js';
 import { createCompanionSystem, COMPANION_STORAGE_KEY } from './companion-engine-v86.js';
 import { PUBLIC_LABELS_V86 } from './public-labels-v86.js';
@@ -118,15 +122,17 @@ const $ = (id) => document.getElementById(id);
 const escapeText = (s) => String(s).replace(/[&<>"']/g, (c) => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
 // V39: the same strict catalog contract runs in the browser, the build and CI.
 // No hidden first-wins recipe collisions or duplicated catalog entries.
-const {items: ITEMS,recipes:classicRecipes} = buildCatalog(DATA,[PACK,GAMING_V22,GAMING_V23,GAMING_V24,GAMING_V26,GAMING_V27,GAMING_V30,ORGANIC_V85,ORGANIC_V32,ORGANIC_V34,ORGANIC_V37,ORGANIC_V38,ORGANIC_V40,ORGANIC_V41,ORGANIC_V42,ORGANIC_V43,ORGANIC_V44,ORGANIC_V45,ORGANIC_V46,ORGANIC_V47,ORGANIC_V50,ORGANIC_V52,ORGANIC_V53,ORGANIC_V55,ORGANIC_V56,ORGANIC_V57,ORGANIC_V58,ORGANIC_V59,ORGANIC_V61,ORGANIC_V62,ORGANIC_V63,ORGANIC_V65,ORGANIC_V66,ORGANIC_V67,ORGANIC_V68,ORGANIC_V71,ORGANIC_V72,ORGANIC_V73,ORGANIC_V74,ORGANIC_V75,ORGANIC_V76,ORGANIC_V77,ORGANIC_V78,ORGANIC_V79,ORGANIC_V80,ORGANIC_V81,ORGANIC_V82,ORGANIC_V83]);
+const {items: ITEMS,recipes:classicRecipes} = buildCatalog(DATA,[PACK,GAMING_V22,GAMING_V23,GAMING_V24,GAMING_V26,GAMING_V27,GAMING_V30,ORGANIC_V89,ORGANIC_V85,ORGANIC_V32,ORGANIC_V34,ORGANIC_V37,ORGANIC_V38,ORGANIC_V40,ORGANIC_V41,ORGANIC_V42,ORGANIC_V43,ORGANIC_V44,ORGANIC_V45,ORGANIC_V46,ORGANIC_V47,ORGANIC_V50,ORGANIC_V52,ORGANIC_V53,ORGANIC_V55,ORGANIC_V56,ORGANIC_V57,ORGANIC_V58,ORGANIC_V59,ORGANIC_V61,ORGANIC_V62,ORGANIC_V63,ORGANIC_V65,ORGANIC_V66,ORGANIC_V67,ORGANIC_V68,ORGANIC_V71,ORGANIC_V72,ORGANIC_V73,ORGANIC_V74,ORGANIC_V75,ORGANIC_V76,ORGANIC_V77,ORGANIC_V78,ORGANIC_V79,ORGANIC_V80,ORGANIC_V81,ORGANIC_V82,ORGANIC_V83]);
 // V76.1: change only public labels. Historic recipe IDs and artwork keys are immutable.
 const PUBLIC_LABELS=buildPublicNameIndex(ITEMS,PUBLIC_LABELS_V86);
 function uiName(item){return item?(PUBLIC_LABELS.get(item.id)||publicName(item)):'';}
 let recipes=classicRecipes;
 const reconciledHistorical = reconcileLegacyFamilies(classicRecipes,FAMILY_CAMPAIGNS.families);
 // V85: every family is a complete, independent campaign (own 4 starters, in-family recipes only).
-registerFamilyMembership(FAMILY_DATA_V85.families);
-const ALL_CAMPAIGNS=buildCompleteFamilyCampaigns(classicRecipes,ITEMS,FAMILIES,familiesFor,FAMILY_DATA_V85,[...reconciledHistorical.families,...buildThematicCampaigns(classicRecipes,ITEMS)],RECIPE_POLISH_V87);
+// V89: Home & Living joins the V85 family data (own starters + existing members).
+const FAMILY_DATA=mergeFamilyData(FAMILY_DATA_V85,FAMILY_DATA_V89);
+registerFamilyMembership(FAMILY_DATA.families);
+const ALL_CAMPAIGNS=buildCompleteFamilyCampaigns(classicRecipes,ITEMS,FAMILIES,familiesFor,FAMILY_DATA,[...reconciledHistorical.families,...buildThematicCampaigns(classicRecipes,ITEMS)],RECIPE_POLISH_V87);
 if(ALL_CAMPAIGNS.report.conflicts.length||ALL_CAMPAIGNS.report.polishSkipped||Object.keys(ALL_CAMPAIGNS.report.dropped).length)console.warn('V85 family campaigns',ALL_CAMPAIGNS.report);
 const familyCampaigns=new Map(ALL_CAMPAIGNS.map(f=>[f.id,{...f,itemSet:new Set(f.items),recipeMap:new Map(f.recipes)}]));
 const sharedCatalogIds=sharedMembership(ALL_CAMPAIGNS);
@@ -462,7 +468,7 @@ function shinyCard(item){return `<p class="shiny-trivia"><span aria-hidden="true
 function showShinyFound(id){const it=byId.get(id);if(!it)return;
  showModal(`<div class="modal-tag shiny-tag">✦ SHINY ELEMENT</div><div class="modal-art is-shiny">${staticArt(it)}</div><h2>Shiny ${escapeText(uiName(it))}</h2>${shinyCard(it)}<div class="modal-milestone">${shiny.size.toLocaleString('en-US')} shiny ${shiny.size===1?'element':'elements'} · ${Math.round(shinyChance()*100)}% chance per combination</div>`);
 }
-const APP_VERSION='0.88.0';
+const APP_VERSION='0.89.0';
 // V83: status line + Google consent (UMP) privacy options, required for EEA players.
 async function refreshAdStatus(){
  const el=$('settingsAdStatus'),bridge=getRewardBridge();
@@ -994,7 +1000,7 @@ function staticArt(item){
  // V30 highest-priority semantic art: only exact canonical names are eligible.
  // A sky is never rendered as a sword just because its name contains "sky".
  const itemName=String(item.name||'').toLowerCase();
- const newArt=ORGANIC_ART_V85[itemName]||ORGANIC_ART_V83[itemName]||ORGANIC_ART_V82[itemName]||ORGANIC_ART_V81[itemName]||ORGANIC_ART_V80[itemName]||ORGANIC_ART_V79[itemName]||ORGANIC_ART_V78[itemName]||ORGANIC_ART_V77[itemName]||ORGANIC_ART_V76[itemName]||ORGANIC_ART_V75[itemName]||ORGANIC_ART_V74[itemName]||ORGANIC_ART_V73[itemName]||ORGANIC_ART_V72[itemName]||ORGANIC_ART_V71[itemName]||ORGANIC_ART_V70[itemName]||ORGANIC_ART_V69[itemName]||ORGANIC_ART_V68[itemName]||ORGANIC_ART_V67[itemName]||ORGANIC_ART_V66[itemName]||ORGANIC_ART_V65[itemName]||ORGANIC_ART_V63[itemName]||ORGANIC_ART_V62[itemName]||ORGANIC_ART_V61[itemName]||ORGANIC_ART_V59[itemName]||ORGANIC_ART_V58[itemName]||ORGANIC_ART_V57[itemName]||ORGANIC_ART_V56[itemName]||ORGANIC_ART_V55[itemName]||ORGANIC_ART_V53[itemName]||ORGANIC_ART_V52[itemName]||ORGANIC_ART_V50[itemName]||ORGANIC_ART_V47[itemName]||ORGANIC_ART_V46[itemName]||ORGANIC_ART_V45[itemName]||ORGANIC_ART_V44[itemName]||ORGANIC_ART_V43[itemName]||ORGANIC_ART_V42[itemName]||ORGANIC_ART_V41[itemName]||ORGANIC_ART_V40[itemName]||ORGANIC_ART_V38[itemName]||ORGANIC_ART_V37[itemName]||ORGANIC_ART_V34[itemName]||ORGANIC_ART_V32[itemName];if(newArt)return newArt;
+ const newArt=ORGANIC_ART_V89[itemName]||ORGANIC_ART_V85[itemName]||ORGANIC_ART_V83[itemName]||ORGANIC_ART_V82[itemName]||ORGANIC_ART_V81[itemName]||ORGANIC_ART_V80[itemName]||ORGANIC_ART_V79[itemName]||ORGANIC_ART_V78[itemName]||ORGANIC_ART_V77[itemName]||ORGANIC_ART_V76[itemName]||ORGANIC_ART_V75[itemName]||ORGANIC_ART_V74[itemName]||ORGANIC_ART_V73[itemName]||ORGANIC_ART_V72[itemName]||ORGANIC_ART_V71[itemName]||ORGANIC_ART_V70[itemName]||ORGANIC_ART_V69[itemName]||ORGANIC_ART_V68[itemName]||ORGANIC_ART_V67[itemName]||ORGANIC_ART_V66[itemName]||ORGANIC_ART_V65[itemName]||ORGANIC_ART_V63[itemName]||ORGANIC_ART_V62[itemName]||ORGANIC_ART_V61[itemName]||ORGANIC_ART_V59[itemName]||ORGANIC_ART_V58[itemName]||ORGANIC_ART_V57[itemName]||ORGANIC_ART_V56[itemName]||ORGANIC_ART_V55[itemName]||ORGANIC_ART_V53[itemName]||ORGANIC_ART_V52[itemName]||ORGANIC_ART_V50[itemName]||ORGANIC_ART_V47[itemName]||ORGANIC_ART_V46[itemName]||ORGANIC_ART_V45[itemName]||ORGANIC_ART_V44[itemName]||ORGANIC_ART_V43[itemName]||ORGANIC_ART_V42[itemName]||ORGANIC_ART_V41[itemName]||ORGANIC_ART_V40[itemName]||ORGANIC_ART_V38[itemName]||ORGANIC_ART_V37[itemName]||ORGANIC_ART_V34[itemName]||ORGANIC_ART_V32[itemName];if(newArt)return newArt;
  const semantic=GAMEVERSE_ART_V30_SEMANTIC[itemName];
  if(semantic)return semantic;
  const v27=v27StaticArt(item);
@@ -1309,9 +1315,14 @@ function closeModal(){
 const PAW_SVG='<svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="7" cy="8" r="2.2"/><circle cx="12" cy="5.5" r="2.2"/><circle cx="17" cy="8" r="2.2"/><path d="M12 11c-3.5 0-6.5 2.6-6.5 5.4 0 1.9 1.4 3.1 3.1 3.1 1.3 0 2.1-.6 3.4-.6s2.1.6 3.4.6c1.7 0 3.1-1.2 3.1-3.1C18.5 13.6 15.5 11 12 11Z"/></svg>';
 function companionCallout(id){if(!companions.isCompanion(id))return '';
  return `<div class="companion-callout"><span class="companion-callout-icon">${PAW_SVG}</span><span><b>Companion element!</b> It can live on your screen, eat elements and level up. ${companions.freeChoiceLeft()?'Your first companion is free.':'Find it in the Companions tab.'}</span><button type="button" class="companion-callout-go" id="meetCompanion">Meet it</button></div>`;}
+// V89: companion houses and furniture are flagged in the discovery sheet (the Home screen comes next).
+const HOME_EFFECT_LABEL={run:'trains Run',swim:'trains Swim',power:'trains Power',fly:'trains Fly',stamina:'trains Stamina',hp:'trains HP',mood:'cheers companions up',food:'feeds companions',discovery:'boosts idle discoveries',decor:'decoration'};
+function homeCallout(id){const h=HOME_OBJECTS_V89[id];if(!h||h.kind==='material')return '';
+ const txt=h.kind==='house'?`<b>Companion house!</b> Room for ${h.capacity} companion${h.capacity>1?'s':''}.`:`<b>Furniture</b> for companion houses · ${HOME_EFFECT_LABEL[h.effect]||'decoration'}.`;
+ return `<div class="home-callout"><span>${txt}</span></div>`;}
 function showDiscovery(id,a,b,scene=null,isShiny=false){
  const it=byId.get(id),isFirst=worldFirsts.has(id),earned=[...unlocked].filter(x=>!STARTERS.has(x)).length,isComp=companions.isCompanion(id);
- showModal(`<div class="modal-tag ${isShiny?'shiny-tag':isFirst?'world-first-tag':isComp?'companion-tag':''}">${isShiny?'✦ SHINY DISCOVERY':isFirst?'★ WORLD FIRST':isComp?'NEW COMPANION':'✦ NEW DISCOVERY'}</div><div class="modal-art${isShiny?' is-shiny':''}${isComp?' is-companion':''}">${isComp&&COMPANION_SPRITES_V86[id]?COMPANION_SPRITES_V86[id]:staticArt(it)}</div><h2>${isShiny?'Shiny ':''}${escapeText(uiName(it))}</h2><p>${escapeText(uiName(byId.get(a)))} + ${escapeText(uiName(byId.get(b)))}</p>${isShiny?shinyCard(it):(wittyDiscovery(it)||it.summary)?`<p class="discovery-wit">${escapeText(publicText(wittyDiscovery(it)||it.summary))}</p>`:""}${companionCallout(id)}<div class="modal-milestone">${earned.toLocaleString('en-US')} personal discoveries</div>`);
+ showModal(`<div class="modal-tag ${isShiny?'shiny-tag':isFirst?'world-first-tag':isComp?'companion-tag':''}">${isShiny?'✦ SHINY DISCOVERY':isFirst?'★ WORLD FIRST':isComp?'NEW COMPANION':'✦ NEW DISCOVERY'}</div><div class="modal-art${isShiny?' is-shiny':''}${isComp?' is-companion':''}">${isComp&&COMPANION_SPRITES_V86[id]?COMPANION_SPRITES_V86[id]:staticArt(it)}</div><h2>${isShiny?'Shiny ':''}${escapeText(uiName(it))}</h2><p>${escapeText(uiName(byId.get(a)))} + ${escapeText(uiName(byId.get(b)))}</p>${isShiny?shinyCard(it):(wittyDiscovery(it)||it.summary)?`<p class="discovery-wit">${escapeText(publicText(wittyDiscovery(it)||it.summary))}</p>`:""}${companionCallout(id)}${homeCallout(id)}<div class="modal-milestone">${earned.toLocaleString('en-US')} personal discoveries</div>`);
  $('continueBtn')?.remove();$('modal').dataset.dismiss='x-only';
  playCraftMotion(scene,'new',it);
  if(isComp){const go=$('meetCompanion');if(go)go.onclick=()=>{closeModal();switchTab('Pets');};}

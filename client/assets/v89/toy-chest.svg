@@ -1,0 +1,13 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><g stroke-linejoin="round" stroke-linecap="round"><ellipse cx="50" cy="92" rx="32" ry="3" fill="#88979B" opacity=".15"/>
+<path d="M18 46 24 14H80L82 46Z" fill="#5E86B8" stroke="#657D89" stroke-width="3.5"/>
+<path d="M22 42 27 18H77L78 42Z" fill="#4A6F9E" stroke="none"/>
+<rect x="56" y="30" width="16" height="16" rx="2" fill="#A9C29A" stroke="#657D89" stroke-width="2.5" transform="rotate(-12 64 38)"/>
+<path d="M60 34l8 7M68 34l-8 7" stroke="#F7F1E6" stroke-width="2" transform="rotate(-12 64 38)"/>
+<circle cx="38" cy="40" r="12" fill="#D9584A" stroke="#657D89" stroke-width="3"/>
+<path d="M27 38Q38 32 49 38" fill="none" stroke="#F7F1E6" stroke-width="2.5"/>
+<path d="M50 40Q50 34 54 34Q57 34 56 40Z" fill="#C49A6C" stroke="#657D89" stroke-width="2"/>
+<rect x="14" y="46" width="72" height="40" rx="3" fill="#7FA7D6" stroke="#657D89" stroke-width="3.5"/>
+<path d="M14 54H86" stroke="#5E86B8" stroke-width="3"/>
+<rect x="44" y="50" width="12" height="10" rx="2" fill="#E3B36A" stroke="#657D89" stroke-width="2.5"/>
+<polygon points="26.0,63.0 27.9,67.5 32.7,67.8 29.0,71.0 30.1,75.7 26.0,73.2 21.9,75.7 23.0,71.0 19.3,67.8 24.1,67.5" fill="#F6D365" stroke="#657D89" stroke-width="1.2"/><polygon points="50.0,68.0 51.6,71.8 55.7,72.1 52.6,74.8 53.5,78.9 50.0,76.7 46.5,78.9 47.4,74.8 44.3,72.1 48.4,71.8" fill="#F6D365" stroke="#657D89" stroke-width="1.2"/><polygon points="73.0,61.0 74.9,65.5 79.7,65.8 76.0,69.0 77.1,73.7 73.0,71.2 68.9,73.7 70.0,69.0 66.3,65.8 71.1,65.5" fill="#F6D365" stroke="#657D89" stroke-width="1.2"/><polygon points="36.0,78.5 36.9,80.7 39.3,80.9 37.5,82.5 38.1,84.8 36.0,83.6 33.9,84.8 34.5,82.5 32.7,80.9 35.1,80.7" fill="#F6D365" stroke="#657D89" stroke-width="1.2"/><polygon points="62.0,78.5 62.9,80.7 65.3,80.9 63.5,82.5 64.1,84.8 62.0,83.6 59.9,84.8 60.5,82.5 58.7,80.9 61.1,80.7" fill="#F6D365" stroke="#657D89" stroke-width="1.2"/>
+</g></svg>
