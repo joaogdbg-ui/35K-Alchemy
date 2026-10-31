@@ -90,6 +90,11 @@ Preserve 200-per-batch policy and do not start another content release on top of
 
 - **Art redraw wave 3 (V85, done): 3,991 icons** — every remaining older element. All 6,012 pre-V83 elements now use the 2026 art direction (`ART_REDRAW`), plus 200 V83 and 200 V85 originals. Six near-duplicates found by the audit were redrawn; 36 reviewed false alarms are in `tools/art-redraw-reviewed-pairs.json` (the audit now also honours them for V83 comparisons).
 
+## V101 — glides can fall short (31 October 2026)
+- `glideReach(fly)` = 0.35 + 0.75×Fly/99 (Fly 87+ always crosses). A racer short of the far side, or out of stamina mid-air ("NO STAMINA!"), drops to the chasm floor, crosses it (grass = Run, water = Swim) and climbs the far cliff with Power. CHEER mid-air adds +0.08 reach.
+- Chasms now have a floor (`z.floor` water/grass, `z.floorY`) drawn in the course SVG; the far cliff riser goes down to it.
+- Weak fliers sink along `glideY` on the way to the drop point.
+
 ## V100 — track with depth, gates across the path (31 October 2026)
 - Owner feedback: vertical start/finish lines, track too thin (racers piled up), walls/pools looked pasted on, background floating.
 - Oblique view (`RC.SK=0.32`, `BAND=100`): the path has depth and the 5 lanes run side by side (`laneD`); walls are the riser face of the next step (racers climb its face at their lane depth); pools are sunk into the path; the chasm shows the far cliff's face.
