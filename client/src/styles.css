@@ -675,6 +675,28 @@ body.companion-knock .app{animation:cp-screen-knock .18s ease-out 1}
 .companion[data-anim="stalk"] [data-part="tail"]{animation:cp-tail .35s ease-in-out infinite}
 .companion[data-anim="bellyslide"] .companion-art{animation:cp-bellyslide 1.1s linear 1 forwards}
 .companion[data-anim="gallop"] .companion-art{animation:cp-fly .4s ease-in-out infinite}
+/* feeding: grab, hold, chew; the element shrinks bite by bite in its hands */
+.fx-held{position:absolute;width:26px;height:26px;left:50%;top:40%;transform:translate(6px,0);transition:transform .25s,opacity .3s;filter:drop-shadow(0 1px 1px rgba(0,0,0,.25))}
+.companion[data-face="left"] .fx-held{transform:translate(-32px,0)}
+.fx-held svg,.fx-held img{width:100%;height:100%}
+.fx-held.bite-1{clip-path:polygon(0 0,100% 0,100% 100%,30% 100%,0 70%)}
+.fx-held.bite-2{clip-path:polygon(0 0,70% 0,100% 35%,100% 100%,30% 100%,0 70%)}
+.fx-held.bite-3{clip-path:polygon(20% 0,70% 0,100% 35%,100% 70%,60% 100%,30% 100%,0 70%,0 25%)}
+.fx-held.bite-4{opacity:0;transform:translate(6px,0) scale(.3)}
+@keyframes cp-grab{0%{transform:rotate(0)}40%{transform:rotate(-110deg)}100%{transform:rotate(-60deg)}}
+@keyframes cp-holdarm{0%,100%{transform:rotate(-60deg)}50%{transform:rotate(-70deg)}}
+@keyframes cp-sniff{0%,100%{transform:rotate(0) translateY(0)}30%{transform:rotate(14deg) translateY(3px)}60%{transform:rotate(10deg) translateY(2px)}}
+.companion[data-anim="grab"] [data-part="arm-r"]{animation:cp-grab .45s ease-out forwards}
+.companion[data-anim="grab"] [data-part="head"]{transform:rotate(8deg) translateY(1px)}
+.companion[data-anim="hold-eat"] [data-part="arm-r"]{animation:cp-holdarm .65s ease-in-out infinite}
+.companion[data-anim="hold-eat"] [data-part="arm-l"]{transform:rotate(-50deg)}
+.companion[data-anim="hold-eat"] [data-part="head"]{animation:cp-chew .32s ease-in-out infinite}
+.companion[data-anim="hold-eat"] [data-part="mouth"]{animation:cp-mouth-chew .32s ease-in-out infinite}
+.companion[data-anim="hold-eat"] [data-part="jaw"]{animation:cp-jaw .32s ease-in-out infinite}
+.companion[data-anim="hold-eat"] [data-part="tail"]{animation:cp-tail .5s ease-in-out infinite}
+.companion[data-anim="sniff"] [data-part="head"]{animation:cp-sniff .7s ease-in-out 1}
+.element-chip .chip-art.is-lifted{animation:chip-lift 3.8s ease-in-out 1}
+@keyframes chip-lift{0%{transform:translateY(0)}12%{transform:translateY(-14px) rotate(-8deg)}20%,85%{opacity:0;transform:translateY(-22px) scale(.6)}100%{opacity:1;transform:translateY(0)}}
 /* quirks: each companion's own gesture, done by its parts */
 .companion[data-anim="quirk-tongue"] [data-part="tongue"]{animation:cp-tongue .55s ease-in-out 2;transform-origin:left center}
 .companion[data-anim="quirk-tongue"] [data-part="mouth"]{animation:cp-mouth-open .2s ease-out forwards}
@@ -785,10 +807,37 @@ body.companion-knock .app{animation:cp-screen-knock .18s ease-out 1}
 .pet-card.is-shiny .pet-main strong{color:#b8891d}
 .pet-activate{border:1px solid var(--line);background:var(--bg);border-radius:999px;padding:7px 12px;font-weight:700;font-size:13px;color:var(--ink)}
 .pet-activate[aria-pressed="true"]{background:var(--good);border-color:var(--good);color:#fff}
-.pet-stats{display:grid;gap:4px;margin-top:8px}
-.pet-stat{display:grid;grid-template-columns:62px 1fr 28px;gap:8px;align-items:center;font-size:12px}
-.pet-stat i{display:block;height:6px;border-radius:3px;background:var(--line);overflow:hidden}.pet-stat b{display:block;height:100%;background:var(--slate)}
-.pet-stat strong{text-align:right;font-size:12px}
+/* V86.2 Chao-style stat panel: name, points, Lv, grade, pink progress bar, blue notched level bar */
+.cs-panel{display:grid;gap:7px;margin-top:10px;padding:10px 10px 8px;border-radius:14px;background:#30405a;color:#fff;box-shadow:inset 0 0 0 2px rgba(255,255,255,.12)}
+html[data-theme="dark"] .cs-panel{background:#1f2a3b}
+.cs-row{display:grid;grid-template-columns:1fr auto;grid-template-areas:"name points" "lv bar" "grade lvbar";column-gap:10px;row-gap:3px;align-items:center;font-size:13px}
+.cs-name{grid-area:name;font-weight:800;letter-spacing:.02em;text-shadow:0 1px 0 rgba(0,0,0,.35)}
+.cs-points{grid-area:points;font-variant-numeric:tabular-nums;font-weight:800;font-size:16px;letter-spacing:.14em;text-shadow:0 1px 0 rgba(0,0,0,.4)}
+.cs-lv{grid-area:lv;color:#e9ea7e;font-weight:800;font-size:12px}.cs-lv b{font-size:14px}
+.cs-grade{grid-area:grade;width:18px;height:18px;border-radius:5px;display:grid;place-items:center;font-size:11px;font-weight:900;background:#c9c9c9;color:#30405a}
+.cs-grade[data-grade="S"]{background:#ffd34d}.cs-grade[data-grade="A"]{background:#f3a26d}.cs-grade[data-grade="B"]{background:#a7d7a0}.cs-grade[data-grade="C"]{background:#9fc6ea}.cs-grade[data-grade="D"]{background:#cbb6e8}.cs-grade[data-grade="E"]{background:#d6d6d6}
+.cs-bar{grid-area:bar;display:block;height:7px;border-radius:4px;background:#5b2a3a;box-shadow:inset 0 1px 2px rgba(0,0,0,.5);overflow:hidden;min-width:120px}
+.cs-bar-prog{display:block;height:100%;width:0;border-radius:4px;background:linear-gradient(#ffb3d2,#ff6fa8 55%,#e63c7d);transition:none}
+.cs-lvbar{grid-area:lvbar;display:grid;grid-template-columns:repeat(10,1fr);gap:2px;height:8px}
+.cs-lvbar i{display:block;border-radius:2px;background:#1b2a44;box-shadow:inset 0 1px 1px rgba(0,0,0,.5)}
+.cs-lvbar i.on{background:linear-gradient(#8fd0ff,#2f8be0 60%,#1d5fa8)}
+.cs-lvbar i.half{background:linear-gradient(90deg,#2f8be0 50%,#1b2a44 50%)}
+.cs-row.is-levelup .cs-lv{animation:cs-lvflash .7s ease-out 1}
+.cs-row.is-levelup .cs-points{animation:cs-ptsflash .7s ease-out 1}
+.cs-row.is-levelup .cs-lvbar{animation:cs-barflash .6s ease-out 1}
+@keyframes cs-lvflash{0%{transform:scale(1.5);color:#fff;text-shadow:0 0 10px #fff}100%{transform:scale(1)}}
+@keyframes cs-ptsflash{0%{transform:scale(1.25);color:#ffe27a}100%{transform:scale(1)}}
+@keyframes cs-barflash{0%{filter:brightness(2.2)}100%{filter:brightness(1)}}
+/* floating window beside the companion while it eats */
+.companion-statwin{position:absolute;left:0;top:0;width:220px;transform:translate(var(--x),var(--y)) scale(.6);opacity:0;pointer-events:none;border-radius:14px;background:#30405a;color:#fff;padding:8px 10px 10px;box-shadow:0 8px 24px rgba(0,0,0,.25);display:grid;gap:7px;transition:transform .35s cubic-bezier(.2,1.4,.4,1),opacity .3s}
+.companion-statwin[hidden]{display:none}
+.companion-statwin.is-in{transform:translate(var(--x),var(--y)) scale(1);opacity:1}
+.companion-statwin.is-out{transform:translate(var(--x),calc(var(--y) - 12px)) scale(.9);opacity:0}
+.companion-statwin .cs-head{display:flex;align-items:center;gap:8px;font-size:13px}
+.companion-statwin .cs-face{width:26px;height:26px;display:block}.companion-statwin .cs-face svg{width:100%;height:100%}
+.companion-statwin .cs-row{font-size:12px}.companion-statwin .cs-points{font-size:14px}.companion-statwin .cs-bar{min-width:90px}
+.pet-mini{display:inline-flex;gap:3px;align-items:flex-end;height:16px;margin-top:5px}
+.pet-mini i{display:block;width:7px;height:100%;background:var(--line);border-radius:2px;position:relative;overflow:hidden}.pet-mini b{position:absolute;left:0;right:0;bottom:0;background:var(--slate)}
 .pet-quirk{margin:8px 0 0;font-size:12.5px;color:var(--muted,var(--slate))}
 .pets-help{margin-top:18px;background:var(--surface);border:1px solid var(--line);border-radius:16px;padding:12px 14px;font-size:13.5px;line-height:1.5}
 .pets-help h3{margin:0 0 6px;font-size:14px}.pets-help h3+p,.pets-help ul{margin:0 0 10px}.pets-help ul{padding-left:18px}
