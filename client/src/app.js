@@ -103,6 +103,7 @@ import { FAMILY_CAMPAIGNS } from './family-mode-v53-campaigns.js';
 import { buildThematicCampaigns } from './family-campaigns-v82.js';
 import { buildCompleteFamilyCampaigns } from './family-campaigns-v85.js';
 import { FAMILY_DATA_V85 } from './family-data-v85.js';
+import { RECIPE_POLISH_V87 } from './recipe-polish-v87.js';
 import { ORGANIC_V85 } from './organic-pack-v85.js';
 import { ORGANIC_ART_V85 } from './organic-art-v85.js';
 import { COMPANIONS_V86, COMPANION_SPRITES_V86 } from './companions-v86.js';
@@ -124,8 +125,8 @@ let recipes=classicRecipes;
 const reconciledHistorical = reconcileLegacyFamilies(classicRecipes,FAMILY_CAMPAIGNS.families);
 // V85: every family is a complete, independent campaign (own 4 starters, in-family recipes only).
 registerFamilyMembership(FAMILY_DATA_V85.families);
-const ALL_CAMPAIGNS=buildCompleteFamilyCampaigns(classicRecipes,ITEMS,FAMILIES,familiesFor,FAMILY_DATA_V85,[...reconciledHistorical.families,...buildThematicCampaigns(classicRecipes,ITEMS)]);
-if(ALL_CAMPAIGNS.report.conflicts.length||Object.keys(ALL_CAMPAIGNS.report.dropped).length)console.warn('V85 family campaigns',ALL_CAMPAIGNS.report);
+const ALL_CAMPAIGNS=buildCompleteFamilyCampaigns(classicRecipes,ITEMS,FAMILIES,familiesFor,FAMILY_DATA_V85,[...reconciledHistorical.families,...buildThematicCampaigns(classicRecipes,ITEMS)],RECIPE_POLISH_V87);
+if(ALL_CAMPAIGNS.report.conflicts.length||ALL_CAMPAIGNS.report.polishSkipped||Object.keys(ALL_CAMPAIGNS.report.dropped).length)console.warn('V85 family campaigns',ALL_CAMPAIGNS.report);
 const familyCampaigns=new Map(ALL_CAMPAIGNS.map(f=>[f.id,{...f,itemSet:new Set(f.items),recipeMap:new Map(f.recipes)}]));
 const sharedCatalogIds=sharedMembership(ALL_CAMPAIGNS);
 const MODE_SELECTION_KEY='35k_mode_selected_v48', FAMILY_SAVES_KEY='35k_family_profiles_v48';
@@ -460,7 +461,7 @@ function shinyCard(item){return `<p class="shiny-trivia"><span aria-hidden="true
 function showShinyFound(id){const it=byId.get(id);if(!it)return;
  showModal(`<div class="modal-tag shiny-tag">✦ SHINY ELEMENT</div><div class="modal-art is-shiny">${staticArt(it)}</div><h2>Shiny ${escapeText(uiName(it))}</h2>${shinyCard(it)}<div class="modal-milestone">${shiny.size.toLocaleString('en-US')} shiny ${shiny.size===1?'element':'elements'} · ${Math.round(shinyChance()*100)}% chance per combination</div>`);
 }
-const APP_VERSION='0.85.0';
+const APP_VERSION='0.87.0';
 // V83: status line + Google consent (UMP) privacy options, required for EEA players.
 async function refreshAdStatus(){
  const el=$('settingsAdStatus'),bridge=getRewardBridge();
@@ -1303,11 +1304,15 @@ function closeModal(){
  const m=$('modal');m.hidden=true;m.dataset.dismiss='any';
 }
 
+const PAW_SVG='<svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="7" cy="8" r="2.2"/><circle cx="12" cy="5.5" r="2.2"/><circle cx="17" cy="8" r="2.2"/><path d="M12 11c-3.5 0-6.5 2.6-6.5 5.4 0 1.9 1.4 3.1 3.1 3.1 1.3 0 2.1-.6 3.4-.6s2.1.6 3.4.6c1.7 0 3.1-1.2 3.1-3.1C18.5 13.6 15.5 11 12 11Z"/></svg>';
+function companionCallout(id){if(!companions.isCompanion(id))return '';
+ return `<div class="companion-callout"><span class="companion-callout-icon">${PAW_SVG}</span><span><b>Companion element!</b> It can live on your screen, eat elements and level up. ${companions.freeChoiceLeft()?'Your first companion is free.':'Find it in the Companions tab.'}</span><button type="button" class="companion-callout-go" id="meetCompanion">Meet it</button></div>`;}
 function showDiscovery(id,a,b,scene=null,isShiny=false){
- const it=byId.get(id),isFirst=worldFirsts.has(id),earned=[...unlocked].filter(x=>!STARTERS.has(x)).length;
- showModal(`<div class="modal-tag ${isShiny?'shiny-tag':isFirst?'world-first-tag':''}">${isShiny?'✦ SHINY DISCOVERY':isFirst?'★ WORLD FIRST':'✦ NEW DISCOVERY'}</div><div class="modal-art${isShiny?' is-shiny':''}">${staticArt(it)}</div><h2>${isShiny?'Shiny ':''}${escapeText(uiName(it))}</h2><p>${escapeText(uiName(byId.get(a)))} + ${escapeText(uiName(byId.get(b)))}</p>${isShiny?shinyCard(it):(wittyDiscovery(it)||it.summary)?`<p class="discovery-wit">${escapeText(publicText(wittyDiscovery(it)||it.summary))}</p>`:""}<div class="modal-milestone">${earned.toLocaleString('en-US')} personal discoveries</div>`);
+ const it=byId.get(id),isFirst=worldFirsts.has(id),earned=[...unlocked].filter(x=>!STARTERS.has(x)).length,isComp=companions.isCompanion(id);
+ showModal(`<div class="modal-tag ${isShiny?'shiny-tag':isFirst?'world-first-tag':isComp?'companion-tag':''}">${isShiny?'✦ SHINY DISCOVERY':isFirst?'★ WORLD FIRST':isComp?'NEW COMPANION':'✦ NEW DISCOVERY'}</div><div class="modal-art${isShiny?' is-shiny':''}${isComp?' is-companion':''}">${isComp&&COMPANION_SPRITES_V86[id]?COMPANION_SPRITES_V86[id]:staticArt(it)}</div><h2>${isShiny?'Shiny ':''}${escapeText(uiName(it))}</h2><p>${escapeText(uiName(byId.get(a)))} + ${escapeText(uiName(byId.get(b)))}</p>${isShiny?shinyCard(it):(wittyDiscovery(it)||it.summary)?`<p class="discovery-wit">${escapeText(publicText(wittyDiscovery(it)||it.summary))}</p>`:""}${companionCallout(id)}<div class="modal-milestone">${earned.toLocaleString('en-US')} personal discoveries</div>`);
  $('continueBtn')?.remove();$('modal').dataset.dismiss='x-only';
  playCraftMotion(scene,'new',it);
+ if(isComp){const go=$('meetCompanion');if(go)go.onclick=()=>{closeModal();switchTab('Pets');};}
 }
 function detail(id){const it=byId.get(id);if(!it)return;const extra=familiesFor(it).length>1?`<p class="mini-muted">Shared across: ${familiesFor(it).map(f=>escapeText(FAMILIES.find(x=>x.id===f)?.name||f)).join(' · ')}</p>`:'';showModal(`<div class="modal-art">${staticArt(it)}</div><h2>${escapeText(uiName(it))}</h2><p>${escapeText(categoryNames[it.category]||it.category)}</p>${extra}<button class="modal-button" id="useBtn">Use in craft table</button>`);$('useBtn').onclick=()=>{closeModal();switchTab('Play');if(!slots[0])place(0,id);else place(1,id);};}
 const allIds=()=>[...unlocked].filter(id=>byId.has(id));
@@ -1550,6 +1555,7 @@ function switchTab(view){
  for(const name of ['Play','World','Pets'])$(`view${name}`).hidden=name!==tab;
  document.querySelectorAll('.tab').forEach(b=>{const active=b.dataset.view===tab;b.classList.toggle('active',active);b.setAttribute('aria-current',active?'page':'false');});
  if(tab==='World')renderDiscoveries();else if(tab==='Pets')companions.renderTab();else playVirtual.draw(true);
+ if(tab==='Pets')companions.markSeen();else companions.syncSeen();
  companions.onViewChange();
 }
 // V86 Companions: five companion elements per family live on top of the interface.
@@ -1558,7 +1564,31 @@ function discoveredAnywhere(id){
  if(currentMode==='family'&&classicSnapshot?.unlocked?.includes(id))return true;
  return Object.entries(familyProfiles).some(([fid,p])=>Array.isArray(p?.unlocked)&&p.unlocked.includes(id)&&!familyCampaigns.get(fid)?.starters.includes(id));
 }
+// V87: the first companion is free; switching later needs a rewarded ad, then 5 free minutes
+// (same rule as mode switching). Without ads (purchase) it is always free. Sending home is free.
+const COMPANION_GRACE_KEY='alchemy10k_companion_switch_grace_v1',COMPANION_GRACE_MS=5*60*1000;
+function companionGraceLeft(){try{return Math.max(0,(Number(localStorage.getItem(COMPANION_GRACE_KEY))||0)-Date.now());}catch{return 0;}}
+function confirmCompanionAd(meta){return new Promise(res=>{const nm=escapeText(uiName(byId.get(meta.id))||meta.name);
+ showModal(`<div class="modal-tag">REWARDED COMPANION SWITCH</div><div class="modal-art">${COMPANION_SPRITES_V86[meta.id]||staticArt(byId.get(meta.id))}</div><h2>Switch to ${nm}?</h2><p>Your first companion was free. Switching companions requires a rewarded ad; after it, switching again is free for 5 minutes.</p><button type="button" class="modal-button" id="companionAdGo">Watch ad</button><button type="button" class="modal-button secondary" id="companionAdNo">Cancel</button>`);
+ $('companionAdGo').onclick=()=>res(true);$('companionAdNo').onclick=()=>{closeModal();res(false);};});}
+async function requestCompanionActivation(meta){
+ if(adFree())return true;
+ const g=companionGraceLeft();if(g>0){toast(`Free companion switch · ${minutesUntil(Date.now()+g)} min left`,'repeat');return true;}
+ if(!rewardedAvailable()){showModal(`<div class="modal-tag">REWARDED COMPANION SWITCH</div><h2>Ads unavailable</h2><p>Switching companions requires a completed rewarded ad in the Android app. This standalone HTML does not simulate ads.</p><p class="mini-muted">Your current companion stays with you.</p><button type="button" class="modal-button secondary" id="companionAdClose">Close</button>`);$('companionAdClose').onclick=closeModal;return false;}
+ if(!(await confirmCompanionAd(meta)))return false;
+ if(rewardedHintBusy)return false;rewardedHintBusy=true;
+ showModal(`<div class="modal-tag">REWARDED COMPANION SWITCH</div><h2>Loading ad…</h2><p>The companion changes only when the Android ad SDK confirms the earned reward.</p>`);
+ let result=null;
+ try{result=await getRewardBridge().showRewarded({kind:'companion_switch',companion:meta.id});}
+ catch(e){console.warn('Companion rewarded ad failed',e);}
+ finally{rewardedHintBusy=false;}
+ if(result?.earned!==true){showModal(`<h2>Companion unchanged</h2><p>The ad was unavailable, dismissed or not rewarded. Your current companion stays with you.</p><button type="button" class="modal-button secondary" id="companionAdClose">Close</button>`);$('companionAdClose').onclick=closeModal;return false;}
+ try{localStorage.setItem(COMPANION_GRACE_KEY,String(Date.now()+COMPANION_GRACE_MS));}catch{}
+ closeModal();toast('Companion changed · switching again is free for 5 minutes','repeat');return true;
+}
+function setPetsBadge(n){const b=$('petsBadge');if(b)b.hidden=!(n>0);}
 const companions=createCompanionSystem({roster:COMPANIONS_V86,sprites:COMPANION_SPRITES_V86,$,escapeText,byId,uiName,staticArt,familyFor,
+ requestActivation:requestCompanionActivation,onBadge:setPetsBadge,
  isDiscovered:discoveredAnywhere,isShiny:id=>shiny.has(id),elementIsUseful,getSlots:()=>slots,isLeftLocked:()=>leftLocked,toast,showModal,closeModal,
  reducedMotion:()=>Boolean(window.matchMedia?.('(prefers-reduced-motion: reduce)')?.matches),FAMILIES});
 const BACKUP_KEYS=[COMPANION_STORAGE_KEY,SHINY_KEY,HINT_BANK_KEY,FAMILY_SAVES_KEY,MODE_SELECTION_KEY,'gameverse_alchemy_v2','gameverse_dynamic_v11','gameverse_ledger_v16','gameverse_discovery_hints_v20',EXTRA_STORAGE,DISCOVERY_ORDER_KEY];
@@ -2095,7 +2125,7 @@ updateCounts();updateSlotUI();updateLatest();rerenderCollections();switchTab('Pl
 classicSnapshot=snapshotPlayState();
 try{const preferred=JSON.parse(localStorage.getItem(MODE_SELECTION_KEY)||'null');if(preferred?.mode==='family'&&familyCampaigns.has(canonicalFamilyId(preferred.family)))activateMode('family',canonicalFamilyId(preferred.family));else if(!preferred)modePicker(true);}catch{modePicker(true);}
 syncModeButton();
-companions.start();
+companions.start();companions.syncSeen();
 // V19 Offline Edition: intentionally no automatic API connection.
 
 // Global inbox polling is deliberately throttled: one request for ALL pending pairs,

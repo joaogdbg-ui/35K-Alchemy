@@ -5,9 +5,10 @@
  *   all belong to that family.
  * - Authored V85 recipes (FAMILY_DATA_V85.recipes) are global A+B=C pairs: they are added to the
  *   shared recipe map only when the pair is still free, so no existing recipe is ever overwritten.
+ * V87: optional `polish` {adds:[[a,b,out]], remaps:[[a,b,old,new]]} is applied after the V85 recipes.
  * Pure function: no DOM, no imports (also inlined by tools/build-standalone.py).
  */
-export function buildCompleteFamilyCampaigns(globalRecipes,items,families,familiesFor,data,legacyCampaigns=[]){
+export function buildCompleteFamilyCampaigns(globalRecipes,items,families,familiesFor,data,legacyCampaigns=[],polish=null){
  if(!(globalRecipes instanceof Map)||!Array.isArray(items)||!data||!Array.isArray(data.recipes))throw Error('V85 campaigns: invalid input');
  const key=(a,b)=>[a,b].sort().join('|');
  const known=new Set(items.map(i=>i.id));
@@ -18,6 +19,14 @@ export function buildCompleteFamilyCampaigns(globalRecipes,items,families,famili
   if(have===undefined){globalRecipes.set(k,out);report.added++;}
   else if(have===out)report.kept++;
   else report.conflicts.push(k);
+ }
+ // V87 recipe polish (owner request 31/10/2026): logical new pairs on FREE pairs only, and
+ // remaps of clearly forced recipes, applied only when the pair still gives the expected old
+ // result. Every remap was validated so Classic and each family stay 100% reachable.
+ report.polishAdded=0;report.polishRemapped=0;report.polishSkipped=0;
+ if(polish){
+  for(const [a,b,out] of polish.adds||[]){const k=key(a,b);if(known.has(a)&&known.has(b)&&known.has(out)&&!globalRecipes.has(k)){globalRecipes.set(k,out);report.polishAdded++;}else report.polishSkipped++;}
+  for(const [a,b,old,out] of polish.remaps||[]){const k=key(a,b);if(known.has(out)&&globalRecipes.get(k)===old){globalRecipes.set(k,out);report.polishRemapped++;}else report.polishSkipped++;}
  }
  const legacy=new Map(legacyCampaigns.map(c=>[c.id,c]));
  const members=new Map(families.map(f=>[f.id,[]]));

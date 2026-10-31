@@ -1,0 +1,1988 @@
+# V87 recipe polish
+
+Owner request 31/10/2026. 1774 new recipes on free pairs and 203 forced recipes made logical. Zero new elements.
+
+Proposals came from 13 review passes over all 17,854 recipes and themed gap hunts; every entry was machine-validated (names exist, adds on free pairs, remap old result has another route) and the full set keeps Classic and all 8 family campaigns 100% reachable.
+
+## Remapped (old → new)
+
+- Ancient Tomes IV: Veilgate + Sequel: ~~Ancient Tomes III: Ashlands~~ → **Ancient Tomes V: Frostreach**
+- Anime + Comic Book: ~~Cartoon~~ → **Manga**
+- Sheet Music + Anime Soundtrack: ~~Oceanbound Saga Manga~~ → **Orchestra**
+- Arcade + Racing: ~~Arcade Console~~ → **Racing Arcade**
+- Arcade + Racing Wheel: ~~Steering wheel~~ → **Racing Arcade Wheel**
+- Music + Arcade: ~~Arcade Game Studio~~ → **Music Game**
+- Sea + Animal: ~~Seashell~~ → **Fish**
+- Animal + Film Score: ~~Web Sentinel~~ → **The Savanna Crown**
+- Animal + Cinema: ~~Hunter~~ → **The Savanna Crown**
+- Animal + Coral Reef: ~~Coral~~ → **Reef Fish**
+- Night + Animal: ~~Firefly~~ → **Owl**
+- Wood + Animal: ~~Bird Nest~~ → **Woodpecker**
+- Art + Wood: ~~Traditional Craft Workshop~~ → **Wood Carving Display**
+- Wind + Air: ~~Wind~~ → **Tornado**
+- Stone + Air: ~~Pressure~~ → **Sand**
+- Air + Frost: ~~Cloud~~ → **Snow**
+- Air + Electricity: ~~Weather Station~~ → **Lightning**
+- Air + Wheel: ~~Ball~~ → **Windmill**
+- Advanced Technology + Steam Engine: ~~Steam Engine~~ → **Train**
+- Japan + Advanced Technology: ~~Coreia~~ → **Robot**
+- Hero + Actor: ~~Friend~~ → **Superhero**
+- Adventure + Exploration: ~~Roguelike~~ → **Open World**
+- Wood + Beehive: ~~Honeycomb~~ → **Honeycomb Frame**
+- Tree + Bird Nest: ~~Birdsong~~ → **Canopy Nest**
+- Wind + Bird Nest: ~~Birdsong~~ → **Feather**
+- Board Game + Horse: ~~Rail Route Tickets~~ → **Chess**
+- Console + Book: ~~Arcane Console~~ → **Game Manual**
+- Book + Ink: ~~Fountain Pen~~ → **Writing**
+- Video + Camera: ~~Augmented Reality~~ → **Film**
+- Paper + Camera: ~~Film~~ → **Photograph**
+- Water + Campfire: ~~Soup~~ → **Steam**
+- Forest + Campfire: ~~Charcoal~~ → **Wildfire**
+- Paper + Campfire: ~~Smoke~~ → **Ash**
+- Wind + Campfire: ~~Smoke Signal~~ → **Wildfire**
+- Sea + Cave: ~~Deep Sea~~ → **Sea Cave**
+- Challenge + Time: ~~Luck~~ → **Speedrun**
+- Charcoal + Charcoal: ~~Water Filter~~ → **Coal**
+- Chef + Sugar: ~~Chocolate~~ → **Caramel**
+- Chef + Milk: ~~Butter~~ → **Cheese**
+- Chocolate + Milk: ~~Ice Cream~~ → **Cocoa Drink**
+- Fire + Cheese: ~~Cheese Toast~~ → **Fondue**
+- Wire + Battery: ~~Motor~~ → **Circuit**
+- Bread + Cheese: ~~Pizza~~ → **Cheese Toast**
+- Chess + Board Game: ~~Digital Chess~~ → **Checkers**
+- Wheel + Cinema: ~~Car~~ → **Film Projector**
+- City + Industry: ~~United States~~ → **Factory**
+- Sand + Clam: ~~Seashell~~ → **Pearl**
+- Cloud + Ocean: ~~Jellyfish~~ → **Rain**
+- Cloud + Rain: ~~Sunshower~~ → **Storm**
+- Tea + Cocoa: ~~Coffee~~ → **Cocoa Drink**
+- Robot + Conveyor Belt: ~~Robot Coin Sorter~~ → **Factory**
+- Crystal + Electricity: ~~Glass~~ → **Screen LCD**
+- Glass + Crystal: ~~Microscope~~ → **Lens**
+- Waterfall + Current: ~~Stone~~ → **Erosion**
+- Copper + Circuit: ~~Battery~~ → **Circuit Board**
+- Painting + Computer: ~~Orchard Computers~~ → **Computer Graphics**
+- Guitar + Concert: ~~Orchestra~~ → **Rock Music**
+- Hybrid Console + Critter Atlas Red: ~~New Critter Atlas Snap~~ → **Critter Atlas: Let's Go, Sparksnout!**
+- Critter Atlas Dungeon: Rescue Team DX + Sequel: ~~Critter Atlas: Let's Go, Sparksnout!~~ → **Critter Atlas Dungeon: Time Explorers**
+- Sequel + Cogtail and Bolt: ~~Cogtail: Deadlocked~~ → **Cogtail and Bolt: Up Your Arsenal**
+- Cogtail: Deadlocked + Sequel: ~~Cogtail and Bolt: Up Your Arsenal~~ → **Cogtail and Bolt: Size Matters**
+- Desert + Rain: ~~Drought~~ → **Desert Bloom**
+- Forest + Field: ~~Drought~~ → **Woodland Clearing**
+- Field + Soil: ~~Drought~~ → **Farm**
+- Fire + Field: ~~Drought~~ → **Wildfire**
+- Fire + Farm: ~~Drought~~ → **Wildfire**
+- Field + Monsoon: ~~Puddle~~ → **Flood**
+- Earth + Monsoon: ~~Puddle~~ → **Mudslide**
+- Soil + Drought: ~~Cactus~~ → **Desert**
+- Lake + Drought: ~~Oasis~~ → **Mud**
+- Electricity + Storm: ~~Wind Turbine~~ → **Lightning**
+- Energy + Storm: ~~Wind Turbine~~ → **Lightning**
+- Electricity + Wire: ~~Motor~~ → **Circuit**
+- Life + Dinosaur: ~~Fossilized Dinosaur Egg~~ → **Dinosaur Egg**
+- Dinosaur Armor + Mesozoic Era: ~~Triassic Period~~ → **Ankylosaurus**
+- Dough + Fruit: ~~Cupcake~~ → **Fruit Tart**
+- Steam + Dough: ~~Bagel~~ → **Dumpling**
+- Future + Engineering: ~~Revision~~ → **Robotics**
+- Film Score + TV Series: ~~Desert Chemist~~ → **Soundtrack**
+- Fire + Milk: ~~Chocolate~~ → **Cream**
+- Fire + Mud: ~~Kiln~~ → **Brick**
+- Fire + Rice: ~~Popcorn~~ → **Cooking**
+- Heat + Rice: ~~Popcorn~~ → **Cooking**
+- Fire + Life: ~~Blood~~ → **Phoenix**
+- Fire + Plant: ~~Cooking~~ → **Ash**
+- Fire + Fossil: ~~Ash~~ → **Coal**
+- Fish + Tool: ~~Shark~~ → **Fishing Net**
+- Fish + Ocean: ~~Coral~~ → **Shark**
+- Stone + Fish: ~~Coral Reef~~ → **Fossil**
+- Music + Flute: ~~Wind Chime~~ → **Melody**
+- Noodles + Food: ~~Dumpling~~ → **Ramen Bowl**
+- Forest + Light: ~~Neon Forest~~ → **Firefly**
+- Lightning + Forest: ~~Smoke~~ → **Wildfire**
+- Heat + Forest: ~~Smoke~~ → **Wildfire**
+- Forest + Lava: ~~Ash~~ → **Wildfire**
+- Night + Forest: ~~Fox~~ → **Owl**
+- Forest + Seaweed: ~~Kelp~~ → **Kelp Forest**
+- Forest + Seed: ~~Cocoa~~ → **Tree**
+- Forest + Tool: ~~Forest Guardian~~ → **Wood**
+- Glass + Frost: ~~Frost~~ → **Frosted Windowpane**
+- Ice + Frost: ~~Ice Cream~~ → **Glacier**
+- Plant + Frost: ~~Frost~~ → **Frosted Leaf**
+- Sea + Frost: ~~Fog~~ → **Iceberg**
+- Ocean + Frost: ~~Fog~~ → **Iceberg**
+- Ice + Fruit: ~~Ice Cream~~ → **Fruit Sorbet**
+- Snow + Fruit: ~~Ice Cream~~ → **Fruit Sorbet**
+- Fruit + Sugar: ~~Lemonade~~ → **Jam**
+- Garden + Fruit: ~~Tomato~~ → **Orchard**
+- Seed + Fruit: ~~Bean~~ → **Tree**
+- Lightning + Fuel: ~~Smoke~~ → **Explosion**
+- Heat + Fuel: ~~Smoke~~ → **Fire**
+- Strategy + Game: ~~Stealth~~ → **Chess**
+- Tool + Garden: ~~Rain Barrel~~ → **Garden Trowel**
+- House + Garden: ~~Rain Barrel~~ → **Greenhouse**
+- Garden + Seed: ~~Orchard~~ → **Sprout**
+- Garden + Herb: ~~Basil~~ → **Herb Garden**
+- Glass + Rain: ~~Umbrella~~ → **Rainy Window**
+- Glass + Snow: ~~Frost~~ → **Snow Globe**
+- Glass + Tool: ~~Camera~~ → **Lens**
+- Glass + Light: ~~Camera~~ → **Prism**
+- Glass + Tower: ~~Cathedral~~ → **Skyscraper**
+- Hero + God: ~~Legend~~ → **Heracles**
+- Guitar + Guitar: ~~Melody~~ → **Band**
+- Heat + Kiln: ~~Solar Oven~~ → **Ceramic**
+- Paper + Heat: ~~Smoke~~ → **Ash**
+- Water + Herb: ~~Mint~~ → **Tea**
+- Oil + Herb: ~~Herb Oil Focaccia~~ → **Garlic Herb Oil**
+- Tool + Herb: ~~Tea~~ → **Spice**
+- Time + Flower: ~~Butterfly~~ → **Fruit**
+- Hero + Friend: ~~Romance~~ → **Team**
+- Water + House: ~~Soup~~ → **Plumbing**
+- Root + House: ~~Onion~~ → **Root Cellar**
+- House + Soil: ~~Sandcastle~~ → **Garden**
+- House + Seed: ~~Basil~~ → **Garden**
+- Japan + Human: ~~Witch~~ → **Samurai**
+- Music + Human: ~~Fun~~ → **Musician**
+- Human + Sky: ~~Giant~~ → **Angel**
+- Human + Story Mode: ~~Musician~~ → **Hero**
+- Human + Tool: ~~Number~~ → **Workshop**
+- Human + Writing: ~~Song~~ → **Book**
+- Island + Ocean: ~~Tide~~ → **Archipelago**
+- River + Island: ~~Ocean~~ → **Delta**
+- Music + Japan: ~~Trumpet~~ → **Anime Soundtrack**
+- Plant + Lake: ~~Plant~~ → **Lily Pad**
+- Lake + Sprout: ~~Plant~~ → **Reed**
+- Wind + Lake: ~~Mist~~ → **Wave**
+- Video Game + Level: ~~Stealth~~ → **Platformer**
+- Star + Light: ~~Aurora~~ → **Starlight**
+- Lightning + Wood: ~~Smoke~~ → **Fire**
+- Lightning + Tree: ~~Smoke~~ → **Fire**
+- Paper + Lightning: ~~Smoke~~ → **Fire**
+- Lightning + Oil: ~~Smoke~~ → **Fire**
+- Sea + Lava: ~~Stone~~ → **Island**
+- Ocean + Magma Chamber: ~~Stone~~ → **Island**
+- Movement + Manga: ~~Speed~~ → **Anime**
+- Video Game + Map: ~~Strategy~~ → **Open World**
+- Home Console + Manga: ~~Anime~~ → **Anime Game**
+- Milk + Rice: ~~Dough~~ → **Sweet Rice Pudding**
+- Sun + Mud: ~~Life~~ → **Brick**
+- Music + Science: ~~Jazz~~ → **Synthesizer**
+- Music + Wire: ~~Saxophone~~ → **Guitar**
+- Plant + Seed: ~~Cactus~~ → **Garden**
+- Plant + River: ~~Plant~~ → **Reed**
+- Pond + Sapling: ~~Plant~~ → **Reed**
+- Plant + Tree: ~~Bird Nest~~ → **Forest**
+- Plant + Pressure: ~~Fossil~~ → **Coal**
+- Tree + Pressure: ~~Fossil~~ → **Coal**
+- Plant + Seashell: ~~Sea Urchin~~ → **Seaweed**
+- Plant + Tool: ~~Tea~~ → **Garden**
+- Plant + Pollen: ~~Butterfly~~ → **Bee**
+- Paper + Writing: ~~Cards~~ → **Book**
+- Water + Pond: ~~Flood~~ → **Lake**
+- Steam + Pressure: ~~Cloud~~ → **Geyser**
+- Paper + Photography: ~~Film~~ → **Photograph**
+- Paper + Wildfire: ~~Smoke~~ → **Ash**
+- Writing + Photograph: ~~Film~~ → **Newspaper**
+- Shop + Pastry: ~~Food Stall~~ → **Bakery**
+- Water + Metal: ~~Bridge~~ → **Anchor**
+- River + Moon: ~~Navigation~~ → **Moonrise Reflection**
+- Snow + Mist: ~~Snow~~ → **Frost**
+- Sky + Mist: ~~Sunshower~~ → **Cloud**
+- Wheel + Motor: ~~Generator~~ → **Car**
+- Water + Soil: ~~Sediment~~ → **Mud**
+- Tool + Soil: ~~Sandcastle~~ → **Farm**
+- Tree + Tool: ~~Charcoal~~ → **Wood**
+- Time + Writing: ~~Song~~ → **History**
+- Sea + Stone: ~~Coral Reef~~ → **Island**
+- Sea + Robot: ~~Ocean Engine~~ → **Submarine**
+- Water + Tomato: ~~Salad~~ → **Tomato Soup**
+- Rule + Rival: ~~Choice~~ → **Competition**
+- Thermometer + Weather: ~~Rain Gauge~~ → **Weather Station**
+- Tool + Storm: ~~Rain Gauge~~ → **Lightning Rod**
+- Sun + Sugar: ~~Syrup~~ → **Caramel**
+- Wind + Snow: ~~Avalanche~~ → **Blizzard**
+- Video Game + Team: ~~Strategy~~ → **Multiplayer**
+- Strategy + Video Game: ~~Stealth~~ → **Real-Time Strategy**
+- Sun + Shadow: ~~Sunspot~~ → **Eclipse**
+- Tool + River: ~~Beaver~~ → **Beaver Dam**
+- Video + Screen: ~~Augmented Reality~~ → **Television**
+- Water + Steam: ~~Water~~ → **Hot Spring**
+- Stone + Science: ~~Water Filter~~ → **Rock Mineral Chart**
+- Tool + Vegetable: ~~Soup~~ → **Salad**
+- Soil + Soil: ~~Sprout~~ → **Earth**
+
+## New recipes
+
+- 64-bit + 64-bit = **128-bit**
+- 8-bit + 8-bit = **16-bit**
+- Console + 16-bit = **16-Bit Console**
+- 16-bit + 16-bit = **32-bit**
+- 3D + Cinema = **3D Glasses**
+- Animation + 3D = **3D Graphics**
+- 32-bit + 32-bit = **64-bit**
+- Console + 64-bit = **64-Bit Cartridge Console**
+- Console + 8-bit = **8-Bit Console**
+- Video Game + Money = **AAA Game**
+- Hero + War = **Achilles**
+- Game + Sword = **Action**
+- Video Game + Sword = **Action**
+- RPG + Sword = **Action RPG**
+- Human + Costume = **Actor**
+- Hero + Film = **Actor**
+- Theater + Human = **Actor**
+- Human + Film = **Actor**
+- Game + Pirate = **Adventure**
+- Desert + Continent = **Africa**
+- Continent + Pyramid = **Africa**
+- Metal + Bird = **Airplane**
+- Metal + Air = **Airplane**
+- Metal + Sky = **Airplane**
+- Car + Sky = **Airplane**
+- Music + Vinyl = **Album**
+- Music + CD = **Album**
+- Vinyl + Song = **Album**
+- Magic + Metal = **Alchemist**
+- Water + Moss = **Algae**
+- Algae + Algae = **Algal Bloom**
+- Mathematics + Computer = **Algorithm**
+- Life + Space = **Alien**
+- Plant + Mountain = **Alpine Edelweiss**
+- Europe + Snow = **Alps**
+- Forest + Brazil = **Amazon Rainforest**
+- River + Brazil = **Amazon River**
+- River + Rainforest = **Amazon River**
+- Time + Tree Sap = **Amber**
+- Time + Pine Resin = **Amber**
+- Fossil + Mosquito = **Amber**
+- Food + God = **Ambrosia**
+- Honey + God = **Ambrosia**
+- Fossil + Limestone = **Ammonite**
+- Fossil + Seashell = **Ammonite**
+- Guitar + Speaker = **Amplifier**
+- Past + Ruins = **Ancient City**
+- History + Mummy = **Ancient Egypt**
+- History + Egypt = **Ancient Egypt**
+- Paper + Time = **Ancient Scroll**
+- Paper + Past = **Ancient Scroll**
+- Past + Writing = **Ancient Scroll**
+- Knowledge + History = **Ancient Wisdom**
+- Light + Soul = **Angel**
+- Sky + Spirit = **Angel**
+- Feather + God = **Angel**
+- Human + Bird = **Angel**
+- Sky + Waterfall = **Angel Falls**
+- Rainforest + Waterfall = **Angel Falls**
+- Ruins + Cambodia = **Angkor Wat**
+- Rainforest + Temple = **Angkor Wat**
+- Cartoon + Film = **Animation**
+- Television + Manga = **Anime**
+- Animation + Manga = **Anime**
+- Art + Japan = **Anime**
+- Film + Anime = **Anime Film**
+- Game + Anime = **Anime Game**
+- Game + Manga = **Anime Game**
+- Video Game + Manga = **Anime Game**
+- Anime + Singer = **Anime Soundtrack**
+- Anime + Musician = **Anime Soundtrack**
+- Life + Egypt = **Ankh**
+- Life + Amulet = **Ankh**
+- Soil + Insect = **Ant**
+- Continent + Penguin = **Antarctica**
+- Ice + Penguin = **Antarctica**
+- Continent + Ice = **Antarctica**
+- Continent + Snow = **Antarctica**
+- Ant + Ant = **Anthill**
+- Seashell + God = **Aphrodite**
+- Sea Foam + God = **Aphrodite**
+- Music + God = **Apollo**
+- Light + God = **Apollo**
+- Sun + Greek Pantheon = **Apollo**
+- Wood + Fruit = **Apple Wood Cutting Board**
+- Wood + Cooking = **Apple Wood Cutting Board**
+- Orchard + God = **Apples of Idunn**
+- Water + Bridge = **Aqueduct**
+- Bridge + River = **Aqueduct**
+- Coin + Game = **Arcade**
+- Game + House = **Arcade**
+- Video Game + Arcade = **Arcade Machine**
+- Human + Ruins = **Archaeologist**
+- Explorer + Ruins = **Archaeologist**
+- Dinosaur + Bird = **Archaeopteryx**
+- Fossil + Bird = **Archaeopteryx**
+- Animal + Frost = **Arctic Fox**
+- Ice + Fox = **Arctic Fox**
+- Sports + House = **Arena**
+- War + God = **Ares**
+- Sword + God = **Ares**
+- War + Greek Pantheon = **Ares**
+- Hero + Ship = **Argo**
+- Ship + Greece = **Argo**
+- Painting + Ink = **Art**
+- Painting + Oil = **Art**
+- Paper + Painting = **Art**
+- God + Moon = **Artemis**
+- God + Hunter = **Artemis**
+- Hunter + Moon = **Artemis**
+- Bow + Moon = **Artemis**
+- Shipwreck + Archaeologist = **Artifact**
+- Archaeology + Shipwreck = **Artifact**
+- Robot + Human = **Artificial Intelligence**
+- Castle + Sky = **Asgard**
+- Cloud + Castle = **Asgard**
+- Castle + Norse Mythology = **Asgard**
+- Fire + Newspaper = **Ash**
+- Dust + Volcano = **Ash**
+- Continent + Temple = **Asia**
+- Continent + Panda = **Asia**
+- Stealth + Sword = **Assassin**
+- Human + Moon = **Astronaut**
+- Human + Rocket = **Astronaut**
+- Knowledge + God = **Athena**
+- Owl + God = **Athena**
+- Owl + Greece = **Athena**
+- Sky + Giant = **Atlas the Sky-Bearer**
+- Virtual Reality + City = **Augmented Reality**
+- Planet + Solar Wind = **Aurora**
+- Aurora + Aurora = **Aurora Curtain**
+- Desert + Island = **Australia**
+- Snow + Wave = **Avalanche**
+- Handheld Console + Light = **Backlight**
+- Steam + Bread = **Bagel**
+- Bread + Kiln = **Baguette**
+- Bread + France = **Baguette**
+- Heat + Tomato = **Baked Tomato**
+- Tomato + Kiln = **Baked Tomato**
+- Bread + Chef = **Bakery**
+- Coffee + Croissant = **Bakery**
+- Theater + Dance = **Ballet**
+- Princess + Dance = **Ballet**
+- Human + Dance = **Ballet**
+- Music + Dance = **Ballet**
+- Art + Dance = **Ballet**
+- Wind + Silk = **Balloon**
+- Musician + Team = **Band**
+- Ghost + Voice = **Banshee**
+- Celtic Mythology + Ghost = **Banshee**
+- Pressure + Weather = **Barometer**
+- Sea + Basalt = **Basalt Cliff**
+- Basalt + Basalt = **Basalt Column**
+- Storage + Electricity = **Battery**
+- Manga + Martial Arts = **Battle Anime**
+- Shooting + Island = **Battle royale**
+- Board Game + Ship = **Battleship**
+- War + Ship = **Battleship**
+- Action + Martial Arts = **Beat 'em Up**
+- Fighting + City = **Beat 'em Up**
+- Tree + Beaver = **Beaver Dam**
+- Honey + Insect = **Bee**
+- Bee + Bee = **Bee Swarm**
+- Human + Bee = **Beekeeper**
+- Bird + Egypt = **Bennu**
+- Phoenix + Egypt = **Bennu**
+- Glass + Fruit = **Berry Jam Jar**
+- Pottery + Wild Berry = **Berry Jam Jar**
+- Fruit + Pancake = **Berry Pancake**
+- Jam + Pancake = **Berry Pancake**
+- Milk + Wild Berry = **Berry Yogurt Swirl**
+- City + Bicycle = **Bicycle Lane**
+- Rainbow + God = **Bifrost**
+- Bridge + Rainbow = **Bifrost**
+- United Kingdom + Clock = **Big Ben**
+- United Kingdom + Clock Tower = **Big Ben**
+- Sea + Night = **Bioluminescence**
+- Fish + Light = **Bioluminescence**
+- Bioluminescence + Plankton = **Bioluminescent Plankton**
+- Time + Egg = **Bird**
+- Animal + Egg = **Bird**
+- Life + Egg = **Bird**
+- Animal + Feather = **Bird**
+- Egg + Nest = **Bird**
+- Bird + Wild Berry = **Bird Feeder**
+- Bird + Nest = **Bird Nest**
+- Light + Gravity = **Black Hole**
+- Gravity + Gravity = **Black Hole**
+- Poker + Number = **Blackjack**
+- Air + Snow = **Blizzard**
+- Snow + Weather = **Blizzard**
+- Puzzle + Cube = **Blocks**
+- Paper + House = **Blueprint**
+- Paper + Game = **Board Game**
+- Time + Glass = **Board Game Hourglass**
+- Rule + Book = **Board Game Rulebook**
+- Rule + Board Game = **Board Game Rulebook**
+- Lake + Mud = **Bog**
+- Time + Lake = **Bog**
+- Lake + Moss = **Bog**
+- War + Airplane = **Bomb**
+- Fossil + Flute = **Bone Flute**
+- Flute + Neanderthal = **Bone Flute**
+- Fossil + Fossil = **Bonebed**
+- Coin + Level = **Bonus**
+- Paper + Ink = **Book**
+- Paper + Paper = **Book**
+- Book + Soul = **Book of the Dead**
+- Book + Egypt = **Book of the Dead**
+- Book + Mummy = **Book of the Dead**
+- Book + Ancient Egypt = **Book of the Dead**
+- Map + Country = **Border**
+- Country + Wall = **Border**
+- Painting + Glass = **Botanical Stained Glass**
+- Coffee + Country = **Brazil**
+- Bakery + Flour = **Bread**
+- Bakery + Dough = **Bread**
+- Cooking + Flour = **Bread**
+- Time + Bread = **Bread Crumbs**
+- Bread + Hammer = **Bread Crumbs**
+- River + Concrete = **Bridge**
+- River + Arch = **Bridge**
+- Desert + Skyscraper = **Burj Khalifa**
+- Animal + Soil = **Burrow**
+- Milk + Pressure = **Butter**
+- Cream + Pressure = **Butter**
+- Butter + Croissant = **Butter Croissant**
+- Desert + Mexico = **Cactus**
+- Rain + Cactus = **Cactus Flower**
+- Chocolate + Egg = **Cake**
+- Bakery + Sugar = **Cake**
+- Bakery + Egg = **Cake**
+- Bakery + Chocolate = **Cake**
+- Paper + Lens = **Camera**
+- Fire + Tongs = **Campfire**
+- River + City = **Canal**
+- Pottery + Mummy = **Canopic Jars**
+- Pottery + Ancient Egypt = **Canopic Jars**
+- Forest + Sky = **Canopy**
+- Desert + Mountain = **Canyon**
+- Bicycle + Bicycle = **Car**
+- Wheel + Horse = **Car**
+- Fuel + Motor = **Car**
+- Coffee + Sugar = **Caramel**
+- Fruit + Caramel = **Caramel Apple**
+- Cream + Caramel = **Caramel Cream Tart**
+- Caramel + Pie = **Caramel Cream Tart**
+- Butter + Popcorn = **Caramel Popcorn**
+- Sugar + Popcorn = **Caramel Popcorn**
+- Butter + Onion = **Caramelized Onion**
+- Onion + Sugar = **Caramelized Onion**
+- Pastry + Onion = **Caramelized Onion Tart**
+- Coal + Fossil = **Carboniferous Period**
+- Cards + Game = **Card Game**
+- Paper + Cards = **Card Game**
+- Paper + Number = **Cards**
+- Italy + Mask = **Carnival of Venice**
+- Canal + Italy = **Carnival of Venice**
+- Animation + Television = **Cartoon**
+- Animation + Cinema = **Cartoon**
+- Television + Comic Book = **Cartoons**
+- Cartoon + Cartoon = **Cartoons**
+- Cassette + Video Game = **Cartridge**
+- City + Wall = **Castle**
+- Village + Wall = **Castle**
+- Egg + Insect = **Caterpillar**
+- House + Angel = **Cathedral**
+- Animal + Cave = **Cave Bear**
+- Cave + Ice Age = **Cave Bear**
+- Air + Cave = **Cave Echo**
+- Wind + Cave = **Cave Echo**
+- Cave + Hunter = **Cave Painting**
+- Cave + Mammoth Hunt = **Cave Painting**
+- Cave + Archaeology = **Cave Painting**
+- Cave + Lake = **Cave Pool**
+- Sound + Disc = **CD**
+- Mythology + Stonehenge = **Celtic Mythology**
+- Sand + Concrete = **Cement**
+- Geological Timeline + Prehistoric Mammal = **Cenozoic Era**
+- Human + Horse = **Centaur**
+- Fire + Kiln = **Ceramic**
+- Herb + Ceramic = **Ceramic Herb Bowl**
+- Herb + Pottery = **Ceramic Herb Bowl**
+- Tea + Clay = **Ceramic Teapot**
+- Monster + Greek Underworld = **Cerberus**
+- Harvest + Roman Pantheon = **Ceres the Harvest**
+- Deer + God = **Cernunnos**
+- Deer + Celtic Mythology = **Cernunnos**
+- Fish + Lemon = **Ceviche**
+- Fish + Peru = **Ceviche**
+- Ninja + Spirit = **Chakra**
+- Wood + Smoke = **Charcoal**
+- Tree + Ash = **Charcoal**
+- Paper + Coal = **Charcoal Drawing Stick**
+- Ship + Soul = **Charon**
+- Ship + Greek Underworld = **Charon**
+- Level + Flag = **Checkpoint**
+- Video Game + Flag = **Checkpoint**
+- Heat + Bread = **Cheese Toast**
+- Human + Cooking = **Chef**
+- Strategy + War = **Chess**
+- Chess + Time = **Chess Match Clock**
+- Chess + Martial Arts = **Chessboxing**
+- Rainforest + Pyramid = **Chichén Itzá**
+- Asia + Silk = **China**
+- Checkers + Star = **Chinese Checkers**
+- Dragon + China = **Chinese New Year**
+- Music + 8-bit = **Chiptune**
+- Cocoa + Coffee = **Chocolate**
+- Cocoa + Cream = **Chocolate**
+- Chocolate + Pie = **Chocolate Apple Tart**
+- Fruit + Chocolate = **Chocolate Berry Tart**
+- Chocolate + Wild Berry = **Chocolate Berry Tart**
+- Fire + Chocolate = **Chocolate Sauce**
+- Heat + Chocolate = **Chocolate Sauce**
+- Chocolate + Caramel = **Chocolate Truffle**
+- Song + Team = **Choir**
+- Music + Cathedral = **Choir**
+- Mountain + Brazil = **Christ the Redeemer**
+- Mountain + Volcano = **Cinder Cone**
+- Film + Popcorn = **Cinema**
+- Film + Projector = **Cinema**
+- Theater + Film = **Cinema**
+- Cinnamon + Wild Berry = **Cinnamon Berry Jam**
+- Jam + Cinnamon = **Cinnamon Berry Jam**
+- Cookie + Cinnamon = **Cinnamon Honey Biscuit**
+- Flour + Cinnamon = **Cinnamon Roll**
+- Dough + Spice = **Cinnamon Roll**
+- Tea + Cinnamon = **Cinnamon Tea Biscuit**
+- Fruit + Lemon = **Citrus Fruit Salad**
+- Snow + Lemon = **Citrus Ice Pops**
+- Frost + Lemon = **Citrus Ice Pops**
+- House + Car = **City**
+- War + Team = **Clan**
+- Arcade + Retro gaming = **Classic Arcade**
+- Music + History = **Classical**
+- Arcade + Toy = **Claw Machine**
+- Bird + Pottery = **Clay Bird Whistle**
+- Bread + Pottery = **Clay Brick Oven**
+- Pizza + Pottery = **Clay Brick Oven**
+- Cooking + Clay = **Clay Cooking Pot**
+- Cooking + Ceramic = **Clay Cooking Pot**
+- Water + Pottery = **Clay Flower Vase**
+- Water + Ceramic = **Clay Flower Vase**
+- Glass + Pottery = **Clay Glaze**
+- Glass + Ceramic = **Clay Glaze**
+- Soil + Pottery = **Clay Plant Pot**
+- Soil + Clay = **Clay Plant Pot**
+- House + Ceramic = **Clay Roof Shingle**
+- Air + Pottery = **Clay Whistle**
+- Wind + Pottery = **Clay Whistle**
+- Time + Gear = **Clock**
+- Clock + City = **Clock Tower**
+- Sky + Computer = **Cloud**
+- Game + Cloud = **Cloud Gaming**
+- Cloud + Save Game = **Cloud Save**
+- Video Game + Friend = **Co-op Play**
+- Wood + Pressure = **Coal**
+- Pressure + Charcoal = **Coal**
+- Ocean + Fog = **Coastal Fog**
+- Cocoa + Cookie = **Cocoa Biscuit**
+- Chocolate + Cookie = **Cocoa Butter Cookie**
+- Water + Cocoa = **Cocoa Drink**
+- Water + Chocolate = **Cocoa Drink**
+- Language + Computer = **Code**
+- Fish + Fossil = **Coelacanth**
+- Past + Fish = **Coelacanth**
+- Fire + Bean = **Coffee**
+- Cogtail and Bolt: Up Your Arsenal + Sequel = **Cogtail: Deadlocked**
+- Gold + Hammer = **Coin**
+- Metal + Gold = **Coin**
+- Television + Rainbow = **Color Television**
+- Arena + Italy = **Colosseum**
+- Ruins + Italy = **Colosseum**
+- Fun + Camera = **Comedy Film**
+- Fun + Film = **Comedy Film**
+- Snow + Space = **Comet**
+- Hero + Book = **Comic Book**
+- Paper + Superhero = **Comic Book**
+- Book + Herb = **Community Herbarium**
+- House + Cooking = **Community Kitchen**
+- House + Computer = **Company**
+- Sports + Human = **Competition**
+- Time + Leaf Litter = **Compost**
+- Typewriter + Electricity = **Computer**
+- Theater + Band = **Concert**
+- Music + Festival = **Concert**
+- Microphone + Singer = **Concert**
+- Game + Brick = **Construction**
+- Simulation + City = **Construction**
+- Internet + Camera = **Content Creator**
+- Flour + Vanilla = **Cookie**
+- Fish + Smoke = **Cooking**
+- Copper + Hammer = **Copper Art Stamp**
+- Steam + Tea = **Copper Kettle**
+- Metal + Tea = **Copper Kettle**
+- Air + Copper = **Copper Patina**
+- Time + Copper = **Copper Patina**
+- Copper + House = **Copper Patina Tile**
+- Copper + Thread = **Copper Wire Coil**
+- Plant + Coral = **Coral Garden**
+- Coral + Lagoon = **Coral Lagoon**
+- Coral + Coral = **Coral Reef**
+- Sea + Coral = **Coral Reef**
+- Human + Thread = **Costume**
+- Human + Yarn = **Costume**
+- Festival + Mask = **Costume**
+- Wood + Herb = **Cottage Herb Rack**
+- House + Herb = **Cottage Herb Rack**
+- Concert + Jazz = **Count Velvetone**
+- House + Crime = **Courtroom**
+- Spice + Morocco = **Couscous**
+- Crab + Burrow = **Crab Burrow**
+- Air + Milk = **Cream**
+- Soup + Cream = **Creamy Mushroom Soup**
+- Ball + Wood = **Cricket**
+- Human + Pistol = **Crime**
+- Oil + Onion = **Crisp Onion Rings**
+- Game + Critter Atlas = **Critter Atlas Game**
+- Soundtrack + Critter Atlas = **Critter Atlas Soundtrack**
+- Hybrid Console + Critter Atlas Yellow = **Critter Atlas: Let's Go, Sparksnout!**
+- Human + Neanderthal = **Cro-Magnon**
+- Dough + Pastry = **Croissant**
+- Bread + Pastry = **Croissant**
+- Time + God = **Cronus**
+- Time + Titan = **Cronus**
+- Sun + Bread = **Crouton**
+- Coal + Pressure = **Crystal**
+- Hero + Celtic Mythology = **Cu Chulainn**
+- Writing + Clay = **Cuneiform Tablet**
+- Writing + Babylon = **Cuneiform Tablet**
+- History + Clay = **Cuneiform Tablet**
+- Sugar + Cake = **Cupcake**
+- Cake + Vanilla = **Cupcake**
+- Bow + Angel = **Cupid**
+- Bow + Baby = **Cupid**
+- Spice + Rice = **Curry**
+- Soup + Spice = **Curry**
+- Spice + India = **Curry**
+- Sugar + Vanilla = **Custard**
+- Egg + Vanilla = **Custard**
+- City + Neon = **Cyberpunk City**
+- Plant + Fossil = **Cycad**
+- Forge + Giant = **Cyclops**
+- Poseidon + Giant = **Cyclops**
+- Odysseus + Giant = **Cyclops**
+- Feather + Labyrinth = **Daedalus**
+- Human + Rhythm = **Dance**
+- Game + Dance = **Dance Game**
+- Video Game + Dance = **Dance Game**
+- Arcade + Dance = **Dance Machine**
+- Dance + Controller = **Dance Mat**
+- Game Controller + Dance = **Dance Mat**
+- Demon + Anime = **Dark Fantasy**
+- Hero + Demon = **Dark Hero**
+- Villain + Magic = **Dark Magic**
+- Magic + Night = **Dark Magic**
+- Mexico + Ghost = **Day of the Dead**
+- Festival + Ghost = **Day of the Dead**
+- Ocean + Pressure = **Deep Sea**
+- Sea + Pressure = **Deep Sea**
+- Forest + Deer = **Deer Forest Crossing**
+- Snow + Deer = **Deer Tracks**
+- Harvest + God = **Demeter**
+- Monster + Spirit = **Demon**
+- Shadow + Angel = **Demon**
+- Sand + Sand = **Desert**
+- Desert + Flower = **Desert Bloom**
+- Desert + Burrow = **Desert Burrow**
+- Human + Crime = **Detective**
+- Human + Computer = **Developer**
+- Night + Mist = **Dew**
+- Sun + Dew = **Dewdrop**
+- Roman Pantheon + Moon = **Diana of the Hunt**
+- Dice + Tower = **Dice Tower**
+- Chess + Video Game = **Digital Chess**
+- Go + Electronics = **Digital Go**
+- Puzzle + Screen = **Digital Puzzle**
+- Console + Shop = **Digital Store**
+- Past + Bird = **Dinosaur**
+- Dragon + Fossil = **Dinosaur**
+- Dinosaur + Egg = **Dinosaur Egg**
+- Dinosaur + Nest = **Dinosaur Nest**
+- Nest + Dinosaur Egg = **Dinosaur Nest**
+- Fossil + Excavation = **Dinosaur Quarry**
+- Dinosaur + Excavation = **Dinosaur Quarry**
+- Fruit + God = **Dionysus**
+- Feast + God = **Dionysus**
+- War + Pacifism = **Diplomacy**
+- Cinema + Actor = **Director**
+- Theater + Leader = **Director**
+- Time + Thunder = **Distant Thunder**
+- Lightning + Forge = **Divine Thunderbolt**
+- Lightning + Zeus = **Divine Thunderbolt**
+- Light + India = **Diwali**
+- Light + Festival = **Diwali**
+- Dolphin + Dolphin = **Dolphin Pod**
+- Sea + Dolphin = **Dolphin Pod**
+- Rainbow + Rainbow = **Double Rainbow**
+- Sugar + Yeast = **Dough**
+- Monster + Volcano = **Dragon**
+- Egg + Mythical Beast = **Dragon**
+- Dragon + Nest = **Dragon Nest**
+- Dragon + Cave = **Dragon Nest**
+- Dragon + Human = **Dragon Rider**
+- Monster + Sword = **Dragon Slayer**
+- Dragon + Spirit = **Dragon Spirit**
+- River + Insect = **Dragonfly**
+- Lake + Insect = **Dragonfly**
+- Bridge + Wall = **Drawbridge**
+- Rain + Fog = **Drizzle**
+- Airplane + Camera = **Drone Camera**
+- Tree + Human = **Druid**
+- Magic + Tree = **Druid**
+- Magic + Stonehenge = **Druid**
+- Hinge + Console = **Dual Screen**
+- Egypt + Soul = **Duat**
+- Sword + Sword = **Duel**
+- Steam + Flour = **Dumpling**
+- Flour + Vegetable = **Dumpling**
+- Desert + Sand = **Dune Ridge**
+- Game + Dusk Hunter = **Dusk Hunter Game**
+- Book + Dusk Hunter = **Dusk Hunter Manga**
+- Air + Soil = **Dust**
+- CD + Video = **DVD**
+- CD + Film = **DVD**
+- Life + Planet = **Earth**
+- Planet + Ocean = **Earth**
+- Desert + Pyramid = **Egypt**
+- Pyramid + Country = **Egypt**
+- Mythology + Egypt = **Egyptian Mythology**
+- Egypt + Temple = **Egyptian Pantheon**
+- Metal + Tower = **Eiffel Tower**
+- Iron + Tower = **Eiffel Tower**
+- Hero + Valkyrie = **Einherjar**
+- Game + Eldervale = **Eldervale Game**
+- Electricity + Bicycle = **Electric Bicycle**
+- Lightning + Fish = **Electric Eel**
+- Car + Electricity = **Electric Motor**
+- Lightning + Energy = **Electricity**
+- Wind + Windmill = **Electricity**
+- Water + Turbine = **Electricity**
+- Lightning + Wire = **Electricity**
+- Water + Generator = **Electricity**
+- Steam + Turbine = **Electricity**
+- Electronics + Board Game = **Electronic Game**
+- Music + Synthesizer = **Electronic Music**
+- Synthesizer + Musician = **Electronic Music**
+- Robot + Music = **Electronic Music**
+- Game + Elmwood Apprentice = **Elmwood Apprentice Game**
+- Cloud + Angel = **Elysium**
+- United States + Tower = **Empire State Building**
+- City + Skyscraper = **Empire State Building**
+- Arcade Machine + Computer = **Emulation**
+- Human + Coffee = **Energy**
+- Horse + Ice Age = **Eohippus**
+- Fossil + Horse = **Eohippus**
+- Book + Gilgamesh = **Epic of Gilgamesh**
+- Sun + Globe = **Equator**
+- Heat + Globe = **Equator**
+- Bow + Aphrodite = **Eros**
+- Time + Rain = **Erosion**
+- Wind + Time = **Erosion**
+- Water + Time = **Erosion**
+- Stealth + War = **Espionage**
+- Video Game + Arena = **Esports**
+- Sports + Computer = **Esports**
+- Continent + Castle = **Europe**
+- Continent + France = **Europe**
+- Tool + Ruins = **Excavation**
+- Archaeology + Ruins = **Excavation**
+- Planet + Spaceship = **Exoplanet**
+- Game + Sequel = **Expansion**
+- Video Game + Sequel = **Expansion**
+- Map + Archaeologist = **Expedition**
+- Human + Expedition = **Explorer**
+- Island + Compass = **Explorer**
+- Volcano + Pressure = **Explosion**
+- Fire + Car = **Explosion**
+- Video Game + Life = **Extra Life**
+- Company + House = **Factory**
+- Dragon + Gold = **Fafnir**
+- Dragon + Treasure = **Fafnir**
+- Human + Baby = **Family**
+- Dragon + Book = **Fantasy**
+- Dragon + Anime = **Fantasy Anime**
+- Fantasy + Film = **Fantasy Film**
+- Dragon + Film = **Fantasy Film**
+- Magic + Cinema = **Fantasy Film**
+- Dragon + Cinema = **Fantasy Film**
+- Earth + Human = **Farm**
+- Human + Soil = **Farm**
+- Human + Seed = **Farm**
+- Family + Food = **Feast**
+- Fossil + Feather = **Feather Impression**
+- Dinosaur + Feather = **Feathered Dinosaur**
+- Bean + Rice = **Feijoada**
+- Bean + Brazil = **Feijoada**
+- Loki of Asgard + Baby = **Fenrir**
+- Music + Feast = **Festival**
+- Game + Martial Arts = **Fighting**
+- Video Game + Martial Arts = **Fighting**
+- Game + Fighting = **Fighting Arcade**
+- Video Game + Fighting = **Fighting Arcade**
+- Story Mode + Camera = **Film**
+- Movement + Photograph = **Film**
+- Cinema + Orchestra = **Film Score**
+- Villain + Video Game = **Final Boss**
+- Fire + Animal = **Fire Salamander**
+- Electricity + Insect = **Firefly**
+- Fire + Insect = **Firefly**
+- Firefly + Firefly = **Firefly Swarm**
+- Fossil + Flower = **First Flower**
+- Past + Flower = **First Flower**
+- Fish + Flour = **Fish and Chips**
+- Oil + Potato = **Fish and Chips**
+- United Kingdom + Fish = **Fish and Chips**
+- Fish + Potato = **Fish and Chips**
+- Fish + Cooking = **Fish and Chips**
+- Fish + Fish = **Fish School**
+- Wood + Fish = **Fish Trap Basket**
+- Fish + Market = **Fishing Harbor Market**
+- Glacier + Valley = **Fjord**
+- Guitar + Spain = **Flamenco**
+- Music + Spain = **Flamenco**
+- Video Game + Airplane = **Flight Simulator 2024**
+- Airplane + Joystick = **Flight Simulator 2024**
+- Stone + Hunter = **Flint Spearhead**
+- Seed + Hammer = **Flour**
+- Stalactite + Stalagmite = **Flowstone**
+- Ship + Ghost = **Flying Dutchman**
+- Sea + Ghost = **Flying Dutchman**
+- Mist + Mist = **Fog**
+- Fog + Fog = **Fog Bank**
+- Fog + Mist = **Fog Bank**
+- Heat + Cheese = **Fondue**
+- Cheese + Switzerland = **Fondue**
+- China + Castle = **Forbidden City**
+- Satellite + Weather = **Forecast**
+- Sapling + Sapling = **Forest**
+- Dragon + Tree = **Forest Dragon**
+- Tree + Spirit = **Forest Guardian**
+- Forest + Spirit = **Forest Guardian**
+- Forest + Lake = **Forest Pond**
+- Forest + Temple = **Forest Shrine**
+- Fire + Hammer = **Forge**
+- Heat + Iron = **Forge**
+- Fire + Sword = **Forge**
+- Fire + Anvil = **Forge**
+- Luck + God = **Fortuna**
+- Earth + Time = **Fossil**
+- Time + Dinosaur = **Fossil**
+- Mosquito + Amber = **Fossil**
+- Dinosaur + Mud = **Fossil Footprint**
+- Dinosaur + Paleontologist = **Fossil Skeleton**
+- Fossil + Egg = **Fossilized Dinosaur Egg**
+- Stone + Dinosaur Egg = **Fossilized Dinosaur Egg**
+- Paper + Feather = **Fountain Pen**
+- Ink + Feather = **Fountain Pen**
+- Shooting + Camera = **FPS**
+- Tower + Country = **France**
+- Europe + Eiffel Tower = **France**
+- Fire + Pasta = **Fresh Pasta**
+- Vikings + Harvest = **Freyr**
+- Human + Friend = **Friendship**
+- Time + Tadpole = **Frog**
+- Lake + Egg = **Frog Spawn**
+- Dew + Cold Front = **Frost**
+- Ice + Giant = **Frost Giant**
+- Snow + Giant = **Frost Giant**
+- Painting + Frost = **Frost Pattern**
+- Puddle + Cold Front = **Frozen Puddle**
+- Tree + Orchard = **Fruit**
+- Fruit + Ceramic = **Fruit Bowl**
+- Fruit + Clay = **Fruit Bowl**
+- Fruit + Spice = **Fruit Compote**
+- Fruit + Frost = **Fruit Sorbet**
+- Cream + Pie = **Fruit Tart**
+- Fruit + Cake = **Fruit Tart**
+- Oil + Car = **Fuel**
+- Root + Mushroom = **Fungal Network**
+- Robot + City = **Futuristic City**
+- Earth + God = **Gaia**
+- Earth + Titan = **Gaia**
+- Space + Star = **Galaxy**
+- Spaceship + Star = **Galaxy**
+- Game + Gale Ninja = **Gale Ninja Game**
+- Book + Gale Ninja = **Gale Ninja Manga**
+- Soundtrack + Gale Ninja = **Gale Ninja Soundtrack**
+- Animal + Island = **Galápagos Islands**
+- Island + Explorer = **Galápagos Islands**
+- Cartridge + Game = **Game Cartridge**
+- Cartridge + Video Game = **Game Cartridge**
+- Controller + Television = **Game Controller**
+- Video Game + Book = **Game Manual**
+- Video Game + Musician = **Game Soundtrack**
+- Game + Studio = **Game Studio**
+- Game + Tournament = **Game Tournament**
+- Console + Human = **Gameplay**
+- Plant + Plant = **Garden**
+- Soup + Herb = **Garden Herb Soup**
+- Garden + Soup = **Garden Herb Soup**
+- Salad + Cheese = **Garden Salad**
+- Earth + Tool = **Garden Trowel**
+- Metal + Soil = **Garden Trowel**
+- Garden + Hand = **Gardening Gloves**
+- Flour + Garlic = **Garlic Bread**
+- Dough + Garlic = **Garlic Bread**
+- Car + Gear = **Gearbox**
+- Earth + Egypt = **Geb**
+- Tool + Gold = **Gem Miner Pickaxe**
+- Coal + Electricity = **Generator**
+- Crystal + Mountain = **Geode**
+- Time + Fossil = **Geological Timeline**
+- Night + Spirit = **Ghost**
+- House + Spirit = **Ghost**
+- Monster + Mountain = **Giant**
+- Dinosaur + Dragonfly = **Giant Dragonfly**
+- Insect + Giant = **Giant Dragonfly**
+- Dragonfly + Giant = **Giant Dragonfly**
+- Game + Giantfall = **Giantfall Game**
+- Hero + Babylon = **Gilgamesh**
+- Time + Glacier = **Glacial Moraine**
+- Earth + Ice = **Glacier**
+- Time + Snow = **Glacier**
+- Snow + Pressure = **Glacier**
+- Ice + Pressure = **Glacier**
+- Ice + Ice = **Glacier**
+- Glass + Air = **Glassblowing Studio**
+- Glass + Human = **Glassblowing Studio**
+- Ball + Earth = **Globe**
+- Map + Planet = **Globe**
+- Stone + Board Game = **Go**
+- Gold + Book = **Gold Leaf Bookmark**
+- Painting + Gold = **Gold Leaf Frame**
+- Tree + Gold = **Golden Acorn**
+- Gold + God = **Golden Idol**
+- Gold + India = **Golden Temple**
+- Gold + Thread = **Golden Thread**
+- Butter + Pancake = **Golden Waffle**
+- Pancake + Syrup = **Golden Waffle**
+- Desert + Canyon = **Grand Canyon**
+- Gold + Thailand = **Grand Palace**
+- Coral Reef + Australia = **Great Barrier Reef**
+- Reef + Oceania = **Great Barrier Reef**
+- Pyramid + Africa = **Great Pyramid of Giza**
+- Sphinx + Egypt = **Great Sphinx of Giza**
+- Pyramid + Sphinx = **Great Sphinx of Giza**
+- Dragon + Wall = **Great Wall of China**
+- Mountain + Wall = **Great Wall of China**
+- Asia + Wall = **Great Wall of China**
+- Stone + Zimbabwe = **Great Zimbabwe**
+- Europe + Mythology = **Greece**
+- Europe + Temple = **Greece**
+- God + God = **Greek Pantheon**
+- Mythology + Greece = **Greek Pantheon**
+- Shadow + Greek Pantheon = **Greek Underworld**
+- Greek Pantheon + Soul = **Greek Underworld**
+- Greece + Soul = **Greek Underworld**
+- Game + Gridrealm = **Gridrealm Video Game**
+- Monster + Bird = **Griffin**
+- Book + Witch = **Grimoire**
+- Paper + Magic = **Grimoire**
+- Book + Dark Magic = **Grimoire**
+- Earth + Mist = **Ground Fog**
+- Ice + Soil = **Ground Frost**
+- Soil + Frost = **Ground Frost**
+- Internet + Human = **Hacker**
+- Shadow + God = **Hades the God**
+- Japan + Flower = **Hanami**
+- Tree + Japan = **Hanami**
+- Pottery + Hand = **Handcrafted Pot**
+- Ship + Ship = **Harbor**
+- Music + Angel = **Harp**
+- Farm + Vegetable = **Harvest**
+- Human + Field = **Harvest**
+- Sky + Dust = **Haze**
+- Heat + Wave = **Heatwave**
+- Hedgehog + Nest = **Hedgehog Nest**
+- Human + Bifrost = **Heimdall**
+- Sun + God = **Helios**
+- Sun + Horse = **Helios**
+- Fire + God = **Hephaestus**
+- Forge + God = **Hephaestus**
+- Hero + Greece = **Heracles**
+- Hero + Nemean Lion = **Heracles**
+- Hero + Hydra = **Heracles**
+- Salt + Spice = **Herb Salt Mill**
+- Tool + Salt = **Herb Salt Mill**
+- Shop + Herb = **Herb Shop**
+- Butter + Potato = **Herb-Roasted Potato**
+- Potato + Kiln = **Herb-Roasted Potato**
+- Flour + Herb = **Herbal Bread**
+- Tea + Mint = **Herbal Infusion**
+- Herb + Lemon = **Herbal Lemon Syrup**
+- Lemonade + Mint = **Herbal Lemon Syrup**
+- Heat + Tea = **Herbal Tea Cup**
+- Tea + Sugar = **Herbal Tea Syrup**
+- Herb + Syrup = **Herbal Tea Syrup**
+- Wind + God = **Hermes**
+- Human + War = **Hero**
+- Lake + Bird = **Heron**
+- Stone + Writing = **Hieroglyphics**
+- Writing + Egypt = **Hieroglyphics**
+- Language + Pyramid = **Hieroglyphics**
+- 4K + Screen = **High Definition**
+- Arcade + Number = **High Score**
+- Mountain + India = **Himalayas**
+- Metal + Wall = **Hinge**
+- Metal + House = **Hinge**
+- Music + Street Musician = **Hip Hop**
+- Past + Book = **History**
+- Book + War = **History**
+- Tree + Frost = **Hoarfrost**
+- Arcade Machine + Television = **Home Console**
+- Tool + Monkey = **Homo Habilis**
+- Bee + Beehive = **Honey**
+- Honey + Milk = **Honey Cream Pudding**
+- Tool + Honey = **Honey Dipper**
+- Butter + Carrot = **Honey Glazed Carrot**
+- Honey + Lemonade = **Honey Lemon Tea**
+- Butter + Caramel = **Honeycomb Toffee**
+- Game + Ghost = **Horror**
+- Monster + Book = **Horror**
+- Monster + Film = **Horror**
+- Ghost + Manga = **Horror Anime**
+- Camera + Ghost = **Horror Film**
+- Cinema + Vampire = **Horror Film**
+- Bird + God = **Horus**
+- House + Surgery = **Hospital**
+- Steam + Lake = **Hot Spring**
+- Brick + Hammer = **House**
+- Construction + Human = **House**
+- Human + Brick = **House**
+- Bird + Odin = **Huginn and Muninn**
+- Bird + Norse Mythology = **Huginn and Muninn**
+- Life + Clay = **Human**
+- Forest + Giant = **Humbaba**
+- Flower + Bird = **Hummingbird**
+- Human + Bow = **Hunter**
+- Wind + Tornado = **Hurricane**
+- Tornado + Tornado = **Hurricane**
+- Storm + Storm = **Hurricane**
+- Console + Dock = **Hybrid**
+- Handheld Console + Television = **Hybrid**
+- Monster + Lake = **Hydra**
+- Human + Feather = **Icarus**
+- Sun + Feather = **Icarus**
+- Feather + Daedalus = **Icarus**
+- Frost + Frost = **Ice**
+- Time + Ice = **Ice Age**
+- Ice + Dinosaur = **Ice Age**
+- Ice + History = **Ice Age**
+- Snow + Milk = **Ice Cream**
+- Snow + Cream = **Ice Cream**
+- Dragon + Snow = **Ice Dragon**
+- Ice + Wave = **Ice Floe**
+- Ice + Ocean = **Iceberg**
+- Europe + Volcano = **Iceland**
+- Europe + Ice = **Iceland**
+- Fish + Dinosaur = **Ichthyosaurus**
+- Snow + House = **Icy Roof**
+- Earth + Comet = **Impact Crater**
+- Planet + Comet = **Impact Crater**
+- Fossil + Trilobite = **Index Fossil**
+- Asia + Curry = **India**
+- Spice + Country = **India**
+- Developer + Pixel art = **Indie Game**
+- Human + Factory = **Industry**
+- Bread + Ethiopia = **Injera**
+- Human + Invention = **Innovation**
+- Computer + Satellite = **Internet**
+- Computer + Library = **Internet**
+- Computer + Spiderweb = **Internet**
+- Planet + Rocket = **Interplanetary Probe**
+- Sun + Peru = **Inti Raymi**
+- Sun + Festival = **Inti Raymi**
+- Coal + Forge = **Iron**
+- Portal + Manga = **Isekai**
+- Magic + Egypt = **Isis**
+- Europe + Pizza = **Italy**
+- Europe + Pasta = **Italy**
+- Tree + Vine = **Ivy**
+- Fire + Wild Berry = **Jam**
+- Asia + Samurai = **Japan**
+- Island + Samurai = **Japan**
+- Music + Night = **Jazz**
+- Music + Saxophone = **Jazz**
+- Jellyfish + Jellyfish = **Jellyfish Bloom**
+- Painting + Puzzle = **Jigsaw Puzzle**
+- Norse Mythology + Giant = **Jotunheim**
+- Game + Japan = **JRPG**
+- Video Game + Japan = **JRPG**
+- Lightning + Roman Pantheon = **Jupiter**
+- Kelp + Kelp = **Kelp Forest**
+- Forest + Kelp = **Kelp Forest**
+- Computer + Piano = **Keyboard**
+- Typewriter + Computer = **Keyboard**
+- Beetle + God = **Khepri**
+- Sun + Beetle = **Khepri**
+- Fire + Brick = **Kiln**
+- Vegetable + Salt = **Kimchi**
+- Time + Vegetable = **Kimchi**
+- Vegetable + South Korea = **Kimchi**
+- Japan + Silk = **Kimono**
+- Castle + Country = **Kingdom**
+- Fish + Bird = **Kingfisher Bird**
+- Japan + Gold = **Kinkaku-ji**
+- Gold + Temple = **Kinkaku-ji**
+- Clock + Food = **Kitchen Timer**
+- Book + Science = **Knowledge**
+- Book + Owl = **Knowledge**
+- Fish + Pond = **Koi Fish**
+- Monster + Octopus = **Kraken**
+- Monster + Squid = **Kraken**
+- Sea + Monster = **Kraken**
+- Monster + Ocean = **Kraken**
+- Tomato + Spain = **La Tomatina**
+- Tomato + Festival = **La Tomatina**
+- Maze + Greece = **Labyrinth**
+- Maze + Minotaur = **Labyrinth**
+- River + River = **Lake**
+- Monument + Country = **Landmark**
+- City + Monument = **Landmark**
+- Fire + Dragon = **Lava Dragon**
+- Dragon + Volcano = **Lava Dragon**
+- Lava + Volcano = **Lava Fountain**
+- Human + Team = **Leader**
+- Plant + Microscope = **Leaf Vein**
+- Hero + Monster = **Legend**
+- Flour + Lemon = **Lemon Cake**
+- Pastry + Lemon = **Lemon Cake**
+- Lemon + Pie = **Lemon Curd**
+- Ice + Tea = **Lemon Infusion Pitcher**
+- Fruit + Pressure = **Lemonade**
+- Glass + Book = **Lens**
+- Book + Book = **Library**
+- Book + School = **Library**
+- Lightning + Glass = **Light**
+- Pistol + Controller = **Light Gun**
+- House + Light = **Lighthouse**
+- Ship + Light = **Lighthouse**
+- Ship + Tower = **Lighthouse**
+- Light + Tower = **Lighthouse**
+- Magic + Electricity = **Lightning Magic**
+- Lake + Flower = **Lily Pad**
+- Camera + Anime = **Live Action**
+- Sea + Crab = **Lobster**
+- God + Shapeshifter = **Loki of Asgard**
+- Tool + Yarn = **Loom**
+- Ruins + Temple = **Lost Temple**
+- River + Flower = **Lotus**
+- Water + Coin = **Luck**
+- Telescope + Moon = **Lunar Crater**
+- Comet + Moon = **Lunar Crater**
+- Shadow + Moon = **Lunar Eclipse**
+- Rocket + Moon = **Lunar Lander**
+- Astronaut + Moon = **Lunar Lander**
+- Feather + Egypt = **Ma'at**
+- Egypt + Justice = **Ma'at**
+- Mountain + Ruins = **Machu Picchu**
+- Ruins + Andes = **Machu Picchu**
+- Manga + Witch = **Magical Girl Anime**
+- House + Woolly Mammoth = **Mammoth Bone Hut**
+- Woolly Mammoth + Hunter = **Mammoth Hunt**
+- Human + Woolly Mammoth = **Mammoth Hunt**
+- Magic + Power = **Mana**
+- Book + Anime = **Manga**
+- Book + Cartoon = **Manga**
+- Forest + Flood = **Mangrove**
+- Root + Mangrove = **Mangrove Roots**
+- Paper + Earth = **Map**
+- Paper + Country = **Map**
+- Continent + Explorer = **Map**
+- Sea + Dinosaur = **Marine Reptile**
+- Water + Dinosaur = **Marine Reptile**
+- Sea + Snow = **Marine Snow**
+- Money + Shop = **Market**
+- Market + Vegetable = **Market Stall**
+- Market + Spice = **Marrakech**
+- War + Roman Pantheon = **Mars the War God**
+- Sports + Fighting = **Martial Arts**
+- Comic Book + Mask = **Masked Hero**
+- Dinosaur + Asteroid = **Mass Extinction**
+- Dinosaur + Meteor = **Mass Extinction**
+- Board Game + Code = **Mastermind**
+- Book + Number = **Mathematics**
+- Puzzle + Labyrinth = **Maze**
+- Robot + Manga = **Mecha Anime**
+- Giant Robot + Anime = **Mecha Anime**
+- Dragon + Metal = **Mecha Dragon**
+- Clock + Wood = **Mechanical Clock**
+- Clock + Gear = **Mechanical Clock**
+- Engineering + Gear = **Mechanics**
+- Monster + Shark = **Megalodon**
+- Fossil + Shark = **Megalodon**
+- Past + Shark = **Megalodon**
+- Shark + Giant = **Megalodon**
+- Storage + Console = **Memory Card**
+- Air + Cream = **Meringue**
+- Mythology + Babylon = **Mesopotamian Mythology**
+- Dinosaur + Geological Timeline = **Mesozoic Era**
+- Iron + Copper = **Metal**
+- Stone + Iron = **Metal**
+- Iron + Forge = **Metal**
+- Metal + Guitar = **Metal Music**
+- Air + Asteroid = **Meteor**
+- Sky + Asteroid = **Meteor**
+- Fire + Ball = **Meteor**
+- Meteor + Meteor = **Meteor Shower**
+- Stone + Star = **Meteorite**
+- Video Game + Castle = **Metroidvania**
+- Time + Rhythm = **Metronome**
+- Skyscraper + Skyscraper = **Metropolis**
+- Glass + Insect = **Microscope**
+- Human + Norse Mythology = **Midgard**
+- Bird + Bird = **Migratory Bird**
+- Tea + Milk = **Milk Foam Art**
+- Coffee + Cream = **Milk Foam Art**
+- Earth + Metal = **Mineral Vein**
+- Owl + Roman Pantheon = **Minerva**
+- Console + Retro gaming = **Mini Console**
+- Miniaturization + Home Console = **Mini Console**
+- Painting + Tool = **Miniature Paint Palette**
+- Color + Tool = **Miniature Paint Palette**
+- Monster + Labyrinth = **Minotaur**
+- Monster + Maze = **Minotaur**
+- Monster + Greece = **Minotaur**
+- Soup + Mint = **Mint Vegetable Soup**
+- Desert + Mist = **Mirage**
+- Lightning + Hammer = **Mjolnir**
+- Thunder + Hammer = **Mjolnir**
+- Island + Monument = **Moai**
+- Paper + Gold = **Money**
+- Paper + Coin = **Money**
+- Coin + Gold = **Money**
+- Television + Computer = **Monitor**
+- Tide + France = **Mont-Saint-Michel**
+- Night + Lake = **Moonlit Lake**
+- Night + Owl = **Moonlit Owl**
+- War + Celtic Mythology = **Morrigan**
+- Plant + Cave = **Moss**
+- Moss + Moss = **Moss Carpet**
+- Moss + Fallen Log = **Moss-Covered Log**
+- Insect + Moon = **Moth**
+- Motion Sensor + Console = **Motion Controller**
+- Console + Motion Controller = **Motion Remote Console**
+- Tool + Car = **Motor**
+- Car + Bicycle = **Motorcycle**
+- Bicycle + Motor = **Motorcycle**
+- Mountain + Himalayas = **Mount Everest**
+- Explorer + Himalayas = **Mount Everest**
+- Snow + Volcano = **Mount Fuji**
+- Japan + Volcano = **Mount Fuji**
+- Mountain + God = **Mount Olympus**
+- Sky + Palace = **Mount Olympus**
+- Mountain + Greece = **Mount Olympus**
+- City + Volcano = **Mount Vesuvius**
+- Mountain + Mist = **Mountain Mist**
+- Dinosaur + Museum = **Mounted Skeleton**
+- Museum + Fossil Skeleton = **Mounted Skeleton**
+- Mud + Flood = **Mudslide**
+- Game + Friend = **Multiplayer**
+- Human + Sarcophagus = **Mummy**
+- Monster + Pyramid = **Mummy**
+- Archaeologist + Tomb = **Mummy**
+- Excavation + Tomb = **Mummy**
+- Archaeology + Tomb = **Mummy**
+- Mushroom + Flour = **Mushroom Dumplings**
+- Mushroom + Dough = **Mushroom Dumplings**
+- Mushroom + Butter = **Mushroom Garlic Skillet**
+- Fire + Mushroom = **Mushroom Garlic Skillet**
+- Mushroom + Fallen Log = **Mushroom Log**
+- Mushroom + Mushroom = **Mushroom Patch**
+- Speaker + Vinyl = **Music**
+- Game + Guitar = **Music Game**
+- Human + Piano = **Musician**
+- Human + Violin = **Musician**
+- Human + Trumpet = **Musician**
+- Fire + Norse Mythology = **Muspelheim**
+- Game + Detective = **Mystery**
+- Video Game + Detective = **Mystery**
+- Book + Crime = **Mystery**
+- Detective + Camera = **Mystery Film**
+- Mystery + Film = **Mystery Film**
+- Detective + Cinema = **Mystery Film**
+- Animal + God = **Mythical Beast**
+- Magic + Animal = **Mythical Beast**
+- Animal + Mythology = **Mythical Beast**
+- Book + God = **Mythology**
+- Book + Legend = **Mythology**
+- Seashell + Squid = **Nautilus**
+- Map + Satellite = **Navigation**
+- Human + Cave = **Neanderthal**
+- Human + Ice Age = **Neanderthal**
+- Cloud + Space = **Nebula**
+- Time + Supernova = **Nebula**
+- Galaxy + Telescope = **Nebula**
+- Game + Nebula Tales = **Nebula Tales Game**
+- Soundtrack + Nebula Tales = **Nebula Tales Soundtrack**
+- Country + Mount Everest = **Nepal**
+- Asia + Himalayas = **Nepal**
+- Sea + Jupiter = **Neptune**
+- Sea + Roman Pantheon = **Neptune**
+- Bird + Egg = **Nest**
+- Tree + Egg = **Nest**
+- Europe + Windmill = **Netherlands**
+- Windmill + Country = **Netherlands**
+- Computer + Computer = **Network**
+- Mountain + Castle = **Neuschwanstein Castle**
+- Paper + Typewriter = **Newspaper**
+- Console + Future = **Next Generation**
+- Waterfall + Canada = **Niagara Falls**
+- United States + Waterfall = **Niagara Falls**
+- Dragon + Norse Mythology = **Nidhogg**
+- Ice + Norse Mythology = **Niflheim**
+- Star + Moon = **Night**
+- River + Pyramid = **Nile**
+- River + Egypt = **Nile**
+- Stealth + Human = **Ninja**
+- Japan + Shadow = **Ninja**
+- Stealth + Japan = **Ninja**
+- Ninja + Team = **Ninja Clan**
+- Sea + Vikings = **Njord**
+- Flour + Rice = **Noodles**
+- Dough + Rice = **Noodles**
+- Tree + Prophecy = **Norns**
+- Vikings + Mythology = **Norse Mythology**
+- Mythology + Norway = **Norse Mythology**
+- Vikings + Hammer = **Norse War Hammer**
+- Continent + Skyscraper = **North America**
+- United States + Continent = **North America**
+- Europe + Vikings = **Norway**
+- Vikings + Country = **Norway**
+- Time + Photograph = **Nostalgia**
+- Night + God = **Nut the Sky Goddess**
+- Sky + Egypt = **Nut the Sky Goddess**
+- Desert + River = **Oasis**
+- Desert + Lake = **Oasis**
+- Telescope + Satellite = **Observatory**
+- House + Star = **Observatory**
+- Human + Obsidian = **Obsidian Blade**
+- Water + Planet = **Ocean**
+- Water + Dragon = **Ocean Dragon**
+- Plankton + Plankton = **Ocean Plankton Bloom**
+- Game + Oceanbound Saga = **Oceanbound Saga Game**
+- Book + Oceanbound Saga = **Oceanbound Saga Manga**
+- Continent + Australia = **Oceania**
+- Cave + Hand = **Ochre Hand Stencil**
+- Norway + God = **Odin**
+- Vikings + God = **Odin**
+- Sea + Hero = **Odysseus**
+- Ship + Siren = **Odysseus**
+- Stone + Celtic Mythology = **Ogham Stone**
+- Plankton + Pressure = **Oil**
+- Fire + Light = **Oil Lantern**
+- Glass + Oil = **Oil Lantern**
+- Oil + Egg = **Omelet**
+- Egg + Campfire = **Omelet**
+- Cooking + Egg = **Omelet**
+- Cheese + Egg = **Omelet**
+- Wi-Fi + Console = **Online Platform**
+- Car + Cinema = **Open Air Cinema**
+- Game + World Map = **Open World**
+- RPG + Map = **Open World**
+- CD + Video Game = **Optical Disc**
+- Video Game + Disc = **Optical Disc**
+- Prophecy + Temple = **Oracle of Delphi**
+- Prophecy + Greece = **Oracle of Delphi**
+- Prophecy + God = **Oracle of Delphi**
+- Space + Planet = **Orbit**
+- Space + Gravity = **Orbit**
+- Satellite + Moon = **Orbit**
+- Tree + Lemon = **Orchard**
+- Tree + Fruit = **Orchard**
+- Market + Fruit = **Orchard Basket**
+- Tool + Fruit = **Orchard Fruit Press**
+- Wheel + Fruit = **Orchard Fruit Press**
+- Violin + Violin = **Orchestra**
+- Water + Paper = **Origami Boat**
+- Paper + Ship = **Origami Boat**
+- Mummy + God = **Osiris**
+- Mummy + Egypt = **Osiris**
+- Fish + River = **Otter**
+- Oyster + Oyster = **Oyster Bed**
+- Noodles + Thailand = **Pad Thai**
+- Vegetable + Rice = **Paella**
+- Rice + Spain = **Paella**
+- Coffee + Pottery = **Painted Ceramic Mug**
+- Painting + Ceramic = **Painted Ceramic Tile**
+- Ceramic + Wall = **Painted Ceramic Tile**
+- Color + Pottery = **Painted Flowerpot**
+- Color + Ink = **Painting**
+- Paper + Color = **Painting**
+- Castle + France = **Palace of Versailles**
+- Human + Fossil = **Paleontologist**
+- Human + Dinosaur = **Paleontologist**
+- Fossil + Archaeologist = **Paleontologist**
+- Dinosaur + Archaeologist = **Paleontologist**
+- Canal + Country = **Panama**
+- China + Animal = **Panda**
+- Pottery + Curse = **Pandora's Jar**
+- Treasure Chest + Curse = **Pandora's Jar**
+- Continent + Past = **Pangaea**
+- Continent + Time = **Pangaea**
+- Water + Sawdust = **Paper**
+- Tree + City = **Park**
+- Athena + Temple = **Parthenon**
+- Monument + Greece = **Parthenon**
+- Ruins + Greece = **Parthenon**
+- Dough + Pressure = **Pasta**
+- Noodles + Italy = **Pasta**
+- Bread + Sugar = **Pastry**
+- Loom + Thread = **Patchwork**
+- Color + Thread = **Patchwork**
+- Keyboard + Controller = **PC Gaming**
+- Oyster + Pearl = **Pearl Oyster**
+- Horse + Bird = **Pegasus**
+- Horse + Sky = **Pegasus**
+- Cloud + Horse = **Pegasus**
+- Horse + Angel = **Pegasus**
+- Ice + Bird = **Penguin**
+- Animal + Ice = **Penguin**
+- Submarine + Lens = **Periscope**
+- Flower + God = **Persephone**
+- Flower + Greek Underworld = **Persephone**
+- Flower + Hades the God = **Persephone**
+- Sword + Medusa = **Perseus**
+- Hero + Pegasus = **Perseus**
+- Stone + Jordan = **Petra**
+- Desert + Ruins = **Petra**
+- Noodles + Vietnam = **Pho**
+- Fire + Bird = **Phoenix**
+- Lava + Bird = **Phoenix**
+- Bird + Ash = **Phoenix**
+- Photograph + Photograph = **Photo Album**
+- Photograph + Wall = **Photo Exhibition**
+- Painting + Camera = **Photograph**
+- Music + Keyboard = **Piano**
+- Flour + Fruit = **Pie**
+- Dough + Jam = **Pie**
+- Human + Airplane = **Pilot**
+- Ball + Arcade = **Pinball**
+- Ball + Metal = **Pinball**
+- Pinball + Electricity = **Pinball Machine**
+- Forest + Mountain = **Pine Forest**
+- Tree + Mountain = **Pine Forest**
+- Human + Ship = **Pirate**
+- Pirate + Sailboat = **Pirate Ship**
+- Developer + Pixel = **Pixel Artist**
+- Flour + Cheese = **Pizza**
+- Flour + Tomato = **Pizza**
+- Cheese + Italy = **Pizza**
+- Dough + Italy = **Pizza**
+- Dough + Tomato = **Pizza**
+- Earth + Ocean = **Planet**
+- Gravity + Cosmic Dust = **Planet**
+- Water + Microscope = **Plankton**
+- Time + Sprout = **Plant**
+- Oil + Factory = **Plastic**
+- Game + Jump = **Platformer**
+- Video Game + Jump = **Platformer**
+- Ball + Monster = **Pocket Monster**
+- Dice + Money = **Poker**
+- Cards + Money = **Poker**
+- Wind + Plant = **Pollen**
+- Plant + Air = **Pollen**
+- Dust + Flower = **Pollen**
+- Cloud + Pollen = **Pollen Cloud**
+- Radio + Song = **Pop Music**
+- City + Ship = **Port**
+- Ship + Harbor = **Port**
+- Portability + Arcade = **Portable Arcade**
+- Handheld Console + Rainbow = **Portable Color**
+- Art + Human = **Portrait**
+- Europe + Ship = **Portugal**
+- Europe + Explorer = **Portugal**
+- Sea + God = **Poseidon**
+- Ocean + God = **Poseidon**
+- Water + God = **Poseidon**
+- Sea + Greek Pantheon = **Poseidon**
+- Clay + Hand = **Pottery**
+- Human + Clay = **Pottery**
+- Clay + Pottery Wheel = **Pottery**
+- Wheel + Pottery = **Pottery Wheel**
+- Cheese + Potato = **Poutine**
+- Cheese + Canada = **Poutine**
+- Level + Mushroom = **Power-up**
+- Video Game + Mushroom = **Power-up**
+- Past + Monkey = **Prehistoric Ape**
+- Fossil + Monkey = **Prehistoric Ape**
+- Animal + Ice Age = **Prehistoric Mammal**
+- Past + Ocean = **Prehistoric Ocean**
+- Fossil + Ocean = **Prehistoric Ocean**
+- Flour + Salt = **Pretzel**
+- Bread + Germany = **Pretzel**
+- Light + Rainbow = **Prism**
+- Fire + Human = **Prometheus**
+- Fire + Titan = **Prometheus**
+- Air + Dinosaur = **Pterosaur**
+- Dinosaur + Sky = **Pterosaur**
+- Stone + Art = **Public Art Statue**
+- Sea + Bird = **Puffin**
+- Game + Maze = **Puzzle**
+- Sun + Monument = **Pyramid**
+- Desert + Monument = **Pyramid**
+- Egypt + God = **Ra**
+- Sun + Egypt = **Ra**
+- Sports + Car = **Racing**
+- Arcade Machine + Car = **Racing Arcade**
+- Steering wheel + Controller = **Racing Wheel**
+- Radio + Satellite = **Radar**
+- Vikings + Apocalypse = **Ragnarok**
+- Apocalypse + God = **Ragnarok**
+- Shadow + Rain = **Rain Shadow**
+- Rain + Sunbeam = **Rainbow**
+- Egg + Noodles = **Ramen Bowl**
+- Vegetable + Noodles = **Ramen Bowl**
+- Strategy + Clock = **Real-Time Strategy**
+- Book + Cooking = **Recipe Book**
+- Book + Bakery = **Recipe Book**
+- Treasure + Ruins = **Relic**
+- Treasure + Archaeologist = **Relic**
+- Console + Past = **Retro Console**
+- Game + Nostalgia = **Retro gaming**
+- Steam + Rice = **Rice Ball**
+- Rice + Hand = **Rice Ball**
+- Soup + Rice = **Rice Porridge**
+- Cooking + Rice = **Rice Porridge**
+- Dance + Brazil = **Rio Carnival**
+- Music + Brazil = **Rio Carnival**
+- Board Game + World Map = **Risk**
+- Racing + Human = **Rival**
+- River + Flood = **River Delta**
+- River + Delta = **River Delta**
+- River + Sediment = **River Sediment**
+- River + Soul = **River Styx**
+- River + Greek Underworld = **River Styx**
+- Carrot + Kiln = **Roasted Carrot Soup**
+- Fire + Garlic = **Roasted Garlic Spread**
+- Heat + Garlic = **Roasted Garlic Spread**
+- Pastry + Vegetable = **Roasted Vegetable Tart**
+- Vegetable + Kiln = **Roasted Vegetable Tray**
+- Human + Electricity = **Robot**
+- Robot + Hand = **Robot Arm**
+- Robot + Pilot = **Robot Pilot**
+- Robot + School = **Robotics**
+- Guitar + Electricity = **Rock Music**
+- Guitar + Amplifier = **Rock Music**
+- Pressure + Sediment = **Rock Strata**
+- Fuel + Spaceship = **Rocket**
+- Video Game + Dungeon Gate = **Roguelike**
+- Mythology + Italy = **Roman Pantheon**
+- Italy + God = **Roman Pantheon**
+- Earth + Potato = **Root Cellar**
+- Root + Tree = **Root Network**
+- Dragon + Game = **RPG**
+- City + War = **Ruins**
+- City + Excavation = **Ruins**
+- Past + Village = **Ruins**
+- Vikings + Stone = **Runestone**
+- Vikings + Writing = **Runestone**
+- Fire + Temple = **Sacred Hearth**
+- Sword + Legend = **Sacred Sword**
+- Lake + Sword = **Sacred Sword**
+- Sea + Poseidon = **Sacred Trident**
+- Animal + Africa = **Safari**
+- Camera + Africa = **Safari**
+- Sand + Africa = **Sahara**
+- Ship + Sail = **Sailboat**
+- Onion + Tomato = **Salad**
+- Magic + Fish = **Salmon of Knowledge**
+- Fish + Celtic Mythology = **Salmon of Knowledge**
+- Light + Salt = **Salt Cavern Lamp**
+- Fire + Salt = **Salt Crystals**
+- Stone + Salt = **Salt Crystals**
+- Salt + Salt = **Salt Crystals**
+- Salt + Marsh = **Salt Marsh**
+- Lake + Salt = **Salt Pan**
+- Desert + Salt = **Salt Pan**
+- Wind + Salt = **Salt Spray**
+- Chocolate + Salt = **Salted Cocoa Truffle**
+- Cocoa + Salt = **Salted Cocoa Truffle**
+- Japan + Martial Arts = **Samurai**
+- Hero + Japan = **Samurai**
+- Stone + Dust = **Sand**
+- Sand + Air = **Sandstorm**
+- Sand + Cloud = **Sandstorm**
+- Bread + Jam = **Sandwich**
+- Fish + Bread = **Sandwich**
+- Board Game + Greece = **Santorini**
+- Soil + Pinecone = **Sapling**
+- Archaeologist + Mummy = **Sarcophagus**
+- Mummy + Pyramid = **Sarcophagus**
+- Silk + India = **Sari**
+- Earth + Rocket = **Satellite**
+- Dinosaur + Cinema = **Saurian Isle**
+- Plant + Dinosaur = **Sauropod**
+- Tree + Dinosaur = **Sauropod**
+- Video Game + Memory Card = **Save Game**
+- Human + Microscope = **Science**
+- Book + Space = **Science Fiction**
+- Space + Film = **Science Fiction**
+- Robot + Film = **Science Fiction**
+- Science Fiction + Film = **Science Fiction Film**
+- Robot + Cinema = **Science Fiction Film**
+- Space + Cinema = **Science Fiction Film**
+- Alien + Cinema = **Science Fiction Film**
+- Glass + Computer = **Screen**
+- Screen + LED Array = **Screen OLED**
+- Video Game + Photograph = **Screenshot**
+- Water + Salt = **Sea**
+- Cave + Ocean = **Sea Cave**
+- Cave + Wave = **Sea Cave**
+- Salt + Wave = **Sea Foam**
+- Glass + Hammer = **Sea Glass Shard**
+- Salt + Sugar = **Sea Salt Caramel**
+- Sea + Egg = **Sea Turtle**
+- Sand + Egg = **Sea Turtle**
+- House + Bird = **Seaside Birdhouse**
+- Time + Weather = **Seasons**
+- Sun + Time = **Seasons**
+- Plant + Wave = **Seaweed**
+- Sediment + Sediment = **Sediment Layer**
+- Air + Seed = **Seed Dispersal**
+- Seed + Pottery = **Seedling Pot**
+- Plant + Pottery = **Seedling Pot**
+- War + Egypt = **Sekhmet**
+- Sea + Shapeshifter = **Selkie**
+- Desert + Egypt = **Set of Egypt**
+- Paper + Music = **Sheet Music**
+- Book + Song = **Sheet Music**
+- Water + Car = **Ship**
+- Sailboat + Motor = **Ship**
+- Sea + Steam Engine = **Ship**
+- Ship + Storm = **Shipwreck**
+- Ship + Iceberg = **Shipwreck**
+- Ship + Reef = **Shipwreck**
+- Time + Ship = **Shipwreck**
+- Factory + Ship = **Shipyard**
+- Board Game + Japan = **Shogi**
+- Ninja + Anime = **Shonen**
+- Pirate + Anime = **Shonen**
+- Arcade + Pistol = **Shooter Arcade**
+- Game + Pistol = **Shooting**
+- House + Money = **Shop**
+- Hero + Vikings = **Sigurd**
+- Hero + Fafnir = **Sigurd**
+- Sand + Computer = **Silicon**
+- Game + Farm = **Simulation**
+- Music + Voice = **Singer**
+- Music + Microphone = **Singer**
+- Human + Microphone = **Singer**
+- Human + Voice = **Singer**
+- Microphone + Song = **Singer**
+- Fish + Human = **Siren**
+- Sea + Human = **Siren**
+- Sea + Song = **Siren**
+- Game + Sky Orbs = **Sky Orbs Game**
+- Book + Sky Orbs = **Sky Orbs Manga**
+- Soundtrack + Sky Orbs = **Sky Orbs Soundtrack**
+- Night + Clock = **Sleep**
+- Horse + Odin = **Sleipnir**
+- Horse + Loki of Asgard = **Sleipnir**
+- Snow + Salt = **Slush**
+- Human + Anvil = **Smithy**
+- Anvil + Hammer = **Smithy**
+- Sky + Smoke = **Smog**
+- Coal + Factory = **Smog**
+- Newspaper + Campfire = **Smoke**
+- Rain + Cold Front = **Snow**
+- Wood + Snow = **Snow-Covered Branch**
+- Snow + Planet = **Snowball Earth**
+- Snow + Snow = **Snowdrift**
+- Bird + Frost = **Snowy Owl**
+- Ball + Human = **Soccer**
+- Ball + Field = **Soccer**
+- Simulation + Human = **Social Simulation**
+- Tool + Computer = **Software**
+- Earth + Ash = **Soil**
+- Ship + Egypt = **Solar Barque**
+- Sun + Explosion = **Solar Flare**
+- Garden + Light = **Solar Garden Light**
+- Sun + Metal = **Solar Panel**
+- Sun + House = **Solar Power**
+- Sun + Generator = **Solar Power**
+- Space + Storm = **Solar Storm**
+- Planet + Planet = **Solar System**
+- Planet + Star = **Solar System**
+- Sun + Gravity = **Solar System**
+- Wind + Space = **Solar Wind**
+- Cards + Computer = **Solitaire**
+- Sea + Radio = **Sonar**
+- Music + Radio = **Song**
+- Music + Headphones = **Song**
+- Sheet Music + Piano = **Song**
+- Water + Thailand = **Songkran**
+- Water + Festival = **Songkran**
+- Cave + Smoke = **Soot**
+- Music + Television = **Soundtrack**
+- Water + Potato = **Soup**
+- Soup + Ceramic = **Soup Pot**
+- Soup + Clay = **Soup Pot**
+- Time + Dough = **Sourdough**
+- Bread + Yeast = **Sourdough**
+- Fruit + Yeast = **Sourdough Starter**
+- Time + Yeast = **Sourdough Starter**
+- Continent + Brazil = **South America**
+- Ice + Explorer = **South Pole**
+- Snow + Explorer = **South Pole**
+- Rocket + Sky = **Space**
+- Space + Anime = **Space Opera**
+- Space + Weather = **Space Weather**
+- Space + Rocket = **Spaceship**
+- Space + Car = **Spaceship**
+- Game + Spectral Academy = **Spectral Academy Game**
+- Video Game + Clock = **Speedrun**
+- Level + Speed = **Speedrun**
+- Magic + Cards = **Spellcraft: The Convergence**
+- Monster + Egypt = **Sphinx**
+- Desert + Monster = **Sphinx**
+- Shop + Spice = **Spice Rack**
+- Chocolate + Spice = **Spiced Cocoa Cup**
+- Cocoa + Cinnamon = **Spiced Cocoa Cup**
+- Milk + Cinnamon = **Spiced Milk Pudding**
+- Cards + Spider = **Spider Solitaire**
+- Insect + Spider = **Spiderweb**
+- Spider + Spider = **Spiderweb**
+- Internet + Spider = **Spiderweb**
+- Game + Spirit Blade = **Spirit Blade Game**
+- Ball + Game = **Sports**
+- Soccer + Human = **Sports**
+- Ball + Competition = **Sports**
+- Manga + Volleyball = **Sports Anime**
+- Ball + Anime = **Sports Anime**
+- Life + Seed = **Sprout**
+- Compost + Seed = **Sprout**
+- Time + Cave = **Stalactite**
+- Time + Cave Drip = **Stalactite**
+- Time + Stalactite = **Stalagmite**
+- Sun + Space = **Star**
+- Sky + Telescope = **Star**
+- Gravity + Nebula = **Star**
+- Fish + Star = **Starfish**
+- Game + Ninja = **Stealth**
+- Heat + Mist = **Steam**
+- Iron + Steam = **Steam Engine**
+- Iron + Smoke = **Steam Engine**
+- Steam + Gear = **Steam Engine**
+- Telescope + Nebula = **Stellar Nursery**
+- Stone + Past = **Stone Age**
+- Past + Tool = **Stone Age**
+- Stone + Arch = **Stone Arch**
+- United Kingdom + Stone = **Stonehenge**
+- Stone + Druid = **Stonehenge**
+- Rain + Weather = **Storm**
+- Video Game + Writing = **Story Mode**
+- Paper + Animation = **Storyboard Flipbook**
+- Game + War = **Strategy**
+- Chess + Human = **Strategy**
+- Internet + Film = **Streaming**
+- Art + Wall = **Street Mural**
+- City + Musician = **Street Musician**
+- Night + City = **Streetlamp**
+- Microphone + Television = **Studio**
+- House + Camera = **Studio**
+- Car + Ocean = **Submarine**
+- Earth + Train = **Subway**
+- Sea + Egypt = **Suez Canal**
+- Human + Snow = **Summer-Loving Snowman**
+- Snow + Carrot = **Summer-Loving Snowman**
+- Fire + Planet = **Sun**
+- Tomato + Pressure = **Sun-Dried Tomato Paste**
+- Sun + Light = **Sunbeam**
+- Sun + Sky = **Sunbeam**
+- Insect + Bog = **Sundew**
+- Light + Flower = **Sunflower**
+- Sun + Canopy = **Sunlit Canopy**
+- Hero + Comic Book = **Superhero**
+- Hero + Superpower = **Superhero**
+- Human + Superpower = **Superhero**
+- Hero + Human = **Superhero**
+- Superhero + Camera = **Superhero Film**
+- Superhero + Film = **Superhero Film**
+- Comic Book + Team = **Superhero Team**
+- Explosion + Red Giant = **Supernova**
+- Bomb + Star = **Supernova**
+- Villain + Comic Book = **Supervillain**
+- Villain + Mask = **Supervillain**
+- Human + Hospital = **Surgery**
+- Fire + Giant = **Surtr**
+- Lava + Giant = **Surtr**
+- Game + Zombie = **Survival**
+- Video Game + Zombie = **Survival**
+- Fish + Rice = **Sushi**
+- Japan + Fish = **Sushi**
+- Cloud + Insect = **Swarm**
+- Insect + Insect = **Swarm**
+- Sugar + Rice = **Sweet Rice Pudding**
+- Europe + Chocolate = **Switzerland**
+- Europe + Clock = **Switzerland**
+- Iron + Anvil = **Sword**
+- Metal + Anvil = **Sword**
+- Music + Australia = **Sydney Opera House**
+- Harbor + Australia = **Sydney Opera House**
+- Electricity + Piano = **Synthesizer**
+- Sugar + Pancake = **Syrup**
+- Tree + Sugar = **Syrup**
+- Spice + Mexico = **Tacos**
+- Water + Frog = **Tadpole**
+- Time + Frog Spawn = **Tadpole**
+- India + Palace = **Taj Mahal**
+- Marble + India = **Taj Mahal**
+- Music + Argentina = **Tango**
+- War + Car = **Tank**
+- Fossil + Oil = **Tar Pit**
+- Competition + Bow = **Target**
+- Fire + Greek Underworld = **Tartarus**
+- Japan + Tea = **Tea Ceremony**
+- Farm + Tea = **Tea Garden**
+- Star + Camera = **Telescope**
+- Sky + Lens = **Telescope**
+- Radio + Photograph = **Television**
+- House + God = **Temple**
+- Monument + God = **Temple**
+- Italy + Temple = **Temple of Vesta**
+- Pyramid + Ruins = **Teotihuacan**
+- Sun + Pyramid = **Teotihuacan**
+- China + Clay = **Terracotta**
+- Bird + Giant = **Terror Bird**
+- Druid + God = **The Dagda**
+- Concert + Rock Music = **The Gravel Kings**
+- Hero + Labyrinth = **Theseus**
+- Labyrinth + Thread = **Theseus**
+- Vikings + Thunder = **Thor of Asgard**
+- Egypt + Moon = **Thoth**
+- Writing + God = **Thoth**
+- Prophecy + Thread = **Three Fates**
+- God + Thread = **Three Fates**
+- Dragon + Thunder = **Thunder Dragon**
+- Lightning + Thunder = **Thunderstorm**
+- Dragon + Babylon = **Tiamat**
+- Clock + Clock = **Time**
+- Magic + Island = **Tir na nOg**
+- Giant + God = **Titan**
+- Fire + Bread = **Toasted Sandwich**
+- Sandwich + Tomato = **Toasted Sandwich**
+- Cooking + Bread = **Toasted Sandwich**
+- Japan + Skyscraper = **Tokyo Skytree**
+- Pasta + Tomato = **Tomato Herb Pasta**
+- Steam + Tomato = **Tomato Soup**
+- Archaeologist + Pyramid = **Tomb**
+- Archaeology + Pyramid = **Tomb**
+- Metal + Coal = **Tongs**
+- Stone + Hammer = **Tool**
+- Human + Hammer = **Tool**
+- Screen + Hand = **Touchscreen**
+- Clock + House = **Town Clock**
+- Market + Silk = **Trade**
+- Human + Market = **Trade**
+- Iron + Wheel = **Train**
+- Wheel + Steam Engine = **Train**
+- Gold + Gold = **Treasure**
+- Gold + Pirate = **Treasure**
+- Shipwreck + Explorer = **Treasure**
+- Gold + Ruins = **Treasure**
+- Coin + Pirate = **Treasure**
+- Treasure + Shipwreck = **Treasure Chest**
+- Paper + Map = **Treasure Map**
+- Map + Ink = **Treasure Map**
+- Map + Ruins = **Treasure Map**
+- Island + Treasure = **Treasure Map**
+- Treasure + Compass = **Treasure Map**
+- Pirate + Island = **Treasure Map**
+- Tree + Syrup = **Tree Sap**
+- Wood + Horse = **Trojan Horse**
+- Horse + Greece = **Trojan Horse**
+- War + Greece = **Trojan War**
+- Wind + Generator = **Turbine**
+- Chess + Strategy = **Turn-Based Strategy**
+- Television + Film = **TV Series**
+- Human + Keyboard = **Typewriter**
+- Stone + Australia = **Uluru**
+- Rain + Silk = **Umbrella**
+- Patchwork + Rain = **Umbrella**
+- Human + Rain = **Umbrella**
+- Europe + Tea = **United Kingdom**
+- Vikings + Soul = **Valhalla**
+- Vikings + Palace = **Valhalla**
+- War + Soul = **Valkyrie**
+- War + Angel = **Valkyrie**
+- Vikings + Angel = **Valkyrie**
+- Fog + Valley = **Valley Fog**
+- Mist + Valley = **Valley Fog**
+- Human + Blood = **Vampire**
+- Monster + Night = **Vampire**
+- Night + Blood = **Vampire**
+- Pastry + Vanilla = **Vanilla Custard Tart**
+- Pie + Vanilla = **Vanilla Custard Tart**
+- Vegetable + Potato = **Vegetable Stew**
+- Soup + Potato = **Vegetable Stew**
+- Rainbow + Waterfall = **Victoria Falls**
+- Music + Camera = **Video**
+- Camera + Television = **Video**
+- Game + Television = **Video Game**
+- Toy + Computer = **Video Game**
+- Fun + Computer = **Video Game**
+- Game + Museum = **Video Game Museum**
+- Arcade + Museum = **Video Game Museum**
+- Vikings + Ship = **Viking Ship**
+- Market + Bread = **Village Bread Market**
+- Village + Festival = **Village Feast**
+- Crime + Mask = **Villain**
+- Music + Bow = **Violin**
+- Arcade + Virtual Reality = **Virtual Arcade**
+- Volcano + Smoke = **Volcanic Ash Cloud**
+- Cloud + Ash = **Volcanic Ash Cloud**
+- Island + Lava = **Volcano**
+- Ball + Sand = **Volleyball**
+- Volcano + Italy = **Vulcan the Smith**
+- Fire + Roman Pantheon = **Vulcan the Smith**
+- Egg + Pancake = **Waffle**
+- Flour + Pancake = **Waffle**
+- Brick + Brick = **Wall**
+- Mud + Brick = **Wall**
+- Airplane + Bomb = **War**
+- War + Tower = **Watchtower**
+- Water + Ink = **Watercolor Pigment**
+- Wind + Weather Vane = **Weather**
+- Human + Weather = **Weather Forecast**
+- Barometer + Weather = **Weather Station**
+- Glass + Wood = **Weathered Window Frame**
+- Glass + House = **Weathered Window Frame**
+- Justice + Soul = **Weighing of the Heart**
+- Monster + Moon = **Werewolf**
+- Field + Flood = **Wetland**
+- Air + Computer = **Wi-Fi**
+- Pastry + Wild Berry = **Wild Berry Cream Tart**
+- Fire + Lightning = **Wildfire**
+- Magic + Air = **Wind Magic**
+- Metal + Thread = **Wire**
+- Copper + Copper = **Wire**
+- Wi-Fi + Controller = **Wireless Controller**
+- Magic + Moon = **Witch**
+- Tree + Hammer = **Wood**
+- Tree + Metal = **Wood**
+- Wood + Sawdust = **Wooden Plank**
+- Bird + Insect = **Woodpecker**
+- Ice + Prehistoric Mammal = **Woolly Mammoth**
+- Snow + Prehistoric Mammal = **Woolly Mammoth**
+- Wood + Hammer = **Workbench**
+- Tool + Hammer = **Workbench**
+- House + Hammer = **Workshop**
+- Earth + Map = **World Map**
+- Map + Level = **World Map**
+- Ink + Notebook = **Writing**
+- Newspaper + Ink = **Writing**
+- Paper + Human = **Writing**
+- Human + Ink = **Writing**
+- Paper + Fountain Pen = **Writing**
+- China + Board Game = **Xiangqi**
+- Thread + Thread = **Yarn**
+- Silk + Thread = **Yarn**
+- Tree + God = **Yggdrasil**
+- Tree + Norway = **Yggdrasil**
+- Lightning + God = **Zeus**
+- Storm + God = **Zeus**
+- Thunder + God = **Zeus**
+- Sky + God = **Zeus**
+- Lightning + Greek Pantheon = **Zeus**
+- Greece + God = **Zeus**
+- Pyramid + Tower = **Ziggurat**
+- Babylon + Temple = **Ziggurat**
+- Monster + Curse = **Zombie**

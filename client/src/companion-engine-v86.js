@@ -8,6 +8,11 @@
  * its mood and XP. Levels go to 100 and grow four stats (stamina, strength, speed, HP);
  * a Shiny companion starts slightly stronger. Mini-games will use these stats later.
  *
+ * V87: first activation free, later switches through ctx.requestActivation (rewarded ad +
+ * 5-minute grace in the app); a "seen" list drives the Companions tab badge; stroking the
+ * companion (rub it) pets it; an emotion orb (heart / spiral / bowl / burst) floats over its
+ * head for moments; a belly meter empties over hours and makes it hungry; companions can be renamed.
+ *
  * No imports: everything the engine needs comes in `ctx` so tools/build-standalone.py can
  * inline this file like the other V85/V86 modules.
  */
@@ -20,6 +25,10 @@ export const GRADES=['E','D','C','B','A','S'];
 export const FEED_COOLDOWN_MS=30*60*1000;
 export const GIFT_INTERVAL_MS=[150*1000,320*1000];
 export const SELF_FEED_INTERVAL_MS=[200*1000,420*1000];
+export const HUNGRY_SELF_FEED_MS=[60*1000,120*1000];
+export const BELLY_DECAY_MS=6*60*1000;   // -1 belly every 6 min (full → empty in ~10 h)
+export const PET_MOOD_CAP=12;            // mood gained by stroking per 10 minutes
+export const NICK_MAX=16;
 
 /** Points gained for one level-up: (grade × 3) + 13 ± 2 (E 11–15 … S 26–30), the SA2B Chao rule. */
 export function levelUpGain(gradeIndex,rnd=Math.random){return gradeIndex*3+13+(Math.floor(rnd()*5)-2);}
@@ -48,23 +57,28 @@ export function moodLabel(m){return m>=MOOD.happy?'Happy':m<=MOOD.sad?'Sad':'Con
 
 export function createCompanionSystem(ctx){
  const {roster,sprites,$,escapeText,byId,uiName,staticArt,familyFor,isDiscovered,isShiny,elementIsUseful,getSlots,isLeftLocked,toast,showModal,closeModal,reducedMotion,FAMILIES}=ctx;
+ const requestActivation=ctx.requestActivation||(async()=>true);const onBadge=ctx.onBadge||(()=>{});
  const metaById=new Map(roster.map(c=>[c.id,c]));
  let state={active:null,pets:{},v:1};
- try{const raw=JSON.parse(localStorage.getItem(COMPANION_STORAGE_KEY)||'null');if(raw&&typeof raw==='object'&&raw.pets)state={active:raw.active||null,pets:raw.pets,v:1};}catch{}
+ const normalize=raw=>({active:raw.active||null,pets:raw.pets,v:1,firstFreeUsed:Boolean(raw.firstFreeUsed||raw.active),seen:Array.isArray(raw.seen)?raw.seen.filter(x=>typeof x==='string'):null});
+ try{const raw=JSON.parse(localStorage.getItem(COMPANION_STORAGE_KEY)||'null');if(raw&&typeof raw==='object'&&raw.pets)state=normalize(raw);}catch{}
  const save=()=>{try{localStorage.setItem(COMPANION_STORAGE_KEY,JSON.stringify(state));}catch{}};
- const pet=id=>{if(!state.pets[id])state.pets[id]={mood:60,moodAt:Date.now(),fed:{},gifts:0,meals:0,since:Date.now()};const p=state.pets[id];if(!p.stats)p.stats=freshStats(metaById.get(id)||{family:'nature',move:'walk',name:''},isShiny(id));return p;};
+ const pet=id=>{if(!state.pets[id])state.pets[id]={mood:60,moodAt:Date.now(),fed:{},gifts:0,meals:0,since:Date.now()};const p=state.pets[id];if(typeof p.belly!=='number'){p.belly=80;p.bellyAt=Date.now();}if(!p.stats)p.stats=freshStats(metaById.get(id)||{family:'nature',move:'walk',name:''},isShiny(id));return p;};
  const totalLevel=id=>COMPANION_STATS.reduce((n,k)=>n+(pet(id).stats[k]?.level||0),0);
  /** Add progress to one stat; returns {levelUps, pointsGained}. 100 bar points = one level. */
  function gainStat(p,meta,stat,amount){const st=p.stats[stat];const g=companionGrades(meta,isShiny(meta.id))[stat];let ups=0,pts=0;if(st.level>=COMPANION_MAX_LEVEL)return {levelUps:0,pointsGained:0};st.bar+=amount;while(st.bar>=100&&st.level<COMPANION_MAX_LEVEL){st.bar-=100;st.level++;const d=levelUpGain(g);st.points=Math.min(STAT_MAX_POINTS,st.points+d);pts+=d;ups++;}if(st.level>=COMPANION_MAX_LEVEL)st.bar=0;return {levelUps:ups,pointsGained:pts};}
  const now=()=>Date.now();
- function settleMood(p){const elapsed=now()-(p.moodAt||now());if(elapsed>60000){p.mood=Math.max(0,p.mood-Math.floor(elapsed/600000));p.moodAt=now();}}
+ function settleBelly(p){const el=now()-(p.bellyAt||now());if(el>=BELLY_DECAY_MS){p.belly=Math.max(0,p.belly-Math.floor(el/BELLY_DECAY_MS));p.bellyAt=now()-el%BELLY_DECAY_MS;}}
+ const hungry=p=>p.belly<25;
+ function settleMood(p){settleBelly(p);const elapsed=now()-(p.moodAt||now());if(elapsed>60000){p.mood=Math.max(0,p.mood-Math.floor(elapsed/600000)*(hungry(p)?2:1));p.moodAt=now();}}
+ const nameOf=meta=>{const p=state.pets[meta.id];return (p&&p.nick)||uiName(byId.get(meta.id))||meta.name;};
  const unlocked=()=>roster.filter(c=>isDiscovered(c.id));
  const activeMeta=()=>state.active&&isDiscovered(state.active)?metaById.get(state.active):null;
 
  // ---------- DOM ----------
  // Everything the companion "says" is shown by its own body: no text bubbles anywhere.
  let layerFront=null,layerBack=null,sprite=null,timer=null,giftTimer=null,blinkTimer=null,lastPoint=0,destroyed=false;
- let pos={x:40,y:200,face:1},rail=null,sleeping=false,busy=false,lastInput=now(),cancelMove=null,rollAngle=0;
+ let pos={x:40,y:200,face:1},rail=null,sleeping=false,busy=false,lastInput=now(),cancelMove=null,rollAngle=0,stroke={},petting=false,emoteTimer=null;
  const SIZE=58;
  function ensureLayer(){
   if(layerFront)return;
@@ -72,8 +86,13 @@ export function createCompanionSystem(ctx){
   layerFront=document.createElement('div');layerFront.className='companion-layer is-front';layerFront.id='companionLayer';
   document.body.append(layerBack,layerFront);
   sprite=document.createElement('button');sprite.type='button';sprite.className='companion';sprite.id='companionSprite';sprite.setAttribute('aria-label','Your companion');
-  sprite.innerHTML='<span class="companion-shadow" aria-hidden="true"></span><span class="companion-art" aria-hidden="true"></span><span class="companion-fx" aria-hidden="true"></span>';
-  sprite.addEventListener('click',e=>{e.stopPropagation();openCard(state.active);});
+  sprite.innerHTML='<span class="companion-shadow" aria-hidden="true"></span><span class="companion-art" aria-hidden="true"></span><span class="companion-fx" aria-hidden="true"></span><span class="companion-emote" aria-hidden="true" hidden></span>';
+  sprite.addEventListener('click',e=>{e.stopPropagation();if(stroke.done){stroke.done=false;return;}openCard(state.active);});
+  // Stroking: rub a finger across the companion (like petting a Chao) → hearts, happy wiggle, mood.
+  sprite.addEventListener('pointerdown',e=>{stroke={x:e.clientX,y:e.clientY,dist:0,on:false,done:false,id:e.pointerId,last:0};});
+  sprite.addEventListener('pointermove',e=>{if(stroke.id!==e.pointerId||stroke.x==null)return;stroke.dist+=Math.hypot(e.clientX-stroke.x,e.clientY-stroke.y);stroke.x=e.clientX;stroke.y=e.clientY;if(!stroke.on&&stroke.dist>26){stroke.on=true;startPetting();}if(stroke.on&&now()-stroke.last>420){stroke.last=now();petTick();}});
+  const endStroke=()=>{if(stroke.on){stroke.done=true;stopPetting();}stroke.x=null;stroke.id=null;};
+  sprite.addEventListener('pointerup',endStroke);sprite.addEventListener('pointercancel',endStroke);sprite.addEventListener('pointerleave',endStroke);
   ['pointerdown','keydown','touchstart'].forEach(ev=>document.addEventListener(ev,()=>{lastInput=now();if(sleeping)wake();},{passive:true}));
   window.addEventListener('resize',()=>{if(activeMeta()){const r=pickRail();if(r){rail=r;setLayer(r.layer);place(clampX(r,pos.x),r.y);}}});
  }
@@ -107,6 +126,7 @@ export function createCompanionSystem(ctx){
  // Frame-by-frame mover: eased ground travel, parabolic jumps, rolling rotation, layer swap mid-arc.
  function travel({x,y,arc=0,ms=null,anim=null,swapLayer=null,ease=true,px=null}){
   return new Promise(res=>{
+   if(petting){res(false);return;}
    const sx=pos.x,sy=pos.y,d=Math.hypot(x-sx,y-sy);const dur=ms??Math.max(220,1000*d/(px||speed()));
    if(x!==sx)pos.face=x>sx?1:-1;
    const meta=activeMeta();sprite.dataset.anim=anim||(arc?'jump':meta.move==='fly'?'fly':meta.move==='roll'?'roll':meta.move==='hop'?'hopwalk':meta.move==='waddle'?'waddle':'walk');
@@ -132,15 +152,29 @@ export function createCompanionSystem(ctx){
   sprite.dataset.anim='land';await wait(160);sprite.dataset.anim='idle';rail=r;}
  function lockedUseless(){const s=getSlots();if(!isLeftLocked()||!s[0])return null;if(elementIsUseful(s[0]))return null;return rect('#slot0');}
  function fx(kind,ms=1200){const f=sprite.querySelector('.companion-fx');const el=document.createElement('i');el.className='fx-'+kind;f.append(el);setTimeout(()=>el.remove(),ms);return el;}
+ // Emotion orb (the floating ball of a Chao): drawn shapes only, never text.
+ const EMOTE_SVG={
+  heart:'<svg viewBox="0 0 40 40"><path d="M20 33C8 25 4 19 4 13a8 8 0 0 1 16-2 8 8 0 0 1 16 2c0 6-4 12-16 20Z" fill="#e0675a" stroke="#657d89" stroke-width="2.5"/></svg>',
+  spiral:'<svg viewBox="0 0 40 40"><circle cx="20" cy="20" r="15" fill="#e9eef1" stroke="#657d89" stroke-width="2.5"/><path d="M20 20c0-3 4-3 4 0 0 5-8 5-8 0 0-7 12-7 12 0 0 9-16 9-16 0" fill="none" stroke="#657d89" stroke-width="2.4" stroke-linecap="round"/></svg>',
+  bowl:'<svg viewBox="0 0 40 40"><circle cx="20" cy="20" r="15" fill="#fff8ee" stroke="#657d89" stroke-width="2.5"/><path d="M10 20h20a10 8 0 0 1-20 0Z" fill="#d08a4c" stroke="#657d89" stroke-width="2"/><path d="M15 14q2-3 0-5M21 15q2-3 0-5M27 14q2-3 0-5" fill="none" stroke="#9aa9b1" stroke-width="1.8" stroke-linecap="round"/></svg>',
+  burst:'<svg viewBox="0 0 40 40"><path d="M20 3l4 10 10-4-5 10 8 6-11 1 1 11-7-8-7 8 1-11-11-1 8-6-5-10 10 4Z" fill="#f3c46b" stroke="#d08a4c" stroke-width="2" stroke-linejoin="round"/></svg>',
+  orb:'<svg viewBox="0 0 40 40"><circle cx="20" cy="20" r="10" fill="#cfe3ea" stroke="#657d89" stroke-width="2.5"/><circle cx="16.5" cy="16.5" r="3" fill="#fff"/></svg>'
+ };
+ function emote(kind,ms=1800){if(!sprite||reducedMotion())return;const e=sprite.querySelector('.companion-emote');if(!e)return;clearTimeout(emoteTimer);e.innerHTML=EMOTE_SVG[kind]||EMOTE_SVG.orb;e.dataset.emote=kind;e.hidden=false;e.classList.remove('is-pop');void e.offsetWidth;e.classList.add('is-pop');emoteTimer=setTimeout(()=>{e.classList.remove('is-pop');e.classList.add('is-fade');setTimeout(()=>{e.hidden=true;e.classList.remove('is-fade');},300);},ms);}
+ function startPetting(){const meta=activeMeta();if(!meta)return;petting=true;if(sleeping)wake();if(cancelMove)cancelMove();sprite.classList.remove('is-happy');sprite.classList.add('is-petted');emote('heart',99999);}
+ function petTick(){const meta=activeMeta();if(!meta||!petting)return;fx('hearts',1300);const p=pet(meta.id);settleMood(p);
+  const win=Math.floor(now()/600000);if(p.petWin!==win){p.petWin=win;p.petGain=0;}if(p.petGain<PET_MOOD_CAP){p.petGain++;p.mood=Math.min(100,p.mood+1);p.moodAt=now();p.strokes=(p.strokes||0)+1;save();}}
+ function stopPetting(){if(!petting)return;petting=false;sprite.classList.remove('is-petted');sprite.classList.add('is-happy');emote('heart',1200);setTimeout(()=>{sprite.classList.remove('is-happy');refreshViews();},950);}
 
  // ---------- behaviours ----------
  async function loop(){
   if(destroyed)return;const meta=activeMeta();if(!meta){stop();return;}
-  if(busy||sleeping||document.hidden){timer=setTimeout(loop,900);return;}
+  if(busy||sleeping||petting||document.hidden){timer=setTimeout(loop,900);return;}
   const rs=rails();
   if(!rail||!rs.some(r=>r.kind===rail.kind&&r.i===rail.i)){const r=pickRail();if(!r){timer=setTimeout(loop,1200);return;}rail=r;setLayer(r.layer);place(clampX(r,pos.x),r.y);}
   else{rail=rs.find(r=>r.kind===rail.kind&&r.i===rail.i)||rail;}
   if(now()-lastInput>150000){await sleep();timer=setTimeout(loop,500);return;}
+  {const p=pet(meta.id);settleMood(p);if(hungry(p)&&Math.random()<0.18){emote('bowl',1800);}else if(p.mood<=MOOD.sad&&Math.random()<0.12)emote('spiral',1800);}
   const slot=lockedUseless();
   if(slot&&now()-lastPoint>60000){lastPoint=now();await pointAtSlot(slot);timer=setTimeout(loop,800);return;}
   const roll=Math.random();
@@ -216,7 +250,7 @@ export function createCompanionSystem(ctx){
   if(!statWin){statWin=document.createElement('div');statWin.className='companion-statwin';layerFront.append(statWin);}
   clearTimeout(statWinTimer);
   const rows=changes.filter((c,i,arr)=>arr.findIndex(x=>x.stat===c.stat)===i);
-  statWin.innerHTML=`<div class="cs-head"><span class="cs-face">${sprites[meta.id]||''}</span><strong>${escapeText(uiName(byId.get(meta.id))||meta.name)}</strong></div>`+rows.map(c=>{const st=p.stats[c.stat];
+  statWin.innerHTML=`<div class="cs-head"><span class="cs-face">${sprites[meta.id]||''}</span><strong>${escapeText(nameOf(meta))}</strong></div>`+rows.map(c=>{const st=p.stats[c.stat];
    // show the state BEFORE the gain, then animate to the new values
    const beforeLevel=st.level-c.levelUps;let beforeBar=st.bar-c.amount;while(beforeBar<0)beforeBar+=100;if(c.levelUps&&st.level>=COMPANION_MAX_LEVEL)beforeBar=Math.max(0,100-c.amount%100);
    return statRow(c.stat,{level:beforeLevel,bar:Math.max(0,Math.min(99,beforeBar))},grades[c.stat]);}).join('');
@@ -237,20 +271,20 @@ export function createCompanionSystem(ctx){
  async function eatSequence(meta,item,{self=false}={}){
   const p=pet(meta.id);settleMood(p);
   const taste=likes(meta,item);
-  if(taste==='no'){morsel(item,'is-refused');sprite.dataset.anim='refuse';p.mood=Math.max(0,p.mood-3);p.moodAt=now();save();await wait(1400);sprite.dataset.anim='idle';refreshViews();return true;}
+  if(taste==='no'){morsel(item,'is-refused');emote('spiral',1400);sprite.dataset.anim='refuse';p.mood=Math.max(0,p.mood-3);p.moodAt=now();save();await wait(1400);sprite.dataset.anim='idle';refreshViews();return true;}
   const last=p.fed[item.id]||0,fresh=now()-last>FEED_COOLDOWN_MS;
   // grab: the element flies into the hands and stays there while chewing
   const held=fx('held',3600);held.innerHTML=staticArt(item);sprite.dataset.anim='grab';await wait(450);
   sprite.dataset.anim='hold-eat';
   const plan=fresh?feedPlan(meta,item):[];
   const changes=plan.map(c=>({...c,...gainStat(p,meta,c.stat,c.amount)}));
-  p.mood=Math.min(100,p.mood+(taste==='love'?12:5));p.moodAt=now();if(fresh)p.fed[item.id]=now();p.meals++;save();
+  p.mood=Math.min(100,p.mood+(taste==='love'?12:5));p.moodAt=now();p.belly=Math.min(100,p.belly+(fresh?25:10));p.bellyAt=now();if(fresh)p.fed[item.id]=now();p.meals++;save();
   if(changes.length)showStatWindow(meta,changes,2800);
   for(let i=0;i<4;i++){await wait(650);held.classList.add('bite-'+(i+1));}
   await wait(500);held.remove();
-  if(taste==='love')fx('hearts',1300);
+  if(taste==='love'){fx('hearts',1300);emote('heart',1400);}
   const ups=changes.reduce((n,c)=>n+c.levelUps,0);
-  if(ups){sprite.dataset.anim='levelup';fx('stars',2000);await wait(1800);}
+  if(ups){sprite.dataset.anim='levelup';fx('stars',2000);emote('burst',1700);await wait(1800);}
   sprite.dataset.anim='idle';refreshViews();return true;
  }
  async function feed(elementId){
@@ -260,7 +294,7 @@ export function createCompanionSystem(ctx){
  }
  // The companion goes to the element list by itself and helps itself to a chip.
  let selfFeedTimer=null;
- function scheduleSelfFeed(){clearTimeout(selfFeedTimer);const [a,b]=SELF_FEED_INTERVAL_MS;selfFeedTimer=setTimeout(selfFeed,a+Math.random()*(b-a));}
+ function scheduleSelfFeed(){clearTimeout(selfFeedTimer);const m=activeMeta();const [a,b]=m&&hungry(pet(m.id))?HUNGRY_SELF_FEED_MS:SELF_FEED_INTERVAL_MS;selfFeedTimer=setTimeout(selfFeed,a+Math.random()*(b-a));}
  async function selfFeed(){
   const meta=activeMeta();if(!meta||document.hidden||sleeping||busy){scheduleSelfFeed();return;}
   const chips=[...document.querySelectorAll('#viewPlay:not([hidden]) .element-chip')].filter(c=>{const r=c.getBoundingClientRect();return r.top>80&&r.bottom<window.innerHeight-70;});
@@ -288,25 +322,41 @@ export function createCompanionSystem(ctx){
   blinkTimer=setInterval(()=>{if(!sleeping&&sprite.dataset.anim==='idle'){sprite.classList.add('is-blinking');setTimeout(()=>sprite.classList.remove('is-blinking'),170);}},3000+Math.random()*1800);
   timer=setTimeout(loop,700);scheduleGift();scheduleSelfFeed();}
  function stop(){clearTimeout(timer);clearTimeout(giftTimer);clearTimeout(selfFeedTimer);if(statWin)statWin.hidden=true;clearInterval(blinkTimer);if(cancelMove)cancelMove();if(sprite){sprite.hidden=true;}if(layerFront)layerFront.querySelectorAll('.companion-gift').forEach(g=>g.remove());}
- function setActive(id){if(id&&!isDiscovered(id))return false;state.active=id||null;save();if(state.active){pet(state.active);start();}else stop();refreshViews();return true;}
- function onDiscovery(id){if(metaById.has(id)&&!state.pets[id]){pet(id);save();toast('New companion: '+uiName(byId.get(id))+' · see the Companions tab','new');}if(state.active&&sprite&&!sprite.hidden){const p=pet(state.active),m=activeMeta();if(m){gainStat(p,m,'hp',4);save();}}}
+ function setActive(id){if(id&&!isDiscovered(id))return false;state.active=id||null;if(id)state.firstFreeUsed=true;save();if(state.active){pet(state.active);start();}else stop();refreshViews();return true;}
+ /** Player choice: the very first companion is free; every later switch goes through the app (rewarded ad + 5-min grace). Sending home is free. */
+ let choosing=false;
+ async function choose(id){
+  if(choosing)return false;
+  if(!id||id===state.active)return setActive(null);
+  if(!isDiscovered(id))return false;
+  if(!state.firstFreeUsed)return setActive(id);
+  choosing=true;let ok=false;try{ok=await requestActivation(metaById.get(id),{from:state.active});}catch(e){console.warn('companion activation',e);}finally{choosing=false;}
+  return ok?setActive(id):false;
+ }
+ // "Seen" companions: anything discovered but not yet seen in the Companions tab lights the tab badge.
+ function syncSeen(){if(!Array.isArray(state.seen)){state.seen=unlocked().map(c=>c.id);save();}const fresh=unlocked().filter(c=>!state.seen.includes(c.id)).length;onBadge(fresh);return fresh;}
+ function markSeen(){if(!Array.isArray(state.seen))state.seen=[];let changed=false;for(const c of unlocked())if(!state.seen.includes(c.id)){state.seen.push(c.id);changed=true;}if(changed)save();onBadge(0);}
+ const isCompanion=id=>metaById.has(id);
+ const freeChoiceLeft=()=>!state.firstFreeUsed;
+ function onDiscovery(id){if(metaById.has(id)&&!state.pets[id]){pet(id);save();syncSeen();}if(state.active&&sprite&&!sprite.hidden){const p=pet(state.active),m=activeMeta();if(m){gainStat(p,m,'hp',4);save();}}}
 
  // ---------- views ----------
  const listeners=new Set();function refreshViews(){for(const fn of listeners)try{fn();}catch(e){console.warn(e);}}
  function statPanel(meta,p){const g=companionGrades(meta,isShiny(meta.id));return `<div class="cs-panel">${COMPANION_STATS.map(k=>statRow(k,p.stats[k],g[k])).join('')}</div>`;}
  function cardHtml(meta,{full=false}={}){
-  const have=isDiscovered(meta.id),p=have?pet(meta.id):null,sh=isShiny(meta.id);
+  const have=isDiscovered(meta.id),p=have?pet(meta.id):null,sh=isShiny(meta.id);if(p)settleMood(p);
   const el=byId.get(meta.id),name=uiName(el)||meta.name;
   const tl=have?totalLevel(meta.id):0;
   return `<article class="pet-card ${have?'is-unlocked':'is-locked'} ${state.active===meta.id?'is-active':''} ${sh?'is-shiny':''}" data-pet="${meta.id}">
    <div class="pet-preview" aria-hidden="true">${have?(sprites[meta.id]||staticArt(el)):'<span class="pet-silhouette">'+staticArt(el)+'</span>'}</div>
    <div class="pet-main">
-    <strong>${have?(sh?'✦ ':'')+escapeText(name):'???'}</strong>
-    <small>${have?`Total Lv ${tl} · ${moodLabel(p.mood)}`:'Discover '+escapeText(name)+' to unlock'}</small>
+    <strong>${have?(sh?'✦ ':'')+escapeText(p.nick||name):'???'}</strong>
+    <small>${have?`${p.nick?escapeText(name)+' · ':''}Total Lv ${tl} · ${moodLabel(p.mood)}${hungry(p)?' · Hungry':''}`:'Discover '+escapeText(name)+' to unlock'}</small>
+    ${have&&full?`<span class="pet-needs"><span><i>Mood</i><b><em style="width:${p.mood}%"></em></b></span><span><i>Belly</i><b class="is-belly"><em style="width:${p.belly}%"></em></b></span></span>`:''}
     ${have&&!full?`<span class="pet-mini">${COMPANION_STATS.map(k=>`<i title="${STAT_LABEL[k]} ${p.stats[k].points}"><b style="height:${Math.max(6,100*p.stats[k].points/STAT_MAX_POINTS)}%"></b></i>`).join('')}</span>`:''}
-    ${have&&full?statPanel(meta,p)+`<p class="pet-quirk">${escapeText(meta.quirk)}. Gift: ${escapeText(meta.gift)}.</p>`:''}
+    ${have&&full?statPanel(meta,p)+`<p class="pet-quirk">${escapeText(meta.quirk)}. Gift: ${escapeText(meta.gift)}.</p><button type="button" class="pet-rename" data-rename="${meta.id}">Rename</button>`:''}
    </div>
-   ${have?`<button type="button" class="pet-activate" data-activate="${meta.id}" aria-pressed="${state.active===meta.id}">${state.active===meta.id?'Active':'Choose'}</button>`:''}
+   ${have?`<button type="button" class="pet-activate" data-activate="${meta.id}" aria-pressed="${state.active===meta.id}">${state.active===meta.id?'Active':(state.firstFreeUsed?'Choose · ad':'Choose · free')}</button>`:''}
   </article>`;
  }
  function renderTab(){
@@ -318,20 +368,31 @@ export function createCompanionSystem(ctx){
    ${act?`<button type="button" class="pet-dismiss" id="petDismiss">Send home</button>`:''}</section>
    ${groups.map(g=>`<h3 class="pets-family">${escapeText(g.f.name)}</h3><div class="pets-grid">${g.list.map(c=>cardHtml(c)).join('')}</div>`).join('')}
    <section class="pets-help"><h3>How companions work</h3><ul>
-    <li><strong>Unlock:</strong> discover the element in Classic or in its family campaign.</li>
+    <li><strong>Unlock:</strong> discover the element in Classic or in its family campaign. The Companions tab shows a <b>!</b> until you open it.</li>
+    <li><strong>Choosing:</strong> your first companion is free. Switching to another one needs a rewarded ad; after it, switching again is free for 5 minutes. Without ads, switching is always free. Sending a companion home is free.</li>
+    <li><strong>Petting:</strong> rub your finger across the companion: hearts float up and its mood rises (up to a limit every 10 minutes). A quick tap opens its card, where you can also rename it.</li>
+    <li><strong>Emotion orb:</strong> a little orb over its head shows how it feels: a heart when happy, a spiral when sad or when it refuses food, a bowl when hungry, a star burst on a level-up.</li>
+    <li><strong>Belly:</strong> slowly empties over a few hours. A hungry companion goes looking for food more often and its mood fades twice as fast. Each meal fills it.</li>
     <li><strong>On screen:</strong> it walks along the cards, hops, climbs, knocks on the glass, passes behind the frames, and points at a locked ingredient that has no combination left.</li>
     <li><strong>Gifts:</strong> every few minutes it leaves its gift (the Stegosaurus lays an egg). Tap it: a little Stamina and a happier companion.</li>
     <li><strong>Feeding:</strong> drag any element from your list onto the companion, or wait: now and then it hops into your list and helps itself. It grabs the element, chews for a few seconds, and a floating window shows which stats grow. Each element feeds it once per 30 minutes; a few are refused.</li>
     <li><strong>Which stats grow:</strong> the element's family decides, like coloured drives: Games → Run; Anime, Music &amp; Cinema → Power; Nature → Swim; Fantasy → Fly; People → Stamina &amp; HP; Mythology → Power &amp; Fly; Prehistory → Power &amp; HP; Countries → Run &amp; Swim. Its own family counts almost double; a Shiny element counts double.</li>
-    <li><strong>Six stats, each with its own level:</strong> HP, Stamina, Run, Power, Swim, Fly — Lv.0 to Lv.${COMPANION_MAX_LEVEL}. The pink bar fills to the next level; the blue notched bar is the level. Every companion has a grade E–S per stat (its signature stat is S): a level-up gives grade×3+13 ±2 points, so an S stat can reach ${STAT_MAX_POINTS}. A Shiny companion has every grade one step higher.</li>
+    <li><strong>Six stats, each with its own level:</strong> HP, Stamina, Run, Power, Swim, Fly — Lv.0 to Lv.${COMPANION_MAX_LEVEL}. The bar fills to the next level. Every companion has a grade E–S per stat (its signature stat is S): a level-up gives grade×3+13 ±2 points, so an S stat can reach ${STAT_MAX_POINTS}. A Shiny companion has every grade one step higher.</li>
     <li><strong>Mood:</strong> fades slowly over time; a sad companion moves slower. Feeding, gifts and new discoveries cheer it up. A high Run stat makes it move faster on screen.</li>
    </ul><h3>Coming next: companion mini-games</h3><p>Each companion will unlock a different mini-game that it plays on its own (racing, climbing, swimming, digging, flying…). You only tap the screen for a boost, which spends Stamina; Run, Power, Swim, Fly and HP decide how it performs. The goal: a gold medal in every mini-game. Level up your companions now to be ready.</p></section></div>`;
-  root.querySelectorAll('[data-activate]').forEach(b=>b.onclick=()=>{setActive(state.active===b.dataset.activate?null:b.dataset.activate);});
+  root.querySelectorAll('[data-activate]').forEach(b=>b.onclick=()=>choose(b.dataset.activate));
+  root.querySelectorAll('[data-rename]').forEach(b=>b.onclick=()=>rename(b.dataset.rename));
   const d=$('petDismiss');if(d)d.onclick=()=>setActive(null);
+  if(!root.hidden)markSeen();
  }
- function openCard(id){const meta=metaById.get(id);if(!meta)return;showModal(`<div class="modal-tag">COMPANION</div>${cardHtml(meta,{full:true})}<p class="mini-muted">Drag an element from your list onto ${escapeText(uiName(byId.get(meta.id)))} to feed it. Tap its gifts when they appear.</p><button type="button" class="modal-button secondary" id="petCardClose">Close</button>`);$('petCardClose').onclick=closeModal;$('modalContent').querySelectorAll('[data-activate]').forEach(b=>b.onclick=()=>{setActive(state.active===b.dataset.activate?null:b.dataset.activate);closeModal();});}
+ function rename(id){const meta=metaById.get(id);if(!meta||!isDiscovered(id))return;const p=pet(id);
+  showModal(`<div class="modal-tag">RENAME COMPANION</div><h2>${escapeText(uiName(byId.get(id))||meta.name)}</h2><input class="pet-name-input" id="petNameInput" maxlength="${NICK_MAX}" value="${escapeText(p.nick||'')}" placeholder="${escapeText(uiName(byId.get(id))||meta.name)}" autocomplete="off"/><p class="mini-muted">Up to ${NICK_MAX} characters. Leave empty to use the original name.</p><button type="button" class="modal-button" id="petNameSave">Save name</button><button type="button" class="modal-button secondary" id="petNameCancel">Cancel</button>`);
+  const inp=$('petNameInput');setTimeout(()=>inp?.focus(),50);
+  $('petNameSave').onclick=()=>{const v=String(inp.value||'').replace(/[\u0000-\u001f<>]/g,'').trim().slice(0,NICK_MAX);if(v)p.nick=v;else delete p.nick;save();closeModal();refreshViews();};
+  $('petNameCancel').onclick=closeModal;}
+ function openCard(id){const meta=metaById.get(id);if(!meta)return;showModal(`<div class="modal-tag">COMPANION</div>${cardHtml(meta,{full:true})}<p class="mini-muted">Drag an element from your list onto ${escapeText(nameOf(meta))} to feed it. Rub it with your finger to pet it. Tap its gifts when they appear.</p><button type="button" class="modal-button secondary" id="petCardClose">Close</button>`);$('petCardClose').onclick=closeModal;$('modalContent').querySelectorAll('[data-activate]').forEach(b=>b.onclick=async()=>{closeModal();await choose(b.dataset.activate);});$('modalContent').querySelectorAll('[data-rename]').forEach(b=>b.onclick=()=>rename(b.dataset.rename));}
  listeners.add(renderTab);
- return {start,stop,setActive,feed,hitTest,onDiscovery,renderTab,openCard,get active(){return activeMeta();},state:()=>state,unlocked,refreshViews,
+ return {start,stop,setActive,choose,syncSeen,markSeen,isCompanion,freeChoiceLeft,emote,feed,hitTest,onDiscovery,renderTab,openCard,get active(){return activeMeta();},state:()=>state,unlocked,refreshViews,
   onViewChange(){if(activeMeta()&&sprite&&!sprite.hidden)setTimeout(()=>{if(cancelMove)cancelMove();const r=pickRail();if(r){rail=r;setLayer(r.layer);place(clampX(r,pos.x),r.y);sprite.dataset.anim='idle';}},80);},
-  importState(raw){if(raw&&raw.pets){state={active:raw.active||null,pets:raw.pets,v:1};save();}},grades:companionGrades};
+  importState(raw){if(raw&&raw.pets){state=normalize(raw);save();syncSeen();}},grades:companionGrades};
 }
