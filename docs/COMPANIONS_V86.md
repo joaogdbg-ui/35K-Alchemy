@@ -42,6 +42,12 @@ Bronze/silver/gold medals; goal = gold in every mini-game. Suggested first three
 ## V86.2 — Chao-style stats (owner request, SA2B model)
 - Six stats, each with its own level 0–99, a 0–99 progress bar and points (cap 3,375): HP, Stamina, Run, Power, Swim, Fly. Each companion has a grade E–S per stat (`companionGrades`: family base + movement + signature overrides, Shiny +1 grade). Level-up gain = grade×3+13 ±2 (SA2B formula).
 - Feeding gives bar points by the element's family (`FAMILY_FEEDS`): main stat +24 (+40 if the companion's own family), secondary +10/+16; Shiny element ×2; 30-min cooldown per element still applies (eats anyway, no gain).
-- The companion grabs the element (`grab` → `hold-eat`), chews ~3 s while the held art loses bites, and a floating window (`.companion-statwin`) animates the touched rows: pink bar fills and wraps, Lv flips with a flash, points count up; stars burst on level-up.
+- The companion grabs the element (`grab` → `hold-eat`), chews ~3 s while the held art loses bites, and a floating window (`.companion-statwin`) animates the touched rows: the bar fills and wraps, Lv flips with a flash; stars burst on level-up.
 - Self-feeding: every 3–7 min it jumps onto the element list, the chip art lifts into its hands, it sniffs and eats.
-- Companions tab shows the SA2-style panel (name, points, Lv, grade, pink progress bar, blue 10-notch level bar). Run points raise on-screen speed.
+- Companions tab shows the stat panel. Run points raise on-screen speed.
+
+## V86.3 — stat panel in the game palette
+
+- Panel and floating window restyled with the game palette (paper card, slate labels, ochre progress, grade chips: S ochre, A sand, B green).
+- One line per stat: `Name · Lv.XX · progress bar to next level · grade`. Points and the notched level bar were removed from the UI (points are still tracked in the save for the SA2B level-up math).
+- Floating window is 196px wide and clamps inside the viewport.

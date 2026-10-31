@@ -209,8 +209,7 @@ export function createCompanionSystem(ctx){
  function likes(meta,item){const fam=familyFor(item);if(fam===meta.family)return 'love';if(meta.family==='games'&&['life','nature','food'].includes(item.category))return 'no';if(['nature','prehistoric'].includes(meta.family)&&['technology','brand','console','portable','computer'].includes(item.category))return 'no';if(meta.family==='anime'&&['material','science'].includes(item.category))return 'no';return 'ok';}
  function feedPlan(meta,item){const fam=familyFor(item);const [main,second]=FAMILY_FEEDS[fam]||['stamina','hp'];const own=fam===meta.family;const mult=isShiny(item.id)?2:1;return own?[{stat:main,amount:40*mult},{stat:second,amount:16*mult}]:[{stat:main,amount:24*mult},{stat:second,amount:10*mult}];}
  let statWin=null,statWinTimer=null;
- function fmtBar(st){const seg=10;return `<span class="cs-bar"><i class="cs-bar-prog" style="width:${st.bar}%"></i></span><span class="cs-lvbar">${Array.from({length:seg},(_,i)=>`<i class="${i<Math.floor(st.level/seg)?'on':i===Math.floor(st.level/seg)&&st.level%seg?'half':''}"></i>`).join('')}</span>`;}
- function statRow(stat,st,g){return `<div class="cs-row" data-stat="${stat}"><span class="cs-name">${STAT_LABEL[stat]}</span><span class="cs-points" data-points="${st.points}">${String(st.points).padStart(4,'0')}</span><span class="cs-lv">Lv.<b>${String(st.level).padStart(2,'0')}</b></span><span class="cs-grade" data-grade="${GRADES[g]}">${GRADES[g]}</span>${fmtBar(st)}</div>`;}
+ function statRow(stat,st,g){return `<div class="cs-row" data-stat="${stat}"><span class="cs-name">${STAT_LABEL[stat]}</span><span class="cs-lv">Lv.<b>${String(st.level).padStart(2,'0')}</b></span><span class="cs-bar"><i class="cs-bar-prog" style="width:${st.bar}%"></i></span><span class="cs-grade" data-grade="${GRADES[g]}">${GRADES[g]}</span></div>`;}
  /** Animated floating window: rows for the touched stats, bars filling from the previous value. */
  function showStatWindow(meta,changes,hold=2600){
   if(!layerFront)return;const p=pet(meta.id),grades=companionGrades(meta,isShiny(meta.id));
@@ -219,18 +218,17 @@ export function createCompanionSystem(ctx){
   const rows=changes.filter((c,i,arr)=>arr.findIndex(x=>x.stat===c.stat)===i);
   statWin.innerHTML=`<div class="cs-head"><span class="cs-face">${sprites[meta.id]||''}</span><strong>${escapeText(uiName(byId.get(meta.id))||meta.name)}</strong></div>`+rows.map(c=>{const st=p.stats[c.stat];
    // show the state BEFORE the gain, then animate to the new values
-   const beforeLevel=st.level-c.levelUps,beforePts=st.points-c.pointsGained;let beforeBar=st.bar-c.amount;while(beforeBar<0)beforeBar+=100;if(c.levelUps&&st.level>=COMPANION_MAX_LEVEL)beforeBar=Math.max(0,100-c.amount%100);
-   return statRow(c.stat,{level:beforeLevel,bar:Math.max(0,Math.min(99,beforeBar)),points:beforePts},grades[c.stat]);}).join('');
+   const beforeLevel=st.level-c.levelUps;let beforeBar=st.bar-c.amount;while(beforeBar<0)beforeBar+=100;if(c.levelUps&&st.level>=COMPANION_MAX_LEVEL)beforeBar=Math.max(0,100-c.amount%100);
+   return statRow(c.stat,{level:beforeLevel,bar:Math.max(0,Math.min(99,beforeBar))},grades[c.stat]);}).join('');
   statWin.hidden=false;const h=statWin.offsetHeight||140;const left=Math.max(6,Math.min(window.innerWidth-226,pos.x+(pos.face>0?SIZE+8:-228))),top=Math.max(6,Math.min(window.innerHeight-h-70,pos.y-20));
   statWin.style.setProperty('--x',left+'px');statWin.style.setProperty('--y',top+'px');statWin.classList.remove('is-out');void statWin.offsetWidth;statWin.classList.add('is-in');
   // animate each row: bar fills (wrapping on level-up), points count up, level flips with a flash
-  rows.forEach((c,i)=>{const row=statWin.querySelector(`[data-stat="${c.stat}"]`);const st=p.stats[c.stat];const prog=row.querySelector('.cs-bar-prog'),pts=row.querySelector('.cs-points'),lv=row.querySelector('.cs-lv b');
-   const startBar=parseFloat(prog.style.width)||0,startPts=st.points-c.pointsGained,startLv=st.level-c.levelUps;
+  rows.forEach((c,i)=>{const row=statWin.querySelector(`[data-stat="${c.stat}"]`);const st=p.stats[c.stat];const prog=row.querySelector('.cs-bar-prog'),lv=row.querySelector('.cs-lv b');
+   const startBar=parseFloat(prog.style.width)||0,startLv=st.level-c.levelUps;
    const total=startBar+c.amount,dur=900+Math.min(1400,c.amount*12);const t0=performance.now()+250+i*180;
    const stepFn=now=>{const k=Math.max(0,Math.min(1,(now-t0)/dur));const e=1-Math.pow(1-k,3);const v=startBar+(total-startBar)*e;const ups=Math.min(c.levelUps,Math.floor(v/100));
     prog.style.width=(st.level>=COMPANION_MAX_LEVEL&&k===1?0:v%100).toFixed(1)+'%';
-    const curLv=startLv+ups;if(Number(lv.textContent)!==curLv){lv.textContent=String(curLv).padStart(2,'0');row.classList.remove('is-levelup');void row.offsetWidth;row.classList.add('is-levelup');row.querySelector('.cs-lvbar').innerHTML=fmtBar({level:curLv,bar:0}).match(/<span class="cs-lvbar">(.*)<\/span>$/)[1];}
-    const curPts=ups>=c.levelUps?st.points:startPts+Math.round(c.pointsGained*(ups/Math.max(1,c.levelUps)));pts.textContent=String(curPts).padStart(4,'0');
+    const curLv=startLv+ups;if(Number(lv.textContent)!==curLv){lv.textContent=String(curLv).padStart(2,'0');row.classList.remove('is-levelup');void row.offsetWidth;row.classList.add('is-levelup');}
     if(k<1)requestAnimationFrame(stepFn);};
    requestAnimationFrame(stepFn);});
   statWinTimer=setTimeout(()=>{statWin.classList.remove('is-in');statWin.classList.add('is-out');setTimeout(()=>{if(statWin)statWin.hidden=true;},400);},hold+rows.length*300+1800);
