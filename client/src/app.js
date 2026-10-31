@@ -104,6 +104,7 @@ import { buildThematicCampaigns } from './family-campaigns-v82.js';
 import { buildCompleteFamilyCampaigns, mergeFamilyData } from './family-campaigns-v85.js';
 import { FAMILY_DATA_V85 } from './family-data-v85.js';
 import { RECIPE_POLISH_V87 } from './recipe-polish-v87.js';
+import { RECIPE_POLISH_V91 } from './recipe-polish-v91.js';
 import { FAMILY_ART_V88 } from './family-art-v88.js';
 import { ORGANIC_V85 } from './organic-pack-v85.js';
 import { ORGANIC_ART_V85 } from './organic-art-v85.js';
@@ -134,7 +135,7 @@ const reconciledHistorical = reconcileLegacyFamilies(classicRecipes,FAMILY_CAMPA
 // V89: Home & Living joins the V85 family data (own starters + existing members).
 const FAMILY_DATA=mergeFamilyData(FAMILY_DATA_V85,FAMILY_DATA_V89);
 registerFamilyMembership(FAMILY_DATA.families);
-const ALL_CAMPAIGNS=buildCompleteFamilyCampaigns(classicRecipes,ITEMS,FAMILIES,familiesFor,FAMILY_DATA,[...reconciledHistorical.families,...buildThematicCampaigns(classicRecipes,ITEMS)],RECIPE_POLISH_V87);
+const ALL_CAMPAIGNS=buildCompleteFamilyCampaigns(classicRecipes,ITEMS,FAMILIES,familiesFor,FAMILY_DATA,[...reconciledHistorical.families,...buildThematicCampaigns(classicRecipes,ITEMS)],{adds:[...RECIPE_POLISH_V87.adds,...RECIPE_POLISH_V91.adds],remaps:[...RECIPE_POLISH_V87.remaps,...RECIPE_POLISH_V91.remaps]});
 if(ALL_CAMPAIGNS.report.conflicts.length||ALL_CAMPAIGNS.report.polishSkipped||Object.keys(ALL_CAMPAIGNS.report.dropped).length)console.warn('V85 family campaigns',ALL_CAMPAIGNS.report);
 const familyCampaigns=new Map(ALL_CAMPAIGNS.map(f=>[f.id,{...f,itemSet:new Set(f.items),recipeMap:new Map(f.recipes)}]));
 const sharedCatalogIds=sharedMembership(ALL_CAMPAIGNS);
@@ -470,7 +471,7 @@ function shinyCard(item){return `<p class="shiny-trivia"><span aria-hidden="true
 function showShinyFound(id){const it=byId.get(id);if(!it)return;
  showModal(`<div class="modal-tag shiny-tag">✦ SHINY ELEMENT</div><div class="modal-art is-shiny">${staticArt(it)}</div><h2>Shiny ${escapeText(uiName(it))}</h2>${shinyCard(it)}<div class="modal-milestone">${shiny.size.toLocaleString('en-US')} shiny ${shiny.size===1?'element':'elements'} · ${Math.round(shinyChance()*100)}% chance per combination</div>`);
 }
-const APP_VERSION='0.90.0';
+const APP_VERSION='0.91.0';
 // V83: status line + Google consent (UMP) privacy options, required for EEA players.
 async function refreshAdStatus(){
  const el=$('settingsAdStatus'),bridge=getRewardBridge();
@@ -1610,6 +1611,52 @@ const companions=createCompanionSystem({roster:COMPANIONS_V86,sprites:COMPANION_
 const homes=createHomeSystem({$,escapeText,byId,uiName,staticArt,isDiscovered:discoveredAnywhere,objects:HOME_OBJECTS_V89,sprites:COMPANION_SPRITES_V86,roster:COMPANIONS_V86,
  roomSprites:ROOM_SPRITES_V90,applyEffect:(cid,eff)=>companions.homeEffect(cid,eff),
  companionName:id=>companions.state().pets[id]?.nick||uiName(byId.get(id)),showModal,closeModal,toast,reducedMotion:()=>Boolean(window.matchMedia?.('(prefers-reduced-motion: reduce)')?.matches)});
+// V91 idle discoveries: while the game is closed, companions living in houses find elements the
+// player could already craft right now (both ingredients owned, result not yet found). Rate grows
+// with residents, their total level and the discovery furniture; capped by time (8 h) and size.
+// On return: keep 1 free (2 when there are 5+), watch one rewarded ad to keep them all. Without
+// ads (purchase) all are kept. The offline HTML never simulates the ad. Residents also train on
+// their house's training furniture while away (same daily cap as live use).
+const IDLE_KEY='alchemy10k_idle_v1',IDLE_MIN_MS=30*60*1000,IDLE_MAX_HOURS=8;
+function idleRead(){try{return JSON.parse(localStorage.getItem(IDLE_KEY)||'null')||{};}catch{return {};}}
+function idleWrite(v){try{localStorage.setItem(IDLE_KEY,JSON.stringify(v));}catch{}}
+function idleTouch(){const v=idleRead();v.lastSeen=Date.now();idleWrite(v);}
+function idleCandidates(){const out=[];const seen=new Set();for(const [k,o] of recipes){if(unlocked.has(o)||seen.has(o)||!byId.has(o))continue;const [a,b]=k.split('|');if(unlocked.has(a)&&unlocked.has(b)){seen.add(o);out.push([o,a,b]);}}return out;}
+function idlePlan(awayMs){
+ const hs=homes.state().houses,pets=companions.state().pets;let residents=[],disc=0;
+ for(const [hid,h] of Object.entries(hs)){if(!discoveredAnywhere(hid))continue;const rs=(h.residents||[]).filter(discoveredAnywhere);residents.push(...rs.map(cid=>({cid,hid})));disc+=(h.furniture||[]).filter(f=>HOME_OBJECTS_V89[f.id]?.effect==='discovery').length*(rs.length?1:0);}
+ if(!residents.length)return null;
+ const hours=Math.min(IDLE_MAX_HOURS,awayMs/3600000);
+ const lv=residents.reduce((n,r)=>n+Object.values(pets[r.cid]?.stats||{}).reduce((m,s)=>m+(s.level||0),0),0)/residents.length;
+ const rate=0.3*residents.length*(1+lv/120)*(1+0.12*Math.min(10,disc));
+ const cap=Math.min(15,2+residents.length+Math.floor(disc/2));
+ return {residents,hours,count:Math.min(cap,Math.floor(rate*hours+Math.random()*0.6))};
+}
+function applyIdleFind([id,a,b]){if(unlocked.has(id))return;unlocked.add(id);if(!STARTERS.has(id))discoveryLedger.set(id,{at:new Date().toISOString(),source:'companions',ingredients:[a,b]});recent=[id,...recent.filter(x=>x!==id)].slice(0,350);companions.onDiscovery(id);}
+async function checkIdleFinds(){
+ const v=idleRead(),now=Date.now();const away=v.lastSeen?now-v.lastSeen:0;idleTouch();
+ if(away<IDLE_MIN_MS||document.querySelector('#modal:not([hidden])'))return;
+ const plan=idlePlan(away);if(!plan)return;
+ // training while away (daily cap applies inside homeEffect)
+ const trained={};for(const r of plan.residents){const h=homes.state().houses[r.hid];const effs=new Set((h.furniture||[]).map(f=>HOME_OBJECTS_V89[f.id]?.effect).filter(e=>['run','swim','power','fly','stamina','hp','food','mood'].includes(e)));
+  for(const e of effs){const uses=Math.round(plan.hours*4);let any=false;for(let k=0;k<uses;k++)if(companions.homeEffect(r.cid,e))any=true;if(any&&!['food','mood'].includes(e))(trained[r.cid]=trained[r.cid]||[]).push(e);}}
+ const pool=idleCandidates();const finds=[];while(finds.length<plan.count&&pool.length){finds.push(pool.splice(Math.floor(Math.random()*pool.length),1)[0]);}
+ if(!finds.length&&!Object.keys(trained).length)return;
+ const free=adFree()?finds.length:Math.min(finds.length,finds.length>=5?2:1);
+ const hrs=plan.hours>=1?`${Math.floor(plan.hours)} h`:`${Math.round(plan.hours*60)} min`;
+ const trainedHtml=Object.entries(trained).map(([cid,es])=>`<li>${escapeText(companions.state().pets[cid]?.nick||uiName(byId.get(cid)))} trained ${es.map(e=>({run:'Run',swim:'Swim',power:'Power',fly:'Fly',stamina:'Stamina',hp:'HP'})[e]).join(', ')}</li>`).join('');
+ const art=finds.map(([id],i)=>`<span class="idle-find ${i<free?'is-free':'is-locked'}" title="${escapeText(uiName(byId.get(id)))}">${staticArt(byId.get(id))}${i<free?'':'<i class="idle-lock" aria-hidden="true"></i>'}</span>`).join('');
+ const canAd=!adFree()&&finds.length>free&&rewardedAvailable();
+ showModal(`<div class="modal-tag companion-tag">WHILE YOU WERE AWAY · ${hrs}</div><h2>${finds.length?`Your companions discovered ${finds.length} element${finds.length>1?'s':''}!`:'Your companions trained at home'}</h2>${finds.length?`<div class="idle-finds">${art}</div><p class="mini-muted">${free===finds.length?'All of them are yours.':`${free} ${free>1?'are':'is'} yours for free. ${canAd?'Watch one ad to keep all of them.':'Ads are unavailable here, so the rest are lost this time.'}`}</p>`:''}${trainedHtml?`<ul class="idle-trained">${trainedHtml}</ul>`:''}${canAd?'<button type="button" class="modal-button" id="idleAd">Watch ad · keep all</button>':''}<button type="button" class="modal-button ${canAd?'secondary':''}" id="idleKeep">${finds.length&&free<finds.length?`Keep ${free}`:'Great'}</button>`);
+ // The free finds are kept right away (closing the sheet never loses them); the ad adds the rest.
+ const grant=(from,to)=>{for(const f of finds.slice(from,to))applyIdleFind(f);if(to>from){save();updateCounts();updateLatest();rerenderCollections();syncFamilyBanner();}};
+ grant(0,free);
+ const finish=n=>{grant(free,n);if(n)toast(`${n} new discover${n>1?'ies':'y'} from your companions`,'new');closeModal();};
+ $('idleKeep').onclick=()=>finish(free);
+ const ad=$('idleAd');if(ad)ad.onclick=async()=>{if(rewardedHintBusy)return;rewardedHintBusy=true;let result=null;
+  try{result=await getRewardBridge().showRewarded({kind:'idle_finds',count:finds.length});}catch(e){console.warn('Idle rewarded ad failed',e);}finally{rewardedHintBusy=false;}
+  if(result?.earned!==true){toast('Ad not completed · keeping the free ones','repeat');finish(free);return;}finish(finds.length);};
+}
 const BACKUP_KEYS=[COMPANION_STORAGE_KEY,HOME_STORAGE_KEY,SHINY_KEY,HINT_BANK_KEY,FAMILY_SAVES_KEY,MODE_SELECTION_KEY,'gameverse_alchemy_v2','gameverse_dynamic_v11','gameverse_ledger_v16','gameverse_discovery_hints_v20',EXTRA_STORAGE,DISCOVERY_ORDER_KEY];
 function backupJson(){
  save();
@@ -2146,6 +2193,8 @@ classicSnapshot=snapshotPlayState();
 try{const preferred=JSON.parse(localStorage.getItem(MODE_SELECTION_KEY)||'null');if(preferred?.mode==='family'&&familyCampaigns.has(canonicalFamilyId(preferred.family)))activateMode('family',canonicalFamilyId(preferred.family));else if(!preferred)modePicker(true);}catch{modePicker(true);}
 syncModeButton();
 companions.start();companions.syncSeen();
+setTimeout(checkIdleFinds,1200);setInterval(idleTouch,60000);
+document.addEventListener('visibilitychange',()=>{if(document.visibilityState==='hidden')idleTouch();else setTimeout(checkIdleFinds,600);});
 // V19 Offline Edition: intentionally no automatic API connection.
 
 // Global inbox polling is deliberately throttled: one request for ALL pending pairs,

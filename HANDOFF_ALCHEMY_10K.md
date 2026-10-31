@@ -90,6 +90,12 @@ Preserve 200-per-batch policy and do not start another content release on top of
 
 - **Art redraw wave 3 (V85, done): 3,991 icons** — every remaining older element. All 6,012 pre-V83 elements now use the 2026 art direction (`ART_REDRAW`), plus 200 V83 and 200 V85 originals. Six near-duplicates found by the audit were redrawn; 36 reviewed false alarms are in `tools/art-redraw-reviewed-pairs.json` (the audit now also honours them for V83 comparisons).
 
+## V91 — house tiers, drag & drop, idle discoveries (31 October 2026)
+
+- **House tiers**: upgrade chain Tent (House + Thread) → Hut (Tent + Wood) → Cabin → Cottage → Villa → Castle; measured generations 6 → 7 → 8 → 11 → 12 → 13. `recipe-polish-v91.js` (House + Wood now gives Floorboards). Chips show tier dots.
+- **Drag & drop**: press and hold a piece (~0.3 s) or tap Move, then drag over the grid; green = fits, red = blocked, invalid drop snaps back.
+- **Idle discoveries** (`alchemy10k_idle_v1`): after ≥30 min away, residents find elements that are craftable right now (rate grows with residents, their levels and discovery furniture; max 8 h, cap 2 + residents + discovery/2, ≤15). 1 kept free (2 when 5+), the rest with one rewarded ad (`idle_finds`); all with Remove ads. Residents also train on their house's furniture while away (daily cap).
+
 ## V90 — Home screen: companion houses (31 October 2026)
 
 - The third tab is now **Home**: house selector (6 houses), a cosy 3/4 room per house (floor grid by capacity: 4×3 … 8×8, themed walls/floors), residents (up to capacity) and the companion roster below.
