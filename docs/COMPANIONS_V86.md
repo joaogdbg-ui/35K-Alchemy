@@ -32,3 +32,9 @@ Each companion unlocks a different auto-play mini-game (race, climb, swim, dig, 
 the companion plays by itself using its stats; the player taps for a boost that spends Stamina.
 Bronze/silver/gold medals; goal = gold in every mini-game. Suggested first three: Sprint
 (Speed), Cliff Climb (Strength), Long Haul (Stamina/HP). XP from medals feeds the same levels.
+
+## V86.1 (owner feedback)
+- No text anywhere: every gesture is sprite animation (tongue flick, trunk trumpet, fire breath, flame burst, sword swing, head spin, three heads, smoke vanish, belly slide, pounce/charge/skid, phase through a card…), plus drawn effects (knock ripples + screen nudge, sleep bubbles, hearts, level-up stars, the eaten element flying into the mouth).
+- Continuous motion: a requestAnimationFrame mover with eased travel, parabolic jumps that swap the layer at the apex (so going behind a card is a visible jump), climbing the combiner's side, 8-step walk cycles synced to speed, counter-bobbing head, opposite arm swing.
+- Companions are now only characters with bodies (people, animals, creatures, robots): Game Controller/Dice/Arcade Machine/Band/Violin/Drum/Globe/Flag/Great Sphinx/Peking Duck were replaced by Hero, Werewolf, Pixel Artist, Singer, Ninja, Giant Robot, Flamenco, Tango, Rio Carnival, Day of the Dead.
+- Rig v2: every sprite has `mouth` or `jaw` and its quirk parts (`tongue`, `trunk`, `breath`, `flames`, `sparkle`, `flash`, `bee`, `sand`, `notes`, `smoke`, `antenna`, `screen`, `head-b/c`, `sword`, `brush`), validated by `tools/v86-assemble-companions.py`.

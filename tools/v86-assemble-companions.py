@@ -23,16 +23,17 @@ for c in roster:
     if re.search(r'\s(?:href|xlink:href|on\w+|style)\s*=|<(?:script|image|use|text|foreignObject|iframe|animate|filter|mask|clipPath)\b|url\(', body):
         errors.append('unsafe ' + c['file']); continue
     parts = re.findall(r'data-part="([^"]+)"', svg)
-    for r in REQUIRED:
+    for r in REQUIRED + c.get('extraParts', []):
         if parts.count(r) != 1: errors.append(f'{c["file"]}: part {r} x{parts.count(r)}')
+    if parts.count('mouth') + parts.count('jaw') < 1: errors.append(f'{c["file"]}: needs mouth or jaw')
     for m in re.finditer(r'<g([^>]*)data-part="([^"]+)"([^>]*)>', svg):
         attrs = m.group(1) + m.group(3)
         if not re.search(r'data-pivot="\s*-?[\d.]+\s+-?[\d.]+\s*"', attrs): errors.append(f'{c["file"]}: pivot missing on {m.group(2)}')
     if len(re.findall(r'<(?:path|rect|circle|ellipse|line|polygon|polyline)\b', svg)) < 8: errors.append('too simple ' + c['file'])
     sprites[c['id']] = svg
-if errors:
+if errors and '--partial' not in sys.argv:
     sys.exit('companion assembly failed:\n' + '\n'.join(errors[:40]))
-meta = [{k: c[k] for k in ('id', 'name', 'family', 'move', 'gift', 'quirk')} for c in roster]
+meta = [{k: c[k] for k in ('id', 'name', 'family', 'move', 'gift', 'quirk', 'quirkAnim')} for c in roster]
 (root / 'client/src/companions-v86.js').write_text(
     '/* V86 companions: roster + rigged sprites (tools/v86-assemble-companions.py). */\n'
     'export const COMPANIONS_V86 = ' + json.dumps(meta, ensure_ascii=False, separators=(',', ':')) + ';\n'
