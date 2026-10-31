@@ -1249,6 +1249,20 @@ details.pets-help summary{font-weight:800;cursor:pointer}
 
 .g-track.is-v99 .g-actor.companion{width:56px;height:56px}
 
+/* V103 furniture quality + bonus breakdown */
+button.home-eff{border:0;font-family:inherit;cursor:pointer;line-height:1.3}
+button.home-eff::after{content:" ⓘ";opacity:.6;font-weight:700}
+.home-stars{color:#e0a82e;letter-spacing:-1px;font-size:.92em;white-space:nowrap}
+.home-why{border-radius:14px;background:var(--surface-2);padding:10px 12px;margin:8px 0;text-align:left}
+.home-why.is-focus{box-shadow:0 0 0 2px var(--accent)}
+.home-why h3{margin:0 0 6px;font-size:15px}
+.home-why ul{list-style:none;margin:0;padding:0;display:grid;gap:4px}
+.home-why li{display:flex;gap:6px;align-items:center;font-size:13px}
+.home-why li b{margin-left:auto}
+.home-why p{margin:6px 0 0;font-size:13px}
+.home-why-total{font-size:12.5px!important}
+.home-ladder li{color:var(--muted)}.home-ladder li.is-here{color:var(--ink);font-weight:800}
+
 </style>
 </head>
 <body>
@@ -1600,7 +1614,14 @@ const HOME_STORAGE_KEY='alchemy10k_homes_v1';
 const HOUSE_LAYOUTS={1:{cols:4,rows:3,theme:'tent'},2:{cols:5,rows:4,theme:'hut'},3:{cols:6,rows:5,theme:'cabin'},4:{cols:6,rows:6,theme:'cottage'},6:{cols:7,rows:7,theme:'villa'},8:{cols:8,rows:8,theme:'castle'}};
 // V92: houses speed up growth for every resident (multiplier on future gains, never on stats).
 const HOUSE_GROWTH={1:1.1,2:1.2,3:1.35,4:1.5,6:1.75,8:2};
-const FURNITURE_BONUS=0.15,FURNITURE_BONUS_MAX=0.6;
+const FURNITURE_BONUS=0.15,FURNITURE_BONUS_MAX=0.75;
+/**
+ * V103: a piece's bonus depends on how hard it is to make (recipe depth = combinations needed from
+ * the four starters). Race prizes (not craftable) count as top quality. Decor gives no growth.
+ */
+const QUALITY=[{stars:1,pct:10,max:5},{stars:2,pct:15,max:7},{stars:3,pct:20,max:9},{stars:4,pct:25,max:11},{stars:5,pct:30,max:Infinity}];
+function pieceQuality(depth){if(depth==null||!Number.isFinite(depth))return QUALITY[4];return QUALITY.find(q=>depth<=q.max);}
+const starsText=n=>'★'.repeat(n)+'☆'.repeat(5-n);
 const EFFECT_LABEL={run:'Run',swim:'Swim',power:'Power',fly:'Fly',stamina:'Stamina',hp:'HP',mood:'Mood',food:'Food',discovery:'Discovery',decor:'Decor'};
 const BAND=0.6;   // sprite height band above the footprint (in tiles)
 // How a resident uses a piece: stand ON it, or stand IN FRONT of it.
@@ -1621,12 +1642,14 @@ function fits(house,layout,objects,sprites,cand,ignoreIndex=-1){
   return cand.x+w<=f.x||f.x+fw<=cand.x||cand.y+h<=f.y||f.y+fh<=cand.y;});
 }
 /** Pure: growth multiplier for one resident of `house` (capacity cap) for a stat or care kind. */
-function growthMultiplier(capacity,house,objects,kind){const base=HOUSE_GROWTH[capacity]||1;const n=(house?.furniture||[]).filter(f=>objects[f.id]?.effect===kind).length;return Math.round(base*(1+Math.min(FURNITURE_BONUS_MAX,FURNITURE_BONUS*n))*100)/100;}
+function growthMultiplier(capacity,house,objects,kind,bonusOf=()=>FURNITURE_BONUS){const base=HOUSE_GROWTH[capacity]||1;const add=(house?.furniture||[]).filter(f=>objects[f.id]?.effect===kind).reduce((n,f)=>n+bonusOf(f.id),0);return Math.round(base*(1+Math.min(FURNITURE_BONUS_MAX,add))*100)/100;}
 function houseSummary(house,objects){const out={};for(const f of house?.furniture||[]){const e=objects[f.id]?.effect;if(e)out[e]=(out[e]||0)+1;}return out;}
 
 function createHomeSystem(ctx){
  const {$,escapeText,byId,uiName,staticArt,isDiscovered,objects,roomSprites,roster,sprites,companionName,statsHtml,wear,applyEffect,showModal,closeModal,toast,reducedMotion,onChange}=ctx;
  const RS=roomSprites||{};
+ const qOf=id=>pieceQuality(ctx.depthOf?.(id));const bonusOf=id=>objects[id]?.effect==='decor'?0:qOf(id).pct/100;
+ const bonusText=id=>{const ob=objects[id];if(!ob||ob.effect==='decor')return 'Decor · no bonus';const q=qOf(id);return `${BONUS_NAME[ob.effect]||EFFECT_LABEL[ob.effect]} +${q.pct}% <span class="home-stars">${starsText(q.stars)}</span>`;};
  let state={v:1,active:null,houses:{}};
  try{const raw=JSON.parse(localStorage.getItem(HOME_STORAGE_KEY)||'null');if(raw&&raw.houses&&typeof raw.houses==='object')state={v:1,active:raw.active||null,houses:raw.houses};}catch{}
  for(const h of Object.values(state.houses))for(const f of h.furniture||[])if(typeof f.r!=='number')f.r=0;
@@ -1683,6 +1706,7 @@ function createHomeSystem(ctx){
    <div class="home-res-row"><span>Residents</span><div class="home-res-list">${resHtml}</div></div>
   </section>`;
   mount.querySelectorAll('[data-house]').forEach(b=>b.onclick=()=>houseInfo(mount,b.dataset.house));
+  mount.querySelectorAll('.home-effects [data-eff]').forEach(b=>b.onclick=()=>bonusSheet(hid,b.dataset.eff));
   mount.querySelectorAll('.home-tile').forEach(t=>t.onclick=()=>tapSpot(mount,hid,Number(t.dataset.x),Number(t.dataset.y),false));
   mount.querySelectorAll('.home-walltile').forEach(t=>t.onclick=()=>tapSpot(mount,hid,Number(t.dataset.wx),-1,true));
   mount.querySelectorAll('[data-piece]').forEach(p=>{wireDrag(mount,hid,p);});
@@ -1700,15 +1724,25 @@ function createHomeSystem(ctx){
  // ---------- bonuses (growth multipliers) ----------
  const BONUS_NAME={run:'Run',swim:'Swim',power:'Power',fly:'Fly',stamina:'Stamina',hp:'HP',food:'Meals',mood:'Fun',discovery:'Finds'};
  function bonuses(hid){const h=house(hid),cap=objects[hid].capacity,out=[];const sum=houseSummary(h,objects);
-  for(const k of ['run','swim','power','fly','stamina','hp','food','mood','discovery'])if(sum[k]){const pct=Math.round(Math.min(FURNITURE_BONUS_MAX,FURNITURE_BONUS*sum[k])*100);out.push({k,pct,n:sum[k]});}
+  for(const k of ['run','swim','power','fly','stamina','hp','food','mood','discovery'])if(sum[k]){const pieces=h.furniture.filter(f=>objects[f.id]?.effect===k).map(f=>({id:f.id,q:qOf(f.id)}));const raw=pieces.reduce((n,p)=>n+p.q.pct,0);const pct=Math.min(Math.round(FURNITURE_BONUS_MAX*100),raw);out.push({k,pct,raw,n:sum[k],pieces});}
   return {growth:HOUSE_GROWTH[cap]||1,list:out};}
- function bonusChips(hid){const b=bonuses(hid);return `<span class="home-eff is-growth">Growth ×${b.growth}</span>`+b.list.map(x=>`<span class="home-eff" data-eff="${x.k}">${BONUS_NAME[x.k]} +${x.pct}%</span>`).join('');}
+ function bonusChips(hid){const b=bonuses(hid);return `<button type="button" class="home-eff is-growth" data-eff="growth">Growth ×${b.growth}</button>`+b.list.map(x=>`<button type="button" class="home-eff" data-eff="${x.k}">${BONUS_NAME[x.k]} +${x.pct}%</button>`).join('');}
+ /** V103: where every bonus comes from (tap a chip under the room). */
+ function bonusSheet(hid,focus){const b=bonuses(hid),o=objects[hid],it=byId.get(hid),al=ctx.alchemy?.()||{mult:1,finds:0};
+  const ladder=houseIds().map(id=>`<li class="${id===hid?'is-here':''}">${escapeText(uiName(byId.get(id)))} <b>×${HOUSE_GROWTH[objects[id].capacity]}</b></li>`).join('');
+  const sec=x=>{const f=Math.round(b.growth*(1+x.pct/100)*al.mult*100)/100;return `<section class="home-why ${focus===x.k?'is-focus':''}"><h3>${BONUS_NAME[x.k]} +${x.pct}%</h3><ul>${x.pieces.map(p=>`<li>${escapeText(uiName(byId.get(p.id)))} <span class="home-stars">${starsText(p.q.stars)}</span><b>+${p.q.pct}%</b></li>`).join('')}</ul>${x.raw>x.pct?`<p class="mini-muted">Pieces add up to +${x.raw}% — the cap is +${Math.round(FURNITURE_BONUS_MAX*100)}% per bonus.</p>`:''}<p class="home-why-total">${BONUS_NAME[x.k]} grows <b>×${f}</b> = house ×${b.growth} × furniture ×${(1+x.pct/100).toFixed(2)} × alchemy ×${al.mult}</p></section>`;};
+  showModal(`<div class="modal-tag">WHERE THE BONUSES COME FROM</div><h2>${escapeText(uiName(it))}</h2>
+   <section class="home-why ${focus==='growth'?'is-focus':''}"><h3>Growth ×${b.growth}</h3><p>Every resident of this house grows ×${b.growth} faster. Better houses grow faster:</p><ul class="home-ladder">${ladder}</ul><p class="mini-muted">On top of that, Alchemy adds <b>×${al.mult}</b> to every companion (${Number(al.finds).toLocaleString('en-US')} elements found in Classic).</p></section>
+   ${b.list.map(sec).join('')||'<p class="mini-muted">No furniture bonuses yet: training, food, fun and book furniture each add their own bonus.</p>'}
+   <p class="mini-muted">Each piece adds a bonus to what it trains. Pieces that need more combinations to discover are better: ★ +10% … ★★★★★ +30%. Race prizes are ★★★★★. Decor gives no bonus.</p>
+   <button type="button" class="modal-button secondary" id="homeClose">Close</button>`);
+  $('homeClose').onclick=closeModal;const el=document.querySelector('.home-why.is-focus');if(el)el.scrollIntoView?.({block:'nearest'});}
  function houseInfo(mount,id){const o=objects[id],have=isDiscovered(id),it=byId.get(id),tier=houseIds().indexOf(id)+1,L=layoutFor(o.capacity);
   if(!have){showModal(`<div class="modal-tag">COMPANION HOUSE · TIER ${tier}</div><div class="modal-art home-locked-art">${staticArt(it)}</div><h2>Undiscovered house</h2><p>Room for <b>${o.capacity}</b> companion${o.capacity>1?'s':''} · ${L.cols}×${L.rows} floor.</p><p class="home-bonus-line">Residents grow <b>×${HOUSE_GROWTH[o.capacity]}</b> faster.</p><p class="mini-muted">Better houses are upgrades of the previous one, so their recipes are longer.</p><button type="button" class="modal-button secondary" id="homeClose">Close</button>`);$('homeClose').onclick=closeModal;return;}
   const b=bonuses(id),active=id===state.active;
   showModal(`<div class="modal-tag">COMPANION HOUSE · TIER ${tier}</div><div class="modal-art">${staticArt(it)}</div><h2>${escapeText(uiName(it))}</h2><p>${escapeText(it.summary||'')}</p>
    <div class="home-bonus"><div class="home-bonus-big">×${b.growth}<small>growth for every resident</small></div>
-   <ul>${b.list.length?b.list.map(x=>`<li><b>${BONUS_NAME[x.k]} +${x.pct}%</b> · ${x.n} piece${x.n>1?'s':''}</li>`).join(''):'<li>Add training, food, fun or book furniture for extra bonuses.</li>'}</ul></div>
+   <ul>${b.list.length?b.list.map(x=>`<li><b>${BONUS_NAME[x.k]} +${x.pct}%</b> · ${x.pieces.map(p=>escapeText(uiName(byId.get(p.id)))+' +'+p.q.pct+'%').join(', ')}</li>`).join(''):'<li>Add training, food, fun or book furniture for extra bonuses.</li>'}</ul></div>
    <p class="mini-muted">Room for ${o.capacity} · ${L.cols}×${L.rows} floor. Bonuses only speed up growth from meals, gifts, discoveries and training — moving a companion to another house never takes away what it already earned.</p>
    ${active?'':'<button type="button" class="modal-button" id="homeGo">Go to this house</button>'}<button type="button" class="modal-button secondary" id="homeClose">Close</button>`);
   $('homeClose').onclick=closeModal;const go=$('homeGo');if(go)go.onclick=()=>{state.active=id;moving=null;save();closeModal();render(mount);};}
@@ -1752,7 +1786,7 @@ function createHomeSystem(ctx){
   const owned=furnitureOwned().filter(id=>(layerOf(RS,id)==='wall')===wall);
   if(!owned.length){showModal(`<div class="modal-tag">FURNITURE</div><h2>${wall?'Nothing to hang yet':'No furniture yet'}</h2><p>${wall?'Picture frames, clocks, curtains and tapestries hang on the wall.':'Furniture is discovered like any element: beds, sofas, treadmills, paddling pools, bookshelves, food bowls… Each one trains a stat, cheers companions up, feeds them or boosts discoveries.'}</p><button type="button" class="modal-button secondary" id="homeClose">Close</button>`);$('homeClose').onclick=closeModal;return;}
   const rows=owned.map(id=>{const ob=objects[id],where=placedAnywhere(id),ok=!where&&fits(h,L,objects,RS,{id,x,y:wall?-1:y,r:0});const it=byId.get(id);
-   return {ok,html:`<button type="button" class="home-pick ${ok?'':'is-off'}" data-pick="${id}" ${ok?'':'disabled'}><span class="home-pick-art">${staticArt(it)}</span><span class="home-pick-main"><strong>${escapeText(uiName(it))}</strong><small>${EFFECT_LABEL[ob.effect]} · ${ob.size[0]}×${ob.size[1]}${where?' · placed'+(where===hid?' here':' in another house'):ok?'':' · no room here'}</small></span></button>`};}).sort((a,b)=>b.ok-a.ok).map(r=>r.html).join('');
+   return {ok,html:`<button type="button" class="home-pick ${ok?'':'is-off'}" data-pick="${id}" ${ok?'':'disabled'}><span class="home-pick-art">${staticArt(it)}</span><span class="home-pick-main"><strong>${escapeText(uiName(it))}</strong><small>${bonusText(id)} · ${ob.size[0]}×${ob.size[1]}${where?' · placed'+(where===hid?' here':' in another house'):ok?'':' · no room here'}</small></span></button>`};}).sort((a,b)=>b.ok-a.ok).map(r=>r.html).join('');
   showModal(`<div class="modal-tag">${wall?'HANG ON THE WALL':'ADD FURNITURE'}</div><h2>Choose a piece</h2><div class="home-pick-list">${rows}</div><button type="button" class="modal-button secondary" id="homeClose">Close</button>`);
   $('homeClose').onclick=closeModal;
   document.querySelectorAll('[data-pick]').forEach(b=>b.onclick=()=>{h.furniture.push({id:b.dataset.pick,x,y:wall?-1:y,r:0});save();closeModal();render(mount);});
@@ -1760,7 +1794,7 @@ function createHomeSystem(ctx){
  function tapPiece(mount,hid,i,spot=null){
   const h=house(hid),f=h.furniture[i];if(!f)return;const it=byId.get(f.id),ob=objects[f.id],L=layoutFor(objects[hid].capacity),layer=layerOf(RS,f.id);
   const what=ob.effect==='decor'?'Decoration — makes the house yours.':`${EFFECT_LABEL[ob.effect]}: ${({run:'residents run on it',swim:'residents splash and swim in it',power:'residents build strength',fly:'residents bounce and glide',stamina:'residents climb and balance',hp:'residents rest and recover',mood:'residents have fun',food:'residents eat here',discovery:'residents explore and find more'})[ob.effect]}.`;
-  showModal(`<div class="modal-tag">FURNITURE</div><div class="modal-art">${staticArt(it)}</div><h2>${escapeText(uiName(it))}</h2><p>${what}</p><p class="mini-muted">To move it, press and hold it in the room and drag it.</p>${layer!=='wall'?'<button type="button" class="modal-button" id="homeRotate">Rotate</button>':''}${layer==='floor'&&spot&&!spot.wall?'<button type="button" class="modal-button" id="homeOnTop">Put furniture on it</button>':''}<button type="button" class="modal-button secondary" id="homeRemove">Put away</button>`);
+  showModal(`<div class="modal-tag">FURNITURE</div><div class="modal-art">${staticArt(it)}</div><h2>${escapeText(uiName(it))}</h2><p>${what}</p><p class="home-bonus-line">${bonusText(f.id)}${ob.effect==='decor'?'':' growth for residents'}</p><p class="mini-muted">To move it, press and hold it in the room and drag it.</p>${layer!=='wall'?'<button type="button" class="modal-button" id="homeRotate">Rotate</button>':''}${layer==='floor'&&spot&&!spot.wall?'<button type="button" class="modal-button" id="homeOnTop">Put furniture on it</button>':''}<button type="button" class="modal-button secondary" id="homeRemove">Put away</button>`);
   const rot=$('homeRotate');if(rot)rot.onclick=()=>{for(let k=1;k<=3;k++){const r=(f.r+k)%4;if(fits(h,L,objects,RS,{...f,r},i)){f.r=r;save();closeModal();render(mount);return;}}toast('No room to rotate it here','repeat');};
   const top=$('homeOnTop');if(top)top.onclick=()=>{closeModal();tapSpot(mount,hid,spot.x,spot.y,false);};
   $('homeRemove').onclick=()=>{h.furniture.splice(i,1);save();closeModal();render(mount);};
@@ -1824,7 +1858,7 @@ function createHomeSystem(ctx){
  function place(el,p){el.style.setProperty('--x',p.x);el.style.setProperty('--y',p.y);el.style.setProperty('--z',11+(p.y+1)*2);el.dataset.face=p.face>0?'right':'left';}
  function stopWander(){clearTimeout(wanderTimer);wanderTimer=null;}
 
- function growthFor(cid,kind){const hid=residentOf(cid);if(!hid||!isDiscovered(hid))return 1;return growthMultiplier(objects[hid].capacity,house(hid),objects,kind);}
+ function growthFor(cid,kind){const hid=residentOf(cid);if(!hid||!isDiscovered(hid))return 1;return growthMultiplier(objects[hid].capacity,house(hid),objects,kind,bonusOf);}
  function houseLine(cid){const hid=residentOf(cid);if(!hid||!isDiscovered(hid))return '';return `Lives in ${escapeText(uiName(byId.get(hid)))} · grows ×${HOUSE_GROWTH[objects[hid].capacity]||1} faster`;}
  return {render,stopWander,growthFor,houseLine,state:()=>state,summary:id=>houseSummary(house(id),objects),ownedHouses,residentOf,
   importState(raw){if(raw&&raw.houses){state={v:1,active:raw.active||null,houses:raw.houses};save();}}};
@@ -4508,7 +4542,7 @@ function shinyCard(item){return `<p class="shiny-trivia"><span aria-hidden="true
 function showShinyFound(id){const it=byId.get(id);if(!it)return;
  showModal(`<div class="modal-tag shiny-tag">✦ SHINY ELEMENT</div><div class="modal-art is-shiny">${staticArt(it)}</div><h2>Shiny ${escapeText(uiName(it))}</h2>${shinyCard(it)}<div class="modal-milestone">${shiny.size.toLocaleString('en-US')} shiny ${shiny.size===1?'element':'elements'} · ${Math.round(shinyChance()*100)}% chance per combination</div>`);
 }
-const APP_VERSION='1.0.2';
+const APP_VERSION='1.0.3';
 // V83: status line + Google consent (UMP) privacy options, required for EEA players.
 async function refreshAdStatus(){
  const el=$('settingsAdStatus'),bridge=getRewardBridge();
@@ -5660,7 +5694,7 @@ function classicDiscoveredCount(){try{const list=currentMode==='classic'?[...unl
 function alchemyGrowth(){return Math.round((1+Math.min(1,classicDiscoveredCount()/4000))*100)/100;}
 function wearAll(root){if(!root)return;const els=root.querySelectorAll?.('[data-companion], .pet-ava[data-card], .pet-card[data-pet], .home-res[data-res], .pets-now-art[data-card]')||[];for(const el of els){const id=el.dataset.companion||el.dataset.card||el.dataset.pet||el.dataset.res;const belt=games.beltOf(id);if(!belt)continue;const svg=el.querySelector('svg');if(svg)wearBelt(svg,belt);}}
 const homes=createHomeSystem({$,escapeText,byId:homeById,uiName:homeUiName,staticArt:homeStaticArt,isDiscovered:homeDiscovered,objects:HOME_OBJECTS,sprites:COMPANION_SPRITES_V86,roster:COMPANIONS_V86,
- roomSprites:ROOM_SPRITES,wear:wearAll,applyEffect:(cid,eff)=>companions.homeEffect(cid,eff),
+ roomSprites:ROOM_SPRITES,depthOf:id=>routeDepth.get(id),alchemy:()=>({mult:alchemyGrowth(),finds:classicDiscoveredCount()}),wear:wearAll,applyEffect:(cid,eff)=>companions.homeEffect(cid,eff),
  companionName:id=>companions.state().pets[id]?.nick||uiName(byId.get(id)),statsHtml:id=>companions.statsHtml(id),showModal,closeModal,toast,reducedMotion:()=>Boolean(window.matchMedia?.('(prefers-reduced-motion: reduce)')?.matches)});
 // V91 idle discoveries: while the game is closed, companions living in houses find elements the
 // player could already craft right now (both ingredients owned, result not yet found). Rate grows

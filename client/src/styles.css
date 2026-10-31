@@ -1239,3 +1239,17 @@ details.pets-help summary{font-weight:800;cursor:pointer}
 .g-progress #gProg{position:absolute;top:-4px;width:16px;height:16px;margin-left:-8px;border-radius:50%;background:#d08a4c;border:3px solid #fff;box-shadow:0 1px 3px rgba(0,0,0,.3);z-index:1}
 
 .g-track.is-v99 .g-actor.companion{width:56px;height:56px}
+
+/* V103 furniture quality + bonus breakdown */
+button.home-eff{border:0;font-family:inherit;cursor:pointer;line-height:1.3}
+button.home-eff::after{content:" ⓘ";opacity:.6;font-weight:700}
+.home-stars{color:#e0a82e;letter-spacing:-1px;font-size:.92em;white-space:nowrap}
+.home-why{border-radius:14px;background:var(--surface-2);padding:10px 12px;margin:8px 0;text-align:left}
+.home-why.is-focus{box-shadow:0 0 0 2px var(--accent)}
+.home-why h3{margin:0 0 6px;font-size:15px}
+.home-why ul{list-style:none;margin:0;padding:0;display:grid;gap:4px}
+.home-why li{display:flex;gap:6px;align-items:center;font-size:13px}
+.home-why li b{margin-left:auto}
+.home-why p{margin:6px 0 0;font-size:13px}
+.home-why-total{font-size:12.5px!important}
+.home-ladder li{color:var(--muted)}.home-ladder li.is-here{color:var(--ink);font-weight:800}
