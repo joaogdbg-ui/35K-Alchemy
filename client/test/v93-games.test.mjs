@@ -30,11 +30,14 @@ test('V99: each course has its own route; one continuous track drawn with the ap
   const total=l=>g.planFor(c,l).reduce((n,x)=>n+x.len,0);assert.ok(total(4)>total(0)*2,c.id);}
  const src=(await import('node:fs')).readFileSync(new URL('../src/games-v93.js',import.meta.url),'utf8');
  assert.match(src,/courseSvg\(C,art\)/);
+ assert.ok(g.glideReach(0)<0.5&&g.glideReach(40)<1&&g.glideReach(90)>=1,'glide reach grows with Fly; weak fliers fall short');
+ assert.match(src,/fallNow\('NO STAMINA!'\)/,'out of stamina mid-air = fall');
  for(const c of g.COURSES)for(let l=0;l<5;l++){const C=g.buildCourse(g.planFor(c,l),3);let x=0;
   for(const z of C.zones){assert.ok(Math.abs(z.a-x)<1e-9,'zones are contiguous');x=z.b;assert.ok(z.h0>=0&&z.h0<=3&&z.h1>=0&&z.h1<=3,'height within 0..3');
    if(z.kind==='wall')assert.equal(z.h1,z.h0+1,'a wall climbs one level and the race carries on up there');if(z.kind==='glide')assert.ok(z.h1<=z.h0,'glides land lower or level');}
   assert.equal(C.zones.at(-1).h1,C.zones.at(-1).h0,'the finish straight is flat');assert.ok(Math.abs(C.L-g.planFor(c,l).reduce((n,s)=>n+s.len,0))<1e-6);
   if(c.id==='grand')assert.ok(C.zones.some(z=>z.kind==='puzzle'),'alchemy gates in the Championship');
+  for(const z of C.zones)if(z.kind==='glide'){assert.ok(z.floorY>Math.max(z.y0,z.y1),'chasm has a floor');assert.ok(['water','grass'].includes(z.floor));}
   const svg=g.courseSvg(C);assert.match(svg,/^<svg/);assert.ok(!/GOAL|START|rainbow/i.test(svg),'no copied Chao Race props');assert.match(g.courseFrontSvg(C),/rc-front/,'gate posts drawn in front of the racers');
   const art=Object.fromEntries(['run','climb','swim'].map(k=>[k,'<svg/>']));assert.match(g.courseSvg(C,art),/<image href="data:image\/svg\+xml/,'drawn with the approved V95 art');}
 });
