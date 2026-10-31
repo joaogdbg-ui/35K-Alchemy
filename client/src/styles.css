@@ -1269,3 +1269,10 @@ button.home-eff::after{content:" ⓘ";opacity:.6;font-weight:700}
 .g-ring .g-actor.companion{width:140px;height:140px;bottom:27%}
 .g-ring .g-actor.is-left{left:18%}.g-ring .g-actor.is-right{right:18%}
 .g-ring .g-actor.is-left{left:9%}.g-ring .g-actor.is-right{right:9%}
+
+/* V107 long press: a ring fills while holding, so it never looks like a tap */
+.element-chip{position:relative}
+.element-chip.is-holding{transform:scale(.97);transition:transform .5s}
+.element-chip.is-holding::after{content:"";position:absolute;inset:-3px;border-radius:inherit;pointer-events:none;border:3px solid var(--accent,#d08a4c);clip-path:inset(0 100% 0 0);animation:chip-hold .5s linear forwards}
+@keyframes chip-hold{to{clip-path:inset(0 0 0 0)}}
+.modal-art.is-info{transform:scale(.8)}

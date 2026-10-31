@@ -11,7 +11,7 @@ test('V103: harder-to-make furniture gives bigger bonuses; picker and chips expl
 });
 test('V104: long press opens the element sheet; gate stones are walked to, not teleported',()=>{
  const app=fs.readFileSync(new URL('../src/app.js',import.meta.url),'utf8');
- assert.match(app,/navigator\.vibrate\?\.\(12\);elementInfo\(id\);\},480\)/);assert.match(app,/function elementInfo\(id\)/);
+ assert.match(app,/navigator\.vibrate\?\.\(12\);elementInfo\(id\);\},700\)/,'long press needs 700 ms so a slow tap still combines');assert.match(app,/function elementInfo\(id\)/);
  const g=fs.readFileSync(new URL('../src/games-v93.js',import.meta.url),'utf8');
  assert.match(g,/q\.ph==='go'/);assert.match(g,/smooth walking inside alchemy gates/);
 });

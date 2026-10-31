@@ -90,6 +90,10 @@ Preserve 200-per-batch policy and do not start another content release on top of
 
 - **Art redraw wave 3 (V85, done): 3,991 icons** — every remaining older element. All 6,012 pre-V83 elements now use the 2026 art direction (`ART_REDRAW`), plus 200 V83 and 200 V85 originals. Six near-duplicates found by the audit were redrawn; 36 reviewed false alarms are in `tools/art-redraw-reviewed-pairs.json` (the audit now also honours them for V83 comparisons).
 
+## V107 — urgent: slow taps opened the element sheet instead of combining (31 October 2026)
+- Owner report: combining showed an element already owned instead of the discovery. Cause: V104 long press (480 ms) fired on slow taps of the second element, opening its sheet and skipping the combination. Recipes were re-audited (Classic + 9 families, 120 random new combinations per mode and 37 real touch taps): every result window matched the recipe.
+- Fix: long press needs 700 ms, a ring fills on the chip from 200 ms, and the sheet is titled "ABOUT THIS ELEMENT". Taps up to ~650 ms always combine.
+
 ## V106 — karate that reads as a fight (31 October 2026)
 - Fighters (140px) stand on the middle of the mat (bottom 27%, 9% from each side) in a bobbing stance with a floor shadow.
 - Each attack is a Web Animations sequence: wind-up (step back, crouch) → dash to the opponent → impact at 330 ms → back. Outcome at impact: dodge (jump up and back + ghost), braced block (small push + block ring), hit (knockback, bigger and airborne on heavy hits, white flash) or KO (thrown back and over, stays down until the next round).
