@@ -90,6 +90,13 @@ Preserve 200-per-batch policy and do not start another content release on top of
 
 - **Art redraw wave 3 (V85, done): 3,991 icons** — every remaining older element. All 6,012 pre-V83 elements now use the 2026 art direction (`ART_REDRAW`), plus 200 V83 and 200 V85 originals. Six near-duplicates found by the audit were redrawn; 36 reviewed false alarms are in `tools/art-redraw-reviewed-pairs.json` (the audit now also honours them for V83 comparisons).
 
+## V95 — Stadium scenery, sound, feedback; Alchemy tab (31 October 2026)
+
+- **Scenery** (`client/assets/v95-stadium/`, `tools/v95-assemble-stadium-art.py` → `stadium-art-v95.js`): seamless terrain tiles (meadow, pond with lily pads, ravine with broken bridge, rock wall with holds), sky with sun/hills/trees, hedge-and-fence mid layer (also used as a faster foreground), start and finish gates with bunting/crowd/trophy; karate dojo (shoji, pillars, lanterns, blossoms, spectators, taiko) and tatami ring with rope. Three-layer parallax.
+- **Sound** (`stadium-sfx-v95.js`, Web Audio synth, honours the Settings sound toggle): countdown ticks/GO, cheer, tired, splash, flap, section chime, pass/passed, rest, finish fanfare, lose, medal, prize, gong, FIGHT, hit, big hit, block, miss, charge, K.O., breath.
+- **Feedback**: damage numbers, POW!/WHAM! bursts and hit-stop on big hits, KO zoom, confetti on a KO win, WINNER!/place banners at the finish, bigger actors (64 px) with glow ring under the player's companion, big splash when entering water.
+- Bottom tab "Play" is now labelled **Alchemy** (view id unchanged).
+
 ## V94 — Stadium redesign, prizes and belts (31 October 2026)
 
 - Games tab rebuilt as the **Stadium** (Chao Stadium model): entrant card (big sprite, name, total Lv, six stat grades E–S with levels, belt), Change picker with levels, then Races / Karate / Prizes tabs. `client/src/games-v93.js` (V94 content), `client/src/prizes-v94.js`.

@@ -5,7 +5,8 @@ const root=new URL('../',import.meta.url);
 const html=readFileSync(new URL('index.html',root),'utf8');
 const app=readFileSync(new URL('src/app.js',root),'utf8');
 
-test('primary navigation contains only Play and Discoveries',()=>{
+test('primary navigation keeps the Play view (labelled Alchemy since V95)',()=>{
+ assert.match(html,/data-view="Play"[^>]*>.*<span>Alchemy<\/span>/);
  assert.match(html,/data-view="Play"/);
  assert.match(html,/data-view="World"/);
  assert.doesNotMatch(html,/data-view="Collection"/);
