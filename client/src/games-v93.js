@@ -34,7 +34,7 @@ const SEG_LEN=90,UNIT_SPEED=80;
  * THINK (pick the result of the recipe on the sign). Each course has its own authored structure.
  * Pure data: buildCourse(plan) → zones in race units + world px; groundAt / posAt / courseSvg.
  */
-const RC={PX:2.2,GATE:150,Y0:286,LVL:50,BAND:46,H:400,MAXL:3,LANE:8};
+const RC={PX:2.2,GATE:150,Y0:250,LVL:48,BAND:100,H:1000,MAXL:3,LANE:18,SK:0.32};
 const lerp=(a,b,k)=>a+(b-a)*k;
 const smooth=k=>k*k*(3-2*k);
 /** V99 alchemy gates (the THINK sections): two elements on the sign, four answers on the floor. */
@@ -67,51 +67,70 @@ export function groundAt(z,k){
  return lerp(z.y0,z.y1,smooth(k))-(z.bump?3*Math.sin(Math.PI*k*z.bump*2):0);
 }
 export const panelPx=(z,i)=>z.pa+(z.pb-z.pa)*(0.15+i*0.18);
-export function posAt(c,x,lane=0){const z=zoneAt(c,Math.min(x,c.L-1e-6));const k=Math.max(0,Math.min(1,(x-z.a)/z.len));
- const px=z.kind==='wall'?z.pa-28-lane*2:lerp(z.pa,z.pb,k);return {z,k,px,y:groundAt(z,k)+6+lane*RC.LANE};}
+/** Depth into the track (oblique view): lane 0 runs at the back, lane 4 at the front. */
+const laneD=lane=>14+lane*RC.LANE;
+export function posAt(c,x,lane=0){const z=zoneAt(c,Math.min(x,c.L-1e-6));const k=Math.max(0,Math.min(1,(x-z.a)/z.len));const d=laneD(lane);
+ const px=(z.kind==='wall'?z.pa-24:lerp(z.pa,z.pb,k))+d*RC.SK;return {z,k,px,y:groundAt(z,k)+d};}
 
 const f1=n=>Math.round(n*10)/10;
 /**
- * One continuous SVG drawn with the approved V95 stadium art: the run tile is the grass path, the
- * climb tile (earth with gems) is every cliff face and wall, the swim tile fills pools, the fly tile
- * is the chasm with its broken bridge, and the original start / finish gates stand at both ends.
+ * V100: the track is drawn in an oblique view: the path has real depth (5 lanes side by side),
+ * walls are the riser face of the next step (racers climb its face), pools are sunk into the
+ * path, the chasm shows the far cliff's face, and start / finish are lines painted ACROSS the
+ * path with a post on each side and the banner over it. The earth runs to the bottom of the screen.
+ * Art: the approved V95 tiles (run = path, climb = rock and walls, swim = water, fly = chasm).
  */
 export function courseSvg(c,art={}){
- const {BAND,H}=RC;const back=[],mid=[],front=[];
+ const {BAND:B,H,SK}=RC;const Bs=B*SK;const back=[],mid=[];
  let rs=7;const rnd=()=>{rs=(rs*9301+49297)%233280;return rs/233280;};
  const uri=k=>'data:image/svg+xml,'+encodeURIComponent(art[k]||'');
- const pat=(id,k,w,h,dy,fb,crop=0)=>`<pattern id="${id}" width="${w}" height="${h-2*crop}" patternUnits="userSpaceOnUse" y="${dy}">${art[k]?`<image href="${uri(k)}" y="${-crop}" width="${w}" height="${h}" preserveAspectRatio="none"/>`:`<rect width="${w}" height="${h}" fill="${fb}"/>`}</pattern>`;
+ const pat=(id,k,w,h,fb,crop=0)=>`<pattern id="${id}" width="${w}" height="${h-2*crop}" patternUnits="userSpaceOnUse">${art[k]?`<image href="${uri(k)}" y="${-crop}" width="${w}" height="${h}" preserveAspectRatio="none"/>`:`<rect width="${w}" height="${h}" fill="${fb}"/>`}</pattern>`;
+ const P=pts=>pts.map(([x,y])=>f1(x)+' '+f1(y)).join('L');
+ const off=(T,d)=>T.map(([x,y])=>[x+d*SK,y+d]);
  const pts=z=>{const n=Math.max(2,Math.ceil((z.pb-z.pa)/8));const o=[];for(let j=0;j<=n;j++){const k=j/n;o.push([lerp(z.pa,z.pb,k),groundAt(z,k)]);}o[o.length-1][0]+=0.8;return o;};
- const strip=(T,o1,o2,fill,extra='')=>`<path d="M${T.map(([x,y])=>f1(x)+' '+f1(y+o1)).join('L')}L${[...T].reverse().map(([x,y])=>f1(x)+' '+f1(y+o2)).join('L')}Z" fill="${fill}" ${extra}/>`;
- const face=(T,fill)=>`<path d="M${T.map(([x,y])=>f1(x)+' '+f1(y+BAND)).join('L')}L${f1(T[T.length-1][0])} ${H}L${f1(T[0][0])} ${H}Z" fill="${fill}"/>`;
- const ground=T=>[face(T,'url(#rcRock)'),strip(T,BAND-1,BAND+5,'#7a5a3e','opacity=".45"'),strip(T,0,BAND,'url(#rcGrass)'),strip(T,0,5,'#7FAF5C'),strip(T,BAND-5,BAND,'#6f9e50')].join('');
+ const strip=(T,d1,d2,fill,extra='')=>`<path d="M${P(off(T,d1))}L${P(off(T,d2).reverse())}Z" fill="${fill}" ${extra}/>`;
+ const face=(T,fill,extra='')=>{const F=off(T,B);return `<path d="M${P(F)}L${f1(F.at(-1)[0])} ${H}L${f1(F[0][0])} ${H}Z" fill="${fill}" ${extra}/>`;};
+ const ground=T=>[face(T,'url(#rcRock)'),strip(T,B,B+7,'#5c4330','opacity=".35"'),strip(T,0,B,'url(#rcGrass)'),strip(T,0,6,'#6f9e50'),strip(T,B-6,B,'#7FAF5C'),`<path d="M${P(off(T,B))}" stroke="#4d7a3c" stroke-width="2.5" fill="none"/>`].join('');
+ const riser=(x,yTop,yBot,shade=0.18)=>`<path d="M${f1(x)} ${f1(yTop)}L${f1(x+Bs)} ${f1(yTop+B)}L${f1(x+Bs)} ${f1(yBot+B)}L${f1(x)} ${f1(yBot)}Z" fill="url(#rcRock)" stroke="#6b4f36" stroke-width="2.5"/><path d="M${f1(x)} ${f1(yTop)}L${f1(x+Bs)} ${f1(yTop+B)}L${f1(x+Bs)} ${f1(yBot+B)}L${f1(x)} ${f1(yBot)}Z" fill="#3b2a1c" opacity="${shade}"/>`;
  const bush=(x,y)=>`<g transform="translate(${f1(x)} ${f1(y)})" stroke="#4d7a3c" stroke-width="2"><circle cx="-11" cy="-6" r="10" fill="#7aae58"/><circle cx="4" cy="-11" r="13" fill="#8fbf68"/><circle cx="17" cy="-5" r="9" fill="#7aae58"/></g>`;
- const flat=y=>[[0,y],[RC.GATE+0.8,y]];
- mid.push(ground(flat(RC.Y0)));
+ // glide voids first (everything else is drawn over them)
+ for(const z of c.zones)if(z.kind==='glide'){const xa=z.pa,xb=z.pb,ya=z.y0,yb=z.y1;
+  mid.push(`<path d="M${f1(xa)} ${f1(ya)}L${f1(xb)} ${f1(yb)}L${f1(xb+Bs)} ${H}L${f1(xa)} ${H}Z" fill="url(#rcChasm)"/>`,riser(xb,yb,H-B,0.3));
+  back.push(`<rect x="${f1(xa-4)}" y="${f1(ya-26)}" width="7" height="30" rx="2" fill="#a0683c" stroke="#6b4426" stroke-width="2"/><rect x="${f1(xb-3)}" y="${f1(yb-26)}" width="7" height="30" rx="2" fill="#a0683c" stroke="#6b4426" stroke-width="2"/><path d="M${f1(xa)} ${f1(ya-22)}q10 34 22 44M${f1(xb)} ${f1(yb-22)}q-10 30 -20 40" stroke="#c99b62" stroke-width="2" fill="none"/><path d="M${f1(xa+6)} ${f1(ya+18)}l14 26l8-4l-12-26Z" fill="#b8744a" stroke="#6b4426" stroke-width="2"/>`);}
+ mid.push(ground([[-80,RC.Y0],[RC.GATE+0.8,RC.Y0]]));
  for(const z of c.zones){
-  if(z.kind==='wall'){const top=z.y1,bot=z.y0+BAND,x=z.pa;
-   front.push(`<path d="M${x-16} ${bot}L${x-18} ${top+14}Q${x-18} ${top} ${x-4} ${top}L${x+14} ${top}L${x+14} ${bot}Z" fill="url(#rcRock)" stroke="#6b4f36" stroke-width="3"/><path d="M${x-15} ${top+10}v${f1(bot-top-14)}" stroke="#fff" stroke-width="2" opacity=".25"/>${Array.from({length:Math.max(1,Math.floor((bot-top)/18))},(_,j)=>`<path d="M${x-14} ${f1(top+16+j*18)}h${j%2?10:14}" stroke="#6b4f36" stroke-width="2.5" stroke-linecap="round"/>`).join('')}<rect x="${x-21}" y="${top-4}" width="37" height="9" rx="4.5" fill="#7FAF5C" stroke="#4d7a3c" stroke-width="2"/>`);continue;}
-  if(z.kind==='glide'){const xa=z.pa,xb=z.pb,ya=z.y0+BAND,yb=z.y1+BAND;
-   const yc=Math.max(ya,yb)-2;mid.push(`<path d="M${f1(xa)} ${f1(yc)}L${f1(xb)} ${f1(yc)}L${f1(xb)} ${H}L${f1(xa)} ${H}Z" fill="url(#rcChasm)"/>`,
-    `<path d="M${f1(xa)} ${f1(z.y0)}l-12 0l0 ${H}l12 0Z" fill="url(#rcRock)" stroke="#6b4f36" stroke-width="2"/><path d="M${f1(xb)} ${f1(z.y1)}l12 0l0 ${H}l-12 0Z" fill="url(#rcRock)" stroke="#6b4f36" stroke-width="2"/>`);
-   back.push(`<rect x="${f1(xa-11)}" y="${f1(z.y0-22)}" width="7" height="30" rx="2" fill="#a0683c" stroke="#6b4426" stroke-width="2"/><rect x="${f1(xb+4)}" y="${f1(z.y1-22)}" width="7" height="30" rx="2" fill="#a0683c" stroke="#6b4426" stroke-width="2"/><path d="M${f1(xa-7)} ${f1(z.y0-18)}q10 34 22 40M${f1(xb+8)} ${f1(z.y1-18)}q-10 30 -20 36" stroke="#c99b62" stroke-width="2" fill="none"/><path d="M${f1(xa+4)} ${f1(z.y0+14)}l16 22l8-4l-14-22Z" fill="#b8744a" stroke="#6b4426" stroke-width="2"/>`);
-   continue;}
+  if(z.kind==='glide')continue;
+  if(z.kind==='wall'){const x=z.pa;mid.push(riser(x,z.y1,z.y0),`<path d="M${f1(x)} ${f1(z.y1)}L${f1(x+Bs)} ${f1(z.y1+B)}" stroke="#7FAF5C" stroke-width="6" stroke-linecap="round"/>`,
+    ...Array.from({length:Math.max(1,Math.floor((z.y0-z.y1)/16))},(_,j)=>{const yy=z.y1+12+j*16;return `<path d="M${f1(x+4)} ${f1(yy+4/SK*SK)}L${f1(x+Bs-4)} ${f1(yy+B-4)}" stroke="#6b4f36" stroke-width="2" opacity=".55" stroke-dasharray="${j%2?'6 10':'10 6'}"/>`;}));continue;}
   const T=pts(z);
-  if(z.kind==='swim'){mid.push(face(T,'url(#rcWater)'),strip(T,0,BAND,'url(#rcWater)'),strip(T,0,3,'#cfeaf5','opacity=".9"'));
-   mid.push(`<path d="M${f1(z.pa)} ${f1(z.y0)}q14 4 22 14l0 ${H}l-22 0Z" fill="url(#rcRock)"/><path d="M${f1(z.pb+0.8)} ${f1(z.y0)}q-14 4 -22 14l0 ${H}l22 0Z" fill="url(#rcRock)"/><path d="M${f1(z.pa)} ${f1(z.y0)}q14 4 22 14M${f1(z.pb)} ${f1(z.y0)}q-14 4 -22 14" stroke="#7FAF5C" stroke-width="5" fill="none" stroke-linecap="round"/>`);
-   back.push(`<path d="M${f1(z.pa+8)} ${f1(z.y0+4)}v-20M${f1(z.pa+14)} ${f1(z.y0+4)}v-27M${f1(z.pb-12)} ${f1(z.y0+4)}v-23" stroke="#6d8f3e" stroke-width="3" stroke-linecap="round"/><ellipse cx="${f1(z.pa+14)}" cy="${f1(z.y0-24)}" rx="3" ry="6" fill="#9a6a3e"/>`);continue;}
+  if(z.kind==='swim'){mid.push(face(T,'url(#rcRock)'),strip(T,0,B,'url(#rcWater)'),strip(T,0,4,'#5b8f9e','opacity=".5"'),strip(T,B-5,B,'#e6d29a'),`<path d="M${P(off(T,B))}" stroke="#b79a5c" stroke-width="2" fill="none"/>`);
+   const n=Math.floor((z.pb-z.pa)/36);for(let j=0;j<n;j++){const x=z.pa+18+j*36,k=(x-z.pa)/(z.pb-z.pa),d=10+((j*37)%70),y=groundAt(z,k);mid.push(j%3===1?`<ellipse cx="${f1(x+d*SK)}" cy="${f1(y+d)}" rx="9" ry="4" fill="#6fa65a" stroke="#4d7a3c" stroke-width="1.5"/>`:`<path d="M${f1(x+d*SK)} ${f1(y+d)}q5-4 10 0" stroke="#fff" stroke-width="2.2" fill="none" opacity=".8"/>`);}
+   back.push(`<path d="M${f1(z.pa+10)} ${f1(z.y0+2)}v-20M${f1(z.pa+16)} ${f1(z.y0+2)}v-27M${f1(z.pb-12)} ${f1(z.y0+2)}v-23" stroke="#6d8f3e" stroke-width="3" stroke-linecap="round"/><ellipse cx="${f1(z.pa+16)}" cy="${f1(z.y0-24)}" rx="3" ry="6" fill="#9a6a3e"/>`);continue;}
   mid.push(ground(T));
-  if(z.kind!=='puzzle'){const n=Math.floor((z.pb-z.pa)/150);for(let j=0;j<n;j++){if(rnd()<0.45)continue;const x=z.pa+40+j*150+rnd()*40,y=groundAt(z,(x-z.pa)/(z.pb-z.pa));back.push(bush(x,y+6));}}
-  else{const yy=z.y0,gx=z.pa+(z.pb-z.pa)*0.88;
-   for(let i=0;i<4;i++){const x=panelPx(z,i);mid.push(`<g id="rcP${z.i}_${i}" class="rc-panel"><ellipse cx="${f1(x)}" cy="${yy+BAND/2+2}" rx="15" ry="10" fill="#e9dcc6" stroke="#8a6a4a" stroke-width="2.5"/><text x="${f1(x)}" y="${yy+BAND/2+8}" text-anchor="middle" font-size="17">${z.opts[i]}</text></g>`);}
-   back.push(`<rect x="${f1(gx-26)}" y="${yy-96}" width="9" height="100" rx="3" fill="#C9934E" stroke="#7a5b3a" stroke-width="2.5"/><rect x="${f1(gx+17)}" y="${yy-96}" width="9" height="100" rx="3" fill="#C9934E" stroke="#7a5b3a" stroke-width="2.5"/><rect x="${f1(gx-40)}" y="${yy-118}" width="80" height="34" rx="9" fill="#fff8ec" stroke="#7a5b3a" stroke-width="3"/><text x="${f1(gx)}" y="${yy-94}" text-anchor="middle" font-size="17">${z.recipe[0]}+${z.recipe[1]}</text>`);}
+  if(z.kind!=='puzzle'){const n=Math.floor((z.pb-z.pa)/150);for(let j=0;j<n;j++){if(rnd()<0.45)continue;const x=z.pa+40+j*150+rnd()*40,y=groundAt(z,(x-z.pa)/(z.pb-z.pa));back.push(bush(x,y+4));}}
+  else{const yy=z.y0,gx=z.pa+(z.pb-z.pa)*0.9;
+   for(let i=0;i<4;i++){const x=panelPx(z,i),d=B*0.55;mid.push(`<g id="rcP${z.i}_${i}" class="rc-panel"><ellipse cx="${f1(x+d*SK)}" cy="${f1(yy+d)}" rx="16" ry="10" fill="#e9dcc6" stroke="#8a6a4a" stroke-width="2.5"/><text x="${f1(x+d*SK)}" y="${f1(yy+d+6)}" text-anchor="middle" font-size="16">${z.opts[i]}</text></g>`);}
+   back.push(`<rect x="${f1(gx-4)}" y="${yy-96}" width="9" height="100" rx="3" fill="#C9934E" stroke="#7a5b3a" stroke-width="2.5"/><rect x="${f1(gx-40)}" y="${yy-120}" width="80" height="34" rx="9" fill="#fff8ec" stroke="#7a5b3a" stroke-width="3"/><text x="${f1(gx)}" y="${yy-96}" text-anchor="middle" font-size="17">${z.recipe[0]}+${z.recipe[1]}</text>`);}
  }
  const fx=c.finishPx,fy=c.finishY??RC.Y0;
  mid.push(ground([[fx,fy],[c.W,fy]]));
- const gate=(k,x,w,y=RC.Y0)=>art[k]?`<image href="${uri(k)}" x="${f1(x)}" y="${f1(y+BAND-w*2.5)}" width="${w}" height="${f1(w*2.5)}"/>`:'';
- back.push(gate('start',RC.GATE-70,76));front.push(gate('finish',fx-50,100,fy));
- const defs=`<defs>${pat('rcGrass','run',100,150,0,'#8FBF68',28)}${pat('rcRock','climb',120,180,0,'#b98a5e')}${pat('rcWater','swim',110,165,0,'#7cc3e0',26)}${pat('rcChasm','fly',150,225,0,'#2f3b46')}</defs>`;
- return `<svg class="rc-svg" xmlns="http://www.w3.org/2000/svg" width="${f1(c.W)}" height="${H}" viewBox="0 0 ${f1(c.W)} ${H}">${defs}<g>${back.join('')}</g><g>${mid.join('')}</g><g>${front.join('')}</g></svg>`;
+ // start / finish: lines painted across the path + back post and banner start (front post in the overlay)
+ for(const [x,y,fin] of [[RC.GATE,RC.Y0,false],[fx,fy,true]]){
+  mid.push(`<path d="M${f1(x)} ${f1(y)}L${f1(x+12)} ${f1(y)}L${f1(x+12+Bs)} ${f1(y+B)}L${f1(x+Bs)} ${f1(y+B)}Z" fill="${fin?'url(#rcCheck)':'#fff'}" opacity=".95"/>`);
+  back.push(`<rect x="${f1(x-4)}" y="${f1(y-118)}" width="10" height="122" rx="3" fill="#C9934E" stroke="#7a5b3a" stroke-width="2.5"/><circle cx="${f1(x+1)}" cy="${f1(y-121)}" r="6" fill="#e0b25a" stroke="#7a5b3a" stroke-width="2"/>`);}
+ const defs=`<defs>${pat('rcGrass','run',100,150,'#8FBF68',28)}${pat('rcRock','climb',120,180,'#b98a5e')}${pat('rcWater','swim',110,165,'#7cc3e0',26)}<linearGradient id="rcChasm" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#5c6f7b"/><stop offset=".35" stop-color="#2f3b46"/><stop offset="1" stop-color="#1b242c"/></linearGradient><linearGradient id="rcDeep" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#3b2a1c" stop-opacity="0"/><stop offset="1" stop-color="#3b2a1c" stop-opacity=".55"/></linearGradient><pattern id="rcCheck" width="12" height="12" patternUnits="userSpaceOnUse"><rect width="12" height="12" fill="#fff"/><rect width="6" height="6" fill="#2b3640"/><rect x="6" y="6" width="6" height="6" fill="#2b3640"/></pattern></defs>`;
+ mid.push(`<rect x="0" y="${RC.Y0+B+50}" width="${f1(c.W)}" height="${H-RC.Y0-B-50}" fill="url(#rcDeep)"/>`);
+ return `<svg class="rc-svg" xmlns="http://www.w3.org/2000/svg" width="${f1(c.W)}" height="${H}" viewBox="0 0 ${f1(c.W)} ${H}">${defs}<g>${back.join('')}</g><g>${mid.join('')}</g></svg>`;
+}
+/** Overlay drawn ABOVE the racers: front posts of the start / finish gates and their banners. */
+export function courseFrontSvg(c){
+ const {BAND:B,H,SK}=RC;const Bs=B*SK;const fx=c.finishPx,fy=c.finishY??RC.Y0;const o=[];
+ for(const [x,y,fin] of [[RC.GATE,RC.Y0,false],[fx,fy,true]]){const xf=x+Bs,yf=y+B,top=y-118,flag=['#e0675a','#f1c26b','#5aaed2','#8dbf8a','#9b7fc4'];
+  o.push(`<path d="M${f1(x+1)} ${f1(top)}L${f1(xf+1)} ${f1(top+B)}L${f1(xf+1)} ${f1(top+B+26)}L${f1(x+1)} ${f1(top+26)}Z" fill="${fin?'url(#rcCheck2)':'#fff8ec'}" stroke="#7a5b3a" stroke-width="2.5"/>`,
+   ...[0.15,0.35,0.55,0.75,0.95].map((k,i)=>`<path d="M${f1(x+1+Bs*k-4)} ${f1(top+26+B*k-4*SK)}l8 ${f1(8*SK)}l-5 12Z" fill="${flag[i]}"/>`),
+   `<rect x="${f1(xf-4)}" y="${f1(top+B-4)}" width="10" height="${f1(yf-top-B+6)}" rx="3" fill="#C9934E" stroke="#7a5b3a" stroke-width="2.5"/><circle cx="${f1(xf+1)}" cy="${f1(top+B-7)}" r="6" fill="#e0b25a" stroke="#7a5b3a" stroke-width="2"/>`);
+  if(!fin)o.push(`<text x="${f1(x+Bs/2+1)}" y="${f1(top+B/2+15)}" text-anchor="middle" font-size="11" font-weight="900" fill="#7a5b3a" font-family="system-ui,sans-serif" transform="rotate(${f1(Math.atan(1/SK)*180/Math.PI)} ${f1(x+Bs/2+1)} ${f1(top+B/2+10)})">GO</text>`);}
+ return `<svg class="rc-front" xmlns="http://www.w3.org/2000/svg" width="${f1(c.W)}" height="${H}" viewBox="0 0 ${f1(c.W)} ${H}"><defs><pattern id="rcCheck2" width="10" height="10" patternUnits="userSpaceOnUse"><rect width="10" height="10" fill="#fff"/><rect width="5" height="5" fill="#2b3640"/><rect x="5" y="5" width="5" height="5" fill="#2b3640"/></pattern></defs>${o.join('')}</svg>`;
 }
 
 export const statSpeed=lv=>0.55+Math.max(0,Math.min(99,lv))/99*0.9;
@@ -234,14 +253,14 @@ export function createGamesSystem(ctx){
   const C=buildCourse(planFor(course,level),course.id.length*31+level);const L=C.L;
   const rivals=opponentsFor(4,pid);const growth=Number(ctx.alchemyGrowth?.()||1);
   const st=stage(`${course.name} · ${LEVELS[level]}`,'race');st.dataset.level=level;const body=st.querySelector('.g-stage-body'),hud=st.querySelector('.g-hud');
-  body.innerHTML=`<div class="g-sky" style="background-image:${bg('sky')}"><i class="g-cloud" style="--d:0"></i><i class="g-cloud" style="--d:1"></i><i class="g-cloud" style="--d:2"></i></div><div class="g-mid" style="background-image:${bg('mid')}"></div><div class="g-track is-v99" style="width:${C.W}px">${courseSvg(C,art)}</div><div class="g-fore" style="background-image:${bg('mid')}"></div><div class="g-tint"></div>`;
-  const track=body.querySelector('.g-track'),hills=body.querySelector('.g-mid');
+  body.innerHTML=`<div class="g-sky" style="background-image:${bg('sky')}"><i class="g-cloud" style="--d:0"></i><i class="g-cloud" style="--d:1"></i><i class="g-cloud" style="--d:2"></i></div><div class="g-mid" style="background-image:${bg('mid')}"></div><div class="g-track is-v99" style="width:${C.W}px">${courseSvg(C,art)}${courseFrontSvg(C)}</div><div class="g-fore" style="background-image:${bg('mid')}"></div><div class="g-tint"></div>`;
+  body.classList.add('has-v99');const track=body.querySelector('.g-track'),hills=body.querySelector('.g-mid');
   const avg=s=>['run','swim','fly','power','stamina'].reduce((n,k)=>n+(s[k]||0),0)/5/99;
   const racers=[{id:pid,me:true,stats:Object.fromEntries(Object.entries(me.stats).map(([k,v])=>[k,v.level])),mood:me.mood,name:me.name},...rivals.map((c,i)=>({id:c.id,stats:opponentStats(course,level,i+1+Date.now()%97),mood:60,name:companionInfo(c.id).name}))];
   racers.forEach((r,i)=>{r.x=0;r.lane=i;r.max=energyMax(r.stats.stamina);r.energy=r.max;r.rest=0;r.boost=0;r.done=false;r.ai=2+Math.random()*2;r.fx=0;r.seg=-1;r.kind='';r.solved=new Set();r.pz=null;
    r.wits=Math.min(0.95,0.25+0.45*avg(r.stats)+(r.me?0.3*(growth-1):0.05*level));
    r.el=actor(r.id,r.me?'is-me':'');r.el.style.setProperty('--lane',i);
-   const tag=document.createElement('b');tag.className='g-tag';tag.innerHTML=`<em>${i+1}</em>${escapeText(r.name)}`;r.el.append(tag);r.tag=tag;track.append(r.el);});
+   const tag=document.createElement('b');tag.className='g-tag';tag.innerHTML=r.me?`<em>${i+1}</em>${escapeText(r.name)}`:`<em>${i+1}</em>`;if(!r.me)tag.classList.add('is-mini');r.el.append(tag);r.tag=tag;track.append(r.el);});
   dress(track);
   hud.innerHTML=`<div class="g-hud-row"><div class="g-energy"><i>Stamina</i><b><em id="gEnergy"></em></b></div><div class="g-place" id="gPlace">—</div></div><div class="g-progress"><i id="gProg"></i>${C.zones.filter(z=>z.kind!=='run').map(z=>`<b class="is-${z.kind}" style="left:${(100*z.a/L).toFixed(1)}%;width:${(100*z.len/L).toFixed(1)}%"></b>`).join('')}</div>${cheerBtn('CHEER')}`;
   const energyEl=hud.querySelector('#gEnergy'),placeEl=hud.querySelector('#gPlace'),cheer=hud.querySelector('#gCheer'),prog=hud.querySelector('#gProg');
@@ -263,7 +282,7 @@ export function createGamesSystem(ctx){
      r.x=z.a+z.len*0.06;P=posAt(C,r.x,r.lane);px=P.px;anim='idle';cls='run is-think';
      if(!r.pz||r.pz.zi!==z.i){r.pz={zi:z.i,ph:'think',t:Math.max(0.35,1.7-1.2*r.wits)+Math.random()*0.4,left:[0,1,2,3]};if(r.me)sfx.tick();}
      const q=r.pz;q.t-=dt;
-     if(q.ph==='pick'){px=panelPx(z,q.pick)+r.lane*1.5;anim='jump';if(q.t<=0){if(q.pick===z.ans){r.solved.add(z.i);r.pz=null;r.x=z.a+z.len*0.66;fxAt(r.el,'is-ok',26,-10,700);if(r.me){flash(z,q.pick,true);sfx.pass();}}
+     if(q.ph==='pick'){px=panelPx(z,q.pick)+(14+r.lane*RC.LANE)*RC.SK;anim='jump';if(q.t<=0){if(q.pick===z.ans){r.solved.add(z.i);r.pz=null;r.x=z.a+z.len*0.66;fxAt(r.el,'is-ok',26,-10,700);if(r.me){flash(z,q.pick,true);sfx.pass();}}
        else{q.left=q.left.filter(i=>i!==q.pick);q.ph='think';q.t=Math.max(0.3,1.1-0.8*r.wits);fxAt(r.el,'is-bad',26,-10,700);if(r.me){flash(z,q.pick,false);sfx.tired();}}}}
      else if(q.t<=0){const ok=Math.random()<Math.max(1/q.left.length,Math.min(0.95,0.25+0.7*r.wits));const wrong=q.left.filter(i=>i!==z.ans);q.pick=ok||!wrong.length?z.ans:wrong[Math.floor(Math.random()*wrong.length)];q.ph='pick';q.t=0.5;if(r.me)sfx.flap();}
     }else{
@@ -277,7 +296,7 @@ export function createGamesSystem(ctx){
      P=posAt(C,r.x,r.lane);px=P.px;
      r.fx-=dt;if(r.fx<=0&&!reducedMotion()){r.fx=z.kind==='swim'?0.35:0.22;fxAt(r.el,z.kind==='swim'?'is-splash':z.kind==='glide'?'is-wind':z.kind==='wall'?'is-pebble':'is-dust',z.kind==='glide'?-6:6,z.kind==='glide'?20:50,600);}
     }
-    if(r.x>=L){r.x=L;r.done=true;finished.push(r);P=posAt(C,L,r.lane);px=P.px+8+finished.length*14;cls='run is-happy';anim='idle';if(r.me){if(finished.length===1){confetti(body);sfx.finish();banner(st,'WINNER!','is-go',1200);}else if(finished.length<=3){sfx.medal();banner(st,ORD(finished.length)+'!','is-pass',900);}else{sfx.lose();}}}
+    if(r.x>=L){r.x=L;r.done=true;finished.push(r);P=posAt(C,L,r.lane);px=P.px+26;cls='run is-happy';anim='idle';if(r.me){if(finished.length===1){confetti(body);sfx.finish();banner(st,'WINNER!','is-go',1200);}else if(finished.length<=3){sfx.medal();banner(st,ORD(finished.length)+'!','is-pass',900);}else{sfx.lose();}}}
     r.el.className=`companion g-actor ${r.me?'is-me':''} seg-${cls}`;r.el.dataset.anim=anim;
     r.el.style.setProperty('--x',px.toFixed(1)+'px');r.el.style.setProperty('--y',P.y.toFixed(1)+'px');}
    const mine=racers[0];const order=[...racers].sort((a,b)=>(b.done?1e6-finished.indexOf(b):b.x)-(a.done?1e6-finished.indexOf(a):a.x));
@@ -288,7 +307,7 @@ export function createGamesSystem(ctx){
    const vw=body.clientWidth,mx=posAt(C,mine.x,0).px,cam=Math.max(Math.min(0,vw-C.W),Math.min(0,-(mx-vw*0.36)));track.style.transform=`translateX(${cam.toFixed(1)}px)`;hills.style.backgroundPositionX=(cam*0.45)+'px';body.querySelector('.g-fore').style.backgroundPositionX=(cam*1.25-60)+'px';body.querySelector('.g-sky').style.backgroundPositionX=(cam*0.15)+'px';
    if(mine.done){cancelAnimationFrame(raf);setTimeout(()=>{if(quit)return;st.remove();finishRace(mount,course,level,finished.indexOf(mine)+1,racers,finished);},1300);return;}
    raf=requestAnimationFrame(step);};
-  racers.forEach(r=>{const P=posAt(C,0,r.lane);r.el.style.setProperty('--x',(P.px-30-r.lane*16)+'px');r.el.style.setProperty('--y',P.y+'px');});
+  racers.forEach(r=>{const P=posAt(C,0,r.lane);r.el.style.setProperty('--x',(P.px-22)+'px');r.el.style.setProperty('--y',P.y+'px');});
   setTimeout(()=>countdown(st,()=>{running=true;last=0;raf=requestAnimationFrame(step);}),400);
  }
  function confetti(parent){if(reducedMotion())return;for(let i=0;i<26;i++){const f=document.createElement('i');f.className='g-confetti';f.style.setProperty('--i',i);f.style.left=(20+Math.random()*60)+'%';f.style.setProperty('--c',['#e0675a','#f1c26b','#5aaed2','#8dbf8a','#9b7fc4'][i%5]);parent.append(f);setTimeout(()=>f.remove(),1800);}}
