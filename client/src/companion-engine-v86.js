@@ -56,122 +56,180 @@ export function createCompanionSystem(ctx){
  const activeMeta=()=>state.active&&isDiscovered(state.active)?metaById.get(state.active):null;
 
  // ---------- DOM ----------
- let layerFront=null,layerBack=null,sprite=null,timer=null,giftTimer=null,blinkTimer=null,idleSince=now(),lastPoint=0,destroyed=false;
- let pos={x:40,y:200,face:1},rail=null,sleeping=false,busy=false,lastInput=now();
+ // Everything the companion "says" is shown by its own body: no text bubbles anywhere.
+ let layerFront=null,layerBack=null,sprite=null,timer=null,giftTimer=null,blinkTimer=null,lastPoint=0,destroyed=false;
+ let pos={x:40,y:200,face:1},rail=null,sleeping=false,busy=false,lastInput=now(),cancelMove=null,rollAngle=0;
+ const SIZE=58;
  function ensureLayer(){
   if(layerFront)return;
   layerBack=document.createElement('div');layerBack.className='companion-layer is-back';layerBack.id='companionLayerBack';
   layerFront=document.createElement('div');layerFront.className='companion-layer is-front';layerFront.id='companionLayer';
   document.body.append(layerBack,layerFront);
   sprite=document.createElement('button');sprite.type='button';sprite.className='companion';sprite.id='companionSprite';sprite.setAttribute('aria-label','Your companion');
-  sprite.innerHTML='<span class="companion-shadow" aria-hidden="true"></span><span class="companion-art" aria-hidden="true"></span><span class="companion-bubble" hidden></span><span class="companion-ripple" aria-hidden="true"></span>';
+  sprite.innerHTML='<span class="companion-shadow" aria-hidden="true"></span><span class="companion-art" aria-hidden="true"></span><span class="companion-fx" aria-hidden="true"></span>';
   sprite.addEventListener('click',e=>{e.stopPropagation();openCard(state.active);});
-  layerFront.append(sprite);
   ['pointerdown','keydown','touchstart'].forEach(ev=>document.addEventListener(ev,()=>{lastInput=now();if(sleeping)wake();},{passive:true}));
-  window.addEventListener('resize',()=>{if(activeMeta())goTo(pickRail(),true);});
+  window.addEventListener('resize',()=>{if(activeMeta()){const r=pickRail();if(r){rail=r;setLayer(r.layer);place(clampX(r,pos.x),r.y);}}});
  }
  function setArt(meta){
   const svg=sprites[meta.id]||'';
   const art=sprite.querySelector('.companion-art');art.innerHTML=svg;
   for(const g of art.querySelectorAll('[data-part]')){const p=(g.dataset.pivot||'50 50').split(/\s+/).map(Number);g.style.transformOrigin=`${p[0]}px ${p[1]}px`;g.style.transformBox='view-box';}
-  sprite.dataset.move=meta.move;sprite.dataset.companion=meta.id;sprite.classList.toggle('is-shiny',isShiny(meta.id));
+  sprite.dataset.move=meta.move;sprite.dataset.quirk=meta.quirkAnim||'wiggle';sprite.dataset.companion=meta.id;sprite.classList.toggle('is-shiny',isShiny(meta.id));
   const svgEl=art.querySelector('svg');if(svgEl){svgEl.setAttribute('width','100%');svgEl.setAttribute('height','100%');}
  }
- const SIZE=58;
  function rect(sel){const el=document.querySelector(sel);if(!el||el.hidden)return null;const r=el.getBoundingClientRect();return r.width>0&&r.height>0?r:null;}
+ // Rails are the top edges of the interface cards. Each edge exists twice: in FRONT (standing on
+ // the card) and BEHIND (half hidden behind the card, drawn in the back layer).
  function rails(){
-  const list=[],vw=window.innerWidth,vh=window.innerHeight;
-  const card=rect('#viewPlay:not([hidden]) .craft-card'),shelf=rect('#viewPlay:not([hidden]) .shelf'),tabbar=rect('.tabbar'),banner=rect('#familyBanner:not([hidden])'),world=rect('#viewWorld:not([hidden]) .catalog-target'),pets=rect('#viewPets:not([hidden]) .pets-hero');
-  const top=r=>({kind:'top',y:r.top-SIZE+6,x1:r.left+4,x2:r.right-SIZE-4,layer:'front',ref:r});
-  if(banner)list.push(top(banner));
-  if(card){list.push(top(card));list.push({kind:'behind',y:card.bottom-SIZE*0.55,x1:card.left+8,x2:card.right-SIZE-8,layer:'back',ref:card});list.push({kind:'side',x:card.right-SIZE*0.45,y1:card.top+4,y2:card.bottom-SIZE,layer:'front',ref:card});}
-  if(shelf)list.push(top(shelf));
-  if(world)list.push(top(world));
-  if(pets)list.push(top(pets));
-  if(tabbar)list.push(top(tabbar));
-  return list.filter(r=>r.kind==='side'||r.x2>r.x1+40).filter(r=>(r.y??r.y1)>0&&(r.y??r.y2)<vh-20);
+  const list=[],vh=window.innerHeight;
+  const cards=[rect('#familyBanner:not([hidden])'),rect('#viewPlay:not([hidden]) .craft-card'),rect('#viewPlay:not([hidden]) .shelf'),rect('#viewWorld:not([hidden]) .catalog-target'),rect('#viewPets:not([hidden]) .pets-hero'),rect('.tabbar')].filter(Boolean);
+  cards.forEach((r,i)=>{
+   list.push({kind:'top',y:r.top-SIZE+6,x1:r.left+4,x2:r.right-SIZE-4,layer:'front',ref:r,i});
+   list.push({kind:'behind',y:r.top-SIZE*0.52,x1:r.left+6,x2:r.right-SIZE-6,layer:'back',ref:r,i});
+   if(r.height>120)list.push({kind:'side',x:r.right-SIZE*0.5,y1:r.top-SIZE+6,y2:r.bottom-SIZE,layer:'front',ref:r,i});
+  });
+  return list.filter(r=>r.kind==='side'||r.x2>r.x1+40).filter(r=>(r.y??r.y1)>-10&&(r.y??r.y2)<vh-20);
  }
- function pickRail(){const rs=rails();if(!rs.length)return null;const walk=rs.filter(r=>r.kind==='top');const pool=Math.random()<0.75&&walk.length?walk:rs;return pool[Math.floor(Math.random()*pool.length)];}
- function place(x,y,instant=false){pos.x=x;pos.y=y;sprite.style.transition=instant?'none':'';sprite.style.setProperty('--x',x+'px');sprite.style.setProperty('--y',y+'px');sprite.dataset.face=pos.face>0?'right':'left';}
- function setLayer(which){(which==='back'?layerBack:layerFront).append(sprite);}
- function anim(name,ms){return new Promise(res=>{sprite.dataset.anim=name;setTimeout(res,ms);});}
- function bubble(html,ms=1400){const b=sprite.querySelector('.companion-bubble');b.innerHTML=html;b.hidden=false;clearTimeout(b._t);b._t=setTimeout(()=>{b.hidden=true;},ms);}
+ const clampX=(r,x)=>Math.min(Math.max(x,r.x1),r.x2);
+ function pickRail(kind='top'){const rs=rails().filter(r=>r.kind===kind);return rs.length?rs[Math.floor(Math.random()*rs.length)]:null;}
+ function place(x,y){pos.x=x;pos.y=y;sprite.style.transform=`translate3d(${x.toFixed(1)}px,${y.toFixed(1)}px,0)`;sprite.dataset.face=pos.face>0?'right':'left';}
+ function setLayer(which){if(sprite.parentElement!==(which==='back'?layerBack:layerFront))(which==='back'?layerBack:layerFront).append(sprite);}
  const wait=ms=>new Promise(r=>setTimeout(r,ms));
- const speed=()=>{const m=activeMeta();const lvl=level(m.id);const base=m.move==='fly'?170:m.move==='roll'?150:m.move==='hop'?110:m.move==='waddle'?80:120;return base*(1+lvl/200)*(pet(m.id).mood<=MOOD.sad?0.6:1);}; // px/s
- async function walkTo(x,y){const d=Math.hypot(x-pos.x,y-pos.y);if(d<2)return;pos.face=x>=pos.x?1:-1;const ms=Math.max(250,1000*d/speed());sprite.style.setProperty('--ms',ms+'ms');sprite.dataset.anim=activeMeta().move==='fly'?'fly':activeMeta().move==='roll'?'roll':activeMeta().move==='hop'?'hopwalk':'walk';place(x,y);await wait(ms+40);sprite.dataset.anim='idle';}
- function goTo(r,instant=false){if(!r)return;rail=r;setLayer(r.layer);if(r.kind==='side'){place(r.x,r.y2,instant);}else{const x=Math.min(Math.max(pos.x,r.x1),r.x2);place(x,r.y,instant);}}
- async function jumpTo(r){if(!r)return;setLayer('front');sprite.classList.add('is-jumping');const tx=r.kind==='side'?r.x:Math.min(Math.max(pos.x+(Math.random()*160-80),r.x1),r.x2),ty=r.kind==='side'?r.y2:r.y;pos.face=tx>=pos.x?1:-1;sprite.style.setProperty('--ms','650ms');sprite.dataset.anim='jump';place(tx,ty);await wait(700);sprite.classList.remove('is-jumping');sprite.dataset.anim='idle';rail=r;setLayer(r.layer);}
+ const easeInOut=t=>t<.5?2*t*t:1-Math.pow(-2*t+2,2)/2;
+ const speed=()=>{const m=activeMeta();const lvl=level(m.id);const base={fly:150,roll:140,hop:100,waddle:70,walk:105}[m.move]||105;return base*(1+lvl/250)*(pet(m.id).mood<=MOOD.sad?0.6:1);};
+ // Frame-by-frame mover: eased ground travel, parabolic jumps, rolling rotation, layer swap mid-arc.
+ function travel({x,y,arc=0,ms=null,anim=null,swapLayer=null,ease=true,px=null}){
+  return new Promise(res=>{
+   const sx=pos.x,sy=pos.y,d=Math.hypot(x-sx,y-sy);const dur=ms??Math.max(220,1000*d/(px||speed()));
+   if(x!==sx)pos.face=x>sx?1:-1;
+   const meta=activeMeta();sprite.dataset.anim=anim||(arc?'jump':meta.move==='fly'?'fly':meta.move==='roll'?'roll':meta.move==='hop'?'hopwalk':meta.move==='waddle'?'waddle':'walk');
+   sprite.style.setProperty('--stride',(meta.move==='waddle'?0.55:meta.move==='hop'?0.5:Math.max(0.28,0.5*105/speed())).toFixed(2)+'s');
+   let swapped=false,raf=0;const t0=performance.now();
+   const body=sprite.querySelector('[data-part="body"]');
+   cancelMove=()=>{cancelAnimationFrame(raf);res(false);};
+   const step=t=>{let k=Math.min(1,(t-t0)/dur);const e=ease?easeInOut(k):k;
+    const nx=sx+(x-sx)*e,ny=sy+(y-sy)*e-arc*Math.sin(Math.PI*k);
+    if(swapLayer&&!swapped&&k>=0.5){swapped=true;setLayer(swapLayer);}
+    if(meta.move==='roll'&&!arc&&body){rollAngle+=((nx-pos.x)/26)*57.3;body.style.transform=`rotate(${rollAngle}deg)`;}
+    place(nx,ny);
+    if(k<1)raf=requestAnimationFrame(step);else{cancelMove=null;sprite.dataset.anim='idle';res(true);}
+   };raf=requestAnimationFrame(step);
+  });
+ }
+ const walkTo=(x,y)=>travel({x,y});
+ async function jumpTo(r,xHint=null){if(!r)return;const tx=r.kind==='side'?r.x:clampX(r,xHint??pos.x+(Math.random()*120-60)),ty=r.kind==='side'?r.y2:r.y;
+  const dy=ty-pos.y;const arc=Math.max(26,Math.min(70,Math.abs(dy)*0.35+24));
+  const swap=r.layer!==(sprite.parentElement===layerBack?'back':'front')?r.layer:null;
+  sprite.dataset.anim='crouch';await wait(140);
+  await travel({x:tx,y:ty,arc,ms:420+Math.abs(dy)*0.9,anim:'jump',swapLayer:swap});
+  sprite.dataset.anim='land';await wait(160);sprite.dataset.anim='idle';rail=r;}
  function lockedUseless(){const s=getSlots();if(!isLeftLocked()||!s[0])return null;if(elementIsUseful(s[0]))return null;return rect('#slot0');}
+ function fx(kind,ms=1200){const f=sprite.querySelector('.companion-fx');const el=document.createElement('i');el.className='fx-'+kind;f.append(el);setTimeout(()=>el.remove(),ms);return el;}
 
  // ---------- behaviours ----------
  async function loop(){
   if(destroyed)return;const meta=activeMeta();if(!meta){stop();return;}
   if(busy||sleeping||document.hidden){timer=setTimeout(loop,900);return;}
-  if(!rail||!rails().some(r=>r.kind===rail.kind&&Math.abs((r.y??r.y1)-(rail.y??rail.y1))<2)){goTo(pickRail(),true);}
-  if(now()-lastInput>150000&&!sleeping){await sleep();timer=setTimeout(loop,500);return;}
+  const rs=rails();
+  if(!rail||!rs.some(r=>r.kind===rail.kind&&r.i===rail.i)){const r=pickRail();if(!r){timer=setTimeout(loop,1200);return;}rail=r;setLayer(r.layer);place(clampX(r,pos.x),r.y);}
+  else{rail=rs.find(r=>r.kind===rail.kind&&r.i===rail.i)||rail;}
+  if(now()-lastInput>150000){await sleep();timer=setTimeout(loop,500);return;}
   const slot=lockedUseless();
   if(slot&&now()-lastPoint>60000){lastPoint=now();await pointAtSlot(slot);timer=setTimeout(loop,800);return;}
   const roll=Math.random();
   try{
-   if(rail?.kind==='side'){await climb();}
-   else if(roll<0.42)await stroll();
-   else if(roll<0.55)await anim('hop',520).then(()=>{sprite.dataset.anim='idle';});
-   else if(roll<0.68)await jumpTo(pickRail());
-   else if(roll<0.78)await knock();
-   else if(roll<0.86)await peekBehind();
-   else if(roll<0.94)await quirk(meta);
-   else await anim('look',900).then(()=>{sprite.dataset.anim='idle';});
-  }catch(e){console.warn('companion',e);}
-  timer=setTimeout(loop,500+Math.random()*1400);
+   if(rail.kind==='side')await climb();
+   else if(rail.kind==='behind'){if(roll<0.5)await stroll();else await jumpTo(rs.find(r=>r.kind==='top'&&r.i===rail.i)||pickRail());}
+   else if(roll<0.38)await stroll();
+   else if(roll<0.5)await hopInPlace();
+   else if(roll<0.62)await jumpTo(pickRail());
+   else if(roll<0.72)await knock();
+   else if(roll<0.82)await goBehind();
+   else if(roll<0.9)await startClimb();
+   else await quirk(meta);
+  }catch(e){console.warn('companion',e);sprite.dataset.anim='idle';}
+  timer=setTimeout(loop,400+Math.random()*1300);
  }
- async function stroll(){if(!rail||rail.kind==='side')return;const x=rail.x1+Math.random()*(rail.x2-rail.x1);await walkTo(x,rail.y);}
- async function climb(){const r=rail;const up=Math.random()<0.5;sprite.dataset.anim='climb';sprite.classList.add('is-climbing');const ty=up?r.y1:r.y2;const ms=Math.max(400,1000*Math.abs(ty-pos.y)/speed());sprite.style.setProperty('--ms',ms+'ms');place(r.x,ty);await wait(ms+50);sprite.classList.remove('is-climbing');sprite.dataset.anim='idle';if(up){const tops=rails().filter(x=>x.kind==='top'&&x.ref===r.ref);await jumpTo(tops[0]||pickRail());}else await jumpTo(pickRail());}
- async function knock(){if(!rail||rail.kind==='side')return;const left=Math.random()<0.5;await walkTo(left?rail.x1:rail.x2,rail.y);pos.face=left?-1:1;sprite.dataset.face=left?'left':'right';sprite.dataset.anim='knock';const rip=sprite.querySelector('.companion-ripple');rip.classList.remove('is-on');void rip.offsetWidth;rip.classList.add('is-on');bubble('<i class="knock">toc toc</i>',1300);await wait(1300);sprite.dataset.anim='idle';}
- async function peekBehind(){const back=rails().find(r=>r.kind==='behind');if(!back)return;await jumpTo(back);await walkTo(back.x1+Math.random()*(back.x2-back.x1),back.y);await wait(400);await jumpTo(rails().find(r=>r.kind==='top'&&r.ref===back.ref)||pickRail());}
- async function pointAtSlot(slotRect){const r=rails().find(x=>x.kind==='top'&&x.ref&&x.ref.top<slotRect.top&&x.ref.bottom>slotRect.bottom);if(r&&r!==rail)await jumpTo(r);const x=Math.min(Math.max(slotRect.left+slotRect.width/2-SIZE/2,rail?.x1??0),rail?.x2??window.innerWidth-SIZE);await walkTo(x,pos.y);pos.face=1;sprite.dataset.face='right';sprite.dataset.anim='point';bubble('<i class="nope">no combos left</i>',1800);await wait(900);sprite.dataset.anim='shake';await wait(1000);sprite.dataset.anim='idle';}
- async function quirk(meta){sprite.dataset.anim='quirk-'+(meta.move==='fly'?'loop':meta.move==='roll'?'spin':meta.family==='games'?'glitch':meta.family==='people'?'wave':meta.family==='mythology'?'glow':meta.family==='prehistoric'?'stomp':'wiggle');bubble(escapeText(meta.quirk.split(/[;,(]/)[0]),1600);await wait(1500);sprite.dataset.anim='idle';}
- async function sleep(){sleeping=true;sprite.dataset.anim='sleep';bubble('<i class="zzz">z z z</i>',4000);}
- function wake(){if(!sleeping)return;sleeping=false;sprite.dataset.anim='idle';}
+ async function stroll(){if(!rail||rail.kind==='side')return;await walkTo(rail.x1+Math.random()*(rail.x2-rail.x1),rail.y);}
+ async function hopInPlace(){sprite.dataset.anim='crouch';await wait(120);const y=pos.y;await travel({x:pos.x,y,arc:18,ms:420,anim:'jump'});sprite.dataset.anim='land';await wait(140);sprite.dataset.anim='idle';}
+ async function startClimb(){const side=rails().find(r=>r.kind==='side'&&r.i===rail.i)||rails().find(r=>r.kind==='side');if(!side)return;await walkTo(clampX(rail,side.x),rail.y);
+  if(Math.abs(pos.y-side.y1)>8){await jumpTo(side);}else{rail=side;}await climb();}
+ async function climb(){const r=rail;if(r.kind!=='side')return;sprite.classList.add('is-climbing');const goUp=pos.y>r.y1+20;const ty=goUp?r.y1:r.y2;
+  await travel({x:r.x,y:ty,anim:'climb',px:speed()*0.55});sprite.classList.remove('is-climbing');
+  const top=rails().find(x=>x.kind==='top'&&x.i===r.i);
+  if(goUp&&top){await travel({x:clampX(top,r.x-SIZE*0.6),y:top.y,arc:22,ms:380,anim:'jump'});sprite.dataset.anim='land';await wait(150);sprite.dataset.anim='idle';rail=top;}
+  else await jumpTo(pickRail());}
+ async function knock(){if(!rail||rail.kind!=='top')return;const left=Math.random()<0.5;await walkTo(left?rail.x1:rail.x2,rail.y);pos.face=left?-1:1;sprite.dataset.face=left?'left':'right';
+  sprite.dataset.anim='knock';for(let i=0;i<3;i++){await wait(260);fx('ripple',900);document.body.classList.add('companion-knock');setTimeout(()=>document.body.classList.remove('companion-knock'),180);}await wait(500);sprite.dataset.anim='idle';}
+ async function goBehind(){const back=rails().find(r=>r.kind==='behind'&&r.i===rail.i)||pickRail('behind');if(!back)return;await jumpTo(back,pos.x);await stroll();await wait(300+Math.random()*600);const top=rails().find(r=>r.kind==='top'&&r.i===back.i);if(top)await jumpTo(top,pos.x);}
+ async function pointAtSlot(slotRect){const top=rails().find(x=>x.kind==='top'&&x.ref.top<=slotRect.top&&x.ref.bottom>=slotRect.bottom);if(top&&top!==rail)await jumpTo(top);
+  await walkTo(clampX(rail,slotRect.left+slotRect.width/2-SIZE/2),rail.y);pos.face=1;sprite.dataset.face='right';
+  sprite.dataset.anim='point';await wait(900);sprite.dataset.anim='shake';await wait(1000);sprite.dataset.anim='idle';}
+ async function quirk(meta){
+  const q=meta.quirkAnim||'wiggle';busy=true;
+  try{
+   switch(q){
+    case 'pounce':case 'stalkpounce':case 'charge':{const dir=pos.x<(rail.x1+rail.x2)/2?1:-1;pos.face=dir;sprite.dataset.face=dir>0?'right':'left';sprite.dataset.anim=q==='charge'?'charge-prep':'stalk';await wait(q==='stalkpounce'?1100:700);
+      await travel({x:clampX(rail,pos.x+dir*90),y:pos.y,arc:q==='charge'?0:20,ms:q==='charge'?300:380,anim:q==='charge'?'charge':'jump',ease:false});sprite.dataset.anim=q==='charge'?'skid':'land';await wait(500);break;}
+    case 'bellyslide':{const dir=pos.x<(rail.x1+rail.x2)/2?1:-1;pos.face=dir;sprite.dataset.face=dir>0?'right':'left';sprite.dataset.anim='crouch';await wait(150);await travel({x:clampX(rail,pos.x+dir*120),y:pos.y,ms:1100,anim:'bellyslide'});await wait(300);break;}
+    case 'tumble':{const dir=pos.x<(rail.x1+rail.x2)/2?1:-1;await travel({x:clampX(rail,pos.x+dir*70),y:pos.y,ms:900,anim:'tumble'});break;}
+    case 'phase':{sprite.dataset.anim='phase';const back=rails().find(r=>r.kind==='behind'&&r.i===rail.i);await wait(500);if(back){await travel({x:pos.x,y:back.y,ms:700,anim:'phase',swapLayer:'back'});await wait(600);const top=rails().find(r=>r.kind==='top'&&r.i===back.i);await travel({x:pos.x,y:top.y,ms:700,anim:'phase',swapLayer:'front'});}await wait(300);break;}
+    case 'airgallop':{await travel({x:pos.x,y:pos.y-30,ms:500,anim:'fly'});await travel({x:clampX(rail,pos.x+(pos.face>0?90:-90)),y:pos.y,ms:900,anim:'gallop'});await travel({x:pos.x,y:pos.y+30,ms:500,anim:'fly'});break;}
+    case 'smokevanish':{sprite.dataset.anim='smokevanish';await wait(600);const nx=rail.x1+Math.random()*(rail.x2-rail.x1);place(nx,pos.y);sprite.dataset.anim='smokeappear';await wait(700);break;}
+    case 'spinstop':{sprite.dataset.anim='spinstop';await wait(2200);break;}
+    case 'layegg':{sprite.dataset.anim='layegg';await wait(1600);await dropGift(true);break;}
+    default:{sprite.dataset.anim='quirk-'+q;await wait(q==='headspin'||q==='flameburst'||q==='reboot'?2200:1700);}
+   }
+  }finally{sprite.dataset.anim='idle';busy=false;}
+ }
+ async function sleep(){sleeping=true;sprite.dataset.anim='sleep';const bub=setInterval(()=>{if(!sleeping){clearInterval(bub);return;}fx('bubble',2400);},1200);sprite._bub=bub;}
+ function wake(){if(!sleeping)return;sleeping=false;clearInterval(sprite._bub);sprite.dataset.anim='stretch';setTimeout(()=>{if(sprite.dataset.anim==='stretch')sprite.dataset.anim='idle';},900);}
 
  // ---------- gifts ----------
  const GIFT_ART=new Map();
  function giftArt(meta){if(GIFT_ART.has(meta.id))return GIFT_ART.get(meta.id);const el=[...byId.values()].find(i=>i.name.toLowerCase()===meta.gift.toLowerCase());const html=el?staticArt(el):'<svg viewBox="0 0 100 100"><circle cx="50" cy="55" r="26" fill="#f1c76b" stroke="#657D89" stroke-width="4"/></svg>';GIFT_ART.set(meta.id,html);return html;}
- function scheduleGift(){clearTimeout(giftTimer);const [a,b]=GIFT_INTERVAL_MS;giftTimer=setTimeout(dropGift,a+Math.random()*(b-a));}
- async function dropGift(){const meta=activeMeta();if(!meta||document.hidden||sleeping){scheduleGift();return;}
+ function scheduleGift(){clearTimeout(giftTimer);const [a,b]=GIFT_INTERVAL_MS;giftTimer=setTimeout(()=>dropGift(false),a+Math.random()*(b-a));}
+ async function dropGift(fromQuirk){const meta=activeMeta();if(!meta||document.hidden||sleeping){scheduleGift();return;}
   if(layerFront.querySelectorAll('.companion-gift').length>=3){scheduleGift();return;}
-  busy=true;sprite.dataset.anim='gift';bubble(escapeText(meta.gift)+'!',1200);await wait(900);
+  if(!fromQuirk){busy=true;sprite.dataset.anim=meta.quirkAnim==='layegg'?'layegg':'gift';await wait(meta.quirkAnim==='layegg'?1500:900);}
   const g=document.createElement('button');g.type='button';g.className='companion-gift';g.setAttribute('aria-label','Tap to collect the '+meta.gift);g.innerHTML=giftArt(meta);
-  g.style.setProperty('--x',(pos.x+(pos.face>0?-26:SIZE-8))+'px');g.style.setProperty('--y',(pos.y+SIZE-30)+'px');
-  g.onclick=()=>{g.classList.add('is-taken');setTimeout(()=>g.remove(),420);const p=pet(meta.id);p.gifts++;p.mood=Math.min(100,p.mood+6);p.xp=Math.min(totalXpForLevel(COMPANION_MAX_LEVEL),p.xp+2);save();toast(meta.gift+' collected · +2 XP','new');refreshViews();};
-  layerFront.append(g);sprite.dataset.anim='idle';busy=false;scheduleGift();}
+  g.style.setProperty('--x',(pos.x+(pos.face>0?-24:SIZE-10))+'px');g.style.setProperty('--y',(pos.y+SIZE-32)+'px');
+  g.onclick=()=>{g.classList.add('is-taken');setTimeout(()=>g.remove(),420);const p=pet(meta.id);p.gifts++;p.mood=Math.min(100,p.mood+6);p.xp=Math.min(totalXpForLevel(COMPANION_MAX_LEVEL),p.xp+2);save();fx('hearts',1300);refreshViews();};
+  layerFront.append(g);if(!fromQuirk){sprite.dataset.anim='idle';busy=false;}scheduleGift();}
 
  // ---------- feeding (drag an element onto the companion) ----------
  function likes(meta,item){const fam=familyFor(item);if(fam===meta.family)return 'love';if(meta.family==='games'&&['life','nature','food'].includes(item.category))return 'no';if(['nature','prehistoric'].includes(meta.family)&&['technology','brand','console','portable','computer'].includes(item.category))return 'no';if(meta.family==='anime'&&['material','science'].includes(item.category))return 'no';return 'ok';}
+ function morsel(item){const m=fx('morsel',900);m.innerHTML=staticArt(item);return m;}
  async function feed(elementId){
   const meta=activeMeta(),item=byId.get(elementId);if(!meta||!item)return false;
+  if(cancelMove)cancelMove();
   const p=pet(meta.id);settleMood(p);
   const taste=likes(meta,item);
-  busy=true;pos.face=1;sprite.dataset.face='right';
-  if(taste==='no'){sprite.dataset.anim='refuse';bubble(`<span class="bite">${staticArt(item)}</span><i class="nope">no thanks</i>`,1500);p.mood=Math.max(0,p.mood-3);p.moodAt=now();save();await wait(1400);sprite.dataset.anim='idle';busy=false;refreshViews();toast(uiName(item)+' refused','repeat');return true;}
+  busy=true;
+  if(taste==='no'){morsel(item).classList.add('is-refused');sprite.dataset.anim='refuse';p.mood=Math.max(0,p.mood-3);p.moodAt=now();save();await wait(1400);sprite.dataset.anim='idle';busy=false;refreshViews();return true;}
   const last=p.fed[elementId]||0,fresh=now()-last>FEED_COOLDOWN_MS;
   const gain=fresh?(taste==='love'?3:1):0;
-  sprite.dataset.anim='eat';bubble(`<span class="bite">${staticArt(item)}</span>`,1500);
+  morsel(item);sprite.dataset.anim='eat';
   p.mood=Math.min(100,p.mood+(taste==='love'?12:5));p.moodAt=now();
   const before=levelFromXp(p.xp);p.xp=Math.min(totalXpForLevel(COMPANION_MAX_LEVEL),p.xp+gain);if(fresh)p.fed[elementId]=now();p.meals++;save();
-  await wait(1500);sprite.dataset.anim='idle';busy=false;
+  await wait(1500);
+  if(taste==='love')fx('hearts',1300);
+  sprite.dataset.anim='idle';
   const after=levelFromXp(p.xp);
-  toast(gain?`${uiName(item)} eaten · +${gain} XP${taste==='love'?' (favourite!)':''}`:`${uiName(item)} eaten · already full of this one`,'new');
-  if(after>before){sprite.dataset.anim='levelup';bubble(`<i class="lvl">Level ${after}!</i>`,2200);await wait(2000);sprite.dataset.anim='idle';}
-  refreshViews();return true;
+  if(after>before){sprite.dataset.anim='levelup';fx('stars',2000);await wait(2000);sprite.dataset.anim='idle';}
+  busy=false;refreshViews();return true;
  }
- function hitTest(x,y){if(!sprite||!activeMeta())return false;const r=sprite.getBoundingClientRect();return x>=r.left-12&&x<=r.right+12&&y>=r.top-12&&y<=r.bottom+12;}
+ function hitTest(x,y){if(!sprite||!activeMeta())return false;const r=sprite.getBoundingClientRect();return x>=r.left-14&&x<=r.right+14&&y>=r.top-14&&y<=r.bottom+14;}
 
  // ---------- lifecycle ----------
- function start(){ensureLayer();const meta=activeMeta();if(!meta){stop();return;}setArt(meta);sprite.hidden=false;layerFront.hidden=false;layerBack.hidden=false;settleMood(pet(meta.id));sprite.dataset.mood=moodLabel(pet(meta.id).mood).toLowerCase();goTo(pickRail(),true);clearTimeout(timer);clearInterval(blinkTimer);
+ function start(){ensureLayer();if(cancelMove)cancelMove();busy=false;sleeping=false;const meta=activeMeta();if(!meta){stop();return;}setArt(meta);sprite.hidden=false;layerFront.hidden=false;layerBack.hidden=false;settleMood(pet(meta.id));sprite.dataset.mood=moodLabel(pet(meta.id).mood).toLowerCase();
+  const r=pickRail();if(r){rail=r;setLayer(r.layer);place(clampX(r,pos.x),r.y);}
+  clearTimeout(timer);clearInterval(blinkTimer);
   if(reducedMotion()){sprite.dataset.anim='idle';sprite.classList.add('is-static');return;}
-  blinkTimer=setInterval(()=>{if(!sleeping&&sprite.dataset.anim==='idle'){sprite.classList.add('is-blinking');setTimeout(()=>sprite.classList.remove('is-blinking'),160);}},3200+Math.random()*1500);
-  timer=setTimeout(loop,800);scheduleGift();}
- function stop(){clearTimeout(timer);clearTimeout(giftTimer);clearInterval(blinkTimer);if(sprite){sprite.hidden=true;}if(layerFront)layerFront.querySelectorAll('.companion-gift').forEach(g=>g.remove());}
+  blinkTimer=setInterval(()=>{if(!sleeping&&sprite.dataset.anim==='idle'){sprite.classList.add('is-blinking');setTimeout(()=>sprite.classList.remove('is-blinking'),170);}},3000+Math.random()*1800);
+  timer=setTimeout(loop,700);scheduleGift();}
+ function stop(){clearTimeout(timer);clearTimeout(giftTimer);clearInterval(blinkTimer);if(cancelMove)cancelMove();if(sprite){sprite.hidden=true;}if(layerFront)layerFront.querySelectorAll('.companion-gift').forEach(g=>g.remove());}
  function setActive(id){if(id&&!isDiscovered(id))return false;state.active=id||null;save();if(state.active){pet(state.active);start();}else stop();refreshViews();return true;}
  function onDiscovery(id){if(metaById.has(id)&&!state.pets[id]){pet(id);save();toast('New companion: '+uiName(byId.get(id))+' · see the Companions tab','new');}if(state.active&&sprite&&!sprite.hidden){const p=pet(state.active);p.xp=Math.min(totalXpForLevel(COMPANION_MAX_LEVEL),p.xp+1);save();}}
 
@@ -216,6 +274,6 @@ export function createCompanionSystem(ctx){
  function openCard(id){const meta=metaById.get(id);if(!meta)return;showModal(`<div class="modal-tag">COMPANION</div>${cardHtml(meta,{full:true})}<p class="mini-muted">Drag an element from your list onto ${escapeText(uiName(byId.get(meta.id)))} to feed it. Tap its gifts when they appear.</p><button type="button" class="modal-button secondary" id="petCardClose">Close</button>`);$('petCardClose').onclick=closeModal;$('modalContent').querySelectorAll('[data-activate]').forEach(b=>b.onclick=()=>{setActive(state.active===b.dataset.activate?null:b.dataset.activate);closeModal();});}
  listeners.add(renderTab);
  return {start,stop,setActive,feed,hitTest,onDiscovery,renderTab,openCard,get active(){return activeMeta();},state:()=>state,unlocked,refreshViews,
-  onViewChange(){if(activeMeta()&&sprite&&!sprite.hidden)setTimeout(()=>goTo(pickRail(),true),80);},
+  onViewChange(){if(activeMeta()&&sprite&&!sprite.hidden)setTimeout(()=>{if(cancelMove)cancelMove();const r=pickRail();if(r){rail=r;setLayer(r.layer);place(clampX(r,pos.x),r.y);sprite.dataset.anim='idle';}},80);},
   importState(raw){if(raw&&raw.pets){state={active:raw.active||null,pets:raw.pets,v:1};save();}}};
 }

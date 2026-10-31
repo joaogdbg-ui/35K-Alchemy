@@ -1,21 +1,14 @@
 [
  {
-  "id": "legacy:167",
-  "name": "Game Controller",
-  "family": "games",
-  "move": "hop",
-  "gift": "Battery",
-  "quirk": "rumbles and buzzes when happy",
-  "file": "legacy-167.svg"
- },
- {
   "id": "organic74:pixel-dinosaur-sprite",
   "name": "Pixel Dinosaur Sprite",
   "family": "games",
   "move": "walk",
   "gift": "Cartridge",
   "quirk": "moves in chunky pixel steps",
-  "file": "organic74-pixel-dinosaur-sprite.svg"
+  "file": "organic74-pixel-dinosaur-sprite.svg",
+  "quirkAnim": "pixelstep",
+  "extraParts": []
  },
  {
   "id": "legacy:123",
@@ -24,25 +17,53 @@
   "move": "walk",
   "gift": "Microchip",
   "quirk": "antenna blinks; occasionally reboots (spins)",
-  "file": "legacy-123.svg"
+  "file": "legacy-123.svg",
+  "quirkAnim": "reboot",
+  "extraParts": [
+   "antenna"
+  ]
  },
  {
-  "id": "legacy:223",
-  "name": "Dice",
-  "family": "games",
-  "move": "roll",
-  "gift": "Coin",
-  "quirk": "rolls instead of walking and shows a random face",
-  "file": "legacy-223.svg"
- },
- {
-  "id": "legacy:172",
-  "name": "Arcade Machine",
+  "id": "legacy:118",
+  "name": "Hero",
   "family": "games",
   "move": "walk",
   "gift": "Coin",
-  "quirk": "screen flashes attract mode",
-  "file": "legacy-172.svg"
+  "quirk": "draws a sword and swings it",
+  "file": "legacy-118.svg",
+  "quirkAnim": "swordswing",
+  "extraParts": [
+   "arm-r",
+   "sword"
+  ]
+ },
+ {
+  "id": "legacy:1277",
+  "name": "Werewolf",
+  "family": "games",
+  "move": "walk",
+  "gift": "Bone",
+  "quirk": "howls at the moon",
+  "file": "legacy-1277.svg",
+  "quirkAnim": "howl",
+  "extraParts": [
+   "jaw",
+   "tail"
+  ]
+ },
+ {
+  "id": "organic34:pixel-artist",
+  "name": "Pixel Artist",
+  "family": "games",
+  "move": "walk",
+  "gift": "Pixel",
+  "quirk": "paints pixels in the air",
+  "file": "organic34-pixel-artist.svg",
+  "quirkAnim": "paint",
+  "extraParts": [
+   "arm-r",
+   "brush"
+  ]
  },
  {
   "id": "pack:panda",
@@ -51,7 +72,9 @@
   "move": "walk",
   "gift": "Bamboo",
   "quirk": "tumbles and sits to munch",
-  "file": "pack-panda.svg"
+  "file": "pack-panda.svg",
+  "quirkAnim": "tumble",
+  "extraParts": []
  },
  {
   "id": "pack:penguin",
@@ -60,34 +83,52 @@
   "move": "waddle",
   "gift": "Snowball",
   "quirk": "slides on its belly",
-  "file": "pack-penguin.svg"
+  "file": "pack-penguin.svg",
+  "quirkAnim": "bellyslide",
+  "extraParts": []
  },
  {
-  "id": "pack:band",
-  "name": "Band",
+  "id": "pack:singer",
+  "name": "Singer",
   "family": "anime",
   "move": "walk",
   "gift": "Sheet Music",
-  "quirk": "marches to a beat",
-  "file": "pack-band.svg"
+  "quirk": "sings into the microphone",
+  "file": "pack-singer.svg",
+  "quirkAnim": "sing",
+  "extraParts": [
+   "arm-r",
+   "mouth",
+   "notes"
+  ]
  },
  {
-  "id": "organic40:violin",
-  "name": "Violin",
+  "id": "legacy:566",
+  "name": "Ninja",
   "family": "anime",
   "move": "hop",
-  "gift": "Chord",
-  "quirk": "bows itself and sways",
-  "file": "organic40-violin.svg"
+  "gift": "Scroll",
+  "quirk": "vanishes in a puff of smoke and reappears",
+  "file": "legacy-566.svg",
+  "quirkAnim": "smokevanish",
+  "extraParts": [
+   "arm-r",
+   "smoke"
+  ]
  },
  {
-  "id": "organic40:drum",
-  "name": "Drum",
+  "id": "legacy:609",
+  "name": "Giant Robot",
   "family": "anime",
-  "move": "hop",
-  "gift": "Beat",
-  "quirk": "drums a rhythm with its sticks",
-  "file": "organic40-drum.svg"
+  "move": "walk",
+  "gift": "Microchip",
+  "quirk": "fires a rocket punch",
+  "file": "legacy-609.svg",
+  "quirkAnim": "rocketpunch",
+  "extraParts": [
+   "arm-r",
+   "antenna"
+  ]
  },
  {
   "id": "organic40:fox",
@@ -96,7 +137,11 @@
   "move": "walk",
   "gift": "Pinecone",
   "quirk": "pounces and curls up to nap",
-  "file": "organic40-fox.svg"
+  "file": "organic40-fox.svg",
+  "quirkAnim": "pounce",
+  "extraParts": [
+   "tail"
+  ]
  },
  {
   "id": "organic40:owl",
@@ -105,7 +150,12 @@
   "move": "fly",
   "gift": "Feather",
   "quirk": "turns its head all the way round",
-  "file": "organic40-owl.svg"
+  "file": "organic40-owl.svg",
+  "quirkAnim": "headspin",
+  "extraParts": [
+   "wing-l",
+   "wing-r"
+  ]
  },
  {
   "id": "organic40:hedgehog",
@@ -114,7 +164,9 @@
   "move": "walk",
   "gift": "Acorn",
   "quirk": "rolls into a ball when startled",
-  "file": "organic40-hedgehog.svg"
+  "file": "organic40-hedgehog.svg",
+  "quirkAnim": "curl",
+  "extraParts": []
  },
  {
   "id": "organic38:frog",
@@ -123,7 +175,11 @@
   "move": "hop",
   "gift": "Lily Pad",
   "quirk": "long tongue flick",
-  "file": "organic38-frog.svg"
+  "file": "organic38-frog.svg",
+  "quirkAnim": "tongue",
+  "extraParts": [
+   "tongue"
+  ]
  },
  {
   "id": "organic42:otter",
@@ -132,7 +188,11 @@
   "move": "walk",
   "gift": "Seashell",
   "quirk": "floats on its back juggling a shell",
-  "file": "organic42-otter.svg"
+  "file": "organic42-otter.svg",
+  "quirkAnim": "floatjuggle",
+  "extraParts": [
+   "extra"
+  ]
  },
  {
   "id": "pack:pixel-dragon",
@@ -141,7 +201,13 @@
   "move": "fly",
   "gift": "Pixel",
   "quirk": "breathes little pixel flames",
-  "file": "pack-pixel-dragon.svg"
+  "file": "pack-pixel-dragon.svg",
+  "quirkAnim": "firebreath",
+  "extraParts": [
+   "breath",
+   "wing-l",
+   "wing-r"
+  ]
  },
  {
   "id": "pack:arcade-golem",
@@ -150,7 +216,9 @@
   "move": "walk",
   "gift": "Coin",
   "quirk": "stomps; coin slot clinks",
-  "file": "pack-arcade-golem.svg"
+  "file": "pack-arcade-golem.svg",
+  "quirkAnim": "stomp",
+  "extraParts": []
  },
  {
   "id": "pack:ghost",
@@ -159,7 +227,9 @@
   "move": "fly",
   "gift": "Candle",
   "quirk": "fades in and out, passes through frames",
-  "file": "pack-ghost.svg"
+  "file": "pack-ghost.svg",
+  "quirkAnim": "phase",
+  "extraParts": []
  },
  {
   "id": "pack:wizard",
@@ -168,7 +238,12 @@
   "move": "walk",
   "gift": "Crystal",
   "quirk": "casts sparkles from the staff",
-  "file": "pack-wizard.svg"
+  "file": "pack-wizard.svg",
+  "quirkAnim": "cast",
+  "extraParts": [
+   "sparkle",
+   "arm-r"
+  ]
  },
  {
   "id": "pack:giant",
@@ -177,7 +252,9 @@
   "move": "walk",
   "gift": "Stone",
   "quirk": "heavy steps shake the screen slightly",
-  "file": "pack-giant.svg"
+  "file": "pack-giant.svg",
+  "quirkAnim": "stomp",
+  "extraParts": []
  },
  {
   "id": "organic37:chef",
@@ -186,7 +263,11 @@
   "move": "walk",
   "gift": "Cupcake",
   "quirk": "tastes with a spoon and nods",
-  "file": "organic37-chef.svg"
+  "file": "organic37-chef.svg",
+  "quirkAnim": "taste",
+  "extraParts": [
+   "arm-r"
+  ]
  },
  {
   "id": "organic41:explorer",
@@ -195,7 +276,12 @@
   "move": "walk",
   "gift": "Treasure Map",
   "quirk": "looks through binoculars",
-  "file": "organic41-explorer.svg"
+  "file": "organic41-explorer.svg",
+  "quirkAnim": "binoculars",
+  "extraParts": [
+   "arm-r",
+   "arm-l"
+  ]
  },
  {
   "id": "organic37:beekeeper",
@@ -204,7 +290,11 @@
   "move": "walk",
   "gift": "Honey",
   "quirk": "a bee circles the hat",
-  "file": "organic37-beekeeper.svg"
+  "file": "organic37-beekeeper.svg",
+  "quirkAnim": "beecircle",
+  "extraParts": [
+   "bee"
+  ]
  },
  {
   "id": "organic42:photographer",
@@ -213,7 +303,12 @@
   "move": "walk",
   "gift": "Photograph",
   "quirk": "takes a flash photo of the screen",
-  "file": "organic42-photographer.svg"
+  "file": "organic42-photographer.svg",
+  "quirkAnim": "flash",
+  "extraParts": [
+   "flash",
+   "arm-r"
+  ]
  },
  {
   "id": "organic41:archaeologist",
@@ -222,7 +317,11 @@
   "move": "walk",
   "gift": "Artifact",
   "quirk": "digs with a brush",
-  "file": "organic41-archaeologist.svg"
+  "file": "organic41-archaeologist.svg",
+  "quirkAnim": "dig",
+  "extraParts": [
+   "arm-r"
+  ]
  },
  {
   "id": "organic83:griffin",
@@ -231,7 +330,12 @@
   "move": "fly",
   "gift": "Feather",
   "quirk": "preens its wings",
-  "file": "organic83-griffin.svg"
+  "file": "organic83-griffin.svg",
+  "quirkAnim": "preen",
+  "extraParts": [
+   "wing-l",
+   "wing-r"
+  ]
  },
  {
   "id": "organic83:phoenix",
@@ -240,7 +344,13 @@
   "move": "fly",
   "gift": "Spark",
   "quirk": "bursts into flame and is reborn",
-  "file": "organic83-phoenix.svg"
+  "file": "organic83-phoenix.svg",
+  "quirkAnim": "flameburst",
+  "extraParts": [
+   "flames",
+   "wing-l",
+   "wing-r"
+  ]
  },
  {
   "id": "organic83:sphinx",
@@ -249,7 +359,11 @@
   "move": "walk",
   "gift": "Scroll",
   "quirk": "poses a riddle (question mark bubble)",
-  "file": "organic83-sphinx.svg"
+  "file": "organic83-sphinx.svg",
+  "quirkAnim": "riddle",
+  "extraParts": [
+   "tail"
+  ]
  },
  {
   "id": "organic82:cerberus",
@@ -258,7 +372,12 @@
   "move": "walk",
   "gift": "Bone",
   "quirk": "three heads look in different directions",
-  "file": "organic82-cerberus.svg"
+  "file": "organic82-cerberus.svg",
+  "quirkAnim": "threeheads",
+  "extraParts": [
+   "head-b",
+   "head-c"
+  ]
  },
  {
   "id": "organic82:pegasus",
@@ -267,7 +386,12 @@
   "move": "fly",
   "gift": "Cloud",
   "quirk": "gallops on air",
-  "file": "organic82-pegasus.svg"
+  "file": "organic82-pegasus.svg",
+  "quirkAnim": "airgallop",
+  "extraParts": [
+   "wing-l",
+   "wing-r"
+  ]
  },
  {
   "id": "organic82:stegosaurus",
@@ -276,7 +400,11 @@
   "move": "walk",
   "gift": "Egg",
   "quirk": "lays an egg that stays until tapped",
-  "file": "organic82-stegosaurus.svg"
+  "file": "organic82-stegosaurus.svg",
+  "quirkAnim": "layegg",
+  "extraParts": [
+   "tail"
+  ]
  },
  {
   "id": "organic82:triceratops",
@@ -285,7 +413,9 @@
   "move": "walk",
   "gift": "Fern Frond",
   "quirk": "charges and skids",
-  "file": "organic82-triceratops.svg"
+  "file": "organic82-triceratops.svg",
+  "quirkAnim": "charge",
+  "extraParts": []
  },
  {
   "id": "organic82:woolly-mammoth",
@@ -294,7 +424,11 @@
   "move": "walk",
   "gift": "Snow",
   "quirk": "trumpets with its trunk",
-  "file": "organic82-woolly-mammoth.svg"
+  "file": "organic82-woolly-mammoth.svg",
+  "quirkAnim": "trumpet",
+  "extraParts": [
+   "trunk"
+  ]
  },
  {
   "id": "organic82:pterosaur",
@@ -303,7 +437,13 @@
   "move": "fly",
   "gift": "Fossil",
   "quirk": "glides and screeches",
-  "file": "organic82-pterosaur.svg"
+  "file": "organic82-pterosaur.svg",
+  "quirkAnim": "screech",
+  "extraParts": [
+   "jaw",
+   "wing-l",
+   "wing-r"
+  ]
  },
  {
   "id": "organic82:smilodon",
@@ -312,16 +452,11 @@
   "move": "walk",
   "gift": "Bone",
   "quirk": "stalks low then pounces",
-  "file": "organic82-smilodon.svg"
- },
- {
-  "id": "organic85:globe",
-  "name": "Globe",
-  "family": "world",
-  "move": "roll",
-  "gift": "Map",
-  "quirk": "spins to a random country",
-  "file": "organic85-globe.svg"
+  "file": "organic82-smilodon.svg",
+  "quirkAnim": "stalkpounce",
+  "extraParts": [
+   "tail"
+  ]
  },
  {
   "id": "organic85:moai",
@@ -330,33 +465,67 @@
   "move": "hop",
   "gift": "Stone",
   "quirk": "hums a deep note",
-  "file": "organic85-moai.svg"
+  "file": "organic85-moai.svg",
+  "quirkAnim": "hum",
+  "extraParts": []
  },
  {
-  "id": "organic85:great-sphinx-of-giza",
-  "name": "Great Sphinx of Giza",
+  "id": "organic85:flamenco",
+  "name": "Flamenco",
   "family": "world",
   "move": "walk",
-  "gift": "Sand",
-  "quirk": "sand blows off its back",
-  "file": "organic85-great-sphinx-of-giza.svg"
- },
- {
-  "id": "organic85:flag",
-  "name": "Flag",
-  "family": "world",
-  "move": "hop",
   "gift": "Costume",
-  "quirk": "waves in the wind",
-  "file": "organic85-flag.svg"
+  "quirk": "stamps and twirls",
+  "file": "organic85-flamenco.svg",
+  "quirkAnim": "twirl",
+  "extraParts": [
+   "arm-l",
+   "arm-r",
+   "extra"
+  ]
  },
  {
-  "id": "organic85:peking-duck",
-  "name": "Peking Duck",
+  "id": "organic85:tango",
+  "name": "Tango",
   "family": "world",
-  "move": "waddle",
-  "gift": "Egg",
-  "quirk": "quacks and flaps",
-  "file": "organic85-peking-duck.svg"
+  "move": "walk",
+  "gift": "Costume",
+  "quirk": "dips dramatically",
+  "file": "organic85-tango.svg",
+  "quirkAnim": "dip",
+  "extraParts": [
+   "arm-l",
+   "arm-r"
+  ]
+ },
+ {
+  "id": "organic85:rio-carnival",
+  "name": "Rio Carnival",
+  "family": "world",
+  "move": "walk",
+  "gift": "Festival",
+  "quirk": "samba shake with feathers",
+  "file": "organic85-rio-carnival.svg",
+  "quirkAnim": "samba",
+  "extraParts": [
+   "arm-l",
+   "arm-r",
+   "extra"
+  ]
+ },
+ {
+  "id": "organic85:day-of-the-dead",
+  "name": "Day of the Dead",
+  "family": "world",
+  "move": "walk",
+  "gift": "Candle",
+  "quirk": "rattles its bones and tips its hat",
+  "file": "organic85-day-of-the-dead.svg",
+  "quirkAnim": "rattle",
+  "extraParts": [
+   "arm-l",
+   "arm-r",
+   "extra"
+  ]
  }
 ]
