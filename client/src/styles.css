@@ -1256,3 +1256,16 @@ button.home-eff::after{content:" ⓘ";opacity:.6;font-weight:700}
 
 /* V104 long press on elements */
 .element-chip{-webkit-touch-callout:none;-webkit-user-select:none;user-select:none}
+
+/* V106 karate: fighters stand on the middle of the mat, in stance, and move like a fight */
+.g-ring .g-actor.companion{bottom:31%;transition:none;animation:g-stance .9s ease-in-out infinite}
+.g-ring .g-actor.is-left{left:20%}.g-ring .g-actor.is-right{right:20%}
+.g-ring .g-actor.is-right{animation-delay:-.45s}
+.g-ring .g-actor.is-ko,.g-ring .g-actor.is-breath{animation:none}
+.g-ring .g-actor.is-flash .companion-art{filter:brightness(1.8) saturate(.4)}
+.g-ring .g-actor::before{content:"";position:absolute;left:18%;right:18%;bottom:-4px;height:10px;border-radius:50%;background:rgba(60,40,20,.22);z-index:-1}
+@keyframes g-stance{0%,100%{transform:translateY(0)}50%{transform:translateY(-5px)}}
+@media (prefers-reduced-motion:reduce){.g-ring .g-actor.companion{animation:none}}
+.g-ring .g-actor.companion{width:140px;height:140px;bottom:27%}
+.g-ring .g-actor.is-left{left:18%}.g-ring .g-actor.is-right{right:18%}
+.g-ring .g-actor.is-left{left:9%}.g-ring .g-actor.is-right{right:9%}

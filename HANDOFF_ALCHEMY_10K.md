@@ -90,6 +90,10 @@ Preserve 200-per-batch policy and do not start another content release on top of
 
 - **Art redraw wave 3 (V85, done): 3,991 icons** — every remaining older element. All 6,012 pre-V83 elements now use the 2026 art direction (`ART_REDRAW`), plus 200 V83 and 200 V85 originals. Six near-duplicates found by the audit were redrawn; 36 reviewed false alarms are in `tools/art-redraw-reviewed-pairs.json` (the audit now also honours them for V83 comparisons).
 
+## V106 — karate that reads as a fight (31 October 2026)
+- Fighters (140px) stand on the middle of the mat (bottom 27%, 9% from each side) in a bobbing stance with a floor shadow.
+- Each attack is a Web Animations sequence: wind-up (step back, crouch) → dash to the opponent → impact at 330 ms → back. Outcome at impact: dodge (jump up and back + ghost), braced block (small push + block ring), hit (knockback, bigger and airborne on heavy hits, white flash) or KO (thrown back and over, stays down until the next round).
+
 ## V105 — recipe audit, starter Frog, companion sounds (31 October 2026)
 - Recipe audit: Classic (19,829 recipes) and all 9 family maps use order-free keys (`[a,b].sort()`), and every family recipe agrees with Classic — no A+B ≠ B+A anywhere. The "House + Wood → Companion Hut" path was a stale discovery-ledger record from before V91; `discoveredRecipes` now shows a recorded pair only if it still makes the element.
 - Starter companion: `STARTER_COMPANION='organic38:frog'` is owned by every player (`companionOwned`) and is on screen in new games; the free first choice is kept.

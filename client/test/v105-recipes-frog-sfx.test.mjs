@@ -12,3 +12,8 @@ test('V105: new games start with the Frog; companions and races make sounds',()=
  for(const k of ['boop','purr','nom','refuse','knock','levelup'])assert.match(eng,new RegExp('sfx\\.'+k+'\\(\\)'),k);
  const g=fs.readFileSync(new URL('../src/games-v93.js',import.meta.url),'utf8');assert.match(g,/sfx\.paddle:k==='wall'\?sfx\.grip/);assert.match(g,/navigator\.vibrate\?\.\(15\)/);
 });
+test('V106: karate fighters stand on the mat and fight with wind-up, dash, recoil, dodge and KO moves',()=>{
+ const g=fs.readFileSync(new URL('../src/games-v93.js',import.meta.url),'utf8');
+ assert.match(g,/readable fight choreography/);assert.match(g,/const resolve=\(att,def,dir\)=>/);
+ const css=fs.readFileSync(new URL('../src/styles.css',import.meta.url),'utf8');assert.match(css,/@keyframes g-stance/);
+});
