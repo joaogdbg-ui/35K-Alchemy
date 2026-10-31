@@ -90,6 +90,13 @@ Preserve 200-per-batch policy and do not start another content release on top of
 
 - **Art redraw wave 3 (V85, done): 3,991 icons** — every remaining older element. All 6,012 pre-V83 elements now use the 2026 art direction (`ART_REDRAW`), plus 200 V83 and 200 V85 originals. Six near-duplicates found by the audit were redrawn; 36 reviewed false alarms are in `tools/art-redraw-reviewed-pairs.json` (the audit now also honours them for V83 comparisons).
 
+## V88 — Collection cleanup, family art, launcher (31 October 2026)
+
+- Themed collections removed from the Collection tab (obsolete; data kept for old saves).
+- Seven family icons redrawn in the 2026 art direction (`client/src/family-art-v88.js`); Countries keeps the Globe art.
+- Launcher icon: alchemy flask holding a little garden with an original sprout-eared companion creature, a hatched egg and a care heart, on an ochre background (adaptive `#E3A15F`) — Alchemy + garden + virtual pet in one image.
+- Idea under discussion with the owner: Companion Houses (house elements of several sizes, furniture elements as multipliers, idle discoveries while offline). Not implemented.
+
 ## V87 — recipe polish, companion ads/badge, Chao Garden pass, new launcher (31 October 2026)
 
 - **Recipe polish** (`client/src/recipe-polish-v87.js`, list in `docs/RECIPE_POLISH_V87.md`): new logical recipes on free pairs (Ink + Paper = Book, God + Sea = Poseidon, Bird + Fire = Phoenix…) and forced recipes remapped (Book + Ink → Writing, Water + Campfire → Steam…). Zero new elements. Applied in `buildCompleteFamilyCampaigns(..., polish)` after the V85 recipes; validated: Classic 6,412/6,412 and every family unchanged at 100%. Owner exception to the "results immutable" rule recorded in `docs/WORKING_RULES_PT.md`. Ideas that need new elements (Letter, Beach, Wool, Farmer, Pharaoh…) are kept for the next +200 batch.

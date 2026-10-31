@@ -6,8 +6,8 @@ test('Original launcher sources and native/web integration have no third-party l
  for(const path of ['client/assets/brand/35k-alchemy-icon.svg','client/assets/brand/35k-alchemy-foreground.svg']){
   const svg=read(path);assert.match(svg,/^<svg\b/);assert.match(svg,/<\/svg>\s*$/);
   assert.doesNotMatch(svg,/<(?:script|image|text|foreignObject|use)\b|xlink:href|<font\b/i);
-  // V87: launcher redrawn in the 2026 game palette (paper, slate outline, ochre brew).
-  for(const part of ['Central flask','#657D89','#D08A4C','#4F6470'])assert.ok(svg.includes(part),part);
+  // V88: launcher = alchemy flask + garden + original companion creature + care heart.
+  for(const part of ['Central flask','companion creature','garden inside the flask','virtual pet','#4F6470'])assert.ok(svg.includes(part),part);
  }
  assert.match(read('.github/workflows/android-debug.yml'),/python tools\/generate-launcher-icons\.py/);
  assert.match(read('tools/build-standalone.py'),/data:image\/svg\+xml/);
