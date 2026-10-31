@@ -301,7 +301,7 @@ _v85=[('client/src/organic-pack-v85.js',['ORGANIC_V85'],'__gameverseOrganic85',"
  ('client/src/organic-art-v89.js',['ORGANIC_ART_V89'],'__gameverseOrganicArt89',"import { ORGANIC_ART_V89 } from './organic-art-v89.js';"),
  ('client/src/family-data-v89.js',['FAMILY_DATA_V89'],'__familyData89',"import { FAMILY_DATA_V89 } from './family-data-v89.js';"),
  ('client/src/home-objects-v89.js',['HOME_OBJECTS_V89'],'__homeObjects89',"import { HOME_OBJECTS_V89 } from './home-objects-v89.js';"),
- ('client/src/home-engine-v90.js',['createHomeSystem','HOME_STORAGE_KEY'],'__homeEngine90',"import { createHomeSystem, HOME_STORAGE_KEY } from './home-engine-v90.js';"),
+ ('client/src/home-engine-v90.js',['createHomeSystem','HOME_STORAGE_KEY','pieceQuality','starsText'],'__homeEngine90',"import { createHomeSystem, HOME_STORAGE_KEY, pieceQuality, starsText } from './home-engine-v90.js';"),
  ('client/src/room-sprites-v90.js',['ROOM_SPRITES_V90'],'__roomSprites90',"import { ROOM_SPRITES_V90 } from './room-sprites-v90.js';"),
  ('client/src/games-v93.js',['createGamesSystem','GAMES_STORAGE_KEY'],'__games93',"import { createGamesSystem, GAMES_STORAGE_KEY } from './games-v93.js';"),
  ('client/src/prizes-v94.js',['RACE_PRIZES','PRIZE_BY_ID','BELTS','beltSvg','wearBelt'],'__prizes94',"import { RACE_PRIZES, PRIZE_BY_ID, BELTS, beltSvg, wearBelt } from './prizes-v94.js';"),
