@@ -40,5 +40,5 @@ for filename in ('ic_launcher','ic_launcher_round'):
     target.write_text(adaptive,encoding='utf-8')
 target=res/'values'/'alchemy_launcher_background.xml'
 target.parent.mkdir(parents=True,exist_ok=True)
-target.write_text('<?xml version="1.0" encoding="utf-8"?>\n<resources><color name="alchemy_launcher_background">#F3E6D3</color></resources>\n',encoding='utf-8')
+target.write_text('<?xml version="1.0" encoding="utf-8"?>\n<resources><color name="alchemy_launcher_background">#E3A15F</color></resources>\n',encoding='utf-8')
 print('Original 35K Alchemy launcher: generated legacy, round and adaptive PNGs across five densities')

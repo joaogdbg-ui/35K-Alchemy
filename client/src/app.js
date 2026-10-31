@@ -104,6 +104,7 @@ import { buildThematicCampaigns } from './family-campaigns-v82.js';
 import { buildCompleteFamilyCampaigns } from './family-campaigns-v85.js';
 import { FAMILY_DATA_V85 } from './family-data-v85.js';
 import { RECIPE_POLISH_V87 } from './recipe-polish-v87.js';
+import { FAMILY_ART_V88 } from './family-art-v88.js';
 import { ORGANIC_V85 } from './organic-pack-v85.js';
 import { ORGANIC_ART_V85 } from './organic-art-v85.js';
 import { COMPANIONS_V86, COMPANION_SPRITES_V86 } from './companions-v86.js';
@@ -461,7 +462,7 @@ function shinyCard(item){return `<p class="shiny-trivia"><span aria-hidden="true
 function showShinyFound(id){const it=byId.get(id);if(!it)return;
  showModal(`<div class="modal-tag shiny-tag">✦ SHINY ELEMENT</div><div class="modal-art is-shiny">${staticArt(it)}</div><h2>Shiny ${escapeText(uiName(it))}</h2>${shinyCard(it)}<div class="modal-milestone">${shiny.size.toLocaleString('en-US')} shiny ${shiny.size===1?'element':'elements'} · ${Math.round(shinyChance()*100)}% chance per combination</div>`);
 }
-const APP_VERSION='0.87.0';
+const APP_VERSION='0.88.0';
 // V83: status line + Google consent (UMP) privacy options, required for EEA players.
 async function refreshAdStatus(){
  const el=$('settingsAdStatus'),bridge=getRewardBridge();
@@ -616,6 +617,7 @@ const THEMATIC_FAMILY_ART={
  prehistoric:`<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100" width="100%" height="100%" aria-hidden="true"><path d="M13 82q27-13 74 0v9H13z" fill="#C4A880"/><path d="M13 70q13-19 30-17 15-23 31-13l9 13-5 7-12-8q-9-3-14 13L27 76z" fill="#95B4A0" stroke="#557A70" stroke-width="3"/><path d="m22 70-6 11m27-17-5 17m23-16 8 15" stroke="#557A70" stroke-width="5" stroke-linecap="round"/><path d="M72 35 88 26l-4 21-12 4z" fill="#95B4A0" stroke="#557A70" stroke-width="3"/><circle cx="79" cy="39" r="2.5" fill="#283C42"/><path d="m40 52-12-14 15 4 1-11 12 15" fill="#95B4A0" stroke="#557A70" stroke-width="3" stroke-linejoin="round"/><path d="m64 64 5-5" stroke="#F8DAB5" stroke-width="3"/></svg>`
 };
 function familyCardArtwork(f){
+ if(FAMILY_ART_V88[f.id])return FAMILY_ART_V88[f.id];
  if(THEMATIC_FAMILY_ART[f.id])return THEMATIC_FAMILY_ART[f.id];
  const src=FAMILY_ICONS_V54[f.id];
  if(src)return `<img src="${src}" alt="" loading="lazy" decoding="async">`;
@@ -2108,7 +2110,8 @@ $('settingsBtn').onclick=settings;
 $('modeBtn').onclick=()=>modePicker(false);
 $('modalClose').onclick=closeModal;$('modal').onclick=e=>{if(e.target===$('modal')&&$('modal').dataset.dismiss!=='x-only')closeModal();};
 $('familiesGrid').onclick=e=>{const el=e.target.closest('button[data-family]');if(el)openFamily(el.dataset.family);};
-$('thematicSets').onclick=e=>{const el=e.target.closest('[data-set]'),s=COLLECTION_SETS.find(s=>s.id===el?.dataset.set);if(!s)return;
+// V88: Themed collections removed from the Collection tab (owner: obsolete). Data stays for old saves.
+if($('thematicSets'))$('thematicSets').onclick=e=>{const el=e.target.closest('[data-set]'),s=COLLECTION_SETS.find(s=>s.id===el?.dataset.set);if(!s)return;
  openFamily(s.family);activeSet=s.id;renderDiscoveries();};
 $('familyBack').onclick=closeFamily;
 $('familyHint').onclick=unlockInFamily;

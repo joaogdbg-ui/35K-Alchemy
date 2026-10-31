@@ -1,14 +1,30 @@
-<svg xmlns="http://www.w3.org/2000/svg" width="432" height="432" viewBox="0 0 256 256"><g transform="translate(128 128) scale(.86) translate(-128 -124)"><!-- Central flask: alchemical discovery, V87 game palette (paper, slate outline, ochre brew, sparkles) -->
+<svg xmlns="http://www.w3.org/2000/svg" width="432" height="432" viewBox="0 0 256 256"><defs><clipPath id="glassIn"><circle cx="128" cy="160" r="70"/></clipPath>
+<linearGradient id="bg" x1="0" y1="0" x2="0" y2="1"><stop stop-color="#F2BE7E"/><stop offset="1" stop-color="#D88A47"/></linearGradient>
+<linearGradient id="air" x1="0" y1="0" x2="0" y2="1"><stop stop-color="#F3FAF8"/><stop offset="1" stop-color="#D9EEE9"/></linearGradient></defs><g transform="translate(128 128) scale(.82) translate(-128 -134)">
+<!-- Central flask: alchemy -->
 <g stroke-linecap="round" stroke-linejoin="round">
-<circle cx="128" cy="140" r="86" fill="#EBD3B4" opacity=".55"/>
-<path d="M200 58l5 13 13 5-13 5-5 13-5-13-13-5 13-5z" fill="#D08A4C"/>
-<path d="M58 94l3.5 9 9 3.5-9 3.5-3.5 9-3.5-9-9-3.5 9-3.5z" fill="#657D89" opacity=".75"/>
-<path d="M205 150l2.5 6 6 2.5-6 2.5-2.5 6-2.5-6-6-2.5 6-2.5z" fill="#D08A4C" opacity=".8"/>
-<path d="M116 54V104L74 172Q63 194 88 202H168Q193 194 182 172L140 104V54" fill="#FFFDF9" stroke="#4F6470" stroke-width="11"/>
-<path d="M92 150Q108 140 124 148T156 146Q163 144 166 148L176 166Q184 186 166 190H90Q72 186 80 166Z" fill="#D08A4C"/>
-<path d="M92 150Q108 140 124 148T156 146Q163 144 166 148L169 154Q154 150 140 156T108 156Q98 157 88 158Z" fill="#E9AC70"/>
-<circle cx="110" cy="172" r="7.5" fill="#F7DDBF"/><circle cx="142" cy="166" r="5" fill="#F7DDBF"/><circle cx="154" cy="180" r="3.5" fill="#F7DDBF"/>
-<circle cx="130" cy="122" r="6" fill="#FFFDF9" stroke="#657D89" stroke-width="4"/><circle cx="124" cy="94" r="4.5" fill="#FFFDF9" stroke="#657D89" stroke-width="3.5"/><circle cx="133" cy="72" r="3.5" fill="#FFFDF9" stroke="#657D89" stroke-width="3"/>
-<path d="M98 176L106 162" stroke="#FFFDF9" stroke-width="6" opacity=".7"/>
-<rect x="103" y="40" width="50" height="18" rx="9" fill="#FFFDF9" stroke="#4F6470" stroke-width="10"/>
+<path d="M104 46h48v40q0 6 6 9a78 78 0 1 1-60 0q6-3 6-9z" fill="#F7F1E6" stroke="#4F6470" stroke-width="11"/>
+<g clip-path="url(#glassIn)">
+<rect x="40" y="80" width="180" height="160" fill="url(#air)"/>
+<!-- garden inside the flask -->
+<path d="M50 196q40-26 78-20t82 16v70H50z" fill="#8DBF8A"/>
+<path d="M50 206q44-18 82-12t78 14v60H50z" fill="#76AD78"/>
+<path d="M70 192l3-9 3 9M178 186l3-10 3 10M160 205l2-7 2 7" fill="none" stroke="#5D8E6A" stroke-width="3"/>
+<!-- cracked egg shell -->
+<path d="M160 200q-2-22 13-22t14 22z" fill="#FFF8EC" stroke="#4F6470" stroke-width="4"/><path d="M161 190l6 4 5-6 5 6 5-4 4 3" fill="none" stroke="#4F6470" stroke-width="3.5"/>
+</g>
+<!-- companion creature (original): round garden sprite with a sprout -->
+<path d="M106 128q-4-16 4-24 8 10 6 22M150 128q4-16-4-24-8 10-6 22" fill="#F4D7AE" stroke="#4F6470" stroke-width="5"/>
+<ellipse cx="128" cy="162" rx="40" ry="35" fill="#FFF1DC" stroke="#4F6470" stroke-width="6"/>
+<path d="M128 127q-2-12 2-18" fill="none" stroke="#5D8E6A" stroke-width="4"/><path d="M130 112q4-12 16-12-2 12-16 12z" fill="#8DBF8A" stroke="#4F7D5C" stroke-width="3"/><path d="M128 114q-4-10-14-10 1 10 14 10z" fill="#A9D49A" stroke="#4F7D5C" stroke-width="3"/>
+<ellipse cx="114" cy="158" rx="6.5" ry="8.5" fill="#2F3B44"/><ellipse cx="142" cy="158" rx="6.5" ry="8.5" fill="#2F3B44"/><circle cx="116.5" cy="154.5" r="2.6" fill="#fff"/><circle cx="144.5" cy="154.5" r="2.6" fill="#fff"/>
+<ellipse cx="103" cy="172" rx="6" ry="3.6" fill="#EE9C8A" opacity=".85"/><ellipse cx="153" cy="172" rx="6" ry="3.6" fill="#EE9C8A" opacity=".85"/>
+<path d="M122 174q6 6 12 0" fill="none" stroke="#4F6470" stroke-width="4"/>
+<path d="M104 190q-4 8 4 9M152 190q4 8-4 9" fill="none" stroke="#4F6470" stroke-width="5"/>
+<!-- heart: care / virtual pet -->
+<path d="M196 70c-10-7-15-12-15-18a7.5 7.5 0 0 1 15-2 7.5 7.5 0 0 1 15 2c0 6-5 11-15 18z" fill="#E0675A" stroke="#4F6470" stroke-width="4.5"/>
+<!-- bubbles and sparkle -->
+<circle cx="66" cy="78" r="7" fill="#F7F1E6" stroke="#4F6470" stroke-width="4"/><circle cx="52" cy="58" r="4.5" fill="#F7F1E6" stroke="#4F6470" stroke-width="3.5"/>
+<path d="M210 120l4 10 10 4-10 4-4 10-4-10-10-4 10-4z" fill="#FFF4D6"/>
+<rect x="98" y="30" width="60" height="20" rx="8" fill="#B98A5E" stroke="#4F6470" stroke-width="8"/>
 </g></g></svg>

@@ -298,6 +298,7 @@ _v85=[('client/src/organic-pack-v85.js',['ORGANIC_V85'],'__gameverseOrganic85',"
  ('client/src/family-data-v85.js',['FAMILY_DATA_V85'],'__familyData85',"import { FAMILY_DATA_V85 } from './family-data-v85.js';"),
  ('client/src/family-campaigns-v85.js',['buildCompleteFamilyCampaigns'],'__familyCampaigns85',"import { buildCompleteFamilyCampaigns } from './family-campaigns-v85.js';"),
  ('client/src/recipe-polish-v87.js',['RECIPE_POLISH_V87'],'__recipePolish87',"import { RECIPE_POLISH_V87 } from './recipe-polish-v87.js';"),
+ ('client/src/family-art-v88.js',['FAMILY_ART_V88'],'__familyArt88',"import { FAMILY_ART_V88 } from './family-art-v88.js';"),
  ('client/src/public-labels-v86.js',['PUBLIC_LABELS_V86'],'__publicLabels86',"import { PUBLIC_LABELS_V86 } from './public-labels-v86.js';"),
  ('client/src/companions-v86.js',['COMPANIONS_V86','COMPANION_SPRITES_V86'],'__companions86',"import { COMPANIONS_V86, COMPANION_SPRITES_V86 } from './companions-v86.js';"),
  ('client/src/companion-engine-v86.js',['createCompanionSystem','COMPANION_STORAGE_KEY'],'__companionEngine86',"import { createCompanionSystem, COMPANION_STORAGE_KEY } from './companion-engine-v86.js';")]
