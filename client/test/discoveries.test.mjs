@@ -13,7 +13,7 @@ test('all 2774 original V19 element IDs preserved',()=>{
  assert.equal(items.length,2774);assert.equal(itemMap.size,2774);assert.equal(recipes.size,5078);
 });
 test('all original elements retain a primary family and membership remains unique by catalog ID',()=>{
- assert.equal(FAMILIES.slice(0,9).length,9);
+ assert.equal(FAMILIES.length,8); // V86: 11 families merged into 8
  const ids=new Set(FAMILIES.map(f=>f.id));
  for(const item of items)assert.ok(ids.has(familyFor(item)),item.name);
  const groups=groupFamilies(items,initial);

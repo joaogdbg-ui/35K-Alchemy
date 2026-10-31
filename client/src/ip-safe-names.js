@@ -148,10 +148,11 @@ export function publicName(item) {
  return readableDeviceNames(label);
 }
 /** Stable UI labels; collisions get an explicit distinction, never change IDs. */
-export function buildPublicNameIndex(items) {
+export function buildPublicNameIndex(items, overrides=null) {
   const result=new Map(),seen=new Set();
   for(const item of items) {
-    const base=publicName(item);
+    // V86: an explicit reviewed label wins over the regex rules.
+    const base=(overrides&&overrides[item.id])||publicName(item);
     let label=base,number=2;
     while(seen.has(label.toLocaleLowerCase('en-US')))label=base+' — Edition '+number++;
     seen.add(label.toLocaleLowerCase('en-US'));

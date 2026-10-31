@@ -52,7 +52,7 @@ test('V85: shiny chance is 1% (5% without ads), saved, shown in list, slot and p
  assert.match(app,/function shinyChance\(\)\{return adFree\(\)\?0\.05:0\.01;\}/);
  assert.match(app,/const gotShiny=kind!=='batch'&&rollShiny\(resultId\)/);
  assert.match(app,/shiny\.has\(id\)\?' is-shiny':''/);
- assert.match(app,/BACKUP_KEYS=\[SHINY_KEY,/);
+ assert.match(app,/BACKUP_KEYS=\[COMPANION_STORAGE_KEY,SHINY_KEY,/);
  assert.match(src('client/src/styles.css'),/@keyframes shiny-twinkle/);
  assert.match(src('client/index.html'),/data-show-chip="shiny"/);
 });

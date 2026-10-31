@@ -98,13 +98,16 @@ import { GAMEVERSE_ART_V27_VARIANTS } from './gameverse-art-v27-variants.js';
 import { GAMEVERSE_ART_V30_SEMANTIC } from './gameverse-art-v30-semantic.js';
 import { legacyIcon, fallbackIcon, sharedIcon, setIconCatalog } from './icons.js';
 import { resolveLocalRedundancy } from './semantic.js';
-import { FAMILIES, familyFor, familiesFor, groupFamilies, recipesForTarget, candidatesForFamily, registerFamilyMembership } from './discoveries.js';
+import { FAMILIES, familyFor, familiesFor, groupFamilies, recipesForTarget, candidatesForFamily, registerFamilyMembership, MERGED_FAMILY_IDS, canonicalFamilyId } from './discoveries.js';
 import { FAMILY_CAMPAIGNS } from './family-mode-v53-campaigns.js';
 import { buildThematicCampaigns } from './family-campaigns-v82.js';
 import { buildCompleteFamilyCampaigns } from './family-campaigns-v85.js';
 import { FAMILY_DATA_V85 } from './family-data-v85.js';
 import { ORGANIC_V85 } from './organic-pack-v85.js';
 import { ORGANIC_ART_V85 } from './organic-art-v85.js';
+import { COMPANIONS_V86, COMPANION_SPRITES_V86 } from './companions-v86.js';
+import { createCompanionSystem, COMPANION_STORAGE_KEY } from './companion-engine-v86.js';
+import { PUBLIC_LABELS_V86 } from './public-labels-v86.js';
 import { reconcileLegacyFamilies } from './family-compatibility-v82.js';
 import { synchronizeFamilyProfiles, sharedMembership } from './family-shared-v51.js';
 import { eligibleFamilyMerge, mergeIntoClassicState, verifyMergePending } from './family-merge-v60.js';
@@ -115,7 +118,7 @@ const escapeText = (s) => String(s).replace(/[&<>"']/g, (c) => ({'&':'&amp;','<'
 // No hidden first-wins recipe collisions or duplicated catalog entries.
 const {items: ITEMS,recipes:classicRecipes} = buildCatalog(DATA,[PACK,GAMING_V22,GAMING_V23,GAMING_V24,GAMING_V26,GAMING_V27,GAMING_V30,ORGANIC_V85,ORGANIC_V32,ORGANIC_V34,ORGANIC_V37,ORGANIC_V38,ORGANIC_V40,ORGANIC_V41,ORGANIC_V42,ORGANIC_V43,ORGANIC_V44,ORGANIC_V45,ORGANIC_V46,ORGANIC_V47,ORGANIC_V50,ORGANIC_V52,ORGANIC_V53,ORGANIC_V55,ORGANIC_V56,ORGANIC_V57,ORGANIC_V58,ORGANIC_V59,ORGANIC_V61,ORGANIC_V62,ORGANIC_V63,ORGANIC_V65,ORGANIC_V66,ORGANIC_V67,ORGANIC_V68,ORGANIC_V71,ORGANIC_V72,ORGANIC_V73,ORGANIC_V74,ORGANIC_V75,ORGANIC_V76,ORGANIC_V77,ORGANIC_V78,ORGANIC_V79,ORGANIC_V80,ORGANIC_V81,ORGANIC_V82,ORGANIC_V83]);
 // V76.1: change only public labels. Historic recipe IDs and artwork keys are immutable.
-const PUBLIC_LABELS=buildPublicNameIndex(ITEMS);
+const PUBLIC_LABELS=buildPublicNameIndex(ITEMS,PUBLIC_LABELS_V86);
 function uiName(item){return item?(PUBLIC_LABELS.get(item.id)||publicName(item)):'';}
 let recipes=classicRecipes;
 const reconciledHistorical = reconcileLegacyFamilies(classicRecipes,FAMILY_CAMPAIGNS.families);
@@ -130,6 +133,14 @@ const MERGE_PENDING_KEY='35k_family_merge_pending_v60'; // One credited ad can b
 let currentMode='classic', currentFamilyId=null, classicSnapshot=null;
 let familyProfiles={};
 try {const raw=JSON.parse(localStorage.getItem(FAMILY_SAVES_KEY)||'null');if(raw&&typeof raw==='object'&&!Array.isArray(raw))familyProfiles=raw;}catch{}
+// V86: families merged by the owner (consoles+arcades -> games, music+cinema -> anime). Old campaign
+// saves are folded into the absorbing family so no discovery is lost.
+for(const [oldId,newId] of Object.entries(MERGED_FAMILY_IDS)){const o=familyProfiles[oldId];if(!o)continue;
+ const t=familyProfiles[newId]||{unlocked:[],known:[],recent:[],last:null,ledger:[],order:[],clues:{}};
+ const merged={...t,unlocked:[...new Set([...(t.unlocked||[]),...(o.unlocked||[])])],known:[...new Set([...(t.known||[]),...(o.known||[])])],
+  recent:[...new Set([...(t.recent||[]),...(o.recent||[])])].slice(0,350),ledger:[...new Map([...(o.ledger||[]),...(t.ledger||[])])],
+  order:[...new Set([...(t.order||[]),...(o.order||[])])],clues:{...(o.clues||{}),...(t.clues||{})}};
+ familyProfiles[newId]=merged;delete familyProfiles[oldId];}
 // V51: migrate old Family Only saves on load, including families not yet played.
 // Shared discoveries never cross into the independent Classic save.
 familyProfiles=synchronizeFamilyProfiles(familyProfiles,ALL_CAMPAIGNS).profiles;
@@ -543,14 +554,24 @@ function syncModeButton(){const c=$('modeBtn');if(!c)return;
 }
 function syncFamilyBanner(){
  const bar=$('familyBanner');if(!bar)return;
- bar.hidden=currentMode!=='family';
- if(bar.hidden)return;
- const f=FAMILIES.find(x=>x.id===currentFamilyId),c=familyCampaigns.get(currentFamilyId);
- $('familyBannerArt').innerHTML=f?familyCardArtwork(f):'';
- $('familyBannerName').textContent=f?.name||'Family';
- const found=c?[...unlocked].filter(id=>c.itemSet.has(id)).length:unlocked.size;
- $('familyBannerProgress').textContent=c?`${found.toLocaleString('en-US')} / ${c.items.length.toLocaleString('en-US')}`:'';
- const pct=c&&c.items.length?Math.min(100,100*found/c.items.length):0;bar.style.setProperty('--family-progress',pct.toFixed(1)+'%');
+ bar.hidden=false;bar.dataset.mode=currentMode;
+ if(currentMode==='family'){
+  const f=FAMILIES.find(x=>x.id===currentFamilyId),c=familyCampaigns.get(currentFamilyId);
+  $('familyBannerArt').innerHTML=f?familyCardArtwork(f):'';
+  $('familyBannerKind').textContent='Family mode';
+  $('familyBannerName').textContent=f?.name||'Family';
+  const found=c?[...unlocked].filter(id=>c.itemSet.has(id)).length:unlocked.size;
+  $('familyBannerProgress').textContent=c?`${found.toLocaleString('en-US')} / ${c.items.length.toLocaleString('en-US')}`:'';
+  const pct=c&&c.items.length?Math.min(100,100*found/c.items.length):0;bar.style.setProperty('--family-progress',pct.toFixed(1)+'%');
+ } else {
+  $('familyBannerArt').innerHTML=`<svg viewBox="0 0 24 24" width="30" height="30" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M9 3h6M10 3v6.5L4.5 19a1.5 1.5 0 0 0 1.3 2.2h12.4a1.5 1.5 0 0 0 1.3-2.2L14 9.5V3"/><path d="M7.5 15h9"/></svg>`;
+  $('familyBannerKind').textContent='Classic mode';
+  $('familyBannerName').textContent='All families';
+  const total=ITEMS.length;
+  $('familyBannerProgress').textContent=`${unlocked.size.toLocaleString('en-US')} / ${total.toLocaleString('en-US')}`;
+  bar.style.setProperty('--family-progress',(100*unlocked.size/total).toFixed(2)+'%');
+ }
+ $('familyBannerName').title=$('familyBannerName').textContent;
 }
 function activateMode(next,familyId=null){
  if(next==='family'&&!familyCampaigns.has(familyId))return false;
@@ -706,7 +727,7 @@ function refreshMergeButton(){
  const b=$('mergeClassicBtn');
  if(b){b.hidden=false;b.disabled=false;b.textContent=total?`⇄ Merge Classic and Families · ${total.toLocaleString('en-US')}`:'⇄ Merge · everything is up to date';}
  const p=$('playMergeBtn');
- if(p){p.hidden=currentMode!=='family';p.textContent=total?`⇄ Merge · ${total.toLocaleString('en-US')}`:'⇄ Merge';p.classList.toggle('has-items',total>0);}
+ if(p){p.hidden=false;p.textContent=total?`⇄ Merge · ${total.toLocaleString('en-US')}`:'⇄ Merge';p.classList.toggle('has-items',total>0);}
 }
 function mergeHub(){
  const toClassic=familyToClassicCount(),c2f=classicToFamiliesCandidates();
@@ -832,11 +853,11 @@ function difficultyFor(id){const d=routeDepth.get(id);
 function elementIsUseful(id){return (recipeUses.get(id)||[]).some(r=>unlocked.has(r.a===id?r.b:r.a)&&!unlocked.has(r.out));}
 function elementIsComplete(id){return unlocked.has(id)&&!(recipeUses.get(id)||[]).some(r=>!unlocked.has(r.out));}
 const COLLECTION_SETS=[
- {id:'playstation',name:'Disc Console Timeline',description:'Home consoles and portable systems across the disc era.',family:'consoles',names:['PlayStation','PlayStation 2','PlayStation 3','PlayStation 4','PlayStation 5','PSP','PS Vita'],icon:'console'},
- {id:'nintendo',name:'Pocket Console History',description:'Handheld games, cartridges and dual-screen devices.',family:'consoles',names:['Game Boy','Game Boy Color','Game Boy Advance','Nintendo DS','Nintendo 3DS'],icon:'handheld'},
+ {id:'playstation',name:'Disc Console Timeline',description:'Home consoles and portable systems across the disc era.',family:'games',names:['PlayStation','PlayStation 2','PlayStation 3','PlayStation 4','PlayStation 5','PSP','PS Vita'],icon:'console'},
+ {id:'nintendo',name:'Pocket Console History',description:'Handheld games, cartridges and dual-screen devices.',family:'games',names:['Game Boy','Game Boy Color','Game Boy Advance','Nintendo DS','Nintendo 3DS'],icon:'handheld'},
  {id:'classics',name:'Retro Gaming Icons',description:'Platform games, fantasy quests and creature adventures.',family:'games',names:['Super Mario Bros.','The Legend of Zelda','Pokémon Red','Pokémon Blue','Sonic the Hedgehog'],icon:'game_case'},
- {id:"sega-hardware",name:'Arcade Console History',description:'16-bit machines, disc systems and portable arcade gaming.',family:"consoles",names:["Sega Genesis", "Sega Saturn", "Sega Dreamcast", "Sega Game Gear", "Sega CD"],icon:"game_case"},
- {id:"xbox-history",name:'Modern Home Consoles',description:'A timeline of high-powered living-room systems.',family:"consoles",names:["Xbox", "Xbox 360", "Xbox One", "Xbox Series X", "Xbox Series S"],icon:"game_case"},
+ {id:"sega-hardware",name:'Arcade Console History',description:'16-bit machines, disc systems and portable arcade gaming.',family:"games",names:["Sega Genesis", "Sega Saturn", "Sega Dreamcast", "Sega Game Gear", "Sega CD"],icon:"game_case"},
+ {id:"xbox-history",name:'Modern Home Consoles',description:'A timeline of high-powered living-room systems.',family:"games",names:["Xbox", "Xbox 360", "Xbox One", "Xbox Series X", "Xbox Series S"],icon:"game_case"},
  {id:"mario-eras",name:'Classic Platform Adventures',description:'Jump-and-run platform games from 2D to 3D.',family:"games",names:["Super Mario Bros.", "Super Mario World", "Super Mario 64", "Super Mario Sunshine", "Super Mario Galaxy", "Super Mario Odyssey"],icon:"game_case"},
  {id:"sonic-eras",name:'High-Speed Platformers',description:'Fast-moving platform games built around momentum.',family:"games",names:["Sonic the Hedgehog", "Sonic the Hedgehog 2", "Sonic CD", "Sonic Adventure", "Sonic Adventure 2", "Sonic Mania"],icon:"game_case"},
  {id:"kirby-tour",name:'Cute Fantasy Platformers',description:'Bright, playful platform adventures with tiny heroes.',family:"games",names:["Kirby’s Dream Land", "Kirby 64: The Crystal Shards", "Kirby: Triple Deluxe", "Kirby and the Forgotten Land"],icon:"game_case"},
@@ -846,7 +867,7 @@ const COLLECTION_SETS=[
  {id:"pc-classics",name:'Classic PC Games',description:'Shooters, strategy and everyday-life simulations.',family:"games",names:["Half-Life", "DOOM", "Quake", "StarCraft", "The Sims"],icon:"game_case"},
  {id:"indie",name:'Indie Game Favorites',description:'Indie platformers, farming, exploration and stories.',family:"games",names:["Celeste", "Hollow Knight", "Stardew Valley", "Undertale", "Hades"],icon:"game_case"},
  {id:"nintendo-64",name:'64-Bit Game Classics',description:'Cartridge-era 3D platforming and kart racing.',family:"games",names:["Super Mario 64", "Mario Kart 64", "Donkey Kong 64", "Pokémon Snap", "Kirby 64: The Crystal Shards"],icon:"game_case"},
- {id:"sony-portables",name:'Portable Disc Gaming',description:'Pocket consoles and their action-adventure games.',family:"consoles",names:["PSP", "PS Vita", "God of War: Chains of Olympus", "Metal Gear Solid: Peace Walker"],icon:"game_case"},
+ {id:"sony-portables",name:'Portable Disc Gaming',description:'Pocket consoles and their action-adventure games.',family:"games",names:["PSP", "PS Vita", "God of War: Chains of Olympus", "Metal Gear Solid: Peace Walker"],icon:"game_case"},
  {id:"fighting-legends",name:'Arcade Fighting Games',description:'One-on-one fighters and classic tournament action.',family:"games",names:["Street Fighter II", "Mortal Kombat", "Tekken 3", "Virtua Fighter 2", "Street Fighter 6"],icon:"game_case"},
  {id:"music-games",name:'Music & Rhythm Games',description:'Play to the beat in dancing and instrument games.',family:"games",names:["Guitar Hero", "Dance Dance Revolution", "Wii Music", "Just Dance", "Rhythm Heaven Fever"],icon:"game_case"},
  {id:"zelda-classics",name:'Fantasy Quest Games',description:'Swordplay, exploration, dungeons and puzzle-solving.',family:"games",names:["The Legend of Zelda", "The Legend of Zelda: Twilight Princess", "The Legend of Zelda: The Wind Waker", "The Legend of Zelda: Echoes of Wisdom"],icon:"game_case"},
@@ -1009,6 +1030,7 @@ function updateCounts(){
  $('statPersonal').textContent=earned.toLocaleString('en-US');
  const sh=$('statShiny');if(sh)sh.textContent=shiny.size.toLocaleString('en-US');
  const shChip=document.querySelector('[data-show-chip="shiny"]');if(shChip)shChip.hidden=shiny.size===0&&inventoryShow!=='shiny';
+ syncFamilyBanner();
  refreshMergeButton();
 }
 function updateSlotUI(){slots.forEach((id,i)=>{const target=$(`slot${i}`),item=byId.get(id);target.classList.toggle('filled',!!item);target.classList.toggle('is-shiny',!!item&&shiny.has(id));target.innerHTML=item?`<span class="slot-art">${staticArt(item)}</span><span class="slot-name">${escapeText(uiName(item))}</span>`:'<span class="slot-plus">+</span>';});$('lockLeft').setAttribute('aria-pressed',String(leftLocked));$('batchOpen').hidden=!(leftLocked&&slots[0]);}
@@ -1234,6 +1256,7 @@ function completeCombination(resultId,a,b,kind='recipe'){
  recent=[resultId,...recent.filter(i=>i!==resultId)].slice(0,350);
  const gotShiny=kind!=='batch'&&rollShiny(resultId);
  save();updateCounts();updateLatest();syncFamilyBanner();
+ if(fresh)companions.onDiscovery(resultId);
  if(fresh){announceCraft('new',(gotShiny?'✦ Shiny discovery · ':'New discovery · ')+uiName(byId.get(resultId)));rerenderCollections();if(tab==='World')renderDiscoveries();showDiscovery(resultId,a,b,scene,gotShiny);}
  else {announceCraft('repeat',(gotShiny?'✦ Shiny · ':'Already discovered · ')+uiName(byId.get(resultId)));playCraftMotion(scene,'repeat',byId.get(resultId));if(gotShiny){playVirtual.refresh();setTimeout(()=>showShinyFound(resultId),480);}}
 }
@@ -1523,12 +1546,22 @@ function unlockInFamily(){
  revealRecipeWithAd(candidate.id);
 }
 function switchTab(view){
- tab=view==='World'?'World':'Play';
- for(const name of ['Play','World'])$(`view${name}`).hidden=name!==tab;
+ tab=view==='World'?'World':view==='Pets'?'Pets':'Play';
+ for(const name of ['Play','World','Pets'])$(`view${name}`).hidden=name!==tab;
  document.querySelectorAll('.tab').forEach(b=>{const active=b.dataset.view===tab;b.classList.toggle('active',active);b.setAttribute('aria-current',active?'page':'false');});
- if(tab==='World')renderDiscoveries();else playVirtual.draw(true);
+ if(tab==='World')renderDiscoveries();else if(tab==='Pets')companions.renderTab();else playVirtual.draw(true);
+ companions.onViewChange();
 }
-const BACKUP_KEYS=[SHINY_KEY,HINT_BANK_KEY,FAMILY_SAVES_KEY,MODE_SELECTION_KEY,'gameverse_alchemy_v2','gameverse_dynamic_v11','gameverse_ledger_v16','gameverse_discovery_hints_v20',EXTRA_STORAGE,DISCOVERY_ORDER_KEY];
+// V86 Companions: five companion elements per family live on top of the interface.
+function discoveredAnywhere(id){
+ if(unlocked.has(id)&&!STARTERS.has(id))return true;
+ if(currentMode==='family'&&classicSnapshot?.unlocked?.includes(id))return true;
+ return Object.entries(familyProfiles).some(([fid,p])=>Array.isArray(p?.unlocked)&&p.unlocked.includes(id)&&!familyCampaigns.get(fid)?.starters.includes(id));
+}
+const companions=createCompanionSystem({roster:COMPANIONS_V86,sprites:COMPANION_SPRITES_V86,$,escapeText,byId,uiName,staticArt,familyFor,
+ isDiscovered:discoveredAnywhere,isShiny:id=>shiny.has(id),elementIsUseful,getSlots:()=>slots,isLeftLocked:()=>leftLocked,toast,showModal,closeModal,
+ reducedMotion:()=>Boolean(window.matchMedia?.('(prefers-reduced-motion: reduce)')?.matches),FAMILIES});
+const BACKUP_KEYS=[COMPANION_STORAGE_KEY,SHINY_KEY,HINT_BANK_KEY,FAMILY_SAVES_KEY,MODE_SELECTION_KEY,'gameverse_alchemy_v2','gameverse_dynamic_v11','gameverse_ledger_v16','gameverse_discovery_hints_v20',EXTRA_STORAGE,DISCOVERY_ORDER_KEY];
 function backupJson(){
  save();
  const progress={format:'35k-alchemy-backup',version:25,savedAt:new Date().toISOString(),data:{}};
@@ -1600,7 +1633,7 @@ function confirmWipe(target){
 function wipeProgress(target){
  const classicKeys=['gameverse_alchemy_v2','gameverse_dynamic_v11','gameverse_ledger_v16',HINT_STORAGE,DISCOVERY_ORDER_KEY];
  const familyKeys=[FAMILY_SAVES_KEY,MERGE_PENDING_KEY,MERGE_TO_FAMILIES_KEY];
- const keys=target==='classic'?classicKeys:target==='families'?familyKeys:target==='all'?[...classicKeys,...familyKeys,EXTRA_STORAGE,SHINY_KEY]:null;
+ const keys=target==='classic'?classicKeys:target==='families'?familyKeys:target==='all'?[...classicKeys,...familyKeys,EXTRA_STORAGE,SHINY_KEY,COMPANION_STORAGE_KEY]:null;
  if(!keys)return;
  progressWiping=true;clearTimeout(autoTimer);
  try{for(const k of keys)localStorage.removeItem(k);}catch{}
@@ -1712,6 +1745,8 @@ function settings(){
     <details><summary>How do I combine elements?</summary><p>In Classic, start with Water, Fire, Earth and Air. Tap or drag any two discovered elements into the combiner.</p></details>
     <div class="settings-divider"></div>
     <details><summary>How do hints and families work?</summary><p>Hints need a completed rewarded ad (or use your hint bank without ads). In Families Only, each family is a complete campaign from its own four starters, with separate progress. Merge copies discoveries between Classic and Families in either direction.</p></details>
+    <div class="settings-divider"></div>
+    <details><summary>What are companions?</summary><p>Five elements per family are companions. Once discovered, choose one in the Companions tab: it walks around your screen, leaves gifts, and eats elements you drag onto it to level up (see the Companions tab for the full guide and the mini-game plan).</p></details>
     <div class="settings-divider"></div>
     <details><summary>What are Shiny elements?</summary><p>Every successful combination, including ones you already know, has a 1% chance (5% without ads) to make its result Shiny: it twinkles in your list and reveals a piece of trivia.</p></details>
     <div class="settings-divider"></div>
@@ -1910,7 +1945,7 @@ function compassCandidates(){
   const family=familyFor(byId.get(out)),depth=routeDepth.get(out)||99;
   // Prefer coherent nearby branches and a locked ingredient without forcing it.
   const score=(held&&(held===a||held===b)?65:0)+Math.max(0,14-depth*2)+
-   (['games','consoles','anime'].includes(family)?5:0)+
+   (['games','anime'].includes(family)?5:0)+
    (familyCounts.get(family)===0?9:Math.max(0,7-Math.floor((familyCounts.get(family)||0)/10)));
   const prev=candidates.get(out);
   if(!prev||score>prev.score)candidates.set(out,{a,b,out,family,score});
@@ -1947,7 +1982,7 @@ for(const v of [playVirtual]){
  root.addEventListener('pointermove',e=>{if(!dragging||dragging.pointer!==e.pointerId)return;if(!dragging.active&&Math.hypot(e.clientX-dragging.x,e.clientY-dragging.y)>9){dragging.active=true;if(tab!=='Play')switchTab('Play');$('dragGhost').innerHTML=staticArt(byId.get(dragging.id));$('dragGhost').hidden=false;}
   if(dragging.active){e.preventDefault();$('dragGhost').style.left=e.clientX+'px';$('dragGhost').style.top=e.clientY+'px';const under=document.elementFromPoint(e.clientX,e.clientY),target=under?.closest('.craft-slot');document.querySelectorAll('.craft-slot').forEach(el=>el.classList.toggle('drop-target',el===target));}
  });
- root.addEventListener('pointerup',e=>{if(!dragging||dragging.pointer!==e.pointerId)return;const {id,active,view}=dragging;clearDrag();view.dragEnded=Date.now();if(active){const target=document.elementFromPoint(e.clientX,e.clientY)?.closest('.craft-slot');if(target){pulseSelectedElement(id);place(Number(target.id.slice(-1)),id);}else toast('Drop onto a craft slot','error');}else insertDirect(id);});
+ root.addEventListener('pointerup',e=>{if(!dragging||dragging.pointer!==e.pointerId)return;const {id,active,view}=dragging;clearDrag();view.dragEnded=Date.now();if(active){if(companions.hitTest(e.clientX,e.clientY)){companions.feed(id);return;}const target=document.elementFromPoint(e.clientX,e.clientY)?.closest('.craft-slot');if(target){pulseSelectedElement(id);place(Number(target.id.slice(-1)),id);}else toast('Drop onto a craft slot or your companion','error');}else insertDirect(id);});
  root.addEventListener('pointercancel',clearDrag);
 }
 // V28: on-screen keyboards must never hide matching results. Collapse the workspace
@@ -2058,8 +2093,9 @@ document.querySelectorAll('[data-dscope]').forEach(btn=>btn.onclick=()=>{discove
 document.querySelectorAll('.tab').forEach(b=>b.onclick=()=>switchTab(b.dataset.view));
 updateCounts();updateSlotUI();updateLatest();rerenderCollections();switchTab('Play');
 classicSnapshot=snapshotPlayState();
-try{const preferred=JSON.parse(localStorage.getItem(MODE_SELECTION_KEY)||'null');if(preferred?.mode==='family'&&familyCampaigns.has(preferred.family))activateMode('family',preferred.family);else if(!preferred)modePicker(true);}catch{modePicker(true);}
+try{const preferred=JSON.parse(localStorage.getItem(MODE_SELECTION_KEY)||'null');if(preferred?.mode==='family'&&familyCampaigns.has(canonicalFamilyId(preferred.family)))activateMode('family',canonicalFamilyId(preferred.family));else if(!preferred)modePicker(true);}catch{modePicker(true);}
 syncModeButton();
+companions.start();
 // V19 Offline Edition: intentionally no automatic API connection.
 
 // Global inbox polling is deliberately throttled: one request for ALL pending pairs,

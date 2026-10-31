@@ -4,10 +4,14 @@ import {createHash} from 'node:crypto';
 import {FAMILIES} from '../client/src/discoveries.js';
 import {FAMILY_ICONS_V54} from '../client/src/family-icons-v54.js';
 const manifest=JSON.parse(readFileSync('shared/v54-family-art-manifest.json','utf8'));
-assert.ok(FAMILIES.length>=9); // The original 9 family art keys remain the V54 baseline.
-assert.deepEqual(Object.keys(FAMILY_ICONS_V54).sort(),FAMILIES.slice(0,9).map(x=>x.id).sort());
+// V86: four of the nine original families were merged into others; their V54 art files stay
+// as the manifest baseline, keyed by the original ids.
+const V54_IDS=Object.keys(manifest);
+assert.equal(V54_IDS.length,9);
+assert.deepEqual(Object.keys(FAMILY_ICONS_V54).sort(),V54_IDS.slice().sort());
+for(const f of FAMILIES.filter(f=>!['mythology','prehistoric','world'].includes(f.id)))assert.ok(V54_IDS.includes(f.id),f.id);
 const unique=new Set();
-for(const f of FAMILIES.slice(0,9)){
+for(const f of V54_IDS.map(id=>({id}))){
  const file=readFileSync(`client/assets/families-v54/${f.id}.svg`);
  assert.equal(createHash('sha256').update(file).digest('hex'),manifest[f.id]);
  const encoded='data:image/svg+xml;base64,'+file.toString('base64');
