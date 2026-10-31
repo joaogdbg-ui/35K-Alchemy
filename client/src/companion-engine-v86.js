@@ -62,9 +62,13 @@ export function createCompanionSystem(ctx){
  // V92: houses speed up growth (multipliers on future gains only — never on stats themselves).
  const growth=(id,kind)=>{try{return Math.max(1,Number(ctx.growthFor?.(id,kind))||1);}catch{return 1;}};const onBadge=ctx.onBadge||(()=>{});
  const metaById=new Map(roster.map(c=>[c.id,c]));
+ const sfx=new Proxy(ctx.sfx||{},{get:(t,k)=>t[k]||(()=>{})});
  let state={active:null,pets:{},v:1};
- const normalize=raw=>({active:raw.active||null,pets:raw.pets,v:1,firstFreeUsed:Boolean(raw.firstFreeUsed||raw.active),seen:Array.isArray(raw.seen)?raw.seen.filter(x=>typeof x==='string'):null});
- try{const raw=JSON.parse(localStorage.getItem(COMPANION_STORAGE_KEY)||'null');if(raw&&typeof raw==='object'&&raw.pets)state=normalize(raw);}catch{}
+ const starter=ctx.starterCompanion||null;
+ const normalize=raw=>({active:raw.active||null,pets:raw.pets,v:1,firstFreeUsed:Boolean(raw.firstFreeUsed||(raw.active&&raw.active!==starter)),seen:Array.isArray(raw.seen)?raw.seen.filter(x=>typeof x==='string'):null});
+ let loaded=false;try{const raw=JSON.parse(localStorage.getItem(COMPANION_STORAGE_KEY)||'null');if(raw&&typeof raw==='object'&&raw.pets){state=normalize(raw);loaded=true;}}catch{}
+ // V105: new games start with the starter companion (Frog) on screen; the free choice is kept.
+ if(!loaded&&starter&&metaById.has(starter)){state={active:starter,pets:{},v:1,firstFreeUsed:false,seen:[starter]};}
  const save=()=>{try{localStorage.setItem(COMPANION_STORAGE_KEY,JSON.stringify(state));}catch{}};
  const pet=id=>{if(!state.pets[id])state.pets[id]={mood:60,moodAt:Date.now(),fed:{},gifts:0,meals:0,since:Date.now()};const p=state.pets[id];if(typeof p.belly!=='number'){p.belly=80;p.bellyAt=Date.now();}if(!p.stats)p.stats=freshStats(metaById.get(id)||{family:'nature',move:'walk',name:''},isShiny(id));return p;};
  const totalLevel=id=>COMPANION_STATS.reduce((n,k)=>n+(pet(id).stats[k]?.level||0),0);
@@ -90,10 +94,10 @@ export function createCompanionSystem(ctx){
   document.body.append(layerBack,layerFront);
   sprite=document.createElement('button');sprite.type='button';sprite.className='companion';sprite.id='companionSprite';sprite.setAttribute('aria-label','Your companion');
   sprite.innerHTML='<span class="companion-shadow" aria-hidden="true"></span><span class="companion-art" aria-hidden="true"></span><span class="companion-fx" aria-hidden="true"></span><span class="companion-emote" aria-hidden="true" hidden></span>';
-  sprite.addEventListener('click',e=>{e.stopPropagation();if(stroke.done){stroke.done=false;return;}openCard(state.active);});
+  sprite.addEventListener('click',e=>{e.stopPropagation();if(stroke.done){stroke.done=false;return;}sfx.boop();openCard(state.active);});
   // Stroking: rub a finger across the companion (like petting a Chao) → hearts, happy wiggle, mood.
   sprite.addEventListener('pointerdown',e=>{stroke={x:e.clientX,y:e.clientY,dist:0,on:false,done:false,id:e.pointerId,last:0};});
-  sprite.addEventListener('pointermove',e=>{if(stroke.id!==e.pointerId||stroke.x==null)return;stroke.dist+=Math.hypot(e.clientX-stroke.x,e.clientY-stroke.y);stroke.x=e.clientX;stroke.y=e.clientY;if(!stroke.on&&stroke.dist>26){stroke.on=true;startPetting();}if(stroke.on&&now()-stroke.last>420){stroke.last=now();petTick();}});
+  sprite.addEventListener('pointermove',e=>{if(stroke.id!==e.pointerId||stroke.x==null)return;stroke.dist+=Math.hypot(e.clientX-stroke.x,e.clientY-stroke.y);stroke.x=e.clientX;stroke.y=e.clientY;if(!stroke.on&&stroke.dist>26){stroke.on=true;startPetting();}if(stroke.on&&now()-stroke.last>420){stroke.last=now();sfx.purr();petTick();}});
   const endStroke=()=>{if(stroke.on){stroke.done=true;stopPetting();}stroke.x=null;stroke.id=null;};
   sprite.addEventListener('pointerup',endStroke);sprite.addEventListener('pointercancel',endStroke);sprite.addEventListener('pointerleave',endStroke);
   ['pointerdown','keydown','touchstart'].forEach(ev=>document.addEventListener(ev,()=>{lastInput=now();if(sleeping)wake();},{passive:true}));
@@ -168,7 +172,7 @@ export function createCompanionSystem(ctx){
  function startPetting(){const meta=activeMeta();if(!meta)return;petting=true;if(sleeping)wake();if(cancelMove)cancelMove();sprite.classList.remove('is-happy');sprite.classList.add('is-petted');emote('heart',99999);}
  function petTick(){const meta=activeMeta();if(!meta||!petting)return;fx('hearts',1300);const p=pet(meta.id);settleMood(p);
   const win=Math.floor(now()/600000);if(p.petWin!==win){p.petWin=win;p.petGain=0;}if(p.petGain<PET_MOOD_CAP){p.petGain++;p.mood=Math.min(100,p.mood+1);p.moodAt=now();p.strokes=(p.strokes||0)+1;save();}}
- function stopPetting(){if(!petting)return;petting=false;sprite.classList.remove('is-petted');sprite.classList.add('is-happy');emote('heart',1200);setTimeout(()=>{sprite.classList.remove('is-happy');refreshViews();},950);}
+ function stopPetting(){if(!petting)return;petting=false;sfx.happy();sprite.classList.remove('is-petted');sprite.classList.add('is-happy');emote('heart',1200);setTimeout(()=>{sprite.classList.remove('is-happy');refreshViews();},950);}
 
  // ---------- behaviours ----------
  async function loop(){
@@ -196,7 +200,7 @@ export function createCompanionSystem(ctx){
   timer=setTimeout(loop,400+Math.random()*1300);
  }
  async function stroll(){if(!rail||rail.kind==='side')return;await walkTo(rail.x1+Math.random()*(rail.x2-rail.x1),rail.y);}
- async function hopInPlace(){sprite.dataset.anim='crouch';await wait(120);const y=pos.y;await travel({x:pos.x,y,arc:18,ms:420,anim:'jump'});sprite.dataset.anim='land';await wait(140);sprite.dataset.anim='idle';}
+ async function hopInPlace(){sprite.dataset.anim='crouch';await wait(120);const y=pos.y;sfx.hop();await travel({x:pos.x,y,arc:18,ms:420,anim:'jump'});sprite.dataset.anim='land';await wait(140);sprite.dataset.anim='idle';}
  async function startClimb(){const side=rails().find(r=>r.kind==='side'&&r.i===rail.i)||rails().find(r=>r.kind==='side');if(!side)return;await walkTo(clampX(rail,side.x),rail.y);
   if(Math.abs(pos.y-side.y1)>8){await jumpTo(side);}else{rail=side;}await climb();}
  async function climb(){const r=rail;if(r.kind!=='side')return;sprite.classList.add('is-climbing');const goUp=pos.y>r.y1+20;const ty=goUp?r.y1:r.y2;
@@ -205,7 +209,7 @@ export function createCompanionSystem(ctx){
   if(goUp&&top){await travel({x:clampX(top,r.x-SIZE*0.6),y:top.y,arc:22,ms:380,anim:'jump'});sprite.dataset.anim='land';await wait(150);sprite.dataset.anim='idle';rail=top;}
   else await jumpTo(pickRail());}
  async function knock(){if(!rail||rail.kind!=='top')return;const left=Math.random()<0.5;await walkTo(left?rail.x1:rail.x2,rail.y);pos.face=left?-1:1;sprite.dataset.face=left?'left':'right';
-  sprite.dataset.anim='knock';for(let i=0;i<3;i++){await wait(260);fx('ripple',900);document.body.classList.add('companion-knock');setTimeout(()=>document.body.classList.remove('companion-knock'),180);}await wait(500);sprite.dataset.anim='idle';}
+  sprite.dataset.anim='knock';for(let i=0;i<3;i++){await wait(260);sfx.knock();fx('ripple',900);document.body.classList.add('companion-knock');setTimeout(()=>document.body.classList.remove('companion-knock'),180);}await wait(500);sprite.dataset.anim='idle';}
  async function goBehind(){const back=rails().find(r=>r.kind==='behind'&&r.i===rail.i)||pickRail('behind');if(!back)return;await jumpTo(back,pos.x);await stroll();await wait(300+Math.random()*600);const top=rails().find(r=>r.kind==='top'&&r.i===back.i);if(top)await jumpTo(top,pos.x);}
  async function pointAtSlot(slotRect){const top=rails().find(x=>x.kind==='top'&&x.ref.top<=slotRect.top&&x.ref.bottom>=slotRect.bottom);if(top&&top!==rail)await jumpTo(top);
   await walkTo(clampX(rail,slotRect.left+slotRect.width/2-SIZE/2),rail.y);pos.face=1;sprite.dataset.face='right';
@@ -275,20 +279,20 @@ export function createCompanionSystem(ctx){
  async function eatSequence(meta,item,{self=false}={}){
   const p=pet(meta.id);settleMood(p);
   const taste=likes(meta,item);
-  if(taste==='no'){morsel(item,'is-refused');emote('spiral',1400);sprite.dataset.anim='refuse';p.mood=Math.max(0,p.mood-3);p.moodAt=now();save();await wait(1400);sprite.dataset.anim='idle';refreshViews();return true;}
+  if(taste==='no'){sfx.refuse();morsel(item,'is-refused');emote('spiral',1400);sprite.dataset.anim='refuse';p.mood=Math.max(0,p.mood-3);p.moodAt=now();save();await wait(1400);sprite.dataset.anim='idle';refreshViews();return true;}
   const last=p.fed[item.id]||0,fresh=now()-last>FEED_COOLDOWN_MS;
   // grab: the element flies into the hands and stays there while chewing
-  const held=fx('held',3600);held.innerHTML=staticArt(item);sprite.dataset.anim='grab';await wait(450);
+  const held=fx('held',3600);held.innerHTML=staticArt(item);sprite.dataset.anim='grab';sfx.grab();await wait(450);
   sprite.dataset.anim='hold-eat';
   const plan=fresh?feedPlan(meta,item).map(c=>({...c,amount:Math.round(c.amount*growth(meta.id,c.stat))})):[];
   const changes=plan.map(c=>({...c,...gainStat(p,meta,c.stat,c.amount)}));
   p.mood=Math.min(100,p.mood+(taste==='love'?12:5));p.moodAt=now();p.belly=Math.min(100,p.belly+Math.round((fresh?25:10)*growth(meta.id,'food')));p.bellyAt=now();if(fresh)p.fed[item.id]=now();p.meals++;save();
   if(changes.length)showStatWindow(meta,changes,2800);
-  for(let i=0;i<4;i++){await wait(650);held.classList.add('bite-'+(i+1));}
+  for(let i=0;i<4;i++){await wait(650);held.classList.add('bite-'+(i+1));sfx.nom();}
   await wait(500);held.remove();
-  if(taste==='love'){fx('hearts',1300);emote('heart',1400);}
+  if(taste==='love'){sfx.happy();fx('hearts',1300);emote('heart',1400);}
   const ups=changes.reduce((n,c)=>n+c.levelUps,0);
-  if(ups){sprite.dataset.anim='levelup';fx('stars',2000);emote('burst',1700);await wait(1800);}
+  if(ups){sfx.levelup();sprite.dataset.anim='levelup';fx('stars',2000);emote('burst',1700);await wait(1800);}
   sprite.dataset.anim='idle';refreshViews();return true;
  }
  async function feed(elementId){

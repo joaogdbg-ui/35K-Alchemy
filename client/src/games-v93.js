@@ -273,8 +273,8 @@ export function createGamesSystem(ctx){
   hud.innerHTML=`<div class="g-hud-row"><div class="g-energy"><i>Stamina</i><b><em id="gEnergy"></em></b></div><div class="g-place" id="gPlace">—</div></div><div class="g-progress"><i id="gProg"></i>${C.zones.filter(z=>z.kind!=='run').map(z=>`<b class="is-${z.kind}" style="left:${(100*z.a/L).toFixed(1)}%;width:${(100*z.len/L).toFixed(1)}%"></b>`).join('')}</div>${cheerBtn('CHEER')}`;
   const energyEl=hud.querySelector('#gEnergy'),placeEl=hud.querySelector('#gPlace'),cheer=hud.querySelector('#gCheer'),prog=hud.querySelector('#gProg');
   let raf=0,last=0,finished=[],quit=false,running=false,lastPlace=0;
-  const doCheer=()=>{const r=racers[0];if(!running||r.done||r.rest>0||r.pz)return;if(r.energy<6){r.el.classList.add('g-tired');cheer.classList.add('is-no');sfx.tired();setTimeout(()=>{r.el.classList.remove('g-tired');cheer.classList.remove('is-no');},300);return;}
-   r.energy-=6;r.boost=0.8;if(r.gl&&r.gl.ph==='air')r.gl.reach+=0.08;sfx.cheer();cheer.classList.remove('is-pop');void cheer.offsetWidth;cheer.classList.add('is-pop');const b=document.createElement('i');b.className='g-burst';r.el.append(b);setTimeout(()=>b.remove(),500);};
+  const doCheer=()=>{const r=racers[0];if(!running||r.done||r.rest>0||r.pz)return;if(r.energy<6){r.el.classList.add('g-tired');cheer.classList.add('is-no');sfx.tired();try{navigator.vibrate?.([8,40,8]);}catch{}setTimeout(()=>{r.el.classList.remove('g-tired');cheer.classList.remove('is-no');},300);return;}
+   r.energy-=6;r.boost=0.8;if(r.gl&&r.gl.ph==='air')r.gl.reach+=0.08;sfx.cheer();try{navigator.vibrate?.(15);}catch{}cheer.classList.remove('is-pop');void cheer.offsetWidth;cheer.classList.add('is-pop');const b=document.createElement('i');b.className='g-burst';r.el.append(b);setTimeout(()=>b.remove(),500);};
   body.addEventListener('pointerdown',doCheer);cheer.addEventListener('pointerdown',e=>{e.stopPropagation();doCheer();});
   st.querySelector('.g-quit').onclick=()=>{quit=true;cancelAnimationFrame(raf);st.remove();};
   const flash=(z,i,ok)=>{const el=track.querySelector(`#rcP${z.i}_${i}`);if(!el)return;el.classList.remove('is-ok','is-bad');void el.getBoundingClientRect();el.classList.add(ok?'is-ok':'is-bad');setTimeout(()=>el.classList.remove('is-ok','is-bad'),600);};
@@ -319,6 +319,7 @@ export function createGamesSystem(ctx){
      if(onFloor&&(r.x-z.a)/z.len>=0.97){r.x=z.a+z.len*0.97;G.ph='climb';G.c=0;}
      if(r.energy<=0){r.energy=0;r.rest=1.1;fxAt(r.el,'is-sweat',30,-6,900);if(r.me)sfx.rest();}
      P=posAt(C,r.x,r.lane);px=P.px;
+     if(r.me){r.snd=(r.snd||0)-dt;if(r.snd<=0){const k=onFloor?(z.floor==='water'?'swim':'run'):z.kind;r.snd=k==='swim'?0.55:k==='wall'?0.32:k==='glide'?0.9:0.28/(r.boost>0?1.6:1);(k==='swim'?sfx.paddle:k==='wall'?sfx.grip:k==='glide'?sfx.wind:sfx.step)();}}
      r.fx-=dt;if(r.fx<=0&&!reducedMotion()){r.fx=z.kind==='swim'?0.35:0.22;fxAt(r.el,z.kind==='swim'?'is-splash':z.kind==='glide'?'is-wind':z.kind==='wall'?'is-pebble':'is-dust',z.kind==='glide'?-6:6,z.kind==='glide'?20:50,600);}
     }
     if(r.x>=L){r.x=L;r.done=true;finished.push(r);P=posAt(C,L,r.lane);px=P.px+26;cls='run is-happy';anim='idle';if(r.me){if(finished.length===1){confetti(body);sfx.finish();banner(st,'WINNER!','is-go',1200);}else if(finished.length<=3){sfx.medal();banner(st,ORD(finished.length)+'!','is-pass',900);}else{sfx.lose();}}}
