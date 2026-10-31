@@ -37,6 +37,26 @@ export function opponentStats(course,level,seed){
  for(const k of ['hp','stamina','run','power','swim','fly']){let v=base*(0.7+rnd()*0.6);if(course.focus===k||course.focus==='all')v*=1.25;out[k]=Math.round(Math.max(0,Math.min(99,v)));}
  return out;
 }
+/**
+ * Pure: the course layout for a level. Higher levels are longer and mix more section types
+ * (Rookie 6 sections, Champion 14), with longer sections, so no two levels feel the same.
+ */
+export function planFor(course,level){
+ const focusSeg={swim:'swim',fly:'fly',run:'run',power:'climb',stamina:null,all:null}[course.focus];
+ const others=['run','swim','fly','climb'];
+ let seed=course.id.length*131+level*17;const rnd=()=>{seed=(seed*9301+49297)%233280;return seed/233280;};
+ const n=[6,8,10,12,14][level];const out=[];
+ for(let i=0;i<n;i++){
+  let t;
+  if(i===0||i===n-1)t='run';
+  else if(focusSeg){const share=[0.45,0.5,0.5,0.45,0.4][level];t=rnd()<share?focusSeg:(level===0?'run':others[Math.floor(rnd()*others.length)]);}
+  else t=level===0&&i%2?'run':others[Math.floor(rnd()*others.length)];
+  if(out.length&&out[out.length-1].t===t&&t!=='run'&&level<3)t='run';
+  const len=t==='run'?SEG_LEN:Math.round(SEG_LEN*(1+level*0.12+(level>=3&&rnd()<0.3?0.5:0)));
+  out.push({t,len});
+ }
+ return out;
+}
 export function medalFor(place){return place===1?'gold':place===2?'silver':place===3?'bronze':null;}
 const ORD=p=>p+(['st','nd','rd'][p-1]||'th');
 
@@ -93,7 +113,7 @@ export function createGamesSystem(ctx){
   const bag=bagOf(e),open=e.kind!=='race'||courseOpen(e.course);
   const levels=LEVELS.map((l,i)=>{const ok=open&&levelOpen(bag,i);return `<button type="button" class="st-level ${ok?'':'is-locked'} ${best(bag,i)===1?'is-gold':''}" data-lv="${i}" ${ok?'':'disabled'}>${medalDot(best(bag,i))}<span>${l}</span></button>`;}).join('');
   let extra='';
-  if(e.kind==='race'){const c=e.course,prize=prizes.RACE_PRIZES[c.id],won=hasPrize(prize.id);extra=`<p>${escapeText(c.blurb)}</p><div class="st-strip">${c.plan.map(t=>`<i class="is-${t}"></i>`).join('')}</div><div class="st-prizeline ${won?'is-won':''}"><span>${prize.art}</span><small>${won?'Toy won: ':'Champion gold wins the '}<b>${escapeText(prize.name)}</b>${won?'':' for your house'}</small></div>${open?'':'<p class="mini-muted">Win Rookie on the other five courses to open it.</p>'}`;}
+  if(e.kind==='race'){const c=e.course,prize=prizes.RACE_PRIZES[c.id],won=hasPrize(prize.id);const lvN=nextLevel(e),plan=planFor(c,lvN);extra=`<p>${escapeText(c.blurb)}</p><small class="st-foot">${LEVELS[lvN]}: ${plan.length} sections · ${['morning','noon','afternoon','sunset','night'][lvN]}</small><div class="st-strip">${plan.map(x=>`<i class="is-${x.t}" style="flex:${x.len}"></i>`).join('')}</div><div class="st-prizeline ${won?'is-won':''}"><span>${prize.art}</span><small>${won?'Toy won: ':'Champion gold wins the '}<b>${escapeText(prize.name)}</b>${won?'':' for your house'}</small></div>${open?'':'<p class="mini-muted">Win Rookie on the other five courses to open it.</p>'}`;}
   else extra=`<p>Best of three rounds. HP is health, Power hits, Swim blocks, Fly dodges, Run strikes faster, Stamina keeps the fight going.</p><div class="st-belts">${belts.map((b,i)=>`<span class="st-belt ${best(bag,i)===1?'is-won':''}">${prizes.beltSvg(b,28)}<small>${b.name.replace(' Belt','')}</small></span>`).join('')}</div>`;
   showModal(`<div class="modal-tag">${e.kind==='race'?'RACE':'KARATE'}</div><h2>${escapeText(e.name)}</h2>${extra}<div class="st-levels">${levels}</div><button type="button" class="modal-button secondary" id="stClose">Close</button>`);
   $('stClose').onclick=closeModal;
@@ -120,10 +140,10 @@ export function createGamesSystem(ctx){
  // ---------- race ----------
  function startRace(mount,course,level){
   const pid=pick();if(!pid)return;const me=companionInfo(pid);
-  const segs=[];let x=0;for(const t of course.plan){segs.push({t,x,len:SEG_LEN});x+=SEG_LEN;}const L=x;
+  const segs=[];let x=0;for(const {t,len} of planFor(course,level)){segs.push({t,x,len});x+=len;}const L=x;
   const rivals=opponentsFor(4,pid);
-  const st=stage(`${course.name} · ${LEVELS[level]}`,'race');const body=st.querySelector('.g-stage-body'),hud=st.querySelector('.g-hud');
-  body.innerHTML=`<div class="g-sky" style="background-image:${bg('sky')}"><i class="g-cloud" style="--d:0"></i><i class="g-cloud" style="--d:1"></i><i class="g-cloud" style="--d:2"></i></div><div class="g-mid" style="background-image:${bg('mid')}"></div><div class="g-fore" style="background-image:${bg('mid')}"></div><div class="g-track" style="width:${L*PX+GATE+220}px"><div class="g-gate is-start" style="left:0;background-image:${bg('start')}"></div>${segs.map(s=>`<div class="g-seg is-${s.t}" style="left:${s.x*PX+GATE}px;width:${s.len*PX}px;background-image:${bg(s.t)}"><b></b></div>`).join('')}<div class="g-gate is-finish" style="left:${L*PX+GATE-10}px;background-image:${bg('finish')}"></div></div>`;
+  const st=stage(`${course.name} · ${LEVELS[level]}`,'race');st.dataset.level=level;const body=st.querySelector('.g-stage-body'),hud=st.querySelector('.g-hud');
+  body.innerHTML=`<div class="g-sky" style="background-image:${bg('sky')}"><i class="g-cloud" style="--d:0"></i><i class="g-cloud" style="--d:1"></i><i class="g-cloud" style="--d:2"></i></div><div class="g-mid" style="background-image:${bg('mid')}"></div><div class="g-fore" style="background-image:${bg('mid')}"></div><div class="g-track" style="width:${L*PX+GATE+220}px"><div class="g-gate is-start" style="left:0;background-image:${bg('start')}"></div>${segs.map(s=>s.t==='climb'?`<div class="g-seg is-run" style="left:${s.x*PX+GATE}px;width:${s.len*PX}px;background-image:${bg('run')}"><b></b></div><div class="g-wall" style="left:${s.x*PX+GATE+s.len*PX*0.78-34}px;background-image:${bg('climb')}"><i></i></div>`:`<div class="g-seg is-${s.t}" style="left:${s.x*PX+GATE}px;width:${s.len*PX}px;background-image:${bg(s.t)}"><b></b></div>`).join('')}<div class="g-gate is-finish" style="left:${L*PX+GATE-10}px;background-image:${bg('finish')}"></div></div><div class="g-tint"></div>`;
   const track=body.querySelector('.g-track'),hills=body.querySelector('.g-mid');
   const racers=[{id:pid,me:true,stats:Object.fromEntries(Object.entries(me.stats).map(([k,v])=>[k,v.level])),mood:me.mood,name:me.name},...rivals.map((c,i)=>({id:c.id,stats:opponentStats(course,level,i+1+Date.now()%97),mood:60,name:companionInfo(c.id).name}))];
   racers.forEach((r,i)=>{r.x=0;r.lane=i;r.max=energyMax(r.stats.stamina);r.energy=r.max;r.rest=0;r.boost=0;r.done=false;r.ai=2+Math.random()*2;r.fx=0;r.seg=null;r.place=i+1;r.el=actor(r.id,r.me?'is-me':'');r.el.style.setProperty('--lane',i);
@@ -143,14 +163,16 @@ export function createGamesSystem(ctx){
     if(r.rest>0){r.rest-=dt;r.el.dataset.anim='sleep';r.el.className=`companion g-actor ${r.me?'is-me':''} is-resting`;if(r.rest<=0){r.energy=r.max*0.5;}continue;}
     if(!r.me){r.ai-=dt;if(r.ai<=0){r.ai=(4-level*0.6)+Math.random()*2.5;if(r.energy>r.max*0.4&&Math.random()<0.35+level*0.16){r.energy-=8;r.boost=0.9;}}}
     const lv=r.stats[SEG_STAT[seg.t]],runLv=r.stats.run;
-    let v=UNIT_SPEED*(seg.t==='run'?statSpeed(lv):0.8*statSpeed(lv)+0.2*statSpeed(runLv));
+    let v=UNIT_SPEED*(seg.t==='run'?statSpeed(lv):seg.t==='climb'?0.75*statSpeed(lv)+0.1*statSpeed(r.stats.stamina):0.8*statSpeed(lv)+0.2*statSpeed(runLv));
     if(seg.t==='fly'&&lv<15)v*=0.75;
     if(r.mood>=70)v*=1.05;else if(r.mood<=30)v*=0.92;
     if(!r.me)v*=LEVEL_EASE[level];
     if(r.boost>0){v*=1.6;r.boost-=dt;}
     const d=v*dt;r.x+=d;r.energy-=d*SEG_DRAIN[seg.t]*(r.boost>0?1.3:1);
     if(r.energy<=0){r.energy=0;r.rest=1.1;fxAt(r.el,'is-sweat',30,-6,900);if(r.me)sfx.rest();}
-    r.el.dataset.anim=SEG_ANIM[seg.t];r.el.className=`companion g-actor ${r.me?'is-me':''} seg-${seg.t} ${r.boost>0?'is-boost':''}`;
+    let dx=0;let dy=0;if(seg.t==='climb'){const pr0=(r.x-seg.x)/seg.len;if(pr0>0.25&&pr0<0.8)dx=(seg.x+seg.len*0.78-r.x)*PX-30;const pr=(r.x-seg.x)/seg.len;const WALL=170;dy=pr<0.25?0:pr<0.8?-WALL*((pr-0.25)/0.55):-WALL*(1-(pr-0.8)/0.2)*(1-(pr-0.8)/0.2);if(pr>=0.8&&!r.dropping){r.dropping=true;if(r.me)sfx.flap();}}else r.dropping=false;
+    r.el.style.setProperty('--dy',dy.toFixed(1)+'px');r.el.style.setProperty('--dx',dx.toFixed(1)+'px');r.el.classList.toggle('on-wall',seg.t==='climb'&&dy<-4&&!r.dropping);
+    const onWall=seg.t==='climb'&&dy<-4&&!r.dropping;r.el.dataset.anim=seg.t==='climb'?(r.dropping?'jump':onWall?'climb':'walk'):SEG_ANIM[seg.t];r.el.className=`companion g-actor ${r.me?'is-me':''} seg-${seg.t} ${r.boost>0?'is-boost':''} ${r.dropping?'is-drop':''} ${onWall?'on-wall':''}`;
     r.fx-=dt;if(r.fx<=0&&!reducedMotion()){r.fx=seg.t==='swim'?0.35:0.22;fxAt(r.el,seg.t==='swim'?'is-splash':seg.t==='fly'?'is-wind':seg.t==='climb'?'is-pebble':'is-dust',seg.t==='fly'?-6:6,seg.t==='fly'?20:44,600);}
     if(r.x>=L){r.x=L;r.done=true;finished.push(r);r.el.className=`companion g-actor ${r.me?'is-me':''} is-happy`;r.el.dataset.anim='idle';if(r.me){if(finished.length===1){confetti(body);sfx.finish();banner(st,'WINNER!','is-go',1200);}else if(finished.length<=3){sfx.medal();banner(st,ORD(finished.length)+'!','is-pass',900);}else{sfx.lose();}}}
     r.el.style.setProperty('--x',(r.x*PX+GATE)+'px');}

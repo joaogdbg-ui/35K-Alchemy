@@ -23,3 +23,11 @@ test('V93: companion tiles show the level; game rewards use growth multipliers',
  assert.match(eng,/<em class="pet-ava-lv">Lv \$\{totalLevel\(c\.id\)\}<\/em>/);
  assert.match(eng,/function gameReward\(id,stats,amount\)\{[^}]*growth\(id,st\)/);
 });
+test('V97: higher levels are longer and more varied; climb sections are a standing wall',async()=>{
+ const g=await import('../src/games-v93.js');
+ for(const c of g.COURSES){const lens=[0,1,2,3,4].map(l=>g.planFor(c,l).length);assert.deepEqual(lens,[6,8,10,12,14],c.id);
+  const kinds=l=>new Set(g.planFor(c,l).map(x=>x.t)).size;assert.ok(kinds(4)>=kinds(0),c.id);
+  const total=l=>g.planFor(c,l).reduce((n,x)=>n+x.len,0);assert.ok(total(4)>total(0)*2,c.id);}
+ const src=(await import('node:fs')).readFileSync(new URL('../src/games-v93.js',import.meta.url),'utf8');
+ assert.match(src,/class="g-wall"/);assert.match(src,/const WALL=170;/);
+});
