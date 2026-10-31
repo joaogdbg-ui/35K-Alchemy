@@ -90,6 +90,11 @@ Preserve 200-per-batch policy and do not start another content release on top of
 
 - **Art redraw wave 3 (V85, done): 3,991 icons** — every remaining older element. All 6,012 pre-V83 elements now use the 2026 art direction (`ART_REDRAW`), plus 200 V83 and 200 V85 originals. Six near-duplicates found by the audit were redrawn; 36 reviewed false alarms are in `tools/art-redraw-reviewed-pairs.json` (the audit now also honours them for V83 comparisons).
 
+## V105 — recipe audit, starter Frog, companion sounds (31 October 2026)
+- Recipe audit: Classic (19,829 recipes) and all 9 family maps use order-free keys (`[a,b].sort()`), and every family recipe agrees with Classic — no A+B ≠ B+A anywhere. The "House + Wood → Companion Hut" path was a stale discovery-ledger record from before V91; `discoveredRecipes` now shows a recorded pair only if it still makes the element.
+- Starter companion: `STARTER_COMPANION='organic38:frog'` is owned by every player (`companionOwned`) and is on screen in new games; the free first choice is kept.
+- Sounds (shared `SFX` synth, Settings toggle applies): companion tap/boop, petting purr, happy chirp, grab, nom per bite, refuse, knocks, hop, level-up; races: footsteps/paddles/grips/wind for your racer, louder CHEER with a short vibration (double buzz when too tired).
+
 ## V104 — gate walking, long-press element sheet (31 October 2026)
 - Alchemy gates: phases think → go (walk to the chosen stone) → pick (hop) → right: carry on from that stone / wrong: walk back and think again. Display x is smoothed (`r.dpx`, 120 px/s inside gates, 300 px/s catch-up elsewhere); racers face left when walking back.
 - Alchemy tab: long press (480 ms, no movement) on an element opens `elementInfo` (description, companion/house callouts, families, Use / Recipes). Tap and drag unchanged.

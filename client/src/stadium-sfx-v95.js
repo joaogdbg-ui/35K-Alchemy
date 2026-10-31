@@ -13,7 +13,7 @@ export function createStadiumSfx(getAudio){
  const S={
   tick(){tone(660,{type:'square',dur:0.08,peak:0.05});},
   go(){tone(880,{type:'square',dur:0.18,peak:0.07});tone(1320,{type:'square',dur:0.28,peak:0.07,at:0.06});},
-  cheer(){noise({dur:0.22,peak:0.07,hp:1200,lp:5000,slide:2500});tone(520,{dur:0.12,peak:0.05,slide:900});},
+  cheer(){noise({dur:0.26,peak:0.1,hp:900,lp:5000,slide:3200});tone(523,{type:'triangle',dur:0.1,peak:0.08});tone(784,{type:'triangle',dur:0.12,peak:0.08,at:0.07});tone(1047,{type:'triangle',dur:0.16,peak:0.07,at:0.14});},
   tired(){tone(220,{type:'triangle',dur:0.16,peak:0.05,slide:160});},
   splash(){noise({dur:0.25,peak:0.06,hp:300,lp:1800,slide:600});},
   flap(){noise({dur:0.12,peak:0.04,hp:600,lp:2400});},
@@ -37,7 +37,21 @@ export function createStadiumSfx(getAudio){
   charge(){tone(440,{type:'sawtooth',dur:0.25,peak:0.04,slide:880});},
   ko(){noise({dur:0.3,peak:0.12,hp:150,lp:1500,slide:100});tone(98,{type:'triangle',dur:0.5,peak:0.1,slide:49});setTimeout(()=>S.gong(),250);},
   breath(){noise({dur:0.35,peak:0.03,hp:300,lp:1200});},
-  tap(){tone(880,{dur:0.05,peak:0.03});}
+  tap(){tone(880,{dur:0.05,peak:0.03});},
+  // V105: companion sounds (soft, short) — on-screen pet and in races
+  boop(){tone(740,{type:'sine',dur:0.07,peak:0.05,slide:1100});},
+  purr(){tone(140,{type:'triangle',dur:0.18,peak:0.035,slide:120});noise({dur:0.15,peak:0.015,hp:150,lp:600});},
+  happy(){tone(988,{dur:0.08,peak:0.045});tone(1319,{dur:0.12,peak:0.045,at:0.07});},
+  grab(){noise({dur:0.06,peak:0.04,hp:1500,lp:5000});tone(600,{dur:0.05,peak:0.03,slide:900});},
+  nom(){noise({dur:0.06,peak:0.05,hp:400,lp:1600});tone(220+Math.random()*60,{type:'triangle',dur:0.06,peak:0.04,slide:160});},
+  refuse(){tone(330,{type:'triangle',dur:0.09,peak:0.045,slide:260});tone(262,{type:'triangle',dur:0.12,peak:0.045,at:0.09,slide:200});},
+  knock(){noise({dur:0.05,peak:0.07,hp:900,lp:3000});tone(1200,{type:'sine',dur:0.04,peak:0.03});},
+  hop(){tone(420,{dur:0.1,peak:0.04,slide:800});},
+  land(){noise({dur:0.06,peak:0.04,hp:150,lp:700});},
+  levelup(){[[784,0],[988,0.08],[1175,0.16],[1568,0.26]].forEach(([h,t])=>tone(h,{type:'triangle',dur:0.16,peak:0.05,at:t}));},
+  paddle(){noise({dur:0.1,peak:0.03,hp:400,lp:1600,slide:900});},
+  grip(){tone(260,{type:'square',dur:0.03,peak:0.02});noise({dur:0.04,peak:0.025,hp:1500,lp:4000});},
+  wind(){noise({dur:0.4,peak:0.025,hp:500,lp:2500,slide:1200});}
  };
  return S;
 }

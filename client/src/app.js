@@ -475,7 +475,7 @@ function shinyCard(item){return `<p class="shiny-trivia"><span aria-hidden="true
 function showShinyFound(id){const it=byId.get(id);if(!it)return;
  showModal(`<div class="modal-tag shiny-tag">✦ SHINY ELEMENT</div><div class="modal-art is-shiny">${staticArt(it)}</div><h2>Shiny ${escapeText(uiName(it))}</h2>${shinyCard(it)}<div class="modal-milestone">${shiny.size.toLocaleString('en-US')} shiny ${shiny.size===1?'element':'elements'} · ${Math.round(shinyChance()*100)}% chance per combination</div>`);
 }
-const APP_VERSION='1.0.4';
+const APP_VERSION='1.0.5';
 // V83: status line + Google consent (UMP) privacy options, required for EEA players.
 async function refreshAdStatus(){
  const el=$('settingsAdStatus'),bridge=getRewardBridge();
@@ -1413,7 +1413,9 @@ function discoveredRecipes(id){
  const options=recipesForTarget(id,recipes,unlocked).filter(r=>byId.has(r.a)&&byId.has(r.b));
  const used=options.filter(r=>known.has(pairKey(r.a,r.b)));
  const recorded=discoveryLedger.get(id)?.ingredients;
- if(Array.isArray(recorded)&&recorded.length===2&&recorded.every(k=>byId.has(k))) {
+ // V105: a recorded pair is shown only if it STILL makes this element (recipes remapped by polish
+ // files would otherwise show stale paths, e.g. House + Wood → Hut after it became Floorboards).
+ if(Array.isArray(recorded)&&recorded.length===2&&recorded.every(k=>byId.has(k))&&recipes.get(pairKey(recorded[0],recorded[1]))===id) {
   if(!used.some(r=>pairKey(r.a,r.b)===pairKey(recorded[0],recorded[1])))
    used.unshift({a:recorded[0],b:recorded[1],ready:2});
  }
@@ -1585,6 +1587,11 @@ function switchTab(view){
  companions.onViewChange();
 }
 // V86 Companions: five companion elements per family live on top of the interface.
+// V105: every player owns the Frog from the start (shows new players this is more than an alchemy game).
+const STARTER_COMPANION='organic38:frog';
+// V105: one shared synth for companion and stadium sounds (respects the Settings sound toggle).
+const SFX=createStadiumSfx(()=>soundEnabled?acquireSoundEngine():null);
+function companionOwned(id){return id===STARTER_COMPANION||discoveredAnywhere(id);}
 function discoveredAnywhere(id){
  if(unlocked.has(id)&&!STARTERS.has(id))return true;
  if(currentMode==='family'&&classicSnapshot?.unlocked?.includes(id))return true;
@@ -1616,7 +1623,7 @@ function setPetsBadge(n){const b=$('petsBadge');if(b)b.hidden=!(n>0);}
 const companions=createCompanionSystem({roster:COMPANIONS_V86,sprites:COMPANION_SPRITES_V86,$,escapeText,byId,uiName,staticArt,familyFor,
  requestActivation:requestCompanionActivation,onBadge:setPetsBadge,renderExtra:()=>homes.render($('homeMount')),wear:root=>wearAll(root),
  growthFor:(id,kind)=>homes.growthFor(id,kind)*alchemyGrowth(),houseLine:id=>[homes.houseLine(id),`Alchemy bonus ×${alchemyGrowth()} · ${classicDiscoveredCount().toLocaleString('en-US')} elements found in Classic`].filter(Boolean).join('<br>'),alchemyGrowth,residentOf:id=>homes.residentOf(id),
- isDiscovered:discoveredAnywhere,isShiny:id=>shiny.has(id),elementIsUseful,getSlots:()=>slots,isLeftLocked:()=>leftLocked,toast,showModal,closeModal,
+ isDiscovered:companionOwned,starterCompanion:STARTER_COMPANION,sfx:SFX,isShiny:id=>shiny.has(id),elementIsUseful,getSlots:()=>slots,isLeftLocked:()=>leftLocked,toast,showModal,closeModal,
  reducedMotion:()=>Boolean(window.matchMedia?.('(prefers-reduced-motion: reduce)')?.matches),FAMILIES});
 // V90: companion houses (furniture placement, residents) on the Home tab.
 // V94: Stadium prizes (toys) are placeable house objects; belts are worn by the companions.
@@ -1685,8 +1692,8 @@ const GAMES_SEEN_KEY='alchemy10k_games_seen_v1';
 function gamesUnlocked(){try{return homes.ownedHouses().length>0&&companions.unlocked().length>0;}catch{return false;}}
 function syncGamesTab(){const t=document.querySelector('.tab-games');if(!t)return;const on=gamesUnlocked();t.hidden=!on;let seen=false;try{seen=localStorage.getItem(GAMES_SEEN_KEY)==='1';}catch{}const b=$('gamesBadge');if(b)b.hidden=!(on&&!seen);}
 function gamesSeen(){try{localStorage.setItem(GAMES_SEEN_KEY,'1');}catch{}syncGamesTab();}
-const games=createGamesSystem({$,escapeText,roster:COMPANIONS_V86,sprites:COMPANION_SPRITES_V86,byId,uiName,isDiscovered:discoveredAnywhere,companionInfo:id=>companions.info(id),activeId:()=>companions.state().active,
- prizes:{RACE_PRIZES,beltSvg},belts:BELTS,wear:wearAll,alchemyGrowth,classicCount:classicDiscoveredCount,openCard:id=>companions.openCard(id),art:STADIUM_ART_V95,sfx:createStadiumSfx(()=>soundEnabled?acquireSoundEngine():null),onBelt:()=>{companions.refreshViews();companions.start();},
+const games=createGamesSystem({$,escapeText,roster:COMPANIONS_V86,sprites:COMPANION_SPRITES_V86,byId,uiName,isDiscovered:companionOwned,companionInfo:id=>companions.info(id),activeId:()=>companions.state().active,
+ prizes:{RACE_PRIZES,beltSvg},belts:BELTS,wear:wearAll,alchemyGrowth,classicCount:classicDiscoveredCount,openCard:id=>companions.openCard(id),art:STADIUM_ART_V95,sfx:SFX,onBelt:()=>{companions.refreshViews();companions.start();},
  onResult:(id,kind,focus,place)=>{const amt=[0,12,8,5,3,3][place]||3;const stats=kind==='karate'?['power','hp']:focus==='all'?['run','swim','fly','power']:focus==='stamina'?['stamina','run']:[focus,'stamina'];return companions.gameReward(id,stats,amt);},
  showModal,closeModal,toast,reducedMotion:()=>Boolean(window.matchMedia?.('(prefers-reduced-motion: reduce)')?.matches)});
 const BACKUP_KEYS=[COMPANION_STORAGE_KEY,HOME_STORAGE_KEY,GAMES_STORAGE_KEY,SHINY_KEY,HINT_BANK_KEY,FAMILY_SAVES_KEY,MODE_SELECTION_KEY,'gameverse_alchemy_v2','gameverse_dynamic_v11','gameverse_ledger_v16','gameverse_discovery_hints_v20',EXTRA_STORAGE,DISCOVERY_ORDER_KEY];
