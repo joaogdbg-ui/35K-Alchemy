@@ -1469,10 +1469,9 @@ function createHomeSystem(ctx){
  function tapPiece(mount,hid,i,spot=null){
   const h=house(hid),f=h.furniture[i];if(!f)return;const it=byId.get(f.id),ob=objects[f.id],L=layoutFor(objects[hid].capacity),layer=layerOf(RS,f.id);
   const what=ob.effect==='decor'?'Decoration — makes the house yours.':`${EFFECT_LABEL[ob.effect]}: ${({run:'residents run on it',swim:'residents splash and swim in it',power:'residents build strength',fly:'residents bounce and glide',stamina:'residents climb and balance',hp:'residents rest and recover',mood:'residents have fun',food:'residents eat here',discovery:'residents explore and find more'})[ob.effect]}.`;
-  showModal(`<div class="modal-tag">FURNITURE</div><div class="modal-art">${staticArt(it)}</div><h2>${escapeText(uiName(it))}</h2><p>${what}</p>${layer!=='wall'?'<button type="button" class="modal-button" id="homeRotate">Rotate</button>':''}${layer==='floor'&&spot&&!spot.wall?'<button type="button" class="modal-button" id="homeOnTop">Put furniture on it</button>':''}<button type="button" class="modal-button ${layer==='wall'?'':'secondary'}" id="homeMove">Move</button><button type="button" class="modal-button secondary" id="homeRemove">Put away</button>`);
+  showModal(`<div class="modal-tag">FURNITURE</div><div class="modal-art">${staticArt(it)}</div><h2>${escapeText(uiName(it))}</h2><p>${what}</p><p class="mini-muted">To move it, press and hold it in the room and drag it.</p>${layer!=='wall'?'<button type="button" class="modal-button" id="homeRotate">Rotate</button>':''}${layer==='floor'&&spot&&!spot.wall?'<button type="button" class="modal-button" id="homeOnTop">Put furniture on it</button>':''}<button type="button" class="modal-button secondary" id="homeRemove">Put away</button>`);
   const rot=$('homeRotate');if(rot)rot.onclick=()=>{for(let k=1;k<=3;k++){const r=(f.r+k)%4;if(fits(h,L,objects,RS,{...f,r},i)){f.r=r;save();closeModal();render(mount);return;}}toast('No room to rotate it here','repeat');};
   const top=$('homeOnTop');if(top)top.onclick=()=>{closeModal();tapSpot(mount,hid,spot.x,spot.y,false);};
-  $('homeMove').onclick=()=>{moving={index:i};closeModal();render(mount);};
   $('homeRemove').onclick=()=>{h.furniture.splice(i,1);save();closeModal();render(mount);};
  }
 

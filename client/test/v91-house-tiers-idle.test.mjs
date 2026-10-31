@@ -29,4 +29,5 @@ test('V91: furniture drag and drop with live fit feedback',()=>{
  const eng=src('client/src/home-engine-v90.js'),css=src('client/src/styles.css');
  assert.match(eng,/function wireDrag\(mount,hid,el\)/);assert.match(eng,/hold=setTimeout\(start,320\)/);
  assert.match(css,/\.home-piece\.is-dragging\.is-bad/);
+ assert.doesNotMatch(eng,/id="homeMove"/,'drag and drop replaces the Move button');
 });
