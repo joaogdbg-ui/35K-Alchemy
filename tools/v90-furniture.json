@@ -1,0 +1,1575 @@
+[
+ {
+  "id": "organic89:curtain",
+  "name": "Curtain",
+  "slug": "curtain",
+  "effect": "decor",
+  "size": [
+   1,
+   2
+  ],
+  "layer": "wall"
+ },
+ {
+  "id": "organic89:cushion",
+  "name": "Cushion",
+  "slug": "cushion",
+  "effect": "mood",
+  "size": [
+   1,
+   1
+  ],
+  "layer": "object"
+ },
+ {
+  "id": "organic89:rug",
+  "name": "Rug",
+  "slug": "rug",
+  "effect": "decor",
+  "size": [
+   2,
+   2
+  ],
+  "layer": "floor"
+ },
+ {
+  "id": "organic89:doormat",
+  "name": "Doormat",
+  "slug": "doormat",
+  "effect": "decor",
+  "size": [
+   1,
+   1
+  ],
+  "layer": "floor"
+ },
+ {
+  "id": "organic89:fence",
+  "name": "Fence",
+  "slug": "fence",
+  "effect": "decor",
+  "size": [
+   3,
+   1
+  ],
+  "layer": "object"
+ },
+ {
+  "id": "organic89:fireplace",
+  "name": "Fireplace",
+  "slug": "fireplace",
+  "effect": "mood",
+  "size": [
+   2,
+   1
+  ],
+  "layer": "object"
+ },
+ {
+  "id": "organic89:bed",
+  "name": "Bed",
+  "slug": "bed",
+  "effect": "hp",
+  "size": [
+   2,
+   2
+  ],
+  "layer": "object"
+ },
+ {
+  "id": "organic89:pet-bed",
+  "name": "Pet Bed",
+  "slug": "pet-bed",
+  "effect": "hp",
+  "size": [
+   1,
+   1
+  ],
+  "layer": "object"
+ },
+ {
+  "id": "organic89:bunk-bed",
+  "name": "Bunk Bed",
+  "slug": "bunk-bed",
+  "effect": "hp",
+  "size": [
+   1,
+   2
+  ],
+  "layer": "object"
+ },
+ {
+  "id": "organic89:canopy-bed",
+  "name": "Canopy Bed",
+  "slug": "canopy-bed",
+  "effect": "mood",
+  "size": [
+   2,
+   2
+  ],
+  "layer": "object"
+ },
+ {
+  "id": "organic89:stool",
+  "name": "Stool",
+  "slug": "stool",
+  "effect": "mood",
+  "size": [
+   1,
+   1
+  ],
+  "layer": "object"
+ },
+ {
+  "id": "organic89:chair",
+  "name": "Chair",
+  "slug": "chair",
+  "effect": "mood",
+  "size": [
+   1,
+   1
+  ],
+  "layer": "object"
+ },
+ {
+  "id": "organic89:armchair",
+  "name": "Armchair",
+  "slug": "armchair",
+  "effect": "mood",
+  "size": [
+   1,
+   1
+  ],
+  "layer": "object"
+ },
+ {
+  "id": "organic89:sofa",
+  "name": "Sofa",
+  "slug": "sofa",
+  "effect": "hp",
+  "size": [
+   3,
+   1
+  ],
+  "layer": "object"
+ },
+ {
+  "id": "organic89:rocking-chair",
+  "name": "Rocking Chair",
+  "slug": "rocking-chair",
+  "effect": "mood",
+  "size": [
+   1,
+   1
+  ],
+  "layer": "object"
+ },
+ {
+  "id": "organic89:footstool",
+  "name": "Footstool",
+  "slug": "footstool",
+  "effect": "mood",
+  "size": [
+   1,
+   1
+  ],
+  "layer": "object"
+ },
+ {
+  "id": "organic89:bean-bag",
+  "name": "Bean Bag",
+  "slug": "bean-bag",
+  "effect": "mood",
+  "size": [
+   1,
+   1
+  ],
+  "layer": "object"
+ },
+ {
+  "id": "organic89:side-table",
+  "name": "Side Table",
+  "slug": "side-table",
+  "effect": "decor",
+  "size": [
+   1,
+   1
+  ],
+  "layer": "object"
+ },
+ {
+  "id": "organic89:coffee-table",
+  "name": "Coffee Table",
+  "slug": "coffee-table",
+  "effect": "decor",
+  "size": [
+   2,
+   1
+  ],
+  "layer": "object"
+ },
+ {
+  "id": "organic89:wardrobe",
+  "name": "Wardrobe",
+  "slug": "wardrobe",
+  "effect": "decor",
+  "size": [
+   2,
+   2
+  ],
+  "layer": "object"
+ },
+ {
+  "id": "organic89:dresser",
+  "name": "Dresser",
+  "slug": "dresser",
+  "effect": "decor",
+  "size": [
+   2,
+   1
+  ],
+  "layer": "object"
+ },
+ {
+  "id": "organic89:nightstand",
+  "name": "Nightstand",
+  "slug": "nightstand",
+  "effect": "decor",
+  "size": [
+   1,
+   1
+  ],
+  "layer": "object"
+ },
+ {
+  "id": "organic89:floor-lamp",
+  "name": "Floor Lamp",
+  "slug": "floor-lamp",
+  "effect": "decor",
+  "size": [
+   1,
+   2
+  ],
+  "layer": "object"
+ },
+ {
+  "id": "organic89:writing-desk",
+  "name": "Writing Desk",
+  "slug": "writing-desk",
+  "effect": "discovery",
+  "size": [
+   2,
+   1
+  ],
+  "layer": "object"
+ },
+ {
+  "id": "organic89:desk-lamp",
+  "name": "Desk Lamp",
+  "slug": "desk-lamp",
+  "effect": "discovery",
+  "size": [
+   1,
+   1
+  ],
+  "layer": "object"
+ },
+ {
+  "id": "organic89:bookshelf",
+  "name": "Bookshelf",
+  "slug": "bookshelf",
+  "effect": "discovery",
+  "size": [
+   2,
+   2
+  ],
+  "layer": "object"
+ },
+ {
+  "id": "organic89:secret-bookcase",
+  "name": "Secret Bookcase",
+  "slug": "secret-bookcase",
+  "effect": "discovery",
+  "size": [
+   2,
+   2
+  ],
+  "layer": "object"
+ },
+ {
+  "id": "organic89:library-ladder",
+  "name": "Library Ladder",
+  "slug": "library-ladder",
+  "effect": "discovery",
+  "size": [
+   1,
+   2
+  ],
+  "layer": "object"
+ },
+ {
+  "id": "organic89:reading-chair",
+  "name": "Reading Chair",
+  "slug": "reading-chair",
+  "effect": "discovery",
+  "size": [
+   1,
+   1
+  ],
+  "layer": "object"
+ },
+ {
+  "id": "organic89:globe-stand",
+  "name": "Globe Stand",
+  "slug": "globe-stand",
+  "effect": "discovery",
+  "size": [
+   1,
+   1
+  ],
+  "layer": "object"
+ },
+ {
+  "id": "organic89:window-seat",
+  "name": "Window Seat",
+  "slug": "window-seat",
+  "effect": "mood",
+  "size": [
+   2,
+   1
+  ],
+  "layer": "object"
+ },
+ {
+  "id": "organic89:wall-clock",
+  "name": "Wall Clock",
+  "slug": "wall-clock",
+  "effect": "decor",
+  "size": [
+   1,
+   1
+  ],
+  "layer": "wall"
+ },
+ {
+  "id": "organic89:cuckoo-clock",
+  "name": "Cuckoo Clock",
+  "slug": "cuckoo-clock",
+  "effect": "mood",
+  "size": [
+   1,
+   1
+  ],
+  "layer": "wall"
+ },
+ {
+  "id": "organic89:grandfather-clock",
+  "name": "Grandfather Clock",
+  "slug": "grandfather-clock",
+  "effect": "decor",
+  "size": [
+   1,
+   3
+  ],
+  "layer": "object"
+ },
+ {
+  "id": "organic89:picture-frame",
+  "name": "Picture Frame",
+  "slug": "picture-frame",
+  "effect": "decor",
+  "size": [
+   1,
+   1
+  ],
+  "layer": "wall"
+ },
+ {
+  "id": "organic89:tapestry",
+  "name": "Tapestry",
+  "slug": "tapestry",
+  "effect": "decor",
+  "size": [
+   2,
+   2
+  ],
+  "layer": "wall"
+ },
+ {
+  "id": "organic89:toy-chest",
+  "name": "Toy Chest",
+  "slug": "toy-chest",
+  "effect": "mood",
+  "size": [
+   2,
+   1
+  ],
+  "layer": "object"
+ },
+ {
+  "id": "organic89:dollhouse",
+  "name": "Dollhouse",
+  "slug": "dollhouse",
+  "effect": "mood",
+  "size": [
+   1,
+   1
+  ],
+  "layer": "object"
+ },
+ {
+  "id": "organic89:rocking-horse",
+  "name": "Rocking Horse",
+  "slug": "rocking-horse",
+  "effect": "mood",
+  "size": [
+   2,
+   1
+  ],
+  "layer": "object"
+ },
+ {
+  "id": "organic89:hammock",
+  "name": "Hammock",
+  "slug": "hammock",
+  "effect": "hp",
+  "size": [
+   2,
+   1
+  ],
+  "layer": "object"
+ },
+ {
+  "id": "organic89:night-light",
+  "name": "Night Light",
+  "slug": "night-light",
+  "effect": "mood",
+  "size": [
+   1,
+   1
+  ],
+  "layer": "object"
+ },
+ {
+  "id": "organic89:coat-rack",
+  "name": "Coat Rack",
+  "slug": "coat-rack",
+  "effect": "decor",
+  "size": [
+   1,
+   2
+  ],
+  "layer": "object"
+ },
+ {
+  "id": "organic89:umbrella-stand",
+  "name": "Umbrella Stand",
+  "slug": "umbrella-stand",
+  "effect": "decor",
+  "size": [
+   1,
+   1
+  ],
+  "layer": "object"
+ },
+ {
+  "id": "organic89:folding-screen",
+  "name": "Folding Screen",
+  "slug": "folding-screen",
+  "effect": "decor",
+  "size": [
+   2,
+   1
+  ],
+  "layer": "object"
+ },
+ {
+  "id": "organic89:cradle",
+  "name": "Cradle",
+  "slug": "cradle",
+  "effect": "hp",
+  "size": [
+   1,
+   1
+  ],
+  "layer": "object"
+ },
+ {
+  "id": "organic89:blanket-fort",
+  "name": "Blanket Fort",
+  "slug": "blanket-fort",
+  "effect": "mood",
+  "size": [
+   2,
+   2
+  ],
+  "layer": "object"
+ },
+ {
+  "id": "organic89:food-bowl",
+  "name": "Food Bowl",
+  "slug": "food-bowl",
+  "effect": "food",
+  "size": [
+   1,
+   1
+  ],
+  "layer": "object"
+ },
+ {
+  "id": "organic89:water-bowl",
+  "name": "Water Bowl",
+  "slug": "water-bowl",
+  "effect": "food",
+  "size": [
+   1,
+   1
+  ],
+  "layer": "object"
+ },
+ {
+  "id": "organic89:feeding-trough",
+  "name": "Feeding Trough",
+  "slug": "feeding-trough",
+  "effect": "food",
+  "size": [
+   2,
+   1
+  ],
+  "layer": "object"
+ },
+ {
+  "id": "organic89:dish-rack",
+  "name": "Dish Rack",
+  "slug": "dish-rack",
+  "effect": "decor",
+  "size": [
+   1,
+   1
+  ],
+  "layer": "object"
+ },
+ {
+  "id": "organic89:dining-chair",
+  "name": "Dining Chair",
+  "slug": "dining-chair",
+  "effect": "mood",
+  "size": [
+   1,
+   1
+  ],
+  "layer": "object"
+ },
+ {
+  "id": "organic89:dining-bench",
+  "name": "Dining Bench",
+  "slug": "dining-bench",
+  "effect": "mood",
+  "size": [
+   2,
+   1
+  ],
+  "layer": "object"
+ },
+ {
+  "id": "organic89:highchair",
+  "name": "Highchair",
+  "slug": "highchair",
+  "effect": "mood",
+  "size": [
+   1,
+   1
+  ],
+  "layer": "object"
+ },
+ {
+  "id": "organic89:cupboard",
+  "name": "Cupboard",
+  "slug": "cupboard",
+  "effect": "food",
+  "size": [
+   1,
+   2
+  ],
+  "layer": "object"
+ },
+ {
+  "id": "organic89:pantry",
+  "name": "Pantry",
+  "slug": "pantry",
+  "effect": "food",
+  "size": [
+   2,
+   2
+  ],
+  "layer": "object"
+ },
+ {
+  "id": "organic89:kitchen-counter",
+  "name": "Kitchen Counter",
+  "slug": "kitchen-counter",
+  "effect": "decor",
+  "size": [
+   2,
+   1
+  ],
+  "layer": "object"
+ },
+ {
+  "id": "organic89:wood-stove",
+  "name": "Wood Stove",
+  "slug": "wood-stove",
+  "effect": "food",
+  "size": [
+   1,
+   1
+  ],
+  "layer": "object"
+ },
+ {
+  "id": "organic89:bread-oven",
+  "name": "Bread Oven",
+  "slug": "bread-oven",
+  "effect": "food",
+  "size": [
+   2,
+   2
+  ],
+  "layer": "object"
+ },
+ {
+  "id": "organic89:icebox",
+  "name": "Icebox",
+  "slug": "icebox",
+  "effect": "food",
+  "size": [
+   1,
+   2
+  ],
+  "layer": "object"
+ },
+ {
+  "id": "organic89:spice-shelf",
+  "name": "Spice Shelf",
+  "slug": "spice-shelf",
+  "effect": "decor",
+  "size": [
+   1,
+   1
+  ],
+  "layer": "wall"
+ },
+ {
+  "id": "organic89:tea-kettle",
+  "name": "Tea Kettle",
+  "slug": "tea-kettle",
+  "effect": "mood",
+  "size": [
+   1,
+   1
+  ],
+  "layer": "object"
+ },
+ {
+  "id": "organic89:cookie-jar",
+  "name": "Cookie Jar",
+  "slug": "cookie-jar",
+  "effect": "food",
+  "size": [
+   1,
+   1
+  ],
+  "layer": "object"
+ },
+ {
+  "id": "organic89:bread-box",
+  "name": "Bread Box",
+  "slug": "bread-box",
+  "effect": "food",
+  "size": [
+   1,
+   1
+  ],
+  "layer": "object"
+ },
+ {
+  "id": "organic89:picnic-basket",
+  "name": "Picnic Basket",
+  "slug": "picnic-basket",
+  "effect": "food",
+  "size": [
+   1,
+   1
+  ],
+  "layer": "object"
+ },
+ {
+  "id": "organic89:sink",
+  "name": "Sink",
+  "slug": "sink",
+  "effect": "decor",
+  "size": [
+   1,
+   1
+  ],
+  "layer": "object"
+ },
+ {
+  "id": "organic89:water-barrel",
+  "name": "Water Barrel",
+  "slug": "water-barrel",
+  "effect": "food",
+  "size": [
+   1,
+   1
+  ],
+  "layer": "object"
+ },
+ {
+  "id": "organic89:bathtub",
+  "name": "Bathtub",
+  "slug": "bathtub",
+  "effect": "hp",
+  "size": [
+   2,
+   1
+  ],
+  "layer": "object"
+ },
+ {
+  "id": "organic89:soaking-tub",
+  "name": "Soaking Tub",
+  "slug": "soaking-tub",
+  "effect": "swim",
+  "size": [
+   2,
+   2
+  ],
+  "layer": "object"
+ },
+ {
+  "id": "organic89:shower",
+  "name": "Shower",
+  "slug": "shower",
+  "effect": "hp",
+  "size": [
+   1,
+   1
+  ],
+  "layer": "object"
+ },
+ {
+  "id": "organic89:towel-rack",
+  "name": "Towel Rack",
+  "slug": "towel-rack",
+  "effect": "decor",
+  "size": [
+   1,
+   1
+  ],
+  "layer": "wall"
+ },
+ {
+  "id": "organic89:bath-mat",
+  "name": "Bath Mat",
+  "slug": "bath-mat",
+  "effect": "decor",
+  "size": [
+   1,
+   1
+  ],
+  "layer": "floor"
+ },
+ {
+  "id": "organic89:laundry-basket",
+  "name": "Laundry Basket",
+  "slug": "laundry-basket",
+  "effect": "decor",
+  "size": [
+   1,
+   1
+  ],
+  "layer": "object"
+ },
+ {
+  "id": "organic89:wash-basin",
+  "name": "Wash Basin",
+  "slug": "wash-basin",
+  "effect": "hp",
+  "size": [
+   1,
+   1
+  ],
+  "layer": "object"
+ },
+ {
+  "id": "organic89:bath-duck",
+  "name": "Bath Duck",
+  "slug": "bath-duck",
+  "effect": "mood",
+  "size": [
+   1,
+   1
+  ],
+  "layer": "object"
+ },
+ {
+  "id": "organic89:treadmill",
+  "name": "Treadmill",
+  "slug": "treadmill",
+  "effect": "run",
+  "size": [
+   2,
+   1
+  ],
+  "layer": "object"
+ },
+ {
+  "id": "organic89:running-wheel",
+  "name": "Running Wheel",
+  "slug": "running-wheel",
+  "effect": "run",
+  "size": [
+   2,
+   2
+  ],
+  "layer": "object"
+ },
+ {
+  "id": "organic89:hurdles",
+  "name": "Hurdles",
+  "slug": "hurdles",
+  "effect": "run",
+  "size": [
+   3,
+   1
+  ],
+  "layer": "object"
+ },
+ {
+  "id": "organic89:paddling-pool",
+  "name": "Paddling Pool",
+  "slug": "paddling-pool",
+  "effect": "swim",
+  "size": [
+   2,
+   2
+  ],
+  "layer": "floor"
+ },
+ {
+  "id": "organic89:splash-tub",
+  "name": "Splash Tub",
+  "slug": "splash-tub",
+  "effect": "swim",
+  "size": [
+   1,
+   1
+  ],
+  "layer": "object"
+ },
+ {
+  "id": "organic89:water-slide",
+  "name": "Water Slide",
+  "slug": "water-slide",
+  "effect": "swim",
+  "size": [
+   3,
+   2
+  ],
+  "layer": "object"
+ },
+ {
+  "id": "organic89:swim-ring",
+  "name": "Swim Ring",
+  "slug": "swim-ring",
+  "effect": "swim",
+  "size": [
+   1,
+   1
+  ],
+  "layer": "object"
+ },
+ {
+  "id": "organic89:punching-bag",
+  "name": "Punching Bag",
+  "slug": "punching-bag",
+  "effect": "power",
+  "size": [
+   1,
+   2
+  ],
+  "layer": "object"
+ },
+ {
+  "id": "organic89:wooden-dumbbells",
+  "name": "Wooden Dumbbells",
+  "slug": "wooden-dumbbells",
+  "effect": "power",
+  "size": [
+   1,
+   1
+  ],
+  "layer": "object"
+ },
+ {
+  "id": "organic89:tug-rope",
+  "name": "Tug Rope",
+  "slug": "tug-rope",
+  "effect": "power",
+  "size": [
+   2,
+   1
+  ],
+  "layer": "object"
+ },
+ {
+  "id": "organic89:log-lift",
+  "name": "Log Lift",
+  "slug": "log-lift",
+  "effect": "power",
+  "size": [
+   2,
+   1
+  ],
+  "layer": "object"
+ },
+ {
+  "id": "organic89:trampoline",
+  "name": "Trampoline",
+  "slug": "trampoline",
+  "effect": "fly",
+  "size": [
+   2,
+   2
+  ],
+  "layer": "object"
+ },
+ {
+  "id": "organic89:rope-swing",
+  "name": "Rope Swing",
+  "slug": "rope-swing",
+  "effect": "fly",
+  "size": [
+   1,
+   2
+  ],
+  "layer": "object"
+ },
+ {
+  "id": "organic89:glider-perch",
+  "name": "Glider Perch",
+  "slug": "glider-perch",
+  "effect": "fly",
+  "size": [
+   1,
+   3
+  ],
+  "layer": "object"
+ },
+ {
+  "id": "organic89:kite-stand",
+  "name": "Kite Stand",
+  "slug": "kite-stand",
+  "effect": "fly",
+  "size": [
+   1,
+   2
+  ],
+  "layer": "object"
+ },
+ {
+  "id": "organic89:climbing-wall",
+  "name": "Climbing Wall",
+  "slug": "climbing-wall",
+  "effect": "stamina",
+  "size": [
+   2,
+   3
+  ],
+  "layer": "object"
+ },
+ {
+  "id": "organic89:jump-rope",
+  "name": "Jump Rope",
+  "slug": "jump-rope",
+  "effect": "stamina",
+  "size": [
+   1,
+   1
+  ],
+  "layer": "object"
+ },
+ {
+  "id": "organic89:balance-beam",
+  "name": "Balance Beam",
+  "slug": "balance-beam",
+  "effect": "stamina",
+  "size": [
+   3,
+   1
+  ],
+  "layer": "object"
+ },
+ {
+  "id": "organic89:monkey-bars",
+  "name": "Monkey Bars",
+  "slug": "monkey-bars",
+  "effect": "stamina",
+  "size": [
+   3,
+   2
+  ],
+  "layer": "object"
+ },
+ {
+  "id": "organic89:yoga-mat",
+  "name": "Yoga Mat",
+  "slug": "yoga-mat",
+  "effect": "hp",
+  "size": [
+   2,
+   1
+  ],
+  "layer": "floor"
+ },
+ {
+  "id": "organic89:nap-mat",
+  "name": "Nap Mat",
+  "slug": "nap-mat",
+  "effect": "hp",
+  "size": [
+   2,
+   1
+  ],
+  "layer": "floor"
+ },
+ {
+  "id": "organic89:massage-roller",
+  "name": "Massage Roller",
+  "slug": "massage-roller",
+  "effect": "hp",
+  "size": [
+   1,
+   1
+  ],
+  "layer": "object"
+ },
+ {
+  "id": "organic89:ball-pit",
+  "name": "Ball Pit",
+  "slug": "ball-pit",
+  "effect": "mood",
+  "size": [
+   2,
+   2
+  ],
+  "layer": "floor"
+ },
+ {
+  "id": "organic89:sandbox",
+  "name": "Sandbox",
+  "slug": "sandbox",
+  "effect": "mood",
+  "size": [
+   2,
+   2
+  ],
+  "layer": "floor"
+ },
+ {
+  "id": "organic89:playground-slide",
+  "name": "Playground Slide",
+  "slug": "playground-slide",
+  "effect": "mood",
+  "size": [
+   2,
+   2
+  ],
+  "layer": "object"
+ },
+ {
+  "id": "organic89:seesaw",
+  "name": "Seesaw",
+  "slug": "seesaw",
+  "effect": "mood",
+  "size": [
+   3,
+   1
+  ],
+  "layer": "object"
+ },
+ {
+  "id": "organic89:scratching-post",
+  "name": "Scratching Post",
+  "slug": "scratching-post",
+  "effect": "mood",
+  "size": [
+   1,
+   2
+  ],
+  "layer": "object"
+ },
+ {
+  "id": "organic89:spinning-top",
+  "name": "Spinning Top",
+  "slug": "spinning-top",
+  "effect": "discovery",
+  "size": [
+   1,
+   1
+  ],
+  "layer": "object"
+ },
+ {
+  "id": "organic89:building-blocks",
+  "name": "Building Blocks",
+  "slug": "building-blocks",
+  "effect": "discovery",
+  "size": [
+   1,
+   1
+  ],
+  "layer": "object"
+ },
+ {
+  "id": "organic89:puzzle-board",
+  "name": "Puzzle Board",
+  "slug": "puzzle-board",
+  "effect": "discovery",
+  "size": [
+   2,
+   1
+  ],
+  "layer": "floor"
+ },
+ {
+  "id": "organic89:garden-bench",
+  "name": "Garden Bench",
+  "slug": "garden-bench",
+  "effect": "decor",
+  "size": [
+   2,
+   1
+  ],
+  "layer": "object"
+ },
+ {
+  "id": "organic89:flower-box",
+  "name": "Flower Box",
+  "slug": "flower-box",
+  "effect": "decor",
+  "size": [
+   1,
+   1
+  ],
+  "layer": "object"
+ },
+ {
+  "id": "organic89:bird-bath",
+  "name": "Bird Bath",
+  "slug": "bird-bath",
+  "effect": "decor",
+  "size": [
+   1,
+   1
+  ],
+  "layer": "object"
+ },
+ {
+  "id": "organic89:garden-lantern",
+  "name": "Garden Lantern",
+  "slug": "garden-lantern",
+  "effect": "decor",
+  "size": [
+   1,
+   2
+  ],
+  "layer": "object"
+ },
+ {
+  "id": "organic89:picket-gate",
+  "name": "Picket Gate",
+  "slug": "picket-gate",
+  "effect": "decor",
+  "size": [
+   1,
+   1
+  ],
+  "layer": "object"
+ },
+ {
+  "id": "legacy:90",
+  "name": "Television",
+  "slug": "television",
+  "effect": "mood",
+  "size": [
+   2,
+   1
+  ],
+  "layer": "object"
+ },
+ {
+  "id": "legacy:143",
+  "name": "Color Television",
+  "slug": "color-television",
+  "effect": "mood",
+  "size": [
+   2,
+   1
+  ],
+  "layer": "object"
+ },
+ {
+  "id": "organic46:workbench",
+  "name": "Workbench",
+  "slug": "workbench",
+  "effect": "power",
+  "size": [
+   2,
+   1
+  ],
+  "layer": "object"
+ },
+ {
+  "id": "legacy:332",
+  "name": "Arcade Cabinet",
+  "slug": "arcade-cabinet",
+  "effect": "mood",
+  "size": [
+   1,
+   1
+  ],
+  "layer": "object"
+ },
+ {
+  "id": "legacy:174",
+  "name": "Pinball Cabinet",
+  "slug": "pinball-cabinet",
+  "effect": "mood",
+  "size": [
+   1,
+   1
+  ],
+  "layer": "object"
+ },
+ {
+  "id": "legacy:211",
+  "name": "Clock",
+  "slug": "clock",
+  "effect": "decor",
+  "size": [
+   1,
+   1
+  ],
+  "layer": "wall"
+ },
+ {
+  "id": "organic32:mechanical-clock",
+  "name": "Mechanical Clock",
+  "slug": "mechanical-clock",
+  "effect": "decor",
+  "size": [
+   1,
+   1
+  ],
+  "layer": "wall"
+ },
+ {
+  "id": "legacy:208",
+  "name": "Painting",
+  "slug": "painting",
+  "effect": "decor",
+  "size": [
+   1,
+   1
+  ],
+  "layer": "wall"
+ },
+ {
+  "id": "organic46:loom",
+  "name": "Loom",
+  "slug": "loom",
+  "effect": "stamina",
+  "size": [
+   2,
+   1
+  ],
+  "layer": "object"
+ },
+ {
+  "id": "legacy:203",
+  "name": "Toy",
+  "slug": "toy",
+  "effect": "mood",
+  "size": [
+   1,
+   1
+  ],
+  "layer": "object"
+ },
+ {
+  "id": "legacy:109",
+  "name": "Ball",
+  "slug": "ball",
+  "effect": "run",
+  "size": [
+   1,
+   1
+  ],
+  "layer": "object"
+ },
+ {
+  "id": "pack:piano",
+  "name": "Piano",
+  "slug": "piano",
+  "effect": "mood",
+  "size": [
+   2,
+   1
+  ],
+  "layer": "object"
+ },
+ {
+  "id": "legacy:598",
+  "name": "Guitar",
+  "slug": "guitar",
+  "effect": "mood",
+  "size": [
+   1,
+   1
+  ],
+  "layer": "object"
+ },
+ {
+  "id": "legacy:599",
+  "name": "Drum Kit",
+  "slug": "drum-kit",
+  "effect": "power",
+  "size": [
+   2,
+   1
+  ],
+  "layer": "object"
+ },
+ {
+  "id": "organic32:telescope",
+  "name": "Telescope",
+  "slug": "telescope",
+  "effect": "discovery",
+  "size": [
+   1,
+   1
+  ],
+  "layer": "object"
+ },
+ {
+  "id": "organic32:microscope",
+  "name": "Microscope",
+  "slug": "microscope",
+  "effect": "discovery",
+  "size": [
+   1,
+   1
+  ],
+  "layer": "object"
+ },
+ {
+  "id": "organic85:globe",
+  "name": "Globe",
+  "slug": "globe",
+  "effect": "discovery",
+  "size": [
+   1,
+   1
+  ],
+  "layer": "object"
+ },
+ {
+  "id": "organic45:aquarium",
+  "name": "Aquarium",
+  "slug": "aquarium",
+  "effect": "mood",
+  "size": [
+   2,
+   1
+  ],
+  "layer": "object"
+ },
+ {
+  "id": "legacy:89",
+  "name": "Radio",
+  "slug": "radio",
+  "effect": "mood",
+  "size": [
+   1,
+   1
+  ],
+  "layer": "object"
+ },
+ {
+  "id": "legacy:91",
+  "name": "Computer",
+  "slug": "computer",
+  "effect": "discovery",
+  "size": [
+   1,
+   1
+  ],
+  "layer": "object"
+ },
+ {
+  "id": "organic45:bird-feeder",
+  "name": "Bird Feeder",
+  "slug": "bird-feeder",
+  "effect": "decor",
+  "size": [
+   1,
+   1
+  ],
+  "layer": "object"
+ },
+ {
+  "id": "organic38:bonsai",
+  "name": "Bonsai",
+  "slug": "bonsai",
+  "effect": "decor",
+  "size": [
+   1,
+   1
+  ],
+  "layer": "object"
+ },
+ {
+  "id": "organic63:snow-globe",
+  "name": "Snow Globe",
+  "slug": "snow-globe",
+  "effect": "decor",
+  "size": [
+   1,
+   1
+  ],
+  "layer": "object"
+ },
+ {
+  "id": "organic47:photo-album",
+  "name": "Photo Album",
+  "slug": "photo-album",
+  "effect": "mood",
+  "size": [
+   1,
+   1
+  ],
+  "layer": "object"
+ },
+ {
+  "id": "legacy:225",
+  "name": "Jigsaw Puzzle",
+  "slug": "jigsaw-puzzle",
+  "effect": "discovery",
+  "size": [
+   1,
+   1
+  ],
+  "layer": "object"
+ },
+ {
+  "id": "legacy:1196",
+  "name": "Chess",
+  "slug": "chess",
+  "effect": "discovery",
+  "size": [
+   1,
+   1
+  ],
+  "layer": "object"
+ },
+ {
+  "id": "legacy:162",
+  "name": "Board Game",
+  "slug": "board-game",
+  "effect": "mood",
+  "size": [
+   1,
+   1
+  ],
+  "layer": "object"
+ },
+ {
+  "id": "legacy:646",
+  "name": "Typewriter",
+  "slug": "typewriter",
+  "effect": "discovery",
+  "size": [
+   1,
+   1
+  ],
+  "layer": "object"
+ },
+ {
+  "id": "organic40:vinyl",
+  "name": "Vinyl",
+  "slug": "vinyl",
+  "effect": "mood",
+  "size": [
+   1,
+   1
+  ],
+  "layer": "object"
+ },
+ {
+  "id": "legacy:87",
+  "name": "Speaker",
+  "slug": "speaker",
+  "effect": "mood",
+  "size": [
+   1,
+   1
+  ],
+  "layer": "object"
+ },
+ {
+  "id": "organic40:bicycle",
+  "name": "Bicycle",
+  "slug": "bicycle",
+  "effect": "run",
+  "size": [
+   2,
+   1
+  ],
+  "layer": "object"
+ },
+ {
+  "id": "organic44:campfire",
+  "name": "Campfire",
+  "slug": "campfire",
+  "effect": "mood",
+  "size": [
+   1,
+   1
+  ],
+  "layer": "object"
+ },
+ {
+  "id": "organic38:hot-spring",
+  "name": "Hot Spring",
+  "slug": "hot-spring",
+  "effect": "hp",
+  "size": [
+   2,
+   2
+  ],
+  "layer": "object"
+ },
+ {
+  "id": "legacy:144",
+  "name": "Monitor",
+  "slug": "monitor",
+  "effect": "discovery",
+  "size": [
+   1,
+   1
+  ],
+  "layer": "object"
+ }
+]

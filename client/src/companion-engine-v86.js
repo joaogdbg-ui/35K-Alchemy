@@ -29,6 +29,7 @@ export const HUNGRY_SELF_FEED_MS=[60*1000,120*1000];
 export const BELLY_DECAY_MS=6*60*1000;   // -1 belly every 6 min (full → empty in ~10 h)
 export const PET_MOOD_CAP=12;            // mood gained by stroking per 10 minutes
 export const NICK_MAX=16;
+export const HOME_DAILY_CAP=200;          // V90: stat bar points a companion can gain per day from house furniture
 
 /** Points gained for one level-up: (grade × 3) + 13 ± 2 (E 11–15 … S 26–30), the SA2B Chao rule. */
 export function levelUpGain(gradeIndex,rnd=Math.random){return gradeIndex*3+13+(Math.floor(rnd()*5)-2);}
@@ -363,12 +364,15 @@ export function createCompanionSystem(ctx){
   const root=$('viewPets');if(!root)return;
   const act=activeMeta();const have=unlocked().length;
   const groups=FAMILIES.map(f=>({f,list:roster.filter(c=>c.family===f.id)})).filter(g=>g.list.length);
-  root.innerHTML=`<div class="pets-scroll"><div class="section-head"><h2>Companions</h2><p>${have} of ${roster.length} unlocked · a companion lives on your screen and eats elements to raise six stats, each up to Lv.${COMPANION_MAX_LEVEL}.</p></div>
+  root.innerHTML=`<div class="pets-scroll"><div class="section-head"><h2>Home</h2><p>Your companion houses and companions · ${have} of ${roster.length} companions unlocked.</p></div>
+   <div id="homeMount"></div>
+   <h3 class="pets-family pets-on-screen">On screen</h3>
    <section class="pets-hero">${act?cardHtml(act,{full:true}):`<div class="pets-empty"><strong>No companion active</strong><small>Discover one of the ${roster.length} companion elements (five per family) and tap Choose.</small></div>`}
    ${act?`<button type="button" class="pet-dismiss" id="petDismiss">Send home</button>`:''}</section>
    ${groups.map(g=>`<h3 class="pets-family">${escapeText(g.f.name)}</h3><div class="pets-grid">${g.list.map(c=>cardHtml(c)).join('')}</div>`).join('')}
    <section class="pets-help"><h3>How companions work</h3><ul>
-    <li><strong>Unlock:</strong> discover the element in Classic or in its family campaign. The Companions tab shows a <b>!</b> until you open it.</li>
+    <li><strong>Houses:</strong> discover a companion house element (Tent 1, Hut 2, Cabin 3, Cottage 4, Villa 6, Castle 8 companions). Tap an empty floor tile to place furniture you discovered, tap a piece to move it or put it away, and tap + to invite companions. Residents wander, play and use the furniture. Each piece shows what it trains (Run, Swim, Power, Fly, Stamina, HP) or whether it cheers them up, feeds them or boosts discoveries.</li>
+    <li><strong>Unlock:</strong> discover the element in Classic or in its family campaign. The Home tab shows a <b>!</b> until you open it.</li>
     <li><strong>Choosing:</strong> your first companion is free. Switching to another one needs a rewarded ad; after it, switching again is free for 5 minutes. Without ads, switching is always free. Sending a companion home is free.</li>
     <li><strong>Petting:</strong> rub your finger across the companion: hearts float up and its mood rises (up to a limit every 10 minutes). A quick tap opens its card, where you can also rename it.</li>
     <li><strong>Emotion orb:</strong> a little orb over its head shows how it feels: a heart when happy, a spiral when sad or when it refuses food, a bowl when hungry, a star burst on a level-up.</li>
@@ -383,6 +387,7 @@ export function createCompanionSystem(ctx){
   root.querySelectorAll('[data-activate]').forEach(b=>b.onclick=()=>choose(b.dataset.activate));
   root.querySelectorAll('[data-rename]').forEach(b=>b.onclick=()=>rename(b.dataset.rename));
   const d=$('petDismiss');if(d)d.onclick=()=>setActive(null);
+  try{ctx.renderExtra?.(root);}catch(e){console.warn('home',e);}
   if(!root.hidden)markSeen();
  }
  function rename(id){const meta=metaById.get(id);if(!meta||!isDiscovered(id))return;const p=pet(id);
@@ -392,7 +397,18 @@ export function createCompanionSystem(ctx){
   $('petNameCancel').onclick=closeModal;}
  function openCard(id){const meta=metaById.get(id);if(!meta)return;showModal(`<div class="modal-tag">COMPANION</div>${cardHtml(meta,{full:true})}<p class="mini-muted">Drag an element from your list onto ${escapeText(nameOf(meta))} to feed it. Rub it with your finger to pet it. Tap its gifts when they appear.</p><button type="button" class="modal-button secondary" id="petCardClose">Close</button>`);$('petCardClose').onclick=closeModal;$('modalContent').querySelectorAll('[data-activate]').forEach(b=>b.onclick=async()=>{closeModal();await choose(b.dataset.activate);});$('modalContent').querySelectorAll('[data-rename]').forEach(b=>b.onclick=()=>rename(b.dataset.rename));}
  listeners.add(renderTab);
- return {start,stop,setActive,choose,syncSeen,markSeen,isCompanion,freeChoiceLeft,emote,feed,hitTest,onDiscovery,renderTab,openCard,get active(){return activeMeta();},state:()=>state,unlocked,refreshViews,
+ // V90: a resident using furniture in a companion house. Training pieces add stat progress
+ // (capped at HOME_DAILY_CAP bar points per companion per day), food fills the belly, beds and
+ // fun pieces lift the mood. Returns true when something changed (for the little up-arrow).
+ function homeEffect(id,effect){const meta=metaById.get(id);if(!meta||!isDiscovered(id))return false;const p=pet(id);settleMood(p);
+  const day=new Date().toISOString().slice(0,10);if(p.homeDay!==day){p.homeDay=day;p.homeGain=0;}
+  let changed=false;
+  if(COMPANION_STATS.includes(effect)){if(p.homeGain<HOME_DAILY_CAP){gainStat(p,meta,effect,2);p.homeGain+=2;changed=true;}}
+  else if(effect==='food'){if(p.belly<100){p.belly=Math.min(100,p.belly+8);p.bellyAt=now();changed=true;}}
+  else if(effect==='mood'){if(p.mood<100){p.mood=Math.min(100,p.mood+2);p.moodAt=now();changed=true;}}
+  if(effect==='hp'&&p.mood<100){p.mood=Math.min(100,p.mood+1);p.moodAt=now();}
+  if(changed)save();return changed;}
+ return {start,stop,setActive,choose,homeEffect,syncSeen,markSeen,isCompanion,freeChoiceLeft,emote,feed,hitTest,onDiscovery,renderTab,openCard,get active(){return activeMeta();},state:()=>state,unlocked,refreshViews,
   onViewChange(){if(activeMeta()&&sprite&&!sprite.hidden)setTimeout(()=>{if(cancelMove)cancelMove();const r=pickRail();if(r){rail=r;setLayer(r.layer);place(clampX(r,pos.x),r.y);sprite.dataset.anim='idle';}},80);},
   importState(raw){if(raw&&raw.pets){state=normalize(raw);save();syncSeen();}},grades:companionGrades};
 }
