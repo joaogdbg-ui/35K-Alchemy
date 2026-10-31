@@ -13,12 +13,14 @@ async function liveCatalog(){
  const {FAMILY_CAMPAIGNS}=await import('../src/family-mode-v53-campaigns.js');
  const {buildThematicCampaigns}=await import('../src/family-campaigns-v82.js');
  const {reconcileLegacyFamilies}=await import('../src/family-compatibility-v82.js');
- const {buildCompleteFamilyCampaigns}=await import('../src/family-campaigns-v85.js');
+ const {buildCompleteFamilyCampaigns,mergeFamilyData}=await import('../src/family-campaigns-v85.js');
+ const {FAMILY_DATA_V89}=await import('../src/family-data-v89.js');
  const {FAMILY_DATA_V85}=await import('../src/family-data-v85.js');
  const {RECIPE_POLISH_V87}=await import('../src/recipe-polish-v87.js');
  const rec=reconcileLegacyFamilies(recipes,FAMILY_CAMPAIGNS.families);
- registerFamilyMembership(FAMILY_DATA_V85.families);
- const camps=buildCompleteFamilyCampaigns(recipes,items,FAMILIES,familiesFor,FAMILY_DATA_V85,[...rec.families,...buildThematicCampaigns(recipes,items)],RECIPE_POLISH_V87);
+ const FAMILY_DATA=mergeFamilyData(FAMILY_DATA_V85,FAMILY_DATA_V89);
+ registerFamilyMembership(FAMILY_DATA.families);
+ const camps=buildCompleteFamilyCampaigns(recipes,items,FAMILIES,familiesFor,FAMILY_DATA,[...rec.families,...buildThematicCampaigns(recipes,items)],RECIPE_POLISH_V87);
  return {items,recipes,camps,FAMILIES,familiesFor,polish:RECIPE_POLISH_V87};
 }
 const live=liveCatalog();
@@ -32,7 +34,7 @@ test('V87: app passes the recipe polish to the family builder and the standalone
 
 test('V87: every polish entry applies cleanly, no element added, nothing skipped',async()=>{
  const {items,camps,polish}=await live;
- assert.equal(items.length,6412,'recipe polish never adds elements');
+ assert.equal(items.length,6612,'recipe polish never adds elements');
  assert.ok(polish.adds.length>=300&&polish.remaps.length>=100);
  assert.equal(camps.report.polishSkipped,0);
  assert.equal(camps.report.polishAdded,polish.adds.length);

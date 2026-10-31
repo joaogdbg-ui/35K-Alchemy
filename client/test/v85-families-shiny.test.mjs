@@ -14,18 +14,21 @@ async function liveCatalog(){
  const {FAMILY_CAMPAIGNS}=await import('../src/family-mode-v53-campaigns.js');
  const {buildThematicCampaigns}=await import('../src/family-campaigns-v82.js');
  const {reconcileLegacyFamilies}=await import('../src/family-compatibility-v82.js');
- const {buildCompleteFamilyCampaigns}=await import('../src/family-campaigns-v85.js');
+ const {buildCompleteFamilyCampaigns,mergeFamilyData}=await import('../src/family-campaigns-v85.js');
+ const {FAMILY_DATA_V89}=await import('../src/family-data-v89.js');
+ const {RECIPE_POLISH_V87}=await import('../src/recipe-polish-v87.js');
  const {FAMILY_DATA_V85}=await import('../src/family-data-v85.js');
  const rec=reconcileLegacyFamilies(recipes,FAMILY_CAMPAIGNS.families);
- registerFamilyMembership(FAMILY_DATA_V85.families);
- const camps=buildCompleteFamilyCampaigns(recipes,items,FAMILIES,familiesFor,FAMILY_DATA_V85,[...rec.families,...buildThematicCampaigns(recipes,items)]);
+ const FAMILY_DATA=mergeFamilyData(FAMILY_DATA_V85,FAMILY_DATA_V89);
+ registerFamilyMembership(FAMILY_DATA.families);
+ const camps=buildCompleteFamilyCampaigns(recipes,items,FAMILIES,familiesFor,FAMILY_DATA,[...rec.families,...buildThematicCampaigns(recipes,items)],RECIPE_POLISH_V87);
  return {items,recipes,camps,FAMILIES,familiesFor};
 }
 const live=liveCatalog();
 
-test('V85: every one of the 12 families is a complete, independent campaign',async()=>{
+test('V85: every family (9 since V89) is a complete, independent campaign',async()=>{
  const {items,camps,FAMILIES,familiesFor}=await live;
- assert.equal(items.length,6412);
+ assert.equal(items.length,6612);
  assert.equal(camps.length,FAMILIES.length);
  assert.deepEqual(camps.report.conflicts,[]);
  assert.deepEqual(camps.report.dropped,{});
@@ -46,7 +49,7 @@ test('V85: Countries & Landmarks adds exactly 200 world elements with trivia',as
  assert.ok(ORGANIC_V85.items.every(i=>i.id.startsWith('organic85:')&&i.category==='geography'&&i.familyCampaigns[0]==='world'&&i.summary.length>=40&&i.trivia));
  const {FAMILIES}=await import('../src/discoveries.js');
  assert.ok(FAMILIES.some(f=>f.id==='world'&&f.categories.includes('geography')));
- assert.match(app,/GAMING_V30,ORGANIC_V85,ORGANIC_V32/);
+ assert.match(app,/GAMING_V30,ORGANIC_V89,ORGANIC_V85,ORGANIC_V32/);
 });
 test('V85: shiny chance is 1% (5% without ads), saved, shown in list, slot and popup',()=>{
  assert.match(app,/function shinyChance\(\)\{return adFree\(\)\?0\.05:0\.01;\}/);

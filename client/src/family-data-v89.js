@@ -1,0 +1,2 @@
+/* V89: the Home & Living family campaign (own 4 starters; existing members craftable in-family). */
+export const FAMILY_DATA_V89 = {"version":89,"families":{"home":{"starters":["legacy:45","legacy:24","legacy:29","pack:thread"],"addMembers":["legacy:45","legacy:24","legacy:29","pack:thread","organic46:workbench","organic46:yarn","organic40:workshop","legacy:44","organic46:loom","organic62:hand-loom","organic46:wooden-plank","organic46:sawdust","legacy:1288","legacy:514","organic41:arch","organic55:workshop-bench","organic46:spinning-wheel"]}}};

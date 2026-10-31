@@ -8,6 +8,8 @@
  * V87: optional `polish` {adds:[[a,b,out]], remaps:[[a,b,old,new]]} is applied after the V85 recipes.
  * Pure function: no DOM, no imports (also inlined by tools/build-standalone.py).
  */
+/** V89: combine family data packs (later packs add families; recipes are concatenated). */
+export function mergeFamilyData(...packs){const out={recipes:[],families:{}};for(const p of packs){if(!p)continue;if(Array.isArray(p.recipes))out.recipes.push(...p.recipes);Object.assign(out.families,p.families||{});}return out;}
 export function buildCompleteFamilyCampaigns(globalRecipes,items,families,familiesFor,data,legacyCampaigns=[],polish=null){
  if(!(globalRecipes instanceof Map)||!Array.isArray(items)||!data||!Array.isArray(data.recipes))throw Error('V85 campaigns: invalid input');
  const key=(a,b)=>[a,b].sort().join('|');

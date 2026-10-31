@@ -1,0 +1,2935 @@
+{
+ "version": 89,
+ "status": "QA_PENDING_UNMERGED",
+ "cohort_count": 200,
+ "expansion_goal": 200,
+ "expansion_progress": 200,
+ "remaining_to_goal": 0,
+ "cycle_complete": true,
+ "themes": {
+  "home": 155,
+  "life": 17,
+  "material": 6,
+  "music": 1,
+  "mythology": 5,
+  "nature": 13,
+  "object": 2,
+  "science": 1
+ },
+ "base_catalog": {
+  "elements": 6412
+ },
+ "alternative_recipes_for_existing_items": 0,
+ "new_items": [
+  {
+   "id": "organic89:companion-tent",
+   "name": "Companion Tent",
+   "category": "home",
+   "summary": "A small canvas tent stitched together for a single companion to nap in; the first and easiest companion house.",
+   "familyCampaigns": [
+    "home"
+   ],
+   "ingredients": [
+    "legacy:45",
+    "pack:thread"
+   ],
+   "art_mode": "bespoke-subject",
+   "path": "client/assets/v89/companion-tent.svg"
+  },
+  {
+   "id": "organic89:companion-hut",
+   "name": "Companion Hut",
+   "category": "home",
+   "summary": "A cosy wooden hut with a low doorway that shelters two companions from wind and rain.",
+   "familyCampaigns": [
+    "home"
+   ],
+   "ingredients": [
+    "legacy:45",
+    "legacy:24"
+   ],
+   "art_mode": "bespoke-subject",
+   "path": "client/assets/v89/companion-hut.svg"
+  },
+  {
+   "id": "organic89:companion-cabin",
+   "name": "Companion Cabin",
+   "category": "home",
+   "summary": "A sturdy log cabin with a proper front door, big enough for three companions to live together.",
+   "familyCampaigns": [
+    "home"
+   ],
+   "ingredients": [
+    "organic89:companion-hut",
+    "organic89:door"
+   ],
+   "art_mode": "bespoke-subject",
+   "path": "client/assets/v89/companion-cabin.svg"
+  },
+  {
+   "id": "organic89:companion-cottage",
+   "name": "Companion Cottage",
+   "category": "home",
+   "summary": "A charming cottage with a smoking chimney and a warm fireplace inside, home for four companions.",
+   "familyCampaigns": [
+    "home"
+   ],
+   "ingredients": [
+    "organic89:companion-cabin",
+    "organic89:chimney"
+   ],
+   "art_mode": "bespoke-subject",
+   "path": "client/assets/v89/companion-cottage.svg"
+  },
+  {
+   "id": "organic89:companion-villa",
+   "name": "Companion Villa",
+   "category": "home",
+   "summary": "A roomy two-storey villa with a grand staircase where six companions each get space to roam.",
+   "familyCampaigns": [
+    "home"
+   ],
+   "ingredients": [
+    "organic89:companion-cottage",
+    "organic89:staircase"
+   ],
+   "art_mode": "bespoke-subject",
+   "path": "client/assets/v89/companion-villa.svg"
+  },
+  {
+   "id": "organic89:companion-castle",
+   "name": "Companion Castle",
+   "category": "home",
+   "summary": "A grand little castle with towers and a winched gate, the largest companion house, sheltering eight companions.",
+   "familyCampaigns": [
+    "home"
+   ],
+   "ingredients": [
+    "organic89:companion-villa",
+    "organic89:castle-gate"
+   ],
+   "art_mode": "bespoke-subject",
+   "path": "client/assets/v89/companion-castle.svg"
+  },
+  {
+   "id": "organic89:fabric",
+   "name": "Fabric",
+   "category": "home",
+   "summary": "A soft sheet of woven cloth fresh off the loom, ready to be cut and sewn into home goods.",
+   "familyCampaigns": [
+    "home"
+   ],
+   "ingredients": [
+    "organic46:loom",
+    "organic46:yarn"
+   ],
+   "art_mode": "bespoke-subject",
+   "path": "client/assets/v89/fabric.svg"
+  },
+  {
+   "id": "organic89:rope",
+   "name": "Rope",
+   "category": "home",
+   "summary": "Strong twisted cord made by winding many strands of yarn together, used for tying and hanging.",
+   "familyCampaigns": [
+    "home"
+   ],
+   "ingredients": [
+    "organic46:yarn",
+    "legacy:514"
+   ],
+   "art_mode": "bespoke-subject",
+   "path": "client/assets/v89/rope.svg"
+  },
+  {
+   "id": "organic89:saw",
+   "name": "Saw",
+   "category": "home",
+   "summary": "A toothed hand saw that cuts logs and planks to size on the workbench.",
+   "familyCampaigns": [
+    "home"
+   ],
+   "ingredients": [
+    "legacy:29",
+    "organic46:workbench"
+   ],
+   "art_mode": "bespoke-subject",
+   "path": "client/assets/v89/saw.svg"
+  },
+  {
+   "id": "organic89:nail",
+   "name": "Nail",
+   "category": "home",
+   "summary": "A small pointed pin hammered into wood to fasten boards and furniture together.",
+   "familyCampaigns": [
+    "home"
+   ],
+   "ingredients": [
+    "legacy:29",
+    "organic55:workshop-bench"
+   ],
+   "art_mode": "bespoke-subject",
+   "path": "client/assets/v89/nail.svg"
+  },
+  {
+   "id": "organic89:wooden-peg",
+   "name": "Wooden Peg",
+   "category": "home",
+   "summary": "A short rounded wooden pin used to join beams, hold shelves and hang things on walls.",
+   "familyCampaigns": [
+    "home"
+   ],
+   "ingredients": [
+    "organic46:wooden-plank",
+    "organic89:saw"
+   ],
+   "art_mode": "bespoke-subject",
+   "path": "client/assets/v89/wooden-peg.svg"
+  },
+  {
+   "id": "organic89:wooden-beam",
+   "name": "Wooden Beam",
+   "category": "home",
+   "summary": "A long squared timber cut from a log, the backbone of floors, roofs and frames.",
+   "familyCampaigns": [
+    "home"
+   ],
+   "ingredients": [
+    "legacy:24",
+    "organic89:saw"
+   ],
+   "art_mode": "bespoke-subject",
+   "path": "client/assets/v89/wooden-beam.svg"
+  },
+  {
+   "id": "organic89:floorboards",
+   "name": "Floorboards",
+   "category": "home",
+   "summary": "Rows of planks laid side by side to make a smooth wooden floor inside a house.",
+   "familyCampaigns": [
+    "home"
+   ],
+   "ingredients": [
+    "organic46:wooden-plank",
+    "legacy:45"
+   ],
+   "art_mode": "bespoke-subject",
+   "path": "client/assets/v89/floorboards.svg"
+  },
+  {
+   "id": "organic89:wood-shavings",
+   "name": "Wood Shavings",
+   "category": "home",
+   "summary": "Thin curly ribbons of wood peeled off planks while smoothing them at the bench.",
+   "familyCampaigns": [
+    "home"
+   ],
+   "ingredients": [
+    "organic46:wooden-plank",
+    "organic55:workshop-bench"
+   ],
+   "art_mode": "bespoke-subject",
+   "path": "client/assets/v89/wood-shavings.svg"
+  },
+  {
+   "id": "organic89:wooden-bucket",
+   "name": "Wooden Bucket",
+   "category": "home",
+   "summary": "A round bucket made from planks held tight by hoops, for carrying water, paint or glue.",
+   "familyCampaigns": [
+    "home"
+   ],
+   "ingredients": [
+    "organic46:wooden-plank",
+    "legacy:44"
+   ],
+   "art_mode": "bespoke-subject",
+   "path": "client/assets/v89/wooden-bucket.svg"
+  },
+  {
+   "id": "organic89:glue",
+   "name": "Glue",
+   "category": "home",
+   "summary": "A thick sticky paste for bonding wood, cloth and paper together in the workshop.",
+   "familyCampaigns": [
+    "home"
+   ],
+   "ingredients": [
+    "organic46:sawdust",
+    "organic89:wooden-bucket"
+   ],
+   "art_mode": "bespoke-subject",
+   "path": "client/assets/v89/glue.svg"
+  },
+  {
+   "id": "organic89:paint",
+   "name": "Paint",
+   "category": "home",
+   "summary": "A bucket of bright coloured paint for walls, doors and furniture.",
+   "familyCampaigns": [
+    "home"
+   ],
+   "ingredients": [
+    "legacy:1288",
+    "organic89:wooden-bucket"
+   ],
+   "art_mode": "bespoke-subject",
+   "path": "client/assets/v89/paint.svg"
+  },
+  {
+   "id": "organic89:varnish",
+   "name": "Varnish",
+   "category": "home",
+   "summary": "A clear glossy coating brushed onto wood to protect it and make the grain shine.",
+   "familyCampaigns": [
+    "home"
+   ],
+   "ingredients": [
+    "organic89:paint",
+    "legacy:24"
+   ],
+   "art_mode": "bespoke-subject",
+   "path": "client/assets/v89/varnish.svg"
+  },
+  {
+   "id": "organic89:wallpaper",
+   "name": "Wallpaper",
+   "category": "home",
+   "summary": "A roll of patterned decorative sheets glued onto walls to brighten up a room.",
+   "familyCampaigns": [
+    "home"
+   ],
+   "ingredients": [
+    "legacy:1288",
+    "organic89:glue"
+   ],
+   "art_mode": "bespoke-subject",
+   "path": "client/assets/v89/wallpaper.svg"
+  },
+  {
+   "id": "organic89:door",
+   "name": "Door",
+   "category": "home",
+   "summary": "A hinged wooden door that fits into an archway and opens the way into any home.",
+   "familyCampaigns": [
+    "home"
+   ],
+   "ingredients": [
+    "organic41:arch",
+    "organic46:wooden-plank"
+   ],
+   "art_mode": "bespoke-subject",
+   "path": "client/assets/v89/door.svg"
+  },
+  {
+   "id": "organic89:window-frame",
+   "name": "Window Frame",
+   "category": "home",
+   "summary": "A wooden frame with crossbars that holds a window in a wall and lets daylight in.",
+   "familyCampaigns": [
+    "home"
+   ],
+   "ingredients": [
+    "organic89:wooden-beam",
+    "organic41:arch"
+   ],
+   "art_mode": "bespoke-subject",
+   "path": "client/assets/v89/window-frame.svg"
+  },
+  {
+   "id": "organic89:curtain",
+   "name": "Curtain",
+   "category": "home",
+   "summary": "Soft fabric drapes hung across a window frame to keep out bright light and add colour.",
+   "familyCampaigns": [
+    "home"
+   ],
+   "ingredients": [
+    "organic89:fabric",
+    "organic89:window-frame"
+   ],
+   "art_mode": "bespoke-subject",
+   "path": "client/assets/v89/curtain.svg"
+  },
+  {
+   "id": "organic89:roof",
+   "name": "Roof",
+   "category": "home",
+   "summary": "A sloped covering of beams and boards that keeps rain, snow and sun off a house.",
+   "familyCampaigns": [
+    "home"
+   ],
+   "ingredients": [
+    "legacy:45",
+    "organic89:wooden-beam"
+   ],
+   "art_mode": "bespoke-subject",
+   "path": "client/assets/v89/roof.svg"
+  },
+  {
+   "id": "organic89:ladder",
+   "name": "Ladder",
+   "category": "home",
+   "summary": "Two wooden rails joined by pegged rungs, used to climb up to lofts, shelves and rooftops.",
+   "familyCampaigns": [
+    "home"
+   ],
+   "ingredients": [
+    "organic89:wooden-beam",
+    "organic89:wooden-peg"
+   ],
+   "art_mode": "bespoke-subject",
+   "path": "client/assets/v89/ladder.svg"
+  },
+  {
+   "id": "organic89:staircase",
+   "name": "Staircase",
+   "category": "home",
+   "summary": "A flight of wooden steps that joins one floor of a house to the next.",
+   "familyCampaigns": [
+    "home"
+   ],
+   "ingredients": [
+    "organic89:ladder",
+    "organic89:floorboards"
+   ],
+   "art_mode": "bespoke-subject",
+   "path": "client/assets/v89/staircase.svg"
+  },
+  {
+   "id": "organic89:shelf",
+   "name": "Shelf",
+   "category": "home",
+   "summary": "A flat board resting on pegs against the wall, ready to hold books, pots and treasures.",
+   "familyCampaigns": [
+    "home"
+   ],
+   "ingredients": [
+    "organic46:wooden-plank",
+    "organic89:wooden-peg"
+   ],
+   "art_mode": "bespoke-subject",
+   "path": "client/assets/v89/shelf.svg"
+  },
+  {
+   "id": "organic89:wooden-crate",
+   "name": "Wooden Crate",
+   "category": "home",
+   "summary": "A slatted box nailed together from planks, handy for storing and carrying things.",
+   "familyCampaigns": [
+    "home"
+   ],
+   "ingredients": [
+    "organic89:nail",
+    "organic46:wooden-plank"
+   ],
+   "art_mode": "bespoke-subject",
+   "path": "client/assets/v89/wooden-crate.svg"
+  },
+  {
+   "id": "organic89:drawer",
+   "name": "Drawer",
+   "category": "home",
+   "summary": "A sliding wooden box with a knob, the key part of dressers, desks and cabinets.",
+   "familyCampaigns": [
+    "home"
+   ],
+   "ingredients": [
+    "organic89:wooden-crate",
+    "organic89:shelf"
+   ],
+   "art_mode": "bespoke-subject",
+   "path": "client/assets/v89/drawer.svg"
+  },
+  {
+   "id": "organic89:pillow-stuffing",
+   "name": "Pillow Stuffing",
+   "category": "home",
+   "summary": "A fluffy bundle of soft filling used to plump up pillows, cushions and mattresses.",
+   "familyCampaigns": [
+    "home"
+   ],
+   "ingredients": [
+    "organic46:yarn",
+    "organic89:wood-shavings"
+   ],
+   "art_mode": "bespoke-subject",
+   "path": "client/assets/v89/pillow-stuffing.svg"
+  },
+  {
+   "id": "organic89:pillow",
+   "name": "Pillow",
+   "category": "home",
+   "summary": "A soft stuffed fabric pillow that makes beds and naps much more comfortable.",
+   "familyCampaigns": [
+    "home"
+   ],
+   "ingredients": [
+    "organic89:fabric",
+    "organic89:pillow-stuffing"
+   ],
+   "art_mode": "bespoke-subject",
+   "path": "client/assets/v89/pillow.svg"
+  },
+  {
+   "id": "organic89:cushion",
+   "name": "Cushion",
+   "category": "home",
+   "summary": "A plump square cushion placed on the floor where a companion can sit and relax.",
+   "familyCampaigns": [
+    "home"
+   ],
+   "ingredients": [
+    "organic89:pillow",
+    "organic89:floorboards"
+   ],
+   "art_mode": "bespoke-subject",
+   "path": "client/assets/v89/cushion.svg"
+  },
+  {
+   "id": "organic89:quilt",
+   "name": "Quilt",
+   "category": "home",
+   "summary": "A warm quilt of patchwork squares sewn over a soft layer of stuffing.",
+   "familyCampaigns": [
+    "home"
+   ],
+   "ingredients": [
+    "legacy:1288",
+    "organic89:pillow-stuffing"
+   ],
+   "art_mode": "bespoke-subject",
+   "path": "client/assets/v89/quilt.svg"
+  },
+  {
+   "id": "organic89:mattress",
+   "name": "Mattress",
+   "category": "home",
+   "summary": "A thick padded mattress that turns any bed frame into a proper place to sleep.",
+   "familyCampaigns": [
+    "home"
+   ],
+   "ingredients": [
+    "organic89:pillow",
+    "organic89:pillow"
+   ],
+   "art_mode": "bespoke-subject",
+   "path": "client/assets/v89/mattress.svg"
+  },
+  {
+   "id": "organic89:bed-frame",
+   "name": "Bed Frame",
+   "category": "home",
+   "summary": "A sturdy wooden frame with legs and a headboard, waiting for a mattress on top.",
+   "familyCampaigns": [
+    "home"
+   ],
+   "ingredients": [
+    "organic89:wooden-beam",
+    "organic89:nail"
+   ],
+   "art_mode": "bespoke-subject",
+   "path": "client/assets/v89/bed-frame.svg"
+  },
+  {
+   "id": "organic89:rug",
+   "name": "Rug",
+   "category": "home",
+   "summary": "A soft woven rug spread across the floorboards to make a room warm and colourful.",
+   "familyCampaigns": [
+    "home"
+   ],
+   "ingredients": [
+    "organic89:fabric",
+    "organic89:floorboards"
+   ],
+   "art_mode": "bespoke-subject",
+   "path": "client/assets/v89/rug.svg"
+  },
+  {
+   "id": "organic89:doormat",
+   "name": "Doormat",
+   "category": "home",
+   "summary": "A rough little mat placed by the door so companions can wipe their paws before coming in.",
+   "familyCampaigns": [
+    "home"
+   ],
+   "ingredients": [
+    "organic89:rug",
+    "organic89:door"
+   ],
+   "art_mode": "bespoke-subject",
+   "path": "client/assets/v89/doormat.svg"
+  },
+  {
+   "id": "organic89:lamp-shade",
+   "name": "Lamp Shade",
+   "category": "home",
+   "summary": "A round fabric shade stretched over a ring frame that softens the glow of a lamp.",
+   "familyCampaigns": [
+    "home"
+   ],
+   "ingredients": [
+    "organic89:fabric",
+    "legacy:44"
+   ],
+   "art_mode": "bespoke-subject",
+   "path": "client/assets/v89/lamp-shade.svg"
+  },
+  {
+   "id": "organic89:fence",
+   "name": "Fence",
+   "category": "home",
+   "summary": "A short picket fence of planks on beams that borders a companion yard.",
+   "familyCampaigns": [
+    "home"
+   ],
+   "ingredients": [
+    "organic46:wooden-plank",
+    "organic89:wooden-beam"
+   ],
+   "art_mode": "bespoke-subject",
+   "path": "client/assets/v89/fence.svg"
+  },
+  {
+   "id": "organic89:toolbox",
+   "name": "Toolbox",
+   "category": "home",
+   "summary": "A handy wooden box with a carry handle that keeps every building tool in one place.",
+   "familyCampaigns": [
+    "home"
+   ],
+   "ingredients": [
+    "legacy:29",
+    "organic89:wooden-crate"
+   ],
+   "art_mode": "bespoke-subject",
+   "path": "client/assets/v89/toolbox.svg"
+  },
+  {
+   "id": "organic89:basket",
+   "name": "Basket",
+   "category": "home",
+   "summary": "A woven basket with a handle for carrying snacks, yarn and small home treasures.",
+   "familyCampaigns": [
+    "home"
+   ],
+   "ingredients": [
+    "organic89:rope",
+    "organic62:hand-loom"
+   ],
+   "art_mode": "bespoke-subject",
+   "path": "client/assets/v89/basket.svg"
+  },
+  {
+   "id": "organic89:kindling",
+   "name": "Kindling",
+   "category": "home",
+   "summary": "A small bundle of dry twigs and shavings used to start a fire in a hearth.",
+   "familyCampaigns": [
+    "home"
+   ],
+   "ingredients": [
+    "legacy:24",
+    "organic89:wood-shavings"
+   ],
+   "art_mode": "bespoke-subject",
+   "path": "client/assets/v89/kindling.svg"
+  },
+  {
+   "id": "organic89:fireplace",
+   "name": "Fireplace",
+   "category": "home",
+   "summary": "A warm arched fireplace with crackling kindling where companions gather to relax.",
+   "familyCampaigns": [
+    "home"
+   ],
+   "ingredients": [
+    "organic89:kindling",
+    "organic41:arch"
+   ],
+   "art_mode": "bespoke-subject",
+   "path": "client/assets/v89/fireplace.svg"
+  },
+  {
+   "id": "organic89:chimney",
+   "name": "Chimney",
+   "category": "home",
+   "summary": "A tall stack that rises through the roof and carries smoke up and away from the fireplace.",
+   "familyCampaigns": [
+    "home"
+   ],
+   "ingredients": [
+    "organic89:fireplace",
+    "organic89:roof"
+   ],
+   "art_mode": "bespoke-subject",
+   "path": "client/assets/v89/chimney.svg"
+  },
+  {
+   "id": "organic89:castle-gate",
+   "name": "Castle Gate",
+   "category": "home",
+   "summary": "A heavy arched gate raised and lowered by a crank, the grand entrance of any castle.",
+   "familyCampaigns": [
+    "home"
+   ],
+   "ingredients": [
+    "organic89:door",
+    "legacy:514"
+   ],
+   "art_mode": "bespoke-subject",
+   "path": "client/assets/v89/castle-gate.svg"
+  },
+  {
+   "id": "organic89:blanket",
+   "name": "Blanket",
+   "category": "home",
+   "summary": "A thick soft blanket woven from yarn and fabric to keep companions warm at night.",
+   "familyCampaigns": [
+    "home"
+   ],
+   "ingredients": [
+    "organic89:fabric",
+    "organic46:yarn"
+   ],
+   "art_mode": "bespoke-subject",
+   "path": "client/assets/v89/blanket.svg"
+  },
+  {
+   "id": "organic89:diamond",
+   "name": "Diamond",
+   "category": "material",
+   "summary": "A brilliant, ultra-hard gemstone of pure carbon, squeezed into shape deep underground over ages.",
+   "familyCampaigns": [],
+   "ingredients": [
+    "legacy:25",
+    "legacy:34"
+   ],
+   "art_mode": "bespoke-subject",
+   "path": "client/assets/v89/diamond.svg"
+  },
+  {
+   "id": "organic89:bat",
+   "name": "Bat",
+   "category": "life",
+   "summary": "A small furry flying mammal that sleeps upside down in caves and hunts insects at night.",
+   "familyCampaigns": [],
+   "ingredients": [
+    "organic38:bird",
+    "legacy:37"
+   ],
+   "art_mode": "bespoke-subject",
+   "path": "client/assets/v89/bat.svg"
+  },
+  {
+   "id": "organic89:jungle",
+   "name": "Jungle",
+   "category": "nature",
+   "summary": "A dense, tangled tropical forest packed with hanging vines, huge leaves and noisy wildlife.",
+   "familyCampaigns": [],
+   "ingredients": [
+    "organic32:rainforest",
+    "organic38:vine"
+   ],
+   "art_mode": "bespoke-subject",
+   "path": "client/assets/v89/jungle.svg"
+  },
+  {
+   "id": "organic89:bear",
+   "name": "Bear",
+   "category": "life",
+   "summary": "A big, strong furry mammal of the woods that loves fish, berries and especially honey.",
+   "familyCampaigns": [],
+   "ingredients": [
+    "legacy:20",
+    "organic34:honey"
+   ],
+   "art_mode": "bespoke-subject",
+   "path": "client/assets/v89/bear.svg"
+  },
+  {
+   "id": "organic89:camel",
+   "name": "Camel",
+   "category": "life",
+   "summary": "A long-legged desert animal with a hump that can walk for days between oases without drinking.",
+   "familyCampaigns": [],
+   "ingredients": [
+    "legacy:26",
+    "organic38:oasis"
+   ],
+   "art_mode": "bespoke-subject",
+   "path": "client/assets/v89/camel.svg"
+  },
+  {
+   "id": "organic89:snowman",
+   "name": "Snowman",
+   "category": "nature",
+   "summary": "A friendly figure built from stacked snowballs, with a carrot nose and twig arms.",
+   "familyCampaigns": [],
+   "ingredients": [
+    "legacy:28",
+    "organic46:snowdrift"
+   ],
+   "art_mode": "bespoke-subject",
+   "path": "client/assets/v89/snowman.svg"
+  },
+  {
+   "id": "organic89:steel",
+   "name": "Steel",
+   "category": "material",
+   "summary": "A strong, tough alloy of iron and a little carbon, used for bridges, tools and machines.",
+   "familyCampaigns": [],
+   "ingredients": [
+    "legacy:31",
+    "organic43:charcoal"
+   ],
+   "art_mode": "bespoke-subject",
+   "path": "client/assets/v89/steel.svg"
+  },
+  {
+   "id": "organic89:axe",
+   "name": "Axe",
+   "category": "material",
+   "summary": "A woodcutting tool with a heavy steel head on a wooden handle, used to chop logs and firewood.",
+   "familyCampaigns": [],
+   "ingredients": [
+    "organic89:steel",
+    "legacy:24"
+   ],
+   "art_mode": "bespoke-subject",
+   "path": "client/assets/v89/axe.svg"
+  },
+  {
+   "id": "organic89:beach",
+   "name": "Beach",
+   "category": "nature",
+   "summary": "A sunny strip of soft sand where the sea meets the land, full of shells and waves.",
+   "familyCampaigns": [],
+   "ingredients": [
+    "legacy:16",
+    "legacy:558"
+   ],
+   "art_mode": "bespoke-subject",
+   "path": "client/assets/v89/beach.svg"
+  },
+  {
+   "id": "organic89:candle",
+   "name": "Candle",
+   "category": "material",
+   "summary": "A stick of wax with a wick that burns slowly to give a small, steady flame of light.",
+   "familyCampaigns": [],
+   "ingredients": [
+    "organic37:honeycomb",
+    "legacy:1"
+   ],
+   "art_mode": "bespoke-subject",
+   "path": "client/assets/v89/candle.svg"
+  },
+  {
+   "id": "organic89:grass",
+   "name": "Grass",
+   "category": "nature",
+   "summary": "Thin green blades that cover fields, lawns and meadows, feeding many grazing animals.",
+   "familyCampaigns": [],
+   "ingredients": [
+    "organic34:sprout",
+    "legacy:2"
+   ],
+   "art_mode": "bespoke-subject",
+   "path": "client/assets/v89/grass.svg"
+  },
+  {
+   "id": "organic89:wheat",
+   "name": "Wheat",
+   "category": "nature",
+   "summary": "A tall golden cereal grass whose grains are ground into flour for bread and pasta.",
+   "familyCampaigns": [],
+   "ingredients": [
+    "organic89:grass",
+    "legacy:559"
+   ],
+   "art_mode": "bespoke-subject",
+   "path": "client/assets/v89/wheat.svg"
+  },
+  {
+   "id": "organic89:chicken",
+   "name": "Chicken",
+   "category": "life",
+   "summary": "A farm bird that pecks at grain, clucks around the yard and lays eggs.",
+   "familyCampaigns": [],
+   "ingredients": [
+    "organic38:bird",
+    "organic89:wheat"
+   ],
+   "art_mode": "bespoke-subject",
+   "path": "client/assets/v89/chicken.svg"
+  },
+  {
+   "id": "organic89:earthquake",
+   "name": "Earthquake",
+   "category": "nature",
+   "summary": "A sudden shaking of the ground caused by moving rock deep inside the Earth.",
+   "familyCampaigns": [],
+   "ingredients": [
+    "legacy:2",
+    "organic38:volcano"
+   ],
+   "art_mode": "bespoke-subject",
+   "path": "client/assets/v89/earthquake.svg"
+  },
+  {
+   "id": "organic89:light-bulb",
+   "name": "Light Bulb",
+   "category": "science",
+   "summary": "A glass bulb with a glowing filament or LED that turns electricity into light.",
+   "familyCampaigns": [],
+   "ingredients": [
+    "organic89:candle",
+    "legacy:67"
+   ],
+   "art_mode": "bespoke-subject",
+   "path": "client/assets/v89/light-bulb.svg"
+  },
+  {
+   "id": "organic89:seagull",
+   "name": "Seagull",
+   "category": "life",
+   "summary": "A noisy white-and-grey seabird that glides over coasts and steals snacks from beachgoers.",
+   "familyCampaigns": [],
+   "ingredients": [
+    "organic38:bird",
+    "legacy:591"
+   ],
+   "art_mode": "bespoke-subject",
+   "path": "client/assets/v89/seagull.svg"
+  },
+  {
+   "id": "organic89:palm-tree",
+   "name": "Palm Tree",
+   "category": "nature",
+   "summary": "A tall tropical tree with a bare trunk and a crown of big fan or feather leaves.",
+   "familyCampaigns": [],
+   "ingredients": [
+    "legacy:558",
+    "legacy:19"
+   ],
+   "art_mode": "bespoke-subject",
+   "path": "client/assets/v89/palm-tree.svg"
+  },
+  {
+   "id": "organic89:wolf",
+   "name": "Wolf",
+   "category": "life",
+   "summary": "A wild grey canine that lives and hunts in packs and famously howls at night.",
+   "familyCampaigns": [],
+   "ingredients": [
+    "legacy:26",
+    "pack:moon"
+   ],
+   "art_mode": "bespoke-subject",
+   "path": "client/assets/v89/wolf.svg"
+  },
+  {
+   "id": "organic89:dog",
+   "name": "Dog",
+   "category": "life",
+   "summary": "A loyal, playful companion animal descended from wolves and tamed by people long ago.",
+   "familyCampaigns": [],
+   "ingredients": [
+    "organic89:wolf",
+    "legacy:28"
+   ],
+   "art_mode": "bespoke-subject",
+   "path": "client/assets/v89/dog.svg"
+  },
+  {
+   "id": "organic89:cat",
+   "name": "Cat",
+   "category": "life",
+   "summary": "A small, curious furry pet with whiskers that purrs, naps in the sun and chases toys.",
+   "familyCampaigns": [],
+   "ingredients": [
+    "legacy:26",
+    "organic38:milk"
+   ],
+   "art_mode": "bespoke-subject",
+   "path": "client/assets/v89/cat.svg"
+  },
+  {
+   "id": "organic89:cow",
+   "name": "Cow",
+   "category": "life",
+   "summary": "A gentle farm animal that grazes on grass all day and gives milk.",
+   "familyCampaigns": [],
+   "ingredients": [
+    "legacy:26",
+    "organic89:grass"
+   ],
+   "art_mode": "bespoke-subject",
+   "path": "client/assets/v89/cow.svg"
+  },
+  {
+   "id": "organic89:sheep",
+   "name": "Sheep",
+   "category": "life",
+   "summary": "A fluffy farm animal covered in soft wool that grazes in flocks.",
+   "familyCampaigns": [],
+   "ingredients": [
+    "legacy:26",
+    "legacy:17"
+   ],
+   "art_mode": "bespoke-subject",
+   "path": "client/assets/v89/sheep.svg"
+  },
+  {
+   "id": "organic89:snake",
+   "name": "Snake",
+   "category": "life",
+   "summary": "A long, legless reptile that slithers through grass and marshes and flicks its tongue.",
+   "familyCampaigns": [],
+   "ingredients": [
+    "legacy:26",
+    "organic42:marsh"
+   ],
+   "art_mode": "bespoke-subject",
+   "path": "client/assets/v89/snake.svg"
+  },
+  {
+   "id": "organic89:lizard",
+   "name": "Lizard",
+   "category": "life",
+   "summary": "A small scaly reptile with four legs and a long tail that loves basking in the sun.",
+   "familyCampaigns": [],
+   "ingredients": [
+    "legacy:26",
+    "legacy:141"
+   ],
+   "art_mode": "bespoke-subject",
+   "path": "client/assets/v89/lizard.svg"
+  },
+  {
+   "id": "organic89:crocodile",
+   "name": "Crocodile",
+   "category": "life",
+   "summary": "A huge armoured reptile with powerful jaws that lurks in rivers waiting for prey.",
+   "familyCampaigns": [],
+   "ingredients": [
+    "organic89:lizard",
+    "legacy:39"
+   ],
+   "art_mode": "bespoke-subject",
+   "path": "client/assets/v89/crocodile.svg"
+  },
+  {
+   "id": "organic89:whale",
+   "name": "Whale",
+   "category": "life",
+   "summary": "A gigantic ocean mammal that breathes air through a blowhole and sings deep songs.",
+   "familyCampaigns": [],
+   "ingredients": [
+    "legacy:591",
+    "organic38:dolphin"
+   ],
+   "art_mode": "bespoke-subject",
+   "path": "client/assets/v89/whale.svg"
+  },
+  {
+   "id": "organic89:savanna",
+   "name": "Savanna",
+   "category": "nature",
+   "summary": "A warm, wide grassland with scattered trees, home to lions, zebras and giraffes.",
+   "familyCampaigns": [],
+   "ingredients": [
+    "legacy:1048",
+    "organic89:grass"
+   ],
+   "art_mode": "bespoke-subject",
+   "path": "client/assets/v89/savanna.svg"
+  },
+  {
+   "id": "organic89:lion",
+   "name": "Lion",
+   "category": "life",
+   "summary": "A big wild cat with a golden coat; males wear a shaggy mane and roar across the savanna.",
+   "familyCampaigns": [],
+   "ingredients": [
+    "legacy:26",
+    "organic89:savanna"
+   ],
+   "art_mode": "bespoke-subject",
+   "path": "client/assets/v89/lion.svg"
+  },
+  {
+   "id": "organic89:rust",
+   "name": "Rust",
+   "category": "material",
+   "summary": "The flaky reddish-brown coating that forms when iron is left in water and air.",
+   "familyCampaigns": [],
+   "ingredients": [
+    "legacy:31",
+    "legacy:0"
+   ],
+   "art_mode": "bespoke-subject",
+   "path": "client/assets/v89/rust.svg"
+  },
+  {
+   "id": "organic89:atoll",
+   "name": "Atoll",
+   "category": "nature",
+   "summary": "A ring-shaped coral reef or island circling a calm blue lagoon in the open ocean.",
+   "familyCampaigns": [],
+   "ingredients": [
+    "organic42:coral",
+    "legacy:558"
+   ],
+   "art_mode": "bespoke-subject",
+   "path": "client/assets/v89/atoll.svg"
+  },
+  {
+   "id": "organic89:worm",
+   "name": "Worm",
+   "category": "life",
+   "summary": "A soft, wriggly creature that tunnels through mud and soil and keeps it healthy.",
+   "familyCampaigns": [],
+   "ingredients": [
+    "legacy:6",
+    "legacy:26"
+   ],
+   "art_mode": "bespoke-subject",
+   "path": "client/assets/v89/worm.svg"
+  },
+  {
+   "id": "organic89:snowflake",
+   "name": "Snowflake",
+   "category": "nature",
+   "summary": "A tiny six-pointed ice crystal that drifts down from winter clouds.",
+   "familyCampaigns": [],
+   "ingredients": [
+    "legacy:36",
+    "legacy:34"
+   ],
+   "art_mode": "bespoke-subject",
+   "path": "client/assets/v89/snowflake.svg"
+  },
+  {
+   "id": "organic89:soap",
+   "name": "Soap",
+   "category": "material",
+   "summary": "A bar made from oils and ash-lye that foams with water and washes dirt away.",
+   "familyCampaigns": [],
+   "ingredients": [
+    "legacy:42",
+    "organic43:ash"
+   ],
+   "art_mode": "bespoke-subject",
+   "path": "client/assets/v89/soap.svg"
+  },
+  {
+   "id": "organic89:milkshake",
+   "name": "Milkshake",
+   "category": "nature",
+   "summary": "A thick, cold drink of milk blended with ice cream, often topped with cream.",
+   "familyCampaigns": [],
+   "ingredients": [
+    "organic38:milk",
+    "organic38:ice-cream"
+   ],
+   "art_mode": "bespoke-subject",
+   "path": "client/assets/v89/milkshake.svg"
+  },
+  {
+   "id": "organic89:mountain-goat",
+   "name": "Mountain Goat",
+   "category": "life",
+   "summary": "A sure-footed white goat that climbs steep rocky cliffs with ease.",
+   "familyCampaigns": [],
+   "ingredients": [
+    "legacy:26",
+    "legacy:38"
+   ],
+   "art_mode": "bespoke-subject",
+   "path": "client/assets/v89/mountain-goat.svg"
+  },
+  {
+   "id": "organic89:french-fries",
+   "name": "French Fries",
+   "category": "nature",
+   "summary": "Crispy golden sticks of fried potato, sprinkled with salt.",
+   "familyCampaigns": [],
+   "ingredients": [
+    "organic38:potato",
+    "organic38:salt"
+   ],
+   "art_mode": "bespoke-subject",
+   "path": "client/assets/v89/french-fries.svg"
+  },
+  {
+   "id": "organic89:grape",
+   "name": "Grape",
+   "category": "nature",
+   "summary": "Small sweet round fruits that grow in bunches on climbing vines.",
+   "familyCampaigns": [],
+   "ingredients": [
+    "organic37:fruit",
+    "organic38:vine"
+   ],
+   "art_mode": "bespoke-subject",
+   "path": "client/assets/v89/grape.svg"
+  },
+  {
+   "id": "organic89:mermaid",
+   "name": "Mermaid",
+   "category": "mythology",
+   "summary": "A legendary sea person with a human upper body and a shimmering fish tail.",
+   "familyCampaigns": [],
+   "ingredients": [
+    "organic83:siren",
+    "legacy:28"
+   ],
+   "art_mode": "bespoke-subject",
+   "path": "client/assets/v89/mermaid.svg"
+  },
+  {
+   "id": "organic89:unicorn",
+   "name": "Unicorn",
+   "category": "mythology",
+   "summary": "A magical white horse with a single spiral horn, said to be pure and very rare.",
+   "familyCampaigns": [],
+   "ingredients": [
+    "organic82:pegasus",
+    "legacy:125"
+   ],
+   "art_mode": "bespoke-subject",
+   "path": "client/assets/v89/unicorn.svg"
+  },
+  {
+   "id": "organic89:fairy",
+   "name": "Fairy",
+   "category": "mythology",
+   "summary": "A tiny winged spirit of folklore who lives in hidden mounds and woods and grants small magic.",
+   "familyCampaigns": [],
+   "ingredients": [
+    "legacy:125",
+    "organic83:sidhe-mound"
+   ],
+   "art_mode": "bespoke-subject",
+   "path": "client/assets/v89/fairy.svg"
+  },
+  {
+   "id": "organic89:thunderbird",
+   "name": "Thunderbird",
+   "category": "mythology",
+   "summary": "A giant legendary bird whose wing beats make thunder and whose eyes flash lightning.",
+   "familyCampaigns": [],
+   "ingredients": [
+    "organic83:phoenix",
+    "organic82:divine-thunderbolt"
+   ],
+   "art_mode": "bespoke-subject",
+   "path": "client/assets/v89/thunderbird.svg"
+  },
+  {
+   "id": "organic89:yeti",
+   "name": "Yeti",
+   "category": "mythology",
+   "summary": "A shaggy white ape-like creature said to roam the snowy Himalayan mountains.",
+   "familyCampaigns": [],
+   "ingredients": [
+    "organic82:frost-giant",
+    "organic83:mythical-beast"
+   ],
+   "art_mode": "bespoke-subject",
+   "path": "client/assets/v89/yeti.svg"
+  },
+  {
+   "id": "organic89:karaoke",
+   "name": "Karaoke",
+   "category": "music",
+   "summary": "Singing along to music while the lyrics scroll on a screen, just for fun.",
+   "familyCampaigns": [],
+   "ingredients": [
+    "pack:song",
+    "legacy:76"
+   ],
+   "art_mode": "bespoke-subject",
+   "path": "client/assets/v89/karaoke.svg"
+  },
+  {
+   "id": "organic89:screenplay",
+   "name": "Screenplay",
+   "category": "object",
+   "summary": "The written script of a film, with scenes, dialogue and directions for the actors.",
+   "familyCampaigns": [],
+   "ingredients": [
+    "legacy:649",
+    "legacy:51"
+   ],
+   "art_mode": "bespoke-subject",
+   "path": "client/assets/v89/screenplay.svg"
+  },
+  {
+   "id": "organic89:hourglass",
+   "name": "Hourglass",
+   "category": "object",
+   "summary": "A two-bulb glass timer in which sand trickles from the top to the bottom.",
+   "familyCampaigns": [],
+   "ingredients": [
+    "legacy:211",
+    "legacy:23"
+   ],
+   "art_mode": "bespoke-subject",
+   "path": "client/assets/v89/hourglass.svg"
+  },
+  {
+   "id": "organic89:bed",
+   "name": "Bed",
+   "category": "home",
+   "summary": "A sturdy wooden bed frame topped with a soft mattress, where a companion sleeps and recovers health overnight.",
+   "familyCampaigns": [
+    "home"
+   ],
+   "ingredients": [
+    "organic89:bed-frame",
+    "organic89:mattress"
+   ],
+   "art_mode": "bespoke-subject",
+   "path": "client/assets/v89/bed.svg"
+  },
+  {
+   "id": "organic89:pet-bed",
+   "name": "Pet Bed",
+   "category": "home",
+   "summary": "A round woven basket lined with a plump cushion, sized perfectly for a small companion to curl up in.",
+   "familyCampaigns": [
+    "home"
+   ],
+   "ingredients": [
+    "organic89:cushion",
+    "organic89:basket"
+   ],
+   "art_mode": "bespoke-subject",
+   "path": "client/assets/v89/pet-bed.svg"
+  },
+  {
+   "id": "organic89:bunk-bed",
+   "name": "Bunk Bed",
+   "category": "home",
+   "summary": "Two beds stacked one above the other with a ladder up the side, so two companions can share a small room.",
+   "familyCampaigns": [
+    "home"
+   ],
+   "ingredients": [
+    "organic89:bed",
+    "organic89:ladder"
+   ],
+   "art_mode": "bespoke-subject",
+   "path": "client/assets/v89/bunk-bed.svg"
+  },
+  {
+   "id": "organic89:canopy-bed",
+   "name": "Canopy Bed",
+   "category": "home",
+   "summary": "A grand bed with four tall posts and flowing curtains draped overhead, making a cosy private nest for sleeping.",
+   "familyCampaigns": [
+    "home"
+   ],
+   "ingredients": [
+    "organic89:bed",
+    "organic89:curtain"
+   ],
+   "art_mode": "bespoke-subject",
+   "path": "client/assets/v89/canopy-bed.svg"
+  },
+  {
+   "id": "organic89:stool",
+   "name": "Stool",
+   "category": "home",
+   "summary": "A simple round wooden seat on three or four pegged legs, with no back and no arms, light enough to carry anywhere.",
+   "familyCampaigns": [
+    "home"
+   ],
+   "ingredients": [
+    "legacy:24",
+    "organic89:wooden-peg"
+   ],
+   "art_mode": "bespoke-subject",
+   "path": "client/assets/v89/stool.svg"
+  },
+  {
+   "id": "organic89:chair",
+   "name": "Chair",
+   "category": "home",
+   "summary": "A wooden seat with four legs and an upright backrest, the everyday chair every room eventually needs.",
+   "familyCampaigns": [
+    "home"
+   ],
+   "ingredients": [
+    "organic89:stool",
+    "organic46:wooden-plank"
+   ],
+   "art_mode": "bespoke-subject",
+   "path": "client/assets/v89/chair.svg"
+  },
+  {
+   "id": "organic89:armchair",
+   "name": "Armchair",
+   "category": "home",
+   "summary": "A deep padded chair with soft armrests on both sides, perfect for sinking into after a long day.",
+   "familyCampaigns": [
+    "home"
+   ],
+   "ingredients": [
+    "organic89:chair",
+    "organic89:cushion"
+   ],
+   "art_mode": "bespoke-subject",
+   "path": "client/assets/v89/armchair.svg"
+  },
+  {
+   "id": "organic89:sofa",
+   "name": "Sofa",
+   "category": "home",
+   "summary": "A long padded couch with room for several companions to sit, sprawl or doze side by side.",
+   "familyCampaigns": [
+    "home"
+   ],
+   "ingredients": [
+    "organic89:armchair",
+    "organic89:armchair"
+   ],
+   "art_mode": "bespoke-subject",
+   "path": "client/assets/v89/sofa.svg"
+  },
+  {
+   "id": "organic89:rocking-chair",
+   "name": "Rocking Chair",
+   "category": "home",
+   "summary": "A wooden chair set on two curved rockers so it sways gently back and forth when someone sits in it.",
+   "familyCampaigns": [
+    "home"
+   ],
+   "ingredients": [
+    "organic89:chair",
+    "organic41:arch"
+   ],
+   "art_mode": "bespoke-subject",
+   "path": "client/assets/v89/rocking-chair.svg"
+  },
+  {
+   "id": "organic89:footstool",
+   "name": "Footstool",
+   "category": "home",
+   "summary": "A low padded stool for resting tired feet, or for a tiny companion to use as a throne.",
+   "familyCampaigns": [
+    "home"
+   ],
+   "ingredients": [
+    "organic89:stool",
+    "organic89:cushion"
+   ],
+   "art_mode": "bespoke-subject",
+   "path": "client/assets/v89/footstool.svg"
+  },
+  {
+   "id": "organic89:bean-bag",
+   "name": "Bean Bag",
+   "category": "home",
+   "summary": "A big floppy fabric sack filled with stuffing that squashes into whatever shape the sitter needs.",
+   "familyCampaigns": [
+    "home"
+   ],
+   "ingredients": [
+    "organic89:cushion",
+    "organic89:pillow-stuffing"
+   ],
+   "art_mode": "bespoke-subject",
+   "path": "client/assets/v89/bean-bag.svg"
+  },
+  {
+   "id": "organic89:side-table",
+   "name": "Side Table",
+   "category": "home",
+   "summary": "A small square wooden table that sits beside a chair or sofa to hold a lamp, a book or a cup of cocoa.",
+   "familyCampaigns": [
+    "home"
+   ],
+   "ingredients": [
+    "organic89:floorboards",
+    "organic89:wooden-beam"
+   ],
+   "art_mode": "bespoke-subject",
+   "path": "client/assets/v89/side-table.svg"
+  },
+  {
+   "id": "organic89:coffee-table",
+   "name": "Coffee Table",
+   "category": "home",
+   "summary": "A low table placed in front of the sofa to hold cups, books and the occasional napping companion.",
+   "familyCampaigns": [
+    "home"
+   ],
+   "ingredients": [
+    "organic89:side-table",
+    "organic89:saw"
+   ],
+   "art_mode": "bespoke-subject",
+   "path": "client/assets/v89/coffee-table.svg"
+  },
+  {
+   "id": "organic89:wardrobe",
+   "name": "Wardrobe",
+   "category": "home",
+   "summary": "A tall wooden cabinet with doors and drawers for hanging clothes, scarves and companion costumes.",
+   "familyCampaigns": [
+    "home"
+   ],
+   "ingredients": [
+    "organic89:drawer",
+    "organic89:door"
+   ],
+   "art_mode": "bespoke-subject",
+   "path": "client/assets/v89/wardrobe.svg"
+  },
+  {
+   "id": "organic89:dresser",
+   "name": "Dresser",
+   "category": "home",
+   "summary": "A wide chest of stacked drawers for folding away clothes, socks and treasured trinkets.",
+   "familyCampaigns": [
+    "home"
+   ],
+   "ingredients": [
+    "organic89:drawer",
+    "organic89:drawer"
+   ],
+   "art_mode": "bespoke-subject",
+   "path": "client/assets/v89/dresser.svg"
+  },
+  {
+   "id": "organic89:nightstand",
+   "name": "Nightstand",
+   "category": "home",
+   "summary": "A small bedside table with a drawer, just right for a glass of water and a bedtime story.",
+   "familyCampaigns": [
+    "home"
+   ],
+   "ingredients": [
+    "organic89:drawer",
+    "organic89:bed"
+   ],
+   "art_mode": "bespoke-subject",
+   "path": "client/assets/v89/nightstand.svg"
+  },
+  {
+   "id": "organic89:floor-lamp",
+   "name": "Floor Lamp",
+   "category": "home",
+   "summary": "A tall standing lamp with a fabric shade on a wooden pole that bathes a corner in warm light.",
+   "familyCampaigns": [
+    "home"
+   ],
+   "ingredients": [
+    "organic89:lamp-shade",
+    "organic89:wooden-beam"
+   ],
+   "art_mode": "bespoke-subject",
+   "path": "client/assets/v89/floor-lamp.svg"
+  },
+  {
+   "id": "organic89:writing-desk",
+   "name": "Writing Desk",
+   "category": "home",
+   "summary": "A study desk with a smooth top and small drawers for paper and pens, where great ideas get written down.",
+   "familyCampaigns": [
+    "home"
+   ],
+   "ingredients": [
+    "organic89:side-table",
+    "organic89:drawer"
+   ],
+   "art_mode": "bespoke-subject",
+   "path": "client/assets/v89/writing-desk.svg"
+  },
+  {
+   "id": "organic89:desk-lamp",
+   "name": "Desk Lamp",
+   "category": "home",
+   "summary": "A small adjustable lamp that shines a focused pool of light onto the desk for late-night reading.",
+   "familyCampaigns": [
+    "home"
+   ],
+   "ingredients": [
+    "organic89:lamp-shade",
+    "organic89:writing-desk"
+   ],
+   "art_mode": "bespoke-subject",
+   "path": "client/assets/v89/desk-lamp.svg"
+  },
+  {
+   "id": "organic89:bookshelf",
+   "name": "Bookshelf",
+   "category": "home",
+   "summary": "A tall set of wooden shelves packed with books, maps and notes that spark new ideas.",
+   "familyCampaigns": [
+    "home"
+   ],
+   "ingredients": [
+    "organic89:shelf",
+    "organic89:shelf"
+   ],
+   "art_mode": "bespoke-subject",
+   "path": "client/assets/v89/bookshelf.svg"
+  },
+  {
+   "id": "organic89:secret-bookcase",
+   "name": "Secret Bookcase",
+   "category": "home",
+   "summary": "A bookcase that swings open like a door when the right book is pulled, revealing a hidden study.",
+   "familyCampaigns": [
+    "home"
+   ],
+   "ingredients": [
+    "organic89:bookshelf",
+    "organic89:door"
+   ],
+   "art_mode": "bespoke-subject",
+   "path": "client/assets/v89/secret-bookcase.svg"
+  },
+  {
+   "id": "organic89:library-ladder",
+   "name": "Library Ladder",
+   "category": "home",
+   "summary": "A rolling ladder that slides along a tall bookcase so companions can reach the highest shelves.",
+   "familyCampaigns": [
+    "home"
+   ],
+   "ingredients": [
+    "organic89:ladder",
+    "organic89:bookshelf"
+   ],
+   "art_mode": "bespoke-subject",
+   "path": "client/assets/v89/library-ladder.svg"
+  },
+  {
+   "id": "organic89:reading-chair",
+   "name": "Reading Chair",
+   "category": "home",
+   "summary": "A deep armchair tucked beside a glowing floor lamp, the perfect spot to lose an afternoon in a book.",
+   "familyCampaigns": [
+    "home"
+   ],
+   "ingredients": [
+    "organic89:armchair",
+    "organic89:floor-lamp"
+   ],
+   "art_mode": "bespoke-subject",
+   "path": "client/assets/v89/reading-chair.svg"
+  },
+  {
+   "id": "organic89:globe-stand",
+   "name": "Globe Stand",
+   "category": "home",
+   "summary": "A painted spinning sphere of the world mounted on a wooden stand, perfect for dreaming up journeys.",
+   "familyCampaigns": [
+    "home"
+   ],
+   "ingredients": [
+    "legacy:44",
+    "organic89:paint"
+   ],
+   "art_mode": "bespoke-subject",
+   "path": "client/assets/v89/globe-stand.svg"
+  },
+  {
+   "id": "organic89:window-seat",
+   "name": "Window Seat",
+   "category": "home",
+   "summary": "A cushioned bench built beneath a window, where companions watch the rain and daydream.",
+   "familyCampaigns": [
+    "home"
+   ],
+   "ingredients": [
+    "organic89:window-frame",
+    "organic89:cushion"
+   ],
+   "art_mode": "bespoke-subject",
+   "path": "client/assets/v89/window-seat.svg"
+  },
+  {
+   "id": "organic89:wall-clock",
+   "name": "Wall Clock",
+   "category": "home",
+   "summary": "A round clock hung on the wall from a nail, ticking away the hours of the companion day.",
+   "familyCampaigns": [
+    "home"
+   ],
+   "ingredients": [
+    "legacy:44",
+    "organic89:nail"
+   ],
+   "art_mode": "bespoke-subject",
+   "path": "client/assets/v89/wall-clock.svg"
+  },
+  {
+   "id": "organic89:cuckoo-clock",
+   "name": "Cuckoo Clock",
+   "category": "home",
+   "summary": "A carved clock shaped like a little house, with a tiny bird that pops out to call every hour.",
+   "familyCampaigns": [
+    "home"
+   ],
+   "ingredients": [
+    "organic89:wall-clock",
+    "organic89:roof"
+   ],
+   "art_mode": "bespoke-subject",
+   "path": "client/assets/v89/cuckoo-clock.svg"
+  },
+  {
+   "id": "organic89:grandfather-clock",
+   "name": "Grandfather Clock",
+   "category": "home",
+   "summary": "A tall wooden case clock with a swinging pendulum and a deep chime that fills the whole house.",
+   "familyCampaigns": [
+    "home"
+   ],
+   "ingredients": [
+    "organic89:wall-clock",
+    "organic89:wooden-beam"
+   ],
+   "art_mode": "bespoke-subject",
+   "path": "client/assets/v89/grandfather-clock.svg"
+  },
+  {
+   "id": "organic89:picture-frame",
+   "name": "Picture Frame",
+   "category": "home",
+   "summary": "A wooden frame holding a small painting or portrait to hang on the wall and brighten the room.",
+   "familyCampaigns": [
+    "home"
+   ],
+   "ingredients": [
+    "organic89:paint",
+    "organic89:window-frame"
+   ],
+   "art_mode": "bespoke-subject",
+   "path": "client/assets/v89/picture-frame.svg"
+  },
+  {
+   "id": "organic89:tapestry",
+   "name": "Tapestry",
+   "category": "home",
+   "summary": "A large woven wall hanging covered in colourful scenes that keeps a room warm and full of stories.",
+   "familyCampaigns": [
+    "home"
+   ],
+   "ingredients": [
+    "organic89:fabric",
+    "organic89:paint"
+   ],
+   "art_mode": "bespoke-subject",
+   "path": "client/assets/v89/tapestry.svg"
+  },
+  {
+   "id": "organic89:toy-chest",
+   "name": "Toy Chest",
+   "category": "home",
+   "summary": "A painted wooden chest with a hinged lid, overflowing with balls, blocks and plush toys.",
+   "familyCampaigns": [
+    "home"
+   ],
+   "ingredients": [
+    "organic89:wooden-crate",
+    "organic89:paint"
+   ],
+   "art_mode": "bespoke-subject",
+   "path": "client/assets/v89/toy-chest.svg"
+  },
+  {
+   "id": "organic89:dollhouse",
+   "name": "Dollhouse",
+   "category": "home",
+   "summary": "A miniature house with tiny rooms and furniture, where companions stage little stories of their own.",
+   "familyCampaigns": [
+    "home"
+   ],
+   "ingredients": [
+    "organic89:toy-chest",
+    "organic89:roof"
+   ],
+   "art_mode": "bespoke-subject",
+   "path": "client/assets/v89/dollhouse.svg"
+  },
+  {
+   "id": "organic89:rocking-horse",
+   "name": "Rocking Horse",
+   "category": "home",
+   "summary": "A carved wooden horse on curved rockers with a yarn mane, ready for endless gallops going nowhere.",
+   "familyCampaigns": [
+    "home"
+   ],
+   "ingredients": [
+    "organic89:rocking-chair",
+    "organic46:yarn"
+   ],
+   "art_mode": "bespoke-subject",
+   "path": "client/assets/v89/rocking-horse.svg"
+  },
+  {
+   "id": "organic89:hammock",
+   "name": "Hammock",
+   "category": "home",
+   "summary": "A swinging fabric sling tied up with rope, where a companion can sway gently into a deep nap.",
+   "familyCampaigns": [
+    "home"
+   ],
+   "ingredients": [
+    "organic89:rope",
+    "organic89:fabric"
+   ],
+   "art_mode": "bespoke-subject",
+   "path": "client/assets/v89/hammock.svg"
+  },
+  {
+   "id": "organic89:night-light",
+   "name": "Night Light",
+   "category": "home",
+   "summary": "A tiny, soft glowing lamp that keeps the bedroom gently lit so no companion fears the dark.",
+   "familyCampaigns": [
+    "home"
+   ],
+   "ingredients": [
+    "organic89:lamp-shade",
+    "organic89:nightstand"
+   ],
+   "art_mode": "bespoke-subject",
+   "path": "client/assets/v89/night-light.svg"
+  },
+  {
+   "id": "organic89:coat-rack",
+   "name": "Coat Rack",
+   "category": "home",
+   "summary": "A tall wooden stand with pegs at the top for hanging coats, hats and scarves by the door.",
+   "familyCampaigns": [
+    "home"
+   ],
+   "ingredients": [
+    "organic89:wooden-peg",
+    "organic89:wardrobe"
+   ],
+   "art_mode": "bespoke-subject",
+   "path": "client/assets/v89/coat-rack.svg"
+  },
+  {
+   "id": "organic89:umbrella-stand",
+   "name": "Umbrella Stand",
+   "category": "home",
+   "summary": "A tall bucket by the front door where wet umbrellas and walking sticks drip dry.",
+   "familyCampaigns": [
+    "home"
+   ],
+   "ingredients": [
+    "organic89:wooden-bucket",
+    "organic89:doormat"
+   ],
+   "art_mode": "bespoke-subject",
+   "path": "client/assets/v89/umbrella-stand.svg"
+  },
+  {
+   "id": "organic89:folding-screen",
+   "name": "Folding Screen",
+   "category": "home",
+   "summary": "A hinged wooden screen with fabric panels that folds out to divide a room or hide a messy corner.",
+   "familyCampaigns": [
+    "home"
+   ],
+   "ingredients": [
+    "organic89:curtain",
+    "organic89:fence"
+   ],
+   "art_mode": "bespoke-subject",
+   "path": "client/assets/v89/folding-screen.svg"
+  },
+  {
+   "id": "organic89:cradle",
+   "name": "Cradle",
+   "category": "home",
+   "summary": "A small rocking basket bed with a soft blanket where the youngest companions are lulled to sleep.",
+   "familyCampaigns": [
+    "home"
+   ],
+   "ingredients": [
+    "organic89:basket",
+    "organic89:rocking-chair"
+   ],
+   "art_mode": "bespoke-subject",
+   "path": "client/assets/v89/cradle.svg"
+  },
+  {
+   "id": "organic89:blanket-fort",
+   "name": "Blanket Fort",
+   "category": "home",
+   "summary": "A secret hideout made by draping blankets over chairs, the cosiest headquarters in the whole house.",
+   "familyCampaigns": [
+    "home"
+   ],
+   "ingredients": [
+    "organic89:blanket",
+    "organic89:chair"
+   ],
+   "art_mode": "bespoke-subject",
+   "path": "client/assets/v89/blanket-fort.svg"
+  },
+  {
+   "id": "organic89:kitchen",
+   "name": "Kitchen",
+   "category": "home",
+   "summary": "The warm room of a house built around a cooking fire, where meals are prepared for everyone.",
+   "familyCampaigns": [
+    "home"
+   ],
+   "ingredients": [
+    "legacy:45",
+    "organic89:fireplace"
+   ],
+   "art_mode": "bespoke-subject",
+   "path": "client/assets/v89/kitchen.svg"
+  },
+  {
+   "id": "organic89:bathroom",
+   "name": "Bathroom",
+   "category": "home",
+   "summary": "A small room of the house set aside for washing, bathing and splashing about.",
+   "familyCampaigns": [
+    "home"
+   ],
+   "ingredients": [
+    "legacy:45",
+    "organic89:wooden-bucket"
+   ],
+   "art_mode": "bespoke-subject",
+   "path": "client/assets/v89/bathroom.svg"
+  },
+  {
+   "id": "organic89:wooden-bowl",
+   "name": "Wooden Bowl",
+   "category": "home",
+   "summary": "A round, shallow bowl carved from a single piece of wood, ready to hold food or water.",
+   "familyCampaigns": [
+    "home"
+   ],
+   "ingredients": [
+    "organic89:wooden-bucket",
+    "organic89:saw"
+   ],
+   "art_mode": "bespoke-subject",
+   "path": "client/assets/v89/wooden-bowl.svg"
+  },
+  {
+   "id": "organic89:chopping-board",
+   "name": "Chopping Board",
+   "category": "home",
+   "summary": "A thick, flat slab of hardwood used to chop vegetables and fruit without scratching the counter.",
+   "familyCampaigns": [
+    "home"
+   ],
+   "ingredients": [
+    "organic46:wooden-plank",
+    "organic89:kitchen"
+   ],
+   "art_mode": "bespoke-subject",
+   "path": "client/assets/v89/chopping-board.svg"
+  },
+  {
+   "id": "organic89:rolling-pin",
+   "name": "Rolling Pin",
+   "category": "home",
+   "summary": "A smooth wooden cylinder with handles, rolled across dough to flatten it for bread and cookies.",
+   "familyCampaigns": [
+    "home"
+   ],
+   "ingredients": [
+    "organic89:wooden-peg",
+    "organic89:kitchen"
+   ],
+   "art_mode": "bespoke-subject",
+   "path": "client/assets/v89/rolling-pin.svg"
+  },
+  {
+   "id": "organic89:towel",
+   "name": "Towel",
+   "category": "home",
+   "summary": "A thick, soft square of absorbent cloth used to dry off after a bath or a splash.",
+   "familyCampaigns": [
+    "home"
+   ],
+   "ingredients": [
+    "organic89:fabric",
+    "organic89:bathroom"
+   ],
+   "art_mode": "bespoke-subject",
+   "path": "client/assets/v89/towel.svg"
+  },
+  {
+   "id": "organic89:washtub",
+   "name": "Washtub",
+   "category": "home",
+   "summary": "A wide, low wooden tub made by sawing a barrel in half, used for laundry and baths.",
+   "familyCampaigns": [
+    "home"
+   ],
+   "ingredients": [
+    "organic89:water-barrel",
+    "organic89:saw"
+   ],
+   "art_mode": "bespoke-subject",
+   "path": "client/assets/v89/washtub.svg"
+  },
+  {
+   "id": "organic89:food-bowl",
+   "name": "Food Bowl",
+   "category": "home",
+   "summary": "A sturdy wooden bowl filled with tasty food; companions come here to eat and fill their bellies.",
+   "familyCampaigns": [
+    "home"
+   ],
+   "ingredients": [
+    "organic89:wooden-bowl",
+    "organic89:kitchen"
+   ],
+   "art_mode": "bespoke-subject",
+   "path": "client/assets/v89/food-bowl.svg"
+  },
+  {
+   "id": "organic89:water-bowl",
+   "name": "Water Bowl",
+   "category": "home",
+   "summary": "A wooden bowl kept full of fresh, cool water so thirsty companions can drink whenever they like.",
+   "familyCampaigns": [
+    "home"
+   ],
+   "ingredients": [
+    "organic89:wooden-bowl",
+    "organic89:wooden-bucket"
+   ],
+   "art_mode": "bespoke-subject",
+   "path": "client/assets/v89/water-bowl.svg"
+  },
+  {
+   "id": "organic89:feeding-trough",
+   "name": "Feeding Trough",
+   "category": "home",
+   "summary": "A long wooden trough that holds enough food for a whole house of hungry companions at once.",
+   "familyCampaigns": [
+    "home"
+   ],
+   "ingredients": [
+    "organic89:food-bowl",
+    "organic89:wooden-beam"
+   ],
+   "art_mode": "bespoke-subject",
+   "path": "client/assets/v89/feeding-trough.svg"
+  },
+  {
+   "id": "organic89:dish-rack",
+   "name": "Dish Rack",
+   "category": "home",
+   "summary": "A slatted wooden rack beside the sink where freshly washed bowls and plates stand up to drip dry.",
+   "familyCampaigns": [
+    "home"
+   ],
+   "ingredients": [
+    "organic89:shelf",
+    "organic89:wooden-bowl"
+   ],
+   "art_mode": "bespoke-subject",
+   "path": "client/assets/v89/dish-rack.svg"
+  },
+  {
+   "id": "organic89:dining-chair",
+   "name": "Dining Chair",
+   "category": "home",
+   "summary": "A sturdy kitchen chair with a high back, made to pull up to the dining table at mealtimes.",
+   "familyCampaigns": [
+    "home"
+   ],
+   "ingredients": [
+    "organic89:chair",
+    "organic89:kitchen"
+   ],
+   "art_mode": "bespoke-subject",
+   "path": "client/assets/v89/dining-chair.svg"
+  },
+  {
+   "id": "organic89:dining-bench",
+   "name": "Dining Bench",
+   "category": "home",
+   "summary": "A long wooden bench beside the dining table that seats several companions shoulder to shoulder.",
+   "familyCampaigns": [
+    "home"
+   ],
+   "ingredients": [
+    "organic89:dining-chair",
+    "organic46:wooden-plank"
+   ],
+   "art_mode": "bespoke-subject",
+   "path": "client/assets/v89/dining-bench.svg"
+  },
+  {
+   "id": "organic89:highchair",
+   "name": "Highchair",
+   "category": "home",
+   "summary": "A tall wooden chair with a tray for the smallest companions, so they can eat at table height.",
+   "familyCampaigns": [
+    "home"
+   ],
+   "ingredients": [
+    "organic89:dining-chair",
+    "organic89:ladder"
+   ],
+   "art_mode": "bespoke-subject",
+   "path": "client/assets/v89/highchair.svg"
+  },
+  {
+   "id": "organic89:cupboard",
+   "name": "Cupboard",
+   "category": "home",
+   "summary": "A tall wooden cabinet with doors and shelves that keeps plates and snacks tidy and close at hand.",
+   "familyCampaigns": [
+    "home"
+   ],
+   "ingredients": [
+    "organic89:shelf",
+    "organic89:door"
+   ],
+   "art_mode": "bespoke-subject",
+   "path": "client/assets/v89/cupboard.svg"
+  },
+  {
+   "id": "organic89:pantry",
+   "name": "Pantry",
+   "category": "home",
+   "summary": "A small storage room off the kitchen stacked with jars, sacks and treats for hungry companions.",
+   "familyCampaigns": [
+    "home"
+   ],
+   "ingredients": [
+    "organic89:kitchen",
+    "organic89:door"
+   ],
+   "art_mode": "bespoke-subject",
+   "path": "client/assets/v89/pantry.svg"
+  },
+  {
+   "id": "organic89:kitchen-counter",
+   "name": "Kitchen Counter",
+   "category": "home",
+   "summary": "A long wooden work surface with drawers underneath, used for chopping and preparing meals.",
+   "familyCampaigns": [
+    "home"
+   ],
+   "ingredients": [
+    "organic89:chopping-board",
+    "organic89:drawer"
+   ],
+   "art_mode": "bespoke-subject",
+   "path": "client/assets/v89/kitchen-counter.svg"
+  },
+  {
+   "id": "organic89:wood-stove",
+   "name": "Wood Stove",
+   "category": "home",
+   "summary": "A cast-iron cooking stove fed with wood, warming the kitchen while it cooks hot meals.",
+   "familyCampaigns": [
+    "home"
+   ],
+   "ingredients": [
+    "organic89:kitchen",
+    "organic89:kindling"
+   ],
+   "art_mode": "bespoke-subject",
+   "path": "client/assets/v89/wood-stove.svg"
+  },
+  {
+   "id": "organic89:bread-oven",
+   "name": "Bread Oven",
+   "category": "home",
+   "summary": "A domed brick oven heated with a wood fire, perfect for baking crusty loaves for everyone.",
+   "familyCampaigns": [
+    "home"
+   ],
+   "ingredients": [
+    "organic89:wood-stove",
+    "organic41:arch"
+   ],
+   "art_mode": "bespoke-subject",
+   "path": "client/assets/v89/bread-oven.svg"
+  },
+  {
+   "id": "organic89:icebox",
+   "name": "Icebox",
+   "category": "home",
+   "summary": "An insulated wooden chest that keeps food cool with a block of ice, the ancestor of the fridge.",
+   "familyCampaigns": [
+    "home"
+   ],
+   "ingredients": [
+    "organic89:cupboard",
+    "organic89:wooden-bucket"
+   ],
+   "art_mode": "bespoke-subject",
+   "path": "client/assets/v89/icebox.svg"
+  },
+  {
+   "id": "organic89:spice-shelf",
+   "name": "Spice Shelf",
+   "category": "home",
+   "summary": "A small wall shelf lined with little jars of colourful spices and dried herbs.",
+   "familyCampaigns": [
+    "home"
+   ],
+   "ingredients": [
+    "organic89:shelf",
+    "organic89:kitchen"
+   ],
+   "art_mode": "bespoke-subject",
+   "path": "client/assets/v89/spice-shelf.svg"
+  },
+  {
+   "id": "organic89:tea-kettle",
+   "name": "Tea Kettle",
+   "category": "home",
+   "summary": "A round kettle that whistles when the water boils, making warm drinks that cheer everyone up.",
+   "familyCampaigns": [
+    "home"
+   ],
+   "ingredients": [
+    "organic89:wood-stove",
+    "organic89:wooden-bucket"
+   ],
+   "art_mode": "bespoke-subject",
+   "path": "client/assets/v89/tea-kettle.svg"
+  },
+  {
+   "id": "organic89:cookie-jar",
+   "name": "Cookie Jar",
+   "category": "home",
+   "summary": "A round jar with a lid, always filled with freshly baked cookies for companions who behave.",
+   "familyCampaigns": [
+    "home"
+   ],
+   "ingredients": [
+    "organic89:rolling-pin",
+    "organic89:bread-oven"
+   ],
+   "art_mode": "bespoke-subject",
+   "path": "client/assets/v89/cookie-jar.svg"
+  },
+  {
+   "id": "organic89:bread-box",
+   "name": "Bread Box",
+   "category": "home",
+   "summary": "A wooden box with a roll-top lid that keeps fresh bread soft and ready for snacking.",
+   "familyCampaigns": [
+    "home"
+   ],
+   "ingredients": [
+    "organic89:bread-oven",
+    "organic89:wooden-crate"
+   ],
+   "art_mode": "bespoke-subject",
+   "path": "client/assets/v89/bread-box.svg"
+  },
+  {
+   "id": "organic89:picnic-basket",
+   "name": "Picnic Basket",
+   "category": "home",
+   "summary": "A woven basket with a lid, packed with sandwiches and a checked blanket for meals outdoors.",
+   "familyCampaigns": [
+    "home"
+   ],
+   "ingredients": [
+    "organic89:basket",
+    "organic89:kitchen"
+   ],
+   "art_mode": "bespoke-subject",
+   "path": "client/assets/v89/picnic-basket.svg"
+  },
+  {
+   "id": "organic89:sink",
+   "name": "Sink",
+   "category": "home",
+   "summary": "A basin set into the counter with a tap, where dishes and paws get washed after dinner.",
+   "familyCampaigns": [
+    "home"
+   ],
+   "ingredients": [
+    "organic89:kitchen-counter",
+    "organic89:wooden-bucket"
+   ],
+   "art_mode": "bespoke-subject",
+   "path": "client/assets/v89/sink.svg"
+  },
+  {
+   "id": "organic89:water-barrel",
+   "name": "Water Barrel",
+   "category": "home",
+   "summary": "A tall wooden barrel held together with hoops, full of fresh water for drinking and washing.",
+   "familyCampaigns": [
+    "home"
+   ],
+   "ingredients": [
+    "organic89:wooden-bucket",
+    "organic89:wooden-beam"
+   ],
+   "art_mode": "bespoke-subject",
+   "path": "client/assets/v89/water-barrel.svg"
+  },
+  {
+   "id": "organic89:bathtub",
+   "name": "Bathtub",
+   "category": "home",
+   "summary": "A long tub to soak in warm water; a relaxing bath restores a companion's health.",
+   "familyCampaigns": [
+    "home"
+   ],
+   "ingredients": [
+    "organic89:washtub",
+    "organic89:bathroom"
+   ],
+   "art_mode": "bespoke-subject",
+   "path": "client/assets/v89/bathtub.svg"
+  },
+  {
+   "id": "organic89:soaking-tub",
+   "name": "Soaking Tub",
+   "category": "home",
+   "summary": "An extra deep wooden tub with a little ladder, deep enough for companions to practise swimming.",
+   "familyCampaigns": [
+    "home"
+   ],
+   "ingredients": [
+    "organic89:bathtub",
+    "organic89:ladder"
+   ],
+   "art_mode": "bespoke-subject",
+   "path": "client/assets/v89/soaking-tub.svg"
+  },
+  {
+   "id": "organic89:shower",
+   "name": "Shower",
+   "category": "home",
+   "summary": "A barrel of water raised high that sprinkles down through holes for a quick, refreshing rinse.",
+   "familyCampaigns": [
+    "home"
+   ],
+   "ingredients": [
+    "organic89:water-barrel",
+    "organic89:ladder"
+   ],
+   "art_mode": "bespoke-subject",
+   "path": "client/assets/v89/shower.svg"
+  },
+  {
+   "id": "organic89:towel-rack",
+   "name": "Towel Rack",
+   "category": "home",
+   "summary": "A wooden wall rack with pegs where fluffy towels hang to dry after bath time.",
+   "familyCampaigns": [
+    "home"
+   ],
+   "ingredients": [
+    "organic89:towel",
+    "organic89:wooden-peg"
+   ],
+   "art_mode": "bespoke-subject",
+   "path": "client/assets/v89/towel-rack.svg"
+  },
+  {
+   "id": "organic89:bath-mat",
+   "name": "Bath Mat",
+   "category": "home",
+   "summary": "A soft, thick mat on the bathroom floor that catches drips from wet feet and paws.",
+   "familyCampaigns": [
+    "home"
+   ],
+   "ingredients": [
+    "organic89:towel",
+    "organic89:floorboards"
+   ],
+   "art_mode": "bespoke-subject",
+   "path": "client/assets/v89/bath-mat.svg"
+  },
+  {
+   "id": "organic89:laundry-basket",
+   "name": "Laundry Basket",
+   "category": "home",
+   "summary": "A big woven basket for carrying dirty clothes to the washtub and clean ones back again.",
+   "familyCampaigns": [
+    "home"
+   ],
+   "ingredients": [
+    "organic89:basket",
+    "organic89:washtub"
+   ],
+   "art_mode": "bespoke-subject",
+   "path": "client/assets/v89/laundry-basket.svg"
+  },
+  {
+   "id": "organic89:wash-basin",
+   "name": "Wash Basin",
+   "category": "home",
+   "summary": "A wide bowl of water on a small stand for washing faces, paws and whiskers.",
+   "familyCampaigns": [
+    "home"
+   ],
+   "ingredients": [
+    "organic89:wooden-bowl",
+    "organic89:bathroom"
+   ],
+   "art_mode": "bespoke-subject",
+   "path": "client/assets/v89/wash-basin.svg"
+  },
+  {
+   "id": "organic89:bath-duck",
+   "name": "Bath Duck",
+   "category": "home",
+   "summary": "A little carved wooden duck that bobs on the bath water, making bath time playful.",
+   "familyCampaigns": [
+    "home"
+   ],
+   "ingredients": [
+    "organic89:bathtub",
+    "organic89:wood-shavings"
+   ],
+   "art_mode": "bespoke-subject",
+   "path": "client/assets/v89/bath-duck.svg"
+  },
+  {
+   "id": "organic89:treadmill",
+   "name": "Treadmill",
+   "category": "home",
+   "summary": "A hand-cranked walking belt made from a looped rug, so companions can jog in place for hours.",
+   "familyCampaigns": [
+    "home"
+   ],
+   "ingredients": [
+    "organic89:rug",
+    "legacy:514"
+   ],
+   "art_mode": "bespoke-subject",
+   "path": "client/assets/v89/treadmill.svg"
+  },
+  {
+   "id": "organic89:running-wheel",
+   "name": "Running Wheel",
+   "category": "home",
+   "summary": "A big upright wooden wheel with a plank track inside that spins as a companion runs within it.",
+   "familyCampaigns": [
+    "home"
+   ],
+   "ingredients": [
+    "legacy:44",
+    "organic89:floorboards"
+   ],
+   "art_mode": "bespoke-subject",
+   "path": "client/assets/v89/running-wheel.svg"
+  },
+  {
+   "id": "organic89:hurdles",
+   "name": "Hurdles",
+   "category": "home",
+   "summary": "A row of low wooden hurdles that companions sprint toward and leap over to build running speed.",
+   "familyCampaigns": [
+    "home"
+   ],
+   "ingredients": [
+    "organic89:fence",
+    "organic89:treadmill"
+   ],
+   "art_mode": "bespoke-subject",
+   "path": "client/assets/v89/hurdles.svg"
+  },
+  {
+   "id": "organic89:paddling-pool",
+   "name": "Paddling Pool",
+   "category": "home",
+   "summary": "A wide, shallow wooden tub filled with water where small companions learn to paddle and float.",
+   "familyCampaigns": [
+    "home"
+   ],
+   "ingredients": [
+    "organic89:wooden-bucket",
+    "organic89:wooden-bucket"
+   ],
+   "art_mode": "bespoke-subject",
+   "path": "client/assets/v89/paddling-pool.svg"
+  },
+  {
+   "id": "organic89:splash-tub",
+   "name": "Splash Tub",
+   "category": "home",
+   "summary": "A deep varnished tub that keeps water in, perfect for dunking, splashing and practising strokes.",
+   "familyCampaigns": [
+    "home"
+   ],
+   "ingredients": [
+    "organic89:wooden-bucket",
+    "organic89:varnish"
+   ],
+   "art_mode": "bespoke-subject",
+   "path": "client/assets/v89/splash-tub.svg"
+  },
+  {
+   "id": "organic89:water-slide",
+   "name": "Water Slide",
+   "category": "home",
+   "summary": "A slippery slide that ends in a splashy pool, training swimming with every exciting landing.",
+   "familyCampaigns": [
+    "home"
+   ],
+   "ingredients": [
+    "organic89:paddling-pool",
+    "organic89:playground-slide"
+   ],
+   "art_mode": "bespoke-subject",
+   "path": "client/assets/v89/water-slide.svg"
+  },
+  {
+   "id": "organic89:swim-ring",
+   "name": "Swim Ring",
+   "category": "home",
+   "summary": "A puffy ring-shaped float that helps nervous companions stay up while they kick and learn to swim.",
+   "familyCampaigns": [
+    "home"
+   ],
+   "ingredients": [
+    "organic89:paddling-pool",
+    "organic89:pillow"
+   ],
+   "art_mode": "bespoke-subject",
+   "path": "client/assets/v89/swim-ring.svg"
+  },
+  {
+   "id": "organic89:punching-bag",
+   "name": "Punching Bag",
+   "category": "home",
+   "summary": "A heavy canvas bag stuffed with sawdust and hung from a hook, ready to be thumped for strength.",
+   "familyCampaigns": [
+    "home"
+   ],
+   "ingredients": [
+    "organic89:fabric",
+    "organic46:sawdust"
+   ],
+   "art_mode": "bespoke-subject",
+   "path": "client/assets/v89/punching-bag.svg"
+  },
+  {
+   "id": "organic89:wooden-dumbbells",
+   "name": "Wooden Dumbbells",
+   "category": "home",
+   "summary": "A pair of chunky dumbbells carved from wooden bars and discs for companions to lift and grow stronger.",
+   "familyCampaigns": [
+    "home"
+   ],
+   "ingredients": [
+    "organic89:wooden-beam",
+    "legacy:44"
+   ],
+   "art_mode": "bespoke-subject",
+   "path": "client/assets/v89/wooden-dumbbells.svg"
+  },
+  {
+   "id": "organic89:tug-rope",
+   "name": "Tug Rope",
+   "category": "home",
+   "summary": "A thick knotted rope for friendly tug-of-war matches between companions, training pulling power.",
+   "familyCampaigns": [
+    "home"
+   ],
+   "ingredients": [
+    "organic89:rope",
+    "organic89:rope"
+   ],
+   "art_mode": "bespoke-subject",
+   "path": "client/assets/v89/tug-rope.svg"
+  },
+  {
+   "id": "organic89:log-lift",
+   "name": "Log Lift",
+   "category": "home",
+   "summary": "A sturdy log fitted with grips that strong companions heave above their heads to build raw power.",
+   "familyCampaigns": [
+    "home"
+   ],
+   "ingredients": [
+    "legacy:24",
+    "organic89:wooden-dumbbells"
+   ],
+   "art_mode": "bespoke-subject",
+   "path": "client/assets/v89/log-lift.svg"
+  },
+  {
+   "id": "organic89:trampoline",
+   "name": "Trampoline",
+   "category": "home",
+   "summary": "A springy mat laced tight with rope on a frame, bouncing companions high to train their flying.",
+   "familyCampaigns": [
+    "home"
+   ],
+   "ingredients": [
+    "organic89:mattress",
+    "organic89:rope"
+   ],
+   "art_mode": "bespoke-subject",
+   "path": "client/assets/v89/trampoline.svg"
+  },
+  {
+   "id": "organic89:rope-swing",
+   "name": "Rope Swing",
+   "category": "home",
+   "summary": "A plank seat hung on two ropes that swings companions high into the air to get used to flying.",
+   "familyCampaigns": [
+    "home"
+   ],
+   "ingredients": [
+    "organic89:rope",
+    "organic46:wooden-plank"
+   ],
+   "art_mode": "bespoke-subject",
+   "path": "client/assets/v89/rope-swing.svg"
+  },
+  {
+   "id": "organic89:glider-perch",
+   "name": "Glider Perch",
+   "category": "home",
+   "summary": "A tall ladder perch with a cloth wing banner where companions climb up and practise gliding down.",
+   "familyCampaigns": [
+    "home"
+   ],
+   "ingredients": [
+    "organic89:ladder",
+    "organic89:fabric"
+   ],
+   "art_mode": "bespoke-subject",
+   "path": "client/assets/v89/glider-perch.svg"
+  },
+  {
+   "id": "organic89:kite-stand",
+   "name": "Kite Stand",
+   "category": "home",
+   "summary": "A post with a colourful patchwork kite on a line, teaching companions to catch and ride the wind.",
+   "familyCampaigns": [
+    "home"
+   ],
+   "ingredients": [
+    "organic89:rope",
+    "legacy:1288"
+   ],
+   "art_mode": "bespoke-subject",
+   "path": "client/assets/v89/kite-stand.svg"
+  },
+  {
+   "id": "organic89:climbing-wall",
+   "name": "Climbing Wall",
+   "category": "home",
+   "summary": "A tall board wall dotted with chunky wooden pegs as handholds for long, tiring climbing sessions.",
+   "familyCampaigns": [
+    "home"
+   ],
+   "ingredients": [
+    "organic89:floorboards",
+    "organic89:wooden-peg"
+   ],
+   "art_mode": "bespoke-subject",
+   "path": "client/assets/v89/climbing-wall.svg"
+  },
+  {
+   "id": "organic89:jump-rope",
+   "name": "Jump Rope",
+   "category": "home",
+   "summary": "A light skipping rope with wooden handles that companions jump over again and again to build stamina.",
+   "familyCampaigns": [
+    "home"
+   ],
+   "ingredients": [
+    "organic89:rope",
+    "legacy:514"
+   ],
+   "art_mode": "bespoke-subject",
+   "path": "client/assets/v89/jump-rope.svg"
+  },
+  {
+   "id": "organic89:balance-beam",
+   "name": "Balance Beam",
+   "category": "home",
+   "summary": "A long narrow beam raised over a soft mat, where companions carefully walk to build steady endurance.",
+   "familyCampaigns": [
+    "home"
+   ],
+   "ingredients": [
+    "organic89:wooden-beam",
+    "organic89:rug"
+   ],
+   "art_mode": "bespoke-subject",
+   "path": "client/assets/v89/balance-beam.svg"
+  },
+  {
+   "id": "organic89:monkey-bars",
+   "name": "Monkey Bars",
+   "category": "home",
+   "summary": "A sideways ladder raised on posts that companions cross hand over hand until their arms are tired.",
+   "familyCampaigns": [
+    "home"
+   ],
+   "ingredients": [
+    "organic89:ladder",
+    "organic89:ladder"
+   ],
+   "art_mode": "bespoke-subject",
+   "path": "client/assets/v89/monkey-bars.svg"
+  },
+  {
+   "id": "organic89:yoga-mat",
+   "name": "Yoga Mat",
+   "category": "home",
+   "summary": "A soft padded mat for slow stretches and deep breathing that keeps companions healthy and strong.",
+   "familyCampaigns": [
+    "home"
+   ],
+   "ingredients": [
+    "organic89:rug",
+    "organic89:cushion"
+   ],
+   "art_mode": "bespoke-subject",
+   "path": "client/assets/v89/yoga-mat.svg"
+  },
+  {
+   "id": "organic89:nap-mat",
+   "name": "Nap Mat",
+   "category": "home",
+   "summary": "A cosy folded blanket laid on a rug where tired companions take restorative naps to recover health.",
+   "familyCampaigns": [
+    "home"
+   ],
+   "ingredients": [
+    "organic89:blanket",
+    "organic89:rug"
+   ],
+   "art_mode": "bespoke-subject",
+   "path": "client/assets/v89/nap-mat.svg"
+  },
+  {
+   "id": "organic89:massage-roller",
+   "name": "Massage Roller",
+   "category": "home",
+   "summary": "A rolling wooden massager with little bumps that soothes sore muscles and keeps companions healthy.",
+   "familyCampaigns": [
+    "home"
+   ],
+   "ingredients": [
+    "organic89:wooden-peg",
+    "legacy:44"
+   ],
+   "art_mode": "bespoke-subject",
+   "path": "client/assets/v89/massage-roller.svg"
+  },
+  {
+   "id": "organic89:ball-pit",
+   "name": "Ball Pit",
+   "category": "home",
+   "summary": "A pool filled with soft yarn balls that companions dive and roll in for pure happy play.",
+   "familyCampaigns": [
+    "home"
+   ],
+   "ingredients": [
+    "organic89:paddling-pool",
+    "organic46:yarn"
+   ],
+   "art_mode": "bespoke-subject",
+   "path": "client/assets/v89/ball-pit.svg"
+  },
+  {
+   "id": "organic89:sandbox",
+   "name": "Sandbox",
+   "category": "home",
+   "summary": "A low wooden box of soft fine filling for digging, building and burying favourite treasures.",
+   "familyCampaigns": [
+    "home"
+   ],
+   "ingredients": [
+    "organic89:wooden-crate",
+    "organic46:sawdust"
+   ],
+   "art_mode": "bespoke-subject",
+   "path": "client/assets/v89/sandbox.svg"
+  },
+  {
+   "id": "organic89:playground-slide",
+   "name": "Playground Slide",
+   "category": "home",
+   "summary": "A ladder up to a smooth varnished chute that companions slide down giggling, again and again.",
+   "familyCampaigns": [
+    "home"
+   ],
+   "ingredients": [
+    "organic89:ladder",
+    "organic89:varnish"
+   ],
+   "art_mode": "bespoke-subject",
+   "path": "client/assets/v89/playground-slide.svg"
+  },
+  {
+   "id": "organic89:seesaw",
+   "name": "Seesaw",
+   "category": "home",
+   "summary": "A long plank balanced on a box so two companions can bounce up and down taking turns.",
+   "familyCampaigns": [
+    "home"
+   ],
+   "ingredients": [
+    "organic46:wooden-plank",
+    "organic89:wooden-crate"
+   ],
+   "art_mode": "bespoke-subject",
+   "path": "client/assets/v89/seesaw.svg"
+  },
+  {
+   "id": "organic89:scratching-post",
+   "name": "Scratching Post",
+   "category": "home",
+   "summary": "A wooden post wrapped tight in rope that companions scratch and climb to stay calm and happy.",
+   "familyCampaigns": [
+    "home"
+   ],
+   "ingredients": [
+    "organic89:rope",
+    "organic89:wooden-beam"
+   ],
+   "art_mode": "bespoke-subject",
+   "path": "client/assets/v89/scratching-post.svg"
+  },
+  {
+   "id": "organic89:spinning-top",
+   "name": "Spinning Top",
+   "category": "home",
+   "summary": "A painted wooden top that whirls on its tip, making curious companions wonder how things work.",
+   "familyCampaigns": [
+    "home"
+   ],
+   "ingredients": [
+    "organic89:wooden-peg",
+    "organic46:spinning-wheel"
+   ],
+   "art_mode": "bespoke-subject",
+   "path": "client/assets/v89/spinning-top.svg"
+  },
+  {
+   "id": "organic89:building-blocks",
+   "name": "Building Blocks",
+   "category": "home",
+   "summary": "A stack of painted wooden blocks that companions build into towers, sparking new ideas and discoveries.",
+   "familyCampaigns": [
+    "home"
+   ],
+   "ingredients": [
+    "organic89:wooden-beam",
+    "organic89:paint"
+   ],
+   "art_mode": "bespoke-subject",
+   "path": "client/assets/v89/building-blocks.svg"
+  },
+  {
+   "id": "organic89:puzzle-board",
+   "name": "Puzzle Board",
+   "category": "home",
+   "summary": "A picture board cut into interlocking pieces that companions fit together, sharpening their minds.",
+   "familyCampaigns": [
+    "home"
+   ],
+   "ingredients": [
+    "organic89:wallpaper",
+    "organic89:saw"
+   ],
+   "art_mode": "bespoke-subject",
+   "path": "client/assets/v89/puzzle-board.svg"
+  },
+  {
+   "id": "organic89:garden-bench",
+   "name": "Garden Bench",
+   "category": "home",
+   "summary": "A slatted wooden bench for the garden where companions sit and watch the clouds roll by.",
+   "familyCampaigns": [
+    "home"
+   ],
+   "ingredients": [
+    "organic89:fence",
+    "organic46:wooden-plank"
+   ],
+   "art_mode": "bespoke-subject",
+   "path": "client/assets/v89/garden-bench.svg"
+  },
+  {
+   "id": "organic89:flower-box",
+   "name": "Flower Box",
+   "category": "home",
+   "summary": "A long window box planted with bright flowers that brightens up any wall or garden corner.",
+   "familyCampaigns": [
+    "home"
+   ],
+   "ingredients": [
+    "organic89:wooden-crate",
+    "organic89:window-frame"
+   ],
+   "art_mode": "bespoke-subject",
+   "path": "client/assets/v89/flower-box.svg"
+  },
+  {
+   "id": "organic89:bird-bath",
+   "name": "Bird Bath",
+   "category": "home",
+   "summary": "A shallow water basin on a pedestal where little birds come to drink and splash in the garden.",
+   "familyCampaigns": [
+    "home"
+   ],
+   "ingredients": [
+    "organic89:wooden-bucket",
+    "organic41:arch"
+   ],
+   "art_mode": "bespoke-subject",
+   "path": "client/assets/v89/bird-bath.svg"
+  },
+  {
+   "id": "organic89:garden-lantern",
+   "name": "Garden Lantern",
+   "category": "home",
+   "summary": "A lantern on a fence post that glows softly at night, lighting the garden paths for companions.",
+   "familyCampaigns": [
+    "home"
+   ],
+   "ingredients": [
+    "organic89:lamp-shade",
+    "organic89:fence"
+   ],
+   "art_mode": "bespoke-subject",
+   "path": "client/assets/v89/garden-lantern.svg"
+  },
+  {
+   "id": "organic89:picket-gate",
+   "name": "Picket Gate",
+   "category": "home",
+   "summary": "A small white picket gate that opens onto the companion garden, welcoming visitors with a creak.",
+   "familyCampaigns": [
+    "home"
+   ],
+   "ingredients": [
+    "organic89:fence",
+    "organic89:door"
+   ],
+   "art_mode": "bespoke-subject",
+   "path": "client/assets/v89/picket-gate.svg"
+  }
+ ]
+}

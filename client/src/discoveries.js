@@ -11,6 +11,8 @@ export const FAMILIES = Object.freeze([
  {id:'mythology',name:'Mythology & Gods',icon:'crystal',category:'World',description:'Gods, legends and ancient pantheons',categories:['mythology'],order:9},
  {id:'prehistoric',name:'Prehistory & Dinosaurs',icon:'dragon',category:'World',description:'Fossils, ancient life and dinosaurs',categories:['prehistoric'],order:10},
  {id:'world',name:'Countries & Landmarks',icon:'crystal',category:'World',description:'Countries, flags, monuments, rivers and traditions',categories:['geography'],order:11},
+ // V89: companion houses, furniture and home materials (own campaign: House, Wood, Tool, Thread).
+ {id:'home',name:'Home & Living',icon:'crystal',category:'World',description:'Companion houses, furniture and home crafts',categories:['home'],order:12},
 ]);
 // V86: ids of families merged into the ones above (used to migrate saves and old data).
 export const MERGED_FAMILY_IDS = Object.freeze({consoles:'games',arcades:'games',music:'anime',cinema:'anime'});

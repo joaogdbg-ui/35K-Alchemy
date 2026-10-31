@@ -9,7 +9,7 @@ test('V54 icons: exactly one original embedded family image per existing family'
  // V86: four families were merged; their V54 icons stay as art assets but every current family
  // from the original set still has its own unique embedded image.
  assert.ok(FAMILIES.length>=8);
- for(const f of FAMILIES.filter(f=>!['mythology','prehistoric','world'].includes(f.id)))assert.ok(FAMILY_ICONS_V54[f.id],f.id);
+ for(const f of FAMILIES.filter(f=>!['mythology','prehistoric','world','home'].includes(f.id)))assert.ok(FAMILY_ICONS_V54[f.id],f.id);
  assert.equal(new Set(Object.values(FAMILY_ICONS_V54)).size,9);
 });
 test('V54 icons: all images are self-contained SVG without external network assets',()=>{

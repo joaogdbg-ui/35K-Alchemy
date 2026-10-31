@@ -1,0 +1,12 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><g stroke-linejoin="round" stroke-linecap="round"><ellipse cx="50" cy="92" rx="32" ry="3" fill="#88979B" opacity=".15"/>
+<path d="M14 90V60M28 90V62M72 90V62M86 90V60" stroke="#7A5E44" stroke-width="4"/>
+<rect x="10" y="22" width="22" height="8" rx="2" fill="#9C7A5B" stroke="#657D89" stroke-width="2.5"/>
+<rect x="68" y="22" width="22" height="8" rx="2" fill="#9C7A5B" stroke="#657D89" stroke-width="2.5"/>
+<path d="M12 30V50M30 30V50M70 30V50M88 30V50" stroke="#9C7A5B" stroke-width="3"/>
+<path d="M6 76Q10 50 18 28Q50 20 82 28Q90 50 94 76Q84 80 76 74Q62 80 50 74Q38 80 24 74Q16 80 6 76Z" fill="#9B7CC2" stroke="#657D89" stroke-width="3.5"/>
+<path d="M36 76Q38 50 50 44Q62 50 64 76Q56 80 50 76Q44 80 36 76Z" fill="#2E2A3E" stroke="#657D89" stroke-width="2.5"/>
+<ellipse cx="45" cy="60" rx="2.8" ry="3.5" fill="#FFFFFF" stroke="none"/><ellipse cx="55" cy="60" rx="2.8" ry="3.5" fill="#FFFFFF" stroke="none"/>
+<circle cx="45.6" cy="60.8" r="1.4" fill="#2E2A3E" stroke="none"/><circle cx="55.6" cy="60.8" r="1.4" fill="#2E2A3E" stroke="none"/>
+<path d="M22 40Q22 34 26 36M74 36Q78 34 78 40" fill="none" stroke="#7E62A8" stroke-width="2"/>
+<polygon points="26.0,49.0 27.3,52.2 30.8,52.5 28.1,54.7 28.9,58.0 26.0,56.2 23.1,58.0 23.9,54.7 21.2,52.5 24.7,52.2" fill="#F6D365" stroke="#657D89" stroke-width="1.2"/><polygon points="74.0,47.0 75.3,50.2 78.8,50.5 76.1,52.7 76.9,56.0 74.0,54.2 71.1,56.0 71.9,52.7 69.2,50.5 72.7,50.2" fill="#F6D365" stroke="#657D89" stroke-width="1.2"/><polygon points="50.0,27.5 51.2,30.4 54.3,30.6 51.9,32.6 52.6,35.6 50.0,34.0 47.4,35.6 48.1,32.6 45.7,30.6 48.8,30.4" fill="#F6D365" stroke="#657D89" stroke-width="1.2"/><polygon points="36.0,35.0 36.8,36.9 38.9,37.1 37.3,38.4 37.8,40.4 36.0,39.4 34.2,40.4 34.7,38.4 33.1,37.1 35.2,36.9" fill="#F6D365" stroke="#657D89" stroke-width="1.2"/><polygon points="66.0,35.0 66.8,36.9 68.9,37.1 67.3,38.4 67.8,40.4 66.0,39.4 64.2,40.4 64.7,38.4 63.1,37.1 65.2,36.9" fill="#F6D365" stroke="#657D89" stroke-width="1.2"/>
+</g></svg>

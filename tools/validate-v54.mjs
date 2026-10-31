@@ -9,7 +9,7 @@ const manifest=JSON.parse(readFileSync('shared/v54-family-art-manifest.json','ut
 const V54_IDS=Object.keys(manifest);
 assert.equal(V54_IDS.length,9);
 assert.deepEqual(Object.keys(FAMILY_ICONS_V54).sort(),V54_IDS.slice().sort());
-for(const f of FAMILIES.filter(f=>!['mythology','prehistoric','world'].includes(f.id)))assert.ok(V54_IDS.includes(f.id),f.id);
+for(const f of FAMILIES.filter(f=>!['mythology','prehistoric','world','home'].includes(f.id)))assert.ok(V54_IDS.includes(f.id),f.id);
 const unique=new Set();
 for(const f of V54_IDS.map(id=>({id}))){
  const file=readFileSync(`client/assets/families-v54/${f.id}.svg`);
