@@ -90,6 +90,14 @@ Preserve 200-per-batch policy and do not start another content release on top of
 
 - **Art redraw wave 3 (V85, done): 3,991 icons** — every remaining older element. All 6,012 pre-V83 elements now use the 2026 art direction (`ART_REDRAW`), plus 200 V83 and 200 V85 originals. Six near-duplicates found by the audit were redrawn; 36 reviewed false alarms are in `tools/art-redraw-reviewed-pairs.json` (the audit now also honours them for V83 comparisons).
 
+## V99 — one continuous race track, own route per course (31 October 2026)
+- Owner: take the Chao Race STRUCTURE (sections that flow into each other, climb and carry on above, glides, THINK), adapted to our game, keeping the approved V95 2D art. No copied props.
+- `buildCourse(plan)` → zones (run / swim / wall / glide / puzzle) in race units + world px; `groundAt`, `posAt` shared by renderer and racers. Heights 0..3 steps (`RC.LVL=50`). Walls climb one step and the race continues on top; glides land a step lower; the finish straight stays flat (Boulder Wall ends on the summit).
+- `courseSvg(C,art)` draws the whole track as ONE SVG with the V95 tiles as patterns (run = grass path, climb = every cliff face and wall, swim = pools, fly = chasm with the broken bridge) and the original start/finish gates — no seams between sections.
+- `ROUTES` per course: Pond = chained pools, Cliffs = climb up/glide down, Meadow = long runs, Boulder = staircase of walls, Trail = mix, Championship (renamed from Grand Circuit) = everything + alchemy gates. Level n plays the first 6/8/10/12/14 sections.
+- ALCHEMY GATES (THINK): a sign shows two elements, four answer stones on the floor; the companion thinks and steps on one (wrong stones flash red, it retries). Wits = 0.25 + 0.45×average stat level + 0.3×(alchemy growth − 1), so classic discoveries make companions smarter.
+- HUD: section map under the stamina bar.
+
 ## V98 — climbs are steps: the race continues on top (31 October 2026)
 - Owner feedback (drawing): the climb should be a step — run, climb the wall, keep running on the higher ground.
 - `elevate(segs)` (pure, exported) gives each section `elev0/elev`: a climb raises the ground one level (max 2, `STEP_H=56px`), the race continues up there; the next water section (dive + splash) or the final section brings it back to 0.
