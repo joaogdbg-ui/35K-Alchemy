@@ -1754,6 +1754,18 @@ button.home-eff::after{content:" ⓘ";opacity:.6;font-weight:700}
 .home-pick-main small.home-pick-st{color:#3f7a3c;font-weight:800}
 #modalContent .home-addon-row{display:block}#modalContent .home-addon-row>span{display:none}
 
+/* V145: one staircase that really links the two floors (bottom-up: ground floor → wall → slab → upstairs) */
+.home-stairs{position:absolute;z-index:6;pointer-events:none;border-left:5px solid #6b4a32;border-right:5px solid #6b4a32;box-shadow:0 3px 6px rgba(0,0,0,.25);
+ background:linear-gradient(180deg,rgba(0,0,0,.18),rgba(0,0,0,0) 25%,rgba(0,0,0,0) 75%,rgba(0,0,0,.12)),repeating-linear-gradient(180deg,#e2b98a 0 62%,#9c6e4a 62% 72%,#b98a5e 72% 100%) 0 0/100% calc(var(--tile) * .42);border-radius:4px 4px 2px 2px}
+.home-stairs-rail{position:absolute;top:0;bottom:0;right:-11px;width:5px;border-radius:3px;background:#8e6748;box-shadow:0 0 0 1.5px #4a3426}
+.home-stairs-tag{position:absolute;left:50%;bottom:6px;transform:translateX(-50%);font-size:10px;font-weight:900;color:#fff;background:rgba(60,40,25,.75);border-radius:6px;padding:1px 5px;white-space:nowrap}
+/* V145: Home tabs + on-screen companions in the grid */
+.home-tabs{margin:4px 0 10px}
+.pet-ava.is-active{border:2px solid var(--good)}
+.pet-ava-on{font-style:normal;font-size:9px;font-weight:900;color:var(--good);letter-spacing:.02em}
+.pets-legend{display:flex;align-items:center;gap:6px;flex-wrap:wrap;margin:2px 0 8px}.pets-legend .pet-ava-tag{position:static;display:inline-block;box-shadow:none}
+#modalContent .pets-now{margin-top:6px}
+
 </style>
 </head>
 <body>
@@ -2254,7 +2266,7 @@ function createHomeSystem(ctx){
  const STAIR_GROUND={id:'zone:stairs',x:0,y:0,r:0};
  const zh=(hid,h)=>extOn(hid,'floor')?{...h,furniture:[...h.furniture,STAIR_GROUND]}:h;
  /** Upstairs bedroom: stairs on the left, two beds, a curtain on the wall. */
- function upstairsPlan(hid){const c=layoutOf(hid).cols;const F=[{id:'zone:stairwell',x:0,y:0,r:0},{id:'organic89:bed',x:c-2,y:1,r:0},{id:'organic89:bed',x:c-4,y:1,r:0}];
+ function upstairsPlan(hid){const c=layoutOf(hid).cols;const F=[{id:'zone:stairwell',x:0,y:UP_ROWS-2,r:0},{id:'organic89:bed',x:c-2,y:1,r:0},{id:'organic89:bed',x:c-4,y:1,r:0}];
   if(RS['organic89:curtain'])F.push({id:'organic89:curtain',x:1,r:0});if(RS['organic89:picture-frame']&&c>=7)F.push({id:'organic89:picture-frame',x:Math.floor(c/2)+1,r:0});return F;}
  /** Outdoor yard: garden pieces and/or the pool, laid out for the house's width. */
  function yardPlan(hid){const c=layoutOf(hid).cols,g=extOn(hid,'garden'),p=extOn(hid,'pool');const F=[];const add=(id,x,y)=>F.push({id,x,y,r:0});
@@ -2267,7 +2279,7 @@ function createHomeSystem(ctx){
  function splitResidents(hid,residents){const base=objects[hid]?.capacity||1;let ground=residents.slice(0,base);const up=extOn(hid,'floor')?residents.slice(base,base+2):[];let yard=[];
   if(extOn(hid,'garden')||extOn(hid,'pool')){if(ground.length>=2){const k=Math.max(1,Math.round(ground.length/3));yard=ground.slice(-k);ground=ground.slice(0,-k);}else if(ground.length===1&&Math.floor(Date.now()/90000)%2){yard=ground;ground=[];}}
   return {ground,up,yard};}
- const zoneFloor=(cls,L,F,zone,tileCls='')=>`<div class="home-floor ${cls}" data-zone="${zone}">${Array.from({length:L.cols*L.rows},(_,i)=>`<i class="home-tile ${tileCls}" aria-hidden="true"></i>`).join('')}${F.map((f,i)=>layerOf(RS,f.id)!=='wall'?pieceHtml(f,i,'data-zpiece'):'').join('')}<div class="home-residents" data-zres="${zone}"></div></div>`;
+ const zoneFloor=(cls,L,F,zone,tileCls='')=>`<div class="home-floor ${cls}" data-zone="${zone}">${Array.from({length:L.cols*L.rows},(_,i)=>`<i class="home-tile ${tileCls}" aria-hidden="true"></i>`).join('')}${F.map((f,i)=>layerOf(RS,f.id)!=='wall'&&f.id!=='zone:stairwell'?pieceHtml(f,i,'data-zpiece'):'').join('')}<div class="home-residents" data-zres="${zone}"></div></div>`;
  function upstairsHtml(hid){const L={cols:layoutOf(hid).cols,rows:UP_ROWS,theme:layoutOf(hid).theme},F=upstairsPlan(hid);
   return `<div class="home-room is-upstairs" data-theme="${L.theme}" style="--cols:${L.cols};--rows:${L.rows}"><span class="home-zone-tag is-up">🏠 Upstairs · 2 beds</span>
    <div class="home-wall is-zone">${Array.from({length:L.cols},()=>'<i class="home-walltile" aria-hidden="true"></i>').join('')}${F.map((f,i)=>layerOf(RS,f.id)==='wall'?pieceHtml(f,i,'data-zpiece'):'').join('')}<i class="home-skirting" aria-hidden="true"></i></div>
@@ -2301,6 +2313,9 @@ function createHomeSystem(ctx){
  function addonsSheet(mount,hid){const row=addonRow(hid);
   sheet('ADD-ONS','House add-ons',row?`<p class="mini-muted">One of each per house. Buy more in the Market.</p>${row.replace('<span>Add-ons</span>','')}`:'<p>Add-ons (Garden, Outdoor pool, Second floor) are found in Alchemy or bought in the Market → Houses.</p>');
   document.querySelectorAll('#modalContent [data-ext]').forEach(b=>b.onclick=()=>{toggleExt(mount,hid,b.dataset.ext);addonsSheet(mount,hid);});}
+ function placeStairs(mount){const st=mount.querySelector('#homeStairs');if(!st)return;const plot=st.parentElement,up=plot.querySelector('.home-floor.is-up'),gr=mount.querySelector('#homeFloor');if(!up||!gr)return;
+  const P=plot.getBoundingClientRect(),U=up.getBoundingClientRect(),G=gr.getBoundingClientRect(),t=G.width/layoutOf(activeHouse()).cols;
+  st.style.left=(G.left-P.left)+'px';st.style.width=t+'px';st.style.top=(U.bottom-P.top-t*2)+'px';st.style.height=(G.top-U.bottom+t*4)+'px';}
  function render(mount){
   if(!mount)return;stopWander();
   const hid=activeHouse();const own=ownedHouses();
@@ -2324,12 +2339,12 @@ function createHomeSystem(ctx){
     <div class="home-floor" id="homeFloor">
      ${Array.from({length:L.cols*L.rows},(_,i)=>`<button type="button" class="home-tile" data-x="${i%L.cols}" data-y="${Math.floor(i/L.cols)}" aria-label="Floor tile"></button>`).join('')}
      ${h.furniture.map((f,i)=>layerOf(RS,f.id)!=='wall'?pieceHtml(f,i):'').join('')}
-     ${extOn(hid,'floor')?pieceHtml(STAIR_GROUND,0,'data-zpiece'):''}
      <div class="home-residents" id="homeResidents"></div>
     </div>
     <div class="home-door" aria-hidden="true"></div>
    </div>
    ${extOn(hid,'garden')||extOn(hid,'pool')?yardHtml(hid):''}
+   ${extOn(hid,'floor')?'<div class="home-stairs" id="homeStairs" aria-label="Stairs between the floors"><i class="home-stairs-rail"></i><span class="home-stairs-tag">▲ Up</span></div>':''}
    </div>
    ${moving?`<p class="home-hint">Drag ${escapeText(uiName(byId.get(h.furniture[moving.index]?.id)))} to its new spot · <button type="button" class="home-link" id="homeCancelMove">Done</button></p>`:''}
    <div class="home-effects">${sumHtml}</div>
@@ -2342,7 +2357,7 @@ function createHomeSystem(ctx){
   mount.querySelectorAll('[data-piece]').forEach(p=>{wireDrag(mount,hid,p);});
   mount.querySelectorAll('[data-piece]').forEach(p=>p.onclick=e=>{if(Date.now()-dragEndedAt<350)return;if(moving&&Number(p.dataset.piece)===moving.index)return;if(moving){const t=spotFromEvent(mount,e,hid);if(t)tapSpot(mount,hid,t.x,t.y,t.wall);return;}tapPiece(mount,hid,Number(p.dataset.piece),spotFromEvent(mount,e,hid));});
   const cm=$('homeCancelMove');if(cm)cm.onclick=()=>{moving=null;render(mount);};
-  startWander(mount,hid);try{wear?.(mount);}catch{}
+  placeStairs(mount);startWander(mount,hid);try{wear?.(mount);}catch{}
  }
  // While moving a piece, a tap that lands on another piece still means "this tile".
  function spotFromEvent(mount,e,hid){const L=layoutOf(hid);const fl=mount.querySelector('#homeFloor').getBoundingClientRect(),wl=mount.querySelector('#homeWall').getBoundingClientRect();
@@ -4143,12 +4158,13 @@ function createCompanionSystem(ctx){
    ${have?`<button type="button" class="pet-activate" data-activate="${meta.id}" aria-pressed="${state.active===meta.id}">${state.active===meta.id?'Active':(state.firstFreeUsed?'Choose · ad':'Choose · free')}</button>`:''}
   </article>`;
  }
+ let homeTab='houses';
  function renderTab(){
   const root=$('viewPets');if(!root)return;
   const act=activeMeta();const have=unlocked().length;
   const groups=FAMILIES.map(f=>({f,list:roster.filter(c=>c.family===f.id)})).filter(g=>g.list.length);
   const ava=c=>{const own=isDiscovered(c.id),p=own?pet(c.id):null,el=byId.get(c.id),house=own&&ctx.residentOf?ctx.residentOf(c.id):null;
-   return `<button type="button" class="pet-ava ${own?'is-unlocked':'is-locked'} ${state.active===c.id?'is-active':''} ${own&&isShiny(c.id)?'is-shiny':''}" data-card="${c.id}" aria-label="${own?escapeText(p.nick||uiName(el)):'Undiscovered companion'}"><span class="pet-ava-art">${own?(sprites[c.id]||staticArt(el)):'<span class="pet-silhouette">'+staticArt(el)+'</span>'}</span><small>${own?escapeText(p.nick||uiName(el)):'???'}</small>${own?`<em class="pet-ava-lv">Lv ${totalLevel(c.id)}</em>`:''}${state.active===c.id?'<i class="pet-ava-tag is-screen" title="On screen"></i>':house?'<i class="pet-ava-tag is-home" title="Lives in a house"></i>':''}</button>`;};
+   return `<button type="button" class="pet-ava ${own?'is-unlocked':'is-locked'} ${state.active===c.id||state.buddy===c.id?'is-active':''} ${own&&isShiny(c.id)?'is-shiny':''}" data-${state.active===c.id||state.buddy===c.id?'onscreen':'card'}="${c.id}" aria-label="${own?escapeText(p.nick||uiName(el)):'Undiscovered companion'}"><span class="pet-ava-art">${own?(sprites[c.id]||staticArt(el)):'<span class="pet-silhouette">'+staticArt(el)+'</span>'}</span><small>${own?escapeText(p.nick||uiName(el)):'???'}</small>${own?`<em class="pet-ava-lv">Lv ${totalLevel(c.id)}</em>`:''}${state.active===c.id||state.buddy===c.id?'<i class="pet-ava-tag is-screen" title="On screen"></i><em class="pet-ava-on">On screen</em>':house?'<i class="pet-ava-tag is-home" title="Lives in a house"></i>':''}</button>`;};
   let now='';
   if(act){const p=pet(act.id);settleMood(p);now=`<section class="pets-now"><button type="button" class="pets-now-art" data-card="${act.id}" aria-label="Stats">${sprites[act.id]||''}</button><div class="pets-now-main"><strong>${escapeText(nameOf(act))}</strong><small>On screen · Total Lv ${totalLevel(act.id)} · ${moodLabel(p.mood)}${hungry(p)?' · Hungry':''}</small><span class="pet-needs"><span><i>Mood</i><b><em style="width:${p.mood}%"></em></b></span><span><i>Belly</i><b class="is-belly"><em style="width:${p.belly}%"></em></b></span></span></div><div class="pets-now-actions"><button type="button" class="pets-btn" data-card="${act.id}">Stats</button><button type="button" class="pets-btn is-quiet" data-wardrobe="${act.id}">Wear</button><button type="button" class="pets-btn is-quiet" id="petDismiss">Send home</button></div></section>`;}
   else now=`<section class="pets-now is-empty"><small>${have?'No companion on screen. Tap a companion below to choose one.':`Discover one of the ${roster.length} companion elements (five per family) to get your first companion.`}</small></section>`;
@@ -4161,10 +4177,11 @@ function createCompanionSystem(ctx){
      <div class="s2-perks"><span><b>⚔</b>Duo games</span><span><b>×1.25</b>Growth</span><span><b>✦</b>More finds</span></div>
      <div class="s2-paths"><button type="button" class="s2-path is-buy" id="slot2Buy" ${info.canBuy?'':'disabled'}><small>INSTANT</small><b>${escapeText(info.price)}</b></button>
       <button type="button" class="s2-path" id="slot2Ad" ${ready&&info.canAd?'':'disabled'}><small>${ready?'FREE PATH':'FREE PATH · LOCKED'}</small>${ready?`<span class="s2-pips">${Array.from({length:info.adsNeeded},(_,k)=>`<i class="${k<info.ads?'on':''}"></i>`).join('')}</span><b>▶ Ad ${info.ads}/${info.adsNeeded}</b>`:`<span class="s2-bar"><i style="width:${pct.toFixed(1)}%"></i></span><b>${info.elements.toLocaleString('en-US')} / ${info.minElements.toLocaleString('en-US')}</b>`}</button></div></section>`;}}
-  root.innerHTML=`<div class="pets-scroll"><div class="section-head home-title"><h2>Home</h2></div>
-   <div id="homeMount"></div>
-   <h3 class="pets-family">On screen</h3>${now}${slot}
-   <h3 class="pets-family">Companions <span>${have}/${roster.length}</span></h3>
+  const tabs=`<div class="mk-tabs home-tabs" role="tablist">${[['houses','Houses'],['companions',`Companions · ${have}/${roster.length}`]].map(([k,l])=>`<button type="button" data-hometab="${k}" aria-pressed="${homeTab===k}">${l}</button>`).join('')}</div>`;
+  root.innerHTML=homeTab==='houses'?`<div class="pets-scroll"><div class="section-head home-title"><h2>Home</h2></div>${tabs}
+   <div id="homeMount"></div></div>`:`<div class="pets-scroll"><div class="section-head home-title"><h2>Home</h2></div>${tabs}
+   ${act?'':now}
+   <p class="mini-muted pets-legend"><i class="pet-ava-tag is-screen"></i> On screen · tap for mood, wear and send home <i class="pet-ava-tag is-home"></i> Lives in a house</p>
    <div class="pets-avatars">${groups.map(g=>`<div class="pets-ava-row"><span class="pets-ava-family">${escapeText(g.f.name)}</span><div class="pets-ava-list">${g.list.map(ava).join('')}</div></div>`).join('')}</div>
    <details class="pets-help"><summary>How companions and houses work</summary><ul>
     <li><strong>Companions:</strong> discover a companion element, tap it here and choose it. Your first one is free; switching later needs a rewarded ad (then 5 free minutes). It lives on your screen: drag elements onto it to feed it, rub it to pet it, tap its gifts.</li>
@@ -4172,7 +4189,15 @@ function createCompanionSystem(ctx){
     <li><strong>Houses:</strong> discover house elements (Tent 1 → Castle 8 companions; better houses need longer recipes). Tap a house for its bonuses. Companions living in a house grow faster from everything they do — bonuses only speed up growth, so moving a companion never takes anything away.</li>
     <li><strong>Furniture:</strong> tap the floor or the wall to place pieces, press and hold to drag them, tap one to rotate or put it away. Training pieces speed up their stat, food pieces make meals fill more, fun pieces lift mood faster, books and globes bring more finds while you are away.</li>
     <li><strong>While you are away:</strong> residents find elements you could already craft. One or two are free; one ad keeps them all.</li>
-   </ul></details></div>`;
+   </ul></details>
+   ${slot?`<h3 class="pets-family">Second slot</h3>${slot}`:''}</div>`;
+  root.querySelectorAll('[data-hometab]').forEach(b=>b.onclick=()=>{homeTab=b.dataset.hometab;renderTab();});
+  // V145: on-screen companions open their mood / wear / send-home card in a sheet
+  root.querySelectorAll('[data-onscreen]').forEach(b=>b.onclick=()=>{const id=b.dataset.onscreen;const html=id===state.active?now:slot;
+   showModal(`<div class="modal-tag">ON SCREEN</div>${html.replace(/id="buddyChange"[^>]*>Change</,'id="buddyChange">Change<')}`);const mc=$('modalContent');try{ctx.wear?.(mc);}catch{}
+   mc.querySelectorAll('[data-card]').forEach(x=>x.onclick=()=>{closeModal();openCard(x.dataset.card);});
+   mc.querySelectorAll('[data-wardrobe]').forEach(x=>x.onclick=()=>{closeModal();ctx.openWardrobe?.(x.dataset.wardrobe);});
+   const d2=$('petDismiss');if(d2)d2.onclick=()=>{closeModal();setActive(null);};const bc2=$('buddyChange');if(bc2)bc2.onclick=()=>{closeModal();pickBuddy();};const bd2=$('buddyDismiss');if(bd2)bd2.onclick=()=>{closeModal();setBuddy(null);};});
   root.querySelectorAll('[data-card]').forEach(b=>b.onclick=()=>openCard(b.dataset.card));
   const d=$('petDismiss');if(d)d.onclick=()=>setActive(null);
   root.querySelectorAll('[data-wardrobe]').forEach(b=>b.onclick=e=>{e.stopPropagation();ctx.openWardrobe?.(b.dataset.wardrobe);});
@@ -5948,7 +5973,7 @@ function shinyCard(item){return `<p class="shiny-trivia"><span aria-hidden="true
 function showShinyFound(id){const it=byId.get(id);if(!it)return;
  showModal(`<div class="modal-tag shiny-tag">✦ SHINY ELEMENT</div><div class="modal-art is-shiny">${staticArt(it)}</div><h2>Shiny ${escapeText(uiName(it))}</h2>${shinyCard(it)}<div class="modal-milestone">${shiny.size.toLocaleString('en-US')} shiny ${shiny.size===1?'element':'elements'} · ${Math.round(shinyChance()*100)}% chance per combination</div>`);
 }
-const APP_VERSION='1.0.44';
+const APP_VERSION='1.0.45';
 // V83: status line + Google consent (UMP) privacy options, required for EEA players.
 async function refreshAdStatus(){
  const el=$('settingsAdStatus'),bridge=getRewardBridge();

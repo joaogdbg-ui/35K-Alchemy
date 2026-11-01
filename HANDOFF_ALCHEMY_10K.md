@@ -90,6 +90,10 @@ Preserve 200-per-batch policy and do not start another content release on top of
 
 - **Art redraw wave 3 (V85, done): 3,991 icons** — every remaining older element. All 6,012 pre-V83 elements now use the 2026 art direction (`ART_REDRAW`), plus 200 V83 and 200 V85 originals. Six near-duplicates found by the audit were redrawn; 36 reviewed false alarms are in `tools/art-redraw-reviewed-pairs.json` (the audit now also honours them for V83 comparisons).
 
+## V145 — Home tabs (Houses / Companions); one continuous staircase (1 November 2026)
+- Home has two tabs (`homeTab` in companion-engine-v86.js `renderTab`): **Houses** (the house view + hub) and **Companions** (grid by family, legend, help, Duo second-slot block). The old "On screen" section is gone: on-screen companions (active and buddy) have a green border + "On screen" label in the grid and open the mood/Wear/Send-home card in a sheet (`data-onscreen`).
+- Stairs: a single `.home-stairs` element (`placeStairs` in home-engine-v90.js, measured after render) runs from row 2 of the ground floor, through the wall band and the floor slab, up to the bottom two rows upstairs, with a handrail and an "▲ Up" tag. The old separate stair/stairwell sprites only block tiles now (ground 0,0–0,1; upstairs bottom-left).
+
 ## V144 — stairs that make sense; Home hub (1 November 2026)
 - Second floor: the staircase now stands on the **ground floor** (back-left corner, `STAIR_GROUND`, blocks those tiles via `zh(hid,h)` in every `fits` call; furniture already there is put away when the floor is added). Upstairs shows a **stairwell** (`zone:stairwell`: railing round an opening with steps going down) instead of stairs going further up.
 - Home now mirrors the Games tab: room on top, then four tiles (Houses, Residents, Furniture, Add-ons) opening sheets (`housesSheet`, `residentsSheet`, `furnitureSheet`, `addonsSheet`). The house chip row, Residents row and Add-ons row were removed from the main view. Furniture sheet: tap to move a placed piece, place an unplaced one at the first free spot (then drag), or bring one from another house.
