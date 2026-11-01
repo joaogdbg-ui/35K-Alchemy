@@ -58,3 +58,9 @@ test('V121: hand-picked themes fix false matches',async()=>{
  assert.equal(fx('Dragon Quest').theme,'dragon');assert.equal(fx('Soap').resets.length,1);
  const r=E.lookAfterMeal(E.defaultLook(),'Dragon Egg Cradle','fantasy','',9);assert.ok(r.look.mix.back['dragon-wings']>0,'egg cradle does not reset');
 });
+test('V122: after-meal look diff rows',async()=>{
+ const E=await import('../src/companion-engine-v86.js');const a=E.defaultLook();const b=E.lookAfterMeal(a,'Demon','fantasy','',6).look;
+ const rows=E.lookDiff(a,b);assert.deepEqual(rows.map(r=>r.label),['Colour','Head','Back','Tail']);assert.match(rows[0].text,/Shadowy 0% → 7%/);assert.match(rows[2].text,/Bat wings 0% → 25%/);
+ const c=E.lookAfterMeal(b,'Fairy','fantasy','',6).look;assert.match(E.lookDiff(b,c).find(r=>r.label==='Back').text,/Butterfly wings 0% → 25%/);
+ assert.deepEqual(E.lookDiff(b,b),[]);
+});
