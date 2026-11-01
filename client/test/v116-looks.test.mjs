@@ -43,3 +43,11 @@ test('V119b: morphing blends outlines point by point (organic, not transparency)
  assert.equal(a.pts.length,b.pts.length);const mid=m.pts[7],x=(a.pts[7][0]+b.pts[7][0])/2;assert.ok(Math.abs(mid[0]-x)<1e-9,'points are averaged');
  assert.notEqual(m.color,a.color);assert.ok(morphBlend('back',{'bat-wings':.25}).grow<1,'partly grown');assert.match(smoothPath(m.pts,10),/^M.*Q.*Z$/);
 });
+test('V120: powers only from radiant, grown traits; self-feeding never changes looks',async()=>{
+ const E=await import('../src/companion-engine-v86.js');
+ let L=E.defaultLook();for(let i=0;i<3;i++)L=E.lookAfterMeal(L,'Dragon','fantasy','',4).look;assert.equal(E.powersOf(L).length,0,'tier 2 dragon: no power');
+ let R=E.defaultLook(),notes=[];for(let i=0;i<2;i++){const r=E.lookAfterMeal(R,'Dragon','fantasy','',10);R=r.look;notes.push(...r.notes);}
+ assert.deepEqual(E.powersOf(R).map(p=>p.id),['fire']);assert.ok(notes.includes('New power: Fire breath!'));assert.match(E.lookLabel(R),/⚡ Fire breath/);
+ assert.equal(E.lookEffects('Dragon','fantasy','',10).power,'Fire breath');assert.equal(E.lookEffects('Dragon','fantasy','',4).power,null);
+ assert.equal(E.lookEffects('Pebble','nature','',1).traits.length,0,'easy elements only tint/size');
+});

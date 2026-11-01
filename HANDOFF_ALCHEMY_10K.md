@@ -90,6 +90,11 @@ Preserve 200-per-batch policy and do not start another content release on top of
 
 - **Art redraw wave 3 (V85, done): 3,991 icons** — every remaining older element. All 6,012 pre-V83 elements now use the 2026 art direction (`ART_REDRAW`), plus 200 V83 and 200 V85 originals. Six near-duplicates found by the audit were redrawn; 36 reviewed false alarms are in `tools/art-redraw-reviewed-pairs.json` (the audit now also honours them for V83 comparisons).
 
+## V120 — looks only from player feeding + signature powers (1 November 2026)
+- `eatSequence(...,{self:true})` (companion eats on its own) no longer calls `lookAfterMeal`: self-meals grow stats/belly/mood only. Easy elements (tier 1, depth<4) still only tint/size.
+- `LOOK_POWERS`/`powersOf(look)`: a power unlocks when enough RADIANT traits (tier 3, depth≥9) are ≥75% grown — Fire breath (2 of dragon horns/wings/tail), Fairy dust (butterfly wings), Phoenix blaze (fire wings), Frost breath (flake), Shadow smoke (2 demon traits), Holy light (halo + feather wings), Water spout (fish tail). Idle loop uses one ~10% of ticks (`usePower`, `.fx-power` CSS particles, sfx). Meal notes "New power: X!", look label "⚡ X", meal preview shows "⚡ X · power when fully grown" for tier-3 themed elements.
+- Main screen companion only (houses don't show powers yet). Test: V120 in v116-looks.test.mjs.
+
 ## V119b — organic shape morphing (1 November 2026)
 - Replaced the V119 opacity crossfade: every wing/tail/horn/topper/aura trait is now an outline resampled to the same number of points (`morphBlend`, `smoothPath` in companion-engine-v86.js). A slot's mix is drawn as ONE shape whose points are the weighted average of its traits' outlines, so edges bend gradually (bat-wing fingers round into butterfly lobes). Colour blends the same way. Halo/antenna/notes keep their own drawing.
 - Test: V119b in v116-looks.test.mjs. Render check: /tmp/v86/t38.py (Demon×4 → Fairy×3).

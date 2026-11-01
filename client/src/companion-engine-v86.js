@@ -106,6 +106,10 @@ export function normLook(look){const L={...defaultLook(),...(look||{})};L.lux={.
  return L;}
 const dominant=(mx)=>{const e=Object.entries(mx||{}).filter(([,w])=>w>0.04).sort((a,b)=>b[1]-a[1]);return e[0]?.[0]||null;};
 const mix=(a,b,t)=>a.map((v,i)=>Math.round(v+(b[i]-v)*t));
+/** particle paths per power: [dx,dy,scale] (mouth/body-relative, facing right) */
+const POWER_FX={fire:(i,n,r)=>[48+i*5+r*14,(r-.5)*18-i,1.2+i*.12],frost:(i,n,r)=>[44+i*5+r*12,(r-.5)*16,1+i*.1],
+ fairy:(i,n,r)=>[(r-.5)*80,24+r*40,.6+r*.6],phoenix:(i,n)=>{const a=i/n*2*Math.PI;return [Math.cos(a)*46,Math.sin(a)*40-10,1];},
+ shadow:(i,n,r)=>[(r-.5)*60,-30-r*30,1.4+r],holy:(i,n,r)=>[(i-n/2)*7,-18-r*14,.8+r*.4],water:(i,n,r)=>[(r-.5)*44,-28-i*2+r*8,.8+r*.5]};
 export function lookAfterMeal(look,name,family='',category='',depth){
  const L=normLook(look);const t=` ${String(name||'').toLowerCase()} `;const notes=[];const tier=lookTier(depth);
  if(/rebirth|\begg\b|reset|reincarnat/.test(t)&&(L.k>0||L.size||['head','back','tail','aura'].some(sl=>Object.keys(L.mix[sl]).length))){notes.push('Back to its natural look');return {look:defaultLook(),notes};}
@@ -125,17 +129,31 @@ export function lookAfterMeal(look,name,family='',category='',depth){
   const pct=Math.round(mx[v]*100),name=TRAIT_NAME[v];
   notes.push(before&&before!==v&&mx[before]>0.04?`${TRAIT_NAME[before]} morphing into ${name.toLowerCase()} (${pct}%)`:pct>=100&&had<1?`${tier===3?'Radiant ':''}${name} fully grown!`:`${tier===3?'Radiant ':''}${name} growing (${pct}%)`);}
  for(const sl of ['head','back','tail','aura'])L[sl]=dominant(L.mix[sl]);
+ {const had=new Set(powersOf(look).map(p=>p.id));for(const pw of powersOf(L))if(!had.has(pw.id))notes.push(`New power: ${pw.name}!`);}
  return {look:L,notes,theme:theme?.[0]||null,tier};
 }
+/** V120: signature powers — only the most extravagant looks (radiant traits from hard elements, ≥75% grown)
+ * give the companion a little special move it does now and then. need = how many of the traits must qualify. */
+export const LOOK_POWERS=[
+ {id:'fire',name:'Fire breath',theme:'dragon',traits:['head:dragon-horns','back:dragon-wings','tail:dragon-tail'],need:2,sfx:'breath'},
+ {id:'fairy',name:'Fairy dust',theme:'fairy',traits:['back:butterfly-wings'],need:1,sfx:'happy'},
+ {id:'phoenix',name:'Phoenix blaze',theme:'phoenix',traits:['back:fire-wings'],need:1,sfx:'flap'},
+ {id:'frost',name:'Frost breath',theme:'ice',traits:['head:flake'],need:1,sfx:'breath'},
+ {id:'shadow',name:'Shadow smoke',theme:'demon',traits:['head:devil-horns','back:bat-wings','tail:devil-tail'],need:2,sfx:'purr'},
+ {id:'holy',name:'Holy light',theme:'angel',traits:['head:halo','back:feather-wings'],need:2,sfx:'medal'},
+ {id:'water',name:'Water spout',theme:'ocean',traits:['tail:fish-tail'],need:1,sfx:'splash'}];
+export function powersOf(look){if(!look)return [];const N=normLook(look);
+ return LOOK_POWERS.filter(pw=>pw.traits.filter(k=>{const [sl,id]=k.split(':');return N.lux[k]&&(N.mix[sl][id]||0)>=0.75;}).length>=pw.need);}
 /** V118: what an element WOULD do to a companion's looks (for the element sheet), from a plain look. */
 export function lookEffects(name,family='',category='',depth){const t=` ${String(name||'').toLowerCase()} `;const tier=lookTier(depth);const r=lookAfterMeal(defaultLook(),name,family,category,depth).look;
  const theme=LOOK_THEMES.find(([,re])=>re.test(t));const set=theme?theme[2]:{};const tk=set.tint||FAMILY_TINT[family]||null;
  const traits=['head','back','tail','aura'].filter(sl=>set[sl]).map(sl=>({slot:sl,label:TRAIT_NAME[set[sl]],lux:tier===3,locked:tier<2}));
  const resets=[];if(/rebirth|\begg\b|reset|reincarnat/.test(t))resets.push('Restores the natural look');if(/soap|bath|shower|wash|sponge|clean/.test(t))resets.push('Washes colour off');if(/mirror|reflection/.test(t))resets.push('Undoes size and head trait');
- return {tint:tk&&!/soap|bath|shower|wash/.test(t)?{key:tk,name:TINT_NAME[tk],rgb:LOOK_COLORS[tk]}:null,size:r.size,traits,resets,tier,theme:theme?.[0]||null};}
+ const power=tier===3&&theme?LOOK_POWERS.find(pw=>pw.theme===theme[0])?.name||null:null;
+ return {power,tint:tk&&!/soap|bath|shower|wash/.test(t)?{key:tk,name:TINT_NAME[tk],rgb:LOOK_COLORS[tk]}:null,size:r.size,traits,resets,tier,theme:theme?.[0]||null};}
 export function lookLabel(look){if(!look)return '';const out=[];const tk=look.tint&&look.k>0.02?Object.entries(LOOK_COLORS).sort((a,b)=>dist(a[1],look.tint)-dist(b[1],look.tint))[0][0]:null;
  if(tk)out.push(`${TINT_NAME[tk]} tint`);const N=normLook(look);for(const sl of ['head','back','tail','aura']){const e=Object.entries(N.mix[sl]).filter(([,w])=>w>0.04).sort((a,b)=>b[1]-a[1]);if(!e.length)continue;const lx=e.some(([k])=>N.lux[sl+':'+k]);const tot=e.reduce((n,[,w])=>n+w,0);
-  out.push((lx?'✦ ':'')+(e.length>1?`${TRAIT_NAME[e[0][0]]} / ${TRAIT_NAME[e[1][0]].toLowerCase()} mix`:TRAIT_NAME[e[0][0]])+(tot<0.99?` ${Math.round(tot*100)}%`:''));}if(Math.abs(look.size||0)>=0.01)out.push(`Size ${look.size>0?'+':''}${Math.round(look.size*100)}%`);return out.join(' · ');}
+  out.push((lx?'✦ ':'')+(e.length>1?`${TRAIT_NAME[e[0][0]]} / ${TRAIT_NAME[e[1][0]].toLowerCase()} mix`:TRAIT_NAME[e[0][0]])+(tot<0.99?` ${Math.round(tot*100)}%`:''));}if(Math.abs(look.size||0)>=0.01)out.push(`Size ${look.size>0?'+':''}${Math.round(look.size*100)}%`);for(const pw of powersOf(look))out.push(`⚡ ${pw.name}`);return out.join(' · ');}
 const dist=(a,b)=>a.reduce((n,v,i)=>n+(v-b[i])**2,0);
 /** Luminance-preserving tint matrix for an SVG feColorMatrix. */
 export function tintMatrix(rgb,k){const [r,g,b]=rgb.map(v=>v/255*1.15);const T=[[.3*r,.59*r,.11*r],[.3*g,.59*g,.11*g],[.3*b,.59*b,.11*b]];const m=[];for(let i=0;i<3;i++){for(let j=0;j<3;j++)m.push(((1-k)*(i===j?1:0)+k*T[i][j]).toFixed(3));m.push('0','0');}m.push('0','0','0','1','0');return m.join(' ');}
@@ -362,6 +380,7 @@ export function createCompanionSystem(ctx){
   const slot=lockedUseless();
   if(slot&&now()-lastPoint>60000){lastPoint=now();await pointAtSlot(slot);timer=setTimeout(loop,800);return;}
   const roll=Math.random();
+  {const pws=powersOf(pet(meta.id).look);if(pws.length&&rail.kind!=='side'&&Math.random()<0.1){await usePower(pws[Math.floor(Math.random()*pws.length)]);timer=setTimeout(loop,700);return;}}
   try{
    if(rail.kind==='side')await climb();
    else if(rail.kind==='behind'){if(roll<0.5)await stroll();else await jumpTo(rs.find(r=>r.kind==='top'&&r.i===rail.i)||pickRail());}
@@ -390,6 +409,11 @@ export function createCompanionSystem(ctx){
  async function pointAtSlot(slotRect){const top=rails().find(x=>x.kind==='top'&&x.ref.top<=slotRect.top&&x.ref.bottom>=slotRect.bottom);if(top&&top!==rail)await jumpTo(top);
   await walkTo(clampX(rail,slotRect.left+slotRect.width/2-SIZE/2),rail.y);pos.face=1;sprite.dataset.face='right';
   sprite.dataset.anim='point';await wait(900);sprite.dataset.anim='shake';await wait(1000);sprite.dataset.anim='idle';}
+ async function usePower(pw){if(reducedMotion())return;busy=true;
+  try{sprite.dataset.anim='point';await wait(250);sfx[pw.sfx]?.();const f=sprite.querySelector('.companion-fx');if(!f)return;const el=document.createElement('i');el.className='fx-power is-'+pw.id;
+   const n=pw.id==='holy'?8:12;el.innerHTML=Array.from({length:n},(_,i)=>{const r=Math.random();const v=POWER_FX[pw.id](i,n,r);return `<b style="--i:${i};--dx:${v[0]}px;--dy:${v[1]}px;--s:${v[2]}"></b>`;}).join('');f.append(el);
+   await wait(1500);el.remove();}
+  finally{sprite.dataset.anim='idle';busy=false;}}
  async function quirk(meta){
   const q=meta.quirkAnim||'wiggle';busy=true;
   try{
@@ -473,7 +497,8 @@ export function createCompanionSystem(ctx){
   const changes=plan.map(c=>({...c,...gainStat(p,meta,c.stat,c.amount)}));
   p.mood=Math.min(100,p.mood+(taste==='love'?12:5));p.moodAt=now();p.belly=Math.min(100,p.belly+Math.round((fresh?25:10)*growth(meta.id,'food')));p.bellyAt=now();if(fresh)p.fed[item.id]=now();p.meals++;save();
   // V116: what it eats changes how it looks (refused food never does)
-  const lk=lookAfterMeal(p.look,item.name||uiName(item),familyFor(item),item.category,ctx.depthOf?.(item.id));p.look=lk.look;save();if(lk.notes.length)try{ctx.wear?.(sprite.parentElement||sprite);}catch{}
+  // V120: only meals the player gives change looks — eating on its own just grows stats
+  const lk=self?{look:p.look,notes:[]}:lookAfterMeal(p.look,item.name||uiName(item),familyFor(item),item.category,ctx.depthOf?.(item.id));p.look=lk.look;save();if(lk.notes.length)try{ctx.wear?.(sprite.parentElement||sprite);}catch{}
   if(changes.length)showStatWindow(meta,changes,2800);
   else{const left=Math.max(1,Math.ceil((FEED_COOLDOWN_MS-(now()-last))/60000));showNoteWindow(meta,fresh?[`<b>${escapeText(uiName(item))}</b> · stats already at max`,`Belly +${Math.round(25*growth(meta.id,'food'))} · Mood +${taste==='love'?12:5}`]:[`Already ate <b>${escapeText(uiName(item))}</b> recently`,`No growth for ${left} min — try another element`,`Belly +${Math.round(10*growth(meta.id,'food'))} · Mood +${taste==='love'?12:5}`],3200);}
   if(lk.notes.length&&statWin){statWin.insertAdjacentHTML('beforeend',lk.notes.map(n=>`<div class="cs-note is-look">✨ ${escapeText(n)}</div>`).join(''));}
