@@ -119,7 +119,7 @@ import { RACE_PRIZES, PRIZE_BY_ID, BELTS, beltSvg, wearBelt, personalPrize, pers
 import { STADIUM_ART_V95 } from './stadium-art-v95.js';
 import { createStadiumSfx } from './stadium-sfx-v95.js';
 import { COMPANIONS_V86, COMPANION_SPRITES_V86 } from './companions-v86.js';
-import { createCompanionSystem, COMPANION_STORAGE_KEY } from './companion-engine-v86.js';
+import { createCompanionSystem, COMPANION_STORAGE_KEY, rivalLook } from './companion-engine-v86.js';
 import { PUBLIC_LABELS_V86 } from './public-labels-v86.js';
 import { reconcileLegacyFamilies } from './family-compatibility-v82.js';
 import { synchronizeFamilyProfiles, sharedMembership } from './family-shared-v51.js';
@@ -498,7 +498,7 @@ function shinyCard(item){return `<p class="shiny-trivia"><span aria-hidden="true
 function showShinyFound(id){const it=byId.get(id);if(!it)return;
  showModal(`<div class="modal-tag shiny-tag">✦ SHINY ELEMENT</div><div class="modal-art is-shiny">${staticArt(it)}</div><h2>Shiny ${escapeText(uiName(it))}</h2>${shinyCard(it)}<div class="modal-milestone">${shiny.size.toLocaleString('en-US')} shiny ${shiny.size===1?'element':'elements'} · ${Math.round(shinyChance()*100)}% chance per combination</div>`);
 }
-const APP_VERSION='1.0.28';
+const APP_VERSION='1.0.29';
 // V83: status line + Google consent (UMP) privacy options, required for EEA players.
 async function refreshAdStatus(){
  const el=$('settingsAdStatus'),bridge=getRewardBridge();
@@ -1698,7 +1698,7 @@ const homeDiscovered=id=>PRIZE_BY_ID[id]||parsePersonalPrize(id)?games.hasPrize(
 // up to ×2 at 4,000 (a multiplier on future gains only, like the houses).
 function classicDiscoveredCount(){try{const list=currentMode==='classic'?[...unlocked]:(classicSnapshot?.unlocked||[]);return Math.max(0,list.filter(id=>!['legacy:0','legacy:1','legacy:2','legacy:3'].includes(id)).length);}catch{return 0;}}
 function alchemyGrowth(){return Math.round((1+Math.min(1,classicDiscoveredCount()/4000))*100)/100;}
-function wearAll(root){if(!root)return;const els=root.querySelectorAll?.('[data-companion], .pet-ava[data-card], .pet-card[data-pet], .home-res[data-res], .pets-now-art[data-card]')||[];for(const el of els){const id=el.dataset.companion||el.dataset.card||el.dataset.pet||el.dataset.res;const svg=el.querySelector('svg');if(!svg)continue;try{companions.applyLook(svg,id);}catch{}const belt=games.beltOf(id);if(belt)wearBelt(svg,belt);}}
+function wearAll(root){if(!root)return;const els=root.querySelectorAll?.('[data-companion], .pet-ava[data-card], .pet-card[data-pet], .home-res[data-res], .pets-now-art[data-card]')||[];for(const el of els){const id=el.dataset.companion||el.dataset.card||el.dataset.pet||el.dataset.res;const svg=el.querySelector('svg');if(!svg)continue;try{const rl=el.dataset.rival&&!companions.lookOf(id)?games.rivalLookOf?.(id):null;if(rl)companions.applyRivalLook(svg,id,rl);else companions.applyLook(svg,id);}catch{}const belt=games.beltOf(id);if(belt)wearBelt(svg,belt);}}
 const homes=createHomeSystem({$,escapeText,byId:homeById,uiName:homeUiName,staticArt:homeStaticArt,isDiscovered:homeDiscovered,objects:HOME_OBJECTS,sprites:COMPANION_SPRITES_V86,roster:COMPANIONS_V86,
  roomSprites:ROOM_SPRITES,depthOf:id=>routeDepth.get(id),alchemy:()=>({mult:alchemyGrowth(),finds:classicDiscoveredCount()}),wear:wearAll,applyEffect:(cid,eff)=>companions.homeEffect(cid,eff),
  companionName:id=>companions.state().pets[id]?.nick||uiName(byId.get(id)),statsHtml:id=>companions.statsHtml(id),showModal,closeModal,toast,reducedMotion:()=>Boolean(window.matchMedia?.('(prefers-reduced-motion: reduce)')?.matches)});
@@ -1757,7 +1757,7 @@ function gamesUnlocked(){try{return homes.ownedHouses().length>0&&companions.unl
 function syncGamesTab(){const t=document.querySelector('.tab-games');if(!t)return;const on=gamesUnlocked();t.hidden=!on;let seen=false;try{seen=localStorage.getItem(GAMES_SEEN_KEY)==='1';}catch{}const b=$('gamesBadge');if(b)b.hidden=!(on&&!seen);}
 function gamesSeen(){try{localStorage.setItem(GAMES_SEEN_KEY,'1');}catch{}syncGamesTab();}
 const games=createGamesSystem({$,escapeText,roster:COMPANIONS_V86,sprites:COMPANION_SPRITES_V86,byId,uiName,isDiscovered:companionOwned,companionInfo:id=>companions.info(id),activeId:()=>companions.state().active,
- prizes:{RACE_PRIZES,beltSvg,personal:(course,cid,name,sprite)=>personalPrize(course,cid,companions.state().pets?.[cid]?.nick||name,sprite)},starterCompanion:STARTER_COMPANION,belts:BELTS,wear:wearAll,alchemyGrowth,classicCount:classicDiscoveredCount,openCard:id=>companions.openCard(id),art:STADIUM_ART_V95,sfx:SFX,onBelt:()=>{companions.refreshViews();companions.start();},
+ prizes:{RACE_PRIZES,beltSvg,personal:(course,cid,name,sprite)=>personalPrize(course,cid,companions.state().pets?.[cid]?.nick||name,sprite)},starterCompanion:STARTER_COMPANION,belts:BELTS,wear:wearAll,alchemyGrowth,classicCount:classicDiscoveredCount,openCard:id=>companions.openCard(id),art:STADIUM_ART_V95,sfx:SFX,rivalLook:(seed,level)=>rivalLook(seed,level),onBelt:()=>{companions.refreshViews();companions.start();},
  onResult:(id,kind,focus,place)=>{const amt=[0,12,8,5,3,3][place]||3;const stats=kind==='karate'?['power','hp']:focus==='all'?['run','swim','fly','power']:focus==='stamina'?['stamina','run']:[focus,'stamina'];return companions.gameReward(id,stats,amt);},
  showModal,closeModal,toast,reducedMotion:()=>Boolean(window.matchMedia?.('(prefers-reduced-motion: reduce)')?.matches)});
 const BACKUP_KEYS=[COMPANION_STORAGE_KEY,HOME_STORAGE_KEY,GAMES_STORAGE_KEY,SHINY_KEY,HINT_BANK_KEY,FAMILY_SAVES_KEY,MODE_SELECTION_KEY,'gameverse_alchemy_v2','gameverse_dynamic_v11','gameverse_ledger_v16','gameverse_discovery_hints_v20',EXTRA_STORAGE,DISCOVERY_ORDER_KEY];

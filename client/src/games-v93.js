@@ -259,20 +259,22 @@ export function createGamesSystem(ctx){
  }
 
  // ---------- shared stage ----------
- function actor(id,cls=''){const el=document.createElement('span');el.className='companion g-actor '+cls;el.dataset.anim='idle';el.dataset.face='right';el.dataset.companion=id;const art=document.createElement('span');art.className='companion-art';rig(art,id);el.append(art);return el;}
+ function actor(id,cls=''){const el=document.createElement('span');el.className='companion g-actor '+cls;el.dataset.anim='idle';el.dataset.face='right';el.dataset.companion=id;if(rivalLooks.has(id))el.dataset.rival='1';const art=document.createElement('span');art.className='companion-art';rig(art,id);el.append(art);return el;}
  function stage(title,kind){const st=document.createElement('div');st.className='g-stage is-'+kind;st.innerHTML=`<div class="g-stage-top"><strong>${escapeText(title)}</strong><button type="button" class="g-quit" aria-label="Quit">✕</button></div><div class="g-stage-body"></div><div class="g-hud"></div><div class="g-banner" hidden></div>`;document.body.append(st);return st;}
  function banner(st,text,cls='',ms=900){const b=st.querySelector('.g-banner');b.textContent=text;b.className='g-banner '+cls;b.hidden=false;b.classList.remove('is-in');void b.offsetWidth;b.classList.add('is-in');clearTimeout(b._t);b._t=setTimeout(()=>{b.hidden=true;},ms);}
  const countdown=(st,done)=>{const seq=['3','2','1','GO!'];let i=0;const tick=()=>{banner(st,seq[i],seq[i]==='GO!'?'is-go':'is-count',seq[i]==='GO!'?700:800);if(seq[i]==='GO!')sfx.go();else sfx.tick();i++;if(i<seq.length)setTimeout(tick,800);else setTimeout(done,150);};tick();};
  const fxAt=(parent,cls,x,y,ms=700)=>{const f=document.createElement('i');f.className='g-fx '+cls;f.style.left=x+'px';f.style.top=y+'px';parent.append(f);setTimeout(()=>f.remove(),ms);return f;};
  const shake=st=>{if(reducedMotion())return;st.classList.remove('is-shake');void st.offsetWidth;st.classList.add('is-shake');};
- const opponentsFor=(n,exclude)=>{const pool=roster.filter(c=>c.id!==exclude);const out=[];const used=new Set();while(out.length<n&&used.size<pool.length){const c=pool[Math.floor(Math.random()*pool.length)];if(used.has(c.id))continue;used.add(c.id);out.push(c);}return out;};
+ // V129: rivals get a generated look (more extravagant at higher levels) unless they are the player's own fed companions
+ const rivalLooks=new Map();const rivalAttr=id=>rivalLooks.has(id)?' data-rival="1"':'';
+ const opponentsFor=(n,exclude,level=0)=>{rivalLooks.clear();const pool=roster.filter(c=>c.id!==exclude);const out=[];const used=new Set();while(out.length<n&&used.size<pool.length){const c=pool[Math.floor(Math.random()*pool.length)];if(used.has(c.id))continue;used.add(c.id);out.push(c);rivalLooks.set(c.id,ctx.rivalLook?.(Date.now()+out.length*7919+c.id.length*131,level)||null);}return out;};
  const cheerBtn=label=>`<button type="button" class="g-cheer" id="gCheer"><span>${label}</span><i></i></button>`;
 
  // ---------- race ----------
  function startRace(mount,course,level){
   const pid=pick();if(!pid)return;const me=companionInfo(pid);
   const C=buildCourse(planFor(course,level),course.id.length*31+level);const L=C.L;
-  const rivals=opponentsFor(4,pid);const growth=Number(ctx.alchemyGrowth?.()||1);
+  const rivals=opponentsFor(4,pid,level);const growth=Number(ctx.alchemyGrowth?.()||1);
   const st=stage(`${course.name} · ${LEVELS[level]}`,'race');st.dataset.level=level;const body=st.querySelector('.g-stage-body'),hud=st.querySelector('.g-hud');
   body.innerHTML=`<div class="g-sky" style="background-image:${bg('sky')}"><i class="g-cloud" style="--d:0"></i><i class="g-cloud" style="--d:1"></i><i class="g-cloud" style="--d:2"></i></div><div class="g-mid" style="background-image:${bg('mid')}"></div><div class="g-track is-v99" style="width:${C.W}px">${courseSvg(C,art)}${courseFrontSvg(C)}</div><div class="g-fore" style="background-image:${bg('mid')}"></div><div class="g-tint"></div>`;
   body.classList.add('has-v99');const track=body.querySelector('.g-track'),hills=body.querySelector('.g-mid');
@@ -366,7 +368,7 @@ export function createGamesSystem(ctx){
   const podium=[0,1,2].map(i=>finished[i]||racers.find(r=>!finished.includes(r)&&r!==finished[0])).filter(Boolean);
   const unlocked=place===1&&level<LEVELS.length-1&&!prev?`<p class="g-unlock">${LEVELS[level+1]} unlocked!</p>`:'';
   showModal(`<div class="modal-tag">${escapeText(course.name)} · ${LEVELS[level].toUpperCase()}</div>
-   <div class="g-podium">${podium.map((r,i)=>`<div class="g-pod is-${i+1}"><span class="companion" data-companion="${r.id}"><span class="companion-art"></span></span><b>${i+1}</b></div>`).join('')}</div>
+   <div class="g-podium">${podium.map((r,i)=>`<div class="g-pod is-${i+1}"><span class="companion" data-companion="${r.id}"${rivalAttr(r.id)}><span class="companion-art"></span></span><b>${i+1}</b></div>`).join('')}</div>
    <div class="g-result">${medalDot(place,true)}</div><h2>${place===1?'You won!':`Finished ${ORD(place)} of ${racers.length}`}</h2>${unlocked}
    ${newPrize?`<div class="g-prize"><span>${prize.art}</span><div><b>New trophy for ${escapeText(companionInfo(pick())?.name||'')}!</b><small>${escapeText(prize.name)} — place it from the Home tab.</small></div></div>`:''}
    ${trained.length?`<p class="mini-muted">Trained ${trained.join(', ')}.</p>`:''}
@@ -379,7 +381,7 @@ export function createGamesSystem(ctx){
 
  // ---------- karate (best of three rounds) ----------
  function startKarate(mount,level){
-  const pid=pick();if(!pid)return;const me=companionInfo(pid);const rival=opponentsFor(1,pid)[0];
+  const pid=pick();if(!pid)return;const me=companionInfo(pid);const rival=opponentsFor(1,pid,level)[0];
   const ms=Object.fromEntries(Object.entries(me.stats).map(([k,v])=>[k,v.level]));const rs=opponentStats({id:'dojo',focus:'all'},level,7+level);
   const st=stage(`Karate Dojo · ${LEVELS[level]}`,'karate');const body=st.querySelector('.g-stage-body'),hud=st.querySelector('.g-hud');
   body.innerHTML=`<div class="g-dojo" style="background-image:${bg('dojo')}"></div><div class="g-ring"><div class="g-ring-floor" style="background-image:${bg('ring')}"></div></div>`;const ring=body.querySelector('.g-ring');
@@ -387,7 +389,7 @@ export function createGamesSystem(ctx){
   for(const f of [A,B]){f.hpMax=100+f.s.hp*4;f.max=energyMax(f.s.stamina);f.el=actor(f.id,f.me?'is-me is-left':'is-right');ring.append(f.el);}
   B.el.dataset.face='left';dress(ring);
   hud.innerHTML=`<div class="g-fighters"><div class="g-fighter is-me"><span class="g-port companion" data-companion="${A.id}"><span class="companion-art"></span></span><div><b>${escapeText(A.name)}</b><span class="g-hp is-me"><b><em id="gHpA"></em></b></span><span class="g-zeal"><em id="gZealA"></em></span></div><i class="g-rounds" id="gRoundsA"></i></div>
-   <div class="g-fighter is-them"><div><b>${escapeText(B.name)}</b><span class="g-hp"><b><em id="gHpB"></em></b></span><span class="g-zeal"><em id="gZealB"></em></span></div><span class="g-port companion" data-companion="${B.id}"><span class="companion-art"></span></span><i class="g-rounds" id="gRoundsB"></i></div></div>${cheerBtn('POWER STRIKE')}`;
+   <div class="g-fighter is-them"><div><b>${escapeText(B.name)}</b><span class="g-hp"><b><em id="gHpB"></em></b></span><span class="g-zeal"><em id="gZealB"></em></span></div><span class="g-port companion" data-companion="${B.id}"${rivalAttr(B.id)}><span class="companion-art"></span></span><i class="g-rounds" id="gRoundsB"></i></div></div>${cheerBtn('POWER STRIKE')}`;
   hud.querySelectorAll('.companion[data-companion] .companion-art').forEach(a=>rig(a,a.parentElement.dataset.companion));dress(hud);
   const el=id=>hud.querySelector('#'+id),cheer=el('gCheer');
   const upd=()=>{el('gHpA').style.width=(100*A.hp/A.hpMax)+'%';el('gHpB').style.width=(100*B.hp/B.hpMax)+'%';el('gZealA').style.width=(100*A.energy/A.max)+'%';el('gZealB').style.width=(100*B.energy/B.max)+'%';el('gRoundsA').innerHTML='<b></b>'.repeat(A.wins);el('gRoundsB').innerHTML='<b></b>'.repeat(B.wins);cheer.classList.toggle('is-dim',A.energy<20||A.power);};
@@ -434,7 +436,7 @@ export function createGamesSystem(ctx){
   if(newBelt)setTimeout(()=>sfx.prize(),500);else setTimeout(()=>win?sfx.medal():sfx.lose(),300);
   const trained=onResult?.(pick(),'karate','all',win?1:2)||[];
   const unlocked=win&&level<LEVELS.length-1&&prev!==1?`<p class="g-unlock">${LEVELS[level+1]} unlocked!</p>`:'';
-  showModal(`<div class="modal-tag">KARATE DOJO · ${LEVELS[level].toUpperCase()}</div><div class="g-versus"><span class="companion ${win?'is-happy':''}" data-companion="${A.id}"><span class="companion-art"></span></span><b>${A.wins} – ${B.wins}</b><span class="companion ${win?'':'is-happy'}" data-companion="${B.id}"><span class="companion-art"></span></span></div>
+  showModal(`<div class="modal-tag">KARATE DOJO · ${LEVELS[level].toUpperCase()}</div><div class="g-versus"><span class="companion ${win?'is-happy':''}" data-companion="${A.id}"><span class="companion-art"></span></span><b>${A.wins} – ${B.wins}</b><span class="companion ${win?'':'is-happy'}" data-companion="${B.id}"${rivalAttr(B.id)}><span class="companion-art"></span></span></div>
    <div class="g-result">${medalDot(win?1:0,true)}</div><h2>${win?'Victory!':'Defeated'}</h2>${unlocked}
    ${newBelt?`<div class="g-prize"><span>${prizes.beltSvg(newBelt,56)}</span><div><b>${escapeText(newBelt.name)} earned!</b><small>${escapeText(A.name)} wears it from now on.</small></div></div>`:''}
    ${trained.length?`<p class="mini-muted">Trained ${trained.join(', ')}.</p>`:''}
@@ -444,5 +446,5 @@ export function createGamesSystem(ctx){
   $('gBack').onclick=()=>{closeModal();render(mount);};
   render(mount);
  }
- return {render,state:()=>state,medalCounts,hasPrize,beltOf,prizeIds:()=>[...state.prizes]};
+ return {render,rivalLookOf:id=>rivalLooks.get(id)||null,state:()=>state,medalCounts,hasPrize,beltOf,prizeIds:()=>[...state.prizes]};
 }

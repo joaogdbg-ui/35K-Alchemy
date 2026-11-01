@@ -161,6 +161,15 @@ export const LOOK_POWERS=[
  {id:'water',name:'Water spout',theme:'ocean',traits:['tail:fish-tail'],need:1,sfx:'splash'}];
 export function powersOf(look){if(!look)return [];const N=normLook(look);
  return LOOK_POWERS.filter(pw=>pw.traits.filter(k=>{const [sl,id]=k.split(':');return N.lux[k]&&(N.mix[sl][id]||0)>=0.75;}).length>=pw.need);}
+/** V129: a believable look for a rival companion in the minigames: it "ate" a few themed meals.
+ * Higher levels → more meals, harder (radiant) elements and sometimes a second theme mixed in. */
+const RIVAL_MEALS=['Demon','Dragon','Fairy','Angel','Fish','Fox','Robot','Bird','Ice','Fire','Flower','Leaf','Star','Crown','Love','Music','Magic','Bubble','Gold','Candy','Vampire'];
+export function rivalLook(seed,level=0){let x=(Math.abs(Math.floor(seed))%2147483646)+1;const rnd=()=>(x=x*16807%2147483647)/2147483647;
+ let L=defaultLook();const meals=1+level+Math.floor(rnd()*2);const depth=level>=3?10:level>=1?6:3;
+ const a=RIVAL_MEALS[Math.floor(rnd()*RIVAL_MEALS.length)],b=level>=1&&rnd()<0.5?RIVAL_MEALS[Math.floor(rnd()*RIVAL_MEALS.length)]:null;
+ for(let i=0;i<meals;i++)L=lookAfterMeal(L,b&&i%2?b:a,'','',depth).look;
+ if(rnd()<0.35)for(let i=0;i<1+level;i++)L=lookAfterMeal(L,rnd()<0.5?'Cake':'Feather','','food',3).look;
+ return L;}
 /** V118: what an element WOULD do to a companion's looks (for the element sheet), from a plain look. */
 export function lookEffects(name,family='',category='',depth){const tf=themeFor(name);const t=tf.picked?' ':` ${String(name||'').toLowerCase()} `;const tier=lookTier(depth);const r=lookAfterMeal(defaultLook(),name,family,category,depth).look;
  const theme=tf.theme;const set=theme?theme[2]:{};const tk=set.tint||FAMILY_TINT[family]||null;
@@ -839,7 +848,7 @@ export function createCompanionSystem(ctx){
   return {cid,known,name:nameOf(meta),taste,fresh,cooldownMin:fresh?0:Math.max(1,Math.ceil((FEED_COOLDOWN_MS-(now()-last))/60000)),stats,depth,depthMult:feedDepthMult(depth),looks:lookEffects(item.name||uiName(item),familyFor(item),item.category,depth)};}
  function tasted(itemId){return !!state.tasted?.[itemId]||Object.values(state.pets||{}).some(q=>q?.fed?.[itemId]);}
  function looksOf(itemId){const item=byId.get(itemId);if(!item)return null;return lookEffects(item.name||uiName(item),familyFor(item),item.category,ctx.depthOf?.(item.id));}
- return {duoActive,setBuddy,swapDuo,requestDuo:k=>{duoRequest=k||'any';},duoPlay,buddy:()=>buddyMeta()?.id||null,duoPair:()=>duoActive()?[state.active,state.buddy]:[],tasted,looksOf,mealPreview,lookOf,applyLook:(svg,id)=>applyLookSvg(svg,lookOf(id),id),start,stop,setActive,statsHtml,info,gameReward,choose,homeEffect,syncSeen,markSeen,isCompanion,freeChoiceLeft,emote,feed,hitTest,onDiscovery,renderTab,openCard,get active(){return activeMeta();},state:()=>state,unlocked,refreshViews,
+ return {duoActive,applyRivalLook:(svg,id,look)=>applyLookSvg(svg,look,id+'-rival'),setBuddy,swapDuo,requestDuo:k=>{duoRequest=k||'any';},duoPlay,buddy:()=>buddyMeta()?.id||null,duoPair:()=>duoActive()?[state.active,state.buddy]:[],tasted,looksOf,mealPreview,lookOf,applyLook:(svg,id)=>applyLookSvg(svg,lookOf(id),id),start,stop,setActive,statsHtml,info,gameReward,choose,homeEffect,syncSeen,markSeen,isCompanion,freeChoiceLeft,emote,feed,hitTest,onDiscovery,renderTab,openCard,get active(){return activeMeta();},state:()=>state,unlocked,refreshViews,
   onViewChange(){if(activeMeta()&&sprite&&!sprite.hidden)setTimeout(()=>{if(cancelMove)cancelMove();const r=pickRail();if(r){rail=r;setLayer(r.layer);place(clampX(r,pos.x),r.y);sprite.dataset.anim='idle';}},80);},
   importState(raw){if(raw&&raw.pets){state=normalize(raw);save();syncSeen();}},grades:companionGrades};
 }
