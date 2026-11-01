@@ -90,6 +90,11 @@ Preserve 200-per-batch policy and do not start another content release on top of
 
 - **Art redraw wave 3 (V85, done): 3,991 icons** — every remaining older element. All 6,012 pre-V83 elements now use the 2026 art direction (`ART_REDRAW`), plus 200 V83 and 200 V85 originals. Six near-duplicates found by the audit were redrawn; 36 reviewed false alarms are in `tools/art-redraw-reviewed-pairs.json` (the audit now also honours them for V83 comparisons).
 
+## V117 — themed looks + rarer elements are more extravagant (1 November 2026)
+- `LOOK_THEMES` (word-boundary keywords, first match wins) give whole coherent sets: Demon (shadowy tint, devil horns, bat wings, devil tail), Vampire/Bat, Angel (bright tint, halo, feathered wings), Phoenix (warm, flame, fire wings, embers), Dragon (horns, dragon wings, spiked tail), Fairy (butterfly wings, sparkles), Ocean (fin, fish tail, bubbles), Fox (fox tail), Robot, Bird, Ice, Fire, Flower, Plant, Space, Royal, Love, Music, Magic, Bubbles, Metal, Gold, Sweet, Water. New slot: tail. New tints: dark, light.
+- Extravagance by recipe depth (`lookTier`): ≤3 only tint/size; 4–8 traits; 9+ RADIANT traits (×1.4, glow, flapping wings, swaying tail) and stronger tint (cap 0.62). Card shows ✦ on radiant traits.
+- Phoenix is now a theme; resets are egg/rebirth/reset (soap/mirror unchanged). Accessories may overflow the sprite (svg overflow visible).
+
 ## V116 — what companions eat changes how they look (1 November 2026)
 - Owner idea from SA2 Chao (animals change body parts; newer parts replace old ones). `lookAfterMeal(look,name,family,category)` (pure, companion-engine): tint toward a colour (warm/cool/leafy/metallic/mystic/golden/rosy, by name keywords or family; +0.06 per meal, cap 0.45), size ±2% per meal (food/big grow, air/feather/tiny shrink; ±15% cap), one trait per slot — head (leaf, flower, flame, snowflake, antenna, star, crown, horns), back (wings, fin), aura (sparkles, bubbles, hearts, music notes).
 - Resets: soap/bath/shower/wash wash most of the tint off; mirror undoes size and head trait; phoenix/egg/rebirth/reset restores the natural look. Refused food changes nothing.
