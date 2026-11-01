@@ -1,0 +1,354 @@
+{
+ "version": 139,
+ "status": "OWNER_EXCEPTION",
+ "owner_exception": true,
+ "owner_exception_reason": "Owner request (1 November 2026): every Black Market item must also be a real Alchemy element; batch size exception granted by the owner.",
+ "cohort_count": 23,
+ "new_items": [
+  {
+   "id": "organic139:party-hat",
+   "name": "Party Hat",
+   "category": "home",
+   "summary": "A pointy paper-and-fabric party hat with stripes and a pompom, perfect for a companion who loves to dance at celebrations.",
+   "familyCampaigns": [
+    "home"
+   ],
+   "ingredients": [
+    "organic89:fabric",
+    "legacy:564"
+   ],
+   "art_mode": "bespoke-subject",
+   "path": "client/assets/v139/party-hat.svg"
+  },
+  {
+   "id": "organic139:sports-cap",
+   "name": "Sports Cap",
+   "category": "home",
+   "summary": "A soft fabric cap with a stiff brim that shades the eyes from the sun during races and long days outside.",
+   "familyCampaigns": [
+    "home"
+   ],
+   "ingredients": [
+    "organic89:fabric",
+    "legacy:141"
+   ],
+   "art_mode": "bespoke-subject",
+   "path": "client/assets/v139/sports-cap.svg"
+  },
+  {
+   "id": "organic139:top-hat",
+   "name": "Top Hat",
+   "category": "home",
+   "summary": "A tall black top hat with a red band, the classic hat of stage magicians and very polite companions.",
+   "familyCampaigns": [
+    "home"
+   ],
+   "ingredients": [
+    "organic89:fabric",
+    "legacy:125"
+   ],
+   "art_mode": "bespoke-subject",
+   "path": "client/assets/v139/top-hat.svg"
+  },
+  {
+   "id": "organic139:wizard-hat",
+   "name": "Wizard Hat",
+   "category": "home",
+   "summary": "A floppy starry wizard hat with a wide brim, sewn for companions who like to pretend they know a few spells.",
+   "familyCampaigns": [
+    "home"
+   ],
+   "ingredients": [
+    "organic89:fabric",
+    "pack:wizard"
+   ],
+   "art_mode": "bespoke-subject",
+   "path": "client/assets/v139/wizard-hat.svg"
+  },
+  {
+   "id": "organic139:sunglasses",
+   "name": "Sunglasses",
+   "category": "home",
+   "summary": "A pair of dark sunglasses with tinted lenses that keep the bright sun out of a companion's eyes in style.",
+   "familyCampaigns": [
+    "home"
+   ],
+   "ingredients": [
+    "legacy:23",
+    "legacy:66"
+   ],
+   "art_mode": "bespoke-subject",
+   "path": "client/assets/v139/sunglasses.svg"
+  },
+  {
+   "id": "organic139:star-glasses",
+   "name": "Star Glasses",
+   "category": "home",
+   "summary": "Silly star-shaped party glasses with golden frames, worn by companions who want to look like a celebrity.",
+   "familyCampaigns": [
+    "home"
+   ],
+   "ingredients": [
+    "organic139:sunglasses",
+    "legacy:612"
+   ],
+   "art_mode": "bespoke-subject",
+   "path": "client/assets/v139/star-glasses.svg"
+  },
+  {
+   "id": "organic139:monocle",
+   "name": "Monocle",
+   "category": "home",
+   "summary": "A single round lens in a golden rim with a thin chain, worn over one eye by very distinguished companions.",
+   "familyCampaigns": [
+    "home"
+   ],
+   "ingredients": [
+    "organic42:lens",
+    "legacy:33"
+   ],
+   "art_mode": "bespoke-subject",
+   "path": "client/assets/v139/monocle.svg"
+  },
+  {
+   "id": "organic139:scarf",
+   "name": "Scarf",
+   "category": "home",
+   "summary": "A long warm knitted scarf with yellow stripes, wrapped around a companion's neck on snowy winter days.",
+   "familyCampaigns": [
+    "home"
+   ],
+   "ingredients": [
+    "organic89:fabric",
+    "legacy:36"
+   ],
+   "art_mode": "bespoke-subject",
+   "path": "client/assets/v139/scarf.svg"
+  },
+  {
+   "id": "organic139:bandana",
+   "name": "Bandana",
+   "category": "home",
+   "summary": "A triangular cotton bandana with little white dots, tied around the neck like a pirate or a cowboy on an adventure.",
+   "familyCampaigns": [
+    "home"
+   ],
+   "ingredients": [
+    "organic89:fabric",
+    "legacy:547"
+   ],
+   "art_mode": "bespoke-subject",
+   "path": "client/assets/v139/bandana.svg"
+  },
+  {
+   "id": "organic139:bow-tie",
+   "name": "Bow Tie",
+   "category": "home",
+   "summary": "A neat red bow tie for concerts and fancy dinners, tied in a perfect knot under a companion's chin.",
+   "familyCampaigns": [
+    "home"
+   ],
+   "ingredients": [
+    "organic89:fabric",
+    "legacy:139"
+   ],
+   "art_mode": "bespoke-subject",
+   "path": "client/assets/v139/bow-tie.svg"
+  },
+  {
+   "id": "organic139:hero-cape",
+   "name": "Hero Cape",
+   "category": "home",
+   "summary": "A flowing red hero cape with a golden clasp that flutters behind a companion whenever it runs to the rescue.",
+   "familyCampaigns": [
+    "home"
+   ],
+   "ingredients": [
+    "organic89:fabric",
+    "legacy:118"
+   ],
+   "art_mode": "bespoke-subject",
+   "path": "client/assets/v139/hero-cape.svg"
+  },
+  {
+   "id": "organic139:swift-fruit",
+   "name": "Swift Fruit",
+   "category": "life",
+   "summary": "A light green fruit that grows on windy hilltops; companions who eat it run noticeably faster for a while.",
+   "familyCampaigns": [
+    "nature"
+   ],
+   "ingredients": [
+    "organic37:fruit",
+    "legacy:12"
+   ],
+   "art_mode": "bespoke-subject",
+   "path": "client/assets/v139/swift-fruit.svg"
+  },
+  {
+   "id": "organic139:sea-fruit",
+   "name": "Sea Fruit",
+   "category": "life",
+   "summary": "A round blue fruit found on rocky shores; companions who eat it become stronger and braver swimmers.",
+   "familyCampaigns": [
+    "nature"
+   ],
+   "ingredients": [
+    "organic37:fruit",
+    "legacy:591"
+   ],
+   "art_mode": "bespoke-subject",
+   "path": "client/assets/v139/sea-fruit.svg"
+  },
+  {
+   "id": "organic139:cloud-fruit",
+   "name": "Cloud Fruit",
+   "category": "life",
+   "summary": "A soft peach-coloured fruit as light as a cloud; companions who eat it glide further through the air.",
+   "familyCampaigns": [
+    "nature"
+   ],
+   "ingredients": [
+    "organic37:fruit",
+    "legacy:17"
+   ],
+   "art_mode": "bespoke-subject",
+   "path": "client/assets/v139/cloud-fruit.svg"
+  },
+  {
+   "id": "organic139:strong-fruit",
+   "name": "Strong Fruit",
+   "category": "life",
+   "summary": "A heavy red fruit that grows on mountain slopes; companions who eat it hit harder and climb rock walls with ease.",
+   "familyCampaigns": [
+    "nature"
+   ],
+   "ingredients": [
+    "organic37:fruit",
+    "legacy:38"
+   ],
+   "art_mode": "bespoke-subject",
+   "path": "client/assets/v139/strong-fruit.svg"
+  },
+  {
+   "id": "organic139:hearty-fruit",
+   "name": "Hearty Fruit",
+   "category": "life",
+   "summary": "A bright orange fruit full of juice that keeps a companion going for longer races and tougher fights.",
+   "familyCampaigns": [
+    "nature"
+   ],
+   "ingredients": [
+    "organic37:fruit",
+    "legacy:5"
+   ],
+   "art_mode": "bespoke-subject",
+   "path": "client/assets/v139/hearty-fruit.svg"
+  },
+  {
+   "id": "organic139:life-fruit",
+   "name": "Life Fruit",
+   "category": "life",
+   "summary": "A sweet pink fruit with a heart-shaped pit that helps companions recover their health after a hard day.",
+   "familyCampaigns": [
+    "nature"
+   ],
+   "ingredients": [
+    "organic37:fruit",
+    "legacy:21"
+   ],
+   "art_mode": "bespoke-subject",
+   "path": "client/assets/v139/life-fruit.svg"
+  },
+  {
+   "id": "organic139:hand-mirror",
+   "name": "Hand Mirror",
+   "category": "home",
+   "summary": "A small round hand mirror with a golden frame; a companion who looks into it remembers what it really looks like.",
+   "familyCampaigns": [
+    "home"
+   ],
+   "ingredients": [
+    "legacy:23",
+    "legacy:33"
+   ],
+   "art_mode": "bespoke-subject",
+   "path": "client/assets/v139/hand-mirror.svg"
+  },
+  {
+   "id": "organic139:rebirth-egg",
+   "name": "Rebirth Egg",
+   "category": "life",
+   "summary": "A warm golden egg with a flame pattern, said to come from a phoenix; it brings a companion back to its natural look.",
+   "familyCampaigns": [
+    "nature"
+   ],
+   "ingredients": [
+    "organic38:egg",
+    "organic83:phoenix"
+   ],
+   "art_mode": "bespoke-subject",
+   "path": "client/assets/v139/rebirth-egg.svg"
+  },
+  {
+   "id": "organic139:house-garden",
+   "name": "House Garden",
+   "category": "home",
+   "summary": "A fenced garden with a lawn and flower beds that extends a companion house outdoors and makes everyone happier.",
+   "familyCampaigns": [
+    "home"
+   ],
+   "ingredients": [
+    "legacy:592",
+    "organic89:fence"
+   ],
+   "art_mode": "bespoke-subject",
+   "path": "client/assets/v139/house-garden.svg"
+  },
+  {
+   "id": "organic139:outdoor-pool",
+   "name": "Outdoor Pool",
+   "category": "home",
+   "summary": "A sunny outdoor swimming pool with a little ladder, added to a companion house so residents can practise swimming.",
+   "familyCampaigns": [
+    "home"
+   ],
+   "ingredients": [
+    "organic89:paddling-pool",
+    "legacy:141"
+   ],
+   "art_mode": "bespoke-subject",
+   "path": "client/assets/v139/outdoor-pool.svg"
+  },
+  {
+   "id": "organic139:second-floor",
+   "name": "Second Floor",
+   "category": "home",
+   "summary": "A whole new upper floor with stairs and a balcony that gives a companion house more room and more residents.",
+   "familyCampaigns": [
+    "home"
+   ],
+   "ingredients": [
+    "organic89:staircase",
+    "organic89:floorboards"
+   ],
+   "art_mode": "bespoke-subject",
+   "path": "client/assets/v139/second-floor.svg"
+  },
+  {
+   "id": "organic139:grand-castle",
+   "name": "Castle with Garden and Pool",
+   "category": "home",
+   "summary": "The grandest companion home of all: a castle with towers, a flowering garden and its own outdoor pool for up to ten companions.",
+   "familyCampaigns": [
+    "home"
+   ],
+   "ingredients": [
+    "organic89:companion-castle",
+    "organic139:outdoor-pool"
+   ],
+   "art_mode": "bespoke-subject",
+   "path": "client/assets/v139/grand-castle.svg"
+  }
+ ]
+}

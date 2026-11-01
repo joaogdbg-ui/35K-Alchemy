@@ -34,7 +34,7 @@ test('V87: app passes the recipe polish to the family builder and the standalone
 
 test('V87: every polish entry applies cleanly, no element added, nothing skipped',async()=>{
  const {items,camps,polish}=await live;
- assert.equal(items.length,6612,'recipe polish never adds elements');
+ assert.equal(items.length,6635,'recipe polish never adds elements'); // V139: +23 owner-exception market elements
  assert.ok(polish.adds.length>=300&&polish.remaps.length>=100);
  assert.equal(camps.report.polishSkipped,0);
  assert.equal(camps.report.polishAdded,polish.adds.length);

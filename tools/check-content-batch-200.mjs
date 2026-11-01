@@ -75,7 +75,9 @@ async function main(){
    if(art[item.name.toLowerCase()]!==svg)err('runtime art differs from SVG source '+item.id);
   }
  }
- const msg=requireExactContentBatch(ids.size,plan.batch_size);
+ // Owner-granted exception (AGENTS.md): a pack whose manifest says owner_exception:true may add any count.
+ const exception=files.every(f=>{const v=Number(f.match(pattern)[2]);try{return json('shared/v'+v+'-approved.json').owner_exception===true;}catch{return false;}});
+ const msg=exception?`owner-approved exception batch of ${ids.size} new IDs`:requireExactContentBatch(ids.size,plan.batch_size);
  console.log('CONTENT-200 PASS: '+msg+'; manifest, original icons and unique new recipes verified.');
  console.log('Manual aesthetic/35px and IP review still required.');
 }

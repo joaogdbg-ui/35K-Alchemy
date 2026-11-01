@@ -90,6 +90,14 @@ Preserve 200-per-batch policy and do not start another content release on top of
 
 - **Art redraw wave 3 (V85, done): 3,991 icons** — every remaining older element. All 6,012 pre-V83 elements now use the 2026 art direction (`ART_REDRAW`), plus 200 V83 and 200 V85 originals. Six near-duplicates found by the audit were redrawn; 36 reviewed false alarms are in `tools/art-redraw-reviewed-pairs.json` (the audit now also honours them for V83 comparisons).
 
+## V139 — Market items are elements; Castle with Garden and Pool; house complements (1 November 2026)
+- Owner exception to the 200 rule (AGENTS.md): +23 elements `organic139:*` (manifest `shared/v139-approved.json`, `owner_exception:true`; gate accepts it). Catalog 6,612 → 6,635.
+- Every Market purchase is now also an element (`MARKET_ELEMENT` in market-v136.js; `it.element` on every item): hats, glasses, scarf, bandana, bow tie, cape, the six stat fruits, hand mirror, rebirth egg, plus existing Cookie, Soap, Bow, Headphones, Bouncing Ball, Spinning Top, Drum. Buying grants the element (toast "New element"); items bought before V139 are granted once at boot (2.5 s after load).
+- All new elements have in-family recipes (Alchemy can also find them for free).
+- Houses: `organic139:grand-castle` "Castle with Garden and Pool" (capacity 10, 9×9 floor, growth ×2.3, Market 🪙16,000).
+- House complements (`kind:'extension'`): House Garden (🪙2,400: +1 grass floor row, all growth ×1.05, Fun +20%), Outdoor Pool (🪙3,000: Swim +25%, pool strip), Second Floor (🪙4,200: +2 residents). Attach one per house from the chip row above the room in Home; tapping on another house moves it. Removing a second floor moves the newest extra residents out. Stored in `homes.houses[hid].ext`.
+- Tests: `client/test/v139-market-elements.test.mjs` (also checks app.js parses — node tests never import it). 404 passing.
+
 ## V138 — market polish: confirm, copies, daily coins, timed school levels, higher prices (1 November 2026)
 - Every Market/School purchase opens a CONFIRM sheet (price, balance, after; "Get more coins" when short). `modalBack` hook: X on confirm / coin shop returns to the sheet it came from.
 - Accessories are counted (`wallet.acc` = {id:copies}, old arrays migrated). One copy dresses one companion; Wardrobe shows free/used copies and offers to buy another copy. Price per copy `accPrice(base,owned)` = base×1.6^owned.

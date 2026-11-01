@@ -299,6 +299,8 @@ _v85=[('client/src/organic-pack-v85.js',['ORGANIC_V85'],'__gameverseOrganic85',"
  ('client/src/family-campaigns-v85.js',['buildCompleteFamilyCampaigns','mergeFamilyData'],'__familyCampaigns85',"import { buildCompleteFamilyCampaigns, mergeFamilyData } from './family-campaigns-v85.js';"),
  ('client/src/organic-pack-v89.js',['ORGANIC_V89'],'__gameverseOrganic89',"import { ORGANIC_V89 } from './organic-pack-v89.js';"),
  ('client/src/organic-art-v89.js',['ORGANIC_ART_V89'],'__gameverseOrganicArt89',"import { ORGANIC_ART_V89 } from './organic-art-v89.js';"),
+ ('client/src/organic-pack-v139.js',['ORGANIC_V139'],'__gameverseOrganic139',"import { ORGANIC_V139 } from './organic-pack-v139.js';"),
+ ('client/src/organic-art-v139.js',['ORGANIC_ART_V139'],'__gameverseOrganicArt139',"import { ORGANIC_ART_V139 } from './organic-art-v139.js';"),
  ('client/src/family-data-v89.js',['FAMILY_DATA_V89'],'__familyData89',"import { FAMILY_DATA_V89 } from './family-data-v89.js';"),
  ('client/src/home-objects-v89.js',['HOME_OBJECTS_V89'],'__homeObjects89',"import { HOME_OBJECTS_V89 } from './home-objects-v89.js';"),
  ('client/src/home-engine-v90.js',['createHomeSystem','HOME_STORAGE_KEY','pieceQuality','starsText'],'__homeEngine90',"import { createHomeSystem, HOME_STORAGE_KEY, pieceQuality, starsText } from './home-engine-v90.js';"),

@@ -28,7 +28,7 @@ const live=liveCatalog();
 
 test('V85: every family (9 since V89) is a complete, independent campaign',async()=>{
  const {items,camps,FAMILIES,familiesFor}=await live;
- assert.equal(items.length,6612);
+ assert.equal(items.length,6635); // V139: +23 owner-exception market elements
  assert.equal(camps.length,FAMILIES.length);
  assert.deepEqual(camps.report.conflicts,[]);
  assert.deepEqual(camps.report.dropped,{});

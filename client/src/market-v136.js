@@ -31,7 +31,7 @@ export const ACCESSORIES={
  'cape':{name:'Hero cape',slot:'neck',back:true,draw:s=>`<path d="M${f(-s*.32)} ${f(s*.04)}Q${f(-s*.5)} ${f(s*.6)} ${f(-s*.42)} ${f(s*.95)}L${f(s*.42)} ${f(s*.95)}Q${f(s*.5)} ${f(s*.6)} ${f(s*.32)} ${f(s*.04)}Z" fill="#c8303a" stroke="${S}" stroke-width="${f(s*.03)}"/>`}
 };
 /** Elements that can be worn (element name → accessory). */
-export const WEARABLE_ELEMENTS=[[/\btop hat\b/,'top-hat'],[/\bwizard hat\b/,'wizard-hat'],[/\bparty hat\b/,'party-hat'],[/\b(cap|baseball cap)\b/,'cap'],[/\bsunglasses\b/,'sunglasses'],[/\bmonocle\b/,'monocle'],[/\bheadphones?\b/,'headphones'],[/\bscarf\b/,'scarf'],[/\bbandana\b/,'bandana'],[/\bbow tie\b/,'bowtie'],[/\b(flower crown|wreath)\b/,'flower-crown'],[/\bcape\b/,'cape'],[/\bhat\b/,'top-hat'],[/\bbow\b/,'bow'],[/\bmedal\b/,'medal'],[/\bsnorkel\b/,'snorkel']];
+export const WEARABLE_ELEMENTS=[[/\btop hat\b/,'top-hat'],[/\bwizard hat\b/,'wizard-hat'],[/\bparty hat\b/,'party-hat'],[/\b(cap|baseball cap)\b/,'cap'],[/\bstar glasses\b/,'star-glasses'],[/\bsunglasses\b/,'sunglasses'],[/\bmonocle\b/,'monocle'],[/\bheadphones?\b/,'headphones'],[/\bscarf\b/,'scarf'],[/\bbandana\b/,'bandana'],[/\bbow tie\b/,'bowtie'],[/\b(flower crown|wreath)\b/,'flower-crown'],[/\bcape\b/,'cape'],[/\bhat\b/,'top-hat'],[/\bbow\b/,'bow'],[/\bmedal\b/,'medal'],[/\bsnorkel\b/,'snorkel']];
 export function wearableFor(name){const t=` ${String(name||'').toLowerCase()} `;return WEARABLE_ELEMENTS.find(([re])=>re.test(t))?.[1]||null;}
 // ---------- market ----------
 export const COIN_PACK={id:'coins_100',coins:100,price:'€1.00'};
@@ -58,8 +58,15 @@ export const MARKET=[
  {id:'toy-drum',kind:'toy',toy:'drum',name:'Little drum',icon:'🥁',price:500,desc:'They drum a little beat on it'},
  // furniture and houses: added to your elements
  ...[['organic89:running-wheel',650],['organic89:paddling-pool',650],['organic89:punching-bag',650],['organic89:trampoline',650],['organic89:climbing-wall',800],['organic89:bookshelf',800],['organic89:food-bowl',350],['organic89:ball-pit',600]].map(([el,price])=>({id:'el-'+el,kind:'furniture',element:el,price})),
- ...[['organic89:companion-tent',900],['organic89:companion-hut',1800],['organic89:companion-cabin',3200],['organic89:companion-cottage',5000],['organic89:companion-villa',7500],['organic89:companion-castle',11000]].map(([el,price])=>({id:'el-'+el,kind:'house',element:el,price}))
+ ...[['organic89:companion-tent',900],['organic89:companion-hut',1800],['organic89:companion-cabin',3200],['organic89:companion-cottage',5000],['organic89:companion-villa',7500],['organic89:companion-castle',11000],['organic139:grand-castle',16000]].map(([el,price])=>({id:'el-'+el,kind:'house',element:el,price})),
+ // V139: house complements, attached to one house in Home
+ ...[['organic139:house-garden',2400],['organic139:outdoor-pool',3000],['organic139:second-floor',4200]].map(([el,price])=>({id:'el-'+el,kind:'house',element:el,price,ext:true}))
 ];
+/** V139: every Market purchase is also a real element, so it counts in Alchemy and can be combined. */
+export const MARKET_ELEMENT={'fruit-run':'organic139:swift-fruit','fruit-swim':'organic139:sea-fruit','fruit-fly':'organic139:cloud-fruit','fruit-power':'organic139:strong-fruit','fruit-stamina':'organic139:hearty-fruit','fruit-hp':'organic139:life-fruit','mood-cookie':'organic38:cookie','soap':'organic89:soap','mirror':'organic139:hand-mirror','rebirth':'organic139:rebirth-egg',
+ 'acc-party-hat':'organic139:party-hat','acc-cap':'organic139:sports-cap','acc-bow':'legacy:607','acc-headphones':'legacy:330','acc-sunglasses':'organic139:sunglasses','acc-star-glasses':'organic139:star-glasses','acc-monocle':'organic139:monocle','acc-scarf':'organic139:scarf','acc-bandana':'organic139:bandana','acc-bowtie':'organic139:bow-tie','acc-top-hat':'organic139:top-hat','acc-wizard-hat':'organic139:wizard-hat','acc-cape':'organic139:hero-cape',
+ 'toy-ball':'legacy:557','toy-top':'organic89:spinning-top','toy-drum':'organic40:drum'};
+for(const it of MARKET)it.element=it.element||it.el||MARKET_ELEMENT[it.id]||null;
 export const MARKET_TABS=[['food','Food'],['acc','Wear'],['toy','Toys'],['furniture','Furniture'],['house','Houses']];
 /** V138: each extra copy of the same accessory costs more. */
 export const accPrice=(base,owned)=>Math.round(base*Math.pow(1.6,owned||0)/10)*10;
