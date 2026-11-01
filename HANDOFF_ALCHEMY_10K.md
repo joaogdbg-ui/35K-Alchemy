@@ -90,6 +90,11 @@ Preserve 200-per-batch policy and do not start another content release on top of
 
 - **Art redraw wave 3 (V85, done): 3,991 icons** — every remaining older element. All 6,012 pre-V83 elements now use the 2026 art direction (`ART_REDRAW`), plus 200 V83 and 200 V85 originals. Six near-duplicates found by the audit were redrawn; 36 reviewed false alarms are in `tools/art-redraw-reviewed-pairs.json` (the audit now also honours them for V83 comparisons).
 
+## V111 — feeding always shows a window (1 November 2026)
+- Owner bug: sometimes no window after feeding. Cases with no growth showed nothing: same element within the 30-minute cooldown, refused element, maxed stats. `showNoteWindow` now explains each (e.g. "Already ate Air recently · No growth for 23 min — try another element · Belly +10 · Mood +12").
+- Also fixed: the stat window's 400 ms hide timer was not tracked, so a window opened right after another faded could be hidden (`statHideTimer`).
+- Note: race/karate prizes (trophies) are house furniture only; they are not catalog elements and cannot be combined.
+
 ## V110 — picker previews, Change confirms (1 November 2026)
 - Owner: the V109 medal tallies on the picker tiles were not the right idea (removed). Now, with the picker open, tapping a companion only previews it: the entrant card, header medal counts, course medal dots and Prizes row show that companion. It becomes the entrant only when **Change** is tapped (highlighted while a different companion is previewed); the current entrant's tile has a dashed border. Tapping a Play button while previewing confirms that companion and starts.
 
