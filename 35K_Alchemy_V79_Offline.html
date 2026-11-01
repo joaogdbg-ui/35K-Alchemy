@@ -2722,21 +2722,34 @@ const LOOK_THEMES=[
  ['water',/\b(water|rain|river|lake|ocean|sea|wave)\b/,{tint:'cool'}]];
 const FAMILY_TINT={nature:'green',fantasy:'purple',mythology:'gold',games:'metal'};
 const lookTier=d=>!Number.isFinite(d)?2:d>=9?3:d>=4?2:1;
-const defaultLook=()=>({tint:null,k:0,size:0,head:null,back:null,tail:null,aura:null,lux:{}});
+const defaultLook=()=>({tint:null,k:0,size:0,head:null,back:null,tail:null,aura:null,lux:{},mix:{head:{},back:{},tail:{},aura:{}}});
+/** V119: each spot holds a MIX of traits with weights (sum ≤ 1). Traits grow over several meals and
+ * morph into each other: eating another kind for the same spot shifts weight to it. head/back/… keep
+ * the dominant trait (for labels and old saves). */
+function normLook(look){const L={...defaultLook(),...(look||{})};L.lux={...(L.lux||{})};const m=look?.mix||{};L.mix={};
+ for(const sl of ['head','back','tail','aura']){L.mix[sl]={...(m[sl]||{})};if(!look?.mix&&L[sl]){L.mix[sl][L[sl]]=1;if(L.lux[sl])L.lux[sl+':'+L[sl]]=1;}}
+ return L;}
+const dominant=(mx)=>{const e=Object.entries(mx||{}).filter(([,w])=>w>0.04).sort((a,b)=>b[1]-a[1]);return e[0]?.[0]||null;};
 const mix=(a,b,t)=>a.map((v,i)=>Math.round(v+(b[i]-v)*t));
 function lookAfterMeal(look,name,family='',category='',depth){
- const L={...defaultLook(),...(look||{})};L.lux={...(L.lux||{})};const t=` ${String(name||'').toLowerCase()} `;const notes=[];const tier=lookTier(depth);
- if(/rebirth|\begg\b|reset|reincarnat/.test(t)&&(L.k>0||L.size||L.head||L.back||L.tail||L.aura)){notes.push('Back to its natural look');return {look:defaultLook(),notes};}
+ const L=normLook(look);const t=` ${String(name||'').toLowerCase()} `;const notes=[];const tier=lookTier(depth);
+ if(/rebirth|\begg\b|reset|reincarnat/.test(t)&&(L.k>0||L.size||['head','back','tail','aura'].some(sl=>Object.keys(L.mix[sl]).length))){notes.push('Back to its natural look');return {look:defaultLook(),notes};}
  const wash=/soap|bath|shower|wash|sponge|clean/.test(t);
  if(wash&&L.k>0){L.k=Math.round(L.k*0.4*100)/100;if(L.k<0.04){L.k=0;L.tint=null;}L.aura=null;notes.push('Washed some colour off');}
- if(/mirror|reflection/.test(t)&&(L.size||L.head)){L.size=Math.round(L.size*0.4*100)/100;L.head=null;notes.push('Looks more like itself');}
+ if(/mirror|reflection/.test(t)&&(L.size||Object.keys(L.mix.head).length)){L.size=Math.round(L.size*0.4*100)/100;L.mix.head={};L.head=null;notes.push('Looks more like itself');}
  const theme=LOOK_THEMES.find(([,re])=>re.test(t));const set=theme?theme[2]:{};
  const tk=set.tint||FAMILY_TINT[family];
  if(tk&&!wash){const c=LOOK_COLORS[tk];const step=[0,0.05,0.07,0.1][tier],cap=tier===3?0.62:0.5;L.tint=L.tint&&L.k>0?mix(L.tint,c,tier===3?0.6:0.4):c;const was=L.k;L.k=Math.min(cap,Math.round((L.k+step)*100)/100);if(L.k>was)notes.push(`A little more ${TINT_NAME[tk].toLowerCase()}`);}
  const grow=category==='food'||/\b(food|cake|bread|pie|burger|pizza|meal|feast|mountain|whale|giant|elephant|huge|titan|mammoth)\b/.test(t),shrink=/\b(air|feather|cloud|bubble|tiny|mini|small|ant|mouse|dust|pebble)\b/.test(t);
  if(grow&&!shrink&&L.size<0.15){L.size=Math.min(0.15,Math.round((L.size+0.02)*100)/100);notes.push('Grew a bit');}
  else if(shrink&&!grow&&L.size>-0.15){L.size=Math.max(-0.15,Math.round((L.size-0.02)*100)/100);notes.push('Got a bit smaller');}
- if(tier>=2)for(const slot of ['head','back','tail','aura']){const v=set[slot];if(!v)continue;const lux=tier===3;if(L[slot]!==v||(lux&&!L.lux[slot])){L[slot]=v;if(lux)L.lux[slot]=1;else delete L.lux[slot];notes.push(`${lux?'Radiant ':'New: '}${TRAIT_NAME[v]}!`);}}
+ if(tier>=2)for(const slot of ['head','back','tail','aura']){const v=set[slot];if(!v)continue;const mx=L.mix[slot];const gain=tier===3?0.4:0.25;
+  const before=dominant(mx),had=mx[v]||0;mx[v]=Math.min(1,had+gain);const others=Object.keys(mx).filter(k=>k!==v);const oSum=others.reduce((n,k)=>n+mx[k],0);
+  if(mx[v]+oSum>1&&oSum>0){const f=Math.max(0,1-mx[v])/oSum;for(const k of others){mx[k]=Math.round(mx[k]*f*100)/100;if(mx[k]<0.04)delete mx[k];}}
+  mx[v]=Math.round(mx[v]*100)/100;if(tier===3)L.lux[slot+':'+v]=1;
+  const pct=Math.round(mx[v]*100),name=TRAIT_NAME[v];
+  notes.push(before&&before!==v&&mx[before]>0.04?`${TRAIT_NAME[before]} morphing into ${name.toLowerCase()} (${pct}%)`:pct>=100&&had<1?`${tier===3?'Radiant ':''}${name} fully grown!`:`${tier===3?'Radiant ':''}${name} growing (${pct}%)`);}
+ for(const sl of ['head','back','tail','aura'])L[sl]=dominant(L.mix[sl]);
  return {look:L,notes,theme:theme?.[0]||null,tier};
 }
 /** V118: what an element WOULD do to a companion's looks (for the element sheet), from a plain look. */
@@ -2746,7 +2759,8 @@ function lookEffects(name,family='',category='',depth){const t=` ${String(name||
  const resets=[];if(/rebirth|\begg\b|reset|reincarnat/.test(t))resets.push('Restores the natural look');if(/soap|bath|shower|wash|sponge|clean/.test(t))resets.push('Washes colour off');if(/mirror|reflection/.test(t))resets.push('Undoes size and head trait');
  return {tint:tk&&!/soap|bath|shower|wash/.test(t)?{key:tk,name:TINT_NAME[tk],rgb:LOOK_COLORS[tk]}:null,size:r.size,traits,resets,tier,theme:theme?.[0]||null};}
 function lookLabel(look){if(!look)return '';const out=[];const tk=look.tint&&look.k>0.02?Object.entries(LOOK_COLORS).sort((a,b)=>dist(a[1],look.tint)-dist(b[1],look.tint))[0][0]:null;
- if(tk)out.push(`${TINT_NAME[tk]} tint`);for(const s of ['head','back','tail','aura'])if(look[s])out.push((look.lux?.[s]?'✦ ':'')+TRAIT_NAME[look[s]]);if(Math.abs(look.size||0)>=0.01)out.push(`Size ${look.size>0?'+':''}${Math.round(look.size*100)}%`);return out.join(' · ');}
+ if(tk)out.push(`${TINT_NAME[tk]} tint`);const N=normLook(look);for(const sl of ['head','back','tail','aura']){const e=Object.entries(N.mix[sl]).filter(([,w])=>w>0.04).sort((a,b)=>b[1]-a[1]);if(!e.length)continue;const lx=e.some(([k])=>N.lux[sl+':'+k]);const tot=e.reduce((n,[,w])=>n+w,0);
+  out.push((lx?'✦ ':'')+(e.length>1?`${TRAIT_NAME[e[0][0]]} / ${TRAIT_NAME[e[1][0]].toLowerCase()} mix`:TRAIT_NAME[e[0][0]])+(tot<0.99?` ${Math.round(tot*100)}%`:''));}if(Math.abs(look.size||0)>=0.01)out.push(`Size ${look.size>0?'+':''}${Math.round(look.size*100)}%`);return out.join(' · ');}
 const dist=(a,b)=>a.reduce((n,v,i)=>n+(v-b[i])**2,0);
 /** Luminance-preserving tint matrix for an SVG feColorMatrix. */
 function tintMatrix(rgb,k){const [r,g,b]=rgb.map(v=>v/255*1.15);const T=[[.3*r,.59*r,.11*r],[.3*g,.59*g,.11*g],[.3*b,.59*b,.11*b]];const m=[];for(let i=0;i<3;i++){for(let j=0;j<3;j++)m.push(((1-k)*(i===j?1:0)+k*T[i][j]).toFixed(3));m.push('0','0');}m.push('0','0','0','1','0');return m.join(' ');}
@@ -2777,6 +2791,42 @@ const TAIL={
  'fox-tail':s=>`<path d="M0 0C${f1(-s*.45)} ${f1(s*.05)} ${f1(-s*.85)} ${f1(-s*.25)} ${f1(-s*.75)} ${f1(-s*.7)}C${f1(-s*.5)} ${f1(-s*.45)} ${f1(-s*.25)} ${f1(-s*.25)} 0 ${f1(-s*.15)}Z" fill="#e8834a" stroke="${S}" stroke-width="${f1(s*.04)}"/><path d="M${f1(-s*.75)} ${f1(-s*.7)}C${f1(-s*.7)} ${f1(-s*.5)} ${f1(-s*.6)} ${f1(-s*.42)} ${f1(-s*.5)} ${f1(-s*.42)}C${f1(-s*.55)} ${f1(-s*.55)} ${f1(-s*.65)} ${f1(-s*.65)} ${f1(-s*.75)} ${f1(-s*.7)}Z" fill="#fbf6ec"/>`,
  'fish-tail':s=>`<path d="M0 0C${f1(-s*.25)} ${f1(-s*.05)} ${f1(-s*.45)} ${f1(-s*.1)} ${f1(-s*.55)} ${f1(-s*.15)}L${f1(-s*.85)} ${f1(-s*.45)}L${f1(-s*.78)} ${f1(-s*.1)}L${f1(-s*.9)} ${f1(s*.2)}L${f1(-s*.55)} ${f1(-s*.02)}C${f1(-s*.4)} ${f1(s*.05)} ${f1(-s*.2)} ${f1(s*.08)} 0 ${f1(s*.08)}Z" fill="#6fb5d8" stroke="${S}" stroke-width="${f1(s*.04)}"/>`,
  'dragon-tail':s=>`<path d="M0 0C${f1(-s*.45)} ${f1(s*.15)} ${f1(-s*.7)} ${f1(-s*.1)} ${f1(-s*.95)} ${f1(-s*.35)}C${f1(-s*.65)} ${f1(-s*.2)} ${f1(-s*.4)} ${f1(-s*.05)} 0 ${f1(-s*.15)}Z" fill="#5e9e5a" stroke="${S}" stroke-width="${f1(s*.04)}"/>${[0.3,0.55,0.78].map(k=>`<path d="M${f1(-s*k)} ${f1(-s*(.08+k*.2))}l${f1(s*.05)} ${f1(-s*.14)}l${f1(s*.07)} ${f1(s*.12)}Z" fill="#f3d266" stroke="${S}" stroke-width="${f1(s*.025)}"/>`).join('')}`};
+/* V119b: ORGANIC morphing — every trait of a spot is an outline resampled to the same number of
+ * points, so a mix is a weighted average of the points (a straight edge slowly bends into a curve,
+ * bat-wing fingers round off into butterfly lobes). Colour blends the same way. */
+function resample(raw,N){const P=[...raw,raw[0]];const seg=[];let L=0;for(let i=0;i<P.length-1;i++){const d=Math.hypot(P[i+1][0]-P[i][0],P[i+1][1]-P[i][1]);seg.push(d);L+=d;}
+ const out=[];let i=0,acc=0;for(let k=0;k<N;k++){const target=k*L/N;while(i<seg.length-1&&acc+seg[i]<target){acc+=seg[i];i++;}const t=seg[i]?(target-acc)/seg[i]:0;out.push([P[i][0]+(P[i+1][0]-P[i][0])*t,P[i][1]+(P[i+1][1]-P[i][1])*t]);}return out;}
+const polar=(fn,n=48,cy=0)=>Array.from({length:n},(_,i)=>{const a=-Math.PI/2+i*2*Math.PI/n;const r=fn(a);return [Math.cos(a)*r,cy+Math.sin(a)*r];});
+const MORPH_RAW={
+ back:{'bat-wings':[[0,0],[-.25,-.5],[-.65,-.72],[-1.05,-.55],[-.98,-.38],[-.9,-.18],[-.82,.02],[-.7,-.06],[-.6,.12],[-.45,.02],[-.32,.16],[-.18,.06],[0,.14]],
+  'butterfly-wings':[[0,0],[-.15,-.55],[-.5,-.8],[-.85,-.65],[-.9,-.35],[-.7,-.1],[-.55,0],[-.75,.2],[-.7,.45],[-.45,.5],[-.2,.3],[0,.1]],
+  'feather-wings':[[0,0],[-.3,-.45],[-.7,-.6],[-1,-.5],[-.92,-.35],[-.98,-.25],[-.85,-.12],[-.9,-.02],[-.72,.05],[-.75,.15],[-.55,.14],[-.5,.24],[-.3,.18],[0,.14]],
+  'dragon-wings':[[0,0],[-.3,-.7],[-1.15,-.55],[-.9,-.28],[-1,0],[-.65,-.02],[-.62,.18],[-.3,.08],[0,.18]],
+  'fire-wings':[[0,0],[-.3,-.6],[-.55,-.4],[-.75,-.75],[-.85,-.35],[-1.05,-.45],[-.9,-.1],[-.7,0],[-.45,.1],[0,.14]],
+  fin:[[0,0],[-.15,-.35],[-.38,-.48],[-.32,-.12],[-.25,.05],[0,.1]]},
+ tail:{'devil-tail':[[0,-.05],[-.3,-.02],[-.55,-.2],[-.72,-.4],[-.8,-.52],[-.95,-.62],[-.85,-.42],[-.98,-.3],[-.78,-.36],[-.66,-.28],[-.5,-.08],[-.28,.06],[0,.05]],
+  'fox-tail':[[0,-.12],[-.3,-.25],[-.6,-.55],[-.8,-.75],[-.85,-.55],[-.8,-.3],[-.6,-.05],[-.3,.08],[0,.06]],
+  'fish-tail':[[0,-.05],[-.3,-.1],[-.55,-.15],[-.85,-.45],[-.78,-.1],[-.9,.2],[-.55,0],[-.3,.07],[0,.06]],
+  'dragon-tail':[[0,-.15],[-.3,-.12],[-.35,-.22],[-.45,-.15],[-.55,-.3],[-.65,-.22],[-.8,-.38],[-.95,-.35],[-.7,-.12],[-.4,.02],[0,.05]]},
+ horn:{'devil-horns':[[-.15,0],[-.1,-.35],[.05,-.6],[.3,-.85],[.22,-.55],[.12,-.3],[.15,0]],'dragon-horns':[[-.15,0],[-.05,-.3],[.2,-.5],[.6,-.6],[.3,-.35],[.18,-.15],[.15,0]]},
+ top:{leaf:[[0,0],[-.35,-.25],[-.4,-.6],[-.15,-.95],[0,-1.1],[.15,-.95],[.4,-.6],[.35,-.25]],flame:[[0,0],[-.38,-.2],[-.35,-.55],[-.15,-.7],[-.12,-.95],[.05,-1.1],[.1,-.85],[.3,-.65],[.38,-.25]],
+  star:polar(a=>{const k=((a+Math.PI/2)/(2*Math.PI)*10)%2;return .2+.25*Math.abs(1-k);},40,-.55),crown:[[-.42,0],[-.42,-.5],[-.2,-.25],[0,-.6],[.2,-.25],[.42,-.5],[.42,0]],
+  flower:polar(a=>.3+.14*Math.cos(5*a),40,-.55),flake:polar(a=>.16+.3*Math.abs(Math.cos(3*a))**4,48,-.55)},
+ aura:{sparkle:polar(a=>.25+.75*Math.abs(Math.cos(2*a))**6,32),bubbles:polar(()=>.6,32),embers:polar(()=>.38,32),
+  hearts:Array.from({length:32},(_,i)=>{const t=i/32*2*Math.PI;return [ .045*16*Math.sin(t)**3,-.045*(13*Math.cos(t)-5*Math.cos(2*t)-2*Math.cos(3*t)-Math.cos(4*t))];})}};
+const MORPH_N={back:30,tail:26,horn:18,top:28,aura:24};
+const MORPH_COLOR={'bat-wings':'#5b3a6e','butterfly-wings':'#f7a6c8','feather-wings':'#fbfaf4','dragon-wings':'#5e9e5a','fire-wings':'#ff9a3d',fin:'#6fb5d8','devil-tail':'#7a2230','fox-tail':'#e8834a','fish-tail':'#6fb5d8','dragon-tail':'#5e9e5a','devil-horns':'#c8303a','dragon-horns':'#efe3cf',leaf:'#7cc463',flame:'#ff9a3d',star:'#f3d266',crown:'#f1c26b',flower:'#f7a6c8',flake:'#bfe6fa',sparkle:'#ffe27a',bubbles:'#bfe3f7',embers:'#ff9a3d',hearts:'#ef7f9b'};
+const MORPH=Object.fromEntries(Object.entries(MORPH_RAW).map(([g,v])=>[g,Object.fromEntries(Object.entries(v).map(([id,raw])=>[id,resample(raw,MORPH_N[g])]))]));
+const hex=c=>[1,3,5].map(i=>parseInt(c.slice(i,i+2),16));
+/** Weighted blend of the outlines of one morph group in a spot's mix → {pts, color, grow, lux} or null. */
+function morphBlend(group,mix,lux={},slot=''){const V=MORPH[group];const e=Object.entries(mix||{}).filter(([id,w])=>w>0.04&&V[id]);if(!e.length)return null;
+ const tot=e.reduce((n,[,w])=>n+w,0);const N=MORPH_N[group];const pts=Array.from({length:N},()=>[0,0]);let col=[0,0,0];
+ for(const [id,w] of e){const f=w/tot;V[id].forEach(([x,y],i)=>{pts[i][0]+=x*f;pts[i][1]+=y*f;});col=col.map((v,i)=>v+hex(MORPH_COLOR[id])[i]*f);}
+ return {pts,color:`rgb(${col.map(Math.round).join(',')})`,grow:0.35+0.65*Math.min(1,tot),lux:e.some(([id])=>lux[slot+':'+id])};}
+/** Smooth closed path through points (quadratic curves via midpoints), scaled and placed. */
+function smoothPath(pts,s,ox=0,oy=0){const P=pts.map(([x,y])=>[ox+x*s,oy+y*s]);const m=(a,b)=>[(a[0]+b[0])/2,(a[1]+b[1])/2];let d=`M${f1(m(P[P.length-1],P[0])[0])} ${f1(m(P[P.length-1],P[0])[1])}`;
+ for(let i=0;i<P.length;i++){const n=P[(i+1)%P.length],q=m(P[i],n);d+=`Q${f1(P[i][0])} ${f1(P[i][1])} ${f1(q[0])} ${f1(q[1])}`;}return d+'Z';}
+
 function applyLookSvg(svg,look,key){
  if(!svg)return;svg.querySelectorAll('[data-acc="look"]').forEach(n=>n.remove());
  const L={...defaultLook(),...(look||{})};const lux=L.lux||{};const tinted=L.tint&&L.k>0.02;
@@ -2787,15 +2837,24 @@ function applyLookSvg(svg,look,key){
  const add=(parent,html,before=false,cls='')=>{const g=document.createElementNS('http://www.w3.org/2000/svg','g');g.setAttribute('data-acc','look');if(cls)g.setAttribute('class',cls);g.innerHTML=html;before?parent.insertBefore(g,parent.firstChild):parent.append(g);return g;};
  const bb=el=>{try{const b=el.getBBox();return b.width?b:null;}catch{return null;}};
  const head=svg.querySelector('[data-part="head"]')||svg.querySelector('[data-part="body"]');const body=svg.querySelector('[data-part="body"]')||head;
- const big=slot=>lux[slot]?1.4:1,cls=slot=>lux[slot]?'look-lux':'';
- if(L.head&&HEAD[L.head]&&head){const b=bb(head);if(b){const s=Math.max(8,b.width*(/horns/.test(L.head)?.42:.32))*big('head');add(head,`<g transform="translate(${f1(b.x+b.width/2)} ${f1(b.y+s*.12)})" stroke-linejoin="round" stroke-linecap="round">${HEAD[L.head](s)}</g>`,false,cls('head'));}}
- if((L.back&&(WING[L.back]||L.back==='fin'))&&body){const b=bb(body);if(b){const s=b.width*.5*big('back');
-  if(L.back==='fin')add(body,`<path d="M${f1(b.x+b.width*.45)} ${f1(b.y+b.height*.12)}l${f1(s*.2)} ${f1(-s*.34)}l${f1(s*.14)} ${f1(s*.36)}Z" fill="#6fb5d8" stroke="${S}" stroke-width="${f1(s*.03)}"/>`,true,cls('back'));
-  else{const y=b.y+b.height*.32;add(body,`<g transform="translate(${f1(b.x+b.width*.22)} ${f1(y)})"><g class="look-wing is-l">${WING[L.back](s)}</g></g><g transform="translate(${f1(b.x+b.width*.78)} ${f1(y)}) scale(-1 1)"><g class="look-wing is-r">${WING[L.back](s)}</g></g>`,true,cls('back'));}}}
- if(L.tail&&TAIL[L.tail]&&body){const b=bb(body);if(b){const s=b.width*.55*big('tail');add(body,`<g transform="translate(${f1(b.x+b.width*.12)} ${f1(b.y+b.height*.72)})" stroke-linejoin="round" stroke-linecap="round"><g class="look-tail">${TAIL[L.tail](s)}</g></g>`,true,cls('tail'));}}
- if(L.aura){const b=bb(svg);if(b){const n=lux.aura?5:3;const pts=[[-.05,.2],[1.02,.35],[.15,.85],[.9,.9],[.5,-.05]].slice(0,n).map(([x,y])=>[b.x+b.width*x,b.y+b.height*y]);const s=Math.max(5,b.width*.09)*big('aura');
-  const one=a=>a==='sparkle'?`<path d="M0 ${-s}L${f1(s*.25)} ${f1(-s*.25)}L${s} 0L${f1(s*.25)} ${f1(s*.25)}L0 ${s}L${f1(-s*.25)} ${f1(s*.25)}L${-s} 0L${f1(-s*.25)} ${f1(-s*.25)}Z" fill="#ffe27a"/>`:a==='bubbles'?`<circle r="${f1(s*.6)}" fill="rgba(170,220,250,.5)" stroke="#8fd0f5" stroke-width="${f1(s*.15)}"/>`:a==='hearts'?`<path d="M0 ${f1(s*.6)}C${-s} 0 ${f1(-s*.6)} ${f1(-s*.8)} 0 ${f1(-s*.3)}C${f1(s*.6)} ${f1(-s*.8)} ${s} 0 0 ${f1(s*.6)}Z" fill="#ef7f9b"/>`:a==='embers'?`<circle r="${f1(s*.35)}" fill="#ff9a3d"/><circle r="${f1(s*.15)}" fill="#ffe27a"/>`:`<text font-size="${f1(s*1.8)}" fill="#9b7fc4" text-anchor="middle">♪</text>`;
-  add(svg,`<g class="look-aura is-${L.aura}">${pts.map(([x,y],i)=>`<g transform="translate(${f1(x)} ${f1(y)})"><g style="animation-delay:${i*.35}s">${one(L.aura)}</g></g>`).join('')}</g>`,false,cls('aura'));}}
+ // V119b: organic morph — outlines of all traits in a spot are blended point by point.
+ const N=normLook(look);const hb=head?bb(head):null,bdb=body?bb(body):null;const SW=w=>f1(Math.max(1,w));
+ const gl=x=>x?.lux?'look-lux':'';
+ const back=morphBlend('back',N.mix.back,N.lux,'back');
+ if(back&&bdb){const b=bdb,s=b.width*.5*(back.lux?1.4:1)*back.grow,y=b.y+b.height*.32;const d=smoothPath(back.pts,s),hi=smoothPath(back.pts.map(([x,yy])=>[x*.62,yy*.62-.04]),s);
+  add(body,`<g><g transform="translate(${f1(b.x+b.width*.22)} ${f1(y)})"><g class="look-wing is-l"><path d="${d}" fill="${back.color}" stroke="${S}" stroke-width="${SW(s*.035)}"/><path d="${hi}" fill="#fff" opacity=".18"/></g></g><g transform="translate(${f1(b.x+b.width*.78)} ${f1(y)}) scale(-1 1)"><g class="look-wing is-r"><path d="${d}" fill="${back.color}" stroke="${S}" stroke-width="${SW(s*.035)}"/><path d="${hi}" fill="#fff" opacity=".18"/></g></g></g>`,true,gl(back));}
+ const tail=morphBlend('tail',N.mix.tail,N.lux,'tail');
+ if(tail&&bdb){const b=bdb,s=b.width*.55*(tail.lux?1.4:1)*tail.grow;add(body,`<g transform="translate(${f1(b.x+b.width*.12)} ${f1(b.y+b.height*.72)})"><g class="look-tail"><path d="${smoothPath(tail.pts,s)}" fill="${tail.color}" stroke="${S}" stroke-width="${SW(s*.035)}"/></g></g>`,true,gl(tail));}
+ const horn=morphBlend('horn',N.mix.head,N.lux,'head'),top=morphBlend('top',N.mix.head,N.lux,'head');
+ if(hb&&(horn||top)){const cx=hb.x+hb.width/2;let html='';
+  if(horn){const s=hb.width*.42*(horn.lux?1.4:1)*horn.grow;const d=smoothPath(horn.pts,s);html+=[1,-1].map(dir=>`<g transform="translate(${f1(cx+dir*s*.22)} ${f1(hb.y+s*.1)}) scale(${dir} 1)"><path d="${d}" fill="${horn.color}" stroke="${S}" stroke-width="${SW(s*.06)}"/></g>`).join('');}
+  if(top){const s=Math.max(8,hb.width*.32)*(top.lux?1.4:1)*top.grow;html+=`<path d="${smoothPath(top.pts,s,cx,hb.y+s*.12)}" fill="${top.color}" stroke="${S}" stroke-width="${SW(s*.07)}"/>`;}
+  add(head,html,false,gl(horn)||gl(top));}
+ // non-shape extras keep their own drawing, faded by their share: halo, antenna
+ for(const id of ['halo','antenna']){const w=N.mix.head[id];if(!w||!hb)continue;const s=Math.max(8,hb.width*.32)*(N.lux['head:'+id]?1.4:1)*(0.35+0.65*Math.min(1,w));add(head,`<g transform="translate(${f1(hb.x+hb.width/2)} ${f1(hb.y+s*.12)})" opacity="${Math.min(1,.3+w).toFixed(2)}">${HEAD[id](s)}</g>`,false,N.lux['head:'+id]?'look-lux':'');}
+ const aura=morphBlend('aura',N.mix.aura,N.lux,'aura'),notesW=N.mix.aura.notes||0;
+ if((aura||notesW)){const b=bb(svg);if(b){const g=aura?aura.grow:0.35+0.65*Math.min(1,notesW);const n=aura?.lux?5:Math.max(1,Math.round(3*g));const pts=[[-.05,.2],[1.02,.35],[.15,.85],[.9,.9],[.5,-.05]].slice(0,n).map(([x,y])=>[b.x+b.width*x,b.y+b.height*y]);const s=Math.max(5,b.width*.09)*(aura?.lux?1.4:1)*g;
+  add(svg,`<g class="look-aura">${pts.map(([x,y],i)=>`<g transform="translate(${f1(x)} ${f1(y)})"><g style="animation-delay:${i*.35}s">${aura?`<path d="${smoothPath(aura.pts,s)}" fill="${aura.color}" opacity=".9"/>`:''}${notesW>0.04?`<text font-size="${f1(s*1.8)}" fill="#9b7fc4" text-anchor="middle" opacity="${Math.min(1,.3+notesW).toFixed(2)}">♪</text>`:''}</g></g>`).join('')}</g>`,false,gl(aura));}}
 }
 
 function createCompanionSystem(ctx){
@@ -4880,7 +4939,7 @@ function shinyCard(item){return `<p class="shiny-trivia"><span aria-hidden="true
 function showShinyFound(id){const it=byId.get(id);if(!it)return;
  showModal(`<div class="modal-tag shiny-tag">✦ SHINY ELEMENT</div><div class="modal-art is-shiny">${staticArt(it)}</div><h2>Shiny ${escapeText(uiName(it))}</h2>${shinyCard(it)}<div class="modal-milestone">${shiny.size.toLocaleString('en-US')} shiny ${shiny.size===1?'element':'elements'} · ${Math.round(shinyChance()*100)}% chance per combination</div>`);
 }
-const APP_VERSION='1.0.18';
+const APP_VERSION='1.0.19';
 // V83: status line + Google consent (UMP) privacy options, required for EEA players.
 async function refreshAdStatus(){
  const el=$('settingsAdStatus'),bridge=getRewardBridge();
