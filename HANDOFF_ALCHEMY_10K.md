@@ -90,6 +90,9 @@ Preserve 200-per-batch policy and do not start another content release on top of
 
 - **Art redraw wave 3 (V85, done): 3,991 icons** — every remaining older element. All 6,012 pre-V83 elements now use the 2026 art direction (`ART_REDRAW`), plus 200 V83 and 200 V85 originals. Six near-duplicates found by the audit were redrawn; 36 reviewed false alarms are in `tools/art-redraw-reviewed-pairs.json` (the audit now also honours them for V83 comparisons).
 
+## V135 — element list updates live after feeding (1 November 2026)
+- `ctx.onMeal` (called in eatSequence right after `tasted` is recorded) → `rerenderCollections()`, so "Not fed yet", colour/trait filters and the tab counts update immediately.
+
 ## V134 — Looks filter in the Stat-filter tile style (1 November 2026)
 - "How should it look?" sheet: mystery banner (? · Not fed yet · count), then 3-column `.stat-tile` grids for Colour (big swatch), Traits (real trait outline/colour via new export `traitIconSvg(label)`) and Size & reset. Same filtering logic as V124.
 

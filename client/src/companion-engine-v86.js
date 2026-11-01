@@ -551,6 +551,8 @@ export function createCompanionSystem(ctx){
   // V116: what it eats changes how it looks (refused food never does)
   // V120: only meals the player gives change looks — eating on its own just grows stats
   if(!self){state.tasted=state.tasted||{};state.tasted[item.id]=1;}
+  // V135: filters/counts in the element list depend on what was fed — refresh them right away
+  try{ctx.onMeal?.(item.id,self);}catch(e){console.warn('onMeal',e);}
   const lookBefore=p.look;
   const lk=self?{look:p.look,notes:[]}:lookAfterMeal(p.look,item.name||uiName(item),familyFor(item),item.category,ctx.depthOf?.(item.id));p.look=lk.look;save();if(lk.notes.length)try{ctx.wear?.(sprite.parentElement||sprite);}catch{}
   if(changes.length)showStatWindow(meta,changes,2800);
