@@ -90,6 +90,10 @@ Preserve 200-per-batch policy and do not start another content release on top of
 
 - **Art redraw wave 3 (V85, done): 3,991 icons** — every remaining older element. All 6,012 pre-V83 elements now use the 2026 art direction (`ART_REDRAW`), plus 200 V83 and 200 V85 originals. Six near-duplicates found by the audit were redrawn; 36 reviewed false alarms are in `tools/art-redraw-reviewed-pairs.json` (the audit now also honours them for V83 comparisons).
 
+## V113 — residents walk around furniture (1 November 2026)
+- `findPath` (pure BFS, 8 directions, no corner cutting): standing (object-layer) pieces block their tiles, rugs/mats stay walkable, the piece being used is enterable. Walking is a chain of per-tile CSS transitions; wander targets are free tiles; residents start on free tiles. Unreachable targets are skipped.
+- Running wheel: the resident stands on the drum floor (lift −0.36 tile).
+
 ## V112 — house objects move while used (1 November 2026)
 - Residents stand in the centre of the piece they use (fractional tiles; lifted into the wheel/onto the bike/seesaw; in front of desks/bags).
 - `motionOf(id,name,effect)`: wheel / treadmill / bike get moving-part overlays drawn in the sprite viewBox (spinning wheel, running belt, turning bike wheels, front/back views); trampoline squashes in time with the bounce, punching bag swings, seesaw/rocking horse rock with the rider, swings swing the rider, hurdles/jump rope hop, pools ripple, music pieces float notes, stoves/fires/tubs steam, globes spin.

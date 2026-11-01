@@ -1693,6 +1693,15 @@ const MOTION_OV={
  bike:{vb:'0 0 200 160',svg:[[52,108],[150,108]].map(([x,y])=>`<g><animateTransform attributeName="transform" type="rotate" from="0 ${x} ${y}" to="360 ${x} ${y}" dur=".6s" repeatCount="indefinite"/>${[0,45,90,135].map(a=>`<path d="M${x+28*Math.cos(a*Math.PI/180)} ${y+28*Math.sin(a*Math.PI/180)}L${x-28*Math.cos(a*Math.PI/180)} ${y-28*Math.sin(a*Math.PI/180)}" stroke="#657D89" stroke-width="2.5"/>`).join('')}</g>`).join('')}
 };
 
+/**
+ * V113: residents walk AROUND furniture. Pure BFS over the floor grid (8 directions, no corner
+ * cutting); tiles under standing (object-layer) pieces are blocked, rugs and mats stay walkable,
+ * and the piece being used is open so the resident can step onto it.
+ */
+function findPath(L,blocked,from,to){const key=(x,y)=>y*L.cols+x;const sx=Math.round(from.x),sy=Math.round(from.y),tx=Math.round(to.x),ty=Math.round(to.y);
+ if(sx===tx&&sy===ty)return [{x:tx,y:ty}];const prev=new Map([[key(sx,sy),null]]);const q=[[sx,sy]];const free=(x,y)=>x>=0&&y>=0&&x<L.cols&&y<L.rows&&(!blocked.has(key(x,y))||(x===tx&&y===ty));
+ while(q.length){const [x,y]=q.shift();if(x===tx&&y===ty)break;for(const [dx,dy] of [[1,0],[-1,0],[0,1],[0,-1],[1,1],[1,-1],[-1,1],[-1,-1]]){const nx=x+dx,ny=y+dy;if(!free(nx,ny)||prev.has(key(nx,ny)))continue;if(dx&&dy&&(!free(x+dx,y)||!free(x,y+dy)))continue;prev.set(key(nx,ny),key(x,y));q.push([nx,ny]);}}
+ if(!prev.has(key(tx,ty)))return null;const out=[];let k=key(tx,ty);while(k!=null){out.unshift({x:k%L.cols,y:Math.floor(k/L.cols)});k=prev.get(k);}return out.slice(1);}
 function motionOf(id,name='',effect=''){const t=(id+' '+name).toLowerCase();
  if(/running-wheel|hamster wheel/.test(t))return 'wheel';if(/treadmill/.test(t))return 'treadmill';if(/bicycle|bike/.test(t))return 'bike';
  if(/trampoline/.test(t))return 'tramp';if(/punching/.test(t))return 'bag';if(/seesaw|rocking/.test(t))return 'rock';if(/swing|hammock|glider-perch/.test(t))return 'swing';
@@ -1894,7 +1903,7 @@ function createHomeSystem(ctx){
  function useSpot(f,L){const [w,h]=footprint(objects,f);const name=uiName(byId.get(f.id))||'';const layer=layerOf(RS,f.id);
   // V112: residents stand in the CENTRE of what they use (fractional tiles), not on its first tile.
   if(layer!=='floor'&&FRONT_USE.test(name)){const fy=f.y+h-(/punching/i.test(f.id)?1:0.45);return {x:f.x+(w-1)/2,y:Math.min(L.rows-1,fy),front:true};}
-  const m=motionOf(f.id,name,objects[f.id]?.effect);const lift=m==='wheel'?0.25:m==='bike'||m==='rock'?0.15:0;
+  const m=motionOf(f.id,name,objects[f.id]?.effect);const lift=m==='wheel'?-0.36:m==='bike'||m==='rock'?0.15:0;
   return {x:f.x+(w-1)/2,y:f.y+(h-1)/2-lift,front:false};}
  function startWander(mount,hid){
   const box=mount.querySelector('#homeResidents');if(!box)return;
@@ -1906,6 +1915,14 @@ function createHomeSystem(ctx){
   try{wear?.(box);}catch{}
   if(!walkers.length||reducedMotion())return;
   const taken=new Set();
+  const blockedFor=open=>{const b=new Set();for(const f of h.furniture){if(f===open||layerOf(RS,f.id)!=='object')continue;const [fw,fh]=footprint(objects,f);for(let yy=f.y;yy<f.y+fh;yy++)for(let xx=f.x;xx<f.x+fw;xx++)b.add(yy*L.cols+xx);}return b;};
+  const openTiles=()=>{const b=blockedFor(null),o=[];for(let y=0;y<L.rows;y++)for(let x=0;x<L.cols;x++)if(!b.has(y*L.cols+x))o.push({x,y});return o;};
+  {const o=openTiles();walkers.forEach((w,i)=>{if(o.length){const t=o[(i*3+o.length-1)%o.length];w.p.x=t.x;w.p.y=t.y;place(w.el,w.p);}});}
+  // walk a list of waypoints, one CSS transition per segment; returns the total time
+  const walkPath=(w,pts)=>{let t=0;clearTimeout(w.t);(w.legs||[]).forEach(clearTimeout);w.legs=[];let cur={x:w.p.x,y:w.p.y};
+   for(const pt of pts){const d=Math.hypot(pt.x-cur.x,pt.y-cur.y);const ms=Math.max(160,d*520);const at=t;const face=pt.x>cur.x+0.01?1:pt.x<cur.x-0.01?-1:0;
+    w.legs.push(setTimeout(()=>{if(face){w.p.face=face;w.el.dataset.face=face>0?'right':'left';}w.el.dataset.anim='walk';w.el.style.transitionDuration=ms+'ms';w.p.x=pt.x;w.p.y=pt.y;place(w.el,w.p);},at));t+=ms;cur=pt;}
+   return t;};
   const tick=()=>{if(!document.body.contains(box))return stopWander();const now=Date.now();
    for(const w of walkers){if(now<w.busyUntil)continue;
     if(w.taken){taken.delete(w.taken);w.taken=null;}
@@ -1913,13 +1930,16 @@ function createHomeSystem(ctx){
     const free=usable.filter(f=>!taken.has(f));let f=null;
     if(free.length&&Math.random()<0.65)f=free[Math.floor(Math.random()*free.length)];
     let tx,ty,spot=null;
-    if(f){spot=useSpot(f,L);tx=spot.x;ty=spot.y;taken.add(f);w.taken=f;}
-    else{tx=Math.floor(Math.random()*L.cols);ty=Math.floor(Math.random()*L.rows);}
-    const d=Math.hypot(tx-w.p.x,ty-w.p.y);const walkMs=Math.max(450,d*520);
-    w.p.face=tx>=w.p.x?1:-1;w.el.dataset.face=w.p.face>0?'right':'left';w.el.dataset.anim='walk';
-    w.el.style.transitionDuration=walkMs+'ms';w.p.x=tx;w.p.y=ty;place(w.el,w.p);
+    if(f){spot=useSpot(f,L);tx=spot.x;ty=spot.y;}
+    else{const o=openTiles();const t=o[Math.floor(Math.random()*o.length)]||{x:w.p.x,y:w.p.y};tx=t.x;ty=t.y;}
+    // grid path (around furniture) to the tile of the spot, then a short final step to the exact spot
+    const blocked=blockedFor(f);const tile={x:Math.max(0,Math.min(L.cols-1,Math.round(tx))),y:Math.max(0,Math.min(L.rows-1,Math.round(ty)))};
+    let path=findPath(L,blocked,w.p,tile);if(!path){if(f){f=null;spot=null;}path=[];}else{if(f)taken.add(f),w.taken=f;}
+    const pts=[...path];if(f&&(Math.abs(tile.x-tx)>0.01||Math.abs(tile.y-ty)>0.01))pts.push({x:tx,y:ty});
+    if(!pts.length)pts.push({x:w.p.x,y:w.p.y});
+    const walkMs=walkPath(w,pts);
     const useMs=f?3800+Math.random()*2500:900+Math.random()*1200;w.busyUntil=now+walkMs+useMs;
-    clearTimeout(w.t);w.t=setTimeout(()=>{
+    w.t=setTimeout(()=>{
      if(!f){w.el.dataset.anim='idle';return;}
      const eff=objects[f.id].effect,u=USE[eff]||USE.decor;
      if(spot.front){w.p.face=1;w.el.dataset.face='right';}
@@ -4694,7 +4714,7 @@ function shinyCard(item){return `<p class="shiny-trivia"><span aria-hidden="true
 function showShinyFound(id){const it=byId.get(id);if(!it)return;
  showModal(`<div class="modal-tag shiny-tag">✦ SHINY ELEMENT</div><div class="modal-art is-shiny">${staticArt(it)}</div><h2>Shiny ${escapeText(uiName(it))}</h2>${shinyCard(it)}<div class="modal-milestone">${shiny.size.toLocaleString('en-US')} shiny ${shiny.size===1?'element':'elements'} · ${Math.round(shinyChance()*100)}% chance per combination</div>`);
 }
-const APP_VERSION='1.0.12';
+const APP_VERSION='1.0.13';
 // V83: status line + Google consent (UMP) privacy options, required for EEA players.
 async function refreshAdStatus(){
  const el=$('settingsAdStatus'),bridge=getRewardBridge();
