@@ -1286,3 +1286,27 @@ button.home-eff::after{content:" ⓘ";opacity:.6;font-weight:700}
 /* V111 feeding note window */
 .companion-statwin .cs-note{font-size:11.5px;line-height:1.35;margin-top:4px;color:var(--ink)}
 .companion-statwin .cs-note:last-child{color:var(--muted)}
+
+/* V112 objects move while used, residents match */
+.home-motion{position:absolute;left:0;top:0;width:100%;height:100%;pointer-events:none}
+.home-motion svg{width:100%;height:100%}
+.home-piece.is-in-use.m-wheel,.home-piece.is-in-use.m-treadmill,.home-piece.is-in-use.m-bike{animation:home-hum .18s linear infinite}
+@keyframes home-hum{50%{transform:translateY(.6px)}}
+.home-piece.is-in-use.m-tramp{animation:home-tramp .7s cubic-bezier(.3,0,.4,1) infinite;transform-origin:50% 100%}
+@keyframes home-tramp{0%,100%{transform:scale(1.04,.9)}20%{transform:scale(.98,1.02)}50%{transform:none}}
+.home-piece.is-in-use.m-bag svg{animation:home-bagswing .5s ease-in-out infinite;transform-origin:50% 12%}
+@keyframes home-bagswing{0%,100%{transform:rotate(0)}30%{transform:rotate(9deg)}65%{transform:rotate(-4deg)}}
+.home-piece.is-in-use.m-rock,.home-walker.m-rock .companion-art{animation:home-rock 1.3s ease-in-out infinite;transform-origin:50% 100%}
+@keyframes home-rock{0%,100%{transform:rotate(-7deg)}50%{transform:rotate(7deg)}}
+.home-walker.m-swing .companion-art{animation:home-swing 1.6s ease-in-out infinite;transform-origin:50% -140%}
+@keyframes home-swing{0%,100%{transform:rotate(-20deg)}50%{transform:rotate(20deg)}}
+.home-walker.m-hop .companion-art{animation:home-bounce .6s cubic-bezier(.3,0,.4,1) infinite}
+.home-walker.m-wheel .companion-art,.home-walker.m-treadmill .companion-art,.home-walker.m-bike .companion-art{--stride:.18s}
+.home-piece.is-in-use.m-pool{animation:none}
+.home-piece.is-in-use.m-pool::after{content:"";position:absolute;left:25%;right:25%;top:35%;height:30%;border:2px solid rgba(255,255,255,.8);border-radius:50%;animation:home-ripple 1.2s ease-out infinite;pointer-events:none}
+.home-piece.is-in-use.m-music::after{content:"♪ ♫";position:absolute;left:30%;top:-10%;font:900 16px/1 system-ui,sans-serif;color:#9b7fc4;animation:home-notes 1.4s ease-out infinite;pointer-events:none}
+@keyframes home-notes{0%{transform:translateY(10px);opacity:0}30%{opacity:1}100%{transform:translate(12px,-26px);opacity:0}}
+.home-piece.is-in-use.m-steam::after{content:"";position:absolute;left:40%;top:5%;width:14px;height:14px;border-radius:50%;background:rgba(255,255,255,.85);box-shadow:8px -10px 0 -2px rgba(255,255,255,.7),-4px -20px 0 -4px rgba(255,255,255,.6);animation:home-notes 1.6s ease-out infinite;pointer-events:none}
+.home-piece.is-in-use.m-spin svg{animation:home-globe 1.2s ease-in-out infinite}
+@keyframes home-globe{0%,100%{transform:scaleX(1)}50%{transform:scaleX(.88)}}
+@media (prefers-reduced-motion:reduce){.home-motion{display:none}}

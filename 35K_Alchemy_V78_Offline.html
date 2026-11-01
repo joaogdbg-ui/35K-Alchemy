@@ -1296,6 +1296,30 @@ button.home-eff::after{content:" ⓘ";opacity:.6;font-weight:700}
 .companion-statwin .cs-note{font-size:11.5px;line-height:1.35;margin-top:4px;color:var(--ink)}
 .companion-statwin .cs-note:last-child{color:var(--muted)}
 
+/* V112 objects move while used, residents match */
+.home-motion{position:absolute;left:0;top:0;width:100%;height:100%;pointer-events:none}
+.home-motion svg{width:100%;height:100%}
+.home-piece.is-in-use.m-wheel,.home-piece.is-in-use.m-treadmill,.home-piece.is-in-use.m-bike{animation:home-hum .18s linear infinite}
+@keyframes home-hum{50%{transform:translateY(.6px)}}
+.home-piece.is-in-use.m-tramp{animation:home-tramp .7s cubic-bezier(.3,0,.4,1) infinite;transform-origin:50% 100%}
+@keyframes home-tramp{0%,100%{transform:scale(1.04,.9)}20%{transform:scale(.98,1.02)}50%{transform:none}}
+.home-piece.is-in-use.m-bag svg{animation:home-bagswing .5s ease-in-out infinite;transform-origin:50% 12%}
+@keyframes home-bagswing{0%,100%{transform:rotate(0)}30%{transform:rotate(9deg)}65%{transform:rotate(-4deg)}}
+.home-piece.is-in-use.m-rock,.home-walker.m-rock .companion-art{animation:home-rock 1.3s ease-in-out infinite;transform-origin:50% 100%}
+@keyframes home-rock{0%,100%{transform:rotate(-7deg)}50%{transform:rotate(7deg)}}
+.home-walker.m-swing .companion-art{animation:home-swing 1.6s ease-in-out infinite;transform-origin:50% -140%}
+@keyframes home-swing{0%,100%{transform:rotate(-20deg)}50%{transform:rotate(20deg)}}
+.home-walker.m-hop .companion-art{animation:home-bounce .6s cubic-bezier(.3,0,.4,1) infinite}
+.home-walker.m-wheel .companion-art,.home-walker.m-treadmill .companion-art,.home-walker.m-bike .companion-art{--stride:.18s}
+.home-piece.is-in-use.m-pool{animation:none}
+.home-piece.is-in-use.m-pool::after{content:"";position:absolute;left:25%;right:25%;top:35%;height:30%;border:2px solid rgba(255,255,255,.8);border-radius:50%;animation:home-ripple 1.2s ease-out infinite;pointer-events:none}
+.home-piece.is-in-use.m-music::after{content:"♪ ♫";position:absolute;left:30%;top:-10%;font:900 16px/1 system-ui,sans-serif;color:#9b7fc4;animation:home-notes 1.4s ease-out infinite;pointer-events:none}
+@keyframes home-notes{0%{transform:translateY(10px);opacity:0}30%{opacity:1}100%{transform:translate(12px,-26px);opacity:0}}
+.home-piece.is-in-use.m-steam::after{content:"";position:absolute;left:40%;top:5%;width:14px;height:14px;border-radius:50%;background:rgba(255,255,255,.85);box-shadow:8px -10px 0 -2px rgba(255,255,255,.7),-4px -20px 0 -4px rgba(255,255,255,.6);animation:home-notes 1.6s ease-out infinite;pointer-events:none}
+.home-piece.is-in-use.m-spin svg{animation:home-globe 1.2s ease-in-out infinite}
+@keyframes home-globe{0%,100%{transform:scaleX(1)}50%{transform:scaleX(.88)}}
+@media (prefers-reduced-motion:reduce){.home-motion{display:none}}
+
 </style>
 </head>
 <body>
@@ -1656,7 +1680,24 @@ const QUALITY=[{stars:1,pct:10,max:5},{stars:2,pct:15,max:7},{stars:3,pct:20,max
 function pieceQuality(depth){if(depth==null||!Number.isFinite(depth))return QUALITY[4];return QUALITY.find(q=>depth<=q.max);}
 const starsText=n=>'★'.repeat(n)+'☆'.repeat(5-n);
 const EFFECT_LABEL={run:'Run',swim:'Swim',power:'Power',fly:'Fly',stamina:'Stamina',hp:'HP',mood:'Mood',food:'Food',discovery:'Discovery',decor:'Decor'};
-const BAND=0.6;   // sprite height band above the footprint (in tiles)
+const BAND=0.6;
+/**
+ * V112: objects really move while a resident uses them. Moving parts are overlaid on the static
+ * sprite in its own viewBox (front/back view): the wheel spins, the treadmill belt runs, bike wheels
+ * turn. Other pieces move as a whole (trampoline squashes, bag swings, seesaw/rocking horse rock,
+ * pool ripples, music notes, steam) and the resident's motion matches.
+ */
+const MOTION_OV={
+ wheel:{vb:'0 0 200 260',svg:`<circle cx="100" cy="124" r="51" fill="#F3E3C3" opacity=".9"/><g><animateTransform attributeName="transform" type="rotate" from="0 100 124" to="360 100 124" dur="1s" repeatCount="indefinite"/>${[0,30,60,90,120,150].map(a=>`<path d="M${100+54*Math.cos(a*Math.PI/180)} ${124+54*Math.sin(a*Math.PI/180)}L${100-54*Math.cos(a*Math.PI/180)} ${124-54*Math.sin(a*Math.PI/180)}" stroke="#B4875A" stroke-width="3"/>`).join('')}<circle cx="100" cy="124" r="54" fill="none" stroke="#9C7A5B" stroke-width="5" stroke-dasharray="14 10"/><circle cx="100" cy="124" r="8" fill="#8E6748" stroke="#657D89" stroke-width="3"/></g>`},
+ treadmill:{vb:'0 0 200 160',svg:`<defs><clipPath id="tmc"><rect x="22" y="84" width="150" height="34" rx="4"/></clipPath></defs><g clip-path="url(#tmc)"><rect x="22" y="84" width="150" height="34" fill="#F4E9D8"/><g><animateTransform attributeName="transform" type="translate" from="0 0" to="-24 0" dur=".35s" repeatCount="indefinite"/>${Array.from({length:9},(_,i)=>`<rect x="${22+i*24}" y="84" width="10" height="34" fill="#C9584A"/>`).join('')}</g></g>`},
+ bike:{vb:'0 0 200 160',svg:[[52,108],[150,108]].map(([x,y])=>`<g><animateTransform attributeName="transform" type="rotate" from="0 ${x} ${y}" to="360 ${x} ${y}" dur=".6s" repeatCount="indefinite"/>${[0,45,90,135].map(a=>`<path d="M${x+28*Math.cos(a*Math.PI/180)} ${y+28*Math.sin(a*Math.PI/180)}L${x-28*Math.cos(a*Math.PI/180)} ${y-28*Math.sin(a*Math.PI/180)}" stroke="#657D89" stroke-width="2.5"/>`).join('')}</g>`).join('')}
+};
+
+function motionOf(id,name='',effect=''){const t=(id+' '+name).toLowerCase();
+ if(/running-wheel|hamster wheel/.test(t))return 'wheel';if(/treadmill/.test(t))return 'treadmill';if(/bicycle|bike/.test(t))return 'bike';
+ if(/trampoline/.test(t))return 'tramp';if(/punching/.test(t))return 'bag';if(/seesaw|rocking/.test(t))return 'rock';if(/swing|hammock|glider-perch/.test(t))return 'swing';
+ if(/hurdle|jump-rope|balance-beam/.test(t))return 'hop';if(/speaker|piano|vinyl|radio|guitar|drum|music|jukebox/.test(t))return 'music';
+ if(/stove|oven|kettle|campfire|fireplace|hot-spring|bathtub|soaking/.test(t))return 'steam';if(effect==='swim')return 'pool';if(/globe/.test(t))return 'spin';return '';}   // sprite height band above the footprint (in tiles)
 // How a resident uses a piece: stand ON it, or stand IN FRONT of it.
 const FRONT_USE=/shelf|desk|bowl|trough|stove|oven|punching|television|piano|computer|telescope|microscope|globe|aquarium|radio|arcade|pinball|cupboard|pantry|icebox|counter|sink|basin|chest|clock|kettle|jar|box|post|monitor|typewriter|guitar|drum|speaker|vinyl|loom|workbench|easel|wall|barrel|dresser|wardrobe|lamp/i;
 const USE={run:{anim:'walk',cls:'use-run'},swim:{anim:'hopwalk',cls:'use-swim'},power:{anim:'knock',cls:'use-power'},fly:{anim:'jump',cls:'use-fly'},
@@ -1851,8 +1892,10 @@ function createHomeSystem(ctx){
  // ---------- residents walk to furniture and use it ----------
  function rig(el,cid){el.innerHTML=sprites[cid]||'';for(const g of el.querySelectorAll('[data-part]')){const p=(g.dataset.pivot||'50 50').split(/\s+/).map(Number);g.style.transformOrigin=`${p[0]}px ${p[1]}px`;g.style.transformBox='view-box';}const svg=el.querySelector('svg');if(svg){svg.setAttribute('width','100%');svg.setAttribute('height','100%');}}
  function useSpot(f,L){const [w,h]=footprint(objects,f);const name=uiName(byId.get(f.id))||'';const layer=layerOf(RS,f.id);
-  if(layer!=='floor'&&FRONT_USE.test(name)){const fy=f.y+h;return {x:f.x+Math.floor((w-1)/2),y:Math.min(L.rows-1,fy),front:true};}
-  return {x:f.x+Math.floor((w-1)/2),y:f.y+Math.floor((h-1)/2),front:false};}
+  // V112: residents stand in the CENTRE of what they use (fractional tiles), not on its first tile.
+  if(layer!=='floor'&&FRONT_USE.test(name)){const fy=f.y+h-(/punching/i.test(f.id)?1:0.45);return {x:f.x+(w-1)/2,y:Math.min(L.rows-1,fy),front:true};}
+  const m=motionOf(f.id,name,objects[f.id]?.effect);const lift=m==='wheel'?0.25:m==='bike'||m==='rock'?0.15:0;
+  return {x:f.x+(w-1)/2,y:f.y+(h-1)/2-lift,front:false};}
  function startWander(mount,hid){
   const box=mount.querySelector('#homeResidents');if(!box)return;
   const h=house(hid),L=layoutFor(objects[hid].capacity);
@@ -1882,7 +1925,11 @@ function createHomeSystem(ctx){
      if(spot.front){w.p.face=1;w.el.dataset.face='right';}
      else{const [,fh]=footprint(objects,f);w.el.style.setProperty('--z',11+(f.y+fh)*2);}
      w.el.dataset.anim=u.anim;if(u.cls)w.el.classList.add(u.cls);w.el.classList.add('is-using');
-     const piece=box.parentElement.querySelector(`[data-piece="${h.furniture.indexOf(f)}"]`);if(piece){piece.classList.add('is-in-use');setTimeout(()=>piece.classList.remove('is-in-use'),useMs);}
+     const piece=box.parentElement.querySelector(`[data-piece="${h.furniture.indexOf(f)}"]`);const mk=motionOf(f.id,uiName(byId.get(f.id))||'',eff);
+     if(mk){w.el.classList.add('m-'+mk);if(mk==='wheel'||mk==='treadmill'||mk==='bike'){w.p.face=1;w.el.dataset.face='right';w.el.dataset.anim='walk';}}
+     if(piece){piece.classList.add('is-in-use');if(mk)piece.classList.add('m-'+mk);const o=MOTION_OV[mk];let ovEl=null;
+      if(o&&!(f.r%2)){ovEl=document.createElement('span');ovEl.className='home-motion';ovEl.innerHTML=`<svg xmlns="http://www.w3.org/2000/svg" viewBox="${o.vb}">${o.svg}</svg>`;piece.insertBefore(ovEl,piece.querySelector('.home-hit'));}
+      setTimeout(()=>{piece.classList.remove('is-in-use');if(mk)piece.classList.remove('m-'+mk);ovEl?.remove();},useMs);}
      setTimeout(()=>{if(applyEffect?.(w.cid,eff)){const fxEl=w.el.querySelector('.home-fx');fxEl.dataset.eff=eff;fxEl.classList.remove('is-pop');void fxEl.offsetWidth;fxEl.classList.add('is-pop');}},Math.min(1800,useMs/2));
     },walkMs);}
    wanderTimer=setTimeout(tick,700);};
@@ -4647,7 +4694,7 @@ function shinyCard(item){return `<p class="shiny-trivia"><span aria-hidden="true
 function showShinyFound(id){const it=byId.get(id);if(!it)return;
  showModal(`<div class="modal-tag shiny-tag">✦ SHINY ELEMENT</div><div class="modal-art is-shiny">${staticArt(it)}</div><h2>Shiny ${escapeText(uiName(it))}</h2>${shinyCard(it)}<div class="modal-milestone">${shiny.size.toLocaleString('en-US')} shiny ${shiny.size===1?'element':'elements'} · ${Math.round(shinyChance()*100)}% chance per combination</div>`);
 }
-const APP_VERSION='1.0.11';
+const APP_VERSION='1.0.12';
 // V83: status line + Google consent (UMP) privacy options, required for EEA players.
 async function refreshAdStatus(){
  const el=$('settingsAdStatus'),bridge=getRewardBridge();
@@ -5807,7 +5854,7 @@ for(const c of COMPANIONS_V86)for(const k of Object.keys(RACE_PRIZES)){const id=
 const homeById={get:id=>PRIZE_BY_ID[id]||trophyFor(id)||byId.get(id)};
 const homeUiName=it=>it?.prize?it.name:uiName(it);
 const homeStaticArt=it=>it?.prize?it.art:staticArt(it);
-const homeDiscovered=id=>PRIZE_BY_ID[id]||parsePersonalPrize(id)?games.hasPrize(id):discoveredAnywhere(id);
+const homeDiscovered=id=>PRIZE_BY_ID[id]||parsePersonalPrize(id)?games.hasPrize(id):companionOwned(id);
 // V96: Classic discoveries speed up companion growth — +10% per 400 elements found in Classic,
 // up to ×2 at 4,000 (a multiplier on future gains only, like the houses).
 function classicDiscoveredCount(){try{const list=currentMode==='classic'?[...unlocked]:(classicSnapshot?.unlocked||[]);return Math.max(0,list.filter(id=>!['legacy:0','legacy:1','legacy:2','legacy:3'].includes(id)).length);}catch{return 0;}}
