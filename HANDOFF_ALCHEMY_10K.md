@@ -90,6 +90,9 @@ Preserve 200-per-batch policy and do not start another content release on top of
 
 - **Art redraw wave 3 (V85, done): 3,991 icons** — every remaining older element. All 6,012 pre-V83 elements now use the 2026 art direction (`ART_REDRAW`), plus 200 V83 and 200 V85 originals. Six near-duplicates found by the audit were redrawn; 36 reviewed false alarms are in `tools/art-redraw-reviewed-pairs.json` (the audit now also honours them for V83 comparisons).
 
+## V128 — saved look shown on launch (1 November 2026)
+- Bug: on app start `setArt` called `ctx.wear(sprite.parentElement||sprite)` before the sprite was attached to a layer (wearAll only searches descendants) and while hidden (getBBox = 0), so the companion showed its plain look until the next meal. Fix: `rewear()` re-applies looks/belts on both layers one frame after `start()`/`startBuddy()`.
+
 ## V127 — game-like filters & settings, centred description, TEMP free duo unlock (1 November 2026)
 - Alchemy filters: segmented view tabs with live counts (All / To find / Done ★ / Saved / ✦ Shiny) in `.view-seg`, then tool chips `.tool-chip` (⇅ sort, family with its artwork as icon, ◉ Looks) that light up when non-default. Counts computed in `syncInventoryButton()` (called from rerenderCollections). validate-v55 accepts `tool-chip sort-button`.
 - Settings: AD-FREE banner (same `.bx-noads` as the combiner; OWNED when bought), "SAVE FILE" tiles (export/import/delete), "MORE" list with icon badges and a SOON tag. Same ids as before.
