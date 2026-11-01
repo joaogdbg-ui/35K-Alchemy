@@ -865,7 +865,7 @@ export function createCompanionSystem(ctx){
   const act=activeMeta();const have=unlocked().length;
   const groups=FAMILIES.map(f=>({f,list:roster.filter(c=>c.family===f.id)})).filter(g=>g.list.length);
   const ava=c=>{const own=isDiscovered(c.id),p=own?pet(c.id):null,el=byId.get(c.id),house=own&&ctx.residentOf?ctx.residentOf(c.id):null;
-   return `<button type="button" class="pet-ava ${own?'is-unlocked':'is-locked'} ${state.active===c.id||state.buddy===c.id?'is-active':''} ${own&&isShiny(c.id)?'is-shiny':''}" data-${state.active===c.id||state.buddy===c.id?'onscreen':'card'}="${c.id}" aria-label="${own?escapeText(p.nick||uiName(el)):'Undiscovered companion'}"><span class="pet-ava-art">${own?(sprites[c.id]||staticArt(el)):'<span class="pet-silhouette">'+staticArt(el)+'</span>'}</span><small>${own?escapeText(p.nick||uiName(el)):'???'}</small>${own?`<em class="pet-ava-lv">Lv ${totalLevel(c.id)}</em>`:''}${state.active===c.id||state.buddy===c.id?'<i class="pet-ava-tag is-screen" title="On screen"></i><em class="pet-ava-on">On screen</em>':house?'<i class="pet-ava-tag is-home" title="Lives in a house"></i>':''}</button>`;};
+   return `<button type="button" class="pet-ava ${own?'is-unlocked':'is-locked'} ${state.active===c.id||state.buddy===c.id?'is-active':''} ${own&&isShiny(c.id)?'is-shiny':''}" data-card="${c.id}" aria-label="${own?escapeText(p.nick||uiName(el)):'Undiscovered companion'}"><span class="pet-ava-art">${own?(sprites[c.id]||staticArt(el)):'<span class="pet-silhouette">'+staticArt(el)+'</span>'}</span><small>${own?escapeText(p.nick||uiName(el)):'???'}</small>${own?`<em class="pet-ava-lv">Lv ${totalLevel(c.id)}</em>`:''}${state.active===c.id||state.buddy===c.id?'<i class="pet-ava-tag is-screen" title="On screen"></i><em class="pet-ava-on">On screen</em>':house?'<i class="pet-ava-tag is-home" title="Lives in a house"></i>':''}</button>`;};
   let now='';
   if(act){const p=pet(act.id);settleMood(p);now=`<section class="pets-now"><button type="button" class="pets-now-art" data-card="${act.id}" aria-label="Stats">${sprites[act.id]||''}</button><div class="pets-now-main"><strong>${escapeText(nameOf(act))}</strong><small>On screen · Total Lv ${totalLevel(act.id)} · ${moodLabel(p.mood)}${hungry(p)?' · Hungry':''}</small><span class="pet-needs"><span><i>Mood</i><b><em style="width:${p.mood}%"></em></b></span><span><i>Belly</i><b class="is-belly"><em style="width:${p.belly}%"></em></b></span></span></div><div class="pets-now-actions"><button type="button" class="pets-btn" data-card="${act.id}">Stats</button><button type="button" class="pets-btn is-quiet" data-wardrobe="${act.id}">Wear</button><button type="button" class="pets-btn is-quiet" id="petDismiss">Send home</button></div></section>`;}
   else now=`<section class="pets-now is-empty"><small>${have?'No companion on screen. Tap a companion below to choose one.':`Discover one of the ${roster.length} companion elements (five per family) to get your first companion.`}</small></section>`;
@@ -882,7 +882,7 @@ export function createCompanionSystem(ctx){
   root.innerHTML=homeTab==='houses'?`<div class="pets-scroll"><div class="section-head home-title"><h2>Home</h2></div>${tabs}
    <div id="homeMount"></div></div>`:`<div class="pets-scroll"><div class="section-head home-title"><h2>Home</h2></div>${tabs}
    ${act?'':now}
-   <p class="mini-muted pets-legend"><i class="pet-ava-tag is-screen"></i> On screen · tap for mood, wear and send home <i class="pet-ava-tag is-home"></i> Lives in a house</p>
+   <p class="mini-muted pets-legend"><i class="pet-ava-tag is-screen"></i> On screen <i class="pet-ava-tag is-home"></i> Lives in a house</p>
    <div class="pets-avatars">${groups.map(g=>`<div class="pets-ava-row"><span class="pets-ava-family">${escapeText(g.f.name)}</span><div class="pets-ava-list">${g.list.map(ava).join('')}</div></div>`).join('')}</div>
    <details class="pets-help"><summary>How companions and houses work</summary><ul>
     <li><strong>Companions:</strong> discover a companion element, tap it here and choose it. Your first one is free; switching later needs a rewarded ad (then 5 free minutes). It lives on your screen: drag elements onto it to feed it, rub it to pet it, tap its gifts.</li>
@@ -919,7 +919,49 @@ export function createCompanionSystem(ctx){
   const inp=$('petNameInput');setTimeout(()=>inp?.focus(),50);
   $('petNameSave').onclick=()=>{const v=String(inp.value||'').replace(/[\u0000-\u001f<>]/g,'').trim().slice(0,NICK_MAX);if(v)p.nick=v;else delete p.nick;save();closeModal();refreshViews();};
   $('petNameCancel').onclick=closeModal;}
- function openCard(id){const meta=metaById.get(id);if(!meta)return;if(!isDiscovered(id)){showModal(`<div class="modal-tag">COMPANION</div>${cardHtml(meta,{full:true})}<button type="button" class="modal-button secondary" id="petCardClose">Close</button>`);$('petCardClose').onclick=closeModal;return;}const hl=ctx.houseLine?.(id)||'';showModal(`<div class="modal-tag">COMPANION</div>${cardHtml(meta,{full:true})}${hl?`<p class="pet-house-line">${hl}</p>`:''}<p class="mini-muted">Drag an element from your list onto ${escapeText(nameOf(meta))} to feed it. Rub it with your finger to pet it. Tap its gifts when they appear.</p>${skillsOf(id).length?`<p class="pet-skills">${skillsOf(id).map(k=>`<span>${escapeText(k)}</span>`).join('')}</p>`:''}<button type="button" class="modal-button" id="petCardWear">Wardrobe</button><button type="button" class="modal-button secondary" id="petCardClose">Close</button>`);$('petCardClose').onclick=closeModal;$('petCardWear').onclick=()=>ctx.openWardrobe?.(id);$('modalContent').querySelectorAll('[data-activate]').forEach(b=>b.onclick=async()=>{closeModal();await choose(b.dataset.activate);});$('modalContent').querySelectorAll('[data-rename]').forEach(b=>b.onclick=()=>rename(b.dataset.rename));try{ctx.wear?.($('modalContent'));}catch{}}
+ /** V147: one companion sheet, the same whether the companion is on screen or not:
+  *  stats + nickname, Add to Home, Add to Screen, Wardrobe; on-screen status (mood/belly) shown subtly at the bottom. */
+ function openCard(id){const meta=metaById.get(id);if(!meta)return;
+  if(!isDiscovered(id)){showModal(`<div class="modal-tag">COMPANION</div>${cardHtml(meta,{full:true})}<button type="button" class="modal-button secondary" id="petCardClose">Close</button>`);$('petCardClose').onclick=closeModal;return;}
+  const p=pet(id);settleMood(p);const el=byId.get(id),base=uiName(el)||meta.name,sh=isShiny(id);
+  const onMain=state.active===id,onBuddy=state.buddy===id,on=onMain||onBuddy;
+  const hid=ctx.residentOf?.(id);const hname=hid?(ctx.homeChoices?.(id)||[]).find(x=>x.id===hid)?.name:'';
+  const skills=skillsOf(id);
+  showModal(`<div class="modal-tag">COMPANION</div>
+   <div class="cc-head"><span class="cc-art" data-companion="${id}">${sprites[id]||staticArt(el)}</span><div class="cc-id"><button type="button" class="cc-name" data-rename="${id}">${sh?'✦ ':''}${escapeText(p.nick||base)}<i aria-hidden="true">✎</i></button><small>${p.nick?escapeText(base)+' · ':''}Total Lv ${totalLevel(id)}${lookLabel(p.look)?' · ✨ '+escapeText(lookLabel(p.look)):''}</small>
+    <span class="cc-tags">${on?`<em class="cc-tag is-screen">● On screen${onBuddy?' · 2nd slot':''}</em>`:''}${hid?`<em class="cc-tag is-home">⌂ ${escapeText(String(hname||'').replace(/^Companion /,''))}</em>`:''}</span></div></div>
+   ${statPanel(meta,p)}
+   <div class="cc-actions">
+    <button type="button" class="pets-btn ${hid?'is-quiet':''}" id="ccHome"><b>⌂</b>${hid?'Change home':'Add to Home'}</button>
+    <button type="button" class="pets-btn ${on?'is-quiet':''}" id="ccScreen"><b>▣</b>${on?'Remove from screen':'Add to Screen'}</button>
+    <button type="button" class="pets-btn is-quiet" id="ccWear"><b>👒</b>Wardrobe</button>
+   </div>
+   ${on?`<div class="cc-status"><span><i>Mood</i><b><em style="width:${p.mood}%"></em></b><small>${moodLabel(p.mood)}</small></span><span><i>Belly</i><b class="is-belly"><em style="width:${p.belly}%"></em></b><small>${hungry(p)?'Hungry':'Fed'}</small></span>${onBuddy?`<span class="cc-duo">Duo ×${DUO_GROWTH}</span>`:''}</div>`:''}
+   <p class="cc-quirk"><b>Quirk:</b> ${escapeText(meta.quirk)} · <b>Gift:</b> ${escapeText(meta.gift)}${skills.length?' · Tricks: '+skills.map(escapeText).join(', '):''}</p>
+   <button type="button" class="modal-button secondary" id="petCardClose">Close</button>`);
+  const mc=$('modalContent');try{ctx.wear?.(mc);}catch{}
+  $('petCardClose').onclick=closeModal;
+  mc.querySelectorAll('[data-rename]').forEach(b=>b.onclick=()=>rename(b.dataset.rename));
+  $('ccWear').onclick=()=>ctx.openWardrobe?.(id);
+  $('ccHome').onclick=()=>homePicker(id);
+  $('ccScreen').onclick=()=>{if(on){closeModal();onMain?setActive(null):setBuddy(null);refreshViews();return;}screenPicker(id);};}
+ function homePicker(id){const list=ctx.homeChoices?.(id)||[];const cur=ctx.residentOf?.(id);
+  if(!list.length){showModal(`<div class="modal-tag">ADD TO HOME</div><h2>No house yet</h2><p>Discover a house element (the smallest is the Companion Tent) or buy one in the Market.</p><button type="button" class="modal-button secondary" id="hpBack">Back</button>`);$('hpBack').onclick=()=>openCard(id);return;}
+  showModal(`<div class="modal-tag">ADD TO HOME</div><h2>Where does ${escapeText(nameOf(metaById.get(id)))} live?</h2><div class="home-pick-list">${list.map(h=>{const full=!h.here&&h.used>=h.cap;return `<button type="button" class="home-pick ${h.here?'is-here':''} ${full?'is-off':''}" data-hp="${h.id}" ${full?'disabled':''}><span class="home-pick-art">${h.art}</span><span class="home-pick-main"><strong>${escapeText(h.name)}</strong><small>${h.used}/${h.cap} living here${full?' · full':''}</small></span><em class="home-pick-tag">${h.here?'Here':full?'':'Move in'}</em></button>`;}).join('')}</div>${cur?'<button type="button" class="modal-button secondary" id="hpOut">Move out</button>':''}<button type="button" class="modal-button secondary" id="hpBack">Back</button>`);
+  $('hpBack').onclick=()=>openCard(id);const o=$('hpOut');if(o)o.onclick=()=>{ctx.moveOut?.(id);refreshViews();openCard(id);};
+  $('modalContent').querySelectorAll('[data-hp]').forEach(b=>b.onclick=()=>{if(ctx.moveIn?.(id,b.dataset.hp)){sfx.happy?.();refreshViews();}openCard(id);});}
+ function screenPicker(id){const act=activeMeta(),bm=buddyMeta(),meta=metaById.get(id);
+  // nothing on screen and the free first choice still unused → straight on screen
+  if(!act){closeModal();choose(id).then(()=>refreshViews());return;}
+  const free=!state.firstFreeUsed;const slots=[act,...(slot2()?[bm||null]:[])];
+  const tile=(m,i)=>m?`<button type="button" class="home-pick" data-swap="${i}"><span class="home-pick-art">${sprites[m.id]||''}</span><span class="home-pick-main"><strong>${escapeText(nameOf(m))}</strong><small>${i?'Second slot':'Main slot'} · goes off screen</small></span><em class="home-pick-tag">Swap</em></button>`:`<button type="button" class="home-pick" data-swap="${i}"><span class="home-pick-art"><span class="home-q">+</span></span><span class="home-pick-main"><strong>Empty second slot</strong><small>Plays next to ${escapeText(nameOf(act))}</small></span><em class="home-pick-tag">Add</em></button>`;
+  showModal(`<div class="modal-tag">ADD TO SCREEN</div><h2>Who makes room for ${escapeText(nameOf(meta))}?</h2><div class="home-pick-list">${slots.map(tile).join('')}</div><p class="mini-muted">${free?'Your first choice is free.':'Each swap costs one rewarded ad (then 5 free minutes).'}</p><button type="button" class="modal-button secondary" id="spBack">Back</button>`);
+  try{ctx.wear?.($('modalContent'));}catch{}
+  $('spBack').onclick=()=>openCard(id);
+  $('modalContent').querySelectorAll('[data-swap]').forEach(b=>b.onclick=async()=>{const i=Number(b.dataset.swap);closeModal();
+   if(i===0){await choose(id);}
+   else{let ok=free||!bm;if(!ok){try{ok=await requestActivation(meta,{from:bm.id});}catch{ok=false;}}if(ok){if(id===state.active)return;setBuddy(id);sfx.happy?.();}}
+   refreshViews();});}
  listeners.add(renderTab);
  // V90: a resident using furniture in a companion house. Training pieces add stat progress
  // (capped at HOME_DAILY_CAP bar points per companion per day), food fills the belly, beds and

@@ -90,6 +90,10 @@ Preserve 200-per-batch policy and do not start another content release on top of
 
 - **Art redraw wave 3 (V85, done): 3,991 icons** — every remaining older element. All 6,012 pre-V83 elements now use the 2026 art direction (`ART_REDRAW`), plus 200 V83 and 200 V85 originals. Six near-duplicates found by the audit were redrawn; 36 reviewed false alarms are in `tools/art-redraw-reviewed-pairs.json` (the audit now also honours them for V83 comparisons).
 
+## V147 — one companion sheet (1 November 2026)
+- `openCard` (companion-engine-v86.js) is the same for every discovered companion: avatar, nickname (tap the name ✎ to rename), Total Lv + look, tags (On screen / house), stat panel, three actions **Add to Home** (`homePicker`: owned houses with room, Move in / Move out) · **Add to Screen** (`screenPicker`: choose which on-screen companion to swap — main slot via `choose()`, second slot via `requestActivation` then `setBuddy`; first choice free, otherwise one rewarded ad) · **Wardrobe**. On-screen companions get a subtle Mood/Belly strip (and Duo ×) at the bottom; the button becomes "Remove from screen".
+- Home API for it: `homes.homeChoices/moveIn/moveOut` passed via ctx. The separate on-screen sheet from V145 is no longer used (grid always opens `openCard`).
+
 ## V146 — add-ons dropped; Home back to the simple layout; hats sit on the head (1 November 2026)
 - Owner: "Desistimos dos addons". No second floor, no attachable garden/pool, no Add-ons UI, no Market add-on tiles. Garden and pool are part of the two top houses (`builtin:['garden','pool']` on Companion Castle and Castle with Garden and Pool) and drawn as the yard. The V139 elements House Garden / Outdoor Pool / Second Floor stay as normal Alchemy elements only. Old saves: `houses[].ext` is deleted at load.
 - Home tabs order: Companions (left), Houses (right). Houses tab = house chip row, room, bonus chips, Residents row with "+" (V143 layout). Hub buttons and their sheets removed; furniture is placed by tapping the room.
