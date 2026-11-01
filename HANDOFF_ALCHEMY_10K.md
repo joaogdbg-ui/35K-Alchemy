@@ -90,6 +90,12 @@ Preserve 200-per-batch policy and do not start another content release on top of
 
 - **Art redraw wave 3 (V85, done): 3,991 icons** — every remaining older element. All 6,012 pre-V83 elements now use the 2026 art direction (`ART_REDRAW`), plus 200 V83 and 200 V85 originals. Six near-duplicates found by the audit were redrawn; 36 reviewed false alarms are in `tools/art-redraw-reviewed-pairs.json` (the audit now also honours them for V83 comparisons).
 
+## V146 — add-ons dropped; Home back to the simple layout; hats sit on the head (1 November 2026)
+- Owner: "Desistimos dos addons". No second floor, no attachable garden/pool, no Add-ons UI, no Market add-on tiles. Garden and pool are part of the two top houses (`builtin:['garden','pool']` on Companion Castle and Castle with Garden and Pool) and drawn as the yard. The V139 elements House Garden / Outdoor Pool / Second Floor stay as normal Alchemy elements only. Old saves: `houses[].ext` is deleted at load.
+- Home tabs order: Companions (left), Houses (right). Houses tab = house chip row, room, bonus chips, Residents row with "+" (V143 layout). Hub buttons and their sheets removed; furniture is placed by tapping the room.
+- Tap-to-place list: pieces placed in another house are no longer disabled — picking one moves it here.
+- Wear: look extras (halo, horns…) are hidden while measuring the head, so hats no longer float above them.
+
 ## V145 — Home tabs (Houses / Companions); one continuous staircase (1 November 2026)
 - Home has two tabs (`homeTab` in companion-engine-v86.js `renderTab`): **Houses** (the house view + hub) and **Companions** (grid by family, legend, help, Duo second-slot block). The old "On screen" section is gone: on-screen companions (active and buddy) have a green border + "On screen" label in the grid and open the mood/Wear/Send-home card in a sheet (`data-onscreen`).
 - Stairs: a single `.home-stairs` element (`placeStairs` in home-engine-v90.js, measured after render) runs from row 2 of the ground floor, through the wall band and the floor slab, up to the bottom two rows upstairs, with a handrail and an "▲ Up" tag. The old separate stair/stairwell sprites only block tiles now (ground 0,0–0,1; upstairs bottom-left).

@@ -502,7 +502,7 @@ function shinyCard(item){return `<p class="shiny-trivia"><span aria-hidden="true
 function showShinyFound(id){const it=byId.get(id);if(!it)return;
  showModal(`<div class="modal-tag shiny-tag">✦ SHINY ELEMENT</div><div class="modal-art is-shiny">${staticArt(it)}</div><h2>Shiny ${escapeText(uiName(it))}</h2>${shinyCard(it)}<div class="modal-milestone">${shiny.size.toLocaleString('en-US')} shiny ${shiny.size===1?'element':'elements'} · ${Math.round(shinyChance()*100)}% chance per combination</div>`);
 }
-const APP_VERSION='1.0.45';
+const APP_VERSION='1.0.46';
 // V83: status line + Google consent (UMP) privacy options, required for EEA players.
 async function refreshAdStatus(){
  const el=$('settingsAdStatus'),bridge=getRewardBridge();
@@ -1695,7 +1695,9 @@ const companions=createCompanionSystem({roster:COMPANIONS_V86,sprites:COMPANION_
 // V94: Stadium prizes (toys) are placeable house objects; belts are worn by the companions.
 const HOME_OBJECTS={...HOME_OBJECTS_V89,...Object.fromEntries(Object.values(RACE_PRIZES).map(p=>[p.id,{kind:p.kind,effect:p.effect,size:p.size}])),
  // V139: top house + house complements (attach one per house in Home).
- 'organic139:grand-castle':{kind:'house',capacity:10,builtin:['garden','pool']},'organic139:house-garden':{kind:'extension',ext:'garden'},'organic139:outdoor-pool':{kind:'extension',ext:'pool'},'organic139:second-floor':{kind:'extension',ext:'floor'}};
+ 'organic139:grand-castle':{kind:'house',capacity:10,builtin:['garden','pool']}};
+// V146: garden and pool are part of the two top houses.
+HOME_OBJECTS['organic89:companion-castle']={...HOME_OBJECTS['organic89:companion-castle'],builtin:['garden','pool']};
 const ROOM_SPRITES={...ROOM_SPRITES_V90,...Object.fromEntries(Object.values(RACE_PRIZES).map(p=>[p.id,p.room]))};
 // V108: every companion can win its own trophy of each course (built on demand).
 const trophyFor=id=>{const t=parsePersonalPrize(id);if(!t)return null;const c=COMPANIONS_V86.find(x=>x.id===t.cid);if(!c)return null;return personalPrize(t.course,t.cid,companions?.state?.().pets?.[t.cid]?.nick||uiName(byId.get(t.cid))||c.name,COMPANION_SPRITES_V86[t.cid]);};
@@ -1835,13 +1837,13 @@ function openMarket(onClose,tab){if(tab)marketTab=tab;
  const descOf=it=>it.kind==='acc'?`${({head:'Head',face:'Face',neck:'Neck'})[ACCESSORIES[it.acc].slot]}${accOwned(it.acc)?` · own ${accOwned(it.acc)}`:''}`:isEl(it)?(it.ext?homes.addonInfo(it.element)?.line:it.kind==='house'?`Room for ${HOME_OBJECTS[it.element]?.capacity||'?'}${HOME_OBJECTS[it.element]?.builtin?' · garden and pool built in':''}`:'Furniture'):it.desc;
  const fitsOf=it=>{const a=homes.addonInfo(it.element);return a?`Fits ${a.range}`:'';};
  const tile=it=>{const o=owned(it);const label=it.kind==='toy'&&o?(wallet.toy===it.toy?'On screen':'Show'):o?'Owned':`🪙 ${priceOf(it).toLocaleString('en-US')}`;
-  return `<button type="button" class="stat-tile mk-tile ${o?'is-owned':''} ${it.kind==='toy'&&wallet.toy===it.toy?'is-on':''}" data-mk="${it.id}">${marketTab==='house'?`<i class="mk-tag ${it.ext?'is-addon':''}">${it.ext?'ADD-ON':'HOUSE'}</i>`:''}<span class="mk-art">${artOf(it)}</span><b>${escapeText(nameOf(it))}</b><small>${escapeText(descOf(it)||'')}</small>${it.ext?`<small class="mk-fits">${escapeText(fitsOf(it))}</small>`:''}<em class="mk-price ${!o&&wallet.coins<priceOf(it)?'is-short':''}">${label}</em></button>`;};
+  return `<button type="button" class="stat-tile mk-tile ${o?'is-owned':''} ${it.kind==='toy'&&wallet.toy===it.toy?'is-on':''}" data-mk="${it.id}"><span class="mk-art">${artOf(it)}</span><b>${escapeText(nameOf(it))}</b><small>${escapeText(descOf(it)||'')}</small>${it.ext?`<small class="mk-fits">${escapeText(fitsOf(it))}</small>`:''}<em class="mk-price ${!o&&wallet.coins<priceOf(it)?'is-short':''}">${label}</em></button>`;};
  const daily=wallet.daily!==dailyKey();
  showModal(`<div class="modal-tag">BLACK MARKET</div><h2>Spend your coins</h2>${coinBar()}
   <button type="button" class="mk-daily ${daily?'':'is-done'}" id="mkDaily" ${daily?'':'disabled'}><span>🎁</span><b>${daily?`Daily coins · +${DAILY_COINS}`:'Daily coins claimed'}</b><small>${daily?'Free, once a day':'Come back tomorrow'}</small></button>
   <div class="mk-tabs">${MARKET_TABS.map(([k,l])=>`<button type="button" data-mktab="${k}" aria-pressed="${k===marketTab}">${l}</button>`).join('')}</div>
   ${marketTab==='food'?`<p class="mini-muted">Bought food waits on the Alchemy screen — drag it onto a companion.${Object.values(wallet.bag||{}).reduce((n,v)=>n+v,0)?` · ${Object.values(wallet.bag).reduce((n,v)=>n+v,0)} waiting`:''}</p>`:marketTab==='toy'?'<p class="mini-muted">One toy sits on the craft card; your companion plays with it now and then.</p>':marketTab==='acc'?'<p class="mini-muted">One copy dresses one companion. Each extra copy costs more.</p>':''}
-  ${marketTab==='house'?`<h3 class="mk-sec">Houses <small>where your companions live</small></h3><div class="stat-tiles mk-grid">${items.filter(it=>!it.ext).map(tile).join('')}</div><h3 class="mk-sec">House add-ons <small>attach one to a house in Home</small></h3><div class="stat-tiles mk-grid">${items.filter(it=>it.ext).map(tile).join('')}</div>`:`<div class="stat-tiles mk-grid">${items.map(tile).join('')}</div>`}<p class="mini-muted">Win races and Karate fights to earn coins.</p>`);
+  <div class="stat-tiles mk-grid">${items.map(tile).join('')}</div><p class="mini-muted">Win races and Karate fights to earn coins.</p>`);
  const again=()=>openMarket(onClose);wireCoinBar(again);
  $('mkDaily').onclick=()=>{if(wallet.daily===dailyKey())return;wallet.daily=dailyKey();addCoins(DAILY_COINS);SFX.prize?.();toast(`+${DAILY_COINS} daily coins!`,'new');again();};
  $('modalContent').querySelectorAll('[data-mktab]').forEach(b=>b.onclick=()=>{marketTab=b.dataset.mktab;again();});

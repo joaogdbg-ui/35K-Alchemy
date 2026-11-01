@@ -16,7 +16,7 @@ test('V139: each new element has a recipe', () => {
 });
 test('V139: grand castle is the top house and complements exist', () => {
   assert.ok(HOUSE_LAYOUTS[10] && HOUSE_GROWTH[10] > HOUSE_GROWTH[8]);
-  assert.deepEqual(Object.keys(EXT_INFO).sort(), ['floor', 'garden', 'pool']);
+  assert.deepEqual(Object.keys(EXT_INFO).sort(), ['garden', 'pool']); // V146: add-ons dropped
   const app = readFileSync(new URL('../src/app.js', import.meta.url), 'utf8');
   assert.match(app, /'organic139:grand-castle':\{kind:'house',capacity:10,builtin:\['garden','pool'\]\}/);
   const castle = MARKET.find(m => m.element === 'organic139:grand-castle');
@@ -36,14 +36,15 @@ test('V139: app.js parses (tests do not import it)', async () => {
   const r = spawnSync(process.execPath, ['--check', f], { encoding: 'utf8' });
   assert.equal(r.status, 0, r.stderr);
 });
-test('V140: add-on compatibility is explicit', () => {
-  assert.deepEqual(EXT_INFO.pool.fits, [4, 6, 8]);
-  assert.ok(!EXT_INFO.garden.fits.includes(10) && !EXT_INFO.pool.fits.includes(10), 'grand castle has them built in');
-  assert.ok(EXT_INFO.floor.fits.includes(10) && !EXT_INFO.floor.fits.includes(1));
+test('V146: no add-ons; garden and pool are part of the two top houses', () => {
+  const app = readFileSync(new URL('../src/app.js', import.meta.url), 'utf8');
+  assert.match(app, /HOME_OBJECTS\['organic89:companion-castle'\]=\{\.\.\.HOME_OBJECTS\['organic89:companion-castle'\],builtin:\['garden','pool'\]\}/);
+  assert.ok(!MARKET.some(m => m.ext));
+  assert.doesNotMatch(app, /kind:'extension'/);
 });
 test('V142: add-ons are drawn as places outside the room', () => {
   const h = readFileSync(new URL('../src/home-engine-v90.js', import.meta.url), 'utf8');
-  assert.match(h, /function upstairsHtml\(/); assert.match(h, /function yardHtml\(/);
+  assert.match(h, /function yardHtml\(/);
   assert.match(h, /const layoutOf=hid=>layoutFor\(objects\[hid\]\?\.capacity\|\|1\);/);
   assert.doesNotMatch(h, /home-tile \$\{L\.garden/);
 });

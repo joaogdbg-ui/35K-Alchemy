@@ -790,7 +790,9 @@ export function createCompanionSystem(ctx){
  const ACC=ctx.accessories||{};
  function applyWearSvg(svg,id){if(!svg)return;svg.querySelectorAll('[data-acc="wear"]').forEach(n=>n.remove());const w=state.pets[id]?.wear;if(!w)return;
   const bb=el=>{try{const b=el.getBBox();return b.width?b:null;}catch{return null;}};
-  const head=svg.querySelector('[data-part="head"]')||svg.querySelector('[data-part="body"]'),body=svg.querySelector('[data-part="body"]')||head;const hb=head&&bb(head),bdb=body&&bb(body);
+  const head=svg.querySelector('[data-part="head"]')||svg.querySelector('[data-part="body"]'),body=svg.querySelector('[data-part="body"]')||head;
+  // V146: halos, horns and other look extras are hidden while measuring, so a hat sits on the head, not on top of a halo
+  const extras=[...svg.querySelectorAll('[data-acc="look"]')];extras.forEach(n=>n.style.display='none');const hb=head&&bb(head),bdb=body&&bb(body);extras.forEach(n=>n.style.display='');
   const put=(parent,html,before=false)=>{const g=document.createElementNS('http://www.w3.org/2000/svg','g');g.setAttribute('data-acc','wear');g.innerHTML=html;before?parent.insertBefore(g,parent.firstChild):parent.append(g);};
   for(const [slot,aid] of Object.entries(w)){const a=ACC[aid];if(!a)continue;
    if(a.slot==='head'&&hb)put(head,`<g transform="translate(${(hb.x+hb.width/2).toFixed(1)} ${(hb.y+hb.height*0.12).toFixed(1)})">${a.draw(hb.width)}</g>`);
@@ -876,7 +878,7 @@ export function createCompanionSystem(ctx){
      <div class="s2-perks"><span><b>⚔</b>Duo games</span><span><b>×1.25</b>Growth</span><span><b>✦</b>More finds</span></div>
      <div class="s2-paths"><button type="button" class="s2-path is-buy" id="slot2Buy" ${info.canBuy?'':'disabled'}><small>INSTANT</small><b>${escapeText(info.price)}</b></button>
       <button type="button" class="s2-path" id="slot2Ad" ${ready&&info.canAd?'':'disabled'}><small>${ready?'FREE PATH':'FREE PATH · LOCKED'}</small>${ready?`<span class="s2-pips">${Array.from({length:info.adsNeeded},(_,k)=>`<i class="${k<info.ads?'on':''}"></i>`).join('')}</span><b>▶ Ad ${info.ads}/${info.adsNeeded}</b>`:`<span class="s2-bar"><i style="width:${pct.toFixed(1)}%"></i></span><b>${info.elements.toLocaleString('en-US')} / ${info.minElements.toLocaleString('en-US')}</b>`}</button></div></section>`;}}
-  const tabs=`<div class="mk-tabs home-tabs" role="tablist">${[['houses','Houses'],['companions',`Companions · ${have}/${roster.length}`]].map(([k,l])=>`<button type="button" data-hometab="${k}" aria-pressed="${homeTab===k}">${l}</button>`).join('')}</div>`;
+  const tabs=`<div class="mk-tabs home-tabs" role="tablist">${[['companions',`Companions · ${have}/${roster.length}`],['houses','Houses']].map(([k,l])=>`<button type="button" data-hometab="${k}" aria-pressed="${homeTab===k}">${l}</button>`).join('')}</div>`;
   root.innerHTML=homeTab==='houses'?`<div class="pets-scroll"><div class="section-head home-title"><h2>Home</h2></div>${tabs}
    <div id="homeMount"></div></div>`:`<div class="pets-scroll"><div class="section-head home-title"><h2>Home</h2></div>${tabs}
    ${act?'':now}
