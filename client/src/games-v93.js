@@ -190,8 +190,11 @@ export function createGamesSystem(ctx){
   if(had){const owner=state.pick||activeId?.()||ctx.starterCompanion||'organic38:frog';state.pets[owner]={races:state.races||{},karate:state.karate||{}};}
   delete state.races;delete state.karate;try{localStorage.setItem(GAMES_STORAGE_KEY,JSON.stringify(state));}catch{}}
  const prog=cid=>{const k=cid||'_';if(!state.pets[k])state.pets[k]={races:{},karate:{}};return state.pets[k];};
- const myRaces=()=>prog(pick()).races,myKarate=()=>prog(pick()).karate;
- const trophyOf=(course,cid=pick())=>prizes.personal?prizes.personal(course,cid,companionInfo(cid)?.name||'',ctx.sprites?.[cid]):prizes.RACE_PRIZES[course];
+ // V110: while the picker is open, tapping a companion only PREVIEWS it (card + medals below);
+ // it becomes the entrant only when Change is tapped again.
+ let preview=null;const shown=()=>preview||pick();
+ const myRaces=()=>prog(shown()).races,myKarate=()=>prog(shown()).karate;
+ const trophyOf=(course,cid=shown())=>prizes.personal?prizes.personal(course,cid,companionInfo(cid)?.name||'',ctx.sprites?.[cid]):prizes.RACE_PRIZES[course];
  const save=()=>{try{localStorage.setItem(GAMES_STORAGE_KEY,JSON.stringify(state));}catch{}};
  const owned=()=>roster.filter(c=>isDiscovered(c.id));
  const pick=()=>{const o=owned();if(!o.length)return null;if(!o.some(c=>c.id===state.pick))state.pick=(activeId?.()&&o.some(c=>c.id===activeId()))?activeId():o[0].id;return state.pick;};
@@ -200,7 +203,7 @@ export function createGamesSystem(ctx){
  const courseOpen=c=>!c.locked||COURSES.filter(x=>!x.locked).every(x=>best(myRaces()[x.id],0)===1);
  const beltOf=cid=>state.belts[cid]||null;
  const hasPrize=id=>state.prizes.includes(id);
- function medalCounts(cid=pick()){const n={gold:0,silver:0,bronze:0};const P=prog(cid);const all=[...Object.values(P.races),P.karate];for(const lv of all)for(const p of Object.values(lv||{})){const m=medalFor(p);if(m)n[m]++;}return n;}
+ function medalCounts(cid=shown()){const n={gold:0,silver:0,bronze:0};const P=prog(cid);const all=[...Object.values(P.races),P.karate];for(const lv of all)for(const p of Object.values(lv||{})){const m=medalFor(p);if(m)n[m]++;}return n;}
  const medalDot=(p,big=false)=>{const m=medalFor(p);return `<i class="g-medal ${big?'is-big':''} ${m?'is-'+m:p?'is-none':'is-empty'}"></i>`;};
  const totalLv=info=>Object.values(info.stats).reduce((n,s)=>n+(s.level||0),0);
  const GR=['E','D','C','B','A','S'];
@@ -213,7 +216,7 @@ export function createGamesSystem(ctx){
  const nextLevel=e=>{const bag=bagOf(e);for(let i=0;i<LEVELS.length;i++)if(best(bag,i)!==1)return i;return LEVELS.length-1;};
  const dots=e=>{const bag=bagOf(e);return `<span class="st-dots">${LEVELS.map((_,i)=>medalDot(best(bag,i))).join('')}</span>`;};
  function render(mount){
-  if(!mount)return;const pid=pick();
+  if(!mount)return;if(preview&&!owned().some(c=>c.id===preview))preview=null;const pid=shown();
   if(!pid){mount.innerHTML='<div class="pets-scroll"><div class="section-head"><h2>Stadium</h2><p>Discover a companion to enter the races.</p></div></div>';return;}
   const info=companionInfo(pid),n=medalCounts(),belt=belts.find(b=>b.id===beltOf(pid));
   const toys=COURSES.map(c=>trophyOf(c.id)),won=toys.filter(p=>hasPrize(p.id)).length;
@@ -222,19 +225,17 @@ export function createGamesSystem(ctx){
   mount.innerHTML=`<div class="pets-scroll st-scroll"><div class="section-head g-head"><h2>Stadium</h2><span class="g-tally"><i class="g-medal is-gold"></i>${n.gold}<i class="g-medal is-silver"></i>${n.silver}<i class="g-medal is-bronze"></i>${n.bronze}</span></div>
    <section class="st-entrant is-simple"><button type="button" class="st-entrant-art companion" data-companion="${pid}" data-card="${pid}" aria-label="Stats"><span class="companion-art"></span>${belt?`<span class="st-entrant-belt">${prizes.beltSvg(belt,22)}</span>`:''}</button>
     <button type="button" class="st-entrant-main" data-card="${pid}"><strong>${escapeText(info.name)}</strong><small>Lv ${totalLv(info)} · ${info.mood>=70?'Happy':info.mood<=30?'Sad':'Content'}${belt?' · '+escapeText(belt.name):''}</small><em>Growth ×${ctx.alchemyGrowth?.()||1} from ${(ctx.classicCount?.()||0).toLocaleString('en-US')} Classic finds</em></button>
-    <button type="button" class="st-change" id="stChange">Change</button></section>
-   <div class="st-picker" id="stPicker" hidden>${owned().map(c=>({c,m:medalCounts(c.id),t:COURSES.filter(x=>hasPrize(trophyOf(x.id,c.id).id)).length})).sort((x,y)=>(y.m.gold-x.m.gold)||(y.m.silver-x.m.silver)||(y.m.bronze-x.m.bronze)).map(({c,m,t})=>{const ci=companionInfo(c.id),b=belts.find(x=>x.id===beltOf(c.id));
-     // V109: every tile shows that companion's medals, trophies and belt, so nobody needs switching to compare.
-     const tally=[['gold',m.gold],['silver',m.silver],['bronze',m.bronze]].filter(([,n])=>n).map(([k,n])=>`<i class="st-mini is-${k}"></i>${n}`).join('')+(t?`<span class="st-mini-t">🏆${t}</span>`:'');
-     return `<button type="button" class="st-pick ${c.id===pid?'is-active':''} ${m.gold+m.silver+m.bronze?'has-medals':''}" data-gpick="${c.id}"><span class="companion" data-companion="${c.id}"><span class="companion-art"></span>${b?`<span class="st-pick-belt">${prizes.beltSvg(b,16)}</span>`:''}</span><small>${escapeText(ci.name)}</small><em>Lv ${totalLv(ci)}</em><span class="st-tally">${tally||'<span class="st-none">no medals</span>'}</span></button>`;}).join('')}</div>
+    <button type="button" class="st-change ${preview&&preview!==state.pick?'is-confirm':''}" id="stChange">Change</button></section>
+   <div class="st-picker" id="stPicker" ${preview?'':'hidden'}>${owned().map(c=>{const ci=companionInfo(c.id);return `<button type="button" class="st-pick ${c.id===pid?'is-active':''} ${c.id===state.pick?'is-current':''}" data-gpick="${c.id}"><span class="companion" data-companion="${c.id}"><span class="companion-art"></span></span><small>${escapeText(ci.name)}</small><em>Lv ${totalLv(ci)}</em></button>`;}).join('')}</div>
+   ${preview?`<p class="st-preview-hint">${preview===state.pick?'Tap a companion to see its medals.':`Showing ${escapeText(info.name)}'s medals · tap <b>Change</b> to race with ${escapeText(info.name)}`}</p>`:''}
    <div class="st-rows">${rows}
     <button type="button" class="st-row is-prizes" id="stPrizes"><span class="st-course-ico" data-focus="all"></span><div class="st-row-main"><strong>Prizes</strong><small>${won}/${toys.length} trophies · ${belt?escapeText(belt.name):'no belt yet'}</small></div><span class="st-chev">›</span></button></div>
    <p class="mini-muted st-tip">Your companion competes on its own. Tap CHEER for a sprint or a power strike — it costs Stamina.</p></div>`;
   mount.querySelectorAll('.companion[data-companion] .companion-art').forEach(a=>rig(a,a.parentElement.dataset.companion));dress(mount);
-  $('stChange').onclick=()=>{const p=$('stPicker');p.hidden=!p.hidden;};
+  $('stChange').onclick=()=>{if(preview){if(preview!==state.pick){state.pick=preview;save();}preview=null;}else preview=pick();render(mount);};
   mount.querySelectorAll('[data-card]').forEach(b=>b.onclick=()=>ctx.openCard?.(b.dataset.card));
-  mount.querySelectorAll('[data-gpick]').forEach(b=>b.onclick=()=>{state.pick=b.dataset.gpick;save();render(mount);});
-  mount.querySelectorAll('[data-play]').forEach(b=>b.onclick=e=>{e.stopPropagation();const ev=EVENTS().find(x=>x.id===b.dataset.play);const lv=nextLevel(ev);ev.kind==='race'?startRace(mount,ev.course,lv):startKarate(mount,lv);});
+  mount.querySelectorAll('[data-gpick]').forEach(b=>b.onclick=()=>{preview=b.dataset.gpick;render(mount);});
+  mount.querySelectorAll('[data-play]').forEach(b=>b.onclick=e=>{e.stopPropagation();if(preview){state.pick=preview;preview=null;save();}const ev=EVENTS().find(x=>x.id===b.dataset.play);const lv=nextLevel(ev);ev.kind==='race'?startRace(mount,ev.course,lv):startKarate(mount,lv);});
   mount.querySelectorAll('[data-ev]').forEach(r=>r.onclick=()=>eventSheet(mount,EVENTS().find(x=>x.id===r.dataset.ev)));
   $('stPrizes').onclick=()=>prizeSheet(mount);
  }
