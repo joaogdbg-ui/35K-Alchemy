@@ -90,6 +90,10 @@ Preserve 200-per-batch policy and do not start another content release on top of
 
 - **Art redraw wave 3 (V85, done): 3,991 icons** — every remaining older element. All 6,012 pre-V83 elements now use the 2026 art direction (`ART_REDRAW`), plus 200 V83 and 200 V85 originals. Six near-duplicates found by the audit were redrawn; 36 reviewed false alarms are in `tools/art-redraw-reviewed-pairs.json` (the audit now also honours them for V83 comparisons).
 
+## V119b — organic shape morphing (1 November 2026)
+- Replaced the V119 opacity crossfade: every wing/tail/horn/topper/aura trait is now an outline resampled to the same number of points (`morphBlend`, `smoothPath` in companion-engine-v86.js). A slot's mix is drawn as ONE shape whose points are the weighted average of its traits' outlines, so edges bend gradually (bat-wing fingers round into butterfly lobes). Colour blends the same way. Halo/antenna/notes keep their own drawing.
+- Test: V119b in v116-looks.test.mjs. Render check: /tmp/v86/t38.py (Demon×4 → Fairy×3).
+
 ## V119 — traits grow gradually and morph (1 November 2026)
 - Owner: looks should appear gradually and blend, not swap. Each spot holds `look.mix[slot] = {traitId: weight}` (sum ≤ 1). A meal adds 0.25 (0.4 for radiant/rare) to its trait and shrinks the others proportionally when the spot is full; drawing shows every trait in the mix, sized by how grown the spot is (35%→100%) and faded by its share, so bat wings blend into butterfly wings over a few meals. Notes: "Bat wings growing (25%)", "Bat wings morphing into butterfly wings (40%)", "… fully grown!". Labels: "Bat wings / butterfly wings mix", "Devil horns 50%".
 - Old saves (single trait per spot) load as fully grown traits (`normLook`).

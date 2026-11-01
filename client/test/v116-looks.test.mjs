@@ -37,3 +37,9 @@ test('V119: traits grow over meals and morph into each other',async()=>{
  assert.match(lookLabel(L),/Bat wings \/ butterfly wings mix/);
  const old=lookAfterMeal({head:'flame',k:0,size:0},'Snow','','',6).look;assert.ok(old.mix.head.flame>0&&old.mix.head.flake>0,'old saves become full traits that can morph');
 });
+test('V119b: morphing blends outlines point by point (organic, not transparency)',async()=>{
+ const {morphBlend,smoothPath}=await import('../src/companion-engine-v86.js');
+ const a=morphBlend('back',{'bat-wings':1}),b=morphBlend('back',{'butterfly-wings':1}),m=morphBlend('back',{'bat-wings':.5,'butterfly-wings':.5});
+ assert.equal(a.pts.length,b.pts.length);const mid=m.pts[7],x=(a.pts[7][0]+b.pts[7][0])/2;assert.ok(Math.abs(mid[0]-x)<1e-9,'points are averaged');
+ assert.notEqual(m.color,a.color);assert.ok(morphBlend('back',{'bat-wings':.25}).grow<1,'partly grown');assert.match(smoothPath(m.pts,10),/^M.*Q.*Z$/);
+});

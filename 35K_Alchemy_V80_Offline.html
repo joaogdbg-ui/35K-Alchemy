@@ -2791,6 +2791,42 @@ const TAIL={
  'fox-tail':s=>`<path d="M0 0C${f1(-s*.45)} ${f1(s*.05)} ${f1(-s*.85)} ${f1(-s*.25)} ${f1(-s*.75)} ${f1(-s*.7)}C${f1(-s*.5)} ${f1(-s*.45)} ${f1(-s*.25)} ${f1(-s*.25)} 0 ${f1(-s*.15)}Z" fill="#e8834a" stroke="${S}" stroke-width="${f1(s*.04)}"/><path d="M${f1(-s*.75)} ${f1(-s*.7)}C${f1(-s*.7)} ${f1(-s*.5)} ${f1(-s*.6)} ${f1(-s*.42)} ${f1(-s*.5)} ${f1(-s*.42)}C${f1(-s*.55)} ${f1(-s*.55)} ${f1(-s*.65)} ${f1(-s*.65)} ${f1(-s*.75)} ${f1(-s*.7)}Z" fill="#fbf6ec"/>`,
  'fish-tail':s=>`<path d="M0 0C${f1(-s*.25)} ${f1(-s*.05)} ${f1(-s*.45)} ${f1(-s*.1)} ${f1(-s*.55)} ${f1(-s*.15)}L${f1(-s*.85)} ${f1(-s*.45)}L${f1(-s*.78)} ${f1(-s*.1)}L${f1(-s*.9)} ${f1(s*.2)}L${f1(-s*.55)} ${f1(-s*.02)}C${f1(-s*.4)} ${f1(s*.05)} ${f1(-s*.2)} ${f1(s*.08)} 0 ${f1(s*.08)}Z" fill="#6fb5d8" stroke="${S}" stroke-width="${f1(s*.04)}"/>`,
  'dragon-tail':s=>`<path d="M0 0C${f1(-s*.45)} ${f1(s*.15)} ${f1(-s*.7)} ${f1(-s*.1)} ${f1(-s*.95)} ${f1(-s*.35)}C${f1(-s*.65)} ${f1(-s*.2)} ${f1(-s*.4)} ${f1(-s*.05)} 0 ${f1(-s*.15)}Z" fill="#5e9e5a" stroke="${S}" stroke-width="${f1(s*.04)}"/>${[0.3,0.55,0.78].map(k=>`<path d="M${f1(-s*k)} ${f1(-s*(.08+k*.2))}l${f1(s*.05)} ${f1(-s*.14)}l${f1(s*.07)} ${f1(s*.12)}Z" fill="#f3d266" stroke="${S}" stroke-width="${f1(s*.025)}"/>`).join('')}`};
+/* V119b: ORGANIC morphing — every trait of a spot is an outline resampled to the same number of
+ * points, so a mix is a weighted average of the points (a straight edge slowly bends into a curve,
+ * bat-wing fingers round off into butterfly lobes). Colour blends the same way. */
+function resample(raw,N){const P=[...raw,raw[0]];const seg=[];let L=0;for(let i=0;i<P.length-1;i++){const d=Math.hypot(P[i+1][0]-P[i][0],P[i+1][1]-P[i][1]);seg.push(d);L+=d;}
+ const out=[];let i=0,acc=0;for(let k=0;k<N;k++){const target=k*L/N;while(i<seg.length-1&&acc+seg[i]<target){acc+=seg[i];i++;}const t=seg[i]?(target-acc)/seg[i]:0;out.push([P[i][0]+(P[i+1][0]-P[i][0])*t,P[i][1]+(P[i+1][1]-P[i][1])*t]);}return out;}
+const polar=(fn,n=48,cy=0)=>Array.from({length:n},(_,i)=>{const a=-Math.PI/2+i*2*Math.PI/n;const r=fn(a);return [Math.cos(a)*r,cy+Math.sin(a)*r];});
+const MORPH_RAW={
+ back:{'bat-wings':[[0,0],[-.25,-.5],[-.65,-.72],[-1.05,-.55],[-.98,-.38],[-.9,-.18],[-.82,.02],[-.7,-.06],[-.6,.12],[-.45,.02],[-.32,.16],[-.18,.06],[0,.14]],
+  'butterfly-wings':[[0,0],[-.15,-.55],[-.5,-.8],[-.85,-.65],[-.9,-.35],[-.7,-.1],[-.55,0],[-.75,.2],[-.7,.45],[-.45,.5],[-.2,.3],[0,.1]],
+  'feather-wings':[[0,0],[-.3,-.45],[-.7,-.6],[-1,-.5],[-.92,-.35],[-.98,-.25],[-.85,-.12],[-.9,-.02],[-.72,.05],[-.75,.15],[-.55,.14],[-.5,.24],[-.3,.18],[0,.14]],
+  'dragon-wings':[[0,0],[-.3,-.7],[-1.15,-.55],[-.9,-.28],[-1,0],[-.65,-.02],[-.62,.18],[-.3,.08],[0,.18]],
+  'fire-wings':[[0,0],[-.3,-.6],[-.55,-.4],[-.75,-.75],[-.85,-.35],[-1.05,-.45],[-.9,-.1],[-.7,0],[-.45,.1],[0,.14]],
+  fin:[[0,0],[-.15,-.35],[-.38,-.48],[-.32,-.12],[-.25,.05],[0,.1]]},
+ tail:{'devil-tail':[[0,-.05],[-.3,-.02],[-.55,-.2],[-.72,-.4],[-.8,-.52],[-.95,-.62],[-.85,-.42],[-.98,-.3],[-.78,-.36],[-.66,-.28],[-.5,-.08],[-.28,.06],[0,.05]],
+  'fox-tail':[[0,-.12],[-.3,-.25],[-.6,-.55],[-.8,-.75],[-.85,-.55],[-.8,-.3],[-.6,-.05],[-.3,.08],[0,.06]],
+  'fish-tail':[[0,-.05],[-.3,-.1],[-.55,-.15],[-.85,-.45],[-.78,-.1],[-.9,.2],[-.55,0],[-.3,.07],[0,.06]],
+  'dragon-tail':[[0,-.15],[-.3,-.12],[-.35,-.22],[-.45,-.15],[-.55,-.3],[-.65,-.22],[-.8,-.38],[-.95,-.35],[-.7,-.12],[-.4,.02],[0,.05]]},
+ horn:{'devil-horns':[[-.15,0],[-.1,-.35],[.05,-.6],[.3,-.85],[.22,-.55],[.12,-.3],[.15,0]],'dragon-horns':[[-.15,0],[-.05,-.3],[.2,-.5],[.6,-.6],[.3,-.35],[.18,-.15],[.15,0]]},
+ top:{leaf:[[0,0],[-.35,-.25],[-.4,-.6],[-.15,-.95],[0,-1.1],[.15,-.95],[.4,-.6],[.35,-.25]],flame:[[0,0],[-.38,-.2],[-.35,-.55],[-.15,-.7],[-.12,-.95],[.05,-1.1],[.1,-.85],[.3,-.65],[.38,-.25]],
+  star:polar(a=>{const k=((a+Math.PI/2)/(2*Math.PI)*10)%2;return .2+.25*Math.abs(1-k);},40,-.55),crown:[[-.42,0],[-.42,-.5],[-.2,-.25],[0,-.6],[.2,-.25],[.42,-.5],[.42,0]],
+  flower:polar(a=>.3+.14*Math.cos(5*a),40,-.55),flake:polar(a=>.16+.3*Math.abs(Math.cos(3*a))**4,48,-.55)},
+ aura:{sparkle:polar(a=>.25+.75*Math.abs(Math.cos(2*a))**6,32),bubbles:polar(()=>.6,32),embers:polar(()=>.38,32),
+  hearts:Array.from({length:32},(_,i)=>{const t=i/32*2*Math.PI;return [ .045*16*Math.sin(t)**3,-.045*(13*Math.cos(t)-5*Math.cos(2*t)-2*Math.cos(3*t)-Math.cos(4*t))];})}};
+const MORPH_N={back:30,tail:26,horn:18,top:28,aura:24};
+const MORPH_COLOR={'bat-wings':'#5b3a6e','butterfly-wings':'#f7a6c8','feather-wings':'#fbfaf4','dragon-wings':'#5e9e5a','fire-wings':'#ff9a3d',fin:'#6fb5d8','devil-tail':'#7a2230','fox-tail':'#e8834a','fish-tail':'#6fb5d8','dragon-tail':'#5e9e5a','devil-horns':'#c8303a','dragon-horns':'#efe3cf',leaf:'#7cc463',flame:'#ff9a3d',star:'#f3d266',crown:'#f1c26b',flower:'#f7a6c8',flake:'#bfe6fa',sparkle:'#ffe27a',bubbles:'#bfe3f7',embers:'#ff9a3d',hearts:'#ef7f9b'};
+const MORPH=Object.fromEntries(Object.entries(MORPH_RAW).map(([g,v])=>[g,Object.fromEntries(Object.entries(v).map(([id,raw])=>[id,resample(raw,MORPH_N[g])]))]));
+const hex=c=>[1,3,5].map(i=>parseInt(c.slice(i,i+2),16));
+/** Weighted blend of the outlines of one morph group in a spot's mix → {pts, color, grow, lux} or null. */
+function morphBlend(group,mix,lux={},slot=''){const V=MORPH[group];const e=Object.entries(mix||{}).filter(([id,w])=>w>0.04&&V[id]);if(!e.length)return null;
+ const tot=e.reduce((n,[,w])=>n+w,0);const N=MORPH_N[group];const pts=Array.from({length:N},()=>[0,0]);let col=[0,0,0];
+ for(const [id,w] of e){const f=w/tot;V[id].forEach(([x,y],i)=>{pts[i][0]+=x*f;pts[i][1]+=y*f;});col=col.map((v,i)=>v+hex(MORPH_COLOR[id])[i]*f);}
+ return {pts,color:`rgb(${col.map(Math.round).join(',')})`,grow:0.35+0.65*Math.min(1,tot),lux:e.some(([id])=>lux[slot+':'+id])};}
+/** Smooth closed path through points (quadratic curves via midpoints), scaled and placed. */
+function smoothPath(pts,s,ox=0,oy=0){const P=pts.map(([x,y])=>[ox+x*s,oy+y*s]);const m=(a,b)=>[(a[0]+b[0])/2,(a[1]+b[1])/2];let d=`M${f1(m(P[P.length-1],P[0])[0])} ${f1(m(P[P.length-1],P[0])[1])}`;
+ for(let i=0;i<P.length;i++){const n=P[(i+1)%P.length],q=m(P[i],n);d+=`Q${f1(P[i][0])} ${f1(P[i][1])} ${f1(q[0])} ${f1(q[1])}`;}return d+'Z';}
+
 function applyLookSvg(svg,look,key){
  if(!svg)return;svg.querySelectorAll('[data-acc="look"]').forEach(n=>n.remove());
  const L={...defaultLook(),...(look||{})};const lux=L.lux||{};const tinted=L.tint&&L.k>0.02;
@@ -2801,22 +2837,24 @@ function applyLookSvg(svg,look,key){
  const add=(parent,html,before=false,cls='')=>{const g=document.createElementNS('http://www.w3.org/2000/svg','g');g.setAttribute('data-acc','look');if(cls)g.setAttribute('class',cls);g.innerHTML=html;before?parent.insertBefore(g,parent.firstChild):parent.append(g);return g;};
  const bb=el=>{try{const b=el.getBBox();return b.width?b:null;}catch{return null;}};
  const head=svg.querySelector('[data-part="head"]')||svg.querySelector('[data-part="body"]');const body=svg.querySelector('[data-part="body"]')||head;
- // V119: every trait in a spot's mix is drawn, sized by how grown the spot is and faded by its share,
- // so two kinds blend (bat wings slowly rounding into butterfly wings) instead of swapping.
- const N=normLook(look);
- const entries=sl=>{const e=Object.entries(N.mix[sl]).filter(([,w])=>w>0.04).sort((a,b)=>a[1]-b[1]);const tot=Math.min(1,e.reduce((n,[,w])=>n+w,0));const top=e.length?e[e.length-1][1]:1;
-  return e.map(([id,w])=>({id,w,grow:0.35+0.65*tot,op:Math.max(0.3,Math.min(1,w/top)),lux:!!N.lux[sl+':'+id]}));};
- const gx=(e,cls0='')=>`${e.lux?'look-lux ':''}${cls0}`;
- const hb=head?bb(head):null,bdb=body?bb(body):null;
- for(const e of entries('head'))if(HEAD[e.id]&&hb){const s=Math.max(8,hb.width*(/horns/.test(e.id)?.42:.32))*(e.lux?1.4:1)*e.grow;add(head,`<g transform="translate(${f1(hb.x+hb.width/2)} ${f1(hb.y+s*.12)})" opacity="${e.op.toFixed(2)}" stroke-linejoin="round" stroke-linecap="round">${HEAD[e.id](s)}</g>`,false,gx(e));}
- for(const e of entries('back'))if(bdb&&(WING[e.id]||e.id==='fin')){const s=bdb.width*.5*(e.lux?1.4:1)*e.grow;const b=bdb;
-  if(e.id==='fin')add(body,`<path opacity="${e.op.toFixed(2)}" d="M${f1(b.x+b.width*.45)} ${f1(b.y+b.height*.12)}l${f1(s*.2)} ${f1(-s*.34)}l${f1(s*.14)} ${f1(s*.36)}Z" fill="#6fb5d8" stroke="${S}" stroke-width="${f1(s*.03)}"/>`,true,gx(e));
-  else{const y=b.y+b.height*.32;add(body,`<g opacity="${e.op.toFixed(2)}"><g transform="translate(${f1(b.x+b.width*.22)} ${f1(y)})"><g class="look-wing is-l">${WING[e.id](s)}</g></g><g transform="translate(${f1(b.x+b.width*.78)} ${f1(y)}) scale(-1 1)"><g class="look-wing is-r">${WING[e.id](s)}</g></g></g>`,true,gx(e));}}
- for(const e of entries('tail'))if(TAIL[e.id]&&bdb){const b=bdb;const s=b.width*.55*(e.lux?1.4:1)*e.grow;add(body,`<g opacity="${e.op.toFixed(2)}" transform="translate(${f1(b.x+b.width*.12)} ${f1(b.y+b.height*.72)})" stroke-linejoin="round" stroke-linecap="round"><g class="look-tail">${TAIL[e.id](s)}</g></g>`,true,gx(e));}
- const ab=entries('aura').length?bb(svg):null;
- for(const e of entries('aura'))if(ab){const b=ab;const n=e.lux?5:Math.max(1,Math.round(3*e.grow));const pts=[[-.05,.2],[1.02,.35],[.15,.85],[.9,.9],[.5,-.05]].slice(0,n).map(([x,y])=>[b.x+b.width*x,b.y+b.height*y]);const s=Math.max(5,b.width*.09)*(e.lux?1.4:1)*e.grow;
-  const one=a=>a==='sparkle'?`<path d="M0 ${-s}L${f1(s*.25)} ${f1(-s*.25)}L${s} 0L${f1(s*.25)} ${f1(s*.25)}L0 ${s}L${f1(-s*.25)} ${f1(s*.25)}L${-s} 0L${f1(-s*.25)} ${f1(-s*.25)}Z" fill="#ffe27a"/>`:a==='bubbles'?`<circle r="${f1(s*.6)}" fill="rgba(170,220,250,.5)" stroke="#8fd0f5" stroke-width="${f1(s*.15)}"/>`:a==='hearts'?`<path d="M0 ${f1(s*.6)}C${-s} 0 ${f1(-s*.6)} ${f1(-s*.8)} 0 ${f1(-s*.3)}C${f1(s*.6)} ${f1(-s*.8)} ${s} 0 0 ${f1(s*.6)}Z" fill="#ef7f9b"/>`:a==='embers'?`<circle r="${f1(s*.35)}" fill="#ff9a3d"/><circle r="${f1(s*.15)}" fill="#ffe27a"/>`:`<text font-size="${f1(s*1.8)}" fill="#9b7fc4" text-anchor="middle">♪</text>`;
-  add(svg,`<g class="look-aura is-${e.id}" opacity="${e.op.toFixed(2)}">${pts.map(([x,y],i)=>`<g transform="translate(${f1(x)} ${f1(y)})"><g style="animation-delay:${i*.35}s">${one(e.id)}</g></g>`).join('')}</g>`,false,gx(e));}
+ // V119b: organic morph — outlines of all traits in a spot are blended point by point.
+ const N=normLook(look);const hb=head?bb(head):null,bdb=body?bb(body):null;const SW=w=>f1(Math.max(1,w));
+ const gl=x=>x?.lux?'look-lux':'';
+ const back=morphBlend('back',N.mix.back,N.lux,'back');
+ if(back&&bdb){const b=bdb,s=b.width*.5*(back.lux?1.4:1)*back.grow,y=b.y+b.height*.32;const d=smoothPath(back.pts,s),hi=smoothPath(back.pts.map(([x,yy])=>[x*.62,yy*.62-.04]),s);
+  add(body,`<g><g transform="translate(${f1(b.x+b.width*.22)} ${f1(y)})"><g class="look-wing is-l"><path d="${d}" fill="${back.color}" stroke="${S}" stroke-width="${SW(s*.035)}"/><path d="${hi}" fill="#fff" opacity=".18"/></g></g><g transform="translate(${f1(b.x+b.width*.78)} ${f1(y)}) scale(-1 1)"><g class="look-wing is-r"><path d="${d}" fill="${back.color}" stroke="${S}" stroke-width="${SW(s*.035)}"/><path d="${hi}" fill="#fff" opacity=".18"/></g></g></g>`,true,gl(back));}
+ const tail=morphBlend('tail',N.mix.tail,N.lux,'tail');
+ if(tail&&bdb){const b=bdb,s=b.width*.55*(tail.lux?1.4:1)*tail.grow;add(body,`<g transform="translate(${f1(b.x+b.width*.12)} ${f1(b.y+b.height*.72)})"><g class="look-tail"><path d="${smoothPath(tail.pts,s)}" fill="${tail.color}" stroke="${S}" stroke-width="${SW(s*.035)}"/></g></g>`,true,gl(tail));}
+ const horn=morphBlend('horn',N.mix.head,N.lux,'head'),top=morphBlend('top',N.mix.head,N.lux,'head');
+ if(hb&&(horn||top)){const cx=hb.x+hb.width/2;let html='';
+  if(horn){const s=hb.width*.42*(horn.lux?1.4:1)*horn.grow;const d=smoothPath(horn.pts,s);html+=[1,-1].map(dir=>`<g transform="translate(${f1(cx+dir*s*.22)} ${f1(hb.y+s*.1)}) scale(${dir} 1)"><path d="${d}" fill="${horn.color}" stroke="${S}" stroke-width="${SW(s*.06)}"/></g>`).join('');}
+  if(top){const s=Math.max(8,hb.width*.32)*(top.lux?1.4:1)*top.grow;html+=`<path d="${smoothPath(top.pts,s,cx,hb.y+s*.12)}" fill="${top.color}" stroke="${S}" stroke-width="${SW(s*.07)}"/>`;}
+  add(head,html,false,gl(horn)||gl(top));}
+ // non-shape extras keep their own drawing, faded by their share: halo, antenna
+ for(const id of ['halo','antenna']){const w=N.mix.head[id];if(!w||!hb)continue;const s=Math.max(8,hb.width*.32)*(N.lux['head:'+id]?1.4:1)*(0.35+0.65*Math.min(1,w));add(head,`<g transform="translate(${f1(hb.x+hb.width/2)} ${f1(hb.y+s*.12)})" opacity="${Math.min(1,.3+w).toFixed(2)}">${HEAD[id](s)}</g>`,false,N.lux['head:'+id]?'look-lux':'');}
+ const aura=morphBlend('aura',N.mix.aura,N.lux,'aura'),notesW=N.mix.aura.notes||0;
+ if((aura||notesW)){const b=bb(svg);if(b){const g=aura?aura.grow:0.35+0.65*Math.min(1,notesW);const n=aura?.lux?5:Math.max(1,Math.round(3*g));const pts=[[-.05,.2],[1.02,.35],[.15,.85],[.9,.9],[.5,-.05]].slice(0,n).map(([x,y])=>[b.x+b.width*x,b.y+b.height*y]);const s=Math.max(5,b.width*.09)*(aura?.lux?1.4:1)*g;
+  add(svg,`<g class="look-aura">${pts.map(([x,y],i)=>`<g transform="translate(${f1(x)} ${f1(y)})"><g style="animation-delay:${i*.35}s">${aura?`<path d="${smoothPath(aura.pts,s)}" fill="${aura.color}" opacity=".9"/>`:''}${notesW>0.04?`<text font-size="${f1(s*1.8)}" fill="#9b7fc4" text-anchor="middle" opacity="${Math.min(1,.3+notesW).toFixed(2)}">♪</text>`:''}</g></g>`).join('')}</g>`,false,gl(aura));}}
 }
 
 function createCompanionSystem(ctx){
