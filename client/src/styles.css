@@ -1703,3 +1703,13 @@ button.home-eff::after{content:" ⓘ";opacity:.6;font-weight:700}
 .home-tile.is-grass{background:color-mix(in srgb,#7fc46a 55%,transparent)!important}
 .home-room.has-pool{box-shadow:inset 0 -6px 0 #5aaed2}
 .home-ext-list{list-style:none;padding:0;margin:6px 0;font-size:13px}
+
+/* V140: add-ons vs houses */
+.mk-sec{margin:14px 2px 0;font-size:15px;text-align:left}.mk-sec small{font-weight:700;font-size:12px;color:var(--slate);margin-left:4px}
+.mk-tag{font-style:normal;font-size:9px;font-weight:900;letter-spacing:.06em;color:var(--slate);background:var(--surface-2);border-radius:6px;padding:2px 6px;justify-self:center}.mk-tag.is-addon{color:#3f7a3c;background:color-mix(in srgb,#5e9e5a 18%,transparent)}
+.mk-tile small.mk-fits{min-height:0;font-size:10px;font-weight:800;color:#3f7a3c}
+.home-addon-row{margin-top:8px;align-items:flex-start}.home-addon-row>span{padding-top:12px}
+.home-addon-row .home-ext{flex:1;min-width:0;padding:0;flex-wrap:wrap;overflow:visible}.home-addon-row .home-ext-chip{flex:1 1 150px}
+.home-ext-chip.is-built{border-color:#5e9e5a;background:color-mix(in srgb,#5e9e5a 14%,var(--surface-2));opacity:1}
+.home-ext-chip.is-off{opacity:.5}
+.home-ext-emoji{font-size:20px;display:grid;place-items:center;height:100%}

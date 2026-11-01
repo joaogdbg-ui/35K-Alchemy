@@ -16,7 +16,8 @@ export const HOUSE_LAYOUTS={1:{cols:4,rows:3,theme:'tent'},2:{cols:5,rows:4,them
 // V92: houses speed up growth for every resident (multiplier on future gains, never on stats).
 export const HOUSE_GROWTH={1:1.1,2:1.2,3:1.35,4:1.5,6:1.75,8:2,10:2.3};
 // V139: house complements (garden, outdoor pool, second floor) attach to one house each.
-export const EXT_INFO={garden:{label:'Garden',icon:'🌳',line:'+1 floor row · Fun +20% · all growth ×1.05'},pool:{label:'Outdoor pool',icon:'🏊',line:'Swim +25%'},floor:{label:'Second floor',icon:'🏠',line:'+2 companions'}};
+// V140: `fits` = capacities of the houses each add-on can be attached to (the Castle with Garden and Pool has both built in).
+export const EXT_INFO={garden:{label:'Garden',icon:'🌳',line:'Bigger floor · Fun +20% · growth ×1.05',fits:[1,2,3,4,6,8]},pool:{label:'Outdoor pool',icon:'🏊',line:'Swim +25%',fits:[4,6,8]},floor:{label:'Second floor',icon:'🏠',line:'+2 companions',fits:[3,4,6,8,10]}};
 export const FURNITURE_BONUS=0.15,FURNITURE_BONUS_MAX=0.75;
 /**
  * V103: a piece's bonus depends on how hard it is to make (recipe depth = combinations needed from
@@ -87,12 +88,22 @@ export function createHomeSystem(ctx){
  const ownedHouses=()=>houseIds().filter(isDiscovered);
  const house=id=>{if(!state.houses[id])state.houses[id]={furniture:[],residents:[]};return state.houses[id];};
  const extIds=()=>Object.entries(objects).filter(([id,o])=>o.kind==='extension'&&isDiscovered(id)).map(([id])=>id);
- const extOn=(hid,kind)=>(state.houses[hid]?.ext||[]).some(id=>objects[id]?.ext===kind&&isDiscovered(id));
+ const builtIn=(hid,kind)=>(objects[hid]?.builtin||[]).includes(kind);
+ const fitsExt=(hid,kind)=>!builtIn(hid,kind)&&(EXT_INFO[kind]?.fits||[]).includes(objects[hid]?.capacity);
+ const extOn=(hid,kind)=>builtIn(hid,kind)||fitsExt(hid,kind)&&(state.houses[hid]?.ext||[]).some(id=>objects[id]?.ext===kind&&isDiscovered(id));
+ const shortName=hid=>uiName(byId.get(hid)).replace(/^Companion /,'');
+ /** Names of the houses an add-on fits, and the ones that already have it built in. */
+ function addonInfo(id){const k=objects[id]?.ext;if(!k)return null;const I=EXT_INFO[k];
+  const ids=houseIds(),f=ids.filter(h=>fitsExt(h,k));const first=ids.indexOf(f[0]),last=ids.indexOf(f[f.length-1]);
+  const range=!f.length?'none':f.length===1?shortName(f[0]):last-first+1===f.length?(last===ids.length-1?`${shortName(f[0])} and bigger`:`${shortName(f[0])} to ${shortName(f[f.length-1])}`):f.map(shortName).join(', ');
+  return {...I,kind:k,fits:f.map(shortName),range,builtin:ids.filter(h=>builtIn(h,k)).map(shortName)};}
+ // add-ons stuck on a house they do not fit (older saves) are taken off
+ for(const [k,h] of Object.entries(state.houses))if(Array.isArray(h.ext))h.ext=h.ext.filter(id=>objects[id]?.kind==='extension'&&fitsExt(k,objects[id].ext));
  const extHome=id=>Object.entries(state.houses).find(([,h])=>(h.ext||[]).includes(id))?.[0]||null;
  const capOf=hid=>(objects[hid]?.capacity||1)+(extOn(hid,'floor')?2:0);
  const layoutOf=hid=>{const L=layoutFor(capOf(hid));return extOn(hid,'garden')?{...L,rows:L.rows+1,garden:true}:L;};
  const extMult=(hid,kind)=>(extOn(hid,'garden')?1.05*(kind==='mood'?1.2:1):1)*(extOn(hid,'pool')&&kind==='swim'?1.25:1);
- function toggleExt(mount,hid,id){const h=house(hid);h.ext=h.ext||[];const was=extHome(id);
+ function toggleExt(mount,hid,id){if(!fitsExt(hid,objects[id]?.ext))return;const h=house(hid);h.ext=h.ext||[];const was=extHome(id);
   if(was===hid){h.ext=h.ext.filter(x=>x!==id);}else{if(was)state.houses[was].ext=state.houses[was].ext.filter(x=>x!==id);h.ext.push(id);}
   // a removed second floor may leave too many residents: the newest move out
   for(const [k,hh] of Object.entries(state.houses))while(hh.residents.length>capOf(k))hh.residents.pop();
@@ -115,6 +126,16 @@ export function createHomeSystem(ctx){
   const band=layer==='object'?BAND:0;
   const style=layer==='wall'?`--x:${f.x};--w:${w}`:`--x:${f.x};--y:${f.y};--w:${w};--h:${h};--band:${band};--z:${layer==='floor'?1:10+(f.y+h)*2}`;
   return `<button type="button" class="home-piece is-${layer} ${art.flip?'is-flip':''} ${moving&&moving.index===i?'is-moving':''}" data-piece="${i}" style="${style}" aria-label="${escapeText(uiName(byId.get(f.id)))}">${art.html}<i class="home-hit" aria-hidden="true"></i></button>`;}
+ /** V140: the house's add-ons, under Residents. Built-in ones are shown fixed; ones that do not fit are greyed with where they fit. */
+ function addonRow(hid){const built=Object.keys(EXT_INFO).filter(k=>builtIn(hid,k));const own=extIds();if(!built.length&&!own.length)return '';
+  const chip=(cls,art,label,sub,attr='')=>`<button type="button" class="home-ext-chip ${cls}" ${attr}><span class="home-ext-art">${art}</span><b>${label}</b><small>${sub}</small></button>`;
+  const html=built.map(k=>chip('is-built',(()=>{const e=Object.keys(objects).find(i=>objects[i].ext===k);return e&&byId.get(e)?staticArt(byId.get(e)):'<span class="home-ext-emoji">'+EXT_INFO[k].icon+'</span>';})(),EXT_INFO[k].label,'Built in','disabled'))
+   .concat(own.map(id=>{const k=objects[id].ext,I=EXT_INFO[k],art=staticArt(byId.get(id));
+    if(builtIn(hid,k))return '';
+    if(!fitsExt(hid,k))return chip('is-off',art,I.label,'Fits '+escapeText(addonInfo(id).range),'disabled');
+    const on=extHome(id)===hid,where=!on&&extHome(id);
+    return chip(on?'is-on':'',art,I.label,on?'✓ Added · tap to remove':where?'In '+escapeText(shortName(where))+' · tap to move here':'Tap to add',`data-ext="${id}"`);})).join('');
+  return `<div class="home-res-row home-addon-row"><span>Add-ons</span><div class="home-ext">${html}</div></div>`;}
  function render(mount){
   if(!mount)return;stopWander();
   const hid=activeHouse();const own=ownedHouses();
@@ -128,7 +149,6 @@ export function createHomeSystem(ctx){
   mount.innerHTML=`<section class="home-card">
    <div class="home-chips" role="tablist" aria-label="Your houses">${chips}</div>
    <div class="home-head"><strong>${escapeText(uiName(it))}</strong><small>${residents.length}/${cap} companions · ${h.furniture.length} furniture</small></div>
-   ${extIds().length?`<div class="home-ext">${extIds().map(id=>{const k=objects[id].ext,on=extHome(id)===hid,else_=!on&&extHome(id);return `<button type="button" class="home-ext-chip ${on?'is-on':''}" data-ext="${id}"><span class="home-ext-art">${staticArt(byId.get(id))}</span><b>${EXT_INFO[k].label}</b><small>${on?'Added · tap to remove':else_?'In '+escapeText(uiName(byId.get(else_)))+' · tap to move':'Tap to add'}</small></button>`;}).join('')}</div>`:''}
    <div class="home-room ${L.garden?'has-garden':''} ${extOn(hid,'pool')?'has-pool':''}" data-theme="${L.theme}" style="--cols:${L.cols};--rows:${L.rows}">
     <div class="home-wall" id="homeWall">
      ${Array.from({length:L.cols},(_,i)=>`<button type="button" class="home-walltile" data-wx="${i}" aria-label="Wall"></button>`).join('')}
@@ -145,6 +165,7 @@ export function createHomeSystem(ctx){
    ${moving?`<p class="home-hint">Drag ${escapeText(uiName(byId.get(h.furniture[moving.index]?.id)))} to its new spot · <button type="button" class="home-link" id="homeCancelMove">Done</button></p>`:''}
    <div class="home-effects">${sumHtml}</div>
    <div class="home-res-row"><span>Residents</span><div class="home-res-list">${resHtml}</div></div>
+   ${addonRow(hid)}
   </section>`;
   mount.querySelectorAll('[data-house]').forEach(b=>b.onclick=()=>houseInfo(mount,b.dataset.house));
   mount.querySelectorAll('[data-ext]').forEach(b=>b.onclick=()=>toggleExt(mount,hid,b.dataset.ext));
@@ -185,7 +206,7 @@ export function createHomeSystem(ctx){
   showModal(`<div class="modal-tag">COMPANION HOUSE · TIER ${tier}</div><div class="modal-art">${staticArt(it)}</div><h2>${escapeText(uiName(it))}</h2><p>${escapeText(it.summary||'')}</p>
    <div class="home-bonus"><div class="home-bonus-big">×${b.growth}<small>growth for every resident</small></div>
    <ul>${b.list.length?b.list.map(x=>`<li><b>${BONUS_NAME[x.k]} +${x.pct}%</b> · ${x.pieces.map(p=>escapeText(uiName(byId.get(p.id)))+' +'+p.q.pct+'%').join(', ')}</li>`).join(''):'<li>Add training, food, fun or book furniture for extra bonuses.</li>'}</ul></div>
-   ${extIds().some(e=>extHome(e)===id)?`<ul class="home-ext-list">${extIds().filter(e=>extHome(e)===id).map(e=>`<li>${EXT_INFO[objects[e].ext].icon} <b>${EXT_INFO[objects[e].ext].label}</b> · ${EXT_INFO[objects[e].ext].line}</li>`).join('')}</ul>`:''}
+   ${(()=>{const ks=Object.keys(EXT_INFO).filter(k=>extOn(id,k));const can=Object.keys(EXT_INFO).filter(k=>fitsExt(id,k)&&!extOn(id,k));return (ks.length?`<ul class="home-ext-list">${ks.map(k=>`<li>${EXT_INFO[k].icon} <b>${EXT_INFO[k].label}</b>${builtIn(id,k)?' (built in)':''} · ${EXT_INFO[k].line}</li>`).join('')}</ul>`:'')+(can.length?`<p class="mini-muted">Add-ons that fit this house: ${can.map(k=>EXT_INFO[k].label).join(', ')}.</p>`:'');})()}
    <p class="mini-muted">Room for ${capOf(id)} · ${layoutOf(id).cols}×${layoutOf(id).rows} floor. Bonuses only speed up growth from meals, gifts, discoveries and training — moving a companion to another house never takes away what it already earned.</p>
    ${active?'':'<button type="button" class="modal-button" id="homeGo">Go to this house</button>'}<button type="button" class="modal-button secondary" id="homeClose">Close</button>`);
   $('homeClose').onclick=closeModal;const go=$('homeGo');if(go)go.onclick=()=>{state.active=id;moving=null;save();closeModal();render(mount);};}
@@ -320,6 +341,6 @@ export function createHomeSystem(ctx){
 
  function growthFor(cid,kind){const hid=residentOf(cid);if(!hid||!isDiscovered(hid))return 1;return Math.round(growthMultiplier(objects[hid].capacity,house(hid),objects,kind,bonusOf)*extMult(hid,kind)*100)/100;}
  function houseLine(cid){const hid=residentOf(cid);if(!hid||!isDiscovered(hid))return '';return `Lives in ${escapeText(uiName(byId.get(hid)))} · grows ×${HOUSE_GROWTH[objects[hid].capacity]||1} faster`;}
- return {render,stopWander,growthFor,houseLine,state:()=>state,summary:id=>houseSummary(house(id),objects),ownedHouses,residentOf,
+ return {render,stopWander,growthFor,houseLine,addonInfo,state:()=>state,summary:id=>houseSummary(house(id),objects),ownedHouses,residentOf,
   importState(raw){if(raw&&raw.houses){state={v:1,active:raw.active||null,houses:raw.houses};save();}}};
 }

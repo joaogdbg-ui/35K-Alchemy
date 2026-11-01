@@ -1713,6 +1713,16 @@ button.home-eff::after{content:" ⓘ";opacity:.6;font-weight:700}
 .home-room.has-pool{box-shadow:inset 0 -6px 0 #5aaed2}
 .home-ext-list{list-style:none;padding:0;margin:6px 0;font-size:13px}
 
+/* V140: add-ons vs houses */
+.mk-sec{margin:14px 2px 0;font-size:15px;text-align:left}.mk-sec small{font-weight:700;font-size:12px;color:var(--slate);margin-left:4px}
+.mk-tag{font-style:normal;font-size:9px;font-weight:900;letter-spacing:.06em;color:var(--slate);background:var(--surface-2);border-radius:6px;padding:2px 6px;justify-self:center}.mk-tag.is-addon{color:#3f7a3c;background:color-mix(in srgb,#5e9e5a 18%,transparent)}
+.mk-tile small.mk-fits{min-height:0;font-size:10px;font-weight:800;color:#3f7a3c}
+.home-addon-row{margin-top:8px;align-items:flex-start}.home-addon-row>span{padding-top:12px}
+.home-addon-row .home-ext{flex:1;min-width:0;padding:0;flex-wrap:wrap;overflow:visible}.home-addon-row .home-ext-chip{flex:1 1 150px}
+.home-ext-chip.is-built{border-color:#5e9e5a;background:color-mix(in srgb,#5e9e5a 14%,var(--surface-2));opacity:1}
+.home-ext-chip.is-off{opacity:.5}
+.home-ext-emoji{font-size:20px;display:grid;place-items:center;height:100%}
+
 </style>
 </head>
 <body>
@@ -2076,7 +2086,8 @@ const HOUSE_LAYOUTS={1:{cols:4,rows:3,theme:'tent'},2:{cols:5,rows:4,theme:'hut'
 // V92: houses speed up growth for every resident (multiplier on future gains, never on stats).
 const HOUSE_GROWTH={1:1.1,2:1.2,3:1.35,4:1.5,6:1.75,8:2,10:2.3};
 // V139: house complements (garden, outdoor pool, second floor) attach to one house each.
-const EXT_INFO={garden:{label:'Garden',icon:'🌳',line:'+1 floor row · Fun +20% · all growth ×1.05'},pool:{label:'Outdoor pool',icon:'🏊',line:'Swim +25%'},floor:{label:'Second floor',icon:'🏠',line:'+2 companions'}};
+// V140: `fits` = capacities of the houses each add-on can be attached to (the Castle with Garden and Pool has both built in).
+const EXT_INFO={garden:{label:'Garden',icon:'🌳',line:'Bigger floor · Fun +20% · growth ×1.05',fits:[1,2,3,4,6,8]},pool:{label:'Outdoor pool',icon:'🏊',line:'Swim +25%',fits:[4,6,8]},floor:{label:'Second floor',icon:'🏠',line:'+2 companions',fits:[3,4,6,8,10]}};
 const FURNITURE_BONUS=0.15,FURNITURE_BONUS_MAX=0.75;
 /**
  * V103: a piece's bonus depends on how hard it is to make (recipe depth = combinations needed from
@@ -2147,12 +2158,22 @@ function createHomeSystem(ctx){
  const ownedHouses=()=>houseIds().filter(isDiscovered);
  const house=id=>{if(!state.houses[id])state.houses[id]={furniture:[],residents:[]};return state.houses[id];};
  const extIds=()=>Object.entries(objects).filter(([id,o])=>o.kind==='extension'&&isDiscovered(id)).map(([id])=>id);
- const extOn=(hid,kind)=>(state.houses[hid]?.ext||[]).some(id=>objects[id]?.ext===kind&&isDiscovered(id));
+ const builtIn=(hid,kind)=>(objects[hid]?.builtin||[]).includes(kind);
+ const fitsExt=(hid,kind)=>!builtIn(hid,kind)&&(EXT_INFO[kind]?.fits||[]).includes(objects[hid]?.capacity);
+ const extOn=(hid,kind)=>builtIn(hid,kind)||fitsExt(hid,kind)&&(state.houses[hid]?.ext||[]).some(id=>objects[id]?.ext===kind&&isDiscovered(id));
+ const shortName=hid=>uiName(byId.get(hid)).replace(/^Companion /,'');
+ /** Names of the houses an add-on fits, and the ones that already have it built in. */
+ function addonInfo(id){const k=objects[id]?.ext;if(!k)return null;const I=EXT_INFO[k];
+  const ids=houseIds(),f=ids.filter(h=>fitsExt(h,k));const first=ids.indexOf(f[0]),last=ids.indexOf(f[f.length-1]);
+  const range=!f.length?'none':f.length===1?shortName(f[0]):last-first+1===f.length?(last===ids.length-1?`${shortName(f[0])} and bigger`:`${shortName(f[0])} to ${shortName(f[f.length-1])}`):f.map(shortName).join(', ');
+  return {...I,kind:k,fits:f.map(shortName),range,builtin:ids.filter(h=>builtIn(h,k)).map(shortName)};}
+ // add-ons stuck on a house they do not fit (older saves) are taken off
+ for(const [k,h] of Object.entries(state.houses))if(Array.isArray(h.ext))h.ext=h.ext.filter(id=>objects[id]?.kind==='extension'&&fitsExt(k,objects[id].ext));
  const extHome=id=>Object.entries(state.houses).find(([,h])=>(h.ext||[]).includes(id))?.[0]||null;
  const capOf=hid=>(objects[hid]?.capacity||1)+(extOn(hid,'floor')?2:0);
  const layoutOf=hid=>{const L=layoutFor(capOf(hid));return extOn(hid,'garden')?{...L,rows:L.rows+1,garden:true}:L;};
  const extMult=(hid,kind)=>(extOn(hid,'garden')?1.05*(kind==='mood'?1.2:1):1)*(extOn(hid,'pool')&&kind==='swim'?1.25:1);
- function toggleExt(mount,hid,id){const h=house(hid);h.ext=h.ext||[];const was=extHome(id);
+ function toggleExt(mount,hid,id){if(!fitsExt(hid,objects[id]?.ext))return;const h=house(hid);h.ext=h.ext||[];const was=extHome(id);
   if(was===hid){h.ext=h.ext.filter(x=>x!==id);}else{if(was)state.houses[was].ext=state.houses[was].ext.filter(x=>x!==id);h.ext.push(id);}
   // a removed second floor may leave too many residents: the newest move out
   for(const [k,hh] of Object.entries(state.houses))while(hh.residents.length>capOf(k))hh.residents.pop();
@@ -2175,6 +2196,16 @@ function createHomeSystem(ctx){
   const band=layer==='object'?BAND:0;
   const style=layer==='wall'?`--x:${f.x};--w:${w}`:`--x:${f.x};--y:${f.y};--w:${w};--h:${h};--band:${band};--z:${layer==='floor'?1:10+(f.y+h)*2}`;
   return `<button type="button" class="home-piece is-${layer} ${art.flip?'is-flip':''} ${moving&&moving.index===i?'is-moving':''}" data-piece="${i}" style="${style}" aria-label="${escapeText(uiName(byId.get(f.id)))}">${art.html}<i class="home-hit" aria-hidden="true"></i></button>`;}
+ /** V140: the house's add-ons, under Residents. Built-in ones are shown fixed; ones that do not fit are greyed with where they fit. */
+ function addonRow(hid){const built=Object.keys(EXT_INFO).filter(k=>builtIn(hid,k));const own=extIds();if(!built.length&&!own.length)return '';
+  const chip=(cls,art,label,sub,attr='')=>`<button type="button" class="home-ext-chip ${cls}" ${attr}><span class="home-ext-art">${art}</span><b>${label}</b><small>${sub}</small></button>`;
+  const html=built.map(k=>chip('is-built',(()=>{const e=Object.keys(objects).find(i=>objects[i].ext===k);return e&&byId.get(e)?staticArt(byId.get(e)):'<span class="home-ext-emoji">'+EXT_INFO[k].icon+'</span>';})(),EXT_INFO[k].label,'Built in','disabled'))
+   .concat(own.map(id=>{const k=objects[id].ext,I=EXT_INFO[k],art=staticArt(byId.get(id));
+    if(builtIn(hid,k))return '';
+    if(!fitsExt(hid,k))return chip('is-off',art,I.label,'Fits '+escapeText(addonInfo(id).range),'disabled');
+    const on=extHome(id)===hid,where=!on&&extHome(id);
+    return chip(on?'is-on':'',art,I.label,on?'✓ Added · tap to remove':where?'In '+escapeText(shortName(where))+' · tap to move here':'Tap to add',`data-ext="${id}"`);})).join('');
+  return `<div class="home-res-row home-addon-row"><span>Add-ons</span><div class="home-ext">${html}</div></div>`;}
  function render(mount){
   if(!mount)return;stopWander();
   const hid=activeHouse();const own=ownedHouses();
@@ -2188,7 +2219,6 @@ function createHomeSystem(ctx){
   mount.innerHTML=`<section class="home-card">
    <div class="home-chips" role="tablist" aria-label="Your houses">${chips}</div>
    <div class="home-head"><strong>${escapeText(uiName(it))}</strong><small>${residents.length}/${cap} companions · ${h.furniture.length} furniture</small></div>
-   ${extIds().length?`<div class="home-ext">${extIds().map(id=>{const k=objects[id].ext,on=extHome(id)===hid,else_=!on&&extHome(id);return `<button type="button" class="home-ext-chip ${on?'is-on':''}" data-ext="${id}"><span class="home-ext-art">${staticArt(byId.get(id))}</span><b>${EXT_INFO[k].label}</b><small>${on?'Added · tap to remove':else_?'In '+escapeText(uiName(byId.get(else_)))+' · tap to move':'Tap to add'}</small></button>`;}).join('')}</div>`:''}
    <div class="home-room ${L.garden?'has-garden':''} ${extOn(hid,'pool')?'has-pool':''}" data-theme="${L.theme}" style="--cols:${L.cols};--rows:${L.rows}">
     <div class="home-wall" id="homeWall">
      ${Array.from({length:L.cols},(_,i)=>`<button type="button" class="home-walltile" data-wx="${i}" aria-label="Wall"></button>`).join('')}
@@ -2205,6 +2235,7 @@ function createHomeSystem(ctx){
    ${moving?`<p class="home-hint">Drag ${escapeText(uiName(byId.get(h.furniture[moving.index]?.id)))} to its new spot · <button type="button" class="home-link" id="homeCancelMove">Done</button></p>`:''}
    <div class="home-effects">${sumHtml}</div>
    <div class="home-res-row"><span>Residents</span><div class="home-res-list">${resHtml}</div></div>
+   ${addonRow(hid)}
   </section>`;
   mount.querySelectorAll('[data-house]').forEach(b=>b.onclick=()=>houseInfo(mount,b.dataset.house));
   mount.querySelectorAll('[data-ext]').forEach(b=>b.onclick=()=>toggleExt(mount,hid,b.dataset.ext));
@@ -2245,7 +2276,7 @@ function createHomeSystem(ctx){
   showModal(`<div class="modal-tag">COMPANION HOUSE · TIER ${tier}</div><div class="modal-art">${staticArt(it)}</div><h2>${escapeText(uiName(it))}</h2><p>${escapeText(it.summary||'')}</p>
    <div class="home-bonus"><div class="home-bonus-big">×${b.growth}<small>growth for every resident</small></div>
    <ul>${b.list.length?b.list.map(x=>`<li><b>${BONUS_NAME[x.k]} +${x.pct}%</b> · ${x.pieces.map(p=>escapeText(uiName(byId.get(p.id)))+' +'+p.q.pct+'%').join(', ')}</li>`).join(''):'<li>Add training, food, fun or book furniture for extra bonuses.</li>'}</ul></div>
-   ${extIds().some(e=>extHome(e)===id)?`<ul class="home-ext-list">${extIds().filter(e=>extHome(e)===id).map(e=>`<li>${EXT_INFO[objects[e].ext].icon} <b>${EXT_INFO[objects[e].ext].label}</b> · ${EXT_INFO[objects[e].ext].line}</li>`).join('')}</ul>`:''}
+   ${(()=>{const ks=Object.keys(EXT_INFO).filter(k=>extOn(id,k));const can=Object.keys(EXT_INFO).filter(k=>fitsExt(id,k)&&!extOn(id,k));return (ks.length?`<ul class="home-ext-list">${ks.map(k=>`<li>${EXT_INFO[k].icon} <b>${EXT_INFO[k].label}</b>${builtIn(id,k)?' (built in)':''} · ${EXT_INFO[k].line}</li>`).join('')}</ul>`:'')+(can.length?`<p class="mini-muted">Add-ons that fit this house: ${can.map(k=>EXT_INFO[k].label).join(', ')}.</p>`:'');})()}
    <p class="mini-muted">Room for ${capOf(id)} · ${layoutOf(id).cols}×${layoutOf(id).rows} floor. Bonuses only speed up growth from meals, gifts, discoveries and training — moving a companion to another house never takes away what it already earned.</p>
    ${active?'':'<button type="button" class="modal-button" id="homeGo">Go to this house</button>'}<button type="button" class="modal-button secondary" id="homeClose">Close</button>`);
   $('homeClose').onclick=closeModal;const go=$('homeGo');if(go)go.onclick=()=>{state.active=id;moving=null;save();closeModal();render(mount);};}
@@ -2380,7 +2411,7 @@ function createHomeSystem(ctx){
 
  function growthFor(cid,kind){const hid=residentOf(cid);if(!hid||!isDiscovered(hid))return 1;return Math.round(growthMultiplier(objects[hid].capacity,house(hid),objects,kind,bonusOf)*extMult(hid,kind)*100)/100;}
  function houseLine(cid){const hid=residentOf(cid);if(!hid||!isDiscovered(hid))return '';return `Lives in ${escapeText(uiName(byId.get(hid)))} · grows ×${HOUSE_GROWTH[objects[hid].capacity]||1} faster`;}
- return {render,stopWander,growthFor,houseLine,state:()=>state,summary:id=>houseSummary(house(id),objects),ownedHouses,residentOf,
+ return {render,stopWander,growthFor,houseLine,addonInfo,state:()=>state,summary:id=>houseSummary(house(id),objects),ownedHouses,residentOf,
   importState(raw){if(raw&&raw.houses){state={v:1,active:raw.active||null,houses:raw.houses};save();}}};
 }
 
@@ -5809,7 +5840,7 @@ function shinyCard(item){return `<p class="shiny-trivia"><span aria-hidden="true
 function showShinyFound(id){const it=byId.get(id);if(!it)return;
  showModal(`<div class="modal-tag shiny-tag">✦ SHINY ELEMENT</div><div class="modal-art is-shiny">${staticArt(it)}</div><h2>Shiny ${escapeText(uiName(it))}</h2>${shinyCard(it)}<div class="modal-milestone">${shiny.size.toLocaleString('en-US')} shiny ${shiny.size===1?'element':'elements'} · ${Math.round(shinyChance()*100)}% chance per combination</div>`);
 }
-const APP_VERSION='1.0.39';
+const APP_VERSION='1.0.40';
 // V83: status line + Google consent (UMP) privacy options, required for EEA players.
 async function refreshAdStatus(){
  const el=$('settingsAdStatus'),bridge=getRewardBridge();
@@ -6662,7 +6693,7 @@ function companionCallout(id){if(!companions.isCompanion(id))return '';
 // V89: companion houses and furniture are flagged in the discovery sheet (the Home screen comes next).
 const HOME_EFFECT_LABEL={run:'trains Run',swim:'trains Swim',power:'trains Power',fly:'trains Fly',stamina:'trains Stamina',hp:'trains HP',mood:'cheers companions up',food:'feeds companions',discovery:'boosts idle discoveries',decor:'decoration'};
 function homeCallout(id){const h=HOME_OBJECTS[id]||HOME_OBJECTS_V89[id];if(!h||h.kind==='material')return '';
- const q=pieceQuality(routeDepth.get(id));const txt=h.kind==='extension'?`<b>House complement!</b> Attach it to a house in Home · ${({garden:'bigger floor, Fun +20%, growth ×1.05',pool:'Swim +25%',floor:'+2 companions'})[h.ext]}.`:h.kind==='house'?`<b>Companion house!</b> Room for ${h.capacity} companion${h.capacity>1?'s':''}.`:`<b>Furniture</b> for companion houses · ${HOME_EFFECT_LABEL[h.effect]||'decoration'}${h.effect&&h.effect!=='decor'?` · +${q.pct}% <span class="home-stars">${starsText(q.stars)}</span>`:''}.`;
+ const q=pieceQuality(routeDepth.get(id));const ai=h.kind==='extension'?homes.addonInfo(id):null;const txt=ai?`<b>House add-on</b> · ${ai.line}. Fits ${ai.range}. Attach it in Home.`:h.kind==='house'?`<b>Companion house!</b> Room for ${h.capacity} companion${h.capacity>1?'s':''}${h.builtin?', garden and pool built in':''}.`:`<b>Furniture</b> for companion houses · ${HOME_EFFECT_LABEL[h.effect]||'decoration'}${h.effect&&h.effect!=='decor'?` · +${q.pct}% <span class="home-stars">${starsText(q.stars)}</span>`:''}.`;
  return `<div class="home-callout"><span>${txt}</span></div>`;}
 /** V118: in the element sheet, what happens if the on-screen companion eats this element. */
 function mealPreviewHtml(id){let m=null;try{m=companions.mealPreview(id);}catch{}if(!m)return '';const L=m.looks;
@@ -7002,7 +7033,7 @@ const companions=createCompanionSystem({roster:COMPANIONS_V86,sprites:COMPANION_
 // V94: Stadium prizes (toys) are placeable house objects; belts are worn by the companions.
 const HOME_OBJECTS={...HOME_OBJECTS_V89,...Object.fromEntries(Object.values(RACE_PRIZES).map(p=>[p.id,{kind:p.kind,effect:p.effect,size:p.size}])),
  // V139: top house + house complements (attach one per house in Home).
- 'organic139:grand-castle':{kind:'house',capacity:10},'organic139:house-garden':{kind:'extension',ext:'garden'},'organic139:outdoor-pool':{kind:'extension',ext:'pool'},'organic139:second-floor':{kind:'extension',ext:'floor'}};
+ 'organic139:grand-castle':{kind:'house',capacity:10,builtin:['garden','pool']},'organic139:house-garden':{kind:'extension',ext:'garden'},'organic139:outdoor-pool':{kind:'extension',ext:'pool'},'organic139:second-floor':{kind:'extension',ext:'floor'}};
 const ROOM_SPRITES={...ROOM_SPRITES_V90,...Object.fromEntries(Object.values(RACE_PRIZES).map(p=>[p.id,p.room]))};
 // V108: every companion can win its own trophy of each course (built on demand).
 const trophyFor=id=>{const t=parsePersonalPrize(id);if(!t)return null;const c=COMPANIONS_V86.find(x=>x.id===t.cid);if(!c)return null;return personalPrize(t.course,t.cid,companions?.state?.().pets?.[t.cid]?.nick||uiName(byId.get(t.cid))||c.name,COMPANION_SPRITES_V86[t.cid]);};
@@ -7136,15 +7167,16 @@ function openMarket(onClose,tab){if(tab)marketTab=tab;
  const isEl=it=>it.kind==='furniture'||it.kind==='house';
  const artOf=it=>it.kind==='acc'?accIcon(it.acc):isEl(it)?homeStaticArt(byId.get(it.element)):`<span class="mk-emoji">${it.icon}</span>`;
  const nameOf=it=>it.kind==='acc'?ACCESSORIES[it.acc].name:isEl(it)?uiName(byId.get(it.element)):it.name;
- const descOf=it=>it.kind==='acc'?`${({head:'Head',face:'Face',neck:'Neck'})[ACCESSORIES[it.acc].slot]}${accOwned(it.acc)?` · own ${accOwned(it.acc)}`:''}`:isEl(it)?(it.ext?({garden:'Bigger floor · Fun +20%',pool:'Swim +25%',floor:'+2 companions'})[HOME_OBJECTS[it.element]?.ext]:it.kind==='house'?`Room for ${HOME_OBJECTS[it.element]?.capacity||'?'}`:'Furniture'):it.desc;
+ const descOf=it=>it.kind==='acc'?`${({head:'Head',face:'Face',neck:'Neck'})[ACCESSORIES[it.acc].slot]}${accOwned(it.acc)?` · own ${accOwned(it.acc)}`:''}`:isEl(it)?(it.ext?homes.addonInfo(it.element)?.line:it.kind==='house'?`Room for ${HOME_OBJECTS[it.element]?.capacity||'?'}${HOME_OBJECTS[it.element]?.builtin?' · garden and pool built in':''}`:'Furniture'):it.desc;
+ const fitsOf=it=>{const a=homes.addonInfo(it.element);return a?`Fits ${a.range}`:'';};
  const tile=it=>{const o=owned(it);const label=it.kind==='toy'&&o?(wallet.toy===it.toy?'On screen':'Show'):o?'Owned':`🪙 ${priceOf(it).toLocaleString('en-US')}`;
-  return `<button type="button" class="stat-tile mk-tile ${o?'is-owned':''} ${it.kind==='toy'&&wallet.toy===it.toy?'is-on':''}" data-mk="${it.id}"><span class="mk-art">${artOf(it)}</span><b>${escapeText(nameOf(it))}</b><small>${escapeText(descOf(it)||'')}</small><em class="mk-price ${!o&&wallet.coins<priceOf(it)?'is-short':''}">${label}</em></button>`;};
+  return `<button type="button" class="stat-tile mk-tile ${o?'is-owned':''} ${it.kind==='toy'&&wallet.toy===it.toy?'is-on':''}" data-mk="${it.id}">${marketTab==='house'?`<i class="mk-tag ${it.ext?'is-addon':''}">${it.ext?'ADD-ON':'HOUSE'}</i>`:''}<span class="mk-art">${artOf(it)}</span><b>${escapeText(nameOf(it))}</b><small>${escapeText(descOf(it)||'')}</small>${it.ext?`<small class="mk-fits">${escapeText(fitsOf(it))}</small>`:''}<em class="mk-price ${!o&&wallet.coins<priceOf(it)?'is-short':''}">${label}</em></button>`;};
  const daily=wallet.daily!==dailyKey();
  showModal(`<div class="modal-tag">BLACK MARKET</div><h2>Spend your coins</h2>${coinBar()}
   <button type="button" class="mk-daily ${daily?'':'is-done'}" id="mkDaily" ${daily?'':'disabled'}><span>🎁</span><b>${daily?`Daily coins · +${DAILY_COINS}`:'Daily coins claimed'}</b><small>${daily?'Free, once a day':'Come back tomorrow'}</small></button>
   <div class="mk-tabs">${MARKET_TABS.map(([k,l])=>`<button type="button" data-mktab="${k}" aria-pressed="${k===marketTab}">${l}</button>`).join('')}</div>
   ${marketTab==='food'?`<p class="mini-muted">Bought food waits on the Alchemy screen — drag it onto a companion.${Object.values(wallet.bag||{}).reduce((n,v)=>n+v,0)?` · ${Object.values(wallet.bag).reduce((n,v)=>n+v,0)} waiting`:''}</p>`:marketTab==='toy'?'<p class="mini-muted">One toy sits on the craft card; your companion plays with it now and then.</p>':marketTab==='acc'?'<p class="mini-muted">One copy dresses one companion. Each extra copy costs more.</p>':''}
-  <div class="stat-tiles mk-grid">${items.map(tile).join('')}</div><p class="mini-muted">Win races and Karate fights to earn coins.</p>`);
+  ${marketTab==='house'?`<h3 class="mk-sec">Houses <small>where your companions live</small></h3><div class="stat-tiles mk-grid">${items.filter(it=>!it.ext).map(tile).join('')}</div><h3 class="mk-sec">House add-ons <small>attach one to a house in Home</small></h3><div class="stat-tiles mk-grid">${items.filter(it=>it.ext).map(tile).join('')}</div>`:`<div class="stat-tiles mk-grid">${items.map(tile).join('')}</div>`}<p class="mini-muted">Win races and Karate fights to earn coins.</p>`);
  const again=()=>openMarket(onClose);wireCoinBar(again);
  $('mkDaily').onclick=()=>{if(wallet.daily===dailyKey())return;wallet.daily=dailyKey();addCoins(DAILY_COINS);SFX.prize?.();toast(`+${DAILY_COINS} daily coins!`,'new');again();};
  $('modalContent').querySelectorAll('[data-mktab]').forEach(b=>b.onclick=()=>{marketTab=b.dataset.mktab;again();});
@@ -7152,7 +7184,7 @@ function openMarket(onClose,tab){if(tab)marketTab=tab;
   if(it.kind==='toy'&&owned(it)){wallet.toy=wallet.toy===it.toy?null:it.toy;saveWallet();companions.placeToy?.();again();return;}
   if(owned(it))return;
   const price=priceOf(it);
-  confirmBuy({art:artOf(it),name:nameOf(it),desc:it.kind==='acc'?(accOwned(it.acc)?`You own ${accOwned(it.acc)} · this is copy ${accOwned(it.acc)+1}`:'Goes to the Wardrobe'):it.kind==='food'?`${it.desc} · waits on the Alchemy screen`:descOf(it),price},()=>{
+  confirmBuy({art:artOf(it),name:nameOf(it),desc:it.kind==='acc'?(accOwned(it.acc)?`You own ${accOwned(it.acc)} · this is copy ${accOwned(it.acc)+1}`:'Goes to the Wardrobe'):it.kind==='food'?`${it.desc} · waits on the Alchemy screen`:it.ext?`House add-on · ${descOf(it)} · ${fitsOf(it)}`:it.kind==='house'?`Companion house · ${descOf(it)}`:descOf(it),price},()=>{
    const fresh=it.kind!=='furniture'&&it.kind!=='house'&&it.element?grantElement(it.element):false;
    if(fresh)setTimeout(()=>toast(`New element: ${uiName(byId.get(it.element))} · try it in Alchemy`,'new'),1600);
    if(it.kind==='food'){wallet.bag[it.id]=(wallet.bag[it.id]||0)+1;saveWallet();renderFoodTray();toast(`${it.name} is waiting on the Alchemy screen · drag it onto a companion`,'new');}
