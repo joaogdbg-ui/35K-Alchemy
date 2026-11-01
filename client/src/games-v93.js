@@ -235,7 +235,10 @@ export function createGamesSystem(ctx){
   if(!pid){mount.innerHTML='<div class="pets-scroll"><div class="section-head"><h2>Stadium</h2><p>Discover a companion to enter the races.</p></div></div>';return;}
   const info=companionInfo(pid),n=medalCounts(),belt=belts.find(b=>b.id===beltOf(pid));
   const toys=COURSES.map(c=>trophyOf(c.id)),won=toys.filter(p=>hasPrize(p.id)).length;
-  const rows=EVENTS().map(e=>{const open=e.kind!=='race'||courseOpen(e.course);const lv=nextLevel(e);const done=best(bagOf(e),LEVELS.length-1)===1;
+  const goldN=EVENTS().filter(e=>best(bagOf(e),LEVELS.length-1)===1).length;const openN=EVENTS().filter(e=>e.kind!=='race'||courseOpen(e.course)).length;
+  const shopBtn=(id,ico,b,sm)=>`<button type="button" class="st-shop-btn" id="${id}"><span>${ico}</span><b>${b}</b><small>${sm}</small></button>`;
+  const shop=`<div class="st-shop is-hub">${shopBtn('stMarket','🛒','Market','Food, wear, toys, houses')}${shopBtn('stSchool','🏫','School','Teach new tricks')}${shopBtn('stGames','🏁','Games',`Races &amp; Karate · ${goldN}/${EVENTS().length} gold`)}${shopBtn('stPrizes','🏆','Prizes',`${won}/${toys.length} trophies${belt?' · '+escapeText(belt.name.replace(' Belt','')):''}`)}</div>`;
+  const rowsHtml=()=>EVENTS().map(e=>{const open=e.kind!=='race'||courseOpen(e.course);const lv=nextLevel(e);const done=best(bagOf(e),LEVELS.length-1)===1;
    return `${e.theme&&e.id===THEME_COURSES[0].id?'<h3 class="st-sub">Theme races · need a full look</h3>':''}<div class="st-row ${open?'':'is-locked'} ${e.theme?'is-theme is-'+e.id:''}" data-ev="${e.id}"><span class="st-course-ico" data-focus="${e.focus}" ${e.theme?`data-theme="${e.id}"`:''}></span><div class="st-row-main"><strong>${escapeText(e.name)}</strong>${e.theme&&!open?`<small class="st-need">${escapeText(e.course.look)} look ${themePct(e.course)}% / 85%</small>`:dots(e)}</div>${open?`<button type="button" class="st-play" data-play="${e.id}">${done?'Replay':LEVELS[lv]}<i></i></button>`:'<span class="st-lock"></span>'}</div>`;}).join('');
   mount.innerHTML=`<div class="pets-scroll st-scroll"><div class="section-head g-head"><h2>Stadium</h2><button type="button" class="g-coins" id="stCoins">🪙 ${(ctx.coins?.()||0).toLocaleString('en-US')}</button><span class="g-tally"><i class="g-medal is-gold"></i>${n.gold}<i class="g-medal is-silver"></i>${n.silver}<i class="g-medal is-bronze"></i>${n.bronze}</span></div>
    <section class="st-entrant is-simple"><button type="button" class="st-entrant-art companion" data-companion="${pid}" data-card="${pid}" aria-label="Stats"><span class="companion-art"></span>${belt?`<span class="st-entrant-belt">${prizes.beltSvg(belt,22)}</span>`:''}</button>
@@ -243,28 +246,33 @@ export function createGamesSystem(ctx){
     <button type="button" class="st-change ${preview&&preview!==state.pick?'is-confirm':''}" id="stChange">Change</button></section>
    <div class="st-picker" id="stPicker" ${preview?'':'hidden'}>${owned().map(c=>{const ci=companionInfo(c.id);return `<button type="button" class="st-pick ${c.id===pid?'is-active':''} ${c.id===state.pick?'is-current':''}" data-gpick="${c.id}"><span class="companion" data-companion="${c.id}"><span class="companion-art"></span></span><small>${escapeText(ci.name)}</small><em>Lv ${totalLv(ci)}</em></button>`;}).join('')}</div>
    ${preview?`<p class="st-preview-hint">${preview===state.pick?'Tap a companion to see its medals.':`Showing ${escapeText(info.name)}'s medals · tap <b>Change</b> to race with ${escapeText(info.name)}`}</p>`:''}
-   <div class="st-shop"><button type="button" class="st-shop-btn" id="stMarket"><span>🛒</span><b>Market</b><small>Food, wear, toys, houses</small></button><button type="button" class="st-shop-btn" id="stSchool"><span>🏫</span><b>School</b><small>Teach new tricks</small></button></div>
-   <div class="st-rows">${rows}
-    <button type="button" class="st-row is-prizes" id="stPrizes"><span class="st-course-ico" data-focus="all"></span><div class="st-row-main"><strong>Prizes</strong><small>${won}/${toys.length} trophies · ${belt?escapeText(belt.name):'no belt yet'}</small></div><span class="st-chev">›</span></button></div>
-   <p class="mini-muted st-tip">Your companion competes on its own. Tap CHEER for a sprint or a power strike — it costs Stamina.</p></div>`;
+   ${shop}
+   </div>`;
   mount.querySelectorAll('.companion[data-companion] .companion-art').forEach(a=>rig(a,a.parentElement.dataset.companion));dress(mount);
   $('stChange').onclick=()=>{if(preview){if(preview!==state.pick){state.pick=preview;save();}preview=null;}else preview=pick();render(mount);};
   mount.querySelectorAll('[data-card]').forEach(b=>b.onclick=()=>ctx.openCard?.(b.dataset.card));
   mount.querySelectorAll('[data-gpick]').forEach(b=>b.onclick=()=>{preview=b.dataset.gpick;render(mount);});
   mount.querySelectorAll('[data-play]').forEach(b=>b.onclick=e=>{e.stopPropagation();if(preview){state.pick=preview;preview=null;save();}const ev=EVENTS().find(x=>x.id===b.dataset.play);const lv=nextLevel(ev);ev.kind==='race'?startRace(mount,ev.course,lv):startKarate(mount,lv);});
   mount.querySelectorAll('[data-ev]').forEach(r=>r.onclick=()=>eventSheet(mount,EVENTS().find(x=>x.id===r.dataset.ev)));
-  $('stPrizes').onclick=()=>prizeSheet(mount);
+  $('stPrizes').onclick=()=>prizeSheet(mount);$('stGames').onclick=()=>gamesSheet(mount,rowsHtml);
   $('stMarket').onclick=()=>ctx.openMarket?.(()=>render(mount));$('stSchool').onclick=()=>ctx.openSchool?.(pid,()=>render(mount));$('stCoins').onclick=()=>ctx.openMarket?.(()=>render(mount));
  }
- function eventSheet(mount,e){
+ /** V141: races and Karate live in their own sheet (hub tile "Games"). */
+ let lastRows=null;
+ function gamesSheet(mount,rowsHtml){lastRows=rowsHtml||lastRows;
+  showModal(`<div class="modal-tag">GAMES</div><h2>Races &amp; Karate</h2><div class="st-rows is-sheet">${lastRows()}</div><p class="mini-muted st-tip">Your companion competes on its own. Tap CHEER for a sprint or a power strike — it costs Stamina.</p><button type="button" class="modal-button secondary" id="stClose">Close</button>`);
+  $('stClose').onclick=closeModal;const mc=$('modalContent');try{mc.querySelectorAll('.companion[data-companion] .companion-art').forEach(a=>rig(a,a.parentElement.dataset.companion));}catch{}
+  mc.querySelectorAll('[data-play]').forEach(b=>b.onclick=e=>{e.stopPropagation();if(preview){state.pick=preview;preview=null;save();}const ev=EVENTS().find(x=>x.id===b.dataset.play);const lv=nextLevel(ev);closeModal();ev.kind==='race'?startRace(mount,ev.course,lv):startKarate(mount,lv);});
+  mc.querySelectorAll('[data-ev]').forEach(r=>r.onclick=()=>eventSheet(mount,EVENTS().find(x=>x.id===r.dataset.ev),true));}
+ function eventSheet(mount,e,fromGames){
   const bag=bagOf(e),open=e.kind!=='race'||courseOpen(e.course);
   const levels=LEVELS.map((l,i)=>{const ok=open&&levelOpen(bag,i);return `<button type="button" class="st-level ${ok?'':'is-locked'} ${best(bag,i)===1?'is-gold':''}" data-lv="${i}" ${ok?'':'disabled'}>${medalDot(best(bag,i))}<span>${l}</span></button>`;}).join('');
   let extra='';
   if(e.kind==='race'&&e.course.theme){const c=e.course,lvN=nextLevel(e),plan=planFor(c,lvN),acc=ctx.accessories?.[c.prize];const pct=themePct(c);extra=`<p>${escapeText(c.blurb)}</p><div class="st-theme-need ${pct>=85?'is-ok':''}"><b>${escapeText(c.look)} look</b><span><i style="width:${Math.min(100,pct)}%"></i></span><em>${pct}% / 85%</em></div><small class="st-foot">${LEVELS[lvN]}: ${plan.length} sections · coins ×1.5</small><div class="st-strip">${plan.map(x=>`<i class="is-${x.t}" style="flex:${x.len}"></i>`).join('')}</div>${acc?`<div class="st-prizeline"><span class="st-acc-ico">${ctx.accIcon?.(c.prize)||''}</span><small>Champion gold wins <b>${escapeText(acc.name)}</b> to wear</small></div>`:''}${open?'':`<p class="mini-muted">Feed ${escapeText(c.look.toLowerCase())} elements until the look is at least 85% grown.</p>`}`;}
   else if(e.kind==='race'){const c=e.course,prize=trophyOf(c.id),won=hasPrize(prize.id);const lvN=nextLevel(e),plan=planFor(c,lvN);extra=`<p>${escapeText(c.blurb)}</p><small class="st-foot">${LEVELS[lvN]}: ${plan.length} sections · ${['morning','noon','afternoon','sunset','night'][lvN]}</small><div class="st-strip">${plan.map(x=>`<i class="is-${x.t}" style="flex:${x.len}"></i>`).join('')}</div><div class="st-prizeline ${won?'is-won':''}"><span>${prize.art}</span><small>${won?'Trophy won: ':'Champion gold wins '}<b>${escapeText(prize.name)}</b>${won?'':' for the house'}</small></div>${open?'':'<p class="mini-muted">Win Rookie on the other five courses to open it.</p>'}`;}
   else extra=`<p>Best of three rounds. HP is health, Power hits, Swim blocks, Fly dodges, Run strikes faster, Stamina keeps the fight going.</p><div class="st-belts">${belts.map((b,i)=>`<span class="st-belt ${best(bag,i)===1?'is-won':''}">${prizes.beltSvg(b,28)}<small>${b.name.replace(' Belt','')}</small></span>`).join('')}</div>`;
-  showModal(`<div class="modal-tag">${e.kind==='race'?'RACE':'KARATE'}</div><h2>${escapeText(e.name)}</h2>${extra}<div class="st-levels">${levels}</div><button type="button" class="modal-button secondary" id="stClose">Close</button>`);
-  $('stClose').onclick=closeModal;
+  showModal(`<div class="modal-tag">${e.kind==='race'?'RACE':'KARATE'}</div><h2>${escapeText(e.name)}</h2>${extra}<div class="st-levels">${levels}</div><button type="button" class="modal-button secondary" id="stClose">${fromGames?'Back':'Close'}</button>`);
+  $('stClose').onclick=()=>fromGames&&lastRows?gamesSheet(mount):closeModal();
   $('modalContent').querySelectorAll('[data-lv]').forEach(b=>b.onclick=()=>{closeModal();const lv=Number(b.dataset.lv);e.kind==='race'?startRace(mount,e.course,lv):startKarate(mount,lv);});
  }
  function prizeSheet(mount){

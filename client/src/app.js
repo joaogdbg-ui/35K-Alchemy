@@ -502,7 +502,7 @@ function shinyCard(item){return `<p class="shiny-trivia"><span aria-hidden="true
 function showShinyFound(id){const it=byId.get(id);if(!it)return;
  showModal(`<div class="modal-tag shiny-tag">✦ SHINY ELEMENT</div><div class="modal-art is-shiny">${staticArt(it)}</div><h2>Shiny ${escapeText(uiName(it))}</h2>${shinyCard(it)}<div class="modal-milestone">${shiny.size.toLocaleString('en-US')} shiny ${shiny.size===1?'element':'elements'} · ${Math.round(shinyChance()*100)}% chance per combination</div>`);
 }
-const APP_VERSION='1.0.40';
+const APP_VERSION='1.0.41';
 // V83: status line + Google consent (UMP) privacy options, required for EEA players.
 async function refreshAdStatus(){
  const el=$('settingsAdStatus'),bridge=getRewardBridge();
@@ -1773,6 +1773,9 @@ try{const r=JSON.parse(localStorage.getItem(WALLET_KEY)||'null');if(r&&typeof r=
 const packPrices={};
 let coinsPrice=COIN_PACK.price,coinsAvailable=false;
 function saveWallet(){try{localStorage.setItem(WALLET_KEY,JSON.stringify(wallet));}catch{}}
+// V141 TESTER GIFT (owner request): 100,000 coins once, enough to buy every Market item and test it. REMOVE before the Play Store release.
+const TESTER_GIFT_KEY='alchemy10k_tester_coins_v141',TESTER_GIFT=100000;
+try{if(!localStorage.getItem(TESTER_GIFT_KEY)){wallet.coins+=TESTER_GIFT;localStorage.setItem(TESTER_GIFT_KEY,'1');saveWallet();}}catch{}
 function addCoins(n){wallet.coins=Math.max(0,wallet.coins+Math.round(n));saveWallet();syncCoinLabels();return wallet.coins;}
 function spendCoins(n){if(wallet.coins<n)return false;wallet.coins-=n;saveWallet();syncCoinLabels();return true;}
 function syncCoinLabels(){document.querySelectorAll('[data-coins]').forEach(e=>e.textContent=wallet.coins.toLocaleString('en-US'));const s=$('stCoins');if(s)s.textContent='🪙 '+wallet.coins.toLocaleString('en-US');}

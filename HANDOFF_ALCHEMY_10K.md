@@ -90,6 +90,10 @@ Preserve 200-per-batch policy and do not start another content release on top of
 
 - **Art redraw wave 3 (V85, done): 3,991 icons** — every remaining older element. All 6,012 pre-V83 elements now use the 2026 art direction (`ART_REDRAW`), plus 200 V83 and 200 V85 originals. Six near-duplicates found by the audit were redrawn; 36 reviewed false alarms are in `tools/art-redraw-reviewed-pairs.json` (the audit now also honours them for V83 comparisons).
 
+## V141 — Games tab hub: Market, School, Games, Prizes (1 November 2026)
+- Stadium shows the companion card and four equal tiles (2×2): Market, School, Games, Prizes. The race/Karate list moved to a "Games" sheet (`gamesSheet` in games-v93.js); an event opened from it has a Back button to the list.
+- **TESTER GIFT (temporary, owner request):** 100,000 coins once (`alchemy10k_tester_coins_v141`, app.js after `saveWallet`). Market total is ~66k + School. **Remove before the Play Store release.**
+
 ## V140 — houses vs add-ons made explicit, with compatibility (1 November 2026)
 - Add-on compatibility (`EXT_INFO[k].fits`, house capacities): Garden → Tent to Castle; Outdoor Pool → Cottage to Castle; Second Floor → Cabin and bigger (incl. Castle with Garden and Pool). The Castle with Garden and Pool has Garden and Pool **built in** (`builtin:['garden','pool']` in HOME_OBJECTS).
 - `homes.addonInfo(id)` returns label, effect line, fitting houses and a short range text ("Cottage to Castle"); used by Market tiles, the buy confirm and the element sheet.
