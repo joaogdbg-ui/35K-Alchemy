@@ -23,3 +23,9 @@ test('V117: themed sets (demon) and radiant traits from hard elements',async()=>
  assert.equal(lookAfterMeal(defaultLook(),'Seashell','','',5).look.tail,null,'seashell is not hell');
  assert.equal(tintMatrix([255,255,255],0).split(' ').length,20);
 });
+test('V118: element sheet previews growth, tint and traits for the on-screen companion',async()=>{
+ const {lookEffects}=await import('../src/companion-engine-v86.js');const fs=await import('node:fs');
+ const e=lookEffects('Demon','','',6);assert.equal(e.tint.name,'Shadowy');assert.deepEqual(e.traits.map(t=>t.slot),['head','back','tail']);
+ assert.ok(lookEffects('Demon','','',2).traits.every(t=>t.locked),'easy versions only tint');assert.ok(lookEffects('Demon','','',12).traits.every(t=>t.lux));
+ const app=fs.readFileSync(new URL('../src/app.js',import.meta.url),'utf8');assert.match(app,/function mealPreviewHtml\(id\)/);assert.match(app,/\$\{mealPreviewHtml\(id\)\}/);
+});

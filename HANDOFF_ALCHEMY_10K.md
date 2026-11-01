@@ -90,6 +90,10 @@ Preserve 200-per-batch policy and do not start another content release on top of
 
 - **Art redraw wave 3 (V85, done): 3,991 icons** — every remaining older element. All 6,012 pre-V83 elements now use the 2026 art direction (`ART_REDRAW`), plus 200 V83 and 200 V85 originals. Six near-duplicates found by the audit were redrawn; 36 reviewed false alarms are in `tools/art-redraw-reviewed-pairs.json` (the audit now also honours them for V83 comparisons).
 
+## V118 — element sheet previews what a meal does (1 November 2026)
+- Long-press sheet adds "If <companion> eats it": taste (loves / won't eat), XP per stat right now (or cooldown minutes), tint with colour swatch, size change, traits with their spot (head/back/tail/around) — greyed "needs a harder element" for easy versions, ✦ for radiant — and resets; footer with rarity stars, recipe depth and growth multiplier. `companions.mealPreview(id)`, pure `lookEffects(name,family,category,depth)`.
+- Mix-and-match is by design: one trait per spot from any theme (fairy wings + devil horns is allowed); the sheet says so.
+
 ## V117 — themed looks + rarer elements are more extravagant (1 November 2026)
 - `LOOK_THEMES` (word-boundary keywords, first match wins) give whole coherent sets: Demon (shadowy tint, devil horns, bat wings, devil tail), Vampire/Bat, Angel (bright tint, halo, feathered wings), Phoenix (warm, flame, fire wings, embers), Dragon (horns, dragon wings, spiked tail), Fairy (butterfly wings, sparkles), Ocean (fin, fish tail, bubbles), Fox (fox tail), Robot, Bird, Ice, Fire, Flower, Plant, Space, Royal, Love, Music, Magic, Bubbles, Metal, Gold, Sweet, Water. New slot: tail. New tints: dark, light.
 - Extravagance by recipe depth (`lookTier`): ≤3 only tint/size; 4–8 traits; 9+ RADIANT traits (×1.4, glow, flapping wings, swaying tail) and stronger tint (cap 0.62). Card shows ✦ on radiant traits.
