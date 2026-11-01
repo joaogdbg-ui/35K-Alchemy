@@ -90,6 +90,9 @@ Preserve 200-per-batch policy and do not start another content release on top of
 
 - **Art redraw wave 3 (V85, done): 3,991 icons** — every remaining older element. All 6,012 pre-V83 elements now use the 2026 art direction (`ART_REDRAW`), plus 200 V83 and 200 V85 originals. Six near-duplicates found by the audit were redrawn; 36 reviewed false alarms are in `tools/art-redraw-reviewed-pairs.json` (the audit now also honours them for V83 comparisons).
 
+## V110 — picker previews, Change confirms (1 November 2026)
+- Owner: the V109 medal tallies on the picker tiles were not the right idea (removed). Now, with the picker open, tapping a companion only previews it: the entrant card, header medal counts, course medal dots and Prizes row show that companion. It becomes the entrant only when **Change** is tapped (highlighted while a different companion is previewed); the current entrant's tile has a dashed border. Tapping a Play button while previewing confirms that companion and starts.
+
 ## V109 — medals visible per companion in the picker (1 November 2026)
 - The Stadium companion picker ("Change") shows on every tile that companion's gold/silver/bronze counts, trophies (🏆n) and belt badge, sorted by medals (gold first); tiles with medals get a golden border. No switching needed to compare.
 
