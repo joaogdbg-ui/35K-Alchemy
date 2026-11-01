@@ -147,7 +147,7 @@ export function lookAfterMeal(look,name,family='',category='',depth){
   const pct=Math.round(mx[v]*100),name=TRAIT_NAME[v];
   notes.push(before&&before!==v&&mx[before]>0.04?`${TRAIT_NAME[before]} morphing into ${name.toLowerCase()} (${pct}%)`:pct>=100&&had<1?`${tier===3?'Radiant ':''}${name} fully grown!`:`${tier===3?'Radiant ':''}${name} growing (${pct}%)`);}
  for(const sl of ['head','back','tail','aura'])L[sl]=dominant(L.mix[sl]);
- return {look:L,notes,theme:theme?.[0]||null,tier};
+ return {look:L,notes,theme:theme?.[0]||null,tier,tint:tk||null};
 }
 /** V120: signature powers — only the most extravagant looks (radiant traits from hard elements, ≥75% grown)
  * give the companion a little special move it does now and then. need = how many of the traits must qualify. */
@@ -170,6 +170,19 @@ export function lookEffects(name,family='',category='',depth){const tf=themeFor(
 export function lookLabel(look){if(!look)return '';const out=[];const tk=look.tint&&look.k>0.02?Object.entries(LOOK_COLORS).sort((a,b)=>dist(a[1],look.tint)-dist(b[1],look.tint))[0][0]:null;
  if(tk)out.push(`${TINT_NAME[tk]} tint`);const N=normLook(look);for(const sl of ['head','back','tail','aura']){const e=Object.entries(N.mix[sl]).filter(([,w])=>w>0.04).sort((a,b)=>b[1]-a[1]);if(!e.length)continue;const lx=e.some(([k])=>N.lux[sl+':'+k]);const tot=e.reduce((n,[,w])=>n+w,0);
   out.push((lx?'✦ ':'')+(e.length>1?`${TRAIT_NAME[e[0][0]]} / ${TRAIT_NAME[e[1][0]].toLowerCase()} mix`:TRAIT_NAME[e[0][0]])+(tot<0.99?` ${Math.round(tot*100)}%`:''));}if(Math.abs(look.size||0)>=0.01)out.push(`Size ${look.size>0?'+':''}${Math.round(look.size*100)}%`);return out.join(' · ');}
+/** V122: rows for the after-meal window: what changed in colour, size and each spot. */
+export function lookDiff(before,after,tintKey){const A=normLook(before),B=normLook(after);const rows=[];
+ const tn=L=>L.tint&&L.k>0.02?Object.entries(LOOK_COLORS).sort((a,b)=>dist(a[1],L.tint)-dist(b[1],L.tint))[0][0]:null;
+ const pc=v=>Math.round(v*100);
+ if(pc(A.k)!==pc(B.k)||String(A.tint)!==String(B.tint)){const k=tintKey&&B.k>A.k?tintKey:tn(B);rows.push({kind:'colour',label:'Colour',rgb:B.k>0.02?B.tint:null,text:k?`${TINT_NAME[k]} ${pc(A.k)}% → ${pc(B.k)}%`:'Back to natural'});}
+ if(pc(A.size)!==pc(B.size)){const f=v=>`${v>0?'+':''}${pc(v)}%`;rows.push({kind:'size',label:'Size',text:`${f(A.size)} → ${f(B.size)}`});}
+ const SL={head:'Head',back:'Back',tail:'Tail',aura:'Around'};
+ for(const sl of ['head','back','tail','aura']){const ids=new Set([...Object.keys(A.mix[sl]),...Object.keys(B.mix[sl])]);const ch=[...ids].filter(id=>pc(A.mix[sl][id]||0)!==pc(B.mix[sl][id]||0));if(!ch.length)continue;
+  const up=ch.filter(id=>(B.mix[sl][id]||0)>(A.mix[sl][id]||0)),down=ch.filter(id=>!up.includes(id));
+  const parts=up.map(id=>`${B.lux[sl+':'+id]?'✦ ':''}${TRAIT_NAME[id]} ${pc(A.mix[sl][id]||0)}% → ${pc(B.mix[sl][id]||0)}%`);
+  if(down.length)parts.push(down.map(id=>`${TRAIT_NAME[id].toLowerCase()} ${pc(B.mix[sl][id]||0)}%`).join(', ')+(up.length?' (morphing)':''));
+  rows.push({kind:'trait',label:SL[sl],text:parts.join(' · ')});}
+ return rows;}
 const dist=(a,b)=>a.reduce((n,v,i)=>n+(v-b[i])**2,0);
 /** Luminance-preserving tint matrix for an SVG feColorMatrix. */
 export function tintMatrix(rgb,k){const [r,g,b]=rgb.map(v=>v/255*1.15);const T=[[.3*r,.59*r,.11*r],[.3*g,.59*g,.11*g],[.3*b,.59*b,.11*b]];const m=[];for(let i=0;i<3;i++){for(let j=0;j<3;j++)m.push(((1-k)*(i===j?1:0)+k*T[i][j]).toFixed(3));m.push('0','0');}m.push('0','0','0','1','0');return m.join(' ');}
@@ -515,10 +528,13 @@ export function createCompanionSystem(ctx){
   // V116: what it eats changes how it looks (refused food never does)
   // V120: only meals the player gives change looks — eating on its own just grows stats
   if(!self){state.tasted=state.tasted||{};state.tasted[item.id]=1;}
+  const lookBefore=p.look;
   const lk=self?{look:p.look,notes:[]}:lookAfterMeal(p.look,item.name||uiName(item),familyFor(item),item.category,ctx.depthOf?.(item.id));p.look=lk.look;save();if(lk.notes.length)try{ctx.wear?.(sprite.parentElement||sprite);}catch{}
   if(changes.length)showStatWindow(meta,changes,2800);
   else{const left=Math.max(1,Math.ceil((FEED_COOLDOWN_MS-(now()-last))/60000));showNoteWindow(meta,fresh?[`<b>${escapeText(uiName(item))}</b> · stats already at max`,`Belly +${Math.round(25*growth(meta.id,'food'))} · Mood +${taste==='love'?12:5}`]:[`Already ate <b>${escapeText(uiName(item))}</b> recently`,`No growth for ${left} min — try another element`,`Belly +${Math.round(10*growth(meta.id,'food'))} · Mood +${taste==='love'?12:5}`],3200);}
-  if(lk.notes.length&&statWin){statWin.insertAdjacentHTML('beforeend',lk.notes.map(n=>`<div class="cs-note is-look">✨ ${escapeText(n)}</div>`).join(''));}
+  if(!self&&statWin&&!statWin.hidden){const rows=lookDiff(lookBefore,lk.look,lk.tint);const resets=lk.notes.filter(n=>/natural|washed|itself/i.test(n));
+   statWin.insertAdjacentHTML('beforeend',`<div class="cs-looks"><div class="cs-looks-h">Looks</div>${rows.length?rows.map(r=>`<div class="cs-look"><span>${r.label}</span><b>${r.rgb?`<i style="background:rgb(${r.rgb.join(',')})"></i>`:''}${escapeText(r.text)}</b></div>`).join(''):'<div class="cs-look is-none"><b>No change</b></div>'}${resets.map(n=>`<div class="cs-look"><span>↺</span><b>${escapeText(n)}</b></div>`).join('')}</div>`);
+   const h=statWin.offsetHeight;const y=parseFloat(statWin.style.getPropertyValue('--y'))||0;statWin.style.setProperty('--y',Math.max(6,Math.min(window.innerHeight-h-70,y))+'px');clearTimeout(statWinTimer);statWinTimer=setTimeout(()=>{statWin.classList.remove('is-in');statWin.classList.add('is-out');clearTimeout(statHideTimer);statHideTimer=setTimeout(()=>{if(statWin)statWin.hidden=true;},400);},4200);}
   for(let i=0;i<4;i++){await wait(650);held.classList.add('bite-'+(i+1));sfx.nom();}
   await wait(500);held.remove();
   if(taste==='love'){sfx.happy();fx('hearts',1300);emote('heart',1400);}
