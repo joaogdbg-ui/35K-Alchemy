@@ -90,6 +90,12 @@ Preserve 200-per-batch policy and do not start another content release on top of
 
 - **Art redraw wave 3 (V85, done): 3,991 icons** — every remaining older element. All 6,012 pre-V83 elements now use the 2026 art direction (`ART_REDRAW`), plus 200 V83 and 200 V85 originals. Six near-duplicates found by the audit were redrawn; 36 reviewed false alarms are in `tools/art-redraw-reviewed-pairs.json` (the audit now also honours them for V83 comparisons).
 
+## V126 — game-like combiner & duo panels, Batch all, Remove ads €2 (1 November 2026)
+- Family combiner sheet redesigned: locked element token × selected family art, family grid, two action cards ("<family> · N combos · ▶ 1 AD" and "All families · ▶ 4 ADS" with progress pips), and an AD-FREE banner (`billingPrice`, opens Remove ads). Free trial button removed (`batchTrialUsed` dormant).
+- Batch all: `beginBatch('all',…)` scans every collected element; 4 rewarded ads (`kind:'batch_all'`, credit per locked element in `alchemy10k_batch_all_v126`), free with no-ads.
+- Remove ads default label €2.00 — **owner must change the `no_ads` price in Play Console to EUR 2.00** (the app shows Play's formatted price when available).
+- Home "Duo mode" locked card is now a game panel: main sprite + locked "?" slot, 3 perk tiles, INSTANT (price) and FREE PATH tiles (element progress bar to 2,000, then 20 ad pips).
+
 ## V125 — second companion slot + duo play, starter packs on the Alchemy screen (1 November 2026)
 - Starter packs: "✦ Packs" button next to Hint in the craft card; sheet opens with a "why" box (companions/houses/furniture sooner) then the pack list. Removed from Settings (only Remove ads stays) and from the family filter.
 - Second on-screen slot (`state.buddy`): unlocked by Play product **`companion_slot` (owner must create it in Play Console, EUR 1.00)** via `AlchemyBilling.purchaseCompanionSlot` (plugin now queries both products and reports `companionSlot`, `slotPrice`, `slotAvailable`; purchase results re-query all owned purchases so buying one never hides the other), or free at 2,000 Classic elements + 20 earned rewarded ads (`kind:'companion_slot'`, key `alchemy10k_slot2_v125`). Home → On screen shows a locked card / choose / change / send home. Tapping the buddy on screen swaps main and buddy (feeding stays on the main one).

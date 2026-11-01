@@ -405,11 +405,11 @@ function getRewardBridge(){
  return native&&typeof native.showRewarded==='function'?native:null;
 }
 function rewardedAvailable(){return Boolean(getRewardBridge());}
-// V85: one-time "Remove ads" purchase (Google Play Billing, product id no_ads, owner price EUR 1.50).
+// V85: one-time "Remove ads" purchase (Google Play Billing, product id no_ads, owner price EUR 2.00 since V126).
 // Only Play's own purchase record unlocks it; the cached flag keeps it working offline.
 const NO_ADS_KEY='alchemy10k_no_ads_v1';
 let noAds=false;try{noAds=localStorage.getItem(NO_ADS_KEY)==='1';}catch{}
-let billingPrice='€1.50',billingProductReady=false;
+let billingPrice='€2.00',billingProductReady=false;
 function billingBridge(){const cap=window.Capacitor;if(cap?.getPlatform?.()!=='android')return null;const b=cap.Plugins?.AlchemyBilling;return b&&typeof b.getStatus==='function'?b:null;}
 function adFree(){return noAds;}
 function setNoAds(on){
@@ -447,9 +447,9 @@ async function watchSlot2Ad(){if(classicDiscoveredCount()<SLOT2_MIN_ELEMENTS||sl
  if(slot2Unlocked()){toast('Second companion slot unlocked!','new');companions.start();}else toast(`Second slot · ${slot2.ads}/${SLOT2_ADS} ads`,'repeat');return true;}
 async function refreshBilling(){const b=billingBridge();if(!b)return;try{applyBillingStatus(await b.getStatus());}catch(e){console.warn('Billing status unavailable',e);}}
 function openRemoveAds(){
- if(adFree()){showModal(`<div class="modal-tag">REMOVE ADS</div><h2>Ads removed</h2><p>Thank you for supporting Alchemy 10K! Mode switches, Batch and Merge are free, you keep a bank of ${HINT_BANK_MAX} hints that refills one every 15 minutes, and Shiny elements appear 5× more often.</p><p class="mini-muted">Optional ads remain only if you want extra hints when your bank is empty.</p><button type="button" class="modal-button secondary" id="removeAdsClose">Close</button>`);$('removeAdsClose').onclick=closeModal;return;}
+ if(adFree()){showModal(`<div class="modal-tag">REMOVE ADS</div><h2>Ads removed</h2><p>Thank you for supporting Alchemy 10K! Batch, Batch all and starter packs are free, you keep a bank of ${HINT_BANK_MAX} hints that refills one every 15 minutes, and Shiny elements appear 5× more often.</p><p class="mini-muted">Optional ads remain only if you want extra hints when your bank is empty.</p><button type="button" class="modal-button secondary" id="removeAdsClose">Close</button>`);$('removeAdsClose').onclick=closeModal;return;}
  const b=billingBridge();
- showModal(`<div class="modal-tag">REMOVE ADS</div><h2>Play without ads · ${escapeText(billingPrice)}</h2><ul class="perk-list"><li>No ads for mode switches, Batch or Merge</li><li>${HINT_BANK_MAX} hints included, +1 free hint every 15 minutes</li><li>Shiny chance 5% instead of 1%</li><li>Optional ads only for extra hints</li></ul><button type="button" class="modal-button" id="buyNoAds" ${b?'':'disabled'}>Buy · ${escapeText(billingPrice)}</button><button type="button" class="modal-button secondary" id="restoreNoAds" ${b?'':'disabled'}>Restore purchase</button><p class="mini-muted">${b?'One-time purchase through Google Play.':'Purchases need the Android app from Google Play.'}</p>`);
+ showModal(`<div class="modal-tag">REMOVE ADS</div><h2>Play without ads · ${escapeText(billingPrice)}</h2><ul class="perk-list"><li>No ads for Batch, Batch all or starter packs</li><li>${HINT_BANK_MAX} hints included, +1 free hint every 15 minutes</li><li>Shiny chance 5% instead of 1%</li><li>Optional ads only for extra hints</li></ul><button type="button" class="modal-button" id="buyNoAds" ${b?'':'disabled'}>Buy · ${escapeText(billingPrice)}</button><button type="button" class="modal-button secondary" id="restoreNoAds" ${b?'':'disabled'}>Restore purchase</button><p class="mini-muted">${b?'One-time purchase through Google Play.':'Purchases need the Android app from Google Play.'}</p>`);
  if(!b)return;
  $('buyNoAds').onclick=async()=>{$('buyNoAds').disabled=true;try{const r=await b.purchaseNoAds();applyBillingStatus(r);if(r?.noAds===true){openRemoveAds();return;}toast(r?.cancelled?'Purchase cancelled':r?.pending?'Purchase pending · it unlocks when Google Play confirms it':'Purchase not completed','repeat');}catch(e){console.warn(e);toast('Google Play purchase is not available yet','error');}if(!$('modal').hidden&&$('buyNoAds'))$('buyNoAds').disabled=false;};
  $('restoreNoAds').onclick=async()=>{await refreshBilling();if(adFree())openRemoveAds();else toast('No previous purchase found','repeat');};
@@ -495,7 +495,7 @@ function shinyCard(item){return `<p class="shiny-trivia"><span aria-hidden="true
 function showShinyFound(id){const it=byId.get(id);if(!it)return;
  showModal(`<div class="modal-tag shiny-tag">✦ SHINY ELEMENT</div><div class="modal-art is-shiny">${staticArt(it)}</div><h2>Shiny ${escapeText(uiName(it))}</h2>${shinyCard(it)}<div class="modal-milestone">${shiny.size.toLocaleString('en-US')} shiny ${shiny.size===1?'element':'elements'} · ${Math.round(shinyChance()*100)}% chance per combination</div>`);
 }
-const APP_VERSION='1.0.25';
+const APP_VERSION='1.0.26';
 // V83: status line + Google consent (UMP) privacy options, required for EEA players.
 async function refreshAdStatus(){
  const el=$('settingsAdStatus'),bridge=getRewardBridge();
@@ -1988,7 +1988,11 @@ function batchFamilySnapshot(){
  return groups;
 }
 let pendingBatchFamilies=null;
-function familyBatchCandidates(family){return (pendingBatchFamilies?.get(family)||batchFamilySnapshot().get(family)||[]).slice().sort((a,b)=>uiName(byId.get(a)).localeCompare(uiName(byId.get(b))));}
+// V126: Batch ALL families = 4 rewarded ads (credit kept per locked element) or free without ads.
+const BATCH_ALL_ADS=4,BATCH_ALL_KEY='alchemy10k_batch_all_v126';
+let batchAllCredit=null;try{const r=JSON.parse(localStorage.getItem(BATCH_ALL_KEY)||'null');if(r&&typeof r.locked==='string'&&r.completed>=1&&r.completed<BATCH_ALL_ADS)batchAllCredit=r;}catch{}
+function saveBatchAllCredit(){try{if(batchAllCredit)localStorage.setItem(BATCH_ALL_KEY,JSON.stringify(batchAllCredit));else localStorage.removeItem(BATCH_ALL_KEY);}catch{}}
+function familyBatchCandidates(family){if(family==='all')return [...(pendingBatchFamilies||batchFamilySnapshot()).values()].flat().sort((a,b)=>uiName(byId.get(a)).localeCompare(uiName(byId.get(b))));return (pendingBatchFamilies?.get(family)||batchFamilySnapshot().get(family)||[]).slice().sort((a,b)=>uiName(byId.get(a)).localeCompare(uiName(byId.get(b))));}
 function batchChooser(){
  if(!leftLocked||!slots[0]){toast('Lock an element on the left first','error');return;}
  pendingBatchFamilies=batchFamilySnapshot();
@@ -1999,20 +2003,39 @@ function batchChooser(){
   const icon=familyCardArtwork(f);
   return `<button type="button" class="batch-family-choice" data-batch-family="${f.id}" aria-pressed="${f.id===selected}" ${count?'':'disabled'}><span class="batch-family-picture">${icon}</span><span class="batch-family-data"><strong>${escapeText(f.name)}</strong><small>${count.toLocaleString('en-US')} found</small></span></button>`;
  }).join('');
- showModal(`<div class="modal-tag">FAMILY COMBINER</div><h2>Choose a family</h2><p class="batch-intro"><span class="batch-locked">♧ ${escapeText(uiName(byId.get(slots[0])))}</span> stays locked. Scan all collected elements, then review new discoveries.</p><div class="batch-family-grid" role="group" aria-label="Family to combine">${familyCards}</div><div class="batch-selection"><strong id="batchSelectedName"></strong><span id="batchEstimate"></span></div><div class="batch-actions"><button class="modal-button" id="batchDemo" ${batchTrialUsed||!selected?'disabled':''}>${batchTrialUsed?'Free trial used':'Free trial'}</button><button class="modal-button secondary" id="batchRewarded" ${(adFree()||rewardedAvailable())&&selected?'':'disabled'}>${adFree()?'Scan · free':'Watch Ad'}</button></div><p class="mini-muted batch-quiet-note">Offline fast scan · No per-element animations. Rewarded ads need a configured Android build.</p>`);
+ const lockedItem=byId.get(slots[0]),allCount=[...pendingBatchFamilies.values()].reduce((n,a)=>n+a.length,0);
+ const credit=batchAllCredit?.locked===slots[0]?batchAllCredit.completed:0;const pips=n=>Array.from({length:BATCH_ALL_ADS},(_,k)=>`<i class="${k<n?'on':''}"></i>`).join('');
+ showModal(`<div class="modal-tag">FAMILY COMBINER</div><div class="bx-hero"><span class="bx-token">${staticArt(lockedItem)}<i class="bx-lock" aria-hidden="true">🔒</i></span><span class="bx-times">×</span><span class="bx-target" id="batchTargetArt"></span></div><h2 class="bx-title"><span>${escapeText(uiName(lockedItem))}</span> meets a family</h2><div class="batch-family-grid" role="group" aria-label="Family to combine">${familyCards}</div>
+  <div class="bx-actions">
+   <button type="button" class="bx-card" id="batchRewarded" ${(adFree()||rewardedAvailable())&&selected?'':'disabled'}><span class="bx-card-top"><b id="batchSelectedName"></b><small id="batchEstimate"></small></span><span class="bx-cost">${adFree()?'FREE':'▶ 1 AD'}</span></button>
+   <button type="button" class="bx-card is-all" id="batchAll" ${(adFree()||rewardedAvailable())&&allCount?'':'disabled'}><span class="bx-card-top"><b>All families</b><small>${allCount.toLocaleString('en-US')} combos</small></span><span class="bx-cost">${adFree()?'FREE':`<span class="bx-pips">${pips(credit)}</span>▶ ${BATCH_ALL_ADS-credit} AD${BATCH_ALL_ADS-credit===1?'':'S'}`}</span></button>
+  </div>
+  ${adFree()?'':`<button type="button" class="bx-noads" id="batchNoAds"><span class="bx-noads-badge">AD-FREE</span><span><b>Every batch &amp; pack free</b><small>+10 hints · 5× Shiny</small></span><span class="bx-noads-price">${escapeText(billingPrice)}</span></button>`}
+  ${!adFree()&&!rewardedAvailable()?'<p class="mini-muted">Ads play in the Android app.</p>':''}`);
  const redraw=()=>{
   document.querySelectorAll('[data-batch-family]').forEach(b=>b.setAttribute('aria-pressed',String(b.dataset.batchFamily===selected)));
-  $('batchSelectedName').textContent=FAMILIES.find(f=>f.id===selected)?.name||'No available elements';
-  $('batchEstimate').textContent=`${(pendingBatchFamilies.get(selected)||[]).length.toLocaleString('en-US')} checks`;
+  const sf=FAMILIES.find(f=>f.id===selected);$('batchSelectedName').textContent=sf?.name||'No available elements';
+  $('batchEstimate').textContent=`${(pendingBatchFamilies.get(selected)||[]).length.toLocaleString('en-US')} combos`;const ta=$('batchTargetArt');if(ta)ta.innerHTML=sf?familyCardArtwork(sf):'';
  };
  $('modalContent').querySelectorAll('[data-batch-family]').forEach(b=>b.addEventListener('click',()=>{selected=b.dataset.batchFamily;redraw();}));
  redraw();
- $('batchDemo').onclick=()=>{if(batchTrialUsed||!selected)return;beginBatch(selected,'trial');};
+ const na=$('batchNoAds');if(na)na.onclick=openRemoveAds;
+ $('batchAll').onclick=async()=>{
+  const locked=slots[0];if(adFree()){beginBatch('all','premium');return;}
+  if(!rewardedAvailable())return;if(rewardedHintBusy)return;
+  if(batchAllCredit&&batchAllCredit.locked!==locked){batchAllCredit=null;saveBatchAllCredit();}
+  const step=(batchAllCredit?.completed||0)+1;$('batchAll').disabled=true;$('batchRewarded').disabled=true;
+  rewardedHintBusy=true;let result;try{result=await getRewardBridge().showRewarded({kind:'batch_all',step,total:BATCH_ALL_ADS,elementId:locked});}catch(err){console.warn('Rewarded ad unavailable',err);}finally{rewardedHintBusy=false;}
+  if(result?.earned!==true){toast('Ad not completed','error');if(!$('modal').hidden)batchChooser();return;}
+  if(slots[0]!==locked||!leftLocked){toast('Locked element changed · Cancelled','error');return;}
+  if(step<BATCH_ALL_ADS){batchAllCredit={locked,completed:step};saveBatchAllCredit();toast(`Batch all · ${step}/${BATCH_ALL_ADS} ads`,'repeat');batchChooser();return;}
+  batchAllCredit=null;saveBatchAllCredit();beginBatch('all','ad');
+ };
  $('batchRewarded').onclick=async()=>{
   if(adFree()&&selected){beginBatch(selected,'premium');return;}
   if(!rewardedAvailable()||!selected)return;
   const family=selected,locked=slots[0];
-  $('batchRewarded').disabled=true;$('batchDemo').disabled=true;
+  $('batchRewarded').disabled=true;$('batchAll').disabled=true;
   let result;try{result=await getRewardBridge().showRewarded({kind:'batch_family',family,elementId:locked});}catch(err){console.warn('Rewarded ad unavailable',err);}
   if(result?.earned!==true){toast('Ad not completed · No batch reward','error');if(!$('modal').hidden)batchChooser();return;}
   if(slots[0]!==locked||!leftLocked){toast('Locked element changed · Cancelled','error');return;}
@@ -2036,8 +2059,8 @@ function beginBatch(family,source){
  if(!ids.length){toast('Discover some elements in this family first','error');return false;}
  clearTimeout(autoTimer);pendingBatchFamilies=null;
  batchState={fixed,fixedItem:byId.get(fixed),family,source,ids,recipeIndex:batchPartnerIndex(fixed),index:0,fresh:0,repeat:0,miss:0,phase:'scanning',discoveries:[],newRecent:[],pendingIds:new Set(),pendingKnown:[],pendingRecipes:[],reviewIndex:0,viewAll:false,startedAt:performance.now()};
- const f=FAMILIES.find(f=>f.id===family);
- const art=familyCardArtwork(f);
+ const f=family==='all'?{name:'All families'}:FAMILIES.find(f=>f.id===family);
+ const art=family==='all'?`<span class="all-family-mosaic">${FAMILIES.slice(0,4).map(x=>familyCardArtwork(x)).join('')}</span>`:familyCardArtwork(f);
  showModal(`<div class="modal-tag">SCANNING FAMILY</div><div class="batch-running-art">${art}</div><h2>${escapeText(f.name)}</h2><p>Combining with <strong>${escapeText(uiName(batchState.fixedItem))}</strong> · Checking recipes locally</p><span class="batch-fast-tag">Fast offline mode</span><div class="batch-running-progress"><div class="batch-running-fill" id="batchRunningFill"></div></div><div class="batch-running-count" id="batchRunningCount">0 / ${ids.length.toLocaleString('en-US')}</div><div class="batch-running-totals" id="batchRunningTotals">Searching for discoveries…</div><p class="mini-muted">Cancel with X. No animations or remote requests.</p>`);
  $('modal').dataset.dismiss='x-only';
  slots[1]=null;updateSlotUI();announceCraft('idle',`Scanning ${ids.length.toLocaleString('en-US')} combinations…`);
@@ -2104,7 +2127,7 @@ function showBatchAll(){
  const large=st.discoveries.length>80;
  const rows=large?`<div class="batch-list-spacer" style="height:${st.discoveries.length*70}px"><div class="batch-list-window" id="batchListWindow"></div></div>`:
   st.discoveries.map(batchResultRow).join('');
- showModal(`<div class="modal-tag">ALL NEW DISCOVERIES</div><h2>${st.discoveries.length} discoveries</h2><p>From ${escapeText(FAMILIES.find(f=>f.id===st.family)?.name||st.family)} · ${st.ids.length.toLocaleString('en-US')} combinations checked</p><div class="batch-discovery-list ${large?'is-virtual':''}" tabindex="0" aria-label="Scroll through all new discoveries">${rows}</div><button type="button" class="modal-button secondary" id="batchBackOne">Back to individual discoveries</button><p class="mini-muted">X closes this list and shows the final summary.</p>`);
+ showModal(`<div class="modal-tag">ALL NEW DISCOVERIES</div><h2>${st.discoveries.length} discoveries</h2><p>From ${escapeText(st.family==='all'?'all families':FAMILIES.find(f=>f.id===st.family)?.name||st.family)} · ${st.ids.length.toLocaleString('en-US')} combinations checked</p><div class="batch-discovery-list ${large?'is-virtual':''}" tabindex="0" aria-label="Scroll through all new discoveries">${rows}</div><button type="button" class="modal-button secondary" id="batchBackOne">Back to individual discoveries</button><p class="mini-muted">X closes this list and shows the final summary.</p>`);
  $('modal').dataset.dismiss='x-only';
  $('batchBackOne').onclick=showBatchDiscovery;
  if(large){

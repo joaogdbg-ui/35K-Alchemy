@@ -24,7 +24,7 @@ test('V54 reuses the same family artwork in gallery, Discovery and filters',()=>
  assert.match(app,/function familyCardArtwork\(f\)/);
  assert.match(app,/const src=FAMILY_ICONS_V54\[f.id\]/);
  assert.match(app,/const iconHtml=f=>familyCardArtwork\(f\)/);
- assert.match(app,/const art=familyCardArtwork\(f\)/);
+ assert.match(app,/const art=family==='all'\?[\s\S]{0,160}:familyCardArtwork\(f\)/); // V126: Batch all
 });
 test('V54 tap confirmation follows ingredient selection and actual drop only',()=>{
  assert.match(app,/function insertDirect\(id\)\{[\s\S]{0,115}pulseSelectedElement\(id\)/);

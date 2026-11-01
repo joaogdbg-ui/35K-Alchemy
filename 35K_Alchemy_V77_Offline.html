@@ -1494,6 +1494,44 @@ button.home-eff::after{content:" ⓘ";opacity:.6;font-weight:700}
 .pack-why{background:var(--surface-2,#f3efe7);border-radius:14px;padding:10px 12px;margin-top:6px;text-align:left}
 .pack-why p{margin:0 0 6px}.pack-why ul{margin:0 0 6px;padding-left:18px;display:grid;gap:2px;font-size:13px}.pack-why small{color:var(--muted)}
 
+/* ---------- V126: game-like panels (duo slot, family combiner) ---------- */
+.s2{gap:12px!important;background:linear-gradient(160deg,var(--surface) 55%,color-mix(in srgb,var(--accent) 12%,var(--surface)))}
+.s2-head{display:flex;align-items:center;gap:8px}
+.s2-ava{position:relative;width:52px;height:52px;border-radius:16px;background:var(--surface-2,#f3efe7);display:grid;place-items:center;flex:none}
+.s2-ava svg{width:44px;height:44px}
+.s2-ava.is-q{border:2px dashed var(--line);background:transparent}.s2-ava.is-q i{font-style:normal;font-size:24px;font-weight:900;color:var(--muted)}
+.s2-lock{position:absolute;right:-6px;bottom:-6px;font-size:14px;background:var(--surface);border-radius:50%;width:22px;height:22px;display:grid;place-items:center;box-shadow:var(--shadow)}
+.s2-plus{font-weight:900;color:var(--muted);font-size:18px}
+.s2-title{margin-left:6px;display:grid}.s2-title small{font-size:10px;letter-spacing:.12em;color:var(--accent-ink);font-weight:800}.s2-title strong{font-size:20px;font-weight:900}
+.s2-perks{display:grid;grid-template-columns:repeat(3,1fr);gap:6px}
+.s2-perks span{display:grid;justify-items:center;gap:1px;padding:7px 4px;border-radius:12px;background:var(--surface-2,#f3efe7);font-size:11px;font-weight:700;color:var(--muted)}
+.s2-perks b{font-size:16px;color:var(--ink);font-weight:900}
+.s2-paths{display:grid;grid-template-columns:1fr 1.3fr;gap:8px}
+.s2-path{display:grid;justify-items:center;align-content:center;gap:4px;min-height:64px;padding:8px;border-radius:14px;border:1px solid var(--line);background:var(--surface);font-weight:800}
+.s2-path small{font-size:9.5px;letter-spacing:.1em;color:var(--muted);font-weight:800}.s2-path b{font-size:15px}
+.s2-path.is-buy{background:var(--accent);color:#fff;border-color:transparent}.s2-path.is-buy small{color:rgba(255,255,255,.85)}
+.s2-path:disabled{opacity:.6}
+.s2-bar{width:100%;height:7px;border-radius:99px;background:var(--surface-2,#eee6da);overflow:hidden}.s2-bar i{display:block;height:100%;background:var(--accent);border-radius:inherit}
+.s2-pips,.bx-pips{display:flex;flex-wrap:wrap;justify-content:center;gap:3px;max-width:150px}.s2-pips i,.bx-pips i{width:6px;height:6px;border-radius:50%;background:var(--line)}.s2-pips i.on,.bx-pips i.on{background:var(--accent)}
+.bx-pips{gap:4px;margin-right:6px}.bx-pips i{width:8px;height:8px}
+.bx-hero{display:flex;align-items:center;justify-content:center;gap:12px;margin:4px 0 2px}
+.bx-token,.bx-target{position:relative;width:64px;height:64px;border-radius:18px;background:var(--surface-2,#f3efe7);display:grid;place-items:center}
+.bx-token svg,.bx-token img,.bx-target svg,.bx-target img{width:48px;height:48px}
+.bx-lock{position:absolute;right:-6px;top:-6px;font-style:normal;font-size:13px;background:var(--accent);border-radius:50%;width:24px;height:24px;display:grid;place-items:center}
+.bx-times{font-size:26px;font-weight:900;color:var(--accent-ink)}
+.bx-title{font-size:20px}.bx-title span{color:var(--accent-ink)}
+.bx-actions{display:grid;grid-template-columns:1fr 1fr;gap:8px;margin-top:12px}
+.bx-card{display:grid;gap:6px;padding:12px;border-radius:16px;border:1px solid var(--line);background:var(--surface);text-align:left}
+.bx-card-top{display:grid}.bx-card-top b{font-size:15px;font-weight:800;line-height:1.15}.bx-card-top small{color:var(--muted);font-weight:600}
+.bx-cost{display:flex;align-items:center;justify-content:center;padding:7px 8px;border-radius:999px;background:var(--surface-2,#f3efe7);font-weight:900;font-size:12px;letter-spacing:.06em}
+.bx-card.is-all{background:linear-gradient(150deg,var(--surface) 40%,color-mix(in srgb,var(--accent) 18%,var(--surface)));border-color:color-mix(in srgb,var(--accent) 45%,var(--line))}
+.bx-card.is-all .bx-cost{background:var(--accent);color:#fff}.bx-card.is-all .bx-pips i{background:rgba(255,255,255,.45)}.bx-card.is-all .bx-pips i.on{background:#fff}
+.bx-card:disabled{opacity:.55}
+.bx-noads{display:grid;grid-template-columns:auto 1fr auto;align-items:center;gap:10px;width:100%;margin-top:10px;padding:10px 12px;border-radius:16px;border:1px dashed color-mix(in srgb,var(--accent) 55%,var(--line));background:transparent;text-align:left}
+.bx-noads-badge{font-size:10px;font-weight:900;letter-spacing:.08em;padding:4px 7px;border-radius:8px;background:var(--ink);color:var(--surface)}
+.bx-noads b{display:block;font-size:13px}.bx-noads small{color:var(--muted);font-size:11.5px}
+.bx-noads-price{font-weight:900;font-size:15px;color:var(--accent-ink)}
+
 </style>
 </head>
 <body>
@@ -3545,7 +3583,11 @@ function createCompanionSystem(ctx){
   let slot='';if(act){const info=(()=>{try{return ctx.slot2Info?.()||null;}catch{return null;}})();const bm=buddyMeta();
    if(bm){const p=pet(bm.id);settleMood(p);slot=`<section class="pets-now is-slot2"><button type="button" class="pets-now-art" data-card="${bm.id}" aria-label="Stats">${sprites[bm.id]||''}</button><div class="pets-now-main"><strong>${escapeText(nameOf(bm))}<span class="duo-chip">Duo ×${DUO_GROWTH}</span></strong><small>Second slot · Total Lv ${totalLevel(bm.id)} · ${moodLabel(p.mood)} · tap it on screen to swap</small><span class="pet-needs"><span><i>Mood</i><b><em style="width:${p.mood}%"></em></b></span><span><i>Belly</i><b class="is-belly"><em style="width:${p.belly}%"></em></b></span></span></div><div class="pets-now-actions"><button type="button" class="pets-btn" id="buddyChange">Change</button><button type="button" class="pets-btn is-quiet" id="buddyDismiss">Send home</button></div></section>`;}
    else if(info?.unlocked){slot=`<section class="pets-now is-slot2 is-empty"><small>Second slot unlocked · choose a companion to play with ${escapeText(nameOf(act))} (all growth ×${DUO_GROWTH}).</small><div class="slot2-actions"><button type="button" class="pets-btn" id="buddyChange">Choose companion</button></div></section>`;}
-   else if(info){const ready=info.elements>=info.minElements;slot=`<section class="pets-now is-slot2 is-locked"><strong>Second companion slot</strong><ul class="slot2-perks"><li>Two companions on screen that play together: sparring, tag, hide-and-seek, ball games</li><li>All companion growth ×${DUO_GROWTH}</li><li>More discoveries while you are away</li></ul><div class="slot2-actions"><button type="button" class="pets-btn" id="slot2Buy" ${info.canBuy?'':'disabled'}>Unlock · ${escapeText(info.price)}</button><button type="button" class="pets-btn is-quiet" id="slot2Ad" ${ready&&info.canAd?'':'disabled'}>Watch ad · ${info.ads}/${info.adsNeeded}</button></div><span class="slot2-progress">${ready?`Free path: ${info.adsNeeded-info.ads} rewarded ads left`:`Free path opens at ${info.minElements.toLocaleString('en-US')} elements (${info.elements.toLocaleString('en-US')} now), then ${info.adsNeeded} rewarded ads`}${info.canBuy?'':' · purchase available in the Play Store app'}</span></section>`;}}
+   else if(info){const ready=info.elements>=info.minElements;const pct=Math.min(100,100*info.elements/info.minElements);
+    slot=`<section class="pets-now is-slot2 is-locked s2"><div class="s2-head"><span class="s2-ava">${sprites[act.id]||''}</span><span class="s2-plus">+</span><span class="s2-ava is-q"><i>?</i><b class="s2-lock">🔒</b></span><div class="s2-title"><small>NEW SLOT</small><strong>Duo mode</strong></div></div>
+     <div class="s2-perks"><span><b>⚔</b>Duo games</span><span><b>×1.25</b>Growth</span><span><b>✦</b>More finds</span></div>
+     <div class="s2-paths"><button type="button" class="s2-path is-buy" id="slot2Buy" ${info.canBuy?'':'disabled'}><small>INSTANT</small><b>${escapeText(info.price)}</b></button>
+      <button type="button" class="s2-path" id="slot2Ad" ${ready&&info.canAd?'':'disabled'}><small>${ready?'FREE PATH':'FREE PATH · LOCKED'}</small>${ready?`<span class="s2-pips">${Array.from({length:info.adsNeeded},(_,k)=>`<i class="${k<info.ads?'on':''}"></i>`).join('')}</span><b>▶ Ad ${info.ads}/${info.adsNeeded}</b>`:`<span class="s2-bar"><i style="width:${pct.toFixed(1)}%"></i></span><b>${info.elements.toLocaleString('en-US')} / ${info.minElements.toLocaleString('en-US')}</b>`}</button></div></section>`;}}
   root.innerHTML=`<div class="pets-scroll"><div class="section-head home-title"><h2>Home</h2></div>
    <div id="homeMount"></div>
    <h3 class="pets-family">On screen</h3>${now}${slot}
@@ -5235,11 +5277,11 @@ function getRewardBridge(){
  return native&&typeof native.showRewarded==='function'?native:null;
 }
 function rewardedAvailable(){return Boolean(getRewardBridge());}
-// V85: one-time "Remove ads" purchase (Google Play Billing, product id no_ads, owner price EUR 1.50).
+// V85: one-time "Remove ads" purchase (Google Play Billing, product id no_ads, owner price EUR 2.00 since V126).
 // Only Play's own purchase record unlocks it; the cached flag keeps it working offline.
 const NO_ADS_KEY='alchemy10k_no_ads_v1';
 let noAds=false;try{noAds=localStorage.getItem(NO_ADS_KEY)==='1';}catch{}
-let billingPrice='€1.50',billingProductReady=false;
+let billingPrice='€2.00',billingProductReady=false;
 function billingBridge(){const cap=window.Capacitor;if(cap?.getPlatform?.()!=='android')return null;const b=cap.Plugins?.AlchemyBilling;return b&&typeof b.getStatus==='function'?b:null;}
 function adFree(){return noAds;}
 function setNoAds(on){
@@ -5277,9 +5319,9 @@ async function watchSlot2Ad(){if(classicDiscoveredCount()<SLOT2_MIN_ELEMENTS||sl
  if(slot2Unlocked()){toast('Second companion slot unlocked!','new');companions.start();}else toast(`Second slot · ${slot2.ads}/${SLOT2_ADS} ads`,'repeat');return true;}
 async function refreshBilling(){const b=billingBridge();if(!b)return;try{applyBillingStatus(await b.getStatus());}catch(e){console.warn('Billing status unavailable',e);}}
 function openRemoveAds(){
- if(adFree()){showModal(`<div class="modal-tag">REMOVE ADS</div><h2>Ads removed</h2><p>Thank you for supporting Alchemy 10K! Mode switches, Batch and Merge are free, you keep a bank of ${HINT_BANK_MAX} hints that refills one every 15 minutes, and Shiny elements appear 5× more often.</p><p class="mini-muted">Optional ads remain only if you want extra hints when your bank is empty.</p><button type="button" class="modal-button secondary" id="removeAdsClose">Close</button>`);$('removeAdsClose').onclick=closeModal;return;}
+ if(adFree()){showModal(`<div class="modal-tag">REMOVE ADS</div><h2>Ads removed</h2><p>Thank you for supporting Alchemy 10K! Batch, Batch all and starter packs are free, you keep a bank of ${HINT_BANK_MAX} hints that refills one every 15 minutes, and Shiny elements appear 5× more often.</p><p class="mini-muted">Optional ads remain only if you want extra hints when your bank is empty.</p><button type="button" class="modal-button secondary" id="removeAdsClose">Close</button>`);$('removeAdsClose').onclick=closeModal;return;}
  const b=billingBridge();
- showModal(`<div class="modal-tag">REMOVE ADS</div><h2>Play without ads · ${escapeText(billingPrice)}</h2><ul class="perk-list"><li>No ads for mode switches, Batch or Merge</li><li>${HINT_BANK_MAX} hints included, +1 free hint every 15 minutes</li><li>Shiny chance 5% instead of 1%</li><li>Optional ads only for extra hints</li></ul><button type="button" class="modal-button" id="buyNoAds" ${b?'':'disabled'}>Buy · ${escapeText(billingPrice)}</button><button type="button" class="modal-button secondary" id="restoreNoAds" ${b?'':'disabled'}>Restore purchase</button><p class="mini-muted">${b?'One-time purchase through Google Play.':'Purchases need the Android app from Google Play.'}</p>`);
+ showModal(`<div class="modal-tag">REMOVE ADS</div><h2>Play without ads · ${escapeText(billingPrice)}</h2><ul class="perk-list"><li>No ads for Batch, Batch all or starter packs</li><li>${HINT_BANK_MAX} hints included, +1 free hint every 15 minutes</li><li>Shiny chance 5% instead of 1%</li><li>Optional ads only for extra hints</li></ul><button type="button" class="modal-button" id="buyNoAds" ${b?'':'disabled'}>Buy · ${escapeText(billingPrice)}</button><button type="button" class="modal-button secondary" id="restoreNoAds" ${b?'':'disabled'}>Restore purchase</button><p class="mini-muted">${b?'One-time purchase through Google Play.':'Purchases need the Android app from Google Play.'}</p>`);
  if(!b)return;
  $('buyNoAds').onclick=async()=>{$('buyNoAds').disabled=true;try{const r=await b.purchaseNoAds();applyBillingStatus(r);if(r?.noAds===true){openRemoveAds();return;}toast(r?.cancelled?'Purchase cancelled':r?.pending?'Purchase pending · it unlocks when Google Play confirms it':'Purchase not completed','repeat');}catch(e){console.warn(e);toast('Google Play purchase is not available yet','error');}if(!$('modal').hidden&&$('buyNoAds'))$('buyNoAds').disabled=false;};
  $('restoreNoAds').onclick=async()=>{await refreshBilling();if(adFree())openRemoveAds();else toast('No previous purchase found','repeat');};
@@ -5325,7 +5367,7 @@ function shinyCard(item){return `<p class="shiny-trivia"><span aria-hidden="true
 function showShinyFound(id){const it=byId.get(id);if(!it)return;
  showModal(`<div class="modal-tag shiny-tag">✦ SHINY ELEMENT</div><div class="modal-art is-shiny">${staticArt(it)}</div><h2>Shiny ${escapeText(uiName(it))}</h2>${shinyCard(it)}<div class="modal-milestone">${shiny.size.toLocaleString('en-US')} shiny ${shiny.size===1?'element':'elements'} · ${Math.round(shinyChance()*100)}% chance per combination</div>`);
 }
-const APP_VERSION='1.0.25';
+const APP_VERSION='1.0.26';
 // V83: status line + Google consent (UMP) privacy options, required for EEA players.
 async function refreshAdStatus(){
  const el=$('settingsAdStatus'),bridge=getRewardBridge();
@@ -6818,7 +6860,11 @@ function batchFamilySnapshot(){
  return groups;
 }
 let pendingBatchFamilies=null;
-function familyBatchCandidates(family){return (pendingBatchFamilies?.get(family)||batchFamilySnapshot().get(family)||[]).slice().sort((a,b)=>uiName(byId.get(a)).localeCompare(uiName(byId.get(b))));}
+// V126: Batch ALL families = 4 rewarded ads (credit kept per locked element) or free without ads.
+const BATCH_ALL_ADS=4,BATCH_ALL_KEY='alchemy10k_batch_all_v126';
+let batchAllCredit=null;try{const r=JSON.parse(localStorage.getItem(BATCH_ALL_KEY)||'null');if(r&&typeof r.locked==='string'&&r.completed>=1&&r.completed<BATCH_ALL_ADS)batchAllCredit=r;}catch{}
+function saveBatchAllCredit(){try{if(batchAllCredit)localStorage.setItem(BATCH_ALL_KEY,JSON.stringify(batchAllCredit));else localStorage.removeItem(BATCH_ALL_KEY);}catch{}}
+function familyBatchCandidates(family){if(family==='all')return [...(pendingBatchFamilies||batchFamilySnapshot()).values()].flat().sort((a,b)=>uiName(byId.get(a)).localeCompare(uiName(byId.get(b))));return (pendingBatchFamilies?.get(family)||batchFamilySnapshot().get(family)||[]).slice().sort((a,b)=>uiName(byId.get(a)).localeCompare(uiName(byId.get(b))));}
 function batchChooser(){
  if(!leftLocked||!slots[0]){toast('Lock an element on the left first','error');return;}
  pendingBatchFamilies=batchFamilySnapshot();
@@ -6829,20 +6875,39 @@ function batchChooser(){
   const icon=familyCardArtwork(f);
   return `<button type="button" class="batch-family-choice" data-batch-family="${f.id}" aria-pressed="${f.id===selected}" ${count?'':'disabled'}><span class="batch-family-picture">${icon}</span><span class="batch-family-data"><strong>${escapeText(f.name)}</strong><small>${count.toLocaleString('en-US')} found</small></span></button>`;
  }).join('');
- showModal(`<div class="modal-tag">FAMILY COMBINER</div><h2>Choose a family</h2><p class="batch-intro"><span class="batch-locked">♧ ${escapeText(uiName(byId.get(slots[0])))}</span> stays locked. Scan all collected elements, then review new discoveries.</p><div class="batch-family-grid" role="group" aria-label="Family to combine">${familyCards}</div><div class="batch-selection"><strong id="batchSelectedName"></strong><span id="batchEstimate"></span></div><div class="batch-actions"><button class="modal-button" id="batchDemo" ${batchTrialUsed||!selected?'disabled':''}>${batchTrialUsed?'Free trial used':'Free trial'}</button><button class="modal-button secondary" id="batchRewarded" ${(adFree()||rewardedAvailable())&&selected?'':'disabled'}>${adFree()?'Scan · free':'Watch Ad'}</button></div><p class="mini-muted batch-quiet-note">Offline fast scan · No per-element animations. Rewarded ads need a configured Android build.</p>`);
+ const lockedItem=byId.get(slots[0]),allCount=[...pendingBatchFamilies.values()].reduce((n,a)=>n+a.length,0);
+ const credit=batchAllCredit?.locked===slots[0]?batchAllCredit.completed:0;const pips=n=>Array.from({length:BATCH_ALL_ADS},(_,k)=>`<i class="${k<n?'on':''}"></i>`).join('');
+ showModal(`<div class="modal-tag">FAMILY COMBINER</div><div class="bx-hero"><span class="bx-token">${staticArt(lockedItem)}<i class="bx-lock" aria-hidden="true">🔒</i></span><span class="bx-times">×</span><span class="bx-target" id="batchTargetArt"></span></div><h2 class="bx-title"><span>${escapeText(uiName(lockedItem))}</span> meets a family</h2><div class="batch-family-grid" role="group" aria-label="Family to combine">${familyCards}</div>
+  <div class="bx-actions">
+   <button type="button" class="bx-card" id="batchRewarded" ${(adFree()||rewardedAvailable())&&selected?'':'disabled'}><span class="bx-card-top"><b id="batchSelectedName"></b><small id="batchEstimate"></small></span><span class="bx-cost">${adFree()?'FREE':'▶ 1 AD'}</span></button>
+   <button type="button" class="bx-card is-all" id="batchAll" ${(adFree()||rewardedAvailable())&&allCount?'':'disabled'}><span class="bx-card-top"><b>All families</b><small>${allCount.toLocaleString('en-US')} combos</small></span><span class="bx-cost">${adFree()?'FREE':`<span class="bx-pips">${pips(credit)}</span>▶ ${BATCH_ALL_ADS-credit} AD${BATCH_ALL_ADS-credit===1?'':'S'}`}</span></button>
+  </div>
+  ${adFree()?'':`<button type="button" class="bx-noads" id="batchNoAds"><span class="bx-noads-badge">AD-FREE</span><span><b>Every batch &amp; pack free</b><small>+10 hints · 5× Shiny</small></span><span class="bx-noads-price">${escapeText(billingPrice)}</span></button>`}
+  ${!adFree()&&!rewardedAvailable()?'<p class="mini-muted">Ads play in the Android app.</p>':''}`);
  const redraw=()=>{
   document.querySelectorAll('[data-batch-family]').forEach(b=>b.setAttribute('aria-pressed',String(b.dataset.batchFamily===selected)));
-  $('batchSelectedName').textContent=FAMILIES.find(f=>f.id===selected)?.name||'No available elements';
-  $('batchEstimate').textContent=`${(pendingBatchFamilies.get(selected)||[]).length.toLocaleString('en-US')} checks`;
+  const sf=FAMILIES.find(f=>f.id===selected);$('batchSelectedName').textContent=sf?.name||'No available elements';
+  $('batchEstimate').textContent=`${(pendingBatchFamilies.get(selected)||[]).length.toLocaleString('en-US')} combos`;const ta=$('batchTargetArt');if(ta)ta.innerHTML=sf?familyCardArtwork(sf):'';
  };
  $('modalContent').querySelectorAll('[data-batch-family]').forEach(b=>b.addEventListener('click',()=>{selected=b.dataset.batchFamily;redraw();}));
  redraw();
- $('batchDemo').onclick=()=>{if(batchTrialUsed||!selected)return;beginBatch(selected,'trial');};
+ const na=$('batchNoAds');if(na)na.onclick=openRemoveAds;
+ $('batchAll').onclick=async()=>{
+  const locked=slots[0];if(adFree()){beginBatch('all','premium');return;}
+  if(!rewardedAvailable())return;if(rewardedHintBusy)return;
+  if(batchAllCredit&&batchAllCredit.locked!==locked){batchAllCredit=null;saveBatchAllCredit();}
+  const step=(batchAllCredit?.completed||0)+1;$('batchAll').disabled=true;$('batchRewarded').disabled=true;
+  rewardedHintBusy=true;let result;try{result=await getRewardBridge().showRewarded({kind:'batch_all',step,total:BATCH_ALL_ADS,elementId:locked});}catch(err){console.warn('Rewarded ad unavailable',err);}finally{rewardedHintBusy=false;}
+  if(result?.earned!==true){toast('Ad not completed','error');if(!$('modal').hidden)batchChooser();return;}
+  if(slots[0]!==locked||!leftLocked){toast('Locked element changed · Cancelled','error');return;}
+  if(step<BATCH_ALL_ADS){batchAllCredit={locked,completed:step};saveBatchAllCredit();toast(`Batch all · ${step}/${BATCH_ALL_ADS} ads`,'repeat');batchChooser();return;}
+  batchAllCredit=null;saveBatchAllCredit();beginBatch('all','ad');
+ };
  $('batchRewarded').onclick=async()=>{
   if(adFree()&&selected){beginBatch(selected,'premium');return;}
   if(!rewardedAvailable()||!selected)return;
   const family=selected,locked=slots[0];
-  $('batchRewarded').disabled=true;$('batchDemo').disabled=true;
+  $('batchRewarded').disabled=true;$('batchAll').disabled=true;
   let result;try{result=await getRewardBridge().showRewarded({kind:'batch_family',family,elementId:locked});}catch(err){console.warn('Rewarded ad unavailable',err);}
   if(result?.earned!==true){toast('Ad not completed · No batch reward','error');if(!$('modal').hidden)batchChooser();return;}
   if(slots[0]!==locked||!leftLocked){toast('Locked element changed · Cancelled','error');return;}
@@ -6866,8 +6931,8 @@ function beginBatch(family,source){
  if(!ids.length){toast('Discover some elements in this family first','error');return false;}
  clearTimeout(autoTimer);pendingBatchFamilies=null;
  batchState={fixed,fixedItem:byId.get(fixed),family,source,ids,recipeIndex:batchPartnerIndex(fixed),index:0,fresh:0,repeat:0,miss:0,phase:'scanning',discoveries:[],newRecent:[],pendingIds:new Set(),pendingKnown:[],pendingRecipes:[],reviewIndex:0,viewAll:false,startedAt:performance.now()};
- const f=FAMILIES.find(f=>f.id===family);
- const art=familyCardArtwork(f);
+ const f=family==='all'?{name:'All families'}:FAMILIES.find(f=>f.id===family);
+ const art=family==='all'?`<span class="all-family-mosaic">${FAMILIES.slice(0,4).map(x=>familyCardArtwork(x)).join('')}</span>`:familyCardArtwork(f);
  showModal(`<div class="modal-tag">SCANNING FAMILY</div><div class="batch-running-art">${art}</div><h2>${escapeText(f.name)}</h2><p>Combining with <strong>${escapeText(uiName(batchState.fixedItem))}</strong> · Checking recipes locally</p><span class="batch-fast-tag">Fast offline mode</span><div class="batch-running-progress"><div class="batch-running-fill" id="batchRunningFill"></div></div><div class="batch-running-count" id="batchRunningCount">0 / ${ids.length.toLocaleString('en-US')}</div><div class="batch-running-totals" id="batchRunningTotals">Searching for discoveries…</div><p class="mini-muted">Cancel with X. No animations or remote requests.</p>`);
  $('modal').dataset.dismiss='x-only';
  slots[1]=null;updateSlotUI();announceCraft('idle',`Scanning ${ids.length.toLocaleString('en-US')} combinations…`);
@@ -6934,7 +6999,7 @@ function showBatchAll(){
  const large=st.discoveries.length>80;
  const rows=large?`<div class="batch-list-spacer" style="height:${st.discoveries.length*70}px"><div class="batch-list-window" id="batchListWindow"></div></div>`:
   st.discoveries.map(batchResultRow).join('');
- showModal(`<div class="modal-tag">ALL NEW DISCOVERIES</div><h2>${st.discoveries.length} discoveries</h2><p>From ${escapeText(FAMILIES.find(f=>f.id===st.family)?.name||st.family)} · ${st.ids.length.toLocaleString('en-US')} combinations checked</p><div class="batch-discovery-list ${large?'is-virtual':''}" tabindex="0" aria-label="Scroll through all new discoveries">${rows}</div><button type="button" class="modal-button secondary" id="batchBackOne">Back to individual discoveries</button><p class="mini-muted">X closes this list and shows the final summary.</p>`);
+ showModal(`<div class="modal-tag">ALL NEW DISCOVERIES</div><h2>${st.discoveries.length} discoveries</h2><p>From ${escapeText(st.family==='all'?'all families':FAMILIES.find(f=>f.id===st.family)?.name||st.family)} · ${st.ids.length.toLocaleString('en-US')} combinations checked</p><div class="batch-discovery-list ${large?'is-virtual':''}" tabindex="0" aria-label="Scroll through all new discoveries">${rows}</div><button type="button" class="modal-button secondary" id="batchBackOne">Back to individual discoveries</button><p class="mini-muted">X closes this list and shows the final summary.</p>`);
  $('modal').dataset.dismiss='x-only';
  $('batchBackOne').onclick=showBatchDiscovery;
  if(large){
