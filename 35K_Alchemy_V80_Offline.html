@@ -1387,6 +1387,22 @@ button.home-eff::after{content:" ⓘ";opacity:.6;font-weight:700}
 .companion-statwin .cs-look i{display:inline-block;width:9px;height:9px;border-radius:50%;margin-right:4px;vertical-align:-1px;border:1px solid var(--line)}
 .companion-statwin .cs-look.is-none{grid-template-columns:1fr}.companion-statwin .cs-look.is-none b{color:var(--muted);font-weight:500}
 
+/* V124: starter packs + looks filter */
+.pack-list{display:grid;gap:8px;margin-top:10px;max-height:60vh;overflow:auto}
+.pack-card{display:grid;grid-template-columns:52px 1fr;gap:10px;align-items:center;text-align:left;padding:8px 10px;border-radius:14px;border:1px solid var(--line);background:var(--surface)}
+.pack-card.is-done{opacity:.55}.pack-card.is-focus{border-color:var(--accent);box-shadow:0 0 0 2px color-mix(in srgb,var(--accent) 30%,transparent)}
+.pack-art{width:52px;height:52px;display:block}.pack-art img,.pack-art svg{width:100%;height:100%}
+.pack-copy{display:grid;gap:2px}.pack-copy small{color:var(--muted)}
+.pack-els{display:flex;gap:4px;margin-top:3px}.pack-el{width:26px;height:26px;display:inline-block;opacity:.45;filter:grayscale(.6)}.pack-el.is-have{opacity:1;filter:none}.pack-el svg,.pack-el img{width:100%;height:100%}
+.pack-els.is-big{justify-content:center;margin:10px 0}.pack-els.is-big .pack-el{width:54px;height:54px}
+.pack-open{margin-top:10px;width:100%}
+.looks-chip[aria-pressed="true"]{background:var(--ink);color:var(--surface)}
+.looks-h{font-size:12px;letter-spacing:.06em;text-transform:uppercase;color:var(--muted);margin:12px 0 6px}
+.looks-opts{display:flex;flex-wrap:wrap;gap:6px}
+.looks-opt{display:inline-flex;align-items:center;gap:6px;padding:7px 11px;border-radius:999px;border:1px solid var(--line);background:var(--surface);font-weight:600;font-size:13px}
+.looks-opt small{color:var(--muted);font-weight:500}.looks-opt i{width:12px;height:12px;border-radius:50%;border:1px solid var(--line)}
+.looks-opt.is-on{background:var(--ink);color:var(--surface)}.looks-opt.is-on small{color:inherit;opacity:.7}
+
 </style>
 </head>
 <body>
@@ -1431,6 +1447,7 @@ button.home-eff::after{content:" ⓘ";opacity:.6;font-weight:700}
             <button type="button" class="filter-pill show-chip" data-show-chip="done" aria-pressed="false">Completed ★</button>
             <button type="button" class="filter-pill show-chip" data-show-chip="saved" aria-pressed="false">Saved</button>
             <button type="button" class="filter-pill show-chip shiny-chip" data-show-chip="shiny" aria-pressed="false" hidden>✦ Shiny</button>
+            <button type="button" class="filter-pill looks-chip" id="looksChip" aria-pressed="false">Looks</button>
           </div>
         </div>
         <div id="inventoryScroll" class="inventory-scroll"><div id="inventoryVirtual" class="virtual-inner"></div></div>
@@ -3320,9 +3337,11 @@ function createCompanionSystem(ctx){
  function mealPreview(itemId,cid=state.active){const meta=metaById.get(cid),item=byId.get(itemId);if(!meta||!item||!isDiscovered(cid))return null;const p=pet(cid);
   const taste=likes(meta,item),last=p.fed[item.id]||0,fresh=now()-last>FEED_COOLDOWN_MS,depth=ctx.depthOf?.(item.id);
   const stats=taste==='no'?[]:feedPlan(meta,item).map(c=>({stat:c.stat,label:STAT_LABEL[c.stat],amount:Math.round(c.amount*growth(cid,c.stat))}));
-  const known=!!state.tasted?.[item.id]||Object.values(state.pets||{}).some(q=>q?.fed?.[item.id]);
+  const known=tasted(item.id);
   return {cid,known,name:nameOf(meta),taste,fresh,cooldownMin:fresh?0:Math.max(1,Math.ceil((FEED_COOLDOWN_MS-(now()-last))/60000)),stats,depth,depthMult:feedDepthMult(depth),looks:lookEffects(item.name||uiName(item),familyFor(item),item.category,depth)};}
- return {mealPreview,lookOf,applyLook:(svg,id)=>applyLookSvg(svg,lookOf(id),id),start,stop,setActive,statsHtml,info,gameReward,choose,homeEffect,syncSeen,markSeen,isCompanion,freeChoiceLeft,emote,feed,hitTest,onDiscovery,renderTab,openCard,get active(){return activeMeta();},state:()=>state,unlocked,refreshViews,
+ function tasted(itemId){return !!state.tasted?.[itemId]||Object.values(state.pets||{}).some(q=>q?.fed?.[itemId]);}
+ function looksOf(itemId){const item=byId.get(itemId);if(!item)return null;return lookEffects(item.name||uiName(item),familyFor(item),item.category,ctx.depthOf?.(item.id));}
+ return {tasted,looksOf,mealPreview,lookOf,applyLook:(svg,id)=>applyLookSvg(svg,lookOf(id),id),start,stop,setActive,statsHtml,info,gameReward,choose,homeEffect,syncSeen,markSeen,isCompanion,freeChoiceLeft,emote,feed,hitTest,onDiscovery,renderTab,openCard,get active(){return activeMeta();},state:()=>state,unlocked,refreshViews,
   onViewChange(){if(activeMeta()&&sprite&&!sprite.hidden)setTimeout(()=>{if(cancelMove)cancelMove();const r=pickRail();if(r){rail=r;setLayer(r.layer);place(clampX(r,pos.x),r.y);sprite.dataset.anim='idle';}},80);},
   importState(raw){if(raw&&raw.pets){state=normalize(raw);save();syncSeen();}},grades:companionGrades};
 }
@@ -5025,7 +5044,7 @@ function shinyCard(item){return `<p class="shiny-trivia"><span aria-hidden="true
 function showShinyFound(id){const it=byId.get(id);if(!it)return;
  showModal(`<div class="modal-tag shiny-tag">✦ SHINY ELEMENT</div><div class="modal-art is-shiny">${staticArt(it)}</div><h2>Shiny ${escapeText(uiName(it))}</h2>${shinyCard(it)}<div class="modal-milestone">${shiny.size.toLocaleString('en-US')} shiny ${shiny.size===1?'element':'elements'} · ${Math.round(shinyChance()*100)}% chance per combination</div>`);
 }
-const APP_VERSION='1.0.23';
+const APP_VERSION='1.0.24';
 // V83: status line + Google consent (UMP) privacy options, required for EEA players.
 async function refreshAdStatus(){
  const el=$('settingsAdStatus'),bridge=getRewardBridge();
@@ -5108,7 +5127,7 @@ function restorePlayState(raw,starterIds){const allowed=new Set(currentMode==='f
  discoveryOrderSet.clear();for(const id of discoveryOrder)discoveryOrderSet.add(id);
  syncDiscoveryOrder();hintState={clues:{...(raw?.clues||{})}};
 }
-function syncModeButton(){const c=$('modeBtn');if(!c)return;
+function syncModeButton(){const c=$('modeBtn');if(!c)return;c.hidden=true; // V124: Classic only
  c.textContent=currentMode==='family'?'Family':'Classic';
  c.setAttribute('aria-label','Game mode: '+(currentMode==='family'?'Family Only':'Classic')+' — open modes');
  document.body.dataset.gameMode=currentMode;
@@ -5119,6 +5138,7 @@ function syncModeButton(){const c=$('modeBtn');if(!c)return;
 }
 function syncFamilyBanner(){
  const bar=$('familyBanner');if(!bar)return;
+ bar.hidden=true;return; // V124: Classic only — no mode banner
  bar.hidden=false;bar.dataset.mode=currentMode;
  if(currentMode==='family'){
   const f=FAMILIES.find(x=>x.id===currentFamilyId),c=familyCampaigns.get(currentFamilyId);
@@ -5905,6 +5925,7 @@ function filtered(mode){
  else if(inventoryShow==='done')ids=ids.filter(id=>elementIsComplete(id));
  else if(inventoryShow==='saved')ids=ids.filter(id=>favorites.has(id));
  else if(inventoryShow==='shiny')ids=ids.filter(id=>shiny.has(id));
+ if(looksFilter)ids=ids.filter(looksMatch);
  if(q)ids=ids.filter(id=>uiName(byId.get(id)).toLowerCase().includes(q));
  if(sortChoice==='old'||sortChoice==='new'){
   syncDiscoveryOrder();const rank=new Map(discoveryOrder.map((id,i)=>[id,i]));
@@ -6422,8 +6443,7 @@ function settings(){
     </div>
    </div>
    <div class="settings-section settings-links">
-    <button type="button" id="changeGameMode" class="settings-link"><span>Game mode<small>${escapeText(mode)}</small></span><span aria-hidden="true">›</span></button>
-    <div class="settings-divider"></div><button type="button" id="settingsMergeClassic" class="settings-link"><span>Merge Classic and Families<small>Both directions · ${adFree()?'free':'2 rewarded ads'}</small></span><span aria-hidden="true">›</span></button>
+    <button type="button" id="settingsStarterPacks" class="settings-link"><span>Family starter packs<small>Unlock a family's 4 starting elements · ${adFree()?'free':'2 rewarded ads'}</small></span><span aria-hidden="true">›</span></button>
     <div class="settings-divider"></div><button type="button" id="settingsRemoveAds" class="settings-link"><span>${adFree()?'Ads removed ✓':'Remove ads · '+escapeText(billingPrice)}<small>${adFree()?'Thank you! 5% Shiny chance and a hint bank':'No forced ads, 10 hints included, 5% Shiny chance'}</small></span><span aria-hidden="true">›</span></button>
    </div>
    <div class="settings-section settings-links">
@@ -6498,8 +6518,7 @@ function settings(){
   $('modalContent').querySelectorAll('[data-theme-choice]').forEach(choice=>choice.setAttribute('aria-pressed',String(choice.dataset.themeChoice===selectedTheme)));
  });
  syncSoundToggle();$('settingsSoundToggle').onclick=toggleSoundEnabled;
- $('settingsMergeClassic').onclick=mergeHub;$('settingsRemoveAds').onclick=openRemoveAds;
- $('changeGameMode').onclick=()=>modePicker(false);
+ $('settingsStarterPacks').onclick=()=>starterPacks();$('settingsRemoveAds').onclick=openRemoveAds;
  selectSettingsPage('main');
  void refreshPlayerServicesStatus();
 }
@@ -6779,6 +6798,70 @@ syncInventoryButton();
 $('recentBtn').onclick=openInventorySorter;
 // V29.2: use the illustrated in-game family selector for inventory filters.
 // Unlike <select>, this does not launch Android's native dark full-screen picker.
+// V124: one game mode. Old Family Only progress is copied into Classic once, for free.
+const CLASSIC_ONLY_KEY='alchemy10k_classic_only_v124';
+function migrateFamiliesIntoClassic(){
+ let done=false;try{done=localStorage.getItem(CLASSIC_ONLY_KEY)==='1';}catch{}
+ if(done)return 0;
+ const have=new Set(unlocked);const ids=[...new Set(Object.values(familyProfiles||{}).flatMap(p=>p?.unlocked||[]))].filter(id=>byId.has(id)&&!have.has(id));
+ if(ids.length){const result=mergeIntoClassicState(snapshotPlayState(),ids,byId,new Date().toISOString());if(!persistClassicSnapshot(result))return 0;classicSnapshot=result;restorePlayState(result,[...STARTERS]);updateCounts();rerenderCollections();
+  setTimeout(()=>toast(`${ids.length.toLocaleString('en-US')} family discoveries added to your collection`,'repeat'),900);}
+ try{localStorage.setItem(CLASSIC_ONLY_KEY,'1');localStorage.setItem(MODE_SELECTION_KEY,JSON.stringify({mode:'classic',family:null}));}catch{}
+ return ids.length;}
+// V124: Family starter packs — unlock a family's 4 starters in Classic (2 rewarded ads; free without ads).
+const STARTER_PACK_KEY='alchemy10k_starter_pack_v124';
+let starterPackCredit=null;try{const r=JSON.parse(localStorage.getItem(STARTER_PACK_KEY)||'null');if(r&&familyCampaigns.has(r.family)&&[1].includes(r.completed))starterPackCredit=r;}catch{}
+function saveStarterPackCredit(){try{if(starterPackCredit)localStorage.setItem(STARTER_PACK_KEY,JSON.stringify(starterPackCredit));else localStorage.removeItem(STARTER_PACK_KEY);}catch{}}
+const packMissing=fid=>(familyCampaigns.get(fid)?.starters||[]).filter(id=>!unlocked.has(id));
+function starterPacks(focus=null){
+ const cards=ALL_CAMPAIGNS.map(c=>{const f=FAMILIES.find(x=>x.id===c.id);if(!f)return '';const miss=packMissing(c.id);const icons=c.starters.map(id=>{const it=byId.get(id);return `<span class="pack-el ${unlocked.has(id)?'is-have':''}" title="${escapeText(uiName(it))}">${staticArt(it)}</span>`;}).join('');
+  const credit=starterPackCredit?.family===c.id?` · ad 1 of 2 done`:'';
+  return `<button type="button" class="pack-card ${miss.length?'':'is-done'} ${focus===c.id?'is-focus':''}" data-pack="${c.id}" ${miss.length?'':'disabled'}><span class="pack-art">${familyCardArtwork(f)}</span><span class="pack-copy"><strong>${escapeText(f.name)}</strong><small>${miss.length?`${miss.length} to unlock · ${adFree()?'free':'2 ads'}${credit}`:'All starters unlocked ✓'}</small><span class="pack-els">${icons}</span></span></button>`;}).join('');
+ showModal(`<div class="modal-tag">FAMILY STARTER PACKS</div><h2>Jump into a family</h2><p>Unlock a family's four starting elements to reach its objects, houses and companions faster.</p><div class="pack-list">${cards}</div>`);
+ $('modalContent').querySelectorAll('[data-pack]').forEach(b=>b.onclick=()=>buyStarterPack(b.dataset.pack));}
+async function buyStarterPack(fid){
+ const miss=packMissing(fid);if(!miss.length)return;
+ if(!adFree()){
+  if(rewardedHintBusy)return;
+  if(!rewardedAvailable()){showModal(`<div class="modal-tag">FAMILY STARTER PACK</div><h2>Ads unavailable</h2><p>Starter packs need two completed rewarded ads in the Android app. This standalone HTML does not simulate ads.</p><button type="button" class="modal-button secondary" id="packBack">Back</button>`);$('packBack').onclick=()=>starterPacks(fid);return;}
+  if(starterPackCredit&&starterPackCredit.family!==fid){starterPackCredit=null;saveStarterPackCredit();}
+  const step=(starterPackCredit?.completed||0)+1;
+  showModal(`<div class="modal-tag">FAMILY STARTER PACK</div><h2>Showing ad ${step} of 2…</h2><p>The pack unlocks after the second rewarded ad is completed.</p>`);
+  rewardedHintBusy=true;let reward;
+  try{reward=await getRewardBridge().showRewarded({kind:'starter_pack',family:fid,step,total:2});}catch(e){console.warn('Starter pack ad unavailable',e);}
+  finally{rewardedHintBusy=false;}
+  if(reward?.earned!==true){starterPacks(fid);return;}
+  if(step<2){starterPackCredit={family:fid,completed:1};saveStarterPackCredit();starterPacks(fid);return;}
+  starterPackCredit=null;saveStarterPackCredit();
+ }
+ const at=new Date().toISOString();const result=mergeIntoClassicState(snapshotPlayState(),miss,byId,at);if(!persistClassicSnapshot(result)){toast('Could not save — try again','repeat');return;}
+ classicSnapshot=result;restorePlayState(result,[...STARTERS]);updateCounts();rerenderCollections();
+ const f=FAMILIES.find(x=>x.id===fid);
+ showModal(`<div class="modal-tag">STARTER PACK UNLOCKED</div><h2>${escapeText(f?.name||'Family')}</h2><div class="pack-els is-big">${miss.map(id=>`<span class="pack-el is-have">${staticArt(byId.get(id))}</span>`).join('')}</div><p>${miss.map(id=>escapeText(uiName(byId.get(id)))).join(' · ')} added to your elements.</p><button type="button" class="modal-button" id="packDone">Start combining</button>`);
+ $('packDone').onclick=()=>{closeModal();playFamily=fid;$('playFamilyLabel').textContent=f?.name||'All families';playVirtual.refresh({resetScroll:true});};}
+// V124: Looks filter — what you already know an element does to a companion (or ??? if never fed).
+let looksFilter=null;const looksCache=new Map();
+function looksOfId(id){if(!looksCache.has(id))looksCache.set(id,companions.looksOf?.(id)||null);return looksCache.get(id);}
+function looksMatch(id){if(!looksFilter)return true;const known=companions.tasted?.(id);
+ if(looksFilter.kind==='unknown')return !known;if(!known)return false;const L=looksOfId(id);if(!L)return false;
+ if(looksFilter.kind==='tint')return L.tint?.key===looksFilter.key;
+ if(looksFilter.kind==='trait')return L.traits.some(t=>!t.locked&&t.label===looksFilter.key);
+ if(looksFilter.kind==='size')return looksFilter.key==='bigger'?L.size>0:L.size<0;
+ if(looksFilter.kind==='reset')return L.resets.length>0;return true;}
+function looksFilterLabel(){if(!looksFilter)return 'Looks';return looksFilter.kind==='unknown'?'Looks · ???':`Looks · ${looksFilter.label}`;}
+function openLooksFilter(){
+ const ids=allIds();const tints=new Map(),traits=new Map();let unknown=0,bigger=0,smaller=0,resets=0;
+ for(const id of ids){if(!companions.tasted?.(id)){unknown++;continue;}const L=looksOfId(id);if(!L)continue;
+  if(L.tint)tints.set(L.tint.key,{n:(tints.get(L.tint.key)?.n||0)+1,name:L.tint.name,rgb:L.tint.rgb});
+  for(const t of L.traits)if(!t.locked)traits.set(t.label,(traits.get(t.label)||0)+1);
+  if(L.size>0)bigger++;else if(L.size<0)smaller++;if(L.resets.length)resets++;}
+ const opt=(kind,key,label,n,extra='')=>`<button type="button" class="looks-opt ${looksFilter?.kind===kind&&(looksFilter.key??null)===(key??null)?'is-on':''}" data-lk="${kind}" data-key="${escapeText(key??'')}" data-label="${escapeText(label)}">${extra}<span>${escapeText(label)}</span><small>${n}</small></button>`;
+ const tintHtml=[...tints].sort((a,b)=>b[1].n-a[1].n).map(([k,v])=>opt('tint',k,v.name,v.n,`<i style="background:rgb(${v.rgb.join(',')})"></i>`)).join('');
+ const traitHtml=[...traits].sort((a,b)=>b[1]-a[1]).map(([k,n])=>opt('trait',k,k,n)).join('');
+ const sizeHtml=(bigger?opt('size','bigger','Grows bigger',bigger):'')+(smaller?opt('size','smaller','Gets smaller',smaller):'')+(resets?opt('reset',null,'Resets looks',resets):'');
+ showModal(`<div class="modal-tag">LOOKS FILTER</div><h2>Filter by looks</h2><p class="mini-muted">Only shows what you have learned by feeding elements to your companions.</p><div class="looks-opts">${opt('unknown',null,'??? Not fed yet',unknown)}${looksFilter?`<button type="button" class="looks-opt" data-lk="clear"><span>Show all</span></button>`:''}</div>${tintHtml?`<h3 class="looks-h">Colour</h3><div class="looks-opts">${tintHtml}</div>`:''}${traitHtml?`<h3 class="looks-h">Traits</h3><div class="looks-opts">${traitHtml}</div>`:''}${sizeHtml?`<h3 class="looks-h">Size & resets</h3><div class="looks-opts">${sizeHtml}</div>`:''}${!tintHtml&&!traitHtml?'<p class="mini-muted">Feed elements to a companion to discover colours and traits.</p>':''}`);
+ $('modalContent').querySelectorAll('[data-lk]').forEach(b=>b.onclick=()=>{const k=b.dataset.lk;looksFilter=k==='clear'?null:{kind:k,key:b.dataset.key||null,label:b.dataset.label};closeModal();syncLooksChip();playVirtual.refresh({resetScroll:true});});}
+function syncLooksChip(){const c=$('looksChip');if(!c)return;c.textContent=looksFilterLabel();c.setAttribute('aria-pressed',String(!!looksFilter));}
 function openInventoryFamilyPicker(){
   if(currentMode==='family'){toast('Family Only stays inside your chosen family');return;}
   $('playSearch').blur();
@@ -6789,7 +6872,8 @@ function openInventoryFamilyPicker(){
     ?`<img src="${GAMEVERSE_ART[k]}" decoding="async" alt="">`:'').join('');
   const choices=[`<button type="button" class="batch-family-choice" data-inventory-family="all" aria-pressed="${playFamily==='all'}"><span class="batch-family-picture"><span class="all-family-mosaic" aria-hidden="true">${allIcons}</span></span><span class="batch-family-data"><strong>All families</strong><small>${unlocked.size.toLocaleString('en-US')} elements collected</small></span></button>`,
     ...FAMILIES.map(f=>`<button type="button" class="batch-family-choice" data-inventory-family="${f.id}" aria-pressed="${f.id===playFamily}"><span class="batch-family-picture">${iconHtml(f)}</span><span class="batch-family-data"><strong>${escapeText(f.name)}</strong><small>${(counts.get(f.id)||0).toLocaleString('en-US')} discovered</small></span></button>`)].join('');
-  showModal(`<div class="modal-tag">ELEMENT FILTER</div><h2>Choose a family</h2><p class="inventory-family-info">Show elements from one family or browse everything.</p><div class="batch-family-grid inventory-family-grid" role="group" aria-label="Filter collected elements by family">${choices}</div>`);
+  showModal(`<div class="modal-tag">ELEMENT FILTER</div><h2>Choose a family</h2><p class="inventory-family-info">Show elements from one family or browse everything.</p><div class="batch-family-grid inventory-family-grid" role="group" aria-label="Filter collected elements by family">${choices}</div><button type="button" class="modal-button secondary pack-open" id="openStarterPacks">✦ Family starter packs · ${adFree()?'free':'2 ads'}</button>`);
+  $('openStarterPacks').onclick=()=>starterPacks(playFamily!=='all'?playFamily:null);
   $('playFamily').setAttribute('aria-expanded','true');
   $('modalContent').querySelectorAll('[data-inventory-family]').forEach(button=>{
     button.addEventListener('click',()=>{
@@ -6803,8 +6887,9 @@ function openInventoryFamilyPicker(){
   });
 }
 $('playFamily').onclick=openInventoryFamilyPicker;
+if($('looksChip'))$('looksChip').onclick=openLooksFilter;
 $('settingsBtn').onclick=settings;
-$('modeBtn').onclick=()=>modePicker(false);
+
 $('modalClose').onclick=closeModal;$('modal').onclick=e=>{if(e.target===$('modal')&&$('modal').dataset.dismiss!=='x-only')closeModal();};
 $('familiesGrid').onclick=e=>{const el=e.target.closest('button[data-family]');if(el)openFamily(el.dataset.family);};
 // V88: Themed collections removed from the Collection tab (owner: obsolete). Data stays for old saves.
@@ -6823,7 +6908,7 @@ document.querySelectorAll('[data-dscope]').forEach(btn=>btn.onclick=()=>{discove
 document.querySelectorAll('.tab').forEach(b=>b.onclick=()=>switchTab(b.dataset.view));
 updateCounts();updateSlotUI();updateLatest();rerenderCollections();switchTab('Play');
 classicSnapshot=snapshotPlayState();
-try{const preferred=JSON.parse(localStorage.getItem(MODE_SELECTION_KEY)||'null');if(preferred?.mode==='family'&&familyCampaigns.has(canonicalFamilyId(preferred.family)))activateMode('family',canonicalFamilyId(preferred.family));else if(!preferred)modePicker(true);}catch{modePicker(true);}
+migrateFamiliesIntoClassic(); // V124: Classic is the only mode
 syncModeButton();
 companions.start();companions.syncSeen();syncGamesTab();
 setTimeout(checkIdleFinds,1200);setInterval(idleTouch,60000);

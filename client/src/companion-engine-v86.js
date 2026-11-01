@@ -668,9 +668,11 @@ export function createCompanionSystem(ctx){
  function mealPreview(itemId,cid=state.active){const meta=metaById.get(cid),item=byId.get(itemId);if(!meta||!item||!isDiscovered(cid))return null;const p=pet(cid);
   const taste=likes(meta,item),last=p.fed[item.id]||0,fresh=now()-last>FEED_COOLDOWN_MS,depth=ctx.depthOf?.(item.id);
   const stats=taste==='no'?[]:feedPlan(meta,item).map(c=>({stat:c.stat,label:STAT_LABEL[c.stat],amount:Math.round(c.amount*growth(cid,c.stat))}));
-  const known=!!state.tasted?.[item.id]||Object.values(state.pets||{}).some(q=>q?.fed?.[item.id]);
+  const known=tasted(item.id);
   return {cid,known,name:nameOf(meta),taste,fresh,cooldownMin:fresh?0:Math.max(1,Math.ceil((FEED_COOLDOWN_MS-(now()-last))/60000)),stats,depth,depthMult:feedDepthMult(depth),looks:lookEffects(item.name||uiName(item),familyFor(item),item.category,depth)};}
- return {mealPreview,lookOf,applyLook:(svg,id)=>applyLookSvg(svg,lookOf(id),id),start,stop,setActive,statsHtml,info,gameReward,choose,homeEffect,syncSeen,markSeen,isCompanion,freeChoiceLeft,emote,feed,hitTest,onDiscovery,renderTab,openCard,get active(){return activeMeta();},state:()=>state,unlocked,refreshViews,
+ function tasted(itemId){return !!state.tasted?.[itemId]||Object.values(state.pets||{}).some(q=>q?.fed?.[itemId]);}
+ function looksOf(itemId){const item=byId.get(itemId);if(!item)return null;return lookEffects(item.name||uiName(item),familyFor(item),item.category,ctx.depthOf?.(item.id));}
+ return {tasted,looksOf,mealPreview,lookOf,applyLook:(svg,id)=>applyLookSvg(svg,lookOf(id),id),start,stop,setActive,statsHtml,info,gameReward,choose,homeEffect,syncSeen,markSeen,isCompanion,freeChoiceLeft,emote,feed,hitTest,onDiscovery,renderTab,openCard,get active(){return activeMeta();},state:()=>state,unlocked,refreshViews,
   onViewChange(){if(activeMeta()&&sprite&&!sprite.hidden)setTimeout(()=>{if(cancelMove)cancelMove();const r=pickRail();if(r){rail=r;setLayer(r.layer);place(clampX(r,pos.x),r.y);sprite.dataset.anim='idle';}},80);},
   importState(raw){if(raw&&raw.pets){state=normalize(raw);save();syncSeen();}},grades:companionGrades};
 }
