@@ -1292,6 +1292,10 @@ button.home-eff::after{content:" ⓘ";opacity:.6;font-weight:700}
 .st-change.is-confirm{background:var(--accent);color:#fff;border-color:var(--accent);box-shadow:0 0 0 3px var(--accent-2)}
 
 
+/* V111 feeding note window */
+.companion-statwin .cs-note{font-size:11.5px;line-height:1.35;margin-top:4px;color:var(--ink)}
+.companion-statwin .cs-note:last-child{color:var(--muted)}
+
 </style>
 </head>
 <body>
@@ -2765,13 +2769,21 @@ function createCompanionSystem(ctx){
  // stat window shows the bars filling (level-ups flash), like feeding a Chao.
  function likes(meta,item){const fam=familyFor(item);if(fam===meta.family)return 'love';if(meta.family==='games'&&['life','nature','food'].includes(item.category))return 'no';if(['nature','prehistoric'].includes(meta.family)&&['technology','brand','console','portable','computer'].includes(item.category))return 'no';if(meta.family==='anime'&&['material','science'].includes(item.category))return 'no';return 'ok';}
  function feedPlan(meta,item){const fam=familyFor(item);const [main,second]=FAMILY_FEEDS[fam]||['stamina','hp'];const own=fam===meta.family;const mult=isShiny(item.id)?2:1;return own?[{stat:main,amount:40*mult},{stat:second,amount:16*mult}]:[{stat:main,amount:24*mult},{stat:second,amount:10*mult}];}
- let statWin=null,statWinTimer=null;
+ let statWin=null,statWinTimer=null,statHideTimer=0;
  function statRow(stat,st,g){return `<div class="cs-row" data-stat="${stat}"><span class="cs-name">${STAT_LABEL[stat]}</span><span class="cs-lv">Lv.<b>${String(st.level).padStart(2,'0')}</b></span><span class="cs-bar"><i class="cs-bar-prog" style="width:${st.bar}%"></i></span><span class="cs-grade" data-grade="${GRADES[g]}">${GRADES[g]}</span></div>`;}
  /** Animated floating window: rows for the touched stats, bars filling from the previous value. */
+ // V111: feeding always explains itself, even when nothing grows (recently eaten, refused, maxed).
+ function showNoteWindow(meta,lines,hold=2600){
+  if(!layerFront)return;if(!statWin){statWin=document.createElement('div');statWin.className='companion-statwin';layerFront.append(statWin);}
+  clearTimeout(statWinTimer);clearTimeout(statHideTimer);
+  statWin.innerHTML=`<div class="cs-head"><span class="cs-face">${sprites[meta.id]||''}</span><strong>${escapeText(nameOf(meta))}</strong></div>`+lines.map(l=>`<div class="cs-note">${l}</div>`).join('');
+  statWin.hidden=false;const h=statWin.offsetHeight||90;const left=Math.max(6,Math.min(window.innerWidth-226,pos.x+(pos.face>0?SIZE+8:-228))),top=Math.max(6,Math.min(window.innerHeight-h-70,pos.y-20));
+  statWin.style.setProperty('--x',left+'px');statWin.style.setProperty('--y',top+'px');statWin.classList.remove('is-out');void statWin.offsetWidth;statWin.classList.add('is-in');
+  statWinTimer=setTimeout(()=>{statWin.classList.remove('is-in');statWin.classList.add('is-out');clearTimeout(statHideTimer);statHideTimer=setTimeout(()=>{if(statWin)statWin.hidden=true;},400);},hold);}
  function showStatWindow(meta,changes,hold=2600){
   if(!layerFront)return;const p=pet(meta.id),grades=companionGrades(meta,isShiny(meta.id));
   if(!statWin){statWin=document.createElement('div');statWin.className='companion-statwin';layerFront.append(statWin);}
-  clearTimeout(statWinTimer);
+  clearTimeout(statWinTimer);clearTimeout(statHideTimer);
   const rows=changes.filter((c,i,arr)=>arr.findIndex(x=>x.stat===c.stat)===i);
   statWin.innerHTML=`<div class="cs-head"><span class="cs-face">${sprites[meta.id]||''}</span><strong>${escapeText(nameOf(meta))}</strong></div>`+rows.map(c=>{const st=p.stats[c.stat];
    // show the state BEFORE the gain, then animate to the new values
@@ -2788,13 +2800,13 @@ function createCompanionSystem(ctx){
     const curLv=startLv+ups;if(Number(lv.textContent)!==curLv){lv.textContent=String(curLv).padStart(2,'0');row.classList.remove('is-levelup');void row.offsetWidth;row.classList.add('is-levelup');}
     if(k<1)requestAnimationFrame(stepFn);};
    requestAnimationFrame(stepFn);});
-  statWinTimer=setTimeout(()=>{statWin.classList.remove('is-in');statWin.classList.add('is-out');setTimeout(()=>{if(statWin)statWin.hidden=true;},400);},hold+rows.length*300+1800);
+  statWinTimer=setTimeout(()=>{statWin.classList.remove('is-in');statWin.classList.add('is-out');clearTimeout(statHideTimer);statHideTimer=setTimeout(()=>{if(statWin)statWin.hidden=true;},400);},hold+rows.length*300+1800);
  }
  function morsel(item,cls=''){const m=fx('morsel '+cls,900);m.innerHTML=staticArt(item);return m;}
  async function eatSequence(meta,item,{self=false}={}){
   const p=pet(meta.id);settleMood(p);
   const taste=likes(meta,item);
-  if(taste==='no'){sfx.refuse();morsel(item,'is-refused');emote('spiral',1400);sprite.dataset.anim='refuse';p.mood=Math.max(0,p.mood-3);p.moodAt=now();save();await wait(1400);sprite.dataset.anim='idle';refreshViews();return true;}
+  if(taste==='no'){sfx.refuse();showNoteWindow(meta,[`Doesn't like <b>${escapeText(uiName(item))}</b> · no growth`,`Mood −3`]);morsel(item,'is-refused');emote('spiral',1400);sprite.dataset.anim='refuse';p.mood=Math.max(0,p.mood-3);p.moodAt=now();save();await wait(1400);sprite.dataset.anim='idle';refreshViews();return true;}
   const last=p.fed[item.id]||0,fresh=now()-last>FEED_COOLDOWN_MS;
   // grab: the element flies into the hands and stays there while chewing
   const held=fx('held',3600);held.innerHTML=staticArt(item);sprite.dataset.anim='grab';sfx.grab();await wait(450);
@@ -2803,6 +2815,7 @@ function createCompanionSystem(ctx){
   const changes=plan.map(c=>({...c,...gainStat(p,meta,c.stat,c.amount)}));
   p.mood=Math.min(100,p.mood+(taste==='love'?12:5));p.moodAt=now();p.belly=Math.min(100,p.belly+Math.round((fresh?25:10)*growth(meta.id,'food')));p.bellyAt=now();if(fresh)p.fed[item.id]=now();p.meals++;save();
   if(changes.length)showStatWindow(meta,changes,2800);
+  else{const left=Math.max(1,Math.ceil((FEED_COOLDOWN_MS-(now()-last))/60000));showNoteWindow(meta,fresh?[`<b>${escapeText(uiName(item))}</b> · stats already at max`,`Belly +${Math.round(25*growth(meta.id,'food'))} · Mood +${taste==='love'?12:5}`]:[`Already ate <b>${escapeText(uiName(item))}</b> recently`,`No growth for ${left} min — try another element`,`Belly +${Math.round(10*growth(meta.id,'food'))} · Mood +${taste==='love'?12:5}`],3200);}
   for(let i=0;i<4;i++){await wait(650);held.classList.add('bite-'+(i+1));sfx.nom();}
   await wait(500);held.remove();
   if(taste==='love'){sfx.happy();fx('hearts',1300);emote('heart',1400);}
@@ -4634,7 +4647,7 @@ function shinyCard(item){return `<p class="shiny-trivia"><span aria-hidden="true
 function showShinyFound(id){const it=byId.get(id);if(!it)return;
  showModal(`<div class="modal-tag shiny-tag">✦ SHINY ELEMENT</div><div class="modal-art is-shiny">${staticArt(it)}</div><h2>Shiny ${escapeText(uiName(it))}</h2>${shinyCard(it)}<div class="modal-milestone">${shiny.size.toLocaleString('en-US')} shiny ${shiny.size===1?'element':'elements'} · ${Math.round(shinyChance()*100)}% chance per combination</div>`);
 }
-const APP_VERSION='1.0.10';
+const APP_VERSION='1.0.11';
 // V83: status line + Google consent (UMP) privacy options, required for EEA players.
 async function refreshAdStatus(){
  const el=$('settingsAdStatus'),bridge=getRewardBridge();

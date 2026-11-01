@@ -17,3 +17,7 @@ test('V106: karate fighters stand on the mat and fight with wind-up, dash, recoi
  assert.match(g,/readable fight choreography/);assert.match(g,/const resolve=\(att,def,dir\)=>/);
  const css=fs.readFileSync(new URL('../src/styles.css',import.meta.url),'utf8');assert.match(css,/@keyframes g-stance/);
 });
+test('V111: feeding always shows a window, even with no growth',()=>{
+ const eng=fs.readFileSync(new URL('../src/companion-engine-v86.js',import.meta.url),'utf8');
+ assert.match(eng,/function showNoteWindow/);assert.match(eng,/Already ate <b>/);assert.match(eng,/Doesn't like <b>/);
+});
