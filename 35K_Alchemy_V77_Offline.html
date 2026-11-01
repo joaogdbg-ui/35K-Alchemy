@@ -1403,6 +1403,97 @@ button.home-eff::after{content:" ⓘ";opacity:.6;font-weight:700}
 .looks-opt small{color:var(--muted);font-weight:500}.looks-opt i{width:12px;height:12px;border-radius:50%;border:1px solid var(--line)}
 .looks-opt.is-on{background:var(--ink);color:var(--surface)}.looks-opt.is-on small{color:inherit;opacity:.7}
 
+/* ---------- V125: duo play (two companions on screen) ---------- */
+.companion{--dir:1}.companion[data-face="left"]{--dir:-1}
+.companion.is-buddy .companion-shadow{opacity:.8}
+/* stance & strikes — whole body via translate/rotate/scale (compose with the face flip), limbs via the rig */
+.companion[data-anim="duo-guard"] .companion-art{animation:duo-guard .55s ease-in-out infinite}
+.companion[data-anim="duo-guard"] [data-part^="arm"]{transform:rotate(-75deg)}
+.companion[data-anim="duo-guard"] [data-part="leg-l"]{transform:rotate(12deg)}.companion[data-anim="duo-guard"] [data-part="leg-r"]{transform:rotate(-12deg)}
+@keyframes duo-guard{0%,100%{translate:0 0}50%{translate:0 1.6px}}
+.companion[data-anim="duo-punch"] .companion-art{animation:duo-lunge .36s cubic-bezier(.2,.8,.3,1) 1}
+.companion[data-anim="duo-punch"] [data-part="arm-r"]{animation:duo-jab .36s cubic-bezier(.2,.8,.3,1) 1}
+.companion[data-anim="duo-punch"] [data-part="arm-l"]{transform:rotate(-70deg)}
+@keyframes duo-lunge{0%{translate:0 0;rotate:0deg}35%{translate:calc(10px*var(--dir)) 1px;rotate:calc(8deg*var(--dir))}100%{translate:0 0;rotate:0deg}}
+@keyframes duo-jab{0%{transform:rotate(-60deg)}35%{transform:rotate(-100deg) scaleX(1.15)}100%{transform:rotate(-70deg)}}
+.companion[data-anim="duo-kick"] .companion-art{animation:duo-kickbody .4s ease-out 1}
+.companion[data-anim="duo-kick"] [data-part="leg-r"]{animation:duo-kickleg .4s cubic-bezier(.2,.8,.3,1) 1}
+.companion[data-anim="duo-kick"] [data-part^="arm"]{transform:rotate(-110deg)}
+@keyframes duo-kickbody{0%{rotate:0deg}40%{rotate:calc(-10deg*var(--dir));translate:calc(4px*var(--dir)) -3px}100%{rotate:0deg;translate:0 0}}
+@keyframes duo-kickleg{0%{transform:rotate(0)}40%{transform:rotate(-80deg)}100%{transform:rotate(0)}}
+.companion[data-anim="duo-header"] .companion-art{animation:duo-header .38s ease-out 1}
+@keyframes duo-header{0%{translate:0 0;rotate:0deg}30%{translate:0 -10px;rotate:calc(-6deg*var(--dir))}55%{translate:calc(3px*var(--dir)) -12px;rotate:calc(12deg*var(--dir))}100%{translate:0 0;rotate:0deg}}
+.companion[data-anim="duo-hit"] .companion-art{animation:duo-hit .42s ease-out 1}
+.companion[data-anim="duo-hit"] [data-part^="eye"]{transform:scaleY(.15)}
+.companion[data-anim="duo-hit"] [data-part^="arm"]{transform:rotate(-140deg)}
+@keyframes duo-hit{0%{translate:0 0;rotate:0deg;filter:brightness(1.6)}25%{translate:calc(-8px*var(--dir)) -2px;rotate:calc(-14deg*var(--dir));filter:brightness(1.3)}100%{translate:0 0;rotate:0deg;filter:none}}
+.companion[data-anim="duo-block"] .companion-art{animation:duo-block .35s ease-out 1}
+.companion[data-anim="duo-block"] [data-part^="arm"]{transform:rotate(-125deg)}
+.companion[data-anim="duo-block"] [data-part="head"]{transform:translateY(2px) rotate(-6deg)}
+@keyframes duo-block{0%{translate:0 0}30%{translate:calc(-4px*var(--dir)) 1px}100%{translate:0 0}}
+.companion[data-anim="duo-charge"] .companion-art{animation:duo-charge .38s ease-in 1 forwards}
+.companion[data-anim="duo-charge"] [data-part="arm-r"]{transform:rotate(-160deg)}
+@keyframes duo-charge{to{translate:calc(-5px*var(--dir)) 3px;rotate:calc(-10deg*var(--dir));scale:1.05 .92}}
+.companion[data-anim="duo-bow"] .companion-art{animation:duo-bow 1s ease-in-out 1}
+.companion[data-anim="duo-bow"] [data-part^="arm"]{transform:rotate(20deg)}
+@keyframes duo-bow{0%,100%{rotate:0deg;translate:0 0}40%,65%{rotate:calc(22deg*var(--dir));translate:calc(3px*var(--dir)) 3px}}
+/* throwing */
+.companion[data-anim="duo-windup"] .companion-art{animation:duo-windup .42s ease-out 1 forwards}
+.companion[data-anim="duo-windup"] [data-part="arm-r"]{animation:duo-armback .42s ease-out 1 forwards}
+@keyframes duo-windup{to{rotate:calc(-10deg*var(--dir));translate:calc(-3px*var(--dir)) 1px}}
+@keyframes duo-armback{to{transform:rotate(-165deg)}}
+.companion[data-anim="duo-throw"] .companion-art{animation:duo-throw .4s cubic-bezier(.2,.8,.3,1) 1}
+.companion[data-anim="duo-throw"] [data-part="arm-r"]{animation:duo-armthrow .4s cubic-bezier(.2,.8,.3,1) 1 forwards}
+@keyframes duo-throw{0%{rotate:calc(-10deg*var(--dir))}35%{rotate:calc(12deg*var(--dir));translate:calc(6px*var(--dir)) 0}100%{rotate:0deg;translate:0 0}}
+@keyframes duo-armthrow{0%{transform:rotate(-165deg)}35%{transform:rotate(40deg)}100%{transform:rotate(10deg)}}
+/* play & emotions */
+.companion[data-anim="duo-laugh"] .companion-art{animation:duo-laugh .14s linear 6}
+.companion[data-anim="duo-laugh"] [data-part="head"]{transform:rotate(-10deg)}
+.companion[data-anim="duo-laugh"] [data-part="mouth"],.companion[data-anim="duo-cheer"] [data-part="mouth"]{transform:scale(1.25,1.4)}
+@keyframes duo-laugh{0%,100%{rotate:0deg}50%{rotate:calc(4deg*var(--dir));translate:0 -1px}}
+.companion[data-anim="duo-cheer"] .companion-art{animation:duo-cheer .42s ease-in-out infinite}
+.companion[data-anim="duo-cheer"] [data-part="arm-l"]{animation:duo-wave .42s ease-in-out infinite}
+.companion[data-anim="duo-cheer"] [data-part="arm-r"]{animation:duo-wave .42s ease-in-out infinite reverse}
+@keyframes duo-cheer{0%,100%{translate:0 0}45%{translate:0 -9px}}
+@keyframes duo-wave{0%,100%{transform:rotate(-150deg)}50%{transform:rotate(-115deg)}}
+.companion[data-anim="duo-cover"] .companion-art{animation:duo-count .66s ease-in-out infinite}
+.companion[data-anim="duo-cover"] [data-part="arm-l"],.companion[data-anim="duo-cover"] [data-part="arm-r"]{transform:rotate(-150deg) translateY(-2px)}
+.companion[data-anim="duo-cover"] [data-part^="eye"]{transform:scaleY(.12)}
+.companion[data-anim="duo-cover"] [data-part="head"]{transform:rotate(6deg) translateY(1px)}
+@keyframes duo-count{0%,100%{translate:0 0}50%{translate:0 1.5px}}
+.companion[data-anim="duo-search"] [data-part="head"]{animation:duo-look 1.1s ease-in-out infinite}
+.companion[data-anim="duo-search"] .companion-art{animation:duo-tiptoe 1.1s ease-in-out infinite}
+.companion[data-anim="duo-search"] [data-part="arm-r"]{transform:rotate(-130deg)}
+@keyframes duo-look{0%,100%{transform:rotate(-14deg)}50%{transform:rotate(14deg)}}
+@keyframes duo-tiptoe{0%,100%{translate:0 0}25%,75%{translate:0 -2px}}
+.companion[data-anim="duo-peek"] .companion-art{animation:duo-peek .5s ease-out 1 forwards}
+@keyframes duo-peek{to{rotate:calc(14deg*var(--dir));translate:calc(5px*var(--dir)) 2px}}
+.companion[data-anim="duo-hide"] .companion-art{animation:duo-hide 1.2s ease-in-out infinite}
+.companion[data-anim="duo-hide"] [data-part^="eye"]{animation:duo-blinkpeek 1.2s steps(1) infinite}
+@keyframes duo-hide{0%,100%{translate:0 4px;scale:1 .92}50%{translate:0 2px;scale:1 .96}}
+@keyframes duo-blinkpeek{0%,70%{transform:scaleY(1)}75%,85%{transform:scaleY(.15)}}
+/* flying elements & hit sparks */
+.duo-flyer{position:absolute;left:0;top:0;width:22px;height:22px;pointer-events:none;z-index:5;filter:drop-shadow(0 2px 1px rgba(0,0,0,.25));transition:opacity .3s}
+.duo-flyer svg,.duo-flyer img{width:100%;height:100%}.duo-flyer .duo-dot{display:block;width:100%;height:100%;border-radius:50%;background:radial-gradient(circle at 35% 35%,#fff,#f3c46b 55%,#d08a4c)}
+.duo-flyer.is-gone{opacity:0}.duo-flyer.is-bounce{opacity:0;transition:opacity .45s .15s}
+.fx-impact{position:absolute;left:50%;top:38%;width:30px;height:30px;margin:-15px;background:radial-gradient(circle,#fff 0 18%,#ffe27a 30%,rgba(255,170,80,.7) 48%,transparent 62%);clip-path:polygon(50% 0,60% 35%,100% 30%,68% 55%,90% 100%,50% 72%,10% 100%,32% 55%,0 30%,40% 35%);animation:duo-impact .45s ease-out forwards}
+.fx-spark{position:absolute;left:60%;top:36%;width:18px;height:18px;margin:-9px;background:radial-gradient(circle,#fff 0 25%,#bfe6fa 45%,transparent 65%);animation:duo-impact .4s ease-out forwards}
+.companion[data-face="left"] .fx-spark{left:40%}
+@keyframes duo-impact{0%{transform:scale(.3);opacity:1}100%{transform:scale(1.5);opacity:0}}
+@media (prefers-reduced-motion:reduce){.duo-flyer{display:none}}
+/* Home: second slot card */
+.pets-now.is-slot2.is-locked,.pets-now.is-slot2.is-empty{display:flex!important;flex-direction:column;align-items:stretch;gap:8px;text-align:left}
+.slot2-perks{margin:0;padding-left:18px;font-size:13px;color:var(--muted);display:grid;gap:2px}
+.slot2-actions{display:flex;gap:8px;flex-wrap:wrap}.slot2-actions .pets-btn{flex:1;min-width:130px}
+.slot2-progress{font-size:12px;color:var(--muted)}
+.duo-chip{display:inline-block;margin-left:6px;padding:1px 8px;border-radius:999px;background:var(--accent-soft,#f3e2cc);color:var(--accent-ink);font-size:11px;font-weight:700}
+.buddy-pick{display:grid;grid-template-columns:repeat(auto-fill,minmax(84px,1fr));gap:8px;margin-top:10px}
+.buddy-pick button{display:grid;justify-items:center;gap:2px;padding:8px 4px;border-radius:14px;border:1px solid var(--line);background:var(--surface);font-size:12px;font-weight:600}
+.buddy-pick .buddy-art{width:54px;height:54px}.buddy-pick .buddy-art svg{width:100%;height:100%}
+
+.pack-why{background:var(--surface-2,#f3efe7);border-radius:14px;padding:10px 12px;margin-top:6px;text-align:left}
+.pack-why p{margin:0 0 6px}.pack-why ul{margin:0 0 6px;padding-left:18px;display:grid;gap:2px;font-size:13px}.pack-why small{color:var(--muted)}
+
 </style>
 </head>
 <body>
@@ -1427,7 +1518,7 @@ button.home-eff::after{content:" ⓘ";opacity:.6;font-weight:700}
               <button class="craft-slot" id="slot1" aria-label="Right ingredient — tap to remove"><span class="slot-plus">+</span></button>
             </div>
             <div id="combineFeedback" class="combine-feedback" role="status" aria-live="polite" data-kind="idle"><span class="feedback-mark" aria-hidden="true"></span><span id="combineFeedbackText"></span></div>
-            <div class="craft-actions" role="group" aria-label="Crafting tools"><button id="batchOpen" class="batch-open" type="button" hidden aria-label="Combine locked ingredient with a whole family">Batch a family</button><button type="button" id="compassBtn" class="compass-mini" aria-label="Get a recipe hint" title="Watch a rewarded ad to reveal a craftable recipe">Hint · ad</button></div>
+            <div class="craft-actions" role="group" aria-label="Crafting tools"><button id="batchOpen" class="batch-open" type="button" hidden aria-label="Combine locked ingredient with a whole family">Batch a family</button><button type="button" id="packsBtn" class="compass-mini packs-mini" aria-label="Family starter packs">✦ Packs</button><button type="button" id="compassBtn" class="compass-mini" aria-label="Get a recipe hint" title="Watch a rewarded ad to reveal a craftable recipe">Hint · ad</button></div>
           </div>
         </div>
       </div>
@@ -2618,7 +2709,16 @@ function createStadiumSfx(getAudio){
   levelup(){[[784,0],[988,0.08],[1175,0.16],[1568,0.26]].forEach(([h,t])=>tone(h,{type:'triangle',dur:0.16,peak:0.05,at:t}));},
   paddle(){noise({dur:0.1,peak:0.03,hp:400,lp:1600,slide:900});},
   grip(){tone(260,{type:'square',dur:0.03,peak:0.02});noise({dur:0.04,peak:0.025,hp:1500,lp:4000});},
-  wind(){noise({dur:0.4,peak:0.025,hp:500,lp:2500,slide:1200});}
+  wind(){noise({dur:0.4,peak:0.025,hp:500,lp:2500,slide:1200});},
+  // V125: duo play between two on-screen companions
+  whoosh(){noise({dur:0.22,peak:0.045,hp:700,lp:3000,slide:2400});},
+  bounce(){tone(300,{type:'sine',dur:0.09,peak:0.06,slide:520});noise({dur:0.04,peak:0.03,hp:300,lp:1200});},
+  kick(){noise({dur:0.05,peak:0.07,hp:250,lp:1400});tone(160,{type:'triangle',dur:0.07,peak:0.06,slide:240});},
+  giggle(){[0,0.09,0.18].forEach((t,i)=>tone(880+i*90,{type:'triangle',dur:0.07,peak:0.04,at:t,slide:1050+i*90}));},
+  count(){tone(560,{type:'sine',dur:0.07,peak:0.035});},
+  found(){tone(660,{dur:0.08,peak:0.05});tone(990,{dur:0.1,peak:0.05,at:0.08});tone(1320,{dur:0.16,peak:0.05,at:0.16});},
+  peek(){tone(1200,{type:'sine',dur:0.06,peak:0.03,slide:1600});},
+  swish(){noise({dur:0.12,peak:0.04,hp:1200,lp:5000,slide:3000});}
  };
  return S;
 }
@@ -2952,7 +3052,7 @@ function createCompanionSystem(ctx){
  const {roster,sprites,$,escapeText,byId,uiName,staticArt,familyFor,isDiscovered,isShiny,elementIsUseful,getSlots,isLeftLocked,toast,showModal,closeModal,reducedMotion,FAMILIES}=ctx;
  const requestActivation=ctx.requestActivation||(async()=>true);
  // V92: houses speed up growth (multipliers on future gains only — never on stats themselves).
- const growth=(id,kind)=>{try{return Math.max(1,Number(ctx.growthFor?.(id,kind))||1);}catch{return 1;}};const onBadge=ctx.onBadge||(()=>{});
+ const growth=(id,kind)=>{let g=1;try{g=Math.max(1,Number(ctx.growthFor?.(id,kind))||1);}catch{}return g*(typeof duoActive==='function'&&duoActive()?1.25:1);};const onBadge=ctx.onBadge||(()=>{});
  const metaById=new Map(roster.map(c=>[c.id,c]));
  const sfx=new Proxy(ctx.sfx||{},{get:(t,k)=>t[k]||(()=>{})});
  let state={active:null,pets:{},v:1};
@@ -3061,7 +3161,7 @@ function createCompanionSystem(ctx){
   orb:'<svg viewBox="0 0 40 40"><circle cx="20" cy="20" r="10" fill="#cfe3ea" stroke="#657d89" stroke-width="2.5"/><circle cx="16.5" cy="16.5" r="3" fill="#fff"/></svg>'
  };
  function emote(kind,ms=1800){if(!sprite||reducedMotion())return;const e=sprite.querySelector('.companion-emote');if(!e)return;clearTimeout(emoteTimer);e.innerHTML=EMOTE_SVG[kind]||EMOTE_SVG.orb;e.dataset.emote=kind;e.hidden=false;e.classList.remove('is-pop');void e.offsetWidth;e.classList.add('is-pop');emoteTimer=setTimeout(()=>{e.classList.remove('is-pop');e.classList.add('is-fade');setTimeout(()=>{e.hidden=true;e.classList.remove('is-fade');},300);},ms);}
- function startPetting(){const meta=activeMeta();if(!meta)return;petting=true;if(sleeping)wake();if(cancelMove)cancelMove();sprite.classList.remove('is-happy');sprite.classList.add('is-petted');emote('heart',99999);}
+ function startPetting(){const meta=activeMeta();if(!meta)return;petting=true;duoAbort=true;if(sleeping)wake();if(cancelMove)cancelMove();sprite.classList.remove('is-happy');sprite.classList.add('is-petted');emote('heart',99999);}
  function petTick(){const meta=activeMeta();if(!meta||!petting)return;fx('hearts',1300);const p=pet(meta.id);settleMood(p);
   const win=Math.floor(now()/600000);if(p.petWin!==win){p.petWin=win;p.petGain=0;}if(p.petGain<PET_MOOD_CAP){p.petGain++;p.mood=Math.min(100,p.mood+1);p.moodAt=now();p.strokes=(p.strokes||0)+1;save();}}
  function stopPetting(){if(!petting)return;petting=false;sfx.happy();sprite.classList.remove('is-petted');sprite.classList.add('is-happy');emote('heart',1200);setTimeout(()=>{sprite.classList.remove('is-happy');refreshViews();},950);}
@@ -3077,6 +3177,7 @@ function createCompanionSystem(ctx){
   {const p=pet(meta.id);settleMood(p);if(hungry(p)&&Math.random()<0.18){emote('bowl',1800);}else if(p.mood<=MOOD.sad&&Math.random()<0.12)emote('spiral',1800);}
   const slot=lockedUseless();
   if(slot&&now()-lastPoint>60000){lastPoint=now();await pointAtSlot(slot);timer=setTimeout(loop,800);return;}
+  if(duoActive()&&bud&&!bud.sprite.hidden&&rail.kind==='top'&&(duoRequest||(now()-lastDuo>18000&&Math.random()<0.2))){const k=duoRequest;duoRequest=null;await duoPlay(k);timer=setTimeout(loop,900);return;}
   const roll=Math.random();
   {const pws=powersOf(pet(meta.id).look);if(pws.length&&rail.kind!=='side'&&Math.random()<0.1){await usePower(pws[Math.floor(Math.random()*pws.length)]);timer=setTimeout(loop,700);return;}}
   try{
@@ -3213,7 +3314,7 @@ function createCompanionSystem(ctx){
  }
  async function feed(elementId){
   const meta=activeMeta(),item=byId.get(elementId);if(!meta||!item)return false;
-  if(cancelMove)cancelMove();busy=true;
+  duoAbort=true;if(cancelMove)cancelMove();busy=true;
   try{return await eatSequence(meta,item);}finally{busy=false;}
  }
  // The companion goes to the element list by itself and helps itself to a chip.
@@ -3244,9 +3345,9 @@ function createCompanionSystem(ctx){
   clearTimeout(timer);clearInterval(blinkTimer);
   if(reducedMotion()){sprite.dataset.anim='idle';sprite.classList.add('is-static');return;}
   blinkTimer=setInterval(()=>{if(!sleeping&&sprite.dataset.anim==='idle'){sprite.classList.add('is-blinking');setTimeout(()=>sprite.classList.remove('is-blinking'),170);}},3000+Math.random()*1800);
-  timer=setTimeout(loop,700);scheduleGift();scheduleSelfFeed();}
- function stop(){clearTimeout(timer);clearTimeout(giftTimer);clearTimeout(selfFeedTimer);if(statWin)statWin.hidden=true;clearInterval(blinkTimer);if(cancelMove)cancelMove();if(sprite){sprite.hidden=true;}if(layerFront)layerFront.querySelectorAll('.companion-gift').forEach(g=>g.remove());}
- function setActive(id){if(id&&!isDiscovered(id))return false;state.active=id||null;if(id)state.firstFreeUsed=true;save();if(state.active){pet(state.active);start();}else stop();refreshViews();return true;}
+  timer=setTimeout(loop,700);scheduleGift();scheduleSelfFeed();if(buddyMeta())startBuddy();else stopBuddy();}
+ function stop(){stopBuddy();clearTimeout(timer);clearTimeout(giftTimer);clearTimeout(selfFeedTimer);if(statWin)statWin.hidden=true;clearInterval(blinkTimer);if(cancelMove)cancelMove();if(sprite){sprite.hidden=true;}if(layerFront)layerFront.querySelectorAll('.companion-gift').forEach(g=>g.remove());}
+ function setActive(id){if(id&&!isDiscovered(id))return false;if(id&&id===state.buddy)state.buddy=state.active||null;state.active=id||null;if(id)state.firstFreeUsed=true;save();if(state.active){pet(state.active);start();}else stop();refreshViews();return true;}
  /** Player choice: the very first companion is free; every later switch goes through the app (rewarded ad + 5-min grace). Sending home is free. */
  let choosing=false;
  async function choose(id){
@@ -3263,6 +3364,153 @@ function createCompanionSystem(ctx){
  const isCompanion=id=>metaById.has(id);
  const freeChoiceLeft=()=>!state.firstFreeUsed;
  function onDiscovery(id){if(metaById.has(id)&&!state.pets[id]){pet(id);save();syncSeen();}if(state.active&&sprite&&!sprite.hidden){const p=pet(state.active),m=activeMeta();if(m){gainStat(p,m,'hp',Math.round(4*growth(m.id,'hp')));save();}}}
+
+ // ---------- V125: second companion slot (duo) ----------
+ // A second companion walks the same rails and, now and then, plays with the main one:
+ // sparring, throwing an element, tag, hide-and-seek and a ball game. Everything is drawn by the
+ // sprites' own rigs (CSS states .companion[data-anim="duo-…"]) and the synthesised sfx.
+ const DUO_GROWTH=1.25;
+ const slot2=()=>{try{return !!ctx.slot2Unlocked?.();}catch{return false;}};
+ const buddyMeta=()=>{const id=state.buddy;if(!id||id===state.active||!activeMeta()||!isDiscovered(id)||!slot2())return null;return metaById.get(id)||null;};
+ const duoActive=()=>!!buddyMeta();
+ let bud=null,budTimer=null,duoBusy=false,duoAbort=false,lastDuo=0,duoRequest=null;
+ function ensureBud(){ensureLayer();if(bud)return bud;
+  const s=document.createElement('button');s.type='button';s.className='companion is-buddy';s.id='companionBuddy';s.setAttribute('aria-label','Second companion — tap to make it the main one');
+  s.innerHTML='<span class="companion-shadow" aria-hidden="true"></span><span class="companion-art" aria-hidden="true"></span><span class="companion-fx" aria-hidden="true"></span><span class="companion-emote" aria-hidden="true" hidden></span>';
+  s.addEventListener('click',e=>{e.stopPropagation();if(duoBusy)return;sfx.boop();swapDuo();});
+  bud={sprite:s,pos:{x:140,y:200,face:-1},rail:null,cancel:null,meta:null,emoteT:null};layerFront.append(s);return bud;}
+ function bPlace(x,y){bud.pos.x=x;bud.pos.y=y;bud.sprite.style.transform=`translate3d(${x.toFixed(1)}px,${y.toFixed(1)}px,0)`;bud.sprite.dataset.face=bud.pos.face>0?'right':'left';}
+ function bLayer(which){const L=which==='back'?layerBack:layerFront;if(bud.sprite.parentElement!==L)L.append(bud.sprite);}
+ function bSetArt(meta){bud.meta=meta;const art=bud.sprite.querySelector('.companion-art');art.innerHTML=sprites[meta.id]||'';
+  for(const g of art.querySelectorAll('[data-part]')){const p=(g.dataset.pivot||'50 50').split(/\s+/).map(Number);g.style.transformOrigin=`${p[0]}px ${p[1]}px`;g.style.transformBox='view-box';}
+  bud.sprite.dataset.move=meta.move;bud.sprite.dataset.companion=meta.id;bud.sprite.classList.toggle('is-shiny',isShiny(meta.id));
+  const svgEl=art.querySelector('svg');if(svgEl){svgEl.setAttribute('width','100%');svgEl.setAttribute('height','100%');}
+  try{ctx.wear?.(bud.sprite.parentElement||bud.sprite);}catch{}}
+ const bSpeed=()=>{const m=bud.meta;const run=pet(m.id).stats.run.points;return ({fly:150,roll:140,hop:100,waddle:70,walk:105}[m.move]||105)*(1+Math.min(1,run/3375)*0.6);};
+ function bTravel({x,y,arc=0,ms=null,anim=null,swapLayer=null,ease=true,px=null}){
+  return new Promise(res=>{const sx=bud.pos.x,sy=bud.pos.y,d=Math.hypot(x-sx,y-sy);const dur=ms??Math.max(200,1000*d/(px||bSpeed()));
+   if(x!==sx)bud.pos.face=x>sx?1:-1;const m=bud.meta;
+   bud.sprite.dataset.anim=anim||(arc?'jump':m.move==='fly'?'fly':m.move==='roll'?'roll':m.move==='hop'?'hopwalk':m.move==='waddle'?'waddle':'walk');
+   bud.sprite.style.setProperty('--stride',(m.move==='waddle'?0.55:m.move==='hop'?0.5:Math.max(0.24,0.5*105/(px||bSpeed()))).toFixed(2)+'s');
+   let swapped=false,raf=0;const t0=performance.now();bud.cancel=()=>{cancelAnimationFrame(raf);bud.cancel=null;res(false);};
+   const step=t=>{const k=Math.min(1,(t-t0)/dur);const e=ease?easeInOut(k):k;
+    if(swapLayer&&!swapped&&k>=0.5){swapped=true;bLayer(swapLayer);}
+    bPlace(sx+(x-sx)*e,sy+(y-sy)*e-arc*Math.sin(Math.PI*k));
+    if(k<1)raf=requestAnimationFrame(step);else{bud.cancel=null;bud.sprite.dataset.anim='idle';res(true);}};
+   raf=requestAnimationFrame(step);});}
+ async function bJumpTo(r,xHint=null){if(!r)return;const tx=r.kind==='side'?r.x:clampX(r,xHint??bud.pos.x),ty=r.kind==='side'?r.y2:r.y;const dy=ty-bud.pos.y;
+  const swap=r.layer!==(bud.sprite.parentElement===layerBack?'back':'front')?r.layer:null;bud.sprite.dataset.anim='crouch';await wait(130);sfx.hop();
+  await bTravel({x:tx,y:ty,arc:Math.max(26,Math.min(70,Math.abs(dy)*0.35+24)),ms:420+Math.abs(dy)*0.9,anim:'jump',swapLayer:swap});bud.sprite.dataset.anim='land';await wait(150);bud.sprite.dataset.anim='idle';bud.rail=r;}
+ function fxOn(el,kind,ms=1200){const f=el.querySelector('.companion-fx');if(!f)return null;const i=document.createElement('i');i.className='fx-'+kind;f.append(i);setTimeout(()=>i.remove(),ms);return i;}
+ function emoteOn(el,kind,ms=1600){if(reducedMotion())return;const e=el.querySelector('.companion-emote');if(!e)return;e.innerHTML=EMOTE_SVG[kind]||EMOTE_SVG.orb;e.dataset.emote=kind;e.hidden=false;e.classList.remove('is-pop','is-fade');void e.offsetWidth;e.classList.add('is-pop');clearTimeout(e._t);e._t=setTimeout(()=>{e.classList.remove('is-pop');e.classList.add('is-fade');setTimeout(()=>{e.hidden=true;e.classList.remove('is-fade');},300);},ms);}
+ function startBuddy(){const m=buddyMeta();if(!m){stopBuddy();return;}ensureBud();if(bud.cancel)bud.cancel();bSetArt(m);bud.sprite.hidden=false;
+  const r=rail&&rail.kind==='top'?rail:pickRail();if(r){bud.rail=r;bLayer(r.layer);bud.pos.face=-1;bPlace(clampX(r,(pos.x||40)+90),r.y);}
+  clearTimeout(budTimer);if(reducedMotion()){bud.sprite.dataset.anim='idle';return;}budTimer=setTimeout(budLoop,900);}
+ function stopBuddy(){clearTimeout(budTimer);if(bud){if(bud.cancel)bud.cancel();bud.sprite.hidden=true;}}
+ async function budLoop(){
+  if(destroyed||!bud||!buddyMeta()){stopBuddy();return;}
+  if(duoBusy||document.hidden){budTimer=setTimeout(budLoop,800);return;}
+  if(sleeping){bud.sprite.dataset.anim='sleep';budTimer=setTimeout(budLoop,1500);return;}
+  const rs=rails();if(!bud.rail||!rs.some(r=>r.kind===bud.rail.kind&&r.i===bud.rail.i)){const r=pickRail();if(!r){budTimer=setTimeout(budLoop,1200);return;}bud.rail=r;bLayer(r.layer);bPlace(clampX(r,bud.pos.x),r.y);}
+  else bud.rail=rs.find(r=>r.kind===bud.rail.kind&&r.i===bud.rail.i)||bud.rail;
+  const roll=Math.random();
+  try{
+   if(bud.rail.kind!=='top'){await bJumpTo(pickRail('top'),bud.pos.x);}
+   else if(roll<0.32){await bTravel({x:bud.rail.x1+Math.random()*(bud.rail.x2-bud.rail.x1),y:bud.rail.y});}
+   else if(roll<0.5&&rail&&rail.kind==='top'){// follow the main companion and stop next to it
+    const side=bud.pos.x<pos.x?-1:1;const tr=rs.find(r=>r.kind==='top'&&r.i===rail.i)||rail;if(tr.i!==bud.rail.i)await bJumpTo(tr,pos.x+side*70);else await bTravel({x:clampX(tr,pos.x+side*70),y:tr.y});bud.pos.face=pos.x>bud.pos.x?1:-1;bud.sprite.dataset.face=bud.pos.face>0?'right':'left';if(Math.random()<0.4)emoteOn(bud.sprite,'heart',1200);}
+   else if(roll<0.66){bud.sprite.dataset.anim='crouch';await wait(110);sfx.hop();await bTravel({x:bud.pos.x,y:bud.pos.y,arc:18,ms:420,anim:'jump'});bud.sprite.dataset.anim='land';await wait(150);}
+   else if(roll<0.78){await bJumpTo(pickRail('top'));}
+   else if(roll<0.88){bud.sprite.dataset.anim='duo-search';await wait(1400);}
+   else{bud.sprite.dataset.anim='quirk-'+(bud.meta.quirkAnim||'wiggle');await wait(1600);}
+  }catch(e){console.warn('buddy',e);}
+  bud.sprite.dataset.anim='idle';budTimer=setTimeout(budLoop,500+Math.random()*1500);}
+ function swapDuo(){const b=state.buddy;if(!b||!buddyMeta())return;state.buddy=state.active;state.active=b;save();start();startBuddy();refreshViews();}
+ function setBuddy(id){if(id&&(!isDiscovered(id)||id===state.active||!slot2()))return false;state.buddy=id||null;if(id)pet(id);save();if(state.buddy)startBuddy();else stopBuddy();refreshViews();return true;}
+ // --- choreography helpers: same interface for both actors ---
+ const A={m:{el:()=>sprite,p:()=>pos,go:o=>travel(o),face(d){pos.face=d;sprite.dataset.face=d>0?'right':'left';},anim(a){sprite.dataset.anim=a;},layer:w=>setLayer(w),jump:(r,x)=>jumpTo(r,x)},
+  b:{el:()=>bud.sprite,p:()=>bud.pos,go:o=>bTravel(o),face(d){bud.pos.face=d;bud.sprite.dataset.face=d>0?'right':'left';},anim(a){bud.sprite.dataset.anim=a;},layer:w=>bLayer(w),jump:(r,x)=>bJumpTo(r,x)}};
+ const chk=()=>{if(duoAbort||petting)throw new Error('duo-abort');};
+ const w8=async ms=>{await wait(ms);chk();};
+ const faceEach=(x,y)=>{x.face(y.p().x>x.p().x?1:-1);y.face(x.p().x>y.p().x?1:-1);};
+ function flyer(itemId,cls='duo-ball'){const el=document.createElement('span');el.className='duo-flyer '+cls;const it=byId.get(itemId);el.innerHTML=it?staticArt(it):'<i class="duo-dot"></i>';layerFront.append(el);return el;}
+ function arcFly(el,from,to,{ms=650,arc=60,spin=540}={}){return new Promise(res=>{const t0=performance.now();const step=t=>{const k=Math.min(1,(t-t0)/ms);const x=from[0]+(to[0]-from[0])*k,y=from[1]+(to[1]-from[1])*k-arc*Math.sin(Math.PI*k);el.style.transform=`translate3d(${x.toFixed(1)}px,${y.toFixed(1)}px,0) rotate(${(spin*k).toFixed(0)}deg)`;if(k<1)requestAnimationFrame(step);else res();};requestAnimationFrame(step);});}
+ const handOf=(x,up=0)=>{const p=x.p();return [p.x+SIZE/2-11+p.face*16,p.y+SIZE*0.42-11-up];};
+ const randomItem=()=>{try{return ctx.randomElement?.()||null;}catch{return null;}};
+ async function meet(gap){// both onto the main's top rail, gap apart, facing each other
+  const r=rail&&rail.kind==='top'?rail:pickRail('top');if(!r||r.x2-r.x1<gap+40)return null;
+  if(rail!==r){await jumpTo(r,pos.x);}
+  if(!bud.rail||bud.rail.i!==r.i||bud.rail.kind!=='top')await bJumpTo(r,pos.x+gap);
+  const mid=Math.min(Math.max((pos.x+bud.pos.x)/2,r.x1+gap/2),r.x2-gap/2);const left=pos.x<=bud.pos.x;
+  await Promise.all([A.m.go({x:mid+(left?-gap/2:gap/2),y:r.y}),A.b.go({x:mid+(left?gap/2:-gap/2),y:r.y})]);chk();faceEach(A.m,A.b);return r;}
+ async function spar(){
+  const r=await meet(48);if(!r)return;sfx.fight();A.m.anim('duo-guard');A.b.anim('duo-guard');await w8(600);
+  let att=Math.random()<0.5?A.m:A.b;
+  for(let i=0;i<4;i++){const def=att===A.m?A.b:A.m;const kick=Math.random()<0.4;
+   att.anim(kick?'duo-kick':'duo-punch');sfx.swish();await w8(170);
+   if(Math.random()<0.45){def.anim('duo-block');sfx.block();fxOn(def.el(),'spark',500);}
+   else{def.anim('duo-hit');sfx.hit();fxOn(def.el(),'impact',500);const p=def.p();await def.go({x:clampX(r,p.x-def.p().face*12),y:r.y,ms:160,anim:'duo-hit',ease:false});faceEach(A.m,A.b);def.anim('duo-hit');}
+   await w8(380);att.anim('duo-guard');def.anim('duo-guard');await w8(220);att=def;}
+  const def=att===A.m?A.b:A.m;att.anim('duo-charge');sfx.charge();await w8(380);att.anim('duo-punch');sfx.swish();await w8(160);
+  def.anim('tumble');sfx.bigHit();fxOn(def.el(),'impact',700);fxOn(def.el(),'stars',1400);const p=def.p();await def.go({x:clampX(r,p.x-def.p().face*30),y:r.y,ms:520,arc:16,anim:'tumble',ease:false});faceEach(A.m,A.b);
+  await w8(500);faceEach(A.m,A.b);A.m.anim('duo-bow');A.b.anim('duo-bow');sfx.happy();await w8(1000);emoteOn(sprite,'heart',1300);emoteOn(bud.sprite,'heart',1300);}
+ async function throwing(){
+  const r=await meet(150);if(!r)return;let th=Math.random()<0.5?A.m:A.b;
+  for(let i=0;i<3;i++){const tg=th===A.m?A.b:A.m;const id=randomItem();
+   th.anim('duo-windup');sfx.grab();const ball=flyer(id,'duo-throwable');const h=handOf(th,10);ball.style.transform=`translate3d(${h[0]}px,${h[1]}px,0)`;await w8(420);
+   th.anim('duo-throw');sfx.whoosh();const dodge=Math.random()<0.5;const tp=tg.p();const to=[tp.x+SIZE/2-11,tp.y+SIZE*0.35-11];
+   if(dodge){setTimeout(async()=>{tg.anim('crouch');await wait(90);sfx.hop();await tg.go({x:tp.x,y:tp.y,arc:34,ms:420,anim:'jump'});tg.anim('land');},260);
+    await arcFly(ball,h,[to[0]+tg.p().face*-50,to[1]+30],{ms:720,arc:50});sfx.miss();ball.classList.add('is-gone');tg.anim('duo-laugh');sfx.giggle();}
+   else{await arcFly(ball,h,to,{ms:620,arc:55});sfx.hit();tg.anim('duo-hit');fxOn(tg.el(),'impact',500);emoteOn(tg.el(),'spiral',1100);ball.classList.add('is-bounce');}
+   setTimeout(()=>ball.remove(),600);await w8(700);th.anim('idle');tg.anim('idle');th=tg;}
+  A.m.anim('duo-laugh');A.b.anim('duo-laugh');sfx.giggle();await w8(900);}
+ async function tag(){
+  const r=await meet(90);if(!r)return;let chaser=Math.random()<0.5?A.m:A.b;
+  for(let round=0;round<2;round++){const runner=chaser===A.m?A.b:A.m;
+   chaser.anim('duo-cover');for(let k=0;k<3;k++){sfx.count();await w8(330);}
+   runner.anim('duo-laugh');sfx.giggle();
+   const far=runner.p().x<chaser.p().x?r.x1:r.x2;const other=rails().filter(x=>x.kind==='top'&&x.i!==r.i);
+   const legRun=runner.go({x:far,y:r.y,px:230});await w8(250);const legChase=chaser.go({x:clampX(r,far+(far===r.x1?40:-40)),y:r.y,px:250});await legRun;chk();
+   if(other.length){const o=other[Math.floor(Math.random()*other.length)];await runner.jump(o,runner.p().x);chk();await legChase;chk();await chaser.jump(o,runner.p().x+(Math.random()<0.5?-50:50));chk();
+    const rr=o;await runner.go({x:clampX(rr,runner.p().x+(Math.random()<0.5?-90:90)),y:rr.y,px:230});chk();await chaser.go({x:clampX(rr,runner.p().x-chaser.p().face*30),y:rr.y,px:260});}
+   else{await legChase;chk();}
+   chk();faceEach(chaser,runner);chaser.anim('duo-punch');sfx.tap();fxOn(runner.el(),'spark',400);runner.anim('duo-hit');emoteOn(chaser.el(),'burst',1100);await w8(650);chaser.anim('duo-cheer');runner.anim('duo-laugh');sfx.giggle();await w8(700);chaser=runner;}
+  const top=rails().find(x=>x.kind==='top'&&x.i===r.i);if(top&&rail?.i!==top.i)await jumpTo(top,pos.x);}
+ async function hideSeek(){
+  const r=await meet(80);if(!r)return;const seeker=Math.random()<0.5?A.m:A.b,hider=seeker===A.m?A.b:A.m;
+  seeker.anim('duo-cover');const hides=rails().filter(x=>x.kind==='behind');if(!hides.length)return;const spot=hides[Math.floor(Math.random()*hides.length)];
+  const hx=spot.x1+Math.random()*(spot.x2-spot.x1);
+  const tick=(async()=>{for(let k=0;k<5;k++){sfx.count();await wait(420);}})();
+  hider.anim('duo-laugh');await w8(250);await hider.jump(spot,hx);chk();hider.anim('duo-hide');await tick;chk();
+  seeker.anim('duo-search');sfx.peek();await w8(1200);
+  const top=rails().find(x=>x.kind==='top'&&x.i===spot.i)||spot;const wrongX=clampX(top,hx+(Math.random()<0.5?-110:110));
+  if(seeker.p().y!==top.y||Math.abs(seeker.p().x-wrongX)>10){if(rails().find(x=>x.kind==='top'&&x.i===spot.i)&&(seeker===A.m?rail?.i:bud.rail?.i)!==spot.i)await seeker.jump(top,wrongX);else await seeker.go({x:wrongX,y:top.y});}
+  chk();seeker.anim('duo-search');sfx.peek();await w8(1000);await seeker.go({x:clampX(top,hx+(wrongX<hx?-30:30)),y:top.y});chk();seeker.face(hx>seeker.p().x?1:-1);seeker.anim('duo-peek');await w8(500);
+  sfx.found();hider.anim('crouch');await w8(110);await hider.jump(top,hx);chk();hider.anim('duo-laugh');emoteOn(seeker.el(),'burst',1200);emoteOn(hider.el(),'heart',1200);seeker.anim('duo-cheer');sfx.giggle();await w8(1000);}
+ async function ballGame(){
+  const r=await meet(150);if(!r)return;const id=randomItem();const ball=flyer(id,'duo-ball');let from=Math.random()<0.5?A.m:A.b;
+  let at=handOf(from,26);ball.style.transform=`translate3d(${at[0]}px,${at[1]}px,0)`;sfx.bounce();await w8(350);
+  const passes=4+Math.floor(Math.random()*4);
+  try{
+   for(let i=0;i<passes;i++){const to=from===A.m?A.b:A.m;const kick=Math.random()<0.5;from.anim(kick?'duo-kick':'duo-header');sfx.kick();
+    const tp=to.p();const dest=[tp.x+SIZE/2-11+tp.face*6,tp.y+(kick?SIZE*0.55:SIZE*0.1)-11];const ms=Math.max(380,700-i*45);
+    setTimeout(()=>{to.anim(Math.random()<0.5?'duo-kick':'duo-header');},ms-180);
+    await arcFly(ball,at,dest,{ms,arc:70-i*4,spin:720});chk();sfx.bounce();at=dest;from.anim('duo-guard');from=to;}
+   // the last one gets away: two bounces and out
+   const miss=from;miss.anim('duo-header');const dir=miss.p().face;const b1=[at[0]-dir*70,miss.p().y+SIZE-18];
+   sfx.whoosh();await arcFly(ball,at,b1,{ms:420,arc:40});sfx.bounce();const b2=[b1[0]-dir*55,b1[1]];await arcFly(ball,b1,b2,{ms:320,arc:22});sfx.bounce();ball.classList.add('is-gone');
+   miss.anim('shake');emoteOn(miss.el(),'spiral',1100);const win=miss===A.m?A.b:A.m;win.anim('duo-cheer');sfx.cheer();await w8(1100);
+  }finally{setTimeout(()=>ball.remove(),400);}}
+ const DUO_GAMES=[spar,throwing,tag,hideSeek,ballGame];
+ async function duoPlay(kind=null){if(duoBusy||!duoActive()||!bud||bud.sprite.hidden||sleeping||petting)return false;
+  duoBusy=true;busy=true;duoAbort=false;if(bud.cancel)bud.cancel();if(cancelMove)cancelMove();lastDuo=now();
+  const game=kind&&kind!=='any'?DUO_GAMES.find(g=>g.name===kind)||DUO_GAMES[0]:DUO_GAMES[Math.floor(Math.random()*DUO_GAMES.length)];
+  try{await game();}catch(e){if(e?.message!=='duo-abort')console.warn('duo',e);}
+  finally{if(sprite.dataset.anim?.startsWith('duo-')||sprite.dataset.anim==='tumble'||sprite.dataset.anim==='shake')sprite.dataset.anim='idle';if(bud){bud.sprite.dataset.anim='idle';}
+   // happy play time lifts both moods a little
+   for(const id of [state.active,state.buddy]){if(!id)continue;const p=pet(id);settleMood(p);p.mood=Math.min(100,p.mood+3);p.moodAt=now();}save();
+   layerFront?.querySelectorAll('.duo-flyer').forEach(f=>f.remove());duoBusy=false;busy=false;}
+  return true;}
 
  // ---------- views ----------
  const listeners=new Set();function refreshViews(){for(const fn of listeners)try{fn();}catch(e){console.warn(e);}}
@@ -3293,9 +3541,14 @@ function createCompanionSystem(ctx){
   let now='';
   if(act){const p=pet(act.id);settleMood(p);now=`<section class="pets-now"><button type="button" class="pets-now-art" data-card="${act.id}" aria-label="Stats">${sprites[act.id]||''}</button><div class="pets-now-main"><strong>${escapeText(nameOf(act))}</strong><small>On screen · Total Lv ${totalLevel(act.id)} · ${moodLabel(p.mood)}${hungry(p)?' · Hungry':''}</small><span class="pet-needs"><span><i>Mood</i><b><em style="width:${p.mood}%"></em></b></span><span><i>Belly</i><b class="is-belly"><em style="width:${p.belly}%"></em></b></span></span></div><div class="pets-now-actions"><button type="button" class="pets-btn" data-card="${act.id}">Stats</button><button type="button" class="pets-btn is-quiet" id="petDismiss">Send home</button></div></section>`;}
   else now=`<section class="pets-now is-empty"><small>${have?'No companion on screen. Tap a companion below to choose one.':`Discover one of the ${roster.length} companion elements (five per family) to get your first companion.`}</small></section>`;
+  // V125: second on-screen slot
+  let slot='';if(act){const info=(()=>{try{return ctx.slot2Info?.()||null;}catch{return null;}})();const bm=buddyMeta();
+   if(bm){const p=pet(bm.id);settleMood(p);slot=`<section class="pets-now is-slot2"><button type="button" class="pets-now-art" data-card="${bm.id}" aria-label="Stats">${sprites[bm.id]||''}</button><div class="pets-now-main"><strong>${escapeText(nameOf(bm))}<span class="duo-chip">Duo ×${DUO_GROWTH}</span></strong><small>Second slot · Total Lv ${totalLevel(bm.id)} · ${moodLabel(p.mood)} · tap it on screen to swap</small><span class="pet-needs"><span><i>Mood</i><b><em style="width:${p.mood}%"></em></b></span><span><i>Belly</i><b class="is-belly"><em style="width:${p.belly}%"></em></b></span></span></div><div class="pets-now-actions"><button type="button" class="pets-btn" id="buddyChange">Change</button><button type="button" class="pets-btn is-quiet" id="buddyDismiss">Send home</button></div></section>`;}
+   else if(info?.unlocked){slot=`<section class="pets-now is-slot2 is-empty"><small>Second slot unlocked · choose a companion to play with ${escapeText(nameOf(act))} (all growth ×${DUO_GROWTH}).</small><div class="slot2-actions"><button type="button" class="pets-btn" id="buddyChange">Choose companion</button></div></section>`;}
+   else if(info){const ready=info.elements>=info.minElements;slot=`<section class="pets-now is-slot2 is-locked"><strong>Second companion slot</strong><ul class="slot2-perks"><li>Two companions on screen that play together: sparring, tag, hide-and-seek, ball games</li><li>All companion growth ×${DUO_GROWTH}</li><li>More discoveries while you are away</li></ul><div class="slot2-actions"><button type="button" class="pets-btn" id="slot2Buy" ${info.canBuy?'':'disabled'}>Unlock · ${escapeText(info.price)}</button><button type="button" class="pets-btn is-quiet" id="slot2Ad" ${ready&&info.canAd?'':'disabled'}>Watch ad · ${info.ads}/${info.adsNeeded}</button></div><span class="slot2-progress">${ready?`Free path: ${info.adsNeeded-info.ads} rewarded ads left`:`Free path opens at ${info.minElements.toLocaleString('en-US')} elements (${info.elements.toLocaleString('en-US')} now), then ${info.adsNeeded} rewarded ads`}${info.canBuy?'':' · purchase available in the Play Store app'}</span></section>`;}}
   root.innerHTML=`<div class="pets-scroll"><div class="section-head home-title"><h2>Home</h2></div>
    <div id="homeMount"></div>
-   <h3 class="pets-family">On screen</h3>${now}
+   <h3 class="pets-family">On screen</h3>${now}${slot}
    <h3 class="pets-family">Companions <span>${have}/${roster.length}</span></h3>
    <div class="pets-avatars">${groups.map(g=>`<div class="pets-ava-row"><span class="pets-ava-family">${escapeText(g.f.name)}</span><div class="pets-ava-list">${g.list.map(ava).join('')}</div></div>`).join('')}</div>
    <details class="pets-help"><summary>How companions and houses work</summary><ul>
@@ -3307,10 +3560,18 @@ function createCompanionSystem(ctx){
    </ul></details></div>`;
   root.querySelectorAll('[data-card]').forEach(b=>b.onclick=()=>openCard(b.dataset.card));
   const d=$('petDismiss');if(d)d.onclick=()=>setActive(null);
+  const bc=$('buddyChange');if(bc)bc.onclick=pickBuddy;const bd=$('buddyDismiss');if(bd)bd.onclick=()=>setBuddy(null);
+  const sb=$('slot2Buy');if(sb)sb.onclick=async()=>{sb.disabled=true;try{await ctx.buySlot2?.();}finally{refreshViews();if(slot2()&&!state.buddy)pickBuddy();}};
+  const sa=$('slot2Ad');if(sa)sa.onclick=async()=>{sa.disabled=true;try{await ctx.watchSlot2Ad?.();}finally{refreshViews();if(slot2()&&!state.buddy)pickBuddy();}};
   try{ctx.renderExtra?.(root);}catch(e){console.warn('home',e);}
   try{ctx.wear?.(root);}catch{}
   if(!root.hidden)markSeen();
  }
+ function pickBuddy(){const list=unlocked().filter(c=>c.id!==state.active);
+  if(!list.length){showModal(`<div class="modal-tag">SECOND SLOT</div><h2>No other companion yet</h2><p>Discover another companion element to fill the second slot.</p>`);return;}
+  showModal(`<div class="modal-tag">SECOND SLOT</div><h2>Who plays with ${escapeText(nameOf(activeMeta()))}?</h2><div class="buddy-pick">${list.map(c=>`<button type="button" data-buddy="${c.id}" data-companion="${c.id}"><span class="buddy-art">${sprites[c.id]||''}</span>${escapeText(nameOf(c))}<small>Lv ${totalLevel(c.id)}</small></button>`).join('')}</div>`);
+  try{ctx.wear?.($('modalContent'));}catch{}
+  $('modalContent').querySelectorAll('[data-buddy]').forEach(b=>b.onclick=()=>{closeModal();setBuddy(b.dataset.buddy);sfx.happy();});}
  function rename(id){const meta=metaById.get(id);if(!meta||!isDiscovered(id))return;const p=pet(id);
   showModal(`<div class="modal-tag">RENAME COMPANION</div><h2>${escapeText(uiName(byId.get(id))||meta.name)}</h2><input class="pet-name-input" id="petNameInput" maxlength="${NICK_MAX}" value="${escapeText(p.nick||'')}" placeholder="${escapeText(uiName(byId.get(id))||meta.name)}" autocomplete="off"/><p class="mini-muted">Up to ${NICK_MAX} characters. Leave empty to use the original name.</p><button type="button" class="modal-button" id="petNameSave">Save name</button><button type="button" class="modal-button secondary" id="petNameCancel">Cancel</button>`);
   const inp=$('petNameInput');setTimeout(()=>inp?.focus(),50);
@@ -3341,7 +3602,7 @@ function createCompanionSystem(ctx){
   return {cid,known,name:nameOf(meta),taste,fresh,cooldownMin:fresh?0:Math.max(1,Math.ceil((FEED_COOLDOWN_MS-(now()-last))/60000)),stats,depth,depthMult:feedDepthMult(depth),looks:lookEffects(item.name||uiName(item),familyFor(item),item.category,depth)};}
  function tasted(itemId){return !!state.tasted?.[itemId]||Object.values(state.pets||{}).some(q=>q?.fed?.[itemId]);}
  function looksOf(itemId){const item=byId.get(itemId);if(!item)return null;return lookEffects(item.name||uiName(item),familyFor(item),item.category,ctx.depthOf?.(item.id));}
- return {tasted,looksOf,mealPreview,lookOf,applyLook:(svg,id)=>applyLookSvg(svg,lookOf(id),id),start,stop,setActive,statsHtml,info,gameReward,choose,homeEffect,syncSeen,markSeen,isCompanion,freeChoiceLeft,emote,feed,hitTest,onDiscovery,renderTab,openCard,get active(){return activeMeta();},state:()=>state,unlocked,refreshViews,
+ return {duoActive,setBuddy,swapDuo,requestDuo:k=>{duoRequest=k||'any';},duoPlay,buddy:()=>buddyMeta()?.id||null,duoPair:()=>duoActive()?[state.active,state.buddy]:[],tasted,looksOf,mealPreview,lookOf,applyLook:(svg,id)=>applyLookSvg(svg,lookOf(id),id),start,stop,setActive,statsHtml,info,gameReward,choose,homeEffect,syncSeen,markSeen,isCompanion,freeChoiceLeft,emote,feed,hitTest,onDiscovery,renderTab,openCard,get active(){return activeMeta();},state:()=>state,unlocked,refreshViews,
   onViewChange(){if(activeMeta()&&sprite&&!sprite.hidden)setTimeout(()=>{if(cancelMove)cancelMove();const r=pickRail();if(r){rail=r;setLayer(r.layer);place(clampX(r,pos.x),r.y);sprite.dataset.anim='idle';}},80);},
   importState(raw){if(raw&&raw.pets){state=normalize(raw);save();syncSeen();}},grades:companionGrades};
 }
@@ -4991,9 +5252,29 @@ function applyBillingStatus(st){
  if(!st||typeof st!=='object')return;
  if(typeof st.price==='string'&&st.price)billingPrice=st.price;
  billingProductReady=st.available===true;
+ if(typeof st.slotPrice==='string'&&st.slotPrice)slot2.price=st.slotPrice;if(typeof st.slotAvailable==='boolean')slot2.available=st.slotAvailable;
+ if(st.companionSlot===true&&!slot2.bought){slot2.bought=true;saveSlot2();try{companions.start();}catch{}}
  if(st.noAds===true)setNoAds(true);
  else if(st.noAds===false&&st.available===true)setNoAds(false); // refunded or revoked by Play
 }
+// V125: second on-screen companion slot — Play product "companion_slot" (EUR 1.00), or free after
+// 2,000 Classic elements + 20 completed rewarded ads. Only Play's purchase record / earned rewards count.
+const SLOT2_KEY='alchemy10k_slot2_v125',SLOT2_MIN_ELEMENTS=2000,SLOT2_ADS=20;
+let slot2={ads:0,bought:false,price:'€1.00',available:false};
+try{const r=JSON.parse(localStorage.getItem(SLOT2_KEY)||'null');if(r){slot2.ads=Math.max(0,Math.min(SLOT2_ADS,Number(r.ads)||0));slot2.bought=r.bought===true;}}catch{}
+function saveSlot2(){try{localStorage.setItem(SLOT2_KEY,JSON.stringify({v:1,ads:slot2.ads,bought:slot2.bought}));}catch{}}
+function slot2Unlocked(){return slot2.bought||(slot2.ads>=SLOT2_ADS&&classicDiscoveredCount()>=SLOT2_MIN_ELEMENTS);}
+function slot2Info(){return {unlocked:slot2Unlocked(),price:slot2.price,canBuy:Boolean(billingBridge()?.purchaseCompanionSlot)&&slot2.available,canAd:rewardedAvailable(),ads:slot2.ads,adsNeeded:SLOT2_ADS,elements:classicDiscoveredCount(),minElements:SLOT2_MIN_ELEMENTS};}
+async function buySlot2(){const b=billingBridge();if(!b?.purchaseCompanionSlot){toast('Purchases work in the Play Store app','repeat');return false;}
+ try{const r=await b.purchaseCompanionSlot();applyBillingStatus(r);if(r?.companionSlot===true){toast('Second companion slot unlocked!','new');companions.start();return true;}
+  toast(r?.cancelled?'Purchase cancelled':r?.pending?'Purchase pending · it unlocks when Google Play confirms it':'Purchase not completed','repeat');}catch(e){console.warn(e);toast('Google Play purchase is not available yet','error');}
+ return false;}
+async function watchSlot2Ad(){if(classicDiscoveredCount()<SLOT2_MIN_ELEMENTS||slot2Unlocked())return false;if(rewardedHintBusy)return false;
+ if(!rewardedAvailable()){toast('Rewarded ads work in the Android app','repeat');return false;}
+ rewardedHintBusy=true;let r=null;try{r=await getRewardBridge().showRewarded({kind:'companion_slot',step:slot2.ads+1,total:SLOT2_ADS});}catch(e){console.warn('Slot ad unavailable',e);}finally{rewardedHintBusy=false;}
+ if(r?.earned!==true){toast('Ad not completed','repeat');return false;}
+ slot2.ads=Math.min(SLOT2_ADS,slot2.ads+1);saveSlot2();
+ if(slot2Unlocked()){toast('Second companion slot unlocked!','new');companions.start();}else toast(`Second slot · ${slot2.ads}/${SLOT2_ADS} ads`,'repeat');return true;}
 async function refreshBilling(){const b=billingBridge();if(!b)return;try{applyBillingStatus(await b.getStatus());}catch(e){console.warn('Billing status unavailable',e);}}
 function openRemoveAds(){
  if(adFree()){showModal(`<div class="modal-tag">REMOVE ADS</div><h2>Ads removed</h2><p>Thank you for supporting Alchemy 10K! Mode switches, Batch and Merge are free, you keep a bank of ${HINT_BANK_MAX} hints that refills one every 15 minutes, and Shiny elements appear 5× more often.</p><p class="mini-muted">Optional ads remain only if you want extra hints when your bank is empty.</p><button type="button" class="modal-button secondary" id="removeAdsClose">Close</button>`);$('removeAdsClose').onclick=closeModal;return;}
@@ -5044,7 +5325,7 @@ function shinyCard(item){return `<p class="shiny-trivia"><span aria-hidden="true
 function showShinyFound(id){const it=byId.get(id);if(!it)return;
  showModal(`<div class="modal-tag shiny-tag">✦ SHINY ELEMENT</div><div class="modal-art is-shiny">${staticArt(it)}</div><h2>Shiny ${escapeText(uiName(it))}</h2>${shinyCard(it)}<div class="modal-milestone">${shiny.size.toLocaleString('en-US')} shiny ${shiny.size===1?'element':'elements'} · ${Math.round(shinyChance()*100)}% chance per combination</div>`);
 }
-const APP_VERSION='1.0.24';
+const APP_VERSION='1.0.25';
 // V83: status line + Google consent (UMP) privacy options, required for EEA players.
 async function refreshAdStatus(){
  const el=$('settingsAdStatus'),bridge=getRewardBridge();
@@ -6225,7 +6506,7 @@ async function requestCompanionActivation(meta){
 }
 function setPetsBadge(n){const b=$('petsBadge');if(b)b.hidden=!(n>0);}
 const companions=createCompanionSystem({roster:COMPANIONS_V86,sprites:COMPANION_SPRITES_V86,$,escapeText,byId,uiName,staticArt,familyFor,
- requestActivation:requestCompanionActivation,onBadge:setPetsBadge,renderExtra:()=>homes.render($('homeMount')),wear:root=>wearAll(root),
+ requestActivation:requestCompanionActivation,onBadge:setPetsBadge,slot2Unlocked:()=>slot2Unlocked(),slot2Info:()=>slot2Info(),buySlot2:()=>buySlot2(),watchSlot2Ad:()=>watchSlot2Ad(),randomElement:()=>{const a=[...unlocked];return a.length?a[Math.floor(Math.random()*a.length)]:null;},renderExtra:()=>homes.render($('homeMount')),wear:root=>wearAll(root),
  growthFor:(id,kind)=>homes.growthFor(id,kind)*alchemyGrowth(),houseLine:id=>[homes.houseLine(id),`Alchemy bonus ×${alchemyGrowth()} · ${classicDiscoveredCount().toLocaleString('en-US')} elements found in Classic`].filter(Boolean).join('<br>'),alchemyGrowth,residentOf:id=>homes.residentOf(id),
  isDiscovered:companionOwned,starterCompanion:STARTER_COMPANION,sfx:SFX,depthOf:id=>routeDepth.get(id),isShiny:id=>shiny.has(id),elementIsUseful,getSlots:()=>slots,isLeftLocked:()=>leftLocked,toast,showModal,closeModal,
  reducedMotion:()=>Boolean(window.matchMedia?.('(prefers-reduced-motion: reduce)')?.matches),FAMILIES});
@@ -6262,11 +6543,14 @@ function idleCandidates(){const out=[];const seen=new Set();for(const [k,o] of r
 function idlePlan(awayMs){
  const hs=homes.state().houses,pets=companions.state().pets;let residents=[],disc=0;
  for(const [hid,h] of Object.entries(hs)){if(!discoveredAnywhere(hid))continue;const rs=(h.residents||[]).filter(discoveredAnywhere);residents.push(...rs.map(cid=>({cid,hid})));disc+=(h.furniture||[]).filter(f=>HOME_OBJECTS_V89[f.id]?.effect==='discovery').length*(rs.length?1:0);}
- if(!residents.length)return null;
+ // V125: the two companions on screen explore together while the game is closed
+ const duo=companions.duoPair?.()||[];
+ if(!residents.length&&!duo.length)return null;
  const hours=Math.min(IDLE_MAX_HOURS,awayMs/3600000);
- const lv=residents.reduce((n,r)=>n+Object.values(pets[r.cid]?.stats||{}).reduce((m,s)=>m+(s.level||0),0),0)/residents.length;
- const rate=0.3*residents.length*(1+lv/120)*(1+0.12*Math.min(10,disc));
- const cap=Math.min(15,2+residents.length+Math.floor(disc/2));
+ const team=[...residents.map(r=>r.cid),...duo];
+ const lv=team.reduce((n,cid)=>n+Object.values(pets[cid]?.stats||{}).reduce((m,s)=>m+(s.level||0),0),0)/team.length;
+ const rate=(0.3*residents.length+(duo.length?0.9:0))*(1+lv/120)*(1+0.12*Math.min(10,disc));
+ const cap=Math.min(18,2+residents.length+Math.floor(disc/2)+(duo.length?3:0));
  return {residents,hours,count:Math.min(cap,Math.floor(rate*hours+Math.random()*0.6))};
 }
 function applyIdleFind([id,a,b]){if(unlocked.has(id))return;unlocked.add(id);if(!STARTERS.has(id))discoveryLedger.set(id,{at:new Date().toISOString(),source:'companions',ingredients:[a,b]});recent=[id,...recent.filter(x=>x!==id)].slice(0,350);companions.onDiscovery(id);}
@@ -6443,8 +6727,7 @@ function settings(){
     </div>
    </div>
    <div class="settings-section settings-links">
-    <button type="button" id="settingsStarterPacks" class="settings-link"><span>Family starter packs<small>Unlock a family's 4 starting elements · ${adFree()?'free':'2 rewarded ads'}</small></span><span aria-hidden="true">›</span></button>
-    <div class="settings-divider"></div><button type="button" id="settingsRemoveAds" class="settings-link"><span>${adFree()?'Ads removed ✓':'Remove ads · '+escapeText(billingPrice)}<small>${adFree()?'Thank you! 5% Shiny chance and a hint bank':'No forced ads, 10 hints included, 5% Shiny chance'}</small></span><span aria-hidden="true">›</span></button>
+<button type="button" id="settingsRemoveAds" class="settings-link"><span>${adFree()?'Ads removed ✓':'Remove ads · '+escapeText(billingPrice)}<small>${adFree()?'Thank you! 5% Shiny chance and a hint bank':'No forced ads, 10 hints included, 5% Shiny chance'}</small></span><span aria-hidden="true">›</span></button>
    </div>
    <div class="settings-section settings-links">
     <div class="settings-service-title">PROGRESS</div>
@@ -6518,7 +6801,7 @@ function settings(){
   $('modalContent').querySelectorAll('[data-theme-choice]').forEach(choice=>choice.setAttribute('aria-pressed',String(choice.dataset.themeChoice===selectedTheme)));
  });
  syncSoundToggle();$('settingsSoundToggle').onclick=toggleSoundEnabled;
- $('settingsStarterPacks').onclick=()=>starterPacks();$('settingsRemoveAds').onclick=openRemoveAds;
+ $('settingsRemoveAds').onclick=openRemoveAds;
  selectSettingsPage('main');
  void refreshPlayerServicesStatus();
 }
@@ -6817,7 +7100,7 @@ function starterPacks(focus=null){
  const cards=ALL_CAMPAIGNS.map(c=>{const f=FAMILIES.find(x=>x.id===c.id);if(!f)return '';const miss=packMissing(c.id);const icons=c.starters.map(id=>{const it=byId.get(id);return `<span class="pack-el ${unlocked.has(id)?'is-have':''}" title="${escapeText(uiName(it))}">${staticArt(it)}</span>`;}).join('');
   const credit=starterPackCredit?.family===c.id?` · ad 1 of 2 done`:'';
   return `<button type="button" class="pack-card ${miss.length?'':'is-done'} ${focus===c.id?'is-focus':''}" data-pack="${c.id}" ${miss.length?'':'disabled'}><span class="pack-art">${familyCardArtwork(f)}</span><span class="pack-copy"><strong>${escapeText(f.name)}</strong><small>${miss.length?`${miss.length} to unlock · ${adFree()?'free':'2 ads'}${credit}`:'All starters unlocked ✓'}</small><span class="pack-els">${icons}</span></span></button>`;}).join('');
- showModal(`<div class="modal-tag">FAMILY STARTER PACKS</div><h2>Jump into a family</h2><p>Unlock a family's four starting elements to reach its objects, houses and companions faster.</p><div class="pack-list">${cards}</div>`);
+ showModal(`<div class="modal-tag">FAMILY STARTER PACKS</div><h2>Jump into a family</h2><div class="pack-why"><p>Each pack adds the <b>4 starting elements</b> of a family straight to your collection, so its recipes open up right away.</p><ul><li>Reach that family's <b>companions</b> much sooner</li><li>Unlock its <b>houses</b> and <b>furniture</b> faster</li><li>Your progress and recipes stay exactly the same</li></ul><small>${adFree()?'Free with Remove ads':'2 rewarded ads per pack'}</small></div><div class="pack-list">${cards}</div>`);
  $('modalContent').querySelectorAll('[data-pack]').forEach(b=>b.onclick=()=>buyStarterPack(b.dataset.pack));}
 async function buyStarterPack(fid){
  const miss=packMissing(fid);if(!miss.length)return;
@@ -6872,8 +7155,7 @@ function openInventoryFamilyPicker(){
     ?`<img src="${GAMEVERSE_ART[k]}" decoding="async" alt="">`:'').join('');
   const choices=[`<button type="button" class="batch-family-choice" data-inventory-family="all" aria-pressed="${playFamily==='all'}"><span class="batch-family-picture"><span class="all-family-mosaic" aria-hidden="true">${allIcons}</span></span><span class="batch-family-data"><strong>All families</strong><small>${unlocked.size.toLocaleString('en-US')} elements collected</small></span></button>`,
     ...FAMILIES.map(f=>`<button type="button" class="batch-family-choice" data-inventory-family="${f.id}" aria-pressed="${f.id===playFamily}"><span class="batch-family-picture">${iconHtml(f)}</span><span class="batch-family-data"><strong>${escapeText(f.name)}</strong><small>${(counts.get(f.id)||0).toLocaleString('en-US')} discovered</small></span></button>`)].join('');
-  showModal(`<div class="modal-tag">ELEMENT FILTER</div><h2>Choose a family</h2><p class="inventory-family-info">Show elements from one family or browse everything.</p><div class="batch-family-grid inventory-family-grid" role="group" aria-label="Filter collected elements by family">${choices}</div><button type="button" class="modal-button secondary pack-open" id="openStarterPacks">✦ Family starter packs · ${adFree()?'free':'2 ads'}</button>`);
-  $('openStarterPacks').onclick=()=>starterPacks(playFamily!=='all'?playFamily:null);
+  showModal(`<div class="modal-tag">ELEMENT FILTER</div><h2>Choose a family</h2><p class="inventory-family-info">Show elements from one family or browse everything.</p><div class="batch-family-grid inventory-family-grid" role="group" aria-label="Filter collected elements by family">${choices}</div>`);
   $('playFamily').setAttribute('aria-expanded','true');
   $('modalContent').querySelectorAll('[data-inventory-family]').forEach(button=>{
     button.addEventListener('click',()=>{
@@ -6888,6 +7170,7 @@ function openInventoryFamilyPicker(){
 }
 $('playFamily').onclick=openInventoryFamilyPicker;
 if($('looksChip'))$('looksChip').onclick=openLooksFilter;
+if($('packsBtn'))$('packsBtn').onclick=()=>starterPacks(playFamily!=='all'?playFamily:null);
 $('settingsBtn').onclick=settings;
 
 $('modalClose').onclick=closeModal;$('modal').onclick=e=>{if(e.target===$('modal')&&$('modal').dataset.dismiss!=='x-only')closeModal();};

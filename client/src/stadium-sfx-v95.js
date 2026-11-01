@@ -51,7 +51,16 @@ export function createStadiumSfx(getAudio){
   levelup(){[[784,0],[988,0.08],[1175,0.16],[1568,0.26]].forEach(([h,t])=>tone(h,{type:'triangle',dur:0.16,peak:0.05,at:t}));},
   paddle(){noise({dur:0.1,peak:0.03,hp:400,lp:1600,slide:900});},
   grip(){tone(260,{type:'square',dur:0.03,peak:0.02});noise({dur:0.04,peak:0.025,hp:1500,lp:4000});},
-  wind(){noise({dur:0.4,peak:0.025,hp:500,lp:2500,slide:1200});}
+  wind(){noise({dur:0.4,peak:0.025,hp:500,lp:2500,slide:1200});},
+  // V125: duo play between two on-screen companions
+  whoosh(){noise({dur:0.22,peak:0.045,hp:700,lp:3000,slide:2400});},
+  bounce(){tone(300,{type:'sine',dur:0.09,peak:0.06,slide:520});noise({dur:0.04,peak:0.03,hp:300,lp:1200});},
+  kick(){noise({dur:0.05,peak:0.07,hp:250,lp:1400});tone(160,{type:'triangle',dur:0.07,peak:0.06,slide:240});},
+  giggle(){[0,0.09,0.18].forEach((t,i)=>tone(880+i*90,{type:'triangle',dur:0.07,peak:0.04,at:t,slide:1050+i*90}));},
+  count(){tone(560,{type:'sine',dur:0.07,peak:0.035});},
+  found(){tone(660,{dur:0.08,peak:0.05});tone(990,{dur:0.1,peak:0.05,at:0.08});tone(1320,{dur:0.16,peak:0.05,at:0.16});},
+  peek(){tone(1200,{type:'sine',dur:0.06,peak:0.03,slide:1600});},
+  swish(){noise({dur:0.12,peak:0.04,hp:1200,lp:5000,slide:3000});}
  };
  return S;
 }

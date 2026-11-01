@@ -1393,3 +1393,94 @@ button.home-eff::after{content:" ⓘ";opacity:.6;font-weight:700}
 .looks-opt{display:inline-flex;align-items:center;gap:6px;padding:7px 11px;border-radius:999px;border:1px solid var(--line);background:var(--surface);font-weight:600;font-size:13px}
 .looks-opt small{color:var(--muted);font-weight:500}.looks-opt i{width:12px;height:12px;border-radius:50%;border:1px solid var(--line)}
 .looks-opt.is-on{background:var(--ink);color:var(--surface)}.looks-opt.is-on small{color:inherit;opacity:.7}
+
+/* ---------- V125: duo play (two companions on screen) ---------- */
+.companion{--dir:1}.companion[data-face="left"]{--dir:-1}
+.companion.is-buddy .companion-shadow{opacity:.8}
+/* stance & strikes — whole body via translate/rotate/scale (compose with the face flip), limbs via the rig */
+.companion[data-anim="duo-guard"] .companion-art{animation:duo-guard .55s ease-in-out infinite}
+.companion[data-anim="duo-guard"] [data-part^="arm"]{transform:rotate(-75deg)}
+.companion[data-anim="duo-guard"] [data-part="leg-l"]{transform:rotate(12deg)}.companion[data-anim="duo-guard"] [data-part="leg-r"]{transform:rotate(-12deg)}
+@keyframes duo-guard{0%,100%{translate:0 0}50%{translate:0 1.6px}}
+.companion[data-anim="duo-punch"] .companion-art{animation:duo-lunge .36s cubic-bezier(.2,.8,.3,1) 1}
+.companion[data-anim="duo-punch"] [data-part="arm-r"]{animation:duo-jab .36s cubic-bezier(.2,.8,.3,1) 1}
+.companion[data-anim="duo-punch"] [data-part="arm-l"]{transform:rotate(-70deg)}
+@keyframes duo-lunge{0%{translate:0 0;rotate:0deg}35%{translate:calc(10px*var(--dir)) 1px;rotate:calc(8deg*var(--dir))}100%{translate:0 0;rotate:0deg}}
+@keyframes duo-jab{0%{transform:rotate(-60deg)}35%{transform:rotate(-100deg) scaleX(1.15)}100%{transform:rotate(-70deg)}}
+.companion[data-anim="duo-kick"] .companion-art{animation:duo-kickbody .4s ease-out 1}
+.companion[data-anim="duo-kick"] [data-part="leg-r"]{animation:duo-kickleg .4s cubic-bezier(.2,.8,.3,1) 1}
+.companion[data-anim="duo-kick"] [data-part^="arm"]{transform:rotate(-110deg)}
+@keyframes duo-kickbody{0%{rotate:0deg}40%{rotate:calc(-10deg*var(--dir));translate:calc(4px*var(--dir)) -3px}100%{rotate:0deg;translate:0 0}}
+@keyframes duo-kickleg{0%{transform:rotate(0)}40%{transform:rotate(-80deg)}100%{transform:rotate(0)}}
+.companion[data-anim="duo-header"] .companion-art{animation:duo-header .38s ease-out 1}
+@keyframes duo-header{0%{translate:0 0;rotate:0deg}30%{translate:0 -10px;rotate:calc(-6deg*var(--dir))}55%{translate:calc(3px*var(--dir)) -12px;rotate:calc(12deg*var(--dir))}100%{translate:0 0;rotate:0deg}}
+.companion[data-anim="duo-hit"] .companion-art{animation:duo-hit .42s ease-out 1}
+.companion[data-anim="duo-hit"] [data-part^="eye"]{transform:scaleY(.15)}
+.companion[data-anim="duo-hit"] [data-part^="arm"]{transform:rotate(-140deg)}
+@keyframes duo-hit{0%{translate:0 0;rotate:0deg;filter:brightness(1.6)}25%{translate:calc(-8px*var(--dir)) -2px;rotate:calc(-14deg*var(--dir));filter:brightness(1.3)}100%{translate:0 0;rotate:0deg;filter:none}}
+.companion[data-anim="duo-block"] .companion-art{animation:duo-block .35s ease-out 1}
+.companion[data-anim="duo-block"] [data-part^="arm"]{transform:rotate(-125deg)}
+.companion[data-anim="duo-block"] [data-part="head"]{transform:translateY(2px) rotate(-6deg)}
+@keyframes duo-block{0%{translate:0 0}30%{translate:calc(-4px*var(--dir)) 1px}100%{translate:0 0}}
+.companion[data-anim="duo-charge"] .companion-art{animation:duo-charge .38s ease-in 1 forwards}
+.companion[data-anim="duo-charge"] [data-part="arm-r"]{transform:rotate(-160deg)}
+@keyframes duo-charge{to{translate:calc(-5px*var(--dir)) 3px;rotate:calc(-10deg*var(--dir));scale:1.05 .92}}
+.companion[data-anim="duo-bow"] .companion-art{animation:duo-bow 1s ease-in-out 1}
+.companion[data-anim="duo-bow"] [data-part^="arm"]{transform:rotate(20deg)}
+@keyframes duo-bow{0%,100%{rotate:0deg;translate:0 0}40%,65%{rotate:calc(22deg*var(--dir));translate:calc(3px*var(--dir)) 3px}}
+/* throwing */
+.companion[data-anim="duo-windup"] .companion-art{animation:duo-windup .42s ease-out 1 forwards}
+.companion[data-anim="duo-windup"] [data-part="arm-r"]{animation:duo-armback .42s ease-out 1 forwards}
+@keyframes duo-windup{to{rotate:calc(-10deg*var(--dir));translate:calc(-3px*var(--dir)) 1px}}
+@keyframes duo-armback{to{transform:rotate(-165deg)}}
+.companion[data-anim="duo-throw"] .companion-art{animation:duo-throw .4s cubic-bezier(.2,.8,.3,1) 1}
+.companion[data-anim="duo-throw"] [data-part="arm-r"]{animation:duo-armthrow .4s cubic-bezier(.2,.8,.3,1) 1 forwards}
+@keyframes duo-throw{0%{rotate:calc(-10deg*var(--dir))}35%{rotate:calc(12deg*var(--dir));translate:calc(6px*var(--dir)) 0}100%{rotate:0deg;translate:0 0}}
+@keyframes duo-armthrow{0%{transform:rotate(-165deg)}35%{transform:rotate(40deg)}100%{transform:rotate(10deg)}}
+/* play & emotions */
+.companion[data-anim="duo-laugh"] .companion-art{animation:duo-laugh .14s linear 6}
+.companion[data-anim="duo-laugh"] [data-part="head"]{transform:rotate(-10deg)}
+.companion[data-anim="duo-laugh"] [data-part="mouth"],.companion[data-anim="duo-cheer"] [data-part="mouth"]{transform:scale(1.25,1.4)}
+@keyframes duo-laugh{0%,100%{rotate:0deg}50%{rotate:calc(4deg*var(--dir));translate:0 -1px}}
+.companion[data-anim="duo-cheer"] .companion-art{animation:duo-cheer .42s ease-in-out infinite}
+.companion[data-anim="duo-cheer"] [data-part="arm-l"]{animation:duo-wave .42s ease-in-out infinite}
+.companion[data-anim="duo-cheer"] [data-part="arm-r"]{animation:duo-wave .42s ease-in-out infinite reverse}
+@keyframes duo-cheer{0%,100%{translate:0 0}45%{translate:0 -9px}}
+@keyframes duo-wave{0%,100%{transform:rotate(-150deg)}50%{transform:rotate(-115deg)}}
+.companion[data-anim="duo-cover"] .companion-art{animation:duo-count .66s ease-in-out infinite}
+.companion[data-anim="duo-cover"] [data-part="arm-l"],.companion[data-anim="duo-cover"] [data-part="arm-r"]{transform:rotate(-150deg) translateY(-2px)}
+.companion[data-anim="duo-cover"] [data-part^="eye"]{transform:scaleY(.12)}
+.companion[data-anim="duo-cover"] [data-part="head"]{transform:rotate(6deg) translateY(1px)}
+@keyframes duo-count{0%,100%{translate:0 0}50%{translate:0 1.5px}}
+.companion[data-anim="duo-search"] [data-part="head"]{animation:duo-look 1.1s ease-in-out infinite}
+.companion[data-anim="duo-search"] .companion-art{animation:duo-tiptoe 1.1s ease-in-out infinite}
+.companion[data-anim="duo-search"] [data-part="arm-r"]{transform:rotate(-130deg)}
+@keyframes duo-look{0%,100%{transform:rotate(-14deg)}50%{transform:rotate(14deg)}}
+@keyframes duo-tiptoe{0%,100%{translate:0 0}25%,75%{translate:0 -2px}}
+.companion[data-anim="duo-peek"] .companion-art{animation:duo-peek .5s ease-out 1 forwards}
+@keyframes duo-peek{to{rotate:calc(14deg*var(--dir));translate:calc(5px*var(--dir)) 2px}}
+.companion[data-anim="duo-hide"] .companion-art{animation:duo-hide 1.2s ease-in-out infinite}
+.companion[data-anim="duo-hide"] [data-part^="eye"]{animation:duo-blinkpeek 1.2s steps(1) infinite}
+@keyframes duo-hide{0%,100%{translate:0 4px;scale:1 .92}50%{translate:0 2px;scale:1 .96}}
+@keyframes duo-blinkpeek{0%,70%{transform:scaleY(1)}75%,85%{transform:scaleY(.15)}}
+/* flying elements & hit sparks */
+.duo-flyer{position:absolute;left:0;top:0;width:22px;height:22px;pointer-events:none;z-index:5;filter:drop-shadow(0 2px 1px rgba(0,0,0,.25));transition:opacity .3s}
+.duo-flyer svg,.duo-flyer img{width:100%;height:100%}.duo-flyer .duo-dot{display:block;width:100%;height:100%;border-radius:50%;background:radial-gradient(circle at 35% 35%,#fff,#f3c46b 55%,#d08a4c)}
+.duo-flyer.is-gone{opacity:0}.duo-flyer.is-bounce{opacity:0;transition:opacity .45s .15s}
+.fx-impact{position:absolute;left:50%;top:38%;width:30px;height:30px;margin:-15px;background:radial-gradient(circle,#fff 0 18%,#ffe27a 30%,rgba(255,170,80,.7) 48%,transparent 62%);clip-path:polygon(50% 0,60% 35%,100% 30%,68% 55%,90% 100%,50% 72%,10% 100%,32% 55%,0 30%,40% 35%);animation:duo-impact .45s ease-out forwards}
+.fx-spark{position:absolute;left:60%;top:36%;width:18px;height:18px;margin:-9px;background:radial-gradient(circle,#fff 0 25%,#bfe6fa 45%,transparent 65%);animation:duo-impact .4s ease-out forwards}
+.companion[data-face="left"] .fx-spark{left:40%}
+@keyframes duo-impact{0%{transform:scale(.3);opacity:1}100%{transform:scale(1.5);opacity:0}}
+@media (prefers-reduced-motion:reduce){.duo-flyer{display:none}}
+/* Home: second slot card */
+.pets-now.is-slot2.is-locked,.pets-now.is-slot2.is-empty{display:flex!important;flex-direction:column;align-items:stretch;gap:8px;text-align:left}
+.slot2-perks{margin:0;padding-left:18px;font-size:13px;color:var(--muted);display:grid;gap:2px}
+.slot2-actions{display:flex;gap:8px;flex-wrap:wrap}.slot2-actions .pets-btn{flex:1;min-width:130px}
+.slot2-progress{font-size:12px;color:var(--muted)}
+.duo-chip{display:inline-block;margin-left:6px;padding:1px 8px;border-radius:999px;background:var(--accent-soft,#f3e2cc);color:var(--accent-ink);font-size:11px;font-weight:700}
+.buddy-pick{display:grid;grid-template-columns:repeat(auto-fill,minmax(84px,1fr));gap:8px;margin-top:10px}
+.buddy-pick button{display:grid;justify-items:center;gap:2px;padding:8px 4px;border-radius:14px;border:1px solid var(--line);background:var(--surface);font-size:12px;font-weight:600}
+.buddy-pick .buddy-art{width:54px;height:54px}.buddy-pick .buddy-art svg{width:100%;height:100%}
+
+.pack-why{background:var(--surface-2,#f3efe7);border-radius:14px;padding:10px 12px;margin-top:6px;text-align:left}
+.pack-why p{margin:0 0 6px}.pack-why ul{margin:0 0 6px;padding-left:18px;display:grid;gap:2px;font-size:13px}.pack-why small{color:var(--muted)}
