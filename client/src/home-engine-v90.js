@@ -17,7 +17,8 @@ export const HOUSE_LAYOUTS={1:{cols:4,rows:3,theme:'tent'},2:{cols:5,rows:4,them
 export const HOUSE_GROWTH={1:1.1,2:1.2,3:1.35,4:1.5,6:1.75,8:2,10:2.3};
 // V139: house complements (garden, outdoor pool, second floor) attach to one house each.
 // V140: `fits` = capacities of the houses each add-on can be attached to (the Castle with Garden and Pool has both built in).
-export const EXT_INFO={garden:{label:'Garden',icon:'🌳',line:'Outdoor yard · Fun +20% · growth ×1.05',fits:[1,2,3,4,6,8]},pool:{label:'Outdoor pool',icon:'🏊',line:'Swim +25%',fits:[4,6,8]},floor:{label:'Second floor',icon:'🏠',line:'Upstairs bedroom · +2 companions',fits:[3,4,6,8,10]}};
+// V146: add-ons dropped; the two top houses have a garden and a pool as part of the house (`builtin`).
+export const EXT_INFO={garden:{label:'Garden',icon:'🌳',line:'Outdoor yard · Fun +20% · growth ×1.05'},pool:{label:'Outdoor pool',icon:'🏊',line:'Swim +25%'}};
 export const FURNITURE_BONUS=0.15,FURNITURE_BONUS_MAX=0.75;
 /**
  * V103: a piece's bonus depends on how hard it is to make (recipe depth = combinations needed from
@@ -95,30 +96,15 @@ export function createHomeSystem(ctx){
  const houseIds=()=>Object.entries(objects).filter(([,o])=>o.kind==='house').sort((a,b)=>a[1].capacity-b[1].capacity).map(([id])=>id);
  const ownedHouses=()=>houseIds().filter(isDiscovered);
  const house=id=>{if(!state.houses[id])state.houses[id]={furniture:[],residents:[]};return state.houses[id];};
- const extIds=()=>Object.entries(objects).filter(([id,o])=>o.kind==='extension'&&isDiscovered(id)).map(([id])=>id);
  const builtIn=(hid,kind)=>(objects[hid]?.builtin||[]).includes(kind);
- const fitsExt=(hid,kind)=>!builtIn(hid,kind)&&(EXT_INFO[kind]?.fits||[]).includes(objects[hid]?.capacity);
- const extOn=(hid,kind)=>builtIn(hid,kind)||fitsExt(hid,kind)&&(state.houses[hid]?.ext||[]).some(id=>objects[id]?.ext===kind&&isDiscovered(id));
+ const extOn=(hid,kind)=>builtIn(hid,kind);
  const shortName=hid=>uiName(byId.get(hid)).replace(/^Companion /,'');
- /** Names of the houses an add-on fits, and the ones that already have it built in. */
- function addonInfo(id){const k=objects[id]?.ext;if(!k)return null;const I=EXT_INFO[k];
-  const ids=houseIds(),f=ids.filter(h=>fitsExt(h,k));const first=ids.indexOf(f[0]),last=ids.indexOf(f[f.length-1]);
-  const range=!f.length?'none':f.length===1?shortName(f[0]):last-first+1===f.length?(last===ids.length-1?`${shortName(f[0])} and bigger`:`${shortName(f[0])} to ${shortName(f[f.length-1])}`):f.map(shortName).join(', ');
-  return {...I,kind:k,fits:f.map(shortName),range,builtin:ids.filter(h=>builtIn(h,k)).map(shortName)};}
- // add-ons stuck on a house they do not fit (older saves) are taken off
- for(const [k,h] of Object.entries(state.houses))if(Array.isArray(h.ext))h.ext=h.ext.filter(id=>objects[id]?.kind==='extension'&&fitsExt(k,objects[id].ext));
- const extHome=id=>Object.entries(state.houses).find(([,h])=>(h.ext||[]).includes(id))?.[0]||null;
- const capOf=hid=>(objects[hid]?.capacity||1)+(extOn(hid,'floor')?2:0);
+ const capOf=hid=>objects[hid]?.capacity||1;
+ const addonInfo=()=>null;
+ for(const h of Object.values(state.houses))delete h.ext;
  // V142: the ground floor keeps the house's own size; add-ons are drawn outside it (upstairs bedroom, yard).
  const layoutOf=hid=>layoutFor(objects[hid]?.capacity||1);
  const extMult=(hid,kind)=>(extOn(hid,'garden')?1.05*(kind==='mood'?1.2:1):1)*(extOn(hid,'pool')&&kind==='swim'?1.25:1);
- function toggleExt(mount,hid,id){if(!fitsExt(hid,objects[id]?.ext))return;const h=house(hid);h.ext=h.ext||[];const was=extHome(id);
-  if(was===hid){h.ext=h.ext.filter(x=>x!==id);}else{if(was)state.houses[was].ext=state.houses[was].ext.filter(x=>x!==id);h.ext.push(id);}
-  // V144: furniture under the new stairs is put away
-  if(extOn(hid,'floor')){const before=h.furniture.length;h.furniture=h.furniture.filter(f=>layerOf(RS,f.id)==='wall'||fits({furniture:[STAIR_GROUND]},layoutOf(hid),objects,RS,f));if(h.furniture.length<before)toast('Furniture in the stairs corner was put away','repeat');}
-  // a removed second floor may leave too many residents: the newest move out
-  for(const [k,hh] of Object.entries(state.houses))while(hh.residents.length>capOf(k))hh.residents.pop();
-  save();render(mount);onChange?.();}
  const furnitureOwned=()=>Object.entries(objects).filter(([id,o])=>o.kind==='furniture'&&isDiscovered(id)).map(([id])=>id);
  const placedAnywhere=id=>Object.entries(state.houses).find(([,h])=>h.furniture.some(f=>f.id===id))?.[0]||null;
  const residentOf=cid=>Object.entries(state.houses).find(([,h])=>h.residents.includes(cid))?.[0]||null;
@@ -137,24 +123,8 @@ export function createHomeSystem(ctx){
   const band=layer==='object'?BAND:0;
   const style=layer==='wall'?`--x:${f.x};--w:${w}`:`--x:${f.x};--y:${f.y};--w:${w};--h:${h};--band:${band};--z:${layer==='floor'?1:10+(f.y+h)*2}`;
   return `<button type="button" class="home-piece is-${layer} ${art.flip?'is-flip':''} ${mv?'is-moving':''}" ${attr}="${i}" ${attr==='data-piece'?'':'tabindex="-1"'} style="${style}" aria-label="${escapeText(uiName(byId.get(f.id)))}">${art.html}<i class="home-hit" aria-hidden="true"></i></button>`;}
- /** V140: the house's add-ons, under Residents. Built-in ones are shown fixed; ones that do not fit are greyed with where they fit. */
- function addonRow(hid){const built=Object.keys(EXT_INFO).filter(k=>builtIn(hid,k));const own=extIds();if(!built.length&&!own.length)return '';
-  const chip=(cls,art,label,sub,attr='')=>`<button type="button" class="home-ext-chip ${cls}" ${attr}><span class="home-ext-art">${art}</span><b>${label}</b><small>${sub}</small></button>`;
-  const html=built.map(k=>chip('is-built',(()=>{const e=Object.keys(objects).find(i=>objects[i].ext===k);return e&&byId.get(e)?staticArt(byId.get(e)):'<span class="home-ext-emoji">'+EXT_INFO[k].icon+'</span>';})(),EXT_INFO[k].label,'Built in','disabled'))
-   .concat(own.map(id=>{const k=objects[id].ext,I=EXT_INFO[k],art=staticArt(byId.get(id));
-    if(builtIn(hid,k))return '';
-    if(!fitsExt(hid,k))return chip('is-off',art,I.label,'Fits '+escapeText(addonInfo(id).range),'disabled');
-    const on=extHome(id)===hid,where=!on&&extHome(id);
-    return chip(on?'is-on':'',art,I.label,on?'✓ Added · tap to remove':where?'In '+escapeText(shortName(where))+' · tap to move here':'Tap to add',`data-ext="${id}"`);})).join('');
-  return `<div class="home-res-row home-addon-row"><span>Add-ons</span><div class="home-ext">${html}</div></div>`;}
  // ---------- V143: add-ons are rooms of their own, built from the game's room sprites ----------
- const UP_ROWS=3,YARD_ROWS=3;
- // V144: real stairs on the ground floor (back-left corner) lead up to the stairwell upstairs.
- const STAIR_GROUND={id:'zone:stairs',x:0,y:0,r:0};
- const zh=(hid,h)=>extOn(hid,'floor')?{...h,furniture:[...h.furniture,STAIR_GROUND]}:h;
- /** Upstairs bedroom: stairs on the left, two beds, a curtain on the wall. */
- function upstairsPlan(hid){const c=layoutOf(hid).cols;const F=[{id:'zone:stairwell',x:0,y:UP_ROWS-2,r:0},{id:'organic89:bed',x:c-2,y:1,r:0},{id:'organic89:bed',x:c-4,y:1,r:0}];
-  if(RS['organic89:curtain'])F.push({id:'organic89:curtain',x:1,r:0});if(RS['organic89:picture-frame']&&c>=7)F.push({id:'organic89:picture-frame',x:Math.floor(c/2)+1,r:0});return F;}
+ const YARD_ROWS=3;
  /** Outdoor yard: garden pieces and/or the pool, laid out for the house's width. */
  function yardPlan(hid){const c=layoutOf(hid).cols,g=extOn(hid,'garden'),p=extOn(hid,'pool');const F=[];const add=(id,x,y)=>F.push({id,x,y,r:0});
   if(g){add('organic89:flower-box',0,0);add('organic89:garden-bench',1,0);add('organic89:fence',0,2);
@@ -163,46 +133,12 @@ export function createHomeSystem(ctx){
   else if(p){add('zone:pool',c-3,0);add('zone:lounger',0,0);add('organic89:garden-lantern',0,1);add('organic89:flower-box',c-1,2);if(c>=7)add('organic89:garden-bench',1,2);}
   return F;}
  /** Who is where: ground floor, upstairs (beyond the house's own capacity) and yard visitors. */
- function splitResidents(hid,residents){const base=objects[hid]?.capacity||1;let ground=residents.slice(0,base);const up=extOn(hid,'floor')?residents.slice(base,base+2):[];let yard=[];
+ function splitResidents(hid,residents){const base=objects[hid]?.capacity||1;let ground=residents.slice(0,base);const up=[];let yard=[];
   if(extOn(hid,'garden')||extOn(hid,'pool')){if(ground.length>=2){const k=Math.max(1,Math.round(ground.length/3));yard=ground.slice(-k);ground=ground.slice(0,-k);}else if(ground.length===1&&Math.floor(Date.now()/90000)%2){yard=ground;ground=[];}}
   return {ground,up,yard};}
  const zoneFloor=(cls,L,F,zone,tileCls='')=>`<div class="home-floor ${cls}" data-zone="${zone}">${Array.from({length:L.cols*L.rows},(_,i)=>`<i class="home-tile ${tileCls}" aria-hidden="true"></i>`).join('')}${F.map((f,i)=>layerOf(RS,f.id)!=='wall'&&f.id!=='zone:stairwell'?pieceHtml(f,i,'data-zpiece'):'').join('')}<div class="home-residents" data-zres="${zone}"></div></div>`;
- function upstairsHtml(hid){const L={cols:layoutOf(hid).cols,rows:UP_ROWS,theme:layoutOf(hid).theme},F=upstairsPlan(hid);
-  return `<div class="home-room is-upstairs" data-theme="${L.theme}" style="--cols:${L.cols};--rows:${L.rows}"><span class="home-zone-tag is-up">🏠 Upstairs · 2 beds</span>
-   <div class="home-wall is-zone">${Array.from({length:L.cols},()=>'<i class="home-walltile" aria-hidden="true"></i>').join('')}${F.map((f,i)=>layerOf(RS,f.id)==='wall'?pieceHtml(f,i,'data-zpiece'):'').join('')}<i class="home-skirting" aria-hidden="true"></i></div>
-   ${zoneFloor('is-up',L,F,'up')}</div><i class="home-slab" aria-hidden="true"></i>`;}
  function yardHtml(hid){const g=extOn(hid,'garden'),p=extOn(hid,'pool');const L={cols:layoutOf(hid).cols,rows:YARD_ROWS},F=yardPlan(hid);
   return `<div class="home-yard ${g?'is-grass':'is-patio'}" style="--cols:${L.cols};--rows:${L.rows}"><span class="home-zone-tags">${g?'<span class="home-zone-tag">🌳 Garden · Fun +20%</span>':''}${p?'<span class="home-zone-tag">🏊 Pool · Swim +25%</span>':''}</span>${zoneFloor('is-yard',L,F,'yard')}</div>`;}
- // ---------- V144: Home hub (Houses, Residents, Furniture, Add-ons), same structure as the Games tab ----------
- function hubHtml(hid,residents,cap){const own=ownedHouses(),h=house(hid);const nExt=Object.keys(EXT_INFO).filter(k=>extOn(hid,k)).length;
-  const b=(id,ico,t,sm)=>`<button type="button" class="st-shop-btn" id="${id}"><span>${ico}</span><b>${t}</b><small>${sm}</small></button>`;
-  return `<div class="st-shop is-hub home-hub">${b('hbHouses','🏠','Houses',`${own.length}/${houseIds().length} owned · switch`)}${b('hbResidents','🐾','Residents',`${residents.length}/${cap} living here`)}${b('hbFurniture','🛋️','Furniture',`${h.furniture.length} placed · ${furnitureOwned().length} owned`)}${b('hbAddons','🌳','Add-ons',nExt?`${nExt} on this house`:'Garden, pool, 2nd floor')}</div>`;}
- const sheet=(tag,title,body)=>{showModal(`<div class="modal-tag">${tag}</div><h2>${title}</h2>${body}<button type="button" class="modal-button secondary" id="homeClose">Close</button>`);$('homeClose').onclick=closeModal;};
- function housesSheet(mount){const act=activeHouse();
-  sheet('HOUSES','Your houses',`<div class="home-pick-list">${houseIds().map(id=>{const o=objects[id],have=isDiscovered(id),it=byId.get(id);
-   return `<button type="button" class="home-pick ${have?'':'is-off'} ${id===act?'is-here':''}" data-hs="${id}"><span class="home-pick-art">${have?staticArt(it):'<span class="home-q">?</span>'}</span><span class="home-pick-main"><strong>${have?escapeText(uiName(it)):'Undiscovered house'}</strong><small>Room for ${o.capacity} · growth ×${HOUSE_GROWTH[o.capacity]}${o.builtin?' · garden and pool built in':''}</small></span><em class="home-pick-tag">${id===act?'Here':have?'Go':'?'}</em></button>`;}).join('')}</div>`);
-  document.querySelectorAll('[data-hs]').forEach(b=>b.onclick=()=>{const id=b.dataset.hs;if(isDiscovered(id)&&id!==act){state.active=id;moving=null;save();closeModal();render(mount);}else houseInfo(mount,id);});}
- function residentsSheet(mount,hid){const h=house(hid),cap=capOf(hid),res=h.residents.filter(isDiscovered),base=objects[hid]?.capacity||1;
-  sheet('RESIDENTS',`${res.length}/${cap} living here`,`<div class="home-pick-list">${res.map((cid,i)=>`<button type="button" class="home-pick" data-rs="${cid}"><span class="home-pick-art">${sprites[cid]||''}</span><span class="home-pick-main"><strong>${escapeText(companionName(cid))}</strong><small>${i>=base?'Sleeps upstairs':'Ground floor'} · tap for stats</small></span></button>`).join('')||'<p class="mini-muted">Nobody lives here yet.</p>'}</div>${res.length<cap?'<button type="button" class="modal-button" id="homeInvite">+ Invite a companion</button>':''}`);
-  try{wear?.($('modalContent'));}catch{}
-  document.querySelectorAll('[data-rs]').forEach(b=>b.onclick=()=>tapResident(mount,hid,b.dataset.rs));const inv=$('homeInvite');if(inv)inv.onclick=()=>pickResident(mount,hid);}
- function furnitureSheet(mount,hid){const h=house(hid),L=layoutOf(hid),owned=furnitureOwned();
-  const rows=owned.map(id=>{const where=placedAnywhere(id),it=byId.get(id),ob=objects[id];const st=where===hid?'Placed here · tap to move':where?'In '+escapeText(shortName(where))+' · tap to bring here':'Not placed · tap to place';
-   return {k:where===hid?0:where?2:1,html:`<button type="button" class="home-pick" data-fs="${id}"><span class="home-pick-art">${staticArt(it)}</span><span class="home-pick-main"><strong>${escapeText(uiName(it))}</strong><small>${bonusText(id)} · ${ob.size[0]}×${ob.size[1]}</small><small class="home-pick-st">${st}</small></span></button>`};}).sort((a,b)=>a.k-b.k).map(r=>r.html).join('');
-  sheet('FURNITURE',`${h.furniture.length} placed here`,owned.length?`<p class="mini-muted">Tip: you can also tap an empty floor or wall tile to add a piece there.</p><div class="home-pick-list">${rows}</div>`:'<p>Furniture is discovered like any element (or bought in the Market): beds, treadmills, paddling pools, bookshelves… Each one trains a stat, cheers companions up, feeds them or boosts discoveries.</p>');
-  document.querySelectorAll('[data-fs]').forEach(b=>b.onclick=()=>{const id=b.dataset.fs,where=placedAnywhere(id);
-   if(where===hid){moving={index:h.furniture.findIndex(f=>f.id===id)};closeModal();render(mount);return;}
-   const wall=layerOf(RS,id)==='wall';let spot=null;
-   for(let y=wall?-1:0;y<(wall?0:L.rows)&&!spot;y++)for(let x=0;x<L.cols&&!spot;x++)if(fits(zh(hid,h),L,objects,RS,{id,x,y,r:0}))spot={x,y};
-   if(!spot){toast('No free room for it here','repeat');return;}
-   if(where)state.houses[where].furniture=state.houses[where].furniture.filter(f=>f.id!==id);
-   h.furniture.push({id,x:spot.x,y:spot.y,r:0});moving={index:h.furniture.length-1};save();closeModal();render(mount);toast('Placed · drag it where you want it','new');});}
- function addonsSheet(mount,hid){const row=addonRow(hid);
-  sheet('ADD-ONS','House add-ons',row?`<p class="mini-muted">One of each per house. Buy more in the Market.</p>${row.replace('<span>Add-ons</span>','')}`:'<p>Add-ons (Garden, Outdoor pool, Second floor) are found in Alchemy or bought in the Market → Houses.</p>');
-  document.querySelectorAll('#modalContent [data-ext]').forEach(b=>b.onclick=()=>{toggleExt(mount,hid,b.dataset.ext);addonsSheet(mount,hid);});}
- function placeStairs(mount){const st=mount.querySelector('#homeStairs');if(!st)return;const plot=st.parentElement,up=plot.querySelector('.home-floor.is-up'),gr=mount.querySelector('#homeFloor');if(!up||!gr)return;
-  const P=plot.getBoundingClientRect(),U=up.getBoundingClientRect(),G=gr.getBoundingClientRect(),t=G.width/layoutOf(activeHouse()).cols;
-  st.style.left=(G.left-P.left)+'px';st.style.width=t+'px';st.style.top=(U.bottom-P.top-t*2)+'px';st.style.height=(G.top-U.bottom+t*4)+'px';}
  function render(mount){
   if(!mount)return;stopWander();
   const hid=activeHouse();const own=ownedHouses();
@@ -214,9 +150,9 @@ export function createHomeSystem(ctx){
   const residents=h.residents.filter(isDiscovered);
   const resHtml=residents.map(cid=>`<button type="button" class="home-res" data-res="${cid}" aria-label="${escapeText(companionName(cid))}"><span>${sprites[cid]||''}</span></button>`).join('')+(residents.length<cap?`<button type="button" class="home-res is-add" id="homeAddRes" aria-label="Add a companion">+</button>`:'');
   mount.innerHTML=`<section class="home-card">
+   <div class="home-chips" role="tablist" aria-label="Your houses">${chips}</div>
    <div class="home-head"><strong>${escapeText(uiName(it))}</strong><small>${residents.length}/${cap} companions · ${h.furniture.length} furniture</small></div>
-   <div class="home-plot ${extOn(hid,'floor')?'has-up':''} ${extOn(hid,'garden')||extOn(hid,'pool')?'has-yard':''}" data-theme="${L.theme}" style="--cols:${L.cols};--rows:${L.rows}">
-   ${extOn(hid,'floor')?upstairsHtml(hid):''}
+   <div class="home-plot ${extOn(hid,'garden')||extOn(hid,'pool')?'has-yard':''}" data-theme="${L.theme}" style="--cols:${L.cols};--rows:${L.rows}">
    <div class="home-room" data-theme="${L.theme}" style="--cols:${L.cols};--rows:${L.rows}">
     <div class="home-wall" id="homeWall">
      ${Array.from({length:L.cols},(_,i)=>`<button type="button" class="home-walltile" data-wx="${i}" aria-label="Wall"></button>`).join('')}
@@ -231,20 +167,21 @@ export function createHomeSystem(ctx){
     <div class="home-door" aria-hidden="true"></div>
    </div>
    ${extOn(hid,'garden')||extOn(hid,'pool')?yardHtml(hid):''}
-   ${extOn(hid,'floor')?'<div class="home-stairs" id="homeStairs" aria-label="Stairs between the floors"><i class="home-stairs-rail"></i><span class="home-stairs-tag">▲ Up</span></div>':''}
    </div>
    ${moving?`<p class="home-hint">Drag ${escapeText(uiName(byId.get(h.furniture[moving.index]?.id)))} to its new spot · <button type="button" class="home-link" id="homeCancelMove">Done</button></p>`:''}
    <div class="home-effects">${sumHtml}</div>
-   ${hubHtml(hid,residents,cap)}
+   <div class="home-res-row"><span>Residents</span><div class="home-res-list">${resHtml}</div></div>
   </section>`;
-  $('hbHouses').onclick=()=>housesSheet(mount);$('hbResidents').onclick=()=>residentsSheet(mount,hid);$('hbFurniture').onclick=()=>furnitureSheet(mount,hid);$('hbAddons').onclick=()=>addonsSheet(mount,hid);
+  mount.querySelectorAll('[data-house]').forEach(b=>b.onclick=()=>houseInfo(mount,b.dataset.house));
+  mount.querySelectorAll('[data-res]').forEach(r=>r.onclick=()=>tapResident(mount,hid,r.dataset.res));
+  const add=$('homeAddRes');if(add)add.onclick=()=>pickResident(mount,hid);
   mount.querySelectorAll('.home-effects [data-eff]').forEach(b=>b.onclick=()=>bonusSheet(hid,b.dataset.eff));
   mount.querySelectorAll('#homeFloor .home-tile').forEach(t=>t.onclick=()=>tapSpot(mount,hid,Number(t.dataset.x),Number(t.dataset.y),false));
   mount.querySelectorAll('.home-walltile').forEach(t=>t.onclick=()=>tapSpot(mount,hid,Number(t.dataset.wx),-1,true));
   mount.querySelectorAll('[data-piece]').forEach(p=>{wireDrag(mount,hid,p);});
   mount.querySelectorAll('[data-piece]').forEach(p=>p.onclick=e=>{if(Date.now()-dragEndedAt<350)return;if(moving&&Number(p.dataset.piece)===moving.index)return;if(moving){const t=spotFromEvent(mount,e,hid);if(t)tapSpot(mount,hid,t.x,t.y,t.wall);return;}tapPiece(mount,hid,Number(p.dataset.piece),spotFromEvent(mount,e,hid));});
   const cm=$('homeCancelMove');if(cm)cm.onclick=()=>{moving=null;render(mount);};
-  placeStairs(mount);startWander(mount,hid);try{wear?.(mount);}catch{}
+  startWander(mount,hid);try{wear?.(mount);}catch{}
  }
  // While moving a piece, a tap that lands on another piece still means "this tile".
  function spotFromEvent(mount,e,hid){const L=layoutOf(hid);const fl=mount.querySelector('#homeFloor').getBoundingClientRect(),wl=mount.querySelector('#homeWall').getBoundingClientRect();
@@ -273,7 +210,7 @@ export function createHomeSystem(ctx){
   showModal(`<div class="modal-tag">COMPANION HOUSE · TIER ${tier}</div><div class="modal-art">${staticArt(it)}</div><h2>${escapeText(uiName(it))}</h2><p>${escapeText(it.summary||'')}</p>
    <div class="home-bonus"><div class="home-bonus-big">×${b.growth}<small>growth for every resident</small></div>
    <ul>${b.list.length?b.list.map(x=>`<li><b>${BONUS_NAME[x.k]} +${x.pct}%</b> · ${x.pieces.map(p=>escapeText(uiName(byId.get(p.id)))+' +'+p.q.pct+'%').join(', ')}</li>`).join(''):'<li>Add training, food, fun or book furniture for extra bonuses.</li>'}</ul></div>
-   ${(()=>{const ks=Object.keys(EXT_INFO).filter(k=>extOn(id,k));const can=Object.keys(EXT_INFO).filter(k=>fitsExt(id,k)&&!extOn(id,k));return (ks.length?`<ul class="home-ext-list">${ks.map(k=>`<li>${EXT_INFO[k].icon} <b>${EXT_INFO[k].label}</b>${builtIn(id,k)?' (built in)':''} · ${EXT_INFO[k].line}</li>`).join('')}</ul>`:'')+(can.length?`<p class="mini-muted">Add-ons that fit this house: ${can.map(k=>EXT_INFO[k].label).join(', ')}.</p>`:'');})()}
+   ${Object.keys(EXT_INFO).some(k=>extOn(id,k))?`<ul class="home-ext-list">${Object.keys(EXT_INFO).filter(k=>extOn(id,k)).map(k=>`<li>${EXT_INFO[k].icon} <b>${EXT_INFO[k].label}</b> (part of the house) · ${EXT_INFO[k].line}</li>`).join('')}</ul>`:''}
    <p class="mini-muted">Room for ${capOf(id)} · ${layoutOf(id).cols}×${layoutOf(id).rows} floor. Bonuses only speed up growth from meals, gifts, discoveries and training — moving a companion to another house never takes away what it already earned.</p>
    ${active?'':'<button type="button" class="modal-button" id="homeGo">Go to this house</button>'}<button type="button" class="modal-button secondary" id="homeClose">Close</button>`);
   $('homeClose').onclick=closeModal;const go=$('homeGo');if(go)go.onclick=()=>{state.active=id;moving=null;save();closeModal();render(mount);};}
@@ -297,7 +234,7 @@ export function createHomeSystem(ctx){
    const px=Math.floor((e.clientX-fl.left)/tile),py=Math.floor((e.clientY-fl.top)/tile);
    const x=px-drag.offX,y=drag.wall?-1:py-drag.offY;
    if(x===drag.x&&y===drag.y)return;drag.x=x;drag.y=y;
-   drag.ok=fits(zh(hid,house(hid)),L,objects,RS,{...f,x,y},i);
+   drag.ok=fits(house(hid),L,objects,RS,{...f,x,y},i);
    const [,fh]=footprint(objects,f);
    el.style.setProperty('--x',x);if(!drag.wall){el.style.setProperty('--y',y);el.style.setProperty('--z',10+(y+fh)*2);}
    el.classList.toggle('is-bad',!drag.ok);el.classList.toggle('is-good',drag.ok);
@@ -313,20 +250,20 @@ export function createHomeSystem(ctx){
  function tapSpot(mount,hid,x,y,wall){
   const h=house(hid),L=layoutOf(hid);
   if(moving){const f=h.furniture[moving.index];if(!f)return;const isWall=layerOf(RS,f.id)==='wall';if(isWall!==wall){toast(isWall?'Wall pieces hang on the wall':'Put it on the floor','repeat');return;}
-   const cand={...f,x,y:isWall?-1:y};if(fits(zh(hid,h),L,objects,RS,cand,moving.index)){f.x=cand.x;f.y=cand.y;moving=null;save();render(mount);}else toast('It does not fit there','repeat');return;}
+   const cand={...f,x,y:isWall?-1:y};if(fits(h,L,objects,RS,cand,moving.index)){f.x=cand.x;f.y=cand.y;moving=null;save();render(mount);}else toast('It does not fit there','repeat');return;}
   const owned=furnitureOwned().filter(id=>(layerOf(RS,id)==='wall')===wall);
   if(!owned.length){showModal(`<div class="modal-tag">FURNITURE</div><h2>${wall?'Nothing to hang yet':'No furniture yet'}</h2><p>${wall?'Picture frames, clocks, curtains and tapestries hang on the wall.':'Furniture is discovered like any element: beds, sofas, treadmills, paddling pools, bookshelves, food bowls… Each one trains a stat, cheers companions up, feeds them or boosts discoveries.'}</p><button type="button" class="modal-button secondary" id="homeClose">Close</button>`);$('homeClose').onclick=closeModal;return;}
-  const rows=owned.map(id=>{const ob=objects[id],where=placedAnywhere(id),ok=!where&&fits(zh(hid,h),L,objects,RS,{id,x,y:wall?-1:y,r:0});const it=byId.get(id);
-   return {ok,html:`<button type="button" class="home-pick ${ok?'':'is-off'}" data-pick="${id}" ${ok?'':'disabled'}><span class="home-pick-art">${staticArt(it)}</span><span class="home-pick-main"><strong>${escapeText(uiName(it))}</strong><small>${bonusText(id)} · ${ob.size[0]}×${ob.size[1]}${where?' · placed'+(where===hid?' here':' in another house'):ok?'':' · no room here'}</small></span></button>`};}).sort((a,b)=>b.ok-a.ok).map(r=>r.html).join('');
+  const rows=owned.map(id=>{const ob=objects[id],where=placedAnywhere(id),ok=where!==hid&&fits(h,L,objects,RS,{id,x,y:wall?-1:y,r:0});const it=byId.get(id);
+   return {ok,html:`<button type="button" class="home-pick ${ok?'':'is-off'}" data-pick="${id}" ${ok?'':'disabled'}><span class="home-pick-art">${staticArt(it)}</span><span class="home-pick-main"><strong>${escapeText(uiName(it))}</strong><small>${bonusText(id)} · ${ob.size[0]}×${ob.size[1]}${where===hid?' · already here':!ok?' · no room here':where?' · moves from '+escapeText(uiName(byId.get(where)).replace(/^Companion /,'')):''}</small></span></button>`};}).sort((a,b)=>b.ok-a.ok).map(r=>r.html).join('');
   showModal(`<div class="modal-tag">${wall?'HANG ON THE WALL':'ADD FURNITURE'}</div><h2>Choose a piece</h2><div class="home-pick-list">${rows}</div><button type="button" class="modal-button secondary" id="homeClose">Close</button>`);
   $('homeClose').onclick=closeModal;
-  document.querySelectorAll('[data-pick]').forEach(b=>b.onclick=()=>{h.furniture.push({id:b.dataset.pick,x,y:wall?-1:y,r:0});save();closeModal();render(mount);});
+  document.querySelectorAll('[data-pick]').forEach(b=>b.onclick=()=>{const w=placedAnywhere(b.dataset.pick);if(w&&w!==hid)state.houses[w].furniture=state.houses[w].furniture.filter(f=>f.id!==b.dataset.pick);h.furniture.push({id:b.dataset.pick,x,y:wall?-1:y,r:0});save();closeModal();render(mount);});
  }
  function tapPiece(mount,hid,i,spot=null){
   const h=house(hid),f=h.furniture[i];if(!f)return;const it=byId.get(f.id),ob=objects[f.id],L=layoutOf(hid),layer=layerOf(RS,f.id);
   const what=ob.effect==='decor'?'Decoration — makes the house yours.':`${EFFECT_LABEL[ob.effect]}: ${({run:'residents run on it',swim:'residents splash and swim in it',power:'residents build strength',fly:'residents bounce and glide',stamina:'residents climb and balance',hp:'residents rest and recover',mood:'residents have fun',food:'residents eat here',discovery:'residents explore and find more'})[ob.effect]}.`;
   showModal(`<div class="modal-tag">FURNITURE</div><div class="modal-art">${staticArt(it)}</div><h2>${escapeText(uiName(it))}</h2><p>${what}</p><p class="home-bonus-line">${bonusText(f.id)}${ob.effect==='decor'?'':' growth for residents'}</p><p class="mini-muted">To move it, press and hold it in the room and drag it.</p>${layer!=='wall'?'<button type="button" class="modal-button" id="homeRotate">Rotate</button>':''}${layer==='floor'&&spot&&!spot.wall?'<button type="button" class="modal-button" id="homeOnTop">Put furniture on it</button>':''}<button type="button" class="modal-button secondary" id="homeRemove">Put away</button>`);
-  const rot=$('homeRotate');if(rot)rot.onclick=()=>{for(let k=1;k<=3;k++){const r=(f.r+k)%4;if(fits(zh(hid,h),L,objects,RS,{...f,r},i)){f.r=r;save();closeModal();render(mount);return;}}toast('No room to rotate it here','repeat');};
+  const rot=$('homeRotate');if(rot)rot.onclick=()=>{for(let k=1;k<=3;k++){const r=(f.r+k)%4;if(fits(h,L,objects,RS,{...f,r},i)){f.r=r;save();closeModal();render(mount);return;}}toast('No room to rotate it here','repeat');};
   const top=$('homeOnTop');if(top)top.onclick=()=>{closeModal();tapSpot(mount,hid,spot.x,spot.y,false);};
   $('homeRemove').onclick=()=>{h.furniture.splice(i,1);save();closeModal();render(mount);};
  }
@@ -355,8 +292,7 @@ export function createHomeSystem(ctx){
   return {x:f.x+(w-1)/2,y:f.y+(h-1)/2-lift,front:false};}
  function startWander(mount,hid){
   const h=house(hid),L=layoutOf(hid),res=h.residents.filter(isDiscovered),{ground,up,yard}=splitResidents(hid,res);
-  const ground0=mount.querySelector('#homeResidents');if(ground0)wanderZone({box:ground0,root:mount,attr:'data-piece',L,furniture:extOn(hid,'floor')?[...h.furniture,STAIR_GROUND]:h.furniture,residents:ground,train:true});
-  const upBox=mount.querySelector('[data-zres="up"]');if(upBox&&up.length)wanderZone({box:upBox,root:upBox.parentElement,attr:'data-zpiece',L:{cols:L.cols,rows:UP_ROWS},furniture:upstairsPlan(hid),residents:up,train:false});
+  const ground0=mount.querySelector('#homeResidents');if(ground0)wanderZone({box:ground0,root:mount,attr:'data-piece',L,furniture:h.furniture,residents:ground,train:true});
   const yBox=mount.querySelector('[data-zres="yard"]');if(yBox&&yard.length)wanderZone({box:yBox,root:yBox.parentElement,attr:'data-zpiece',L:{cols:L.cols,rows:YARD_ROWS},furniture:yardPlan(hid),residents:yard,train:false});}
  /** One wander loop per zone (ground floor, upstairs, yard): walk around pieces, use them, loop. */
  function wanderZone({box,root,attr,L,furniture,residents,train}){

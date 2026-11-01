@@ -58,9 +58,7 @@ export const MARKET=[
  {id:'toy-drum',kind:'toy',toy:'drum',name:'Little drum',icon:'🥁',price:500,desc:'They drum a little beat on it'},
  // furniture and houses: added to your elements
  ...[['organic89:running-wheel',650],['organic89:paddling-pool',650],['organic89:punching-bag',650],['organic89:trampoline',650],['organic89:climbing-wall',800],['organic89:bookshelf',800],['organic89:food-bowl',350],['organic89:ball-pit',600]].map(([el,price])=>({id:'el-'+el,kind:'furniture',element:el,price})),
- ...[['organic89:companion-tent',900],['organic89:companion-hut',1800],['organic89:companion-cabin',3200],['organic89:companion-cottage',5000],['organic89:companion-villa',7500],['organic89:companion-castle',11000],['organic139:grand-castle',16000]].map(([el,price])=>({id:'el-'+el,kind:'house',element:el,price})),
- // V139: house complements, attached to one house in Home
- ...[['organic139:house-garden',2400],['organic139:outdoor-pool',3000],['organic139:second-floor',4200]].map(([el,price])=>({id:'el-'+el,kind:'house',element:el,price,ext:true}))
+ ...[['organic89:companion-tent',900],['organic89:companion-hut',1800],['organic89:companion-cabin',3200],['organic89:companion-cottage',5000],['organic89:companion-villa',7500],['organic89:companion-castle',11000],['organic139:grand-castle',16000]].map(([el,price])=>({id:'el-'+el,kind:'house',element:el,price}))
 ];
 /** V139: every Market purchase is also a real element, so it counts in Alchemy and can be combined. */
 export const MARKET_ELEMENT={'fruit-run':'organic139:swift-fruit','fruit-swim':'organic139:sea-fruit','fruit-fly':'organic139:cloud-fruit','fruit-power':'organic139:strong-fruit','fruit-stamina':'organic139:hearty-fruit','fruit-hp':'organic139:life-fruit','mood-cookie':'organic38:cookie','soap':'organic89:soap','mirror':'organic139:hand-mirror','rebirth':'organic139:rebirth-egg',
