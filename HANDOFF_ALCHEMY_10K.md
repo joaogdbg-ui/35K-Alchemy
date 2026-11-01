@@ -90,6 +90,9 @@ Preserve 200-per-batch policy and do not start another content release on top of
 
 - **Art redraw wave 3 (V85, done): 3,991 icons** — every remaining older element. All 6,012 pre-V83 elements now use the 2026 art direction (`ART_REDRAW`), plus 200 V83 and 200 V85 originals. Six near-duplicates found by the audit were redrawn; 36 reviewed false alarms are in `tools/art-redraw-reviewed-pairs.json` (the audit now also honours them for V83 comparisons).
 
+## V132 — element list scrolls again (1 November 2026)
+- V127 dropped the `</div>` closing `#shelfToolbar`, so `#inventoryScroll` was nested in the toolbar and grew to full height (no scrolling, stale virtual rows). Closed it; test v132-shelf-scroll guards the nesting.
+
 ## V131 — second slot and tasted elements survive relaunch; slot back to €1 (1 November 2026)
 - Companion `normalize()` on load dropped `buddy` and `tasted`, so the second companion left its slot and fed elements showed ??? again after an update/restart. Both are now kept.
 - `SLOT2_TEST_FREE=false`: Duo INSTANT uses the Play `companion_slot` price again (owner's test unlock stays saved locally).
