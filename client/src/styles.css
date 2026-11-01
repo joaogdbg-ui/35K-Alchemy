@@ -1310,3 +1310,12 @@ button.home-eff::after{content:" ⓘ";opacity:.6;font-weight:700}
 .home-piece.is-in-use.m-spin svg{animation:home-globe 1.2s ease-in-out infinite}
 @keyframes home-globe{0%,100%{transform:scaleX(1)}50%{transform:scaleX(.88)}}
 @media (prefers-reduced-motion:reduce){.home-motion{display:none}}
+
+/* V114 away summary */
+.away-list{display:grid;gap:8px;text-align:left;margin:8px 0}
+.away-row{display:grid;grid-template-columns:44px 1fr;gap:10px;align-items:center;padding:8px 10px;border-radius:14px;background:var(--surface-2)}
+.away-ava svg{width:44px;height:44px;display:block}
+.away-row strong{display:block;font-size:14px}.away-row small{display:block;font-size:11px;color:var(--muted)}
+.away-gains{display:flex;flex-wrap:wrap;gap:4px;margin-top:4px}
+.away-gains b{font-size:11px;padding:2px 7px;border-radius:999px;background:var(--accent-2);color:var(--accent-ink)}
+.away-gains b.is-up{background:var(--good);color:#fff}.away-gains b.is-care{background:var(--good-2);color:var(--good)}
