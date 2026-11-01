@@ -119,7 +119,7 @@ import { RACE_PRIZES, PRIZE_BY_ID, BELTS, beltSvg, wearBelt, personalPrize, pers
 import { STADIUM_ART_V95 } from './stadium-art-v95.js';
 import { createStadiumSfx } from './stadium-sfx-v95.js';
 import { COMPANIONS_V86, COMPANION_SPRITES_V86 } from './companions-v86.js';
-import { createCompanionSystem, COMPANION_STORAGE_KEY, rivalLook } from './companion-engine-v86.js';
+import { createCompanionSystem, COMPANION_STORAGE_KEY, rivalLook, traitIconSvg } from './companion-engine-v86.js';
 import { PUBLIC_LABELS_V86 } from './public-labels-v86.js';
 import { reconcileLegacyFamilies } from './family-compatibility-v82.js';
 import { synchronizeFamilyProfiles, sharedMembership } from './family-shared-v51.js';
@@ -498,7 +498,7 @@ function shinyCard(item){return `<p class="shiny-trivia"><span aria-hidden="true
 function showShinyFound(id){const it=byId.get(id);if(!it)return;
  showModal(`<div class="modal-tag shiny-tag">✦ SHINY ELEMENT</div><div class="modal-art is-shiny">${staticArt(it)}</div><h2>Shiny ${escapeText(uiName(it))}</h2>${shinyCard(it)}<div class="modal-milestone">${shiny.size.toLocaleString('en-US')} shiny ${shiny.size===1?'element':'elements'} · ${Math.round(shinyChance()*100)}% chance per combination</div>`);
 }
-const APP_VERSION='1.0.33';
+const APP_VERSION='1.0.34';
 // V83: status line + Google consent (UMP) privacy options, required for EEA players.
 async function refreshAdStatus(){
  const el=$('settingsAdStatus'),bridge=getRewardBridge();
@@ -2345,16 +2345,23 @@ function looksMatch(id){if(!looksFilter)return true;const known=companions.taste
  if(looksFilter.kind==='reset')return L.resets.length>0;return true;}
 function looksFilterLabel(){if(!looksFilter)return 'Looks';return looksFilter.kind==='unknown'?'Looks · ???':`Looks · ${looksFilter.label}`;}
 function openLooksFilter(){
- const ids=allIds();const tints=new Map(),traits=new Map();let unknown=0,bigger=0,smaller=0,resets=0;
- for(const id of ids){if(!companions.tasted?.(id)){unknown++;continue;}const L=looksOfId(id);if(!L)continue;
+ // V134: same tile language as the Stat filter
+ const ids=allIds();const tints=new Map(),traits=new Map();let unknown=0,known=0,bigger=0,smaller=0,resets=0;
+ for(const id of ids){if(!companions.tasted?.(id)){unknown++;continue;}known++;const L=looksOfId(id);if(!L)continue;
   if(L.tint)tints.set(L.tint.key,{n:(tints.get(L.tint.key)?.n||0)+1,name:L.tint.name,rgb:L.tint.rgb});
   for(const t of L.traits)if(!t.locked)traits.set(t.label,(traits.get(t.label)||0)+1);
   if(L.size>0)bigger++;else if(L.size<0)smaller++;if(L.resets.length)resets++;}
- const opt=(kind,key,label,n,extra='')=>`<button type="button" class="looks-opt ${looksFilter?.kind===kind&&(looksFilter.key??null)===(key??null)?'is-on':''}" data-lk="${kind}" data-key="${escapeText(key??'')}" data-label="${escapeText(label)}">${extra}<span>${escapeText(label)}</span><small>${n}</small></button>`;
- const tintHtml=[...tints].sort((a,b)=>b[1].n-a[1].n).map(([k,v])=>opt('tint',k,v.name,v.n,`<i style="background:rgb(${v.rgb.join(',')})"></i>`)).join('');
- const traitHtml=[...traits].sort((a,b)=>b[1]-a[1]).map(([k,n])=>opt('trait',k,k,n)).join('');
- const sizeHtml=(bigger?opt('size','bigger','Grows bigger',bigger):'')+(smaller?opt('size','smaller','Gets smaller',smaller):'')+(resets?opt('reset',null,'Resets looks',resets):'');
- showModal(`<div class="modal-tag">LOOKS FILTER</div><h2>Filter by looks</h2><p class="mini-muted">Only shows what you have learned by feeding elements to your companions.</p><div class="looks-opts">${opt('unknown',null,'??? Not fed yet',unknown)}${looksFilter?`<button type="button" class="looks-opt" data-lk="clear"><span>Show all</span></button>`:''}</div>${tintHtml?`<h3 class="looks-h">Colour</h3><div class="looks-opts">${tintHtml}</div>`:''}${traitHtml?`<h3 class="looks-h">Traits</h3><div class="looks-opts">${traitHtml}</div>`:''}${sizeHtml?`<h3 class="looks-h">Size & resets</h3><div class="looks-opts">${sizeHtml}</div>`:''}${!tintHtml&&!traitHtml?'<p class="mini-muted">Feed elements to a companion to discover colours and traits.</p>':''}`);
+ const on=(k,key)=>looksFilter?.kind===k&&(looksFilter.key??null)===(key??null)?'is-on':'';
+ const tile=(k,key,label,n,art,cls='')=>`<button type="button" class="stat-tile lk-tile ${cls} ${on(k,key)}" data-lk="${k}" data-key="${escapeText(key??'')}" data-label="${escapeText(label)}"><span class="lk-art">${art}</span><b>${escapeText(label)}</b><small>${n} element${n===1?'':'s'}</small></button>`;
+ const tintHtml=[...tints].sort((a,b)=>b[1].n-a[1].n).map(([k,v])=>tile('tint',k,v.name,v.n,`<i class="lk-swatch" style="background:rgb(${v.rgb.join(',')})"></i>`)).join('');
+ const traitHtml=[...traits].sort((a,b)=>b[1]-a[1]).map(([k,n])=>tile('trait',k,k,n,traitIconSvg(k)||'✦')).join('');
+ const sizeHtml=(bigger?tile('size','bigger','Bigger',bigger,'<span class="lk-big">⬆</span>'):'')+(smaller?tile('size','smaller','Smaller',smaller,'<span class="lk-big">⬇</span>'):'')+(resets?tile('reset',null,'Reset',resets,'<span class="lk-big">↺</span>'):'');
+ const sec=(t,h)=>h?`<h3 class="lk-h">${t}</h3><div class="stat-tiles">${h}</div>`:'';
+ showModal(`<div class="modal-tag">LOOKS FILTER</div><h2>How should it look?</h2><p class="mini-muted">Learned from <b>${known}</b> element${known===1?'':'s'} you fed · the rest stay a mystery</p>
+  <button type="button" class="lk-mystery ${on('unknown',null)}" data-lk="unknown" data-key="" data-label="???"><span class="lk-q">?</span><span><b>Not fed yet</b><small>Feed one to reveal what it does</small></span><em>${unknown}</em></button>
+  ${sec('Colour',tintHtml)}${sec('Traits',traitHtml)}${sec('Size & reset',sizeHtml)}
+  ${!tintHtml&&!traitHtml?'<p class="mini-muted">Feed elements to a companion to discover colours and traits.</p>':''}
+  ${looksFilter?'<button type="button" class="modal-button secondary" data-lk="clear">Show all elements</button>':''}`);
  $('modalContent').querySelectorAll('[data-lk]').forEach(b=>b.onclick=()=>{const k=b.dataset.lk;looksFilter=k==='clear'?null:{kind:k,key:b.dataset.key||null,label:b.dataset.label};closeModal();syncLooksChip();playVirtual.refresh({resetScroll:true});});}
 function syncLooksChip(){const c=$('looksChip');if(!c)return;const sp=c.querySelector('span');if(sp)sp.textContent=looksFilterLabel();else c.textContent=looksFilterLabel();c.setAttribute('aria-pressed',String(!!looksFilter));c.classList.toggle('is-on',!!looksFilter);}
 function openInventoryFamilyPicker(){

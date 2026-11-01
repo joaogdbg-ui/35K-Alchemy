@@ -255,6 +255,17 @@ export function morphBlend(group,mix,lux={},slot=''){const V=MORPH[group];const 
  for(const [id,w] of e){const f=w/tot;V[id].forEach(([x,y],i)=>{pts[i][0]+=x*f;pts[i][1]+=y*f;});col=col.map((v,i)=>v+hex(MORPH_COLOR[id])[i]*f);}
  return {pts,color:`rgb(${col.map(Math.round).join(',')})`,grow:0.35+0.65*Math.min(1,tot),lux:e.some(([id])=>lux[slot+':'+id])};}
 /** Smooth closed path through points (quadratic curves via midpoints), scaled and placed. */
+/** V134: small icon of a trait (its real outline/colour) for the Looks filter. */
+export function traitIconSvg(label){const id=Object.keys(TRAIT_NAME).find(k=>TRAIT_NAME[k]===label);if(!id)return '';
+ const g=Object.keys(MORPH).find(k=>MORPH[k][id]);const wrap=b=>`<svg viewBox="-24 -24 48 48" width="40" height="40" aria-hidden="true">${b}</svg>`;
+ if(g){const pts=MORPH[g][id];let xs=pts.map(p=>p[0]),ys=pts.map(p=>p[1]);const w=Math.max(...xs)-Math.min(...xs),h=Math.max(...ys)-Math.min(...ys);const sc=34/Math.max(w,h);
+  const cx=(Math.max(...xs)+Math.min(...xs))/2,cy=(Math.max(...ys)+Math.min(...ys))/2;const d=smoothPath(pts,sc,-cx*sc,-cy*sc);const col=MORPH_COLOR[id];
+  if(g==='horn')return wrap(`<g transform="translate(-7 0)"><path d="${d}" fill="${col}" stroke="${S}" stroke-width="2"/></g><g transform="translate(7 0) scale(-1 1)"><path d="${d}" fill="${col}" stroke="${S}" stroke-width="2"/></g>`);
+  if(g==='aura')return wrap([[-10,-8,.55],[9,-4,.75],[-3,10,.6]].map(([x,y,k])=>`<path d="${smoothPath(pts,sc*k,x-cx*sc*k,y-cy*sc*k)}" fill="${col}" stroke="${S}" stroke-width="1.5"/>`).join(''));
+  return wrap(`<path d="${d}" fill="${col}" stroke="${S}" stroke-width="2"/>`);}
+ if(HEAD[id])return wrap(`<g transform="translate(0 16)">${HEAD[id](34)}</g>`);
+ if(id==='notes')return wrap('<text x="0" y="12" font-size="32" text-anchor="middle" fill="#9b7fc4">♪</text>');
+ return '';}
 export function smoothPath(pts,s,ox=0,oy=0){const P=pts.map(([x,y])=>[ox+x*s,oy+y*s]);const m=(a,b)=>[(a[0]+b[0])/2,(a[1]+b[1])/2];let d=`M${f1(m(P[P.length-1],P[0])[0])} ${f1(m(P[P.length-1],P[0])[1])}`;
  for(let i=0;i<P.length;i++){const n=P[(i+1)%P.length],q=m(P[i],n);d+=`Q${f1(P[i][0])} ${f1(P[i][1])} ${f1(q[0])} ${f1(q[1])}`;}return d+'Z';}
 
