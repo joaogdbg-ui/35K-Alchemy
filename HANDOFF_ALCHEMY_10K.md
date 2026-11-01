@@ -90,6 +90,11 @@ Preserve 200-per-batch policy and do not start another content release on top of
 
 - **Art redraw wave 3 (V85, done): 3,991 icons** — every remaining older element. All 6,012 pre-V83 elements now use the 2026 art direction (`ART_REDRAW`), plus 200 V83 and 200 V85 originals. Six near-duplicates found by the audit were redrawn; 36 reviewed false alarms are in `tools/art-redraw-reviewed-pairs.json` (the audit now also honours them for V83 comparisons).
 
+## V124 — Classic only, family starter packs, Looks filter (1 November 2026)
+- Owner decision: one game mode. Boot no longer shows the mode picker; `migrateFamiliesIntoClassic()` copies every Family Only discovery into Classic once (free, key `alchemy10k_classic_only_v124`). Mode button + family/classic banner hidden; Settings "Game mode" and "Merge" rows replaced by "Family starter packs". Family-mode code (activateMode, merge hub, modePicker) left dormant.
+- Family starter packs (`starterPacks`/`buyStarterPack`): unlock a family's 4 campaign starters into Classic; 2 rewarded ads (`kind:'starter_pack'`, step credit kept in `alchemy10k_starter_pack_v124`), free with no-ads, explanatory modal in the HTML build (no simulated ads). Opened from Settings and from the family filter sheet. Verified family recipes are a subset of classic (0 extra/0 conflicts) and all 6612 items are classic-reachable.
+- Looks chip in Alchemy filters: ??? Not fed yet, known colours (with swatch), known unlocked traits, bigger/smaller, resets — only from elements the player fed (`companions.tasted`, `companions.looksOf`).
+
 ## V123 — Collection tab removed (1 November 2026)
 - Owner decision: the Collection tab only added complexity (Alchemy already has search, sort, family filter, Saved/Shiny/To explore, Merge, Hint with "try combination", element sheets). Nav button removed from index.html; `switchTab('World')` now falls back to Play. The hidden #viewWorld markup/renderDiscoveries code is left dormant (old tests reference it) — safe to delete later.
 

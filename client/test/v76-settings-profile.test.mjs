@@ -40,7 +40,7 @@ test('V76.8 old backup code remains intact but is absent from the Settings contr
  assert.match(js,/function exportProgress\(\)/);
  assert.match(js,/function importProgress\(file\)/);
  assert.match(settings,/id="settingsSoundToggle"/);
- assert.match(settings,/id="changeGameMode"/);
+ assert.match(settings,/id="settingsStarterPacks"/);
  assert.match(settings,/data-theme-choice="system"/);
  assert.doesNotMatch(settings,/id="hintButton"/);
 });

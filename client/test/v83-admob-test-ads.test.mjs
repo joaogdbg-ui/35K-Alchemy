@@ -29,8 +29,8 @@ test('Android builds package the AdMob test configuration',()=>{
 });
 test('every paid action still requires {earned:true} from the native bridge',()=>{
  const app=src('client/src/app.js');
- for(const kind of ['mode_switch','merge_to_classic','merge_to_families','recipe','batch_family','companion_switch','idle_finds'])assert.match(app,new RegExp(`showRewarded\\(\\{kind:'${kind}'`));
- assert.equal((app.match(/earned!==true/g)||[]).length,7);
+ for(const kind of ['mode_switch','merge_to_classic','merge_to_families','recipe','batch_family','companion_switch','idle_finds','starter_pack'])assert.match(app,new RegExp(`showRewarded\\(\\{kind:'${kind}'`));
+ assert.equal((app.match(/earned!==true/g)||[]).length,8);
  assert.match(app,/cap\.Plugins\?\.GameverseRewardedAds/);
  assert.match(app,/id="settingsPrivacyAds"/);
 });
