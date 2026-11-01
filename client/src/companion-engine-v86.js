@@ -297,7 +297,7 @@ export function createCompanionSystem(ctx){
  const sfx=new Proxy(ctx.sfx||{},{get:(t,k)=>t[k]||(()=>{})});
  let state={active:null,pets:{},v:1};
  const starter=ctx.starterCompanion||null;
- const normalize=raw=>({active:raw.active||null,pets:raw.pets,v:1,firstFreeUsed:Boolean(raw.firstFreeUsed||(raw.active&&raw.active!==starter)),seen:Array.isArray(raw.seen)?raw.seen.filter(x=>typeof x==='string'):null});
+ const normalize=raw=>({active:raw.active||null,pets:raw.pets,v:1,firstFreeUsed:Boolean(raw.firstFreeUsed||(raw.active&&raw.active!==starter)),seen:Array.isArray(raw.seen)?raw.seen.filter(x=>typeof x==='string'):null,buddy:typeof raw.buddy==='string'?raw.buddy:null,tasted:raw.tasted&&typeof raw.tasted==='object'?raw.tasted:{}}); // V131: keep the second slot and tasted elements across launches
  let loaded=false;try{const raw=JSON.parse(localStorage.getItem(COMPANION_STORAGE_KEY)||'null');if(raw&&typeof raw==='object'&&raw.pets){state=normalize(raw);loaded=true;}}catch{}
  // V105: new games start with the starter companion (Frog) on screen; the free choice is kept.
  if(!loaded&&starter&&metaById.has(starter)){state={active:starter,pets:{},v:1,firstFreeUsed:false,seen:[starter]};}
