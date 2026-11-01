@@ -19,6 +19,6 @@ test('V92: Home tab is a compact roster; taps open stats; house chips open info'
  const eng=src('client/src/companion-engine-v86.js'),home=src('client/src/home-engine-v90.js');
  assert.match(eng,/class="pets-avatars"/);assert.match(eng,/root\.querySelectorAll\('\[data-card\]'\)\.forEach\(b=>b\.onclick=\(\)=>openCard/);
  assert.match(eng,/<details class="pets-help">/);
- assert.match(home,/forEach\(b=>b\.onclick=\(\)=>houseInfo\(mount,b\.dataset\.house\)\)/);
+ assert.match(home,/houseInfo\(mount,id\)/);/* V144: houses are listed in the Houses sheet */
  assert.match(home,/\$\{statsHtml\?\.\(cid\)\|\|''\}/);
 });

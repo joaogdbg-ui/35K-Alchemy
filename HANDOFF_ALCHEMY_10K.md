@@ -90,6 +90,10 @@ Preserve 200-per-batch policy and do not start another content release on top of
 
 - **Art redraw wave 3 (V85, done): 3,991 icons** — every remaining older element. All 6,012 pre-V83 elements now use the 2026 art direction (`ART_REDRAW`), plus 200 V83 and 200 V85 originals. Six near-duplicates found by the audit were redrawn; 36 reviewed false alarms are in `tools/art-redraw-reviewed-pairs.json` (the audit now also honours them for V83 comparisons).
 
+## V144 — stairs that make sense; Home hub (1 November 2026)
+- Second floor: the staircase now stands on the **ground floor** (back-left corner, `STAIR_GROUND`, blocks those tiles via `zh(hid,h)` in every `fits` call; furniture already there is put away when the floor is added). Upstairs shows a **stairwell** (`zone:stairwell`: railing round an opening with steps going down) instead of stairs going further up.
+- Home now mirrors the Games tab: room on top, then four tiles (Houses, Residents, Furniture, Add-ons) opening sheets (`housesSheet`, `residentsSheet`, `furnitureSheet`, `addonsSheet`). The house chip row, Residents row and Add-ons row were removed from the main view. Furniture sheet: tap to move a placed piece, place an unplaced one at the first free spot (then drag), or bring one from another house.
+
 ## V143 — add-ons built from the game's own room sprites; residents live in them (1 November 2026)
 - Owner: V142 garden/second floor art did not match the game. Now every add-on is a real zone made of room sprites (`ROOM_SPRITES_V90`) plus three new sprite-style pieces drawn in the same palette (`ZONE_SPRITES` in home-engine-v90.js: `zone:pool` 3×2 floor piece, `zone:lounger`, `zone:stairs`).
   - **Upstairs** (`upstairsPlan`): a second `.home-room.is-upstairs` with the house's own wall/floor theme, stairs, two `organic89:bed`, curtain (and picture frame on wide houses); a floor slab separates it from the ground floor.
