@@ -90,6 +90,12 @@ Preserve 200-per-batch policy and do not start another content release on top of
 
 - **Art redraw wave 3 (V85, done): 3,991 icons** — every remaining older element. All 6,012 pre-V83 elements now use the 2026 art direction (`ART_REDRAW`), plus 200 V83 and 200 V85 originals. Six near-duplicates found by the audit were redrawn; 36 reviewed false alarms are in `tools/art-redraw-reviewed-pairs.json` (the audit now also honours them for V83 comparisons).
 
+## V140 — houses vs add-ons made explicit, with compatibility (1 November 2026)
+- Add-on compatibility (`EXT_INFO[k].fits`, house capacities): Garden → Tent to Castle; Outdoor Pool → Cottage to Castle; Second Floor → Cabin and bigger (incl. Castle with Garden and Pool). The Castle with Garden and Pool has Garden and Pool **built in** (`builtin:['garden','pool']` in HOME_OBJECTS).
+- `homes.addonInfo(id)` returns label, effect line, fitting houses and a short range text ("Cottage to Castle"); used by Market tiles, the buy confirm and the element sheet.
+- Market Houses tab: two sections ("Houses" / "House add-ons"), tiles tagged HOUSE / ADD-ON, add-ons show "Fits …".
+- Home: "Add-ons" row under Residents (same style as Residents). Built-in add-ons shown green "Built in"; add-ons that don't fit are greyed with "Fits …"; others "Tap to add" / "✓ Added · tap to remove" / "In X · tap to move here". Old saves with an add-on on a house it doesn't fit are cleaned at load.
+
 ## V139 — Market items are elements; Castle with Garden and Pool; house complements (1 November 2026)
 - Owner exception to the 200 rule (AGENTS.md): +23 elements `organic139:*` (manifest `shared/v139-approved.json`, `owner_exception:true`; gate accepts it). Catalog 6,612 → 6,635.
 - Every Market purchase is now also an element (`MARKET_ELEMENT` in market-v136.js; `it.element` on every item): hats, glasses, scarf, bandana, bow tie, cape, the six stat fruits, hand mirror, rebirth egg, plus existing Cookie, Soap, Bow, Headphones, Bouncing Ball, Spinning Top, Drum. Buying grants the element (toast "New element"); items bought before V139 are granted once at boot (2.5 s after load).
