@@ -1747,6 +1747,13 @@ button.home-eff::after{content:" ⓘ";opacity:.6;font-weight:700}
 .home-zone-tags{position:absolute;left:10px;top:5px;display:flex;gap:4px;flex-wrap:wrap;z-index:30;pointer-events:none}
 .home-piece[tabindex="-1"]{cursor:default}
 
+/* V144: Home hub + sheets */
+.home-hub{margin-top:12px}
+.home-pick.is-here{border-color:var(--accent);background:var(--accent-2)}
+.home-pick-tag{margin-left:auto;font-style:normal;font-weight:900;font-size:12px;color:var(--accent);padding-left:8px}
+.home-pick-main small.home-pick-st{color:#3f7a3c;font-weight:800}
+#modalContent .home-addon-row{display:block}#modalContent .home-addon-row>span{display:none}
+
 </style>
 </head>
 <body>
@@ -2172,11 +2179,12 @@ function houseSummary(house,objects){const out={};for(const f of house?.furnitur
 function createHomeSystem(ctx){
  const {$,escapeText,byId,uiName,staticArt,isDiscovered,objects:baseObjects,roomSprites,roster,sprites,companionName,statsHtml,wear,applyEffect,showModal,closeModal,toast,reducedMotion,onChange}=ctx;
  // V143: add-on scenery pieces drawn in the room-sprite style (same palette and 3/4 view as tools/v90-assemble-room.py).
- const ZONE_OBJECTS={'zone:pool':{kind:'zone',effect:'swim',size:[3,2]},'zone:lounger':{kind:'zone',effect:'decor',size:[1,1]},'zone:stairs':{kind:'zone',effect:'decor',size:[1,2]}};
+ const ZONE_OBJECTS={'zone:pool':{kind:'zone',effect:'swim',size:[3,2]},'zone:lounger':{kind:'zone',effect:'decor',size:[1,1]},'zone:stairs':{kind:'zone',effect:'decor',size:[1,2]},'zone:stairwell':{kind:'zone',effect:'decor',size:[1,2]}};
  const ZONE_SPRITES={
   'zone:pool':{layer:'floor',front:`<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 300 200"><g stroke-linejoin="round" stroke-linecap="round"><rect x="10" y="14" width="288" height="184" rx="30" fill="#5a4a3a" opacity=".16"/><rect x="4" y="6" width="292" height="188" rx="30" fill="#DCE2E5" stroke="#657D89" stroke-width="3.5"/><rect x="4" y="6" width="292" height="6" rx="3" fill="#F2F5F6"/><rect x="26" y="28" width="248" height="144" rx="22" fill="#3F86B0" stroke="#657D89" stroke-width="3"/><rect x="26" y="28" width="248" height="130" rx="22" fill="#5AAED2"/><path d="M50 70q14-10 28 0t28 0t28 0t28 0t28 0t28 0M60 112q14-10 28 0t28 0t28 0t28 0t28 0" fill="none" stroke="#BFE6FA" stroke-width="4"/><path d="M246 14v44M262 14v44M246 26h16M246 42h16" fill="none" stroke="#F7F1E6" stroke-width="5"/><path d="M246 14v44M262 14v44M246 26h16M246 42h16" fill="none" stroke="#657D89" stroke-width="2"/><circle cx="92" cy="136" r="17" fill="#C9584A" stroke="#657D89" stroke-width="3"/><circle cx="92" cy="136" r="7" fill="#5AAED2"/><path d="M78 128l10 4M100 144l6 2" stroke="#F7F1E6" stroke-width="3"/></g></svg>`},
   'zone:lounger':{layer:'object',front:`<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 160"><g stroke-linejoin="round" stroke-linecap="round"><ellipse cx="52" cy="148" rx="42" ry="9" fill="#5a4a3a" opacity=".16"/><path d="M14 150V108M86 150V108M22 140h56" fill="none" stroke="#9C6E4A" stroke-width="4"/><path d="M12 112h76v18H12z" fill="#F7F1E6" stroke="#657D89" stroke-width="3"/><path d="M18 112V64q32-10 64 0v48" fill="#F7F1E6" stroke="#657D89" stroke-width="3"/><path d="M30 68v44M44 66v46M58 66v46M72 68v44" stroke="#C9584A" stroke-width="7"/><path d="M12 112h76v18H12z" fill="none" stroke="#657D89" stroke-width="3"/><path d="M50 60V20" stroke="#9C6E4A" stroke-width="4"/><path d="M8 22Q50 -10 92 22Z" fill="#C9584A" stroke="#657D89" stroke-width="3"/><path d="M22 22q14-14 28 0M50 22q14-14 28 0" fill="#F7F1E6" stroke="#657D89" stroke-width="2"/></g></svg>`},
-  'zone:stairs':{layer:'object',front:`<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 260"><g stroke-linejoin="round" stroke-linecap="round"><rect x="6" y="236" width="90" height="18" rx="9" fill="#5a4a3a" opacity=".16"/><path d="M6 250V82h22v34h22v34h22v34h22v66z" fill="#B98A5E" stroke="#657D89" stroke-width="3.5"/><path d="M8 82h20M30 116h20M52 150h20M74 184h20" stroke="#F3E3C3" stroke-width="4"/><path d="M28 116v134M50 150v100M72 184v66" stroke="#9C6E4A" stroke-width="2"/><path d="M6 76L94 178" fill="none" stroke="#8E6748" stroke-width="5"/><path d="M6 76v-30M36 110v-30M66 144v-30M94 178v-30" stroke="#8E6748" stroke-width="3.5"/><path d="M6 46L94 148" fill="none" stroke="#9C6E4A" stroke-width="5"/></g></svg>`}};
+  'zone:stairs':{layer:'object',front:`<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 260"><g stroke-linejoin="round" stroke-linecap="round"><rect x="6" y="236" width="90" height="18" rx="9" fill="#5a4a3a" opacity=".16"/><path d="M6 250V82h22v34h22v34h22v34h22v66z" fill="#B98A5E" stroke="#657D89" stroke-width="3.5"/><path d="M8 82h20M30 116h20M52 150h20M74 184h20" stroke="#F3E3C3" stroke-width="4"/><path d="M28 116v134M50 150v100M72 184v66" stroke="#9C6E4A" stroke-width="2"/><path d="M6 76L94 178" fill="none" stroke="#8E6748" stroke-width="5"/><path d="M6 76v-30M36 110v-30M66 144v-30M94 178v-30" stroke="#8E6748" stroke-width="3.5"/><path d="M6 46L94 148" fill="none" stroke="#9C6E4A" stroke-width="5"/></g></svg>`},
+  'zone:stairwell':{layer:'object',front:`<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 260"><g stroke-linejoin="round" stroke-linecap="round"><rect x="6" y="62" width="88" height="192" rx="6" fill="#3B2A1F" stroke="#657D89" stroke-width="3.5"/><rect x="16" y="72" width="68" height="26" rx="2" fill="#D2A072" stroke="#4a3426" stroke-width="2"/><rect x="16" y="72" width="68" height="5" fill="#E9C394"/><rect x="16" y="102" width="68" height="26" rx="2" fill="#BE8D61" stroke="#4a3426" stroke-width="2"/><rect x="16" y="102" width="68" height="5" fill="#D2A072"/><rect x="16" y="132" width="68" height="26" rx="2" fill="#A87A52" stroke="#4a3426" stroke-width="2"/><rect x="16" y="132" width="68" height="5" fill="#BE8D61"/><rect x="16" y="162" width="68" height="26" rx="2" fill="#8E6748" stroke="#4a3426" stroke-width="2"/><rect x="16" y="162" width="68" height="5" fill="#A87A52"/><rect x="16" y="192" width="68" height="26" rx="2" fill="#77553B" stroke="#4a3426" stroke-width="2"/><rect x="16" y="192" width="68" height="5" fill="#8E6748"/><rect x="16" y="222" width="68" height="26" rx="2" fill="#5E4330" stroke="#4a3426" stroke-width="2"/><rect x="16" y="222" width="68" height="5" fill="#77553B"/><path d="M12 64V36M52 64V36M92 64V36M92 100V72M92 140V112M92 180V152M92 220V192" stroke="#8E6748" stroke-width="4"/><path d="M8 36H95V226" fill="none" stroke="#9C6E4A" stroke-width="6"/><path d="M8 36H95V226" fill="none" stroke="#C49A6C" stroke-width="2"/><path d="M60 250l-12-14h8V214h8v22h8z" fill="#F7F1E6" stroke="#657D89" stroke-width="2" opacity=".9"/></g></svg>`}};
  const objects={...baseObjects,...ZONE_OBJECTS};
  const RS={...(roomSprites||{}),...ZONE_SPRITES};
  const qOf=id=>pieceQuality(ctx.depthOf?.(id));const bonusOf=id=>objects[id]?.effect==='decor'?0:qOf(id).pct/100;
@@ -2207,6 +2215,8 @@ function createHomeSystem(ctx){
  const extMult=(hid,kind)=>(extOn(hid,'garden')?1.05*(kind==='mood'?1.2:1):1)*(extOn(hid,'pool')&&kind==='swim'?1.25:1);
  function toggleExt(mount,hid,id){if(!fitsExt(hid,objects[id]?.ext))return;const h=house(hid);h.ext=h.ext||[];const was=extHome(id);
   if(was===hid){h.ext=h.ext.filter(x=>x!==id);}else{if(was)state.houses[was].ext=state.houses[was].ext.filter(x=>x!==id);h.ext.push(id);}
+  // V144: furniture under the new stairs is put away
+  if(extOn(hid,'floor')){const before=h.furniture.length;h.furniture=h.furniture.filter(f=>layerOf(RS,f.id)==='wall'||fits({furniture:[STAIR_GROUND]},layoutOf(hid),objects,RS,f));if(h.furniture.length<before)toast('Furniture in the stairs corner was put away','repeat');}
   // a removed second floor may leave too many residents: the newest move out
   for(const [k,hh] of Object.entries(state.houses))while(hh.residents.length>capOf(k))hh.residents.pop();
   save();render(mount);onChange?.();}
@@ -2240,8 +2250,11 @@ function createHomeSystem(ctx){
   return `<div class="home-res-row home-addon-row"><span>Add-ons</span><div class="home-ext">${html}</div></div>`;}
  // ---------- V143: add-ons are rooms of their own, built from the game's room sprites ----------
  const UP_ROWS=3,YARD_ROWS=3;
+ // V144: real stairs on the ground floor (back-left corner) lead up to the stairwell upstairs.
+ const STAIR_GROUND={id:'zone:stairs',x:0,y:0,r:0};
+ const zh=(hid,h)=>extOn(hid,'floor')?{...h,furniture:[...h.furniture,STAIR_GROUND]}:h;
  /** Upstairs bedroom: stairs on the left, two beds, a curtain on the wall. */
- function upstairsPlan(hid){const c=layoutOf(hid).cols;const F=[{id:'zone:stairs',x:0,y:1,r:0},{id:'organic89:bed',x:c-2,y:1,r:0},{id:'organic89:bed',x:c-4,y:1,r:0}];
+ function upstairsPlan(hid){const c=layoutOf(hid).cols;const F=[{id:'zone:stairwell',x:0,y:0,r:0},{id:'organic89:bed',x:c-2,y:1,r:0},{id:'organic89:bed',x:c-4,y:1,r:0}];
   if(RS['organic89:curtain'])F.push({id:'organic89:curtain',x:1,r:0});if(RS['organic89:picture-frame']&&c>=7)F.push({id:'organic89:picture-frame',x:Math.floor(c/2)+1,r:0});return F;}
  /** Outdoor yard: garden pieces and/or the pool, laid out for the house's width. */
  function yardPlan(hid){const c=layoutOf(hid).cols,g=extOn(hid,'garden'),p=extOn(hid,'pool');const F=[];const add=(id,x,y)=>F.push({id,x,y,r:0});
@@ -2261,6 +2274,33 @@ function createHomeSystem(ctx){
    ${zoneFloor('is-up',L,F,'up')}</div><i class="home-slab" aria-hidden="true"></i>`;}
  function yardHtml(hid){const g=extOn(hid,'garden'),p=extOn(hid,'pool');const L={cols:layoutOf(hid).cols,rows:YARD_ROWS},F=yardPlan(hid);
   return `<div class="home-yard ${g?'is-grass':'is-patio'}" style="--cols:${L.cols};--rows:${L.rows}"><span class="home-zone-tags">${g?'<span class="home-zone-tag">🌳 Garden · Fun +20%</span>':''}${p?'<span class="home-zone-tag">🏊 Pool · Swim +25%</span>':''}</span>${zoneFloor('is-yard',L,F,'yard')}</div>`;}
+ // ---------- V144: Home hub (Houses, Residents, Furniture, Add-ons), same structure as the Games tab ----------
+ function hubHtml(hid,residents,cap){const own=ownedHouses(),h=house(hid);const nExt=Object.keys(EXT_INFO).filter(k=>extOn(hid,k)).length;
+  const b=(id,ico,t,sm)=>`<button type="button" class="st-shop-btn" id="${id}"><span>${ico}</span><b>${t}</b><small>${sm}</small></button>`;
+  return `<div class="st-shop is-hub home-hub">${b('hbHouses','🏠','Houses',`${own.length}/${houseIds().length} owned · switch`)}${b('hbResidents','🐾','Residents',`${residents.length}/${cap} living here`)}${b('hbFurniture','🛋️','Furniture',`${h.furniture.length} placed · ${furnitureOwned().length} owned`)}${b('hbAddons','🌳','Add-ons',nExt?`${nExt} on this house`:'Garden, pool, 2nd floor')}</div>`;}
+ const sheet=(tag,title,body)=>{showModal(`<div class="modal-tag">${tag}</div><h2>${title}</h2>${body}<button type="button" class="modal-button secondary" id="homeClose">Close</button>`);$('homeClose').onclick=closeModal;};
+ function housesSheet(mount){const act=activeHouse();
+  sheet('HOUSES','Your houses',`<div class="home-pick-list">${houseIds().map(id=>{const o=objects[id],have=isDiscovered(id),it=byId.get(id);
+   return `<button type="button" class="home-pick ${have?'':'is-off'} ${id===act?'is-here':''}" data-hs="${id}"><span class="home-pick-art">${have?staticArt(it):'<span class="home-q">?</span>'}</span><span class="home-pick-main"><strong>${have?escapeText(uiName(it)):'Undiscovered house'}</strong><small>Room for ${o.capacity} · growth ×${HOUSE_GROWTH[o.capacity]}${o.builtin?' · garden and pool built in':''}</small></span><em class="home-pick-tag">${id===act?'Here':have?'Go':'?'}</em></button>`;}).join('')}</div>`);
+  document.querySelectorAll('[data-hs]').forEach(b=>b.onclick=()=>{const id=b.dataset.hs;if(isDiscovered(id)&&id!==act){state.active=id;moving=null;save();closeModal();render(mount);}else houseInfo(mount,id);});}
+ function residentsSheet(mount,hid){const h=house(hid),cap=capOf(hid),res=h.residents.filter(isDiscovered),base=objects[hid]?.capacity||1;
+  sheet('RESIDENTS',`${res.length}/${cap} living here`,`<div class="home-pick-list">${res.map((cid,i)=>`<button type="button" class="home-pick" data-rs="${cid}"><span class="home-pick-art">${sprites[cid]||''}</span><span class="home-pick-main"><strong>${escapeText(companionName(cid))}</strong><small>${i>=base?'Sleeps upstairs':'Ground floor'} · tap for stats</small></span></button>`).join('')||'<p class="mini-muted">Nobody lives here yet.</p>'}</div>${res.length<cap?'<button type="button" class="modal-button" id="homeInvite">+ Invite a companion</button>':''}`);
+  try{wear?.($('modalContent'));}catch{}
+  document.querySelectorAll('[data-rs]').forEach(b=>b.onclick=()=>tapResident(mount,hid,b.dataset.rs));const inv=$('homeInvite');if(inv)inv.onclick=()=>pickResident(mount,hid);}
+ function furnitureSheet(mount,hid){const h=house(hid),L=layoutOf(hid),owned=furnitureOwned();
+  const rows=owned.map(id=>{const where=placedAnywhere(id),it=byId.get(id),ob=objects[id];const st=where===hid?'Placed here · tap to move':where?'In '+escapeText(shortName(where))+' · tap to bring here':'Not placed · tap to place';
+   return {k:where===hid?0:where?2:1,html:`<button type="button" class="home-pick" data-fs="${id}"><span class="home-pick-art">${staticArt(it)}</span><span class="home-pick-main"><strong>${escapeText(uiName(it))}</strong><small>${bonusText(id)} · ${ob.size[0]}×${ob.size[1]}</small><small class="home-pick-st">${st}</small></span></button>`};}).sort((a,b)=>a.k-b.k).map(r=>r.html).join('');
+  sheet('FURNITURE',`${h.furniture.length} placed here`,owned.length?`<p class="mini-muted">Tip: you can also tap an empty floor or wall tile to add a piece there.</p><div class="home-pick-list">${rows}</div>`:'<p>Furniture is discovered like any element (or bought in the Market): beds, treadmills, paddling pools, bookshelves… Each one trains a stat, cheers companions up, feeds them or boosts discoveries.</p>');
+  document.querySelectorAll('[data-fs]').forEach(b=>b.onclick=()=>{const id=b.dataset.fs,where=placedAnywhere(id);
+   if(where===hid){moving={index:h.furniture.findIndex(f=>f.id===id)};closeModal();render(mount);return;}
+   const wall=layerOf(RS,id)==='wall';let spot=null;
+   for(let y=wall?-1:0;y<(wall?0:L.rows)&&!spot;y++)for(let x=0;x<L.cols&&!spot;x++)if(fits(zh(hid,h),L,objects,RS,{id,x,y,r:0}))spot={x,y};
+   if(!spot){toast('No free room for it here','repeat');return;}
+   if(where)state.houses[where].furniture=state.houses[where].furniture.filter(f=>f.id!==id);
+   h.furniture.push({id,x:spot.x,y:spot.y,r:0});moving={index:h.furniture.length-1};save();closeModal();render(mount);toast('Placed · drag it where you want it','new');});}
+ function addonsSheet(mount,hid){const row=addonRow(hid);
+  sheet('ADD-ONS','House add-ons',row?`<p class="mini-muted">One of each per house. Buy more in the Market.</p>${row.replace('<span>Add-ons</span>','')}`:'<p>Add-ons (Garden, Outdoor pool, Second floor) are found in Alchemy or bought in the Market → Houses.</p>');
+  document.querySelectorAll('#modalContent [data-ext]').forEach(b=>b.onclick=()=>{toggleExt(mount,hid,b.dataset.ext);addonsSheet(mount,hid);});}
  function render(mount){
   if(!mount)return;stopWander();
   const hid=activeHouse();const own=ownedHouses();
@@ -2272,7 +2312,6 @@ function createHomeSystem(ctx){
   const residents=h.residents.filter(isDiscovered);
   const resHtml=residents.map(cid=>`<button type="button" class="home-res" data-res="${cid}" aria-label="${escapeText(companionName(cid))}"><span>${sprites[cid]||''}</span></button>`).join('')+(residents.length<cap?`<button type="button" class="home-res is-add" id="homeAddRes" aria-label="Add a companion">+</button>`:'');
   mount.innerHTML=`<section class="home-card">
-   <div class="home-chips" role="tablist" aria-label="Your houses">${chips}</div>
    <div class="home-head"><strong>${escapeText(uiName(it))}</strong><small>${residents.length}/${cap} companions · ${h.furniture.length} furniture</small></div>
    <div class="home-plot ${extOn(hid,'floor')?'has-up':''} ${extOn(hid,'garden')||extOn(hid,'pool')?'has-yard':''}" data-theme="${L.theme}" style="--cols:${L.cols};--rows:${L.rows}">
    ${extOn(hid,'floor')?upstairsHtml(hid):''}
@@ -2285,6 +2324,7 @@ function createHomeSystem(ctx){
     <div class="home-floor" id="homeFloor">
      ${Array.from({length:L.cols*L.rows},(_,i)=>`<button type="button" class="home-tile" data-x="${i%L.cols}" data-y="${Math.floor(i/L.cols)}" aria-label="Floor tile"></button>`).join('')}
      ${h.furniture.map((f,i)=>layerOf(RS,f.id)!=='wall'?pieceHtml(f,i):'').join('')}
+     ${extOn(hid,'floor')?pieceHtml(STAIR_GROUND,0,'data-zpiece'):''}
      <div class="home-residents" id="homeResidents"></div>
     </div>
     <div class="home-door" aria-hidden="true"></div>
@@ -2293,18 +2333,14 @@ function createHomeSystem(ctx){
    </div>
    ${moving?`<p class="home-hint">Drag ${escapeText(uiName(byId.get(h.furniture[moving.index]?.id)))} to its new spot · <button type="button" class="home-link" id="homeCancelMove">Done</button></p>`:''}
    <div class="home-effects">${sumHtml}</div>
-   <div class="home-res-row"><span>Residents</span><div class="home-res-list">${resHtml}</div></div>
-   ${addonRow(hid)}
+   ${hubHtml(hid,residents,cap)}
   </section>`;
-  mount.querySelectorAll('[data-house]').forEach(b=>b.onclick=()=>houseInfo(mount,b.dataset.house));
-  mount.querySelectorAll('[data-ext]').forEach(b=>b.onclick=()=>toggleExt(mount,hid,b.dataset.ext));
+  $('hbHouses').onclick=()=>housesSheet(mount);$('hbResidents').onclick=()=>residentsSheet(mount,hid);$('hbFurniture').onclick=()=>furnitureSheet(mount,hid);$('hbAddons').onclick=()=>addonsSheet(mount,hid);
   mount.querySelectorAll('.home-effects [data-eff]').forEach(b=>b.onclick=()=>bonusSheet(hid,b.dataset.eff));
   mount.querySelectorAll('#homeFloor .home-tile').forEach(t=>t.onclick=()=>tapSpot(mount,hid,Number(t.dataset.x),Number(t.dataset.y),false));
   mount.querySelectorAll('.home-walltile').forEach(t=>t.onclick=()=>tapSpot(mount,hid,Number(t.dataset.wx),-1,true));
   mount.querySelectorAll('[data-piece]').forEach(p=>{wireDrag(mount,hid,p);});
   mount.querySelectorAll('[data-piece]').forEach(p=>p.onclick=e=>{if(Date.now()-dragEndedAt<350)return;if(moving&&Number(p.dataset.piece)===moving.index)return;if(moving){const t=spotFromEvent(mount,e,hid);if(t)tapSpot(mount,hid,t.x,t.y,t.wall);return;}tapPiece(mount,hid,Number(p.dataset.piece),spotFromEvent(mount,e,hid));});
-  mount.querySelectorAll('[data-res]').forEach(r=>r.onclick=()=>tapResident(mount,hid,r.dataset.res));
-  const add=$('homeAddRes');if(add)add.onclick=()=>pickResident(mount,hid);
   const cm=$('homeCancelMove');if(cm)cm.onclick=()=>{moving=null;render(mount);};
   startWander(mount,hid);try{wear?.(mount);}catch{}
  }
@@ -2359,7 +2395,7 @@ function createHomeSystem(ctx){
    const px=Math.floor((e.clientX-fl.left)/tile),py=Math.floor((e.clientY-fl.top)/tile);
    const x=px-drag.offX,y=drag.wall?-1:py-drag.offY;
    if(x===drag.x&&y===drag.y)return;drag.x=x;drag.y=y;
-   drag.ok=fits(house(hid),L,objects,RS,{...f,x,y},i);
+   drag.ok=fits(zh(hid,house(hid)),L,objects,RS,{...f,x,y},i);
    const [,fh]=footprint(objects,f);
    el.style.setProperty('--x',x);if(!drag.wall){el.style.setProperty('--y',y);el.style.setProperty('--z',10+(y+fh)*2);}
    el.classList.toggle('is-bad',!drag.ok);el.classList.toggle('is-good',drag.ok);
@@ -2375,10 +2411,10 @@ function createHomeSystem(ctx){
  function tapSpot(mount,hid,x,y,wall){
   const h=house(hid),L=layoutOf(hid);
   if(moving){const f=h.furniture[moving.index];if(!f)return;const isWall=layerOf(RS,f.id)==='wall';if(isWall!==wall){toast(isWall?'Wall pieces hang on the wall':'Put it on the floor','repeat');return;}
-   const cand={...f,x,y:isWall?-1:y};if(fits(h,L,objects,RS,cand,moving.index)){f.x=cand.x;f.y=cand.y;moving=null;save();render(mount);}else toast('It does not fit there','repeat');return;}
+   const cand={...f,x,y:isWall?-1:y};if(fits(zh(hid,h),L,objects,RS,cand,moving.index)){f.x=cand.x;f.y=cand.y;moving=null;save();render(mount);}else toast('It does not fit there','repeat');return;}
   const owned=furnitureOwned().filter(id=>(layerOf(RS,id)==='wall')===wall);
   if(!owned.length){showModal(`<div class="modal-tag">FURNITURE</div><h2>${wall?'Nothing to hang yet':'No furniture yet'}</h2><p>${wall?'Picture frames, clocks, curtains and tapestries hang on the wall.':'Furniture is discovered like any element: beds, sofas, treadmills, paddling pools, bookshelves, food bowls… Each one trains a stat, cheers companions up, feeds them or boosts discoveries.'}</p><button type="button" class="modal-button secondary" id="homeClose">Close</button>`);$('homeClose').onclick=closeModal;return;}
-  const rows=owned.map(id=>{const ob=objects[id],where=placedAnywhere(id),ok=!where&&fits(h,L,objects,RS,{id,x,y:wall?-1:y,r:0});const it=byId.get(id);
+  const rows=owned.map(id=>{const ob=objects[id],where=placedAnywhere(id),ok=!where&&fits(zh(hid,h),L,objects,RS,{id,x,y:wall?-1:y,r:0});const it=byId.get(id);
    return {ok,html:`<button type="button" class="home-pick ${ok?'':'is-off'}" data-pick="${id}" ${ok?'':'disabled'}><span class="home-pick-art">${staticArt(it)}</span><span class="home-pick-main"><strong>${escapeText(uiName(it))}</strong><small>${bonusText(id)} · ${ob.size[0]}×${ob.size[1]}${where?' · placed'+(where===hid?' here':' in another house'):ok?'':' · no room here'}</small></span></button>`};}).sort((a,b)=>b.ok-a.ok).map(r=>r.html).join('');
   showModal(`<div class="modal-tag">${wall?'HANG ON THE WALL':'ADD FURNITURE'}</div><h2>Choose a piece</h2><div class="home-pick-list">${rows}</div><button type="button" class="modal-button secondary" id="homeClose">Close</button>`);
   $('homeClose').onclick=closeModal;
@@ -2388,7 +2424,7 @@ function createHomeSystem(ctx){
   const h=house(hid),f=h.furniture[i];if(!f)return;const it=byId.get(f.id),ob=objects[f.id],L=layoutOf(hid),layer=layerOf(RS,f.id);
   const what=ob.effect==='decor'?'Decoration — makes the house yours.':`${EFFECT_LABEL[ob.effect]}: ${({run:'residents run on it',swim:'residents splash and swim in it',power:'residents build strength',fly:'residents bounce and glide',stamina:'residents climb and balance',hp:'residents rest and recover',mood:'residents have fun',food:'residents eat here',discovery:'residents explore and find more'})[ob.effect]}.`;
   showModal(`<div class="modal-tag">FURNITURE</div><div class="modal-art">${staticArt(it)}</div><h2>${escapeText(uiName(it))}</h2><p>${what}</p><p class="home-bonus-line">${bonusText(f.id)}${ob.effect==='decor'?'':' growth for residents'}</p><p class="mini-muted">To move it, press and hold it in the room and drag it.</p>${layer!=='wall'?'<button type="button" class="modal-button" id="homeRotate">Rotate</button>':''}${layer==='floor'&&spot&&!spot.wall?'<button type="button" class="modal-button" id="homeOnTop">Put furniture on it</button>':''}<button type="button" class="modal-button secondary" id="homeRemove">Put away</button>`);
-  const rot=$('homeRotate');if(rot)rot.onclick=()=>{for(let k=1;k<=3;k++){const r=(f.r+k)%4;if(fits(h,L,objects,RS,{...f,r},i)){f.r=r;save();closeModal();render(mount);return;}}toast('No room to rotate it here','repeat');};
+  const rot=$('homeRotate');if(rot)rot.onclick=()=>{for(let k=1;k<=3;k++){const r=(f.r+k)%4;if(fits(zh(hid,h),L,objects,RS,{...f,r},i)){f.r=r;save();closeModal();render(mount);return;}}toast('No room to rotate it here','repeat');};
   const top=$('homeOnTop');if(top)top.onclick=()=>{closeModal();tapSpot(mount,hid,spot.x,spot.y,false);};
   $('homeRemove').onclick=()=>{h.furniture.splice(i,1);save();closeModal();render(mount);};
  }
@@ -2417,7 +2453,7 @@ function createHomeSystem(ctx){
   return {x:f.x+(w-1)/2,y:f.y+(h-1)/2-lift,front:false};}
  function startWander(mount,hid){
   const h=house(hid),L=layoutOf(hid),res=h.residents.filter(isDiscovered),{ground,up,yard}=splitResidents(hid,res);
-  const ground0=mount.querySelector('#homeResidents');if(ground0)wanderZone({box:ground0,root:mount,attr:'data-piece',L,furniture:h.furniture,residents:ground,train:true});
+  const ground0=mount.querySelector('#homeResidents');if(ground0)wanderZone({box:ground0,root:mount,attr:'data-piece',L,furniture:extOn(hid,'floor')?[...h.furniture,STAIR_GROUND]:h.furniture,residents:ground,train:true});
   const upBox=mount.querySelector('[data-zres="up"]');if(upBox&&up.length)wanderZone({box:upBox,root:upBox.parentElement,attr:'data-zpiece',L:{cols:L.cols,rows:UP_ROWS},furniture:upstairsPlan(hid),residents:up,train:false});
   const yBox=mount.querySelector('[data-zres="yard"]');if(yBox&&yard.length)wanderZone({box:yBox,root:yBox.parentElement,attr:'data-zpiece',L:{cols:L.cols,rows:YARD_ROWS},furniture:yardPlan(hid),residents:yard,train:false});}
  /** One wander loop per zone (ground floor, upstairs, yard): walk around pieces, use them, loop. */
@@ -5912,7 +5948,7 @@ function shinyCard(item){return `<p class="shiny-trivia"><span aria-hidden="true
 function showShinyFound(id){const it=byId.get(id);if(!it)return;
  showModal(`<div class="modal-tag shiny-tag">✦ SHINY ELEMENT</div><div class="modal-art is-shiny">${staticArt(it)}</div><h2>Shiny ${escapeText(uiName(it))}</h2>${shinyCard(it)}<div class="modal-milestone">${shiny.size.toLocaleString('en-US')} shiny ${shiny.size===1?'element':'elements'} · ${Math.round(shinyChance()*100)}% chance per combination</div>`);
 }
-const APP_VERSION='1.0.43';
+const APP_VERSION='1.0.44';
 // V83: status line + Google consent (UMP) privacy options, required for EEA players.
 async function refreshAdStatus(){
  const el=$('settingsAdStatus'),bridge=getRewardBridge();
