@@ -1321,8 +1321,16 @@ button.home-eff::after{content:" ⓘ";opacity:.6;font-weight:700}
 .away-gains b.is-up{background:var(--good);color:#fff}.away-gains b.is-care{background:var(--good-2);color:var(--good)}
 
 /* V116 companion looks */
-.look-aura>g{animation:look-float 1.6s ease-in-out infinite}
+.look-aura>g>g{animation:look-float 1.6s ease-in-out infinite}
 @keyframes look-float{0%,100%{opacity:.35;translate:0 2px}50%{opacity:1;translate:0 -3px}}
 .pet-look{display:block;color:var(--accent-ink)!important;font-weight:700}
 .companion-statwin .cs-note.is-look{color:var(--accent-ink)!important;font-weight:700}
-@media (prefers-reduced-motion:reduce){.look-aura>g{animation:none}}
+
+
+/* V117 radiant (rare) traits glow and move; wings flap, tails sway */
+.look-lux{filter:drop-shadow(0 0 1.5px rgba(255,240,180,.95)) drop-shadow(0 0 4px rgba(255,214,120,.6))}
+.look-lux .look-wing{animation:look-flap 1.4s ease-in-out infinite;transform-box:fill-box;transform-origin:100% 60%}
+.look-lux .look-tail{animation:look-sway 1.8s ease-in-out infinite;transform-box:fill-box;transform-origin:100% 80%}
+@keyframes look-flap{0%,100%{transform:rotate(0) scaleY(1)}50%{transform:rotate(-10deg) scaleY(.88)}}
+@keyframes look-sway{0%,100%{transform:rotate(0)}50%{transform:rotate(-12deg)}}
+@media (prefers-reduced-motion:reduce){.look-aura>g>g,.look-lux .look-wing,.look-lux .look-tail{animation:none}}

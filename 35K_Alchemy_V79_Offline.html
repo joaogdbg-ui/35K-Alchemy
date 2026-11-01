@@ -1330,11 +1330,19 @@ button.home-eff::after{content:" ⓘ";opacity:.6;font-weight:700}
 .away-gains b.is-up{background:var(--good);color:#fff}.away-gains b.is-care{background:var(--good-2);color:var(--good)}
 
 /* V116 companion looks */
-.look-aura>g{animation:look-float 1.6s ease-in-out infinite}
+.look-aura>g>g{animation:look-float 1.6s ease-in-out infinite}
 @keyframes look-float{0%,100%{opacity:.35;translate:0 2px}50%{opacity:1;translate:0 -3px}}
 .pet-look{display:block;color:var(--accent-ink)!important;font-weight:700}
 .companion-statwin .cs-note.is-look{color:var(--accent-ink)!important;font-weight:700}
-@media (prefers-reduced-motion:reduce){.look-aura>g{animation:none}}
+
+
+/* V117 radiant (rare) traits glow and move; wings flap, tails sway */
+.look-lux{filter:drop-shadow(0 0 1.5px rgba(255,240,180,.95)) drop-shadow(0 0 4px rgba(255,214,120,.6))}
+.look-lux .look-wing{animation:look-flap 1.4s ease-in-out infinite;transform-box:fill-box;transform-origin:100% 60%}
+.look-lux .look-tail{animation:look-sway 1.8s ease-in-out infinite;transform-box:fill-box;transform-origin:100% 80%}
+@keyframes look-flap{0%,100%{transform:rotate(0) scaleY(1)}50%{transform:rotate(-10deg) scaleY(.88)}}
+@keyframes look-sway{0%,100%{transform:rotate(0)}50%{transform:rotate(-12deg)}}
+@media (prefers-reduced-motion:reduce){.look-aura>g>g,.look-lux .look-wing,.look-lux .look-tail{animation:none}}
 
 </style>
 </head>
@@ -2661,64 +2669,112 @@ const MOOD={happy:70,sad:30};
 function moodLabel(m){return m>=MOOD.happy?'Happy':m<=MOOD.sad?'Sad':'Content';}
 
 /**
- * V116 companion looks (owner idea from SA2 Chao: what they eat changes how they look).
- * Pure rules: each meal can tint the companion toward a colour, grow/shrink it a little (±15%) and
- * give one trait per slot (head / back / aura) — a newer trait replaces the old one of that slot.
- * Soap & baths wash the tint off, mirrors undo size and head traits, phoenix/egg/rebirth resets all.
- * Rendering is a CSS filter (luminance-preserving tint) + CSS `scale` + small SVG accessories.
+ * V116/V117 companion looks (owner idea from SA2 Chao: what they eat changes how they look).
+ * V117: coherent THEMES — one element can give a whole matching set (Demon: shadowy tint + devil
+ * horns + bat wings + devil tail; Angel: bright tint + halo + feathered wings; Dragon, Fairy,
+ * Phoenix, Ocean, Fox, Robot, Ice, Fire…). Slots: head, back, tail, aura (newer replaces older).
+ * Harder elements are more extravagant (recipe depth): depth ≤3 only tints/sizes, 4–8 also gives
+ * traits, 9+ gives RADIANT traits (bigger, glowing, animated) and a deeper tint.
+ * Resets: soap/bath wash the tint, mirror undoes size and head, egg/rebirth/reset restores all.
  */
-const LOOK_COLORS={warm:[255,138,61],cool:[74,168,255],green:[79,191,90],metal:[150,165,180],purple:[160,112,224],gold:[232,192,64],pink:[255,143,192]};
-const TINT_NAME={warm:'Warm',cool:'Cool',green:'Leafy',metal:'Metallic',purple:'Mystic',gold:'Golden',pink:'Rosy'};
-const TRAIT_NAME={leaf:'Leaf sprout',flower:'Flower',flame:'Little flame',flake:'Snowflake',antenna:'Antenna',star:'Star',crown:'Crown',horns:'Horns',wings:'Wings',fin:'Fin',sparkle:'Sparkles',bubbles:'Bubbles',hearts:'Hearts',notes:'Music notes'};
-const TINTS=[['warm',/fire|lava|flame|ember|magma|volcano|\bsun|desert|chili|pepper|torch|heat|lantern/],['cool',/water|ice|snow|frost|glacier|ocean|\bsea\b|rain|river|lake|wave|aqua/],['metal',/metal|steel|iron|robot|machine|computer|gear|chip|engine|console|circuit/],['gold',/gold|treasure|coin|trophy|crown|jewel/],['purple',/magic|crystal|potion|spell|ghost|mystic|wizard|witch|arcane|dream|fairy/],['pink',/candy|sugar|cake|sweet|love|heart|blossom|cherry|cupcake/],['green',/plant|leaf|tree|grass|flower|moss|forest|seed|herb|garden|vine|cactus/]];
+const LOOK_COLORS={warm:[255,138,61],cool:[74,168,255],green:[79,191,90],metal:[150,165,180],purple:[160,112,224],gold:[232,192,64],pink:[255,143,192],dark:[70,48,92],light:[255,250,232]};
+const TINT_NAME={warm:'Warm',cool:'Cool',green:'Leafy',metal:'Metallic',purple:'Mystic',gold:'Golden',pink:'Rosy',dark:'Shadowy',light:'Bright'};
+const TRAIT_NAME={leaf:'Leaf sprout',flower:'Flower',flame:'Little flame',flake:'Snowflake',antenna:'Antenna',star:'Star',crown:'Crown','devil-horns':'Devil horns','dragon-horns':'Dragon horns',halo:'Halo','bat-wings':'Bat wings','feather-wings':'Feathered wings','butterfly-wings':'Butterfly wings','dragon-wings':'Dragon wings','fire-wings':'Fire wings',fin:'Fin','devil-tail':'Devil tail','fox-tail':'Fox tail','fish-tail':'Fish tail','dragon-tail':'Dragon tail',sparkle:'Sparkles',bubbles:'Bubbles',hearts:'Hearts',notes:'Music notes',embers:'Embers'};
+const LOOK_THEMES=[
+ ['demon',/\b(demon|devil|imp|fiend|lucifer|hellhound|inferno|underworld|diablo)\b/,{tint:'dark',head:'devil-horns',back:'bat-wings',tail:'devil-tail'}],
+ ['vampire',/\b(vampire|dracula|bat)\b/,{tint:'dark',back:'bat-wings'}],
+ ['angel',/\b(angel|angels|heaven|holy|divine|saint|halo|cherub|seraph)\b/,{tint:'light',head:'halo',back:'feather-wings'}],
+ ['phoenix',/\bphoenix\b/,{tint:'warm',head:'flame',back:'fire-wings',aura:'embers'}],
+ ['dragon',/\b(dragon|dragons|wyvern|drake)\b/,{tint:'green',head:'dragon-horns',back:'dragon-wings',tail:'dragon-tail'}],
+ ['fairy',/\b(fairy|pixie|sprite|butterfly|moth)\b/,{tint:'pink',back:'butterfly-wings',aura:'sparkle'}],
+ ['ocean',/\b(fish|mermaid|shark|whale|dolphin|seahorse|octopus|squid|koi)\b/,{tint:'cool',back:'fin',tail:'fish-tail',aura:'bubbles'}],
+ ['fox',/\b(fox|kitsune|wolf)\b/,{tail:'fox-tail'}],
+ ['robot',/\b(robot|android|cyborg|mech|robotics)\b/,{tint:'metal',head:'antenna'}],
+ ['bird',/\b(bird|eagle|owl|parrot|feather|pegasus|griffin|swan|dove)\b/,{back:'feather-wings'}],
+ ['ice',/\b(ice|snow|frost|glacier|yeti|blizzard|iceberg)\b/,{tint:'cool',head:'flake'}],
+ ['fire',/\b(fire|flame|lava|magma|volcano|ember|torch|wildfire|campfire)\b/,{tint:'warm',head:'flame'}],
+ ['flower',/\b(flower|rose|tulip|blossom|daisy|sunflower|lily|orchid)\b/,{tint:'pink',head:'flower'}],
+ ['plant',/\b(leaf|tree|plant|sprout|seed|herb|vine|bonsai|forest|moss)\b/,{tint:'green',head:'leaf'}],
+ ['space',/\b(star|stars|planet|galaxy|comet|moon|astronaut|rocket|nebula)\b/,{tint:'purple',head:'star'}],
+ ['royal',/\b(king|queen|crown|royal|prince|princess|throne)\b/,{tint:'gold',head:'crown'}],
+ ['love',/\b(love|heart|valentine|romance)\b/,{tint:'pink',aura:'hearts'}],
+ ['music',/\b(music|song|guitar|piano|drum|melody|vinyl|concert)\b/,{aura:'notes'}],
+ ['magic',/\b(magic|crystal|potion|spell|wizard|witch|arcane|gem|diamond)\b/,{tint:'purple',aura:'sparkle'}],
+ ['bubbles',/\b(bubble|bubbles|soda|fizz|foam)\b/,{aura:'bubbles'}],
+ ['metal',/\b(metal|steel|iron|gear|machine|computer|console|engine)\b/,{tint:'metal'}],
+ ['gold',/\b(gold|golden|treasure|coin|trophy|jewel)\b/,{tint:'gold'}],
+ ['sweet',/\b(candy|sugar|cake|sweet|cupcake|cookie)\b/,{tint:'pink'}],
+ ['water',/\b(water|rain|river|lake|ocean|sea|wave)\b/,{tint:'cool'}]];
 const FAMILY_TINT={nature:'green',fantasy:'purple',mythology:'gold',games:'metal'};
-const TRAITS={head:[['flower',/flower|rose|tulip|blossom|daisy|sunflower|lily|orchid/],['leaf',/leaf|sprout|tree|plant|seed|herb|vine|bonsai/],['flame',/fire|flame|torch|ember|candle|campfire/],['flake',/ice|snow|frost|glacier|blizzard/],['antenna',/robot|radio|antenna|computer|satellite|signal|android/],['star',/star|space|planet|galaxy|comet|moon|astro|rocket/],['crown',/king|queen|crown|royal|prince|throne|castle/],['horns',/dragon|devil|demon|bull|goat|horn|minotaur/]],
- back:[['wings',/bird|feather|wing|angel|butterfly|\bbat\b|eagle|owl|fairy|pegasus|phoenix|griffin|parrot/],['fin',/fish|shark|whale|dolphin|mermaid|\bfin\b|seahorse/]],
- aura:[['sparkle',/crystal|diamond|magic|glitter|\bgem|sparkle|stardust/],['bubbles',/bubble|soda|fizz|foam/],['hearts',/love|heart|romance|kiss|valentine/],['notes',/music|song|guitar|piano|drum|melody|vinyl/]]};
-const defaultLook=()=>({tint:null,k:0,size:0,head:null,back:null,aura:null});
+const lookTier=d=>!Number.isFinite(d)?2:d>=9?3:d>=4?2:1;
+const defaultLook=()=>({tint:null,k:0,size:0,head:null,back:null,tail:null,aura:null,lux:{}});
 const mix=(a,b,t)=>a.map((v,i)=>Math.round(v+(b[i]-v)*t));
-function lookAfterMeal(look,name,family='',category=''){
- const L={...defaultLook(),...(look||{})};const t=` ${String(name||'').toLowerCase()} `;const notes=[];
- if(/phoenix|rebirth|\begg\b|reset|origin/.test(t)&&(L.k>0||L.size||L.head||L.back||L.aura)){notes.push('Back to its natural look');return {look:defaultLook(),notes};}
- if(/soap|bath|shower|wash|sponge|clean/.test(t)&&L.k>0){L.k=Math.round(L.k*0.4*100)/100;if(L.k<0.04){L.k=0;L.tint=null;}L.aura=null;notes.push('Washed some colour off');}
+function lookAfterMeal(look,name,family='',category='',depth){
+ const L={...defaultLook(),...(look||{})};L.lux={...(L.lux||{})};const t=` ${String(name||'').toLowerCase()} `;const notes=[];const tier=lookTier(depth);
+ if(/rebirth|\begg\b|reset|reincarnat/.test(t)&&(L.k>0||L.size||L.head||L.back||L.tail||L.aura)){notes.push('Back to its natural look');return {look:defaultLook(),notes};}
+ const wash=/soap|bath|shower|wash|sponge|clean/.test(t);
+ if(wash&&L.k>0){L.k=Math.round(L.k*0.4*100)/100;if(L.k<0.04){L.k=0;L.tint=null;}L.aura=null;notes.push('Washed some colour off');}
  if(/mirror|reflection/.test(t)&&(L.size||L.head)){L.size=Math.round(L.size*0.4*100)/100;L.head=null;notes.push('Looks more like itself');}
- const tk=(TINTS.find(([,re])=>re.test(t))||[])[0]||FAMILY_TINT[family];
- if(tk&&!/soap|bath|shower|wash/.test(t)){const c=LOOK_COLORS[tk];L.tint=L.tint&&L.k>0?mix(L.tint,c,0.4):c;const was=L.k;L.k=Math.min(0.45,Math.round((L.k+0.06)*100)/100);if(L.k>was)notes.push(`A little more ${TINT_NAME[tk].toLowerCase()}`);}
- const grow=category==='food'||/food|cake|bread|pie|burger|pizza|meal|feast|mountain|whale|giant|elephant|huge|titan|mammoth/.test(t),shrink=/\bair\b|feather|cloud|bubble|tiny|mini|small|\bant\b|mouse|dust|pebble/.test(t);
+ const theme=LOOK_THEMES.find(([,re])=>re.test(t));const set=theme?theme[2]:{};
+ const tk=set.tint||FAMILY_TINT[family];
+ if(tk&&!wash){const c=LOOK_COLORS[tk];const step=[0,0.05,0.07,0.1][tier],cap=tier===3?0.62:0.5;L.tint=L.tint&&L.k>0?mix(L.tint,c,tier===3?0.6:0.4):c;const was=L.k;L.k=Math.min(cap,Math.round((L.k+step)*100)/100);if(L.k>was)notes.push(`A little more ${TINT_NAME[tk].toLowerCase()}`);}
+ const grow=category==='food'||/\b(food|cake|bread|pie|burger|pizza|meal|feast|mountain|whale|giant|elephant|huge|titan|mammoth)\b/.test(t),shrink=/\b(air|feather|cloud|bubble|tiny|mini|small|ant|mouse|dust|pebble)\b/.test(t);
  if(grow&&!shrink&&L.size<0.15){L.size=Math.min(0.15,Math.round((L.size+0.02)*100)/100);notes.push('Grew a bit');}
  else if(shrink&&!grow&&L.size>-0.15){L.size=Math.max(-0.15,Math.round((L.size-0.02)*100)/100);notes.push('Got a bit smaller');}
- for(const slot of ['head','back','aura']){const hit=TRAITS[slot].find(([,re])=>re.test(t));if(hit&&L[slot]!==hit[0]){L[slot]=hit[0];notes.push(`New: ${TRAIT_NAME[hit[0]]}!`);}}
- return {look:L,notes};
+ if(tier>=2)for(const slot of ['head','back','tail','aura']){const v=set[slot];if(!v)continue;const lux=tier===3;if(L[slot]!==v||(lux&&!L.lux[slot])){L[slot]=v;if(lux)L.lux[slot]=1;else delete L.lux[slot];notes.push(`${lux?'Radiant ':'New: '}${TRAIT_NAME[v]}!`);}}
+ return {look:L,notes,theme:theme?.[0]||null,tier};
 }
 function lookLabel(look){if(!look)return '';const out=[];const tk=look.tint&&look.k>0.02?Object.entries(LOOK_COLORS).sort((a,b)=>dist(a[1],look.tint)-dist(b[1],look.tint))[0][0]:null;
- if(tk)out.push(`${TINT_NAME[tk]} tint`);for(const s of ['head','back','aura'])if(look[s])out.push(TRAIT_NAME[look[s]]);if(Math.abs(look.size||0)>=0.01)out.push(`Size ${look.size>0?'+':''}${Math.round(look.size*100)}%`);return out.join(' · ');}
+ if(tk)out.push(`${TINT_NAME[tk]} tint`);for(const s of ['head','back','tail','aura'])if(look[s])out.push((look.lux?.[s]?'✦ ':'')+TRAIT_NAME[look[s]]);if(Math.abs(look.size||0)>=0.01)out.push(`Size ${look.size>0?'+':''}${Math.round(look.size*100)}%`);return out.join(' · ');}
 const dist=(a,b)=>a.reduce((n,v,i)=>n+(v-b[i])**2,0);
 /** Luminance-preserving tint matrix for an SVG feColorMatrix. */
 function tintMatrix(rgb,k){const [r,g,b]=rgb.map(v=>v/255*1.15);const T=[[.3*r,.59*r,.11*r],[.3*g,.59*g,.11*g],[.3*b,.59*b,.11*b]];const m=[];for(let i=0;i<3;i++){for(let j=0;j<3;j++)m.push(((1-k)*(i===j?1:0)+k*T[i][j]).toFixed(3));m.push('0','0');}m.push('0','0','0','1','0');return m.join(' ');}
-const S='#657D89';
-const TRAIT_SVG={
- leaf:s=>`<path d="M0 0v${-s*.35}" stroke="#3f7d3a" stroke-width="${s*.08}"/><path d="M0 ${-s*.3}C${-s*.55} ${-s*.45} ${-s*.35} ${-s*1.1} 0 ${-s*1.15}C${s*.35} ${-s*1.1} ${s*.55} ${-s*.45} 0 ${-s*.3}Z" fill="#7cc463" stroke="${S}" stroke-width="${s*.07}"/>`,
- flower:s=>[0,72,144,216,288].map(a=>`<circle cx="${(Math.cos(a*Math.PI/180)*s*.28).toFixed(1)}" cy="${(-s*.55+Math.sin(a*Math.PI/180)*s*.28).toFixed(1)}" r="${s*.2}" fill="#f7a6c8" stroke="${S}" stroke-width="${s*.05}"/>`).join('')+`<circle cx="0" cy="${-s*.55}" r="${s*.16}" fill="#f3d266" stroke="${S}" stroke-width="${s*.05}"/>`,
- flame:s=>`<path d="M0 0C${-s*.45} ${-s*.2} ${-s*.3} ${-s*.7} 0 ${-s*1.1}C${s*.3} ${-s*.7} ${s*.45} ${-s*.2} 0 0Z" fill="#ff9a3d" stroke="${S}" stroke-width="${s*.07}"/><path d="M0 ${-s*.12}C${-s*.2} ${-s*.25} ${-s*.12} ${-s*.5} 0 ${-s*.65}C${s*.12} ${-s*.5} ${s*.2} ${-s*.25} 0 ${-s*.12}Z" fill="#ffe27a"/>`,
- flake:s=>[0,60,120].map(a=>`<path d="M${(-Math.cos(a*Math.PI/180)*s*.4).toFixed(1)} ${(-s*.5-Math.sin(a*Math.PI/180)*s*.4).toFixed(1)}L${(Math.cos(a*Math.PI/180)*s*.4).toFixed(1)} ${(-s*.5+Math.sin(a*Math.PI/180)*s*.4).toFixed(1)}" stroke="#8fd0f5" stroke-width="${s*.12}" stroke-linecap="round"/>`).join(''),
- antenna:s=>`<path d="M0 0L${s*.1} ${-s*.8}" stroke="${S}" stroke-width="${s*.08}"/><circle cx="${s*.1}" cy="${-s*.85}" r="${s*.16}" fill="#e0675a" stroke="${S}" stroke-width="${s*.06}"/>`,
- star:s=>`<path d="${[0,1,2,3,4,5,6,7,8,9].map(i=>{const r=i%2?s*.2:s*.45,a=-Math.PI/2+i*Math.PI/5;return (i?'L':'M')+(Math.cos(a)*r).toFixed(1)+' '+(-s*.55+Math.sin(a)*r).toFixed(1);}).join('')}Z" fill="#f3d266" stroke="${S}" stroke-width="${s*.06}"/>`,
- crown:s=>`<path d="M${-s*.42} 0L${-s*.42} ${-s*.5}L${-s*.2} ${-s*.25}L0 ${-s*.6}L${s*.2} ${-s*.25}L${s*.42} ${-s*.5}L${s*.42} 0Z" fill="#f1c26b" stroke="${S}" stroke-width="${s*.07}"/>`,
- horns:s=>`<path d="M${-s*.35} 0Q${-s*.55} ${-s*.4} ${-s*.3} ${-s*.6}Q${-s*.3} ${-s*.25} ${-s*.12} 0Z" fill="#efe3cf" stroke="${S}" stroke-width="${s*.06}"/><path d="M${s*.35} 0Q${s*.55} ${-s*.4} ${s*.3} ${-s*.6}Q${s*.3} ${-s*.25} ${s*.12} 0Z" fill="#efe3cf" stroke="${S}" stroke-width="${s*.06}"/>`};
+const S='#4a4a5a';
+const f1=n=>Math.round(n*10)/10;
+// head traits: drawn around (0,0) = top centre of the head, size s
+const HEAD={
+ leaf:s=>`<path d="M0 0v${f1(-s*.35)}" stroke="#3f7d3a" stroke-width="${f1(s*.08)}"/><path d="M0 ${f1(-s*.3)}C${f1(-s*.55)} ${f1(-s*.45)} ${f1(-s*.35)} ${f1(-s*1.1)} 0 ${f1(-s*1.15)}C${f1(s*.35)} ${f1(-s*1.1)} ${f1(s*.55)} ${f1(-s*.45)} 0 ${f1(-s*.3)}Z" fill="#7cc463" stroke="${S}" stroke-width="${f1(s*.07)}"/>`,
+ flower:s=>[0,72,144,216,288].map(a=>`<circle cx="${f1(Math.cos(a*Math.PI/180)*s*.28)}" cy="${f1(-s*.55+Math.sin(a*Math.PI/180)*s*.28)}" r="${f1(s*.2)}" fill="#f7a6c8" stroke="${S}" stroke-width="${f1(s*.05)}"/>`).join('')+`<circle cx="0" cy="${f1(-s*.55)}" r="${f1(s*.16)}" fill="#f3d266" stroke="${S}" stroke-width="${f1(s*.05)}"/>`,
+ flame:s=>`<path d="M0 0C${f1(-s*.45)} ${f1(-s*.2)} ${f1(-s*.3)} ${f1(-s*.7)} 0 ${f1(-s*1.1)}C${f1(s*.3)} ${f1(-s*.7)} ${f1(s*.45)} ${f1(-s*.2)} 0 0Z" fill="#ff9a3d" stroke="${S}" stroke-width="${f1(s*.07)}"/><path d="M0 ${f1(-s*.12)}C${f1(-s*.2)} ${f1(-s*.25)} ${f1(-s*.12)} ${f1(-s*.5)} 0 ${f1(-s*.65)}C${f1(s*.12)} ${f1(-s*.5)} ${f1(s*.2)} ${f1(-s*.25)} 0 ${f1(-s*.12)}Z" fill="#ffe27a"/>`,
+ flake:s=>[0,60,120].map(a=>`<path d="M${f1(-Math.cos(a*Math.PI/180)*s*.4)} ${f1(-s*.5-Math.sin(a*Math.PI/180)*s*.4)}L${f1(Math.cos(a*Math.PI/180)*s*.4)} ${f1(-s*.5+Math.sin(a*Math.PI/180)*s*.4)}" stroke="#8fd0f5" stroke-width="${f1(s*.12)}" stroke-linecap="round"/>`).join(''),
+ antenna:s=>`<path d="M0 0L${f1(s*.1)} ${f1(-s*.8)}" stroke="${S}" stroke-width="${f1(s*.08)}"/><circle cx="${f1(s*.1)}" cy="${f1(-s*.85)}" r="${f1(s*.16)}" fill="#e0675a" stroke="${S}" stroke-width="${f1(s*.06)}"/>`,
+ star:s=>`<path d="${[0,1,2,3,4,5,6,7,8,9].map(i=>{const r=i%2?s*.2:s*.45,a=-Math.PI/2+i*Math.PI/5;return (i?'L':'M')+f1(Math.cos(a)*r)+' '+f1(-s*.55+Math.sin(a)*r);}).join('')}Z" fill="#f3d266" stroke="${S}" stroke-width="${f1(s*.06)}"/>`,
+ crown:s=>`<path d="M${f1(-s*.42)} 0L${f1(-s*.42)} ${f1(-s*.5)}L${f1(-s*.2)} ${f1(-s*.25)}L0 ${f1(-s*.6)}L${f1(s*.2)} ${f1(-s*.25)}L${f1(s*.42)} ${f1(-s*.5)}L${f1(s*.42)} 0Z" fill="#f1c26b" stroke="${S}" stroke-width="${f1(s*.07)}"/>`,
+ 'devil-horns':s=>[-1,1].map(d=>`<path d="M${f1(d*s*.18)} ${f1(s*.05)}C${f1(d*s*.3)} ${f1(-s*.35)} ${f1(d*s*.55)} ${f1(-s*.55)} ${f1(d*s*.62)} ${f1(-s*.85)}C${f1(d*s*.42)} ${f1(-s*.6)} ${f1(d*s*.15)} ${f1(-s*.45)} ${f1(d*s*.02)} ${f1(-s*.05)}Z" fill="#c8303a" stroke="${S}" stroke-width="${f1(s*.06)}"/>`).join(''),
+ 'dragon-horns':s=>[-1,1].map(d=>`<path d="M${f1(d*s*.15)} ${f1(s*.05)}Q${f1(d*s*.35)} ${f1(-s*.5)} ${f1(d*s*.8)} ${f1(-s*.6)}Q${f1(d*s*.4)} ${f1(-s*.25)} ${f1(d*s*.35)} ${f1(s*.05)}Z" fill="#efe3cf" stroke="${S}" stroke-width="${f1(s*.06)}"/>`).join(''),
+ halo:s=>`<ellipse cx="0" cy="${f1(-s*.55)}" rx="${f1(s*.5)}" ry="${f1(s*.16)}" fill="none" stroke="#f3d266" stroke-width="${f1(s*.13)}"/><ellipse cx="0" cy="${f1(-s*.55)}" rx="${f1(s*.5)}" ry="${f1(s*.16)}" fill="none" stroke="#fff6c4" stroke-width="${f1(s*.04)}"/>`};
+// back traits: one wing drawn to the LEFT of (0,0) (shoulder), mirrored for the right
+const WING={
+ 'bat-wings':s=>`<path d="M0 0C${f1(-s*.3)} ${f1(-s*.6)} ${f1(-s*.8)} ${f1(-s*.75)} ${f1(-s*1.1)} ${f1(-s*.45)}C${f1(-s*.95)} ${f1(-s*.2)} ${f1(-s*.85)} ${f1(-s*.1)} ${f1(-s*.75)} ${f1(s*.05)}C${f1(-s*.62)} ${f1(-s*.08)} ${f1(-s*.5)} ${f1(-s*.05)} ${f1(-s*.42)} ${f1(s*.12)}C${f1(-s*.3)} ${f1(s*.02)} ${f1(-s*.15)} ${f1(s*.05)} 0 ${f1(s*.15)}Z" fill="#5b3a6e" stroke="${S}" stroke-width="${f1(s*.04)}"/><path d="M0 0L${f1(-s*1.1)} ${f1(-s*.45)}M${f1(-s*.25)} ${f1(-s*.25)}L${f1(-s*.75)} ${f1(s*.05)}M${f1(-s*.2)} ${f1(-s*.1)}L${f1(-s*.42)} ${f1(s*.12)}" stroke="#2f1e3b" stroke-width="${f1(s*.03)}"/>`,
+ 'feather-wings':s=>[0,1,2].map(i=>`<ellipse cx="${f1(-s*(.35+i*.18))}" cy="${f1(-s*(.25-i*.07))}" rx="${f1(s*(.42-i*.06))}" ry="${f1(s*.16)}" transform="rotate(${-20+i*12} ${f1(-s*(.35+i*.18))} ${f1(-s*(.25-i*.07))})" fill="#fbfaf4" stroke="${S}" stroke-width="${f1(s*.035)}"/>`).join(''),
+ 'butterfly-wings':s=>`<path d="M0 0C${f1(-s*.2)} ${f1(-s*.7)} ${f1(-s*.95)} ${f1(-s*.8)} ${f1(-s*.85)} ${f1(-s*.25)}C${f1(-s*.8)} ${f1(-s*.05)} ${f1(-s*.35)} ${f1(-s*.02)} 0 0Z" fill="#f7a6c8" stroke="${S}" stroke-width="${f1(s*.04)}"/><path d="M0 ${f1(s*.02)}C${f1(-s*.35)} ${f1(s*.05)} ${f1(-s*.7)} ${f1(s*.15)} ${f1(-s*.55)} ${f1(s*.42)}C${f1(-s*.35)} ${f1(s*.55)} ${f1(-s*.1)} ${f1(s*.3)} 0 ${f1(s*.05)}Z" fill="#a7d3f2" stroke="${S}" stroke-width="${f1(s*.04)}"/><circle cx="${f1(-s*.55)}" cy="${f1(-s*.38)}" r="${f1(s*.1)}" fill="#fff"/>`,
+ 'dragon-wings':s=>`<path d="M0 0L${f1(-s*.35)} ${f1(-s*.7)}L${f1(-s*1.15)} ${f1(-s*.55)}L${f1(-s*.9)} ${f1(-s*.25)}L${f1(-s*1)} 0L${f1(-s*.65)} ${f1(-s*.02)}L${f1(-s*.62)} ${f1(s*.18)}L${f1(-s*.3)} ${f1(s*.08)}L0 ${f1(s*.18)}Z" fill="#5e9e5a" stroke="${S}" stroke-width="${f1(s*.04)}"/><path d="M${f1(-s*.35)} ${f1(-s*.7)}L${f1(-s*.9)} ${f1(-s*.25)}M${f1(-s*.35)} ${f1(-s*.7)}L${f1(-s*.65)} ${f1(-s*.02)}M${f1(-s*.35)} ${f1(-s*.7)}L${f1(-s*.3)} ${f1(s*.08)}" stroke="#2f5a2e" stroke-width="${f1(s*.03)}"/>`,
+ 'fire-wings':s=>[0,1,2].map(i=>`<path d="M0 0C${f1(-s*(.3+i*.2))} ${f1(-s*(.75-i*.12))} ${f1(-s*(.75+i*.18))} ${f1(-s*(.5-i*.15))} ${f1(-s*(.9+i*.15))} ${f1(-s*(.15-i*.12))}C${f1(-s*(.55+i*.1))} ${f1(-s*(.12-i*.05))} ${f1(-s*.3)} ${f1(s*.02)} 0 ${f1(s*.12)}Z" fill="${['#ffcf5a','#ff9a3d','#e0573a'][i]}" stroke="${S}" stroke-width="${f1(s*.03)}"/>`).join('')};
+// tail traits: drawn from (0,0) (lower back) towards the LEFT
+const TAIL={
+ 'devil-tail':s=>`<path d="M0 0C${f1(-s*.4)} ${f1(s*.1)} ${f1(-s*.5)} ${f1(-s*.35)} ${f1(-s*.8)} ${f1(-s*.45)}" fill="none" stroke="#7a2230" stroke-width="${f1(s*.09)}" stroke-linecap="round"/><path d="M${f1(-s*.8)} ${f1(-s*.45)}l${f1(-s*.12)} ${f1(-s*.2)}l${f1(s*.28)} ${f1(s*.02)}Z" fill="#c8303a" stroke="${S}" stroke-width="${f1(s*.04)}" transform="rotate(-20 ${f1(-s*.8)} ${f1(-s*.45)})"/>`,
+ 'fox-tail':s=>`<path d="M0 0C${f1(-s*.45)} ${f1(s*.05)} ${f1(-s*.85)} ${f1(-s*.25)} ${f1(-s*.75)} ${f1(-s*.7)}C${f1(-s*.5)} ${f1(-s*.45)} ${f1(-s*.25)} ${f1(-s*.25)} 0 ${f1(-s*.15)}Z" fill="#e8834a" stroke="${S}" stroke-width="${f1(s*.04)}"/><path d="M${f1(-s*.75)} ${f1(-s*.7)}C${f1(-s*.7)} ${f1(-s*.5)} ${f1(-s*.6)} ${f1(-s*.42)} ${f1(-s*.5)} ${f1(-s*.42)}C${f1(-s*.55)} ${f1(-s*.55)} ${f1(-s*.65)} ${f1(-s*.65)} ${f1(-s*.75)} ${f1(-s*.7)}Z" fill="#fbf6ec"/>`,
+ 'fish-tail':s=>`<path d="M0 0C${f1(-s*.25)} ${f1(-s*.05)} ${f1(-s*.45)} ${f1(-s*.1)} ${f1(-s*.55)} ${f1(-s*.15)}L${f1(-s*.85)} ${f1(-s*.45)}L${f1(-s*.78)} ${f1(-s*.1)}L${f1(-s*.9)} ${f1(s*.2)}L${f1(-s*.55)} ${f1(-s*.02)}C${f1(-s*.4)} ${f1(s*.05)} ${f1(-s*.2)} ${f1(s*.08)} 0 ${f1(s*.08)}Z" fill="#6fb5d8" stroke="${S}" stroke-width="${f1(s*.04)}"/>`,
+ 'dragon-tail':s=>`<path d="M0 0C${f1(-s*.45)} ${f1(s*.15)} ${f1(-s*.7)} ${f1(-s*.1)} ${f1(-s*.95)} ${f1(-s*.35)}C${f1(-s*.65)} ${f1(-s*.2)} ${f1(-s*.4)} ${f1(-s*.05)} 0 ${f1(-s*.15)}Z" fill="#5e9e5a" stroke="${S}" stroke-width="${f1(s*.04)}"/>${[0.3,0.55,0.78].map(k=>`<path d="M${f1(-s*k)} ${f1(-s*(.08+k*.2))}l${f1(s*.05)} ${f1(-s*.14)}l${f1(s*.07)} ${f1(s*.12)}Z" fill="#f3d266" stroke="${S}" stroke-width="${f1(s*.025)}"/>`).join('')}`};
 function applyLookSvg(svg,look,key){
  if(!svg)return;svg.querySelectorAll('[data-acc="look"]').forEach(n=>n.remove());
- const L=look||defaultLook();const k=L.tint&&L.k>0.02;
- if(k){let defs=document.getElementById('lookDefs');if(!defs){defs=document.createElementNS('http://www.w3.org/2000/svg','svg');defs.id='lookDefs';defs.setAttribute('width','0');defs.setAttribute('height','0');defs.style.position='absolute';document.body.append(defs);}
+ const L={...defaultLook(),...(look||{})};const lux=L.lux||{};const tinted=L.tint&&L.k>0.02;
+ if(tinted){let defs=document.getElementById('lookDefs');if(!defs){defs=document.createElementNS('http://www.w3.org/2000/svg','svg');defs.id='lookDefs';defs.setAttribute('width','0');defs.setAttribute('height','0');defs.style.position='absolute';document.body.append(defs);}
   const id='look-'+String(key).replace(/[^a-z0-9]/gi,'_');let f=defs.querySelector('#'+id);if(!f){f=document.createElementNS('http://www.w3.org/2000/svg','filter');f.id=id;f.setAttribute('color-interpolation-filters','sRGB');f.innerHTML='<feColorMatrix type="matrix"/>';defs.append(f);}
   f.firstChild.setAttribute('values',tintMatrix(L.tint,L.k));svg.style.filter=`url(#${id})`;}else svg.style.filter='';
- svg.style.scale=Math.abs(L.size||0)>=0.01?String(1+L.size):'';svg.style.transformOrigin='50% 90%';
- const add=(parent,html,before=false)=>{const g=document.createElementNS('http://www.w3.org/2000/svg','g');g.setAttribute('data-acc','look');g.innerHTML=html;before?parent.insertBefore(g,parent.firstChild):parent.append(g);return g;};
+ svg.style.scale=Math.abs(L.size||0)>=0.01?String(1+L.size):'';svg.style.transformOrigin='50% 90%';svg.style.overflow='visible';
+ const add=(parent,html,before=false,cls='')=>{const g=document.createElementNS('http://www.w3.org/2000/svg','g');g.setAttribute('data-acc','look');if(cls)g.setAttribute('class',cls);g.innerHTML=html;before?parent.insertBefore(g,parent.firstChild):parent.append(g);return g;};
  const bb=el=>{try{const b=el.getBBox();return b.width?b:null;}catch{return null;}};
  const head=svg.querySelector('[data-part="head"]')||svg.querySelector('[data-part="body"]');const body=svg.querySelector('[data-part="body"]')||head;
- if(L.head&&head){const b=bb(head);if(b){const s=Math.max(8,b.width*.32);add(head,`<g transform="translate(${(b.x+b.width/2).toFixed(1)} ${(b.y+s*.15).toFixed(1)})" stroke-linejoin="round" stroke-linecap="round">${TRAIT_SVG[L.head](s)}</g>`);}}
- if(L.back&&body){const b=bb(body);if(b){const s=b.width;add(body,L.back==='wings'?`<g fill="#f4efe6" stroke="${S}" stroke-width="${(s*.03).toFixed(1)}"><ellipse cx="${(b.x+s*.02).toFixed(1)}" cy="${(b.y+b.height*.35).toFixed(1)}" rx="${(s*.32).toFixed(1)}" ry="${(s*.16).toFixed(1)}" transform="rotate(-25 ${(b.x+s*.02).toFixed(1)} ${(b.y+b.height*.35).toFixed(1)})"/><ellipse cx="${(b.x+s*.98).toFixed(1)}" cy="${(b.y+b.height*.35).toFixed(1)}" rx="${(s*.32).toFixed(1)}" ry="${(s*.16).toFixed(1)}" transform="rotate(25 ${(b.x+s*.98).toFixed(1)} ${(b.y+b.height*.35).toFixed(1)})"/></g>`:`<path d="M${(b.x+s*.5).toFixed(1)} ${(b.y+b.height*.1).toFixed(1)}l${(s*.18).toFixed(1)} ${(-s*.3).toFixed(1)}l${(s*.12).toFixed(1)} ${(s*.32).toFixed(1)}Z" fill="#6fb5d8" stroke="${S}" stroke-width="${(s*.03).toFixed(1)}"/>`,true);}}
- if(L.aura){const b=bb(svg);if(b){const pts=[[b.x-b.width*.05,b.y+b.height*.2],[b.x+b.width*1.02,b.y+b.height*.35],[b.x+b.width*.15,b.y+b.height*.85]];const s=Math.max(5,b.width*.09);
-  add(svg,`<g class="look-aura is-${L.aura}">${pts.map(([x,y],i)=>`<g transform="translate(${x.toFixed(1)} ${y.toFixed(1)})" style="animation-delay:${i*.4}s">${L.aura==='sparkle'?`<path d="M0 ${-s}L${s*.25} ${-s*.25}L${s} 0L${s*.25} ${s*.25}L0 ${s}L${-s*.25} ${s*.25}L${-s} 0L${-s*.25} ${-s*.25}Z" fill="#ffe27a"/>`:L.aura==='bubbles'?`<circle r="${s*.6}" fill="rgba(170,220,250,.5)" stroke="#8fd0f5" stroke-width="${s*.15}"/>`:L.aura==='hearts'?`<path d="M0 ${s*.6}C${-s} 0 ${-s*.6} ${-s*.8} 0 ${-s*.3}C${s*.6} ${-s*.8} ${s} 0 0 ${s*.6}Z" fill="#ef7f9b"/>`:`<text font-size="${s*1.8}" fill="#9b7fc4" text-anchor="middle">♪</text>`}</g>`).join('')}</g>`);}}
+ const big=slot=>lux[slot]?1.4:1,cls=slot=>lux[slot]?'look-lux':'';
+ if(L.head&&HEAD[L.head]&&head){const b=bb(head);if(b){const s=Math.max(8,b.width*(/horns/.test(L.head)?.42:.32))*big('head');add(head,`<g transform="translate(${f1(b.x+b.width/2)} ${f1(b.y+s*.12)})" stroke-linejoin="round" stroke-linecap="round">${HEAD[L.head](s)}</g>`,false,cls('head'));}}
+ if((L.back&&(WING[L.back]||L.back==='fin'))&&body){const b=bb(body);if(b){const s=b.width*.5*big('back');
+  if(L.back==='fin')add(body,`<path d="M${f1(b.x+b.width*.45)} ${f1(b.y+b.height*.12)}l${f1(s*.2)} ${f1(-s*.34)}l${f1(s*.14)} ${f1(s*.36)}Z" fill="#6fb5d8" stroke="${S}" stroke-width="${f1(s*.03)}"/>`,true,cls('back'));
+  else{const y=b.y+b.height*.32;add(body,`<g transform="translate(${f1(b.x+b.width*.22)} ${f1(y)})"><g class="look-wing is-l">${WING[L.back](s)}</g></g><g transform="translate(${f1(b.x+b.width*.78)} ${f1(y)}) scale(-1 1)"><g class="look-wing is-r">${WING[L.back](s)}</g></g>`,true,cls('back'));}}}
+ if(L.tail&&TAIL[L.tail]&&body){const b=bb(body);if(b){const s=b.width*.55*big('tail');add(body,`<g transform="translate(${f1(b.x+b.width*.12)} ${f1(b.y+b.height*.72)})" stroke-linejoin="round" stroke-linecap="round"><g class="look-tail">${TAIL[L.tail](s)}</g></g>`,true,cls('tail'));}}
+ if(L.aura){const b=bb(svg);if(b){const n=lux.aura?5:3;const pts=[[-.05,.2],[1.02,.35],[.15,.85],[.9,.9],[.5,-.05]].slice(0,n).map(([x,y])=>[b.x+b.width*x,b.y+b.height*y]);const s=Math.max(5,b.width*.09)*big('aura');
+  const one=a=>a==='sparkle'?`<path d="M0 ${-s}L${f1(s*.25)} ${f1(-s*.25)}L${s} 0L${f1(s*.25)} ${f1(s*.25)}L0 ${s}L${f1(-s*.25)} ${f1(s*.25)}L${-s} 0L${f1(-s*.25)} ${f1(-s*.25)}Z" fill="#ffe27a"/>`:a==='bubbles'?`<circle r="${f1(s*.6)}" fill="rgba(170,220,250,.5)" stroke="#8fd0f5" stroke-width="${f1(s*.15)}"/>`:a==='hearts'?`<path d="M0 ${f1(s*.6)}C${-s} 0 ${f1(-s*.6)} ${f1(-s*.8)} 0 ${f1(-s*.3)}C${f1(s*.6)} ${f1(-s*.8)} ${s} 0 0 ${f1(s*.6)}Z" fill="#ef7f9b"/>`:a==='embers'?`<circle r="${f1(s*.35)}" fill="#ff9a3d"/><circle r="${f1(s*.15)}" fill="#ffe27a"/>`:`<text font-size="${f1(s*1.8)}" fill="#9b7fc4" text-anchor="middle">♪</text>`;
+  add(svg,`<g class="look-aura is-${L.aura}">${pts.map(([x,y],i)=>`<g transform="translate(${f1(x)} ${f1(y)})"><g style="animation-delay:${i*.35}s">${one(L.aura)}</g></g>`).join('')}</g>`,false,cls('aura'));}}
 }
 
 function createCompanionSystem(ctx){
@@ -2962,7 +3018,7 @@ function createCompanionSystem(ctx){
   const changes=plan.map(c=>({...c,...gainStat(p,meta,c.stat,c.amount)}));
   p.mood=Math.min(100,p.mood+(taste==='love'?12:5));p.moodAt=now();p.belly=Math.min(100,p.belly+Math.round((fresh?25:10)*growth(meta.id,'food')));p.bellyAt=now();if(fresh)p.fed[item.id]=now();p.meals++;save();
   // V116: what it eats changes how it looks (refused food never does)
-  const lk=lookAfterMeal(p.look,item.name||uiName(item),familyFor(item),item.category);p.look=lk.look;save();if(lk.notes.length)try{ctx.wear?.(sprite.parentElement||sprite);}catch{}
+  const lk=lookAfterMeal(p.look,item.name||uiName(item),familyFor(item),item.category,ctx.depthOf?.(item.id));p.look=lk.look;save();if(lk.notes.length)try{ctx.wear?.(sprite.parentElement||sprite);}catch{}
   if(changes.length)showStatWindow(meta,changes,2800);
   else{const left=Math.max(1,Math.ceil((FEED_COOLDOWN_MS-(now()-last))/60000));showNoteWindow(meta,fresh?[`<b>${escapeText(uiName(item))}</b> · stats already at max`,`Belly +${Math.round(25*growth(meta.id,'food'))} · Mood +${taste==='love'?12:5}`]:[`Already ate <b>${escapeText(uiName(item))}</b> recently`,`No growth for ${left} min — try another element`,`Belly +${Math.round(10*growth(meta.id,'food'))} · Mood +${taste==='love'?12:5}`],3200);}
   if(lk.notes.length&&statWin){statWin.insertAdjacentHTML('beforeend',lk.notes.map(n=>`<div class="cs-note is-look">✨ ${escapeText(n)}</div>`).join(''));}
@@ -4798,7 +4854,7 @@ function shinyCard(item){return `<p class="shiny-trivia"><span aria-hidden="true
 function showShinyFound(id){const it=byId.get(id);if(!it)return;
  showModal(`<div class="modal-tag shiny-tag">✦ SHINY ELEMENT</div><div class="modal-art is-shiny">${staticArt(it)}</div><h2>Shiny ${escapeText(uiName(it))}</h2>${shinyCard(it)}<div class="modal-milestone">${shiny.size.toLocaleString('en-US')} shiny ${shiny.size===1?'element':'elements'} · ${Math.round(shinyChance()*100)}% chance per combination</div>`);
 }
-const APP_VERSION='1.0.16';
+const APP_VERSION='1.0.17';
 // V83: status line + Google consent (UMP) privacy options, required for EEA players.
 async function refreshAdStatus(){
  const el=$('settingsAdStatus'),bridge=getRewardBridge();
