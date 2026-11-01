@@ -23,6 +23,8 @@ export const STAT_LABEL={hp:'HP',stamina:'Stamina',run:'Run',power:'Power',swim:
 export const STAT_MAX_POINTS=3375;
 export const GRADES=['E','D','C','B','A','S'];
 export const FEED_COOLDOWN_MS=30*60*1000;
+/** V115: feeding value grows with how hard the element is to make (recipe depth). */
+export const feedDepthMult=d=>Number.isFinite(d)?Math.round(Math.min(1.8,0.6+0.12*Math.max(0,d))*100)/100:1;
 export const GIFT_INTERVAL_MS=[150*1000,320*1000];
 export const SELF_FEED_INTERVAL_MS=[200*1000,420*1000];
 export const HUNGRY_SELF_FEED_MS=[60*1000,120*1000];
@@ -249,7 +251,8 @@ export function createCompanionSystem(ctx){
  // ---------- feeding: the companion grabs the element, chews for a few seconds, and a floating
  // stat window shows the bars filling (level-ups flash), like feeding a Chao.
  function likes(meta,item){const fam=familyFor(item);if(fam===meta.family)return 'love';if(meta.family==='games'&&['life','nature','food'].includes(item.category))return 'no';if(['nature','prehistoric'].includes(meta.family)&&['technology','brand','console','portable','computer'].includes(item.category))return 'no';if(meta.family==='anime'&&['material','science'].includes(item.category))return 'no';return 'ok';}
- function feedPlan(meta,item){const fam=familyFor(item);const [main,second]=FAMILY_FEEDS[fam]||['stamina','hp'];const own=fam===meta.family;const mult=isShiny(item.id)?2:1;return own?[{stat:main,amount:40*mult},{stat:second,amount:16*mult}]:[{stat:main,amount:24*mult},{stat:second,amount:10*mult}];}
+ // V115: harder-to-make elements feed more (recipe depth from the four starters): starters ×0.6 … depth 10+ ×1.8.
+ function feedPlan(meta,item){const fam=familyFor(item);const [main,second]=FAMILY_FEEDS[fam]||['stamina','hp'];const own=fam===meta.family;const mult=(isShiny(item.id)?2:1)*feedDepthMult(ctx.depthOf?.(item.id));return own?[{stat:main,amount:40*mult},{stat:second,amount:16*mult}]:[{stat:main,amount:24*mult},{stat:second,amount:10*mult}];}
  let statWin=null,statWinTimer=null,statHideTimer=0;
  function statRow(stat,st,g){return `<div class="cs-row" data-stat="${stat}"><span class="cs-name">${STAT_LABEL[stat]}</span><span class="cs-lv">Lv.<b>${String(st.level).padStart(2,'0')}</b></span><span class="cs-bar"><i class="cs-bar-prog" style="width:${st.bar}%"></i></span><span class="cs-grade" data-grade="${GRADES[g]}">${GRADES[g]}</span></div>`;}
  /** Animated floating window: rows for the touched stats, bars filling from the previous value. */
