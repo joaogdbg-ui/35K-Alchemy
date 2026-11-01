@@ -90,6 +90,11 @@ Preserve 200-per-batch policy and do not start another content release on top of
 
 - **Art redraw wave 3 (V85, done): 3,991 icons** — every remaining older element. All 6,012 pre-V83 elements now use the 2026 art direction (`ART_REDRAW`), plus 200 V83 and 200 V85 originals. Six near-duplicates found by the audit were redrawn; 36 reviewed false alarms are in `tools/art-redraw-reviewed-pairs.json` (the audit now also honours them for V83 comparisons).
 
+## V112 — house objects move while used (1 November 2026)
+- Residents stand in the centre of the piece they use (fractional tiles; lifted into the wheel/onto the bike/seesaw; in front of desks/bags).
+- `motionOf(id,name,effect)`: wheel / treadmill / bike get moving-part overlays drawn in the sprite viewBox (spinning wheel, running belt, turning bike wheels, front/back views); trampoline squashes in time with the bounce, punching bag swings, seesaw/rocking horse rock with the rider, swings swing the rider, hurdles/jump rope hop, pools ripple, music pieces float notes, stoves/fires/tubs steam, globes spin.
+- Fix: the starter Frog (not an unlocked element) could not live in houses — homes now use `companionOwned`.
+
 ## V111 — feeding always shows a window (1 November 2026)
 - Owner bug: sometimes no window after feeding. Cases with no growth showed nothing: same element within the 30-minute cooldown, refused element, maxed stats. `showNoteWindow` now explains each (e.g. "Already ate Air recently · No growth for 23 min — try another element · Belly +10 · Mood +12").
 - Also fixed: the stat window's 400 ms hide timer was not tracked, so a window opened right after another faded could be hidden (`statHideTimer`).

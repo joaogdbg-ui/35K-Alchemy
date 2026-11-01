@@ -24,7 +24,24 @@ export const QUALITY=[{stars:1,pct:10,max:5},{stars:2,pct:15,max:7},{stars:3,pct
 export function pieceQuality(depth){if(depth==null||!Number.isFinite(depth))return QUALITY[4];return QUALITY.find(q=>depth<=q.max);}
 export const starsText=n=>'★'.repeat(n)+'☆'.repeat(5-n);
 export const EFFECT_LABEL={run:'Run',swim:'Swim',power:'Power',fly:'Fly',stamina:'Stamina',hp:'HP',mood:'Mood',food:'Food',discovery:'Discovery',decor:'Decor'};
-const BAND=0.6;   // sprite height band above the footprint (in tiles)
+const BAND=0.6;
+/**
+ * V112: objects really move while a resident uses them. Moving parts are overlaid on the static
+ * sprite in its own viewBox (front/back view): the wheel spins, the treadmill belt runs, bike wheels
+ * turn. Other pieces move as a whole (trampoline squashes, bag swings, seesaw/rocking horse rock,
+ * pool ripples, music notes, steam) and the resident's motion matches.
+ */
+const MOTION_OV={
+ wheel:{vb:'0 0 200 260',svg:`<circle cx="100" cy="124" r="51" fill="#F3E3C3" opacity=".9"/><g><animateTransform attributeName="transform" type="rotate" from="0 100 124" to="360 100 124" dur="1s" repeatCount="indefinite"/>${[0,30,60,90,120,150].map(a=>`<path d="M${100+54*Math.cos(a*Math.PI/180)} ${124+54*Math.sin(a*Math.PI/180)}L${100-54*Math.cos(a*Math.PI/180)} ${124-54*Math.sin(a*Math.PI/180)}" stroke="#B4875A" stroke-width="3"/>`).join('')}<circle cx="100" cy="124" r="54" fill="none" stroke="#9C7A5B" stroke-width="5" stroke-dasharray="14 10"/><circle cx="100" cy="124" r="8" fill="#8E6748" stroke="#657D89" stroke-width="3"/></g>`},
+ treadmill:{vb:'0 0 200 160',svg:`<defs><clipPath id="tmc"><rect x="22" y="84" width="150" height="34" rx="4"/></clipPath></defs><g clip-path="url(#tmc)"><rect x="22" y="84" width="150" height="34" fill="#F4E9D8"/><g><animateTransform attributeName="transform" type="translate" from="0 0" to="-24 0" dur=".35s" repeatCount="indefinite"/>${Array.from({length:9},(_,i)=>`<rect x="${22+i*24}" y="84" width="10" height="34" fill="#C9584A"/>`).join('')}</g></g>`},
+ bike:{vb:'0 0 200 160',svg:[[52,108],[150,108]].map(([x,y])=>`<g><animateTransform attributeName="transform" type="rotate" from="0 ${x} ${y}" to="360 ${x} ${y}" dur=".6s" repeatCount="indefinite"/>${[0,45,90,135].map(a=>`<path d="M${x+28*Math.cos(a*Math.PI/180)} ${y+28*Math.sin(a*Math.PI/180)}L${x-28*Math.cos(a*Math.PI/180)} ${y-28*Math.sin(a*Math.PI/180)}" stroke="#657D89" stroke-width="2.5"/>`).join('')}</g>`).join('')}
+};
+
+export function motionOf(id,name='',effect=''){const t=(id+' '+name).toLowerCase();
+ if(/running-wheel|hamster wheel/.test(t))return 'wheel';if(/treadmill/.test(t))return 'treadmill';if(/bicycle|bike/.test(t))return 'bike';
+ if(/trampoline/.test(t))return 'tramp';if(/punching/.test(t))return 'bag';if(/seesaw|rocking/.test(t))return 'rock';if(/swing|hammock|glider-perch/.test(t))return 'swing';
+ if(/hurdle|jump-rope|balance-beam/.test(t))return 'hop';if(/speaker|piano|vinyl|radio|guitar|drum|music|jukebox/.test(t))return 'music';
+ if(/stove|oven|kettle|campfire|fireplace|hot-spring|bathtub|soaking/.test(t))return 'steam';if(effect==='swim')return 'pool';if(/globe/.test(t))return 'spin';return '';}   // sprite height band above the footprint (in tiles)
 // How a resident uses a piece: stand ON it, or stand IN FRONT of it.
 const FRONT_USE=/shelf|desk|bowl|trough|stove|oven|punching|television|piano|computer|telescope|microscope|globe|aquarium|radio|arcade|pinball|cupboard|pantry|icebox|counter|sink|basin|chest|clock|kettle|jar|box|post|monitor|typewriter|guitar|drum|speaker|vinyl|loom|workbench|easel|wall|barrel|dresser|wardrobe|lamp/i;
 const USE={run:{anim:'walk',cls:'use-run'},swim:{anim:'hopwalk',cls:'use-swim'},power:{anim:'knock',cls:'use-power'},fly:{anim:'jump',cls:'use-fly'},
@@ -219,8 +236,10 @@ export function createHomeSystem(ctx){
  // ---------- residents walk to furniture and use it ----------
  function rig(el,cid){el.innerHTML=sprites[cid]||'';for(const g of el.querySelectorAll('[data-part]')){const p=(g.dataset.pivot||'50 50').split(/\s+/).map(Number);g.style.transformOrigin=`${p[0]}px ${p[1]}px`;g.style.transformBox='view-box';}const svg=el.querySelector('svg');if(svg){svg.setAttribute('width','100%');svg.setAttribute('height','100%');}}
  function useSpot(f,L){const [w,h]=footprint(objects,f);const name=uiName(byId.get(f.id))||'';const layer=layerOf(RS,f.id);
-  if(layer!=='floor'&&FRONT_USE.test(name)){const fy=f.y+h;return {x:f.x+Math.floor((w-1)/2),y:Math.min(L.rows-1,fy),front:true};}
-  return {x:f.x+Math.floor((w-1)/2),y:f.y+Math.floor((h-1)/2),front:false};}
+  // V112: residents stand in the CENTRE of what they use (fractional tiles), not on its first tile.
+  if(layer!=='floor'&&FRONT_USE.test(name)){const fy=f.y+h-(/punching/i.test(f.id)?1:0.45);return {x:f.x+(w-1)/2,y:Math.min(L.rows-1,fy),front:true};}
+  const m=motionOf(f.id,name,objects[f.id]?.effect);const lift=m==='wheel'?0.25:m==='bike'||m==='rock'?0.15:0;
+  return {x:f.x+(w-1)/2,y:f.y+(h-1)/2-lift,front:false};}
  function startWander(mount,hid){
   const box=mount.querySelector('#homeResidents');if(!box)return;
   const h=house(hid),L=layoutFor(objects[hid].capacity);
@@ -250,7 +269,11 @@ export function createHomeSystem(ctx){
      if(spot.front){w.p.face=1;w.el.dataset.face='right';}
      else{const [,fh]=footprint(objects,f);w.el.style.setProperty('--z',11+(f.y+fh)*2);}
      w.el.dataset.anim=u.anim;if(u.cls)w.el.classList.add(u.cls);w.el.classList.add('is-using');
-     const piece=box.parentElement.querySelector(`[data-piece="${h.furniture.indexOf(f)}"]`);if(piece){piece.classList.add('is-in-use');setTimeout(()=>piece.classList.remove('is-in-use'),useMs);}
+     const piece=box.parentElement.querySelector(`[data-piece="${h.furniture.indexOf(f)}"]`);const mk=motionOf(f.id,uiName(byId.get(f.id))||'',eff);
+     if(mk){w.el.classList.add('m-'+mk);if(mk==='wheel'||mk==='treadmill'||mk==='bike'){w.p.face=1;w.el.dataset.face='right';w.el.dataset.anim='walk';}}
+     if(piece){piece.classList.add('is-in-use');if(mk)piece.classList.add('m-'+mk);const o=MOTION_OV[mk];let ovEl=null;
+      if(o&&!(f.r%2)){ovEl=document.createElement('span');ovEl.className='home-motion';ovEl.innerHTML=`<svg xmlns="http://www.w3.org/2000/svg" viewBox="${o.vb}">${o.svg}</svg>`;piece.insertBefore(ovEl,piece.querySelector('.home-hit'));}
+      setTimeout(()=>{piece.classList.remove('is-in-use');if(mk)piece.classList.remove('m-'+mk);ovEl?.remove();},useMs);}
      setTimeout(()=>{if(applyEffect?.(w.cid,eff)){const fxEl=w.el.querySelector('.home-fx');fxEl.dataset.eff=eff;fxEl.classList.remove('is-pop');void fxEl.offsetWidth;fxEl.classList.add('is-pop');}},Math.min(1800,useMs/2));
     },walkMs);}
    wanderTimer=setTimeout(tick,700);};
