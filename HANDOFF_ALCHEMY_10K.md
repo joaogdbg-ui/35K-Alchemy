@@ -90,6 +90,11 @@ Preserve 200-per-batch policy and do not start another content release on top of
 
 - **Art redraw wave 3 (V85, done): 3,991 icons** — every remaining older element. All 6,012 pre-V83 elements now use the 2026 art direction (`ART_REDRAW`), plus 200 V83 and 200 V85 originals. Six near-duplicates found by the audit were redrawn; 36 reviewed false alarms are in `tools/art-redraw-reviewed-pairs.json` (the audit now also honours them for V83 comparisons).
 
+## V116 — what companions eat changes how they look (1 November 2026)
+- Owner idea from SA2 Chao (animals change body parts; newer parts replace old ones). `lookAfterMeal(look,name,family,category)` (pure, companion-engine): tint toward a colour (warm/cool/leafy/metallic/mystic/golden/rosy, by name keywords or family; +0.06 per meal, cap 0.45), size ±2% per meal (food/big grow, air/feather/tiny shrink; ±15% cap), one trait per slot — head (leaf, flower, flame, snowflake, antenna, star, crown, horns), back (wings, fin), aura (sparkles, bubbles, hearts, music notes).
+- Resets: soap/bath/shower/wash wash most of the tint off; mirror undoes size and head trait; phoenix/egg/rebirth/reset restores the natural look. Refused food changes nothing.
+- Rendering (`applyLookSvg`, via `companions.applyLook` in `wearAll`): luminance-preserving feColorMatrix filter per companion (#lookDefs), CSS `scale`, small SVG accessories attached to the head/body parts so they move with the rig. Shown everywhere companions are drawn; card line "✨ Warm tint · Little flame · Wings · Size +2%"; the feeding window lists look changes.
+
 ## V115 — harder elements feed more (1 November 2026)
 - `feedDepthMult(depth)` = min(1.8, 0.6 + 0.12×recipe depth): starters ×0.6, depth 5 ×1.2, depth 10+ ×1.8 (×2 more for shiny). Applied in `feedPlan`; companions get `ctx.depthOf` (routeDepth). Measured: Air +34 vs a depth-11 element +101 total stat XP.
 

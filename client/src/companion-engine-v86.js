@@ -58,6 +58,67 @@ export const FAMILY_FEEDS={games:['run','stamina'],anime:['power','fly'],nature:
 export const MOOD={happy:70,sad:30};
 export function moodLabel(m){return m>=MOOD.happy?'Happy':m<=MOOD.sad?'Sad':'Content';}
 
+/**
+ * V116 companion looks (owner idea from SA2 Chao: what they eat changes how they look).
+ * Pure rules: each meal can tint the companion toward a colour, grow/shrink it a little (±15%) and
+ * give one trait per slot (head / back / aura) — a newer trait replaces the old one of that slot.
+ * Soap & baths wash the tint off, mirrors undo size and head traits, phoenix/egg/rebirth resets all.
+ * Rendering is a CSS filter (luminance-preserving tint) + CSS `scale` + small SVG accessories.
+ */
+export const LOOK_COLORS={warm:[255,138,61],cool:[74,168,255],green:[79,191,90],metal:[150,165,180],purple:[160,112,224],gold:[232,192,64],pink:[255,143,192]};
+const TINT_NAME={warm:'Warm',cool:'Cool',green:'Leafy',metal:'Metallic',purple:'Mystic',gold:'Golden',pink:'Rosy'};
+const TRAIT_NAME={leaf:'Leaf sprout',flower:'Flower',flame:'Little flame',flake:'Snowflake',antenna:'Antenna',star:'Star',crown:'Crown',horns:'Horns',wings:'Wings',fin:'Fin',sparkle:'Sparkles',bubbles:'Bubbles',hearts:'Hearts',notes:'Music notes'};
+const TINTS=[['warm',/fire|lava|flame|ember|magma|volcano|\bsun|desert|chili|pepper|torch|heat|lantern/],['cool',/water|ice|snow|frost|glacier|ocean|\bsea\b|rain|river|lake|wave|aqua/],['metal',/metal|steel|iron|robot|machine|computer|gear|chip|engine|console|circuit/],['gold',/gold|treasure|coin|trophy|crown|jewel/],['purple',/magic|crystal|potion|spell|ghost|mystic|wizard|witch|arcane|dream|fairy/],['pink',/candy|sugar|cake|sweet|love|heart|blossom|cherry|cupcake/],['green',/plant|leaf|tree|grass|flower|moss|forest|seed|herb|garden|vine|cactus/]];
+const FAMILY_TINT={nature:'green',fantasy:'purple',mythology:'gold',games:'metal'};
+const TRAITS={head:[['flower',/flower|rose|tulip|blossom|daisy|sunflower|lily|orchid/],['leaf',/leaf|sprout|tree|plant|seed|herb|vine|bonsai/],['flame',/fire|flame|torch|ember|candle|campfire/],['flake',/ice|snow|frost|glacier|blizzard/],['antenna',/robot|radio|antenna|computer|satellite|signal|android/],['star',/star|space|planet|galaxy|comet|moon|astro|rocket/],['crown',/king|queen|crown|royal|prince|throne|castle/],['horns',/dragon|devil|demon|bull|goat|horn|minotaur/]],
+ back:[['wings',/bird|feather|wing|angel|butterfly|\bbat\b|eagle|owl|fairy|pegasus|phoenix|griffin|parrot/],['fin',/fish|shark|whale|dolphin|mermaid|\bfin\b|seahorse/]],
+ aura:[['sparkle',/crystal|diamond|magic|glitter|\bgem|sparkle|stardust/],['bubbles',/bubble|soda|fizz|foam/],['hearts',/love|heart|romance|kiss|valentine/],['notes',/music|song|guitar|piano|drum|melody|vinyl/]]};
+export const defaultLook=()=>({tint:null,k:0,size:0,head:null,back:null,aura:null});
+const mix=(a,b,t)=>a.map((v,i)=>Math.round(v+(b[i]-v)*t));
+export function lookAfterMeal(look,name,family='',category=''){
+ const L={...defaultLook(),...(look||{})};const t=` ${String(name||'').toLowerCase()} `;const notes=[];
+ if(/phoenix|rebirth|\begg\b|reset|origin/.test(t)&&(L.k>0||L.size||L.head||L.back||L.aura)){notes.push('Back to its natural look');return {look:defaultLook(),notes};}
+ if(/soap|bath|shower|wash|sponge|clean/.test(t)&&L.k>0){L.k=Math.round(L.k*0.4*100)/100;if(L.k<0.04){L.k=0;L.tint=null;}L.aura=null;notes.push('Washed some colour off');}
+ if(/mirror|reflection/.test(t)&&(L.size||L.head)){L.size=Math.round(L.size*0.4*100)/100;L.head=null;notes.push('Looks more like itself');}
+ const tk=(TINTS.find(([,re])=>re.test(t))||[])[0]||FAMILY_TINT[family];
+ if(tk&&!/soap|bath|shower|wash/.test(t)){const c=LOOK_COLORS[tk];L.tint=L.tint&&L.k>0?mix(L.tint,c,0.4):c;const was=L.k;L.k=Math.min(0.45,Math.round((L.k+0.06)*100)/100);if(L.k>was)notes.push(`A little more ${TINT_NAME[tk].toLowerCase()}`);}
+ const grow=category==='food'||/food|cake|bread|pie|burger|pizza|meal|feast|mountain|whale|giant|elephant|huge|titan|mammoth/.test(t),shrink=/\bair\b|feather|cloud|bubble|tiny|mini|small|\bant\b|mouse|dust|pebble/.test(t);
+ if(grow&&!shrink&&L.size<0.15){L.size=Math.min(0.15,Math.round((L.size+0.02)*100)/100);notes.push('Grew a bit');}
+ else if(shrink&&!grow&&L.size>-0.15){L.size=Math.max(-0.15,Math.round((L.size-0.02)*100)/100);notes.push('Got a bit smaller');}
+ for(const slot of ['head','back','aura']){const hit=TRAITS[slot].find(([,re])=>re.test(t));if(hit&&L[slot]!==hit[0]){L[slot]=hit[0];notes.push(`New: ${TRAIT_NAME[hit[0]]}!`);}}
+ return {look:L,notes};
+}
+export function lookLabel(look){if(!look)return '';const out=[];const tk=look.tint&&look.k>0.02?Object.entries(LOOK_COLORS).sort((a,b)=>dist(a[1],look.tint)-dist(b[1],look.tint))[0][0]:null;
+ if(tk)out.push(`${TINT_NAME[tk]} tint`);for(const s of ['head','back','aura'])if(look[s])out.push(TRAIT_NAME[look[s]]);if(Math.abs(look.size||0)>=0.01)out.push(`Size ${look.size>0?'+':''}${Math.round(look.size*100)}%`);return out.join(' · ');}
+const dist=(a,b)=>a.reduce((n,v,i)=>n+(v-b[i])**2,0);
+/** Luminance-preserving tint matrix for an SVG feColorMatrix. */
+export function tintMatrix(rgb,k){const [r,g,b]=rgb.map(v=>v/255*1.15);const T=[[.3*r,.59*r,.11*r],[.3*g,.59*g,.11*g],[.3*b,.59*b,.11*b]];const m=[];for(let i=0;i<3;i++){for(let j=0;j<3;j++)m.push(((1-k)*(i===j?1:0)+k*T[i][j]).toFixed(3));m.push('0','0');}m.push('0','0','0','1','0');return m.join(' ');}
+const S='#657D89';
+const TRAIT_SVG={
+ leaf:s=>`<path d="M0 0v${-s*.35}" stroke="#3f7d3a" stroke-width="${s*.08}"/><path d="M0 ${-s*.3}C${-s*.55} ${-s*.45} ${-s*.35} ${-s*1.1} 0 ${-s*1.15}C${s*.35} ${-s*1.1} ${s*.55} ${-s*.45} 0 ${-s*.3}Z" fill="#7cc463" stroke="${S}" stroke-width="${s*.07}"/>`,
+ flower:s=>[0,72,144,216,288].map(a=>`<circle cx="${(Math.cos(a*Math.PI/180)*s*.28).toFixed(1)}" cy="${(-s*.55+Math.sin(a*Math.PI/180)*s*.28).toFixed(1)}" r="${s*.2}" fill="#f7a6c8" stroke="${S}" stroke-width="${s*.05}"/>`).join('')+`<circle cx="0" cy="${-s*.55}" r="${s*.16}" fill="#f3d266" stroke="${S}" stroke-width="${s*.05}"/>`,
+ flame:s=>`<path d="M0 0C${-s*.45} ${-s*.2} ${-s*.3} ${-s*.7} 0 ${-s*1.1}C${s*.3} ${-s*.7} ${s*.45} ${-s*.2} 0 0Z" fill="#ff9a3d" stroke="${S}" stroke-width="${s*.07}"/><path d="M0 ${-s*.12}C${-s*.2} ${-s*.25} ${-s*.12} ${-s*.5} 0 ${-s*.65}C${s*.12} ${-s*.5} ${s*.2} ${-s*.25} 0 ${-s*.12}Z" fill="#ffe27a"/>`,
+ flake:s=>[0,60,120].map(a=>`<path d="M${(-Math.cos(a*Math.PI/180)*s*.4).toFixed(1)} ${(-s*.5-Math.sin(a*Math.PI/180)*s*.4).toFixed(1)}L${(Math.cos(a*Math.PI/180)*s*.4).toFixed(1)} ${(-s*.5+Math.sin(a*Math.PI/180)*s*.4).toFixed(1)}" stroke="#8fd0f5" stroke-width="${s*.12}" stroke-linecap="round"/>`).join(''),
+ antenna:s=>`<path d="M0 0L${s*.1} ${-s*.8}" stroke="${S}" stroke-width="${s*.08}"/><circle cx="${s*.1}" cy="${-s*.85}" r="${s*.16}" fill="#e0675a" stroke="${S}" stroke-width="${s*.06}"/>`,
+ star:s=>`<path d="${[0,1,2,3,4,5,6,7,8,9].map(i=>{const r=i%2?s*.2:s*.45,a=-Math.PI/2+i*Math.PI/5;return (i?'L':'M')+(Math.cos(a)*r).toFixed(1)+' '+(-s*.55+Math.sin(a)*r).toFixed(1);}).join('')}Z" fill="#f3d266" stroke="${S}" stroke-width="${s*.06}"/>`,
+ crown:s=>`<path d="M${-s*.42} 0L${-s*.42} ${-s*.5}L${-s*.2} ${-s*.25}L0 ${-s*.6}L${s*.2} ${-s*.25}L${s*.42} ${-s*.5}L${s*.42} 0Z" fill="#f1c26b" stroke="${S}" stroke-width="${s*.07}"/>`,
+ horns:s=>`<path d="M${-s*.35} 0Q${-s*.55} ${-s*.4} ${-s*.3} ${-s*.6}Q${-s*.3} ${-s*.25} ${-s*.12} 0Z" fill="#efe3cf" stroke="${S}" stroke-width="${s*.06}"/><path d="M${s*.35} 0Q${s*.55} ${-s*.4} ${s*.3} ${-s*.6}Q${s*.3} ${-s*.25} ${s*.12} 0Z" fill="#efe3cf" stroke="${S}" stroke-width="${s*.06}"/>`};
+export function applyLookSvg(svg,look,key){
+ if(!svg)return;svg.querySelectorAll('[data-acc="look"]').forEach(n=>n.remove());
+ const L=look||defaultLook();const k=L.tint&&L.k>0.02;
+ if(k){let defs=document.getElementById('lookDefs');if(!defs){defs=document.createElementNS('http://www.w3.org/2000/svg','svg');defs.id='lookDefs';defs.setAttribute('width','0');defs.setAttribute('height','0');defs.style.position='absolute';document.body.append(defs);}
+  const id='look-'+String(key).replace(/[^a-z0-9]/gi,'_');let f=defs.querySelector('#'+id);if(!f){f=document.createElementNS('http://www.w3.org/2000/svg','filter');f.id=id;f.setAttribute('color-interpolation-filters','sRGB');f.innerHTML='<feColorMatrix type="matrix"/>';defs.append(f);}
+  f.firstChild.setAttribute('values',tintMatrix(L.tint,L.k));svg.style.filter=`url(#${id})`;}else svg.style.filter='';
+ svg.style.scale=Math.abs(L.size||0)>=0.01?String(1+L.size):'';svg.style.transformOrigin='50% 90%';
+ const add=(parent,html,before=false)=>{const g=document.createElementNS('http://www.w3.org/2000/svg','g');g.setAttribute('data-acc','look');g.innerHTML=html;before?parent.insertBefore(g,parent.firstChild):parent.append(g);return g;};
+ const bb=el=>{try{const b=el.getBBox();return b.width?b:null;}catch{return null;}};
+ const head=svg.querySelector('[data-part="head"]')||svg.querySelector('[data-part="body"]');const body=svg.querySelector('[data-part="body"]')||head;
+ if(L.head&&head){const b=bb(head);if(b){const s=Math.max(8,b.width*.32);add(head,`<g transform="translate(${(b.x+b.width/2).toFixed(1)} ${(b.y+s*.15).toFixed(1)})" stroke-linejoin="round" stroke-linecap="round">${TRAIT_SVG[L.head](s)}</g>`);}}
+ if(L.back&&body){const b=bb(body);if(b){const s=b.width;add(body,L.back==='wings'?`<g fill="#f4efe6" stroke="${S}" stroke-width="${(s*.03).toFixed(1)}"><ellipse cx="${(b.x+s*.02).toFixed(1)}" cy="${(b.y+b.height*.35).toFixed(1)}" rx="${(s*.32).toFixed(1)}" ry="${(s*.16).toFixed(1)}" transform="rotate(-25 ${(b.x+s*.02).toFixed(1)} ${(b.y+b.height*.35).toFixed(1)})"/><ellipse cx="${(b.x+s*.98).toFixed(1)}" cy="${(b.y+b.height*.35).toFixed(1)}" rx="${(s*.32).toFixed(1)}" ry="${(s*.16).toFixed(1)}" transform="rotate(25 ${(b.x+s*.98).toFixed(1)} ${(b.y+b.height*.35).toFixed(1)})"/></g>`:`<path d="M${(b.x+s*.5).toFixed(1)} ${(b.y+b.height*.1).toFixed(1)}l${(s*.18).toFixed(1)} ${(-s*.3).toFixed(1)}l${(s*.12).toFixed(1)} ${(s*.32).toFixed(1)}Z" fill="#6fb5d8" stroke="${S}" stroke-width="${(s*.03).toFixed(1)}"/>`,true);}}
+ if(L.aura){const b=bb(svg);if(b){const pts=[[b.x-b.width*.05,b.y+b.height*.2],[b.x+b.width*1.02,b.y+b.height*.35],[b.x+b.width*.15,b.y+b.height*.85]];const s=Math.max(5,b.width*.09);
+  add(svg,`<g class="look-aura is-${L.aura}">${pts.map(([x,y],i)=>`<g transform="translate(${x.toFixed(1)} ${y.toFixed(1)})" style="animation-delay:${i*.4}s">${L.aura==='sparkle'?`<path d="M0 ${-s}L${s*.25} ${-s*.25}L${s} 0L${s*.25} ${s*.25}L0 ${s}L${-s*.25} ${s*.25}L${-s} 0L${-s*.25} ${-s*.25}Z" fill="#ffe27a"/>`:L.aura==='bubbles'?`<circle r="${s*.6}" fill="rgba(170,220,250,.5)" stroke="#8fd0f5" stroke-width="${s*.15}"/>`:L.aura==='hearts'?`<path d="M0 ${s*.6}C${-s} 0 ${-s*.6} ${-s*.8} 0 ${-s*.3}C${s*.6} ${-s*.8} ${s} 0 0 ${s*.6}Z" fill="#ef7f9b"/>`:`<text font-size="${s*1.8}" fill="#9b7fc4" text-anchor="middle">♪</text>`}</g>`).join('')}</g>`);}}
+}
+
 export function createCompanionSystem(ctx){
  const {roster,sprites,$,escapeText,byId,uiName,staticArt,familyFor,isDiscovered,isShiny,elementIsUseful,getSlots,isLeftLocked,toast,showModal,closeModal,reducedMotion,FAMILIES}=ctx;
  const requestActivation=ctx.requestActivation||(async()=>true);
@@ -298,8 +359,11 @@ export function createCompanionSystem(ctx){
   const plan=fresh?feedPlan(meta,item).map(c=>({...c,amount:Math.round(c.amount*growth(meta.id,c.stat))})):[];
   const changes=plan.map(c=>({...c,...gainStat(p,meta,c.stat,c.amount)}));
   p.mood=Math.min(100,p.mood+(taste==='love'?12:5));p.moodAt=now();p.belly=Math.min(100,p.belly+Math.round((fresh?25:10)*growth(meta.id,'food')));p.bellyAt=now();if(fresh)p.fed[item.id]=now();p.meals++;save();
+  // V116: what it eats changes how it looks (refused food never does)
+  const lk=lookAfterMeal(p.look,item.name||uiName(item),familyFor(item),item.category);p.look=lk.look;save();if(lk.notes.length)try{ctx.wear?.(sprite.parentElement||sprite);}catch{}
   if(changes.length)showStatWindow(meta,changes,2800);
   else{const left=Math.max(1,Math.ceil((FEED_COOLDOWN_MS-(now()-last))/60000));showNoteWindow(meta,fresh?[`<b>${escapeText(uiName(item))}</b> · stats already at max`,`Belly +${Math.round(25*growth(meta.id,'food'))} · Mood +${taste==='love'?12:5}`]:[`Already ate <b>${escapeText(uiName(item))}</b> recently`,`No growth for ${left} min — try another element`,`Belly +${Math.round(10*growth(meta.id,'food'))} · Mood +${taste==='love'?12:5}`],3200);}
+  if(lk.notes.length&&statWin){statWin.insertAdjacentHTML('beforeend',lk.notes.map(n=>`<div class="cs-note is-look">✨ ${escapeText(n)}</div>`).join(''));}
   for(let i=0;i<4;i++){await wait(650);held.classList.add('bite-'+(i+1));sfx.nom();}
   await wait(500);held.remove();
   if(taste==='love'){sfx.happy();fx('hearts',1300);emote('heart',1400);}
@@ -372,7 +436,7 @@ export function createCompanionSystem(ctx){
    <div class="pet-preview" aria-hidden="true">${have?(sprites[meta.id]||staticArt(el)):'<span class="pet-silhouette">'+staticArt(el)+'</span>'}</div>
    <div class="pet-main">
     <strong>${have?(sh?'✦ ':'')+escapeText(p.nick||name):'???'}</strong>
-    <small>${have?`${p.nick?escapeText(name)+' · ':''}Total Lv ${tl} · ${moodLabel(p.mood)}${hungry(p)?' · Hungry':''}`:'Discover '+escapeText(name)+' to unlock'}</small>
+    <small>${have?`${p.nick?escapeText(name)+' · ':''}Total Lv ${tl} · ${moodLabel(p.mood)}${hungry(p)?' · Hungry':''}`:'Discover '+escapeText(name)+' to unlock'}</small>${have&&full&&lookLabel(p.look)?`<small class="pet-look">✨ ${escapeText(lookLabel(p.look))}</small>`:''}
     ${have&&full?`<span class="pet-needs"><span><i>Mood</i><b><em style="width:${p.mood}%"></em></b></span><span><i>Belly</i><b class="is-belly"><em style="width:${p.belly}%"></em></b></span></span>`:''}
     ${have&&!full?`<span class="pet-mini">${COMPANION_STATS.map(k=>`<i title="${STAT_LABEL[k]} ${p.stats[k].points}"><b style="height:${Math.max(6,100*p.stats[k].points/STAT_MAX_POINTS)}%"></b></i>`).join('')}</span>`:''}
     ${have&&full?statPanel(meta,p)+`<p class="pet-quirk">${escapeText(meta.quirk)}. Gift: ${escapeText(meta.gift)}.</p><button type="button" class="pet-rename" data-rename="${meta.id}">Rename</button>`:''}
@@ -428,7 +492,8 @@ export function createCompanionSystem(ctx){
  // V93 games: read-only info and the training reward after a race / bout (growth multipliers apply).
  function info(id){const meta=metaById.get(id);const p=pet(id);settleMood(p);return {name:p.nick||uiName(byId.get(id))||meta?.name||'',stats:p.stats,mood:p.mood,grades:companionGrades(meta,isShiny(id))};}
  function gameReward(id,stats,amount){const meta=metaById.get(id);if(!meta||!isDiscovered(id))return [];const p=pet(id);const done=[];for(const st of stats){gainStat(p,meta,st,Math.max(1,Math.round(amount*growth(id,st))));done.push(STAT_LABEL[st]);}p.mood=Math.min(100,p.mood+3);p.moodAt=now();save();refreshViews();return done;}
- return {start,stop,setActive,statsHtml,info,gameReward,choose,homeEffect,syncSeen,markSeen,isCompanion,freeChoiceLeft,emote,feed,hitTest,onDiscovery,renderTab,openCard,get active(){return activeMeta();},state:()=>state,unlocked,refreshViews,
+ const lookOf=id=>state.pets[id]?.look||null;
+ return {lookOf,applyLook:(svg,id)=>applyLookSvg(svg,lookOf(id),id),start,stop,setActive,statsHtml,info,gameReward,choose,homeEffect,syncSeen,markSeen,isCompanion,freeChoiceLeft,emote,feed,hitTest,onDiscovery,renderTab,openCard,get active(){return activeMeta();},state:()=>state,unlocked,refreshViews,
   onViewChange(){if(activeMeta()&&sprite&&!sprite.hidden)setTimeout(()=>{if(cancelMove)cancelMove();const r=pickRail();if(r){rail=r;setLayer(r.layer);place(clampX(r,pos.x),r.y);sprite.dataset.anim='idle';}},80);},
   importState(raw){if(raw&&raw.pets){state=normalize(raw);save();syncSeen();}},grades:companionGrades};
 }
