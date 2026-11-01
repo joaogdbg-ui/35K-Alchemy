@@ -110,6 +110,8 @@ import { ORGANIC_V85 } from './organic-pack-v85.js';
 import { ORGANIC_ART_V85 } from './organic-art-v85.js';
 import { ORGANIC_V89 } from './organic-pack-v89.js';
 import { ORGANIC_ART_V89 } from './organic-art-v89.js';
+import { ORGANIC_V139 } from './organic-pack-v139.js';
+import { ORGANIC_ART_V139 } from './organic-art-v139.js';
 import { FAMILY_DATA_V89 } from './family-data-v89.js';
 import { HOME_OBJECTS_V89 } from './home-objects-v89.js';
 import { createHomeSystem, HOME_STORAGE_KEY, pieceQuality, starsText } from './home-engine-v90.js';
@@ -130,7 +132,7 @@ const $ = (id) => document.getElementById(id);
 const escapeText = (s) => String(s).replace(/[&<>"']/g, (c) => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
 // V39: the same strict catalog contract runs in the browser, the build and CI.
 // No hidden first-wins recipe collisions or duplicated catalog entries.
-const {items: ITEMS,recipes:classicRecipes} = buildCatalog(DATA,[PACK,GAMING_V22,GAMING_V23,GAMING_V24,GAMING_V26,GAMING_V27,GAMING_V30,ORGANIC_V89,ORGANIC_V85,ORGANIC_V32,ORGANIC_V34,ORGANIC_V37,ORGANIC_V38,ORGANIC_V40,ORGANIC_V41,ORGANIC_V42,ORGANIC_V43,ORGANIC_V44,ORGANIC_V45,ORGANIC_V46,ORGANIC_V47,ORGANIC_V50,ORGANIC_V52,ORGANIC_V53,ORGANIC_V55,ORGANIC_V56,ORGANIC_V57,ORGANIC_V58,ORGANIC_V59,ORGANIC_V61,ORGANIC_V62,ORGANIC_V63,ORGANIC_V65,ORGANIC_V66,ORGANIC_V67,ORGANIC_V68,ORGANIC_V71,ORGANIC_V72,ORGANIC_V73,ORGANIC_V74,ORGANIC_V75,ORGANIC_V76,ORGANIC_V77,ORGANIC_V78,ORGANIC_V79,ORGANIC_V80,ORGANIC_V81,ORGANIC_V82,ORGANIC_V83]);
+const {items: ITEMS,recipes:classicRecipes} = buildCatalog(DATA,[PACK,GAMING_V22,GAMING_V23,GAMING_V24,GAMING_V26,GAMING_V27,GAMING_V30,ORGANIC_V89,ORGANIC_V85,ORGANIC_V32,ORGANIC_V139,ORGANIC_V34,ORGANIC_V37,ORGANIC_V38,ORGANIC_V40,ORGANIC_V41,ORGANIC_V42,ORGANIC_V43,ORGANIC_V44,ORGANIC_V45,ORGANIC_V46,ORGANIC_V47,ORGANIC_V50,ORGANIC_V52,ORGANIC_V53,ORGANIC_V55,ORGANIC_V56,ORGANIC_V57,ORGANIC_V58,ORGANIC_V59,ORGANIC_V61,ORGANIC_V62,ORGANIC_V63,ORGANIC_V65,ORGANIC_V66,ORGANIC_V67,ORGANIC_V68,ORGANIC_V71,ORGANIC_V72,ORGANIC_V73,ORGANIC_V74,ORGANIC_V75,ORGANIC_V76,ORGANIC_V77,ORGANIC_V78,ORGANIC_V79,ORGANIC_V80,ORGANIC_V81,ORGANIC_V82,ORGANIC_V83]);
 // V76.1: change only public labels. Historic recipe IDs and artwork keys are immutable.
 const PUBLIC_LABELS=buildPublicNameIndex(ITEMS,PUBLIC_LABELS_V86);
 function uiName(item){return item?(PUBLIC_LABELS.get(item.id)||publicName(item)):'';}
@@ -500,7 +502,7 @@ function shinyCard(item){return `<p class="shiny-trivia"><span aria-hidden="true
 function showShinyFound(id){const it=byId.get(id);if(!it)return;
  showModal(`<div class="modal-tag shiny-tag">✦ SHINY ELEMENT</div><div class="modal-art is-shiny">${staticArt(it)}</div><h2>Shiny ${escapeText(uiName(it))}</h2>${shinyCard(it)}<div class="modal-milestone">${shiny.size.toLocaleString('en-US')} shiny ${shiny.size===1?'element':'elements'} · ${Math.round(shinyChance()*100)}% chance per combination</div>`);
 }
-const APP_VERSION='1.0.38';
+const APP_VERSION='1.0.39';
 // V83: status line + Google consent (UMP) privacy options, required for EEA players.
 async function refreshAdStatus(){
  const el=$('settingsAdStatus'),bridge=getRewardBridge();
@@ -1033,7 +1035,7 @@ function staticArt(item){
  // V30 highest-priority semantic art: only exact canonical names are eligible.
  // A sky is never rendered as a sword just because its name contains "sky".
  const itemName=String(item.name||'').toLowerCase();
- const newArt=ORGANIC_ART_V89[itemName]||ORGANIC_ART_V85[itemName]||ORGANIC_ART_V83[itemName]||ORGANIC_ART_V82[itemName]||ORGANIC_ART_V81[itemName]||ORGANIC_ART_V80[itemName]||ORGANIC_ART_V79[itemName]||ORGANIC_ART_V78[itemName]||ORGANIC_ART_V77[itemName]||ORGANIC_ART_V76[itemName]||ORGANIC_ART_V75[itemName]||ORGANIC_ART_V74[itemName]||ORGANIC_ART_V73[itemName]||ORGANIC_ART_V72[itemName]||ORGANIC_ART_V71[itemName]||ORGANIC_ART_V70[itemName]||ORGANIC_ART_V69[itemName]||ORGANIC_ART_V68[itemName]||ORGANIC_ART_V67[itemName]||ORGANIC_ART_V66[itemName]||ORGANIC_ART_V65[itemName]||ORGANIC_ART_V63[itemName]||ORGANIC_ART_V62[itemName]||ORGANIC_ART_V61[itemName]||ORGANIC_ART_V59[itemName]||ORGANIC_ART_V58[itemName]||ORGANIC_ART_V57[itemName]||ORGANIC_ART_V56[itemName]||ORGANIC_ART_V55[itemName]||ORGANIC_ART_V53[itemName]||ORGANIC_ART_V52[itemName]||ORGANIC_ART_V50[itemName]||ORGANIC_ART_V47[itemName]||ORGANIC_ART_V46[itemName]||ORGANIC_ART_V45[itemName]||ORGANIC_ART_V44[itemName]||ORGANIC_ART_V43[itemName]||ORGANIC_ART_V42[itemName]||ORGANIC_ART_V41[itemName]||ORGANIC_ART_V40[itemName]||ORGANIC_ART_V38[itemName]||ORGANIC_ART_V37[itemName]||ORGANIC_ART_V34[itemName]||ORGANIC_ART_V32[itemName];if(newArt)return newArt;
+ const newArt=ORGANIC_ART_V89[itemName]||ORGANIC_ART_V85[itemName]||ORGANIC_ART_V83[itemName]||ORGANIC_ART_V82[itemName]||ORGANIC_ART_V81[itemName]||ORGANIC_ART_V80[itemName]||ORGANIC_ART_V79[itemName]||ORGANIC_ART_V78[itemName]||ORGANIC_ART_V77[itemName]||ORGANIC_ART_V76[itemName]||ORGANIC_ART_V75[itemName]||ORGANIC_ART_V74[itemName]||ORGANIC_ART_V73[itemName]||ORGANIC_ART_V72[itemName]||ORGANIC_ART_V71[itemName]||ORGANIC_ART_V70[itemName]||ORGANIC_ART_V69[itemName]||ORGANIC_ART_V68[itemName]||ORGANIC_ART_V67[itemName]||ORGANIC_ART_V66[itemName]||ORGANIC_ART_V65[itemName]||ORGANIC_ART_V63[itemName]||ORGANIC_ART_V62[itemName]||ORGANIC_ART_V61[itemName]||ORGANIC_ART_V59[itemName]||ORGANIC_ART_V58[itemName]||ORGANIC_ART_V57[itemName]||ORGANIC_ART_V56[itemName]||ORGANIC_ART_V55[itemName]||ORGANIC_ART_V53[itemName]||ORGANIC_ART_V52[itemName]||ORGANIC_ART_V50[itemName]||ORGANIC_ART_V47[itemName]||ORGANIC_ART_V46[itemName]||ORGANIC_ART_V45[itemName]||ORGANIC_ART_V44[itemName]||ORGANIC_ART_V43[itemName]||ORGANIC_ART_V42[itemName]||ORGANIC_ART_V41[itemName]||ORGANIC_ART_V40[itemName]||ORGANIC_ART_V38[itemName]||ORGANIC_ART_V37[itemName]||ORGANIC_ART_V34[itemName]||ORGANIC_ART_V32[itemName]||ORGANIC_ART_V139[itemName];if(newArt)return newArt;
  const semantic=GAMEVERSE_ART_V30_SEMANTIC[itemName];
  if(semantic)return semantic;
  const v27=v27StaticArt(item);
@@ -1352,8 +1354,8 @@ function companionCallout(id){if(!companions.isCompanion(id))return '';
  return `<div class="companion-callout"><span class="companion-callout-icon">${PAW_SVG}</span><span><b>Companion element!</b> It can live on your screen, eat elements and level up. ${companions.freeChoiceLeft()?'Your first companion is free.':'Find it in the Home tab.'}</span><button type="button" class="companion-callout-go" id="meetCompanion">Meet it</button></div>`;}
 // V89: companion houses and furniture are flagged in the discovery sheet (the Home screen comes next).
 const HOME_EFFECT_LABEL={run:'trains Run',swim:'trains Swim',power:'trains Power',fly:'trains Fly',stamina:'trains Stamina',hp:'trains HP',mood:'cheers companions up',food:'feeds companions',discovery:'boosts idle discoveries',decor:'decoration'};
-function homeCallout(id){const h=HOME_OBJECTS_V89[id];if(!h||h.kind==='material')return '';
- const q=pieceQuality(routeDepth.get(id));const txt=h.kind==='house'?`<b>Companion house!</b> Room for ${h.capacity} companion${h.capacity>1?'s':''}.`:`<b>Furniture</b> for companion houses · ${HOME_EFFECT_LABEL[h.effect]||'decoration'}${h.effect&&h.effect!=='decor'?` · +${q.pct}% <span class="home-stars">${starsText(q.stars)}</span>`:''}.`;
+function homeCallout(id){const h=HOME_OBJECTS[id]||HOME_OBJECTS_V89[id];if(!h||h.kind==='material')return '';
+ const q=pieceQuality(routeDepth.get(id));const txt=h.kind==='extension'?`<b>House complement!</b> Attach it to a house in Home · ${({garden:'bigger floor, Fun +20%, growth ×1.05',pool:'Swim +25%',floor:'+2 companions'})[h.ext]}.`:h.kind==='house'?`<b>Companion house!</b> Room for ${h.capacity} companion${h.capacity>1?'s':''}.`:`<b>Furniture</b> for companion houses · ${HOME_EFFECT_LABEL[h.effect]||'decoration'}${h.effect&&h.effect!=='decor'?` · +${q.pct}% <span class="home-stars">${starsText(q.stars)}</span>`:''}.`;
  return `<div class="home-callout"><span>${txt}</span></div>`;}
 /** V118: in the element sheet, what happens if the on-screen companion eats this element. */
 function mealPreviewHtml(id){let m=null;try{m=companions.mealPreview(id);}catch{}if(!m)return '';const L=m.looks;
@@ -1691,7 +1693,9 @@ const companions=createCompanionSystem({roster:COMPANIONS_V86,sprites:COMPANION_
  reducedMotion:()=>Boolean(window.matchMedia?.('(prefers-reduced-motion: reduce)')?.matches),FAMILIES});
 // V90: companion houses (furniture placement, residents) on the Home tab.
 // V94: Stadium prizes (toys) are placeable house objects; belts are worn by the companions.
-const HOME_OBJECTS={...HOME_OBJECTS_V89,...Object.fromEntries(Object.values(RACE_PRIZES).map(p=>[p.id,{kind:p.kind,effect:p.effect,size:p.size}]))};
+const HOME_OBJECTS={...HOME_OBJECTS_V89,...Object.fromEntries(Object.values(RACE_PRIZES).map(p=>[p.id,{kind:p.kind,effect:p.effect,size:p.size}])),
+ // V139: top house + house complements (attach one per house in Home).
+ 'organic139:grand-castle':{kind:'house',capacity:10},'organic139:house-garden':{kind:'extension',ext:'garden'},'organic139:outdoor-pool':{kind:'extension',ext:'pool'},'organic139:second-floor':{kind:'extension',ext:'floor'}};
 const ROOM_SPRITES={...ROOM_SPRITES_V90,...Object.fromEntries(Object.values(RACE_PRIZES).map(p=>[p.id,p.room]))};
 // V108: every companion can win its own trophy of each course (built on demand).
 const trophyFor=id=>{const t=parsePersonalPrize(id);if(!t)return null;const c=COMPANIONS_V86.find(x=>x.id===t.cid);if(!c)return null;return personalPrize(t.course,t.cid,companions?.state?.().pets?.[t.cid]?.nick||uiName(byId.get(t.cid))||c.name,COMPANION_SPRITES_V86[t.cid]);};
@@ -1778,6 +1782,10 @@ async function buyCoins(pack='coins_100'){const b=billingBridge();if(!b?.purchas
 function grantAccessory(id){if(!ACCESSORIES[id]||(wallet.acc[id]||0)>0)return false;wallet.acc[id]=1;saveWallet();return true;}
 function accIcon(id,size=40){const a=ACCESSORIES[id];if(!a)return '';const oy=a.slot==='head'?12:a.slot==='neck'?-8:0;return `<svg viewBox="-30 -30 60 60" width="${size}" height="${size}" aria-hidden="true"><g transform="translate(0 ${oy})">${a.draw(a.slot==='neck'?44:40)}</g></svg>`;}
 function grantElement(id){if(!byId.has(id)||unlocked.has(id))return false;unlocked.add(id);discoveryLedger.set(id,{at:new Date().toISOString(),source:'market',ingredients:[]});recent=[id,...recent.filter(x=>x!==id)].slice(0,350);companions.onDiscovery(id);save();updateCounts();updateLatest();rerenderCollections();try{companions.refreshViews();}catch{}return true;}
+/** V139: things bought before V139 also become elements (quietly, once). */
+setTimeout(()=>{try{for(const it of MARKET){if(it.kind==='furniture'||it.kind==='house'||!it.element||!byId.has(it.element)||unlocked.has(it.element))continue;
+ const has=it.kind==='acc'?(wallet.acc[it.acc]||0)>0:it.kind==='toy'?wallet.toys.includes(it.toy):(wallet.bag[it.id]||0)>0;
+ if(has)grantElement(it.element);}}catch{}},2500);
 const coinBar=()=>`<div class="mk-wallet"><span class="mk-coins">🪙 <b data-coins>${wallet.coins.toLocaleString('en-US')}</b></span><button type="button" class="mk-buy" id="mkBuyCoins"><b>+ Coins</b></button></div>`;
 function wireCoinBar(back){const b=$('mkBuyCoins');if(b)b.onclick=()=>openCoinShop(back);}
 // V137: coin packs — bigger packs give more coins per euro
@@ -1818,9 +1826,10 @@ function openMarket(onClose,tab){if(tab)marketTab=tab;
  const owned=it=>it.kind==='toy'?wallet.toys.includes(it.toy):(it.kind==='furniture'||it.kind==='house')?unlocked.has(it.element):false;
  const priceOf=it=>it.kind==='acc'?accPrice(it.price,accOwned(it.acc)):it.price;
  const items=MARKET.filter(it=>it.kind===marketTab&&(!it.element||byId.has(it.element)));
- const artOf=it=>it.kind==='acc'?accIcon(it.acc):it.element?homeStaticArt(byId.get(it.element)):`<span class="mk-emoji">${it.icon}</span>`;
- const nameOf=it=>it.kind==='acc'?ACCESSORIES[it.acc].name:it.element?uiName(byId.get(it.element)):it.name;
- const descOf=it=>it.kind==='acc'?`${({head:'Head',face:'Face',neck:'Neck'})[ACCESSORIES[it.acc].slot]}${accOwned(it.acc)?` · own ${accOwned(it.acc)}`:''}`:it.element?(it.kind==='house'?`Room for ${HOME_OBJECTS[it.element]?.capacity||'?'}`:'Furniture'):it.desc;
+ const isEl=it=>it.kind==='furniture'||it.kind==='house';
+ const artOf=it=>it.kind==='acc'?accIcon(it.acc):isEl(it)?homeStaticArt(byId.get(it.element)):`<span class="mk-emoji">${it.icon}</span>`;
+ const nameOf=it=>it.kind==='acc'?ACCESSORIES[it.acc].name:isEl(it)?uiName(byId.get(it.element)):it.name;
+ const descOf=it=>it.kind==='acc'?`${({head:'Head',face:'Face',neck:'Neck'})[ACCESSORIES[it.acc].slot]}${accOwned(it.acc)?` · own ${accOwned(it.acc)}`:''}`:isEl(it)?(it.ext?({garden:'Bigger floor · Fun +20%',pool:'Swim +25%',floor:'+2 companions'})[HOME_OBJECTS[it.element]?.ext]:it.kind==='house'?`Room for ${HOME_OBJECTS[it.element]?.capacity||'?'}`:'Furniture'):it.desc;
  const tile=it=>{const o=owned(it);const label=it.kind==='toy'&&o?(wallet.toy===it.toy?'On screen':'Show'):o?'Owned':`🪙 ${priceOf(it).toLocaleString('en-US')}`;
   return `<button type="button" class="stat-tile mk-tile ${o?'is-owned':''} ${it.kind==='toy'&&wallet.toy===it.toy?'is-on':''}" data-mk="${it.id}"><span class="mk-art">${artOf(it)}</span><b>${escapeText(nameOf(it))}</b><small>${escapeText(descOf(it)||'')}</small><em class="mk-price ${!o&&wallet.coins<priceOf(it)?'is-short':''}">${label}</em></button>`;};
  const daily=wallet.daily!==dailyKey();
@@ -1837,6 +1846,8 @@ function openMarket(onClose,tab){if(tab)marketTab=tab;
   if(owned(it))return;
   const price=priceOf(it);
   confirmBuy({art:artOf(it),name:nameOf(it),desc:it.kind==='acc'?(accOwned(it.acc)?`You own ${accOwned(it.acc)} · this is copy ${accOwned(it.acc)+1}`:'Goes to the Wardrobe'):it.kind==='food'?`${it.desc} · waits on the Alchemy screen`:descOf(it),price},()=>{
+   const fresh=it.kind!=='furniture'&&it.kind!=='house'&&it.element?grantElement(it.element):false;
+   if(fresh)setTimeout(()=>toast(`New element: ${uiName(byId.get(it.element))} · try it in Alchemy`,'new'),1600);
    if(it.kind==='food'){wallet.bag[it.id]=(wallet.bag[it.id]||0)+1;saveWallet();renderFoodTray();toast(`${it.name} is waiting on the Alchemy screen · drag it onto a companion`,'new');}
    else if(it.kind==='acc'){wallet.acc[it.acc]=accOwned(it.acc)+1;saveWallet();toast(`${ACCESSORIES[it.acc].name} added to the Wardrobe`,'new');}
    else if(it.kind==='toy'){wallet.toys.push(it.toy);wallet.toy=it.toy;saveWallet();companions.placeToy?.();toast(`${it.name} placed on the craft card`,'new');}
