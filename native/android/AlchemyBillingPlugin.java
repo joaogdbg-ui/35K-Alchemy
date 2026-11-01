@@ -41,8 +41,9 @@ import java.util.Map;
 public class AlchemyBillingPlugin extends Plugin implements PurchasesUpdatedListener {
     static final String PRODUCT_ID = "no_ads";
     static final String SLOT_ID = "companion_slot";
-    /** V136: consumable pack of 100 companion coins (owner price EUR 1.00). */
+    /** V136/V137: consumable companion-coin packs (owner prices EUR 1 / 5 / 10 / 20). */
     static final String COINS_ID = "coins_100";
+    static final String[] COIN_PACKS = {"coins_100", "coins_550", "coins_1200", "coins_2600"};
     private BillingClient client;
     private ProductDetails details;
     private final Map<String, ProductDetails> all = new HashMap<>();
@@ -71,7 +72,7 @@ public class AlchemyBillingPlugin extends Plugin implements PurchasesUpdatedList
 
     private void loadDetails(Ready then) {
         List<QueryProductDetailsParams.Product> products = new ArrayList<>();
-        for (String id : new String[]{PRODUCT_ID, SLOT_ID, COINS_ID})
+        for (String id : new String[]{PRODUCT_ID, SLOT_ID, COIN_PACKS[0], COIN_PACKS[1], COIN_PACKS[2], COIN_PACKS[3]})
             products.add(QueryProductDetailsParams.Product.newBuilder().setProductId(id).setProductType(BillingClient.ProductType.INAPP).build());
         QueryProductDetailsParams params = QueryProductDetailsParams.newBuilder().setProductList(products).build();
         client.queryProductDetailsAsync(params, (r, result) -> {
@@ -119,6 +120,12 @@ public class AlchemyBillingPlugin extends Plugin implements PurchasesUpdatedList
         o.put("coinsAvailable", coins != null);
         if (coins != null && coins.getOneTimePurchaseOfferDetails() != null)
             o.put("coinsPrice", coins.getOneTimePurchaseOfferDetails().getFormattedPrice());
+        JSObject packs = new JSObject();
+        for (String id : COIN_PACKS) {
+            ProductDetails d = all.get(id);
+            if (d != null && d.getOneTimePurchaseOfferDetails() != null) packs.put(id, d.getOneTimePurchaseOfferDetails().getFormattedPrice());
+        }
+        o.put("coinPacks", packs);
         o.put("coinTokens", consumeCoins(purchases));
         return o;
     }
@@ -129,9 +136,13 @@ public class AlchemyBillingPlugin extends Plugin implements PurchasesUpdatedList
         JSArray tokens = new JSArray();
         if (purchases == null) return tokens;
         for (Purchase p : purchases) {
-            if (!p.getProducts().contains(COINS_ID) || p.getPurchaseState() != Purchase.PurchaseState.PURCHASED) continue;
+            if (p.getPurchaseState() != Purchase.PurchaseState.PURCHASED) continue;
+            String pack = null;
+            for (String id : COIN_PACKS) if (p.getProducts().contains(id)) pack = id;
+            if (pack == null) continue;
             int qty = Math.max(1, p.getQuantity());
-            for (int i = 0; i < qty; i++) tokens.put(qty > 1 ? p.getPurchaseToken() + "#" + i : p.getPurchaseToken());
+            // "<pack>|<token>" so the game knows how many coins each purchase is worth
+            for (int i = 0; i < qty; i++) tokens.put(pack + "|" + (qty > 1 ? p.getPurchaseToken() + "#" + i : p.getPurchaseToken()));
             client.consumeAsync(ConsumeParams.newBuilder().setPurchaseToken(p.getPurchaseToken()).build(), (r, t) -> { });
         }
         return tokens;
@@ -151,7 +162,13 @@ public class AlchemyBillingPlugin extends Plugin implements PurchasesUpdatedList
     public void purchaseCompanionSlot(PluginCall call) { purchase(call, SLOT_ID); }
 
     @PluginMethod
-    public void purchaseCoins(PluginCall call) { purchase(call, COINS_ID); }
+    public void purchaseCoins(PluginCall call) {
+        String pack = call.getString("pack", COINS_ID);
+        boolean known = false;
+        for (String id : COIN_PACKS) if (id.equals(pack)) known = true;
+        if (!known) { call.reject("Unknown coin pack"); return; }
+        purchase(call, pack);
+    }
 
     private void purchase(PluginCall call, String productId) {
         withConnection(call, () -> loadDetails(() -> {

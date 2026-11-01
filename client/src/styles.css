@@ -1661,3 +1661,20 @@ button.home-eff::after{content:" ⓘ";opacity:.6;font-weight:700}
 .screen-toy.is-spin svg{animation:toy-spin .25s linear infinite}@keyframes toy-spin{50%{transform:rotate(12deg) translateX(1px)}}
 .screen-toy.is-beat svg{animation:toy-beat .22s ease-in-out infinite}@keyframes toy-beat{50%{transform:scale(1.12,.9)}}
 @media (prefers-reduced-motion:reduce){.sk-fx,.screen-toy{display:none}}
+
+/* V137: coin packs + food tray */
+.cp-list{display:grid;grid-template-columns:1fr 1fr;gap:8px;margin:10px 0}
+.cp-pack{position:relative;display:grid;justify-items:center;gap:2px;padding:14px 6px 10px;border-radius:18px;border:1px solid var(--line);background:linear-gradient(160deg,var(--surface) 40%,color-mix(in srgb,#f3c24a 20%,var(--surface)))}
+.cp-pack.is-hot{border-color:color-mix(in srgb,var(--accent) 60%,var(--line));box-shadow:0 0 0 2px color-mix(in srgb,var(--accent) 22%,transparent)}
+.cp-tag{position:absolute;top:-9px;left:50%;transform:translateX(-50%);padding:2px 9px;border-radius:999px;background:var(--accent);color:#fff;font-size:10px;font-weight:900;letter-spacing:.04em;white-space:nowrap}
+.cp-pile{font-size:18px;letter-spacing:-6px;min-height:26px}.cp-pack b{font-size:22px;font-weight:900}.cp-pack small{color:#5e9e5a;font-weight:800;font-size:12px}
+.cp-pack em{font-style:normal;margin-top:4px;padding:4px 14px;border-radius:999px;background:var(--ink);color:var(--surface);font-weight:900;font-size:13px}
+.food-tray{position:absolute;left:12px;top:8px;right:12px;display:flex;gap:6px;z-index:2;overflow-x:auto;scrollbar-width:none;padding:4px 6px 4px 2px}
+.craft-card.has-tray{padding-top:56px}
+.food-tray::before{content:'Drag to a companion';align-self:center;order:99;margin-left:4px;font-size:11px;color:var(--muted);white-space:nowrap}
+.food-token{position:relative;width:34px;height:34px;border-radius:50%;background:var(--surface);border:1px solid var(--line);box-shadow:var(--shadow);font-size:19px;display:grid;place-items:center;touch-action:none;animation:food-bob 2.4s ease-in-out infinite}
+.food-token b{position:absolute;right:-5px;top:-5px;min-width:17px;height:17px;padding:0 4px;border-radius:999px;background:var(--accent);color:#fff;font-size:10px;font-weight:900;line-height:17px}
+.food-token.is-dragging{opacity:.35}
+.food-ghost{position:fixed;left:0;top:0;z-index:9999;font-size:34px;pointer-events:none;filter:drop-shadow(0 3px 3px rgba(0,0,0,.25))}
+@keyframes food-bob{0%,100%{transform:translateY(0)}50%{transform:translateY(-3px)}}
+@media (prefers-reduced-motion:reduce){.food-token{animation:none}}

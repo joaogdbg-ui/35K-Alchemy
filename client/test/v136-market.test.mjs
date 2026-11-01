@@ -8,7 +8,7 @@ test('V136: coins, market catalogue, accessories and lessons are consistent',()=
  assert.ok(M.coinsFor('race',4,1,{theme:true,firstGold:true})>M.coinsFor('race',0,5));assert.equal(M.LESSONS.length,6);
 });
 test('V136: coin packs are credited once per Play token; theme races gate at 85%',()=>{
- assert.match(java,/COINS_ID = "coins_100"/);assert.match(java,/public void purchaseCoins\(PluginCall call\)/);assert.match(java,/consumeAsync/);
+ assert.match(java,/COIN_PACKS = \{"coins_100", "coins_550", "coins_1200", "coins_2600"\}/);assert.match(java,/public void purchaseCoins\(PluginCall call\)/);assert.match(java,/consumeAsync/);
  assert.match(app,/if\(typeof t!=='string'\|\|wallet\.tokens\.includes\(t\)\)continue/);
  assert.match(games,/>=85\):!c\.locked\|\|/);assert.match(games,/THEME_COURSES=\[/);
 });
