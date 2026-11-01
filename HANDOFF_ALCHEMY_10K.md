@@ -90,6 +90,9 @@ Preserve 200-per-batch policy and do not start another content release on top of
 
 - **Art redraw wave 3 (V85, done): 3,991 icons** — every remaining older element. All 6,012 pre-V83 elements now use the 2026 art direction (`ART_REDRAW`), plus 200 V83 and 200 V85 originals. Six near-duplicates found by the audit were redrawn; 36 reviewed false alarms are in `tools/art-redraw-reviewed-pairs.json` (the audit now also honours them for V83 comparisons).
 
+## V150 — coins doubled for the same euros (1 November 2026)
+- Owner: the €100 pack could not buy the most expensive house (16,000). Packs now give 200 / 420 / 1,100 / 2,400 / 5,200 / 14,000 / 30,000 coins for €1 / 2 / 5 / 10 / 20 / 50 / 100. **Play product ids keep their old names** (`coins_100` … `coins_15000`); only the credited amount changed (`COIN_PACKS[].coins`, credited by `creditCoinTokens`).
+
 ## V149 — more coin packs + "Nothing is pay-only" note (1 November 2026)
 - Coin packs (market-v136.js `COIN_PACKS`, AlchemyBillingPlugin `COIN_PACKS`): `coins_100` €1 · **`coins_210` €2 (+5%)** · `coins_550` €5 (+10%) · `coins_1200` €10 (+20%, Popular) · `coins_2600` €20 (+30%) · **`coins_7000` €50 (+40%)** · **`coins_15000` €100 (+50%, Best value)**. **Owner must create the three new consumable products in Play Console.** Plugin now queries all ids in a loop.
 - `FAIR_PLAY_NOTE` shown as a green box at the top of the Market and the coin shop: everything buyable can also be found in Alchemy or earned by playing.

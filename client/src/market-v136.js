@@ -34,9 +34,10 @@ export const ACCESSORIES={
 export const WEARABLE_ELEMENTS=[[/\btop hat\b/,'top-hat'],[/\bwizard hat\b/,'wizard-hat'],[/\bparty hat\b/,'party-hat'],[/\b(cap|baseball cap)\b/,'cap'],[/\bstar glasses\b/,'star-glasses'],[/\bsunglasses\b/,'sunglasses'],[/\bmonocle\b/,'monocle'],[/\bheadphones?\b/,'headphones'],[/\bscarf\b/,'scarf'],[/\bbandana\b/,'bandana'],[/\bbow tie\b/,'bowtie'],[/\b(flower crown|wreath)\b/,'flower-crown'],[/\bcape\b/,'cape'],[/\bhat\b/,'top-hat'],[/\bbow\b/,'bow'],[/\bmedal\b/,'medal'],[/\bsnorkel\b/,'snorkel']];
 export function wearableFor(name){const t=` ${String(name||'').toLowerCase()} `;return WEARABLE_ELEMENTS.find(([re])=>re.test(t))?.[1]||null;}
 // ---------- market ----------
-export const COIN_PACK={id:'coins_100',coins:100,price:'€1.00'};
+export const COIN_PACK={id:'coins_100',coins:200,price:'€1.00'};
 /** V137: bigger packs are better value (bonus vs the 100-coin pack). */
-export const COIN_PACKS=[{id:'coins_100',coins:100,price:'€1.00',bonus:0},{id:'coins_210',coins:210,price:'€2.00',bonus:5},{id:'coins_550',coins:550,price:'€5.00',bonus:10},{id:'coins_1200',coins:1200,price:'€10.00',bonus:20,tag:'Popular'},{id:'coins_2600',coins:2600,price:'€20.00',bonus:30},{id:'coins_7000',coins:7000,price:'€50.00',bonus:40},{id:'coins_15000',coins:15000,price:'€100.00',bonus:50,tag:'Best value'}];
+/** V150: coins doubled for the same euros (product ids keep their original names). */
+export const COIN_PACKS=[{id:'coins_100',coins:200,price:'€1.00',bonus:0},{id:'coins_210',coins:420,price:'€2.00',bonus:5},{id:'coins_550',coins:1100,price:'€5.00',bonus:10},{id:'coins_1200',coins:2400,price:'€10.00',bonus:20,tag:'Popular'},{id:'coins_2600',coins:5200,price:'€20.00',bonus:30},{id:'coins_7000',coins:14000,price:'€50.00',bonus:40},{id:'coins_15000',coins:30000,price:'€100.00',bonus:50,tag:'Best value'}];
 /** V149: shown in the Market and the coin shop — nothing is pay-only. */
 export const FAIR_PLAY_NOTE='Everything you can buy here can also be found in Alchemy or earned by playing (races, Karate, daily coins). Buying only saves time.';
 export const MARKET=[

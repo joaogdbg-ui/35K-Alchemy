@@ -3202,9 +3202,10 @@ const ACCESSORIES={
 const WEARABLE_ELEMENTS=[[/\btop hat\b/,'top-hat'],[/\bwizard hat\b/,'wizard-hat'],[/\bparty hat\b/,'party-hat'],[/\b(cap|baseball cap)\b/,'cap'],[/\bstar glasses\b/,'star-glasses'],[/\bsunglasses\b/,'sunglasses'],[/\bmonocle\b/,'monocle'],[/\bheadphones?\b/,'headphones'],[/\bscarf\b/,'scarf'],[/\bbandana\b/,'bandana'],[/\bbow tie\b/,'bowtie'],[/\b(flower crown|wreath)\b/,'flower-crown'],[/\bcape\b/,'cape'],[/\bhat\b/,'top-hat'],[/\bbow\b/,'bow'],[/\bmedal\b/,'medal'],[/\bsnorkel\b/,'snorkel']];
 function wearableFor(name){const t=` ${String(name||'').toLowerCase()} `;return WEARABLE_ELEMENTS.find(([re])=>re.test(t))?.[1]||null;}
 // ---------- market ----------
-const COIN_PACK={id:'coins_100',coins:100,price:'€1.00'};
+const COIN_PACK={id:'coins_100',coins:200,price:'€1.00'};
 /** V137: bigger packs are better value (bonus vs the 100-coin pack). */
-const COIN_PACKS=[{id:'coins_100',coins:100,price:'€1.00',bonus:0},{id:'coins_210',coins:210,price:'€2.00',bonus:5},{id:'coins_550',coins:550,price:'€5.00',bonus:10},{id:'coins_1200',coins:1200,price:'€10.00',bonus:20,tag:'Popular'},{id:'coins_2600',coins:2600,price:'€20.00',bonus:30},{id:'coins_7000',coins:7000,price:'€50.00',bonus:40},{id:'coins_15000',coins:15000,price:'€100.00',bonus:50,tag:'Best value'}];
+/** V150: coins doubled for the same euros (product ids keep their original names). */
+const COIN_PACKS=[{id:'coins_100',coins:200,price:'€1.00',bonus:0},{id:'coins_210',coins:420,price:'€2.00',bonus:5},{id:'coins_550',coins:1100,price:'€5.00',bonus:10},{id:'coins_1200',coins:2400,price:'€10.00',bonus:20,tag:'Popular'},{id:'coins_2600',coins:5200,price:'€20.00',bonus:30},{id:'coins_7000',coins:14000,price:'€50.00',bonus:40},{id:'coins_15000',coins:30000,price:'€100.00',bonus:50,tag:'Best value'}];
 /** V149: shown in the Market and the coin shop — nothing is pay-only. */
 const FAIR_PLAY_NOTE='Everything you can buy here can also be found in Alchemy or earned by playing (races, Karate, daily coins). Buying only saves time.';
 const MARKET=[
@@ -5977,7 +5978,7 @@ function shinyCard(item){return `<p class="shiny-trivia"><span aria-hidden="true
 function showShinyFound(id){const it=byId.get(id);if(!it)return;
  showModal(`<div class="modal-tag shiny-tag">✦ SHINY ELEMENT</div><div class="modal-art is-shiny">${staticArt(it)}</div><h2>Shiny ${escapeText(uiName(it))}</h2>${shinyCard(it)}<div class="modal-milestone">${shiny.size.toLocaleString('en-US')} shiny ${shiny.size===1?'element':'elements'} · ${Math.round(shinyChance()*100)}% chance per combination</div>`);
 }
-const APP_VERSION='1.0.49';
+const APP_VERSION='1.0.50';
 // V83: status line + Google consent (UMP) privacy options, required for EEA players.
 async function refreshAdStatus(){
  const el=$('settingsAdStatus'),bridge=getRewardBridge();
