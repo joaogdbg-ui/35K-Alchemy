@@ -3172,6 +3172,8 @@ function createCompanionSystem(ctx){
   const svgEl=art.querySelector('svg');if(svgEl){svgEl.setAttribute('width','100%');svgEl.setAttribute('height','100%');}
   try{ctx.wear?.(sprite.parentElement||sprite);}catch{}
  }
+ // V128: looks/belts must be applied after the sprite is in a layer and visible, or the saved look is lost on launch
+ function rewear(){requestAnimationFrame(()=>{try{ctx.wear?.(layerFront);ctx.wear?.(layerBack);}catch{}});}
  function rect(sel){const el=document.querySelector(sel);if(!el||el.hidden)return null;const r=el.getBoundingClientRect();return r.width>0&&r.height>0?r:null;}
  // Rails are the top edges of the interface cards. Each edge exists twice: in FRONT (standing on
  // the card) and BEHIND (half hidden behind the card, drawn in the back layer).
@@ -3412,9 +3414,9 @@ function createCompanionSystem(ctx){
  function start(){ensureLayer();if(cancelMove)cancelMove();busy=false;sleeping=false;const meta=activeMeta();if(!meta){stop();return;}setArt(meta);sprite.hidden=false;layerFront.hidden=false;layerBack.hidden=false;settleMood(pet(meta.id));sprite.dataset.mood=moodLabel(pet(meta.id).mood).toLowerCase();
   const r=pickRail();if(r){rail=r;setLayer(r.layer);place(clampX(r,pos.x),r.y);}
   clearTimeout(timer);clearInterval(blinkTimer);
-  if(reducedMotion()){sprite.dataset.anim='idle';sprite.classList.add('is-static');return;}
+  if(reducedMotion()){sprite.dataset.anim='idle';sprite.classList.add('is-static');rewear();return;}
   blinkTimer=setInterval(()=>{if(!sleeping&&sprite.dataset.anim==='idle'){sprite.classList.add('is-blinking');setTimeout(()=>sprite.classList.remove('is-blinking'),170);}},3000+Math.random()*1800);
-  timer=setTimeout(loop,700);scheduleGift();scheduleSelfFeed();if(buddyMeta())startBuddy();else stopBuddy();}
+  timer=setTimeout(loop,700);scheduleGift();scheduleSelfFeed();if(buddyMeta())startBuddy();else stopBuddy();rewear();}
  function stop(){stopBuddy();clearTimeout(timer);clearTimeout(giftTimer);clearTimeout(selfFeedTimer);if(statWin)statWin.hidden=true;clearInterval(blinkTimer);if(cancelMove)cancelMove();if(sprite){sprite.hidden=true;}if(layerFront)layerFront.querySelectorAll('.companion-gift').forEach(g=>g.remove());}
  function setActive(id){if(id&&!isDiscovered(id))return false;if(id&&id===state.buddy)state.buddy=state.active||null;state.active=id||null;if(id)state.firstFreeUsed=true;save();if(state.active){pet(state.active);start();}else stop();refreshViews();return true;}
  /** Player choice: the very first companion is free; every later switch goes through the app (rewarded ad + 5-min grace). Sending home is free. */
@@ -3474,7 +3476,7 @@ function createCompanionSystem(ctx){
  function emoteOn(el,kind,ms=1600){if(reducedMotion())return;const e=el.querySelector('.companion-emote');if(!e)return;e.innerHTML=EMOTE_SVG[kind]||EMOTE_SVG.orb;e.dataset.emote=kind;e.hidden=false;e.classList.remove('is-pop','is-fade');void e.offsetWidth;e.classList.add('is-pop');clearTimeout(e._t);e._t=setTimeout(()=>{e.classList.remove('is-pop');e.classList.add('is-fade');setTimeout(()=>{e.hidden=true;e.classList.remove('is-fade');},300);},ms);}
  function startBuddy(){const m=buddyMeta();if(!m){stopBuddy();return;}ensureBud();if(bud.cancel)bud.cancel();bSetArt(m);bud.sprite.hidden=false;
   const r=rail&&rail.kind==='top'?rail:pickRail();if(r){bud.rail=r;bLayer(r.layer);bud.pos.face=-1;bPlace(clampX(r,(pos.x||40)+90),r.y);}
-  clearTimeout(budTimer);if(reducedMotion()){bud.sprite.dataset.anim='idle';return;}budTimer=setTimeout(budLoop,900);}
+  rewear();clearTimeout(budTimer);if(reducedMotion()){bud.sprite.dataset.anim='idle';return;}budTimer=setTimeout(budLoop,900);}
  function stopBuddy(){clearTimeout(budTimer);if(bud){if(bud.cancel)bud.cancel();bud.sprite.hidden=true;}}
  async function budLoop(){
   if(destroyed||!bud||!buddyMeta()){stopBuddy();return;}
@@ -5401,7 +5403,7 @@ function shinyCard(item){return `<p class="shiny-trivia"><span aria-hidden="true
 function showShinyFound(id){const it=byId.get(id);if(!it)return;
  showModal(`<div class="modal-tag shiny-tag">✦ SHINY ELEMENT</div><div class="modal-art is-shiny">${staticArt(it)}</div><h2>Shiny ${escapeText(uiName(it))}</h2>${shinyCard(it)}<div class="modal-milestone">${shiny.size.toLocaleString('en-US')} shiny ${shiny.size===1?'element':'elements'} · ${Math.round(shinyChance()*100)}% chance per combination</div>`);
 }
-const APP_VERSION='1.0.27';
+const APP_VERSION='1.0.28';
 // V83: status line + Google consent (UMP) privacy options, required for EEA players.
 async function refreshAdStatus(){
  const el=$('settingsAdStatus'),bridge=getRewardBridge();
