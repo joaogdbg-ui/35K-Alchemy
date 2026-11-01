@@ -90,6 +90,13 @@ Preserve 200-per-batch policy and do not start another content release on top of
 
 - **Art redraw wave 3 (V85, done): 3,991 icons** — every remaining older element. All 6,012 pre-V83 elements now use the 2026 art direction (`ART_REDRAW`), plus 200 V83 and 200 V85 originals. Six near-duplicates found by the audit were redrawn; 36 reviewed false alarms are in `tools/art-redraw-reviewed-pairs.json` (the audit now also honours them for V83 comparisons).
 
+## V130 — feed and pet the second companion (1 November 2026)
+- `swapInPlace()` swaps main/buddy roles without moving them (art, rails, layers and positions are exchanged). Dropping an element closer to the buddy (`hitTest`) or stroking it (own pointer handlers with pointer capture) swaps first, then runs the normal feed/petting flow. Tapping the buddy swaps in place and opens its card.
+
+## V129 — rival companions in minigames have looks (1 November 2026)
+- `rivalLook(seed,level)` (companion-engine) simulates a few themed meals (more meals, radiant depth and a second mixed theme at higher levels). games-v93 `opponentsFor(n,exclude,level)` stores one per rival (`rivalLooks`, `rivalLookOf`), marks rival elements `data-rival="1"`; app `wearAll` applies it via `companions.applyRivalLook` (filter key `<id>-rival`) unless the rival is one of the player's own companions with a real look.
+- Roster reviewed (all 40 have body + head + legs rigs); owner confirmed all designs are fine, no sprite changes.
+
 ## V128 — saved look shown on launch (1 November 2026)
 - Bug: on app start `setArt` called `ctx.wear(sprite.parentElement||sprite)` before the sprite was attached to a layer (wearAll only searches descendants) and while hidden (getBBox = 0), so the companion showed its plain look until the next meal. Fix: `rewear()` re-applies looks/belts on both layers one frame after `start()`/`startBuddy()`.
 
