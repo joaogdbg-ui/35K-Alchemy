@@ -28,7 +28,7 @@ import java.util.Map;
  * since V125, the second on-screen companion slot ({@link #SLOT_ID}, owner price EUR 1.00).
  *
  * Product: an in-app, non-consumable product with ID {@link #PRODUCT_ID}, created by the
- * owner in Play Console (Monetize > Products > In-app products, price EUR 1.50).
+ * owner in Play Console (Monetize > Products > In-app products, price EUR 2.00 since V126).
  * Until that product exists and the app is installed from a Play track, Play returns
  * ITEM_UNAVAILABLE and the game simply keeps its free (ad-supported) behaviour.
  *
