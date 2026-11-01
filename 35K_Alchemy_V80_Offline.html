@@ -1286,6 +1286,20 @@ button.home-eff::after{content:" ⓘ";opacity:.6;font-weight:700}
 @keyframes chip-hold{to{clip-path:inset(0 0 0 0)}}
 .modal-art.is-info{transform:scale(.8)}
 
+/* V109 medal tally on companion picker tiles */
+.st-pick .companion{position:relative}
+.st-pick-belt{position:absolute;right:-6px;bottom:-4px;background:var(--surface);border-radius:50%;padding:1px;line-height:0;box-shadow:0 0 0 1px var(--line)}
+.st-tally{display:flex;align-items:center;justify-content:center;gap:2px;font-size:10px;font-weight:800;min-height:13px;color:var(--ink)}
+.st-mini{width:9px;height:9px;border-radius:50%;display:inline-block;margin-left:3px}
+.st-mini:first-child{margin-left:0}
+.st-mini.is-gold{background:radial-gradient(circle at 35% 35%,#fff3b8,#e0b13c)}.st-mini.is-silver{background:radial-gradient(circle at 35% 35%,#fff,#b7c0c6)}.st-mini.is-bronze{background:radial-gradient(circle at 35% 35%,#ffd8b0,#c2804a)}
+.st-mini-t{margin-left:3px;font-size:9.5px}
+.st-none{font-size:9px;font-weight:600;color:var(--muted)}
+.st-pick.has-medals{border-color:color-mix(in srgb,#e0b13c 55%,var(--line))}
+.st-tally{flex-wrap:wrap;gap:0 1px;font-size:9.5px;line-height:12px;max-width:100%;padding:0 2px}
+.st-mini{width:8px;height:8px;margin-left:2px}
+.st-mini-t{flex-basis:100%;text-align:center;margin-left:0}
+
 </style>
 </head>
 <body>
@@ -2117,7 +2131,10 @@ function createGamesSystem(ctx){
    <section class="st-entrant is-simple"><button type="button" class="st-entrant-art companion" data-companion="${pid}" data-card="${pid}" aria-label="Stats"><span class="companion-art"></span>${belt?`<span class="st-entrant-belt">${prizes.beltSvg(belt,22)}</span>`:''}</button>
     <button type="button" class="st-entrant-main" data-card="${pid}"><strong>${escapeText(info.name)}</strong><small>Lv ${totalLv(info)} · ${info.mood>=70?'Happy':info.mood<=30?'Sad':'Content'}${belt?' · '+escapeText(belt.name):''}</small><em>Growth ×${ctx.alchemyGrowth?.()||1} from ${(ctx.classicCount?.()||0).toLocaleString('en-US')} Classic finds</em></button>
     <button type="button" class="st-change" id="stChange">Change</button></section>
-   <div class="st-picker" id="stPicker" hidden>${owned().map(c=>{const ci=companionInfo(c.id);return `<button type="button" class="st-pick ${c.id===pid?'is-active':''}" data-gpick="${c.id}"><span class="companion" data-companion="${c.id}"><span class="companion-art"></span></span><small>${escapeText(ci.name)}</small><em>Lv ${totalLv(ci)}</em></button>`;}).join('')}</div>
+   <div class="st-picker" id="stPicker" hidden>${owned().map(c=>({c,m:medalCounts(c.id),t:COURSES.filter(x=>hasPrize(trophyOf(x.id,c.id).id)).length})).sort((x,y)=>(y.m.gold-x.m.gold)||(y.m.silver-x.m.silver)||(y.m.bronze-x.m.bronze)).map(({c,m,t})=>{const ci=companionInfo(c.id),b=belts.find(x=>x.id===beltOf(c.id));
+     // V109: every tile shows that companion's medals, trophies and belt, so nobody needs switching to compare.
+     const tally=[['gold',m.gold],['silver',m.silver],['bronze',m.bronze]].filter(([,n])=>n).map(([k,n])=>`<i class="st-mini is-${k}"></i>${n}`).join('')+(t?`<span class="st-mini-t">🏆${t}</span>`:'');
+     return `<button type="button" class="st-pick ${c.id===pid?'is-active':''} ${m.gold+m.silver+m.bronze?'has-medals':''}" data-gpick="${c.id}"><span class="companion" data-companion="${c.id}"><span class="companion-art"></span>${b?`<span class="st-pick-belt">${prizes.beltSvg(b,16)}</span>`:''}</span><small>${escapeText(ci.name)}</small><em>Lv ${totalLv(ci)}</em><span class="st-tally">${tally||'<span class="st-none">no medals</span>'}</span></button>`;}).join('')}</div>
    <div class="st-rows">${rows}
     <button type="button" class="st-row is-prizes" id="stPrizes"><span class="st-course-ico" data-focus="all"></span><div class="st-row-main"><strong>Prizes</strong><small>${won}/${toys.length} trophies · ${belt?escapeText(belt.name):'no belt yet'}</small></div><span class="st-chev">›</span></button></div>
    <p class="mini-muted st-tip">Your companion competes on its own. Tap CHEER for a sprint or a power strike — it costs Stamina.</p></div>`;
@@ -4624,7 +4641,7 @@ function shinyCard(item){return `<p class="shiny-trivia"><span aria-hidden="true
 function showShinyFound(id){const it=byId.get(id);if(!it)return;
  showModal(`<div class="modal-tag shiny-tag">✦ SHINY ELEMENT</div><div class="modal-art is-shiny">${staticArt(it)}</div><h2>Shiny ${escapeText(uiName(it))}</h2>${shinyCard(it)}<div class="modal-milestone">${shiny.size.toLocaleString('en-US')} shiny ${shiny.size===1?'element':'elements'} · ${Math.round(shinyChance()*100)}% chance per combination</div>`);
 }
-const APP_VERSION='1.0.8';
+const APP_VERSION='1.0.9';
 // V83: status line + Google consent (UMP) privacy options, required for EEA players.
 async function refreshAdStatus(){
  const el=$('settingsAdStatus'),bridge=getRewardBridge();
