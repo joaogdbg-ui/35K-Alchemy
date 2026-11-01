@@ -475,7 +475,7 @@ function shinyCard(item){return `<p class="shiny-trivia"><span aria-hidden="true
 function showShinyFound(id){const it=byId.get(id);if(!it)return;
  showModal(`<div class="modal-tag shiny-tag">✦ SHINY ELEMENT</div><div class="modal-art is-shiny">${staticArt(it)}</div><h2>Shiny ${escapeText(uiName(it))}</h2>${shinyCard(it)}<div class="modal-milestone">${shiny.size.toLocaleString('en-US')} shiny ${shiny.size===1?'element':'elements'} · ${Math.round(shinyChance()*100)}% chance per combination</div>`);
 }
-const APP_VERSION='1.0.15';
+const APP_VERSION='1.0.16';
 // V83: status line + Google consent (UMP) privacy options, required for EEA players.
 async function refreshAdStatus(){
  const el=$('settingsAdStatus'),bridge=getRewardBridge();
@@ -1665,7 +1665,7 @@ const homeDiscovered=id=>PRIZE_BY_ID[id]||parsePersonalPrize(id)?games.hasPrize(
 // up to ×2 at 4,000 (a multiplier on future gains only, like the houses).
 function classicDiscoveredCount(){try{const list=currentMode==='classic'?[...unlocked]:(classicSnapshot?.unlocked||[]);return Math.max(0,list.filter(id=>!['legacy:0','legacy:1','legacy:2','legacy:3'].includes(id)).length);}catch{return 0;}}
 function alchemyGrowth(){return Math.round((1+Math.min(1,classicDiscoveredCount()/4000))*100)/100;}
-function wearAll(root){if(!root)return;const els=root.querySelectorAll?.('[data-companion], .pet-ava[data-card], .pet-card[data-pet], .home-res[data-res], .pets-now-art[data-card]')||[];for(const el of els){const id=el.dataset.companion||el.dataset.card||el.dataset.pet||el.dataset.res;const belt=games.beltOf(id);if(!belt)continue;const svg=el.querySelector('svg');if(svg)wearBelt(svg,belt);}}
+function wearAll(root){if(!root)return;const els=root.querySelectorAll?.('[data-companion], .pet-ava[data-card], .pet-card[data-pet], .home-res[data-res], .pets-now-art[data-card]')||[];for(const el of els){const id=el.dataset.companion||el.dataset.card||el.dataset.pet||el.dataset.res;const svg=el.querySelector('svg');if(!svg)continue;try{companions.applyLook(svg,id);}catch{}const belt=games.beltOf(id);if(belt)wearBelt(svg,belt);}}
 const homes=createHomeSystem({$,escapeText,byId:homeById,uiName:homeUiName,staticArt:homeStaticArt,isDiscovered:homeDiscovered,objects:HOME_OBJECTS,sprites:COMPANION_SPRITES_V86,roster:COMPANIONS_V86,
  roomSprites:ROOM_SPRITES,depthOf:id=>routeDepth.get(id),alchemy:()=>({mult:alchemyGrowth(),finds:classicDiscoveredCount()}),wear:wearAll,applyEffect:(cid,eff)=>companions.homeEffect(cid,eff),
  companionName:id=>companions.state().pets[id]?.nick||uiName(byId.get(id)),statsHtml:id=>companions.statsHtml(id),showModal,closeModal,toast,reducedMotion:()=>Boolean(window.matchMedia?.('(prefers-reduced-motion: reduce)')?.matches)});
