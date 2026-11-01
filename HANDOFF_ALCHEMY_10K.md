@@ -90,6 +90,9 @@ Preserve 200-per-batch policy and do not start another content release on top of
 
 - **Art redraw wave 3 (V85, done): 3,991 icons** — every remaining older element. All 6,012 pre-V83 elements now use the 2026 art direction (`ART_REDRAW`), plus 200 V83 and 200 V85 originals. Six near-duplicates found by the audit were redrawn; 36 reviewed false alarms are in `tools/art-redraw-reviewed-pairs.json` (the audit now also honours them for V83 comparisons).
 
+## V115 — harder elements feed more (1 November 2026)
+- `feedDepthMult(depth)` = min(1.8, 0.6 + 0.12×recipe depth): starters ×0.6, depth 5 ×1.2, depth 10+ ×1.8 (×2 more for shiny). Applied in `feedPlan`; companions get `ctx.depthOf` (routeDepth). Measured: Air +34 vs a depth-11 element +101 total stat XP.
+
 ## V114 — "while you were away" when returning to Home (1 November 2026)
 - Leaving the Home tab stamps `homeAwaySince`; coming back after ≥2 min runs `homeAwaySummary`: every house resident uses each training/food/fun piece min(30, 1.5×minutes) times through `companions.homeEffect` (same daily cap as the live room), and a sheet lists per resident the XP gained per stat (level-ups highlighted, "Lv 3→4"), plus mood/belly.
 - Separate from the V91 idle finds (app closed).
