@@ -90,6 +90,9 @@ Preserve 200-per-batch policy and do not start another content release on top of
 
 - **Art redraw wave 3 (V85, done): 3,991 icons** — every remaining older element. All 6,012 pre-V83 elements now use the 2026 art direction (`ART_REDRAW`), plus 200 V83 and 200 V85 originals. Six near-duplicates found by the audit were redrawn; 36 reviewed false alarms are in `tools/art-redraw-reviewed-pairs.json` (the audit now also honours them for V83 comparisons).
 
+## V133 — Stat filter (1 November 2026)
+- New "▲ Stat" tool chip (`#statChip`) next to Looks. Sheet with 6 stat tiles (icon, current level of the on-screen companion, element count) and a "Main stat only / Main + bonus" toggle; filters by the element family's FAMILY_FEEDS pair (`companions.feedStatsOf`). Families feed: games run/stamina, anime power/fly, nature swim/stamina, fantasy fly/power, people stamina/hp, mythology power/fly, prehistoric power/hp, world run/swim, home stamina/hp (default).
+
 ## V132 — element list scrolls again (1 November 2026)
 - V127 dropped the `</div>` closing `#shelfToolbar`, so `#inventoryScroll` was nested in the toolbar and grew to full height (no scrolling, stale virtual rows). Closed it; test v132-shelf-scroll guards the nesting.
 

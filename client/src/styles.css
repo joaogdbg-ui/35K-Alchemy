@@ -1551,3 +1551,13 @@ button.home-eff::after{content:" ⓘ";opacity:.6;font-weight:700}
 .st-ico{flex:none;width:32px;height:32px;border-radius:11px;background:var(--surface);display:grid;place-items:center;font-size:15px;font-weight:900;color:var(--accent-ink)}
 .st-tag{font-size:10px;font-weight:900;letter-spacing:.08em;padding:3px 7px;border-radius:8px;background:var(--line);color:var(--ink-2)}
 .settings-shell .bx-noads{margin-top:12px}.bx-noads.is-owned{border-style:solid;background:color-mix(in srgb,var(--accent) 10%,var(--surface))}
+
+/* V133: stat filter */
+.stat-chip[aria-pressed="true"]{border-color:var(--accent);background:color-mix(in srgb,var(--accent) 14%,var(--surface));color:var(--accent-ink)}
+.stat-tiles{display:grid;grid-template-columns:repeat(3,1fr);gap:8px;margin-top:10px}
+.stat-tile{display:grid;justify-items:center;gap:1px;padding:10px 4px;border-radius:16px;border:1px solid var(--line);background:var(--surface)}
+.stat-tile .stat-ic{font-size:22px;line-height:1.1}.stat-tile b{font-size:14px;font-weight:900}.stat-tile em{font-style:normal;font-size:11px;font-weight:800;color:var(--accent-ink)}.stat-tile small{font-size:11px;color:var(--muted)}
+.stat-tile.is-on{border-color:var(--accent);background:color-mix(in srgb,var(--accent) 16%,var(--surface))}
+.stat-mode{display:flex;gap:4px;margin:12px 0 4px;padding:4px;border-radius:14px;background:var(--surface-2,#f3efe7)}
+.stat-mode button{flex:1;height:34px;border-radius:10px;font-weight:800;font-size:12px;color:var(--muted)}
+.stat-mode button[aria-pressed="true"]{background:var(--surface);color:var(--ink);box-shadow:var(--shadow)}
