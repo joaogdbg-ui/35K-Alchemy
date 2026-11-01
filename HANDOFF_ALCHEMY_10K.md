@@ -90,6 +90,13 @@ Preserve 200-per-batch policy and do not start another content release on top of
 
 - **Art redraw wave 3 (V85, done): 3,991 icons** — every remaining older element. All 6,012 pre-V83 elements now use the 2026 art direction (`ART_REDRAW`), plus 200 V83 and 200 V85 originals. Six near-duplicates found by the audit were redrawn; 36 reviewed false alarms are in `tools/art-redraw-reviewed-pairs.json` (the audit now also honours them for V83 comparisons).
 
+## V138 — market polish: confirm, copies, daily coins, timed school levels, higher prices (1 November 2026)
+- Every Market/School purchase opens a CONFIRM sheet (price, balance, after; "Get more coins" when short). `modalBack` hook: X on confirm / coin shop returns to the sheet it came from.
+- Accessories are counted (`wallet.acc` = {id:copies}, old arrays migrated). One copy dresses one companion; Wardrobe shows free/used copies and offers to buy another copy. Price per copy `accPrice(base,owned)` = base×1.6^owned.
+- Daily coins: +100 once per calendar day in the Market (`wallet.daily`).
+- School: 5 levels per lesson (Novice→Master), price `lessonPrice` ×[1,2.5,5,9,15], duration 5 min/30 min/2 h/6 h/12 h, one class per companion (`wallet.classes`), live timer, "▶ Ad −30 min" (`kind:'school_skip'`), auto-graduates (`settleClasses`, every minute and on open). Skill level makes tricks fancier and more frequent (`skillLevel`).
+- Prices raised (food 45–180, accessories 160–650, toys 400–500, furniture 350–800, houses 900–11 000). Furniture/house images fixed (`homeStaticArt`, `.mk-art svg` sized). "+ Coins" button without the "from €1" line.
+
 ## V137 — bigger coin packs, food dragged from the screen (1 November 2026)
 - Coin packs `coins_100` €1, `coins_550` €5 (+10%), `coins_1200` €10 (+20%, Popular), `coins_2600` €20 (+30%, Best value) — **owner must create all four as consumable products**. Plugin `purchaseCoins({pack})`, reports `coinPacks` prices and `coinTokens` as "pack|token"; JS credits each token once with that pack's coins. Coin shop sheet from the Market/School "+ Coins" button.
 - Market food no longer feeds instantly: it goes to `wallet.bag` and shows as tokens on top of the craft card (`#foodTray`, card gets `.has-tray`); drag a token onto a companion (main or second) to feed it; a tap shows what it does.
