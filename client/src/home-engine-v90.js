@@ -349,6 +349,10 @@ export function createHomeSystem(ctx){
 
  function growthFor(cid,kind){const hid=residentOf(cid);if(!hid||!isDiscovered(hid))return 1;return Math.round(growthMultiplier(objects[hid].capacity,house(hid),objects,kind,bonusOf)*extMult(hid,kind)*100)/100;}
  function houseLine(cid){const hid=residentOf(cid);if(!hid||!isDiscovered(hid))return '';return `Lives in ${escapeText(uiName(byId.get(hid)))} · grows ×${HOUSE_GROWTH[objects[hid].capacity]||1} faster`;}
- return {render,stopWander,growthFor,houseLine,addonInfo,state:()=>state,summary:id=>houseSummary(house(id),objects),ownedHouses,residentOf,
+ // V147: companion sheet → Add to Home
+ const homeChoices=cid=>ownedHouses().map(id=>{const h=house(id);return {id,name:uiName(byId.get(id)),art:staticArt(byId.get(id)),used:h.residents.filter(isDiscovered).length,cap:capOf(id),here:h.residents.includes(cid)};});
+ function moveIn(cid,hid){if(!isDiscovered(hid))return false;const h=house(hid);if(h.residents.includes(cid))return true;if(h.residents.filter(isDiscovered).length>=capOf(hid))return false;const w=residentOf(cid);if(w)state.houses[w].residents=state.houses[w].residents.filter(x=>x!==cid);h.residents.push(cid);save();return true;}
+ function moveOut(cid){const w=residentOf(cid);if(!w)return false;state.houses[w].residents=state.houses[w].residents.filter(x=>x!==cid);save();return true;}
+ return {render,stopWander,growthFor,houseLine,addonInfo,homeChoices,moveIn,moveOut,state:()=>state,summary:id=>houseSummary(house(id),objects),ownedHouses,residentOf,
   importState(raw){if(raw&&raw.houses){state={v:1,active:raw.active||null,houses:raw.houses};save();}}};
 }
