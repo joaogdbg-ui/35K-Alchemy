@@ -1713,3 +1713,7 @@ button.home-eff::after{content:" ⓘ";opacity:.6;font-weight:700}
 .home-ext-chip.is-built{border-color:#5e9e5a;background:color-mix(in srgb,#5e9e5a 14%,var(--surface-2));opacity:1}
 .home-ext-chip.is-off{opacity:.5}
 .home-ext-emoji{font-size:20px;display:grid;place-items:center;height:100%}
+
+/* V141: games hub (Market, School, Games, Prizes) */
+.st-shop.is-hub{margin:12px 0 6px}.st-shop.is-hub .st-shop-btn{min-height:74px}
+.st-rows.is-sheet{margin-top:8px;text-align:left}
