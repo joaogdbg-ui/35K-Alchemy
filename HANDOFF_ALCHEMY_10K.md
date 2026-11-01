@@ -90,6 +90,12 @@ Preserve 200-per-batch policy and do not start another content release on top of
 
 - **Art redraw wave 3 (V85, done): 3,991 icons** — every remaining older element. All 6,012 pre-V83 elements now use the 2026 art direction (`ART_REDRAW`), plus 200 V83 and 200 V85 originals. Six near-duplicates found by the audit were redrawn; 36 reviewed false alarms are in `tools/art-redraw-reviewed-pairs.json` (the audit now also honours them for V83 comparisons).
 
+## V143 — add-ons built from the game's own room sprites; residents live in them (1 November 2026)
+- Owner: V142 garden/second floor art did not match the game. Now every add-on is a real zone made of room sprites (`ROOM_SPRITES_V90`) plus three new sprite-style pieces drawn in the same palette (`ZONE_SPRITES` in home-engine-v90.js: `zone:pool` 3×2 floor piece, `zone:lounger`, `zone:stairs`).
+  - **Upstairs** (`upstairsPlan`): a second `.home-room.is-upstairs` with the house's own wall/floor theme, stairs, two `organic89:bed`, curtain (and picture frame on wide houses); a floor slab separates it from the ground floor.
+  - **Yard** (`yardPlan`): grass or patio floor; garden = flower box, garden bench, fence, bird bath, lantern, rope swing; pool = `zone:pool` + lounger. Layout adapts to the house width.
+- Residents really move between zones (`splitResidents`): the house's own capacity stays downstairs, the next two sleep upstairs (beds → `sleep`), and about a third of the ground residents (min 1; a lone resident alternates every 90 s) visit the yard and swim in the pool / use the swing. Each zone runs its own `wanderZone` loop (refactor of `startWander`; zone pieces use `data-zpiece`, train:false so bonuses still come only from placed furniture).
+
 ## V142 — add-ons drawn as real places (1 November 2026)
 - Owner: garden was a tiny strip inside, pool a line, second floor unclear. Now in Home (`home-engine-v90.js`, `upstairsHtml`/`yardHtml`, CSS `.home-plot/.home-up/.home-yard`):
   - **Second floor** = an upstairs bedroom drawn above the room (stairs, window, 2 beds). Residents beyond the house's own capacity sleep there (zz) and no longer walk downstairs.

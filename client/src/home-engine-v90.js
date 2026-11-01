@@ -76,8 +76,15 @@ export function growthMultiplier(capacity,house,objects,kind,bonusOf=()=>FURNITU
 export function houseSummary(house,objects){const out={};for(const f of house?.furniture||[]){const e=objects[f.id]?.effect;if(e)out[e]=(out[e]||0)+1;}return out;}
 
 export function createHomeSystem(ctx){
- const {$,escapeText,byId,uiName,staticArt,isDiscovered,objects,roomSprites,roster,sprites,companionName,statsHtml,wear,applyEffect,showModal,closeModal,toast,reducedMotion,onChange}=ctx;
- const RS=roomSprites||{};
+ const {$,escapeText,byId,uiName,staticArt,isDiscovered,objects:baseObjects,roomSprites,roster,sprites,companionName,statsHtml,wear,applyEffect,showModal,closeModal,toast,reducedMotion,onChange}=ctx;
+ // V143: add-on scenery pieces drawn in the room-sprite style (same palette and 3/4 view as tools/v90-assemble-room.py).
+ const ZONE_OBJECTS={'zone:pool':{kind:'zone',effect:'swim',size:[3,2]},'zone:lounger':{kind:'zone',effect:'decor',size:[1,1]},'zone:stairs':{kind:'zone',effect:'decor',size:[1,2]}};
+ const ZONE_SPRITES={
+  'zone:pool':{layer:'floor',front:`<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 300 200"><g stroke-linejoin="round" stroke-linecap="round"><rect x="10" y="14" width="288" height="184" rx="30" fill="#5a4a3a" opacity=".16"/><rect x="4" y="6" width="292" height="188" rx="30" fill="#DCE2E5" stroke="#657D89" stroke-width="3.5"/><rect x="4" y="6" width="292" height="6" rx="3" fill="#F2F5F6"/><rect x="26" y="28" width="248" height="144" rx="22" fill="#3F86B0" stroke="#657D89" stroke-width="3"/><rect x="26" y="28" width="248" height="130" rx="22" fill="#5AAED2"/><path d="M50 70q14-10 28 0t28 0t28 0t28 0t28 0t28 0M60 112q14-10 28 0t28 0t28 0t28 0t28 0" fill="none" stroke="#BFE6FA" stroke-width="4"/><path d="M246 14v44M262 14v44M246 26h16M246 42h16" fill="none" stroke="#F7F1E6" stroke-width="5"/><path d="M246 14v44M262 14v44M246 26h16M246 42h16" fill="none" stroke="#657D89" stroke-width="2"/><circle cx="92" cy="136" r="17" fill="#C9584A" stroke="#657D89" stroke-width="3"/><circle cx="92" cy="136" r="7" fill="#5AAED2"/><path d="M78 128l10 4M100 144l6 2" stroke="#F7F1E6" stroke-width="3"/></g></svg>`},
+  'zone:lounger':{layer:'object',front:`<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 160"><g stroke-linejoin="round" stroke-linecap="round"><ellipse cx="52" cy="148" rx="42" ry="9" fill="#5a4a3a" opacity=".16"/><path d="M14 150V108M86 150V108M22 140h56" fill="none" stroke="#9C6E4A" stroke-width="4"/><path d="M12 112h76v18H12z" fill="#F7F1E6" stroke="#657D89" stroke-width="3"/><path d="M18 112V64q32-10 64 0v48" fill="#F7F1E6" stroke="#657D89" stroke-width="3"/><path d="M30 68v44M44 66v46M58 66v46M72 68v44" stroke="#C9584A" stroke-width="7"/><path d="M12 112h76v18H12z" fill="none" stroke="#657D89" stroke-width="3"/><path d="M50 60V20" stroke="#9C6E4A" stroke-width="4"/><path d="M8 22Q50 -10 92 22Z" fill="#C9584A" stroke="#657D89" stroke-width="3"/><path d="M22 22q14-14 28 0M50 22q14-14 28 0" fill="#F7F1E6" stroke="#657D89" stroke-width="2"/></g></svg>`},
+  'zone:stairs':{layer:'object',front:`<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 260"><g stroke-linejoin="round" stroke-linecap="round"><rect x="6" y="236" width="90" height="18" rx="9" fill="#5a4a3a" opacity=".16"/><path d="M6 250V82h22v34h22v34h22v34h22v66z" fill="#B98A5E" stroke="#657D89" stroke-width="3.5"/><path d="M8 82h20M30 116h20M52 150h20M74 184h20" stroke="#F3E3C3" stroke-width="4"/><path d="M28 116v134M50 150v100M72 184v66" stroke="#9C6E4A" stroke-width="2"/><path d="M6 76L94 178" fill="none" stroke="#8E6748" stroke-width="5"/><path d="M6 76v-30M36 110v-30M66 144v-30M94 178v-30" stroke="#8E6748" stroke-width="3.5"/><path d="M6 46L94 148" fill="none" stroke="#9C6E4A" stroke-width="5"/></g></svg>`}};
+ const objects={...baseObjects,...ZONE_OBJECTS};
+ const RS={...(roomSprites||{}),...ZONE_SPRITES};
  const qOf=id=>pieceQuality(ctx.depthOf?.(id));const bonusOf=id=>objects[id]?.effect==='decor'?0:qOf(id).pct/100;
  const bonusText=id=>{const ob=objects[id];if(!ob||ob.effect==='decor')return 'Decor · no bonus';const q=qOf(id);return `${BONUS_NAME[ob.effect]||EFFECT_LABEL[ob.effect]} +${q.pct}% <span class="home-stars">${starsText(q.stars)}</span>`;};
  let state={v:1,active:null,houses:{}};
@@ -112,7 +119,7 @@ export function createHomeSystem(ctx){
  const furnitureOwned=()=>Object.entries(objects).filter(([id,o])=>o.kind==='furniture'&&isDiscovered(id)).map(([id])=>id);
  const placedAnywhere=id=>Object.entries(state.houses).find(([,h])=>h.furniture.some(f=>f.id===id))?.[0]||null;
  const residentOf=cid=>Object.entries(state.houses).find(([,h])=>h.residents.includes(cid))?.[0]||null;
- let moving=null,wanderTimer=null,dragEndedAt=0;
+ let moving=null,wanderTimers=[],dragEndedAt=0;
  function activeHouse(){const own=ownedHouses();if(!own.length)return null;if(!own.includes(state.active))state.active=own[own.length-1];return state.active;}
 
  // ---------- drawing ----------
@@ -122,11 +129,11 @@ export function createHomeSystem(ctx){
   if(f.r===2)return {html:s.back||s.front,flip:false};
   if(f.r===1||f.r===3)return {html:s.side||s.front,flip:f.r===3};
   return {html:s.front,flip:false};}
- function pieceHtml(f,i){
-  const layer=layerOf(RS,f.id),[w,h]=footprint(objects,f),art=pieceArt(f);
+ function pieceHtml(f,i,attr='data-piece'){
+  const layer=layerOf(RS,f.id),[w,h]=footprint(objects,f),art=pieceArt(f);const mv=attr==='data-piece'&&moving&&moving.index===i;
   const band=layer==='object'?BAND:0;
   const style=layer==='wall'?`--x:${f.x};--w:${w}`:`--x:${f.x};--y:${f.y};--w:${w};--h:${h};--band:${band};--z:${layer==='floor'?1:10+(f.y+h)*2}`;
-  return `<button type="button" class="home-piece is-${layer} ${art.flip?'is-flip':''} ${moving&&moving.index===i?'is-moving':''}" data-piece="${i}" style="${style}" aria-label="${escapeText(uiName(byId.get(f.id)))}">${art.html}<i class="home-hit" aria-hidden="true"></i></button>`;}
+  return `<button type="button" class="home-piece is-${layer} ${art.flip?'is-flip':''} ${mv?'is-moving':''}" ${attr}="${i}" ${attr==='data-piece'?'':'tabindex="-1"'} style="${style}" aria-label="${escapeText(uiName(byId.get(f.id)))}">${art.html}<i class="home-hit" aria-hidden="true"></i></button>`;}
  /** V140: the house's add-ons, under Residents. Built-in ones are shown fixed; ones that do not fit are greyed with where they fit. */
  function addonRow(hid){const built=Object.keys(EXT_INFO).filter(k=>builtIn(hid,k));const own=extIds();if(!built.length&&!own.length)return '';
   const chip=(cls,art,label,sub,attr='')=>`<button type="button" class="home-ext-chip ${cls}" ${attr}><span class="home-ext-art">${art}</span><b>${label}</b><small>${sub}</small></button>`;
@@ -137,24 +144,29 @@ export function createHomeSystem(ctx){
     const on=extHome(id)===hid,where=!on&&extHome(id);
     return chip(on?'is-on':'',art,I.label,on?'✓ Added · tap to remove':where?'In '+escapeText(shortName(where))+' · tap to move here':'Tap to add',`data-ext="${id}"`);})).join('');
   return `<div class="home-res-row home-addon-row"><span>Add-ons</span><div class="home-ext">${html}</div></div>`;}
- // ---------- V142: add-on scenery ----------
- const BED=`<svg viewBox="0 0 64 40" aria-hidden="true"><rect x="3" y="6" width="8" height="30" rx="3" fill="#8a5a3c"/><rect x="53" y="14" width="8" height="22" rx="3" fill="#8a5a3c"/><rect x="8" y="18" width="50" height="14" rx="4" fill="#f4efe6" stroke="#4a4a5a" stroke-width="1.5"/><rect x="24" y="16" width="34" height="16" rx="4" fill="#7fb2d6" stroke="#4a4a5a" stroke-width="1.5"/><rect x="11" y="13" width="13" height="9" rx="4" fill="#fff" stroke="#4a4a5a" stroke-width="1.5"/></svg>`;
- const STAIRS=`<svg viewBox="0 0 60 70" aria-hidden="true"><path d="M2 68h56V4H46v12H34v12H22v12H10v12H2z" fill="#b98a5e" stroke="#4a4a5a" stroke-width="2" stroke-linejoin="round"/><path d="M46 16h12M34 28h24M22 40h36M10 52h48" stroke="#8a5a3c" stroke-width="2"/><path d="M4 50L50 4" stroke="#6b4a32" stroke-width="3" stroke-linecap="round"/><path d="M14 40v-8M26 28v-8M38 16v-8" stroke="#6b4a32" stroke-width="2"/></svg>`;
- const WINDOW=`<svg viewBox="0 0 40 30" aria-hidden="true"><rect x="2" y="2" width="36" height="26" rx="3" fill="#bfe3f5" stroke="#4a4a5a" stroke-width="2"/><path d="M20 2v26M2 15h36" stroke="#4a4a5a" stroke-width="2"/><circle cx="30" cy="9" r="3" fill="#fff6c8"/></svg>`;
- const TREE=`<svg viewBox="0 0 70 90" aria-hidden="true"><ellipse cx="35" cy="86" rx="22" ry="4" fill="rgba(0,0,0,.15)"/><rect x="29" y="50" width="12" height="36" rx="3" fill="#8a5a3c" stroke="#4a4a5a" stroke-width="2"/><circle cx="35" cy="32" r="24" fill="#5e9e5a" stroke="#4a4a5a" stroke-width="2"/><circle cx="18" cy="44" r="14" fill="#6cad66" stroke="#4a4a5a" stroke-width="2"/><circle cx="52" cy="44" r="14" fill="#6cad66" stroke="#4a4a5a" stroke-width="2"/><circle cx="26" cy="24" r="3" fill="#e0675a"/><circle cx="46" cy="30" r="3" fill="#e0675a"/><circle cx="36" cy="46" r="3" fill="#e0675a"/></svg>`;
- const FLOWERS=`<svg viewBox="0 0 100 34" aria-hidden="true"><rect x="2" y="20" width="96" height="12" rx="5" fill="#8a5a3c" stroke="#4a4a5a" stroke-width="1.5"/>${[10,24,38,52,66,80,92].map((x,i)=>`<path d="M${x} 21v-9" stroke="#3f7a3c" stroke-width="2"/><circle cx="${x}" cy="10" r="5" fill="${['#ef7f9b','#f3c24a','#9b7fc4','#e0675a'][i%4]}" stroke="#4a4a5a" stroke-width="1.2"/><circle cx="${x}" cy="10" r="1.8" fill="#fff6c8"/>`).join('')}</svg>`;
- const BUSH=`<svg viewBox="0 0 50 30" aria-hidden="true"><path d="M4 28c-4-10 6-16 12-12 2-8 14-10 18-2 8-4 16 4 12 14z" fill="#6cad66" stroke="#4a4a5a" stroke-width="2"/></svg>`;
- const POOL=`<svg viewBox="0 0 120 64" aria-hidden="true"><rect x="2" y="2" width="116" height="60" rx="14" fill="#e8e2d6" stroke="#4a4a5a" stroke-width="2"/><rect x="10" y="10" width="100" height="44" rx="9" fill="#5aaed2" stroke="#3f86b0" stroke-width="2"/><g class="home-waves"><path d="M16 24q8-5 16 0t16 0t16 0t16 0t16 0" fill="none" stroke="#bfe6fa" stroke-width="2.5" stroke-linecap="round"/><path d="M22 38q8-5 16 0t16 0t16 0t16 0" fill="none" stroke="#bfe6fa" stroke-width="2.5" stroke-linecap="round"/></g><path d="M100 4v16M108 4v16M100 9h8M100 15h8" stroke="#8aa1ab" stroke-width="2.5" stroke-linecap="round"/><circle cx="34" cy="31" r="6" fill="#ef7f9b" stroke="#4a4a5a" stroke-width="1.5"/><circle cx="34" cy="31" r="2.5" fill="#5aaed2"/></svg>`;
- const LOUNGER=`<svg viewBox="0 0 60 40" aria-hidden="true"><path d="M30 2v26" stroke="#8a5a3c" stroke-width="2.5"/><path d="M8 12Q30 -6 52 12Z" fill="#e0675a" stroke="#4a4a5a" stroke-width="2"/><path d="M14 12Q22 4 30 12M30 12Q38 4 46 12" fill="#fff" stroke="#4a4a5a" stroke-width="1.5"/><path d="M6 36l8-10h30l8 10" fill="none" stroke="#4a4a5a" stroke-width="2"/><rect x="12" y="24" width="36" height="6" rx="2" fill="#5aaed2" stroke="#4a4a5a" stroke-width="1.5"/></svg>`;
- function upstairsHtml(hid,residents){const base=objects[hid]?.capacity||1;const up=residents.slice(base,base+2);
-  const bed=i=>{const cid=up[i];return `<div class="home-bed">${BED}${cid?`<span class="home-bed-sleeper">${sprites[cid]||''}</span><i class="home-zz">z</i>`:'<small>Free bed</small>'}</div>`;};
-  return `<div class="home-up" aria-label="Upstairs bedroom"><span class="home-zone-tag">🏠 Upstairs · 2 beds</span><span class="home-up-win">${WINDOW}</span><span class="home-up-stairs">${STAIRS}</span><div class="home-beds">${bed(0)}${bed(1)}</div></div>`;}
- function yardHtml(hid){const g=extOn(hid,'garden'),p=extOn(hid,'pool');
-  return `<div class="home-yard ${g?'is-grass':'is-patio'}" aria-label="Outdoor yard"><i class="home-path" aria-hidden="true"></i>
-   ${g?`<span class="home-yard-tree">${TREE}</span><span class="home-yard-flowers">${FLOWERS}</span><span class="home-yard-bush">${BUSH}</span><i class="home-butterfly" aria-hidden="true"></i>`:''}
-   ${p?`<span class="home-yard-pool">${POOL}</span><span class="home-yard-lounger">${LOUNGER}</span>`:''}
-   <span class="home-zone-tags">${g?`<span class="home-zone-tag">🌳 Garden · Fun +20%</span>`:''}${p?`<span class="home-zone-tag">🏊 Pool · Swim +25%</span>`:''}</span>
-   <i class="home-fence" aria-hidden="true"></i></div>`;}
+ // ---------- V143: add-ons are rooms of their own, built from the game's room sprites ----------
+ const UP_ROWS=3,YARD_ROWS=3;
+ /** Upstairs bedroom: stairs on the left, two beds, a curtain on the wall. */
+ function upstairsPlan(hid){const c=layoutOf(hid).cols;const F=[{id:'zone:stairs',x:0,y:1,r:0},{id:'organic89:bed',x:c-2,y:1,r:0},{id:'organic89:bed',x:c-4,y:1,r:0}];
+  if(RS['organic89:curtain'])F.push({id:'organic89:curtain',x:1,r:0});if(RS['organic89:picture-frame']&&c>=7)F.push({id:'organic89:picture-frame',x:Math.floor(c/2)+1,r:0});return F;}
+ /** Outdoor yard: garden pieces and/or the pool, laid out for the house's width. */
+ function yardPlan(hid){const c=layoutOf(hid).cols,g=extOn(hid,'garden'),p=extOn(hid,'pool');const F=[];const add=(id,x,y)=>F.push({id,x,y,r:0});
+  if(g){add('organic89:flower-box',0,0);add('organic89:garden-bench',1,0);add('organic89:fence',0,2);
+   if(p){add('zone:pool',c-3,0);if(c>=6){add('organic89:bird-bath',3,2);add('zone:lounger',c-4,1);}}
+   else{add('organic89:bird-bath',c-1,0);if(c>=6)add('organic89:rope-swing',c-2,1);add('organic89:garden-lantern',c-1,1);}}
+  else if(p){add('zone:pool',c-3,0);add('zone:lounger',0,0);add('organic89:garden-lantern',0,1);add('organic89:flower-box',c-1,2);if(c>=7)add('organic89:garden-bench',1,2);}
+  return F;}
+ /** Who is where: ground floor, upstairs (beyond the house's own capacity) and yard visitors. */
+ function splitResidents(hid,residents){const base=objects[hid]?.capacity||1;let ground=residents.slice(0,base);const up=extOn(hid,'floor')?residents.slice(base,base+2):[];let yard=[];
+  if(extOn(hid,'garden')||extOn(hid,'pool')){if(ground.length>=2){const k=Math.max(1,Math.round(ground.length/3));yard=ground.slice(-k);ground=ground.slice(0,-k);}else if(ground.length===1&&Math.floor(Date.now()/90000)%2){yard=ground;ground=[];}}
+  return {ground,up,yard};}
+ const zoneFloor=(cls,L,F,zone,tileCls='')=>`<div class="home-floor ${cls}" data-zone="${zone}">${Array.from({length:L.cols*L.rows},(_,i)=>`<i class="home-tile ${tileCls}" aria-hidden="true"></i>`).join('')}${F.map((f,i)=>layerOf(RS,f.id)!=='wall'?pieceHtml(f,i,'data-zpiece'):'').join('')}<div class="home-residents" data-zres="${zone}"></div></div>`;
+ function upstairsHtml(hid){const L={cols:layoutOf(hid).cols,rows:UP_ROWS,theme:layoutOf(hid).theme},F=upstairsPlan(hid);
+  return `<div class="home-room is-upstairs" data-theme="${L.theme}" style="--cols:${L.cols};--rows:${L.rows}"><span class="home-zone-tag is-up">🏠 Upstairs · 2 beds</span>
+   <div class="home-wall is-zone">${Array.from({length:L.cols},()=>'<i class="home-walltile" aria-hidden="true"></i>').join('')}${F.map((f,i)=>layerOf(RS,f.id)==='wall'?pieceHtml(f,i,'data-zpiece'):'').join('')}<i class="home-skirting" aria-hidden="true"></i></div>
+   ${zoneFloor('is-up',L,F,'up')}</div><i class="home-slab" aria-hidden="true"></i>`;}
+ function yardHtml(hid){const g=extOn(hid,'garden'),p=extOn(hid,'pool');const L={cols:layoutOf(hid).cols,rows:YARD_ROWS},F=yardPlan(hid);
+  return `<div class="home-yard ${g?'is-grass':'is-patio'}" style="--cols:${L.cols};--rows:${L.rows}"><span class="home-zone-tags">${g?'<span class="home-zone-tag">🌳 Garden · Fun +20%</span>':''}${p?'<span class="home-zone-tag">🏊 Pool · Swim +25%</span>':''}</span>${zoneFloor('is-yard',L,F,'yard')}</div>`;}
  function render(mount){
   if(!mount)return;stopWander();
   const hid=activeHouse();const own=ownedHouses();
@@ -168,8 +180,8 @@ export function createHomeSystem(ctx){
   mount.innerHTML=`<section class="home-card">
    <div class="home-chips" role="tablist" aria-label="Your houses">${chips}</div>
    <div class="home-head"><strong>${escapeText(uiName(it))}</strong><small>${residents.length}/${cap} companions · ${h.furniture.length} furniture</small></div>
-   <div class="home-plot" data-theme="${L.theme}" style="--cols:${L.cols};--rows:${L.rows}">
-   ${extOn(hid,'floor')?upstairsHtml(hid,residents):''}
+   <div class="home-plot ${extOn(hid,'floor')?'has-up':''} ${extOn(hid,'garden')||extOn(hid,'pool')?'has-yard':''}" data-theme="${L.theme}" style="--cols:${L.cols};--rows:${L.rows}">
+   ${extOn(hid,'floor')?upstairsHtml(hid):''}
    <div class="home-room" data-theme="${L.theme}" style="--cols:${L.cols};--rows:${L.rows}">
     <div class="home-wall" id="homeWall">
      ${Array.from({length:L.cols},(_,i)=>`<button type="button" class="home-walltile" data-wx="${i}" aria-label="Wall"></button>`).join('')}
@@ -193,7 +205,7 @@ export function createHomeSystem(ctx){
   mount.querySelectorAll('[data-house]').forEach(b=>b.onclick=()=>houseInfo(mount,b.dataset.house));
   mount.querySelectorAll('[data-ext]').forEach(b=>b.onclick=()=>toggleExt(mount,hid,b.dataset.ext));
   mount.querySelectorAll('.home-effects [data-eff]').forEach(b=>b.onclick=()=>bonusSheet(hid,b.dataset.eff));
-  mount.querySelectorAll('.home-tile').forEach(t=>t.onclick=()=>tapSpot(mount,hid,Number(t.dataset.x),Number(t.dataset.y),false));
+  mount.querySelectorAll('#homeFloor .home-tile').forEach(t=>t.onclick=()=>tapSpot(mount,hid,Number(t.dataset.x),Number(t.dataset.y),false));
   mount.querySelectorAll('.home-walltile').forEach(t=>t.onclick=()=>tapSpot(mount,hid,Number(t.dataset.wx),-1,true));
   mount.querySelectorAll('[data-piece]').forEach(p=>{wireDrag(mount,hid,p);});
   mount.querySelectorAll('[data-piece]').forEach(p=>p.onclick=e=>{if(Date.now()-dragEndedAt<350)return;if(moving&&Number(p.dataset.piece)===moving.index)return;if(moving){const t=spotFromEvent(mount,e,hid);if(t)tapSpot(mount,hid,t.x,t.y,t.wall);return;}tapPiece(mount,hid,Number(p.dataset.piece),spotFromEvent(mount,e,hid));});
@@ -310,10 +322,15 @@ export function createHomeSystem(ctx){
   const m=motionOf(f.id,name,objects[f.id]?.effect);const lift=m==='wheel'?-0.36:m==='bike'||m==='rock'?0.15:0;
   return {x:f.x+(w-1)/2,y:f.y+(h-1)/2-lift,front:false};}
  function startWander(mount,hid){
-  const box=mount.querySelector('#homeResidents');if(!box)return;
-  const h=house(hid),L=layoutOf(hid);
+  const h=house(hid),L=layoutOf(hid),res=h.residents.filter(isDiscovered),{ground,up,yard}=splitResidents(hid,res);
+  const ground0=mount.querySelector('#homeResidents');if(ground0)wanderZone({box:ground0,root:mount,attr:'data-piece',L,furniture:h.furniture,residents:ground,train:true});
+  const upBox=mount.querySelector('[data-zres="up"]');if(upBox&&up.length)wanderZone({box:upBox,root:upBox.parentElement,attr:'data-zpiece',L:{cols:L.cols,rows:UP_ROWS},furniture:upstairsPlan(hid),residents:up,train:false});
+  const yBox=mount.querySelector('[data-zres="yard"]');if(yBox&&yard.length)wanderZone({box:yBox,root:yBox.parentElement,attr:'data-zpiece',L:{cols:L.cols,rows:YARD_ROWS},furniture:yardPlan(hid),residents:yard,train:false});}
+ /** One wander loop per zone (ground floor, upstairs, yard): walk around pieces, use them, loop. */
+ function wanderZone({box,root,attr,L,furniture,residents,train}){
+  const h={furniture};
   const usable=h.furniture.filter(f=>layerOf(RS,f.id)!=='wall'&&objects[f.id]?.effect!=='decor');
-  const walkers=h.residents.filter(isDiscovered).slice(0,objects[hid]?.capacity||1).map((cid,i)=>{const el=document.createElement('span');el.className='companion home-walker';el.dataset.anim='idle';el.dataset.companion=cid;
+  const walkers=residents.map((cid,i)=>{const el=document.createElement('span');el.className='companion home-walker';el.dataset.anim='idle';el.dataset.companion=cid;
    const art=document.createElement('span');art.className='companion-art';rig(art,cid);el.append(art);const fx=document.createElement('span');fx.className='home-fx';el.append(fx);box.append(el);
    const p={x:(i*2+1)%L.cols,y:L.rows-1-(i%L.rows),face:1};place(el,p);return {cid,el,p,busyUntil:0,taken:null};});
   try{wear?.(box);}catch{}
@@ -349,18 +366,18 @@ export function createHomeSystem(ctx){
      if(spot.front){w.p.face=1;w.el.dataset.face='right';}
      else{const [,fh]=footprint(objects,f);w.el.style.setProperty('--z',11+(f.y+fh)*2);}
      w.el.dataset.anim=u.anim;if(u.cls)w.el.classList.add(u.cls);w.el.classList.add('is-using');
-     const piece=box.parentElement.querySelector(`[data-piece="${h.furniture.indexOf(f)}"]`);const mk=motionOf(f.id,uiName(byId.get(f.id))||'',eff);
+     const piece=root.querySelector(`[${attr}="${h.furniture.indexOf(f)}"]`);const mk=motionOf(f.id,uiName(byId.get(f.id))||'',eff);
      if(mk){w.el.classList.add('m-'+mk);if(mk==='wheel'||mk==='treadmill'||mk==='bike'){w.p.face=1;w.el.dataset.face='right';w.el.dataset.anim='walk';}}
      if(piece){piece.classList.add('is-in-use');if(mk)piece.classList.add('m-'+mk);const o=MOTION_OV[mk];let ovEl=null;
       if(o&&!(f.r%2)){ovEl=document.createElement('span');ovEl.className='home-motion';ovEl.innerHTML=`<svg xmlns="http://www.w3.org/2000/svg" viewBox="${o.vb}">${o.svg}</svg>`;piece.insertBefore(ovEl,piece.querySelector('.home-hit'));}
       setTimeout(()=>{piece.classList.remove('is-in-use');if(mk)piece.classList.remove('m-'+mk);ovEl?.remove();},useMs);}
-     setTimeout(()=>{if(applyEffect?.(w.cid,eff)){const fxEl=w.el.querySelector('.home-fx');fxEl.dataset.eff=eff;fxEl.classList.remove('is-pop');void fxEl.offsetWidth;fxEl.classList.add('is-pop');}},Math.min(1800,useMs/2));
+     setTimeout(()=>{if(train&&applyEffect?.(w.cid,eff)){const fxEl=w.el.querySelector('.home-fx');fxEl.dataset.eff=eff;fxEl.classList.remove('is-pop');void fxEl.offsetWidth;fxEl.classList.add('is-pop');}},Math.min(1800,useMs/2));
     },walkMs);}
-   wanderTimer=setTimeout(tick,700);};
-  wanderTimer=setTimeout(tick,500);
+   wanderTimers.push(setTimeout(tick,700));};
+  wanderTimers.push(setTimeout(tick,500));
  }
  function place(el,p){el.style.setProperty('--x',p.x);el.style.setProperty('--y',p.y);el.style.setProperty('--z',11+(p.y+1)*2);el.dataset.face=p.face>0?'right':'left';}
- function stopWander(){clearTimeout(wanderTimer);wanderTimer=null;}
+ function stopWander(){wanderTimers.forEach(clearTimeout);wanderTimers=[];}
 
  function growthFor(cid,kind){const hid=residentOf(cid);if(!hid||!isDiscovered(hid))return 1;return Math.round(growthMultiplier(objects[hid].capacity,house(hid),objects,kind,bonusOf)*extMult(hid,kind)*100)/100;}
  function houseLine(cid){const hid=residentOf(cid);if(!hid||!isDiscovered(hid))return '';return `Lives in ${escapeText(uiName(byId.get(hid)))} · grows ×${HOUSE_GROWTH[objects[hid].capacity]||1} faster`;}
