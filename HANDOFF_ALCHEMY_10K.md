@@ -90,6 +90,10 @@ Preserve 200-per-batch policy and do not start another content release on top of
 
 - **Art redraw wave 3 (V85, done): 3,991 icons** — every remaining older element. All 6,012 pre-V83 elements now use the 2026 art direction (`ART_REDRAW`), plus 200 V83 and 200 V85 originals. Six near-duplicates found by the audit were redrawn; 36 reviewed false alarms are in `tools/art-redraw-reviewed-pairs.json` (the audit now also honours them for V83 comparisons).
 
+## V108 — medals and trophies per companion (1 November 2026)
+- Games progress is stored per companion (`state.pets[cid] = {races, karate}`); level unlocks, medal dots, header medal counts and the Championship unlock follow the selected entrant. Old shared progress migrated once to the companion that was competing (else the Frog); other companions start at Rookie. Belts were already per companion.
+- Prizes: each companion wins its own trophy per course — `prize:<course>:<cid>`, "Frog's Pond Fountain" — the course trophy with the winner's figure (`personalPrize`, built on demand). Registered as house furniture for every companion × course (ROOM_SPRITES lazy getters). Prize sheet shows the current companion's six trophies and a count for the others.
+
 ## V107 — urgent: slow taps opened the element sheet instead of combining (31 October 2026)
 - Owner report: combining showed an element already owned instead of the discovery. Cause: V104 long press (480 ms) fired on slow taps of the second element, opening its sheet and skipping the combination. Recipes were re-audited (Classic + 9 families, 120 random new combinations per mode and 37 real touch taps): every result window matched the recipe.
 - Fix: long press needs 700 ms, a ring fills on the chip from 200 ms, and the sheet is titled "ABOUT THIS ELEMENT". Taps up to ~650 ms always combine.

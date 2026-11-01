@@ -115,7 +115,7 @@ import { HOME_OBJECTS_V89 } from './home-objects-v89.js';
 import { createHomeSystem, HOME_STORAGE_KEY, pieceQuality, starsText } from './home-engine-v90.js';
 import { ROOM_SPRITES_V90 } from './room-sprites-v90.js';
 import { createGamesSystem, GAMES_STORAGE_KEY } from './games-v93.js';
-import { RACE_PRIZES, PRIZE_BY_ID, BELTS, beltSvg, wearBelt } from './prizes-v94.js';
+import { RACE_PRIZES, PRIZE_BY_ID, BELTS, beltSvg, wearBelt, personalPrize, personalPrizeId, parsePersonalPrize } from './prizes-v94.js';
 import { STADIUM_ART_V95 } from './stadium-art-v95.js';
 import { createStadiumSfx } from './stadium-sfx-v95.js';
 import { COMPANIONS_V86, COMPANION_SPRITES_V86 } from './companions-v86.js';
@@ -475,7 +475,7 @@ function shinyCard(item){return `<p class="shiny-trivia"><span aria-hidden="true
 function showShinyFound(id){const it=byId.get(id);if(!it)return;
  showModal(`<div class="modal-tag shiny-tag">✦ SHINY ELEMENT</div><div class="modal-art is-shiny">${staticArt(it)}</div><h2>Shiny ${escapeText(uiName(it))}</h2>${shinyCard(it)}<div class="modal-milestone">${shiny.size.toLocaleString('en-US')} shiny ${shiny.size===1?'element':'elements'} · ${Math.round(shinyChance()*100)}% chance per combination</div>`);
 }
-const APP_VERSION='1.0.7';
+const APP_VERSION='1.0.8';
 // V83: status line + Google consent (UMP) privacy options, required for EEA players.
 async function refreshAdStatus(){
  const el=$('settingsAdStatus'),bridge=getRewardBridge();
@@ -1629,10 +1629,13 @@ const companions=createCompanionSystem({roster:COMPANIONS_V86,sprites:COMPANION_
 // V94: Stadium prizes (toys) are placeable house objects; belts are worn by the companions.
 const HOME_OBJECTS={...HOME_OBJECTS_V89,...Object.fromEntries(Object.values(RACE_PRIZES).map(p=>[p.id,{kind:p.kind,effect:p.effect,size:p.size}]))};
 const ROOM_SPRITES={...ROOM_SPRITES_V90,...Object.fromEntries(Object.values(RACE_PRIZES).map(p=>[p.id,p.room]))};
-const homeById={get:id=>PRIZE_BY_ID[id]||byId.get(id)};
+// V108: every companion can win its own trophy of each course (built on demand).
+const trophyFor=id=>{const t=parsePersonalPrize(id);if(!t)return null;const c=COMPANIONS_V86.find(x=>x.id===t.cid);if(!c)return null;return personalPrize(t.course,t.cid,companions?.state?.().pets?.[t.cid]?.nick||uiName(byId.get(t.cid))||c.name,COMPANION_SPRITES_V86[t.cid]);};
+for(const c of COMPANIONS_V86)for(const k of Object.keys(RACE_PRIZES)){const id=personalPrizeId(k,c.id);HOME_OBJECTS[id]={kind:'furniture',effect:RACE_PRIZES[k].effect,size:[1,1]};Object.defineProperty(ROOM_SPRITES,id,{enumerable:true,get:()=>trophyFor(id)?.room});}
+const homeById={get:id=>PRIZE_BY_ID[id]||trophyFor(id)||byId.get(id)};
 const homeUiName=it=>it?.prize?it.name:uiName(it);
 const homeStaticArt=it=>it?.prize?it.art:staticArt(it);
-const homeDiscovered=id=>PRIZE_BY_ID[id]?games.hasPrize(id):discoveredAnywhere(id);
+const homeDiscovered=id=>PRIZE_BY_ID[id]||parsePersonalPrize(id)?games.hasPrize(id):discoveredAnywhere(id);
 // V96: Classic discoveries speed up companion growth — +10% per 400 elements found in Classic,
 // up to ×2 at 4,000 (a multiplier on future gains only, like the houses).
 function classicDiscoveredCount(){try{const list=currentMode==='classic'?[...unlocked]:(classicSnapshot?.unlocked||[]);return Math.max(0,list.filter(id=>!['legacy:0','legacy:1','legacy:2','legacy:3'].includes(id)).length);}catch{return 0;}}
@@ -1693,7 +1696,7 @@ function gamesUnlocked(){try{return homes.ownedHouses().length>0&&companions.unl
 function syncGamesTab(){const t=document.querySelector('.tab-games');if(!t)return;const on=gamesUnlocked();t.hidden=!on;let seen=false;try{seen=localStorage.getItem(GAMES_SEEN_KEY)==='1';}catch{}const b=$('gamesBadge');if(b)b.hidden=!(on&&!seen);}
 function gamesSeen(){try{localStorage.setItem(GAMES_SEEN_KEY,'1');}catch{}syncGamesTab();}
 const games=createGamesSystem({$,escapeText,roster:COMPANIONS_V86,sprites:COMPANION_SPRITES_V86,byId,uiName,isDiscovered:companionOwned,companionInfo:id=>companions.info(id),activeId:()=>companions.state().active,
- prizes:{RACE_PRIZES,beltSvg},belts:BELTS,wear:wearAll,alchemyGrowth,classicCount:classicDiscoveredCount,openCard:id=>companions.openCard(id),art:STADIUM_ART_V95,sfx:SFX,onBelt:()=>{companions.refreshViews();companions.start();},
+ prizes:{RACE_PRIZES,beltSvg,personal:(course,cid,name,sprite)=>personalPrize(course,cid,companions.state().pets?.[cid]?.nick||name,sprite)},starterCompanion:STARTER_COMPANION,belts:BELTS,wear:wearAll,alchemyGrowth,classicCount:classicDiscoveredCount,openCard:id=>companions.openCard(id),art:STADIUM_ART_V95,sfx:SFX,onBelt:()=>{companions.refreshViews();companions.start();},
  onResult:(id,kind,focus,place)=>{const amt=[0,12,8,5,3,3][place]||3;const stats=kind==='karate'?['power','hp']:focus==='all'?['run','swim','fly','power']:focus==='stamina'?['stamina','run']:[focus,'stamina'];return companions.gameReward(id,stats,amt);},
  showModal,closeModal,toast,reducedMotion:()=>Boolean(window.matchMedia?.('(prefers-reduced-motion: reduce)')?.matches)});
 const BACKUP_KEYS=[COMPANION_STORAGE_KEY,HOME_STORAGE_KEY,GAMES_STORAGE_KEY,SHINY_KEY,HINT_BANK_KEY,FAMILY_SAVES_KEY,MODE_SELECTION_KEY,'gameverse_alchemy_v2','gameverse_dynamic_v11','gameverse_ledger_v16','gameverse_discovery_hints_v20',EXTRA_STORAGE,DISCOVERY_ORDER_KEY];

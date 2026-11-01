@@ -26,6 +26,20 @@ export const RACE_PRIZES={
 };
 for(const [k,p] of Object.entries(RACE_PRIZES)){p.art=trophyBase(100,100,icon[k]);p.room={layer:'object',front:room(k),back:room(k),side:room(k)};p.prize=true;}
 export const PRIZE_BY_ID=Object.fromEntries(Object.values(RACE_PRIZES).map(p=>[p.id,p]));
+/**
+ * V108: prizes belong to the companion that won them. Each companion earns its OWN trophy of each
+ * course: the course trophy with the winner standing beside it ("Frog's Pond Fountain").
+ * Id `prize:<course>:<companionId>`; art is built on demand and cached.
+ */
+export const personalPrizeId=(course,cid)=>`prize:${course}:${cid}`;
+export function parsePersonalPrize(id){const m=/^prize:([a-z]+):(.+)$/.exec(id||'');return m&&RACE_PRIZES[m[1]]?{course:m[1],cid:m[2]}:null;}
+const PCACHE=new Map();
+export function personalPrize(course,cid,name,sprite){const id=personalPrizeId(course,cid);if(PCACHE.has(id))return PCACHE.get(id);const base=RACE_PRIZES[course];if(!base)return null;
+ const fig=(sprite||'').replace(/^<svg\b/,'<svg x="54" y="44" width="46" height="46"').replace(/\sid="/g,' data-i="');
+ const art=trophyBase(100,100,`<g transform="translate(-8 0)">${icon[course]}</g>${fig}`);
+ const roomArt=trophyBase(100,160,`<ellipse cx="50" cy="146" rx="34" ry="6" fill="#5a4a3a" opacity=".16"/><g transform="translate(0 44) scale(.9)"><g transform="translate(-8 0)">${icon[course]}</g>${fig}</g>`);
+ const p={id,name:`${name}'s ${base.name}`,summary:`${name} won this at the Champion level of ${base.name.split(' ')[0]}.`,kind:'furniture',effect:base.effect,size:[1,1],art,room:{layer:'object',front:roomArt,back:roomArt,side:roomArt},prize:true,owner:cid,course};
+ PCACHE.set(id,p);return p;}
 /** Karate belts by level index; the companion wears the best one it won. */
 export const BELTS=[{id:'white',name:'White Belt',color:'#F4EFE6'},{id:'blue',name:'Blue Belt',color:'#5AAED2'},{id:'purple',name:'Purple Belt',color:'#9B7FC4'},{id:'brown',name:'Brown Belt',color:'#8C6A4E'},{id:'black',name:'Black Belt',color:'#2F3B44'}];
 export const beltSvg=(b,size=22)=>`<svg viewBox="0 0 40 40" width="${size}" height="${size}" aria-hidden="true"><path d="M4 16h32v8H4z" fill="${b.color}" stroke="${S}" stroke-width="2.5"/><path d="M20 24l-6 10M20 24l6 10" stroke="${b.color}" stroke-width="5" stroke-linecap="round"/><path d="M20 24l-6 10M20 24l6 10" fill="none" stroke="${S}" stroke-width="1.5"/><circle cx="20" cy="20" r="4" fill="${b.color}" stroke="${S}" stroke-width="2"/></svg>`;

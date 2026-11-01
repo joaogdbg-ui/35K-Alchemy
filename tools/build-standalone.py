@@ -304,7 +304,7 @@ _v85=[('client/src/organic-pack-v85.js',['ORGANIC_V85'],'__gameverseOrganic85',"
  ('client/src/home-engine-v90.js',['createHomeSystem','HOME_STORAGE_KEY','pieceQuality','starsText'],'__homeEngine90',"import { createHomeSystem, HOME_STORAGE_KEY, pieceQuality, starsText } from './home-engine-v90.js';"),
  ('client/src/room-sprites-v90.js',['ROOM_SPRITES_V90'],'__roomSprites90',"import { ROOM_SPRITES_V90 } from './room-sprites-v90.js';"),
  ('client/src/games-v93.js',['createGamesSystem','GAMES_STORAGE_KEY'],'__games93',"import { createGamesSystem, GAMES_STORAGE_KEY } from './games-v93.js';"),
- ('client/src/prizes-v94.js',['RACE_PRIZES','PRIZE_BY_ID','BELTS','beltSvg','wearBelt'],'__prizes94',"import { RACE_PRIZES, PRIZE_BY_ID, BELTS, beltSvg, wearBelt } from './prizes-v94.js';"),
+ ('client/src/prizes-v94.js',['RACE_PRIZES','PRIZE_BY_ID','BELTS','beltSvg','wearBelt','personalPrize','personalPrizeId','parsePersonalPrize'],'__prizes94',"import { RACE_PRIZES, PRIZE_BY_ID, BELTS, beltSvg, wearBelt, personalPrize, personalPrizeId, parsePersonalPrize } from './prizes-v94.js';"),
  ('client/src/stadium-art-v95.js',['STADIUM_ART_V95'],'__stadiumArt95',"import { STADIUM_ART_V95 } from './stadium-art-v95.js';"),
  ('client/src/stadium-sfx-v95.js',['createStadiumSfx'],'__stadiumSfx95',"import { createStadiumSfx } from './stadium-sfx-v95.js';"),
  ('client/src/recipe-polish-v87.js',['RECIPE_POLISH_V87'],'__recipePolish87',"import { RECIPE_POLISH_V87 } from './recipe-polish-v87.js';"),
