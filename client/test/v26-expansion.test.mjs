@@ -22,7 +22,7 @@ test('V26 new game unlocks persist across future versions and exports',()=>{
  assert.match(app,/format:'35k-alchemy-backup'/);
 });
 test('V26 has 18 local sets, two tabs and truthful offline rates',()=>{
- assert.equal((html.match(/class="tab(?: active)?" data-view/g)||[]).length,3) // V86: Play, Collection, Companions;
+ assert.equal((html.match(/class="tab(?: active)?" data-view/g)||[]).length,2) // V123: Alchemy + Home (Collection removed; Games is tab-games);
  assert.ok(app.includes('Cute Fantasy Platformers'));assert.ok(app.includes('Anime Battle Games'));
  assert.ok(app.includes('Player discovery rate · — (offline)'));
 });

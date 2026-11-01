@@ -17,6 +17,6 @@ test('Compass and family hint open rewarded recipe flow',()=>{
  assert.match(app,/function explainAdUnavailable\(\)/);
 });
 test('UI has two navigation tabs and preserves previous save keys',()=>{
- assert.equal((html.match(/class="tab(?: active)?" data-view/g)||[]).length,3) // V86: Play, Collection, Companions;
+ assert.equal((html.match(/class="tab(?: active)?" data-view/g)||[]).length,2) // V123: Alchemy + Home (Collection removed; Games is tab-games);
  for(const key of ['gameverse_alchemy_v2','gameverse_dynamic_v11','gameverse_discovery_hints_v20'])assert.ok(app.includes(key));
 });

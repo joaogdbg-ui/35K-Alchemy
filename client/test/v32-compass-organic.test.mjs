@@ -44,7 +44,7 @@ test('the Compass is optional, non-spoiler, and preserves two navigation tabs',(
  const html=readFileSync(new URL('../index.html',import.meta.url),'utf8');
  const app=readFileSync(new URL('../src/app.js',import.meta.url),'utf8');
  assert.match(html,/id="compassBtn"/);
- assert.equal((html.match(/class="tab(?: active)?" data-view/g)||[]).length,3) // V86: Play, Collection, Companions;
+ assert.equal((html.match(/class="tab(?: active)?" data-view/g)||[]).length,2) // V123: Alchemy + Home (Collection removed; Games is tab-games);
  assert.match(app,/function compassCandidates\(/);
  assert.match(app,/if\(unlocked.has\(out\)\)continue/);
  assert.match(app,/if\(await earnRecipeByAd\(item.out,item.family\)\)showCompassRevealed\(item\)/);

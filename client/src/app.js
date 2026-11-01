@@ -475,7 +475,7 @@ function shinyCard(item){return `<p class="shiny-trivia"><span aria-hidden="true
 function showShinyFound(id){const it=byId.get(id);if(!it)return;
  showModal(`<div class="modal-tag shiny-tag">✦ SHINY ELEMENT</div><div class="modal-art is-shiny">${staticArt(it)}</div><h2>Shiny ${escapeText(uiName(it))}</h2>${shinyCard(it)}<div class="modal-milestone">${shiny.size.toLocaleString('en-US')} shiny ${shiny.size===1?'element':'elements'} · ${Math.round(shinyChance()*100)}% chance per combination</div>`);
 }
-const APP_VERSION='1.0.22';
+const APP_VERSION='1.0.23';
 // V83: status line + Google consent (UMP) privacy options, required for EEA players.
 async function refreshAdStatus(){
  const el=$('settingsAdStatus'),bridge=getRewardBridge();
@@ -1609,7 +1609,8 @@ function homeAwaySummary(){
 }
 function switchTab(view){
  const wasHome=tab==='Pets';
- tab=view==='World'?'World':view==='Pets'?'Pets':view==='Games'&&gamesUnlocked()?'Games':'Play';
+ // V123: Collection tab removed (owner) — everything lives in Alchemy; old 'World' routes go to Play
+ tab=view==='Pets'?'Pets':view==='Games'&&gamesUnlocked()?'Games':'Play';
  for(const name of ['Play','World','Pets','Games'])$(`view${name}`).hidden=name!==tab;
  if(tab==='Games'){games.render($('viewGames'));gamesSeen();}
  document.querySelectorAll('.tab').forEach(b=>{const active=b.dataset.view===tab;b.classList.toggle('active',active);b.setAttribute('aria-current',active?'page':'false');});
