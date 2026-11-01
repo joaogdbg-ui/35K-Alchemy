@@ -857,12 +857,13 @@ export function createCompanionSystem(ctx){
    ${have?`<button type="button" class="pet-activate" data-activate="${meta.id}" aria-pressed="${state.active===meta.id}">${state.active===meta.id?'Active':(state.firstFreeUsed?'Choose · ad':'Choose · free')}</button>`:''}
   </article>`;
  }
+ let homeTab='houses';
  function renderTab(){
   const root=$('viewPets');if(!root)return;
   const act=activeMeta();const have=unlocked().length;
   const groups=FAMILIES.map(f=>({f,list:roster.filter(c=>c.family===f.id)})).filter(g=>g.list.length);
   const ava=c=>{const own=isDiscovered(c.id),p=own?pet(c.id):null,el=byId.get(c.id),house=own&&ctx.residentOf?ctx.residentOf(c.id):null;
-   return `<button type="button" class="pet-ava ${own?'is-unlocked':'is-locked'} ${state.active===c.id?'is-active':''} ${own&&isShiny(c.id)?'is-shiny':''}" data-card="${c.id}" aria-label="${own?escapeText(p.nick||uiName(el)):'Undiscovered companion'}"><span class="pet-ava-art">${own?(sprites[c.id]||staticArt(el)):'<span class="pet-silhouette">'+staticArt(el)+'</span>'}</span><small>${own?escapeText(p.nick||uiName(el)):'???'}</small>${own?`<em class="pet-ava-lv">Lv ${totalLevel(c.id)}</em>`:''}${state.active===c.id?'<i class="pet-ava-tag is-screen" title="On screen"></i>':house?'<i class="pet-ava-tag is-home" title="Lives in a house"></i>':''}</button>`;};
+   return `<button type="button" class="pet-ava ${own?'is-unlocked':'is-locked'} ${state.active===c.id||state.buddy===c.id?'is-active':''} ${own&&isShiny(c.id)?'is-shiny':''}" data-${state.active===c.id||state.buddy===c.id?'onscreen':'card'}="${c.id}" aria-label="${own?escapeText(p.nick||uiName(el)):'Undiscovered companion'}"><span class="pet-ava-art">${own?(sprites[c.id]||staticArt(el)):'<span class="pet-silhouette">'+staticArt(el)+'</span>'}</span><small>${own?escapeText(p.nick||uiName(el)):'???'}</small>${own?`<em class="pet-ava-lv">Lv ${totalLevel(c.id)}</em>`:''}${state.active===c.id||state.buddy===c.id?'<i class="pet-ava-tag is-screen" title="On screen"></i><em class="pet-ava-on">On screen</em>':house?'<i class="pet-ava-tag is-home" title="Lives in a house"></i>':''}</button>`;};
   let now='';
   if(act){const p=pet(act.id);settleMood(p);now=`<section class="pets-now"><button type="button" class="pets-now-art" data-card="${act.id}" aria-label="Stats">${sprites[act.id]||''}</button><div class="pets-now-main"><strong>${escapeText(nameOf(act))}</strong><small>On screen · Total Lv ${totalLevel(act.id)} · ${moodLabel(p.mood)}${hungry(p)?' · Hungry':''}</small><span class="pet-needs"><span><i>Mood</i><b><em style="width:${p.mood}%"></em></b></span><span><i>Belly</i><b class="is-belly"><em style="width:${p.belly}%"></em></b></span></span></div><div class="pets-now-actions"><button type="button" class="pets-btn" data-card="${act.id}">Stats</button><button type="button" class="pets-btn is-quiet" data-wardrobe="${act.id}">Wear</button><button type="button" class="pets-btn is-quiet" id="petDismiss">Send home</button></div></section>`;}
   else now=`<section class="pets-now is-empty"><small>${have?'No companion on screen. Tap a companion below to choose one.':`Discover one of the ${roster.length} companion elements (five per family) to get your first companion.`}</small></section>`;
@@ -875,10 +876,11 @@ export function createCompanionSystem(ctx){
      <div class="s2-perks"><span><b>⚔</b>Duo games</span><span><b>×1.25</b>Growth</span><span><b>✦</b>More finds</span></div>
      <div class="s2-paths"><button type="button" class="s2-path is-buy" id="slot2Buy" ${info.canBuy?'':'disabled'}><small>INSTANT</small><b>${escapeText(info.price)}</b></button>
       <button type="button" class="s2-path" id="slot2Ad" ${ready&&info.canAd?'':'disabled'}><small>${ready?'FREE PATH':'FREE PATH · LOCKED'}</small>${ready?`<span class="s2-pips">${Array.from({length:info.adsNeeded},(_,k)=>`<i class="${k<info.ads?'on':''}"></i>`).join('')}</span><b>▶ Ad ${info.ads}/${info.adsNeeded}</b>`:`<span class="s2-bar"><i style="width:${pct.toFixed(1)}%"></i></span><b>${info.elements.toLocaleString('en-US')} / ${info.minElements.toLocaleString('en-US')}</b>`}</button></div></section>`;}}
-  root.innerHTML=`<div class="pets-scroll"><div class="section-head home-title"><h2>Home</h2></div>
-   <div id="homeMount"></div>
-   <h3 class="pets-family">On screen</h3>${now}${slot}
-   <h3 class="pets-family">Companions <span>${have}/${roster.length}</span></h3>
+  const tabs=`<div class="mk-tabs home-tabs" role="tablist">${[['houses','Houses'],['companions',`Companions · ${have}/${roster.length}`]].map(([k,l])=>`<button type="button" data-hometab="${k}" aria-pressed="${homeTab===k}">${l}</button>`).join('')}</div>`;
+  root.innerHTML=homeTab==='houses'?`<div class="pets-scroll"><div class="section-head home-title"><h2>Home</h2></div>${tabs}
+   <div id="homeMount"></div></div>`:`<div class="pets-scroll"><div class="section-head home-title"><h2>Home</h2></div>${tabs}
+   ${act?'':now}
+   <p class="mini-muted pets-legend"><i class="pet-ava-tag is-screen"></i> On screen · tap for mood, wear and send home <i class="pet-ava-tag is-home"></i> Lives in a house</p>
    <div class="pets-avatars">${groups.map(g=>`<div class="pets-ava-row"><span class="pets-ava-family">${escapeText(g.f.name)}</span><div class="pets-ava-list">${g.list.map(ava).join('')}</div></div>`).join('')}</div>
    <details class="pets-help"><summary>How companions and houses work</summary><ul>
     <li><strong>Companions:</strong> discover a companion element, tap it here and choose it. Your first one is free; switching later needs a rewarded ad (then 5 free minutes). It lives on your screen: drag elements onto it to feed it, rub it to pet it, tap its gifts.</li>
@@ -886,7 +888,15 @@ export function createCompanionSystem(ctx){
     <li><strong>Houses:</strong> discover house elements (Tent 1 → Castle 8 companions; better houses need longer recipes). Tap a house for its bonuses. Companions living in a house grow faster from everything they do — bonuses only speed up growth, so moving a companion never takes anything away.</li>
     <li><strong>Furniture:</strong> tap the floor or the wall to place pieces, press and hold to drag them, tap one to rotate or put it away. Training pieces speed up their stat, food pieces make meals fill more, fun pieces lift mood faster, books and globes bring more finds while you are away.</li>
     <li><strong>While you are away:</strong> residents find elements you could already craft. One or two are free; one ad keeps them all.</li>
-   </ul></details></div>`;
+   </ul></details>
+   ${slot?`<h3 class="pets-family">Second slot</h3>${slot}`:''}</div>`;
+  root.querySelectorAll('[data-hometab]').forEach(b=>b.onclick=()=>{homeTab=b.dataset.hometab;renderTab();});
+  // V145: on-screen companions open their mood / wear / send-home card in a sheet
+  root.querySelectorAll('[data-onscreen]').forEach(b=>b.onclick=()=>{const id=b.dataset.onscreen;const html=id===state.active?now:slot;
+   showModal(`<div class="modal-tag">ON SCREEN</div>${html.replace(/id="buddyChange"[^>]*>Change</,'id="buddyChange">Change<')}`);const mc=$('modalContent');try{ctx.wear?.(mc);}catch{}
+   mc.querySelectorAll('[data-card]').forEach(x=>x.onclick=()=>{closeModal();openCard(x.dataset.card);});
+   mc.querySelectorAll('[data-wardrobe]').forEach(x=>x.onclick=()=>{closeModal();ctx.openWardrobe?.(x.dataset.wardrobe);});
+   const d2=$('petDismiss');if(d2)d2.onclick=()=>{closeModal();setActive(null);};const bc2=$('buddyChange');if(bc2)bc2.onclick=()=>{closeModal();pickBuddy();};const bd2=$('buddyDismiss');if(bd2)bd2.onclick=()=>{closeModal();setBuddy(null);};});
   root.querySelectorAll('[data-card]').forEach(b=>b.onclick=()=>openCard(b.dataset.card));
   const d=$('petDismiss');if(d)d.onclick=()=>setActive(null);
   root.querySelectorAll('[data-wardrobe]').forEach(b=>b.onclick=e=>{e.stopPropagation();ctx.openWardrobe?.(b.dataset.wardrobe);});

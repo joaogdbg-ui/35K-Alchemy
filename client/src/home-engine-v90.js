@@ -153,7 +153,7 @@ export function createHomeSystem(ctx){
  const STAIR_GROUND={id:'zone:stairs',x:0,y:0,r:0};
  const zh=(hid,h)=>extOn(hid,'floor')?{...h,furniture:[...h.furniture,STAIR_GROUND]}:h;
  /** Upstairs bedroom: stairs on the left, two beds, a curtain on the wall. */
- function upstairsPlan(hid){const c=layoutOf(hid).cols;const F=[{id:'zone:stairwell',x:0,y:0,r:0},{id:'organic89:bed',x:c-2,y:1,r:0},{id:'organic89:bed',x:c-4,y:1,r:0}];
+ function upstairsPlan(hid){const c=layoutOf(hid).cols;const F=[{id:'zone:stairwell',x:0,y:UP_ROWS-2,r:0},{id:'organic89:bed',x:c-2,y:1,r:0},{id:'organic89:bed',x:c-4,y:1,r:0}];
   if(RS['organic89:curtain'])F.push({id:'organic89:curtain',x:1,r:0});if(RS['organic89:picture-frame']&&c>=7)F.push({id:'organic89:picture-frame',x:Math.floor(c/2)+1,r:0});return F;}
  /** Outdoor yard: garden pieces and/or the pool, laid out for the house's width. */
  function yardPlan(hid){const c=layoutOf(hid).cols,g=extOn(hid,'garden'),p=extOn(hid,'pool');const F=[];const add=(id,x,y)=>F.push({id,x,y,r:0});
@@ -166,7 +166,7 @@ export function createHomeSystem(ctx){
  function splitResidents(hid,residents){const base=objects[hid]?.capacity||1;let ground=residents.slice(0,base);const up=extOn(hid,'floor')?residents.slice(base,base+2):[];let yard=[];
   if(extOn(hid,'garden')||extOn(hid,'pool')){if(ground.length>=2){const k=Math.max(1,Math.round(ground.length/3));yard=ground.slice(-k);ground=ground.slice(0,-k);}else if(ground.length===1&&Math.floor(Date.now()/90000)%2){yard=ground;ground=[];}}
   return {ground,up,yard};}
- const zoneFloor=(cls,L,F,zone,tileCls='')=>`<div class="home-floor ${cls}" data-zone="${zone}">${Array.from({length:L.cols*L.rows},(_,i)=>`<i class="home-tile ${tileCls}" aria-hidden="true"></i>`).join('')}${F.map((f,i)=>layerOf(RS,f.id)!=='wall'?pieceHtml(f,i,'data-zpiece'):'').join('')}<div class="home-residents" data-zres="${zone}"></div></div>`;
+ const zoneFloor=(cls,L,F,zone,tileCls='')=>`<div class="home-floor ${cls}" data-zone="${zone}">${Array.from({length:L.cols*L.rows},(_,i)=>`<i class="home-tile ${tileCls}" aria-hidden="true"></i>`).join('')}${F.map((f,i)=>layerOf(RS,f.id)!=='wall'&&f.id!=='zone:stairwell'?pieceHtml(f,i,'data-zpiece'):'').join('')}<div class="home-residents" data-zres="${zone}"></div></div>`;
  function upstairsHtml(hid){const L={cols:layoutOf(hid).cols,rows:UP_ROWS,theme:layoutOf(hid).theme},F=upstairsPlan(hid);
   return `<div class="home-room is-upstairs" data-theme="${L.theme}" style="--cols:${L.cols};--rows:${L.rows}"><span class="home-zone-tag is-up">🏠 Upstairs · 2 beds</span>
    <div class="home-wall is-zone">${Array.from({length:L.cols},()=>'<i class="home-walltile" aria-hidden="true"></i>').join('')}${F.map((f,i)=>layerOf(RS,f.id)==='wall'?pieceHtml(f,i,'data-zpiece'):'').join('')}<i class="home-skirting" aria-hidden="true"></i></div>
@@ -200,6 +200,9 @@ export function createHomeSystem(ctx){
  function addonsSheet(mount,hid){const row=addonRow(hid);
   sheet('ADD-ONS','House add-ons',row?`<p class="mini-muted">One of each per house. Buy more in the Market.</p>${row.replace('<span>Add-ons</span>','')}`:'<p>Add-ons (Garden, Outdoor pool, Second floor) are found in Alchemy or bought in the Market → Houses.</p>');
   document.querySelectorAll('#modalContent [data-ext]').forEach(b=>b.onclick=()=>{toggleExt(mount,hid,b.dataset.ext);addonsSheet(mount,hid);});}
+ function placeStairs(mount){const st=mount.querySelector('#homeStairs');if(!st)return;const plot=st.parentElement,up=plot.querySelector('.home-floor.is-up'),gr=mount.querySelector('#homeFloor');if(!up||!gr)return;
+  const P=plot.getBoundingClientRect(),U=up.getBoundingClientRect(),G=gr.getBoundingClientRect(),t=G.width/layoutOf(activeHouse()).cols;
+  st.style.left=(G.left-P.left)+'px';st.style.width=t+'px';st.style.top=(U.bottom-P.top-t*2)+'px';st.style.height=(G.top-U.bottom+t*4)+'px';}
  function render(mount){
   if(!mount)return;stopWander();
   const hid=activeHouse();const own=ownedHouses();
@@ -223,12 +226,12 @@ export function createHomeSystem(ctx){
     <div class="home-floor" id="homeFloor">
      ${Array.from({length:L.cols*L.rows},(_,i)=>`<button type="button" class="home-tile" data-x="${i%L.cols}" data-y="${Math.floor(i/L.cols)}" aria-label="Floor tile"></button>`).join('')}
      ${h.furniture.map((f,i)=>layerOf(RS,f.id)!=='wall'?pieceHtml(f,i):'').join('')}
-     ${extOn(hid,'floor')?pieceHtml(STAIR_GROUND,0,'data-zpiece'):''}
      <div class="home-residents" id="homeResidents"></div>
     </div>
     <div class="home-door" aria-hidden="true"></div>
    </div>
    ${extOn(hid,'garden')||extOn(hid,'pool')?yardHtml(hid):''}
+   ${extOn(hid,'floor')?'<div class="home-stairs" id="homeStairs" aria-label="Stairs between the floors"><i class="home-stairs-rail"></i><span class="home-stairs-tag">▲ Up</span></div>':''}
    </div>
    ${moving?`<p class="home-hint">Drag ${escapeText(uiName(byId.get(h.furniture[moving.index]?.id)))} to its new spot · <button type="button" class="home-link" id="homeCancelMove">Done</button></p>`:''}
    <div class="home-effects">${sumHtml}</div>
@@ -241,7 +244,7 @@ export function createHomeSystem(ctx){
   mount.querySelectorAll('[data-piece]').forEach(p=>{wireDrag(mount,hid,p);});
   mount.querySelectorAll('[data-piece]').forEach(p=>p.onclick=e=>{if(Date.now()-dragEndedAt<350)return;if(moving&&Number(p.dataset.piece)===moving.index)return;if(moving){const t=spotFromEvent(mount,e,hid);if(t)tapSpot(mount,hid,t.x,t.y,t.wall);return;}tapPiece(mount,hid,Number(p.dataset.piece),spotFromEvent(mount,e,hid));});
   const cm=$('homeCancelMove');if(cm)cm.onclick=()=>{moving=null;render(mount);};
-  startWander(mount,hid);try{wear?.(mount);}catch{}
+  placeStairs(mount);startWander(mount,hid);try{wear?.(mount);}catch{}
  }
  // While moving a piece, a tap that lands on another piece still means "this tile".
  function spotFromEvent(mount,e,hid){const L=layoutOf(hid);const fl=mount.querySelector('#homeFloor').getBoundingClientRect(),wl=mount.querySelector('#homeWall').getBoundingClientRect();
