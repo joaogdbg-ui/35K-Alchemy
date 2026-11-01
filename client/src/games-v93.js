@@ -183,16 +183,24 @@ export function createGamesSystem(ctx){
  const sfx=new Proxy(ctx.sfx||{},{get:(t,k)=>t[k]||(()=>{})});
  const bg=k=>art[k]?`url('data:image/svg+xml,${encodeURIComponent(art[k]).replace(/'/g,'%27')}')`:'none';
  let state={v:2,pick:null,view:'race',races:{},karate:{},prizes:[],belts:{}};
- try{const raw=JSON.parse(localStorage.getItem(GAMES_STORAGE_KEY)||'null');if(raw&&typeof raw==='object')state={v:2,pick:raw.pick||null,view:raw.view||'race',races:raw.races||{},karate:raw.karate||raw.spar?.ring&&{...raw.spar.ring}||{},prizes:raw.prizes||[],belts:raw.belts||{}};}catch{}
+ try{const raw=JSON.parse(localStorage.getItem(GAMES_STORAGE_KEY)||'null');if(raw&&typeof raw==='object')state={v:2,pick:raw.pick||null,view:raw.view||'race',races:raw.races||{},karate:raw.karate||raw.spar?.ring&&{...raw.spar.ring}||{},prizes:raw.prizes||[],belts:raw.belts||{},pets:raw.pets||null};}catch{}
+ // V108: medals belong to the companion that won them. Old shared progress moves to the companion
+ // that was competing (else the starter Frog); everyone else starts at Rookie.
+ if(!state.pets||typeof state.pets!=='object'){state.pets={};const had=Object.keys(state.races||{}).length||Object.keys(state.karate||{}).length;
+  if(had){const owner=state.pick||activeId?.()||ctx.starterCompanion||'organic38:frog';state.pets[owner]={races:state.races||{},karate:state.karate||{}};}
+  delete state.races;delete state.karate;try{localStorage.setItem(GAMES_STORAGE_KEY,JSON.stringify(state));}catch{}}
+ const prog=cid=>{const k=cid||'_';if(!state.pets[k])state.pets[k]={races:{},karate:{}};return state.pets[k];};
+ const myRaces=()=>prog(pick()).races,myKarate=()=>prog(pick()).karate;
+ const trophyOf=(course,cid=pick())=>prizes.personal?prizes.personal(course,cid,companionInfo(cid)?.name||'',ctx.sprites?.[cid]):prizes.RACE_PRIZES[course];
  const save=()=>{try{localStorage.setItem(GAMES_STORAGE_KEY,JSON.stringify(state));}catch{}};
  const owned=()=>roster.filter(c=>isDiscovered(c.id));
  const pick=()=>{const o=owned();if(!o.length)return null;if(!o.some(c=>c.id===state.pick))state.pick=(activeId?.()&&o.some(c=>c.id===activeId()))?activeId():o[0].id;return state.pick;};
  const best=(bag,l)=>bag?.[l]||0;
  const levelOpen=(bag,l)=>l===0||best(bag,l-1)===1;
- const courseOpen=c=>!c.locked||COURSES.filter(x=>!x.locked).every(x=>best(state.races[x.id],0)===1);
+ const courseOpen=c=>!c.locked||COURSES.filter(x=>!x.locked).every(x=>best(myRaces()[x.id],0)===1);
  const beltOf=cid=>state.belts[cid]||null;
  const hasPrize=id=>state.prizes.includes(id);
- function medalCounts(){const n={gold:0,silver:0,bronze:0};const all=[...Object.values(state.races),state.karate];for(const lv of all)for(const p of Object.values(lv||{})){const m=medalFor(p);if(m)n[m]++;}return n;}
+ function medalCounts(cid=pick()){const n={gold:0,silver:0,bronze:0};const P=prog(cid);const all=[...Object.values(P.races),P.karate];for(const lv of all)for(const p of Object.values(lv||{})){const m=medalFor(p);if(m)n[m]++;}return n;}
  const medalDot=(p,big=false)=>{const m=medalFor(p);return `<i class="g-medal ${big?'is-big':''} ${m?'is-'+m:p?'is-none':'is-empty'}"></i>`;};
  const totalLv=info=>Object.values(info.stats).reduce((n,s)=>n+(s.level||0),0);
  const GR=['E','D','C','B','A','S'];
@@ -201,14 +209,14 @@ export function createGamesSystem(ctx){
 
  // ---------- hub (V96: one entrant card, one event list, no tabs) ----------
  const EVENTS=()=>[...COURSES.map(c=>({kind:'race',id:c.id,name:c.name,focus:c.focus,course:c})),{kind:'karate',id:'dojo',name:'Karate Dojo',focus:'karate'}];
- const bagOf=e=>e.kind==='race'?(state.races[e.id]||{}):state.karate;
+ const bagOf=e=>e.kind==='race'?(myRaces()[e.id]||{}):myKarate();
  const nextLevel=e=>{const bag=bagOf(e);for(let i=0;i<LEVELS.length;i++)if(best(bag,i)!==1)return i;return LEVELS.length-1;};
  const dots=e=>{const bag=bagOf(e);return `<span class="st-dots">${LEVELS.map((_,i)=>medalDot(best(bag,i))).join('')}</span>`;};
  function render(mount){
   if(!mount)return;const pid=pick();
   if(!pid){mount.innerHTML='<div class="pets-scroll"><div class="section-head"><h2>Stadium</h2><p>Discover a companion to enter the races.</p></div></div>';return;}
   const info=companionInfo(pid),n=medalCounts(),belt=belts.find(b=>b.id===beltOf(pid));
-  const toys=Object.values(prizes.RACE_PRIZES),won=toys.filter(p=>hasPrize(p.id)).length;
+  const toys=COURSES.map(c=>trophyOf(c.id)),won=toys.filter(p=>hasPrize(p.id)).length;
   const rows=EVENTS().map(e=>{const open=e.kind!=='race'||courseOpen(e.course);const lv=nextLevel(e);const done=best(bagOf(e),LEVELS.length-1)===1;
    return `<div class="st-row ${open?'':'is-locked'}" data-ev="${e.id}"><span class="st-course-ico" data-focus="${e.focus}"></span><div class="st-row-main"><strong>${escapeText(e.name)}</strong>${dots(e)}</div>${open?`<button type="button" class="st-play" data-play="${e.id}">${done?'Replay':LEVELS[lv]}<i></i></button>`:'<span class="st-lock"></span>'}</div>`;}).join('');
   mount.innerHTML=`<div class="pets-scroll st-scroll"><div class="section-head g-head"><h2>Stadium</h2><span class="g-tally"><i class="g-medal is-gold"></i>${n.gold}<i class="g-medal is-silver"></i>${n.silver}<i class="g-medal is-bronze"></i>${n.bronze}</span></div>
@@ -217,7 +225,7 @@ export function createGamesSystem(ctx){
     <button type="button" class="st-change" id="stChange">Change</button></section>
    <div class="st-picker" id="stPicker" hidden>${owned().map(c=>{const ci=companionInfo(c.id);return `<button type="button" class="st-pick ${c.id===pid?'is-active':''}" data-gpick="${c.id}"><span class="companion" data-companion="${c.id}"><span class="companion-art"></span></span><small>${escapeText(ci.name)}</small><em>Lv ${totalLv(ci)}</em></button>`;}).join('')}</div>
    <div class="st-rows">${rows}
-    <button type="button" class="st-row is-prizes" id="stPrizes"><span class="st-course-ico" data-focus="all"></span><div class="st-row-main"><strong>Prizes</strong><small>${won}/${toys.length} toys · ${belt?escapeText(belt.name):'no belt yet'}</small></div><span class="st-chev">›</span></button></div>
+    <button type="button" class="st-row is-prizes" id="stPrizes"><span class="st-course-ico" data-focus="all"></span><div class="st-row-main"><strong>Prizes</strong><small>${won}/${toys.length} trophies · ${belt?escapeText(belt.name):'no belt yet'}</small></div><span class="st-chev">›</span></button></div>
    <p class="mini-muted st-tip">Your companion competes on its own. Tap CHEER for a sprint or a power strike — it costs Stamina.</p></div>`;
   mount.querySelectorAll('.companion[data-companion] .companion-art').forEach(a=>rig(a,a.parentElement.dataset.companion));dress(mount);
   $('stChange').onclick=()=>{const p=$('stPicker');p.hidden=!p.hidden;};
@@ -231,16 +239,17 @@ export function createGamesSystem(ctx){
   const bag=bagOf(e),open=e.kind!=='race'||courseOpen(e.course);
   const levels=LEVELS.map((l,i)=>{const ok=open&&levelOpen(bag,i);return `<button type="button" class="st-level ${ok?'':'is-locked'} ${best(bag,i)===1?'is-gold':''}" data-lv="${i}" ${ok?'':'disabled'}>${medalDot(best(bag,i))}<span>${l}</span></button>`;}).join('');
   let extra='';
-  if(e.kind==='race'){const c=e.course,prize=prizes.RACE_PRIZES[c.id],won=hasPrize(prize.id);const lvN=nextLevel(e),plan=planFor(c,lvN);extra=`<p>${escapeText(c.blurb)}</p><small class="st-foot">${LEVELS[lvN]}: ${plan.length} sections · ${['morning','noon','afternoon','sunset','night'][lvN]}</small><div class="st-strip">${plan.map(x=>`<i class="is-${x.t}" style="flex:${x.len}"></i>`).join('')}</div><div class="st-prizeline ${won?'is-won':''}"><span>${prize.art}</span><small>${won?'Toy won: ':'Champion gold wins the '}<b>${escapeText(prize.name)}</b>${won?'':' for your house'}</small></div>${open?'':'<p class="mini-muted">Win Rookie on the other five courses to open it.</p>'}`;}
+  if(e.kind==='race'){const c=e.course,prize=trophyOf(c.id),won=hasPrize(prize.id);const lvN=nextLevel(e),plan=planFor(c,lvN);extra=`<p>${escapeText(c.blurb)}</p><small class="st-foot">${LEVELS[lvN]}: ${plan.length} sections · ${['morning','noon','afternoon','sunset','night'][lvN]}</small><div class="st-strip">${plan.map(x=>`<i class="is-${x.t}" style="flex:${x.len}"></i>`).join('')}</div><div class="st-prizeline ${won?'is-won':''}"><span>${prize.art}</span><small>${won?'Trophy won: ':'Champion gold wins '}<b>${escapeText(prize.name)}</b>${won?'':' for the house'}</small></div>${open?'':'<p class="mini-muted">Win Rookie on the other five courses to open it.</p>'}`;}
   else extra=`<p>Best of three rounds. HP is health, Power hits, Swim blocks, Fly dodges, Run strikes faster, Stamina keeps the fight going.</p><div class="st-belts">${belts.map((b,i)=>`<span class="st-belt ${best(bag,i)===1?'is-won':''}">${prizes.beltSvg(b,28)}<small>${b.name.replace(' Belt','')}</small></span>`).join('')}</div>`;
   showModal(`<div class="modal-tag">${e.kind==='race'?'RACE':'KARATE'}</div><h2>${escapeText(e.name)}</h2>${extra}<div class="st-levels">${levels}</div><button type="button" class="modal-button secondary" id="stClose">Close</button>`);
   $('stClose').onclick=closeModal;
   $('modalContent').querySelectorAll('[data-lv]').forEach(b=>b.onclick=()=>{closeModal();const lv=Number(b.dataset.lv);e.kind==='race'?startRace(mount,e.course,lv):startKarate(mount,lv);});
  }
  function prizeSheet(mount){
-  const toys=Object.values(prizes.RACE_PRIZES);
+  const pid=pick(),who=escapeText(companionInfo(pid)?.name||'');const toys=COURSES.map(c=>({c,p:trophyOf(c.id)}));
+  const others=owned().filter(c=>c.id!==pid).map(c=>({c,n:COURSES.filter(x=>hasPrize(trophyOf(x.id,c.id).id)).length})).filter(x=>x.n);
   const beltRows=owned().filter(c=>beltOf(c.id)).map(c=>{const b=belts.find(x=>x.id===beltOf(c.id));return `<span class="st-beltrow">${prizes.beltSvg(b,26)}<b>${escapeText(companionInfo(c.id).name)}</b><small>${b.name}</small></span>`;}).join('');
-  showModal(`<div class="modal-tag">PRIZES</div><strong class="st-h">Toys for the house</strong><div class="st-toys">${toys.map(p=>`<span class="st-toy ${hasPrize(p.id)?'is-won':''}"><span class="st-toy-art">${p.art}</span><small>${escapeText(p.name)}</small><em>${hasPrize(p.id)?'Place it from Home':COURSES.find(c=>prizes.RACE_PRIZES[c.id]===p).name+' · Champion'}</em></span>`).join('')}</div>
+  showModal(`<div class="modal-tag">PRIZES</div><strong class="st-h">${who}'s trophies</strong><div class="st-toys">${toys.map(({c,p})=>`<span class="st-toy ${hasPrize(p.id)?'is-won':''}"><span class="st-toy-art">${p.art}</span><small>${escapeText(p.name)}</small><em>${hasPrize(p.id)?'Place it from Home':escapeText(c.name)+' · Champion'}</em></span>`).join('')}</div>${others.length?`<p class="mini-muted">Other companions: ${others.map(x=>escapeText(companionInfo(x.c.id).name)+' '+x.n+'/6').join(' · ')}</p>`:''}
    <strong class="st-h">Belts</strong>${beltRows?`<div class="st-beltrows">${beltRows}</div>`:'<p class="mini-muted">No belts yet — win a Karate level.</p>'}<button type="button" class="modal-button secondary" id="stClose">Close</button>`);
   $('stClose').onclick=closeModal;
  }
@@ -345,8 +354,8 @@ export function createGamesSystem(ctx){
  }
  function confetti(parent){if(reducedMotion())return;for(let i=0;i<26;i++){const f=document.createElement('i');f.className='g-confetti';f.style.setProperty('--i',i);f.style.left=(20+Math.random()*60)+'%';f.style.setProperty('--c',['#e0675a','#f1c26b','#5aaed2','#8dbf8a','#9b7fc4'][i%5]);parent.append(f);setTimeout(()=>f.remove(),1800);}}
  function finishRace(mount,course,level,place,racers,finished){
-  const bag=state.races[course.id]=state.races[course.id]||{};const prev=bag[level]||0;const improved=!prev||place<prev;if(improved)bag[level]=place;
-  const prize=prizes.RACE_PRIZES[course.id];let newPrize=false;if(place===1&&level===LEVELS.length-1&&!hasPrize(prize.id)){state.prizes.push(prize.id);newPrize=true;}
+  const R=myRaces();const bag=R[course.id]=R[course.id]||{};const prev=bag[level]||0;const improved=!prev||place<prev;if(improved)bag[level]=place;
+  const prize=trophyOf(course.id);let newPrize=false;if(place===1&&level===LEVELS.length-1&&!hasPrize(prize.id)){state.prizes.push(prize.id);newPrize=true;}
   save();
   if(newPrize)setTimeout(()=>sfx.prize(),500);else if(place<=3)setTimeout(()=>sfx.medal(),300);
   const trained=onResult?.(pick(),'race',course.focus,place)||[];
@@ -355,7 +364,7 @@ export function createGamesSystem(ctx){
   showModal(`<div class="modal-tag">${escapeText(course.name)} · ${LEVELS[level].toUpperCase()}</div>
    <div class="g-podium">${podium.map((r,i)=>`<div class="g-pod is-${i+1}"><span class="companion" data-companion="${r.id}"><span class="companion-art"></span></span><b>${i+1}</b></div>`).join('')}</div>
    <div class="g-result">${medalDot(place,true)}</div><h2>${place===1?'You won!':`Finished ${ORD(place)} of ${racers.length}`}</h2>${unlocked}
-   ${newPrize?`<div class="g-prize"><span>${prize.art}</span><div><b>New toy for your house!</b><small>${escapeText(prize.name)} — place it from the Home tab.</small></div></div>`:''}
+   ${newPrize?`<div class="g-prize"><span>${prize.art}</span><div><b>New trophy for ${escapeText(companionInfo(pick())?.name||'')}!</b><small>${escapeText(prize.name)} — place it from the Home tab.</small></div></div>`:''}
    ${trained.length?`<p class="mini-muted">Trained ${trained.join(', ')}.</p>`:''}
    <button type="button" class="modal-button" id="gAgain">Race again</button><button type="button" class="modal-button secondary" id="gBack">Back to the Stadium</button>`);
   $('modalContent').querySelectorAll('.companion[data-companion] .companion-art').forEach(a=>rig(a,a.parentElement.dataset.companion));dress($('modalContent'));
@@ -415,7 +424,7 @@ export function createGamesSystem(ctx){
   setTimeout(startRound,500);
  }
  function finishKarate(mount,level,win,A,B){
-  const prev=state.karate[level]||0;if(win)state.karate[level]=1;else if(!prev)state.karate[level]=2;
+  const K=myKarate();const prev=K[level]||0;if(win)K[level]=1;else if(!prev)K[level]=2;
   let newBelt=null;if(win){const b=belts[level];const cur=belts.findIndex(x=>x.id===state.belts[A.id]);if(level>cur){state.belts[A.id]=b.id;newBelt=b;onBelt?.(A.id,b.id);}}
   save();
   if(newBelt)setTimeout(()=>sfx.prize(),500);else setTimeout(()=>win?sfx.medal():sfx.lose(),300);

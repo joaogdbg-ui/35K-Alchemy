@@ -11,7 +11,7 @@ test('V94: Stadium prizes — a toy per course (Champion) and five karate belts'
  assert.equal(BELTS.length,LEVELS.length);assert.match(beltSvg(BELTS[4]),/#2F3B44/);
  const app=src('client/src/app.js');
  assert.match(app,/const HOME_OBJECTS=\{\.\.\.HOME_OBJECTS_V89,\.\.\.Object\.fromEntries\(Object\.values\(RACE_PRIZES\)/);
- assert.match(app,/const homeDiscovered=id=>PRIZE_BY_ID\[id\]\?games\.hasPrize\(id\):discoveredAnywhere\(id\);/);
+ assert.match(app,/const homeDiscovered=id=>PRIZE_BY_ID\[id\]\|\|parsePersonalPrize\(id\)\?games\.hasPrize\(id\):discoveredAnywhere\(id\);/);
  assert.match(app,/function wearAll\(root\)/);
 });
 test('V94/V96: Stadium hub is one entrant card + one event list; karate is best of three with KO feedback',()=>{
