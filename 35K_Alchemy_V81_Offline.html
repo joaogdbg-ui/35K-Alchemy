@@ -1781,6 +1781,11 @@ button.home-eff::after{content:" ⓘ";opacity:.6;font-weight:700}
 .cc-quirk{font-size:12px;color:var(--muted);text-align:left;margin:6px 0 4px}
 .home-pick:has(.home-pick-tag){display:flex;align-items:center;gap:10px;text-align:left}.home-pick:has(.home-pick-tag) .home-pick-main{flex:1;min-width:0}.home-pick-tag{white-space:nowrap}
 
+/* V149: fair-play note (Market + coin shop) */
+.fair-note{display:grid;gap:2px;text-align:left;margin:8px 0 10px;padding:10px 12px;border-radius:14px;border:1.5px solid color-mix(in srgb,var(--good) 55%,transparent);background:color-mix(in srgb,var(--good) 12%,var(--surface))}
+.fair-note b{color:var(--good);font-size:13.5px;font-weight:900}.fair-note span{font-size:12px;line-height:1.35}
+.cp-list{grid-template-columns:1fr 1fr}.cp-list .cp-pack:last-child{grid-column:1/-1}
+
 </style>
 </head>
 <body>
@@ -3199,7 +3204,9 @@ function wearableFor(name){const t=` ${String(name||'').toLowerCase()} `;return 
 // ---------- market ----------
 const COIN_PACK={id:'coins_100',coins:100,price:'€1.00'};
 /** V137: bigger packs are better value (bonus vs the 100-coin pack). */
-const COIN_PACKS=[{id:'coins_100',coins:100,price:'€1.00',bonus:0},{id:'coins_550',coins:550,price:'€5.00',bonus:10},{id:'coins_1200',coins:1200,price:'€10.00',bonus:20,tag:'Popular'},{id:'coins_2600',coins:2600,price:'€20.00',bonus:30,tag:'Best value'}];
+const COIN_PACKS=[{id:'coins_100',coins:100,price:'€1.00',bonus:0},{id:'coins_210',coins:210,price:'€2.00',bonus:5},{id:'coins_550',coins:550,price:'€5.00',bonus:10},{id:'coins_1200',coins:1200,price:'€10.00',bonus:20,tag:'Popular'},{id:'coins_2600',coins:2600,price:'€20.00',bonus:30},{id:'coins_7000',coins:7000,price:'€50.00',bonus:40},{id:'coins_15000',coins:15000,price:'€100.00',bonus:50,tag:'Best value'}];
+/** V149: shown in the Market and the coin shop — nothing is pay-only. */
+const FAIR_PLAY_NOTE='Everything you can buy here can also be found in Alchemy or earned by playing (races, Karate, daily coins). Buying only saves time.';
 const MARKET=[
  // food: given straight to the companion on screen
  // V137: food is placed on the main screen; drag it onto a companion
@@ -3251,7 +3258,7 @@ const LESSONS=[
  {id:'magic',name:'Magic trick',icon:'🎩',price:120,desc:'Pulls elements out of a hat'}
 ];
 
-return {ACCESSORIES,wearableFor,MARKET,MARKET_TABS,COIN_PACK,COIN_PACKS,coinsFor,LESSONS,LESSON_LEVELS,LESSON_MINUTES,lessonPrice,SCHOOL_AD_CUT_MIN,accPrice,DAILY_COINS};})();
+return {ACCESSORIES,wearableFor,MARKET,MARKET_TABS,COIN_PACK,COIN_PACKS,FAIR_PLAY_NOTE,coinsFor,LESSONS,LESSON_LEVELS,LESSON_MINUTES,lessonPrice,SCHOOL_AD_CUT_MIN,accPrice,DAILY_COINS};})();
 window.__companionEngine86=(function(){/**
  * V86 Companions (owner request 30/10/2026).
  * Five companion elements per family. Once discovered (in any mode) a companion can be made
@@ -5590,7 +5597,7 @@ const {STADIUM_ART_V95}=window.__stadiumArt95;
 const {createStadiumSfx}=window.__stadiumSfx95;
 const {COMPANIONS_V86,COMPANION_SPRITES_V86}=window.__companions86;
 const {createCompanionSystem,COMPANION_STORAGE_KEY,rivalLook,traitIconSvg}=window.__companionEngine86;
-const {ACCESSORIES,wearableFor,MARKET,MARKET_TABS,COIN_PACK,COIN_PACKS,coinsFor,LESSONS,LESSON_LEVELS,LESSON_MINUTES,lessonPrice,SCHOOL_AD_CUT_MIN,accPrice,DAILY_COINS}=window.__market136;
+const {ACCESSORIES,wearableFor,MARKET,MARKET_TABS,COIN_PACK,COIN_PACKS,FAIR_PLAY_NOTE,coinsFor,LESSONS,LESSON_LEVELS,LESSON_MINUTES,lessonPrice,SCHOOL_AD_CUT_MIN,accPrice,DAILY_COINS}=window.__market136;
 const {PUBLIC_LABELS_V86}=window.__publicLabels86;
 const {reconcileLegacyFamilies}=window.__familyCompat82;
 const {synchronizeFamilyProfiles,sharedMembership}=window.__familyShared51;
@@ -5970,7 +5977,7 @@ function shinyCard(item){return `<p class="shiny-trivia"><span aria-hidden="true
 function showShinyFound(id){const it=byId.get(id);if(!it)return;
  showModal(`<div class="modal-tag shiny-tag">✦ SHINY ELEMENT</div><div class="modal-art is-shiny">${staticArt(it)}</div><h2>Shiny ${escapeText(uiName(it))}</h2>${shinyCard(it)}<div class="modal-milestone">${shiny.size.toLocaleString('en-US')} shiny ${shiny.size===1?'element':'elements'} · ${Math.round(shinyChance()*100)}% chance per combination</div>`);
 }
-const APP_VERSION='1.0.48';
+const APP_VERSION='1.0.49';
 // V83: status line + Google consent (UMP) privacy options, required for EEA players.
 async function refreshAdStatus(){
  const el=$('settingsAdStatus'),bridge=getRewardBridge();
@@ -7263,7 +7270,7 @@ const coinBar=()=>`<div class="mk-wallet"><span class="mk-coins">🪙 <b data-co
 function wireCoinBar(back){const b=$('mkBuyCoins');if(b)b.onclick=()=>openCoinShop(back);}
 // V137: coin packs — bigger packs give more coins per euro
 function openCoinShop(back){
- showModal(`<div class="modal-tag">COMPANION COINS</div><h2>Get more coins</h2><p class="mini-muted">You have 🪙 <b data-coins>${wallet.coins.toLocaleString('en-US')}</b> · bigger packs are better value</p>
+ showModal(`<div class="modal-tag">COMPANION COINS</div><h2>Get more coins</h2><div class="fair-note"><b>✓ Nothing is pay-only</b><span>${escapeText(FAIR_PLAY_NOTE)}</span></div><p class="mini-muted">You have 🪙 <b data-coins>${wallet.coins.toLocaleString('en-US')}</b> · bigger packs are better value</p>
   <div class="cp-list">${COIN_PACKS.map(p=>`<button type="button" class="cp-pack ${p.tag?'is-hot':''}" data-pack="${p.id}">${p.tag?`<span class="cp-tag">${p.tag}</span>`:''}<span class="cp-pile">${'🪙'.repeat(1+COIN_PACKS.indexOf(p))}</span><b>${p.coins.toLocaleString('en-US')}</b><small>${p.bonus?`+${p.bonus}% bonus`:'coins'}</small><em>${escapeText(packPrices[p.id]||p.price)}</em></button>`).join('')}</div>
   <p class="mini-muted">Or earn them for free in races and Karate fights.</p>${back?'<button type="button" class="modal-button secondary" id="cpBack">Back</button>':''}`);
  $('modalContent').querySelectorAll('[data-pack]').forEach(b=>b.onclick=async()=>{b.disabled=true;await buyCoins(b.dataset.pack);b.disabled=false;syncCoinLabels();});
@@ -7307,7 +7314,7 @@ function openMarket(onClose,tab){if(tab)marketTab=tab;
  const tile=it=>{const o=owned(it);const label=it.kind==='toy'&&o?(wallet.toy===it.toy?'On screen':'Show'):o?'Owned':`🪙 ${priceOf(it).toLocaleString('en-US')}`;
   return `<button type="button" class="stat-tile mk-tile ${o?'is-owned':''} ${it.kind==='toy'&&wallet.toy===it.toy?'is-on':''}" data-mk="${it.id}"><span class="mk-art">${artOf(it)}</span><b>${escapeText(nameOf(it))}</b><small>${escapeText(descOf(it)||'')}</small>${it.ext?`<small class="mk-fits">${escapeText(fitsOf(it))}</small>`:''}<em class="mk-price ${!o&&wallet.coins<priceOf(it)?'is-short':''}">${label}</em></button>`;};
  const daily=wallet.daily!==dailyKey();
- showModal(`<div class="modal-tag">BLACK MARKET</div><h2>Spend your coins</h2>${coinBar()}
+ showModal(`<div class="modal-tag">BLACK MARKET</div><h2>Spend your coins</h2><div class="fair-note"><b>✓ Nothing is pay-only</b><span>${escapeText(FAIR_PLAY_NOTE)}</span></div>${coinBar()}
   <button type="button" class="mk-daily ${daily?'':'is-done'}" id="mkDaily" ${daily?'':'disabled'}><span>🎁</span><b>${daily?`Daily coins · +${DAILY_COINS}`:'Daily coins claimed'}</b><small>${daily?'Free, once a day':'Come back tomorrow'}</small></button>
   <div class="mk-tabs">${MARKET_TABS.map(([k,l])=>`<button type="button" data-mktab="${k}" aria-pressed="${k===marketTab}">${l}</button>`).join('')}</div>
   ${marketTab==='food'?`<p class="mini-muted">Bought food waits on the Alchemy screen — drag it onto a companion.${Object.values(wallet.bag||{}).reduce((n,v)=>n+v,0)?` · ${Object.values(wallet.bag).reduce((n,v)=>n+v,0)} waiting`:''}</p>`:marketTab==='toy'?'<p class="mini-muted">One toy sits on the craft card; your companion plays with it now and then.</p>':marketTab==='acc'?'<p class="mini-muted">One copy dresses one companion. Each extra copy costs more.</p>':''}
