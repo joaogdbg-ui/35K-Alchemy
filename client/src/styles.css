@@ -1700,8 +1700,6 @@ button.home-eff::after{content:" ⓘ";opacity:.6;font-weight:700}
 .home-ext-art{grid-row:span 2;width:30px;height:30px}.home-ext-art svg,.home-ext-art img{width:100%;height:100%}
 .home-ext-chip b{font-size:12px}.home-ext-chip small{font-size:10px;color:var(--slate);font-weight:700}
 .home-ext-chip.is-on{border-color:#5e9e5a;background:color-mix(in srgb,#5e9e5a 14%,var(--surface-2))}
-.home-tile.is-grass{background:color-mix(in srgb,#7fc46a 55%,transparent)!important}
-.home-room.has-pool{box-shadow:inset 0 -6px 0 #5aaed2}
 .home-ext-list{list-style:none;padding:0;margin:6px 0;font-size:13px}
 
 /* V140: add-ons vs houses */
@@ -1717,3 +1715,38 @@ button.home-eff::after{content:" ⓘ";opacity:.6;font-weight:700}
 /* V141: games hub (Market, School, Games, Prizes) */
 .st-shop.is-hub{margin:12px 0 6px}.st-shop.is-hub .st-shop-btn{min-height:74px}
 .st-rows.is-sheet{margin-top:8px;text-align:left}
+
+/* V142: add-ons drawn as real places: upstairs bedroom above the room, outdoor yard below the door */
+.home-plot{--tile:min(52px,calc((100vw - 64px) / var(--cols)));--pw:calc(var(--tile) * var(--cols) + 16px);display:grid;justify-items:center}
+.home-up{position:relative;width:var(--pw);height:calc(var(--tile) * 2.3);margin-bottom:-3px;border:3px solid #657d89;border-bottom:0;border-radius:14px 14px 0 0;overflow:hidden;
+ background:linear-gradient(180deg,#e9dcc4 0 38%,#9c7350 38% 41%,#d2a072 41%),#d2a072}
+.home-up::after{content:'';position:absolute;inset:41% 0 0;background:repeating-linear-gradient(90deg,transparent 0 calc(var(--tile) - 2px),rgba(120,80,50,.35) calc(var(--tile) - 2px) var(--tile))}
+.home-up-win{position:absolute;left:50%;top:6%;width:calc(var(--tile) * .9);transform:translateX(-50%)}.home-up-win svg,.home-up-stairs svg,.home-bed svg,.home-yard svg{display:block;width:100%;height:auto}
+.home-up-stairs{position:absolute;left:6px;bottom:0;width:calc(var(--tile) * 1.25);z-index:1}
+.home-beds{position:absolute;right:8px;bottom:6px;display:flex;gap:8px;z-index:1}
+.home-bed{position:relative;width:calc(var(--tile) * 1.55);display:grid;justify-items:center}
+.home-bed small{position:absolute;bottom:calc(100% - 4px);font-size:10px;font-weight:800;color:#6b4a32;white-space:nowrap}
+.home-bed-sleeper{position:absolute;left:8%;bottom:30%;width:52%}.home-bed-sleeper svg{width:100%;height:auto}
+.home-zz{position:absolute;right:10%;top:-30%;font-style:normal;font-weight:900;color:#5a6a8a;font-size:14px;animation:homeZz 2.4s ease-in-out infinite}
+@keyframes homeZz{0%{opacity:0;transform:translate(0,6px) scale(.7)}40%{opacity:1}100%{opacity:0;transform:translate(8px,-10px) scale(1.15)}}
+.home-zone-tag{display:inline-block;font-size:11px;font-weight:900;color:#2f3b40;background:rgba(255,255,255,.85);border-radius:8px;padding:2px 7px;box-shadow:0 1px 2px rgba(0,0,0,.12)}
+.home-up>.home-zone-tag{position:absolute;left:8px;top:6px;z-index:2}
+.home-plot .home-room{margin:0}
+.home-plot:has(.home-up) .home-room{border-top-left-radius:0;border-top-right-radius:0}
+.home-plot:has(.home-yard) .home-room{border-bottom-left-radius:0;border-bottom-right-radius:0}
+.home-yard{position:relative;width:var(--pw);height:calc(var(--tile) * 3);margin-top:-3px;border:3px solid #657d89;border-top:0;border-radius:0 0 14px 14px;overflow:hidden}
+.home-yard.is-grass{background:repeating-linear-gradient(90deg,#8fcf72 0 18px,#86c66a 18px 36px)}
+.home-yard.is-patio{background:conic-gradient(#e8e2d6 25%,#ddd5c5 0 50%,#e8e2d6 0 75%,#ddd5c5 0) 0 0/calc(var(--tile) * .8) calc(var(--tile) * .8)}
+.home-path{position:absolute;left:50%;top:0;width:calc(var(--tile) * .7);height:62%;transform:translateX(-50%);background:radial-gradient(circle at 50% 50%,#d9cfbd 45%,transparent 47%) 0 0/100% calc(var(--tile) * .6)}
+.home-yard-tree{position:absolute;left:4%;bottom:10%;width:calc(var(--tile) * 1.5)}
+.home-yard-flowers{position:absolute;left:4%;bottom:6px;width:calc(var(--tile) * 2.4);z-index:1}
+.home-yard-bush{position:absolute;left:calc(4% + var(--tile) * 1.5);bottom:34%;width:calc(var(--tile) * .9)}
+.home-yard-pool{position:absolute;right:4%;top:14%;width:calc(var(--tile) * 2.9)}
+.home-yard-lounger{position:absolute;right:calc(4% + var(--tile) * 2.95);top:22%;width:calc(var(--tile) * .95)}
+.home-yard.is-grass .home-yard-pool{top:auto;bottom:12%}.home-yard.is-grass .home-yard-lounger{display:none}
+.home-zone-tags{position:absolute;left:6px;top:6px;display:flex;flex-direction:column;gap:3px;align-items:flex-start;z-index:2}
+.home-fence{position:absolute;left:0;right:0;bottom:0;height:10px;background:repeating-linear-gradient(90deg,#f4efe6 0 6px,transparent 6px 12px);border-top:2px solid #f4efe6;opacity:.9}
+.home-waves{animation:homeWaves 2.6s ease-in-out infinite alternate}@keyframes homeWaves{to{transform:translateX(6px)}}
+.home-butterfly{position:absolute;left:30%;top:30%;width:8px;height:6px;background:radial-gradient(circle at 25% 50%,#ef7f9b 40%,transparent 42%),radial-gradient(circle at 75% 50%,#ef7f9b 40%,transparent 42%);animation:homeFly 7s ease-in-out infinite}
+@keyframes homeFly{0%,100%{transform:translate(0,0)}25%{transform:translate(30px,-10px)}50%{transform:translate(60px,6px)}75%{transform:translate(20px,14px)}}
+@media (prefers-reduced-motion:reduce){.home-waves,.home-butterfly,.home-zz{animation:none}}
