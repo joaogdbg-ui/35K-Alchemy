@@ -60,7 +60,9 @@ export function createStadiumSfx(getAudio){
   count(){tone(560,{type:'sine',dur:0.07,peak:0.035});},
   found(){tone(660,{dur:0.08,peak:0.05});tone(990,{dur:0.1,peak:0.05,at:0.08});tone(1320,{dur:0.16,peak:0.05,at:0.16});},
   peek(){tone(1200,{type:'sine',dur:0.06,peak:0.03,slide:1600});},
-  swish(){noise({dur:0.12,peak:0.04,hp:1200,lp:5000,slide:3000});}
+  swish(){noise({dur:0.12,peak:0.04,hp:1200,lp:5000,slide:3000});},
+  // V136: school tune
+  tune(){[[523,0],[659,.25],[784,.5],[659,.75],[880,1.0],[784,1.3]].forEach(([h,t])=>tone(h,{type:'triangle',dur:0.22,peak:0.045,at:t}));}
  };
  return S;
 }

@@ -5,6 +5,8 @@ import com.android.billingclient.api.BillingClient;
 import com.android.billingclient.api.BillingClientStateListener;
 import com.android.billingclient.api.BillingFlowParams;
 import com.android.billingclient.api.BillingResult;
+import com.android.billingclient.api.ConsumeParams;
+import com.getcapacitor.JSArray;
 import com.android.billingclient.api.PendingPurchasesParams;
 import com.android.billingclient.api.ProductDetails;
 import com.android.billingclient.api.Purchase;
@@ -39,6 +41,8 @@ import java.util.Map;
 public class AlchemyBillingPlugin extends Plugin implements PurchasesUpdatedListener {
     static final String PRODUCT_ID = "no_ads";
     static final String SLOT_ID = "companion_slot";
+    /** V136: consumable pack of 100 companion coins (owner price EUR 1.00). */
+    static final String COINS_ID = "coins_100";
     private BillingClient client;
     private ProductDetails details;
     private final Map<String, ProductDetails> all = new HashMap<>();
@@ -67,7 +71,7 @@ public class AlchemyBillingPlugin extends Plugin implements PurchasesUpdatedList
 
     private void loadDetails(Ready then) {
         List<QueryProductDetailsParams.Product> products = new ArrayList<>();
-        for (String id : new String[]{PRODUCT_ID, SLOT_ID})
+        for (String id : new String[]{PRODUCT_ID, SLOT_ID, COINS_ID})
             products.add(QueryProductDetailsParams.Product.newBuilder().setProductId(id).setProductType(BillingClient.ProductType.INAPP).build());
         QueryProductDetailsParams params = QueryProductDetailsParams.newBuilder().setProductList(products).build();
         client.queryProductDetailsAsync(params, (r, result) -> {
@@ -111,7 +115,26 @@ public class AlchemyBillingPlugin extends Plugin implements PurchasesUpdatedList
     private JSObject fullStatus(List<Purchase> purchases) {
         JSObject o = status(owns(purchases));
         o.put("companionSlot", owns(purchases, SLOT_ID));
+        ProductDetails coins = all.get(COINS_ID);
+        o.put("coinsAvailable", coins != null);
+        if (coins != null && coins.getOneTimePurchaseOfferDetails() != null)
+            o.put("coinsPrice", coins.getOneTimePurchaseOfferDetails().getFormattedPrice());
+        o.put("coinTokens", consumeCoins(purchases));
         return o;
+    }
+
+    /** Reports every paid coin pack (by purchase token, so the game credits each one once) and consumes it
+     *  so it can be bought again. If consuming fails, the token is reported again next time; JS ignores repeats. */
+    private JSArray consumeCoins(List<Purchase> purchases) {
+        JSArray tokens = new JSArray();
+        if (purchases == null) return tokens;
+        for (Purchase p : purchases) {
+            if (!p.getProducts().contains(COINS_ID) || p.getPurchaseState() != Purchase.PurchaseState.PURCHASED) continue;
+            int qty = Math.max(1, p.getQuantity());
+            for (int i = 0; i < qty; i++) tokens.put(qty > 1 ? p.getPurchaseToken() + "#" + i : p.getPurchaseToken());
+            client.consumeAsync(ConsumeParams.newBuilder().setPurchaseToken(p.getPurchaseToken()).build(), (r, t) -> { });
+        }
+        return tokens;
     }
 
     @PluginMethod
@@ -126,6 +149,9 @@ public class AlchemyBillingPlugin extends Plugin implements PurchasesUpdatedList
 
     @PluginMethod
     public void purchaseCompanionSlot(PluginCall call) { purchase(call, SLOT_ID); }
+
+    @PluginMethod
+    public void purchaseCoins(PluginCall call) { purchase(call, COINS_ID); }
 
     private void purchase(PluginCall call, String productId) {
         withConnection(call, () -> loadDetails(() -> {
@@ -163,7 +189,15 @@ public class AlchemyBillingPlugin extends Plugin implements PurchasesUpdatedList
         client.queryPurchasesAsync(
             QueryPurchasesParams.newBuilder().setProductType(BillingClient.ProductType.INAPP).build(),
             (r, owned) -> {
-                JSObject o = fullStatus(owned);
+                // coin packs just bought may not be listed yet: merge the fresh purchases in
+                List<Purchase> merged = new ArrayList<>();
+                if (owned != null) merged.addAll(owned);
+                if (purchases != null) for (Purchase p : purchases) {
+                    boolean seen = false;
+                    for (Purchase q : merged) if (q.getPurchaseToken().equals(p.getPurchaseToken())) seen = true;
+                    if (!seen) merged.add(p);
+                }
+                JSObject o = fullStatus(merged);
                 o.put("cancelled", code == BillingClient.BillingResponseCode.USER_CANCELED);
                 o.put("pending", pending);
                 notifyListeners("billingChanged", o);
