@@ -90,6 +90,10 @@ Preserve 200-per-batch policy and do not start another content release on top of
 
 - **Art redraw wave 3 (V85, done): 3,991 icons** — every remaining older element. All 6,012 pre-V83 elements now use the 2026 art direction (`ART_REDRAW`), plus 200 V83 and 200 V85 originals. Six near-duplicates found by the audit were redrawn; 36 reviewed false alarms are in `tools/art-redraw-reviewed-pairs.json` (the audit now also honours them for V83 comparisons).
 
+## V119 — traits grow gradually and morph (1 November 2026)
+- Owner: looks should appear gradually and blend, not swap. Each spot holds `look.mix[slot] = {traitId: weight}` (sum ≤ 1). A meal adds 0.25 (0.4 for radiant/rare) to its trait and shrinks the others proportionally when the spot is full; drawing shows every trait in the mix, sized by how grown the spot is (35%→100%) and faded by its share, so bat wings blend into butterfly wings over a few meals. Notes: "Bat wings growing (25%)", "Bat wings morphing into butterfly wings (40%)", "… fully grown!". Labels: "Bat wings / butterfly wings mix", "Devil horns 50%".
+- Old saves (single trait per spot) load as fully grown traits (`normLook`).
+
 ## V118 — element sheet previews what a meal does (1 November 2026)
 - Long-press sheet adds "If <companion> eats it": taste (loves / won't eat), XP per stat right now (or cooldown minutes), tint with colour swatch, size change, traits with their spot (head/back/tail/around) — greyed "needs a harder element" for easy versions, ✦ for radiant — and resets; footer with rarity stars, recipe depth and growth multiplier. `companions.mealPreview(id)`, pure `lookEffects(name,family,category,depth)`.
 - Mix-and-match is by design: one trait per spot from any theme (fairy wings + devil horns is allowed); the sheet says so.
