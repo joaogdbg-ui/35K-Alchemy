@@ -579,7 +579,7 @@ export function createCompanionSystem(ctx){
   }catch(e){console.warn('self feed',e);sprite.dataset.anim='idle';}
   finally{busy=false;scheduleSelfFeed();}
  }
- function hitTest(x,y){if(!sprite||!activeMeta())return false;const r=sprite.getBoundingClientRect();return x>=r.left-14&&x<=r.right+14&&y>=r.top-14&&y<=r.bottom+14;}
+ function hitTest(x,y){if(bud&&!bud.sprite.hidden&&buddyMeta()){const r=bud.sprite.getBoundingClientRect();if(x>=r.left-14&&x<=r.right+14&&y>=r.top-14&&y<=r.bottom+14){const m=sprite.getBoundingClientRect();const dm=Math.hypot(x-(m.left+m.width/2),y-(m.top+m.height/2)),db=Math.hypot(x-(r.left+r.width/2),y-(r.top+r.height/2));if(db<dm){duoAbort=true;swapInPlace();return true;}}}if(!sprite||!activeMeta())return false;const r=sprite.getBoundingClientRect();return x>=r.left-14&&x<=r.right+14&&y>=r.top-14&&y<=r.bottom+14;}
 
  // ---------- lifecycle ----------
  function start(){ensureLayer();if(cancelMove)cancelMove();busy=false;sleeping=false;const meta=activeMeta();if(!meta){stop();return;}setArt(meta);sprite.hidden=false;layerFront.hidden=false;layerBack.hidden=false;settleMood(pet(meta.id));sprite.dataset.mood=moodLabel(pet(meta.id).mood).toLowerCase();
@@ -619,7 +619,14 @@ export function createCompanionSystem(ctx){
  function ensureBud(){ensureLayer();if(bud)return bud;
   const s=document.createElement('button');s.type='button';s.className='companion is-buddy';s.id='companionBuddy';s.setAttribute('aria-label','Second companion — tap to make it the main one');
   s.innerHTML='<span class="companion-shadow" aria-hidden="true"></span><span class="companion-art" aria-hidden="true"></span><span class="companion-fx" aria-hidden="true"></span><span class="companion-emote" aria-hidden="true" hidden></span>';
-  s.addEventListener('click',e=>{e.stopPropagation();if(duoBusy)return;sfx.boop();swapDuo();});
+  // V130: the second companion can be fed and petted too — it takes the main role in place (no jump), then the normal flow runs
+  let bs={};
+  s.addEventListener('click',e=>{e.stopPropagation();if(bs.done){bs.done=false;return;}if(duoBusy)return;sfx.boop();swapInPlace();openCard(state.active);});
+  s.addEventListener('pointerdown',e=>{bs={x:e.clientX,y:e.clientY,dist:0,on:false,done:false,id:e.pointerId,last:0};try{s.setPointerCapture(e.pointerId);}catch{}});
+  s.addEventListener('pointermove',e=>{if(bs.id!==e.pointerId||bs.x==null)return;bs.dist+=Math.hypot(e.clientX-bs.x,e.clientY-bs.y);bs.x=e.clientX;bs.y=e.clientY;
+   if(!bs.on&&bs.dist>26){bs.on=true;duoAbort=true;swapInPlace();startPetting();}if(bs.on&&now()-bs.last>420){bs.last=now();sfx.purr();petTick();}});
+  const endB=()=>{if(bs.on){bs.done=true;stopPetting();}bs.x=null;bs.id=null;};
+  s.addEventListener('pointerup',endB);s.addEventListener('pointercancel',endB);s.addEventListener('lostpointercapture',endB);
   bud={sprite:s,pos:{x:140,y:200,face:-1},rail:null,cancel:null,meta:null,emoteT:null};layerFront.append(s);return bud;}
  function bPlace(x,y){bud.pos.x=x;bud.pos.y=y;bud.sprite.style.transform=`translate3d(${x.toFixed(1)}px,${y.toFixed(1)}px,0)`;bud.sprite.dataset.face=bud.pos.face>0?'right':'left';}
  function bLayer(which){const L=which==='back'?layerBack:layerFront;if(bud.sprite.parentElement!==L)L.append(bud.sprite);}
@@ -667,6 +674,15 @@ export function createCompanionSystem(ctx){
    else{bud.sprite.dataset.anim='quirk-'+(bud.meta.quirkAnim||'wiggle');await wait(1600);}
   }catch(e){console.warn('buddy',e);}
   bud.sprite.dataset.anim='idle';budTimer=setTimeout(budLoop,500+Math.random()*1500);}
+ function swapInPlace(){const b=state.buddy;if(!b||!buddyMeta()||!bud)return false;
+  if(cancelMove)cancelMove();if(bud.cancel)bud.cancel();
+  const mp={...pos},bp={...bud.pos},mr=rail,br=bud.rail,ml=sprite.parentElement,bl=bud.sprite.parentElement;
+  state.buddy=state.active;state.active=b;save();
+  setArt(metaById.get(state.active));bSetArt(metaById.get(state.buddy));
+  rail=br;bud.rail=mr;(bl===layerBack?layerBack:layerFront).append(sprite);(ml===layerBack?layerBack:layerFront).append(bud.sprite);
+  pos.face=bp.face;place(bp.x,bp.y);bud.pos.face=mp.face;bPlace(mp.x,mp.y);
+  for(const id of [state.active,state.buddy]){const p=pet(id);settleMood(p);}sprite.dataset.mood=moodLabel(pet(state.active).mood).toLowerCase();
+  rewear();refreshViews();return true;}
  function swapDuo(){const b=state.buddy;if(!b||!buddyMeta())return;state.buddy=state.active;state.active=b;save();start();startBuddy();refreshViews();}
  function setBuddy(id){if(id&&(!isDiscovered(id)||id===state.active||!slot2()))return false;state.buddy=id||null;if(id)pet(id);save();if(state.buddy)startBuddy();else stopBuddy();refreshViews();return true;}
  // --- choreography helpers: same interface for both actors ---
