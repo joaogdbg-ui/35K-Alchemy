@@ -114,6 +114,12 @@ export function lookAfterMeal(look,name,family='',category='',depth){
  if(tier>=2)for(const slot of ['head','back','tail','aura']){const v=set[slot];if(!v)continue;const lux=tier===3;if(L[slot]!==v||(lux&&!L.lux[slot])){L[slot]=v;if(lux)L.lux[slot]=1;else delete L.lux[slot];notes.push(`${lux?'Radiant ':'New: '}${TRAIT_NAME[v]}!`);}}
  return {look:L,notes,theme:theme?.[0]||null,tier};
 }
+/** V118: what an element WOULD do to a companion's looks (for the element sheet), from a plain look. */
+export function lookEffects(name,family='',category='',depth){const t=` ${String(name||'').toLowerCase()} `;const tier=lookTier(depth);const r=lookAfterMeal(defaultLook(),name,family,category,depth).look;
+ const theme=LOOK_THEMES.find(([,re])=>re.test(t));const set=theme?theme[2]:{};const tk=set.tint||FAMILY_TINT[family]||null;
+ const traits=['head','back','tail','aura'].filter(sl=>set[sl]).map(sl=>({slot:sl,label:TRAIT_NAME[set[sl]],lux:tier===3,locked:tier<2}));
+ const resets=[];if(/rebirth|\begg\b|reset|reincarnat/.test(t))resets.push('Restores the natural look');if(/soap|bath|shower|wash|sponge|clean/.test(t))resets.push('Washes colour off');if(/mirror|reflection/.test(t))resets.push('Undoes size and head trait');
+ return {tint:tk&&!/soap|bath|shower|wash/.test(t)?{key:tk,name:TINT_NAME[tk],rgb:LOOK_COLORS[tk]}:null,size:r.size,traits,resets,tier,theme:theme?.[0]||null};}
 export function lookLabel(look){if(!look)return '';const out=[];const tk=look.tint&&look.k>0.02?Object.entries(LOOK_COLORS).sort((a,b)=>dist(a[1],look.tint)-dist(b[1],look.tint))[0][0]:null;
  if(tk)out.push(`${TINT_NAME[tk]} tint`);for(const s of ['head','back','tail','aura'])if(look[s])out.push((look.lux?.[s]?'✦ ':'')+TRAIT_NAME[look[s]]);if(Math.abs(look.size||0)>=0.01)out.push(`Size ${look.size>0?'+':''}${Math.round(look.size*100)}%`);return out.join(' · ');}
 const dist=(a,b)=>a.reduce((n,v,i)=>n+(v-b[i])**2,0);
@@ -541,7 +547,12 @@ export function createCompanionSystem(ctx){
  function info(id){const meta=metaById.get(id);const p=pet(id);settleMood(p);return {name:p.nick||uiName(byId.get(id))||meta?.name||'',stats:p.stats,mood:p.mood,grades:companionGrades(meta,isShiny(id))};}
  function gameReward(id,stats,amount){const meta=metaById.get(id);if(!meta||!isDiscovered(id))return [];const p=pet(id);const done=[];for(const st of stats){gainStat(p,meta,st,Math.max(1,Math.round(amount*growth(id,st))));done.push(STAT_LABEL[st]);}p.mood=Math.min(100,p.mood+3);p.moodAt=now();save();refreshViews();return done;}
  const lookOf=id=>state.pets[id]?.look||null;
- return {lookOf,applyLook:(svg,id)=>applyLookSvg(svg,lookOf(id),id),start,stop,setActive,statsHtml,info,gameReward,choose,homeEffect,syncSeen,markSeen,isCompanion,freeChoiceLeft,emote,feed,hitTest,onDiscovery,renderTab,openCard,get active(){return activeMeta();},state:()=>state,unlocked,refreshViews,
+ // V118: preview of a meal for the element sheet (taste, stat growth now, looks it can change)
+ function mealPreview(itemId,cid=state.active){const meta=metaById.get(cid),item=byId.get(itemId);if(!meta||!item||!isDiscovered(cid))return null;const p=pet(cid);
+  const taste=likes(meta,item),last=p.fed[item.id]||0,fresh=now()-last>FEED_COOLDOWN_MS,depth=ctx.depthOf?.(item.id);
+  const stats=taste==='no'?[]:feedPlan(meta,item).map(c=>({stat:c.stat,label:STAT_LABEL[c.stat],amount:Math.round(c.amount*growth(cid,c.stat))}));
+  return {cid,name:nameOf(meta),taste,fresh,cooldownMin:fresh?0:Math.max(1,Math.ceil((FEED_COOLDOWN_MS-(now()-last))/60000)),stats,depth,depthMult:feedDepthMult(depth),looks:lookEffects(item.name||uiName(item),familyFor(item),item.category,depth)};}
+ return {mealPreview,lookOf,applyLook:(svg,id)=>applyLookSvg(svg,lookOf(id),id),start,stop,setActive,statsHtml,info,gameReward,choose,homeEffect,syncSeen,markSeen,isCompanion,freeChoiceLeft,emote,feed,hitTest,onDiscovery,renderTab,openCard,get active(){return activeMeta();},state:()=>state,unlocked,refreshViews,
   onViewChange(){if(activeMeta()&&sprite&&!sprite.hidden)setTimeout(()=>{if(cancelMove)cancelMove();const r=pickRail();if(r){rail=r;setLayer(r.layer);place(clampX(r,pos.x),r.y);sprite.dataset.anim='idle';}},80);},
   importState(raw){if(raw&&raw.pets){state=normalize(raw);save();syncSeen();}},grades:companionGrades};
 }

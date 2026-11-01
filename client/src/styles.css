@@ -1334,3 +1334,18 @@ button.home-eff::after{content:" ⓘ";opacity:.6;font-weight:700}
 @keyframes look-flap{0%,100%{transform:rotate(0) scaleY(1)}50%{transform:rotate(-10deg) scaleY(.88)}}
 @keyframes look-sway{0%,100%{transform:rotate(0)}50%{transform:rotate(-12deg)}}
 @media (prefers-reduced-motion:reduce){.look-aura>g>g,.look-lux .look-wing,.look-lux .look-tail{animation:none}}
+
+/* V118 meal preview in the element sheet */
+.meal-preview{margin:10px 0;padding:10px 12px;border-radius:14px;background:var(--surface-2);text-align:left}
+.meal-preview h3{margin:0 0 6px;font-size:14px}
+.mp-line{display:grid;grid-template-columns:52px 1fr;gap:6px;align-items:start;margin:4px 0}
+.mp-line>span{font-size:11px;font-weight:800;color:var(--muted);text-transform:uppercase;padding-top:3px}
+.mp-line>div{display:flex;flex-wrap:wrap;gap:4px}
+.mp-line b{font-size:11.5px;padding:2px 8px;border-radius:999px;background:var(--accent-2);color:var(--accent-ink)}
+.mp-line b.mp-no,.mp-line b.mp-wait{background:transparent;color:var(--muted);padding-left:0}
+.mp-line b.mp-tint{display:inline-flex;align-items:center;gap:4px}.mp-tint i{width:10px;height:10px;border-radius:50%;box-shadow:0 0 0 1px rgba(0,0,0,.2)}
+.mp-line b.mp-lux{background:#f6e7b8;color:#7a5a12;box-shadow:0 0 6px rgba(240,200,90,.6)}
+.mp-line b.mp-locked{opacity:.55;background:transparent;border:1px dashed var(--line)}
+.mp-line b.mp-reset{background:var(--good-2);color:var(--good)}
+.mp-line b.mp-none{background:transparent;color:var(--muted);padding-left:0}
+.mp-line b small{font-weight:600;opacity:.7;font-size:10px}

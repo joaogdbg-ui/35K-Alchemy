@@ -475,7 +475,7 @@ function shinyCard(item){return `<p class="shiny-trivia"><span aria-hidden="true
 function showShinyFound(id){const it=byId.get(id);if(!it)return;
  showModal(`<div class="modal-tag shiny-tag">✦ SHINY ELEMENT</div><div class="modal-art is-shiny">${staticArt(it)}</div><h2>Shiny ${escapeText(uiName(it))}</h2>${shinyCard(it)}<div class="modal-milestone">${shiny.size.toLocaleString('en-US')} shiny ${shiny.size===1?'element':'elements'} · ${Math.round(shinyChance()*100)}% chance per combination</div>`);
 }
-const APP_VERSION='1.0.17';
+const APP_VERSION='1.0.18';
 // V83: status line + Google consent (UMP) privacy options, required for EEA players.
 async function refreshAdStatus(){
  const el=$('settingsAdStatus'),bridge=getRewardBridge();
@@ -1327,9 +1327,15 @@ const HOME_EFFECT_LABEL={run:'trains Run',swim:'trains Swim',power:'trains Power
 function homeCallout(id){const h=HOME_OBJECTS_V89[id];if(!h||h.kind==='material')return '';
  const q=pieceQuality(routeDepth.get(id));const txt=h.kind==='house'?`<b>Companion house!</b> Room for ${h.capacity} companion${h.capacity>1?'s':''}.`:`<b>Furniture</b> for companion houses · ${HOME_EFFECT_LABEL[h.effect]||'decoration'}${h.effect&&h.effect!=='decor'?` · +${q.pct}% <span class="home-stars">${starsText(q.stars)}</span>`:''}.`;
  return `<div class="home-callout"><span>${txt}</span></div>`;}
+/** V118: in the element sheet, what happens if the on-screen companion eats this element. */
+function mealPreviewHtml(id){let m=null;try{m=companions.mealPreview(id);}catch{}if(!m)return '';const L=m.looks;
+ const stars=n=>'★'.repeat(n)+'☆'.repeat(3-n);const none=!L.tint&&!L.traits.length&&!L.resets.length&&Math.abs(L.size)<0.01;const tierTxt=none?'Looks stay the same':['','Easy element: only a subtle tint and size change',L.traits.length?'Gives traits':'Tints the colour','Rare element: RADIANT traits and a deeper tint'][L.tier];
+ const grow=m.taste==='no'?`<b class="mp-no">${escapeText(m.name)} won't eat it</b>`:m.fresh?m.stats.map(s=>`<b>${s.label} +${s.amount} XP</b>`).join(''):`<b class="mp-wait">Ate it recently · no growth for ${m.cooldownMin} min</b>`;
+ const looks=[L.tint?`<b class="mp-tint"><i style="background:rgb(${L.tint.rgb.join(',')})"></i>${L.tint.name} tint</b>`:'',Math.abs(L.size)>=0.01?`<b>Size ${L.size>0?'+':''}${Math.round(L.size*100)}%</b>`:'',...L.traits.map(t=>`<b class="${t.locked?'mp-locked':t.lux?'mp-lux':''}">${t.lux?'✦ ':''}${escapeText(t.label)}<small> · ${({head:'head',back:'back',tail:'tail',aura:'around'})[t.slot]}</small>${t.locked?' · needs a harder element':''}</b>`),...L.resets.map(r=>`<b class="mp-reset">↺ ${escapeText(r)}</b>`)].filter(Boolean).join('')||'<b class="mp-none">No change to looks</b>';
+ return `<section class="meal-preview"><h3>If ${escapeText(m.name)} eats it ${m.taste==='love'?'· loves it ♥':''}</h3><div class="mp-line"><span>Grows</span><div>${grow}</div></div><div class="mp-line"><span>Looks</span><div>${looks}</div></div><p class="mini-muted">${L.traits.length?'One trait per spot (head, back, tail, around): mix and match freely — a new one replaces the old one in that spot. ':''}${stars(L.tier)} ${escapeText(tierTxt)}${Number.isFinite(m.depth)?` · ${m.depth} combinations deep · growth ×${m.depthMult}`:''}</p></section>`;}
 /** V104: element sheet opened by a long press in Alchemy: description, what it does, quick actions. */
 function elementInfo(id){const it=byId.get(id);if(!it)return;const fams=familiesFor(it).map(f=>FAMILIES.find(x=>x.id===f)?.name||f);const text=wittyDiscovery(it)||it.summary;
- showModal(`<div class="modal-tag">ABOUT THIS ELEMENT · ${escapeText((categoryNames[it.category]||it.category||'').toUpperCase())}</div><div class="modal-art is-info">${COMPANION_SPRITES_V86[id]||staticArt(it)}</div><h2>${escapeText(uiName(it))}</h2>${text?`<p class="discovery-wit">${escapeText(publicText(text))}</p>`:''}${companionCallout(id)}${homeCallout(id)}${fams.length?`<p class="mini-muted">${escapeText(fams.join(' · '))}</p>`:''}
+ showModal(`<div class="modal-tag">ABOUT THIS ELEMENT · ${escapeText((categoryNames[it.category]||it.category||'').toUpperCase())}</div><div class="modal-art is-info">${COMPANION_SPRITES_V86[id]||staticArt(it)}</div><h2>${escapeText(uiName(it))}</h2>${text?`<p class="discovery-wit">${escapeText(publicText(text))}</p>`:''}${companionCallout(id)}${homeCallout(id)}${mealPreviewHtml(id)}${fams.length?`<p class="mini-muted">${escapeText(fams.join(' · '))}</p>`:''}
   <button type="button" class="modal-button" id="infoUse">Use in craft table</button><button type="button" class="modal-button secondary" id="infoPaths">Recipes</button>`);
  $('infoUse').onclick=()=>{closeModal();insertDirect(id);};$('infoPaths').onclick=()=>{closeModal();openRecipePaths(id);};}
 function showDiscovery(id,a,b,scene=null,isShiny=false){
