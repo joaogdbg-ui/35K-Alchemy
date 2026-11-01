@@ -475,7 +475,7 @@ function shinyCard(item){return `<p class="shiny-trivia"><span aria-hidden="true
 function showShinyFound(id){const it=byId.get(id);if(!it)return;
  showModal(`<div class="modal-tag shiny-tag">✦ SHINY ELEMENT</div><div class="modal-art is-shiny">${staticArt(it)}</div><h2>Shiny ${escapeText(uiName(it))}</h2>${shinyCard(it)}<div class="modal-milestone">${shiny.size.toLocaleString('en-US')} shiny ${shiny.size===1?'element':'elements'} · ${Math.round(shinyChance()*100)}% chance per combination</div>`);
 }
-const APP_VERSION='1.0.13';
+const APP_VERSION='1.0.14';
 // V83: status line + Google consent (UMP) privacy options, required for EEA players.
 async function refreshAdStatus(){
  const el=$('settingsAdStatus'),bridge=getRewardBridge();
@@ -1577,7 +1577,31 @@ function unlockInFamily(){
  if(candidate.revealed==='recipe'){showRecipeReward(candidate.id,candidate);return;}
  revealRecipeWithAd(candidate.id);
 }
+// V114: while you play elsewhere, residents keep using their furniture. Coming back to Home shows
+// what they trained (same daily cap as the live room).
+let homeAwaySince=null;
+const STAT_LABEL={run:'Run',swim:'Swim',power:'Power',fly:'Fly',stamina:'Stamina',hp:'HP'};
+function homeAwaySummary(){
+ const since=homeAwaySince;homeAwaySince=null;if(!since)return;const mins=(Date.now()-since)/60000;if(mins<2||document.querySelector('#modal:not([hidden])'))return;
+ const houses=homes.state().houses||{};const rows=[];
+ for(const [hid,h] of Object.entries(houses)){if(!homeDiscovered(hid))continue;
+  const effs=[...new Set((h.furniture||[]).map(f=>HOME_OBJECTS[f.id]?.effect).filter(e=>e&&!['decor','discovery'].includes(e)))];if(!effs.length)continue;
+  for(const cid of h.residents||[]){const pet=companions.state().pets[cid];if(!pet?.stats)continue;
+   const before=Object.fromEntries(Object.entries(pet.stats).map(([k,v])=>[k,{lv:v.level,tot:v.level*100+v.bar}]));const mood0=pet.mood,belly0=pet.belly;
+   const uses=Math.min(30,Math.max(1,Math.round(mins*1.5)));for(const e of effs)for(let k=0;k<uses;k++)companions.homeEffect(cid,e);
+   const after=companions.state().pets[cid];const gains=Object.keys(STAT_LABEL).map(k=>({k,pts:(after.stats[k].level*100+after.stats[k].bar)-before[k].tot,lv0:before[k].lv,lv1:after.stats[k].level})).filter(g=>g.pts>0);
+   const extra=[after.mood>mood0?`Mood +${Math.round(after.mood-mood0)}`:'',after.belly>belly0?`Belly +${Math.round(after.belly-belly0)}`:''].filter(Boolean);
+   if(gains.length||extra.length)rows.push({cid,hid,gains,extra});}}
+ if(!rows.length)return;
+ const time=mins>=60?`${Math.floor(mins/60)} h ${Math.round(mins%60)} min`:`${Math.round(mins)} min`;
+ showModal(`<div class="modal-tag companion-tag">WHILE YOU WERE AWAY · ${time}</div><h2>Your companions trained at home</h2>
+  <div class="away-list">${rows.map(r=>`<div class="away-row"><span class="away-ava">${COMPANION_SPRITES_V86[r.cid]||''}</span><div><strong>${escapeText(companions.state().pets[r.cid]?.nick||uiName(byId.get(r.cid)))}</strong><small>${escapeText(homeUiName(homeById.get(r.hid)))}</small>
+   <span class="away-gains">${r.gains.map(g=>`<b class="${g.lv1>g.lv0?'is-up':''}">${STAT_LABEL[g.k]} +${g.pts} XP${g.lv1>g.lv0?` · Lv ${g.lv0}→${g.lv1}`:''}</b>`).join('')}${r.extra.map(x=>`<b class="is-care">${x}</b>`).join('')}</span></div></div>`).join('')}</div>
+  <p class="mini-muted">Residents use their furniture while you play. Furniture training has a daily limit per companion.</p><button type="button" class="modal-button" id="awayOk">Nice!</button>`);
+ $('awayOk').onclick=closeModal;companions.refreshViews?.();
+}
 function switchTab(view){
+ const wasHome=tab==='Pets';
  tab=view==='World'?'World':view==='Pets'?'Pets':view==='Games'&&gamesUnlocked()?'Games':'Play';
  for(const name of ['Play','World','Pets','Games'])$(`view${name}`).hidden=name!==tab;
  if(tab==='Games'){games.render($('viewGames'));gamesSeen();}
@@ -1585,6 +1609,7 @@ function switchTab(view){
  if(tab==='World')renderDiscoveries();else if(tab==='Pets')companions.renderTab();else playVirtual.draw(true);
  if(tab==='Pets')companions.markSeen();else companions.syncSeen();
  companions.onViewChange();
+ if(wasHome&&tab!=='Pets')homeAwaySince=Date.now();else if(!wasHome&&tab==='Pets')setTimeout(homeAwaySummary,350);
 }
 // V86 Companions: five companion elements per family live on top of the interface.
 // V105: every player owns the Frog from the start (shows new players this is more than an alchemy game).
