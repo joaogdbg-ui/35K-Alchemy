@@ -435,7 +435,7 @@ try{const r=JSON.parse(localStorage.getItem(SLOT2_KEY)||'null');if(r){slot2.ads=
 function saveSlot2(){try{localStorage.setItem(SLOT2_KEY,JSON.stringify({v:1,ads:slot2.ads,bought:slot2.bought}));}catch{}}
 function slot2Unlocked(){return slot2.bought||(slot2.ads>=SLOT2_ADS&&classicDiscoveredCount()>=SLOT2_MIN_ELEMENTS);}
 // TEMPORARY (owner test, V127): while SLOT2_TEST_FREE is true the INSTANT button unlocks the slot for €0 without Play. Set to false before store release.
-const SLOT2_TEST_FREE=true;
+const SLOT2_TEST_FREE=false; // V131: owner finished testing; back to the Play price (€1)
 function slot2Info(){return {unlocked:slot2Unlocked(),price:SLOT2_TEST_FREE?'€0.00 · TEST':slot2.price,canBuy:SLOT2_TEST_FREE||(Boolean(billingBridge()?.purchaseCompanionSlot)&&slot2.available),canAd:rewardedAvailable(),ads:slot2.ads,adsNeeded:SLOT2_ADS,elements:classicDiscoveredCount(),minElements:SLOT2_MIN_ELEMENTS};}
 async function buySlot2(){if(SLOT2_TEST_FREE){slot2.bought=true;saveSlot2();toast('Second companion slot unlocked (test)','new');companions.start();return true;}
  const b=billingBridge();if(!b?.purchaseCompanionSlot){toast('Purchases work in the Play Store app','repeat');return false;}
@@ -498,7 +498,7 @@ function shinyCard(item){return `<p class="shiny-trivia"><span aria-hidden="true
 function showShinyFound(id){const it=byId.get(id);if(!it)return;
  showModal(`<div class="modal-tag shiny-tag">✦ SHINY ELEMENT</div><div class="modal-art is-shiny">${staticArt(it)}</div><h2>Shiny ${escapeText(uiName(it))}</h2>${shinyCard(it)}<div class="modal-milestone">${shiny.size.toLocaleString('en-US')} shiny ${shiny.size===1?'element':'elements'} · ${Math.round(shinyChance()*100)}% chance per combination</div>`);
 }
-const APP_VERSION='1.0.30';
+const APP_VERSION='1.0.31';
 // V83: status line + Google consent (UMP) privacy options, required for EEA players.
 async function refreshAdStatus(){
  const el=$('settingsAdStatus'),bridge=getRewardBridge();
