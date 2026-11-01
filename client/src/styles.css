@@ -1276,3 +1276,17 @@ button.home-eff::after{content:" ⓘ";opacity:.6;font-weight:700}
 .element-chip.is-holding::after{content:"";position:absolute;inset:-3px;border-radius:inherit;pointer-events:none;border:3px solid var(--accent,#d08a4c);clip-path:inset(0 100% 0 0);animation:chip-hold .5s linear forwards}
 @keyframes chip-hold{to{clip-path:inset(0 0 0 0)}}
 .modal-art.is-info{transform:scale(.8)}
+
+/* V109 medal tally on companion picker tiles */
+.st-pick .companion{position:relative}
+.st-pick-belt{position:absolute;right:-6px;bottom:-4px;background:var(--surface);border-radius:50%;padding:1px;line-height:0;box-shadow:0 0 0 1px var(--line)}
+.st-tally{display:flex;align-items:center;justify-content:center;gap:2px;font-size:10px;font-weight:800;min-height:13px;color:var(--ink)}
+.st-mini{width:9px;height:9px;border-radius:50%;display:inline-block;margin-left:3px}
+.st-mini:first-child{margin-left:0}
+.st-mini.is-gold{background:radial-gradient(circle at 35% 35%,#fff3b8,#e0b13c)}.st-mini.is-silver{background:radial-gradient(circle at 35% 35%,#fff,#b7c0c6)}.st-mini.is-bronze{background:radial-gradient(circle at 35% 35%,#ffd8b0,#c2804a)}
+.st-mini-t{margin-left:3px;font-size:9.5px}
+.st-none{font-size:9px;font-weight:600;color:var(--muted)}
+.st-pick.has-medals{border-color:color-mix(in srgb,#e0b13c 55%,var(--line))}
+.st-tally{flex-wrap:wrap;gap:0 1px;font-size:9.5px;line-height:12px;max-width:100%;padding:0 2px}
+.st-mini{width:8px;height:8px;margin-left:2px}
+.st-mini-t{flex-basis:100%;text-align:center;margin-left:0}

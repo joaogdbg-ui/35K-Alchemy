@@ -8,3 +8,6 @@ test('V108: medals and trophies belong to the companion that won them',async()=>
  assert.match(g,/const myRaces=\(\)=>prog\(pick\(\)\)\.races/);assert.match(g,/Old shared progress moves to the companion/);
  assert.ok(!/state\.races\[/.test(g),'no shared race progress left');
 });
+test('V109: the companion picker shows each companion\'s medals, trophies and belt',()=>{
+ const g=fs.readFileSync(new URL('../src/games-v93.js',import.meta.url),'utf8');assert.match(g,/class="st-tally"/);assert.match(g,/medalCounts\(c\.id\)/);
+});
