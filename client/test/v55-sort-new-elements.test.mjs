@@ -30,7 +30,7 @@ test('Every V55 concept has its own self-contained unique artwork',()=>{
  for(const it of ORGANIC_V55.items){const svg=ORGANIC_ART_V55[it.name.toLowerCase()];assert(svg.startsWith('<svg'));assert(!/<image\b|<script\b|href=|onload=/.test(svg));}
 });
 test('V55 Sort replaces Recent with A-Z, Old first, New first in the same compact row',()=>{
- assert.match(index,/id="recentBtn" class="filter-pill sort-button"/);
+ assert.match(index,/id="recentBtn" class="tool-chip sort-button"/); // V127 tool chips
  for(const label of ['A–Z','Old first','New first'])assert(app.includes(label));
  assert.match(app,/sortChoice==='old'\|\|sortChoice==='new'/);
  assert.match(app,/playVirtual\.refresh\(\)/);

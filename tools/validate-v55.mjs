@@ -42,7 +42,7 @@ const discovered=new Set(['legacy:0','legacy:1','legacy:2','legacy:3']);
 let changed=true;while(changed){changed=false;for(const [pair,result] of now.recipes){if(discovered.has(result))continue;const [a,b]=pair.split('|');if(discovered.has(a)&&discovered.has(b)){discovered.add(result);changed=true;}}}
 assert(discovered.size===now.items.length,`${now.items.length-discovered.size} unreachable elements`);
 const frontend=readFileSync('client/src/app.js','utf8'),html=readFileSync('client/index.html','utf8');
-assert(html.includes('id="recentBtn" class="filter-pill sort-button"'),'Old Recent UI still visible');
+assert(/id="recentBtn" class="(filter-pill|tool-chip) sort-button"/.test(html),'Old Recent UI still visible');
 assert(frontend.includes("['az','A–Z'")&&frontend.includes("['old','Old first'")&&frontend.includes("['new','New first'"),'Sort choices missing');
 assert(frontend.includes("localStorage.setItem(SORT_KEY,sortChoice)"),'Sort selection not persisted');
 if(errors.length){console.error(errors.slice(0,30).join('\n'));process.exit(1);}
