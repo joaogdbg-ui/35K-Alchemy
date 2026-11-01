@@ -35,8 +35,11 @@ export const WEARABLE_ELEMENTS=[[/\btop hat\b/,'top-hat'],[/\bwizard hat\b/,'wiz
 export function wearableFor(name){const t=` ${String(name||'').toLowerCase()} `;return WEARABLE_ELEMENTS.find(([re])=>re.test(t))?.[1]||null;}
 // ---------- market ----------
 export const COIN_PACK={id:'coins_100',coins:100,price:'€1.00'};
+/** V137: bigger packs are better value (bonus vs the 100-coin pack). */
+export const COIN_PACKS=[{id:'coins_100',coins:100,price:'€1.00',bonus:0},{id:'coins_550',coins:550,price:'€5.00',bonus:10},{id:'coins_1200',coins:1200,price:'€10.00',bonus:20,tag:'Popular'},{id:'coins_2600',coins:2600,price:'€20.00',bonus:30,tag:'Best value'}];
 export const MARKET=[
  // food: given straight to the companion on screen
+ // V137: food is placed on the main screen; drag it onto a companion
  {id:'fruit-run',kind:'food',name:'Swift fruit',icon:'🍐',price:30,stat:'run',amount:60,desc:'Run +60 XP'},
  {id:'fruit-swim',kind:'food',name:'Sea fruit',icon:'🫐',price:30,stat:'swim',amount:60,desc:'Swim +60 XP'},
  {id:'fruit-fly',kind:'food',name:'Cloud fruit',icon:'🍑',price:30,stat:'fly',amount:60,desc:'Fly +60 XP'},

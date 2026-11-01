@@ -1671,6 +1671,23 @@ button.home-eff::after{content:" ⓘ";opacity:.6;font-weight:700}
 .screen-toy.is-beat svg{animation:toy-beat .22s ease-in-out infinite}@keyframes toy-beat{50%{transform:scale(1.12,.9)}}
 @media (prefers-reduced-motion:reduce){.sk-fx,.screen-toy{display:none}}
 
+/* V137: coin packs + food tray */
+.cp-list{display:grid;grid-template-columns:1fr 1fr;gap:8px;margin:10px 0}
+.cp-pack{position:relative;display:grid;justify-items:center;gap:2px;padding:14px 6px 10px;border-radius:18px;border:1px solid var(--line);background:linear-gradient(160deg,var(--surface) 40%,color-mix(in srgb,#f3c24a 20%,var(--surface)))}
+.cp-pack.is-hot{border-color:color-mix(in srgb,var(--accent) 60%,var(--line));box-shadow:0 0 0 2px color-mix(in srgb,var(--accent) 22%,transparent)}
+.cp-tag{position:absolute;top:-9px;left:50%;transform:translateX(-50%);padding:2px 9px;border-radius:999px;background:var(--accent);color:#fff;font-size:10px;font-weight:900;letter-spacing:.04em;white-space:nowrap}
+.cp-pile{font-size:18px;letter-spacing:-6px;min-height:26px}.cp-pack b{font-size:22px;font-weight:900}.cp-pack small{color:#5e9e5a;font-weight:800;font-size:12px}
+.cp-pack em{font-style:normal;margin-top:4px;padding:4px 14px;border-radius:999px;background:var(--ink);color:var(--surface);font-weight:900;font-size:13px}
+.food-tray{position:absolute;left:12px;top:8px;right:12px;display:flex;gap:6px;z-index:2;overflow-x:auto;scrollbar-width:none;padding:4px 6px 4px 2px}
+.craft-card.has-tray{padding-top:56px}
+.food-tray::before{content:'Drag to a companion';align-self:center;order:99;margin-left:4px;font-size:11px;color:var(--muted);white-space:nowrap}
+.food-token{position:relative;width:34px;height:34px;border-radius:50%;background:var(--surface);border:1px solid var(--line);box-shadow:var(--shadow);font-size:19px;display:grid;place-items:center;touch-action:none;animation:food-bob 2.4s ease-in-out infinite}
+.food-token b{position:absolute;right:-5px;top:-5px;min-width:17px;height:17px;padding:0 4px;border-radius:999px;background:var(--accent);color:#fff;font-size:10px;font-weight:900;line-height:17px}
+.food-token.is-dragging{opacity:.35}
+.food-ghost{position:fixed;left:0;top:0;z-index:9999;font-size:34px;pointer-events:none;filter:drop-shadow(0 3px 3px rgba(0,0,0,.25))}
+@keyframes food-bob{0%,100%{transform:translateY(0)}50%{transform:translateY(-3px)}}
+@media (prefers-reduced-motion:reduce){.food-token{animation:none}}
+
 </style>
 </head>
 <body>
@@ -3023,8 +3040,11 @@ const WEARABLE_ELEMENTS=[[/\btop hat\b/,'top-hat'],[/\bwizard hat\b/,'wizard-hat
 function wearableFor(name){const t=` ${String(name||'').toLowerCase()} `;return WEARABLE_ELEMENTS.find(([re])=>re.test(t))?.[1]||null;}
 // ---------- market ----------
 const COIN_PACK={id:'coins_100',coins:100,price:'€1.00'};
+/** V137: bigger packs are better value (bonus vs the 100-coin pack). */
+const COIN_PACKS=[{id:'coins_100',coins:100,price:'€1.00',bonus:0},{id:'coins_550',coins:550,price:'€5.00',bonus:10},{id:'coins_1200',coins:1200,price:'€10.00',bonus:20,tag:'Popular'},{id:'coins_2600',coins:2600,price:'€20.00',bonus:30,tag:'Best value'}];
 const MARKET=[
  // food: given straight to the companion on screen
+ // V137: food is placed on the main screen; drag it onto a companion
  {id:'fruit-run',kind:'food',name:'Swift fruit',icon:'🍐',price:30,stat:'run',amount:60,desc:'Run +60 XP'},
  {id:'fruit-swim',kind:'food',name:'Sea fruit',icon:'🫐',price:30,stat:'swim',amount:60,desc:'Swim +60 XP'},
  {id:'fruit-fly',kind:'food',name:'Cloud fruit',icon:'🍑',price:30,stat:'fly',amount:60,desc:'Fly +60 XP'},
@@ -3060,7 +3080,7 @@ const LESSONS=[
  {id:'magic',name:'Magic trick',icon:'🎩',price:150,desc:'Pulls an element out of a hat'}
 ];
 
-return {ACCESSORIES,wearableFor,MARKET,MARKET_TABS,COIN_PACK,coinsFor,LESSONS};})();
+return {ACCESSORIES,wearableFor,MARKET,MARKET_TABS,COIN_PACK,COIN_PACKS,coinsFor,LESSONS};})();
 window.__companionEngine86=(function(){/**
  * V86 Companions (owner request 30/10/2026).
  * Five companion elements per family. Once discovered (in any mode) a companion can be made
@@ -5342,7 +5362,7 @@ const {STADIUM_ART_V95}=window.__stadiumArt95;
 const {createStadiumSfx}=window.__stadiumSfx95;
 const {COMPANIONS_V86,COMPANION_SPRITES_V86}=window.__companions86;
 const {createCompanionSystem,COMPANION_STORAGE_KEY,rivalLook,traitIconSvg}=window.__companionEngine86;
-const {ACCESSORIES,wearableFor,MARKET,MARKET_TABS,COIN_PACK,coinsFor,LESSONS}=window.__market136;
+const {ACCESSORIES,wearableFor,MARKET,MARKET_TABS,COIN_PACK,COIN_PACKS,coinsFor,LESSONS}=window.__market136;
 const {PUBLIC_LABELS_V86}=window.__publicLabels86;
 const {reconcileLegacyFamilies}=window.__familyCompat82;
 const {synchronizeFamilyProfiles,sharedMembership}=window.__familyShared51;
@@ -5645,7 +5665,7 @@ function applyBillingStatus(st){
  if(!st||typeof st!=='object')return;
  if(typeof st.price==='string'&&st.price)billingPrice=st.price;
  billingProductReady=st.available===true;
- if(typeof st.coinsPrice==='string'&&st.coinsPrice)coinsPrice=st.coinsPrice;if(typeof st.coinsAvailable==='boolean')coinsAvailable=st.coinsAvailable;if(Array.isArray(st.coinTokens)&&typeof creditCoinTokens==='function')creditCoinTokens(st.coinTokens);
+ if(typeof st.coinsPrice==='string'&&st.coinsPrice)coinsPrice=st.coinsPrice;if(st.coinPacks&&typeof st.coinPacks==='object'&&typeof packPrices==='object')Object.assign(packPrices,st.coinPacks);if(typeof st.coinsAvailable==='boolean')coinsAvailable=st.coinsAvailable;if(Array.isArray(st.coinTokens)&&typeof creditCoinTokens==='function')creditCoinTokens(st.coinTokens);
  if(typeof st.slotPrice==='string'&&st.slotPrice)slot2.price=st.slotPrice;if(typeof st.slotAvailable==='boolean')slot2.available=st.slotAvailable;
  if(st.companionSlot===true&&!slot2.bought){slot2.bought=true;saveSlot2();try{companions.start();}catch{}}
  if(st.noAds===true)setNoAds(true);
@@ -5722,7 +5742,7 @@ function shinyCard(item){return `<p class="shiny-trivia"><span aria-hidden="true
 function showShinyFound(id){const it=byId.get(id);if(!it)return;
  showModal(`<div class="modal-tag shiny-tag">✦ SHINY ELEMENT</div><div class="modal-art is-shiny">${staticArt(it)}</div><h2>Shiny ${escapeText(uiName(it))}</h2>${shinyCard(it)}<div class="modal-milestone">${shiny.size.toLocaleString('en-US')} shiny ${shiny.size===1?'element':'elements'} · ${Math.round(shinyChance()*100)}% chance per combination</div>`);
 }
-const APP_VERSION='1.0.36';
+const APP_VERSION='1.0.37';
 // V83: status line + Google consent (UMP) privacy options, required for EEA players.
 async function refreshAdStatus(){
  const el=$('settingsAdStatus'),bridge=getRewardBridge();
@@ -6984,21 +7004,45 @@ function syncGamesTab(){const t=document.querySelector('.tab-games');if(!t)retur
 function gamesSeen(){try{localStorage.setItem(GAMES_SEEN_KEY,'1');}catch{}syncGamesTab();}
 // ---------- V136: companion coins, Black Market, School, Wardrobe ----------
 const WALLET_KEY='alchemy10k_wallet_v136';
-let wallet={coins:0,acc:[],toys:[],toy:null,tokens:[]};
-try{const r=JSON.parse(localStorage.getItem(WALLET_KEY)||'null');if(r&&typeof r==='object')wallet={coins:Math.max(0,Math.floor(Number(r.coins)||0)),acc:Array.isArray(r.acc)?r.acc.filter(a=>ACCESSORIES[a]):[],toys:Array.isArray(r.toys)?r.toys:[],toy:typeof r.toy==='string'?r.toy:null,tokens:Array.isArray(r.tokens)?r.tokens.slice(-200):[]};}catch{}
+let wallet={coins:0,acc:[],toys:[],toy:null,tokens:[],bag:{}};
+try{const r=JSON.parse(localStorage.getItem(WALLET_KEY)||'null');if(r&&typeof r==='object')wallet={coins:Math.max(0,Math.floor(Number(r.coins)||0)),acc:Array.isArray(r.acc)?r.acc.filter(a=>ACCESSORIES[a]):[],toys:Array.isArray(r.toys)?r.toys:[],toy:typeof r.toy==='string'?r.toy:null,tokens:Array.isArray(r.tokens)?r.tokens.slice(-200):[],bag:r.bag&&typeof r.bag==='object'?r.bag:{}};}catch{}
+const packPrices={};
 let coinsPrice=COIN_PACK.price,coinsAvailable=false;
 function saveWallet(){try{localStorage.setItem(WALLET_KEY,JSON.stringify(wallet));}catch{}}
 function addCoins(n){wallet.coins=Math.max(0,wallet.coins+Math.round(n));saveWallet();syncCoinLabels();return wallet.coins;}
 function spendCoins(n){if(wallet.coins<n)return false;wallet.coins-=n;saveWallet();syncCoinLabels();return true;}
 function syncCoinLabels(){document.querySelectorAll('[data-coins]').forEach(e=>e.textContent=wallet.coins.toLocaleString('en-US'));const s=$('stCoins');if(s)s.textContent='🪙 '+wallet.coins.toLocaleString('en-US');}
-function creditCoinTokens(tokens){let n=0;for(const t of tokens||[]){if(typeof t!=='string'||wallet.tokens.includes(t))continue;wallet.tokens.push(t);wallet.coins+=COIN_PACK.coins;n++;}if(n){saveWallet();syncCoinLabels();toast(`+${n*COIN_PACK.coins} coins · thank you!`,'new');}return n;}
-async function buyCoins(){const b=billingBridge();if(!b?.purchaseCoins){toast('Coin packs can be bought in the Play Store app','repeat');return false;}
- try{const r=await b.purchaseCoins();applyBillingStatus(r);await refreshBilling();if(r?.cancelled)toast('Purchase cancelled','repeat');else if(r?.pending)toast('Purchase pending · coins arrive when Google Play confirms it','repeat');return true;}catch(e){console.warn(e);toast('Google Play purchase is not available yet','error');return false;}}
+function creditCoinTokens(tokens){let got=0;for(const t of tokens||[]){if(typeof t!=='string'||wallet.tokens.includes(t))continue;const pack=t.includes('|')?COIN_PACKS.find(x=>x.id===t.split('|')[0]):COIN_PACK;if(!pack)continue;wallet.tokens.push(t);wallet.coins+=pack.coins;got+=pack.coins;}if(got){saveWallet();syncCoinLabels();toast(`+${got.toLocaleString('en-US')} coins · thank you!`,'new');}return got;}
+async function buyCoins(pack='coins_100'){const b=billingBridge();if(!b?.purchaseCoins){toast('Coin packs can be bought in the Play Store app','repeat');return false;}
+ try{const r=await b.purchaseCoins({pack});applyBillingStatus(r);await refreshBilling();if(r?.cancelled)toast('Purchase cancelled','repeat');else if(r?.pending)toast('Purchase pending · coins arrive when Google Play confirms it','repeat');return true;}catch(e){console.warn(e);toast('Google Play purchase is not available yet','error');return false;}}
 function grantAccessory(id){if(!ACCESSORIES[id]||wallet.acc.includes(id))return false;wallet.acc.push(id);saveWallet();return true;}
 function accIcon(id,size=40){const a=ACCESSORIES[id];if(!a)return '';const oy=a.slot==='head'?12:a.slot==='neck'?-8:0;return `<svg viewBox="-30 -30 60 60" width="${size}" height="${size}" aria-hidden="true"><g transform="translate(0 ${oy})">${a.draw(a.slot==='neck'?44:40)}</g></svg>`;}
 function grantElement(id){if(!byId.has(id)||unlocked.has(id))return false;unlocked.add(id);discoveryLedger.set(id,{at:new Date().toISOString(),source:'market',ingredients:[]});recent=[id,...recent.filter(x=>x!==id)].slice(0,350);companions.onDiscovery(id);save();updateCounts();updateLatest();rerenderCollections();try{companions.refreshViews();}catch{}return true;}
-const coinBar=()=>`<div class="mk-wallet"><span class="mk-coins">🪙 <b data-coins>${wallet.coins.toLocaleString('en-US')}</b></span><button type="button" class="mk-buy" id="mkBuyCoins"><b>+${COIN_PACK.coins}</b><small>${escapeText(coinsPrice)}</small></button></div>`;
-function wireCoinBar(){const b=$('mkBuyCoins');if(b)b.onclick=async()=>{b.disabled=true;await buyCoins();b.disabled=false;};}
+const coinBar=()=>`<div class="mk-wallet"><span class="mk-coins">🪙 <b data-coins>${wallet.coins.toLocaleString('en-US')}</b></span><button type="button" class="mk-buy" id="mkBuyCoins"><b>+ Coins</b><small>from ${escapeText(packPrices.coins_100||coinsPrice)}</small></button></div>`;
+function wireCoinBar(back){const b=$('mkBuyCoins');if(b)b.onclick=()=>openCoinShop(back);}
+// V137: coin packs — bigger packs give more coins per euro
+function openCoinShop(back){
+ showModal(`<div class="modal-tag">COMPANION COINS</div><h2>Get more coins</h2><p class="mini-muted">You have 🪙 <b data-coins>${wallet.coins.toLocaleString('en-US')}</b> · bigger packs are better value</p>
+  <div class="cp-list">${COIN_PACKS.map(p=>`<button type="button" class="cp-pack ${p.tag?'is-hot':''}" data-pack="${p.id}">${p.tag?`<span class="cp-tag">${p.tag}</span>`:''}<span class="cp-pile">${'🪙'.repeat(1+COIN_PACKS.indexOf(p))}</span><b>${p.coins.toLocaleString('en-US')}</b><small>${p.bonus?`+${p.bonus}% bonus`:'coins'}</small><em>${escapeText(packPrices[p.id]||p.price)}</em></button>`).join('')}</div>
+  <p class="mini-muted">Or earn them for free in races and Karate fights.</p>${back?'<button type="button" class="modal-button secondary" id="cpBack">Back</button>':''}`);
+ $('modalContent').querySelectorAll('[data-pack]').forEach(b=>b.onclick=async()=>{b.disabled=true;await buyCoins(b.dataset.pack);b.disabled=false;syncCoinLabels();});
+ const bk=$('cpBack');if(bk)bk.onclick=back;}
+// V137: bought food sits on the main screen (on top of the craft card); drag it onto a companion
+function renderFoodTray(){let tray=$('foodTray');const card=document.querySelector('#viewPlay .craft-card');if(!card)return;
+ if(!tray){tray=document.createElement('div');tray.id='foodTray';tray.className='food-tray';card.style.position='relative';card.append(tray);}
+ const items=Object.entries(wallet.bag||{}).filter(([id,n])=>n>0&&MARKET.some(m=>m.id===id));
+ tray.hidden=!items.length;card.classList.toggle('has-tray',items.length>0);tray.innerHTML=items.map(([id,n])=>{const m=MARKET.find(x=>x.id===id);return `<button type="button" class="food-token" data-food="${id}" aria-label="${escapeText(m.name)} — drag onto a companion" title="${escapeText(m.name)} · ${escapeText(m.desc)}"><span>${m.icon}</span>${n>1?`<b>${n}</b>`:''}</button>`;}).join('');
+ tray.querySelectorAll('[data-food]').forEach(t=>t.addEventListener('pointerdown',startFoodDrag));}
+function startFoodDrag(e){const tok=e.currentTarget,id=tok.dataset.food,item=MARKET.find(x=>x.id===id);if(!item)return;e.preventDefault();
+ const ghost=document.createElement('span');ghost.className='food-ghost';ghost.textContent=item.icon;document.body.append(ghost);tok.classList.add('is-dragging');
+ const move=ev=>{ghost.style.transform=`translate3d(${ev.clientX-20}px,${ev.clientY-34}px,0)`;};move(e);
+ const end=ev=>{document.removeEventListener('pointermove',move);document.removeEventListener('pointerup',end);document.removeEventListener('pointercancel',end);tok.classList.remove('is-dragging');
+  const hit=ev.type==='pointerup'&&companions.hitTest(ev.clientX,ev.clientY);
+  if(hit){const r=companions.marketFeed(item);if(r){wallet.bag[id]=Math.max(0,(wallet.bag[id]||1)-1);if(!wallet.bag[id])delete wallet.bag[id];saveWallet();toast(`${r.name}: ${r.line}`,'new');}ghost.remove();renderFoodTray();return;}
+  const r=tok.getBoundingClientRect();ghost.style.transition='transform .3s ease';ghost.style.transform=`translate3d(${r.left}px,${r.top}px,0)`;setTimeout(()=>ghost.remove(),320);
+  if(ev.type==='pointerup'&&Math.hypot(ev.clientX-e.clientX,ev.clientY-e.clientY)<8)toast(`Drag ${item.name} onto a companion · ${item.desc}`,'repeat');};
+ document.addEventListener('pointermove',move);document.addEventListener('pointerup',end);document.addEventListener('pointercancel',end);}
+
 let marketTab='food';
 function openMarket(onClose,tab){if(tab)marketTab=tab;const act=companions.active;
  const owned=it=>it.kind==='acc'?wallet.acc.includes(it.acc):it.kind==='toy'?wallet.toys.includes(it.toy):(it.kind==='furniture'||it.kind==='house')?unlocked.has(it.element):false;
@@ -7006,18 +7050,18 @@ function openMarket(onClose,tab){if(tab)marketTab=tab;const act=companions.activ
  const tile=it=>{const o=owned(it);const name=it.kind==='acc'?ACCESSORIES[it.acc].name:it.element?uiName(byId.get(it.element)):it.name;const art=it.kind==='acc'?accIcon(it.acc):it.element?staticArt(byId.get(it.element)):`<span class="mk-emoji">${it.icon}</span>`;
   const desc=it.kind==='acc'?({head:'Head',face:'Face',neck:'Neck'})[ACCESSORIES[it.acc].slot]:it.element?(it.kind==='house'?`Room for ${HOME_OBJECTS[it.element]?.capacity||'?'}`:'Furniture'):it.desc;
   const label=it.kind==='toy'&&o?(wallet.toy===it.toy?'On screen':'Show'):o?'Owned':`🪙 ${it.price}`;
-  return `<button type="button" class="stat-tile mk-tile ${o?'is-owned':''} ${it.kind==='toy'&&wallet.toy===it.toy?'is-on':''}" data-mk="${it.id}" ${it.kind==='food'&&!act?'disabled':''}><span class="mk-art">${art}</span><b>${escapeText(name)}</b><small>${escapeText(desc||'')}</small><em class="mk-price ${!o&&wallet.coins<it.price?'is-short':''}">${label}</em></button>`;};
+  return `<button type="button" class="stat-tile mk-tile ${o?'is-owned':''} ${it.kind==='toy'&&wallet.toy===it.toy?'is-on':''}" data-mk="${it.id}"><span class="mk-art">${art}</span><b>${escapeText(name)}</b><small>${escapeText(desc||'')}</small><em class="mk-price ${!o&&wallet.coins<it.price?'is-short':''}">${label}</em></button>`;};
  showModal(`<div class="modal-tag">BLACK MARKET</div><h2>Spend your coins</h2>${coinBar()}<div class="mk-tabs">${MARKET_TABS.map(([k,l])=>`<button type="button" data-mktab="${k}" aria-pressed="${k===marketTab}">${l}</button>`).join('')}</div>
-  ${marketTab==='food'?`<p class="mini-muted">${act?`Given straight to <b>${escapeText(companions.info(act.id).name)}</b> (on screen).`:'Put a companion on screen to give it food.'}</p>`:marketTab==='toy'?'<p class="mini-muted">One toy sits on the craft card; your companion plays with it now and then.</p>':marketTab==='acc'?'<p class="mini-muted">Bought accessories go to the Wardrobe (Home → Wear).</p>':''}
+  ${marketTab==='food'?`<p class="mini-muted">Bought food waits on the Alchemy screen (top of the craft card) — drag it onto a companion.${Object.values(wallet.bag||{}).reduce((n,v)=>n+v,0)?` · ${Object.values(wallet.bag).reduce((n,v)=>n+v,0)} waiting`:''}</p>`:marketTab==='toy'?'<p class="mini-muted">One toy sits on the craft card; your companion plays with it now and then.</p>':marketTab==='acc'?'<p class="mini-muted">Bought accessories go to the Wardrobe (Home → Wear).</p>':''}
   <div class="stat-tiles mk-grid">${items.map(tile).join('')}</div><p class="mini-muted">Win races and Karate fights to earn coins.</p>`);
- wireCoinBar();
+ wireCoinBar(()=>openMarket(onClose));
  $('modalContent').querySelectorAll('[data-mktab]').forEach(b=>b.onclick=()=>{marketTab=b.dataset.mktab;openMarket(onClose);});
  $('modalContent').querySelectorAll('[data-mk]').forEach(b=>b.onclick=()=>{const it=MARKET.find(x=>x.id===b.dataset.mk);if(!it)return;
   if(it.kind==='toy'&&owned(it)){wallet.toy=wallet.toy===it.toy?null:it.toy;saveWallet();companions.placeToy?.();openMarket(onClose);return;}
   if(owned(it)){if(it.kind==='acc'&&companions.active){openWardrobe(companions.active.id);}return;}
   if(!spendCoins(it.price)){toast(`You need ${it.price-wallet.coins} more coins`,'repeat');b.classList.add('is-shake');setTimeout(()=>b.classList.remove('is-shake'),400);return;}
   SFX.unlock?.();
-  if(it.kind==='food'){const r=companions.marketFeed(it);if(r)toast(`${r.name}: ${r.line}`,'new');else{addCoins(it.price);toast('Put a companion on screen first','repeat');}}
+  if(it.kind==='food'){wallet.bag[it.id]=(wallet.bag[it.id]||0)+1;saveWallet();renderFoodTray();toast(`${it.name} is waiting on the Alchemy screen · drag it onto a companion`,'new');}
   else if(it.kind==='acc'){grantAccessory(it.acc);toast(`${ACCESSORIES[it.acc].name} added to the Wardrobe`,'new');}
   else if(it.kind==='toy'){wallet.toys.push(it.toy);wallet.toy=it.toy;saveWallet();companions.placeToy?.();toast(`${it.name} placed on the craft card`,'new');}
   else{grantElement(it.element);toast(`${uiName(byId.get(it.element))} added to your elements`,'new');}
@@ -7026,7 +7070,7 @@ function openMarket(onClose,tab){if(tab)marketTab=tab;const act=companions.activ
 function openSchool(cid,onClose){const info=companions.info(cid);if(!info)return;const learned=new Set(companions.skillsOf(cid));const onScreen=companions.active?.id===cid;
  showModal(`<div class="modal-tag">SCHOOL</div><div class="sc-hero"><span class="sc-ava companion" data-companion="${cid}"><span class="companion-art">${COMPANION_SPRITES_V86[cid]||''}</span></span><div><h2>${escapeText(info.name)} goes to school</h2><small>Learned tricks are shown on the main screen now and then</small></div></div>${coinBar()}
   <div class="stat-tiles mk-grid">${LESSONS.map(l=>`<button type="button" class="stat-tile mk-tile ${learned.has(l.id)?'is-owned':''}" data-lesson="${l.id}"><span class="mk-emoji">${l.icon}</span><b>${l.name}</b><small>${escapeText(l.desc)}</small><em class="mk-price ${!learned.has(l.id)&&wallet.coins<l.price?'is-short':''}">${learned.has(l.id)?(onScreen?'▶ Show me':'Learned ✓'):`🪙 ${l.price}`}</em></button>`).join('')}</div>`);
- try{wearAll($('modalContent'));}catch{}wireCoinBar();
+ try{wearAll($('modalContent'));}catch{}wireCoinBar(()=>openSchool(cid,onClose));
  $('modalContent').querySelectorAll('[data-lesson]').forEach(b=>b.onclick=async()=>{const l=LESSONS.find(x=>x.id===b.dataset.lesson);
   if(learned.has(l.id)){if(onScreen){closeModal();switchTab('Play');setTimeout(()=>companions.performSkill(l.id),400);}return;}
   if(!spendCoins(l.price)){toast(`You need ${l.price-wallet.coins} more coins`,'repeat');return;}
@@ -7690,7 +7734,7 @@ $('familyBack').onclick=closeFamily;
 $('familyHint').onclick=unlockInFamily;
 $('mergeClassicBtn').onclick=mergeHub;
 if($('playMergeBtn'))$('playMergeBtn').onclick=mergeHub;
-refreshMonetizedLabels();void refreshBilling();
+refreshMonetizedLabels();void refreshBilling();try{renderFoodTray();}catch(e){console.warn('food tray',e);}
 try{billingBridge()?.addListener?.('billingChanged',applyBillingStatus);}catch{}
 setInterval(()=>{if(adFree())refreshMonetizedLabels();},60000);
 $('discoverSearch').oninput=e=>{discoverQuery=e.target.value;$('discoverScroll').scrollTop=0;discoverVirtual.refresh();};
