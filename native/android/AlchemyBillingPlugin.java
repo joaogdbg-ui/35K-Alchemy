@@ -41,9 +41,9 @@ import java.util.Map;
 public class AlchemyBillingPlugin extends Plugin implements PurchasesUpdatedListener {
     static final String PRODUCT_ID = "no_ads";
     static final String SLOT_ID = "companion_slot";
-    /** V136/V137: consumable companion-coin packs (owner prices EUR 1 / 5 / 10 / 20). */
+    /** V136/V137/V149: consumable companion-coin packs (owner prices EUR 1 / 2 / 5 / 10 / 20 / 50 / 100). */
     static final String COINS_ID = "coins_100";
-    static final String[] COIN_PACKS = {"coins_100", "coins_550", "coins_1200", "coins_2600"};
+    static final String[] COIN_PACKS = {"coins_100", "coins_210", "coins_550", "coins_1200", "coins_2600", "coins_7000", "coins_15000"};
     private BillingClient client;
     private ProductDetails details;
     private final Map<String, ProductDetails> all = new HashMap<>();
@@ -72,7 +72,9 @@ public class AlchemyBillingPlugin extends Plugin implements PurchasesUpdatedList
 
     private void loadDetails(Ready then) {
         List<QueryProductDetailsParams.Product> products = new ArrayList<>();
-        for (String id : new String[]{PRODUCT_ID, SLOT_ID, COIN_PACKS[0], COIN_PACKS[1], COIN_PACKS[2], COIN_PACKS[3]})
+        java.util.List<String> ids = new java.util.ArrayList<>(java.util.Arrays.asList(PRODUCT_ID, SLOT_ID));
+        ids.addAll(java.util.Arrays.asList(COIN_PACKS));
+        for (String id : ids)
             products.add(QueryProductDetailsParams.Product.newBuilder().setProductId(id).setProductType(BillingClient.ProductType.INAPP).build());
         QueryProductDetailsParams params = QueryProductDetailsParams.newBuilder().setProductList(products).build();
         client.queryProductDetailsAsync(params, (r, result) -> {
