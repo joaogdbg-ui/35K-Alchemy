@@ -41,3 +41,9 @@ test('V140: add-on compatibility is explicit', () => {
   assert.ok(!EXT_INFO.garden.fits.includes(10) && !EXT_INFO.pool.fits.includes(10), 'grand castle has them built in');
   assert.ok(EXT_INFO.floor.fits.includes(10) && !EXT_INFO.floor.fits.includes(1));
 });
+test('V142: add-ons are drawn as places outside the room', () => {
+  const h = readFileSync(new URL('../src/home-engine-v90.js', import.meta.url), 'utf8');
+  assert.match(h, /function upstairsHtml\(/); assert.match(h, /function yardHtml\(/);
+  assert.match(h, /const layoutOf=hid=>layoutFor\(objects\[hid\]\?\.capacity\|\|1\);/);
+  assert.doesNotMatch(h, /home-tile \$\{L\.garden/);
+});

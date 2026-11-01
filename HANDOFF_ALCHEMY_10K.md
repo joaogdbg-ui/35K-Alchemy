@@ -90,6 +90,14 @@ Preserve 200-per-batch policy and do not start another content release on top of
 
 - **Art redraw wave 3 (V85, done): 3,991 icons** — every remaining older element. All 6,012 pre-V83 elements now use the 2026 art direction (`ART_REDRAW`), plus 200 V83 and 200 V85 originals. Six near-duplicates found by the audit were redrawn; 36 reviewed false alarms are in `tools/art-redraw-reviewed-pairs.json` (the audit now also honours them for V83 comparisons).
 
+## V142 — add-ons drawn as real places (1 November 2026)
+- Owner: garden was a tiny strip inside, pool a line, second floor unclear. Now in Home (`home-engine-v90.js`, `upstairsHtml`/`yardHtml`, CSS `.home-plot/.home-up/.home-yard`):
+  - **Second floor** = an upstairs bedroom drawn above the room (stairs, window, 2 beds). Residents beyond the house's own capacity sleep there (zz) and no longer walk downstairs.
+  - **Garden** = an outdoor yard below the door: grass, stone path, tree, flower bed, bush, butterfly, fence.
+  - **Outdoor pool** = a real pool with moving water, ladder and float; on a paved patio with a parasol lounger if there is no garden.
+  - Each zone has a label with its effect ("🌳 Garden · Fun +20%", "🏊 Pool · Swim +25%", "🏠 Upstairs · 2 beds").
+- The ground floor keeps the house's own size (`layoutOf` = base capacity); no more grass row inside the room.
+
 ## V141 — Games tab hub: Market, School, Games, Prizes (1 November 2026)
 - Stadium shows the companion card and four equal tiles (2×2): Market, School, Games, Prizes. The race/Karate list moved to a "Games" sheet (`gamesSheet` in games-v93.js); an event opened from it has a Back button to the list.
 - **TESTER GIFT (temporary, owner request):** 100,000 coins once (`alchemy10k_tester_coins_v141`, app.js after `saveWallet`). Market total is ~66k + School. **Remove before the Play Store release.**

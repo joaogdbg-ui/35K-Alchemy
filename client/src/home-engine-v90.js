@@ -17,7 +17,7 @@ export const HOUSE_LAYOUTS={1:{cols:4,rows:3,theme:'tent'},2:{cols:5,rows:4,them
 export const HOUSE_GROWTH={1:1.1,2:1.2,3:1.35,4:1.5,6:1.75,8:2,10:2.3};
 // V139: house complements (garden, outdoor pool, second floor) attach to one house each.
 // V140: `fits` = capacities of the houses each add-on can be attached to (the Castle with Garden and Pool has both built in).
-export const EXT_INFO={garden:{label:'Garden',icon:'🌳',line:'Bigger floor · Fun +20% · growth ×1.05',fits:[1,2,3,4,6,8]},pool:{label:'Outdoor pool',icon:'🏊',line:'Swim +25%',fits:[4,6,8]},floor:{label:'Second floor',icon:'🏠',line:'+2 companions',fits:[3,4,6,8,10]}};
+export const EXT_INFO={garden:{label:'Garden',icon:'🌳',line:'Outdoor yard · Fun +20% · growth ×1.05',fits:[1,2,3,4,6,8]},pool:{label:'Outdoor pool',icon:'🏊',line:'Swim +25%',fits:[4,6,8]},floor:{label:'Second floor',icon:'🏠',line:'Upstairs bedroom · +2 companions',fits:[3,4,6,8,10]}};
 export const FURNITURE_BONUS=0.15,FURNITURE_BONUS_MAX=0.75;
 /**
  * V103: a piece's bonus depends on how hard it is to make (recipe depth = combinations needed from
@@ -101,7 +101,8 @@ export function createHomeSystem(ctx){
  for(const [k,h] of Object.entries(state.houses))if(Array.isArray(h.ext))h.ext=h.ext.filter(id=>objects[id]?.kind==='extension'&&fitsExt(k,objects[id].ext));
  const extHome=id=>Object.entries(state.houses).find(([,h])=>(h.ext||[]).includes(id))?.[0]||null;
  const capOf=hid=>(objects[hid]?.capacity||1)+(extOn(hid,'floor')?2:0);
- const layoutOf=hid=>{const L=layoutFor(capOf(hid));return extOn(hid,'garden')?{...L,rows:L.rows+1,garden:true}:L;};
+ // V142: the ground floor keeps the house's own size; add-ons are drawn outside it (upstairs bedroom, yard).
+ const layoutOf=hid=>layoutFor(objects[hid]?.capacity||1);
  const extMult=(hid,kind)=>(extOn(hid,'garden')?1.05*(kind==='mood'?1.2:1):1)*(extOn(hid,'pool')&&kind==='swim'?1.25:1);
  function toggleExt(mount,hid,id){if(!fitsExt(hid,objects[id]?.ext))return;const h=house(hid);h.ext=h.ext||[];const was=extHome(id);
   if(was===hid){h.ext=h.ext.filter(x=>x!==id);}else{if(was)state.houses[was].ext=state.houses[was].ext.filter(x=>x!==id);h.ext.push(id);}
@@ -136,6 +137,24 @@ export function createHomeSystem(ctx){
     const on=extHome(id)===hid,where=!on&&extHome(id);
     return chip(on?'is-on':'',art,I.label,on?'✓ Added · tap to remove':where?'In '+escapeText(shortName(where))+' · tap to move here':'Tap to add',`data-ext="${id}"`);})).join('');
   return `<div class="home-res-row home-addon-row"><span>Add-ons</span><div class="home-ext">${html}</div></div>`;}
+ // ---------- V142: add-on scenery ----------
+ const BED=`<svg viewBox="0 0 64 40" aria-hidden="true"><rect x="3" y="6" width="8" height="30" rx="3" fill="#8a5a3c"/><rect x="53" y="14" width="8" height="22" rx="3" fill="#8a5a3c"/><rect x="8" y="18" width="50" height="14" rx="4" fill="#f4efe6" stroke="#4a4a5a" stroke-width="1.5"/><rect x="24" y="16" width="34" height="16" rx="4" fill="#7fb2d6" stroke="#4a4a5a" stroke-width="1.5"/><rect x="11" y="13" width="13" height="9" rx="4" fill="#fff" stroke="#4a4a5a" stroke-width="1.5"/></svg>`;
+ const STAIRS=`<svg viewBox="0 0 60 70" aria-hidden="true"><path d="M2 68h56V4H46v12H34v12H22v12H10v12H2z" fill="#b98a5e" stroke="#4a4a5a" stroke-width="2" stroke-linejoin="round"/><path d="M46 16h12M34 28h24M22 40h36M10 52h48" stroke="#8a5a3c" stroke-width="2"/><path d="M4 50L50 4" stroke="#6b4a32" stroke-width="3" stroke-linecap="round"/><path d="M14 40v-8M26 28v-8M38 16v-8" stroke="#6b4a32" stroke-width="2"/></svg>`;
+ const WINDOW=`<svg viewBox="0 0 40 30" aria-hidden="true"><rect x="2" y="2" width="36" height="26" rx="3" fill="#bfe3f5" stroke="#4a4a5a" stroke-width="2"/><path d="M20 2v26M2 15h36" stroke="#4a4a5a" stroke-width="2"/><circle cx="30" cy="9" r="3" fill="#fff6c8"/></svg>`;
+ const TREE=`<svg viewBox="0 0 70 90" aria-hidden="true"><ellipse cx="35" cy="86" rx="22" ry="4" fill="rgba(0,0,0,.15)"/><rect x="29" y="50" width="12" height="36" rx="3" fill="#8a5a3c" stroke="#4a4a5a" stroke-width="2"/><circle cx="35" cy="32" r="24" fill="#5e9e5a" stroke="#4a4a5a" stroke-width="2"/><circle cx="18" cy="44" r="14" fill="#6cad66" stroke="#4a4a5a" stroke-width="2"/><circle cx="52" cy="44" r="14" fill="#6cad66" stroke="#4a4a5a" stroke-width="2"/><circle cx="26" cy="24" r="3" fill="#e0675a"/><circle cx="46" cy="30" r="3" fill="#e0675a"/><circle cx="36" cy="46" r="3" fill="#e0675a"/></svg>`;
+ const FLOWERS=`<svg viewBox="0 0 100 34" aria-hidden="true"><rect x="2" y="20" width="96" height="12" rx="5" fill="#8a5a3c" stroke="#4a4a5a" stroke-width="1.5"/>${[10,24,38,52,66,80,92].map((x,i)=>`<path d="M${x} 21v-9" stroke="#3f7a3c" stroke-width="2"/><circle cx="${x}" cy="10" r="5" fill="${['#ef7f9b','#f3c24a','#9b7fc4','#e0675a'][i%4]}" stroke="#4a4a5a" stroke-width="1.2"/><circle cx="${x}" cy="10" r="1.8" fill="#fff6c8"/>`).join('')}</svg>`;
+ const BUSH=`<svg viewBox="0 0 50 30" aria-hidden="true"><path d="M4 28c-4-10 6-16 12-12 2-8 14-10 18-2 8-4 16 4 12 14z" fill="#6cad66" stroke="#4a4a5a" stroke-width="2"/></svg>`;
+ const POOL=`<svg viewBox="0 0 120 64" aria-hidden="true"><rect x="2" y="2" width="116" height="60" rx="14" fill="#e8e2d6" stroke="#4a4a5a" stroke-width="2"/><rect x="10" y="10" width="100" height="44" rx="9" fill="#5aaed2" stroke="#3f86b0" stroke-width="2"/><g class="home-waves"><path d="M16 24q8-5 16 0t16 0t16 0t16 0t16 0" fill="none" stroke="#bfe6fa" stroke-width="2.5" stroke-linecap="round"/><path d="M22 38q8-5 16 0t16 0t16 0t16 0" fill="none" stroke="#bfe6fa" stroke-width="2.5" stroke-linecap="round"/></g><path d="M100 4v16M108 4v16M100 9h8M100 15h8" stroke="#8aa1ab" stroke-width="2.5" stroke-linecap="round"/><circle cx="34" cy="31" r="6" fill="#ef7f9b" stroke="#4a4a5a" stroke-width="1.5"/><circle cx="34" cy="31" r="2.5" fill="#5aaed2"/></svg>`;
+ const LOUNGER=`<svg viewBox="0 0 60 40" aria-hidden="true"><path d="M30 2v26" stroke="#8a5a3c" stroke-width="2.5"/><path d="M8 12Q30 -6 52 12Z" fill="#e0675a" stroke="#4a4a5a" stroke-width="2"/><path d="M14 12Q22 4 30 12M30 12Q38 4 46 12" fill="#fff" stroke="#4a4a5a" stroke-width="1.5"/><path d="M6 36l8-10h30l8 10" fill="none" stroke="#4a4a5a" stroke-width="2"/><rect x="12" y="24" width="36" height="6" rx="2" fill="#5aaed2" stroke="#4a4a5a" stroke-width="1.5"/></svg>`;
+ function upstairsHtml(hid,residents){const base=objects[hid]?.capacity||1;const up=residents.slice(base,base+2);
+  const bed=i=>{const cid=up[i];return `<div class="home-bed">${BED}${cid?`<span class="home-bed-sleeper">${sprites[cid]||''}</span><i class="home-zz">z</i>`:'<small>Free bed</small>'}</div>`;};
+  return `<div class="home-up" aria-label="Upstairs bedroom"><span class="home-zone-tag">🏠 Upstairs · 2 beds</span><span class="home-up-win">${WINDOW}</span><span class="home-up-stairs">${STAIRS}</span><div class="home-beds">${bed(0)}${bed(1)}</div></div>`;}
+ function yardHtml(hid){const g=extOn(hid,'garden'),p=extOn(hid,'pool');
+  return `<div class="home-yard ${g?'is-grass':'is-patio'}" aria-label="Outdoor yard"><i class="home-path" aria-hidden="true"></i>
+   ${g?`<span class="home-yard-tree">${TREE}</span><span class="home-yard-flowers">${FLOWERS}</span><span class="home-yard-bush">${BUSH}</span><i class="home-butterfly" aria-hidden="true"></i>`:''}
+   ${p?`<span class="home-yard-pool">${POOL}</span><span class="home-yard-lounger">${LOUNGER}</span>`:''}
+   <span class="home-zone-tags">${g?`<span class="home-zone-tag">🌳 Garden · Fun +20%</span>`:''}${p?`<span class="home-zone-tag">🏊 Pool · Swim +25%</span>`:''}</span>
+   <i class="home-fence" aria-hidden="true"></i></div>`;}
  function render(mount){
   if(!mount)return;stopWander();
   const hid=activeHouse();const own=ownedHouses();
@@ -149,18 +168,22 @@ export function createHomeSystem(ctx){
   mount.innerHTML=`<section class="home-card">
    <div class="home-chips" role="tablist" aria-label="Your houses">${chips}</div>
    <div class="home-head"><strong>${escapeText(uiName(it))}</strong><small>${residents.length}/${cap} companions · ${h.furniture.length} furniture</small></div>
-   <div class="home-room ${L.garden?'has-garden':''} ${extOn(hid,'pool')?'has-pool':''}" data-theme="${L.theme}" style="--cols:${L.cols};--rows:${L.rows}">
+   <div class="home-plot" data-theme="${L.theme}" style="--cols:${L.cols};--rows:${L.rows}">
+   ${extOn(hid,'floor')?upstairsHtml(hid,residents):''}
+   <div class="home-room" data-theme="${L.theme}" style="--cols:${L.cols};--rows:${L.rows}">
     <div class="home-wall" id="homeWall">
      ${Array.from({length:L.cols},(_,i)=>`<button type="button" class="home-walltile" data-wx="${i}" aria-label="Wall"></button>`).join('')}
      ${h.furniture.map((f,i)=>layerOf(RS,f.id)==='wall'?pieceHtml(f,i):'').join('')}
      <i class="home-skirting" aria-hidden="true"></i>
     </div>
     <div class="home-floor" id="homeFloor">
-     ${Array.from({length:L.cols*L.rows},(_,i)=>`<button type="button" class="home-tile ${L.garden&&Math.floor(i/L.cols)===L.rows-1?'is-grass':''}" data-x="${i%L.cols}" data-y="${Math.floor(i/L.cols)}" aria-label="Floor tile"></button>`).join('')}
+     ${Array.from({length:L.cols*L.rows},(_,i)=>`<button type="button" class="home-tile" data-x="${i%L.cols}" data-y="${Math.floor(i/L.cols)}" aria-label="Floor tile"></button>`).join('')}
      ${h.furniture.map((f,i)=>layerOf(RS,f.id)!=='wall'?pieceHtml(f,i):'').join('')}
      <div class="home-residents" id="homeResidents"></div>
     </div>
     <div class="home-door" aria-hidden="true"></div>
+   </div>
+   ${extOn(hid,'garden')||extOn(hid,'pool')?yardHtml(hid):''}
    </div>
    ${moving?`<p class="home-hint">Drag ${escapeText(uiName(byId.get(h.furniture[moving.index]?.id)))} to its new spot · <button type="button" class="home-link" id="homeCancelMove">Done</button></p>`:''}
    <div class="home-effects">${sumHtml}</div>
@@ -290,7 +313,7 @@ export function createHomeSystem(ctx){
   const box=mount.querySelector('#homeResidents');if(!box)return;
   const h=house(hid),L=layoutOf(hid);
   const usable=h.furniture.filter(f=>layerOf(RS,f.id)!=='wall'&&objects[f.id]?.effect!=='decor');
-  const walkers=h.residents.filter(isDiscovered).map((cid,i)=>{const el=document.createElement('span');el.className='companion home-walker';el.dataset.anim='idle';el.dataset.companion=cid;
+  const walkers=h.residents.filter(isDiscovered).slice(0,objects[hid]?.capacity||1).map((cid,i)=>{const el=document.createElement('span');el.className='companion home-walker';el.dataset.anim='idle';el.dataset.companion=cid;
    const art=document.createElement('span');art.className='companion-art';rig(art,cid);el.append(art);const fx=document.createElement('span');fx.className='home-fx';el.append(fx);box.append(el);
    const p={x:(i*2+1)%L.cols,y:L.rows-1-(i%L.rows),face:1};place(el,p);return {cid,el,p,busyUntil:0,taken:null};});
   try{wear?.(box);}catch{}
