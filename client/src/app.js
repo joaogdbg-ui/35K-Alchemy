@@ -434,8 +434,11 @@ let slot2={ads:0,bought:false,price:'€1.00',available:false};
 try{const r=JSON.parse(localStorage.getItem(SLOT2_KEY)||'null');if(r){slot2.ads=Math.max(0,Math.min(SLOT2_ADS,Number(r.ads)||0));slot2.bought=r.bought===true;}}catch{}
 function saveSlot2(){try{localStorage.setItem(SLOT2_KEY,JSON.stringify({v:1,ads:slot2.ads,bought:slot2.bought}));}catch{}}
 function slot2Unlocked(){return slot2.bought||(slot2.ads>=SLOT2_ADS&&classicDiscoveredCount()>=SLOT2_MIN_ELEMENTS);}
-function slot2Info(){return {unlocked:slot2Unlocked(),price:slot2.price,canBuy:Boolean(billingBridge()?.purchaseCompanionSlot)&&slot2.available,canAd:rewardedAvailable(),ads:slot2.ads,adsNeeded:SLOT2_ADS,elements:classicDiscoveredCount(),minElements:SLOT2_MIN_ELEMENTS};}
-async function buySlot2(){const b=billingBridge();if(!b?.purchaseCompanionSlot){toast('Purchases work in the Play Store app','repeat');return false;}
+// TEMPORARY (owner test, V127): while SLOT2_TEST_FREE is true the INSTANT button unlocks the slot for €0 without Play. Set to false before store release.
+const SLOT2_TEST_FREE=true;
+function slot2Info(){return {unlocked:slot2Unlocked(),price:SLOT2_TEST_FREE?'€0.00 · TEST':slot2.price,canBuy:SLOT2_TEST_FREE||(Boolean(billingBridge()?.purchaseCompanionSlot)&&slot2.available),canAd:rewardedAvailable(),ads:slot2.ads,adsNeeded:SLOT2_ADS,elements:classicDiscoveredCount(),minElements:SLOT2_MIN_ELEMENTS};}
+async function buySlot2(){if(SLOT2_TEST_FREE){slot2.bought=true;saveSlot2();toast('Second companion slot unlocked (test)','new');companions.start();return true;}
+ const b=billingBridge();if(!b?.purchaseCompanionSlot){toast('Purchases work in the Play Store app','repeat');return false;}
  try{const r=await b.purchaseCompanionSlot();applyBillingStatus(r);if(r?.companionSlot===true){toast('Second companion slot unlocked!','new');companions.start();return true;}
   toast(r?.cancelled?'Purchase cancelled':r?.pending?'Purchase pending · it unlocks when Google Play confirms it':'Purchase not completed','repeat');}catch(e){console.warn(e);toast('Google Play purchase is not available yet','error');}
  return false;}
@@ -495,7 +498,7 @@ function shinyCard(item){return `<p class="shiny-trivia"><span aria-hidden="true
 function showShinyFound(id){const it=byId.get(id);if(!it)return;
  showModal(`<div class="modal-tag shiny-tag">✦ SHINY ELEMENT</div><div class="modal-art is-shiny">${staticArt(it)}</div><h2>Shiny ${escapeText(uiName(it))}</h2>${shinyCard(it)}<div class="modal-milestone">${shiny.size.toLocaleString('en-US')} shiny ${shiny.size===1?'element':'elements'} · ${Math.round(shinyChance()*100)}% chance per combination</div>`);
 }
-const APP_VERSION='1.0.26';
+const APP_VERSION='1.0.27';
 // V83: status line + Google consent (UMP) privacy options, required for EEA players.
 async function refreshAdStatus(){
  const el=$('settingsAdStatus'),bridge=getRewardBridge();
@@ -1408,7 +1411,7 @@ class VirtualElements {
 }
 const playVirtual=new VirtualElements('inventoryVirtual','play');
 // One shared refresh path keeps Play and Discoveries in sync.
-function rerenderCollections(){playVirtual.refresh();if(tab==='World')renderDiscoveries();}
+function rerenderCollections(){try{syncInventoryButton();}catch{}playVirtual.refresh();if(tab==='World')renderDiscoveries();}
 function discoverGroups(){return groupFamilies([...byId.values()],unlocked);}
 function renderDiscoveries(){
  const groups=discoverGroups(),total=currentMode==='family'?familyCampaigns.get(currentFamilyId).items.length:[...byId.values()].length;
@@ -1896,25 +1899,22 @@ function settings(){
      </div>
     </div>
    </div>
-   <div class="settings-section settings-links">
-<button type="button" id="settingsRemoveAds" class="settings-link"><span>${adFree()?'Ads removed ✓':'Remove ads · '+escapeText(billingPrice)}<small>${adFree()?'Thank you! 5% Shiny chance and a hint bank':'No forced ads, 10 hints included, 5% Shiny chance'}</small></span><span aria-hidden="true">›</span></button>
+   ${adFree()?`<button type="button" id="settingsRemoveAds" class="bx-noads is-owned"><span class="bx-noads-badge">AD-FREE</span><span><b>Ads removed ✓</b><small>Thank you! 5% Shiny chance and a hint bank</small></span><span class="bx-noads-price">OWNED</span></button>`
+   :`<button type="button" id="settingsRemoveAds" class="bx-noads"><span class="bx-noads-badge">AD-FREE</span><span><b>Remove ads · every batch &amp; pack free</b><small>No forced ads, 10 hints included, 5% Shiny chance</small></span><span class="bx-noads-price">${escapeText(billingPrice)}</span></button>`}
+   <div class="settings-service-title st-label">SAVE FILE</div>
+   <div class="st-grid">
+    <button type="button" id="settingsExport" class="st-tile"><i aria-hidden="true">⬆</i><b>Export backup</b><small>Save or send a file</small></button>
+    <button type="button" id="settingsImport" class="st-tile"><i aria-hidden="true">⬇</i><b>Import backup</b><small>Restore from file or code</small></button>
+    <button type="button" id="settingsDelete" class="st-tile settings-danger is-danger"><i aria-hidden="true">✕</i><b>Delete progress</b><small>Start over</small></button>
    </div>
-   <div class="settings-section settings-links">
-    <div class="settings-service-title">PROGRESS</div>
-    <button type="button" id="settingsExport" class="settings-link"><span>Export backup<small>Save or send a file with all modes</small></span><span aria-hidden="true">›</span></button>
+   <div class="settings-service-title st-label">MORE</div>
+   <div class="settings-section settings-links st-list">
+    <button type="button" id="settingsProfileLink" class="settings-link"><span class="st-ico" aria-hidden="true">🎮</span><span>Google Play Games<small>Sign-in, cloud save and leaderboards</small></span><span class="st-tag">SOON</span></button>
     <div class="settings-divider"></div>
-    <button type="button" id="settingsImport" class="settings-link"><span>Import backup<small>Restore from a backup file or code</small></span><span aria-hidden="true">›</span></button>
+    <button type="button" id="settingsHelpLink" class="settings-link"><span class="st-ico" aria-hidden="true">?</span><span>Help &amp; about</span><span aria-hidden="true">›</span></button>
     <div class="settings-divider"></div>
-    <button type="button" id="settingsDelete" class="settings-link settings-danger"><span>Delete progress<small>Classic, Families Only or everything</small></span><span aria-hidden="true">›</span></button>
+    <button type="button" id="settingsPrivacyAds" class="settings-link"><span class="st-ico" aria-hidden="true">🛡</span><span>Privacy &amp; ads<small id="settingsAdStatus">${rewardedAvailable()?'Checking ads…':'Ads need the Android app'}</small></span><span aria-hidden="true">›</span></button>
    </div>
-   <div class="settings-section settings-links">
-    <button type="button" id="settingsProfileLink" class="settings-link"><span>Google Play Games<small>Sign-in, cloud save and leaderboards · coming soon</small></span><span aria-hidden="true">›</span></button>
-    <div class="settings-divider"></div>
-    <button type="button" id="settingsHelpLink" class="settings-link"><span>Help &amp; about</span><span aria-hidden="true">›</span></button>
-    <div class="settings-divider"></div>
-    <button type="button" id="settingsPrivacyAds" class="settings-link"><span>Privacy &amp; ads<small id="settingsAdStatus">${rewardedAvailable()?'Checking ads…':'Ads need the Android app'}</small></span><span aria-hidden="true">›</span></button>
-   </div>
-   <p class="settings-footnote">Progress is saved on this phone. Export a backup before changing device.</p>
   </section>
   <section id="settingsPanelProfile" class="settings-page" data-settings-page="profile" aria-label="Player profile" hidden>
    <div class="settings-section">
@@ -2243,8 +2243,13 @@ $('playSearch').oninput=e=>{playQuery=e.target.value;$('searchToggle').hidden=!p
 // V83: the same sheet also filters (still open / completed / saved) and sets density.
 function syncInventoryButton(){const b=$('recentBtn');if(!b)return;b.dataset.sort=sortChoice;b.dataset.filtered=String(inventoryShow!=='all');
  const label={az:'A–Z',old:'Oldest first',new:'Newest first'}[sortChoice];
- b.textContent=label;b.setAttribute('aria-label','Sort elements: '+label);
- document.querySelectorAll('[data-show-chip]').forEach(c=>c.setAttribute('aria-pressed',String(c.dataset.showChip===inventoryShow)));}
+ const bl=b.querySelector('span');if(bl)bl.textContent=label;else b.textContent=label;b.setAttribute('aria-label','Sort elements: '+label);b.classList.toggle('is-on',sortChoice!=='az');
+ document.querySelectorAll('[data-show-chip]').forEach(c=>c.setAttribute('aria-pressed',String(c.dataset.showChip===inventoryShow)));
+ // V127: live counts on the view segments
+ const ids=allIds();let open=0,done=0;for(const id of ids){if(elementIsComplete(id))done++;else open++;}
+ const counts={all:ids.length,open,done,saved:[...favorites].filter(id=>unlocked.has(id)).length,shiny:[...shiny].filter(id=>unlocked.has(id)).length};
+ document.querySelectorAll('.seg-n[data-count]').forEach(n=>{const v=counts[n.dataset.count]||0;n.textContent=v>999?(v/1000).toFixed(1).replace(/\.0$/,'')+'k':String(v);});
+ const fb=$('playFamily');if(fb)fb.classList.toggle('is-on',playFamily!=='all');const fi=$('playFamilyIcon');if(fi){const f=FAMILIES.find(x=>x.id===playFamily);fi.innerHTML=f?familyCardArtwork(f):'◈';}}
 document.querySelectorAll('[data-show-chip]').forEach(c=>c.onclick=()=>{inventoryShow=c.dataset.showChip;saveInventoryView();syncInventoryButton();playVirtual.refresh({resetScroll:true});});
 function openInventorySorter(){
  const order=[['az','A–Z','Alphabetical order'],['old','Old first','Earliest discoveries first'],['new','New first','Latest discoveries first']];
@@ -2337,7 +2342,7 @@ function openLooksFilter(){
  const sizeHtml=(bigger?opt('size','bigger','Grows bigger',bigger):'')+(smaller?opt('size','smaller','Gets smaller',smaller):'')+(resets?opt('reset',null,'Resets looks',resets):'');
  showModal(`<div class="modal-tag">LOOKS FILTER</div><h2>Filter by looks</h2><p class="mini-muted">Only shows what you have learned by feeding elements to your companions.</p><div class="looks-opts">${opt('unknown',null,'??? Not fed yet',unknown)}${looksFilter?`<button type="button" class="looks-opt" data-lk="clear"><span>Show all</span></button>`:''}</div>${tintHtml?`<h3 class="looks-h">Colour</h3><div class="looks-opts">${tintHtml}</div>`:''}${traitHtml?`<h3 class="looks-h">Traits</h3><div class="looks-opts">${traitHtml}</div>`:''}${sizeHtml?`<h3 class="looks-h">Size & resets</h3><div class="looks-opts">${sizeHtml}</div>`:''}${!tintHtml&&!traitHtml?'<p class="mini-muted">Feed elements to a companion to discover colours and traits.</p>':''}`);
  $('modalContent').querySelectorAll('[data-lk]').forEach(b=>b.onclick=()=>{const k=b.dataset.lk;looksFilter=k==='clear'?null:{kind:k,key:b.dataset.key||null,label:b.dataset.label};closeModal();syncLooksChip();playVirtual.refresh({resetScroll:true});});}
-function syncLooksChip(){const c=$('looksChip');if(!c)return;c.textContent=looksFilterLabel();c.setAttribute('aria-pressed',String(!!looksFilter));}
+function syncLooksChip(){const c=$('looksChip');if(!c)return;const sp=c.querySelector('span');if(sp)sp.textContent=looksFilterLabel();else c.textContent=looksFilterLabel();c.setAttribute('aria-pressed',String(!!looksFilter));c.classList.toggle('is-on',!!looksFilter);}
 function openInventoryFamilyPicker(){
   if(currentMode==='family'){toast('Family Only stays inside your chosen family');return;}
   $('playSearch').blur();
@@ -2355,7 +2360,7 @@ function openInventoryFamilyPicker(){
       const selected=button.dataset.inventoryFamily;
       playFamily=selected;
       $('playFamilyLabel').textContent=selected==='all'?'All families':FAMILIES.find(f=>f.id===selected)?.name||'All families';
-      $('playFamily').setAttribute('aria-expanded','false');
+      $('playFamily').setAttribute('aria-expanded','false');syncInventoryButton();
       closeModal();
       playVirtual.refresh({resetScroll:true});
     });

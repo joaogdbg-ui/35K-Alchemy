@@ -7,7 +7,7 @@ test('discovering never resets inventory viewport to zero',()=>{
  assert.match(app,/refresh\(\{resetScroll=false\}=\{\}\)/);
  assert.match(app,/const anchorId=this\.ids\[previousIndex\]/);
  assert.match(app,/this\.viewport\.scrollTop=Math\.floor\(index\/cols\)\*rowHeight\+intraRow/);
- assert.match(app,/function rerenderCollections\(\)\{playVirtual\.refresh\(\);/);
+ assert.match(app,/function rerenderCollections\(\)\{try\{syncInventoryButton\(\);\}catch\{\}playVirtual\.refresh\(\);/);
  assert.match(app,/playVirtual\.refresh\(\{resetScroll:true\}\)/);
 });
 test('craft top space is expanded only on phones with enough height',()=>{

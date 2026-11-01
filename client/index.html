@@ -42,17 +42,19 @@
             <button type="button" class="search-icon-button" id="searchToggle" aria-label="Clear search" hidden>×</button>
           </div>
           <div class="shelf-filters" role="group" aria-label="Sort and filter">
-            <button id="recentBtn" class="filter-pill sort-button" type="button" aria-haspopup="dialog" aria-expanded="false" aria-label="Sort elements">A–Z</button>
-            <button type="button" class="filter-pill family-filter-button" id="playFamily" aria-label="Filter elements by family" aria-haspopup="dialog" aria-expanded="false"><span class="family-filter-label" id="playFamilyLabel">All families</span><span class="family-filter-chevron" aria-hidden="true">⌄</span></button>
-            <span class="filter-gap" aria-hidden="true"></span>
-            <button type="button" class="filter-pill show-chip" data-show-chip="all" aria-pressed="true">All</button>
-            <button type="button" class="filter-pill show-chip" data-show-chip="open" aria-pressed="false">To explore</button>
-            <button type="button" class="filter-pill show-chip" data-show-chip="done" aria-pressed="false">Completed ★</button>
-            <button type="button" class="filter-pill show-chip" data-show-chip="saved" aria-pressed="false">Saved</button>
-            <button type="button" class="filter-pill show-chip shiny-chip" data-show-chip="shiny" aria-pressed="false" hidden>✦ Shiny</button>
-            <button type="button" class="filter-pill looks-chip" id="looksChip" aria-pressed="false">Looks</button>
+            <div class="view-seg" role="group" aria-label="Show">
+              <button type="button" class="filter-pill show-chip" data-show-chip="all" aria-pressed="true"><span>All</span><b class="seg-n" data-count="all"></b></button>
+              <button type="button" class="filter-pill show-chip" data-show-chip="open" aria-pressed="false"><span>To find</span><b class="seg-n" data-count="open"></b></button>
+              <button type="button" class="filter-pill show-chip" data-show-chip="done" aria-pressed="false"><span>Done ★</span><b class="seg-n" data-count="done"></b></button>
+              <button type="button" class="filter-pill show-chip" data-show-chip="saved" aria-pressed="false"><span>Saved</span><b class="seg-n" data-count="saved"></b></button>
+              <button type="button" class="filter-pill show-chip shiny-chip" data-show-chip="shiny" aria-pressed="false" hidden><span>✦ Shiny</span><b class="seg-n" data-count="shiny"></b></button>
+            </div>
           </div>
-        </div>
+          <div class="shelf-tools" role="group" aria-label="Sort, family and looks">
+            <button id="recentBtn" class="tool-chip sort-button" type="button" aria-haspopup="dialog" aria-expanded="false" aria-label="Sort elements"><i aria-hidden="true">⇅</i><span>A–Z</span></button>
+            <button type="button" class="tool-chip family-filter-button" id="playFamily" aria-label="Filter elements by family" aria-haspopup="dialog" aria-expanded="false"><i aria-hidden="true" id="playFamilyIcon">◈</i><span class="family-filter-label" id="playFamilyLabel">All families</span><span class="family-filter-chevron" aria-hidden="true">⌄</span></button>
+            <button type="button" class="tool-chip looks-chip" id="looksChip" aria-pressed="false"><i aria-hidden="true">◉</i><span>Looks</span></button>
+          </div>
         <div id="inventoryScroll" class="inventory-scroll"><div id="inventoryVirtual" class="virtual-inner"></div></div>
       </div>
     </section>
