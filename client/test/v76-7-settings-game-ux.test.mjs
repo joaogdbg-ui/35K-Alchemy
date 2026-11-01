@@ -6,9 +6,9 @@ const src=read('client/src/app.js'),css=read('client/src/styles.css');
 const pos=src.indexOf('function settings(){'),end=src.indexOf('// V28 family sweep:',pos),menu=src.slice(pos,end);
 test('V76.8 shows five understandable setting groups without a tab bar or redundant actions',()=>{
  assert.ok(menu.indexOf('Sound effects')<menu.indexOf('Theme'));
- assert.ok(menu.indexOf('Theme')<menu.indexOf('Family starter packs'));
+ assert.ok(menu.indexOf('Theme')<menu.indexOf('Remove ads'));
  // V84: the account row is labelled by the service it will connect to.
- assert.ok(menu.indexOf('Family starter packs')<menu.indexOf('Google Play Games'));
+ assert.ok(menu.indexOf('Remove ads')<menu.indexOf('Google Play Games'));
  assert.ok(menu.indexOf('Google Play Games')<menu.indexOf('Help &amp; about'));
  assert.doesNotMatch(menu,/role="tab"|role="tablist"|id="hintButton"|id="importBackup"|id="exportBackup"/);
 });
@@ -18,7 +18,7 @@ test('V76.8 all controls are real and preserve player preferences',()=>{
  assert.match(src,/localStorage\.setItem\(SOUND_KEY,soundEnabled\?'on':'off'\)/);
  for(const theme of ['light','dark','system'])assert.ok(menu.includes('data-theme-choice="'+theme+'"'));
  assert.match(menu,/localStorage\.setItem\(THEME_KEY,selectedTheme\)/);
- assert.match(menu,/\$\('settingsStarterPacks'\)\.onclick=\(\)=>starterPacks\(\)/); // V124: Classic only
+ assert.doesNotMatch(menu,/settingsStarterPacks/); // V125: packs live on the Alchemy screen
 });
 test('V76.8 Profile and Help have genuine navigation, and cloud actions remain disabled',()=>{
  assert.match(menu,/\$\('settingsProfileLink'\)\.onclick=/);

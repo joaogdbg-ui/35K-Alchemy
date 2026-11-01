@@ -422,9 +422,29 @@ function applyBillingStatus(st){
  if(!st||typeof st!=='object')return;
  if(typeof st.price==='string'&&st.price)billingPrice=st.price;
  billingProductReady=st.available===true;
+ if(typeof st.slotPrice==='string'&&st.slotPrice)slot2.price=st.slotPrice;if(typeof st.slotAvailable==='boolean')slot2.available=st.slotAvailable;
+ if(st.companionSlot===true&&!slot2.bought){slot2.bought=true;saveSlot2();try{companions.start();}catch{}}
  if(st.noAds===true)setNoAds(true);
  else if(st.noAds===false&&st.available===true)setNoAds(false); // refunded or revoked by Play
 }
+// V125: second on-screen companion slot — Play product "companion_slot" (EUR 1.00), or free after
+// 2,000 Classic elements + 20 completed rewarded ads. Only Play's purchase record / earned rewards count.
+const SLOT2_KEY='alchemy10k_slot2_v125',SLOT2_MIN_ELEMENTS=2000,SLOT2_ADS=20;
+let slot2={ads:0,bought:false,price:'€1.00',available:false};
+try{const r=JSON.parse(localStorage.getItem(SLOT2_KEY)||'null');if(r){slot2.ads=Math.max(0,Math.min(SLOT2_ADS,Number(r.ads)||0));slot2.bought=r.bought===true;}}catch{}
+function saveSlot2(){try{localStorage.setItem(SLOT2_KEY,JSON.stringify({v:1,ads:slot2.ads,bought:slot2.bought}));}catch{}}
+function slot2Unlocked(){return slot2.bought||(slot2.ads>=SLOT2_ADS&&classicDiscoveredCount()>=SLOT2_MIN_ELEMENTS);}
+function slot2Info(){return {unlocked:slot2Unlocked(),price:slot2.price,canBuy:Boolean(billingBridge()?.purchaseCompanionSlot)&&slot2.available,canAd:rewardedAvailable(),ads:slot2.ads,adsNeeded:SLOT2_ADS,elements:classicDiscoveredCount(),minElements:SLOT2_MIN_ELEMENTS};}
+async function buySlot2(){const b=billingBridge();if(!b?.purchaseCompanionSlot){toast('Purchases work in the Play Store app','repeat');return false;}
+ try{const r=await b.purchaseCompanionSlot();applyBillingStatus(r);if(r?.companionSlot===true){toast('Second companion slot unlocked!','new');companions.start();return true;}
+  toast(r?.cancelled?'Purchase cancelled':r?.pending?'Purchase pending · it unlocks when Google Play confirms it':'Purchase not completed','repeat');}catch(e){console.warn(e);toast('Google Play purchase is not available yet','error');}
+ return false;}
+async function watchSlot2Ad(){if(classicDiscoveredCount()<SLOT2_MIN_ELEMENTS||slot2Unlocked())return false;if(rewardedHintBusy)return false;
+ if(!rewardedAvailable()){toast('Rewarded ads work in the Android app','repeat');return false;}
+ rewardedHintBusy=true;let r=null;try{r=await getRewardBridge().showRewarded({kind:'companion_slot',step:slot2.ads+1,total:SLOT2_ADS});}catch(e){console.warn('Slot ad unavailable',e);}finally{rewardedHintBusy=false;}
+ if(r?.earned!==true){toast('Ad not completed','repeat');return false;}
+ slot2.ads=Math.min(SLOT2_ADS,slot2.ads+1);saveSlot2();
+ if(slot2Unlocked()){toast('Second companion slot unlocked!','new');companions.start();}else toast(`Second slot · ${slot2.ads}/${SLOT2_ADS} ads`,'repeat');return true;}
 async function refreshBilling(){const b=billingBridge();if(!b)return;try{applyBillingStatus(await b.getStatus());}catch(e){console.warn('Billing status unavailable',e);}}
 function openRemoveAds(){
  if(adFree()){showModal(`<div class="modal-tag">REMOVE ADS</div><h2>Ads removed</h2><p>Thank you for supporting Alchemy 10K! Mode switches, Batch and Merge are free, you keep a bank of ${HINT_BANK_MAX} hints that refills one every 15 minutes, and Shiny elements appear 5× more often.</p><p class="mini-muted">Optional ads remain only if you want extra hints when your bank is empty.</p><button type="button" class="modal-button secondary" id="removeAdsClose">Close</button>`);$('removeAdsClose').onclick=closeModal;return;}
@@ -475,7 +495,7 @@ function shinyCard(item){return `<p class="shiny-trivia"><span aria-hidden="true
 function showShinyFound(id){const it=byId.get(id);if(!it)return;
  showModal(`<div class="modal-tag shiny-tag">✦ SHINY ELEMENT</div><div class="modal-art is-shiny">${staticArt(it)}</div><h2>Shiny ${escapeText(uiName(it))}</h2>${shinyCard(it)}<div class="modal-milestone">${shiny.size.toLocaleString('en-US')} shiny ${shiny.size===1?'element':'elements'} · ${Math.round(shinyChance()*100)}% chance per combination</div>`);
 }
-const APP_VERSION='1.0.24';
+const APP_VERSION='1.0.25';
 // V83: status line + Google consent (UMP) privacy options, required for EEA players.
 async function refreshAdStatus(){
  const el=$('settingsAdStatus'),bridge=getRewardBridge();
@@ -1656,7 +1676,7 @@ async function requestCompanionActivation(meta){
 }
 function setPetsBadge(n){const b=$('petsBadge');if(b)b.hidden=!(n>0);}
 const companions=createCompanionSystem({roster:COMPANIONS_V86,sprites:COMPANION_SPRITES_V86,$,escapeText,byId,uiName,staticArt,familyFor,
- requestActivation:requestCompanionActivation,onBadge:setPetsBadge,renderExtra:()=>homes.render($('homeMount')),wear:root=>wearAll(root),
+ requestActivation:requestCompanionActivation,onBadge:setPetsBadge,slot2Unlocked:()=>slot2Unlocked(),slot2Info:()=>slot2Info(),buySlot2:()=>buySlot2(),watchSlot2Ad:()=>watchSlot2Ad(),randomElement:()=>{const a=[...unlocked];return a.length?a[Math.floor(Math.random()*a.length)]:null;},renderExtra:()=>homes.render($('homeMount')),wear:root=>wearAll(root),
  growthFor:(id,kind)=>homes.growthFor(id,kind)*alchemyGrowth(),houseLine:id=>[homes.houseLine(id),`Alchemy bonus ×${alchemyGrowth()} · ${classicDiscoveredCount().toLocaleString('en-US')} elements found in Classic`].filter(Boolean).join('<br>'),alchemyGrowth,residentOf:id=>homes.residentOf(id),
  isDiscovered:companionOwned,starterCompanion:STARTER_COMPANION,sfx:SFX,depthOf:id=>routeDepth.get(id),isShiny:id=>shiny.has(id),elementIsUseful,getSlots:()=>slots,isLeftLocked:()=>leftLocked,toast,showModal,closeModal,
  reducedMotion:()=>Boolean(window.matchMedia?.('(prefers-reduced-motion: reduce)')?.matches),FAMILIES});
@@ -1693,11 +1713,14 @@ function idleCandidates(){const out=[];const seen=new Set();for(const [k,o] of r
 function idlePlan(awayMs){
  const hs=homes.state().houses,pets=companions.state().pets;let residents=[],disc=0;
  for(const [hid,h] of Object.entries(hs)){if(!discoveredAnywhere(hid))continue;const rs=(h.residents||[]).filter(discoveredAnywhere);residents.push(...rs.map(cid=>({cid,hid})));disc+=(h.furniture||[]).filter(f=>HOME_OBJECTS_V89[f.id]?.effect==='discovery').length*(rs.length?1:0);}
- if(!residents.length)return null;
+ // V125: the two companions on screen explore together while the game is closed
+ const duo=companions.duoPair?.()||[];
+ if(!residents.length&&!duo.length)return null;
  const hours=Math.min(IDLE_MAX_HOURS,awayMs/3600000);
- const lv=residents.reduce((n,r)=>n+Object.values(pets[r.cid]?.stats||{}).reduce((m,s)=>m+(s.level||0),0),0)/residents.length;
- const rate=0.3*residents.length*(1+lv/120)*(1+0.12*Math.min(10,disc));
- const cap=Math.min(15,2+residents.length+Math.floor(disc/2));
+ const team=[...residents.map(r=>r.cid),...duo];
+ const lv=team.reduce((n,cid)=>n+Object.values(pets[cid]?.stats||{}).reduce((m,s)=>m+(s.level||0),0),0)/team.length;
+ const rate=(0.3*residents.length+(duo.length?0.9:0))*(1+lv/120)*(1+0.12*Math.min(10,disc));
+ const cap=Math.min(18,2+residents.length+Math.floor(disc/2)+(duo.length?3:0));
  return {residents,hours,count:Math.min(cap,Math.floor(rate*hours+Math.random()*0.6))};
 }
 function applyIdleFind([id,a,b]){if(unlocked.has(id))return;unlocked.add(id);if(!STARTERS.has(id))discoveryLedger.set(id,{at:new Date().toISOString(),source:'companions',ingredients:[a,b]});recent=[id,...recent.filter(x=>x!==id)].slice(0,350);companions.onDiscovery(id);}
@@ -1874,8 +1897,7 @@ function settings(){
     </div>
    </div>
    <div class="settings-section settings-links">
-    <button type="button" id="settingsStarterPacks" class="settings-link"><span>Family starter packs<small>Unlock a family's 4 starting elements · ${adFree()?'free':'2 rewarded ads'}</small></span><span aria-hidden="true">›</span></button>
-    <div class="settings-divider"></div><button type="button" id="settingsRemoveAds" class="settings-link"><span>${adFree()?'Ads removed ✓':'Remove ads · '+escapeText(billingPrice)}<small>${adFree()?'Thank you! 5% Shiny chance and a hint bank':'No forced ads, 10 hints included, 5% Shiny chance'}</small></span><span aria-hidden="true">›</span></button>
+<button type="button" id="settingsRemoveAds" class="settings-link"><span>${adFree()?'Ads removed ✓':'Remove ads · '+escapeText(billingPrice)}<small>${adFree()?'Thank you! 5% Shiny chance and a hint bank':'No forced ads, 10 hints included, 5% Shiny chance'}</small></span><span aria-hidden="true">›</span></button>
    </div>
    <div class="settings-section settings-links">
     <div class="settings-service-title">PROGRESS</div>
@@ -1949,7 +1971,7 @@ function settings(){
   $('modalContent').querySelectorAll('[data-theme-choice]').forEach(choice=>choice.setAttribute('aria-pressed',String(choice.dataset.themeChoice===selectedTheme)));
  });
  syncSoundToggle();$('settingsSoundToggle').onclick=toggleSoundEnabled;
- $('settingsStarterPacks').onclick=()=>starterPacks();$('settingsRemoveAds').onclick=openRemoveAds;
+ $('settingsRemoveAds').onclick=openRemoveAds;
  selectSettingsPage('main');
  void refreshPlayerServicesStatus();
 }
@@ -2248,7 +2270,7 @@ function starterPacks(focus=null){
  const cards=ALL_CAMPAIGNS.map(c=>{const f=FAMILIES.find(x=>x.id===c.id);if(!f)return '';const miss=packMissing(c.id);const icons=c.starters.map(id=>{const it=byId.get(id);return `<span class="pack-el ${unlocked.has(id)?'is-have':''}" title="${escapeText(uiName(it))}">${staticArt(it)}</span>`;}).join('');
   const credit=starterPackCredit?.family===c.id?` · ad 1 of 2 done`:'';
   return `<button type="button" class="pack-card ${miss.length?'':'is-done'} ${focus===c.id?'is-focus':''}" data-pack="${c.id}" ${miss.length?'':'disabled'}><span class="pack-art">${familyCardArtwork(f)}</span><span class="pack-copy"><strong>${escapeText(f.name)}</strong><small>${miss.length?`${miss.length} to unlock · ${adFree()?'free':'2 ads'}${credit}`:'All starters unlocked ✓'}</small><span class="pack-els">${icons}</span></span></button>`;}).join('');
- showModal(`<div class="modal-tag">FAMILY STARTER PACKS</div><h2>Jump into a family</h2><p>Unlock a family's four starting elements to reach its objects, houses and companions faster.</p><div class="pack-list">${cards}</div>`);
+ showModal(`<div class="modal-tag">FAMILY STARTER PACKS</div><h2>Jump into a family</h2><div class="pack-why"><p>Each pack adds the <b>4 starting elements</b> of a family straight to your collection, so its recipes open up right away.</p><ul><li>Reach that family's <b>companions</b> much sooner</li><li>Unlock its <b>houses</b> and <b>furniture</b> faster</li><li>Your progress and recipes stay exactly the same</li></ul><small>${adFree()?'Free with Remove ads':'2 rewarded ads per pack'}</small></div><div class="pack-list">${cards}</div>`);
  $('modalContent').querySelectorAll('[data-pack]').forEach(b=>b.onclick=()=>buyStarterPack(b.dataset.pack));}
 async function buyStarterPack(fid){
  const miss=packMissing(fid);if(!miss.length)return;
@@ -2303,8 +2325,7 @@ function openInventoryFamilyPicker(){
     ?`<img src="${GAMEVERSE_ART[k]}" decoding="async" alt="">`:'').join('');
   const choices=[`<button type="button" class="batch-family-choice" data-inventory-family="all" aria-pressed="${playFamily==='all'}"><span class="batch-family-picture"><span class="all-family-mosaic" aria-hidden="true">${allIcons}</span></span><span class="batch-family-data"><strong>All families</strong><small>${unlocked.size.toLocaleString('en-US')} elements collected</small></span></button>`,
     ...FAMILIES.map(f=>`<button type="button" class="batch-family-choice" data-inventory-family="${f.id}" aria-pressed="${f.id===playFamily}"><span class="batch-family-picture">${iconHtml(f)}</span><span class="batch-family-data"><strong>${escapeText(f.name)}</strong><small>${(counts.get(f.id)||0).toLocaleString('en-US')} discovered</small></span></button>`)].join('');
-  showModal(`<div class="modal-tag">ELEMENT FILTER</div><h2>Choose a family</h2><p class="inventory-family-info">Show elements from one family or browse everything.</p><div class="batch-family-grid inventory-family-grid" role="group" aria-label="Filter collected elements by family">${choices}</div><button type="button" class="modal-button secondary pack-open" id="openStarterPacks">✦ Family starter packs · ${adFree()?'free':'2 ads'}</button>`);
-  $('openStarterPacks').onclick=()=>starterPacks(playFamily!=='all'?playFamily:null);
+  showModal(`<div class="modal-tag">ELEMENT FILTER</div><h2>Choose a family</h2><p class="inventory-family-info">Show elements from one family or browse everything.</p><div class="batch-family-grid inventory-family-grid" role="group" aria-label="Filter collected elements by family">${choices}</div>`);
   $('playFamily').setAttribute('aria-expanded','true');
   $('modalContent').querySelectorAll('[data-inventory-family]').forEach(button=>{
     button.addEventListener('click',()=>{
@@ -2319,6 +2340,7 @@ function openInventoryFamilyPicker(){
 }
 $('playFamily').onclick=openInventoryFamilyPicker;
 if($('looksChip'))$('looksChip').onclick=openLooksFilter;
+if($('packsBtn'))$('packsBtn').onclick=()=>starterPacks(playFamily!=='all'?playFamily:null);
 $('settingsBtn').onclick=settings;
 
 $('modalClose').onclick=closeModal;$('modal').onclick=e=>{if(e.target===$('modal')&&$('modal').dataset.dismiss!=='x-only')closeModal();};
