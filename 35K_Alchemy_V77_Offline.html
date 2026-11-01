@@ -1477,7 +1477,6 @@ button.home-eff::after{content:" ⓘ";opacity:.6;font-weight:700}
   </main>
   <nav class="tabbar" aria-label="Primary navigation">
     <button class="tab active" data-view="Play" aria-current="page"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M9 3h6M12 3v6M8.5 9h7l4.5 9.5a1 1 0 0 1-.9 1.5H4.9a1 1 0 0 1-.9-1.5Z"/></svg><span>Alchemy</span></button>
-    <button class="tab" data-view="World"><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="4" width="7" height="7" rx="1.5"/><rect x="14" y="4" width="7" height="7" rx="1.5"/><rect x="3" y="14" width="7" height="7" rx="1.5"/><path d="M17.5 14v7M14 17.5h7"/></svg><span>Collection</span></button>
     <button class="tab" data-view="Pets"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M3.5 11 12 4l8.5 7"/><path d="M5.5 9.5V20h13V9.5"/><path d="M10 20v-5h4v5"/></svg><span>Home</span><i class="tab-badge" id="petsBadge" hidden aria-label="New companion">!</i></button>
     <button class="tab tab-games" data-view="Games" hidden><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M8 4h8v5a4 4 0 0 1-8 0Z"/><path d="M8 6H5a2 2 0 0 0 2 4h1M16 6h3a2 2 0 0 1-2 4h-1"/><path d="M12 13v3M9 20h6M10 16h4v4h-4z"/></svg><span>Games</span><i class="tab-badge" id="gamesBadge" hidden aria-label="Games unlocked">!</i></button>
   </nav>
@@ -5026,7 +5025,7 @@ function shinyCard(item){return `<p class="shiny-trivia"><span aria-hidden="true
 function showShinyFound(id){const it=byId.get(id);if(!it)return;
  showModal(`<div class="modal-tag shiny-tag">✦ SHINY ELEMENT</div><div class="modal-art is-shiny">${staticArt(it)}</div><h2>Shiny ${escapeText(uiName(it))}</h2>${shinyCard(it)}<div class="modal-milestone">${shiny.size.toLocaleString('en-US')} shiny ${shiny.size===1?'element':'elements'} · ${Math.round(shinyChance()*100)}% chance per combination</div>`);
 }
-const APP_VERSION='1.0.22';
+const APP_VERSION='1.0.23';
 // V83: status line + Google consent (UMP) privacy options, required for EEA players.
 async function refreshAdStatus(){
  const el=$('settingsAdStatus'),bridge=getRewardBridge();
@@ -6160,7 +6159,8 @@ function homeAwaySummary(){
 }
 function switchTab(view){
  const wasHome=tab==='Pets';
- tab=view==='World'?'World':view==='Pets'?'Pets':view==='Games'&&gamesUnlocked()?'Games':'Play';
+ // V123: Collection tab removed (owner) — everything lives in Alchemy; old 'World' routes go to Play
+ tab=view==='Pets'?'Pets':view==='Games'&&gamesUnlocked()?'Games':'Play';
  for(const name of ['Play','World','Pets','Games'])$(`view${name}`).hidden=name!==tab;
  if(tab==='Games'){games.render($('viewGames'));gamesSeen();}
  document.querySelectorAll('.tab').forEach(b=>{const active=b.dataset.view===tab;b.classList.toggle('active',active);b.setAttribute('aria-current',active?'page':'false');});
