@@ -90,6 +90,11 @@ Preserve 200-per-batch policy and do not start another content release on top of
 
 - **Art redraw wave 3 (V85, done): 3,991 icons** — every remaining older element. All 6,012 pre-V83 elements now use the 2026 art direction (`ART_REDRAW`), plus 200 V83 and 200 V85 originals. Six near-duplicates found by the audit were redrawn; 36 reviewed false alarms are in `tools/art-redraw-reviewed-pairs.json` (the audit now also honours them for V83 comparisons).
 
+## V121 — hand-picked looks, hidden effects, silent powers (1 November 2026)
+- Powers are purely visual: no "New power" note, no label/preview text (`powersOf` still drives `usePower`).
+- Meal preview shows `???` for Grows/Looks until that element has been fed by the player once (`state.tasted[id]`; old saves count any `pet.fed` entry). `mealPreview().known`.
+- `LOOK_OVERRIDES` + `LOOK_OVERRIDE_PREFIX` (themeFor): hand-picked fixes for regex false matches (Halo/Fire Emblem/KOF/Prince of Persia/Dragon Ball series, Phoenix Wright, Demon Slayer, Star Fox stays fox, etc.), re-themes (Ice Halo→ice, Rhythm Heaven→music, Hinokami Kagura→phoenix, Ice Cream→sweet…), and hand-picked names never trigger reset/wash/mirror (Dragon Egg Cradle, Black Sabbath, FFVII Rebirth, Meteor Shower…). Review list was made from all 6612 elements' theme matches.
+
 ## V120 — looks only from player feeding + signature powers (1 November 2026)
 - `eatSequence(...,{self:true})` (companion eats on its own) no longer calls `lookAfterMeal`: self-meals grow stats/belly/mood only. Easy elements (tier 1, depth<4) still only tint/size.
 - `LOOK_POWERS`/`powersOf(look)`: a power unlocks when enough RADIANT traits (tier 3, depth≥9) are ≥75% grown — Fire breath (2 of dragon horns/wings/tail), Fairy dust (butterfly wings), Phoenix blaze (fire wings), Frost breath (flake), Shadow smoke (2 demon traits), Holy light (halo + feather wings), Water spout (fish tail). Idle loop uses one ~10% of ticks (`usePower`, `.fx-power` CSS particles, sfx). Meal notes "New power: X!", look label "⚡ X", meal preview shows "⚡ X · power when fully grown" for tier-3 themed elements.

@@ -47,7 +47,14 @@ test('V120: powers only from radiant, grown traits; self-feeding never changes l
  const E=await import('../src/companion-engine-v86.js');
  let L=E.defaultLook();for(let i=0;i<3;i++)L=E.lookAfterMeal(L,'Dragon','fantasy','',4).look;assert.equal(E.powersOf(L).length,0,'tier 2 dragon: no power');
  let R=E.defaultLook(),notes=[];for(let i=0;i<2;i++){const r=E.lookAfterMeal(R,'Dragon','fantasy','',10);R=r.look;notes.push(...r.notes);}
- assert.deepEqual(E.powersOf(R).map(p=>p.id),['fire']);assert.ok(notes.includes('New power: Fire breath!'));assert.match(E.lookLabel(R),/⚡ Fire breath/);
- assert.equal(E.lookEffects('Dragon','fantasy','',10).power,'Fire breath');assert.equal(E.lookEffects('Dragon','fantasy','',4).power,null);
+ assert.deepEqual(E.powersOf(R).map(p=>p.id),['fire']);assert.ok(!notes.some(n=>/power/i.test(n)),'powers are only visual');assert.doesNotMatch(E.lookLabel(R),/Fire breath/);
  assert.equal(E.lookEffects('Pebble','nature','',1).traits.length,0,'easy elements only tint/size');
+});
+test('V121: hand-picked themes fix false matches',async()=>{
+ const E=await import('../src/companion-engine-v86.js');const fx=(n,d=10)=>E.lookEffects(n,'games','',d);
+ assert.equal(fx('Halo 3').traits.length,0);assert.equal(fx('Phoenix Wright: Ace Attorney').traits.length,0);assert.equal(fx('Fire Emblem Engage').traits.length,0);
+ assert.equal(fx('Dragon Egg Cradle').theme,'dragon');assert.equal(fx('Dragon Egg Cradle').resets.length,0);
+ assert.equal(fx('Black Sabbath').resets.length,0);assert.equal(fx('Ice Halo').theme,'ice');assert.equal(fx('Hinokami Kagura').theme,'phoenix');
+ assert.equal(fx('Dragon Quest').theme,'dragon');assert.equal(fx('Soap').resets.length,1);
+ const r=E.lookAfterMeal(E.defaultLook(),'Dragon Egg Cradle','fantasy','',9);assert.ok(r.look.mix.back['dragon-wings']>0,'egg cradle does not reset');
 });
