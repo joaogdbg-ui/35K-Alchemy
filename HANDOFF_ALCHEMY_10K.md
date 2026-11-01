@@ -90,6 +90,16 @@ Preserve 200-per-batch policy and do not start another content release on top of
 
 - **Art redraw wave 3 (V85, done): 3,991 icons** — every remaining older element. All 6,012 pre-V83 elements now use the 2026 art direction (`ART_REDRAW`), plus 200 V83 and 200 V85 originals. Six near-duplicates found by the audit were redrawn; 36 reviewed false alarms are in `tools/art-redraw-reviewed-pairs.json` (the audit now also honours them for V83 comparisons).
 
+## V136 — companion coins, Black Market, School, accessories, theme races, race personality (1 November 2026)
+- New module `market-v136.js` (ACCESSORIES with SVG drawers per slot head/face/neck, WEARABLE_ELEMENTS, MARKET catalogue, COIN_PACK, coinsFor, LESSONS). Wallet in app (`alchemy10k_wallet_v136`: coins, owned accessories, toys, active toy, credited Play tokens).
+- Coins from races (by place/level, ×1.5 theme races, ×2 first gold) and Karate. Stadium header shows 🪙; Market + School buttons.
+- Market tabs: Food (stat fruits +60 XP, cookie, soap/mirror/rebirth looks — given to the on-screen companion via `companions.marketFeed`), Wear (accessories), Toys (ball/top/drum, one shown on the craft-card corner, played with ~7% of loops after 30 s cooldown), Furniture and Houses (granted as elements).
+- **Coins for money:** consumable Play product **`coins_100` (owner must create, EUR 1.00 → 100 coins)**. `AlchemyBilling.purchaseCoins`; getStatus/purchase results report `coinTokens` (and consume them); JS credits each token once.
+- Accessories: drawn by the engine (`applyWearSvg`, `pets[id].wear`), Wardrobe sheet (Home → Wear, card → Wardrobe) with Remove per slot; wearable elements show "Wear on <companion>" in the element sheet. Prizes: Expert+ gold on regular courses (COURSE_ACC), Karate Expert+ win (medal), Champion gold on theme races.
+- School: 6 lessons per companion (coins) → `pets[id].skills`; skills performed on the main screen (~8% of loops, 25 s cooldown) with `sk-*` rig states and props (notes, easel doodle, drum, juggling elements, magic hat).
+- Theme races (THEME_COURSES heaven/inferno/dragonpeak/glade/deepsea) open only when `companions.themeCompletion(cid,theme)` ≥ 85%; tinted stages; ROUTES per theme.
+- Race personality: on run segments a sad/hungry racer may sit, trip (and cry if sad) or get distracted (butterfly); CHEER snaps the player's companion back; rivals recover on their own.
+
 ## V135 — element list updates live after feeding (1 November 2026)
 - `ctx.onMeal` (called in eatSequence right after `tasted` is recorded) → `rerenderCollections()`, so "Not fed yet", colour/trait filters and the tab counts update immediately.
 

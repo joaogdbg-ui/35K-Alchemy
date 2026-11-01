@@ -120,6 +120,7 @@ import { STADIUM_ART_V95 } from './stadium-art-v95.js';
 import { createStadiumSfx } from './stadium-sfx-v95.js';
 import { COMPANIONS_V86, COMPANION_SPRITES_V86 } from './companions-v86.js';
 import { createCompanionSystem, COMPANION_STORAGE_KEY, rivalLook, traitIconSvg } from './companion-engine-v86.js';
+import { ACCESSORIES, wearableFor, MARKET, MARKET_TABS, COIN_PACK, coinsFor, LESSONS } from './market-v136.js';
 import { PUBLIC_LABELS_V86 } from './public-labels-v86.js';
 import { reconcileLegacyFamilies } from './family-compatibility-v82.js';
 import { synchronizeFamilyProfiles, sharedMembership } from './family-shared-v51.js';
@@ -422,6 +423,7 @@ function applyBillingStatus(st){
  if(!st||typeof st!=='object')return;
  if(typeof st.price==='string'&&st.price)billingPrice=st.price;
  billingProductReady=st.available===true;
+ if(typeof st.coinsPrice==='string'&&st.coinsPrice)coinsPrice=st.coinsPrice;if(typeof st.coinsAvailable==='boolean')coinsAvailable=st.coinsAvailable;if(Array.isArray(st.coinTokens)&&typeof creditCoinTokens==='function')creditCoinTokens(st.coinTokens);
  if(typeof st.slotPrice==='string'&&st.slotPrice)slot2.price=st.slotPrice;if(typeof st.slotAvailable==='boolean')slot2.available=st.slotAvailable;
  if(st.companionSlot===true&&!slot2.bought){slot2.bought=true;saveSlot2();try{companions.start();}catch{}}
  if(st.noAds===true)setNoAds(true);
@@ -498,7 +500,7 @@ function shinyCard(item){return `<p class="shiny-trivia"><span aria-hidden="true
 function showShinyFound(id){const it=byId.get(id);if(!it)return;
  showModal(`<div class="modal-tag shiny-tag">✦ SHINY ELEMENT</div><div class="modal-art is-shiny">${staticArt(it)}</div><h2>Shiny ${escapeText(uiName(it))}</h2>${shinyCard(it)}<div class="modal-milestone">${shiny.size.toLocaleString('en-US')} shiny ${shiny.size===1?'element':'elements'} · ${Math.round(shinyChance()*100)}% chance per combination</div>`);
 }
-const APP_VERSION='1.0.35';
+const APP_VERSION='1.0.36';
 // V83: status line + Google consent (UMP) privacy options, required for EEA players.
 async function refreshAdStatus(){
  const el=$('settingsAdStatus'),bridge=getRewardBridge();
@@ -1361,7 +1363,8 @@ function mealPreviewHtml(id){let m=null;try{m=companions.mealPreview(id);}catch{
 /** V104: element sheet opened by a long press in Alchemy: description, what it does, quick actions. */
 function elementInfo(id){const it=byId.get(id);if(!it)return;const fams=familiesFor(it).map(f=>FAMILIES.find(x=>x.id===f)?.name||f);const text=wittyDiscovery(it)||it.summary;
  showModal(`<div class="modal-tag">ABOUT THIS ELEMENT · ${escapeText((categoryNames[it.category]||it.category||'').toUpperCase())}</div><div class="modal-art is-info">${COMPANION_SPRITES_V86[id]||staticArt(it)}</div><h2>${escapeText(uiName(it))}</h2>${text?`<p class="discovery-wit">${escapeText(publicText(text))}</p>`:''}${companionCallout(id)}${homeCallout(id)}${mealPreviewHtml(id)}${fams.length?`<p class="mini-muted">${escapeText(fams.join(' · '))}</p>`:''}
-  <button type="button" class="modal-button" id="infoUse">Use in craft table</button><button type="button" class="modal-button secondary" id="infoPaths">Recipes</button>`);
+  ${wearableFor(uiName(it))&&companions.active&&unlocked.has(id)?`<button type="button" class="modal-button is-wear" id="infoWear">${accIcon(wearableFor(uiName(it)),22)} Wear on ${escapeText(companions.info(companions.active.id).name)}</button>`:''}<button type="button" class="modal-button" id="infoUse">Use in craft table</button><button type="button" class="modal-button secondary" id="infoPaths">Recipes</button>`);
+ {const wb=$('infoWear');if(wb)wb.onclick=()=>{const a=wearableFor(uiName(it));grantAccessory(a);const cid=companions.active.id;if(!Object.values(companions.wearOf(cid)).includes(a))companions.setWear(cid,a);closeModal();toast(`${companions.info(cid).name} is wearing ${ACCESSORIES[a].name}`,'new');};}
  $('infoUse').onclick=()=>{closeModal();insertDirect(id);};$('infoPaths').onclick=()=>{closeModal();openRecipePaths(id);};}
 function showDiscovery(id,a,b,scene=null,isShiny=false){
  const it=byId.get(id),isFirst=worldFirsts.has(id),earned=[...unlocked].filter(x=>!STARTERS.has(x)).length,isComp=companions.isCompanion(id);
@@ -1680,7 +1683,7 @@ async function requestCompanionActivation(meta){
 }
 function setPetsBadge(n){const b=$('petsBadge');if(b)b.hidden=!(n>0);}
 const companions=createCompanionSystem({roster:COMPANIONS_V86,sprites:COMPANION_SPRITES_V86,$,escapeText,byId,uiName,staticArt,familyFor,
- requestActivation:requestCompanionActivation,onBadge:setPetsBadge,onMeal:()=>{try{rerenderCollections();}catch{}},slot2Unlocked:()=>slot2Unlocked(),slot2Info:()=>slot2Info(),buySlot2:()=>buySlot2(),watchSlot2Ad:()=>watchSlot2Ad(),randomElement:()=>{const a=[...unlocked];return a.length?a[Math.floor(Math.random()*a.length)]:null;},renderExtra:()=>homes.render($('homeMount')),wear:root=>wearAll(root),
+ requestActivation:requestCompanionActivation,onBadge:setPetsBadge,onMeal:()=>{try{rerenderCollections();}catch{}},accessories:ACCESSORIES,openWardrobe:id=>openWardrobe(id),toy:()=>wallet.toy,slot2Unlocked:()=>slot2Unlocked(),slot2Info:()=>slot2Info(),buySlot2:()=>buySlot2(),watchSlot2Ad:()=>watchSlot2Ad(),randomElement:()=>{const a=[...unlocked];return a.length?a[Math.floor(Math.random()*a.length)]:null;},renderExtra:()=>homes.render($('homeMount')),wear:root=>wearAll(root),
  growthFor:(id,kind)=>homes.growthFor(id,kind)*alchemyGrowth(),houseLine:id=>[homes.houseLine(id),`Alchemy bonus ×${alchemyGrowth()} · ${classicDiscoveredCount().toLocaleString('en-US')} elements found in Classic`].filter(Boolean).join('<br>'),alchemyGrowth,residentOf:id=>homes.residentOf(id),
  isDiscovered:companionOwned,starterCompanion:STARTER_COMPANION,sfx:SFX,depthOf:id=>routeDepth.get(id),isShiny:id=>shiny.has(id),elementIsUseful,getSlots:()=>slots,isLeftLocked:()=>leftLocked,toast,showModal,closeModal,
  reducedMotion:()=>Boolean(window.matchMedia?.('(prefers-reduced-motion: reduce)')?.matches),FAMILIES});
@@ -1757,7 +1760,70 @@ const GAMES_SEEN_KEY='alchemy10k_games_seen_v1';
 function gamesUnlocked(){try{return homes.ownedHouses().length>0&&companions.unlocked().length>0;}catch{return false;}}
 function syncGamesTab(){const t=document.querySelector('.tab-games');if(!t)return;const on=gamesUnlocked();t.hidden=!on;let seen=false;try{seen=localStorage.getItem(GAMES_SEEN_KEY)==='1';}catch{}const b=$('gamesBadge');if(b)b.hidden=!(on&&!seen);}
 function gamesSeen(){try{localStorage.setItem(GAMES_SEEN_KEY,'1');}catch{}syncGamesTab();}
-const games=createGamesSystem({$,escapeText,roster:COMPANIONS_V86,sprites:COMPANION_SPRITES_V86,byId,uiName,isDiscovered:companionOwned,companionInfo:id=>companions.info(id),activeId:()=>companions.state().active,
+// ---------- V136: companion coins, Black Market, School, Wardrobe ----------
+const WALLET_KEY='alchemy10k_wallet_v136';
+let wallet={coins:0,acc:[],toys:[],toy:null,tokens:[]};
+try{const r=JSON.parse(localStorage.getItem(WALLET_KEY)||'null');if(r&&typeof r==='object')wallet={coins:Math.max(0,Math.floor(Number(r.coins)||0)),acc:Array.isArray(r.acc)?r.acc.filter(a=>ACCESSORIES[a]):[],toys:Array.isArray(r.toys)?r.toys:[],toy:typeof r.toy==='string'?r.toy:null,tokens:Array.isArray(r.tokens)?r.tokens.slice(-200):[]};}catch{}
+let coinsPrice=COIN_PACK.price,coinsAvailable=false;
+function saveWallet(){try{localStorage.setItem(WALLET_KEY,JSON.stringify(wallet));}catch{}}
+function addCoins(n){wallet.coins=Math.max(0,wallet.coins+Math.round(n));saveWallet();syncCoinLabels();return wallet.coins;}
+function spendCoins(n){if(wallet.coins<n)return false;wallet.coins-=n;saveWallet();syncCoinLabels();return true;}
+function syncCoinLabels(){document.querySelectorAll('[data-coins]').forEach(e=>e.textContent=wallet.coins.toLocaleString('en-US'));const s=$('stCoins');if(s)s.textContent='🪙 '+wallet.coins.toLocaleString('en-US');}
+function creditCoinTokens(tokens){let n=0;for(const t of tokens||[]){if(typeof t!=='string'||wallet.tokens.includes(t))continue;wallet.tokens.push(t);wallet.coins+=COIN_PACK.coins;n++;}if(n){saveWallet();syncCoinLabels();toast(`+${n*COIN_PACK.coins} coins · thank you!`,'new');}return n;}
+async function buyCoins(){const b=billingBridge();if(!b?.purchaseCoins){toast('Coin packs can be bought in the Play Store app','repeat');return false;}
+ try{const r=await b.purchaseCoins();applyBillingStatus(r);await refreshBilling();if(r?.cancelled)toast('Purchase cancelled','repeat');else if(r?.pending)toast('Purchase pending · coins arrive when Google Play confirms it','repeat');return true;}catch(e){console.warn(e);toast('Google Play purchase is not available yet','error');return false;}}
+function grantAccessory(id){if(!ACCESSORIES[id]||wallet.acc.includes(id))return false;wallet.acc.push(id);saveWallet();return true;}
+function accIcon(id,size=40){const a=ACCESSORIES[id];if(!a)return '';const oy=a.slot==='head'?12:a.slot==='neck'?-8:0;return `<svg viewBox="-30 -30 60 60" width="${size}" height="${size}" aria-hidden="true"><g transform="translate(0 ${oy})">${a.draw(a.slot==='neck'?44:40)}</g></svg>`;}
+function grantElement(id){if(!byId.has(id)||unlocked.has(id))return false;unlocked.add(id);discoveryLedger.set(id,{at:new Date().toISOString(),source:'market',ingredients:[]});recent=[id,...recent.filter(x=>x!==id)].slice(0,350);companions.onDiscovery(id);save();updateCounts();updateLatest();rerenderCollections();try{companions.refreshViews();}catch{}return true;}
+const coinBar=()=>`<div class="mk-wallet"><span class="mk-coins">🪙 <b data-coins>${wallet.coins.toLocaleString('en-US')}</b></span><button type="button" class="mk-buy" id="mkBuyCoins"><b>+${COIN_PACK.coins}</b><small>${escapeText(coinsPrice)}</small></button></div>`;
+function wireCoinBar(){const b=$('mkBuyCoins');if(b)b.onclick=async()=>{b.disabled=true;await buyCoins();b.disabled=false;};}
+let marketTab='food';
+function openMarket(onClose,tab){if(tab)marketTab=tab;const act=companions.active;
+ const owned=it=>it.kind==='acc'?wallet.acc.includes(it.acc):it.kind==='toy'?wallet.toys.includes(it.toy):(it.kind==='furniture'||it.kind==='house')?unlocked.has(it.element):false;
+ const items=MARKET.filter(it=>it.kind===marketTab&&(!it.element||byId.has(it.element)));
+ const tile=it=>{const o=owned(it);const name=it.kind==='acc'?ACCESSORIES[it.acc].name:it.element?uiName(byId.get(it.element)):it.name;const art=it.kind==='acc'?accIcon(it.acc):it.element?staticArt(byId.get(it.element)):`<span class="mk-emoji">${it.icon}</span>`;
+  const desc=it.kind==='acc'?({head:'Head',face:'Face',neck:'Neck'})[ACCESSORIES[it.acc].slot]:it.element?(it.kind==='house'?`Room for ${HOME_OBJECTS[it.element]?.capacity||'?'}`:'Furniture'):it.desc;
+  const label=it.kind==='toy'&&o?(wallet.toy===it.toy?'On screen':'Show'):o?'Owned':`🪙 ${it.price}`;
+  return `<button type="button" class="stat-tile mk-tile ${o?'is-owned':''} ${it.kind==='toy'&&wallet.toy===it.toy?'is-on':''}" data-mk="${it.id}" ${it.kind==='food'&&!act?'disabled':''}><span class="mk-art">${art}</span><b>${escapeText(name)}</b><small>${escapeText(desc||'')}</small><em class="mk-price ${!o&&wallet.coins<it.price?'is-short':''}">${label}</em></button>`;};
+ showModal(`<div class="modal-tag">BLACK MARKET</div><h2>Spend your coins</h2>${coinBar()}<div class="mk-tabs">${MARKET_TABS.map(([k,l])=>`<button type="button" data-mktab="${k}" aria-pressed="${k===marketTab}">${l}</button>`).join('')}</div>
+  ${marketTab==='food'?`<p class="mini-muted">${act?`Given straight to <b>${escapeText(companions.info(act.id).name)}</b> (on screen).`:'Put a companion on screen to give it food.'}</p>`:marketTab==='toy'?'<p class="mini-muted">One toy sits on the craft card; your companion plays with it now and then.</p>':marketTab==='acc'?'<p class="mini-muted">Bought accessories go to the Wardrobe (Home → Wear).</p>':''}
+  <div class="stat-tiles mk-grid">${items.map(tile).join('')}</div><p class="mini-muted">Win races and Karate fights to earn coins.</p>`);
+ wireCoinBar();
+ $('modalContent').querySelectorAll('[data-mktab]').forEach(b=>b.onclick=()=>{marketTab=b.dataset.mktab;openMarket(onClose);});
+ $('modalContent').querySelectorAll('[data-mk]').forEach(b=>b.onclick=()=>{const it=MARKET.find(x=>x.id===b.dataset.mk);if(!it)return;
+  if(it.kind==='toy'&&owned(it)){wallet.toy=wallet.toy===it.toy?null:it.toy;saveWallet();companions.placeToy?.();openMarket(onClose);return;}
+  if(owned(it)){if(it.kind==='acc'&&companions.active){openWardrobe(companions.active.id);}return;}
+  if(!spendCoins(it.price)){toast(`You need ${it.price-wallet.coins} more coins`,'repeat');b.classList.add('is-shake');setTimeout(()=>b.classList.remove('is-shake'),400);return;}
+  SFX.unlock?.();
+  if(it.kind==='food'){const r=companions.marketFeed(it);if(r)toast(`${r.name}: ${r.line}`,'new');else{addCoins(it.price);toast('Put a companion on screen first','repeat');}}
+  else if(it.kind==='acc'){grantAccessory(it.acc);toast(`${ACCESSORIES[it.acc].name} added to the Wardrobe`,'new');}
+  else if(it.kind==='toy'){wallet.toys.push(it.toy);wallet.toy=it.toy;saveWallet();companions.placeToy?.();toast(`${it.name} placed on the craft card`,'new');}
+  else{grantElement(it.element);toast(`${uiName(byId.get(it.element))} added to your elements`,'new');}
+  openMarket(onClose);});
+ const prev=$('modalClose').onclick;}
+function openSchool(cid,onClose){const info=companions.info(cid);if(!info)return;const learned=new Set(companions.skillsOf(cid));const onScreen=companions.active?.id===cid;
+ showModal(`<div class="modal-tag">SCHOOL</div><div class="sc-hero"><span class="sc-ava companion" data-companion="${cid}"><span class="companion-art">${COMPANION_SPRITES_V86[cid]||''}</span></span><div><h2>${escapeText(info.name)} goes to school</h2><small>Learned tricks are shown on the main screen now and then</small></div></div>${coinBar()}
+  <div class="stat-tiles mk-grid">${LESSONS.map(l=>`<button type="button" class="stat-tile mk-tile ${learned.has(l.id)?'is-owned':''}" data-lesson="${l.id}"><span class="mk-emoji">${l.icon}</span><b>${l.name}</b><small>${escapeText(l.desc)}</small><em class="mk-price ${!learned.has(l.id)&&wallet.coins<l.price?'is-short':''}">${learned.has(l.id)?(onScreen?'▶ Show me':'Learned ✓'):`🪙 ${l.price}`}</em></button>`).join('')}</div>`);
+ try{wearAll($('modalContent'));}catch{}wireCoinBar();
+ $('modalContent').querySelectorAll('[data-lesson]').forEach(b=>b.onclick=async()=>{const l=LESSONS.find(x=>x.id===b.dataset.lesson);
+  if(learned.has(l.id)){if(onScreen){closeModal();switchTab('Play');setTimeout(()=>companions.performSkill(l.id),400);}return;}
+  if(!spendCoins(l.price)){toast(`You need ${l.price-wallet.coins} more coins`,'repeat');return;}
+  showModal(`<div class="modal-tag">SCHOOL · ${l.name.toUpperCase()}</div><div class="sc-class"><span class="sc-board">${l.icon}</span><span class="sc-ava companion is-learning" data-companion="${cid}"><span class="companion-art">${COMPANION_SPRITES_V86[cid]||''}</span></span></div><h2>Class in progress…</h2><div class="sc-bar"><i></i></div>`);
+  try{wearAll($('modalContent'));}catch{}$('modal').dataset.dismiss='x-only';SFX.section?.();
+  await new Promise(r=>setTimeout(r,2200));companions.learn(cid,l.id);SFX.levelup?.();
+  showModal(`<div class="modal-tag">SCHOOL</div><div class="modal-art"><span class="mk-emoji is-big">${l.icon}</span></div><h2>${escapeText(info.name)} learned ${l.name}!</h2><p>${escapeText(l.desc)} — watch for it on the main screen.</p><button type="button" class="modal-button" id="scBack">Back to School</button>`);
+  $('scBack').onclick=()=>openSchool(cid,onClose);});}
+function openWardrobe(cid){const info=companions.info(cid);if(!info)return;const w=companions.wearOf(cid);
+ const slotRow=['head','face','neck'].map(sl=>`<div class="wd-slot"><span>${({head:'Head',face:'Face',neck:'Neck'})[sl]}</span>${w[sl]?`<b>${accIcon(w[sl],28)}${escapeText(ACCESSORIES[w[sl]].name)}</b><button type="button" class="wd-off" data-off="${sl}">Remove</button>`:'<em>—</em>'}</div>`).join('');
+ showModal(`<div class="modal-tag">WARDROBE</div><div class="sc-hero"><span class="sc-ava companion" data-companion="${cid}"><span class="companion-art">${COMPANION_SPRITES_V86[cid]||''}</span></span><div><h2>${escapeText(info.name)}</h2><small>Tap an accessory to put it on or take it off</small></div></div><div class="wd-slots">${slotRow}</div>
+  ${wallet.acc.length?`<div class="stat-tiles mk-grid">${wallet.acc.map(a=>`<button type="button" class="stat-tile mk-tile ${Object.values(w).includes(a)?'is-on':''}" data-acc="${a}"><span class="mk-art">${accIcon(a)}</span><b>${escapeText(ACCESSORIES[a].name)}</b><small>${({head:'Head',face:'Face',neck:'Neck'})[ACCESSORIES[a].slot]}</small></button>`).join('')}</div>`:'<p class="mini-muted">No accessories yet. Win them in races, buy them in the Market or put on wearable elements (hats, scarves, glasses…).</p>'}
+  <button type="button" class="modal-button secondary" id="wdMarket">🛒 Market · Wear</button>`);
+ try{wearAll($('modalContent'));}catch{}
+ $('modalContent').querySelectorAll('[data-acc]').forEach(b=>b.onclick=()=>{companions.setWear(cid,b.dataset.acc);SFX.tap?.();openWardrobe(cid);});
+ $('modalContent').querySelectorAll('[data-off]').forEach(b=>b.onclick=()=>{companions.takeOff(cid,b.dataset.off);openWardrobe(cid);});
+ $('wdMarket').onclick=()=>openMarket(null,'acc');}
+
+const games=createGamesSystem({coins:()=>wallet.coins,addCoins,coinsFor,grantAccessory,accIcon,accessories:ACCESSORIES,openMarket:(cb)=>openMarket(cb),openSchool:(cid,cb)=>openSchool(cid,cb),themeCompletion:(cid,k)=>companions.themeCompletion(cid,k),$,escapeText,roster:COMPANIONS_V86,sprites:COMPANION_SPRITES_V86,byId,uiName,isDiscovered:companionOwned,companionInfo:id=>companions.info(id),activeId:()=>companions.state().active,
  prizes:{RACE_PRIZES,beltSvg,personal:(course,cid,name,sprite)=>personalPrize(course,cid,companions.state().pets?.[cid]?.nick||name,sprite)},starterCompanion:STARTER_COMPANION,belts:BELTS,wear:wearAll,alchemyGrowth,classicCount:classicDiscoveredCount,openCard:id=>companions.openCard(id),art:STADIUM_ART_V95,sfx:SFX,rivalLook:(seed,level)=>rivalLook(seed,level),onBelt:()=>{companions.refreshViews();companions.start();},
  onResult:(id,kind,focus,place)=>{const amt=[0,12,8,5,3,3][place]||3;const stats=kind==='karate'?['power','hp']:focus==='all'?['run','swim','fly','power']:focus==='stamina'?['stamina','run']:[focus,'stamina'];return companions.gameReward(id,stats,amt);},
  showModal,closeModal,toast,reducedMotion:()=>Boolean(window.matchMedia?.('(prefers-reduced-motion: reduce)')?.matches)});

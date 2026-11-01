@@ -157,7 +157,21 @@ export function opponentStats(course,level,seed){
  *  Meadow Dash — long open runs over gentle hills.           Boulder Wall — a staircase of walls (up to 3 steps).
  *  Long Trail — a bit of everything, long and draining.      Championship — every stat plus alchemy gates.
  */
+// V136: theme races — only for companions whose themed look is at least 85% complete.
+export const THEME_COURSES=[
+ {id:'heaven',name:'Heaven Run',focus:'fly',theme:'angel',look:'Angel',blurb:'Cloud islands high in the sky. Only angels may enter.',prize:'laurel'},
+ {id:'inferno',name:'Inferno Run',focus:'power',theme:'demon',look:'Demon',blurb:'Lava cliffs and hot rock walls. Only demons may enter.',prize:'spiky-crown'},
+ {id:'dragonpeak',name:'Dragon Peak',focus:'power',theme:'dragon',look:'Dragon',blurb:'Glide between mountain peaks. Only dragons may enter.',prize:'dragon-helm'},
+ {id:'glade',name:'Fairy Glade',focus:'fly',theme:'fairy',look:'Fairy',blurb:'Petal bridges over a glowing pond. Only fairies may enter.',prize:'flower-crown'},
+ {id:'deepsea',name:'Deep Sea Dash',focus:'swim',theme:'ocean',look:'Ocean',blurb:'Reefs and long swims. Only sea creatures may enter.',prize:'snorkel'}];
+// V136: Expert gold on a regular course also gives an accessory
+export const COURSE_ACC={pond:'snorkel',cliffs:'aviator',meadow:'cap',boulder:'headband',trail:'bandana',grand:'gold-crown',dojo:'medal'};
 export const ROUTES={
+ heaven:['fly','run','fly','fly','puzzle','fly','run','fly','fly','swim','fly','fly'],
+ inferno:['climb','run','climb','puzzle','climb','fly','climb','run','climb','climb','fly','climb'],
+ dragonpeak:['fly','climb','fly','climb','run','fly','climb','puzzle','fly','climb','fly','run'],
+ glade:['run','fly','swim','fly','puzzle','fly','swim','run','fly','fly','swim','fly'],
+ deepsea:['swim','swim','run','swim','swim','puzzle','swim','fly','swim','swim','run','swim'],
  pond:['swim','run','swim','swim','run','swim','fly','swim','swim','run','swim','swim'],
  cliffs:['climb','fly','run','climb','climb','fly','fly','run','climb','fly','swim','fly'],
  meadow:['run','run','swim','run','climb','run','run','puzzle','run','fly','run','run'],
@@ -200,7 +214,7 @@ export function createGamesSystem(ctx){
  const pick=()=>{const o=owned();if(!o.length)return null;if(!o.some(c=>c.id===state.pick))state.pick=(activeId?.()&&o.some(c=>c.id===activeId()))?activeId():o[0].id;return state.pick;};
  const best=(bag,l)=>bag?.[l]||0;
  const levelOpen=(bag,l)=>l===0||best(bag,l-1)===1;
- const courseOpen=c=>!c.locked||COURSES.filter(x=>!x.locked).every(x=>best(myRaces()[x.id],0)===1);
+ const courseOpen=c=>c.theme?(Math.round(100*(ctx.themeCompletion?.(shown(),c.theme)||0))>=85):!c.locked||COURSES.filter(x=>!x.locked).every(x=>best(myRaces()[x.id],0)===1);
  const beltOf=cid=>state.belts[cid]||null;
  const hasPrize=id=>state.prizes.includes(id);
  function medalCounts(cid=shown()){const n={gold:0,silver:0,bronze:0};const P=prog(cid);const all=[...Object.values(P.races),P.karate];for(const lv of all)for(const p of Object.values(lv||{})){const m=medalFor(p);if(m)n[m]++;}return n;}
@@ -211,7 +225,8 @@ export function createGamesSystem(ctx){
  const dress=root=>{try{wear?.(root);}catch{}};
 
  // ---------- hub (V96: one entrant card, one event list, no tabs) ----------
- const EVENTS=()=>[...COURSES.map(c=>({kind:'race',id:c.id,name:c.name,focus:c.focus,course:c})),{kind:'karate',id:'dojo',name:'Karate Dojo',focus:'karate'}];
+ const EVENTS=()=>[...COURSES.map(c=>({kind:'race',id:c.id,name:c.name,focus:c.focus,course:c})),{kind:'karate',id:'dojo',name:'Karate Dojo',focus:'karate'},...THEME_COURSES.map(c=>({kind:'race',id:c.id,name:c.name,focus:c.focus,course:c,theme:true}))];
+ const themePct=(c,cid=shown())=>Math.round(100*(ctx.themeCompletion?.(cid,c.theme)||0));
  const bagOf=e=>e.kind==='race'?(myRaces()[e.id]||{}):myKarate();
  const nextLevel=e=>{const bag=bagOf(e);for(let i=0;i<LEVELS.length;i++)if(best(bag,i)!==1)return i;return LEVELS.length-1;};
  const dots=e=>{const bag=bagOf(e);return `<span class="st-dots">${LEVELS.map((_,i)=>medalDot(best(bag,i))).join('')}</span>`;};
@@ -221,13 +236,14 @@ export function createGamesSystem(ctx){
   const info=companionInfo(pid),n=medalCounts(),belt=belts.find(b=>b.id===beltOf(pid));
   const toys=COURSES.map(c=>trophyOf(c.id)),won=toys.filter(p=>hasPrize(p.id)).length;
   const rows=EVENTS().map(e=>{const open=e.kind!=='race'||courseOpen(e.course);const lv=nextLevel(e);const done=best(bagOf(e),LEVELS.length-1)===1;
-   return `<div class="st-row ${open?'':'is-locked'}" data-ev="${e.id}"><span class="st-course-ico" data-focus="${e.focus}"></span><div class="st-row-main"><strong>${escapeText(e.name)}</strong>${dots(e)}</div>${open?`<button type="button" class="st-play" data-play="${e.id}">${done?'Replay':LEVELS[lv]}<i></i></button>`:'<span class="st-lock"></span>'}</div>`;}).join('');
-  mount.innerHTML=`<div class="pets-scroll st-scroll"><div class="section-head g-head"><h2>Stadium</h2><span class="g-tally"><i class="g-medal is-gold"></i>${n.gold}<i class="g-medal is-silver"></i>${n.silver}<i class="g-medal is-bronze"></i>${n.bronze}</span></div>
+   return `${e.theme&&e.id===THEME_COURSES[0].id?'<h3 class="st-sub">Theme races · need a full look</h3>':''}<div class="st-row ${open?'':'is-locked'} ${e.theme?'is-theme is-'+e.id:''}" data-ev="${e.id}"><span class="st-course-ico" data-focus="${e.focus}" ${e.theme?`data-theme="${e.id}"`:''}></span><div class="st-row-main"><strong>${escapeText(e.name)}</strong>${e.theme&&!open?`<small class="st-need">${escapeText(e.course.look)} look ${themePct(e.course)}% / 85%</small>`:dots(e)}</div>${open?`<button type="button" class="st-play" data-play="${e.id}">${done?'Replay':LEVELS[lv]}<i></i></button>`:'<span class="st-lock"></span>'}</div>`;}).join('');
+  mount.innerHTML=`<div class="pets-scroll st-scroll"><div class="section-head g-head"><h2>Stadium</h2><button type="button" class="g-coins" id="stCoins">🪙 ${(ctx.coins?.()||0).toLocaleString('en-US')}</button><span class="g-tally"><i class="g-medal is-gold"></i>${n.gold}<i class="g-medal is-silver"></i>${n.silver}<i class="g-medal is-bronze"></i>${n.bronze}</span></div>
    <section class="st-entrant is-simple"><button type="button" class="st-entrant-art companion" data-companion="${pid}" data-card="${pid}" aria-label="Stats"><span class="companion-art"></span>${belt?`<span class="st-entrant-belt">${prizes.beltSvg(belt,22)}</span>`:''}</button>
     <button type="button" class="st-entrant-main" data-card="${pid}"><strong>${escapeText(info.name)}</strong><small>Lv ${totalLv(info)} · ${info.mood>=70?'Happy':info.mood<=30?'Sad':'Content'}${belt?' · '+escapeText(belt.name):''}</small><em>Growth ×${ctx.alchemyGrowth?.()||1} from ${(ctx.classicCount?.()||0).toLocaleString('en-US')} Classic finds</em></button>
     <button type="button" class="st-change ${preview&&preview!==state.pick?'is-confirm':''}" id="stChange">Change</button></section>
    <div class="st-picker" id="stPicker" ${preview?'':'hidden'}>${owned().map(c=>{const ci=companionInfo(c.id);return `<button type="button" class="st-pick ${c.id===pid?'is-active':''} ${c.id===state.pick?'is-current':''}" data-gpick="${c.id}"><span class="companion" data-companion="${c.id}"><span class="companion-art"></span></span><small>${escapeText(ci.name)}</small><em>Lv ${totalLv(ci)}</em></button>`;}).join('')}</div>
    ${preview?`<p class="st-preview-hint">${preview===state.pick?'Tap a companion to see its medals.':`Showing ${escapeText(info.name)}'s medals · tap <b>Change</b> to race with ${escapeText(info.name)}`}</p>`:''}
+   <div class="st-shop"><button type="button" class="st-shop-btn" id="stMarket"><span>🛒</span><b>Market</b><small>Food, wear, toys, houses</small></button><button type="button" class="st-shop-btn" id="stSchool"><span>🏫</span><b>School</b><small>Teach new tricks</small></button></div>
    <div class="st-rows">${rows}
     <button type="button" class="st-row is-prizes" id="stPrizes"><span class="st-course-ico" data-focus="all"></span><div class="st-row-main"><strong>Prizes</strong><small>${won}/${toys.length} trophies · ${belt?escapeText(belt.name):'no belt yet'}</small></div><span class="st-chev">›</span></button></div>
    <p class="mini-muted st-tip">Your companion competes on its own. Tap CHEER for a sprint or a power strike — it costs Stamina.</p></div>`;
@@ -238,12 +254,14 @@ export function createGamesSystem(ctx){
   mount.querySelectorAll('[data-play]').forEach(b=>b.onclick=e=>{e.stopPropagation();if(preview){state.pick=preview;preview=null;save();}const ev=EVENTS().find(x=>x.id===b.dataset.play);const lv=nextLevel(ev);ev.kind==='race'?startRace(mount,ev.course,lv):startKarate(mount,lv);});
   mount.querySelectorAll('[data-ev]').forEach(r=>r.onclick=()=>eventSheet(mount,EVENTS().find(x=>x.id===r.dataset.ev)));
   $('stPrizes').onclick=()=>prizeSheet(mount);
+  $('stMarket').onclick=()=>ctx.openMarket?.(()=>render(mount));$('stSchool').onclick=()=>ctx.openSchool?.(pid,()=>render(mount));$('stCoins').onclick=()=>ctx.openMarket?.(()=>render(mount));
  }
  function eventSheet(mount,e){
   const bag=bagOf(e),open=e.kind!=='race'||courseOpen(e.course);
   const levels=LEVELS.map((l,i)=>{const ok=open&&levelOpen(bag,i);return `<button type="button" class="st-level ${ok?'':'is-locked'} ${best(bag,i)===1?'is-gold':''}" data-lv="${i}" ${ok?'':'disabled'}>${medalDot(best(bag,i))}<span>${l}</span></button>`;}).join('');
   let extra='';
-  if(e.kind==='race'){const c=e.course,prize=trophyOf(c.id),won=hasPrize(prize.id);const lvN=nextLevel(e),plan=planFor(c,lvN);extra=`<p>${escapeText(c.blurb)}</p><small class="st-foot">${LEVELS[lvN]}: ${plan.length} sections · ${['morning','noon','afternoon','sunset','night'][lvN]}</small><div class="st-strip">${plan.map(x=>`<i class="is-${x.t}" style="flex:${x.len}"></i>`).join('')}</div><div class="st-prizeline ${won?'is-won':''}"><span>${prize.art}</span><small>${won?'Trophy won: ':'Champion gold wins '}<b>${escapeText(prize.name)}</b>${won?'':' for the house'}</small></div>${open?'':'<p class="mini-muted">Win Rookie on the other five courses to open it.</p>'}`;}
+  if(e.kind==='race'&&e.course.theme){const c=e.course,lvN=nextLevel(e),plan=planFor(c,lvN),acc=ctx.accessories?.[c.prize];const pct=themePct(c);extra=`<p>${escapeText(c.blurb)}</p><div class="st-theme-need ${pct>=85?'is-ok':''}"><b>${escapeText(c.look)} look</b><span><i style="width:${Math.min(100,pct)}%"></i></span><em>${pct}% / 85%</em></div><small class="st-foot">${LEVELS[lvN]}: ${plan.length} sections · coins ×1.5</small><div class="st-strip">${plan.map(x=>`<i class="is-${x.t}" style="flex:${x.len}"></i>`).join('')}</div>${acc?`<div class="st-prizeline"><span class="st-acc-ico">${ctx.accIcon?.(c.prize)||''}</span><small>Champion gold wins <b>${escapeText(acc.name)}</b> to wear</small></div>`:''}${open?'':`<p class="mini-muted">Feed ${escapeText(c.look.toLowerCase())} elements until the look is at least 85% grown.</p>`}`;}
+  else if(e.kind==='race'){const c=e.course,prize=trophyOf(c.id),won=hasPrize(prize.id);const lvN=nextLevel(e),plan=planFor(c,lvN);extra=`<p>${escapeText(c.blurb)}</p><small class="st-foot">${LEVELS[lvN]}: ${plan.length} sections · ${['morning','noon','afternoon','sunset','night'][lvN]}</small><div class="st-strip">${plan.map(x=>`<i class="is-${x.t}" style="flex:${x.len}"></i>`).join('')}</div><div class="st-prizeline ${won?'is-won':''}"><span>${prize.art}</span><small>${won?'Trophy won: ':'Champion gold wins '}<b>${escapeText(prize.name)}</b>${won?'':' for the house'}</small></div>${open?'':'<p class="mini-muted">Win Rookie on the other five courses to open it.</p>'}`;}
   else extra=`<p>Best of three rounds. HP is health, Power hits, Swim blocks, Fly dodges, Run strikes faster, Stamina keeps the fight going.</p><div class="st-belts">${belts.map((b,i)=>`<span class="st-belt ${best(bag,i)===1?'is-won':''}">${prizes.beltSvg(b,28)}<small>${b.name.replace(' Belt','')}</small></span>`).join('')}</div>`;
   showModal(`<div class="modal-tag">${e.kind==='race'?'RACE':'KARATE'}</div><h2>${escapeText(e.name)}</h2>${extra}<div class="st-levels">${levels}</div><button type="button" class="modal-button secondary" id="stClose">Close</button>`);
   $('stClose').onclick=closeModal;
@@ -275,11 +293,11 @@ export function createGamesSystem(ctx){
   const pid=pick();if(!pid)return;const me=companionInfo(pid);
   const C=buildCourse(planFor(course,level),course.id.length*31+level);const L=C.L;
   const rivals=opponentsFor(4,pid,level);const growth=Number(ctx.alchemyGrowth?.()||1);
-  const st=stage(`${course.name} · ${LEVELS[level]}`,'race');st.dataset.level=level;const body=st.querySelector('.g-stage-body'),hud=st.querySelector('.g-hud');
+  const st=stage(`${course.name} · ${LEVELS[level]}`,'race');st.dataset.level=level;if(course.theme)st.dataset.theme=course.id;const body=st.querySelector('.g-stage-body'),hud=st.querySelector('.g-hud');
   body.innerHTML=`<div class="g-sky" style="background-image:${bg('sky')}"><i class="g-cloud" style="--d:0"></i><i class="g-cloud" style="--d:1"></i><i class="g-cloud" style="--d:2"></i></div><div class="g-mid" style="background-image:${bg('mid')}"></div><div class="g-track is-v99" style="width:${C.W}px">${courseSvg(C,art)}${courseFrontSvg(C)}</div><div class="g-fore" style="background-image:${bg('mid')}"></div><div class="g-tint"></div>`;
   body.classList.add('has-v99');const track=body.querySelector('.g-track'),hills=body.querySelector('.g-mid');
   const avg=s=>['run','swim','fly','power','stamina'].reduce((n,k)=>n+(s[k]||0),0)/5/99;
-  const racers=[{id:pid,me:true,stats:Object.fromEntries(Object.entries(me.stats).map(([k,v])=>[k,v.level])),mood:me.mood,name:me.name},...rivals.map((c,i)=>({id:c.id,stats:opponentStats(course,level,i+1+Date.now()%97),mood:60,name:companionInfo(c.id).name}))];
+  const racers=[{id:pid,me:true,stats:Object.fromEntries(Object.entries(me.stats).map(([k,v])=>[k,v.level])),mood:me.mood,belly:me.belly??60,name:me.name},...rivals.map((c,i)=>({id:c.id,stats:opponentStats(course,level,i+1+Date.now()%97),mood:35+Math.random()*50,belly:40+Math.random()*60,name:companionInfo(c.id).name}))];
   racers.forEach((r,i)=>{r.x=0;r.lane=i;r.max=energyMax(r.stats.stamina);r.energy=r.max;r.rest=0;r.boost=0;r.done=false;r.ai=2+Math.random()*2;r.fx=0;r.seg=-1;r.kind='';r.solved=new Set();r.pz=null;
    r.wits=Math.min(0.95,0.25+0.45*avg(r.stats)+(r.me?0.3*(growth-1):0.05*level));
    r.el=actor(r.id,r.me?'is-me':'');r.el.style.setProperty('--lane',i);
@@ -288,7 +306,9 @@ export function createGamesSystem(ctx){
   hud.innerHTML=`<div class="g-hud-row"><div class="g-energy"><i>Stamina</i><b><em id="gEnergy"></em></b></div><div class="g-place" id="gPlace">—</div></div><div class="g-progress"><i id="gProg"></i>${C.zones.filter(z=>z.kind!=='run').map(z=>`<b class="is-${z.kind}" style="left:${(100*z.a/L).toFixed(1)}%;width:${(100*z.len/L).toFixed(1)}%"></b>`).join('')}</div>${cheerBtn('CHEER')}`;
   const energyEl=hud.querySelector('#gEnergy'),placeEl=hud.querySelector('#gPlace'),cheer=hud.querySelector('#gCheer'),prog=hud.querySelector('#gProg');
   let raf=0,last=0,finished=[],quit=false,running=false,lastPlace=0;
-  const doCheer=()=>{const r=racers[0];if(!running||r.done||r.rest>0||r.pz)return;if(r.energy<6){r.el.classList.add('g-tired');cheer.classList.add('is-no');sfx.tired();try{navigator.vibrate?.([8,40,8]);}catch{}setTimeout(()=>{r.el.classList.remove('g-tired');cheer.classList.remove('is-no');},300);return;}
+  const doCheer=()=>{const r=racers[0];if(!running||r.done||r.rest>0||r.pz)return;
+   // V136: a cheer snaps a distracted/sad companion back into the race
+   if(r.ev){r.ev=null;r.boost=0.5;sfx.cheer();fxAt(r.el,'is-ok',26,-10,700);banner(st,'BACK IN IT!','is-pass',600);return;}if(r.energy<6){r.el.classList.add('g-tired');cheer.classList.add('is-no');sfx.tired();try{navigator.vibrate?.([8,40,8]);}catch{}setTimeout(()=>{r.el.classList.remove('g-tired');cheer.classList.remove('is-no');},300);return;}
    r.energy-=6;r.boost=0.8;if(r.gl&&r.gl.ph==='air')r.gl.reach+=0.08;sfx.cheer();try{navigator.vibrate?.(15);}catch{}cheer.classList.remove('is-pop');void cheer.offsetWidth;cheer.classList.add('is-pop');const b=document.createElement('i');b.className='g-burst';r.el.append(b);setTimeout(()=>b.remove(),500);};
   body.addEventListener('pointerdown',doCheer);cheer.addEventListener('pointerdown',e=>{e.stopPropagation();doCheer();});
   st.querySelector('.g-quit').onclick=()=>{quit=true;cancelAnimationFrame(raf);st.remove();};
@@ -322,6 +342,16 @@ export function createGamesSystem(ctx){
       if(q.pick===z.ans){r.solved.add(z.i);r.pz=null;r.x=z.a+z.len*Math.min(0.95,(stonePx(q.pick)-(14+r.lane*RC.LANE)*RC.SK-z.pa)/(z.pb-z.pa));fxAt(r.el,'is-ok',26,-10,700);if(r.me){flash(z,q.pick,true);sfx.pass();}}
       else{q.left=q.left.filter(i=>i!==q.pick);q.ph='think';q.t=Math.max(0.3,1.1-0.8*r.wits);fxAt(r.el,'is-bad',26,-10,700);if(r.me){flash(z,q.pick,false);sfx.tired();}}}}
     }else{
+     // V136: personality — a sad or hungry companion may sit down, trip (and cry) or get distracted
+     if(!r.ev&&z.kind==='run'&&!G&&r.x>z.a+2){const pr=(0.015+(r.mood<40?0.04:r.mood<60?0.012:0)+(r.belly<25?0.03:0))*dt;if(Math.random()<pr){const k=Math.random()<0.4?'look':Math.random()<0.5?'sit':'trip';r.ev={k,t:k==='trip'?0.9:1.6+Math.random()*0.8};
+       if(k==='trip'){fxAt(r.el,'is-dust',20,50,600);if(r.me){sfx.tired();banner(st,'TRIPPED! · CHEER','is-seg is-run',800);}}
+       else if(k==='sit'){fxAt(r.el,'is-zz',30,-8,1600);if(r.me){sfx.rest();banner(st,'TAKING A BREAK · CHEER','is-seg is-run',900);}}
+       else{fxAt(r.el,'is-butterfly',40,-4,1800);if(r.me){sfx.flap();banner(st,'DISTRACTED · CHEER','is-seg is-run',900);}}}}
+     if(r.ev&&!r.me&&r.ev.k!=='cry'&&Math.random()<0.4*dt)r.ev.t=0;
+     if(r.ev){r.ev.t-=dt;const k=r.ev.k;anim=k==='trip'?'tumble':k==='cry'?'refuse':k==='look'?'duo-search':'idle';cls='run is-'+k;
+      if(r.ev.t<=0){if(k==='trip'&&r.mood<45){r.ev={k:'cry',t:1.1};fxAt(r.el,'is-sweat',30,-6,1000);if(r.me)sfx.passed();}else r.ev=null;}
+      P=posAt(C,r.x,r.lane);px=P.px;
+     }else{
      if(!r.me){r.ai-=dt;if(r.ai<=0){r.ai=(4-level*0.6)+Math.random()*2.5;if(r.energy>r.max*0.4&&Math.random()<0.35+level*0.16){r.energy-=8;r.boost=0.9;}}}
      const S=statSpeed,st_=r.stats;let v=UNIT_SPEED*(z.kind==='swim'?0.8*S(st_.swim)+0.2*S(st_.run):z.kind==='wall'?0.42*S(st_.power)+0.06*S(st_.stamina):z.kind==='glide'?(0.8*S(st_.fly)+0.2*S(st_.run))*(st_.fly<15?0.75:1):S(st_.run));
      if(r.mood>=70)v*=1.05;else if(r.mood<=30)v*=0.92;
@@ -336,7 +366,7 @@ export function createGamesSystem(ctx){
      P=posAt(C,r.x,r.lane);px=P.px;
      if(r.me){r.snd=(r.snd||0)-dt;if(r.snd<=0){const k=onFloor?(z.floor==='water'?'swim':'run'):z.kind;r.snd=k==='swim'?0.55:k==='wall'?0.32:k==='glide'?0.9:0.28/(r.boost>0?1.6:1);(k==='swim'?sfx.paddle:k==='wall'?sfx.grip:k==='glide'?sfx.wind:sfx.step)();}}
      r.fx-=dt;if(r.fx<=0&&!reducedMotion()){r.fx=z.kind==='swim'?0.35:0.22;fxAt(r.el,z.kind==='swim'?'is-splash':z.kind==='glide'?'is-wind':z.kind==='wall'?'is-pebble':'is-dust',z.kind==='glide'?-6:6,z.kind==='glide'?20:50,600);}
-    }
+    }}
     if(r.x>=L){r.x=L;r.done=true;finished.push(r);P=posAt(C,L,r.lane);px=P.px+26;cls='run is-happy';anim='idle';if(r.me){if(finished.length===1){confetti(body);sfx.finish();banner(st,'WINNER!','is-go',1200);}else if(finished.length<=3){sfx.medal();banner(st,ORD(finished.length)+'!','is-pass',900);}else{sfx.lose();}}}
     // V104: smooth walking inside alchemy gates (no teleporting between the stones).
     if(z.kind==='puzzle'&&r.dpx!=null&&!r.done){const diff=px-r.dpx,max=(r.pz?120:300)*dt;if(Math.abs(diff)>1.5){r.dpx+=Math.sign(diff)*Math.min(Math.abs(diff),max);if(r.pz&&r.pz.ph!=='pick')anim='walk';r.el.dataset.face=diff<0?'left':'right';}else{r.dpx=px;r.el.dataset.face='right';}px=r.dpx;}else{const diff=px-(r.dpx??px);if(Math.abs(diff)>1.5&&!r.done&&!r.gl){r.dpx+=Math.sign(diff)*Math.min(Math.abs(diff),300*dt);px=r.dpx;}else r.dpx=px;if(r.el.dataset.face!=='right')r.el.dataset.face='right';}
@@ -361,7 +391,9 @@ export function createGamesSystem(ctx){
  function confetti(parent){if(reducedMotion())return;for(let i=0;i<26;i++){const f=document.createElement('i');f.className='g-confetti';f.style.setProperty('--i',i);f.style.left=(20+Math.random()*60)+'%';f.style.setProperty('--c',['#e0675a','#f1c26b','#5aaed2','#8dbf8a','#9b7fc4'][i%5]);parent.append(f);setTimeout(()=>f.remove(),1800);}}
  function finishRace(mount,course,level,place,racers,finished){
   const R=myRaces();const bag=R[course.id]=R[course.id]||{};const prev=bag[level]||0;const improved=!prev||place<prev;if(improved)bag[level]=place;
-  const prize=trophyOf(course.id);let newPrize=false;if(place===1&&level===LEVELS.length-1&&!hasPrize(prize.id)){state.prizes.push(prize.id);newPrize=true;}
+  const prize=course.theme?null:trophyOf(course.id);let newPrize=false;if(prize&&place===1&&level===LEVELS.length-1&&!hasPrize(prize.id)){state.prizes.push(prize.id);newPrize=true;}
+  const firstGold=place===1&&prev!==1;const coins=ctx.coinsFor?.('race',level,place,{theme:!!course.theme,firstGold})||0;if(coins)ctx.addCoins?.(coins);
+  const accId=course.theme?(place===1&&level===LEVELS.length-1?course.prize:null):(place===1&&level>=3?COURSE_ACC[course.id]:null);const newAcc=accId&&ctx.grantAccessory?.(accId)?accId:null;
   save();
   if(newPrize)setTimeout(()=>sfx.prize(),500);else if(place<=3)setTimeout(()=>sfx.medal(),300);
   const trained=onResult?.(pick(),'race',course.focus,place)||[];
@@ -371,6 +403,7 @@ export function createGamesSystem(ctx){
    <div class="g-podium">${podium.map((r,i)=>`<div class="g-pod is-${i+1}"><span class="companion" data-companion="${r.id}"${rivalAttr(r.id)}><span class="companion-art"></span></span><b>${i+1}</b></div>`).join('')}</div>
    <div class="g-result">${medalDot(place,true)}</div><h2>${place===1?'You won!':`Finished ${ORD(place)} of ${racers.length}`}</h2>${unlocked}
    ${newPrize?`<div class="g-prize"><span>${prize.art}</span><div><b>New trophy for ${escapeText(companionInfo(pick())?.name||'')}!</b><small>${escapeText(prize.name)} — place it from the Home tab.</small></div></div>`:''}
+   ${coins?`<p class="g-coinline">🪙 +${coins} coins${firstGold?' · first gold ×2':''}</p>`:''}${newAcc?`<div class="g-prize"><span class="st-acc-ico">${ctx.accIcon?.(newAcc)||''}</span><div><b>New accessory: ${escapeText(ctx.accessories?.[newAcc]?.name||'')}</b><small>Put it on from Home → Wear.</small></div></div>`:''}
    ${trained.length?`<p class="mini-muted">Trained ${trained.join(', ')}.</p>`:''}
    <button type="button" class="modal-button" id="gAgain">Race again</button><button type="button" class="modal-button secondary" id="gBack">Back to the Stadium</button>`);
   $('modalContent').querySelectorAll('.companion[data-companion] .companion-art').forEach(a=>rig(a,a.parentElement.dataset.companion));dress($('modalContent'));
@@ -434,11 +467,13 @@ export function createGamesSystem(ctx){
   let newBelt=null;if(win){const b=belts[level];const cur=belts.findIndex(x=>x.id===state.belts[A.id]);if(level>cur){state.belts[A.id]=b.id;newBelt=b;onBelt?.(A.id,b.id);}}
   save();
   if(newBelt)setTimeout(()=>sfx.prize(),500);else setTimeout(()=>win?sfx.medal():sfx.lose(),300);
+  const coins=ctx.coinsFor?.('karate',level,win?1:2,{firstGold:win&&prev!==1})||0;if(coins)ctx.addCoins?.(coins);const newAcc=win&&level>=3&&ctx.grantAccessory?.(COURSE_ACC.dojo)?COURSE_ACC.dojo:null;
   const trained=onResult?.(pick(),'karate','all',win?1:2)||[];
   const unlocked=win&&level<LEVELS.length-1&&prev!==1?`<p class="g-unlock">${LEVELS[level+1]} unlocked!</p>`:'';
   showModal(`<div class="modal-tag">KARATE DOJO · ${LEVELS[level].toUpperCase()}</div><div class="g-versus"><span class="companion ${win?'is-happy':''}" data-companion="${A.id}"><span class="companion-art"></span></span><b>${A.wins} – ${B.wins}</b><span class="companion ${win?'':'is-happy'}" data-companion="${B.id}"${rivalAttr(B.id)}><span class="companion-art"></span></span></div>
    <div class="g-result">${medalDot(win?1:0,true)}</div><h2>${win?'Victory!':'Defeated'}</h2>${unlocked}
    ${newBelt?`<div class="g-prize"><span>${prizes.beltSvg(newBelt,56)}</span><div><b>${escapeText(newBelt.name)} earned!</b><small>${escapeText(A.name)} wears it from now on.</small></div></div>`:''}
+   ${coins?`<p class="g-coinline">🪙 +${coins} coins</p>`:''}${newAcc?`<div class="g-prize"><span class="st-acc-ico">${ctx.accIcon?.(newAcc)||''}</span><div><b>New accessory: ${escapeText(ctx.accessories?.[newAcc]?.name||'')}</b><small>Put it on from Home → Wear.</small></div></div>`:''}
    ${trained.length?`<p class="mini-muted">Trained ${trained.join(', ')}.</p>`:''}
    <button type="button" class="modal-button" id="gAgain">Fight again</button><button type="button" class="modal-button secondary" id="gBack">Back to the Stadium</button>`);
   $('modalContent').querySelectorAll('.companion[data-companion] .companion-art').forEach(a=>rig(a,a.parentElement.dataset.companion));dress($('modalContent'));
