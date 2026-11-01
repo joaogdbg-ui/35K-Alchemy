@@ -90,6 +90,9 @@ Preserve 200-per-batch policy and do not start another content release on top of
 
 - **Art redraw wave 3 (V85, done): 3,991 icons** — every remaining older element. All 6,012 pre-V83 elements now use the 2026 art direction (`ART_REDRAW`), plus 200 V83 and 200 V85 originals. Six near-duplicates found by the audit were redrawn; 36 reviewed false alarms are in `tools/art-redraw-reviewed-pairs.json` (the audit now also honours them for V83 comparisons).
 
+## V134 — Looks filter in the Stat-filter tile style (1 November 2026)
+- "How should it look?" sheet: mystery banner (? · Not fed yet · count), then 3-column `.stat-tile` grids for Colour (big swatch), Traits (real trait outline/colour via new export `traitIconSvg(label)`) and Size & reset. Same filtering logic as V124.
+
 ## V133 — Stat filter (1 November 2026)
 - New "▲ Stat" tool chip (`#statChip`) next to Looks. Sheet with 6 stat tiles (icon, current level of the on-screen companion, element count) and a "Main stat only / Main + bonus" toggle; filters by the element family's FAMILY_FEEDS pair (`companions.feedStatsOf`). Families feed: games run/stamina, anime power/fly, nature swim/stamina, fantasy fly/power, people stamina/hp, mythology power/fly, prehistoric power/hp, world run/swim, home stamina/hp (default).
 

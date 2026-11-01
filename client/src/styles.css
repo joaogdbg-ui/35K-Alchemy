@@ -1561,3 +1561,13 @@ button.home-eff::after{content:" ⓘ";opacity:.6;font-weight:700}
 .stat-mode{display:flex;gap:4px;margin:12px 0 4px;padding:4px;border-radius:14px;background:var(--surface-2,#f3efe7)}
 .stat-mode button{flex:1;height:34px;border-radius:10px;font-weight:800;font-size:12px;color:var(--muted)}
 .stat-mode button[aria-pressed="true"]{background:var(--surface);color:var(--ink);box-shadow:var(--shadow)}
+
+/* V134: looks filter in tile style */
+.lk-h{font-size:12px;letter-spacing:.08em;text-transform:uppercase;color:var(--muted);margin:14px 0 -2px;text-align:left}
+.lk-tile .lk-art{height:40px;display:grid;place-items:center}
+.lk-tile.is-on,.lk-mystery.is-on{border-color:var(--accent);background:color-mix(in srgb,var(--accent) 16%,var(--surface))}
+.lk-swatch{width:30px;height:30px;border-radius:50%;border:2px solid var(--line);box-shadow:inset 0 -4px 0 rgba(0,0,0,.12)}
+.lk-big{font-size:24px;font-weight:900;color:var(--accent-ink)}
+.lk-mystery{display:grid;grid-template-columns:auto 1fr auto;align-items:center;gap:12px;width:100%;margin-top:10px;padding:10px 14px;border-radius:16px;border:1px dashed var(--line);background:var(--surface-2,#f3efe7);text-align:left}
+.lk-mystery .lk-q{width:40px;height:40px;border-radius:12px;display:grid;place-items:center;background:var(--ink);color:var(--surface);font-weight:900;font-size:22px}
+.lk-mystery b{display:block;font-size:14px}.lk-mystery small{color:var(--muted);font-size:12px}.lk-mystery em{font-style:normal;font-weight:900;font-size:18px;color:var(--accent-ink)}
