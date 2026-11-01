@@ -1349,3 +1349,20 @@ button.home-eff::after{content:" ⓘ";opacity:.6;font-weight:700}
 .mp-line b.mp-reset{background:var(--good-2);color:var(--good)}
 .mp-line b.mp-none{background:transparent;color:var(--muted);padding-left:0}
 .mp-line b small{font-weight:600;opacity:.7;font-size:10px}
+
+/* V120: signature powers of extravagant looks */
+.fx-power{position:absolute;left:72%;top:32%;width:0;height:0}
+.companion[data-face="left"] .fx-power{left:28%;transform:scaleX(-1)}
+.fx-power.is-fairy,.fx-power.is-phoenix,.fx-power.is-shadow{left:50%;top:45%;transform:none}
+.fx-power.is-holy,.fx-power.is-water{left:50%;top:10%;transform:none}
+.fx-power b{position:absolute;left:-5px;top:-5px;width:10px;height:10px;border-radius:50%;opacity:0;animation:pw-shoot 1.2s ease-out forwards;animation-delay:calc(var(--i)*55ms)}
+.is-fire b{background:radial-gradient(circle,#fff6b0 0 25%,#ffb23d 50%,#e8452c 80%,transparent 82%)}
+.is-frost b{background:radial-gradient(circle,#fff 0 30%,#bfe6fa 60%,#7cc4ea 80%,transparent 82%)}
+.is-fairy b{background:#ffe27a;border-radius:0;clip-path:polygon(50% 0,62% 38%,100% 50%,62% 62%,50% 100%,38% 62%,0 50%,38% 38%);animation-duration:1.4s}
+.is-fairy b:nth-child(2n){background:#f7a6c8}
+.is-phoenix b{background:radial-gradient(circle,#fff0b0 0 30%,#ff9a3d 60%,transparent 70%)}
+.is-shadow b{background:radial-gradient(circle,rgba(90,60,110,.85) 0 45%,rgba(60,40,80,0) 72%);width:16px;height:16px;left:-8px;top:-8px;animation-duration:1.4s}
+.is-holy b{background:linear-gradient(#fff8d0,rgba(255,226,122,0));width:6px;height:34px;border-radius:3px;left:-3px;top:-34px}
+.is-water b{background:radial-gradient(circle at 35% 35%,#e8f7ff 0 20%,#6fb5d8 55%,#3a86b4 80%,transparent 82%);border-radius:50% 50% 50% 0}
+@keyframes pw-shoot{0%{opacity:0;transform:translate(0,0) scale(.3)}15%{opacity:1}100%{opacity:0;transform:translate(var(--dx),var(--dy)) scale(var(--s))}}
+@media (prefers-reduced-motion:reduce){.fx-power{display:none}}
