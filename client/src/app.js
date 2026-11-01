@@ -498,7 +498,7 @@ function shinyCard(item){return `<p class="shiny-trivia"><span aria-hidden="true
 function showShinyFound(id){const it=byId.get(id);if(!it)return;
  showModal(`<div class="modal-tag shiny-tag">✦ SHINY ELEMENT</div><div class="modal-art is-shiny">${staticArt(it)}</div><h2>Shiny ${escapeText(uiName(it))}</h2>${shinyCard(it)}<div class="modal-milestone">${shiny.size.toLocaleString('en-US')} shiny ${shiny.size===1?'element':'elements'} · ${Math.round(shinyChance()*100)}% chance per combination</div>`);
 }
-const APP_VERSION='1.0.32';
+const APP_VERSION='1.0.33';
 // V83: status line + Google consent (UMP) privacy options, required for EEA players.
 async function refreshAdStatus(){
  const el=$('settingsAdStatus'),bridge=getRewardBridge();
@@ -1380,6 +1380,7 @@ function filtered(mode){
  else if(inventoryShow==='saved')ids=ids.filter(id=>favorites.has(id));
  else if(inventoryShow==='shiny')ids=ids.filter(id=>shiny.has(id));
  if(looksFilter)ids=ids.filter(looksMatch);
+ if(statFilter)ids=ids.filter(statMatch);
  if(q)ids=ids.filter(id=>uiName(byId.get(id)).toLowerCase().includes(q));
  if(sortChoice==='old'||sortChoice==='new'){
   syncDiscoveryOrder();const rank=new Map(discoveryOrder.map((id,i)=>[id,i]));
@@ -2323,6 +2324,19 @@ async function buyStarterPack(fid){
 // V124: Looks filter — what you already know an element does to a companion (or ??? if never fed).
 let looksFilter=null;const looksCache=new Map();
 function looksOfId(id){if(!looksCache.has(id))looksCache.set(id,companions.looksOf?.(id)||null);return looksCache.get(id);}
+// V133: Stat filter — show elements that grow a chosen stat when fed (main stat or bonus stat of their family)
+let statFilter=null;const STAT_UI={hp:['❤','HP'],stamina:['⚡','Stamina'],run:['👟','Run'],power:['💪','Power'],swim:['🌊','Swim'],fly:['🪶','Fly']};
+function statMatch(id){if(!statFilter)return true;const f=companions.feedStatsOf?.(id)||[];return statFilter.bonus?f.includes(statFilter.stat):f[0]===statFilter.stat;}
+function syncStatChip(){const c=$('statChip');if(!c)return;const sp=c.querySelector('span'),ic=c.querySelector('i');if(sp)sp.textContent=statFilter?STAT_UI[statFilter.stat][1]:'Stat';if(ic)ic.textContent=statFilter?STAT_UI[statFilter.stat][0]:'▲';c.setAttribute('aria-pressed',String(!!statFilter));}
+function openStatFilter(){const ids=allIds();const main={},any={};for(const k of Object.keys(STAT_UI)){main[k]=0;any[k]=0;}
+ for(const id of ids){const f=companions.feedStatsOf?.(id)||[];if(f[0])main[f[0]]++;for(const k of new Set(f))any[k]++;}
+ const act=companions.activeStats?.();let bonus=!!statFilter?.bonus;
+ const draw=()=>{showModal(`<div class="modal-tag">STAT FILTER</div><h2>What do you want to grow?</h2>${act?`<p class="mini-muted">Levels of <b>${escapeText(act.name)}</b> · elements of its own family grow it more</p>`:''}<div class="stat-tiles">${Object.entries(STAT_UI).map(([k,[ic,lb]])=>`<button type="button" class="stat-tile ${statFilter?.stat===k?'is-on':''}" data-stat-pick="${k}"><span class="stat-ic">${ic}</span><b>${lb}</b>${act?`<em>Lv ${act.stats[k]?.level??0}</em>`:''}<small>${(bonus?any:main)[k]} elements</small></button>`).join('')}</div>
+  <div class="stat-mode"><button type="button" data-stat-mode="main" aria-pressed="${!bonus}">Main stat only</button><button type="button" data-stat-mode="bonus" aria-pressed="${bonus}">Main + bonus</button></div>${statFilter?'<button type="button" class="modal-button secondary" id="statClear">Show all elements</button>':''}`);
+  $('modalContent').querySelectorAll('[data-stat-mode]').forEach(b=>b.onclick=()=>{bonus=b.dataset.statMode==='bonus';draw();});
+  $('modalContent').querySelectorAll('[data-stat-pick]').forEach(b=>b.onclick=()=>{statFilter={stat:b.dataset.statPick,bonus};closeModal();syncStatChip();playVirtual.refresh({resetScroll:true});});
+  const c=$('statClear');if(c)c.onclick=()=>{statFilter=null;closeModal();syncStatChip();playVirtual.refresh({resetScroll:true});};};
+ draw();}
 function looksMatch(id){if(!looksFilter)return true;const known=companions.tasted?.(id);
  if(looksFilter.kind==='unknown')return !known;if(!known)return false;const L=looksOfId(id);if(!L)return false;
  if(looksFilter.kind==='tint')return L.tint?.key===looksFilter.key;
@@ -2368,6 +2382,7 @@ function openInventoryFamilyPicker(){
 }
 $('playFamily').onclick=openInventoryFamilyPicker;
 if($('looksChip'))$('looksChip').onclick=openLooksFilter;
+if($('statChip'))$('statChip').onclick=openStatFilter;
 if($('packsBtn'))$('packsBtn').onclick=()=>starterPacks(playFamily!=='all'?playFamily:null);
 $('settingsBtn').onclick=settings;
 
