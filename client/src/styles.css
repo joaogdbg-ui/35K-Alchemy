@@ -1678,3 +1678,18 @@ button.home-eff::after{content:" ⓘ";opacity:.6;font-weight:700}
 .food-ghost{position:fixed;left:0;top:0;z-index:9999;font-size:34px;pointer-events:none;filter:drop-shadow(0 3px 3px rgba(0,0,0,.25))}
 @keyframes food-bob{0%,100%{transform:translateY(0)}50%{transform:translateY(-3px)}}
 @media (prefers-reduced-motion:reduce){.food-token{animation:none}}
+
+/* V138: confirm, daily, school levels/timer */
+.mk-art svg{width:44px;height:44px}
+.cf-art{display:grid;place-items:center;height:76px;margin:6px 0}.cf-art svg{width:68px;height:68px}
+.cf-sum{display:grid;grid-template-columns:1fr auto;gap:4px 12px;margin:10px auto;max-width:240px;padding:10px 14px;border-radius:14px;background:var(--surface-2,#f3efe7);text-align:left}
+.cf-sum span{color:var(--muted);font-size:13px}.cf-sum b{text-align:right}.cf-sum b.is-short{color:#c8303a}
+.mk-daily{display:grid;grid-template-columns:auto 1fr;grid-template-rows:auto auto;column-gap:10px;align-items:center;width:100%;margin:0 0 10px;padding:10px 12px;border-radius:16px;border:1px solid color-mix(in srgb,#5e9e5a 45%,var(--line));background:linear-gradient(150deg,color-mix(in srgb,#7cc463 18%,var(--surface)),var(--surface));text-align:left}
+.mk-daily span{grid-row:span 2;font-size:26px}.mk-daily b{font-weight:900}.mk-daily small{color:var(--muted)}
+.mk-daily.is-done{opacity:.55;filter:grayscale(.5)}
+.sc-stars{display:flex;gap:3px;margin:2px 0}.sc-stars i{width:8px;height:8px;border-radius:50%;background:var(--line)}.sc-stars i.on{background:var(--accent)}
+.sc-tile em{font-size:11px!important}
+.sc-now{display:grid;grid-template-columns:auto 1fr auto;gap:10px;align-items:center;margin:0 0 10px;padding:10px 12px;border-radius:16px;border:1px solid color-mix(in srgb,var(--accent) 45%,var(--line));background:color-mix(in srgb,var(--accent) 8%,var(--surface));text-align:left}
+.sc-now b{display:block;font-size:14px}.sc-now small{color:var(--muted)}
+.sc-bar.is-live{display:block;margin:5px 0 3px}.sc-bar.is-live i{animation:none}
+.sc-skip{padding:7px 10px;border-radius:12px;background:var(--ink);color:var(--surface);font-weight:900;font-size:12px;line-height:1.15}.sc-skip small{font-weight:600;opacity:.8}

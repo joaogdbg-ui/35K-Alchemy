@@ -40,37 +40,45 @@ export const COIN_PACKS=[{id:'coins_100',coins:100,price:'€1.00',bonus:0},{id:
 export const MARKET=[
  // food: given straight to the companion on screen
  // V137: food is placed on the main screen; drag it onto a companion
- {id:'fruit-run',kind:'food',name:'Swift fruit',icon:'🍐',price:30,stat:'run',amount:60,desc:'Run +60 XP'},
- {id:'fruit-swim',kind:'food',name:'Sea fruit',icon:'🫐',price:30,stat:'swim',amount:60,desc:'Swim +60 XP'},
- {id:'fruit-fly',kind:'food',name:'Cloud fruit',icon:'🍑',price:30,stat:'fly',amount:60,desc:'Fly +60 XP'},
- {id:'fruit-power',kind:'food',name:'Strong fruit',icon:'🍎',price:30,stat:'power',amount:60,desc:'Power +60 XP'},
- {id:'fruit-stamina',kind:'food',name:'Hearty fruit',icon:'🍊',price:30,stat:'stamina',amount:60,desc:'Stamina +60 XP'},
- {id:'fruit-hp',kind:'food',name:'Life fruit',icon:'🍓',price:30,stat:'hp',amount:60,desc:'HP +60 XP'},
- {id:'mood-cookie',kind:'food',name:'Happy cookie',icon:'🍪',price:15,mood:30,desc:'Mood +30, Belly +30'},
- {id:'soap',kind:'food',name:'Bubble soap',icon:'🧼',price:20,look:'Soap',desc:'Washes colour off'},
- {id:'mirror',kind:'food',name:'Mirror drop',icon:'🪞',price:20,look:'Mirror',desc:'Undoes size and head trait'},
- {id:'rebirth',kind:'food',name:'Rebirth egg',icon:'🥚',price:60,look:'Egg',desc:'Back to the natural look'},
+ {id:'fruit-run',kind:'food',name:'Swift fruit',icon:'🍐',price:90,stat:'run',amount:60,desc:'Run +60 XP'},
+ {id:'fruit-swim',kind:'food',name:'Sea fruit',icon:'🫐',price:90,stat:'swim',amount:60,desc:'Swim +60 XP'},
+ {id:'fruit-fly',kind:'food',name:'Cloud fruit',icon:'🍑',price:90,stat:'fly',amount:60,desc:'Fly +60 XP'},
+ {id:'fruit-power',kind:'food',name:'Strong fruit',icon:'🍎',price:90,stat:'power',amount:60,desc:'Power +60 XP'},
+ {id:'fruit-stamina',kind:'food',name:'Hearty fruit',icon:'🍊',price:90,stat:'stamina',amount:60,desc:'Stamina +60 XP'},
+ {id:'fruit-hp',kind:'food',name:'Life fruit',icon:'🍓',price:90,stat:'hp',amount:60,desc:'HP +60 XP'},
+ {id:'mood-cookie',kind:'food',name:'Happy cookie',icon:'🍪',price:45,mood:30,desc:'Mood +30, Belly +30'},
+ {id:'soap',kind:'food',name:'Bubble soap',icon:'🧼',price:70,look:'Soap',desc:'Washes colour off'},
+ {id:'mirror',kind:'food',name:'Mirror drop',icon:'🪞',price:70,look:'Mirror',desc:'Undoes size and head trait'},
+ {id:'rebirth',kind:'food',name:'Rebirth egg',icon:'🥚',price:180,look:'Egg',desc:'Back to the natural look'},
  // accessories
- ...['party-hat','cap','bow','headphones','sunglasses','star-glasses','monocle','scarf','bandana','bowtie','top-hat','wizard-hat','cape'].map((a,i)=>({id:'acc-'+a,kind:'acc',acc:a,price:[60,60,60,90,80,90,120,70,70,70,150,180,220][i]})),
+ ...['party-hat','cap','bow','headphones','sunglasses','star-glasses','monocle','scarf','bandana','bowtie','top-hat','wizard-hat','cape'].map((a,i)=>({id:'acc-'+a,kind:'acc',acc:a,price:[180,180,160,280,240,300,360,200,200,220,420,520,650][i]})),
  // toys for the main screen
- {id:'toy-ball',kind:'toy',toy:'ball',name:'Bouncy ball',icon:'⚽',price:120,desc:'Your companions kick it around now and then'},
- {id:'toy-top',kind:'toy',toy:'top',name:'Spinning top',icon:'🪀',price:120,desc:'Spins when they give it a push'},
- {id:'toy-drum',kind:'toy',toy:'drum',name:'Little drum',icon:'🥁',price:150,desc:'They drum a little beat on it'},
+ {id:'toy-ball',kind:'toy',toy:'ball',name:'Bouncy ball',icon:'⚽',price:400,desc:'Your companions kick it around now and then'},
+ {id:'toy-top',kind:'toy',toy:'top',name:'Spinning top',icon:'🪀',price:400,desc:'Spins when they give it a push'},
+ {id:'toy-drum',kind:'toy',toy:'drum',name:'Little drum',icon:'🥁',price:500,desc:'They drum a little beat on it'},
  // furniture and houses: added to your elements
- ...[['organic89:running-wheel',180],['organic89:paddling-pool',180],['organic89:punching-bag',180],['organic89:trampoline',180],['organic89:climbing-wall',220],['organic89:bookshelf',220],['organic89:food-bowl',90],['organic89:ball-pit',160]].map(([el,price])=>({id:'el-'+el,kind:'furniture',element:el,price})),
- ...[['organic89:companion-tent',200],['organic89:companion-hut',450],['organic89:companion-cabin',800],['organic89:companion-cottage',1200],['organic89:companion-villa',1800],['organic89:companion-castle',2800]].map(([el,price])=>({id:'el-'+el,kind:'house',element:el,price}))
+ ...[['organic89:running-wheel',650],['organic89:paddling-pool',650],['organic89:punching-bag',650],['organic89:trampoline',650],['organic89:climbing-wall',800],['organic89:bookshelf',800],['organic89:food-bowl',350],['organic89:ball-pit',600]].map(([el,price])=>({id:'el-'+el,kind:'furniture',element:el,price})),
+ ...[['organic89:companion-tent',900],['organic89:companion-hut',1800],['organic89:companion-cabin',3200],['organic89:companion-cottage',5000],['organic89:companion-villa',7500],['organic89:companion-castle',11000]].map(([el,price])=>({id:'el-'+el,kind:'house',element:el,price}))
 ];
 export const MARKET_TABS=[['food','Food'],['acc','Wear'],['toy','Toys'],['furniture','Furniture'],['house','Houses']];
+/** V138: each extra copy of the same accessory costs more. */
+export const accPrice=(base,owned)=>Math.round(base*Math.pow(1.6,owned||0)/10)*10;
+export const DAILY_COINS=100;
 /** Coins for a race/karate result. */
 export function coinsFor(kind,level,place,{theme=false,firstGold=false}={}){
  let c=kind==='karate'?(place===1?25+12*level:5+level):place===1?20+10*level:place===2?12+6*level:place===3?8+4*level:3+level;
  if(theme)c=Math.round(c*1.5);if(firstGold)c*=2;return c;}
 // ---------- school ----------
+export const LESSON_LEVELS=['Novice','Apprentice','Skilled','Expert','Master'];
+export const LESSON_MINUTES=[5,30,120,360,720];
+const LESSON_MULT=[1,2.5,5,9,15];
+export const lessonPrice=(l,level)=>Math.round(l.price*LESSON_MULT[level]/10)*10;
+export const SCHOOL_AD_CUT_MIN=30;
 export const LESSONS=[
- {id:'sing',name:'Singing',icon:'🎤',price:80,desc:'Sings a little tune with floating notes'},
- {id:'dance',name:'Dancing',icon:'💃',price:80,desc:'Busts a happy dance'},
- {id:'draw',name:'Drawing',icon:'🎨',price:100,desc:'Paints a tiny picture on an easel'},
- {id:'drums',name:'Drums',icon:'🥁',price:100,desc:'Plays a drum roll'},
- {id:'juggle',name:'Juggling',icon:'🤹',price:120,desc:'Juggles three of your elements'},
- {id:'magic',name:'Magic trick',icon:'🎩',price:150,desc:'Pulls an element out of a hat'}
+ {id:'sing',name:'Singing',icon:'🎤',price:60,desc:'Sings a little tune with floating notes'},
+ {id:'dance',name:'Dancing',icon:'💃',price:60,desc:'Busts a happy dance'},
+ {id:'draw',name:'Drawing',icon:'🎨',price:80,desc:'Paints a tiny picture on an easel'},
+ {id:'drums',name:'Drums',icon:'🥁',price:80,desc:'Plays a drum roll'},
+ {id:'juggle',name:'Juggling',icon:'🤹',price:100,desc:'Juggles your elements'},
+ {id:'magic',name:'Magic trick',icon:'🎩',price:120,desc:'Pulls elements out of a hat'}
 ];
