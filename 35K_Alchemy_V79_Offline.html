@@ -2048,6 +2048,10 @@ button.home-eff::after{content:" ⓘ";opacity:.6;font-weight:700}
 .ar-col i:last-child{bottom:-6px;border-radius:10px 10px 0 0;box-shadow:inset 0 9px 0 #7FAF5C,inset 0 12px 0 #4d7a3c}
 .ar-fall.is-pick{width:38px;height:38px;animation:arShine 1s ease-in-out infinite}@keyframes arShine{50%{filter:drop-shadow(0 0 8px #fff5d6) brightness(1.15)}}
 @media (prefers-reduced-motion:reduce){.ar-stage *{animation-duration:.01s!important;animation-iteration-count:1!important}}
+.ar-cv{position:absolute;left:0;top:0;display:block;z-index:0!important}
+.ar-glider.companion{contain:layout paint}.ar-glider [data-part]{animation-duration:.6s}
+/* V162: while a minigame is open the app underneath stops painting and animating */
+body.ar-playing>*:not(.ar-stage){display:none!important}
 
 </style>
 </head>
@@ -3356,16 +3360,16 @@ function createArcade(ctx){
   recipe:`<div class="ar-lab">${LAB}</div>`,
   catch:'<i class="ar-sky"></i>'+'<i class="g-cloud" style="--d:0"></i><i class="g-cloud" style="--d:1"></i><i class="g-cloud" style="--d:2"></i>'+'<i class="ar-mid"></i><i class="ar-grass"></i>',
   fish:'<i class="ar-sky"></i><i class="g-cloud" style="--d:0"></i><i class="g-cloud" style="--d:2"></i><i class="ar-mid"></i><i class="ar-water"><b></b></i>',
-  glide:'<i class="ar-sky"></i><i class="g-cloud" style="--d:0"></i><i class="g-cloud" style="--d:1"></i><i class="g-cloud" style="--d:2"></i><i class="ar-mid"></i><i class="ar-grass"></i>',
+  glide:'',
  };
  // ---------- shared stage (V159: scenery, countdown, pops, bursts, animated companion) ----------
  function companionEl(cls=''){const id=ctx.activeId?.();const el=document.createElement('span');el.className='companion ar-cmp '+cls;el.dataset.anim='idle';el.dataset.face='right';if(id)el.dataset.companion=id;
   const a=document.createElement('span');a.className='companion-art';a.innerHTML=ctx.sprite?.(id)||'';for(const g of a.querySelectorAll('[data-part]')){const p=(g.dataset.pivot||'50 50').split(/\s+/).map(Number);g.style.transformOrigin=`${p[0]}px ${p[1]}px`;g.style.transformBox='view-box';}
   const sv=a.querySelector('svg');if(sv){sv.setAttribute('width','100%');sv.setAttribute('height','100%');}el.append(a);const sh=document.createElement('i');sh.className='ar-shadow';el.append(sh);return el;}
- function stage(title,scene){const s=document.createElement('div');s.className='ar-stage is-'+scene;for(const k of ['sky','mid','run','swim','climb','dojo'])s.style.setProperty('--'+k,svgUrl(k));s.innerHTML=`<div class="g-stage-top ar-top"><strong>${escapeText(title)}</strong><span class="ar-combo" hidden></span><span class="ar-score">0</span><span class="ar-time"></span><button type="button" class="g-quit" aria-label="Quit">✕</button></div><div class="ar-body"><div class="ar-scene">${SCENE[scene]||''}</div></div><div class="ar-hint"></div>`;document.body.append(s);
+ function stage(title,scene){const s=document.createElement('div');s.className='ar-stage is-'+scene;for(const k of ['sky','mid','run','swim','climb','dojo'])s.style.setProperty('--'+k,svgUrl(k));s.innerHTML=`<div class="g-stage-top ar-top"><strong>${escapeText(title)}</strong><span class="ar-combo" hidden></span><span class="ar-score">0</span><span class="ar-time"></span><button type="button" class="g-quit" aria-label="Quit">✕</button></div><div class="ar-body"><div class="ar-scene">${SCENE[scene]||''}</div></div><div class="ar-hint"></div>`;document.body.append(s);ctx.pauseWorld?.();
   const sc=s.querySelector('.ar-score');
   const o={el:s,body:s.querySelector('.ar-body'),score:0,over:false,timers:[],combo:0,
-   set(v){const n=Math.max(0,Math.round(v));if(n!==o.score){o.score=n;sc.textContent=n;sc.classList.remove('is-bump');void sc.offsetWidth;sc.classList.add('is-bump');}},add(v){o.set(o.score+v);},
+   set(v,bump=false){const n=Math.max(0,Math.round(v));if(n!==o.score){o.score=n;sc.textContent=n;if(bump)sc.animate?.([{transform:'scale(1.3)'},{transform:'none'}],{duration:280,easing:'ease-out'});}},add(v){o.set(o.score+v,true);},
    time(t){const e=s.querySelector('.ar-time');e.textContent=t>=0?`⏱ ${Math.ceil(t)}`:'';e.classList.toggle('is-low',t>=0&&t<=5);},hint(t){s.querySelector('.ar-hint').textContent=t||'';},
    later(fn,ms){const t=setTimeout(()=>{if(!o.over)fn();},ms);o.timers.push(t);return t;},
    streak(ok){o.combo=ok?o.combo+1:0;const c=s.querySelector('.ar-combo');c.hidden=o.combo<2;if(o.combo>=2){c.textContent=`x${o.combo}`;c.classList.remove('is-bump');void c.offsetWidth;c.classList.add('is-bump');}return o.combo;},
@@ -3375,8 +3379,8 @@ function createArcade(ctx){
    rect(el){const r=el.getBoundingClientRect(),b=o.body.getBoundingClientRect();return {x:r.left-b.left+r.width/2,y:r.top-b.top+r.height/2,w:r.width,h:r.height};},
    end:null};
   s.querySelector('.g-quit').onclick=()=>o.finish(true);
-  o.finish=(quit=false)=>{if(o.over)return;o.over=true;o.timers.forEach(clearTimeout);cancelAnimationFrame(o.raf);o.end?.();if(quit){s.remove();return;}
-   const t=document.createElement('div');t.className='g-banner is-in ar-end';t.textContent=o.endText||'Time!';s.append(t);sfx.prize();setTimeout(()=>{s.remove();result(o.id,o.score,o.statKey);},1100);};
+  o.finish=(quit=false)=>{if(o.over)return;o.over=true;o.timers.forEach(clearTimeout);cancelAnimationFrame(o.raf);o.end?.();if(quit){s.remove();ctx.resumeWorld?.();return;}
+   const t=document.createElement('div');t.className='g-banner is-in ar-end';t.textContent=o.endText||'Time!';s.append(t);sfx.prize();setTimeout(()=>{s.remove();ctx.resumeWorld?.();result(o.id,o.score,o.statKey);},1100);};
   o.countdown=(go)=>{const c=document.createElement('div');c.className='g-banner is-count';s.append(c);const seq=['3','2','1','GO!'];let i=0;const tick=()=>{if(o.over){c.remove();return;}c.textContent=seq[i];c.className='g-banner '+(i===3?'is-go':'is-count');void c.offsetWidth;c.classList.add('is-in');i===3?sfx.go():sfx.tick();i++;if(i<seq.length)setTimeout(tick,650);else setTimeout(()=>{c.remove();if(!o.over)go();},500);};tick();};
   return o;}
  function result(id,score,statKey){const g=ARCADE_GAMES.find(x=>x.id===id);const prev=st.best[id]||0;const rec=score>prev;if(rec){st.best[id]=score;save();}
@@ -3464,44 +3468,62 @@ function createArcade(ctx){
     c.animate([{transform:'translate(-50%,-50%) scale(.6)'},{transform:`translate(calc(-50% + ${(b.x-r.x)/2}px),calc(-50% + ${-140}px)) scale(1.8) rotate(-30deg)`},{transform:`translate(calc(-50% + ${b.x-r.x}px),calc(-50% + ${b.y-r.y}px)) scale(.8)`}],{duration:800,easing:'ease-in-out'}).onfinish=()=>{c.remove();if(f[1]>5){caught++;bucket.textContent=caught;}o.add(pts);o.pop(b.x,b.y-40,`+${pts}`);};
     bob.className='ar-bob';pond.classList.remove('is-cast');btn.textContent='CAST';say(f[1]>5?`${f[2]}!`:'An old boot…');sfx.unlock?.();}};
   o.countdown(()=>timer(o,45,()=>o.finish()));}
- // ---------- 6. Sky Glide (V161: Flappy-style tight controls) ----------
- // Fixed 120 Hz physics, a tap SETS the upward speed (never adds), constant gravity, capped fall speed,
- // nose follows the speed, and a small round hitbox tested against the pillar rectangles.
- function glide(){const o=stage('Sky Glide','glide');o.id='glide';o.statKey='fly';const f=stat('fly');const ids=pick(ctx.unlocked(),8);
+ // ---------- 6. Sky Glide (V162: drawn on one <canvas>) ----------
+ // Phones choked on repainting big SVG backgrounds every frame. Now every picture is rasterised ONCE
+ // before "Tap to start" (no first-tap stutter), and each frame is a few cheap drawImage calls.
+ // Physics as V161: fixed 120 Hz, tap sets the upward speed, constant gravity, capped fall, round hitbox.
+ const loadImg=svg=>new Promise(res=>{if(!svg)return res(null);let t=String(svg);if(!/xmlns=/.test(t))t=t.replace('<svg','<svg xmlns="http://www.w3.org/2000/svg"');const im=new Image();im.onload=()=>res(im);im.onerror=()=>res(null);im.src='data:image/svg+xml;charset=utf-8,'+encodeURIComponent(t);});
+ function glide(){const o=stage('Sky Glide','glide');o.id='glide';o.statKey='fly';const f=stat('fly');const ids=pick(ctx.unlocked(),6);
   const G=1900-f*4,FLAP=560+f*0.8,MAXV=820,R=17,SZ=56,PX=72,COLW=56,STEP=1/120;
-  const me=companionEl('ar-glider');me.dataset.anim='fly';o.body.append(me);ctx.wear?.(o.body);const box=o.body;
-  let W=box.clientWidth,H=box.clientHeight,GY=H*0.78;const ro=new ResizeObserver(()=>{W=box.clientWidth;H=box.clientHeight;GY=H*0.78;});ro.observe(box);o.end=()=>ro.disconnect();
-  let y=H*0.4,py=y,v=0,rot=0,dist=0,obs=[],gap=0,started=false,dead=false,acc=0,passed=0,trailT=0;o.bonus=0;
-  const flap=e=>{e?.preventDefault?.();if(o.over||dead)return;if(!started){started=true;o.hint('');}v=-FLAP;me.classList.remove('is-flap');void me.offsetWidth;me.classList.add('is-flap');sfx.tap?.();};
+  const box=o.body;const cv=document.createElement('canvas');cv.className='ar-cv';box.append(cv);const g=cv.getContext('2d',{alpha:false});
+  const me=companionEl('ar-glider');me.dataset.anim='fly';box.append(me);ctx.wear?.(box);const flapArt=me.querySelector('.companion-art');
+  const dpr=Math.min(1.5,window.devicePixelRatio||1);let W=0,H=0,GY=0;
+  const size=()=>{W=box.clientWidth;H=box.clientHeight;GY=Math.round(H*0.78);cv.width=Math.round(W*dpr);cv.height=Math.round(H*dpr);cv.style.width=W+'px';cv.style.height=H+'px';g.setTransform(dpr,0,0,dpr,0,0);g.imageSmoothingEnabled=true;};
+  const rast=(im,w,h)=>{const c=document.createElement('canvas');c.width=Math.max(1,Math.round(w*dpr));c.height=Math.max(1,Math.round(h*dpr));if(im)c.getContext('2d').drawImage(im,0,0,c.width,c.height);return c;};
+  let A=null;// rasterised assets
+  const build=async()=>{const [sky,mid,run,climb,...el]=await Promise.all([loadImg(ctx.art?.sky),loadImg(ctx.art?.mid),loadImg(ctx.art?.run),loadImg(ctx.art?.climb),...ids.map(id=>loadImg(art(id)))]);
+   const sh=GY+10,sw=sh*400/300;const rock=rast(climb,120,180);
+   A={sky:rast(sky,sw,sh),sw,sh,mid:rast(mid,240,96),run:rast(run,200,300),rockPat:g.createPattern(rock,'repeat'),el:el.filter(Boolean).map(im=>rast(im,38,38))};
+   if(A.rockPat?.setTransform)A.rockPat.setTransform(new DOMMatrix().scale(1/dpr));};
+  let y=0,py=0,v=0,rot=0,dist=0,obs=[],gap=0,started=false,ready=false,dead=false,acc=0,trailT=0,shown=-1,lastSet=0;const trail=[];o.bonus=0;
+  const flap=e=>{e?.preventDefault?.();if(o.over||dead||!ready)return;if(!started){started=true;o.hint('');last=performance.now();acc=0;}v=-FLAP;flapArt?.animate?.([{transform:'scale(1,1)'},{transform:'scale(1.15,.85)'},{transform:'scale(1,1)'}],{duration:200,easing:'ease-out'});sfx.tap?.();};
   box.addEventListener('pointerdown',flap);
   const hit=(cx,cy,rx,ry,rw,rh)=>{const nx=Math.max(rx,Math.min(cx,rx+rw)),ny=Math.max(ry,Math.min(cy,ry+rh));return (cx-nx)**2+(cy-ny)**2<R*R;};
-  const spawn=()=>{const hole=Math.max(150,185-dist/250)+Math.min(45,f*0.45);const top=60+Math.random()*Math.max(10,GY-hole-120);
-   const el=document.createElement('div');el.className='ar-col';el.innerHTML=`<i style="height:${top+6}px"></i><i style="top:${top+hole}px"></i>`;box.append(el);
-   const pk=document.createElement('span');pk.className='ar-fall is-pick';pk.innerHTML=art(ids[Math.floor(Math.random()*ids.length)]);box.append(pk);obs.push({el,pk,x:W+20,top,hole,scored:false});};
-  const die=()=>{dead=true;sfx.miss?.();o.shake();o.burst(PX+SZ/2,y+SZ/2,'smoke',12);me.dataset.anim='shake';o.endText='Bonk!';setTimeout(()=>o.finish(),350);};
+  const spawn=()=>{const hole=Math.max(150,185-dist/250)+Math.min(45,f*0.45);const top=60+Math.random()*Math.max(10,GY-hole-120);obs.push({x:W+20,top,hole,pk:A.el.length?A.el[Math.floor(Math.random()*A.el.length)]:null,scored:false});};
+  const die=()=>{dead=true;sfx.miss?.();o.shake();o.burst(PX+SZ/2,y+SZ/2,'smoke',12);me.dataset.anim='shake';o.endText='Bonk!';o.set(dist/10+o.bonus);setTimeout(()=>o.finish(),350);};
   const physics=dt=>{py=y;v=Math.min(MAXV,v+G*dt);y+=v*dt;if(y<-SZ*0.3){y=-SZ*0.3;v=0;}
-   const speed=Math.min(240,165+dist*0.004);dist+=speed*dt;
-   gap-=speed*dt;if(gap<=0){gap=235;spawn();}
+   const speed=Math.min(240,165+dist*0.004);dist+=speed*dt;gap-=speed*dt;if(gap<=0){gap=235;spawn();}
    const cx=PX+SZ/2,cy=y+SZ/2;if(cy+R>=GY){y=GY-R-SZ/2;return die();}
    for(const ob of obs){ob.x-=speed*dt;
     if(ob.x<cx+R&&ob.x+COLW>cx-R&&(hit(cx,cy,ob.x,-50,COLW,ob.top+50)||hit(cx,cy,ob.x,ob.top+ob.hole,COLW,H)))return die();
-    if(ob.pk&&Math.abs(ob.x+COLW/2-cx)<R+16&&Math.abs(ob.top+ob.hole/2-cy)<R+16){const p={x:ob.x+COLW/2,y:ob.top+ob.hole/2};ob.pk.remove();ob.pk=null;o.bonus+=25;o.pop(p.x,p.y-20,'+25');o.burst(p.x,p.y,'star',8);sfx.unlock?.();}
-    if(!ob.scored&&ob.x+COLW<cx-R){ob.scored=true;passed++;o.bonus+=10;}
-    if(ob.x<-80){ob.el.remove();ob.pk?.remove();ob.gone=true;}}
-   obs=obs.filter(b=>!b.gone);};
+    if(ob.pk&&Math.abs(ob.x+COLW/2-cx)<R+16&&Math.abs(ob.top+ob.hole/2-cy)<R+16){const px=ob.x+COLW/2,pyy=ob.top+ob.hole/2;ob.pk=null;o.bonus+=25;o.pop(px,pyy-20,'+25');o.burst(px,pyy,'star',8);sfx.unlock?.();}
+    if(!ob.scored&&ob.x+COLW<cx-R){ob.scored=true;o.bonus+=10;}}
+   obs=obs.filter(b=>b.x>-80);};
+  const tile=(img,w,h,y0,off)=>{if(!img)return;let x=-(off%w);if(x>0)x-=w;for(;x<W;x+=w)g.drawImage(img,x,y0,w,h);};
+  const pillar=(x,y0,h,capTop)=>{g.save();g.translate(x,0);g.fillStyle=A.rockPat||'#b98a5e';g.fillRect(0,y0,COLW,h);g.restore();
+   g.fillStyle='#7FAF5C';const cy=capTop?y0:y0+h-10;g.fillRect(x,cy,COLW,10);g.fillStyle='#4d7a3c';g.fillRect(x,capTop?y0+10:cy-3,COLW,3);
+   g.lineWidth=2.5;g.strokeStyle='#6b4f36';g.strokeRect(x+1.25,y0,COLW-2.5,h);};
+  const draw=(t,ry)=>{g.fillStyle='#bfe2f0';g.fillRect(0,0,W,H);
+   tile(A.sky,A.sw,A.sh,0,dist*0.15);tile(A.mid,240,96,GY-70,dist*0.45);
+   g.fillStyle='#93C46C';g.fillRect(0,GY,W,H-GY);tile(A.run,200,300,GY,dist);g.fillStyle='#7FAF5C';g.fillRect(0,GY,W,6);
+   for(const ob of obs){pillar(ob.x,-6,ob.top+6,false);pillar(ob.x,ob.top+ob.hole,GY-ob.top-ob.hole+3,true);
+    if(ob.pk){const s=38*(1+0.08*Math.sin(t/160));g.drawImage(ob.pk,ob.x+COLW/2-s/2,ob.top+ob.hole/2-s/2,s,s);}}
+   for(const p of trail){const a=1-p.age/0.6;if(a<=0)continue;g.globalAlpha=a;g.fillStyle='#fff';g.fillRect(p.x-p.age*130,p.y,12,3);}g.globalAlpha=1;};
   let last=performance.now();
   const loop=t=>{if(o.over)return;const dt=Math.min(0.1,(t-last)/1000);last=t;
-   if(!started){y=H*0.4+Math.sin(t/260)*7;me.style.transform=`translate3d(${PX}px,${y}px,0)`;o.raf=requestAnimationFrame(loop);return;}
+   if(!started){y=H*0.4+Math.sin(t/260)*7;py=y;draw(t,y);me.style.transform=`translate3d(${PX}px,${y.toFixed(1)}px,0)`;o.raf=requestAnimationFrame(loop);return;}
    if(!dead){acc+=dt;while(acc>=STEP&&!dead){physics(STEP);acc-=STEP;}}
-   const a=dead?1:acc/STEP,ry=py+(y-py)*a;
-   // Flappy feel: nose up right after a tap, dives once falling fast
+   const ry=dead?y:py+(y-py)*(acc/STEP);
    const want=v<0?-22:Math.min(70,-22+(v/MAXV)*110);rot+=(want-rot)*Math.min(1,dt*(v<0?20:7));
-   me.style.transform=`translate3d(${PX}px,${ry.toFixed(1)}px,0) rotate(${rot.toFixed(1)}deg)`;
-   for(const ob of obs){ob.el.style.transform=`translate3d(${ob.x.toFixed(1)}px,0,0)`;if(ob.pk)ob.pk.style.transform=`translate3d(${(ob.x+COLW/2-19).toFixed(1)}px,${(ob.top+ob.hole/2-19).toFixed(1)}px,0)`;}
-   o.set(dist/10+o.bonus);o.el.style.setProperty('--px',(-dist*0.15%4000).toFixed(1)+'px');o.el.style.setProperty('--px2',(-dist*0.5%4000).toFixed(1)+'px');
-   trailT-=dt;if(!dead&&trailT<=0){trailT=0.06;const s=document.createElement('i');s.className='ar-trail';s.style.transform=`translate3d(${PX+6}px,${ry+SZ/2}px,0)`;box.append(s);setTimeout(()=>s.remove(),600);}
+   trailT-=dt;if(!dead&&trailT<=0){trailT=0.05;trail.push({x:PX+4,y:ry+SZ/2,age:0});}for(const p of trail)p.age+=dt;while(trail.length&&trail[0].age>0.6)trail.shift();
+   draw(t,ry);me.style.transform=`translate3d(${PX}px,${ry.toFixed(1)}px,0) rotate(${rot.toFixed(1)}deg)`;
+   // score text at most ~8 times a second (text layout is not free)
+   if(t-lastSet>120){lastSet=t;o.set(dist/10+o.bonus);}
    o.raf=requestAnimationFrame(loop);};
-  o.time(-1);o.hint('Tap to start · each tap is one flap');o.raf=requestAnimationFrame(loop);}
+  o.time(-1);o.hint('Loading…');
+  requestAnimationFrame(async()=>{size();y=H*0.4;py=y;try{await build();}catch{A={el:[]};}if(o.over)return;
+   const ro=new ResizeObserver(()=>{const ow=W,oh=H;size();if(oh&&Math.abs(H-oh)>40)build();});ro.observe(box);o.end=()=>ro.disconnect();
+   ready=true;o.hint('Tap to start · each tap is one flap');last=performance.now();o.raf=requestAnimationFrame(loop);});}
  const GAMES={memory,duel,recipe,catch:catcher,fish,glide};
  return {open,sync,state:()=>st,games:ARCADE_GAMES};
 }
@@ -6703,7 +6725,7 @@ function shinyCard(item){return `<p class="shiny-trivia"><span aria-hidden="true
 function showShinyFound(id){const it=byId.get(id);if(!it)return;
  showModal(`<div class="modal-tag shiny-tag">✦ SHINY ELEMENT</div><div class="modal-art is-shiny">${staticArt(it)}</div><h2>Shiny ${escapeText(uiName(it))}</h2>${shinyCard(it)}<div class="modal-milestone">${shiny.size.toLocaleString('en-US')} shiny ${shiny.size===1?'element':'elements'} · ${Math.round(shinyChance()*100)}% chance per combination</div>`);
 }
-const APP_VERSION='1.0.61';
+const APP_VERSION='1.0.62';
 // V83: status line + Google consent (UMP) privacy options, required for EEA players.
 async function refreshAdStatus(){
  const el=$('settingsAdStatus'),bridge=getRewardBridge();
@@ -8115,7 +8137,7 @@ function openWardrobe(cid){const info=companions.info(cid);if(!info)return;const
 
 
 // V158: Arcade minigames (one per 250 new elements)
-const arcade=createArcade({$,escapeText,art:STADIUM_ART_V95,showModal,closeModal,toast,staticArt,sfx:SFX,item:id=>byId.get(id),itemName:id=>uiName(byId.get(id)),
+const arcade=createArcade({$,escapeText,art:STADIUM_ART_V95,pauseWorld:()=>{document.body.classList.add('ar-playing');try{companions.stop();}catch{}},resumeWorld:()=>{document.body.classList.remove('ar-playing');try{companions.start();}catch{}},showModal,closeModal,toast,staticArt,sfx:SFX,item:id=>byId.get(id),itemName:id=>uiName(byId.get(id)),
  unlocked:()=>[...unlocked].filter(id=>byId.has(id)&&!STARTERS.has(id)),
  knownRecipes:()=>{const out=[];for(const [k,r] of recipes){if(!unlocked.has(r)||STARTERS.has(r))continue;const [a,b]=k.split('|');if(unlocked.has(a)&&unlocked.has(b)&&a!==r&&b!==r)out.push([a,b,r]);if(out.length>600)break;}return out;},
  count:()=>classicDiscoveredCount(),activeId:()=>companions.active?.id||null,sprite:id=>COMPANION_SPRITES_V86[id]||'',wear:root=>{try{wearAll(root);}catch{}},

@@ -2039,3 +2039,7 @@ button.home-eff::after{content:" ⓘ";opacity:.6;font-weight:700}
 .ar-col i:last-child{bottom:-6px;border-radius:10px 10px 0 0;box-shadow:inset 0 9px 0 #7FAF5C,inset 0 12px 0 #4d7a3c}
 .ar-fall.is-pick{width:38px;height:38px;animation:arShine 1s ease-in-out infinite}@keyframes arShine{50%{filter:drop-shadow(0 0 8px #fff5d6) brightness(1.15)}}
 @media (prefers-reduced-motion:reduce){.ar-stage *{animation-duration:.01s!important;animation-iteration-count:1!important}}
+.ar-cv{position:absolute;left:0;top:0;display:block;z-index:0!important}
+.ar-glider.companion{contain:layout paint}.ar-glider [data-part]{animation-duration:.6s}
+/* V162: while a minigame is open the app underneath stops painting and animating */
+body.ar-playing>*:not(.ar-stage){display:none!important}
