@@ -90,6 +90,12 @@ Preserve 200-per-batch policy and do not start another content release on top of
 
 - **Art redraw wave 3 (V85, done): 3,991 icons** — every remaining older element. All 6,012 pre-V83 elements now use the 2026 art direction (`ART_REDRAW`), plus 200 V83 and 200 V85 originals. Six near-duplicates found by the audit were redrawn; 36 reviewed false alarms are in `tools/art-redraw-reviewed-pairs.json` (the audit now also honours them for V83 comparisons).
 
+## V163 — Minigame ad pass + 4 new minigames (10/16)
+- Opening the minigames hub needs one rewarded ad (kind 'arcade_pass'); then 30 min free entry (st.passUntil, ARCADE_PASS_MS, arcadePassLeft). arcadeProgress now keeps passUntil. ctx.showAd in app.js returns true when no native ad bridge (browser/dev).
+- New games (arcade-v158.js): Deep Dive (canvas; Swim stat; air bar, urchins, depth-scaled treasure), Rock Climb (canvas; Power climbs faster, Stamina shortens stun; 3 lanes, warned falling rocks, gems), Drum Beat (DOM; Drums widen timing, Singing boosts combo; generated chart with rising tempo), Copy the Painting (Drawing: longer look + peeks; 3x3→5x5 rounds).
+- canvasKit(o) helper shared by canvas games; STAGE_ART scene for Drum Beat.
+- Remaining planned: Expedition, Challenge Cups, Pinball, Cooking, Treasure dig, Bingo.
+
 ## V162 — Sky Glide performance
 - Owner: stutter on first tap and bad frame rate. Causes: big SVG backgrounds repainted every frame (background-position parallax + CSS var on the stage each frame), the whole app (roaming companions, CSS animations) still rendering underneath, forced layouts (offsetWidth) on every score change.
 - Sky Glide now draws on one <canvas>: sky/mid/grass/rock and pickup art are rasterised once before "Tap to start" (no first-tap stutter); per frame only drawImage/fillRect. Canvas DPR capped at 1.5. Score text updated ~8×/s. Flap squash via WAAPI.
