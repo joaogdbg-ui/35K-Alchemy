@@ -26,3 +26,12 @@ test('V164: ten minigames and a 24-hour ad pass per minigame', async () => {
   assert.equal(m.fmtPass(90 * 60000), '1h 30m');
   const kept = m.arcadeProgress({ base: 0, unlocked: [], passes: { dive: 5 } }, 0, undefined, () => 0); assert.deepEqual(kept.state.passes, { dive: 5 });
 });
+test('V169: microgame packs and speed-up curve', async () => {
+  const m = await import('../src/arcade-v158.js');
+  assert.deepEqual(m.MICRO_PACKS.map(p => p.pack), ['tap', 'rub', 'cut']);
+  assert.equal(m.MICRO_LIVES, 4);
+  assert.equal(m.microTime(4, 0), 4);
+  assert.equal(m.microTime(4, 4), 4, 'same speed until 5 wins');
+  assert.ok(Math.abs(m.microTime(4, 5) - 3.52) < 1e-9, 'faster after 5 wins');
+  assert.equal(m.microTime(4, 500), 4 * 0.45, 'never below 45%');
+});
