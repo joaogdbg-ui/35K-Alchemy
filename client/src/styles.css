@@ -2043,3 +2043,33 @@ button.home-eff::after{content:" ⓘ";opacity:.6;font-weight:700}
 .ar-glider.companion{contain:layout paint}.ar-glider [data-part]{animation-duration:.6s}
 /* V162: while a minigame is open the app underneath stops painting and animating */
 body.ar-playing>*:not(.ar-stage){display:none!important}
+/* V163: ad pass + four new minigames */
+.ar-pass{text-align:center;font-weight:800;font-size:12px;color:var(--good);margin:-4px 0 8px}
+.ar-diver.companion,.ar-climber.companion{position:absolute!important;left:0!important;top:0!important;width:58px!important;height:58px!important;z-index:3;will-change:transform}
+.ar-climber.companion{width:60px!important;height:60px!important}
+/* drum beat */
+.ar-rhy{position:relative;height:100%;display:grid;grid-template-rows:1fr auto;padding:8px 14px 10px}
+.ar-lanes{position:relative;display:grid;grid-template-columns:repeat(3,1fr);gap:10px;margin:0 2% 0 19%}
+.ar-lane{position:relative;border-radius:14px;background:linear-gradient(rgba(255,248,236,0),rgba(255,248,236,.22));border:2px solid rgba(255,248,236,.25);overflow:hidden}
+.ar-hitline{position:absolute;left:-6px;right:-6px;bottom:0;height:6px;border-radius:3px;background:#fff8ec;box-shadow:0 0 0 2.5px #657D89,0 0 14px rgba(255,245,214,.8)}
+.ar-note{position:absolute;left:50%;top:0;width:44px;height:44px;border-radius:50%;display:grid;place-items:center;font-style:normal;font-weight:900;font-size:22px;color:#fff;background:var(--c,#e8a35f);border:2.5px solid #657D89;box-shadow:0 3px 0 rgba(0,0,0,.25);will-change:transform}
+.ar-lane:nth-child(1) .ar-note{background:#e8a35f}.ar-lane:nth-child(2) .ar-note{background:#5aaed2}.ar-lane:nth-child(3) .ar-note{background:#8fbf68}
+.ar-note.is-miss{opacity:.3;filter:grayscale(1);transition:opacity .3s}
+.ar-pads{display:grid;grid-template-columns:repeat(3,1fr);gap:10px;margin:12px 2% 0 19%}
+.ar-pad{height:78px;border-radius:50%/40%;border:2.5px solid #657D89;background:radial-gradient(ellipse at 50% 40%,#fff8ec 0 52%,var(--c) 54%);box-shadow:0 7px 0 #7a5b3a,inset 0 -6px 0 rgba(0,0,0,.12);touch-action:none}
+.ar-pad i{display:block;width:30%;height:30%;margin:auto;border-radius:50%;background:var(--c);opacity:.5}
+.ar-singer.companion{position:absolute!important;left:2%!important;top:auto!important;bottom:118px;width:58px!important;height:58px!important;pointer-events:none}
+/* copy the painting */
+.ar-paint{position:relative;height:100%;display:flex;flex-direction:column;align-items:center;padding:10px 14px}
+.ar-easel{position:relative;width:min(300px,78%);margin-top:4px;padding:12px;border-radius:10px;background:#C9934E;border:2.5px solid #7a5b3a;box-shadow:0 6px 0 #a0683c}
+.ar-leg{position:absolute;bottom:-46px;width:12px;height:52px;background:#a0683c;border:2.5px solid #7a5b3a;border-top:0}.ar-leg.l{left:18%;rotate:8deg}.ar-leg.r{right:18%;rotate:-8deg}
+.ar-board{display:grid;grid-template-columns:repeat(var(--n,3),1fr);gap:4px;background:#fff8ec;border:2.5px solid #657D89;border-radius:6px;padding:6px;aspect-ratio:1}
+.ar-cell{border:2px dashed #d2cbc1;border-radius:6px;background:transparent;padding:0;transition:background .15s}
+.ar-cell.is-set{border-style:solid;border-color:rgba(101,125,137,.6)}
+.ar-board.is-look .ar-cell{border-style:solid;border-color:rgba(101,125,137,.6)}
+.ar-cell.is-ok{box-shadow:inset 0 0 0 3px #3f8f6b}.ar-cell.is-bad{box-shadow:inset 0 0 0 3px #b4483b;animation:arNo .35s}
+.ar-pal{display:flex;gap:12px;margin-top:62px;padding:8px 14px;border-radius:999px;background:#fff8ec;border:2.5px solid #657D89}
+.ar-pot{width:44px;height:44px;border-radius:50%;border:2.5px solid #657D89;background:var(--c);box-shadow:inset 0 -5px 0 rgba(0,0,0,.15);transition:transform .12s}
+.ar-pot.is-on{transform:translateY(-6px) scale(1.12);box-shadow:inset 0 -5px 0 rgba(0,0,0,.15),0 0 0 4px #fff,0 0 0 6.5px #657D89}
+.ar-paint-act{display:flex;gap:10px;width:min(320px,90%);margin-top:auto}.ar-paint-act>*{flex:1;margin:0}
+.ar-painter.companion{position:absolute!important;left:4%!important;top:auto!important;bottom:calc(14px + 60px);width:62px!important;height:62px!important}

@@ -13,3 +13,12 @@ test('V158: one minigame now, then one per 250 new elements; coins only after al
   assert.equal(q.state.unlocked.length, 16); assert.equal(q.coins, 2 * ARCADE_STEP_COINS);
   q = arcadeProgress(q.state, ARCADE_STEP * 17, ids, () => 0); assert.equal(q.coins, 0, 'paid once');
 });
+test('V163: ten minigames and a 30-minute ad pass', async () => {
+  const m = await import('../src/arcade-v158.js');
+  assert.equal(m.ARCADE_GAMES.length, 10);
+  assert.deepEqual(m.ARCADE_GAMES.slice(6).map(g => g.id), ['dive', 'climb', 'rhythm', 'paint']);
+  assert.equal(m.ARCADE_PASS_MS, 30 * 60 * 1000);
+  assert.equal(m.arcadePassLeft({ passUntil: 1000 }, 400), 600);
+  assert.equal(m.arcadePassLeft({ passUntil: 1000 }, 2000), 0);
+  assert.equal(m.arcadePassLeft(null, 0), 0);
+});
