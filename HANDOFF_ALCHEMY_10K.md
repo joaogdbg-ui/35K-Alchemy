@@ -90,6 +90,10 @@ Preserve 200-per-batch policy and do not start another content release on top of
 
 - **Art redraw wave 3 (V85, done): 3,991 icons** — every remaining older element. All 6,012 pre-V83 elements now use the 2026 art direction (`ART_REDRAW`), plus 200 V83 and 200 V85 originals. Six near-duplicates found by the audit were redrawn; 36 reviewed false alarms are in `tools/art-redraw-reviewed-pairs.json` (the audit now also honours them for V83 comparisons).
 
+## V172 — DROP! basket fix
+- Owner: items fell beside the basket but still counted. Now only the middle 60% (the opening) counts; a good drop lands inside the basket (basket drawn over the element), a miss falls beside it onto the grass and tips over.
+- Pending: coin economy review proposed to the owner (discovery coins, finds, daily, races, daily cap for minigames) — waiting for approval.
+
 ## V171 — Coin prizes in tens; Pinball targets; rope height
 - Owner: minigames paid too many coins (up to 300) and undermine buying coins. Now arcadeCoins(score)=round(sqrt(score)/4), capped at ARCADE_COIN_CAP=40 (1000 pts → 8, 10000 → 25). Milestone after all 16 minigames: ARCADE_STEP_COINS 500 → 50 per 250 elements.
 - Pinball element targets are solid (ball bounces off), worth a flat 100 × multiplier, and respawn after 4 s away from the ball (no more endless farming).

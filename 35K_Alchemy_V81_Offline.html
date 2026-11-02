@@ -2161,6 +2161,8 @@ body.ar-playing>*:not(.ar-stage){display:none!important}
 .ar-wood b.h1{left:0;border-radius:12px 0 0 12px;border-right-width:1px}.ar-wood b.h2{right:0;border-radius:0 12px 12px 0;border-left-width:1px}
 .ar-wood.is-cut{transform:none!important;opacity:1!important;filter:none!important}
 .ar-wood.is-cut b.h1{transform:translate(-26px,14px) rotate(-28deg)}.ar-wood.is-cut b.h2{transform:translate(26px,14px) rotate(28deg)}.ar-wood.is-cut::before{opacity:0;transition:opacity .2s}
+/* V172: the dropped element goes INTO the basket (basket drawn over it) */
+.ar-claw{z-index:2}.ar-mbasket{z-index:3}
 
 </style>
 </head>
@@ -3980,7 +3982,11 @@ function createArcade(ctx){
       requestAnimationFrame(loop);};requestAnimationFrame(loop);return()=>{stop=true;};}},
    {word:'DROP!',t:4,run(m){m.area.insertAdjacentHTML('beforeend',`<i class="ar-claw"><span>${m.art(m.els[0])}</span></i><i class="ar-mbasket">${PROP.basket}</i>`);const claw=m.area.querySelector('.ar-claw'),bas=m.area.querySelector('.ar-mbasket');let x=0.2,v=0.55/Math.max(1.2,m.T/2),dropped=false,stop=false;const W=m.area.clientWidth;
      const loop=()=>{if(stop)return;if(!dropped){x+=v/60;if(x>0.85||x<0.15)v*=-1;claw.style.left=(x*100)+'%';}requestAnimationFrame(loop);};requestAnimationFrame(loop);bas.style.left=(25+Math.random()*50)+'%';
-     m.area.onpointerdown=e=>{e.preventDefault();if(dropped)return;dropped=true;sfx.flap?.();const it=claw.querySelector('span');const fall=bas.getBoundingClientRect().top-it.getBoundingClientRect().top+6;it.animate([{transform:'none'},{transform:`translateY(${fall}px)`}],{duration:480,easing:'ease-in',fill:'forwards'});setTimeout(()=>{const a=it.getBoundingClientRect(),b=bas.getBoundingClientRect();const ok=a.left+a.width/2>b.left&&a.left+a.width/2<b.right;if(ok){bas.animate([{transform:'translateX(-50%) scale(1.15,.85)'},{transform:'translateX(-50%)'}],{duration:200});m.win();}else m.lose();},520);};return()=>{stop=true;};}},
+     m.area.onpointerdown=e=>{e.preventDefault();if(dropped)return;dropped=true;sfx.flap?.();const it=claw.querySelector('span');const ir=it.getBoundingClientRect(),br=bas.getBoundingClientRect();const cx=ir.left+ir.width/2;
+      // V172: only the basket's opening counts, and the element visibly lands IN it (behind the front rim) or beside it on the grass
+      const ok=cx>br.left+br.width*0.2&&cx<br.right-br.width*0.2;const fall=ok?br.top-ir.top+br.height*0.35:br.bottom-ir.bottom;
+      it.animate(ok?[{transform:'none'},{transform:`translateY(${fall}px)`}]:[{transform:'none'},{transform:`translateY(${fall}px)`,offset:.8},{transform:`translateY(${fall-18}px) rotate(25deg)`,offset:.9},{transform:`translateY(${fall}px) rotate(40deg)`}],{duration:ok?480:620,easing:'ease-in',fill:'forwards'});
+      setTimeout(()=>{if(ok){bas.animate([{transform:'translateX(-50%) scale(1.12,.88)'},{transform:'translateX(-50%)'}],{duration:220});m.o.burst(...m.pt(br.left-m.area.getBoundingClientRect().left+br.width/2,br.top-m.area.getBoundingClientRect().top),'star',8);m.win();}else m.lose();},ok?500:640);};return()=>{stop=true;};}},
    {word:'STOP!',t:4,run(m){m.area.insertAdjacentHTML('beforeend','<div class="ar-dial"><i class="ar-zone"></i><i class="ar-hand2"></i></div>');const zone=m.area.querySelector('.ar-zone'),hand=m.area.querySelector('.ar-hand2');const z0=Math.random()*300;const zw=Math.max(40,70-0);zone.style.setProperty('--a',z0+'deg');zone.style.setProperty('--w',zw+'deg');
      let a=0,stop=false;const sp=360/Math.max(0.7,m.T/2.6);let last=performance.now();const loop=t=>{if(stop)return;a=(a+sp*(t-last)/1000)%360;last=t;hand.style.transform=`rotate(${a}deg)`;requestAnimationFrame(loop);};requestAnimationFrame(loop);
      m.area.onpointerdown=e=>{e.preventDefault();if(stop)return;stop=true;const d=((a-z0)%360+360)%360;d<=zw?m.win():m.lose();};return()=>{stop=true;};}},
@@ -7228,7 +7234,7 @@ function shinyCard(item){return `<p class="shiny-trivia"><span aria-hidden="true
 function showShinyFound(id){const it=byId.get(id);if(!it)return;
  showModal(`<div class="modal-tag shiny-tag">✦ SHINY ELEMENT</div><div class="modal-art is-shiny">${staticArt(it)}</div><h2>Shiny ${escapeText(uiName(it))}</h2>${shinyCard(it)}<div class="modal-milestone">${shiny.size.toLocaleString('en-US')} shiny ${shiny.size===1?'element':'elements'} · ${Math.round(shinyChance()*100)}% chance per combination</div>`);
 }
-const APP_VERSION='1.0.71';
+const APP_VERSION='1.0.72';
 // V83: status line + Google consent (UMP) privacy options, required for EEA players.
 async function refreshAdStatus(){
  const el=$('settingsAdStatus'),bridge=getRewardBridge();
