@@ -90,6 +90,12 @@ Preserve 200-per-batch policy and do not start another content release on top of
 
 - **Art redraw wave 3 (V85, done): 3,991 icons** — every remaining older element. All 6,012 pre-V83 elements now use the 2026 art direction (`ART_REDRAW`), plus 200 V83 and 200 V85 originals. Six near-duplicates found by the audit were redrawn; 36 reviewed false alarms are in `tools/art-redraw-reviewed-pairs.json` (the audit now also honours them for V83 comparisons).
 
+## V160 — Minigames redrawn in the game's own art style
+- Owner: V159 still looked bland vs the races. Now the arcade reuses STADIUM_ART_V95 (passed as ctx.art): sky/mid/run tiles for Memory, Falling Finds and Sky Glide; swim tile for the pond; climb tile for the glide pillars (grass caps like race walls); the dojo scene for Fire·Water·Earth.
+- New props drawn in the same style (slate #657D89 outlines, soft palette): card backs, cauldron, alchemist lab wall, basket, bucket, bobber, rock, fish set, boot, chest.
+- HUD/banners reuse the race classes (g-stage-top, g-quit, g-banner is-count/is-go, g-cheer, g-cloud); duel uses the real Fire/Water/Earth element art instead of emoji.
+- Memory now 3x4 bigger cards on a picnic blanket. ARCADE_TESTER_ALL still true (remove before release).
+
 ## V159 — Minigames: graphics and animation pass (+ tester unlock-all)
 - arcade-v158.js: each minigame now has its own scene (card table, sunset arena, alchemist lab with cauldron, meadow with drifting clouds and hills, pond with waves/fish shadows/dock, parallax sky).
 - Shared FX: 3-2-1-GO countdown, floating +score pops, particle bursts (star/gold/fire/water/earth/smoke/magic), screen shake, combo badge, end banner, animated result (stars + counting score).
