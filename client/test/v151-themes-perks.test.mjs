@@ -22,8 +22,13 @@ test('V155: many visiting-element scenes, none triggered by the four starters', 
   const src=(await import('node:fs')).readFileSync(new URL('../src/companion-engine-v86.js',import.meta.url),'utf8');
   const block=src.slice(src.indexOf('const VISITORS=['),src.indexOf('let lastVisit'));
   const kinds=[...block.matchAll(/\['([a-z]+)',\//g)].map(m=>m[1]);
-  assert.ok(kinds.length>=30,`${kinds.length} scenes`);
-  for(const k of kinds)assert.match(src,new RegExp(`kind==='${k}'`),`${k} has a scene`);
+  assert.ok(kinds.length>=55,`${kinds.length} scenes`);
+  for(const k of kinds)assert.ok(new RegExp(`kind==='${k}'`).test(src)||new RegExp(`\n  ${k}:async`).test(src),`${k} has a scene`);
   const res=[...block.matchAll(/\['[a-z]+',(\/.*?\/)\]/g)].map(m=>eval(m[1]));
   for(const starter of ['air','earth','fire','water'])assert.ok(!res.some(re=>re.test(' '+starter+' ')),starter);
+});
+test('V156: duo scenes exist and duo-only toys need two companions', async () => {
+  const src=(await import('node:fs')).readFileSync(new URL('../src/companion-engine-v86.js',import.meta.url),'utf8');
+  for(const k of ['seesaw','pillow','board','picnic','swing'])assert.match(src,new RegExp(`\\n  ${k}:async`),k);
+  assert.match(src,/return k&&\(duo\|\|!DUO_ONLY\.has\(k\)\)/);
 });

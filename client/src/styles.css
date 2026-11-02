@@ -1856,3 +1856,28 @@ button.home-eff::after{content:" ⓘ";opacity:.6;font-weight:700}
 .companion-fx .fx-flash{inset:-30px;background:radial-gradient(circle,rgba(255,255,255,.95),transparent 65%);animation:visFade .3s ease-out forwards}
 .companion-fx .fx-zap{left:40%;top:-50px;width:16px;height:50px;background:#ffe36a;clip-path:polygon(50% 0,100% 0,60% 45%,90% 45%,20% 100%,40% 55%,10% 55%);animation:visFade .5s ease-out forwards}
 @keyframes visRise{from{translate:0 0;opacity:.9}to{translate:0 -20px;opacity:0}}@keyframes visFade{to{opacity:0}}@keyframes visFall{from{translate:0 -10px}to{translate:0 50px;opacity:0}}@keyframes visRain{to{background-position:0 22px}}@keyframes visTwinkle{to{opacity:.4}}
+
+/* V156: more visitors + duo toys */
+.companion-fx .fx-hat{position:absolute;left:50%;top:-22px;width:30px;height:30px;margin-left:-15px}.companion-fx .fx-shades{position:absolute;left:50%;top:14px;width:30px;height:18px;margin-left:-12px}
+.companion-fx .fx-hat svg,.companion-fx .fx-shades svg{width:100%;height:100%}
+.companion-fx .fx-wind{left:-30px;right:-30px;top:10px;height:30px;position:absolute;background:repeating-linear-gradient(90deg,transparent 0 10px,rgba(255,255,255,.8) 10px 24px,transparent 24px 40px);-webkit-mask:linear-gradient(transparent,#000 40%,#000 60%,transparent);mask:linear-gradient(transparent,#000 40%,#000 60%,transparent);animation:visWind .5s linear infinite}
+@keyframes visWind{to{background-position:-40px 0}}
+.companion-fx .fx-feathers{position:absolute;inset:-20px;background:radial-gradient(ellipse 4px 8px at 20% 30%,#fff 90%,transparent),radial-gradient(ellipse 4px 8px at 70% 20%,#fff 90%,transparent),radial-gradient(ellipse 4px 8px at 50% 70%,#fff 90%,transparent);animation:visFall .7s ease-out forwards}
+.screen-visitor.is-flop{animation:visFlop .3s ease-in-out infinite alternate}@keyframes visFlop{from{rotate:-25deg}to{rotate:25deg;translate:0 -6px}}
+.screen-visitor.is-pinch{animation:visRing .15s linear infinite alternate}
+.screen-visitor.is-tall{scale:1 2.2;transform-origin:50% 100%}
+.screen-visitor.is-spin{animation:visSpin .4s linear infinite}@keyframes visSpin{to{rotate:360deg}}
+.screen-visitor.is-glow{filter:drop-shadow(0 0 10px #ffe36a) brightness(1.2)}
+.screen-visitor.is-copy{animation:visBoo .5s ease-out}
+.screen-visitor.is-roll{animation:visSpin .3s linear infinite}
+.screen-visitor.is-blanket{width:80px;height:24px;margin-left:-22px;border-radius:6px;background:repeating-linear-gradient(45deg,#e0675a 0 8px,#fff 8px 16px)}.screen-visitor.is-blanket>*{opacity:0}
+.screen-visitor.is-swing{transform-origin:50% -60px;animation:visSwing 1.2s ease-in-out infinite alternate}@keyframes visSwing{from{rotate:-20deg}to{rotate:20deg}}
+.companion.is-balance .companion-art{animation:visWobble .4s ease-in-out infinite alternate}
+.screen-rope{position:absolute;left:0;top:0;height:3px;background:#8e6748;border-radius:2px;pointer-events:none}
+.screen-built{position:absolute;left:0;top:0;width:34px;height:30px;background:linear-gradient(135deg,transparent 48%,#c8303a 50%) top left/50% 40% no-repeat,linear-gradient(225deg,transparent 48%,#c8303a 50%) top right/50% 40% no-repeat,linear-gradient(#f3e6d0,#f3e6d0) bottom/80% 60% no-repeat;animation:visBoo .5s ease-out;pointer-events:none}
+.screen-sprout{position:absolute;left:0;top:0;width:24px;height:34px;transform-origin:50% 100%;background:radial-gradient(ellipse 8px 5px at 30% 30%,#6fc488 90%,transparent),radial-gradient(ellipse 8px 5px at 70% 22%,#6fc488 90%,transparent),linear-gradient(#4f9e5a,#4f9e5a) 50% 100%/3px 70% no-repeat;animation:visGrow 1.4s ease-out;pointer-events:none}
+@keyframes visGrow{from{scale:1 0}to{scale:1 1}}
+.screen-target{position:absolute;left:0;top:0;width:34px;height:34px;border-radius:50%;background:radial-gradient(circle,#c8303a 0 18%,#fff 19% 36%,#c8303a 37% 55%,#fff 56% 72%,#c8303a 73%);pointer-events:none}
+.screen-snowball{position:absolute;left:0;top:0;width:14px;height:14px;border-radius:50%;background:#fff;box-shadow:0 0 0 1.5px #bcd6e6;pointer-events:none}
+.screen-seesaw{position:absolute;left:0;top:0;width:120px;height:8px;margin-left:-40px;background:#b98a5e;border-radius:4px;box-shadow:0 0 0 2px #6b4a32;transition:rotate .4s;pointer-events:none}.screen-seesaw::after{content:'';position:absolute;left:50%;top:6px;width:16px;height:14px;margin-left:-8px;background:#8e6748;clip-path:polygon(50% 0,100% 100%,0 100%)}
+.screen-seesaw.is-tilt{rotate:-12deg}.screen-seesaw:not(.is-tilt){rotate:12deg}

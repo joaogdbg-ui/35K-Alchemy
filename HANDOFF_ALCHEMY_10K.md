@@ -90,6 +90,10 @@ Preserve 200-per-batch policy and do not start another content release on top of
 
 - **Art redraw wave 3 (V85, done): 3,991 icons** — every remaining older element. All 6,012 pre-V83 elements now use the 2026 art direction (`ART_REDRAW`), plus 200 V83 and 200 V85 originals. Six near-duplicates found by the audit were redrawn; 36 reviewed false alarms are in `tools/art-redraw-reviewed-pairs.json` (the audit now also honours them for V83 comparisons).
 
+## V156 — 20 more visitor scenes + duo scenes (2 November 2026)
+- Singles: hat (tries it on), sunglasses (cool pose), banana/peel (slips), fish (catch; Swim), crab (pinch), snail/turtle (slow race), butterfly/bird (chase; Fly), ladder (climb; Stamina), rope (tightrope; Stamina), fan/wind (spun), lamp/bulb (idea), robot (copycat), dragon/monster/lion (roar back; Power), hammer/tools (builds a tiny house), puzzle (solve; Drawing helps), seed/plant (it grows), phone (chat), arrow/target (archery; Power), dice (roll), pumpkin/candy (trick or treat).
+- Duo (`DUO_SCENES`, when the buddy is on screen, 60% of eligible visits): ride together, vampire scares the buddy and the main defends, pass the ball, dance together, party, selfie, snowball fight, ghost hug, bubbles, team tag. Duo-only toys (`DUO_ONLY`, never shown solo): seesaw, pillow fight, chess/cards, picnic, swing/hammock.
+
 ## V155 — 20 more visiting-element scenes (2 November 2026)
 - New `VISITORS` + scenes: campfire/torch/lava (warms up) · snow/ice (belly slide, shiver; Stamina) · dog/cat/rabbit (tag; Run) · book/map (reads) · cake/party/gift (confetti dance) · rain/storm (cloud rains, hides; lightning) · camera (poses, flash) · UFO/alien (beam lift) · magnet (pulled) · firework/rocket/bomb (burst) · treasure/coin/gem (digs, sparkle) · bubble/soap (pops bubbles) · mirror (admires) · trampoline/spring (bounces; Fly) · sword/knight/pirate (duel; Power) · paint/brush (paints; Drawing level) · telescope/moon (stargazing) · flower/pepper (sniff, maybe sneeze) · clock/alarm/bell (startled) · wand/potion (magic; Magic level). 30 scenes in total; none match the four starters (test).
 
