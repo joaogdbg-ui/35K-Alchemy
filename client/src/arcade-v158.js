@@ -4,7 +4,7 @@
 export const ARCADE_KEY='alchemy10k_arcade_v158';
 /** V159 TESTER: every minigame open for testing. Set to false before the Play release. */
 export const ARCADE_TESTER_ALL=true;
-export const ARCADE_STEP=250,ARCADE_TOTAL=16,ARCADE_STEP_COINS=500;
+export const ARCADE_STEP=250,ARCADE_TOTAL=16,ARCADE_STEP_COINS=50;
 /** Implemented minigames (more arrive in later updates up to ARCADE_TOTAL). help = School subject or stat that helps. */
 export const ARCADE_GAMES=[
  {id:'memory',name:'Element Memory',icon:'🃏',desc:'Match pairs of your elements while your companion shuffles them.',help:{skill:'draw',label:'Drawing: longer peek, fewer shuffles'}},
@@ -23,6 +23,9 @@ export const MICRO_PACKS=[
  {id:'micro-tap',pack:'tap',name:'TAP! pack',icon:'👆',desc:'Pop, wake, jump, catch, stop and find — just tap!'},
  {id:'micro-rub',pack:'rub',name:'RUB! pack',icon:'🧽',desc:'Scratch, polish, wipe and tickle — rub the screen!'},
  {id:'micro-cut',pack:'cut',name:'CUT! pack',icon:'✂️',desc:'Cut, slice, chop, trim and split — swipe through!'}];
+/** V171: minigame prizes are tens of coins, not hundreds (buying coins must stay meaningful). */
+export const ARCADE_COIN_CAP=40;
+export const arcadeCoins=score=>Math.max(0,Math.min(ARCADE_COIN_CAP,Math.round(Math.sqrt(Math.max(0,score))/4)));
 export const MICRO_LIVES=4,MICRO_SPEEDUP_EVERY=5;
 /** Pure: time for one microgame after `cleared` wins (seconds), never below 45% of the base. */
 export const microTime=(base,cleared)=>base*Math.max(0.45,Math.pow(0.88,Math.floor(cleared/MICRO_SPEEDUP_EVERY)));
@@ -125,7 +128,7 @@ export function createArcade(ctx){
   o.countdown=(go)=>{const c=document.createElement('div');c.className='g-banner is-count';s.append(c);const seq=['3','2','1','GO!'];let i=0;const tick=()=>{if(o.over){c.remove();return;}c.textContent=seq[i];c.className='g-banner '+(i===3?'is-go':'is-count');void c.offsetWidth;c.classList.add('is-in');i===3?sfx.go():sfx.tick();i++;if(i<seq.length)setTimeout(tick,650);else setTimeout(()=>{c.remove();if(!o.over)go();},500);};tick();};
   return o;}
  function result(id,score,statKey){const g=[...ARCADE_GAMES,...MICRO_PACKS].find(x=>x.id===id);const micro=!!g.pack;const prev=st.best[id]||0;const rec=score>prev;if(rec){st.best[id]=score;save();}
-  const coins=Math.min(300,Math.round(score/20));if(coins)ctx.addCoins?.(coins);if(statKey&&score>0)ctx.train?.(statKey,Math.min(12,1+Math.round(score/150)));
+  const coins=arcadeCoins(score);if(coins)ctx.addCoins?.(coins);if(statKey&&score>0)ctx.train?.(statKey,Math.min(12,1+Math.round(score/150)));
   const stars=score>=prev*1.2&&score>0?3:score>0?(rec?3:2):1;
   showModal(`<div class="modal-tag">${micro?'MICROGAMES':'MINIGAME'}</div><div class="ar-res-stars">${[1,2,3].map(i=>`<i class="${i<=stars?'on':''}" style="--i:${i}">★</i>`).join('')}</div><div class="ar-big">${g.icon}</div><h2 class="ar-res-score" data-to="${score}">0</h2><p>${rec?'<b class="ar-rec-badge">New best!</b>':`Best: ${prev.toLocaleString('en-US')}`}</p><p class="ar-help">🪙 +${coins} coins${statKey&&score>0?` · ${({run:'Run',swim:'Swim',fly:'Fly',power:'Power',stamina:'Stamina'})[statKey]} training`:''}</p>
    <button type="button" class="modal-button" id="arAgain">Play again</button><button type="button" class="modal-button secondary" id="arDone">Back to ${micro?'microgames':'minigames'}</button>`);
@@ -418,7 +421,7 @@ export function createArcade(ctx){
    slings=[];sl([P*0.12,H*0.56],[P*0.25,H*0.72],[P*0.12,H*0.69],1);sl([P*0.88,H*0.56],[P*0.75,H*0.72],[P*0.88,H*0.69],-1);
    // drop targets on the left wall
    dropSegs=[0,1,2].map(i=>({x1:7,y1:H*(0.42+i*0.05),x2:7,y2:H*(0.42+i*0.05)+H*0.04,i}));};
-  const spawnEl=()=>{while(els.length<2){const t={x:P*(0.3+Math.random()*0.4),y:H*(0.53+Math.random()*0.04),img:A.el[Math.floor(Math.random()*A.el.length)],ph:Math.random()*6};if(els.every(q=>Math.hypot(q.x-t.x,q.y-t.y)>60))els.push(t);}};
+  const spawnEl=()=>{for(let tries=0;els.length<2&&tries<40;tries++){const t={x:P*(0.3+Math.random()*0.4),y:H*(0.53+Math.random()*0.04),img:A.el[Math.floor(Math.random()*A.el.length)],ph:Math.random()*6};if(els.every(q=>Math.hypot(q.x-t.x,q.y-t.y)>60)&&(!ball||Math.hypot(ball.x-t.x,ball.y-t.y)>90))els.push(t);}};
   const newBall=()=>{ball={x:W-LANE/2,y:H-26-BR-1,vx:0,vy:0};inLane=true;power=0;saveT=SAVE_S;trail=[];o.hint('Hold to charge · release to launch');};
   const hitSeg=(x1,y1,x2,y2,e,surf,kick)=>{const dx=x2-x1,dy=y2-y1,L2=dx*dx+dy*dy;let t=((ball.x-x1)*dx+(ball.y-y1)*dy)/L2;t=Math.max(0,Math.min(1,t));const cx=x1+dx*t,cy=y1+dy*t;let nx=ball.x-cx,ny=ball.y-cy;const d=Math.hypot(nx,ny);if(d>=BR||d===0)return false;nx/=d;ny/=d;
    ball.x=cx+nx*BR;ball.y=cy+ny*BR;const sv=surf?surf(cx,cy):[0,0];const rvx=ball.vx-sv[0],rvy=ball.vy-sv[1];const vn=rvx*nx+rvy*ny;if(vn<0){ball.vx-=(1+e)*vn*nx;ball.vy-=(1+e)*vn*ny;if(kick){ball.vx+=nx*kick;ball.vy+=ny*kick;}return true;}return false;};
@@ -437,8 +440,9 @@ export function createArcade(ctx){
    // rollover lanes (sensors)
    if(ball.y>H*0.22&&ball.y<H*0.27&&ball.vy>0)[0.26,0.5,0.74].forEach((k,i)=>{if(!lanes[i]&&Math.abs(ball.x-P*k)<P*0.1){lanes[i]=1;pts(50,P*k,H*0.2);sfx.tick();
      if(lanes.every(Boolean)){mult=Math.min(5,mult+1);say(`MULTIPLIER x${mult}!`);sfx.unlock();setTimeout(()=>{lanes=[0,0,0];},900);}}});
-   for(const t of els)if(!t.hit&&Math.hypot(ball.x-t.x,ball.y-t.y)<BR+18){t.hit=true;const k=o.streak(true);pts(150*Math.min(3,1+Math.floor(k/3)),t.x,t.y-24,'is-gold');o.burst(t.x,t.y,'gold',14);sfx.unlock();flash=0.15;flashC='#fff5d6';}
-   if(els.some(t=>t.hit)){els=els.filter(t=>!t.hit);spawnEl();}
+   for(const t of els){if(t.hit)continue;const dx=ball.x-t.x,dy=ball.y-t.y,d=Math.hypot(dx,dy);if(d<BR+19&&d>0){const nx=dx/d,ny=dy/d;ball.x=t.x+nx*(BR+19);ball.y=t.y+ny*(BR+19);const vn=ball.vx*nx+ball.vy*ny;if(vn<0){ball.vx-=1.5*vn*nx;ball.vy-=1.5*vn*ny;}
+     t.hit=true;o.streak(true);pts(100,t.x,t.y-24,'is-gold');o.burst(t.x,t.y,'gold',14);sfx.unlock();flash=0.15;flashC='#fff5d6';o.later(()=>spawnEl(),4000);}}
+   els=els.filter(t=>!t.hit);
    const sp=Math.hypot(ball.vx,ball.vy);if(sp>1700){ball.vx*=1700/sp;ball.vy*=1700/sp;}rot+=ball.vx*dt*3;
    // V170 anti-stuck: if the ball never comes down to the flippers (or stops) for a while, nudge it
    if(!inLane){if(ball.y>H*0.8||sp>60&&ball.y>H*0.78)stuckT=0;else stuckT+=dt;if(sp<25)slowT+=dt;else slowT=0;
@@ -576,7 +580,7 @@ export function createArcade(ctx){
      m.area.onpointerdown=e=>{e.preventDefault();if(air<=0&&!stop){air=AIR;c.dataset.anim='jump';sfx.hop?.();}};
      const loop=t=>{if(stop)return;const u=(t-t0)/1000/per;const ph=((u%1)+1)%1;const cyc=Math.floor(u);
       // rope height: top of the arc at ph=0, hits the ground at ph=0.5. Front half of the swing is drawn over the companion.
-      const h=Math.cos(ph*Math.PI*2);const ctrl=150-h*170;const onFront=ph>0.25&&ph<0.75;const d=`M20 150 Q150 ${ctrl} 280 150`;
+      const h=Math.cos(ph*Math.PI*2);const ctrl=150-h*252;const onFront=ph>0.25&&ph<0.75;const d=`M20 150 Q150 ${ctrl} 280 150`;
       (onFront?front:back).setAttribute('d',d);(onFront?back:front).setAttribute('d','');
       const near=1-Math.min(1,Math.abs(ph-0.5)/0.3);cue.style.setProperty('--k',near.toFixed(2));cue.classList.toggle('is-go',ph>0.4&&ph<0.56);
       air-=1/60;c.style.translate=`-50% ${air>0?-Math.sin((AIR-air)/AIR*Math.PI)*70:0}px`;if(air<=0&&c.dataset.anim==='jump')c.dataset.anim='idle';

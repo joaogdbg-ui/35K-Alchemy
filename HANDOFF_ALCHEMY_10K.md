@@ -90,6 +90,11 @@ Preserve 200-per-batch policy and do not start another content release on top of
 
 - **Art redraw wave 3 (V85, done): 3,991 icons** — every remaining older element. All 6,012 pre-V83 elements now use the 2026 art direction (`ART_REDRAW`), plus 200 V83 and 200 V85 originals. Six near-duplicates found by the audit were redrawn; 36 reviewed false alarms are in `tools/art-redraw-reviewed-pairs.json` (the audit now also honours them for V83 comparisons).
 
+## V171 — Coin prizes in tens; Pinball targets; rope height
+- Owner: minigames paid too many coins (up to 300) and undermine buying coins. Now arcadeCoins(score)=round(sqrt(score)/4), capped at ARCADE_COIN_CAP=40 (1000 pts → 8, 10000 → 25). Milestone after all 16 minigames: ARCADE_STEP_COINS 500 → 50 per 250 elements.
+- Pinball element targets are solid (ball bounces off), worth a flat 100 × multiplier, and respawn after 4 s away from the ball (no more endless farming).
+- JUMP!: the rope's low point now reaches the companion's feet instead of its face.
+
 ## V170 — Pinball anti-stuck + microgame fixes
 - Pinball: ball could ping-pong between the slingshots forever. Sling kick now 260 with a 0.3 s cooldown; anti-stuck nudge when the ball has not come down to the flippers for 7 s or is nearly still for 1.5 s ("NUDGE!").
 - scratchLayer counts only pixels that were covered at the start (POLISH! used to finish on one tap because the area outside the egg counted as clean).

@@ -35,3 +35,11 @@ test('V169: microgame packs and speed-up curve', async () => {
   assert.ok(Math.abs(m.microTime(4, 5) - 3.52) < 1e-9, 'faster after 5 wins');
   assert.equal(m.microTime(4, 500), 4 * 0.45, 'never below 45%');
 });
+test('V171: minigame prizes are tens of coins', async () => {
+  const m = await import('../src/arcade-v158.js');
+  assert.equal(m.arcadeCoins(0), 0);
+  assert.equal(m.arcadeCoins(1000), 8);
+  assert.equal(m.arcadeCoins(10000), 25);
+  assert.equal(m.arcadeCoins(1e6), m.ARCADE_COIN_CAP);
+  assert.ok(m.ARCADE_COIN_CAP <= 50);
+});
