@@ -16,7 +16,13 @@ export const ARCADE_GAMES=[
  {id:'dive',name:'Deep Dive',icon:'🤿',desc:'Steer under water to grab treasures. Deeper is worth more — come up for air!',help:{stat:'swim',label:'Swim: more air, faster strokes'}},
  {id:'climb',name:'Rock Climb',icon:'🧗',desc:'Tap left or right to switch lanes, dodge the falling rocks and climb high.',help:{stat:'power',label:'Power: climbs faster · Stamina: quicker recovery'}},
  {id:'rhythm',name:'Drum Beat',icon:'🥁',desc:'Tap the drum when a note reaches the line. Keep the combo going!',help:{skill:'drums',label:'Drums: wider timing · Singing: bigger combo bonus'}},
- {id:'paint',name:'Copy the Painting',icon:'🎨',desc:'Memorise the picture, then paint it back from memory.',help:{skill:'draw',label:'Drawing: longer look, extra peeks'}}];
+ {id:'paint',name:'Copy the Painting',icon:'🎨',desc:'Memorise the picture, then paint it back from memory.',help:{skill:'draw',label:'Drawing: longer look, extra peeks'}},
+ {id:'expedition',name:'Expedition',icon:'🗺️',desc:'Explore a foggy map, follow the compass to the treasure and avoid the mud.',help:{stat:'run',label:'Run: walks faster across the map'}},
+ {id:'cups',name:'Challenge Cups',icon:'🏆',desc:'Four quick challenges in a row: tap, stop, spot and count. Win the cup!',help:{skill:'juggle',label:'Juggling: a little more time in every challenge'}},
+ {id:'pinball',name:'Pinball',icon:'🎯',desc:'Your companion is the ball! Tap left and right to flip, hit bumpers and elements.',help:{stat:'power',label:'Power: stronger flippers'}},
+ {id:'cooking',name:'Cooking',icon:'🍳',desc:'Add the ingredients in the right order before the order runs out.',help:{skill:'magic',label:'Magic: more time per order'}},
+ {id:'dig',name:'Treasure Dig',icon:'⛏️',desc:'Dig for buried chests. Each hole tells you how warm you are.',help:{stat:'stamina',label:'Stamina: more digs per field'}},
+ {id:'bingo',name:'Element Bingo',icon:'🎱',desc:'Mark the called elements on your card. Make lines for BINGO!',help:{skill:'sing',label:'Singing: the caller is slower'}}];
 /** V164: each minigame has its own pass — one ad opens THAT minigame for 24 hours. */
 export const ARCADE_PASS_MS=24*60*60*1000;
 export const arcadePassLeft=(st,id,now=Date.now())=>Math.max(0,(st?.passes?.[id]||0)-now);
@@ -85,6 +91,10 @@ export function createArcade(ctx){
   +'<rect x="0" y="500" width="390" height="140" fill="#d9b27c" stroke="none"/><path d="M0 500h390" stroke="#a0683c" stroke-width="5"/><g stroke="#b88a52" stroke-width="2"><path d="M0 540h390M0 580h390M0 620h390M70 500v40M200 500v40M330 500v40M140 540v40M270 540v40M40 580v40M180 580v40M310 580v40"/></g>').replace('<svg ','<svg preserveAspectRatio="xMidYMax slice" ');
  const STAGE_ART=SV('0 0 390 640','<rect width="390" height="640" fill="#4a3a5c" stroke="none"/><path d="M0 0h390v40H0Z" fill="#b4483b"/><g fill="#c9584a"><path d="M0 0h70q-10 220 10 470H0Z"/><path d="M390 0h-70q10 220-10 470h80Z"/></g><path d="M70 0q-10 220 10 470M320 0q10 220-10 470" fill="none"/><path d="M20 40q10 200 0 430M45 40q-6 210 6 430M345 40q6 210-6 430M370 40q-10 200 0 430" stroke="#a03d33" stroke-width="3" fill="none"/>'
   +'<g opacity=".18" fill="#fff5d6" stroke="none"><path d="M110 0l-60 470h140Z"/><path d="M280 0l-80 470h140Z"/></g><rect y="470" width="390" height="170" fill="#C9934E" stroke="none"/><path d="M0 470h390" stroke="#7a5b3a" stroke-width="6"/><g stroke="#a0683c" stroke-width="2"><path d="M0 510h390M0 550h390M0 590h390M0 630h390M60 470v40M190 470v40M320 470v40M120 510v40M250 510v40M40 550v40M170 550v40M300 550v40"/></g>').replace('<svg ','<svg preserveAspectRatio="xMidYMax slice" ');
+ const KITCHEN=SV('0 0 390 640','<rect width="390" height="640" fill="#f1e6d3" stroke="none"/><g stroke="#e0d0b6" stroke-width="2"><path d="M0 50h390M0 100h390M0 150h390M0 200h390M0 250h390M0 300h390M0 350h390M50 0v380M100 0v380M150 0v380M200 0v380M250 0v380M300 0v380M350 0v380"/></g>'
+  +'<rect x="20" y="40" width="120" height="10" rx="4" fill="#C9934E" stroke="#7a5b3a"/><circle cx="45" cy="30" r="10" fill="#e0675a"/><rect x="70" y="18" width="14" height="22" rx="3" fill="#ffd166"/><circle cx="110" cy="30" r="10" fill="#8fbf68"/>'
+  +'<path d="M300 20v40M330 20v52M360 20v34" stroke="#7a5b3a" stroke-width="2"/><circle cx="300" cy="66" r="8" fill="#a0683c"/><path d="M322 72h16l-2 14h-12Z" fill="#e8a35f"/><circle cx="360" cy="60" r="7" fill="#e0675a"/>'
+  +'<rect y="380" width="390" height="260" fill="#C9934E" stroke="none"/><rect y="380" width="390" height="16" fill="#e0b25a" stroke="#7a5b3a"/><g stroke="#a0683c" stroke-width="2"><path d="M0 440h390M0 500h390M0 560h390M0 620h390M130 396v244M260 396v244"/></g>').replace('<svg ','<svg preserveAspectRatio="xMidYMax slice" ');
  const svgUrl=k=>ctx.art?.[k]?`url("data:image/svg+xml,${encodeURIComponent(ctx.art[k])}")`:'none';
  const SCENE={
   memory:'<i class="ar-sky"></i><i class="ar-mid"></i><i class="ar-grass"></i>',
@@ -92,7 +102,7 @@ export function createArcade(ctx){
   recipe:`<div class="ar-lab">${LAB}</div>`,
   catch:'<i class="ar-sky"></i>'+'<i class="g-cloud" style="--d:0"></i><i class="g-cloud" style="--d:1"></i><i class="g-cloud" style="--d:2"></i>'+'<i class="ar-mid"></i><i class="ar-grass"></i>',
   fish:'<i class="ar-sky"></i><i class="g-cloud" style="--d:0"></i><i class="g-cloud" style="--d:2"></i><i class="ar-mid"></i><i class="ar-water"><b></b></i>',
-  glide:'',dive:'',climb:'',rhythm:`<div class="ar-lab">${STAGE_ART}</div>`,paint:'<i class="ar-sky"></i><i class="g-cloud" style="--d:0"></i><i class="g-cloud" style="--d:2"></i><i class="ar-mid"></i><i class="ar-grass"></i>',
+  glide:'',dive:'',climb:'',pinball:'',cooking:`<div class="ar-lab">${KITCHEN}</div>`,expedition:'<i class="ar-sky"></i><i class="g-cloud" style="--d:0"></i><i class="g-cloud" style="--d:2"></i><i class="ar-mid"></i><i class="ar-grass"></i>',cups:'<i class="ar-sky"></i><i class="g-cloud" style="--d:0"></i><i class="g-cloud" style="--d:2"></i><i class="ar-mid"></i><i class="ar-grass"></i>',dig:'<i class="ar-sky"></i><i class="g-cloud" style="--d:0"></i><i class="g-cloud" style="--d:2"></i><i class="ar-mid"></i><i class="ar-grass"></i>',bingo:'<i class="ar-sky"></i><i class="g-cloud" style="--d:0"></i><i class="g-cloud" style="--d:2"></i><i class="ar-mid"></i><i class="ar-grass"></i>',rhythm:`<div class="ar-lab">${STAGE_ART}</div>`,paint:'<i class="ar-sky"></i><i class="g-cloud" style="--d:0"></i><i class="g-cloud" style="--d:2"></i><i class="ar-mid"></i><i class="ar-grass"></i>',
  };
  // ---------- shared stage (V159: scenery, countdown, pops, bursts, animated companion) ----------
  function companionEl(cls=''){const id=ctx.activeId?.();const el=document.createElement('span');el.className='companion ar-cmp '+cls;el.dataset.anim='idle';el.dataset.face='right';if(id)el.dataset.companion=id;
@@ -381,6 +391,133 @@ export function createArcade(ctx){
    const all=ok===N*N;const pts=ok*10+(all?50*N:0);o.add(pts);const r=o.rect(board);o.pop(r.x,r.y,all?`Perfect +${pts}`:`${ok}/${N*N} +${pts}`,all?'is-gold':'');if(all){o.burst(r.x,r.y,'magic',18);o.streak(true);me.dataset.anim='duo-cheer';sfx.unlock();}else{o.streak(false);me.dataset.anim=ok>N*N/2?'idle':'shake';sfx.miss();}
    o.later(()=>{me.dataset.anim='idle';next();},1400);};
   o.time(70);o.countdown(()=>{next();timer(o,70,()=>o.finish());});}
- const GAMES={memory,duel,recipe,catch:catcher,fish,glide,dive,climb,rhythm,paint};
+ // ---------- 11. Expedition ----------
+ function expedition(){const o=stage('Expedition','expedition');o.id='expedition';o.statKey='run';const rn=stat('run');const C=6,R=7,STEPMS=Math.max(170,330-rn*1.6);
+  const me=companionEl('ar-explorer');o.body.insertAdjacentHTML('beforeend',`<div class="ar-exp"><div class="ar-compass"><i><svg viewBox="0 0 40 40" width="34" height="34"><path d="M6 20h22" stroke="#657D89" stroke-width="4" stroke-linecap="round"/><path d="M36 20L22 10v20Z" fill="#e0675a" stroke="#657D89" stroke-width="2.5" stroke-linejoin="round"/><circle cx="8" cy="20" r="4" fill="#fff8ec" stroke="#657D89" stroke-width="2"/></svg></i></div><div class="ar-map" style="--c:${C};--r:${R}"></div></div>`);
+  const map=o.body.querySelector('.ar-map'),needle=o.body.querySelector('.ar-compass i');map.append(me);ctx.wear?.(o.body);const els=pick(ctx.unlocked(),8);
+  let cells=[],pos=0,busy=false,run=false,level=0;
+  const nb=i=>{const r=Math.floor(i/C),c=i%C,o2=[];if(r>0)o2.push(i-C);if(r<R-1)o2.push(i+C);if(c>0)o2.push(i-1);if(c<C-1)o2.push(i+1);return o2;};
+  const build=()=>{level++;const n=C*R;const k=Array(n).fill('grass');pos=(R-1)*C+Math.floor(C/2);
+   const free=()=>{let i;do{i=Math.floor(Math.random()*n);}while(k[i]!=='grass'||i===pos||Math.abs(Math.floor(i/C)-Math.floor(pos/C))+Math.abs(i%C-pos%C)<2);return i;};
+   for(let t=0;t<7;t++)k[free()]='tree';for(let t=0;t<4+level;t++)k[free()]='mud';for(let t=0;t<5;t++)k[free()]='find';const chest=free();k[chest]='chest';
+   cells=k.map((kind,i)=>({kind,seen:false,el:null,item:kind==='find'?els[Math.floor(Math.random()*els.length)]:null,taken:false}));
+   map.querySelectorAll('.ar-tile2').forEach(e=>e.remove());cells.forEach((c,i)=>{const e=document.createElement('button');e.type='button';e.className='ar-tile2 is-fog';e.dataset.i=i;map.insertBefore(e,me);c.el=e;});
+   reveal();place(true);};
+  const reveal=()=>{for(const i of [pos,...nb(pos),...nb(pos).flatMap(nb)]){const c=cells[i];if(c.seen)continue;c.seen=true;c.el.classList.remove('is-fog');c.el.classList.add('is-'+c.kind);
+    if(c.kind==='find')c.el.innerHTML=`<span>${art(c.item)}</span>`;if(c.kind==='chest')c.el.innerHTML=`<span>${PROP.chest}</span>`;if(c.kind==='tree')c.el.innerHTML='<i class="ar-tree"></i>';if(c.kind==='mud')c.el.innerHTML='<i class="ar-mud"></i>';}
+   const ch=cells.findIndex(c=>c.kind==='chest'&&!c.taken);if(ch>=0){const dy=Math.floor(ch/C)-Math.floor(pos/C),dx=ch%C-pos%C;needle.style.transform=`rotate(${Math.atan2(dy,dx)*180/Math.PI}deg)`;}};
+  const place=(snap)=>{const r=Math.floor(pos/C),c=pos%C;me.style.transition=snap?'none':`left ${STEPMS}ms linear,top ${STEPMS}ms linear`;me.style.left=`calc(${c} * 100% / ${C})`;me.style.top=`calc(${r} * 100% / ${R})`;};
+  const path=(to)=>{const prev=new Map([[pos,-1]]);const q=[pos];while(q.length){const i=q.shift();if(i===to)break;for(const j of nb(i)){if(prev.has(j))continue;const c=cells[j];if(!c.seen||c.kind==='tree')continue;prev.set(j,i);q.push(j);}}
+   if(!prev.has(to))return null;const out=[];for(let i=to;i!==pos;i=prev.get(i))out.unshift(i);return out;};
+  const walk=async steps=>{busy=true;me.dataset.anim='walk';for(const i of steps){if(o.over)return;const dc=i%C-pos%C;if(dc)me.dataset.face=dc>0?'right':'left';pos=i;place();await new Promise(r=>setTimeout(r,STEPMS));reveal();const c=cells[i];
+    if(c.kind==='mud'&&!c.taken){c.taken=true;o.add(-10);o.streak(false);const p=o.rect(c.el);o.pop(p.x,p.y-20,'-10 · stuck!','is-bad');o.burst(p.x,p.y,'earth',8);sfx.splash();me.dataset.anim='shake';await new Promise(r=>setTimeout(r,900));me.dataset.anim='walk';break;}
+    if(c.kind==='find'&&!c.taken){c.taken=true;c.el.innerHTML='';const k=o.streak(true);const pts=20*Math.min(3,1+Math.floor(k/3));o.add(pts);const p=o.rect(c.el);o.pop(p.x,p.y-20,`+${pts}`);o.burst(p.x,p.y,'star',8);sfx.boop();}
+    if(c.kind==='chest'&&!c.taken){c.taken=true;o.add(150);const p=o.rect(c.el);o.pop(p.x,p.y-20,'+150 treasure!','is-gold');o.burst(p.x,p.y,'gold',16);sfx.unlock();me.dataset.anim='duo-cheer';await new Promise(r=>setTimeout(r,900));if(!o.over){o.hint(`Map ${level+1}!`);build();}busy=false;me.dataset.anim='idle';return;}}
+   busy=false;me.dataset.anim='idle';};
+  map.addEventListener('click',e=>{const t=e.target.closest('.ar-tile2');if(!t||busy||!run)return;const i=+t.dataset.i;if(!cells[i].seen||cells[i].kind==='tree'||i===pos)return;const pth=path(i);if(pth)walk(pth);});
+  build();o.hint('Tap a clear tile to walk · the compass points to the chest');o.countdown(()=>{run=true;timer(o,60,()=>o.finish());});}
+ // ---------- 12. Challenge Cups ----------
+ function cups(){const o=stage('Challenge Cups','cups');o.id='cups';const j=lvl('juggle');const T=8+j*0.6;const me=companionEl('ar-cupper');
+  o.body.insertAdjacentHTML('beforeend',`<div class="ar-cups"><div class="ar-cup-steps">${[1,2,3,4].map(i=>`<i data-s="${i}"></i>`).join('')}</div><h3 class="ar-cup-title"></h3><div class="ar-cup-area"></div><i class="ar-fuse ar-cup-fuse"><em></em></i></div>`);
+  const area=o.body.querySelector('.ar-cup-area'),title=o.body.querySelector('.ar-cup-title'),fuse=o.body.querySelector('.ar-cup-fuse em');ctx.wear?.(o.body);
+  const els=pick(ctx.unlocked(),10);let idx=0;const order=pick(['tap','stop','spot','count'],4);let endRound=null,t0=0;
+  const bar=()=>{if(o.over||!endRound)return;const k=Math.max(0,1-(performance.now()-t0)/(T*1000));fuse.style.width=k*100+'%';if(k<=0){const f=endRound;endRound=null;f();return;}o.raf=requestAnimationFrame(bar);};
+  const next=()=>{if(o.over)return;if(idx>=4){o.endText=o.score>=900?'🏆 Gold cup!':o.score>=500?'🥈 Silver cup':'🥉 Bronze cup';o.finish();return;}
+   const kind=order[idx++];o.body.querySelectorAll('.ar-cup-steps i').forEach((e,i)=>e.classList.toggle('is-on',i<idx));area.innerHTML='';area.className='ar-cup-area is-'+kind;t0=performance.now();
+   const done=()=>{endRound=null;o.later(next,700);};
+   if(kind==='tap'){title.textContent='Tap Frenzy! Tap your companion';area.append(me);ctx.wear?.(area);let n=0;me.onpointerdown=e=>{e.preventDefault();if(!endRound)return;n++;o.add(5);me.animate([{transform:'scale(1.15,.85)'},{transform:'none'}],{duration:120});sfx.tap();if(n%10===0){const p=o.rect(me);o.pop(p.x,p.y-50,`${n}!`);}};endRound=()=>{me.onpointerdown=null;const p=o.rect(me);o.pop(p.x,p.y-60,`${n} taps`,'is-gold');done();};}
+   if(kind==='stop'){title.textContent='Stop the needle in the green!';area.innerHTML=`<div class="ar-meter"><b></b><i></i></div><button type="button" class="g-cheer ar-stop">STOP</button><p class="ar-tries"></p>`;const zone=area.querySelector('.ar-meter b'),nd=area.querySelector('.ar-meter i'),tries=area.querySelector('.ar-tries');let left=3,ph=0,sp=1.3,zw=18+j*2,zx=0,moving=true;
+    const newZone=()=>{zx=10+Math.random()*(80-zw);zone.style.left=zx+'%';zone.style.width=zw+'%';};newZone();tries.textContent='3 tries';
+    const mv=()=>{if(!endRound)return;if(moving){ph+=sp/60;nd.style.left=(50+50*Math.sin(ph*Math.PI))+'%';}requestAnimationFrame(mv);};mv();
+    area.querySelector('.ar-stop').onclick=()=>{if(!endRound||!moving)return;const x=50+50*Math.sin(ph*Math.PI);const good=x>=zx&&x<=zx+zw;const c=zx+zw/2;const pts=good?Math.round(150-Math.abs(x-c)/(zw/2)*70):0;o.add(pts);const p=o.rect(nd);o.pop(p.x,p.y-30,good?`+${pts}`:'miss',good?'is-gold':'is-bad');good?sfx.unlock():sfx.miss();
+     left--;tries.textContent=`${left} tries`;moving=false;setTimeout(()=>{moving=true;sp+=0.4;newZone();},450);if(!left){endRound=null;done();}};endRound=()=>done();}
+   if(kind==='spot'){title.textContent='Spot the odd one out!';let round=0;const deal=()=>{if(!endRound)return;round++;const [a,b]=pick(els,2);const n=round<3?9:16;const odd=Math.floor(Math.random()*n);area.style.setProperty('--n',n===9?3:4);
+     area.innerHTML=Array.from({length:n},(_,i)=>`<button type="button" class="ar-spot" data-ok="${i===odd?1:0}">${art(i===odd?b:a)}</button>`).join('');
+     area.querySelectorAll('.ar-spot').forEach(x=>x.onclick=()=>{if(!endRound)return;const ok=x.dataset.ok==='1';const p=o.rect(x);if(ok){o.add(60);o.pop(p.x,p.y-20,'+60');o.burst(p.x,p.y,'star',8);sfx.boop();deal();}else{o.add(-10);o.pop(p.x,p.y-20,'-10','is-bad');x.animate([{rotate:'-10deg'},{rotate:'10deg'},{rotate:'0deg'}],{duration:250});sfx.miss();}});};deal();endRound=()=>done();}
+   if(kind==='count'){title.textContent='How many of these?';let round=0;const ask=()=>{if(!endRound)return;round++;const [a,b,c]=pick(els,3);const n=3+Math.floor(Math.random()*(round+3));const tot=n+4+Math.floor(Math.random()*4);
+     const bag=pick([...Array(n).fill(a),...Array(tot-n).fill(null).map(()=>Math.random()<.5?b:c)],tot);const opts=pick([n,n+1,n-1,n+2].filter(v=>v>0),4).sort((x,y)=>x-y);
+     area.innerHTML=`<div class="ar-count-q"><span>${art(a)}</span>?</div><div class="ar-count-pile">${bag.map(id=>`<i style="--r:${Math.random()*40-20}deg">${art(id)}</i>`).join('')}</div><div class="ar-count-opts">${opts.map(v=>`<button type="button" class="ar-rec-opt" data-v="${v}">${v}</button>`).join('')}</div>`;
+     area.querySelectorAll('[data-v]').forEach(x=>x.onclick=()=>{if(!endRound)return;const ok=+x.dataset.v===n;const p=o.rect(x);o.add(ok?80:-10);o.pop(p.x,p.y-30,ok?'+80':`it was ${n}`,ok?'':'is-bad');ok?sfx.boop():sfx.miss();ask();});};ask();endRound=()=>done();}
+   requestAnimationFrame(bar);};
+  o.countdown(next);}
+ // ---------- 13. Pinball (the companion is the ball) ----------
+ function pinball(){const o=stage('Pinball','pinball');o.id='pinball';o.statKey='power';const pw=stat('power');const K=canvasKit(o),g=K.g;
+  const me=companionEl('ar-ball');me.dataset.anim='idle';K.box.append(me);ctx.wear?.(K.box);
+  const BR=17,GRAV=1150,KICK=1+pw*0.006;let A=null,W=0,H=0,ball=null,balls=3,run=false,segs=[],bumps=[],targets=[],fl=[],held={L:false,R:false},rot=0,acc=0;
+  const layout=()=>{W=K.W;H=K.H;const fy=H*0.86,fl1=W*0.155;segs=[[0,0,W,0],[0,0,0,H*0.74],[W,0,W,H*0.74],[0,40,40,0],[W-40,0,W,40],[0,H*0.74,W*0.3,fy],[W,H*0.74,W*0.7,fy]];
+   fl=[{px:W*0.3,py:fy,len:fl1,rest:0.45,up:-0.5,a:0.45,w:0,side:1},{px:W*0.7,py:fy,len:fl1,rest:Math.PI-0.45,up:Math.PI+0.5,a:Math.PI-0.45,w:0,side:-1}];
+   bumps=[{x:W*0.3,y:H*0.26,r:24,flash:0},{x:W*0.7,y:H*0.26,r:24,flash:0},{x:W*0.5,y:H*0.4,r:26,flash:0},{x:W*0.2,y:H*0.5,r:16,flash:0},{x:W*0.8,y:H*0.5,r:16,flash:0}];};
+  const spawnT=()=>{while(targets.length<3){const t={x:40+Math.random()*(W-80),y:H*0.12+Math.random()*H*0.45,img:A.el[Math.floor(Math.random()*A.el.length)]};if(bumps.every(b=>Math.hypot(b.x-t.x,b.y-t.y)>b.r+40)&&targets.every(q=>Math.hypot(q.x-t.x,q.y-t.y)>60))targets.push(t);}};
+  const newBall=()=>{ball={x:W*0.5+(Math.random()*60-30),y:60,vx:(Math.random()<.5?-1:1)*(80+Math.random()*120),vy:0};};
+  const collideSeg=(x1,y1,x2,y2,e,surf)=>{const dx=x2-x1,dy=y2-y1,L2=dx*dx+dy*dy;let t=((ball.x-x1)*dx+(ball.y-y1)*dy)/L2;t=Math.max(0,Math.min(1,t));const cx=x1+dx*t,cy=y1+dy*t;let nx=ball.x-cx,ny=ball.y-cy;const d=Math.hypot(nx,ny);if(d>=BR||d===0)return false;nx/=d;ny/=d;
+   ball.x=cx+nx*BR;ball.y=cy+ny*BR;const sv=surf?surf(cx,cy):[0,0];const rvx=ball.vx-sv[0],rvy=ball.vy-sv[1];const vn=rvx*nx+rvy*ny;if(vn<0){ball.vx-=(1+e)*vn*nx;ball.vy-=(1+e)*vn*ny;}return true;};
+  const step=dt=>{for(const f of fl){const want=(f.side>0?held.L:held.R)?f.up:f.rest;const prev=f.a;const sp=22;f.a+=Math.max(-sp*dt,Math.min(sp*dt,want-f.a));f.w=(f.a-prev)/dt;}
+   if(!ball)return;ball.vy+=GRAV*dt;ball.x+=ball.vx*dt;ball.y+=ball.vy*dt;
+   for(const sg of segs)collideSeg(...sg,0.55);
+   for(const f of fl){const ex=f.px+Math.cos(f.a)*f.len,ey=f.py+Math.sin(f.a)*f.len;collideSeg(f.px,f.py,ex,ey,0.35,(cx,cy)=>[-f.w*(cy-f.py)*KICK,f.w*(cx-f.px)*KICK]);}
+   for(const b of bumps){const dx=ball.x-b.x,dy=ball.y-b.y,d=Math.hypot(dx,dy);if(d<b.r+BR&&d>0){const nx=dx/d,ny=dy/d;ball.x=b.x+nx*(b.r+BR);ball.y=b.y+ny*(b.r+BR);const sp=Math.max(560,Math.hypot(ball.vx,ball.vy));ball.vx=nx*sp;ball.vy=ny*sp;if(b.flash<=0){o.add(25);o.pop(b.x,b.y-30,'+25');sfx.boop();}b.flash=0.15;}}
+   for(const t of targets)if(!t.hit&&Math.hypot(ball.x-t.x,ball.y-t.y)<BR+18){t.hit=true;const k=o.streak(true);const pts=100*Math.min(3,1+Math.floor(k/3));o.add(pts);o.pop(t.x,t.y-24,`+${pts}`,'is-gold');o.burst(t.x,t.y,'gold',12);sfx.unlock();}
+   if(targets.some(t=>t.hit)){targets=targets.filter(t=>!t.hit);spawnT();}
+   const sp=Math.hypot(ball.vx,ball.vy);if(sp>1500){ball.vx*=1500/sp;ball.vy*=1500/sp;}rot+=ball.vx*dt*3;
+   if(ball.y>H+30){balls--;o.streak(false);sfx.miss();o.shake();ball=null;if(balls<=0){o.endText='Game over';o.finish();return;}o.hint(`${balls} ball${balls>1?'s':''} left`);o.later(newBall,700);}};
+  const draw=t=>{g.fillStyle='#2f4a5c';g.fillRect(0,0,W,H);g.fillStyle=A.felt;g.fillRect(0,0,W,H);
+   g.strokeStyle='rgba(255,248,236,.15)';g.lineWidth=2;for(let y=40;y<H;y+=46){g.beginPath();g.moveTo(0,y);g.lineTo(W,y);g.stroke();}
+   g.lineCap='round';g.lineWidth=8;g.strokeStyle='#C9934E';for(const s2 of segs.slice(3)){g.beginPath();g.moveTo(s2[0],s2[1]);g.lineTo(s2[2],s2[3]);g.stroke();}
+   for(const b of bumps){g.fillStyle=b.flash>0?'#fff5d6':'#e0675a';g.strokeStyle='#657D89';g.lineWidth=3;g.beginPath();g.arc(b.x,b.y,b.r,0,7);g.fill();g.stroke();g.fillStyle=b.flash>0?'#ffd166':'#fff8ec';g.beginPath();g.arc(b.x,b.y,b.r*0.45,0,7);g.fill();}
+   for(const tg of targets){g.fillStyle='rgba(255,209,102,.35)';g.beginPath();g.arc(tg.x,tg.y,22+2*Math.sin(t/200),0,7);g.fill();if(tg.img)g.drawImage(tg.img,tg.x-17,tg.y-17,34,34);}
+   for(const f of fl){const ex=f.px+Math.cos(f.a)*f.len,ey=f.py+Math.sin(f.a)*f.len;g.lineCap='round';g.strokeStyle='#657D89';g.lineWidth=17;g.beginPath();g.moveTo(f.px,f.py);g.lineTo(ex,ey);g.stroke();g.strokeStyle='#e8a35f';g.lineWidth=12;g.beginPath();g.moveTo(f.px,f.py);g.lineTo(ex,ey);g.stroke();g.fillStyle='#fff8ec';g.beginPath();g.arc(f.px,f.py,5,0,7);g.fill();}
+   g.fillStyle='#fff8ec';g.font='800 12px system-ui';for(let i=0;i<balls;i++){g.beginPath();g.arc(16+i*16,H-14,5,0,7);g.fill();}};
+  const press=(e,down)=>{const r=K.box.getBoundingClientRect();const left=(e.clientX-r.left)<K.W/2;if(down){(left?held.L=true:held.R=true);e.target.setPointerCapture?.(e.pointerId);sfx.clack();}else{held.L=false;held.R=false;}if(!down)return;if(left)ptr.L=e.pointerId;else ptr.R=e.pointerId;};
+  const ptr={};K.box.addEventListener('pointerdown',e=>{e.preventDefault();press(e,true);});const up=e=>{if(ptr.L===e.pointerId)held.L=false;if(ptr.R===e.pointerId)held.R=false;};K.box.addEventListener('pointerup',up);K.box.addEventListener('pointercancel',up);
+  let last=performance.now();const loop=t=>{if(o.over)return;const dt=Math.min(0.05,(t-last)/1000);last=t;if(run){acc+=dt;while(acc>=1/240){step(1/240);acc-=1/240;}}for(const b of bumps)b.flash-=dt;
+   draw(t);if(ball){me.style.transform=`translate3d(${(ball.x-BR-3).toFixed(1)}px,${(ball.y-BR-3).toFixed(1)}px,0) rotate(${rot.toFixed(0)}deg)`;me.style.opacity=1;}else me.style.opacity=0;o.raf=requestAnimationFrame(loop);};
+  o.hint('Loading…');requestAnimationFrame(async()=>{K.size();layout();const ims=await K.imgs(pick(ctx.unlocked(),6).map(art),34,34);if(o.over)return;const fg=g.createLinearGradient(0,0,0,H);fg.addColorStop(0,'#3f6f8a');fg.addColorStop(1,'#2b4f66');A={el:ims.filter(Boolean),felt:fg};spawnT();newBall();
+   o.hint('Tap and hold left / right to flip');o.raf=requestAnimationFrame(loop);o.countdown(()=>{run=true;timer(o,75,()=>o.finish());});});}
+ // ---------- 14. Cooking ----------
+ function cooking(){const o=stage('Cooking','cooking');o.id='cooking';const m=lvl('magic');const ings=pick(ctx.unlocked(),6);if(ings.length<6){o.finish(true);toast('Find a few more elements first','repeat');return;}
+  const me=companionEl('ar-chef');o.body.insertAdjacentHTML('beforeend',`<div class="ar-cook"><div class="ar-ticket"><small>ORDER</small><div class="ar-seq"></div><i class="ar-fuse"><em></em></i></div><div class="ar-pan">${SV('0 0 200 90','<path d="M150 40h46" stroke="#4a555e" stroke-width="10"/><ellipse cx="80" cy="44" rx="74" ry="26" fill="#5b6770"/><ellipse class="ar-oil" cx="80" cy="40" rx="62" ry="18" fill="#83939c"/>')}<div class="ar-in-pan"></div></div><div class="ar-bins">${ings.map((id,i)=>`<button type="button" class="ar-bin" data-i="${i}">${art(id)}</button>`).join('')}</div></div>`);
+  o.body.querySelector('.ar-cook').append(me);ctx.wear?.(o.body);const seqEl=o.body.querySelector('.ar-seq'),inPan=o.body.querySelector('.ar-in-pan'),pan=o.body.querySelector('.ar-pan'),fuse=o.body.querySelector('.ar-ticket .ar-fuse em');
+  let order=[],got=0,t0=0,lim=0,served=0,live=false;
+  const newOrder=()=>{if(o.over)return;const n=served<3?3:served<7?4:5;order=Array.from({length:n},()=>Math.floor(Math.random()*6));got=0;lim=(3.2+n*1.3+m*0.6)*1000;t0=performance.now();live=true;
+   seqEl.innerHTML=order.map((i,k)=>`<span class="${k===0?'is-next':''}">${art(ings[i])}</span>`).join('');inPan.innerHTML='';pan.classList.remove('is-smoke','is-done');o.body.querySelector('.ar-ticket').animate([{transform:'translateY(-40px)',opacity:0},{transform:'none',opacity:1}],{duration:300,easing:'ease-out'});};
+  const tick=()=>{if(o.over)return;if(live){const k=1-(performance.now()-t0)/lim;fuse.style.width=Math.max(0,k*100)+'%';if(k<=0){live=false;o.streak(false);pan.classList.add('is-smoke');me.dataset.anim='shake';o.pop(o.rect(pan).x,o.rect(pan).y-40,'Too slow!','is-bad');sfx.miss();o.later(()=>{me.dataset.anim='idle';newOrder();},900);}}requestAnimationFrame(tick);};
+  o.body.querySelectorAll('.ar-bin').forEach(b=>b.onclick=()=>{if(!live)return;const i=+b.dataset.i;const r=o.rect(b),pr=o.rect(pan);const f=document.createElement('span');f.className='ar-ingr';f.innerHTML=art(ings[i]);f.style.left=r.x+'px';f.style.top=r.y+'px';o.body.append(f);
+   f.animate([{transform:'translate(-50%,-50%)'},{transform:`translate(calc(-50% + ${(pr.x-r.x)/2}px),calc(-50% + ${(pr.y-r.y)/2-80}px)) rotate(180deg)`},{transform:`translate(calc(-50% + ${pr.x-r.x}px),calc(-50% + ${pr.y-r.y-10}px)) scale(.6)`}],{duration:350,easing:'ease-in'}).onfinish=()=>f.remove();
+   if(i===order[got]){got++;sfx.boop();const sp=seqEl.children;sp[got-1].className='is-done';if(sp[got])sp[got].className='is-next';inPan.insertAdjacentHTML('beforeend',`<i style="--x:${Math.random()*60-30}px;--r:${Math.random()*90-45}deg">${art(ings[i])}</i>`);me.dataset.anim='sk-magic';setTimeout(()=>{if(!o.over)me.dataset.anim='idle';},400);
+    if(got===order.length){live=false;served++;const k=o.streak(true);const left=Math.max(0,1-(performance.now()-t0)/lim);const pts=Math.round((40*order.length+120*left)*(k>=3?1.5:1));o.add(pts);pan.classList.add('is-done');o.pop(pr.x,pr.y-60,`Served! +${pts}`,'is-gold');o.burst(pr.x,pr.y-20,'magic',16);sfx.unlock();me.dataset.anim='duo-cheer';o.later(()=>{me.dataset.anim='idle';newOrder();},800);}}
+   else{o.streak(false);o.add(-15);pan.classList.add('is-smoke');o.pop(pr.x,pr.y-40,'Wrong! -15','is-bad');o.shake();sfx.miss();got=0;inPan.innerHTML='';[...seqEl.children].forEach((e,k)=>e.className=k===0?'is-next':'');setTimeout(()=>pan.classList.remove('is-smoke'),500);}});
+  o.hint('Tap the ingredients in the order on the ticket');o.countdown(()=>{newOrder();tick();timer(o,60,()=>o.finish());});}
+ // ---------- 15. Treasure Dig ----------
+ function dig(){const o=stage('Treasure Dig','dig');o.id='dig';o.statKey='stamina';const sta=stat('stamina');const N=6;const me=companionEl('ar-digger');
+  o.body.insertAdjacentHTML('beforeend',`<div class="ar-dig"><div class="ar-dig-info"><span class="ar-digs"></span><span class="ar-chests"></span></div><div class="ar-field" style="--n:${N}"></div><p class="ar-dig-legend"><i class="h"></i>hot <i class="w"></i>warm <i class="c"></i>cold</p></div>`);
+  const field=o.body.querySelector('.ar-field'),digsEl=o.body.querySelector('.ar-digs'),chEl=o.body.querySelector('.ar-chests');o.body.querySelector('.ar-dig').prepend(me);ctx.wear?.(o.body);const els=pick(ctx.unlocked(),6);
+  let chests=[],found=0,digs=0,run=false,round=0,busy=false;
+  const build=()=>{round++;const n=N*N;const k=Math.min(4,2+Math.floor(round/2));chests=pick([...Array(n).keys()],k);found=0;digs=12+Math.floor(sta/12)+k*2;
+   field.innerHTML=Array.from({length:n},(_,i)=>`<button type="button" class="ar-soil" data-i="${i}"></button>`).join('');upd();};
+  const upd=()=>{digsEl.textContent=`⛏️ ${digs} digs`;chEl.textContent=`${found}/${chests.length} chests`;};
+  const dist=i=>Math.min(...chests.filter(c=>!field.children[c].classList.contains('is-chest')).map(c=>Math.abs(Math.floor(c/N)-Math.floor(i/N))+Math.abs(c%N-i%N)));
+  field.addEventListener('click',e=>{const c=e.target.closest('.ar-soil');if(!c||!run||busy||c.classList.contains('is-dug'))return;const i=+c.dataset.i;busy=true;me.dataset.anim='quirk-dig';sfx.grip();c.classList.add('is-digging');
+   setTimeout(()=>{busy=false;if(o.over)return;me.dataset.anim='idle';c.classList.remove('is-digging');c.classList.add('is-dug');digs--;const p=o.rect(c);
+    if(chests.includes(i)){c.classList.add('is-chest');c.innerHTML=PROP.chest;found++;const k=o.streak(true);const pts=150*(k>=2?2:1);o.add(pts);o.pop(p.x,p.y-24,`+${pts}`,'is-gold');o.burst(p.x,p.y,'gold',14);sfx.unlock();me.dataset.anim='duo-cheer';
+     if(found===chests.length){o.add(digs*20);o.pop(p.x,p.y-60,`+${digs*20} spare digs`);upd();o.hint(`Field ${round+1}!`);o.later(()=>{me.dataset.anim='idle';build();},900);return;}}
+    else{const d=dist(i);const cls=d<=1?'h':d<=2?'w':'c';c.classList.add('is-'+cls);c.textContent=d;if(Math.random()<0.18){c.innerHTML=`<span>${art(els[Math.floor(Math.random()*els.length)])}</span><b>${d}</b>`;o.add(15);o.pop(p.x,p.y-20,'+15');sfx.boop();}else sfx.step();}
+    upd();if(digs<=0&&found<chests.length){o.streak(false);chests.forEach(ci=>{const s2=field.children[ci];if(!s2.classList.contains('is-chest')){s2.classList.add('is-reveal');s2.innerHTML=PROP.chest;}});o.hint('Out of digs!');o.later(()=>build(),1500);}},260);});
+  build();o.hint('Numbers show how many steps away the nearest chest is');o.countdown(()=>{run=true;timer(o,75,()=>o.finish());});}
+ // ---------- 16. Element Bingo ----------
+ function bingo(){const o=stage('Element Bingo','bingo');o.id='bingo';const sg=lvl('sing');const pool=pick(ctx.unlocked(),24);if(pool.length<16){o.finish(true);toast('Find a few more elements first','repeat');return;}
+  const card=pick(pool,16);const extra=pool.filter(id=>!card.includes(id));const GAP=Math.max(1700,2300-0)+sg*180;const me=companionEl('ar-caller');
+  o.body.insertAdjacentHTML('beforeend',`<div class="ar-bingo"><div class="ar-caller-box"><div class="ar-cage">${SV('0 0 90 90','<circle cx="45" cy="40" r="32" fill="#dff1f7" opacity=".7"/><circle cx="45" cy="40" r="32" fill="none"/><path d="M13 40h64M45 8v64M22 18l46 44M68 18L22 62" stroke-width="1.6" opacity=".6"/><path d="M30 72l-8 14h46l-8-14" fill="#C9934E" stroke="#7a5b3a"/><circle cx="35" cy="34" r="6" fill="#e0675a"/><circle cx="54" cy="46" r="6" fill="#5aaed2"/><circle cx="48" cy="28" r="6" fill="#ffd166"/>')}</div><div class="ar-ball2"><span></span></div><small class="ar-calls"></small></div><div class="ar-card4">${card.map((id,i)=>`<button type="button" class="ar-bcell" data-i="${i}">${art(id)}</button>`).join('')}</div></div>`);
+  o.body.querySelector('.ar-caller-box').prepend(me);ctx.wear?.(o.body);const ballEl=o.body.querySelector('.ar-ball2'),ballArt=ballEl.querySelector('span'),callsEl=o.body.querySelector('.ar-calls'),cells=[...o.body.querySelectorAll('.ar-bcell')];
+  const LINES=[];for(let r=0;r<4;r++)LINES.push([0,1,2,3].map(c=>r*4+c));for(let c=0;c<4;c++)LINES.push([0,1,2,3].map(r=>r*4+c));LINES.push([0,5,10,15],[3,6,9,12]);
+  const marked=new Set(),called=new Set(),doneLines=new Set();let calls=0,MAX=30,cur=null;
+  // a fair deck: every card element is called once, mixed with decoys
+  const deck=pick([...card,...pick(extra,Math.min(extra.length,MAX-16))],MAX);
+  const call=()=>{if(o.over)return;if(calls>=deck.length){o.endText=doneLines.size?'BINGO!':'Done';o.finish();return;}cur=deck[calls++];called.add(cur);ballArt.innerHTML=art(cur);ballEl.classList.remove('is-in');void ballEl.offsetWidth;ballEl.classList.add('is-in');callsEl.textContent=`Call ${calls}/${deck.length}`;sfx.tick();me.dataset.anim='sk-sing';setTimeout(()=>{if(!o.over)me.dataset.anim='idle';},500);o.later(call,GAP);};
+  cells.forEach((c,i)=>c.onclick=()=>{if(marked.has(i))return;const p=o.rect(c);if(called.has(card[i])){marked.add(i);c.classList.add('is-on');const fresh=card[i]===cur;o.add(fresh?25:15);o.pop(p.x,p.y-20,`+${fresh?25:15}`);sfx.boop();
+    for(const [k,l] of LINES.entries())if(!doneLines.has(k)&&l.every(j=>marked.has(j))){doneLines.add(k);o.add(200);l.forEach(j=>cells[j].classList.add('is-line'));o.pop(p.x,p.y-60,'BINGO! +200','is-gold');o.burst(p.x,p.y,'gold',18);sfx.unlock();me.dataset.anim='duo-cheer';o.shake();}
+    if(marked.size===16){o.add(500);o.endText='Full card!';o.finish();}}
+   else{o.add(-10);o.pop(p.x,p.y-20,'-10','is-bad');c.animate([{rotate:'-8deg'},{rotate:'8deg'},{rotate:'0deg'}],{duration:250});sfx.miss();}});
+  o.hint('Tap the called element if it is on your card');o.time(-1);o.countdown(call);}
+ const GAMES={memory,duel,recipe,catch:catcher,fish,glide,dive,climb,rhythm,paint,expedition,cups,pinball,cooking,dig,bingo};
  return {open,sync,state:()=>st,games:ARCADE_GAMES};
 }

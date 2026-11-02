@@ -90,6 +90,10 @@ Preserve 200-per-batch policy and do not start another content release on top of
 
 - **Art redraw wave 3 (V85, done): 3,991 icons** — every remaining older element. All 6,012 pre-V83 elements now use the 2026 art direction (`ART_REDRAW`), plus 200 V83 and 200 V85 originals. Six near-duplicates found by the audit were redrawn; 36 reviewed false alarms are in `tools/art-redraw-reviewed-pairs.json` (the audit now also honours them for V83 comparisons).
 
+## V165 — The last six minigames (16/16)
+- Expedition (Run: faster walking; fog-of-war 6x7 map, BFS path walking, compass to the chest, mud traps, new map per chest), Challenge Cups (Juggling: more time; Tap Frenzy / Stop the needle / Spot the odd one / Count, gold-silver-bronze cup), Pinball (Power: stronger flippers; canvas, 240 Hz physics, companion is the ball, bumpers + element targets, 3 balls), Cooking (Magic: more time; ordered ingredients ticket, KITCHEN scene), Treasure Dig (Stamina: more digs; hot/warm/cold distance numbers), Element Bingo (Singing: slower caller; 4x4 card, fair deck with decoys, lines = BINGO).
+- All 16 exist, so after all are unlocked every 250 elements pays 500 coins (test updated). ARCADE_TESTER_ALL still true.
+
 ## V164 — Per-minigame 24 h ad pass (30-min hub gate removed)
 - Owner disliked the 30-min hub gate. Now each minigame has its own pass: st.passes[id]; one rewarded ad (kind 'arcade_game') opens THAT minigame for 24 h (ARCADE_PASS_MS). Hub tiles show "▶ Ad · 24h" or "⏳ time left"; intro button becomes "▶ Watch ad · 24h"; "Play again" re-checks the pass. arcadePassLeft(st,id,now), fmtPass(ms). Progression unlock (every 250 elements) unchanged.
 
