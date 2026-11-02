@@ -85,7 +85,7 @@ const f1=n=>Math.round(n*10)/10;
  * path with a post on each side and the banner over it. The earth runs to the bottom of the screen.
  * Art: the approved V95 tiles (run = path, climb = rock and walls, swim = water, fly = chasm).
  */
-export function courseSvg(c,art={}){
+export function courseSvg(c,art={},theme=null){
  const {BAND:B,H,SK}=RC;const Bs=B*SK;const back=[],mid=[];
  let rs=7;const rnd=()=>{rs=(rs*9301+49297)%233280;return rs/233280;};
  const uri=k=>'data:image/svg+xml,'+encodeURIComponent(art[k]||'');
@@ -97,7 +97,7 @@ export function courseSvg(c,art={}){
  const face=(T,fill,extra='')=>{const F=off(T,B);return `<path d="M${P(F)}L${f1(F.at(-1)[0])} ${H}L${f1(F[0][0])} ${H}Z" fill="${fill}" ${extra}/>`;};
  const ground=T=>[face(T,'url(#rcRock)'),strip(T,B,B+7,'#5c4330','opacity=".35"'),strip(T,0,B,'url(#rcGrass)'),strip(T,0,6,'#6f9e50'),strip(T,B-6,B,'#7FAF5C'),`<path d="M${P(off(T,B))}" stroke="#4d7a3c" stroke-width="2.5" fill="none"/>`].join('');
  const riser=(x,yTop,yBot,shade=0.18)=>`<path d="M${f1(x)} ${f1(yTop)}L${f1(x+Bs)} ${f1(yTop+B)}L${f1(x+Bs)} ${f1(yBot+B)}L${f1(x)} ${f1(yBot)}Z" fill="url(#rcRock)" stroke="#6b4f36" stroke-width="2.5"/><path d="M${f1(x)} ${f1(yTop)}L${f1(x+Bs)} ${f1(yTop+B)}L${f1(x+Bs)} ${f1(yBot+B)}L${f1(x)} ${f1(yBot)}Z" fill="#3b2a1c" opacity="${shade}"/>`;
- const bush=(x,y)=>`<g transform="translate(${f1(x)} ${f1(y)})" stroke="#4d7a3c" stroke-width="2"><circle cx="-11" cy="-6" r="10" fill="#7aae58"/><circle cx="4" cy="-11" r="13" fill="#8fbf68"/><circle cx="17" cy="-5" r="9" fill="#7aae58"/></g>`;
+  let propN=0;const bush=(x,y)=>theme?.prop?theme.prop(x,y,((propN++)*0.618)%1):`<g transform="translate(${f1(x)} ${f1(y)})" stroke="#4d7a3c" stroke-width="2"><circle cx="-11" cy="-6" r="10" fill="#7aae58"/><circle cx="4" cy="-11" r="13" fill="#8fbf68"/><circle cx="17" cy="-5" r="9" fill="#7aae58"/></g>`;
  // glide voids first (everything else is drawn over them)
  for(const z of c.zones)if(z.kind==='glide'){const xa=z.pa,xb=z.pb,ya=z.y0,yb=z.y1;
   const yf=z.floorY,F=[[xa-2,yf],[xb+1,yf]];
@@ -128,7 +128,8 @@ export function courseSvg(c,art={}){
   back.push(`<rect x="${f1(x-4)}" y="${f1(y-118)}" width="10" height="122" rx="3" fill="#C9934E" stroke="#7a5b3a" stroke-width="2.5"/><circle cx="${f1(x+1)}" cy="${f1(y-121)}" r="6" fill="#e0b25a" stroke="#7a5b3a" stroke-width="2"/>`);}
  const defs=`<defs>${pat('rcGrass','run',100,150,'#8FBF68',28)}${pat('rcRock','climb',120,180,'#b98a5e')}${pat('rcWater','swim',110,165,'#7cc3e0',26)}<linearGradient id="rcShade" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#3b2a1c" stop-opacity=".2"/><stop offset="1" stop-color="#3b2a1c" stop-opacity=".5"/></linearGradient><linearGradient id="rcDeep" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#3b2a1c" stop-opacity="0"/><stop offset="1" stop-color="#3b2a1c" stop-opacity=".55"/></linearGradient><pattern id="rcCheck" width="12" height="12" patternUnits="userSpaceOnUse"><rect width="12" height="12" fill="#fff"/><rect width="6" height="6" fill="#2b3640"/><rect x="6" y="6" width="6" height="6" fill="#2b3640"/></pattern></defs>`;
  mid.push(`<rect x="0" y="${RC.Y0+B+50}" width="${f1(c.W)}" height="${H-RC.Y0-B-50}" fill="url(#rcDeep)"/>`);
- return `<svg class="rc-svg" xmlns="http://www.w3.org/2000/svg" width="${f1(c.W)}" height="${H}" viewBox="0 0 ${f1(c.W)} ${H}">${defs}<g>${back.join('')}</g><g>${mid.join('')}</g></svg>`;
+ const out=`<svg class="rc-svg" xmlns="http://www.w3.org/2000/svg" width="${f1(c.W)}" height="${H}" viewBox="0 0 ${f1(c.W)} ${H}">${defs}<g>${back.join('')}</g><g>${mid.join('')}</g></svg>`;
+ return theme?.recolor?theme.recolor(out):out;
 }
 /** Overlay drawn ABOVE the racers: front posts of the start / finish gates and their banners. */
 export function courseFrontSvg(c){
@@ -191,6 +192,9 @@ export function planFor(course,level){
 }
 export function medalFor(place){return place===1?'gold':place===2?'silver':place===3?'bronze':null;}
 const ORD=p=>p+(['st','nd','rd'][p-1]||'th');
+/** V151: tricks learned at School help in the games (n = levels learned, 0–5 each). */
+export const SKILL_PERKS={sing:{label:'Cheers cost less Stamina',per:6},drums:{label:'Stronger cheer boost',per:6},draw:{label:'Thinks faster at puzzle gates',per:5},dance:{label:'Dodges more in Karate',per:2},juggle:{label:'Power strikes cost less Zeal',per:6},magic:{label:'More coins from games',per:5}};
+export const perkOf=(sk,id)=>(sk?.[id]||0)*SKILL_PERKS[id].per/100;
 
 export function createGamesSystem(ctx){
  const {$,escapeText,roster,sprites,isDiscovered,companionInfo,onResult,onBelt,wear,showModal,closeModal,toast,reducedMotion,activeId,prizes,belts,art={}}=ctx;
@@ -301,13 +305,16 @@ export function createGamesSystem(ctx){
   const pid=pick();if(!pid)return;const me=companionInfo(pid);
   const C=buildCourse(planFor(course,level),course.id.length*31+level);const L=C.L;
   const rivals=opponentsFor(4,pid,level);const growth=Number(ctx.alchemyGrowth?.()||1);
+  // V151: theme races get their own map (recoloured textures, themed sky and props)
+  const TA=course.theme&&ctx.themedArt?ctx.themedArt(art,course.id):null;const A=TA||art;const bgA=k=>A[k]?`url('data:image/svg+xml,${encodeURIComponent(A[k]).replace(/'/g,'%27')}')`:'none';
+  const PK=ctx.skillLevels?.(pid)||{};
   const st=stage(`${course.name} · ${LEVELS[level]}`,'race');st.dataset.level=level;if(course.theme)st.dataset.theme=course.id;const body=st.querySelector('.g-stage-body'),hud=st.querySelector('.g-hud');
-  body.innerHTML=`<div class="g-sky" style="background-image:${bg('sky')}"><i class="g-cloud" style="--d:0"></i><i class="g-cloud" style="--d:1"></i><i class="g-cloud" style="--d:2"></i></div><div class="g-mid" style="background-image:${bg('mid')}"></div><div class="g-track is-v99" style="width:${C.W}px">${courseSvg(C,art)}${courseFrontSvg(C)}</div><div class="g-fore" style="background-image:${bg('mid')}"></div><div class="g-tint"></div>`;
+  body.innerHTML=`<div class="g-sky" style="background-image:${bgA('sky')}"><i class="g-cloud" style="--d:0"></i><i class="g-cloud" style="--d:1"></i><i class="g-cloud" style="--d:2"></i></div><div class="g-mid" style="background-image:${bgA('mid')}"></div><div class="g-track is-v99" style="width:${C.W}px">${courseSvg(C,A,TA?{prop:TA.prop,recolor:ctx.recolorSvg?(x=>ctx.recolorSvg(x,TA.map)):null}:null)}${courseFrontSvg(C)}</div><div class="g-fore" style="background-image:${bgA('mid')}"></div><div class="g-tint"></div>${TA?`<div class="g-themefx is-${course.id}">${'<i></i>'.repeat(14)}</div>`:''}`;
   body.classList.add('has-v99');const track=body.querySelector('.g-track'),hills=body.querySelector('.g-mid');
   const avg=s=>['run','swim','fly','power','stamina'].reduce((n,k)=>n+(s[k]||0),0)/5/99;
   const racers=[{id:pid,me:true,stats:Object.fromEntries(Object.entries(me.stats).map(([k,v])=>[k,v.level])),mood:me.mood,belly:me.belly??60,name:me.name},...rivals.map((c,i)=>({id:c.id,stats:opponentStats(course,level,i+1+Date.now()%97),mood:35+Math.random()*50,belly:40+Math.random()*60,name:companionInfo(c.id).name}))];
   racers.forEach((r,i)=>{r.x=0;r.lane=i;r.max=energyMax(r.stats.stamina);r.energy=r.max;r.rest=0;r.boost=0;r.done=false;r.ai=2+Math.random()*2;r.fx=0;r.seg=-1;r.kind='';r.solved=new Set();r.pz=null;
-   r.wits=Math.min(0.95,0.25+0.45*avg(r.stats)+(r.me?0.3*(growth-1):0.05*level));
+   r.wits=Math.min(0.95,0.25+0.45*avg(r.stats)+(r.me?0.3*(growth-1)+perkOf(PK,'draw'):0.05*level));
    r.el=actor(r.id,r.me?'is-me':'');r.el.style.setProperty('--lane',i);
    const tag=document.createElement('b');tag.className='g-tag';tag.innerHTML=r.me?`<em>${i+1}</em>${escapeText(r.name)}`:`<em>${i+1}</em>`;if(!r.me)tag.classList.add('is-mini');r.el.append(tag);r.tag=tag;track.append(r.el);});
   dress(track);
@@ -317,7 +324,7 @@ export function createGamesSystem(ctx){
   const doCheer=()=>{const r=racers[0];if(!running||r.done||r.rest>0||r.pz)return;
    // V136: a cheer snaps a distracted/sad companion back into the race
    if(r.ev){r.ev=null;r.boost=0.5;sfx.cheer();fxAt(r.el,'is-ok',26,-10,700);banner(st,'BACK IN IT!','is-pass',600);return;}if(r.energy<6){r.el.classList.add('g-tired');cheer.classList.add('is-no');sfx.tired();try{navigator.vibrate?.([8,40,8]);}catch{}setTimeout(()=>{r.el.classList.remove('g-tired');cheer.classList.remove('is-no');},300);return;}
-   r.energy-=6;r.boost=0.8;if(r.gl&&r.gl.ph==='air')r.gl.reach+=0.08;sfx.cheer();try{navigator.vibrate?.(15);}catch{}cheer.classList.remove('is-pop');void cheer.offsetWidth;cheer.classList.add('is-pop');const b=document.createElement('i');b.className='g-burst';r.el.append(b);setTimeout(()=>b.remove(),500);};
+   r.energy-=6*(1-perkOf(PK,'sing'));r.boost=0.8*(1+perkOf(PK,'drums'));if(r.gl&&r.gl.ph==='air')r.gl.reach+=0.08;sfx.cheer();try{navigator.vibrate?.(15);}catch{}cheer.classList.remove('is-pop');void cheer.offsetWidth;cheer.classList.add('is-pop');const b=document.createElement('i');b.className='g-burst';r.el.append(b);setTimeout(()=>b.remove(),500);};
   body.addEventListener('pointerdown',doCheer);cheer.addEventListener('pointerdown',e=>{e.stopPropagation();doCheer();});
   st.querySelector('.g-quit').onclick=()=>{quit=true;cancelAnimationFrame(raf);st.remove();};
   const flash=(z,i,ok)=>{const el=track.querySelector(`#rcP${z.i}_${i}`);if(!el)return;el.classList.remove('is-ok','is-bad');void el.getBoundingClientRect();el.classList.add(ok?'is-ok':'is-bad');setTimeout(()=>el.classList.remove('is-ok','is-bad'),600);};
@@ -400,7 +407,7 @@ export function createGamesSystem(ctx){
  function finishRace(mount,course,level,place,racers,finished){
   const R=myRaces();const bag=R[course.id]=R[course.id]||{};const prev=bag[level]||0;const improved=!prev||place<prev;if(improved)bag[level]=place;
   const prize=course.theme?null:trophyOf(course.id);let newPrize=false;if(prize&&place===1&&level===LEVELS.length-1&&!hasPrize(prize.id)){state.prizes.push(prize.id);newPrize=true;}
-  const firstGold=place===1&&prev!==1;const coins=ctx.coinsFor?.('race',level,place,{theme:!!course.theme,firstGold})||0;if(coins)ctx.addCoins?.(coins);
+  const firstGold=place===1&&prev!==1;const coins=Math.round((ctx.coinsFor?.('race',level,place,{theme:!!course.theme,firstGold})||0)*(1+perkOf(PK,'magic')));if(coins)ctx.addCoins?.(coins);
   const accId=course.theme?(place===1&&level===LEVELS.length-1?course.prize:null):(place===1&&level>=3?COURSE_ACC[course.id]:null);const newAcc=accId&&ctx.grantAccessory?.(accId)?accId:null;
   save();
   if(newPrize)setTimeout(()=>sfx.prize(),500);else if(place<=3)setTimeout(()=>sfx.medal(),300);
@@ -426,7 +433,7 @@ export function createGamesSystem(ctx){
   const ms=Object.fromEntries(Object.entries(me.stats).map(([k,v])=>[k,v.level]));const rs=opponentStats({id:'dojo',focus:'all'},level,7+level);
   const st=stage(`Karate Dojo · ${LEVELS[level]}`,'karate');const body=st.querySelector('.g-stage-body'),hud=st.querySelector('.g-hud');
   body.innerHTML=`<div class="g-dojo" style="background-image:${bg('dojo')}"></div><div class="g-ring"><div class="g-ring-floor" style="background-image:${bg('ring')}"></div></div>`;const ring=body.querySelector('.g-ring');
-  const A={id:pid,s:ms,me:true,name:me.name,wins:0},B={id:rival.id,s:rs,name:companionInfo(rival.id).name,wins:0};
+  const PK=ctx.skillLevels?.(pid)||{};const A={id:pid,s:ms,me:true,name:me.name,wins:0},B={id:rival.id,s:rs,name:companionInfo(rival.id).name,wins:0};
   for(const f of [A,B]){f.hpMax=100+f.s.hp*4;f.max=energyMax(f.s.stamina);f.el=actor(f.id,f.me?'is-me is-left':'is-right');ring.append(f.el);}
   B.el.dataset.face='left';dress(ring);
   hud.innerHTML=`<div class="g-fighters"><div class="g-fighter is-me"><span class="g-port companion" data-companion="${A.id}"><span class="companion-art"></span></span><div><b>${escapeText(A.name)}</b><span class="g-hp is-me"><b><em id="gHpA"></em></b></span><span class="g-zeal"><em id="gZealA"></em></span></div><i class="g-rounds" id="gRoundsA"></i></div>
@@ -435,7 +442,7 @@ export function createGamesSystem(ctx){
   const el=id=>hud.querySelector('#'+id),cheer=el('gCheer');
   const upd=()=>{el('gHpA').style.width=(100*A.hp/A.hpMax)+'%';el('gHpB').style.width=(100*B.hp/B.hpMax)+'%';el('gZealA').style.width=(100*A.energy/A.max)+'%';el('gZealB').style.width=(100*B.energy/B.max)+'%';el('gRoundsA').innerHTML='<b></b>'.repeat(A.wins);el('gRoundsB').innerHTML='<b></b>'.repeat(B.wins);cheer.classList.toggle('is-dim',A.energy<20||A.power);};
   let over=false,turn=0,timer=0,round=0,live=false,hitStop=0;
-  const arm=()=>{if(over||!live||A.power)return;if(A.energy<20){cheer.classList.add('is-no');sfx.tired();setTimeout(()=>cheer.classList.remove('is-no'),300);return;}A.energy-=20;A.power=true;A.el.classList.add('is-charged');sfx.charge();cheer.classList.remove('is-pop');void cheer.offsetWidth;cheer.classList.add('is-pop');upd();};
+  const arm=()=>{if(over||!live||A.power)return;if(A.energy<20){cheer.classList.add('is-no');sfx.tired();setTimeout(()=>cheer.classList.remove('is-no'),300);return;}A.energy-=20*(1-perkOf(PK,'juggle'));A.power=true;A.el.classList.add('is-charged');sfx.charge();cheer.classList.remove('is-pop');void cheer.offsetWidth;cheer.classList.add('is-pop');upd();};
   body.addEventListener('pointerdown',arm);cheer.addEventListener('pointerdown',e=>{e.stopPropagation();arm();});
   st.querySelector('.g-quit').onclick=()=>{over=true;clearTimeout(timer);st.remove();};
   // V106: readable fight choreography (Web Animations): wind-up → dash → impact → recoil / dodge / block → back.
@@ -447,7 +454,7 @@ export function createGamesSystem(ctx){
    move(att.el,[{transform:'none'},{transform:`translateX(${-14*dir}px) scale(1.04,.9)`,offset:.22},{transform:`translateX(${gap*dir}px) rotate(${7*dir}deg)`,offset:.52},{transform:`translateX(${(gap-8)*dir}px) rotate(${3*dir}deg)`,offset:.68},{transform:'none'}],640);
    setTimeout(()=>{if(over&&!live)return;resolve(att,def,dir);upd();},330);};
   const resolve=(att,def,dir)=>{
-   const dodge=Math.max(0.05,Math.min(0.4,0.12+(def.s.fly-att.s.run)/250));
+   const dodge=Math.max(0.05,Math.min(0.45,0.12+(def.s.fly-att.s.run)/250+(def.me?perkOf(PK,'dance'):0)));
    if(Math.random()<dodge){def.el.dataset.anim='jump';move(def.el,[{transform:'none'},{transform:`translate(${46*dir}px,-54px) rotate(${-10*dir}deg)`,offset:.45},{transform:`translate(${30*dir}px,0)`,offset:.8},{transform:'none'}],460);setTimeout(()=>{if(def.hp>0)def.el.dataset.anim='idle';},460);
     const ghost=def.el.cloneNode(true);ghost.className=def.el.className+' is-ghost';ring.append(ghost);setTimeout(()=>ghost.remove(),350);att.power=false;att.el.classList.remove('is-charged');banner(st,'MISS','is-miss',450);sfx.miss();return;}
    let dmg=(8+att.s.power/4)*(0.85+Math.random()*0.3)*(att.me?1:LEVEL_EASE[level]);
@@ -475,7 +482,7 @@ export function createGamesSystem(ctx){
   let newBelt=null;if(win){const b=belts[level];const cur=belts.findIndex(x=>x.id===state.belts[A.id]);if(level>cur){state.belts[A.id]=b.id;newBelt=b;onBelt?.(A.id,b.id);}}
   save();
   if(newBelt)setTimeout(()=>sfx.prize(),500);else setTimeout(()=>win?sfx.medal():sfx.lose(),300);
-  const coins=ctx.coinsFor?.('karate',level,win?1:2,{firstGold:win&&prev!==1})||0;if(coins)ctx.addCoins?.(coins);const newAcc=win&&level>=3&&ctx.grantAccessory?.(COURSE_ACC.dojo)?COURSE_ACC.dojo:null;
+  const coins=Math.round((ctx.coinsFor?.('karate',level,win?1:2,{firstGold:win&&prev!==1})||0)*(1+perkOf(PK,'magic')));if(coins)ctx.addCoins?.(coins);const newAcc=win&&level>=3&&ctx.grantAccessory?.(COURSE_ACC.dojo)?COURSE_ACC.dojo:null;
   const trained=onResult?.(pick(),'karate','all',win?1:2)||[];
   const unlocked=win&&level<LEVELS.length-1&&prev!==1?`<p class="g-unlock">${LEVELS[level+1]} unlocked!</p>`:'';
   showModal(`<div class="modal-tag">KARATE DOJO · ${LEVELS[level].toUpperCase()}</div><div class="g-versus"><span class="companion ${win?'is-happy':''}" data-companion="${A.id}"><span class="companion-art"></span></span><b>${A.wins} – ${B.wins}</b><span class="companion ${win?'':'is-happy'}" data-companion="${B.id}"${rivalAttr(B.id)}><span class="companion-art"></span></span></div>

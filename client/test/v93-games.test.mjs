@@ -29,7 +29,7 @@ test('V99: each course has its own route; one continuous track drawn with the ap
   const kinds=l=>new Set(g.planFor(c,l).map(x=>x.t)).size;assert.ok(kinds(4)>=kinds(0),c.id);
   const total=l=>g.planFor(c,l).reduce((n,x)=>n+x.len,0);assert.ok(total(4)>total(0)*2,c.id);}
  const src=(await import('node:fs')).readFileSync(new URL('../src/games-v93.js',import.meta.url),'utf8');
- assert.match(src,/courseSvg\(C,art\)/);
+ assert.match(src,/courseSvg\(C,A,/);/* V151: themed art set A (= art on regular courses) */
  assert.ok(g.glideReach(0)<0.5&&g.glideReach(40)<1&&g.glideReach(90)>=1,'glide reach grows with Fly; weak fliers fall short');
  assert.match(src,/fallNow\('NO STAMINA!'\)/,'out of stamina mid-air = fall');
  for(const c of g.COURSES)for(let l=0;l<5;l++){const C=g.buildCourse(g.planFor(c,l),3);let x=0;
