@@ -13,12 +13,16 @@ test('V158: one minigame now, then one per 250 new elements; coins only after al
   assert.equal(q.state.unlocked.length, 16); assert.equal(q.coins, 2 * ARCADE_STEP_COINS);
   q = arcadeProgress(q.state, ARCADE_STEP * 17, ids, () => 0); assert.equal(q.coins, 0, 'paid once');
 });
-test('V163: ten minigames and a 30-minute ad pass', async () => {
+test('V164: ten minigames and a 24-hour ad pass per minigame', async () => {
   const m = await import('../src/arcade-v158.js');
   assert.equal(m.ARCADE_GAMES.length, 10);
   assert.deepEqual(m.ARCADE_GAMES.slice(6).map(g => g.id), ['dive', 'climb', 'rhythm', 'paint']);
-  assert.equal(m.ARCADE_PASS_MS, 30 * 60 * 1000);
-  assert.equal(m.arcadePassLeft({ passUntil: 1000 }, 400), 600);
-  assert.equal(m.arcadePassLeft({ passUntil: 1000 }, 2000), 0);
-  assert.equal(m.arcadePassLeft(null, 0), 0);
+  assert.equal(m.ARCADE_PASS_MS, 24 * 60 * 60 * 1000);
+  const st = { passes: { dive: 1000 } };
+  assert.equal(m.arcadePassLeft(st, 'dive', 400), 600);
+  assert.equal(m.arcadePassLeft(st, 'climb', 400), 0, 'each minigame has its own pass');
+  assert.equal(m.arcadePassLeft(st, 'dive', 2000), 0);
+  assert.equal(m.arcadePassLeft(null, 'dive', 0), 0);
+  assert.equal(m.fmtPass(90 * 60000), '1h 30m');
+  const kept = m.arcadeProgress({ base: 0, unlocked: [], passes: { dive: 5 } }, 0, undefined, () => 0); assert.deepEqual(kept.state.passes, { dive: 5 });
 });

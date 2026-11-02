@@ -90,6 +90,9 @@ Preserve 200-per-batch policy and do not start another content release on top of
 
 - **Art redraw wave 3 (V85, done): 3,991 icons** — every remaining older element. All 6,012 pre-V83 elements now use the 2026 art direction (`ART_REDRAW`), plus 200 V83 and 200 V85 originals. Six near-duplicates found by the audit were redrawn; 36 reviewed false alarms are in `tools/art-redraw-reviewed-pairs.json` (the audit now also honours them for V83 comparisons).
 
+## V164 — Per-minigame 24 h ad pass (30-min hub gate removed)
+- Owner disliked the 30-min hub gate. Now each minigame has its own pass: st.passes[id]; one rewarded ad (kind 'arcade_game') opens THAT minigame for 24 h (ARCADE_PASS_MS). Hub tiles show "▶ Ad · 24h" or "⏳ time left"; intro button becomes "▶ Watch ad · 24h"; "Play again" re-checks the pass. arcadePassLeft(st,id,now), fmtPass(ms). Progression unlock (every 250 elements) unchanged.
+
 ## V163 — Minigame ad pass + 4 new minigames (10/16)
 - Opening the minigames hub needs one rewarded ad (kind 'arcade_pass'); then 30 min free entry (st.passUntil, ARCADE_PASS_MS, arcadePassLeft). arcadeProgress now keeps passUntil. ctx.showAd in app.js returns true when no native ad bridge (browser/dev).
 - New games (arcade-v158.js): Deep Dive (canvas; Swim stat; air bar, urchins, depth-scaled treasure), Rock Climb (canvas; Power climbs faster, Stamina shortens stun; 3 lanes, warned falling rocks, gems), Drum Beat (DOM; Drums widen timing, Singing boosts combo; generated chart with rising tempo), Copy the Painting (Drawing: longer look + peeks; 3x3→5x5 rounds).
