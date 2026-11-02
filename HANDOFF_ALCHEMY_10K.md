@@ -90,6 +90,11 @@ Preserve 200-per-batch policy and do not start another content release on top of
 
 - **Art redraw wave 3 (V85, done): 3,991 icons** — every remaining older element. All 6,012 pre-V83 elements now use the 2026 art direction (`ART_REDRAW`), plus 200 V83 and 200 V85 originals. Six near-duplicates found by the audit were redrawn; 36 reviewed false alarms are in `tools/art-redraw-reviewed-pairs.json` (the audit now also honours them for V83 comparisons).
 
+## V158 — Minigames (Arcade): one new every 250 elements (2 November 2026)
+- `client/src/arcade-v158.js` (`createArcade`, pure `arcadeProgress`). Save `alchemy10k_arcade_v158` {base, unlocked, paid, best}. On first run `base` = current Classic count and one random minigame unlocks; then one per `ARCADE_STEP=250` new elements (random order). Planned total `ARCADE_TOTAL=16`; steps beyond the implemented games are banked until more games ship; once all 16 are unlocked each further 250 pays `ARCADE_STEP_COINS=500`.
+- Implemented (6): Element Memory (Drawing: longer peek, fewer shuffles) · Fire·Water·Earth (Juggling: more time) · Recipe Rush (Magic: more time, wrong answers fade at lv2/4) · Falling Finds (Run speed, Dancing catch width; trains Run) · Pond Fishing (Drums + Swim widen the timing window; trains Swim) · Sky Glide (Fly: lift/gravity/gap; trains Fly). Score → coins (score/20, max 300), best score saved.
+- Entry: Stadium → Games → "🎮 Minigames" button at the top of the Races & Karate sheet. Planned next 10: Rock-paper element shooter variants, Expedition, Challenge Cups, Pinball, Diving, Climbing, Rhythm stage (Singing/Drums), Painting (Drawing), Cooking, Treasure dig, Bingo.
+
 ## V157 — more coin sources; School half price (2 November 2026)
 - `DISCOVERY_COINS=10`: every new element from `completeCombination` (any crafting path, not Market purchases) gives 🪙10 with a "+10 🪙" pop under the element counter (`coinPop`).
 - Companion finds while away: 🪙10 each for the ones kept; the rewarded ad keeps all finds and pays ×5 (`COMPANION_FIND_COINS`, `FIND_AD_MULT`).

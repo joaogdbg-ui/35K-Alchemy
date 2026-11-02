@@ -264,7 +264,9 @@ export function createGamesSystem(ctx){
  /** V141: races and Karate live in their own sheet (hub tile "Games"). */
  let lastRows=null;
  function gamesSheet(mount,rowsHtml){lastRows=rowsHtml||lastRows;
-  showModal(`<div class="modal-tag">GAMES</div><h2>Races &amp; Karate</h2><div class="st-rows is-sheet">${lastRows()}</div><p class="mini-muted st-tip">Your companion competes on its own. Tap CHEER for a sprint or a power strike — it costs Stamina.</p><button type="button" class="modal-button secondary" id="stClose">Close</button>`);
+  const ai=ctx.arcadeInfo?.();
+  showModal(`<div class="modal-tag">GAMES</div><h2>Races &amp; Karate</h2>${ctx.openArcade?`<button type="button" class="st-shop-btn ar-entry" id="stArcade"><span>🎮</span><b>Minigames</b><small>${ai?`${ai.got}/${ai.total} unlocked`:'One new every 250 elements'}</small></button>`:''}<div class="st-rows is-sheet">${lastRows()}</div><p class="mini-muted st-tip">Your companion competes on its own. Tap CHEER for a sprint or a power strike — it costs Stamina.</p><button type="button" class="modal-button secondary" id="stClose">Close</button>`);
+  const sa=$('stArcade');if(sa)sa.onclick=()=>ctx.openArcade(()=>gamesSheet(mount));
   $('stClose').onclick=closeModal;const mc=$('modalContent');try{mc.querySelectorAll('.companion[data-companion] .companion-art').forEach(a=>rig(a,a.parentElement.dataset.companion));}catch{}
   mc.querySelectorAll('[data-play]').forEach(b=>b.onclick=e=>{e.stopPropagation();if(preview){state.pick=preview;preview=null;save();}const ev=EVENTS().find(x=>x.id===b.dataset.play);const lv=nextLevel(ev);closeModal();ev.kind==='race'?startRace(mount,ev.course,lv):startKarate(mount,lv);});
   mc.querySelectorAll('[data-ev]').forEach(r=>r.onclick=()=>eventSheet(mount,EVENTS().find(x=>x.id===r.dataset.ev),true));}
