@@ -21,7 +21,7 @@ export const ARCADE_GAMES=[
 /** V169: Microgames — WarioWare-style packs of 3-5 second games with ONE gesture per pack. Separate from the 16 minigames. */
 export const MICRO_PACKS=[
  {id:'micro-tap',pack:'tap',name:'TAP! pack',icon:'👆',desc:'Pop, wake, jump, catch, stop and find — just tap!'},
- {id:'micro-rub',pack:'rub',name:'RUB! pack',icon:'🧽',desc:'Scratch, polish, wipe, tickle and spark — rub the screen!'},
+ {id:'micro-rub',pack:'rub',name:'RUB! pack',icon:'🧽',desc:'Scratch, polish, wipe and tickle — rub the screen!'},
  {id:'micro-cut',pack:'cut',name:'CUT! pack',icon:'✂️',desc:'Cut, slice, chop, trim and split — swipe through!'}];
 export const MICRO_LIVES=4,MICRO_SPEEDUP_EVERY=5;
 /** Pure: time for one microgame after `cleared` wins (seconds), never below 45% of the base. */
@@ -397,7 +397,7 @@ export function createArcade(ctx){
  function pinball(){const o=stage('Pinball','pinball');o.id='pinball';o.statKey='power';const pw=stat('power');const K=canvasKit(o),g=K.g;
   const me=companionEl('ar-ball');me.dataset.anim='idle';K.box.append(me);ctx.wear?.(K.box);
   const BR=15,GRAV=1150,KICK=1+pw*0.006,SAVE_S=8;let A=null,W=0,H=0,P=0,LANE=46;
-  let ball=null,balls=3,run=false,mult=1,lanes=[0,0,0],drops=[1,1,1],els=[],flash=0,flashC='#fff',saveT=0,charging=false,power=0,inLane=true,trail=[],rot=0,acc=0,msgT=0,msg='',bankN=0;
+  let stuckT=0,slowT=0,ball=null,balls=3,run=false,mult=1,lanes=[0,0,0],drops=[1,1,1],els=[],flash=0,flashC='#fff',saveT=0,charging=false,power=0,inLane=true,trail=[],rot=0,acc=0,msgT=0,msg='',bankN=0;
   let segs=[],bumps=[],slings=[],fl=[],dropSegs=[],held={L:false,R:false};
   const say=(t,c='#ffd166')=>{msg=t;msgT=1.4;flash=0.35;flashC=c;};
   const pts=(n,x,y,cls='')=>{const v=n*mult;o.add(v);o.pop(x,y,`+${v}`,cls);};
@@ -429,7 +429,7 @@ export function createArcade(ctx){
    // V168: a ball that drops back into the lane is re-armed so it can be launched again (never stuck)
    if(inLane&&ball.launched&&ball.x>P&&ball.y>H-26-BR-3&&Math.abs(ball.vy)<60){ball.launched=false;ball.vy=0;ball.vx=0;ball.x=W-LANE/2;ball.y=H-26-BR-1;power=0;o.hint('Hold to charge · release to launch');}
    for(const sg of segs){if(sg.oneway&&ball.vy<0)continue;hitSeg(sg.x1,sg.y1,sg.x2,sg.y2,sg.e);}
-   for(const s2 of slings)if(hitSeg(s2.x1,s2.y1,s2.x2,s2.y2,0.3,null,420)){if(s2.f<=0){s2.f=0.15;pts(10,(s2.x1+s2.x2)/2,(s2.y1+s2.y2)/2-20);sfx.clack();}}
+   for(const s2 of slings){const k=s2.f<=0?260:0;if(hitSeg(s2.x1,s2.y1,s2.x2,s2.y2,0.3,null,k)&&k){s2.f=0.3;pts(10,(s2.x1+s2.x2)/2,(s2.y1+s2.y2)/2-20);sfx.clack();}}
    for(const d of dropSegs)if(drops[d.i]&&hitSeg(d.x1,d.y1,d.x2,d.y2,0.4)){drops[d.i]=0;pts(75,40,(d.y1+d.y2)/2-10);sfx.hit();o.burst(14,(d.y1+d.y2)/2,'earth',8);
     if(!drops.some(Boolean)){bankN++;const b=500*bankN;o.add(b*mult);say(`BANK CLEAR! +${b*mult}`,'#8fbf68');sfx.prize();o.shake();setTimeout(()=>{drops=[1,1,1];},1200);}}
    for(const f of fl){const ex=f.px+Math.cos(f.a)*f.len,ey=f.py+Math.sin(f.a)*f.len;hitSeg(f.px,f.py,ex,ey,0.3,(cx,cy)=>[-f.w*(cy-f.py)*KICK,f.w*(cx-f.px)*KICK]);}
@@ -440,6 +440,9 @@ export function createArcade(ctx){
    for(const t of els)if(!t.hit&&Math.hypot(ball.x-t.x,ball.y-t.y)<BR+18){t.hit=true;const k=o.streak(true);pts(150*Math.min(3,1+Math.floor(k/3)),t.x,t.y-24,'is-gold');o.burst(t.x,t.y,'gold',14);sfx.unlock();flash=0.15;flashC='#fff5d6';}
    if(els.some(t=>t.hit)){els=els.filter(t=>!t.hit);spawnEl();}
    const sp=Math.hypot(ball.vx,ball.vy);if(sp>1700){ball.vx*=1700/sp;ball.vy*=1700/sp;}rot+=ball.vx*dt*3;
+   // V170 anti-stuck: if the ball never comes down to the flippers (or stops) for a while, nudge it
+   if(!inLane){if(ball.y>H*0.8||sp>60&&ball.y>H*0.78)stuckT=0;else stuckT+=dt;if(sp<25)slowT+=dt;else slowT=0;
+    if(stuckT>7||slowT>1.5){stuckT=0;slowT=0;ball.vy=Math.max(ball.vy,260);ball.vx=(ball.x<P/2?1:-1)*(120+Math.random()*80);say('NUDGE!','#5aaed2');sfx.boop();o.shake();}}
    if(ball.y>H+30){if(saveT>0){say('BALL SAVED!','#5aaed2');sfx.happy();newBall();return;}balls--;o.streak(false);sfx.lose?.();o.shake();ball=null;mult=1;
     if(balls<=0){o.endText='Game over';o.finish();return;}say(balls===1?'LAST BALL!':`${balls} BALLS LEFT`,'#e0675a');o.later(newBall,900);}};
   // V167: the table is a garden in the game's own style — race grass and sky, a sandy path loop, wooden rails and signs
@@ -518,18 +521,19 @@ export function createArcade(ctx){
   $('arPlay').onclick=async()=>{if(need){const b=$('arPlay');b.disabled=true;let ok=false;try{ok=await ctx.showAd('micro_pack');}catch{}if(!ok){b.disabled=false;toast('Ad not completed','repeat');return;}st.passes[id]=Date.now()+ARCADE_PASS_MS;save();sfx.unlock();}closeModal();GAMES[id]();};}
  // --- engine: command word → 3-5 s game with a fuse → ✓/✗ → faster ---
  function microRun(packId){const g=MICRO_PACKS.find(x=>x.id===packId);const o=stage(g.name,'micro');o.id=packId;const list=MICRO[g.pack];
-  o.body.insertAdjacentHTML('beforeend',`<div class="ar-micro"><div class="ar-marea"></div><div class="ar-mfuse"><em></em><i></i></div></div>`);
+  o.body.insertAdjacentHTML('beforeend',`<div class="ar-micro"><div class="ar-marea"></div><div class="ar-mfuse"><em></em><i></i></div></div>`);const coach=companionEl('ar-coach');o.body.querySelector('.ar-micro').append(coach);ctx.wear?.(o.body);
   const area=o.body.querySelector('.ar-marea'),fuse=o.body.querySelector('.ar-mfuse em'),spark=o.body.querySelector('.ar-mfuse i');const els=pick(ctx.unlocked(),12);
   let lives=MICRO_LIVES,cleared=0,lastIdx=-1,cur=null;
   const hearts=()=>{o.el.querySelector('.ar-time').textContent='❤'.repeat(lives)+'♡'.repeat(MICRO_LIVES-lives);};hearts();
   const banner=(t,cls='')=>{const b=document.createElement('div');b.className='ar-mbanner '+cls;b.textContent=t;o.body.append(b);setTimeout(()=>b.remove(),900);};
-  const next=()=>{if(o.over)return;let i;do{i=Math.floor(Math.random()*list.length);}while(list.length>1&&i===lastIdx);lastIdx=i;const mg=list[i];
+  const next=()=>{if(o.over)return;let i;do{i=Math.floor(Math.random()*list.length);}while(list.length>1&&i===lastIdx);if(typeof window!=='undefined'&&window.__microForce!=null)i=window.__microForce%list.length;lastIdx=i;const mg=list[i];
    area.innerHTML='';area.className='ar-marea is-'+g.pack;const T=microTime(mg.t||4,cleared);banner(mg.word,'is-cmd');sfx.go();
    o.later(()=>{const st2={done:false,timers:[]};cur=st2;const m={area,T,els,art,o,
      later:(fn,ms)=>{const t=setTimeout(()=>{if(!st2.done&&!o.over)fn();},ms);st2.timers.push(t);},
      comp:(cls='')=>{const c=companionEl('ar-mcomp '+cls);area.append(c);ctx.wear?.(area);return c;},
      win:()=>finish(true),lose:()=>finish(false),pt:(x,y)=>{const a=area.getBoundingClientRect(),b=o.body.getBoundingClientRect();return [x+a.left-b.left,y+a.top-b.top];}};
     const finish=ok=>{if(st2.done)return;st2.done=true;st2.timers.forEach(clearTimeout);try{st2.clean?.();}catch{}
+     coach.dataset.anim=ok?'duo-cheer':'shake';setTimeout(()=>{coach.dataset.anim='idle';},700);
      if(ok){cleared++;o.add(100+Math.floor(cleared/MICRO_SPEEDUP_EVERY)*20);banner('✓','is-ok');sfx.unlock();o.streak(true);}
      else{lives--;hearts();banner('✗','is-bad');sfx.miss();o.shake();o.streak(false);}
      area.classList.add(ok?'is-won':'is-lost');
@@ -549,7 +553,7 @@ export function createArcade(ctx){
   area.onpointerup=area.onpointercancel=()=>{last=null;setTimeout(()=>{if(!last){pts=[];draw();}},120);};};
  const scratchLayer=(area,box,color,need,onDone,pattern)=>{const c=document.createElement('canvas');c.className='ar-scratch';box.append(c);const r=box.getBoundingClientRect();const d=Math.min(2,window.devicePixelRatio||1);c.width=r.width*d;c.height=r.height*d;const g=c.getContext('2d');g.scale(d,d);
   g.fillStyle=color;g.fillRect(0,0,r.width,r.height);pattern?.(g,r.width,r.height);g.globalCompositeOperation='destination-out';g.lineCap='round';g.lineJoin='round';g.lineWidth=Math.max(34,r.width*0.16);
-  let last=null,n=0,done=false;const check=()=>{const data=g.getImageData(0,0,c.width,c.height).data;let clear=0,tot=0;for(let i=3;i<data.length;i+=4*16){tot++;if(data[i]<40)clear++;}if(clear/tot>=need&&!done){done=true;c.style.transition='opacity .25s';c.style.opacity=0;onDone();}};
+  let last=null,n=0,done=false;const base=g.getImageData(0,0,c.width,c.height).data;const mask=[];for(let i=3;i<base.length;i+=4*16)if(base[i]>=40)mask.push(i);const check=()=>{const data=g.getImageData(0,0,c.width,c.height).data;let clear=0,tot=mask.length||1;for(const i of mask)if(data[i]<40)clear++;if(clear/tot>=need&&!done){done=true;c.style.transition='opacity .25s';c.style.opacity=0;onDone();}};
   c.onpointerdown=e=>{e.preventDefault();c.setPointerCapture?.(e.pointerId);const p=local(c,e);last=p;g.beginPath();g.arc(p.x,p.y,g.lineWidth/2,0,7);g.fill();};
   c.onpointermove=e=>{if(!last||done)return;const p=local(c,e);g.beginPath();g.moveTo(last.x,last.y);g.lineTo(p.x,p.y);g.stroke();last=p;if(++n%6===0)check();sfx.step?.();};
   c.onpointerup=c.onpointercancel=()=>{last=null;check();};return c;};
@@ -563,12 +567,22 @@ export function createArcade(ctx){
      b.onpointerdown=e=>{e.preventDefault();if(b.classList.contains('is-pop'))return;b.classList.add('is-pop');sfx.boop();const p=m.o.rect(b);m.o.burst(p.x,p.y,'water',8);if(--left===0)m.win();};m.area.append(b);}}},
    {word:'WAKE UP!',t:3.5,run(m){const c=m.comp('is-big');c.dataset.anim='sleep';const z=document.createElement('i');z.className='ar-zzz';z.textContent='Z z z';m.area.append(z);let n=0;const need=6;const bar=document.createElement('i');bar.className='ar-mbar';bar.innerHTML='<em></em>';m.area.append(bar);
      c.onpointerdown=e=>{e.preventDefault();n++;bar.firstChild.style.width=(n/need*100)+'%';c.animate([{transform:'translate(-50%,-50%) scale(1.1,.9)'},{transform:'translate(-50%,-50%)'}],{duration:120});sfx.tap();if(n>=need){c.dataset.anim='jump';z.remove();m.win();}};}},
-   {word:'JUMP!',t:5,winOnTimeout:true,run(m){m.area.insertAdjacentHTML('beforeend','<svg class="ar-rope" viewBox="0 0 300 200" preserveAspectRatio="none"><path d=""/></svg><i class="ar-post l"></i><i class="ar-post r"></i>');const path=m.area.querySelector('.ar-rope path');const c=m.comp('is-rope');c.dataset.anim='idle';
-     const per=Math.max(0.55,0.95*m.T/5);let air=0,t0=performance.now(),lastBottom=0,jumps=0,stop=false;
-     m.area.onpointerdown=e=>{e.preventDefault();if(air<=0){air=0.42;c.dataset.anim='jump';sfx.hop?.();}};
-     const loop=t=>{if(stop)return;const ph=((t-t0)/1000/per)%1;const y=100-Math.cos(ph*Math.PI*2)*80;path.setAttribute('d',`M20 120 Q150 ${y*1.6-40} 280 120`);air-=1/60;
-      c.style.translate=`0 ${air>0?-Math.sin((0.42-air)/0.42*Math.PI)*60:0}px`;if(air<=0&&c.dataset.anim==='jump')c.dataset.anim='idle';
-      const cyc=Math.floor((t-t0)/1000/per);if(ph>0.45&&ph<0.55&&lastBottom!==cyc){lastBottom=cyc;if(air>0.05){jumps++;sfx.tick();}else{stop=true;c.dataset.anim='tumble';m.lose();return;}}
+   {word:'JUMP!',t:6,run(m){
+     // skipping rope with clear cues: the rope swings over the top and SMACKS the ground in front of the companion.
+     // A ring under the feet fills up as the rope comes down: tap when it turns green. 3 jumps to win.
+     m.area.insertAdjacentHTML('beforeend','<div class="ar-jr"><i class="ar-post l"></i><i class="ar-post r"></i><svg class="ar-rope back" viewBox="0 0 300 300" preserveAspectRatio="none"><path/></svg><i class="ar-cue"><b></b></i><svg class="ar-rope front" viewBox="0 0 300 300" preserveAspectRatio="none"><path/></svg><span class="ar-jcount">0 / 3</span></div>');
+     const jr=m.area.querySelector('.ar-jr');const back=jr.querySelector('.back path'),front=jr.querySelector('.front path'),cue=jr.querySelector('.ar-cue'),cnt=jr.querySelector('.ar-jcount');const c=m.comp('is-rope');jr.append(c);c.dataset.anim='idle';
+     const per=Math.max(0.75,1.25*m.T/6);let air=0,t0=performance.now()+300,lastHit=-1,jumps=0,stop=false;const AIR=0.5;
+     m.area.onpointerdown=e=>{e.preventDefault();if(air<=0&&!stop){air=AIR;c.dataset.anim='jump';sfx.hop?.();}};
+     const loop=t=>{if(stop)return;const u=(t-t0)/1000/per;const ph=((u%1)+1)%1;const cyc=Math.floor(u);
+      // rope height: top of the arc at ph=0, hits the ground at ph=0.5. Front half of the swing is drawn over the companion.
+      const h=Math.cos(ph*Math.PI*2);const ctrl=150-h*170;const onFront=ph>0.25&&ph<0.75;const d=`M20 150 Q150 ${ctrl} 280 150`;
+      (onFront?front:back).setAttribute('d',d);(onFront?back:front).setAttribute('d','');
+      const near=1-Math.min(1,Math.abs(ph-0.5)/0.3);cue.style.setProperty('--k',near.toFixed(2));cue.classList.toggle('is-go',ph>0.4&&ph<0.56);
+      air-=1/60;c.style.translate=`-50% ${air>0?-Math.sin((AIR-air)/AIR*Math.PI)*70:0}px`;if(air<=0&&c.dataset.anim==='jump')c.dataset.anim='idle';
+      if(u>0&&ph>0.48&&ph<0.56&&lastHit!==cyc){lastHit=cyc;sfx.clack();jr.classList.remove('is-smack');void jr.offsetWidth;jr.classList.add('is-smack');
+       if(air>0.04){jumps++;cnt.textContent=`${jumps} / 3`;cnt.animate([{transform:'translateX(-50%) scale(1.4)'},{transform:'translateX(-50%)'}],{duration:250});sfx.tick();if(jumps>=3){stop=true;c.dataset.anim='duo-cheer';m.win();return;}}
+       else{stop=true;c.dataset.anim='tumble';m.lose();return;}}
       requestAnimationFrame(loop);};requestAnimationFrame(loop);return()=>{stop=true;};}},
    {word:'DROP!',t:4,run(m){m.area.insertAdjacentHTML('beforeend',`<i class="ar-claw"><span>${m.art(m.els[0])}</span></i><i class="ar-mbasket">${PROP.basket}</i>`);const claw=m.area.querySelector('.ar-claw'),bas=m.area.querySelector('.ar-mbasket');let x=0.2,v=0.55/Math.max(1.2,m.T/2),dropped=false,stop=false;const W=m.area.clientWidth;
      const loop=()=>{if(stop)return;if(!dropped){x+=v/60;if(x>0.85||x<0.15)v*=-1;claw.style.left=(x*100)+'%';}requestAnimationFrame(loop);};requestAnimationFrame(loop);bas.style.left=(25+Math.random()*50)+'%';
@@ -585,22 +599,34 @@ export function createArcade(ctx){
    {word:'WIPE!',t:4.5,run(m){const c=m.comp('is-big');c.dataset.anim='duo-peek';const box=document.createElement('div');box.className='ar-window';m.area.append(box);box.append(c);
      requestAnimationFrame(()=>scratchLayer(m.area,box,'rgba(233,228,220,.95)',0.6,()=>{c.dataset.anim='duo-cheer';m.win();},(g,w,h)=>{g.fillStyle='rgba(255,255,255,.6)';for(let i=0;i<20;i++){g.beginPath();g.arc(Math.random()*w,Math.random()*h,6+Math.random()*14,0,7);g.fill();}}));}},
    {word:'TICKLE!',t:4,run(m){const c=m.comp('is-big');c.dataset.anim='idle';const bar=document.createElement('i');bar.className='ar-mbar';bar.innerHTML='<em></em>';m.area.append(bar);
-     rubMeter(c,{dist:900,flips:8},k=>{bar.firstChild.style.width=k*100+'%';c.dataset.anim='duo-laugh';},()=>{c.dataset.anim='duo-cheer';sfx.happy?.();m.win();});}},
-   {word:'SPARK!',t:4.5,run(m){m.area.insertAdjacentHTML('beforeend',`<div class="ar-sticks"><i class="ar-log"></i><i class="ar-stick"></i><i class="ar-flame2"></i><i class="ar-mbar"><em></em></i></div>`);const box=m.area.querySelector('.ar-sticks'),stick=box.querySelector('.ar-stick'),fl=box.querySelector('.ar-flame2'),bar=box.querySelector('.ar-mbar em');let heat=0,stop=false;
-     rubMeter(box,{dist:1300,flips:10},k=>{heat=k;bar.style.width=k*100+'%';stick.style.translate=`${(Math.random()*16-8).toFixed(0)}px 0`;if(Math.random()<0.3){const p=m.o.rect(stick);m.o.burst(p.x,p.y+20,'fire',3);}},()=>{fl.classList.add('is-on');sfx.prize?.();m.win();});
-     const cool=()=>{if(stop)return;heat=Math.max(0,heat-0.004);requestAnimationFrame(cool);};cool();return()=>{stop=true;};}}],
+     rubMeter(c,{dist:900,flips:8},k=>{bar.firstChild.style.width=k*100+'%';c.dataset.anim='duo-laugh';},()=>{c.dataset.anim='duo-cheer';sfx.happy?.();m.win();});}}],
   cut:[
-   {word:'CUT!',t:4.5,run(m){m.area.insertAdjacentHTML('beforeend',`<div class="ar-pend"><i class="ar-rope2"></i><span>${m.art(m.els[0])}</span></div><i class="ar-pot2">${PROP.cauldron}</i>`);const pend=m.area.querySelector('.ar-pend'),it=pend.querySelector('span'),pot=m.area.querySelector('.ar-pot2');let a=0,stop=false,cut=false;const t0=performance.now();const per=Math.max(0.9,1.6*m.T/4.5);
-     const loop=t=>{if(stop||cut)return;a=Math.sin((t-t0)/1000/per*Math.PI*2)*38;pend.style.transform=`rotate(${a}deg)`;requestAnimationFrame(loop);};requestAnimationFrame(loop);
-     slashTrail(m.area,(p,q)=>{if(cut)return;const r=pend.getBoundingClientRect(),ar=m.area.getBoundingClientRect();const top={x:ar.width/2,y:pend.offsetTop};const ir=it.getBoundingClientRect();const bot={x:ir.left-ar.left+ir.width/2,y:ir.top-ar.top};
-      if(segsCross(p,q,top,bot)){cut=true;sfx.clack();const ir2=it.getBoundingClientRect(),pr=pot.getBoundingClientRect();const fall=pr.top-ir2.top;it.animate([{transform:'none'},{transform:`translateY(${fall}px) rotate(${-a*2}deg)`}],{duration:420,easing:'ease-in',fill:'forwards'});
-       setTimeout(()=>{const cx=ir2.left+ir2.width/2;(cx>pr.left+10&&cx<pr.right-10)?(pot.classList.add('is-boil'),m.win()):m.lose();},430);}});return()=>{stop=true;};}},
+   {word:'CUT!',t:5,run(m){
+     // the element swings on a rope above the cauldron; cut the rope and it really falls with the swing's momentum.
+     m.area.insertAdjacentHTML('beforeend',`<i class="ar-hook"></i><div class="ar-pend"><i class="ar-rope2"></i><span>${m.art(m.els[0])}</span></div><i class="ar-pot2">${PROP.cauldron}</i>`);
+     const pend=m.area.querySelector('.ar-pend'),it=pend.querySelector('span'),pot=m.area.querySelector('.ar-pot2');let a=0,w=0,stop=false,cut=false;const t0=performance.now();const per=Math.max(1,1.7*m.T/5);
+     pot.style.left=(30+Math.random()*40)+'%';
+     const loop=t=>{if(stop||cut)return;const na=Math.sin((t-t0)/1000/per*Math.PI*2)*40;w=(na-a)*60;a=na;pend.style.transform=`rotate(${a}deg)`;requestAnimationFrame(loop);};requestAnimationFrame(loop);
+     slashTrail(m.area,(p,q)=>{if(cut)return;const ar=m.area.getBoundingClientRect();const top={x:ar.width/2,y:pend.offsetTop};const ir=it.getBoundingClientRect();const bot={x:ir.left-ar.left+ir.width/2,y:ir.top-ar.top};
+      if(!segsCross(p,q,top,bot))return;cut=true;sfx.clack();m.o.burst(...m.pt((top.x+bot.x)/2,(top.y+bot.y)/2),'star',6);
+      // detach the element and drop it with real motion
+      let x=ir.left-ar.left+ir.width/2,y=ir.top-ar.top+ir.height/2;const L=Math.hypot(x-top.x,y-top.y);const rad=w*Math.PI/180;let vx=0.5*rad*L*Math.cos(a*Math.PI/180),vy=0.5*rad*L*Math.sin(a*Math.PI/180);
+      const f=document.createElement('i');f.className='ar-fallit';f.innerHTML=it.innerHTML;m.area.append(f);it.style.visibility='hidden';pend.querySelector('.ar-rope2').classList.add('is-cut');
+      const G=m.area.clientHeight*2.2;let last=performance.now(),r=0;
+      const fall=t=>{if(stop)return;const dt=Math.min(0.04,(t-last)/1000);last=t;vy+=G*dt;x+=vx*dt;y+=vy*dt;r+=vx*dt*2;f.style.transform=`translate(${x-29}px,${y-29}px) rotate(${r}deg)`;
+       const pr=pot.getBoundingClientRect();const mouthY=pr.top-ar.top+pr.height*0.3,mx1=pr.left-ar.left+pr.width*0.16,mx2=pr.right-ar.left-pr.width*0.16;
+       if(y>=mouthY&&y-vy*dt<mouthY+4){if(x>mx1&&x<mx2){f.remove();pot.classList.add('is-boil');m.o.burst(...m.pt(x,mouthY),'magic',14);sfx.splash();m.win();return;}}
+       if(y>m.area.clientHeight+40){m.lose();return;}requestAnimationFrame(fall);};requestAnimationFrame(fall);});
+     return()=>{stop=true;};}},
    {word:'SLICE!',t:4,run(m){const n=2+Math.floor(Math.random()*2);let left=n;const W=m.area.clientWidth,H=m.area.clientHeight;const items=[];
      for(let i=0;i<n+1;i++){const rock=i===n;const e=document.createElement('i');e.className='ar-toss'+(rock?' is-rock':'');e.innerHTML=rock?PROP.rock:m.art(m.els[i]);m.area.append(e);items.push({e,rock,x:W*(0.2+0.6*Math.random()),y:H+30,vx:(Math.random()-.5)*120,vy:-(H*1.25+Math.random()*120)/Math.max(1,m.T/3.2),r:0,cut:false,d:i*0.25});}
      let stop=false,last=performance.now();const loop=t=>{if(stop)return;const dt=Math.min(0.05,(t-last)/1000);last=t;for(const it of items){if(it.d>0){it.d-=dt;continue;}if(it.cut)continue;it.vy+=H*1.1*dt/Math.max(0.6,m.T/3.2)**2*1.0;it.x+=it.vx*dt;it.y+=it.vy*dt;it.r+=200*dt;it.e.style.transform=`translate(${it.x-24}px,${it.y-24}px) rotate(${it.r}deg)`;}requestAnimationFrame(loop);};requestAnimationFrame(loop);
      slashTrail(m.area,(p,q)=>{for(const it of items)if(!it.cut&&it.d<=0&&segHitsCircle(p,q,{x:it.x,y:it.y},28)){it.cut=true;it.e.classList.add('is-cut');m.o.burst(...m.pt(it.x,it.y),it.rock?'smoke':'star',8);if(it.rock){sfx.hit();m.lose();return;}sfx.clack();if(--left===0)m.win();}});return()=>{stop=true;};}},
-   {word:'CHOP!',t:4.5,run(m){let left=3;const box=document.createElement('div');box.className='ar-logs';box.innerHTML='<i class="ar-wood"></i><i class="ar-wood"></i><i class="ar-wood"></i>';m.area.append(box);const logs=[...box.children];
-     slashTrail(m.area,(p,q)=>{const ar=m.area.getBoundingClientRect();for(const l of logs){if(l.classList.contains('is-cut'))continue;const r=l.getBoundingClientRect();const c={x:r.left-ar.left+r.width/2,y:r.top-ar.top+r.height/2};if(Math.abs(q.y-p.y)>8&&segHitsCircle(p,q,c,r.width*0.4)){l.classList.add('is-cut');sfx.hit();m.o.burst(...m.pt(c.x,c.y),'earth',8);if(--left===0)m.win();}}});}},
+   {word:'CHOP!',t:4.5,run(m){
+     // three logs on chopping blocks; a swipe through a log splits it into two halves with flying chips
+     let left=3;const box=document.createElement('div');box.className='ar-logs';box.innerHTML=[0,1,2].map(()=>'<div class="ar-chop"><i class="ar-wood"><b class="h1"></b><b class="h2"></b></i><i class="ar-block"></i></div>').join('');m.area.append(box);const logs=[...box.querySelectorAll('.ar-wood')];
+     slashTrail(m.area,(p,q)=>{const ar=m.area.getBoundingClientRect();for(const l of logs){if(l.classList.contains('is-cut'))continue;const r=l.getBoundingClientRect();const c={x:r.left-ar.left+r.width/2,y:r.top-ar.top+r.height/2};
+      if(Math.hypot(q.x-p.x,q.y-p.y)>6&&segHitsCircle(p,q,c,r.width*0.45)){l.classList.add('is-cut');sfx.hit();m.o.burst(...m.pt(c.x,c.y),'earth',14);m.o.pop(...m.pt(c.x,c.y-40),'THWACK!');m.o.shake();if(--left===0)m.win();}}});}},
    {word:'TRIM!',t:4.5,run(m){m.area.insertAdjacentHTML('beforeend','<div class="ar-hedge"><i class="ar-sprig" style="--x:12%;--y:-18%;--r:-30deg"></i><i class="ar-sprig" style="--x:38%;--y:-30%;--r:-8deg"></i><i class="ar-sprig" style="--x:64%;--y:-26%;--r:12deg"></i><i class="ar-sprig" style="--x:86%;--y:-14%;--r:34deg"></i></div>');let left=4;const sp=[...m.area.querySelectorAll('.ar-sprig')];
      slashTrail(m.area,(p,q)=>{const ar=m.area.getBoundingClientRect();for(const s3 of sp){if(s3.classList.contains('is-cut'))continue;const r=s3.getBoundingClientRect();if(segHitsCircle(p,q,{x:r.left-ar.left+r.width/2,y:r.top-ar.top+r.height/2},22)){s3.classList.add('is-cut');sfx.clack();if(--left===0)m.win();}}});}},
    {word:'SPLIT!',t:4,run(m){m.area.insertAdjacentHTML('beforeend',`<div class="ar-boulder">${PROP.rock}<i class="ar-aim"></i></div>`);const b=m.area.querySelector('.ar-boulder');let tries=2;let start=null;

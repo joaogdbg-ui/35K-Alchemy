@@ -2127,3 +2127,28 @@ body.ar-playing>*:not(.ar-stage){display:none!important}
 .ar-boulder{position:absolute;left:50%;top:50%;width:160px;height:136px;transform:translate(-50%,-50%)}.ar-boulder>svg{width:100%;height:100%}
 .ar-aim{position:absolute;left:50%;top:50%;width:26px;height:26px;margin:-13px;border-radius:50%;border:3px dashed #e0675a;animation:arGlow .8s infinite}
 .ar-boulder.is-split>svg{animation:arSplit .4s forwards}.ar-boulder.is-split .ar-aim{display:none}@keyframes arSplit{to{clip-path:polygon(0 0,48% 0,52% 100%,0 100%);transform:translateX(-14px) rotate(-8deg)}}
+/* V170: microgame fixes */
+.ar-coach.companion{position:absolute!important;left:auto!important;right:18px;top:auto!important;bottom:34px;width:58px!important;height:58px!important;z-index:6;pointer-events:none;filter:drop-shadow(0 3px 0 rgba(101,125,137,.35))}
+.ar-coach::after{content:'';position:absolute;inset:-6px;border-radius:50%;background:#fff8ec;border:2.5px solid #657D89;z-index:-1}
+.ar-jr{position:absolute;inset:0}
+.ar-jr .ar-post{bottom:12%;height:34%}
+.ar-rope{position:absolute;left:5%;width:90%;bottom:6%;height:62%;pointer-events:none;overflow:visible}
+.ar-rope path{fill:none;stroke:#e0675a;stroke-width:9;stroke-linecap:round;filter:drop-shadow(0 3px 0 #8a3329)}
+.ar-rope.back{z-index:1;opacity:.75}.ar-rope.back path{stroke:#c9584a;stroke-width:7}.ar-rope.front{z-index:4}
+.ar-mcomp.is-rope{top:auto!important;bottom:12%;transform:none!important;translate:-50% 0;z-index:3}
+.ar-cue{position:absolute;left:50%;bottom:calc(12% - 14px);width:120px;height:30px;margin-left:-60px;border-radius:50%;border:4px solid #fff8ec;background:rgba(255,248,236,.25);z-index:2;transform:scale(calc(.6 + var(--k,0) * .5));opacity:calc(.4 + var(--k,0) * .6)}
+.ar-cue.is-go{border-color:#8fbf68;background:rgba(143,191,104,.45);box-shadow:0 0 18px #8fbf68}
+.ar-cue b{display:none}
+.ar-jcount{position:absolute;left:50%;top:10%;transform:translateX(-50%);font-weight:900;font-size:26px;color:var(--ink);background:#fff8ec;border:2.5px solid #657D89;border-radius:999px;padding:2px 16px}
+.ar-jr.is-smack .ar-post{animation:arNo .15s}
+.ar-hook{position:absolute;left:50%;top:0;width:28px;height:14px;margin-left:-14px;background:#C9934E;border:2.5px solid #657D89;border-top:0;border-radius:0 0 8px 8px;z-index:3}
+.ar-rope2.is-cut{height:60px!important;transition:height .15s}
+.ar-fallit{position:absolute;left:0;top:0;width:58px;height:58px;z-index:4}.ar-fallit svg{width:100%;height:100%}
+.ar-chop{position:relative;display:flex;flex-direction:column;align-items:center}
+.ar-block{width:90px;height:34px;border-radius:8px;background:#a0683c;border:2.5px solid #657D89;box-shadow:inset 0 6px 0 #C9934E}
+.ar-wood{background:none!important;border:0!important;width:64px;height:110px;position:relative;margin-bottom:-4px}
+.ar-wood::before{z-index:2}
+.ar-wood b{position:absolute;top:0;bottom:0;width:50%;background:repeating-linear-gradient(180deg,#C9934E 0 16px,#b88a52 16px 18px);border:2.5px solid #657D89;transition:transform .35s cubic-bezier(.2,1.4,.4,1),opacity .35s}
+.ar-wood b.h1{left:0;border-radius:12px 0 0 12px;border-right-width:1px}.ar-wood b.h2{right:0;border-radius:0 12px 12px 0;border-left-width:1px}
+.ar-wood.is-cut{transform:none!important;opacity:1!important;filter:none!important}
+.ar-wood.is-cut b.h1{transform:translate(-26px,14px) rotate(-28deg)}.ar-wood.is-cut b.h2{transform:translate(26px,14px) rotate(28deg)}.ar-wood.is-cut::before{opacity:0;transition:opacity .2s}

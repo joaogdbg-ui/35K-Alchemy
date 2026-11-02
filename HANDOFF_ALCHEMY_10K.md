@@ -90,6 +90,15 @@ Preserve 200-per-batch policy and do not start another content release on top of
 
 - **Art redraw wave 3 (V85, done): 3,991 icons** — every remaining older element. All 6,012 pre-V83 elements now use the 2026 art direction (`ART_REDRAW`), plus 200 V83 and 200 V85 originals. Six near-duplicates found by the audit were redrawn; 36 reviewed false alarms are in `tools/art-redraw-reviewed-pairs.json` (the audit now also honours them for V83 comparisons).
 
+## V170 — Pinball anti-stuck + microgame fixes
+- Pinball: ball could ping-pong between the slingshots forever. Sling kick now 260 with a 0.3 s cooldown; anti-stuck nudge when the ball has not come down to the flippers for 7 s or is nearly still for 1.5 s ("NUDGE!").
+- scratchLayer counts only pixels that were covered at the start (POLISH! used to finish on one tap because the area outside the egg counted as clean).
+- JUMP! redrawn: thick rope that passes behind then in front of the companion, a cue ring under the feet that turns green when to jump, "x / 3" counter, smack sound; win at 3 jumps.
+- CUT!: the element detaches and really falls with the swing's momentum (half strength); win only if it lands in the cauldron's mouth; cauldron position varies.
+- CHOP!: logs on chopping blocks split into two halves + chips + "THWACK!". SPARK! removed (art not good enough).
+- A coach companion (your active companion in a cream bubble) sits in the corner of every microgame and cheers / shakes on ✓ / ✗. Dev hook window.__microForce picks a microgame for tests.
+- Reference for a future physics rewrite if needed: Ten Minute Physics pinball, planck.js (Box2D) rather than matter.js (flipper tunnelling).
+
 ## V169 — Microgames (WarioWare-style) + Games hub reshuffle
 - Games hub tiles: Minigames · Microgames · Races (now includes the themed races, with their sub-header) · Karate.
 - Microgames live in arcade-v158.js (MICRO_PACKS, MICRO, microRun, openMicro, microIntro): a command word, a 3-5 s game with a bomb-fuse bar, ✓/✗, 4 lives, faster every 5 wins (microTime). Each pack has its own 24 h ad pass (kind 'micro_pack'), best score in st.best[packId].
