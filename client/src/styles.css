@@ -1831,3 +1831,28 @@ button.home-eff::after{content:" ⓘ";opacity:.6;font-weight:700}
 .companion-fx .fx-vehicle{position:absolute;left:50%;bottom:-16px;width:50px;height:40px;margin-left:-25px;z-index:-1}.companion-fx .fx-vehicle svg{width:100%;height:100%}
 .companion-fx .fx-balloon{position:absolute;left:62%;top:-40px;width:34px;height:34px}.companion-fx .fx-balloon svg{width:100%;height:100%}
 .companion-fx .fx-vehicle.is-wobble,.companion-fx .fx-balloon.is-wobble{animation:visWobble .25s ease-in-out infinite alternate}
+
+/* V155: more visitor effects */
+.screen-visitor.is-flicker{animation:visFlicker .3s ease-in-out infinite alternate}@keyframes visFlicker{to{scale:1.08 .94;filter:drop-shadow(0 0 8px #ffb04a)}}
+.screen-visitor.is-book{rotate:-8deg}.screen-visitor.is-flip{scale:-1 1}
+.screen-visitor.is-cloud{filter:grayscale(.6) brightness(.85) drop-shadow(0 3px 3px rgba(0,0,0,.25));width:44px;height:44px}
+.screen-visitor.is-flash{filter:brightness(2.2) drop-shadow(0 0 12px #fff)}
+.screen-visitor.has-beam::after{content:'';position:absolute;left:50%;top:80%;width:46px;height:90px;margin-left:-23px;background:linear-gradient(rgba(190,255,190,.7),rgba(190,255,190,0));clip-path:polygon(35% 0,65% 0,100% 100%,0 100%)}
+.screen-visitor.is-pull{animation:visPull .2s linear infinite alternate}@keyframes visPull{to{translate:2px 0}}
+.screen-visitor.is-squash{animation:visSquash .37s ease-in-out infinite alternate}@keyframes visSquash{to{scale:1.15 .8}}
+.screen-visitor.is-ring{animation:visRing .12s linear infinite alternate}@keyframes visRing{from{rotate:-12deg}to{rotate:12deg}}
+.screen-burst{position:absolute;left:0;top:0;width:10px;height:10px;pointer-events:none}
+.screen-burst::before{content:'';position:absolute;left:-40px;top:-40px;width:90px;height:90px;border-radius:50%;background:radial-gradient(circle,#ffe36a 0 6%,transparent 7%),repeating-conic-gradient(from 0deg,#ff7a8a 0 6deg,transparent 6deg 30deg,#7fd0ff 30deg 36deg,transparent 36deg 60deg);-webkit-mask:radial-gradient(circle,transparent 30%,#000 32%,#000 60%,transparent 62%);mask:radial-gradient(circle,transparent 30%,#000 32%,#000 60%,transparent 62%);animation:visBurst 1.1s ease-out forwards}
+@keyframes visBurst{from{scale:.2;opacity:1}to{scale:1.4;opacity:0}}
+.screen-bubble{position:absolute;left:0;top:0;width:22px;height:22px;border-radius:50%;border:2px solid rgba(160,220,255,.9);background:radial-gradient(circle at 30% 30%,rgba(255,255,255,.9) 0 18%,rgba(190,230,255,.25) 22%);animation:visFloat 1.8s ease-in-out forwards;pointer-events:none}
+.screen-bubble.is-pop{animation:visPop .2s ease-out forwards}@keyframes visFloat{to{translate:0 -60px}}@keyframes visPop{to{scale:1.8;opacity:0}}
+.companion-fx .fx-steam,.companion-fx .fx-frost,.companion-fx .fx-confetti,.companion-fx .fx-rain,.companion-fx .fx-sparkle,.companion-fx .fx-paint,.companion-fx .fx-flash,.companion-fx .fx-zap{position:absolute;pointer-events:none}
+.companion-fx .fx-steam{left:20%;top:-14px;width:60%;height:24px;background:radial-gradient(circle at 20% 70%,rgba(255,255,255,.8) 4px,transparent 5px),radial-gradient(circle at 60% 40%,rgba(255,255,255,.7) 5px,transparent 6px),radial-gradient(circle at 85% 75%,rgba(255,255,255,.7) 3px,transparent 4px);animation:visRise 1.8s ease-out infinite}
+.companion-fx .fx-frost{inset:-4px;border-radius:50%;background:radial-gradient(circle,transparent 55%,rgba(190,230,255,.55) 70%,transparent 72%);animation:visFade 1.4s ease-out forwards}
+.companion-fx .fx-confetti{left:-20px;right:-20px;top:-40px;height:60px;background:radial-gradient(circle at 10% 20%,#ef7f9b 3px,transparent 4px),radial-gradient(circle at 30% 60%,#f3c24a 3px,transparent 4px),radial-gradient(circle at 55% 15%,#5aaed2 3px,transparent 4px),radial-gradient(circle at 75% 55%,#8dbf8a 3px,transparent 4px),radial-gradient(circle at 92% 25%,#9b7fc4 3px,transparent 4px);animation:visFall 1.8s ease-in forwards}
+.companion-fx .fx-rain{left:-10px;right:-10px;top:-30px;height:70px;background:repeating-linear-gradient(105deg,transparent 0 9px,rgba(120,180,230,.75) 9px 11px);animation:visRain .4s linear infinite;-webkit-mask:linear-gradient(#000 60%,transparent);mask:linear-gradient(#000 60%,transparent)}
+.companion-fx .fx-sparkle{inset:-16px;background:radial-gradient(circle at 20% 30%,#fff6a8 2.5px,transparent 3.5px),radial-gradient(circle at 80% 20%,#fff 2px,transparent 3px),radial-gradient(circle at 70% 75%,#fff6a8 3px,transparent 4px),radial-gradient(circle at 25% 80%,#fff 2px,transparent 3px);animation:visTwinkle .3s ease-in-out infinite alternate}
+.companion-fx .fx-paint{right:-14px;top:10px;width:18px;height:18px;border-radius:50%;background:conic-gradient(#ef7f9b,#f3c24a,#5aaed2,#8dbf8a,#ef7f9b);animation:visFade .9s ease-out forwards}
+.companion-fx .fx-flash{inset:-30px;background:radial-gradient(circle,rgba(255,255,255,.95),transparent 65%);animation:visFade .3s ease-out forwards}
+.companion-fx .fx-zap{left:40%;top:-50px;width:16px;height:50px;background:#ffe36a;clip-path:polygon(50% 0,100% 0,60% 45%,90% 45%,20% 100%,40% 55%,10% 55%);animation:visFade .5s ease-out forwards}
+@keyframes visRise{from{translate:0 0;opacity:.9}to{translate:0 -20px;opacity:0}}@keyframes visFade{to{opacity:0}}@keyframes visFall{from{translate:0 -10px}to{translate:0 50px;opacity:0}}@keyframes visRain{to{background-position:0 22px}}@keyframes visTwinkle{to{opacity:.4}}

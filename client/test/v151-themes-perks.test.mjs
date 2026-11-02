@@ -18,3 +18,12 @@ test('V151: School tricks give game perks', () => {
   assert.equal(g.perkOf({ sing: 5 }, 'sing'), 0.3);
   assert.equal(g.perkOf({}, 'magic'), 0);
 });
+test('V155: many visiting-element scenes, none triggered by the four starters', async () => {
+  const src=(await import('node:fs')).readFileSync(new URL('../src/companion-engine-v86.js',import.meta.url),'utf8');
+  const block=src.slice(src.indexOf('const VISITORS=['),src.indexOf('let lastVisit'));
+  const kinds=[...block.matchAll(/\['([a-z]+)',\//g)].map(m=>m[1]);
+  assert.ok(kinds.length>=30,`${kinds.length} scenes`);
+  for(const k of kinds)assert.match(src,new RegExp(`kind==='${k}'`),`${k} has a scene`);
+  const res=[...block.matchAll(/\['[a-z]+',(\/.*?\/)\]/g)].map(m=>eval(m[1]));
+  for(const starter of ['air','earth','fire','water'])assert.ok(!res.some(re=>re.test(' '+starter+' ')),starter);
+});
