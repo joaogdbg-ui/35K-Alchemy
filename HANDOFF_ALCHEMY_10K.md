@@ -90,6 +90,14 @@ Preserve 200-per-batch policy and do not start another content release on top of
 
 - **Art redraw wave 3 (V85, done): 3,991 icons** — every remaining older element. All 6,012 pre-V83 elements now use the 2026 art direction (`ART_REDRAW`), plus 200 V83 and 200 V85 originals. Six near-duplicates found by the audit were redrawn; 36 reviewed false alarms are in `tools/art-redraw-reviewed-pairs.json` (the audit now also honours them for V83 comparisons).
 
+## V173 — Coin economy rebalance (owner approved)
+- Discovery 10 → 2 coins per new element + 50 every 100 elements (DISCOVERY_MILESTONE*). Whole game ≈ 25k instead of ≈ 100k.
+- Companion finds 10 → 3 (ad still ×5).
+- Daily gift 50 growing to 100 on day 7 of a streak (dailyCoins, wallet.streak, nextStreak/yesterdayKey); missing a day restarts at 50.
+- Races/Karate: replaying a level already won with gold pays 25% (coinsFor repeat).
+- Minigames + microgames: still ≤40 per game, but max 150 coins per day in total (st.coinDay, ARCADE_DAILY_CAP).
+- Existing wallets untouched. Target: an active free player earns ~150–250 coins/day; €1 pack ≈ 1 day.
+
 ## V172 — DROP! basket fix
 - Owner: items fell beside the basket but still counted. Now only the middle 60% (the opening) counts; a good drop lands inside the basket (basket drawn over the element), a miss falls beside it onto the grass and tips over.
 - Pending: coin economy review proposed to the owner (discovery coins, finds, daily, races, daily cap for minigames) — waiting for approval.

@@ -124,7 +124,7 @@ import { STADIUM_ART_V95 } from './stadium-art-v95.js';
 import { createStadiumSfx } from './stadium-sfx-v95.js';
 import { COMPANIONS_V86, COMPANION_SPRITES_V86 } from './companions-v86.js';
 import { createCompanionSystem, COMPANION_STORAGE_KEY, rivalLook, traitIconSvg } from './companion-engine-v86.js';
-import { ACCESSORIES, wearableFor, MARKET, MARKET_TABS, COIN_PACK, COIN_PACKS, FAIR_PLAY_NOTE, coinsFor, LESSONS, LESSON_LEVELS, LESSON_MINUTES, lessonPrice, SCHOOL_AD_CUT_MIN, accPrice, DAILY_COINS, DISCOVERY_COINS, COMPANION_FIND_COINS, FIND_AD_MULT } from './market-v136.js';
+import { ACCESSORIES, wearableFor, MARKET, MARKET_TABS, COIN_PACK, COIN_PACKS, FAIR_PLAY_NOTE, coinsFor, LESSONS, LESSON_LEVELS, LESSON_MINUTES, lessonPrice, SCHOOL_AD_CUT_MIN, accPrice, DAILY_COINS, DISCOVERY_COINS, COMPANION_FIND_COINS, FIND_AD_MULT, dailyCoins, DISCOVERY_MILESTONE, DISCOVERY_MILESTONE_COINS } from './market-v136.js';
 import { PUBLIC_LABELS_V86 } from './public-labels-v86.js';
 import { reconcileLegacyFamilies } from './family-compatibility-v82.js';
 import { synchronizeFamilyProfiles, sharedMembership } from './family-shared-v51.js';
@@ -502,7 +502,7 @@ function shinyCard(item){return `<p class="shiny-trivia"><span aria-hidden="true
 function showShinyFound(id){const it=byId.get(id);if(!it)return;
  showModal(`<div class="modal-tag shiny-tag">✦ SHINY ELEMENT</div><div class="modal-art is-shiny">${staticArt(it)}</div><h2>Shiny ${escapeText(uiName(it))}</h2>${shinyCard(it)}<div class="modal-milestone">${shiny.size.toLocaleString('en-US')} shiny ${shiny.size===1?'element':'elements'} · ${Math.round(shinyChance()*100)}% chance per combination</div>`);
 }
-const APP_VERSION='1.0.72';
+const APP_VERSION='1.0.73';
 // V83: status line + Google consent (UMP) privacy options, required for EEA players.
 async function refreshAdStatus(){
  const el=$('settingsAdStatus'),bridge=getRewardBridge();
@@ -1298,7 +1298,7 @@ function completeCombination(resultId,a,b,kind='recipe'){
  recipes.set(key,resultId);known.add(key);unlocked.add(resultId);last=resultId;
  if(fresh&&!STARTERS.has(resultId))discoveryLedger.set(resultId,{at:new Date().toISOString(),source:kind,ingredients:[a,b]});
  // V157: every new element is worth 10 companion coins
- if(fresh&&!STARTERS.has(resultId)){try{addCoins(DISCOVERY_COINS);coinPop(DISCOVERY_COINS);}catch{}}
+ if(fresh&&!STARTERS.has(resultId)){try{addCoins(DISCOVERY_COINS);coinPop(DISCOVERY_COINS);const n=classicDiscoveredCount();if(n>0&&n%DISCOVERY_MILESTONE===0){addCoins(DISCOVERY_MILESTONE_COINS);toast(`${n.toLocaleString('en-US')} elements! +${DISCOVERY_MILESTONE_COINS} coins`,'new');}}catch{}}
  recent=[resultId,...recent.filter(i=>i!==resultId)].slice(0,350);
  const gotShiny=kind!=='batch'&&rollShiny(resultId);
  save();updateCounts();updateLatest();syncFamilyBanner();
@@ -1844,6 +1844,9 @@ function confirmBuy({art,name,desc,price,label='Buy'},onBuy,onBack){const short=
  const c=$('cfCoins');if(c)c.onclick=()=>openCoinShop(()=>confirmBuy({art,name,desc,price,label},onBuy,onBack));
  const b=$('cfBuy');if(b)b.onclick=()=>{if(!spendCoins(price)){toast('Not enough coins','repeat');return;}modalBack=null;SFX.unlock?.();onBuy();};}
 function dailyKey(){const d=new Date();return d.getFullYear()+'-'+(d.getMonth()+1)+'-'+d.getDate();}
+// V173: daily streak — claiming yesterday keeps it going (max 7), otherwise it restarts at day 1
+function yesterdayKey(){const d=new Date();d.setDate(d.getDate()-1);return d.getFullYear()+'-'+(d.getMonth()+1)+'-'+d.getDate();}
+function nextStreak(){return wallet.daily===yesterdayKey()?Math.min(7,(wallet.streak||0)+1):1;}
 function openMarket(onClose,tab){if(tab)marketTab=tab;
  const owned=it=>it.kind==='toy'?wallet.toys.includes(it.toy):(it.kind==='furniture'||it.kind==='house')?unlocked.has(it.element):false;
  const priceOf=it=>it.kind==='acc'?accPrice(it.price,accOwned(it.acc)):it.price;
@@ -1857,12 +1860,12 @@ function openMarket(onClose,tab){if(tab)marketTab=tab;
   return `<button type="button" class="stat-tile mk-tile ${o?'is-owned':''} ${it.kind==='toy'&&wallet.toy===it.toy?'is-on':''}" data-mk="${it.id}"><span class="mk-art">${artOf(it)}</span><b>${escapeText(nameOf(it))}</b><small>${escapeText(descOf(it)||'')}</small>${it.ext?`<small class="mk-fits">${escapeText(fitsOf(it))}</small>`:''}<em class="mk-price ${!o&&wallet.coins<priceOf(it)?'is-short':''}">${label}</em></button>`;};
  const daily=wallet.daily!==dailyKey();
  showModal(`<div class="modal-tag">BLACK MARKET</div><h2>Spend your coins</h2><div class="fair-note"><b>✓ Nothing is pay-only</b><span>${escapeText(FAIR_PLAY_NOTE)}</span></div>${coinBar()}
-  <button type="button" class="mk-daily ${daily?'':'is-done'}" id="mkDaily" ${daily?'':'disabled'}><span>🎁</span><b>${daily?`Daily coins · +${DAILY_COINS}`:'Daily coins claimed'}</b><small>${daily?'Free, once a day':'Come back tomorrow'}</small></button>
+  <button type="button" class="mk-daily ${daily?'':'is-done'}" id="mkDaily" ${daily?'':'disabled'}><span>🎁</span><b>${daily?`Daily coins · +${dailyCoins(nextStreak())}`:'Daily coins claimed'}</b><small>${daily?`Day ${Math.min(7,nextStreak())} of 7 · more each day in a row`:`Streak ${wallet.streak||1} · come back tomorrow`}</small></button>
   <div class="mk-tabs">${MARKET_TABS.map(([k,l])=>`<button type="button" data-mktab="${k}" aria-pressed="${k===marketTab}">${l}</button>`).join('')}</div>
   ${marketTab==='food'?`<p class="mini-muted">Bought food waits on the Alchemy screen — drag it onto a companion.${Object.values(wallet.bag||{}).reduce((n,v)=>n+v,0)?` · ${Object.values(wallet.bag).reduce((n,v)=>n+v,0)} waiting`:''}</p>`:marketTab==='toy'?'<p class="mini-muted">One toy sits on the craft card; your companion plays with it now and then.</p>':marketTab==='acc'?'<p class="mini-muted">One copy dresses one companion. Each extra copy costs more.</p>':''}
   <div class="stat-tiles mk-grid">${items.map(tile).join('')}</div><p class="mini-muted">Win races and Karate fights to earn coins.</p>`);
  const again=()=>openMarket(onClose);wireCoinBar(again);
- $('mkDaily').onclick=()=>{if(wallet.daily===dailyKey())return;wallet.daily=dailyKey();addCoins(DAILY_COINS);SFX.prize?.();toast(`+${DAILY_COINS} daily coins!`,'new');again();};
+ $('mkDaily').onclick=()=>{if(wallet.daily===dailyKey())return;const st=nextStreak(),c=dailyCoins(st);wallet.streak=st;wallet.daily=dailyKey();addCoins(c);SFX.prize?.();toast(`+${c} daily coins!`,'new');again();};
  $('modalContent').querySelectorAll('[data-mktab]').forEach(b=>b.onclick=()=>{marketTab=b.dataset.mktab;again();});
  $('modalContent').querySelectorAll('[data-mk]').forEach(b=>b.onclick=()=>{const it=MARKET.find(x=>x.id===b.dataset.mk);if(!it)return;
   if(it.kind==='toy'&&owned(it)){wallet.toy=wallet.toy===it.toy?null:it.toy;saveWallet();companions.placeToy?.();again();return;}

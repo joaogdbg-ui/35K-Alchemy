@@ -71,11 +71,13 @@ for(const it of MARKET)it.element=it.element||it.el||MARKET_ELEMENT[it.id]||null
 export const MARKET_TABS=[['food','Food'],['acc','Wear'],['toy','Toys'],['furniture','Furniture'],['house','Houses']];
 /** V138: each extra copy of the same accessory costs more. */
 export const accPrice=(base,owned)=>Math.round(base*Math.pow(1.6,owned||0)/10)*10;
-export const DAILY_COINS=100;
+/** V173 economy: daily gift 50, growing to 100 after 7 days in a row. */
+export const DAILY_COINS=50,DAILY_MAX=100,DAILY_STREAK=7;
+export const dailyCoins=streak=>Math.round(DAILY_COINS+(Math.min(DAILY_STREAK,Math.max(1,streak))-1)*(DAILY_MAX-DAILY_COINS)/(DAILY_STREAK-1));
 /** Coins for a race/karate result. */
-export function coinsFor(kind,level,place,{theme=false,firstGold=false}={}){
+export function coinsFor(kind,level,place,{theme=false,firstGold=false,repeat=false}={}){
  let c=kind==='karate'?(place===1?25+12*level:5+level):place===1?20+10*level:place===2?12+6*level:place===3?8+4*level:3+level;
- if(theme)c=Math.round(c*1.5);if(firstGold)c*=2;return c;}
+ if(theme)c=Math.round(c*1.5);if(firstGold)c*=2;if(repeat)c=Math.max(1,Math.round(c*0.25));return c;}
 // ---------- school ----------
 export const LESSON_LEVELS=['Novice','Apprentice','Skilled','Expert','Master'];
 export const LESSON_MINUTES=[5,30,120,360,720];
@@ -84,7 +86,8 @@ const LESSON_MULT=[1,2.5,5,9,15];
 export const LESSON_DISCOUNT=0.5;
 export const lessonPrice=(l,level)=>Math.round(l.price*LESSON_MULT[level]*LESSON_DISCOUNT/10)*10;
 /** V157: coins for discoveries — 10 per new Alchemy element; 10 per companion find, ×5 with an ad. */
-export const DISCOVERY_COINS=10,COMPANION_FIND_COINS=10,FIND_AD_MULT=5;
+/** V173 economy: 2 per new element + 50 every 100 elements; companion finds 3 (×5 with an ad). */
+export const DISCOVERY_COINS=2,DISCOVERY_MILESTONE=100,DISCOVERY_MILESTONE_COINS=50,COMPANION_FIND_COINS=3,FIND_AD_MULT=5;
 export const SCHOOL_AD_CUT_MIN=30;
 export const LESSONS=[
  {id:'sing',name:'Singing',icon:'🎤',price:60,desc:'Sings a little tune with floating notes'},
