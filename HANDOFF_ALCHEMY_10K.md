@@ -90,6 +90,9 @@ Preserve 200-per-batch policy and do not start another content release on top of
 
 - **Art redraw wave 3 (V85, done): 3,991 icons** — every remaining older element. All 6,012 pre-V83 elements now use the 2026 art direction (`ART_REDRAW`), plus 200 V83 and 200 V85 originals. Six near-duplicates found by the audit were redrawn; 36 reviewed false alarms are in `tools/art-redraw-reviewed-pairs.json` (the audit now also honours them for V83 comparisons).
 
+## V168 — Pinball: weak launch could leave the ball stuck
+- Owner: a weak launch fell back into the plunger lane and the ball could never be launched again (launched flag stayed true). Now the minimum launch speed is computed from the table height (always clears the dome; holding adds extra), and a ball resting back in the lane is re-armed.
+
 ## V167 — Pinball table in the game's art style
 - Table is now a garden: race grass tile as the playfield, race sky inside the dome, sandy path loop, bushes/flowers, wooden fence rails with slate outlines, wooden slings with cream kicker faces, plank plunger lane, mushroom bumpers (red caps, cream dots), wooden drop-target posts, cream element bubbles with a moving dashed ring, cream/slate lamps, HUD pills and cream message banners. Element targets now spawn in the centre, away from the slings.
 
