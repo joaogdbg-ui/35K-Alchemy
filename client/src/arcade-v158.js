@@ -17,12 +17,13 @@ export const ARCADE_GAMES=[
  {id:'climb',name:'Rock Climb',icon:'🧗',desc:'Tap left or right to switch lanes, dodge the falling rocks and climb high.',help:{stat:'power',label:'Power: climbs faster · Stamina: quicker recovery'}},
  {id:'rhythm',name:'Drum Beat',icon:'🥁',desc:'Tap the drum when a note reaches the line. Keep the combo going!',help:{skill:'drums',label:'Drums: wider timing · Singing: bigger combo bonus'}},
  {id:'paint',name:'Copy the Painting',icon:'🎨',desc:'Memorise the picture, then paint it back from memory.',help:{skill:'draw',label:'Drawing: longer look, extra peeks'}}];
-/** V163: opening the minigames costs one ad, then they stay open for this long. */
-export const ARCADE_PASS_MS=30*60*1000;
-export const arcadePassLeft=(st,now=Date.now())=>Math.max(0,(st?.passUntil||0)-now);
+/** V164: each minigame has its own pass — one ad opens THAT minigame for 24 hours. */
+export const ARCADE_PASS_MS=24*60*60*1000;
+export const arcadePassLeft=(st,id,now=Date.now())=>Math.max(0,(st?.passes?.[id]||0)-now);
+export const fmtPass=ms=>{const m=Math.ceil(ms/60000);return m>=60?`${Math.floor(m/60)}h ${String(m%60).padStart(2,'0')}m`:`${m}m`;};
 /** Pure: what the save looks like after `count` discoveries. */
 export function arcadeProgress(st,count,ids=ARCADE_GAMES.map(g=>g.id),rnd=Math.random){
- const s={base:st?.base??count,unlocked:Array.isArray(st?.unlocked)?st.unlocked.filter(i=>ids.includes(i)):[],paid:st?.paid||0,best:st?.best||{},passUntil:st?.passUntil||0};
+ const s={base:st?.base??count,unlocked:Array.isArray(st?.unlocked)?st.unlocked.filter(i=>ids.includes(i)):[],paid:st?.paid||0,best:st?.best||{},passes:st?.passes&&typeof st.passes==='object'?st.passes:{}};
  const steps=Math.max(0,Math.floor((count-s.base)/ARCADE_STEP));const want=1+steps;const fresh=[];let coins=0;
  while(s.unlocked.length<Math.min(want,ARCADE_TOTAL)){const left=ids.filter(i=>!s.unlocked.includes(i));if(!left.length)break;const id=left[Math.floor(rnd()*left.length)];s.unlocked.push(id);fresh.push(id);}
  // after all 16 minigames exist and are unlocked, each further step pays coins once
@@ -44,20 +45,20 @@ export function createArcade(ctx){
  const pick=(arr,n)=>{const a=[...arr];const out=[];while(out.length<n&&a.length)out.push(a.splice(Math.floor(Math.random()*a.length),1)[0]);return out;};
  const art=id=>staticArt(ctx.item(id))||'';
  // ---------- hub sheet ----------
- function gate(back){showModal(`<div class="modal-tag">MINIGAMES</div><div class="ar-big">🎮</div><h2>Open the minigames</h2><p>Watch one short ad to play all your minigames for <b>30 minutes</b>.</p><button type="button" class="modal-button" id="arAd">▶ Watch ad · 30 min</button><button type="button" class="modal-button secondary" id="arBack">${back?'Back':'Close'}</button>`);
-  $('arBack').onclick=()=>back?back():closeModal();
-  $('arAd').onclick=async()=>{const b=$('arAd');b.disabled=true;let ok=false;try{ok=await ctx.showAd?.('arcade_pass');}catch{}if(!ok){b.disabled=false;toast('Ad not completed','repeat');return;}st.passUntil=Date.now()+ARCADE_PASS_MS;save();sfx.unlock();open(back);};}
- function open(back){const p=sync();const got=st.unlocked.length;if(ctx.showAd&&!arcadePassLeft(st)){gate(back);return;}const passMin=Math.ceil(arcadePassLeft(st)/60000);
-  const tiles=ARCADE_GAMES.map(g=>{const on=st.unlocked.includes(g.id),best=st.best[g.id];return `<button type="button" class="st-shop-btn ar-tile ${on?'':'is-locked'}" data-ar="${g.id}" ${on?'':'disabled'}><span>${on?g.icon:'🔒'}</span><b>${on?escapeText(g.name):'???'}</b><small>${on?(best?`Best ${best}`:'New!'):'Locked'}</small></button>`;}).join('');
+ function open(back){const p=sync();const got=st.unlocked.length;const ads=!!ctx.showAd;
+  const tiles=ARCADE_GAMES.map(g=>{const on=st.unlocked.includes(g.id),best=st.best[g.id];return `<button type="button" class="st-shop-btn ar-tile ${on?'':'is-locked'}" data-ar="${g.id}" ${on?'':'disabled'}><span>${on?g.icon:'🔒'}</span><b>${on?escapeText(g.name):'???'}</b><small>${on?(ads?(arcadePassLeft(st,g.id)?`⏳ ${fmtPass(arcadePassLeft(st,g.id))}`:'▶ Ad · 24h'):(best?`Best ${best}`:'New!')):'Locked'}</small></button>`;}).join('');
   const soon=ARCADE_TOTAL-ARCADE_GAMES.length;
   showModal(`<div class="modal-tag">MINIGAMES</div><h2>${got}/${ARCADE_TOTAL} unlocked</h2><p class="mini-muted">A new minigame unlocks every ${ARCADE_STEP} new elements found in Alchemy · next at <b>${p.next.toLocaleString('en-US')}</b> (you have ${ctx.count().toLocaleString('en-US')}).${soon>0?` ${soon} more minigames are coming in updates.`:''} Once all ${ARCADE_TOTAL} are open, every ${ARCADE_STEP} elements gives 🪙${ARCADE_STEP_COINS}.</p>
-   ${ctx.showAd?`<p class="ar-pass">⏳ Open for ${passMin} more min</p>`:''}<div class="st-shop is-hub ar-grid">${tiles}</div><button type="button" class="modal-button secondary" id="arClose">${back?'Back':'Close'}</button>`);
+   ${ads?`<p class="ar-pass">▶ One ad opens a minigame for 24 hours</p>`:''}<div class="st-shop is-hub ar-grid">${tiles}</div><button type="button" class="modal-button secondary" id="arClose">${back?'Back':'Close'}</button>`);
   $('arClose').onclick=()=>back?back():closeModal();
   document.querySelectorAll('[data-ar]').forEach(b=>b.onclick=()=>intro(b.dataset.ar,back));}
- function intro(id,back){const g=ARCADE_GAMES.find(x=>x.id===id);const h=g.help;const sk=h.skill?lvl(h.skill):0,sv=h.stat?stat(h.stat):0;
+ function intro(id,back){const g=ARCADE_GAMES.find(x=>x.id===id);const need=!!ctx.showAd&&!arcadePassLeft(st,id);const h=g.help;const sk=h.skill?lvl(h.skill):0,sv=h.stat?stat(h.stat):0;
   showModal(`<div class="modal-tag">MINIGAME</div><div class="ar-big">${g.icon}</div><h2>${escapeText(g.name)}</h2><p>${escapeText(g.desc)}</p><p class="ar-help">✦ ${escapeText(h.label)}${sk?` · your level ${sk}`:''}${sv?` · stat Lv ${sv}`:''}</p>${st.best[id]?`<p class="mini-muted">Best score: <b>${st.best[id]}</b></p>`:''}
-   <button type="button" class="modal-button" id="arPlay">Play</button><button type="button" class="modal-button secondary" id="arBack">Back</button>`);
-  $('arBack').onclick=()=>open(back);$('arPlay').onclick=()=>{closeModal();GAMES[id]();};}
+   ${need?`<p class="mini-muted">Watch one ad to play ${escapeText(g.name)} as much as you like for 24 hours.</p>`:ctx.showAd?`<p class="ar-pass">⏳ Open for ${fmtPass(arcadePassLeft(st,id))}</p>`:''}
+   <button type="button" class="modal-button" id="arPlay">${need?'▶ Watch ad · 24h':'Play'}</button><button type="button" class="modal-button secondary" id="arBack">Back</button>`);
+  $('arBack').onclick=()=>open(back);
+  $('arPlay').onclick=async()=>{if(need){const b=$('arPlay');b.disabled=true;let ok=false;try{ok=await ctx.showAd('arcade_game');}catch{}if(!ok){b.disabled=false;toast('Ad not completed','repeat');return;}st.passes[id]=Date.now()+ARCADE_PASS_MS;save();sfx.unlock();toast(`${g.name} open for 24 hours`,'new');}
+   closeModal();GAMES[id]();};}
  // ---------- V160: props drawn in the game's own style (slate outlines, soft palette) ----------
  const SV=(vb,b)=>`<svg xmlns="http://www.w3.org/2000/svg" viewBox="${vb}" stroke="#657D89" stroke-width="2.5" stroke-linejoin="round" stroke-linecap="round">${b}</svg>`;
  const fishSvg=(c,belly,extra='')=>SV('0 0 60 36',`<path d="M15 18L3 7Q6 18 3 29Z" fill="${c}"/><path d="M27 8Q33 1 41 8" fill="${c}"/><ellipse cx="32" cy="18" rx="20" ry="12" fill="${c}"/><path d="M15 21Q32 33 50 21Q32 27 15 21Z" fill="${belly}" stroke="none"/>${extra}<circle cx="43" cy="15" r="2.8" fill="#20262b" stroke="none"/><circle cx="44" cy="14" r="1" fill="#fff" stroke="none"/><path d="M50 21q-2 1.6 -4 0" fill="none" stroke-width="1.6"/>`);
@@ -120,7 +121,7 @@ export function createArcade(ctx){
   showModal(`<div class="modal-tag">MINIGAME</div><div class="ar-res-stars">${[1,2,3].map(i=>`<i class="${i<=stars?'on':''}" style="--i:${i}">★</i>`).join('')}</div><div class="ar-big">${g.icon}</div><h2 class="ar-res-score" data-to="${score}">0</h2><p>${rec?'<b class="ar-rec-badge">New best!</b>':`Best: ${prev.toLocaleString('en-US')}`}</p><p class="ar-help">🪙 +${coins} coins${statKey&&score>0?` · ${({run:'Run',swim:'Swim',fly:'Fly',power:'Power',stamina:'Stamina'})[statKey]} training`:''}</p>
    <button type="button" class="modal-button" id="arAgain">Play again</button><button type="button" class="modal-button secondary" id="arDone">Back to minigames</button>`);
   const h=document.querySelector('.ar-res-score');const t0=performance.now();const up=t=>{const k=Math.min(1,(t-t0)/700);if(h&&document.body.contains(h)){h.textContent=Math.round(score*k).toLocaleString('en-US')+' pts';if(k<1)requestAnimationFrame(up);}};requestAnimationFrame(up);
-  $('arAgain').onclick=()=>{closeModal();setTimeout(()=>GAMES[id](),300);};$('arDone').onclick=()=>open();}
+  $('arAgain').onclick=()=>{if(ctx.showAd&&!arcadePassLeft(st,id)){intro(id);return;}closeModal();setTimeout(()=>GAMES[id](),300);};$('arDone').onclick=()=>open();}
  const timer=(o,secs,done)=>{let t=secs;o.time(t);const tick=()=>{t-=0.25;o.time(t);if(t<=0){done();return;}if(t<=5&&Math.abs(t-Math.round(t))<0.01)sfx.tick();o.later(tick,250);};o.later(tick,250);};
  // ---------- 1. Element Memory: 3D flips, companion really shuffles the cards ----------
  function memory(){const o=stage('Element Memory','memory');o.id='memory';const d=lvl('draw');const ids=pick(ctx.unlocked(),6);if(ids.length<6){o.finish(true);toast('Find a few more elements first','repeat');return;}
