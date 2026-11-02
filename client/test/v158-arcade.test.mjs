@@ -43,3 +43,15 @@ test('V171: minigame prizes are tens of coins', async () => {
   assert.equal(m.arcadeCoins(1e6), m.ARCADE_COIN_CAP);
   assert.ok(m.ARCADE_COIN_CAP <= 50);
 });
+test('V173: coin economy', async () => {
+  const M = await import('../src/market-v136.js');
+  const A = await import('../src/arcade-v158.js');
+  assert.equal(M.DISCOVERY_COINS, 2); assert.equal(M.DISCOVERY_MILESTONE, 100); assert.equal(M.DISCOVERY_MILESTONE_COINS, 50);
+  assert.equal(M.COMPANION_FIND_COINS, 3); assert.equal(M.FIND_AD_MULT, 5);
+  assert.equal(M.dailyCoins(1), 50); assert.equal(M.dailyCoins(7), 100); assert.equal(M.dailyCoins(30), 100);
+  const gold = M.coinsFor('race', 2, 1), again = M.coinsFor('race', 2, 1, { repeat: true });
+  assert.equal(again, Math.round(gold * 0.25), 'repeat wins pay 25%');
+  assert.equal(A.ARCADE_DAILY_CAP, 150);
+  // total from discovery over 10k elements stays well under the biggest coin pack
+  assert.ok(10000 * M.DISCOVERY_COINS + 100 * M.DISCOVERY_MILESTONE_COINS <= 30000);
+});

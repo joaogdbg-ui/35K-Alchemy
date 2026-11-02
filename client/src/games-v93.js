@@ -419,7 +419,7 @@ export function createGamesSystem(ctx){
  function finishRace(mount,course,level,place,racers,finished){
   const R=myRaces();const bag=R[course.id]=R[course.id]||{};const prev=bag[level]||0;const improved=!prev||place<prev;if(improved)bag[level]=place;
   const prize=course.theme?null:trophyOf(course.id);let newPrize=false;if(prize&&place===1&&level===LEVELS.length-1&&!hasPrize(prize.id)){state.prizes.push(prize.id);newPrize=true;}
-  const firstGold=place===1&&prev!==1;const coins=Math.round((ctx.coinsFor?.('race',level,place,{theme:!!course.theme,firstGold})||0)*(1+perkOf(PK,'magic')));if(coins)ctx.addCoins?.(coins);
+  const firstGold=place===1&&prev!==1;const coins=Math.round((ctx.coinsFor?.('race',level,place,{theme:!!course.theme,firstGold,repeat:prev===1})||0)*(1+perkOf(PK,'magic')));if(coins)ctx.addCoins?.(coins);
   const accId=course.theme?(place===1&&level===LEVELS.length-1?course.prize:null):(place===1&&level>=3?COURSE_ACC[course.id]:null);const newAcc=accId&&ctx.grantAccessory?.(accId)?accId:null;
   save();
   if(newPrize)setTimeout(()=>sfx.prize(),500);else if(place<=3)setTimeout(()=>sfx.medal(),300);
@@ -494,7 +494,7 @@ export function createGamesSystem(ctx){
   let newBelt=null;if(win){const b=belts[level];const cur=belts.findIndex(x=>x.id===state.belts[A.id]);if(level>cur){state.belts[A.id]=b.id;newBelt=b;onBelt?.(A.id,b.id);}}
   save();
   if(newBelt)setTimeout(()=>sfx.prize(),500);else setTimeout(()=>win?sfx.medal():sfx.lose(),300);
-  const coins=Math.round((ctx.coinsFor?.('karate',level,win?1:2,{firstGold:win&&prev!==1})||0)*(1+perkOf(PK,'magic')));if(coins)ctx.addCoins?.(coins);const newAcc=win&&level>=3&&ctx.grantAccessory?.(COURSE_ACC.dojo)?COURSE_ACC.dojo:null;
+  const coins=Math.round((ctx.coinsFor?.('karate',level,win?1:2,{firstGold:win&&prev!==1,repeat:prev===1})||0)*(1+perkOf(PK,'magic')));if(coins)ctx.addCoins?.(coins);const newAcc=win&&level>=3&&ctx.grantAccessory?.(COURSE_ACC.dojo)?COURSE_ACC.dojo:null;
   const trained=onResult?.(pick(),'karate','all',win?1:2)||[];
   const unlocked=win&&level<LEVELS.length-1&&prev!==1?`<p class="g-unlock">${LEVELS[level+1]} unlocked!</p>`:'';
   showModal(`<div class="modal-tag">KARATE DOJO · ${LEVELS[level].toUpperCase()}</div><div class="g-versus"><span class="companion ${win?'is-happy':''}" data-companion="${A.id}"><span class="companion-art"></span></span><b>${A.wins} – ${B.wins}</b><span class="companion ${win?'':'is-happy'}" data-companion="${B.id}"${rivalAttr(B.id)}><span class="companion-art"></span></span></div>

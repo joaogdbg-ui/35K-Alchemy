@@ -25,6 +25,8 @@ export const MICRO_PACKS=[
  {id:'micro-cut',pack:'cut',name:'CUT! pack',icon:'✂️',desc:'Cut, slice, chop, trim and split — swipe through!'}];
 /** V171: minigame prizes are tens of coins, not hundreds (buying coins must stay meaningful). */
 export const ARCADE_COIN_CAP=40;
+/** V173: minigames + microgames together pay at most this much per day. */
+export const ARCADE_DAILY_CAP=150;
 export const arcadeCoins=score=>Math.max(0,Math.min(ARCADE_COIN_CAP,Math.round(Math.sqrt(Math.max(0,score))/4)));
 export const MICRO_LIVES=4,MICRO_SPEEDUP_EVERY=5;
 /** Pure: time for one microgame after `cleared` wins (seconds), never below 45% of the base. */
@@ -35,7 +37,7 @@ export const arcadePassLeft=(st,id,now=Date.now())=>Math.max(0,(st?.passes?.[id]
 export const fmtPass=ms=>{const m=Math.ceil(ms/60000);return m>=60?`${Math.floor(m/60)}h ${String(m%60).padStart(2,'0')}m`:`${m}m`;};
 /** Pure: what the save looks like after `count` discoveries. */
 export function arcadeProgress(st,count,ids=ARCADE_GAMES.map(g=>g.id),rnd=Math.random){
- const s={base:st?.base??count,unlocked:Array.isArray(st?.unlocked)?st.unlocked.filter(i=>ids.includes(i)):[],paid:st?.paid||0,best:st?.best||{},passes:st?.passes&&typeof st.passes==='object'?st.passes:{}};
+ const s={base:st?.base??count,unlocked:Array.isArray(st?.unlocked)?st.unlocked.filter(i=>ids.includes(i)):[],paid:st?.paid||0,best:st?.best||{},passes:st?.passes&&typeof st.passes==='object'?st.passes:{},coinDay:st?.coinDay||null};
  const steps=Math.max(0,Math.floor((count-s.base)/ARCADE_STEP));const want=1+steps;const fresh=[];let coins=0;
  while(s.unlocked.length<Math.min(want,ARCADE_TOTAL)){const left=ids.filter(i=>!s.unlocked.includes(i));if(!left.length)break;const id=left[Math.floor(rnd()*left.length)];s.unlocked.push(id);fresh.push(id);}
  // after all 16 minigames exist and are unlocked, each further step pays coins once
@@ -128,9 +130,9 @@ export function createArcade(ctx){
   o.countdown=(go)=>{const c=document.createElement('div');c.className='g-banner is-count';s.append(c);const seq=['3','2','1','GO!'];let i=0;const tick=()=>{if(o.over){c.remove();return;}c.textContent=seq[i];c.className='g-banner '+(i===3?'is-go':'is-count');void c.offsetWidth;c.classList.add('is-in');i===3?sfx.go():sfx.tick();i++;if(i<seq.length)setTimeout(tick,650);else setTimeout(()=>{c.remove();if(!o.over)go();},500);};tick();};
   return o;}
  function result(id,score,statKey){const g=[...ARCADE_GAMES,...MICRO_PACKS].find(x=>x.id===id);const micro=!!g.pack;const prev=st.best[id]||0;const rec=score>prev;if(rec){st.best[id]=score;save();}
-  const coins=arcadeCoins(score);if(coins)ctx.addCoins?.(coins);if(statKey&&score>0)ctx.train?.(statKey,Math.min(12,1+Math.round(score/150)));
+  const today=new Date().toDateString();if(!st.coinDay||st.coinDay.d!==today)st.coinDay={d:today,got:0};const coins=Math.min(arcadeCoins(score),Math.max(0,ARCADE_DAILY_CAP-st.coinDay.got));st.coinDay.got+=coins;save();if(coins)ctx.addCoins?.(coins);const capped=st.coinDay.got>=ARCADE_DAILY_CAP;if(statKey&&score>0)ctx.train?.(statKey,Math.min(12,1+Math.round(score/150)));
   const stars=score>=prev*1.2&&score>0?3:score>0?(rec?3:2):1;
-  showModal(`<div class="modal-tag">${micro?'MICROGAMES':'MINIGAME'}</div><div class="ar-res-stars">${[1,2,3].map(i=>`<i class="${i<=stars?'on':''}" style="--i:${i}">★</i>`).join('')}</div><div class="ar-big">${g.icon}</div><h2 class="ar-res-score" data-to="${score}">0</h2><p>${rec?'<b class="ar-rec-badge">New best!</b>':`Best: ${prev.toLocaleString('en-US')}`}</p><p class="ar-help">🪙 +${coins} coins${statKey&&score>0?` · ${({run:'Run',swim:'Swim',fly:'Fly',power:'Power',stamina:'Stamina'})[statKey]} training`:''}</p>
+  showModal(`<div class="modal-tag">${micro?'MICROGAMES':'MINIGAME'}</div><div class="ar-res-stars">${[1,2,3].map(i=>`<i class="${i<=stars?'on':''}" style="--i:${i}">★</i>`).join('')}</div><div class="ar-big">${g.icon}</div><h2 class="ar-res-score" data-to="${score}">0</h2><p>${rec?'<b class="ar-rec-badge">New best!</b>':`Best: ${prev.toLocaleString('en-US')}`}</p><p class="ar-help">🪙 +${coins} coins${capped?' · daily coin limit reached':''}${statKey&&score>0?` · ${({run:'Run',swim:'Swim',fly:'Fly',power:'Power',stamina:'Stamina'})[statKey]} training`:''}</p>
    <button type="button" class="modal-button" id="arAgain">Play again</button><button type="button" class="modal-button secondary" id="arDone">Back to ${micro?'microgames':'minigames'}</button>`);
   const h=document.querySelector('.ar-res-score');const t0=performance.now();const up=t=>{const k=Math.min(1,(t-t0)/700);if(h&&document.body.contains(h)){h.textContent=Math.round(score*k).toLocaleString('en-US')+' pts';if(k<1)requestAnimationFrame(up);}};requestAnimationFrame(up);
   $('arAgain').onclick=()=>{if(ctx.showAd&&!arcadePassLeft(st,id)){micro?microIntro(id):intro(id);return;}closeModal();setTimeout(()=>GAMES[id](),300);};$('arDone').onclick=()=>micro?openMicro(lastMicroBack):open();}

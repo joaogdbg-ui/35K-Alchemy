@@ -3297,7 +3297,7 @@ function createGamesSystem(ctx){
  function finishRace(mount,course,level,place,racers,finished){
   const R=myRaces();const bag=R[course.id]=R[course.id]||{};const prev=bag[level]||0;const improved=!prev||place<prev;if(improved)bag[level]=place;
   const prize=course.theme?null:trophyOf(course.id);let newPrize=false;if(prize&&place===1&&level===LEVELS.length-1&&!hasPrize(prize.id)){state.prizes.push(prize.id);newPrize=true;}
-  const firstGold=place===1&&prev!==1;const coins=Math.round((ctx.coinsFor?.('race',level,place,{theme:!!course.theme,firstGold})||0)*(1+perkOf(PK,'magic')));if(coins)ctx.addCoins?.(coins);
+  const firstGold=place===1&&prev!==1;const coins=Math.round((ctx.coinsFor?.('race',level,place,{theme:!!course.theme,firstGold,repeat:prev===1})||0)*(1+perkOf(PK,'magic')));if(coins)ctx.addCoins?.(coins);
   const accId=course.theme?(place===1&&level===LEVELS.length-1?course.prize:null):(place===1&&level>=3?COURSE_ACC[course.id]:null);const newAcc=accId&&ctx.grantAccessory?.(accId)?accId:null;
   save();
   if(newPrize)setTimeout(()=>sfx.prize(),500);else if(place<=3)setTimeout(()=>sfx.medal(),300);
@@ -3372,7 +3372,7 @@ function createGamesSystem(ctx){
   let newBelt=null;if(win){const b=belts[level];const cur=belts.findIndex(x=>x.id===state.belts[A.id]);if(level>cur){state.belts[A.id]=b.id;newBelt=b;onBelt?.(A.id,b.id);}}
   save();
   if(newBelt)setTimeout(()=>sfx.prize(),500);else setTimeout(()=>win?sfx.medal():sfx.lose(),300);
-  const coins=Math.round((ctx.coinsFor?.('karate',level,win?1:2,{firstGold:win&&prev!==1})||0)*(1+perkOf(PK,'magic')));if(coins)ctx.addCoins?.(coins);const newAcc=win&&level>=3&&ctx.grantAccessory?.(COURSE_ACC.dojo)?COURSE_ACC.dojo:null;
+  const coins=Math.round((ctx.coinsFor?.('karate',level,win?1:2,{firstGold:win&&prev!==1,repeat:prev===1})||0)*(1+perkOf(PK,'magic')));if(coins)ctx.addCoins?.(coins);const newAcc=win&&level>=3&&ctx.grantAccessory?.(COURSE_ACC.dojo)?COURSE_ACC.dojo:null;
   const trained=onResult?.(pick(),'karate','all',win?1:2)||[];
   const unlocked=win&&level<LEVELS.length-1&&prev!==1?`<p class="g-unlock">${LEVELS[level+1]} unlocked!</p>`:'';
   showModal(`<div class="modal-tag">KARATE DOJO · ${LEVELS[level].toUpperCase()}</div><div class="g-versus"><span class="companion ${win?'is-happy':''}" data-companion="${A.id}"><span class="companion-art"></span></span><b>${A.wins} – ${B.wins}</b><span class="companion ${win?'':'is-happy'}" data-companion="${B.id}"${rivalAttr(B.id)}><span class="companion-art"></span></span></div>
@@ -3417,6 +3417,8 @@ const MICRO_PACKS=[
  {id:'micro-cut',pack:'cut',name:'CUT! pack',icon:'✂️',desc:'Cut, slice, chop, trim and split — swipe through!'}];
 /** V171: minigame prizes are tens of coins, not hundreds (buying coins must stay meaningful). */
 const ARCADE_COIN_CAP=40;
+/** V173: minigames + microgames together pay at most this much per day. */
+const ARCADE_DAILY_CAP=150;
 const arcadeCoins=score=>Math.max(0,Math.min(ARCADE_COIN_CAP,Math.round(Math.sqrt(Math.max(0,score))/4)));
 const MICRO_LIVES=4,MICRO_SPEEDUP_EVERY=5;
 /** Pure: time for one microgame after `cleared` wins (seconds), never below 45% of the base. */
@@ -3427,7 +3429,7 @@ const arcadePassLeft=(st,id,now=Date.now())=>Math.max(0,(st?.passes?.[id]||0)-no
 const fmtPass=ms=>{const m=Math.ceil(ms/60000);return m>=60?`${Math.floor(m/60)}h ${String(m%60).padStart(2,'0')}m`:`${m}m`;};
 /** Pure: what the save looks like after `count` discoveries. */
 function arcadeProgress(st,count,ids=ARCADE_GAMES.map(g=>g.id),rnd=Math.random){
- const s={base:st?.base??count,unlocked:Array.isArray(st?.unlocked)?st.unlocked.filter(i=>ids.includes(i)):[],paid:st?.paid||0,best:st?.best||{},passes:st?.passes&&typeof st.passes==='object'?st.passes:{}};
+ const s={base:st?.base??count,unlocked:Array.isArray(st?.unlocked)?st.unlocked.filter(i=>ids.includes(i)):[],paid:st?.paid||0,best:st?.best||{},passes:st?.passes&&typeof st.passes==='object'?st.passes:{},coinDay:st?.coinDay||null};
  const steps=Math.max(0,Math.floor((count-s.base)/ARCADE_STEP));const want=1+steps;const fresh=[];let coins=0;
  while(s.unlocked.length<Math.min(want,ARCADE_TOTAL)){const left=ids.filter(i=>!s.unlocked.includes(i));if(!left.length)break;const id=left[Math.floor(rnd()*left.length)];s.unlocked.push(id);fresh.push(id);}
  // after all 16 minigames exist and are unlocked, each further step pays coins once
@@ -3520,9 +3522,9 @@ function createArcade(ctx){
   o.countdown=(go)=>{const c=document.createElement('div');c.className='g-banner is-count';s.append(c);const seq=['3','2','1','GO!'];let i=0;const tick=()=>{if(o.over){c.remove();return;}c.textContent=seq[i];c.className='g-banner '+(i===3?'is-go':'is-count');void c.offsetWidth;c.classList.add('is-in');i===3?sfx.go():sfx.tick();i++;if(i<seq.length)setTimeout(tick,650);else setTimeout(()=>{c.remove();if(!o.over)go();},500);};tick();};
   return o;}
  function result(id,score,statKey){const g=[...ARCADE_GAMES,...MICRO_PACKS].find(x=>x.id===id);const micro=!!g.pack;const prev=st.best[id]||0;const rec=score>prev;if(rec){st.best[id]=score;save();}
-  const coins=arcadeCoins(score);if(coins)ctx.addCoins?.(coins);if(statKey&&score>0)ctx.train?.(statKey,Math.min(12,1+Math.round(score/150)));
+  const today=new Date().toDateString();if(!st.coinDay||st.coinDay.d!==today)st.coinDay={d:today,got:0};const coins=Math.min(arcadeCoins(score),Math.max(0,ARCADE_DAILY_CAP-st.coinDay.got));st.coinDay.got+=coins;save();if(coins)ctx.addCoins?.(coins);const capped=st.coinDay.got>=ARCADE_DAILY_CAP;if(statKey&&score>0)ctx.train?.(statKey,Math.min(12,1+Math.round(score/150)));
   const stars=score>=prev*1.2&&score>0?3:score>0?(rec?3:2):1;
-  showModal(`<div class="modal-tag">${micro?'MICROGAMES':'MINIGAME'}</div><div class="ar-res-stars">${[1,2,3].map(i=>`<i class="${i<=stars?'on':''}" style="--i:${i}">★</i>`).join('')}</div><div class="ar-big">${g.icon}</div><h2 class="ar-res-score" data-to="${score}">0</h2><p>${rec?'<b class="ar-rec-badge">New best!</b>':`Best: ${prev.toLocaleString('en-US')}`}</p><p class="ar-help">🪙 +${coins} coins${statKey&&score>0?` · ${({run:'Run',swim:'Swim',fly:'Fly',power:'Power',stamina:'Stamina'})[statKey]} training`:''}</p>
+  showModal(`<div class="modal-tag">${micro?'MICROGAMES':'MINIGAME'}</div><div class="ar-res-stars">${[1,2,3].map(i=>`<i class="${i<=stars?'on':''}" style="--i:${i}">★</i>`).join('')}</div><div class="ar-big">${g.icon}</div><h2 class="ar-res-score" data-to="${score}">0</h2><p>${rec?'<b class="ar-rec-badge">New best!</b>':`Best: ${prev.toLocaleString('en-US')}`}</p><p class="ar-help">🪙 +${coins} coins${capped?' · daily coin limit reached':''}${statKey&&score>0?` · ${({run:'Run',swim:'Swim',fly:'Fly',power:'Power',stamina:'Stamina'})[statKey]} training`:''}</p>
    <button type="button" class="modal-button" id="arAgain">Play again</button><button type="button" class="modal-button secondary" id="arDone">Back to ${micro?'microgames':'minigames'}</button>`);
   const h=document.querySelector('.ar-res-score');const t0=performance.now();const up=t=>{const k=Math.min(1,(t-t0)/700);if(h&&document.body.contains(h)){h.textContent=Math.round(score*k).toLocaleString('en-US')+' pts';if(k<1)requestAnimationFrame(up);}};requestAnimationFrame(up);
   $('arAgain').onclick=()=>{if(ctx.showAd&&!arcadePassLeft(st,id)){micro?microIntro(id):intro(id);return;}closeModal();setTimeout(()=>GAMES[id](),300);};$('arDone').onclick=()=>micro?openMicro(lastMicroBack):open();}
@@ -4320,11 +4322,13 @@ for(const it of MARKET)it.element=it.element||it.el||MARKET_ELEMENT[it.id]||null
 const MARKET_TABS=[['food','Food'],['acc','Wear'],['toy','Toys'],['furniture','Furniture'],['house','Houses']];
 /** V138: each extra copy of the same accessory costs more. */
 const accPrice=(base,owned)=>Math.round(base*Math.pow(1.6,owned||0)/10)*10;
-const DAILY_COINS=100;
+/** V173 economy: daily gift 50, growing to 100 after 7 days in a row. */
+const DAILY_COINS=50,DAILY_MAX=100,DAILY_STREAK=7;
+const dailyCoins=streak=>Math.round(DAILY_COINS+(Math.min(DAILY_STREAK,Math.max(1,streak))-1)*(DAILY_MAX-DAILY_COINS)/(DAILY_STREAK-1));
 /** Coins for a race/karate result. */
-function coinsFor(kind,level,place,{theme=false,firstGold=false}={}){
+function coinsFor(kind,level,place,{theme=false,firstGold=false,repeat=false}={}){
  let c=kind==='karate'?(place===1?25+12*level:5+level):place===1?20+10*level:place===2?12+6*level:place===3?8+4*level:3+level;
- if(theme)c=Math.round(c*1.5);if(firstGold)c*=2;return c;}
+ if(theme)c=Math.round(c*1.5);if(firstGold)c*=2;if(repeat)c=Math.max(1,Math.round(c*0.25));return c;}
 // ---------- school ----------
 const LESSON_LEVELS=['Novice','Apprentice','Skilled','Expert','Master'];
 const LESSON_MINUTES=[5,30,120,360,720];
@@ -4333,7 +4337,8 @@ const LESSON_MULT=[1,2.5,5,9,15];
 const LESSON_DISCOUNT=0.5;
 const lessonPrice=(l,level)=>Math.round(l.price*LESSON_MULT[level]*LESSON_DISCOUNT/10)*10;
 /** V157: coins for discoveries — 10 per new Alchemy element; 10 per companion find, ×5 with an ad. */
-const DISCOVERY_COINS=10,COMPANION_FIND_COINS=10,FIND_AD_MULT=5;
+/** V173 economy: 2 per new element + 50 every 100 elements; companion finds 3 (×5 with an ad). */
+const DISCOVERY_COINS=2,DISCOVERY_MILESTONE=100,DISCOVERY_MILESTONE_COINS=50,COMPANION_FIND_COINS=3,FIND_AD_MULT=5;
 const SCHOOL_AD_CUT_MIN=30;
 const LESSONS=[
  {id:'sing',name:'Singing',icon:'🎤',price:60,desc:'Sings a little tune with floating notes'},
@@ -4344,7 +4349,7 @@ const LESSONS=[
  {id:'magic',name:'Magic trick',icon:'🎩',price:120,desc:'Pulls elements out of a hat'}
 ];
 
-return {ACCESSORIES,wearableFor,MARKET,MARKET_TABS,COIN_PACK,COIN_PACKS,FAIR_PLAY_NOTE,coinsFor,LESSONS,LESSON_LEVELS,LESSON_MINUTES,lessonPrice,SCHOOL_AD_CUT_MIN,accPrice,DAILY_COINS,DISCOVERY_COINS,COMPANION_FIND_COINS,FIND_AD_MULT};})();
+return {ACCESSORIES,wearableFor,MARKET,MARKET_TABS,COIN_PACK,COIN_PACKS,FAIR_PLAY_NOTE,coinsFor,LESSONS,LESSON_LEVELS,LESSON_MINUTES,lessonPrice,SCHOOL_AD_CUT_MIN,accPrice,DAILY_COINS,DISCOVERY_COINS,COMPANION_FIND_COINS,FIND_AD_MULT,dailyCoins,DISCOVERY_MILESTONE,DISCOVERY_MILESTONE_COINS};})();
 window.__companionEngine86=(function(){/**
  * V86 Companions (owner request 30/10/2026).
  * Five companion elements per family. Once discovered (in any mode) a companion can be made
@@ -6856,7 +6861,7 @@ const {STADIUM_ART_V95}=window.__stadiumArt95;
 const {createStadiumSfx}=window.__stadiumSfx95;
 const {COMPANIONS_V86,COMPANION_SPRITES_V86}=window.__companions86;
 const {createCompanionSystem,COMPANION_STORAGE_KEY,rivalLook,traitIconSvg}=window.__companionEngine86;
-const {ACCESSORIES,wearableFor,MARKET,MARKET_TABS,COIN_PACK,COIN_PACKS,FAIR_PLAY_NOTE,coinsFor,LESSONS,LESSON_LEVELS,LESSON_MINUTES,lessonPrice,SCHOOL_AD_CUT_MIN,accPrice,DAILY_COINS,DISCOVERY_COINS,COMPANION_FIND_COINS,FIND_AD_MULT}=window.__market136;
+const {ACCESSORIES,wearableFor,MARKET,MARKET_TABS,COIN_PACK,COIN_PACKS,FAIR_PLAY_NOTE,coinsFor,LESSONS,LESSON_LEVELS,LESSON_MINUTES,lessonPrice,SCHOOL_AD_CUT_MIN,accPrice,DAILY_COINS,DISCOVERY_COINS,COMPANION_FIND_COINS,FIND_AD_MULT,dailyCoins,DISCOVERY_MILESTONE,DISCOVERY_MILESTONE_COINS}=window.__market136;
 const {PUBLIC_LABELS_V86}=window.__publicLabels86;
 const {reconcileLegacyFamilies}=window.__familyCompat82;
 const {synchronizeFamilyProfiles,sharedMembership}=window.__familyShared51;
@@ -7234,7 +7239,7 @@ function shinyCard(item){return `<p class="shiny-trivia"><span aria-hidden="true
 function showShinyFound(id){const it=byId.get(id);if(!it)return;
  showModal(`<div class="modal-tag shiny-tag">✦ SHINY ELEMENT</div><div class="modal-art is-shiny">${staticArt(it)}</div><h2>Shiny ${escapeText(uiName(it))}</h2>${shinyCard(it)}<div class="modal-milestone">${shiny.size.toLocaleString('en-US')} shiny ${shiny.size===1?'element':'elements'} · ${Math.round(shinyChance()*100)}% chance per combination</div>`);
 }
-const APP_VERSION='1.0.72';
+const APP_VERSION='1.0.73';
 // V83: status line + Google consent (UMP) privacy options, required for EEA players.
 async function refreshAdStatus(){
  const el=$('settingsAdStatus'),bridge=getRewardBridge();
@@ -8030,7 +8035,7 @@ function completeCombination(resultId,a,b,kind='recipe'){
  recipes.set(key,resultId);known.add(key);unlocked.add(resultId);last=resultId;
  if(fresh&&!STARTERS.has(resultId))discoveryLedger.set(resultId,{at:new Date().toISOString(),source:kind,ingredients:[a,b]});
  // V157: every new element is worth 10 companion coins
- if(fresh&&!STARTERS.has(resultId)){try{addCoins(DISCOVERY_COINS);coinPop(DISCOVERY_COINS);}catch{}}
+ if(fresh&&!STARTERS.has(resultId)){try{addCoins(DISCOVERY_COINS);coinPop(DISCOVERY_COINS);const n=classicDiscoveredCount();if(n>0&&n%DISCOVERY_MILESTONE===0){addCoins(DISCOVERY_MILESTONE_COINS);toast(`${n.toLocaleString('en-US')} elements! +${DISCOVERY_MILESTONE_COINS} coins`,'new');}}catch{}}
  recent=[resultId,...recent.filter(i=>i!==resultId)].slice(0,350);
  const gotShiny=kind!=='batch'&&rollShiny(resultId);
  save();updateCounts();updateLatest();syncFamilyBanner();
@@ -8576,6 +8581,9 @@ function confirmBuy({art,name,desc,price,label='Buy'},onBuy,onBack){const short=
  const c=$('cfCoins');if(c)c.onclick=()=>openCoinShop(()=>confirmBuy({art,name,desc,price,label},onBuy,onBack));
  const b=$('cfBuy');if(b)b.onclick=()=>{if(!spendCoins(price)){toast('Not enough coins','repeat');return;}modalBack=null;SFX.unlock?.();onBuy();};}
 function dailyKey(){const d=new Date();return d.getFullYear()+'-'+(d.getMonth()+1)+'-'+d.getDate();}
+// V173: daily streak — claiming yesterday keeps it going (max 7), otherwise it restarts at day 1
+function yesterdayKey(){const d=new Date();d.setDate(d.getDate()-1);return d.getFullYear()+'-'+(d.getMonth()+1)+'-'+d.getDate();}
+function nextStreak(){return wallet.daily===yesterdayKey()?Math.min(7,(wallet.streak||0)+1):1;}
 function openMarket(onClose,tab){if(tab)marketTab=tab;
  const owned=it=>it.kind==='toy'?wallet.toys.includes(it.toy):(it.kind==='furniture'||it.kind==='house')?unlocked.has(it.element):false;
  const priceOf=it=>it.kind==='acc'?accPrice(it.price,accOwned(it.acc)):it.price;
@@ -8589,12 +8597,12 @@ function openMarket(onClose,tab){if(tab)marketTab=tab;
   return `<button type="button" class="stat-tile mk-tile ${o?'is-owned':''} ${it.kind==='toy'&&wallet.toy===it.toy?'is-on':''}" data-mk="${it.id}"><span class="mk-art">${artOf(it)}</span><b>${escapeText(nameOf(it))}</b><small>${escapeText(descOf(it)||'')}</small>${it.ext?`<small class="mk-fits">${escapeText(fitsOf(it))}</small>`:''}<em class="mk-price ${!o&&wallet.coins<priceOf(it)?'is-short':''}">${label}</em></button>`;};
  const daily=wallet.daily!==dailyKey();
  showModal(`<div class="modal-tag">BLACK MARKET</div><h2>Spend your coins</h2><div class="fair-note"><b>✓ Nothing is pay-only</b><span>${escapeText(FAIR_PLAY_NOTE)}</span></div>${coinBar()}
-  <button type="button" class="mk-daily ${daily?'':'is-done'}" id="mkDaily" ${daily?'':'disabled'}><span>🎁</span><b>${daily?`Daily coins · +${DAILY_COINS}`:'Daily coins claimed'}</b><small>${daily?'Free, once a day':'Come back tomorrow'}</small></button>
+  <button type="button" class="mk-daily ${daily?'':'is-done'}" id="mkDaily" ${daily?'':'disabled'}><span>🎁</span><b>${daily?`Daily coins · +${dailyCoins(nextStreak())}`:'Daily coins claimed'}</b><small>${daily?`Day ${Math.min(7,nextStreak())} of 7 · more each day in a row`:`Streak ${wallet.streak||1} · come back tomorrow`}</small></button>
   <div class="mk-tabs">${MARKET_TABS.map(([k,l])=>`<button type="button" data-mktab="${k}" aria-pressed="${k===marketTab}">${l}</button>`).join('')}</div>
   ${marketTab==='food'?`<p class="mini-muted">Bought food waits on the Alchemy screen — drag it onto a companion.${Object.values(wallet.bag||{}).reduce((n,v)=>n+v,0)?` · ${Object.values(wallet.bag).reduce((n,v)=>n+v,0)} waiting`:''}</p>`:marketTab==='toy'?'<p class="mini-muted">One toy sits on the craft card; your companion plays with it now and then.</p>':marketTab==='acc'?'<p class="mini-muted">One copy dresses one companion. Each extra copy costs more.</p>':''}
   <div class="stat-tiles mk-grid">${items.map(tile).join('')}</div><p class="mini-muted">Win races and Karate fights to earn coins.</p>`);
  const again=()=>openMarket(onClose);wireCoinBar(again);
- $('mkDaily').onclick=()=>{if(wallet.daily===dailyKey())return;wallet.daily=dailyKey();addCoins(DAILY_COINS);SFX.prize?.();toast(`+${DAILY_COINS} daily coins!`,'new');again();};
+ $('mkDaily').onclick=()=>{if(wallet.daily===dailyKey())return;const st=nextStreak(),c=dailyCoins(st);wallet.streak=st;wallet.daily=dailyKey();addCoins(c);SFX.prize?.();toast(`+${c} daily coins!`,'new');again();};
  $('modalContent').querySelectorAll('[data-mktab]').forEach(b=>b.onclick=()=>{marketTab=b.dataset.mktab;again();});
  $('modalContent').querySelectorAll('[data-mk]').forEach(b=>b.onclick=()=>{const it=MARKET.find(x=>x.id===b.dataset.mk);if(!it)return;
   if(it.kind==='toy'&&owned(it)){wallet.toy=wallet.toy===it.toy?null:it.toy;saveWallet();companions.placeToy?.();again();return;}
