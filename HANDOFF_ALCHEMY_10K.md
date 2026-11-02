@@ -90,6 +90,9 @@ Preserve 200-per-batch policy and do not start another content release on top of
 
 - **Art redraw wave 3 (V85, done): 3,991 icons** — every remaining older element. All 6,012 pre-V83 elements now use the 2026 art direction (`ART_REDRAW`), plus 200 V83 and 200 V85 originals. Six near-duplicates found by the audit were redrawn; 36 reviewed false alarms are in `tools/art-redraw-reviewed-pairs.json` (the audit now also honours them for V83 comparisons).
 
+## V167 — Pinball table in the game's art style
+- Table is now a garden: race grass tile as the playfield, race sky inside the dome, sandy path loop, bushes/flowers, wooden fence rails with slate outlines, wooden slings with cream kicker faces, plank plunger lane, mushroom bumpers (red caps, cream dots), wooden drop-target posts, cream element bubbles with a moving dashed ring, cream/slate lamps, HUD pills and cream message banners. Element targets now spawn in the centre, away from the slings.
+
 ## V166 — Five V165 games removed; Pinball rebuilt
 - Owner: of the V165 batch only Pinball was worth keeping. Removed Expedition, Challenge Cups, Cooking, Treasure Dig, Element Bingo (code, scenes, CSS). 11 minigames now; ARCADE_TOTAL stays 16 (5 slots for new ideas).
 - Pinball table: plunger lane (hold to charge, release), dome top with one-way gate, 3 rollover lanes (all lit = multiplier up to x5), 3 pop bumpers, slingshots with kick, left drop-target bank (BANK CLEAR bonus grows), 2 element targets, 8 s ball save, ball trail, lamps, flashes and big messages. Static art (alchemy circle, rails, slings) pre-drawn once; 240 Hz physics. Slings placed so inlanes never trap the ball.
