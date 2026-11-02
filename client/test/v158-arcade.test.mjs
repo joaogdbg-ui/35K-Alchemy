@@ -55,3 +55,15 @@ test('V173: coin economy', async () => {
   // total from discovery over 10k elements stays well under the biggest coin pack
   assert.ok(10000 * M.DISCOVERY_COINS + 100 * M.DISCOVERY_MILESTONE_COINS <= 30000);
 });
+test('V174: bigger packs, first-buy bonus, colours', async () => {
+  const M = await import('../src/market-v136.js');
+  assert.equal(M.COIN_PACKS[0].coins, 600);
+  assert.deepEqual(M.COIN_PACKS.map(p => p.id), ['coins_100', 'coins_210', 'coins_550', 'coins_1200', 'coins_2600', 'coins_7000', 'coins_15000'], 'product ids unchanged');
+  for (let i = 1; i < M.COIN_PACKS.length; i++) assert.ok(M.COIN_PACKS[i].coins / parseFloat(M.COIN_PACKS[i].price.slice(1)) >= M.COIN_PACKS[i - 1].coins / parseFloat(M.COIN_PACKS[i - 1].price.slice(1)), 'bigger packs are better value');
+  assert.equal(M.FIRST_BUY_MULT, 2);
+  const excl = M.DYES.filter(d => d.exclusive);
+  assert.equal(excl.length, 4);
+  for (const d of excl) assert.ok(M.COIN_PACKS.some(p => p.gift === d.id && p.id === d.exclusive));
+  assert.ok(M.DYES.filter(d => !d.exclusive).every(d => d.price >= 300));
+  assert.ok(M.MARKET_TABS.some(t => t[0] === 'dye'));
+});

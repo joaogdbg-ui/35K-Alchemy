@@ -90,6 +90,13 @@ Preserve 200-per-batch policy and do not start another content release on top of
 
 - **Art redraw wave 3 (V85, done): 3,991 icons** — every remaining older element. All 6,012 pre-V83 elements now use the 2026 art direction (`ART_REDRAW`), plus 200 V83 and 200 V85 originals. Six near-duplicates found by the audit were redrawn; 36 reviewed false alarms are in `tools/art-redraw-reviewed-pairs.json` (the audit now also honours them for V83 comparisons).
 
+## V174 — Packs worth it: bigger packs, first-buy ×2, exclusive colours, Colours tab
+- COIN_PACKS (ids unchanged): €1 600 · €2 1,300 · €5 3,500 · €10 8,000 (+Gold colour) · €20 17,000 (+Aurora) · €50 45,000 (+Shadow) · €100 100,000 (+Rainbow). €1 ≈ 3 days of free play.
+- First coin pack ever bought gives ×2 (wallet.firstBuy, FIRST_BUY_MULT); coin shop shows the banner and crossed-out amounts.
+- New coin sink: Market › Colours (DYES): Mint 300, Sky 400, Berry 500, Sunset 600, Snow 800, Cocoa 1,000 — bought once, usable on every companion; 4 pack-exclusive colours (Aurora/Rainbow animated). Applied globally via a <style id="dyeStyle"> on [data-companion] .companion-art svg (applyDyes).
+- Wallet now persists streak (fixes V173 daily streak not surviving restarts), firstBuy, dyes, dyeOn. FAIR_PLAY_NOTE updated (only 4 cosmetic colours are pack-only).
+- Owner to-do: if Play Console product descriptions mention coin amounts, update them (600/1,300/3,500/8,000/17,000/45,000/100,000).
+
 ## V173 — Coin economy rebalance (owner approved)
 - Discovery 10 → 2 coins per new element + 50 every 100 elements (DISCOVERY_MILESTONE*). Whole game ≈ 25k instead of ≈ 100k.
 - Companion finds 10 → 3 (ad still ×5).
