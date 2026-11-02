@@ -418,6 +418,8 @@ export function createArcade(ctx){
    if(!ball)return;if(inLane&&!ball.launched){return;}
    ball.vy+=GRAV*dt;ball.x+=ball.vx*dt;ball.y+=ball.vy*dt;if(saveT>0&&!inLane)saveT-=dt;
    if(inLane&&ball.x<P-BR)inLane=false;
+   // V168: a ball that drops back into the lane is re-armed so it can be launched again (never stuck)
+   if(inLane&&ball.launched&&ball.x>P&&ball.y>H-26-BR-3&&Math.abs(ball.vy)<60){ball.launched=false;ball.vy=0;ball.vx=0;ball.x=W-LANE/2;ball.y=H-26-BR-1;power=0;o.hint('Hold to charge · release to launch');}
    for(const sg of segs){if(sg.oneway&&ball.vy<0)continue;hitSeg(sg.x1,sg.y1,sg.x2,sg.y2,sg.e);}
    for(const s2 of slings)if(hitSeg(s2.x1,s2.y1,s2.x2,s2.y2,0.3,null,420)){if(s2.f<=0){s2.f=0.15;pts(10,(s2.x1+s2.x2)/2,(s2.y1+s2.y2)/2-20);sfx.clack();}}
    for(const d of dropSegs)if(drops[d.i]&&hitSeg(d.x1,d.y1,d.x2,d.y2,0.4)){drops[d.i]=0;pts(75,40,(d.y1+d.y2)/2-10);sfx.hit();o.burst(14,(d.y1+d.y2)/2,'earth',8);
@@ -483,7 +485,7 @@ export function createArcade(ctx){
    if(flash>0){g.globalAlpha=flash*0.35;g.fillStyle='#fff5d6';g.fillRect(0,0,W,H);g.globalAlpha=1;}};
   const ptr={};
   K.box.addEventListener('pointerdown',e=>{e.preventDefault();if(!run)return;if(ball&&inLane&&!ball.launched){charging=true;ptr.C=e.pointerId;return;}const r=K.box.getBoundingClientRect();const left=(e.clientX-r.left)<K.W/2;if(left){held.L=true;ptr.L=e.pointerId;}else{held.R=true;ptr.R=e.pointerId;}sfx.clack();});
-  const up=e=>{if(ptr.L===e.pointerId)held.L=false;if(ptr.R===e.pointerId)held.R=false;if(ptr.C===e.pointerId&&charging){charging=false;if(ball&&inLane&&!ball.launched){ball.launched=true;ball.vy=-(850+power*950)*KICK;ball.vx=0;sfx.go();o.hint('Tap left / right to flip');}}};
+  const up=e=>{if(ptr.L===e.pointerId)held.L=false;if(ptr.R===e.pointerId)held.R=false;if(ptr.C===e.pointerId&&charging){charging=false;if(ball&&inLane&&!ball.launched){ball.launched=true;const vmin=Math.sqrt(2*GRAV*(H*0.82))*1.08;ball.vy=-(vmin+power*520)*KICK;ball.vx=0;sfx.go();o.hint('Tap left / right to flip');}}};
   K.box.addEventListener('pointerup',up);K.box.addEventListener('pointercancel',up);
   let last=performance.now();const loop=t=>{if(o.over)return;const dt=Math.min(0.05,(t-last)/1000);last=t;
    if(charging)power=Math.min(1,power+dt*1.1);
