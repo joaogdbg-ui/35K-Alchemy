@@ -37,9 +37,24 @@ export function wearableFor(name){const t=` ${String(name||'').toLowerCase()} `;
 export const COIN_PACK={id:'coins_100',coins:200,price:'€1.00'};
 /** V137: bigger packs are better value (bonus vs the 100-coin pack). */
 /** V150: coins doubled for the same euros (product ids keep their original names). */
-export const COIN_PACKS=[{id:'coins_100',coins:200,price:'€1.00',bonus:0},{id:'coins_210',coins:420,price:'€2.00',bonus:5},{id:'coins_550',coins:1100,price:'€5.00',bonus:10},{id:'coins_1200',coins:2400,price:'€10.00',bonus:20,tag:'Popular'},{id:'coins_2600',coins:5200,price:'€20.00',bonus:30},{id:'coins_7000',coins:14000,price:'€50.00',bonus:40},{id:'coins_15000',coins:30000,price:'€100.00',bonus:50,tag:'Best value'}];
+/** V174: packs give much more (≈3 days of play for €1); the 4 biggest also give a pack-exclusive colour. Product ids unchanged. */
+export const COIN_PACKS=[{id:'coins_100',coins:600,price:'€1.00',bonus:0},{id:'coins_210',coins:1300,price:'€2.00',bonus:8},{id:'coins_550',coins:3500,price:'€5.00',bonus:17},{id:'coins_1200',coins:8000,price:'€10.00',bonus:33,tag:'Popular',gift:'dye-gold'},{id:'coins_2600',coins:17000,price:'€20.00',bonus:42,gift:'dye-aurora'},{id:'coins_7000',coins:45000,price:'€50.00',bonus:50,gift:'dye-shadow'},{id:'coins_15000',coins:100000,price:'€100.00',bonus:67,tag:'Best value',gift:'dye-rainbow'}];
+/** V174: the very first coin pack bought gives double coins. */
+export const FIRST_BUY_MULT=2;
+/** V174: companion colours — a coin sink (cosmetic). Exclusive ones come only with the big coin packs. */
+export const DYES=[
+ {id:'dye-mint',name:'Mint',price:300,filter:'hue-rotate(60deg) saturate(1.1)'},
+ {id:'dye-sky',name:'Sky',price:400,filter:'hue-rotate(150deg)'},
+ {id:'dye-berry',name:'Berry',price:500,filter:'hue-rotate(250deg) saturate(1.2)'},
+ {id:'dye-sunset',name:'Sunset',price:600,filter:'hue-rotate(320deg) saturate(1.4)'},
+ {id:'dye-snow',name:'Snow',price:800,filter:'saturate(.25) brightness(1.18)'},
+ {id:'dye-cocoa',name:'Cocoa',price:1000,filter:'sepia(.7) saturate(1.3) brightness(.85)'},
+ {id:'dye-gold',name:'Gold',exclusive:'coins_1200',filter:'sepia(1) saturate(2.6) brightness(1.08) hue-rotate(-8deg)'},
+ {id:'dye-aurora',name:'Aurora',exclusive:'coins_2600',filter:'hue-rotate(0deg)',anim:'dye-aurora'},
+ {id:'dye-shadow',name:'Shadow',exclusive:'coins_7000',filter:'brightness(.55) contrast(1.4) saturate(.8)'},
+ {id:'dye-rainbow',name:'Rainbow',exclusive:'coins_15000',filter:'hue-rotate(0deg) saturate(1.5)',anim:'dye-rainbow'}];
 /** V149: shown in the Market and the coin shop — nothing is pay-only. */
-export const FAIR_PLAY_NOTE='Everything you can buy here can also be found in Alchemy or earned by playing (races, Karate, daily coins). Buying only saves time.';
+export const FAIR_PLAY_NOTE='Everything that helps you play can be found in Alchemy or earned by playing (races, Karate, daily coins). Only four cosmetic colours come with the big coin packs.';
 export const MARKET=[
  // food: given straight to the companion on screen
  // V137: food is placed on the main screen; drag it onto a companion
@@ -68,7 +83,7 @@ export const MARKET_ELEMENT={'fruit-run':'organic139:swift-fruit','fruit-swim':'
  'acc-party-hat':'organic139:party-hat','acc-cap':'organic139:sports-cap','acc-bow':'legacy:607','acc-headphones':'legacy:330','acc-sunglasses':'organic139:sunglasses','acc-star-glasses':'organic139:star-glasses','acc-monocle':'organic139:monocle','acc-scarf':'organic139:scarf','acc-bandana':'organic139:bandana','acc-bowtie':'organic139:bow-tie','acc-top-hat':'organic139:top-hat','acc-wizard-hat':'organic139:wizard-hat','acc-cape':'organic139:hero-cape',
  'toy-ball':'legacy:557','toy-top':'organic89:spinning-top','toy-drum':'organic40:drum'};
 for(const it of MARKET)it.element=it.element||it.el||MARKET_ELEMENT[it.id]||null;
-export const MARKET_TABS=[['food','Food'],['acc','Wear'],['toy','Toys'],['furniture','Furniture'],['house','Houses']];
+export const MARKET_TABS=[['food','Food'],['acc','Wear'],['dye','Colours'],['toy','Toys'],['furniture','Furniture'],['house','Houses']];
 /** V138: each extra copy of the same accessory costs more. */
 export const accPrice=(base,owned)=>Math.round(base*Math.pow(1.6,owned||0)/10)*10;
 /** V173 economy: daily gift 50, growing to 100 after 7 days in a row. */

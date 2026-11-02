@@ -2154,3 +2154,10 @@ body.ar-playing>*:not(.ar-stage){display:none!important}
 .ar-wood.is-cut b.h1{transform:translate(-26px,14px) rotate(-28deg)}.ar-wood.is-cut b.h2{transform:translate(26px,14px) rotate(28deg)}.ar-wood.is-cut::before{opacity:0;transition:opacity .2s}
 /* V172: the dropped element goes INTO the basket (basket drawn over it) */
 .ar-claw{z-index:2}.ar-mbasket{z-index:3}
+/* V174: pack bonus + companion colours */
+@keyframes dye-aurora{from{filter:hue-rotate(0deg) saturate(1.2)}to{filter:hue-rotate(360deg) saturate(1.2)}}
+@keyframes dye-rainbow{from{filter:hue-rotate(0deg) saturate(1.6)}to{filter:hue-rotate(360deg) saturate(1.6)}}
+.cp-first{margin:6px 0;padding:8px 12px;border-radius:14px;background:linear-gradient(180deg,#e8a35f,#d08a4c);color:#fff;text-align:center;box-shadow:0 3px 0 #a86a33;animation:arBump 1.2s ease-in-out infinite}
+.cp-pack s{opacity:.6}.cp-gift{display:block;font-weight:900;color:#b4483b}
+.dye-art svg{width:100%;height:100%}.dye-art{display:block}
+.mk-tile.is-excl{background:linear-gradient(180deg,var(--surface),var(--accent-2))}
