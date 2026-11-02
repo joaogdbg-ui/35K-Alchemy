@@ -90,6 +90,10 @@ Preserve 200-per-batch policy and do not start another content release on top of
 
 - **Art redraw wave 3 (V85, done): 3,991 icons** — every remaining older element. All 6,012 pre-V83 elements now use the 2026 art direction (`ART_REDRAW`), plus 200 V83 and 200 V85 originals. Six near-duplicates found by the audit were redrawn; 36 reviewed false alarms are in `tools/art-redraw-reviewed-pairs.json` (the audit now also honours them for V83 comparisons).
 
+## V152 — full belly after 20 elements; depth fix when walking north (2 November 2026)
+- Hidden per-companion counter (`p.eaten`, `p.fullUntil` in companion-engine-v86.js; `FULL_AFTER=20`, `FULL_MS=1h`). Element meals (drag or self-feed) count; refused elements and Market food don't. When full, dropping an element opens the "FULL BELLY" sheet (`openFullSheet` in app.js): wait (minutes left), ▶ rewarded ad `make_room`, or 🪙100 → `companions.makeRoom(id)` (another 20).
+- Home: a resident walking north keeps its current (front) z-index until the leg ends, so it no longer slips under the sprite it is walking past (`walkPath` in home-engine-v90.js).
+
 ## V151 — Home tiles; School perks in games; themed race maps (2 November 2026)
 - Home: Companions / Houses are two big hub tiles (`.st-shop-btn.home-tab`, active one highlighted) with live subtitles (found count + who is on screen; houses owned + residents via `homes.homeInfo`).
 - School perks (`SKILL_PERKS`/`perkOf` in games-v93.js, shown on each School class, n = levels learned): Singing −6%/lv cheer cost · Drums +6%/lv cheer boost · Drawing +5%/lv puzzle wits · Dancing +2%/lv Karate dodge · Juggling −6%/lv power-strike zeal · Magic +5%/lv game coins. Skill animations already scale with level (more notes, twirls, beats, balls, items).

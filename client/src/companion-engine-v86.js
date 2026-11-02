@@ -26,6 +26,8 @@ export const FEED_COOLDOWN_MS=30*60*1000;
 /** V115: feeding value grows with how hard the element is to make (recipe depth). */
 export const feedDepthMult=d=>Number.isFinite(d)?Math.round(Math.min(1.8,0.6+0.12*Math.max(0,d))*100)/100:1;
 export const GIFT_INTERVAL_MS=[150*1000,320*1000];
+/** V152: after 20 elements a companion is full for an hour (or until the player makes room: ad or coins). Hidden counter. */
+export const FULL_AFTER=20,FULL_MS=60*60*1000;
 export const SELF_FEED_INTERVAL_MS=[200*1000,420*1000];
 export const HUNGRY_SELF_FEED_MS=[60*1000,120*1000];
 export const BELLY_DECAY_MS=6*60*1000;   // -1 belly every 6 min (full → empty in ~10 h)
@@ -544,6 +546,7 @@ export function createCompanionSystem(ctx){
   const p=pet(meta.id);settleMood(p);
   const taste=likes(meta,item);
   if(taste==='no'){sfx.refuse();showNoteWindow(meta,[`Doesn't like <b>${escapeText(uiName(item))}</b> · no growth`,`Mood −3`]);morsel(item,'is-refused');emote('spiral',1400);sprite.dataset.anim='refuse';p.mood=Math.max(0,p.mood-3);p.moodAt=now();save();await wait(1400);sprite.dataset.anim='idle';refreshViews();return true;}
+  p.eaten=(p.eaten||0)+1;if(p.eaten>=FULL_AFTER&&!p.fullUntil){p.fullUntil=now()+FULL_MS;setTimeout(()=>{try{showNoteWindow(meta,['<b>Full!</b> · hungry again in 1 h']);emote('heart',1600);}catch{}},3800);}
   const last=p.fed[item.id]||0,fresh=now()-last>FEED_COOLDOWN_MS;
   // grab: the element flies into the hands and stays there while chewing
   const held=fx('held',3600);held.innerHTML=staticArt(item);sprite.dataset.anim='grab';sfx.grab();await wait(450);
@@ -570,8 +573,11 @@ export function createCompanionSystem(ctx){
   if(ups){sfx.levelup();sprite.dataset.anim='levelup';fx('stars',2000);emote('burst',1700);await wait(1800);}
   sprite.dataset.anim='idle';refreshViews();return true;
  }
+ function fullLeft(id){const p=state.pets[id];if(!p)return 0;if(p.fullUntil&&now()>=p.fullUntil){p.fullUntil=0;p.eaten=0;save();}return p.fullUntil?p.fullUntil-now():0;}
+ function makeRoom(id){const p=pet(id);p.fullUntil=0;p.eaten=0;save();refreshViews();if(id===state.active&&sprite&&!sprite.hidden){emote('heart',1200);sfx.happy();}}
  async function feed(elementId){
   const meta=activeMeta(),item=byId.get(elementId);if(!meta||!item)return false;
+  const left=fullLeft(meta.id);if(left>0){if(sprite&&!sprite.hidden){emote('spiral',1200);sfx.refuse?.();}ctx.onFull?.({id:meta.id,name:nameOf(meta),leftMs:left});return false;}
   duoAbort=true;if(cancelMove)cancelMove();busy=true;
   try{return await eatSequence(meta,item);}finally{busy=false;}
  }
@@ -579,7 +585,7 @@ export function createCompanionSystem(ctx){
  let selfFeedTimer=null;
  function scheduleSelfFeed(){clearTimeout(selfFeedTimer);const m=activeMeta();const [a,b]=m&&hungry(pet(m.id))?HUNGRY_SELF_FEED_MS:SELF_FEED_INTERVAL_MS;selfFeedTimer=setTimeout(selfFeed,a+Math.random()*(b-a));}
  async function selfFeed(){
-  const meta=activeMeta();if(!meta||document.hidden||sleeping||busy){scheduleSelfFeed();return;}
+  const meta=activeMeta();if(!meta||document.hidden||sleeping||busy||fullLeft(meta.id)>0){scheduleSelfFeed();return;}
   const chips=[...document.querySelectorAll('#viewPlay:not([hidden]) .element-chip')].filter(c=>{const r=c.getBoundingClientRect();return r.top>80&&r.bottom<window.innerHeight-70;});
   if(!chips.length){scheduleSelfFeed();return;}
   const chip=chips[Math.floor(Math.random()*chips.length)],item=byId.get(chip.dataset.id);if(!item){scheduleSelfFeed();return;}
@@ -988,7 +994,7 @@ export function createCompanionSystem(ctx){
   return {cid,known,name:nameOf(meta),taste,fresh,cooldownMin:fresh?0:Math.max(1,Math.ceil((FEED_COOLDOWN_MS-(now()-last))/60000)),stats,depth,depthMult:feedDepthMult(depth),looks:lookEffects(item.name||uiName(item),familyFor(item),item.category,depth)};}
  function tasted(itemId){return !!state.tasted?.[itemId]||Object.values(state.pets||{}).some(q=>q?.fed?.[itemId]);}
  function looksOf(itemId){const item=byId.get(itemId);if(!item)return null;return lookEffects(item.name||uiName(item),familyFor(item),item.category,ctx.depthOf?.(item.id));}
- return {feedStatsOf:itemId=>{const it=byId.get(itemId);return it?(FAMILY_FEEDS[familyFor(it)]||['stamina','hp']):[];},activeStats:()=>{const m=activeMeta();return m?{name:nameOf(m),family:m.family,stats:pet(m.id).stats}:null;},duoActive,applyRivalLook:(svg,id,look)=>applyLookSvg(svg,look,id+'-rival'),setBuddy,swapDuo,requestDuo:k=>{duoRequest=k||'any';},duoPlay,buddy:()=>buddyMeta()?.id||null,duoPair:()=>duoActive()?[state.active,state.buddy]:[],tasted,looksOf,mealPreview,lookOf,applyLook:(svg,id)=>{applyLookSvg(svg,lookOf(id),id);applyWearSvg(svg,id);},wearOf:id=>({...(state.pets[id]?.wear||{})}),setWear,takeOff,marketFeed,learn,skillsOf,skillLevel,themeCompletion,playToy,placeToy,performSkill,start,stop,setActive,statsHtml,info,gameReward,choose,homeEffect,syncSeen,markSeen,isCompanion,freeChoiceLeft,emote,feed,hitTest,onDiscovery,renderTab,openCard,get active(){return activeMeta();},state:()=>state,unlocked,refreshViews,
+ return {fullLeft,makeRoom,feedStatsOf:itemId=>{const it=byId.get(itemId);return it?(FAMILY_FEEDS[familyFor(it)]||['stamina','hp']):[];},activeStats:()=>{const m=activeMeta();return m?{name:nameOf(m),family:m.family,stats:pet(m.id).stats}:null;},duoActive,applyRivalLook:(svg,id,look)=>applyLookSvg(svg,look,id+'-rival'),setBuddy,swapDuo,requestDuo:k=>{duoRequest=k||'any';},duoPlay,buddy:()=>buddyMeta()?.id||null,duoPair:()=>duoActive()?[state.active,state.buddy]:[],tasted,looksOf,mealPreview,lookOf,applyLook:(svg,id)=>{applyLookSvg(svg,lookOf(id),id);applyWearSvg(svg,id);},wearOf:id=>({...(state.pets[id]?.wear||{})}),setWear,takeOff,marketFeed,learn,skillsOf,skillLevel,themeCompletion,playToy,placeToy,performSkill,start,stop,setActive,statsHtml,info,gameReward,choose,homeEffect,syncSeen,markSeen,isCompanion,freeChoiceLeft,emote,feed,hitTest,onDiscovery,renderTab,openCard,get active(){return activeMeta();},state:()=>state,unlocked,refreshViews,
   onViewChange(){if(activeMeta()&&sprite&&!sprite.hidden)setTimeout(()=>{if(cancelMove)cancelMove();const r=pickRail();if(r){rail=r;setLayer(r.layer);place(clampX(r,pos.x),r.y);sprite.dataset.anim='idle';}},80);},
   importState(raw){if(raw&&raw.pets){state=normalize(raw);save();syncSeen();}},grades:companionGrades};
 }

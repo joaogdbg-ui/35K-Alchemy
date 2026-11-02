@@ -1811,3 +1811,6 @@ button.home-eff::after{content:" ⓘ";opacity:.6;font-weight:700}
 .home-tabs{margin:4px 0 12px}
 .home-tab.is-on{border-color:var(--accent);box-shadow:0 0 0 2px color-mix(in srgb,var(--accent) 30%,transparent);background:linear-gradient(150deg,var(--surface) 30%,color-mix(in srgb,var(--accent) 22%,var(--surface)))}
 .home-tab:not(.is-on){opacity:.82}
+
+/* V152 */
+.cf-art .fr-ava{position:relative!important;display:inline-block;width:76px;height:76px;transform:none!important;left:auto!important;top:auto!important}.cf-art .fr-ava .companion-art,.cf-art .fr-ava svg{width:100%;height:100%}
