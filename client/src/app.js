@@ -116,7 +116,8 @@ import { FAMILY_DATA_V89 } from './family-data-v89.js';
 import { HOME_OBJECTS_V89 } from './home-objects-v89.js';
 import { createHomeSystem, HOME_STORAGE_KEY, pieceQuality, starsText } from './home-engine-v90.js';
 import { ROOM_SPRITES_V90 } from './room-sprites-v90.js';
-import { createGamesSystem, GAMES_STORAGE_KEY } from './games-v93.js';
+import { createGamesSystem, GAMES_STORAGE_KEY, SKILL_PERKS, perkOf } from './games-v93.js';
+import { themedArt, recolorSvg } from './games-theme-v151.js';
 import { RACE_PRIZES, PRIZE_BY_ID, BELTS, beltSvg, wearBelt, personalPrize, personalPrizeId, parsePersonalPrize } from './prizes-v94.js';
 import { STADIUM_ART_V95 } from './stadium-art-v95.js';
 import { createStadiumSfx } from './stadium-sfx-v95.js';
@@ -502,7 +503,7 @@ function shinyCard(item){return `<p class="shiny-trivia"><span aria-hidden="true
 function showShinyFound(id){const it=byId.get(id);if(!it)return;
  showModal(`<div class="modal-tag shiny-tag">✦ SHINY ELEMENT</div><div class="modal-art is-shiny">${staticArt(it)}</div><h2>Shiny ${escapeText(uiName(it))}</h2>${shinyCard(it)}<div class="modal-milestone">${shiny.size.toLocaleString('en-US')} shiny ${shiny.size===1?'element':'elements'} · ${Math.round(shinyChance()*100)}% chance per combination</div>`);
 }
-const APP_VERSION='1.0.50';
+const APP_VERSION='1.0.51';
 // V83: status line + Google consent (UMP) privacy options, required for EEA players.
 async function refreshAdStatus(){
  const el=$('settingsAdStatus'),bridge=getRewardBridge();
@@ -1688,7 +1689,7 @@ async function requestCompanionActivation(meta){
 function setPetsBadge(n){const b=$('petsBadge');if(b)b.hidden=!(n>0);}
 const companions=createCompanionSystem({roster:COMPANIONS_V86,sprites:COMPANION_SPRITES_V86,$,escapeText,byId,uiName,staticArt,familyFor,
  requestActivation:requestCompanionActivation,onBadge:setPetsBadge,onMeal:()=>{try{rerenderCollections();}catch{}},accessories:ACCESSORIES,openWardrobe:id=>openWardrobe(id),toy:()=>wallet.toy,slot2Unlocked:()=>slot2Unlocked(),slot2Info:()=>slot2Info(),buySlot2:()=>buySlot2(),watchSlot2Ad:()=>watchSlot2Ad(),randomElement:()=>{const a=[...unlocked];return a.length?a[Math.floor(Math.random()*a.length)]:null;},renderExtra:()=>homes.render($('homeMount')),wear:root=>wearAll(root),
- growthFor:(id,kind)=>homes.growthFor(id,kind)*alchemyGrowth(),houseLine:id=>[homes.houseLine(id),`Alchemy bonus ×${alchemyGrowth()} · ${classicDiscoveredCount().toLocaleString('en-US')} elements found in Classic`].filter(Boolean).join('<br>'),alchemyGrowth,residentOf:id=>homes.residentOf(id),homeChoices:id=>homes.homeChoices(id),moveIn:(id,h)=>homes.moveIn(id,h),moveOut:id=>homes.moveOut(id),
+ growthFor:(id,kind)=>homes.growthFor(id,kind)*alchemyGrowth(),houseLine:id=>[homes.houseLine(id),`Alchemy bonus ×${alchemyGrowth()} · ${classicDiscoveredCount().toLocaleString('en-US')} elements found in Classic`].filter(Boolean).join('<br>'),alchemyGrowth,residentOf:id=>homes.residentOf(id),homeChoices:id=>homes.homeChoices(id),homeInfo:()=>homes.homeInfo(),moveIn:(id,h)=>homes.moveIn(id,h),moveOut:id=>homes.moveOut(id),
  isDiscovered:companionOwned,starterCompanion:STARTER_COMPANION,sfx:SFX,depthOf:id=>routeDepth.get(id),isShiny:id=>shiny.has(id),elementIsUseful,getSlots:()=>slots,isLeftLocked:()=>leftLocked,toast,showModal,closeModal,
  reducedMotion:()=>Boolean(window.matchMedia?.('(prefers-reduced-motion: reduce)')?.matches),FAMILIES});
 // V90: companion houses (furniture placement, residents) on the Home tab.
@@ -1866,11 +1867,11 @@ const fmtLeft=ms=>{const m=Math.max(1,Math.ceil(ms/60000));return m>=60?`${Math.
 let schoolTimer=null;
 function openSchool(cid,onClose){settleClasses();const info=companions.info(cid);if(!info)return;const onScreen=companions.active?.id===cid;const cur=classOf(cid);
  const tile=l=>{const lv=companions.skillsOf(cid).includes(l.id)?companions.skillLevel(cid,l.id)+1:0;const max=lv>=LESSON_LEVELS.length;const next=Math.min(lv,LESSON_LEVELS.length-1);const busy=cur&&cur.skill===l.id;
-  return `<button type="button" class="stat-tile mk-tile sc-tile ${busy?'is-on':''} ${max?'is-owned':''}" data-lesson="${l.id}" ${cur&&!busy?'disabled':''}><span class="mk-emoji">${l.icon}</span><b>${l.name}</b><span class="sc-stars">${LESSON_LEVELS.map((_,i)=>`<i class="${i<lv?'on':''}"></i>`).join('')}</span><small>${lv?LESSON_LEVELS[lv-1]:'Not learned'}</small><em class="mk-price ${!max&&!busy&&wallet.coins<lessonPrice(l,next)?'is-short':''}">${busy?'In class':max?(onScreen?'▶ Show me':'Master ✓'):`${LESSON_LEVELS[next]} · 🪙 ${lessonPrice(l,next).toLocaleString('en-US')}`}</em></button>`;};
+  return `<button type="button" class="stat-tile mk-tile sc-tile ${busy?'is-on':''} ${max?'is-owned':''}" data-lesson="${l.id}" ${cur&&!busy?'disabled':''}><span class="mk-emoji">${l.icon}</span><b>${l.name}</b><span class="sc-stars">${LESSON_LEVELS.map((_,i)=>`<i class="${i<lv?'on':''}"></i>`).join('')}</span><small>${lv?LESSON_LEVELS[lv-1]:'Not learned'}</small><small class="sc-perk">${escapeText(SKILL_PERKS[l.id]?.label||'')}${lv?` · +${lv*(SKILL_PERKS[l.id]?.per||0)}%`:''}</small><em class="mk-price ${!max&&!busy&&wallet.coins<lessonPrice(l,next)?'is-short':''}">${busy?'In class':max?(onScreen?'▶ Show me':'Master ✓'):`${LESSON_LEVELS[next]} · 🪙 ${lessonPrice(l,next).toLocaleString('en-US')}`}</em></button>`;};
  const left=cur?cur.until-Date.now():0;
  showModal(`<div class="modal-tag">SCHOOL</div><div class="sc-hero"><span class="sc-ava companion" data-companion="${cid}"><span class="companion-art">${COMPANION_SPRITES_V86[cid]||''}</span></span><div><h2>${escapeText(info.name)} goes to school</h2><small>Learned tricks are shown on the main screen · higher levels are fancier</small></div></div>${coinBar()}
   ${cur?`<div class="sc-now"><span class="mk-emoji">${LESSONS.find(l=>l.id===cur.skill).icon}</span><div><b>${LESSONS.find(l=>l.id===cur.skill).name} · ${LESSON_LEVELS[cur.level]}</b><span class="sc-bar is-live"><i style="width:${Math.min(100,100*(1-left/(cur.until-cur.start))).toFixed(1)}%"></i></span><small id="scLeft">${fmtLeft(left)} left</small></div>${rewardedAvailable()?`<button type="button" class="sc-skip" id="scSkip">▶ Ad<br><small>−${SCHOOL_AD_CUT_MIN} min</small></button>`:''}</div>`:''}
-  <div class="stat-tiles mk-grid">${LESSONS.map(tile).join('')}</div><p class="mini-muted">One class at a time per companion · Novice 5 min → Master 12 h.</p>`);
+  <div class="stat-tiles mk-grid">${LESSONS.map(tile).join('')}</div><p class="mini-muted">Each level makes the trick fancier on screen and helps in the games (shown on each class). One class at a time per companion · Novice 5 min → Master 12 h.</p>`);
  try{wearAll($('modalContent'));}catch{}const again=()=>openSchool(cid,onClose);wireCoinBar(again);
  clearInterval(schoolTimer);if(cur)schoolTimer=setInterval(()=>{const el=$('scLeft');if(!el){clearInterval(schoolTimer);return;}if(Date.now()>=cur.until){clearInterval(schoolTimer);again();return;}el.textContent=fmtLeft(cur.until-Date.now())+' left';},15000);
  const sk=$('scSkip');if(sk)sk.onclick=async()=>{if(rewardedHintBusy)return;rewardedHintBusy=true;sk.disabled=true;let r=null;try{r=await getRewardBridge().showRewarded({kind:'school_skip',companion:cid});}catch(e){console.warn('School ad',e);}finally{rewardedHintBusy=false;}
@@ -1896,7 +1897,7 @@ function openWardrobe(cid){const info=companions.info(cid);if(!info)return;const
  $('wdMarket').onclick=()=>openMarket(null,'acc');}
 
 
-const games=createGamesSystem({coins:()=>wallet.coins,addCoins,coinsFor,grantAccessory,accIcon,accessories:ACCESSORIES,openMarket:(cb)=>openMarket(cb),openSchool:(cid,cb)=>openSchool(cid,cb),themeCompletion:(cid,k)=>companions.themeCompletion(cid,k),$,escapeText,roster:COMPANIONS_V86,sprites:COMPANION_SPRITES_V86,byId,uiName,isDiscovered:companionOwned,companionInfo:id=>companions.info(id),activeId:()=>companions.state().active,
+const games=createGamesSystem({themedArt,recolorSvg,skillLevels:cid=>Object.fromEntries(companions.skillsOf(cid).map(k=>[k,companions.skillLevel(cid,k)+1])),coins:()=>wallet.coins,addCoins,coinsFor,grantAccessory,accIcon,accessories:ACCESSORIES,openMarket:(cb)=>openMarket(cb),openSchool:(cid,cb)=>openSchool(cid,cb),themeCompletion:(cid,k)=>companions.themeCompletion(cid,k),$,escapeText,roster:COMPANIONS_V86,sprites:COMPANION_SPRITES_V86,byId,uiName,isDiscovered:companionOwned,companionInfo:id=>companions.info(id),activeId:()=>companions.state().active,
  prizes:{RACE_PRIZES,beltSvg,personal:(course,cid,name,sprite)=>personalPrize(course,cid,companions.state().pets?.[cid]?.nick||name,sprite)},starterCompanion:STARTER_COMPANION,belts:BELTS,wear:wearAll,alchemyGrowth,classicCount:classicDiscoveredCount,openCard:id=>companions.openCard(id),art:STADIUM_ART_V95,sfx:SFX,rivalLook:(seed,level)=>rivalLook(seed,level),onBelt:()=>{companions.refreshViews();companions.start();},
  onResult:(id,kind,focus,place)=>{const amt=[0,12,8,5,3,3][place]||3;const stats=kind==='karate'?['power','hp']:focus==='all'?['run','swim','fly','power']:focus==='stamina'?['stamina','run']:[focus,'stamina'];return companions.gameReward(id,stats,amt);},
  showModal,closeModal,toast,reducedMotion:()=>Boolean(window.matchMedia?.('(prefers-reduced-motion: reduce)')?.matches)});

@@ -1786,6 +1786,41 @@ button.home-eff::after{content:" ⓘ";opacity:.6;font-weight:700}
 .fair-note b{color:var(--good);font-size:13.5px;font-weight:900}.fair-note span{font-size:12px;line-height:1.35}
 .cp-list{grid-template-columns:1fr 1fr}.cp-list .cp-pack:last-child{grid-column:1/-1}
 
+/* V151: School perks, themed race fx, Home tiles */
+.sc-tile small.sc-perk{min-height:0;font-size:10px;font-weight:800;color:var(--good);line-height:1.2}
+.g-themefx{position:absolute;inset:0;pointer-events:none;overflow:hidden;z-index:2}
+.g-themefx i{position:absolute;left:calc(var(--k,0) * 7%);top:100%;width:6px;height:6px;border-radius:50%;opacity:.8;animation:gThemeUp 6s linear infinite}
+.g-themefx i:nth-child(n){--k:0}${''}
+.g-themefx.is-inferno i{background:#ffb04a;box-shadow:0 0 6px #ff7a2a}
+.g-themefx.is-deepsea i{background:transparent;border:1.5px solid rgba(220,245,255,.8);width:8px;height:8px}
+.g-themefx.is-glade i{background:#fff6a8;box-shadow:0 0 8px #ffe76a}
+.g-themefx.is-heaven i{background:#fffbe8;box-shadow:0 0 6px #fff;width:4px;height:4px}
+.g-themefx.is-dragonpeak i{background:rgba(255,255,255,.75);width:18px;height:3px;border-radius:3px;animation-name:gThemeWind}
+@keyframes gThemeUp{0%{transform:translateY(0)}100%{transform:translateY(-120vh) translateX(20px)}}
+@keyframes gThemeWind{0%{transform:translate(110vw,-40vh)}100%{transform:translate(-20vw,-60vh)}}
+.g-flame{transform-box:fill-box;transform-origin:50% 100%;animation:gFlame .5s ease-in-out infinite alternate}@keyframes gFlame{to{transform:scale(1.08,.9)}}
+.g-sway{transform-box:fill-box;transform-origin:50% 100%;animation:gSway 2.4s ease-in-out infinite alternate}@keyframes gSway{to{transform:skewX(8deg)}}
+.g-glow{animation:gGlow 1.6s ease-in-out infinite alternate}@keyframes gGlow{to{opacity:.55}}
+@media (prefers-reduced-motion:reduce){.g-themefx{display:none}.g-flame,.g-sway,.g-glow{animation:none}}
+.g-themefx i:nth-child(1){--k:0;animation-delay:-0.00s;animation-duration:5.0s}
+.g-themefx i:nth-child(2){--k:7;animation-delay:-0.43s;animation-duration:5.8s}
+.g-themefx i:nth-child(3){--k:0;animation-delay:-0.86s;animation-duration:6.6s}
+.g-themefx i:nth-child(4){--k:7;animation-delay:-1.29s;animation-duration:7.4s}
+.g-themefx i:nth-child(5){--k:0;animation-delay:-1.72s;animation-duration:8.2s}
+.g-themefx i:nth-child(6){--k:7;animation-delay:-2.15s;animation-duration:5.0s}
+.g-themefx i:nth-child(7){--k:0;animation-delay:-2.58s;animation-duration:5.8s}
+.g-themefx i:nth-child(8){--k:7;animation-delay:-3.01s;animation-duration:6.6s}
+.g-themefx i:nth-child(9){--k:0;animation-delay:-3.44s;animation-duration:7.4s}
+.g-themefx i:nth-child(10){--k:7;animation-delay:-3.87s;animation-duration:8.2s}
+.g-themefx i:nth-child(11){--k:0;animation-delay:-4.30s;animation-duration:5.0s}
+.g-themefx i:nth-child(12){--k:7;animation-delay:-4.73s;animation-duration:5.8s}
+.g-themefx i:nth-child(13){--k:0;animation-delay:-5.16s;animation-duration:6.6s}
+.g-themefx i:nth-child(14){--k:7;animation-delay:-5.59s;animation-duration:7.4s}
+
+.home-tabs{margin:4px 0 12px}
+.home-tab.is-on{border-color:var(--accent);box-shadow:0 0 0 2px color-mix(in srgb,var(--accent) 30%,transparent);background:linear-gradient(150deg,var(--surface) 30%,color-mix(in srgb,var(--accent) 22%,var(--surface)))}
+.home-tab:not(.is-on){opacity:.82}
+
 </style>
 </head>
 <body>
@@ -2486,7 +2521,8 @@ function createHomeSystem(ctx){
  const homeChoices=cid=>ownedHouses().map(id=>{const h=house(id);return {id,name:uiName(byId.get(id)),art:staticArt(byId.get(id)),used:h.residents.filter(isDiscovered).length,cap:capOf(id),here:h.residents.includes(cid)};});
  function moveIn(cid,hid){if(!isDiscovered(hid))return false;const h=house(hid);if(h.residents.includes(cid))return true;if(h.residents.filter(isDiscovered).length>=capOf(hid))return false;const w=residentOf(cid);if(w)state.houses[w].residents=state.houses[w].residents.filter(x=>x!==cid);h.residents.push(cid);save();return true;}
  function moveOut(cid){const w=residentOf(cid);if(!w)return false;state.houses[w].residents=state.houses[w].residents.filter(x=>x!==cid);save();return true;}
- return {render,stopWander,growthFor,houseLine,addonInfo,homeChoices,moveIn,moveOut,state:()=>state,summary:id=>houseSummary(house(id),objects),ownedHouses,residentOf,
+ const homeInfo=()=>({owned:ownedHouses().length,total:houseIds().length,residents:Object.values(state.houses).reduce((n,h)=>n+h.residents.filter(isDiscovered).length,0)});
+ return {render,stopWander,growthFor,houseLine,addonInfo,homeChoices,moveIn,moveOut,homeInfo,state:()=>state,summary:id=>houseSummary(house(id),objects),ownedHouses,residentOf,
   importState(raw){if(raw&&raw.houses){state={v:1,active:raw.active||null,houses:raw.houses};save();}}};
 }
 
@@ -2582,7 +2618,7 @@ const f1=n=>Math.round(n*10)/10;
  * path with a post on each side and the banner over it. The earth runs to the bottom of the screen.
  * Art: the approved V95 tiles (run = path, climb = rock and walls, swim = water, fly = chasm).
  */
-function courseSvg(c,art={}){
+function courseSvg(c,art={},theme=null){
  const {BAND:B,H,SK}=RC;const Bs=B*SK;const back=[],mid=[];
  let rs=7;const rnd=()=>{rs=(rs*9301+49297)%233280;return rs/233280;};
  const uri=k=>'data:image/svg+xml,'+encodeURIComponent(art[k]||'');
@@ -2594,7 +2630,7 @@ function courseSvg(c,art={}){
  const face=(T,fill,extra='')=>{const F=off(T,B);return `<path d="M${P(F)}L${f1(F.at(-1)[0])} ${H}L${f1(F[0][0])} ${H}Z" fill="${fill}" ${extra}/>`;};
  const ground=T=>[face(T,'url(#rcRock)'),strip(T,B,B+7,'#5c4330','opacity=".35"'),strip(T,0,B,'url(#rcGrass)'),strip(T,0,6,'#6f9e50'),strip(T,B-6,B,'#7FAF5C'),`<path d="M${P(off(T,B))}" stroke="#4d7a3c" stroke-width="2.5" fill="none"/>`].join('');
  const riser=(x,yTop,yBot,shade=0.18)=>`<path d="M${f1(x)} ${f1(yTop)}L${f1(x+Bs)} ${f1(yTop+B)}L${f1(x+Bs)} ${f1(yBot+B)}L${f1(x)} ${f1(yBot)}Z" fill="url(#rcRock)" stroke="#6b4f36" stroke-width="2.5"/><path d="M${f1(x)} ${f1(yTop)}L${f1(x+Bs)} ${f1(yTop+B)}L${f1(x+Bs)} ${f1(yBot+B)}L${f1(x)} ${f1(yBot)}Z" fill="#3b2a1c" opacity="${shade}"/>`;
- const bush=(x,y)=>`<g transform="translate(${f1(x)} ${f1(y)})" stroke="#4d7a3c" stroke-width="2"><circle cx="-11" cy="-6" r="10" fill="#7aae58"/><circle cx="4" cy="-11" r="13" fill="#8fbf68"/><circle cx="17" cy="-5" r="9" fill="#7aae58"/></g>`;
+  let propN=0;const bush=(x,y)=>theme?.prop?theme.prop(x,y,((propN++)*0.618)%1):`<g transform="translate(${f1(x)} ${f1(y)})" stroke="#4d7a3c" stroke-width="2"><circle cx="-11" cy="-6" r="10" fill="#7aae58"/><circle cx="4" cy="-11" r="13" fill="#8fbf68"/><circle cx="17" cy="-5" r="9" fill="#7aae58"/></g>`;
  // glide voids first (everything else is drawn over them)
  for(const z of c.zones)if(z.kind==='glide'){const xa=z.pa,xb=z.pb,ya=z.y0,yb=z.y1;
   const yf=z.floorY,F=[[xa-2,yf],[xb+1,yf]];
@@ -2625,7 +2661,8 @@ function courseSvg(c,art={}){
   back.push(`<rect x="${f1(x-4)}" y="${f1(y-118)}" width="10" height="122" rx="3" fill="#C9934E" stroke="#7a5b3a" stroke-width="2.5"/><circle cx="${f1(x+1)}" cy="${f1(y-121)}" r="6" fill="#e0b25a" stroke="#7a5b3a" stroke-width="2"/>`);}
  const defs=`<defs>${pat('rcGrass','run',100,150,'#8FBF68',28)}${pat('rcRock','climb',120,180,'#b98a5e')}${pat('rcWater','swim',110,165,'#7cc3e0',26)}<linearGradient id="rcShade" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#3b2a1c" stop-opacity=".2"/><stop offset="1" stop-color="#3b2a1c" stop-opacity=".5"/></linearGradient><linearGradient id="rcDeep" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#3b2a1c" stop-opacity="0"/><stop offset="1" stop-color="#3b2a1c" stop-opacity=".55"/></linearGradient><pattern id="rcCheck" width="12" height="12" patternUnits="userSpaceOnUse"><rect width="12" height="12" fill="#fff"/><rect width="6" height="6" fill="#2b3640"/><rect x="6" y="6" width="6" height="6" fill="#2b3640"/></pattern></defs>`;
  mid.push(`<rect x="0" y="${RC.Y0+B+50}" width="${f1(c.W)}" height="${H-RC.Y0-B-50}" fill="url(#rcDeep)"/>`);
- return `<svg class="rc-svg" xmlns="http://www.w3.org/2000/svg" width="${f1(c.W)}" height="${H}" viewBox="0 0 ${f1(c.W)} ${H}">${defs}<g>${back.join('')}</g><g>${mid.join('')}</g></svg>`;
+ const out=`<svg class="rc-svg" xmlns="http://www.w3.org/2000/svg" width="${f1(c.W)}" height="${H}" viewBox="0 0 ${f1(c.W)} ${H}">${defs}<g>${back.join('')}</g><g>${mid.join('')}</g></svg>`;
+ return theme?.recolor?theme.recolor(out):out;
 }
 /** Overlay drawn ABOVE the racers: front posts of the start / finish gates and their banners. */
 function courseFrontSvg(c){
@@ -2688,6 +2725,9 @@ function planFor(course,level){
 }
 function medalFor(place){return place===1?'gold':place===2?'silver':place===3?'bronze':null;}
 const ORD=p=>p+(['st','nd','rd'][p-1]||'th');
+/** V151: tricks learned at School help in the games (n = levels learned, 0–5 each). */
+const SKILL_PERKS={sing:{label:'Cheers cost less Stamina',per:6},drums:{label:'Stronger cheer boost',per:6},draw:{label:'Thinks faster at puzzle gates',per:5},dance:{label:'Dodges more in Karate',per:2},juggle:{label:'Power strikes cost less Zeal',per:6},magic:{label:'More coins from games',per:5}};
+const perkOf=(sk,id)=>(sk?.[id]||0)*SKILL_PERKS[id].per/100;
 
 function createGamesSystem(ctx){
  const {$,escapeText,roster,sprites,isDiscovered,companionInfo,onResult,onBelt,wear,showModal,closeModal,toast,reducedMotion,activeId,prizes,belts,art={}}=ctx;
@@ -2798,13 +2838,16 @@ function createGamesSystem(ctx){
   const pid=pick();if(!pid)return;const me=companionInfo(pid);
   const C=buildCourse(planFor(course,level),course.id.length*31+level);const L=C.L;
   const rivals=opponentsFor(4,pid,level);const growth=Number(ctx.alchemyGrowth?.()||1);
+  // V151: theme races get their own map (recoloured textures, themed sky and props)
+  const TA=course.theme&&ctx.themedArt?ctx.themedArt(art,course.id):null;const A=TA||art;const bgA=k=>A[k]?`url('data:image/svg+xml,${encodeURIComponent(A[k]).replace(/'/g,'%27')}')`:'none';
+  const PK=ctx.skillLevels?.(pid)||{};
   const st=stage(`${course.name} · ${LEVELS[level]}`,'race');st.dataset.level=level;if(course.theme)st.dataset.theme=course.id;const body=st.querySelector('.g-stage-body'),hud=st.querySelector('.g-hud');
-  body.innerHTML=`<div class="g-sky" style="background-image:${bg('sky')}"><i class="g-cloud" style="--d:0"></i><i class="g-cloud" style="--d:1"></i><i class="g-cloud" style="--d:2"></i></div><div class="g-mid" style="background-image:${bg('mid')}"></div><div class="g-track is-v99" style="width:${C.W}px">${courseSvg(C,art)}${courseFrontSvg(C)}</div><div class="g-fore" style="background-image:${bg('mid')}"></div><div class="g-tint"></div>`;
+  body.innerHTML=`<div class="g-sky" style="background-image:${bgA('sky')}"><i class="g-cloud" style="--d:0"></i><i class="g-cloud" style="--d:1"></i><i class="g-cloud" style="--d:2"></i></div><div class="g-mid" style="background-image:${bgA('mid')}"></div><div class="g-track is-v99" style="width:${C.W}px">${courseSvg(C,A,TA?{prop:TA.prop,recolor:ctx.recolorSvg?(x=>ctx.recolorSvg(x,TA.map)):null}:null)}${courseFrontSvg(C)}</div><div class="g-fore" style="background-image:${bgA('mid')}"></div><div class="g-tint"></div>${TA?`<div class="g-themefx is-${course.id}">${'<i></i>'.repeat(14)}</div>`:''}`;
   body.classList.add('has-v99');const track=body.querySelector('.g-track'),hills=body.querySelector('.g-mid');
   const avg=s=>['run','swim','fly','power','stamina'].reduce((n,k)=>n+(s[k]||0),0)/5/99;
   const racers=[{id:pid,me:true,stats:Object.fromEntries(Object.entries(me.stats).map(([k,v])=>[k,v.level])),mood:me.mood,belly:me.belly??60,name:me.name},...rivals.map((c,i)=>({id:c.id,stats:opponentStats(course,level,i+1+Date.now()%97),mood:35+Math.random()*50,belly:40+Math.random()*60,name:companionInfo(c.id).name}))];
   racers.forEach((r,i)=>{r.x=0;r.lane=i;r.max=energyMax(r.stats.stamina);r.energy=r.max;r.rest=0;r.boost=0;r.done=false;r.ai=2+Math.random()*2;r.fx=0;r.seg=-1;r.kind='';r.solved=new Set();r.pz=null;
-   r.wits=Math.min(0.95,0.25+0.45*avg(r.stats)+(r.me?0.3*(growth-1):0.05*level));
+   r.wits=Math.min(0.95,0.25+0.45*avg(r.stats)+(r.me?0.3*(growth-1)+perkOf(PK,'draw'):0.05*level));
    r.el=actor(r.id,r.me?'is-me':'');r.el.style.setProperty('--lane',i);
    const tag=document.createElement('b');tag.className='g-tag';tag.innerHTML=r.me?`<em>${i+1}</em>${escapeText(r.name)}`:`<em>${i+1}</em>`;if(!r.me)tag.classList.add('is-mini');r.el.append(tag);r.tag=tag;track.append(r.el);});
   dress(track);
@@ -2814,7 +2857,7 @@ function createGamesSystem(ctx){
   const doCheer=()=>{const r=racers[0];if(!running||r.done||r.rest>0||r.pz)return;
    // V136: a cheer snaps a distracted/sad companion back into the race
    if(r.ev){r.ev=null;r.boost=0.5;sfx.cheer();fxAt(r.el,'is-ok',26,-10,700);banner(st,'BACK IN IT!','is-pass',600);return;}if(r.energy<6){r.el.classList.add('g-tired');cheer.classList.add('is-no');sfx.tired();try{navigator.vibrate?.([8,40,8]);}catch{}setTimeout(()=>{r.el.classList.remove('g-tired');cheer.classList.remove('is-no');},300);return;}
-   r.energy-=6;r.boost=0.8;if(r.gl&&r.gl.ph==='air')r.gl.reach+=0.08;sfx.cheer();try{navigator.vibrate?.(15);}catch{}cheer.classList.remove('is-pop');void cheer.offsetWidth;cheer.classList.add('is-pop');const b=document.createElement('i');b.className='g-burst';r.el.append(b);setTimeout(()=>b.remove(),500);};
+   r.energy-=6*(1-perkOf(PK,'sing'));r.boost=0.8*(1+perkOf(PK,'drums'));if(r.gl&&r.gl.ph==='air')r.gl.reach+=0.08;sfx.cheer();try{navigator.vibrate?.(15);}catch{}cheer.classList.remove('is-pop');void cheer.offsetWidth;cheer.classList.add('is-pop');const b=document.createElement('i');b.className='g-burst';r.el.append(b);setTimeout(()=>b.remove(),500);};
   body.addEventListener('pointerdown',doCheer);cheer.addEventListener('pointerdown',e=>{e.stopPropagation();doCheer();});
   st.querySelector('.g-quit').onclick=()=>{quit=true;cancelAnimationFrame(raf);st.remove();};
   const flash=(z,i,ok)=>{const el=track.querySelector(`#rcP${z.i}_${i}`);if(!el)return;el.classList.remove('is-ok','is-bad');void el.getBoundingClientRect();el.classList.add(ok?'is-ok':'is-bad');setTimeout(()=>el.classList.remove('is-ok','is-bad'),600);};
@@ -2897,7 +2940,7 @@ function createGamesSystem(ctx){
  function finishRace(mount,course,level,place,racers,finished){
   const R=myRaces();const bag=R[course.id]=R[course.id]||{};const prev=bag[level]||0;const improved=!prev||place<prev;if(improved)bag[level]=place;
   const prize=course.theme?null:trophyOf(course.id);let newPrize=false;if(prize&&place===1&&level===LEVELS.length-1&&!hasPrize(prize.id)){state.prizes.push(prize.id);newPrize=true;}
-  const firstGold=place===1&&prev!==1;const coins=ctx.coinsFor?.('race',level,place,{theme:!!course.theme,firstGold})||0;if(coins)ctx.addCoins?.(coins);
+  const firstGold=place===1&&prev!==1;const coins=Math.round((ctx.coinsFor?.('race',level,place,{theme:!!course.theme,firstGold})||0)*(1+perkOf(PK,'magic')));if(coins)ctx.addCoins?.(coins);
   const accId=course.theme?(place===1&&level===LEVELS.length-1?course.prize:null):(place===1&&level>=3?COURSE_ACC[course.id]:null);const newAcc=accId&&ctx.grantAccessory?.(accId)?accId:null;
   save();
   if(newPrize)setTimeout(()=>sfx.prize(),500);else if(place<=3)setTimeout(()=>sfx.medal(),300);
@@ -2923,7 +2966,7 @@ function createGamesSystem(ctx){
   const ms=Object.fromEntries(Object.entries(me.stats).map(([k,v])=>[k,v.level]));const rs=opponentStats({id:'dojo',focus:'all'},level,7+level);
   const st=stage(`Karate Dojo · ${LEVELS[level]}`,'karate');const body=st.querySelector('.g-stage-body'),hud=st.querySelector('.g-hud');
   body.innerHTML=`<div class="g-dojo" style="background-image:${bg('dojo')}"></div><div class="g-ring"><div class="g-ring-floor" style="background-image:${bg('ring')}"></div></div>`;const ring=body.querySelector('.g-ring');
-  const A={id:pid,s:ms,me:true,name:me.name,wins:0},B={id:rival.id,s:rs,name:companionInfo(rival.id).name,wins:0};
+  const PK=ctx.skillLevels?.(pid)||{};const A={id:pid,s:ms,me:true,name:me.name,wins:0},B={id:rival.id,s:rs,name:companionInfo(rival.id).name,wins:0};
   for(const f of [A,B]){f.hpMax=100+f.s.hp*4;f.max=energyMax(f.s.stamina);f.el=actor(f.id,f.me?'is-me is-left':'is-right');ring.append(f.el);}
   B.el.dataset.face='left';dress(ring);
   hud.innerHTML=`<div class="g-fighters"><div class="g-fighter is-me"><span class="g-port companion" data-companion="${A.id}"><span class="companion-art"></span></span><div><b>${escapeText(A.name)}</b><span class="g-hp is-me"><b><em id="gHpA"></em></b></span><span class="g-zeal"><em id="gZealA"></em></span></div><i class="g-rounds" id="gRoundsA"></i></div>
@@ -2932,7 +2975,7 @@ function createGamesSystem(ctx){
   const el=id=>hud.querySelector('#'+id),cheer=el('gCheer');
   const upd=()=>{el('gHpA').style.width=(100*A.hp/A.hpMax)+'%';el('gHpB').style.width=(100*B.hp/B.hpMax)+'%';el('gZealA').style.width=(100*A.energy/A.max)+'%';el('gZealB').style.width=(100*B.energy/B.max)+'%';el('gRoundsA').innerHTML='<b></b>'.repeat(A.wins);el('gRoundsB').innerHTML='<b></b>'.repeat(B.wins);cheer.classList.toggle('is-dim',A.energy<20||A.power);};
   let over=false,turn=0,timer=0,round=0,live=false,hitStop=0;
-  const arm=()=>{if(over||!live||A.power)return;if(A.energy<20){cheer.classList.add('is-no');sfx.tired();setTimeout(()=>cheer.classList.remove('is-no'),300);return;}A.energy-=20;A.power=true;A.el.classList.add('is-charged');sfx.charge();cheer.classList.remove('is-pop');void cheer.offsetWidth;cheer.classList.add('is-pop');upd();};
+  const arm=()=>{if(over||!live||A.power)return;if(A.energy<20){cheer.classList.add('is-no');sfx.tired();setTimeout(()=>cheer.classList.remove('is-no'),300);return;}A.energy-=20*(1-perkOf(PK,'juggle'));A.power=true;A.el.classList.add('is-charged');sfx.charge();cheer.classList.remove('is-pop');void cheer.offsetWidth;cheer.classList.add('is-pop');upd();};
   body.addEventListener('pointerdown',arm);cheer.addEventListener('pointerdown',e=>{e.stopPropagation();arm();});
   st.querySelector('.g-quit').onclick=()=>{over=true;clearTimeout(timer);st.remove();};
   // V106: readable fight choreography (Web Animations): wind-up → dash → impact → recoil / dodge / block → back.
@@ -2944,7 +2987,7 @@ function createGamesSystem(ctx){
    move(att.el,[{transform:'none'},{transform:`translateX(${-14*dir}px) scale(1.04,.9)`,offset:.22},{transform:`translateX(${gap*dir}px) rotate(${7*dir}deg)`,offset:.52},{transform:`translateX(${(gap-8)*dir}px) rotate(${3*dir}deg)`,offset:.68},{transform:'none'}],640);
    setTimeout(()=>{if(over&&!live)return;resolve(att,def,dir);upd();},330);};
   const resolve=(att,def,dir)=>{
-   const dodge=Math.max(0.05,Math.min(0.4,0.12+(def.s.fly-att.s.run)/250));
+   const dodge=Math.max(0.05,Math.min(0.45,0.12+(def.s.fly-att.s.run)/250+(def.me?perkOf(PK,'dance'):0)));
    if(Math.random()<dodge){def.el.dataset.anim='jump';move(def.el,[{transform:'none'},{transform:`translate(${46*dir}px,-54px) rotate(${-10*dir}deg)`,offset:.45},{transform:`translate(${30*dir}px,0)`,offset:.8},{transform:'none'}],460);setTimeout(()=>{if(def.hp>0)def.el.dataset.anim='idle';},460);
     const ghost=def.el.cloneNode(true);ghost.className=def.el.className+' is-ghost';ring.append(ghost);setTimeout(()=>ghost.remove(),350);att.power=false;att.el.classList.remove('is-charged');banner(st,'MISS','is-miss',450);sfx.miss();return;}
    let dmg=(8+att.s.power/4)*(0.85+Math.random()*0.3)*(att.me?1:LEVEL_EASE[level]);
@@ -2972,7 +3015,7 @@ function createGamesSystem(ctx){
   let newBelt=null;if(win){const b=belts[level];const cur=belts.findIndex(x=>x.id===state.belts[A.id]);if(level>cur){state.belts[A.id]=b.id;newBelt=b;onBelt?.(A.id,b.id);}}
   save();
   if(newBelt)setTimeout(()=>sfx.prize(),500);else setTimeout(()=>win?sfx.medal():sfx.lose(),300);
-  const coins=ctx.coinsFor?.('karate',level,win?1:2,{firstGold:win&&prev!==1})||0;if(coins)ctx.addCoins?.(coins);const newAcc=win&&level>=3&&ctx.grantAccessory?.(COURSE_ACC.dojo)?COURSE_ACC.dojo:null;
+  const coins=Math.round((ctx.coinsFor?.('karate',level,win?1:2,{firstGold:win&&prev!==1})||0)*(1+perkOf(PK,'magic')));if(coins)ctx.addCoins?.(coins);const newAcc=win&&level>=3&&ctx.grantAccessory?.(COURSE_ACC.dojo)?COURSE_ACC.dojo:null;
   const trained=onResult?.(pick(),'karate','all',win?1:2)||[];
   const unlocked=win&&level<LEVELS.length-1&&prev!==1?`<p class="g-unlock">${LEVELS[level+1]} unlocked!</p>`:'';
   showModal(`<div class="modal-tag">KARATE DOJO · ${LEVELS[level].toUpperCase()}</div><div class="g-versus"><span class="companion ${win?'is-happy':''}" data-companion="${A.id}"><span class="companion-art"></span></span><b>${A.wins} – ${B.wins}</b><span class="companion ${win?'':'is-happy'}" data-companion="${B.id}"${rivalAttr(B.id)}><span class="companion-art"></span></span></div>
@@ -2989,7 +3032,40 @@ function createGamesSystem(ctx){
  return {render,rivalLookOf:id=>rivalLooks.get(id)||null,state:()=>state,medalCounts,hasPrize,beltOf,prizeIds:()=>[...state.prizes]};
 }
 
-return {createGamesSystem,GAMES_STORAGE_KEY};})();
+return {createGamesSystem,GAMES_STORAGE_KEY,SKILL_PERKS,perkOf};})();
+window.__gamesTheme151=(function(){/* V151: themed race maps. The regular stadium art is recoloured per theme (same shapes, same style),
+ * a themed sky/backdrop is used, and the bushes along the route are replaced by themed props.
+ * Pure (no DOM, no imports) so tools/build-standalone.py can inline it. */
+const hex2rgb=h=>{h=h.replace('#','');if(h.length===3)h=h.split('').map(c=>c+c).join('');const n=parseInt(h,16);return [(n>>16)&255,(n>>8)&255,n&255];};
+const rgb2hsl=([r,g,b])=>{r/=255;g/=255;b/=255;const mx=Math.max(r,g,b),mn=Math.min(r,g,b);let h=0,s=0;const l=(mx+mn)/2;if(mx!==mn){const d=mx-mn;s=l>.5?d/(2-mx-mn):d/(mx+mn);h=mx===r?(g-b)/d+(g<b?6:0):mx===g?(b-r)/d+2:(r-g)/d+4;h*=60;}return [h,s,l];};
+const hsl2hex=([h,s,l])=>{s=Math.max(0,Math.min(1,s));l=Math.max(0,Math.min(1,l));const k=n=>(n+h/30)%12,a=s*Math.min(l,1-l),f=n=>l-a*Math.max(-1,Math.min(k(n)-3,Math.min(9-k(n),1)));return '#'+[f(0),f(8),f(4)].map(x=>Math.round(x*255).toString(16).padStart(2,'0')).join('');};
+/** Each theme maps colour families to [hue, saturation ×, lightness +]. g = greens, b = browns/oranges, w = blues (water), s = blues in the sky. */
+const THEME_MAPS={
+ heaven:{g:[48,.45,.26],b:[42,.35,.24],w:[198,.55,.14],s:[205,.55,.12],n:.06},
+ inferno:{g:[14,.85,-.14],b:[6,.55,-.24],w:[20,1.8,-.04],s:[8,.85,-.22],n:-.12},
+ dragonpeak:{g:[158,.5,-.06],b:[212,.2,-.04],w:[192,.7,0],s:[178,.35,.02],n:-.02},
+ glade:{g:[105,.95,.06],b:[328,.38,.12],w:[172,.95,.06],s:[288,.42,.06],n:.04},
+ deepsea:{g:[44,.55,.14],b:[352,.6,.06],w:[206,.95,-.12],s:[202,.95,-.3],n:-.08}};
+function classify([h,s,l]){if(s<.14)return 'n';if(h>=62&&h<172)return 'g';if(h>=172&&h<258)return 'w';if(h<62||h>=330)return 'b';return null;}
+/** Recolour every #hex in an SVG string. `sky` = treat blues as sky instead of water. */
+function recolorSvg(svg,map,sky=false){if(!svg||!map)return svg;
+ return svg.replace(/#([0-9a-fA-F]{6}|[0-9a-fA-F]{3})\b/g,m=>{const c=rgb2hsl(hex2rgb(m));const k=classify(c);if(!k)return m;
+  if(k==='n')return map.n?hsl2hex([c[0],c[1],c[2]+map.n*(c[2]>.85?0:1)]):m;
+  const t=map[k==='w'&&sky?'s':k];if(!t)return m;return hsl2hex([t[0],Math.min(1,c[1]*t[1]+.06),c[2]+t[2]]);});}
+const fx=n=>(+n).toFixed(1);
+/** Themed props drawn where the regular course has bushes (x, y = ground point). */
+const THEME_PROPS={
+ heaven:(x,y,r)=>r<.5?`<g transform="translate(${fx(x)} ${fx(y)})" stroke="#c9b48a" stroke-width="2"><ellipse cx="0" cy="-10" rx="22" ry="11" fill="#fffdf4"/><ellipse cx="-12" cy="-16" rx="12" ry="9" fill="#ffffff"/><ellipse cx="10" cy="-19" rx="13" ry="10" fill="#ffffff"/></g>`:`<g transform="translate(${fx(x)} ${fx(y)})" stroke="#b08a4a" stroke-width="2"><rect x="-8" y="-58" width="16" height="56" rx="2" fill="#f7eccf"/><path d="M-4 -54v48M4 -54v48" stroke="#e2cf9c"/><rect x="-12" y="-64" width="24" height="8" rx="2" fill="#f3d98c"/><rect x="-12" y="-6" width="24" height="6" rx="2" fill="#f3d98c"/></g>`,
+ inferno:(x,y,r)=>`<g transform="translate(${fx(x)} ${fx(y)})"><path d="M-16 0q2-14 10-16q8 4 10 16Z" fill="#3a2422" stroke="#1f1212" stroke-width="2"/><path class="g-flame" d="M-6 -14q-8-12 2-26q2 10 8 8q2 12-4 18Z" fill="#ff8a2a" stroke="#c4361a" stroke-width="1.6"/><path d="M-3 -16q-2-8 3-14q1 6 4 6q0 6-3 8Z" fill="#ffd36a"/></g>`,
+ dragonpeak:(x,y,r)=>r<.5?`<g transform="translate(${fx(x)} ${fx(y)})" stroke="#2f5a4a" stroke-width="2"><path d="M0 -52L14 -18H6L18 0H-18L-6 -18H-14Z" fill="#4f8a72"/><rect x="-3" y="0" width="6" height="6" fill="#6b4f36"/></g>`:`<g transform="translate(${fx(x)} ${fx(y)})" stroke="#3b4f7a" stroke-width="2"><path d="M-10 0L-6 -26L0 -40L6 -24L10 0Z" fill="#9fc6f0"/><path d="M0 -40L0 0" stroke="#ffffff" stroke-width="1.5" opacity=".7"/><path d="M8 0l4 -14l5 14Z" fill="#7fa8e0"/></g>`,
+ glade:(x,y,r)=>r<.5?`<g transform="translate(${fx(x)} ${fx(y)})" stroke="#7a3f5a" stroke-width="2"><rect x="-4" y="-16" width="8" height="16" rx="3" fill="#fff4e6"/><path d="M-16 -14q16-20 32 0Z" fill="#ef7f9b"/><circle cx="-6" cy="-19" r="2.5" fill="#fff"/><circle cx="5" cy="-21" r="2" fill="#fff"/></g>`:`<g transform="translate(${fx(x)} ${fx(y)})" stroke="#5e7a3c" stroke-width="1.6">${[-12,0,12].map((d,i)=>`<path d="M${d} 0v-${14+i*5}" fill="none"/><circle class="g-glow" cx="${d}" cy="-${16+i*5}" r="5" fill="${['#f3c24a','#9b7fc4','#7fe0d0'][i]}" stroke="#ffffff"/>`).join('')}</g>`,
+ deepsea:(x,y,r)=>r<.5?`<g transform="translate(${fx(x)} ${fx(y)})" stroke="#a8324a" stroke-width="2" fill="none"><path d="M0 0V-30M0 -18L-12 -30M0 -24L10 -38M-12 -30v-8M10 -38l6 -4" stroke-width="5" stroke="#ef6f7f"/><path d="M0 0V-30M0 -18L-12 -30M0 -24L10 -38" stroke-width="1.5"/></g>`:`<g transform="translate(${fx(x)} ${fx(y)})" stroke="#2f6a3a" stroke-width="2"><path class="g-sway" d="M-6 0q-8-14 0-26q8-12 0-26" fill="none" stroke="#4fae6a" stroke-width="5"/><path d="M6 0q6-10 0-20q-6-10 2-20" fill="none" stroke="#6fc488" stroke-width="4"/></g>`};
+/** The art set for a themed course: recoloured textures + sky/mid + props. */
+function themedArt(base,id){const map=THEME_MAPS[id];if(!map)return null;const out={};
+ for(const k of ['run','swim','fly','climb','mid'])out[k]=recolorSvg(base[k],map,false);
+ out.sky=recolorSvg(base.sky,map,true);out.map=map;out.prop=THEME_PROPS[id]||null;return out;}
+
+return {themedArt,recolorSvg};})();
 window.__prizes94=(function(){/**
  * V94 Stadium prizes (Chao Garden model): winning the Champion level of a race course gives a
  * TOY for the companion house (like the garden toys won in Chao Races); winning a karate level
@@ -4140,7 +4216,9 @@ function createCompanionSystem(ctx){
      <div class="s2-perks"><span><b>⚔</b>Duo games</span><span><b>×1.25</b>Growth</span><span><b>✦</b>More finds</span></div>
      <div class="s2-paths"><button type="button" class="s2-path is-buy" id="slot2Buy" ${info.canBuy?'':'disabled'}><small>INSTANT</small><b>${escapeText(info.price)}</b></button>
       <button type="button" class="s2-path" id="slot2Ad" ${ready&&info.canAd?'':'disabled'}><small>${ready?'FREE PATH':'FREE PATH · LOCKED'}</small>${ready?`<span class="s2-pips">${Array.from({length:info.adsNeeded},(_,k)=>`<i class="${k<info.ads?'on':''}"></i>`).join('')}</span><b>▶ Ad ${info.ads}/${info.adsNeeded}</b>`:`<span class="s2-bar"><i style="width:${pct.toFixed(1)}%"></i></span><b>${info.elements.toLocaleString('en-US')} / ${info.minElements.toLocaleString('en-US')}</b>`}</button></div></section>`;}}
-  const tabs=`<div class="mk-tabs home-tabs" role="tablist">${[['companions',`Companions · ${have}/${roster.length}`],['houses','Houses']].map(([k,l])=>`<button type="button" data-hometab="${k}" aria-pressed="${homeTab===k}">${l}</button>`).join('')}</div>`;
+  // V151: Companions / Houses as big tiles, like the Stadium hub
+  const hi=(()=>{try{return ctx.homeInfo?.()||null;}catch{return null;}})();
+  const tabs=`<div class="st-shop is-hub home-tabs" role="tablist">${[['companions','🐾','Companions',`${have}/${roster.length} found${act?' · '+escapeText(nameOf(act))+' on screen':''}`],['houses','🏠','Houses',hi?`${hi.owned}/${hi.total} owned · ${hi.residents} living`:'Where they live']].map(([k,ico,t,sm])=>`<button type="button" class="st-shop-btn home-tab ${homeTab===k?'is-on':''}" data-hometab="${k}" aria-pressed="${homeTab===k}"><span>${ico}</span><b>${t}</b><small>${sm}</small></button>`).join('')}</div>`;
   root.innerHTML=homeTab==='houses'?`<div class="pets-scroll"><div class="section-head home-title"><h2>Home</h2></div>${tabs}
    <div id="homeMount"></div></div>`:`<div class="pets-scroll"><div class="section-head home-title"><h2>Home</h2></div>${tabs}
    ${act?'':now}
@@ -5592,7 +5670,8 @@ const {FAMILY_DATA_V89}=window.__familyData89;
 const {HOME_OBJECTS_V89}=window.__homeObjects89;
 const {createHomeSystem,HOME_STORAGE_KEY,pieceQuality,starsText}=window.__homeEngine90;
 const {ROOM_SPRITES_V90}=window.__roomSprites90;
-const {createGamesSystem,GAMES_STORAGE_KEY}=window.__games93;
+const {createGamesSystem,GAMES_STORAGE_KEY,SKILL_PERKS,perkOf}=window.__games93;
+const {themedArt,recolorSvg}=window.__gamesTheme151;
 const {RACE_PRIZES,PRIZE_BY_ID,BELTS,beltSvg,wearBelt,personalPrize,personalPrizeId,parsePersonalPrize}=window.__prizes94;
 const {STADIUM_ART_V95}=window.__stadiumArt95;
 const {createStadiumSfx}=window.__stadiumSfx95;
@@ -5978,7 +6057,7 @@ function shinyCard(item){return `<p class="shiny-trivia"><span aria-hidden="true
 function showShinyFound(id){const it=byId.get(id);if(!it)return;
  showModal(`<div class="modal-tag shiny-tag">✦ SHINY ELEMENT</div><div class="modal-art is-shiny">${staticArt(it)}</div><h2>Shiny ${escapeText(uiName(it))}</h2>${shinyCard(it)}<div class="modal-milestone">${shiny.size.toLocaleString('en-US')} shiny ${shiny.size===1?'element':'elements'} · ${Math.round(shinyChance()*100)}% chance per combination</div>`);
 }
-const APP_VERSION='1.0.50';
+const APP_VERSION='1.0.51';
 // V83: status line + Google consent (UMP) privacy options, required for EEA players.
 async function refreshAdStatus(){
  const el=$('settingsAdStatus'),bridge=getRewardBridge();
@@ -7164,7 +7243,7 @@ async function requestCompanionActivation(meta){
 function setPetsBadge(n){const b=$('petsBadge');if(b)b.hidden=!(n>0);}
 const companions=createCompanionSystem({roster:COMPANIONS_V86,sprites:COMPANION_SPRITES_V86,$,escapeText,byId,uiName,staticArt,familyFor,
  requestActivation:requestCompanionActivation,onBadge:setPetsBadge,onMeal:()=>{try{rerenderCollections();}catch{}},accessories:ACCESSORIES,openWardrobe:id=>openWardrobe(id),toy:()=>wallet.toy,slot2Unlocked:()=>slot2Unlocked(),slot2Info:()=>slot2Info(),buySlot2:()=>buySlot2(),watchSlot2Ad:()=>watchSlot2Ad(),randomElement:()=>{const a=[...unlocked];return a.length?a[Math.floor(Math.random()*a.length)]:null;},renderExtra:()=>homes.render($('homeMount')),wear:root=>wearAll(root),
- growthFor:(id,kind)=>homes.growthFor(id,kind)*alchemyGrowth(),houseLine:id=>[homes.houseLine(id),`Alchemy bonus ×${alchemyGrowth()} · ${classicDiscoveredCount().toLocaleString('en-US')} elements found in Classic`].filter(Boolean).join('<br>'),alchemyGrowth,residentOf:id=>homes.residentOf(id),homeChoices:id=>homes.homeChoices(id),moveIn:(id,h)=>homes.moveIn(id,h),moveOut:id=>homes.moveOut(id),
+ growthFor:(id,kind)=>homes.growthFor(id,kind)*alchemyGrowth(),houseLine:id=>[homes.houseLine(id),`Alchemy bonus ×${alchemyGrowth()} · ${classicDiscoveredCount().toLocaleString('en-US')} elements found in Classic`].filter(Boolean).join('<br>'),alchemyGrowth,residentOf:id=>homes.residentOf(id),homeChoices:id=>homes.homeChoices(id),homeInfo:()=>homes.homeInfo(),moveIn:(id,h)=>homes.moveIn(id,h),moveOut:id=>homes.moveOut(id),
  isDiscovered:companionOwned,starterCompanion:STARTER_COMPANION,sfx:SFX,depthOf:id=>routeDepth.get(id),isShiny:id=>shiny.has(id),elementIsUseful,getSlots:()=>slots,isLeftLocked:()=>leftLocked,toast,showModal,closeModal,
  reducedMotion:()=>Boolean(window.matchMedia?.('(prefers-reduced-motion: reduce)')?.matches),FAMILIES});
 // V90: companion houses (furniture placement, residents) on the Home tab.
@@ -7342,11 +7421,11 @@ const fmtLeft=ms=>{const m=Math.max(1,Math.ceil(ms/60000));return m>=60?`${Math.
 let schoolTimer=null;
 function openSchool(cid,onClose){settleClasses();const info=companions.info(cid);if(!info)return;const onScreen=companions.active?.id===cid;const cur=classOf(cid);
  const tile=l=>{const lv=companions.skillsOf(cid).includes(l.id)?companions.skillLevel(cid,l.id)+1:0;const max=lv>=LESSON_LEVELS.length;const next=Math.min(lv,LESSON_LEVELS.length-1);const busy=cur&&cur.skill===l.id;
-  return `<button type="button" class="stat-tile mk-tile sc-tile ${busy?'is-on':''} ${max?'is-owned':''}" data-lesson="${l.id}" ${cur&&!busy?'disabled':''}><span class="mk-emoji">${l.icon}</span><b>${l.name}</b><span class="sc-stars">${LESSON_LEVELS.map((_,i)=>`<i class="${i<lv?'on':''}"></i>`).join('')}</span><small>${lv?LESSON_LEVELS[lv-1]:'Not learned'}</small><em class="mk-price ${!max&&!busy&&wallet.coins<lessonPrice(l,next)?'is-short':''}">${busy?'In class':max?(onScreen?'▶ Show me':'Master ✓'):`${LESSON_LEVELS[next]} · 🪙 ${lessonPrice(l,next).toLocaleString('en-US')}`}</em></button>`;};
+  return `<button type="button" class="stat-tile mk-tile sc-tile ${busy?'is-on':''} ${max?'is-owned':''}" data-lesson="${l.id}" ${cur&&!busy?'disabled':''}><span class="mk-emoji">${l.icon}</span><b>${l.name}</b><span class="sc-stars">${LESSON_LEVELS.map((_,i)=>`<i class="${i<lv?'on':''}"></i>`).join('')}</span><small>${lv?LESSON_LEVELS[lv-1]:'Not learned'}</small><small class="sc-perk">${escapeText(SKILL_PERKS[l.id]?.label||'')}${lv?` · +${lv*(SKILL_PERKS[l.id]?.per||0)}%`:''}</small><em class="mk-price ${!max&&!busy&&wallet.coins<lessonPrice(l,next)?'is-short':''}">${busy?'In class':max?(onScreen?'▶ Show me':'Master ✓'):`${LESSON_LEVELS[next]} · 🪙 ${lessonPrice(l,next).toLocaleString('en-US')}`}</em></button>`;};
  const left=cur?cur.until-Date.now():0;
  showModal(`<div class="modal-tag">SCHOOL</div><div class="sc-hero"><span class="sc-ava companion" data-companion="${cid}"><span class="companion-art">${COMPANION_SPRITES_V86[cid]||''}</span></span><div><h2>${escapeText(info.name)} goes to school</h2><small>Learned tricks are shown on the main screen · higher levels are fancier</small></div></div>${coinBar()}
   ${cur?`<div class="sc-now"><span class="mk-emoji">${LESSONS.find(l=>l.id===cur.skill).icon}</span><div><b>${LESSONS.find(l=>l.id===cur.skill).name} · ${LESSON_LEVELS[cur.level]}</b><span class="sc-bar is-live"><i style="width:${Math.min(100,100*(1-left/(cur.until-cur.start))).toFixed(1)}%"></i></span><small id="scLeft">${fmtLeft(left)} left</small></div>${rewardedAvailable()?`<button type="button" class="sc-skip" id="scSkip">▶ Ad<br><small>−${SCHOOL_AD_CUT_MIN} min</small></button>`:''}</div>`:''}
-  <div class="stat-tiles mk-grid">${LESSONS.map(tile).join('')}</div><p class="mini-muted">One class at a time per companion · Novice 5 min → Master 12 h.</p>`);
+  <div class="stat-tiles mk-grid">${LESSONS.map(tile).join('')}</div><p class="mini-muted">Each level makes the trick fancier on screen and helps in the games (shown on each class). One class at a time per companion · Novice 5 min → Master 12 h.</p>`);
  try{wearAll($('modalContent'));}catch{}const again=()=>openSchool(cid,onClose);wireCoinBar(again);
  clearInterval(schoolTimer);if(cur)schoolTimer=setInterval(()=>{const el=$('scLeft');if(!el){clearInterval(schoolTimer);return;}if(Date.now()>=cur.until){clearInterval(schoolTimer);again();return;}el.textContent=fmtLeft(cur.until-Date.now())+' left';},15000);
  const sk=$('scSkip');if(sk)sk.onclick=async()=>{if(rewardedHintBusy)return;rewardedHintBusy=true;sk.disabled=true;let r=null;try{r=await getRewardBridge().showRewarded({kind:'school_skip',companion:cid});}catch(e){console.warn('School ad',e);}finally{rewardedHintBusy=false;}
@@ -7372,7 +7451,7 @@ function openWardrobe(cid){const info=companions.info(cid);if(!info)return;const
  $('wdMarket').onclick=()=>openMarket(null,'acc');}
 
 
-const games=createGamesSystem({coins:()=>wallet.coins,addCoins,coinsFor,grantAccessory,accIcon,accessories:ACCESSORIES,openMarket:(cb)=>openMarket(cb),openSchool:(cid,cb)=>openSchool(cid,cb),themeCompletion:(cid,k)=>companions.themeCompletion(cid,k),$,escapeText,roster:COMPANIONS_V86,sprites:COMPANION_SPRITES_V86,byId,uiName,isDiscovered:companionOwned,companionInfo:id=>companions.info(id),activeId:()=>companions.state().active,
+const games=createGamesSystem({themedArt,recolorSvg,skillLevels:cid=>Object.fromEntries(companions.skillsOf(cid).map(k=>[k,companions.skillLevel(cid,k)+1])),coins:()=>wallet.coins,addCoins,coinsFor,grantAccessory,accIcon,accessories:ACCESSORIES,openMarket:(cb)=>openMarket(cb),openSchool:(cid,cb)=>openSchool(cid,cb),themeCompletion:(cid,k)=>companions.themeCompletion(cid,k),$,escapeText,roster:COMPANIONS_V86,sprites:COMPANION_SPRITES_V86,byId,uiName,isDiscovered:companionOwned,companionInfo:id=>companions.info(id),activeId:()=>companions.state().active,
  prizes:{RACE_PRIZES,beltSvg,personal:(course,cid,name,sprite)=>personalPrize(course,cid,companions.state().pets?.[cid]?.nick||name,sprite)},starterCompanion:STARTER_COMPANION,belts:BELTS,wear:wearAll,alchemyGrowth,classicCount:classicDiscoveredCount,openCard:id=>companions.openCard(id),art:STADIUM_ART_V95,sfx:SFX,rivalLook:(seed,level)=>rivalLook(seed,level),onBelt:()=>{companions.refreshViews();companions.start();},
  onResult:(id,kind,focus,place)=>{const amt=[0,12,8,5,3,3][place]||3;const stats=kind==='karate'?['power','hp']:focus==='all'?['run','swim','fly','power']:focus==='stamina'?['stamina','run']:[focus,'stamina'];return companions.gameReward(id,stats,amt);},
  showModal,closeModal,toast,reducedMotion:()=>Boolean(window.matchMedia?.('(prefers-reduced-motion: reduce)')?.matches)});

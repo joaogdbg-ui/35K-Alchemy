@@ -1776,3 +1776,38 @@ button.home-eff::after{content:" ⓘ";opacity:.6;font-weight:700}
 .fair-note{display:grid;gap:2px;text-align:left;margin:8px 0 10px;padding:10px 12px;border-radius:14px;border:1.5px solid color-mix(in srgb,var(--good) 55%,transparent);background:color-mix(in srgb,var(--good) 12%,var(--surface))}
 .fair-note b{color:var(--good);font-size:13.5px;font-weight:900}.fair-note span{font-size:12px;line-height:1.35}
 .cp-list{grid-template-columns:1fr 1fr}.cp-list .cp-pack:last-child{grid-column:1/-1}
+
+/* V151: School perks, themed race fx, Home tiles */
+.sc-tile small.sc-perk{min-height:0;font-size:10px;font-weight:800;color:var(--good);line-height:1.2}
+.g-themefx{position:absolute;inset:0;pointer-events:none;overflow:hidden;z-index:2}
+.g-themefx i{position:absolute;left:calc(var(--k,0) * 7%);top:100%;width:6px;height:6px;border-radius:50%;opacity:.8;animation:gThemeUp 6s linear infinite}
+.g-themefx i:nth-child(n){--k:0}${''}
+.g-themefx.is-inferno i{background:#ffb04a;box-shadow:0 0 6px #ff7a2a}
+.g-themefx.is-deepsea i{background:transparent;border:1.5px solid rgba(220,245,255,.8);width:8px;height:8px}
+.g-themefx.is-glade i{background:#fff6a8;box-shadow:0 0 8px #ffe76a}
+.g-themefx.is-heaven i{background:#fffbe8;box-shadow:0 0 6px #fff;width:4px;height:4px}
+.g-themefx.is-dragonpeak i{background:rgba(255,255,255,.75);width:18px;height:3px;border-radius:3px;animation-name:gThemeWind}
+@keyframes gThemeUp{0%{transform:translateY(0)}100%{transform:translateY(-120vh) translateX(20px)}}
+@keyframes gThemeWind{0%{transform:translate(110vw,-40vh)}100%{transform:translate(-20vw,-60vh)}}
+.g-flame{transform-box:fill-box;transform-origin:50% 100%;animation:gFlame .5s ease-in-out infinite alternate}@keyframes gFlame{to{transform:scale(1.08,.9)}}
+.g-sway{transform-box:fill-box;transform-origin:50% 100%;animation:gSway 2.4s ease-in-out infinite alternate}@keyframes gSway{to{transform:skewX(8deg)}}
+.g-glow{animation:gGlow 1.6s ease-in-out infinite alternate}@keyframes gGlow{to{opacity:.55}}
+@media (prefers-reduced-motion:reduce){.g-themefx{display:none}.g-flame,.g-sway,.g-glow{animation:none}}
+.g-themefx i:nth-child(1){--k:0;animation-delay:-0.00s;animation-duration:5.0s}
+.g-themefx i:nth-child(2){--k:7;animation-delay:-0.43s;animation-duration:5.8s}
+.g-themefx i:nth-child(3){--k:0;animation-delay:-0.86s;animation-duration:6.6s}
+.g-themefx i:nth-child(4){--k:7;animation-delay:-1.29s;animation-duration:7.4s}
+.g-themefx i:nth-child(5){--k:0;animation-delay:-1.72s;animation-duration:8.2s}
+.g-themefx i:nth-child(6){--k:7;animation-delay:-2.15s;animation-duration:5.0s}
+.g-themefx i:nth-child(7){--k:0;animation-delay:-2.58s;animation-duration:5.8s}
+.g-themefx i:nth-child(8){--k:7;animation-delay:-3.01s;animation-duration:6.6s}
+.g-themefx i:nth-child(9){--k:0;animation-delay:-3.44s;animation-duration:7.4s}
+.g-themefx i:nth-child(10){--k:7;animation-delay:-3.87s;animation-duration:8.2s}
+.g-themefx i:nth-child(11){--k:0;animation-delay:-4.30s;animation-duration:5.0s}
+.g-themefx i:nth-child(12){--k:7;animation-delay:-4.73s;animation-duration:5.8s}
+.g-themefx i:nth-child(13){--k:0;animation-delay:-5.16s;animation-duration:6.6s}
+.g-themefx i:nth-child(14){--k:7;animation-delay:-5.59s;animation-duration:7.4s}
+
+.home-tabs{margin:4px 0 12px}
+.home-tab.is-on{border-color:var(--accent);box-shadow:0 0 0 2px color-mix(in srgb,var(--accent) 30%,transparent);background:linear-gradient(150deg,var(--surface) 30%,color-mix(in srgb,var(--accent) 22%,var(--surface)))}
+.home-tab:not(.is-on){opacity:.82}

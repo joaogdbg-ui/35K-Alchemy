@@ -353,6 +353,7 @@ export function createHomeSystem(ctx){
  const homeChoices=cid=>ownedHouses().map(id=>{const h=house(id);return {id,name:uiName(byId.get(id)),art:staticArt(byId.get(id)),used:h.residents.filter(isDiscovered).length,cap:capOf(id),here:h.residents.includes(cid)};});
  function moveIn(cid,hid){if(!isDiscovered(hid))return false;const h=house(hid);if(h.residents.includes(cid))return true;if(h.residents.filter(isDiscovered).length>=capOf(hid))return false;const w=residentOf(cid);if(w)state.houses[w].residents=state.houses[w].residents.filter(x=>x!==cid);h.residents.push(cid);save();return true;}
  function moveOut(cid){const w=residentOf(cid);if(!w)return false;state.houses[w].residents=state.houses[w].residents.filter(x=>x!==cid);save();return true;}
- return {render,stopWander,growthFor,houseLine,addonInfo,homeChoices,moveIn,moveOut,state:()=>state,summary:id=>houseSummary(house(id),objects),ownedHouses,residentOf,
+ const homeInfo=()=>({owned:ownedHouses().length,total:houseIds().length,residents:Object.values(state.houses).reduce((n,h)=>n+h.residents.filter(isDiscovered).length,0)});
+ return {render,stopWander,growthFor,houseLine,addonInfo,homeChoices,moveIn,moveOut,homeInfo,state:()=>state,summary:id=>houseSummary(house(id),objects),ownedHouses,residentOf,
   importState(raw){if(raw&&raw.houses){state={v:1,active:raw.active||null,houses:raw.houses};save();}}};
 }

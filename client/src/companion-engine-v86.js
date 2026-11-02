@@ -878,7 +878,9 @@ export function createCompanionSystem(ctx){
      <div class="s2-perks"><span><b>⚔</b>Duo games</span><span><b>×1.25</b>Growth</span><span><b>✦</b>More finds</span></div>
      <div class="s2-paths"><button type="button" class="s2-path is-buy" id="slot2Buy" ${info.canBuy?'':'disabled'}><small>INSTANT</small><b>${escapeText(info.price)}</b></button>
       <button type="button" class="s2-path" id="slot2Ad" ${ready&&info.canAd?'':'disabled'}><small>${ready?'FREE PATH':'FREE PATH · LOCKED'}</small>${ready?`<span class="s2-pips">${Array.from({length:info.adsNeeded},(_,k)=>`<i class="${k<info.ads?'on':''}"></i>`).join('')}</span><b>▶ Ad ${info.ads}/${info.adsNeeded}</b>`:`<span class="s2-bar"><i style="width:${pct.toFixed(1)}%"></i></span><b>${info.elements.toLocaleString('en-US')} / ${info.minElements.toLocaleString('en-US')}</b>`}</button></div></section>`;}}
-  const tabs=`<div class="mk-tabs home-tabs" role="tablist">${[['companions',`Companions · ${have}/${roster.length}`],['houses','Houses']].map(([k,l])=>`<button type="button" data-hometab="${k}" aria-pressed="${homeTab===k}">${l}</button>`).join('')}</div>`;
+  // V151: Companions / Houses as big tiles, like the Stadium hub
+  const hi=(()=>{try{return ctx.homeInfo?.()||null;}catch{return null;}})();
+  const tabs=`<div class="st-shop is-hub home-tabs" role="tablist">${[['companions','🐾','Companions',`${have}/${roster.length} found${act?' · '+escapeText(nameOf(act))+' on screen':''}`],['houses','🏠','Houses',hi?`${hi.owned}/${hi.total} owned · ${hi.residents} living`:'Where they live']].map(([k,ico,t,sm])=>`<button type="button" class="st-shop-btn home-tab ${homeTab===k?'is-on':''}" data-hometab="${k}" aria-pressed="${homeTab===k}"><span>${ico}</span><b>${t}</b><small>${sm}</small></button>`).join('')}</div>`;
   root.innerHTML=homeTab==='houses'?`<div class="pets-scroll"><div class="section-head home-title"><h2>Home</h2></div>${tabs}
    <div id="homeMount"></div></div>`:`<div class="pets-scroll"><div class="section-head home-title"><h2>Home</h2></div>${tabs}
    ${act?'':now}
