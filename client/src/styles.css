@@ -2152,3 +2152,5 @@ body.ar-playing>*:not(.ar-stage){display:none!important}
 .ar-wood b.h1{left:0;border-radius:12px 0 0 12px;border-right-width:1px}.ar-wood b.h2{right:0;border-radius:0 12px 12px 0;border-left-width:1px}
 .ar-wood.is-cut{transform:none!important;opacity:1!important;filter:none!important}
 .ar-wood.is-cut b.h1{transform:translate(-26px,14px) rotate(-28deg)}.ar-wood.is-cut b.h2{transform:translate(26px,14px) rotate(28deg)}.ar-wood.is-cut::before{opacity:0;transition:opacity .2s}
+/* V172: the dropped element goes INTO the basket (basket drawn over it) */
+.ar-claw{z-index:2}.ar-mbasket{z-index:3}
