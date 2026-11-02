@@ -90,6 +90,10 @@ Preserve 200-per-batch policy and do not start another content release on top of
 
 - **Art redraw wave 3 (V85, done): 3,991 icons** — every remaining older element. All 6,012 pre-V83 elements now use the 2026 art direction (`ART_REDRAW`), plus 200 V83 and 200 V85 originals. Six near-duplicates found by the audit were redrawn; 36 reviewed false alarms are in `tools/art-redraw-reviewed-pairs.json` (the audit now also honours them for V83 comparisons).
 
+## V166 — Five V165 games removed; Pinball rebuilt
+- Owner: of the V165 batch only Pinball was worth keeping. Removed Expedition, Challenge Cups, Cooking, Treasure Dig, Element Bingo (code, scenes, CSS). 11 minigames now; ARCADE_TOTAL stays 16 (5 slots for new ideas).
+- Pinball table: plunger lane (hold to charge, release), dome top with one-way gate, 3 rollover lanes (all lit = multiplier up to x5), 3 pop bumpers, slingshots with kick, left drop-target bank (BANK CLEAR bonus grows), 2 element targets, 8 s ball save, ball trail, lamps, flashes and big messages. Static art (alchemy circle, rails, slings) pre-drawn once; 240 Hz physics. Slings placed so inlanes never trap the ball.
+
 ## V165 — The last six minigames (16/16)
 - Expedition (Run: faster walking; fog-of-war 6x7 map, BFS path walking, compass to the chest, mud traps, new map per chest), Challenge Cups (Juggling: more time; Tap Frenzy / Stop the needle / Spot the odd one / Count, gold-silver-bronze cup), Pinball (Power: stronger flippers; canvas, 240 Hz physics, companion is the ball, bumpers + element targets, 3 balls), Cooking (Magic: more time; ordered ingredients ticket, KITCHEN scene), Treasure Dig (Stamina: more digs; hot/warm/cold distance numbers), Element Bingo (Singing: slower caller; 4x4 card, fair deck with decoys, lines = BINGO).
 - All 16 exist, so after all are unlocked every 250 elements pays 500 coins (test updated). ARCADE_TESTER_ALL still true.
