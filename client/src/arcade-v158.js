@@ -187,25 +187,44 @@ export function createArcade(ctx){
     c.animate([{transform:'translate(-50%,-50%) scale(.6)'},{transform:`translate(calc(-50% + ${(b.x-r.x)/2}px),calc(-50% + ${-140}px)) scale(1.8) rotate(-30deg)`},{transform:`translate(calc(-50% + ${b.x-r.x}px),calc(-50% + ${b.y-r.y}px)) scale(.8)`}],{duration:800,easing:'ease-in-out'}).onfinish=()=>{c.remove();if(f[1]>5){caught++;bucket.textContent=caught;}o.add(pts);o.pop(b.x,b.y-40,`+${pts}`);};
     bob.className='ar-bob';pond.classList.remove('is-cast');btn.textContent='CAST';say(f[1]>5?`${f[2]}!`:'An old boot…');sfx.unlock?.();}};
   o.countdown(()=>timer(o,45,()=>o.finish()));}
- // ---------- 6. Sky Glide: parallax sky, cloud pillars, flapping and a sparkle trail ----------
- function glide(){const o=stage('Sky Glide','glide');o.id='glide';o.statKey='fly';const f=stat('fly');const lift=300+f*2.2,grav=620-f*2.4;const ids=pick(ctx.unlocked(),8);
+ // ---------- 6. Sky Glide (V161: Flappy-style tight controls) ----------
+ // Fixed 120 Hz physics, a tap SETS the upward speed (never adds), constant gravity, capped fall speed,
+ // nose follows the speed, and a small round hitbox tested against the pillar rectangles.
+ function glide(){const o=stage('Sky Glide','glide');o.id='glide';o.statKey='fly';const f=stat('fly');const ids=pick(ctx.unlocked(),8);
+  const G=1900-f*4,FLAP=560+f*0.8,MAXV=820,R=17,SZ=56,PX=72,COLW=56,STEP=1/120;
   const me=companionEl('ar-glider');me.dataset.anim='fly';o.body.append(me);ctx.wear?.(o.body);const box=o.body;
-  let W=box.clientWidth,H=box.clientHeight,y=H/2,v=0,dist=0,obs=[],gap=0,alive=true,started=false,trailT=0;
-  const flap=()=>{if(o.over)return;if(!started){started=true;o.hint('');}v=-lift;me.classList.remove('is-flap');void me.offsetWidth;me.classList.add('is-flap');sfx.tap?.();};
-  box.addEventListener('pointerdown',flap);let last=performance.now();
-  const loop=t=>{if(o.over)return;const dt=Math.min(0.04,(t-last)/1000);last=t;W=box.clientWidth;H=box.clientHeight;
-   if(!started){me.style.transform=`translate3d(60px,${y+Math.sin(t/300)*8}px,0)`;o.raf=requestAnimationFrame(loop);return;}
-   v+=grav*dt;y+=v*dt;if(y<0){y=0;v=0;}if(y>H-56)alive=false;
-   me.style.transform=`translate3d(60px,${y}px,0) rotate(${Math.max(-25,Math.min(35,v/12))}deg)`;const speed=150+dist*0.02;dist+=speed*dt;o.set(dist/10+o.bonus);
-   o.el.style.setProperty('--px',(-dist*0.2%2000).toFixed(1)+'px');o.el.style.setProperty('--px2',(-dist*0.5%2000).toFixed(1)+'px');
-   trailT-=dt;if(trailT<=0){trailT=0.07;const s=document.createElement('i');s.className='ar-trail';s.style.left='70px';s.style.top=(y+34)+'px';box.append(s);setTimeout(()=>s.remove(),600);}
-   gap-=speed*dt;if(gap<=0){gap=240;const hole=Math.max(120,170-dist/300)+Math.min(60,f*0.6),top=50+Math.random()*(H-hole-130);const el=document.createElement('div');el.className='ar-col';el.innerHTML=`<i style="height:${top}px"></i><i style="top:${top+hole}px"></i>`;box.append(el);
-    const pk=document.createElement('span');pk.className='ar-fall is-pick';pk.innerHTML=art(ids[Math.floor(Math.random()*ids.length)]);box.append(pk);obs.push({el,pk,x:W+20,top,hole});}
-   for(const ob of obs){ob.x-=speed*dt;ob.el.style.transform=`translate3d(${ob.x}px,0,0)`;if(ob.pk){ob.pk.style.transform=`translate3d(${ob.x+6}px,${ob.top+ob.hole/2-18}px,0)`;}
-    if(ob.x<60+46&&ob.x+56>60+8){if(y+10<ob.top||y+46>ob.top+ob.hole)alive=false;else if(ob.pk){ob.pk.remove();ob.pk=null;o.bonus+=25;o.pop(90,y,'+25');o.burst(90,y+20,'star',8);sfx.unlock?.();}}
-    if(ob.x<-70){ob.el.remove();ob.pk?.remove();ob.gone=true;}}
-   obs=obs.filter(b=>!b.gone);if(!alive){sfx.miss?.();o.shake();o.burst(90,y+20,'smoke',12);me.dataset.anim='shake';o.endText='Bonk!';o.finish();return;}o.raf=requestAnimationFrame(loop);};
-  o.bonus=0;o.time(-1);o.hint('Tap to start · tap to flap');o.raf=requestAnimationFrame(loop);}
+  let W=box.clientWidth,H=box.clientHeight,GY=H*0.78;const ro=new ResizeObserver(()=>{W=box.clientWidth;H=box.clientHeight;GY=H*0.78;});ro.observe(box);o.end=()=>ro.disconnect();
+  let y=H*0.4,py=y,v=0,rot=0,dist=0,obs=[],gap=0,started=false,dead=false,acc=0,passed=0,trailT=0;o.bonus=0;
+  const flap=e=>{e?.preventDefault?.();if(o.over||dead)return;if(!started){started=true;o.hint('');}v=-FLAP;me.classList.remove('is-flap');void me.offsetWidth;me.classList.add('is-flap');sfx.tap?.();};
+  box.addEventListener('pointerdown',flap);
+  const hit=(cx,cy,rx,ry,rw,rh)=>{const nx=Math.max(rx,Math.min(cx,rx+rw)),ny=Math.max(ry,Math.min(cy,ry+rh));return (cx-nx)**2+(cy-ny)**2<R*R;};
+  const spawn=()=>{const hole=Math.max(150,185-dist/250)+Math.min(45,f*0.45);const top=60+Math.random()*Math.max(10,GY-hole-120);
+   const el=document.createElement('div');el.className='ar-col';el.innerHTML=`<i style="height:${top+6}px"></i><i style="top:${top+hole}px"></i>`;box.append(el);
+   const pk=document.createElement('span');pk.className='ar-fall is-pick';pk.innerHTML=art(ids[Math.floor(Math.random()*ids.length)]);box.append(pk);obs.push({el,pk,x:W+20,top,hole,scored:false});};
+  const die=()=>{dead=true;sfx.miss?.();o.shake();o.burst(PX+SZ/2,y+SZ/2,'smoke',12);me.dataset.anim='shake';o.endText='Bonk!';setTimeout(()=>o.finish(),350);};
+  const physics=dt=>{py=y;v=Math.min(MAXV,v+G*dt);y+=v*dt;if(y<-SZ*0.3){y=-SZ*0.3;v=0;}
+   const speed=Math.min(240,165+dist*0.004);dist+=speed*dt;
+   gap-=speed*dt;if(gap<=0){gap=235;spawn();}
+   const cx=PX+SZ/2,cy=y+SZ/2;if(cy+R>=GY){y=GY-R-SZ/2;return die();}
+   for(const ob of obs){ob.x-=speed*dt;
+    if(ob.x<cx+R&&ob.x+COLW>cx-R&&(hit(cx,cy,ob.x,-50,COLW,ob.top+50)||hit(cx,cy,ob.x,ob.top+ob.hole,COLW,H)))return die();
+    if(ob.pk&&Math.abs(ob.x+COLW/2-cx)<R+16&&Math.abs(ob.top+ob.hole/2-cy)<R+16){const p={x:ob.x+COLW/2,y:ob.top+ob.hole/2};ob.pk.remove();ob.pk=null;o.bonus+=25;o.pop(p.x,p.y-20,'+25');o.burst(p.x,p.y,'star',8);sfx.unlock?.();}
+    if(!ob.scored&&ob.x+COLW<cx-R){ob.scored=true;passed++;o.bonus+=10;}
+    if(ob.x<-80){ob.el.remove();ob.pk?.remove();ob.gone=true;}}
+   obs=obs.filter(b=>!b.gone);};
+  let last=performance.now();
+  const loop=t=>{if(o.over)return;const dt=Math.min(0.1,(t-last)/1000);last=t;
+   if(!started){y=H*0.4+Math.sin(t/260)*7;me.style.transform=`translate3d(${PX}px,${y}px,0)`;o.raf=requestAnimationFrame(loop);return;}
+   if(!dead){acc+=dt;while(acc>=STEP&&!dead){physics(STEP);acc-=STEP;}}
+   const a=dead?1:acc/STEP,ry=py+(y-py)*a;
+   // Flappy feel: nose up right after a tap, dives once falling fast
+   const want=v<0?-22:Math.min(70,-22+(v/MAXV)*110);rot+=(want-rot)*Math.min(1,dt*(v<0?20:7));
+   me.style.transform=`translate3d(${PX}px,${ry.toFixed(1)}px,0) rotate(${rot.toFixed(1)}deg)`;
+   for(const ob of obs){ob.el.style.transform=`translate3d(${ob.x.toFixed(1)}px,0,0)`;if(ob.pk)ob.pk.style.transform=`translate3d(${(ob.x+COLW/2-19).toFixed(1)}px,${(ob.top+ob.hole/2-19).toFixed(1)}px,0)`;}
+   o.set(dist/10+o.bonus);o.el.style.setProperty('--px',(-dist*0.15%4000).toFixed(1)+'px');o.el.style.setProperty('--px2',(-dist*0.5%4000).toFixed(1)+'px');
+   trailT-=dt;if(!dead&&trailT<=0){trailT=0.06;const s=document.createElement('i');s.className='ar-trail';s.style.transform=`translate3d(${PX+6}px,${ry+SZ/2}px,0)`;box.append(s);setTimeout(()=>s.remove(),600);}
+   o.raf=requestAnimationFrame(loop);};
+  o.time(-1);o.hint('Tap to start · each tap is one flap');o.raf=requestAnimationFrame(loop);}
  const GAMES={memory,duel,recipe,catch:catcher,fish,glide};
  return {open,sync,state:()=>st,games:ARCADE_GAMES};
 }
