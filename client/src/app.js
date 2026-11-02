@@ -502,7 +502,7 @@ function shinyCard(item){return `<p class="shiny-trivia"><span aria-hidden="true
 function showShinyFound(id){const it=byId.get(id);if(!it)return;
  showModal(`<div class="modal-tag shiny-tag">✦ SHINY ELEMENT</div><div class="modal-art is-shiny">${staticArt(it)}</div><h2>Shiny ${escapeText(uiName(it))}</h2>${shinyCard(it)}<div class="modal-milestone">${shiny.size.toLocaleString('en-US')} shiny ${shiny.size===1?'element':'elements'} · ${Math.round(shinyChance()*100)}% chance per combination</div>`);
 }
-const APP_VERSION='1.0.68';
+const APP_VERSION='1.0.69';
 // V83: status line + Google consent (UMP) privacy options, required for EEA players.
 async function refreshAdStatus(){
  const el=$('settingsAdStatus'),bridge=getRewardBridge();
@@ -1920,7 +1920,7 @@ const arcade=createArcade({$,escapeText,art:STADIUM_ART_V95,showAd:async kind=>{
  count:()=>classicDiscoveredCount(),activeId:()=>companions.active?.id||null,sprite:id=>COMPANION_SPRITES_V86[id]||'',wear:root=>{try{wearAll(root);}catch{}},
  statLevel:(id,k)=>companions.info(id)?.stats?.[k]?.level||0,skillLevel:(id,k)=>companions.skillsOf(id).includes(k)?companions.skillLevel(id,k)+1:0,
  addCoins:n=>addCoins(n),train:(k,amt)=>{const id=companions.active?.id;if(id)companions.gameReward(id,[k],amt);}});
-const games=createGamesSystem({openArcade:back=>arcade.open(back),arcadeInfo:()=>{const s=arcade.state();return s?{got:s.unlocked.length,total:16}:null;},themedArt,recolorSvg,skillLevels:cid=>Object.fromEntries(companions.skillsOf(cid).map(k=>[k,companions.skillLevel(cid,k)+1])),coins:()=>wallet.coins,addCoins,coinsFor,grantAccessory,accIcon,accessories:ACCESSORIES,openMarket:(cb)=>openMarket(cb),openSchool:(cid,cb)=>openSchool(cid,cb),themeCompletion:(cid,k)=>companions.themeCompletion(cid,k),$,escapeText,roster:COMPANIONS_V86,sprites:COMPANION_SPRITES_V86,byId,uiName,isDiscovered:companionOwned,companionInfo:id=>companions.info(id),activeId:()=>companions.state().active,
+const games=createGamesSystem({openArcade:back=>arcade.open(back),openMicro:back=>arcade.openMicro(back),arcadeInfo:()=>{const s=arcade.state();return s?{got:s.unlocked.length,total:16}:null;},themedArt,recolorSvg,skillLevels:cid=>Object.fromEntries(companions.skillsOf(cid).map(k=>[k,companions.skillLevel(cid,k)+1])),coins:()=>wallet.coins,addCoins,coinsFor,grantAccessory,accIcon,accessories:ACCESSORIES,openMarket:(cb)=>openMarket(cb),openSchool:(cid,cb)=>openSchool(cid,cb),themeCompletion:(cid,k)=>companions.themeCompletion(cid,k),$,escapeText,roster:COMPANIONS_V86,sprites:COMPANION_SPRITES_V86,byId,uiName,isDiscovered:companionOwned,companionInfo:id=>companions.info(id),activeId:()=>companions.state().active,
  prizes:{RACE_PRIZES,beltSvg,personal:(course,cid,name,sprite)=>personalPrize(course,cid,companions.state().pets?.[cid]?.nick||name,sprite)},starterCompanion:STARTER_COMPANION,belts:BELTS,wear:wearAll,alchemyGrowth,classicCount:classicDiscoveredCount,openCard:id=>companions.openCard(id),art:STADIUM_ART_V95,sfx:SFX,rivalLook:(seed,level)=>rivalLook(seed,level),onBelt:()=>{companions.refreshViews();companions.start();},
  onResult:(id,kind,focus,place)=>{const amt=[0,12,8,5,3,3][place]||3;const stats=kind==='karate'?['power','hp']:focus==='all'?['run','swim','fly','power']:focus==='stamina'?['stamina','run']:[focus,'stamina'];return companions.gameReward(id,stats,amt);},
  showModal,closeModal,toast,reducedMotion:()=>Boolean(window.matchMedia?.('(prefers-reduced-motion: reduce)')?.matches)});

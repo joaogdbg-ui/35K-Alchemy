@@ -264,15 +264,15 @@ export function createGamesSystem(ctx){
  /** V141: races and Karate live in their own sheet (hub tile "Games"). */
  let lastRows=null;
  let lastList=null;
- const LISTS={races:{tag:'RACES',title:'Races',f:e=>e.kind==='race'&&!e.theme},themed:{tag:'THEMED RACES',title:'Themed races',f:e=>!!e.theme}};
+ const LISTS={races:{tag:'RACES',title:'Races',f:e=>e.kind==='race'},themed:{tag:'RACES',title:'Races',f:e=>e.kind==='race'}};
  // V161: Games is a tile hub (Minigames · Races · Karate · Themed races), like the Stadium menu
  function gamesSheet(mount,rowsHtml){lastRows=rowsHtml||lastRows;lastList=null;
   const ai=ctx.arcadeInfo?.();const ev=EVENTS();const gold=f=>{const l=ev.filter(f);return `${l.filter(e=>best(bagOf(e),LEVELS.length-1)===1).length}/${l.length} gold`;};
   const karate=ev.find(e=>e.kind==='karate');const bk=karate?bagOf(karate):{};const beltN=LEVELS.filter((_,i)=>best(bk,i)===1).length;
   const tile=(id,ico,b,sm)=>`<button type="button" class="st-shop-btn" id="${id}"><span>${ico}</span><b>${b}</b><small>${sm}</small></button>`;
-  showModal(`<div class="modal-tag">GAMES</div><h2>Games</h2><div class="st-shop is-hub st-games-hub">${ctx.openArcade?tile('stArcade','🎮','Minigames',ai?`${ai.got}/${ai.total} unlocked`:'One new every 250 elements'):''}${tile('stRaces','🏁','Races',gold(LISTS.races.f))}${tile('stKarate','🥋','Karate',`${beltN}/${belts.length} belts`)}${tile('stThemed','🎭','Themed races',gold(LISTS.themed.f))}</div><p class="mini-muted st-tip">Minigames are solo high-score games. In Races and Karate your companion competes against rivals.</p><button type="button" class="modal-button secondary" id="stClose">Close</button>`);
+  showModal(`<div class="modal-tag">GAMES</div><h2>Games</h2><div class="st-shop is-hub st-games-hub">${ctx.openArcade?tile('stArcade','🎮','Minigames',ai?`${ai.got}/${ai.total} unlocked`:'One new every 250 elements'):''}${ctx.openMicro?tile('stMicro','⚡','Microgames','Tiny 3-second games'):''}${tile('stRaces','🏁','Races',`${gold(LISTS.races.f)} · incl. themed`)}${tile('stKarate','🥋','Karate',`${beltN}/${belts.length} belts`)}</div><p class="mini-muted st-tip">Minigames and Microgames are solo high-score games. In Races and Karate your companion competes against rivals.</p><button type="button" class="modal-button secondary" id="stClose">Close</button>`);
   const sa=$('stArcade');if(sa)sa.onclick=()=>ctx.openArcade(()=>gamesSheet(mount));
-  $('stRaces').onclick=()=>listSheet(mount,'races');$('stThemed').onclick=()=>listSheet(mount,'themed');
+  $('stRaces').onclick=()=>listSheet(mount,'races');const sm=$('stMicro');if(sm)sm.onclick=()=>ctx.openMicro(()=>gamesSheet(mount));
   $('stKarate').onclick=()=>{lastList='hub';eventSheet(mount,karate,true);};
   $('stClose').onclick=closeModal;}
  function listSheet(mount,kind){const L=LISTS[kind];lastList=kind;
