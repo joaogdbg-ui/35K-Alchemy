@@ -1881,3 +1881,7 @@ button.home-eff::after{content:" ⓘ";opacity:.6;font-weight:700}
 .screen-snowball{position:absolute;left:0;top:0;width:14px;height:14px;border-radius:50%;background:#fff;box-shadow:0 0 0 1.5px #bcd6e6;pointer-events:none}
 .screen-seesaw{position:absolute;left:0;top:0;width:120px;height:8px;margin-left:-40px;background:#b98a5e;border-radius:4px;box-shadow:0 0 0 2px #6b4a32;transition:rotate .4s;pointer-events:none}.screen-seesaw::after{content:'';position:absolute;left:50%;top:6px;width:16px;height:14px;margin-left:-8px;background:#8e6748;clip-path:polygon(50% 0,100% 100%,0 100%)}
 .screen-seesaw.is-tilt{rotate:-12deg}.screen-seesaw:not(.is-tilt){rotate:12deg}
+
+/* V157 */
+.coin-pop{position:fixed;z-index:90;transform:translateX(-50%);font-weight:900;font-size:13px;color:#b07a12;background:#fff4d6;border:1px solid #f0d58a;border-radius:10px;padding:2px 8px;pointer-events:none;animation:coinPop 1.3s ease-out forwards}
+@keyframes coinPop{0%{opacity:0;translate:0 0}15%{opacity:1}100%{opacity:0;translate:0 -28px}}

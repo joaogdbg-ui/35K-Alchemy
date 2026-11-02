@@ -90,6 +90,11 @@ Preserve 200-per-batch policy and do not start another content release on top of
 
 - **Art redraw wave 3 (V85, done): 3,991 icons** — every remaining older element. All 6,012 pre-V83 elements now use the 2026 art direction (`ART_REDRAW`), plus 200 V83 and 200 V85 originals. Six near-duplicates found by the audit were redrawn; 36 reviewed false alarms are in `tools/art-redraw-reviewed-pairs.json` (the audit now also honours them for V83 comparisons).
 
+## V157 — more coin sources; School half price (2 November 2026)
+- `DISCOVERY_COINS=10`: every new element from `completeCombination` (any crafting path, not Market purchases) gives 🪙10 with a "+10 🪙" pop under the element counter (`coinPop`).
+- Companion finds while away: 🪙10 each for the ones kept; the rewarded ad keeps all finds and pays ×5 (`COMPANION_FIND_COINS`, `FIND_AD_MULT`).
+- School: `LESSON_DISCOUNT=0.5` in `lessonPrice` (all 6 tracks to Master for one companion: 8,125 coins instead of 16,250).
+
 ## V156 — 20 more visitor scenes + duo scenes (2 November 2026)
 - Singles: hat (tries it on), sunglasses (cool pose), banana/peel (slips), fish (catch; Swim), crab (pinch), snail/turtle (slow race), butterfly/bird (chase; Fly), ladder (climb; Stamina), rope (tightrope; Stamina), fan/wind (spun), lamp/bulb (idea), robot (copycat), dragon/monster/lion (roar back; Power), hammer/tools (builds a tiny house), puzzle (solve; Drawing helps), seed/plant (it grows), phone (chat), arrow/target (archery; Power), dice (roll), pumpkin/candy (trick or treat).
 - Duo (`DUO_SCENES`, when the buddy is on screen, 60% of eligible visits): ride together, vampire scares the buddy and the main defends, pass the ball, dance together, party, selfie, snowball fight, ghost hug, bubbles, team tag. Duo-only toys (`DUO_ONLY`, never shown solo): seesaw, pillow fight, chess/cards, picnic, swing/hammock.
