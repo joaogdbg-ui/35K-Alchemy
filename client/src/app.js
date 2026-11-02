@@ -503,7 +503,7 @@ function shinyCard(item){return `<p class="shiny-trivia"><span aria-hidden="true
 function showShinyFound(id){const it=byId.get(id);if(!it)return;
  showModal(`<div class="modal-tag shiny-tag">✦ SHINY ELEMENT</div><div class="modal-art is-shiny">${staticArt(it)}</div><h2>Shiny ${escapeText(uiName(it))}</h2>${shinyCard(it)}<div class="modal-milestone">${shiny.size.toLocaleString('en-US')} shiny ${shiny.size===1?'element':'elements'} · ${Math.round(shinyChance()*100)}% chance per combination</div>`);
 }
-const APP_VERSION='1.0.51';
+const APP_VERSION='1.0.52';
 // V83: status line + Google consent (UMP) privacy options, required for EEA players.
 async function refreshAdStatus(){
  const el=$('settingsAdStatus'),bridge=getRewardBridge();
@@ -1688,7 +1688,7 @@ async function requestCompanionActivation(meta){
 }
 function setPetsBadge(n){const b=$('petsBadge');if(b)b.hidden=!(n>0);}
 const companions=createCompanionSystem({roster:COMPANIONS_V86,sprites:COMPANION_SPRITES_V86,$,escapeText,byId,uiName,staticArt,familyFor,
- requestActivation:requestCompanionActivation,onBadge:setPetsBadge,onMeal:()=>{try{rerenderCollections();}catch{}},accessories:ACCESSORIES,openWardrobe:id=>openWardrobe(id),toy:()=>wallet.toy,slot2Unlocked:()=>slot2Unlocked(),slot2Info:()=>slot2Info(),buySlot2:()=>buySlot2(),watchSlot2Ad:()=>watchSlot2Ad(),randomElement:()=>{const a=[...unlocked];return a.length?a[Math.floor(Math.random()*a.length)]:null;},renderExtra:()=>homes.render($('homeMount')),wear:root=>wearAll(root),
+ requestActivation:requestCompanionActivation,onFull:x=>openFullSheet(x),onBadge:setPetsBadge,onMeal:()=>{try{rerenderCollections();}catch{}},accessories:ACCESSORIES,openWardrobe:id=>openWardrobe(id),toy:()=>wallet.toy,slot2Unlocked:()=>slot2Unlocked(),slot2Info:()=>slot2Info(),buySlot2:()=>buySlot2(),watchSlot2Ad:()=>watchSlot2Ad(),randomElement:()=>{const a=[...unlocked];return a.length?a[Math.floor(Math.random()*a.length)]:null;},renderExtra:()=>homes.render($('homeMount')),wear:root=>wearAll(root),
  growthFor:(id,kind)=>homes.growthFor(id,kind)*alchemyGrowth(),houseLine:id=>[homes.houseLine(id),`Alchemy bonus ×${alchemyGrowth()} · ${classicDiscoveredCount().toLocaleString('en-US')} elements found in Classic`].filter(Boolean).join('<br>'),alchemyGrowth,residentOf:id=>homes.residentOf(id),homeChoices:id=>homes.homeChoices(id),homeInfo:()=>homes.homeInfo(),moveIn:(id,h)=>homes.moveIn(id,h),moveOut:id=>homes.moveOut(id),
  isDiscovered:companionOwned,starterCompanion:STARTER_COMPANION,sfx:SFX,depthOf:id=>routeDepth.get(id),isShiny:id=>shiny.has(id),elementIsUseful,getSlots:()=>slots,isLeftLocked:()=>leftLocked,toast,showModal,closeModal,
  reducedMotion:()=>Boolean(window.matchMedia?.('(prefers-reduced-motion: reduce)')?.matches),FAMILIES});
@@ -1795,6 +1795,16 @@ setTimeout(()=>{try{for(const it of MARKET){if(it.kind==='furniture'||it.kind===
 const coinBar=()=>`<div class="mk-wallet"><span class="mk-coins">🪙 <b data-coins>${wallet.coins.toLocaleString('en-US')}</b></span><button type="button" class="mk-buy" id="mkBuyCoins"><b>+ Coins</b></button></div>`;
 function wireCoinBar(back){const b=$('mkBuyCoins');if(b)b.onclick=()=>openCoinShop(back);}
 // V137: coin packs — bigger packs give more coins per euro
+// V152: a full companion (20 elements) can eat again after 1 h, or now with an ad or 100 coins
+const MAKE_ROOM_COINS=100;
+function openFullSheet({id,name,leftMs}){const mins=Math.max(1,Math.ceil(leftMs/60000));const ad=rewardedAvailable();
+ showModal(`<div class="modal-tag">FULL BELLY</div><div class="cf-art"><span class="companion fr-ava" data-companion="${id}"><span class="companion-art">${COMPANION_SPRITES_V86[id]||''}</span></span></div><h2>${escapeText(name)} is full</h2><p>It ate 20 elements and needs a break. Hungry again in <b>${mins} min</b>.</p>
+  ${ad?`<button type="button" class="modal-button" id="frAd">▶ Watch an ad · make room</button>`:''}<button type="button" class="modal-button ${ad?'secondary':''}" id="frCoins">🪙 ${MAKE_ROOM_COINS} · make room</button><button type="button" class="modal-button secondary" id="frWait">Wait</button>`);
+ try{wearAll($('modalContent'));}catch{}
+ $('frWait').onclick=closeModal;
+ $('frCoins').onclick=()=>{if(!spendCoins(MAKE_ROOM_COINS)){closeModal();openCoinShop(()=>openFullSheet({id,name,leftMs:companions.fullLeft(id)}));return;}companions.makeRoom(id);closeModal();toast(`${name} can eat 20 more elements`,'new');};
+ const b=$('frAd');if(b)b.onclick=async()=>{if(rewardedHintBusy)return;rewardedHintBusy=true;b.disabled=true;let r=null;try{r=await getRewardBridge().showRewarded({kind:'make_room',companion:id});}catch(e){console.warn('Make room ad',e);}finally{rewardedHintBusy=false;}
+  if(r?.earned!==true){toast('Ad not completed','repeat');b.disabled=false;return;}companions.makeRoom(id);closeModal();toast(`${name} can eat 20 more elements`,'new');};}
 function openCoinShop(back){
  showModal(`<div class="modal-tag">COMPANION COINS</div><h2>Get more coins</h2><div class="fair-note"><b>✓ Nothing is pay-only</b><span>${escapeText(FAIR_PLAY_NOTE)}</span></div><p class="mini-muted">You have 🪙 <b data-coins>${wallet.coins.toLocaleString('en-US')}</b> · bigger packs are better value</p>
   <div class="cp-list">${COIN_PACKS.map(p=>`<button type="button" class="cp-pack ${p.tag?'is-hot':''}" data-pack="${p.id}">${p.tag?`<span class="cp-tag">${p.tag}</span>`:''}<span class="cp-pile">${'🪙'.repeat(1+COIN_PACKS.indexOf(p))}</span><b>${p.coins.toLocaleString('en-US')}</b><small>${p.bonus?`+${p.bonus}% bonus`:'coins'}</small><em>${escapeText(packPrices[p.id]||p.price)}</em></button>`).join('')}</div>

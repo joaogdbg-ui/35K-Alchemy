@@ -310,7 +310,9 @@ export function createHomeSystem(ctx){
   // walk a list of waypoints, one CSS transition per segment; returns the total time
   const walkPath=(w,pts)=>{let t=0;clearTimeout(w.t);(w.legs||[]).forEach(clearTimeout);w.legs=[];let cur={x:w.p.x,y:w.p.y};
    for(const pt of pts){const d=Math.hypot(pt.x-cur.x,pt.y-cur.y);const ms=Math.max(160,d*520);const at=t;const face=pt.x>cur.x+0.01?1:pt.x<cur.x-0.01?-1:0;
-    w.legs.push(setTimeout(()=>{if(face){w.p.face=face;w.el.dataset.face=face>0?'right':'left';}w.el.dataset.anim='walk';w.el.style.transitionDuration=ms+'ms';w.p.x=pt.x;w.p.y=pt.y;place(w.el,w.p);},at));t+=ms;cur=pt;}
+    w.legs.push(setTimeout(()=>{if(face){w.p.face=face;w.el.dataset.face=face>0?'right':'left';}w.el.dataset.anim='walk';w.el.style.transitionDuration=ms+'ms';const zOld=Number(w.el.style.getPropertyValue('--z'))||0,north=pt.y<w.p.y-0.01;w.p.x=pt.x;w.p.y=pt.y;place(w.el,w.p);
+      // V152: going north the companion stays in front of what it is walking past until it gets there
+      if(north&&zOld){const zNew=Number(w.el.style.getPropertyValue('--z'));w.el.style.setProperty('--z',Math.max(zOld,zNew));w.legs.push(setTimeout(()=>{if(Number(w.el.style.getPropertyValue('--z'))>zNew&&!w.el.classList.contains('is-using'))w.el.style.setProperty('--z',zNew);},ms));}},at));t+=ms;cur=pt;}
    return t;};
   const tick=()=>{if(!document.body.contains(box))return stopWander();const now=Date.now();
    for(const w of walkers){if(now<w.busyUntil)continue;
