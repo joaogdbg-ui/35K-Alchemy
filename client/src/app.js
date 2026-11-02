@@ -502,7 +502,7 @@ function shinyCard(item){return `<p class="shiny-trivia"><span aria-hidden="true
 function showShinyFound(id){const it=byId.get(id);if(!it)return;
  showModal(`<div class="modal-tag shiny-tag">✦ SHINY ELEMENT</div><div class="modal-art is-shiny">${staticArt(it)}</div><h2>Shiny ${escapeText(uiName(it))}</h2>${shinyCard(it)}<div class="modal-milestone">${shiny.size.toLocaleString('en-US')} shiny ${shiny.size===1?'element':'elements'} · ${Math.round(shinyChance()*100)}% chance per combination</div>`);
 }
-const APP_VERSION='1.0.61';
+const APP_VERSION='1.0.62';
 // V83: status line + Google consent (UMP) privacy options, required for EEA players.
 async function refreshAdStatus(){
  const el=$('settingsAdStatus'),bridge=getRewardBridge();
@@ -1914,7 +1914,7 @@ function openWardrobe(cid){const info=companions.info(cid);if(!info)return;const
 
 
 // V158: Arcade minigames (one per 250 new elements)
-const arcade=createArcade({$,escapeText,art:STADIUM_ART_V95,showModal,closeModal,toast,staticArt,sfx:SFX,item:id=>byId.get(id),itemName:id=>uiName(byId.get(id)),
+const arcade=createArcade({$,escapeText,art:STADIUM_ART_V95,pauseWorld:()=>{document.body.classList.add('ar-playing');try{companions.stop();}catch{}},resumeWorld:()=>{document.body.classList.remove('ar-playing');try{companions.start();}catch{}},showModal,closeModal,toast,staticArt,sfx:SFX,item:id=>byId.get(id),itemName:id=>uiName(byId.get(id)),
  unlocked:()=>[...unlocked].filter(id=>byId.has(id)&&!STARTERS.has(id)),
  knownRecipes:()=>{const out=[];for(const [k,r] of recipes){if(!unlocked.has(r)||STARTERS.has(r))continue;const [a,b]=k.split('|');if(unlocked.has(a)&&unlocked.has(b)&&a!==r&&b!==r)out.push([a,b,r]);if(out.length>600)break;}return out;},
  count:()=>classicDiscoveredCount(),activeId:()=>companions.active?.id||null,sprite:id=>COMPANION_SPRITES_V86[id]||'',wear:root=>{try{wearAll(root);}catch{}},

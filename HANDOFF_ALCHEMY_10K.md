@@ -90,6 +90,12 @@ Preserve 200-per-batch policy and do not start another content release on top of
 
 - **Art redraw wave 3 (V85, done): 3,991 icons** — every remaining older element. All 6,012 pre-V83 elements now use the 2026 art direction (`ART_REDRAW`), plus 200 V83 and 200 V85 originals. Six near-duplicates found by the audit were redrawn; 36 reviewed false alarms are in `tools/art-redraw-reviewed-pairs.json` (the audit now also honours them for V83 comparisons).
 
+## V162 — Sky Glide performance
+- Owner: stutter on first tap and bad frame rate. Causes: big SVG backgrounds repainted every frame (background-position parallax + CSS var on the stage each frame), the whole app (roaming companions, CSS animations) still rendering underneath, forced layouts (offsetWidth) on every score change.
+- Sky Glide now draws on one <canvas>: sky/mid/grass/rock and pickup art are rasterised once before "Tap to start" (no first-tap stutter); per frame only drawImage/fillRect. Canvas DPR capped at 1.5. Score text updated ~8×/s. Flap squash via WAAPI.
+- All minigames: ctx.pauseWorld/resumeWorld — companions.stop() and body.ar-playing hides the app (display:none) while a minigame is open; restored on finish/quit.
+- o.set(v,bump) no longer forces layout; bump only on add().
+
 ## V161 — Games tile hub + tighter Sky Glide
 - games-v93.js: the Games sheet is now a tile hub (Minigames · Races · Karate · Themed races). Races/Themed open filtered lists (listSheet, rowsHtml(filter)); Karate opens its event sheet; Back returns to the right list (lastList). Stadium tile subtitle: "Minigames, races & karate".
 - Sky Glide rewritten Flappy-style: fixed 120 Hz physics with render interpolation, a tap sets the upward speed (no stacking), constant gravity + capped fall speed, nose follows speed, round 17px hitbox vs pillar rects, ground at the grass line, ResizeObserver instead of per-frame layout reads, +10 per pillar passed.
