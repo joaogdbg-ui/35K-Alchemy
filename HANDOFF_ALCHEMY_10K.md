@@ -90,6 +90,13 @@ Preserve 200-per-batch policy and do not start another content release on top of
 
 - **Art redraw wave 3 (V85, done): 3,991 icons** — every remaining older element. All 6,012 pre-V83 elements now use the 2026 art direction (`ART_REDRAW`), plus 200 V83 and 200 V85 originals. Six near-duplicates found by the audit were redrawn; 36 reviewed false alarms are in `tools/art-redraw-reviewed-pairs.json` (the audit now also honours them for V83 comparisons).
 
+## V159 — Minigames: graphics and animation pass (+ tester unlock-all)
+- arcade-v158.js: each minigame now has its own scene (card table, sunset arena, alchemist lab with cauldron, meadow with drifting clouds and hills, pond with waves/fish shadows/dock, parallax sky).
+- Shared FX: 3-2-1-GO countdown, floating +score pops, particle bursts (star/gold/fire/water/earth/smoke/magic), screen shake, combo badge, end banner, animated result (stars + counting score).
+- Companion is a real rigged sprite (data-pivot origins) using engine anims: idle breathing, walk (catch), fly (glide), duo-throw (duel/fish/memory shuffle), duo-cheer, shake.
+- Memory: 3D flip cards dealt in, FLIP shuffle animation. Duel: foe card flies in with timer ring, your element flies and clashes. Recipe: ingredients fly into a bubbling cauldron, fuse timer. Catch: basket, tumbling items, golden 50-pt items. Fish: cast arc, bobber nibble/bite ripples, catch flies to bucket. Glide: cloud pillars, sparkle trail, tilt.
+- TEMPORARY: `ARCADE_TESTER_ALL=true` in arcade-v158.js unlocks all minigames for testing. Set to false before release.
+
 ## V158 — Minigames (Arcade): one new every 250 elements (2 November 2026)
 - `client/src/arcade-v158.js` (`createArcade`, pure `arcadeProgress`). Save `alchemy10k_arcade_v158` {base, unlocked, paid, best}. On first run `base` = current Classic count and one random minigame unlocks; then one per `ARCADE_STEP=250` new elements (random order). Planned total `ARCADE_TOTAL=16`; steps beyond the implemented games are banked until more games ship; once all 16 are unlocked each further 250 pays `ARCADE_STEP_COINS=500`.
 - Implemented (6): Element Memory (Drawing: longer peek, fewer shuffles) · Fire·Water·Earth (Juggling: more time) · Recipe Rush (Magic: more time, wrong answers fade at lv2/4) · Falling Finds (Run speed, Dancing catch width; trains Run) · Pond Fishing (Drums + Swim widen the timing window; trains Swim) · Sky Glide (Fly: lift/gravity/gap; trains Fly). Score → coins (score/20, max 300), best score saved.
