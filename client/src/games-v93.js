@@ -241,8 +241,8 @@ export function createGamesSystem(ctx){
   const toys=COURSES.map(c=>trophyOf(c.id)),won=toys.filter(p=>hasPrize(p.id)).length;
   const goldN=EVENTS().filter(e=>best(bagOf(e),LEVELS.length-1)===1).length;const openN=EVENTS().filter(e=>e.kind!=='race'||courseOpen(e.course)).length;
   const shopBtn=(id,ico,b,sm)=>`<button type="button" class="st-shop-btn" id="${id}"><span>${ico}</span><b>${b}</b><small>${sm}</small></button>`;
-  const shop=`<div class="st-shop is-hub">${shopBtn('stGames','🏁','Games',`Races &amp; Karate · ${goldN}/${EVENTS().length} gold`)}${shopBtn('stSchool','🏫','School','Teach new tricks')}${shopBtn('stPrizes','🏆','Prizes',`${won}/${toys.length} trophies${belt?' · '+escapeText(belt.name.replace(' Belt','')):''}`)}${shopBtn('stMarket','🛒','Market','Food, wear, toys, houses')}</div>`;
-  const rowsHtml=()=>EVENTS().map(e=>{const open=e.kind!=='race'||courseOpen(e.course);const lv=nextLevel(e);const done=best(bagOf(e),LEVELS.length-1)===1;
+  const shop=`<div class="st-shop is-hub">${shopBtn('stGames','🎮','Games',`Minigames, races &amp; karate · ${goldN}/${EVENTS().length} gold`)}${shopBtn('stSchool','🏫','School','Teach new tricks')}${shopBtn('stPrizes','🏆','Prizes',`${won}/${toys.length} trophies${belt?' · '+escapeText(belt.name.replace(' Belt','')):''}`)}${shopBtn('stMarket','🛒','Market','Food, wear, toys, houses')}</div>`;
+  const rowsHtml=(f=()=>true)=>EVENTS().filter(f).map(e=>{const open=e.kind!=='race'||courseOpen(e.course);const lv=nextLevel(e);const done=best(bagOf(e),LEVELS.length-1)===1;
    return `${e.theme&&e.id===THEME_COURSES[0].id?'<h3 class="st-sub">Theme races · need a full look</h3>':''}<div class="st-row ${open?'':'is-locked'} ${e.theme?'is-theme is-'+e.id:''}" data-ev="${e.id}"><span class="st-course-ico" data-focus="${e.focus}" ${e.theme?`data-theme="${e.id}"`:''}></span><div class="st-row-main"><strong>${escapeText(e.name)}</strong>${e.theme&&!open?`<small class="st-need">${escapeText(e.course.look)} look ${themePct(e.course)}% / 85%</small>`:dots(e)}</div>${open?`<button type="button" class="st-play" data-play="${e.id}">${done?'Replay':LEVELS[lv]}<i></i></button>`:'<span class="st-lock"></span>'}</div>`;}).join('');
   mount.innerHTML=`<div class="pets-scroll st-scroll"><div class="section-head g-head"><h2>Stadium</h2><button type="button" class="g-coins" id="stCoins">🪙 ${(ctx.coins?.()||0).toLocaleString('en-US')}</button><span class="g-tally"><i class="g-medal is-gold"></i>${n.gold}<i class="g-medal is-silver"></i>${n.silver}<i class="g-medal is-bronze"></i>${n.bronze}</span></div>
    <section class="st-entrant is-simple"><button type="button" class="st-entrant-art companion" data-companion="${pid}" data-card="${pid}" aria-label="Stats"><span class="companion-art"></span>${belt?`<span class="st-entrant-belt">${prizes.beltSvg(belt,22)}</span>`:''}</button>
@@ -263,11 +263,21 @@ export function createGamesSystem(ctx){
  }
  /** V141: races and Karate live in their own sheet (hub tile "Games"). */
  let lastRows=null;
- function gamesSheet(mount,rowsHtml){lastRows=rowsHtml||lastRows;
-  const ai=ctx.arcadeInfo?.();
-  showModal(`<div class="modal-tag">GAMES</div><h2>Races &amp; Karate</h2>${ctx.openArcade?`<button type="button" class="st-shop-btn ar-entry" id="stArcade"><span>🎮</span><b>Minigames</b><small>${ai?`${ai.got}/${ai.total} unlocked`:'One new every 250 elements'}</small></button>`:''}<div class="st-rows is-sheet">${lastRows()}</div><p class="mini-muted st-tip">Your companion competes on its own. Tap CHEER for a sprint or a power strike — it costs Stamina.</p><button type="button" class="modal-button secondary" id="stClose">Close</button>`);
+ let lastList=null;
+ const LISTS={races:{tag:'RACES',title:'Races',f:e=>e.kind==='race'&&!e.theme},themed:{tag:'THEMED RACES',title:'Themed races',f:e=>!!e.theme}};
+ // V161: Games is a tile hub (Minigames · Races · Karate · Themed races), like the Stadium menu
+ function gamesSheet(mount,rowsHtml){lastRows=rowsHtml||lastRows;lastList=null;
+  const ai=ctx.arcadeInfo?.();const ev=EVENTS();const gold=f=>{const l=ev.filter(f);return `${l.filter(e=>best(bagOf(e),LEVELS.length-1)===1).length}/${l.length} gold`;};
+  const karate=ev.find(e=>e.kind==='karate');const bk=karate?bagOf(karate):{};const beltN=LEVELS.filter((_,i)=>best(bk,i)===1).length;
+  const tile=(id,ico,b,sm)=>`<button type="button" class="st-shop-btn" id="${id}"><span>${ico}</span><b>${b}</b><small>${sm}</small></button>`;
+  showModal(`<div class="modal-tag">GAMES</div><h2>Games</h2><div class="st-shop is-hub st-games-hub">${ctx.openArcade?tile('stArcade','🎮','Minigames',ai?`${ai.got}/${ai.total} unlocked`:'One new every 250 elements'):''}${tile('stRaces','🏁','Races',gold(LISTS.races.f))}${tile('stKarate','🥋','Karate',`${beltN}/${belts.length} belts`)}${tile('stThemed','🎭','Themed races',gold(LISTS.themed.f))}</div><p class="mini-muted st-tip">Minigames are solo high-score games. In Races and Karate your companion competes against rivals.</p><button type="button" class="modal-button secondary" id="stClose">Close</button>`);
   const sa=$('stArcade');if(sa)sa.onclick=()=>ctx.openArcade(()=>gamesSheet(mount));
-  $('stClose').onclick=closeModal;const mc=$('modalContent');try{mc.querySelectorAll('.companion[data-companion] .companion-art').forEach(a=>rig(a,a.parentElement.dataset.companion));}catch{}
+  $('stRaces').onclick=()=>listSheet(mount,'races');$('stThemed').onclick=()=>listSheet(mount,'themed');
+  $('stKarate').onclick=()=>{lastList='hub';eventSheet(mount,karate,true);};
+  $('stClose').onclick=closeModal;}
+ function listSheet(mount,kind){const L=LISTS[kind];lastList=kind;
+  showModal(`<div class="modal-tag">${L.tag}</div><h2>${L.title}</h2><div class="st-rows is-sheet">${lastRows(L.f)}</div><p class="mini-muted st-tip">Your companion competes on its own. Tap CHEER for a sprint — it costs Stamina.</p><button type="button" class="modal-button secondary" id="stClose">Back</button>`);
+  $('stClose').onclick=()=>gamesSheet(mount);const mc=$('modalContent');try{mc.querySelectorAll('.companion[data-companion] .companion-art').forEach(a=>rig(a,a.parentElement.dataset.companion));}catch{}
   mc.querySelectorAll('[data-play]').forEach(b=>b.onclick=e=>{e.stopPropagation();if(preview){state.pick=preview;preview=null;save();}const ev=EVENTS().find(x=>x.id===b.dataset.play);const lv=nextLevel(ev);closeModal();ev.kind==='race'?startRace(mount,ev.course,lv):startKarate(mount,lv);});
   mc.querySelectorAll('[data-ev]').forEach(r=>r.onclick=()=>eventSheet(mount,EVENTS().find(x=>x.id===r.dataset.ev),true));}
  function eventSheet(mount,e,fromGames){
@@ -278,7 +288,7 @@ export function createGamesSystem(ctx){
   else if(e.kind==='race'){const c=e.course,prize=trophyOf(c.id),won=hasPrize(prize.id);const lvN=nextLevel(e),plan=planFor(c,lvN);extra=`<p>${escapeText(c.blurb)}</p><small class="st-foot">${LEVELS[lvN]}: ${plan.length} sections · ${['morning','noon','afternoon','sunset','night'][lvN]}</small><div class="st-strip">${plan.map(x=>`<i class="is-${x.t}" style="flex:${x.len}"></i>`).join('')}</div><div class="st-prizeline ${won?'is-won':''}"><span>${prize.art}</span><small>${won?'Trophy won: ':'Champion gold wins '}<b>${escapeText(prize.name)}</b>${won?'':' for the house'}</small></div>${open?'':'<p class="mini-muted">Win Rookie on the other five courses to open it.</p>'}`;}
   else extra=`<p>Best of three rounds. HP is health, Power hits, Swim blocks, Fly dodges, Run strikes faster, Stamina keeps the fight going.</p><div class="st-belts">${belts.map((b,i)=>`<span class="st-belt ${best(bag,i)===1?'is-won':''}">${prizes.beltSvg(b,28)}<small>${b.name.replace(' Belt','')}</small></span>`).join('')}</div>`;
   showModal(`<div class="modal-tag">${e.kind==='race'?'RACE':'KARATE'}</div><h2>${escapeText(e.name)}</h2>${extra}<div class="st-levels">${levels}</div><button type="button" class="modal-button secondary" id="stClose">${fromGames?'Back':'Close'}</button>`);
-  $('stClose').onclick=()=>fromGames&&lastRows?gamesSheet(mount):closeModal();
+  $('stClose').onclick=()=>fromGames&&lastRows?(LISTS[lastList]?listSheet(mount,lastList):gamesSheet(mount)):closeModal();
   $('modalContent').querySelectorAll('[data-lv]').forEach(b=>b.onclick=()=>{closeModal();const lv=Number(b.dataset.lv);e.kind==='race'?startRace(mount,e.course,lv):startKarate(mount,lv);});
  }
  function prizeSheet(mount){

@@ -90,6 +90,10 @@ Preserve 200-per-batch policy and do not start another content release on top of
 
 - **Art redraw wave 3 (V85, done): 3,991 icons** — every remaining older element. All 6,012 pre-V83 elements now use the 2026 art direction (`ART_REDRAW`), plus 200 V83 and 200 V85 originals. Six near-duplicates found by the audit were redrawn; 36 reviewed false alarms are in `tools/art-redraw-reviewed-pairs.json` (the audit now also honours them for V83 comparisons).
 
+## V161 — Games tile hub + tighter Sky Glide
+- games-v93.js: the Games sheet is now a tile hub (Minigames · Races · Karate · Themed races). Races/Themed open filtered lists (listSheet, rowsHtml(filter)); Karate opens its event sheet; Back returns to the right list (lastList). Stadium tile subtitle: "Minigames, races & karate".
+- Sky Glide rewritten Flappy-style: fixed 120 Hz physics with render interpolation, a tap sets the upward speed (no stacking), constant gravity + capped fall speed, nose follows speed, round 17px hitbox vs pillar rects, ground at the grass line, ResizeObserver instead of per-frame layout reads, +10 per pillar passed.
+
 ## V160 — Minigames redrawn in the game's own art style
 - Owner: V159 still looked bland vs the races. Now the arcade reuses STADIUM_ART_V95 (passed as ctx.art): sky/mid/run tiles for Memory, Falling Finds and Sky Glide; swim tile for the pond; climb tile for the glide pillars (grass caps like race walls); the dojo scene for Fire·Water·Earth.
 - New props drawn in the same style (slate #657D89 outlines, soft palette): card backs, cauldron, alchemist lab wall, basket, bucket, bobber, rock, fish set, boot, chest.
