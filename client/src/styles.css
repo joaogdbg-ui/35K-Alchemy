@@ -1814,3 +1814,20 @@ button.home-eff::after{content:" ⓘ";opacity:.6;font-weight:700}
 
 /* V152 */
 .cf-art .fr-ava{position:relative!important;display:inline-block;width:76px;height:76px;transform:none!important;left:auto!important;top:auto!important}.cf-art .fr-ava .companion-art,.cf-art .fr-ava svg{width:100%;height:100%}
+
+/* V154: visiting elements */
+.screen-visitor{position:absolute;left:0;top:0;width:36px;height:36px;z-index:3;pointer-events:none;filter:drop-shadow(0 3px 3px rgba(0,0,0,.2))}
+.screen-visitor svg,.screen-visitor img{width:100%;height:100%}
+.screen-visitor.is-wobble{animation:visWobble .25s ease-in-out infinite alternate}@keyframes visWobble{from{rotate:-8deg}to{rotate:8deg}}
+.screen-visitor.is-puddle{width:60px;height:22px;margin-left:-12px;border-radius:50%;background:radial-gradient(ellipse,#7cc3e0 55%,#4f9ec2 70%,transparent 72%)}.screen-visitor.is-puddle>*{opacity:0}
+.screen-visitor.is-on-face{width:26px;height:26px}
+.screen-visitor.is-beat{animation:visBeat .33s ease-in-out infinite alternate}@keyframes visBeat{to{scale:1.15}}
+.screen-visitor.is-boo{animation:visBoo .5s ease-out}@keyframes visBoo{50%{scale:1.6}}
+.screen-visitor.has-thread::before{content:'';position:absolute;left:50%;bottom:100%;width:1.5px;height:120px;background:rgba(255,255,255,.85)}
+.element-chip .chip-art.is-away{opacity:.25}
+.companion-fx .fx-web{position:absolute;inset:-6px;background:repeating-conic-gradient(from 0deg,rgba(255,255,255,.85) 0 2deg,transparent 2deg 30deg),repeating-radial-gradient(circle,transparent 0 7px,rgba(255,255,255,.75) 7px 8.5px);border-radius:50%;animation:visWeb 3.2s linear}
+@keyframes visWeb{0%{scale:.2;opacity:0}10%{scale:1;opacity:1}90%{opacity:1}100%{opacity:0}}
+.companion-fx .fx-splash{position:absolute;left:50%;bottom:4px;width:50px;height:24px;margin-left:-25px;background:radial-gradient(circle at 20% 60%,#bfe6fa 3px,transparent 4px),radial-gradient(circle at 50% 30%,#bfe6fa 4px,transparent 5px),radial-gradient(circle at 80% 55%,#bfe6fa 3px,transparent 4px);animation:visSplash .7s ease-out}@keyframes visSplash{from{translate:0 8px;opacity:1}to{translate:0 -14px;opacity:0}}
+.companion-fx .fx-vehicle{position:absolute;left:50%;bottom:-16px;width:50px;height:40px;margin-left:-25px;z-index:-1}.companion-fx .fx-vehicle svg{width:100%;height:100%}
+.companion-fx .fx-balloon{position:absolute;left:62%;top:-40px;width:34px;height:34px}.companion-fx .fx-balloon svg{width:100%;height:100%}
+.companion-fx .fx-vehicle.is-wobble,.companion-fx .fx-balloon.is-wobble{animation:visWobble .25s ease-in-out infinite alternate}

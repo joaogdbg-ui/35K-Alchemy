@@ -441,12 +441,10 @@ function saveSlot2(){try{localStorage.setItem(SLOT2_KEY,JSON.stringify({v:1,ads:
 function slot2Unlocked(){return slot2.bought||(slot2.ads>=SLOT2_ADS&&classicDiscoveredCount()>=SLOT2_MIN_ELEMENTS);}
 // TEMPORARY (owner test, V127): while SLOT2_TEST_FREE is true the INSTANT button unlocks the slot for €0 without Play. Set to false before store release.
 const SLOT2_TEST_FREE=false; // V131: owner finished testing; back to the Play price (€1)
-function slot2Info(){return {unlocked:slot2Unlocked(),price:SLOT2_TEST_FREE?'€0.00 · TEST':slot2.price,canBuy:SLOT2_TEST_FREE||(Boolean(billingBridge()?.purchaseCompanionSlot)&&slot2.available),canAd:rewardedAvailable(),ads:slot2.ads,adsNeeded:SLOT2_ADS,elements:classicDiscoveredCount(),minElements:SLOT2_MIN_ELEMENTS};}
-async function buySlot2(){if(SLOT2_TEST_FREE){slot2.bought=true;saveSlot2();toast('Second companion slot unlocked (test)','new');companions.start();return true;}
- const b=billingBridge();if(!b?.purchaseCompanionSlot){toast('Purchases work in the Play Store app','repeat');return false;}
- try{const r=await b.purchaseCompanionSlot();applyBillingStatus(r);if(r?.companionSlot===true){toast('Second companion slot unlocked!','new');companions.start();return true;}
-  toast(r?.cancelled?'Purchase cancelled':r?.pending?'Purchase pending · it unlocks when Google Play confirms it':'Purchase not completed','repeat');}catch(e){console.warn(e);toast('Google Play purchase is not available yet','error');}
- return false;}
+function slot2Info(){return {unlocked:slot2Unlocked(),price:`🪙 ${SLOT2_COINS.toLocaleString('en-US')}`,canBuy:true,canAd:rewardedAvailable(),ads:slot2.ads,adsNeeded:SLOT2_ADS,elements:classicDiscoveredCount(),minElements:SLOT2_MIN_ELEMENTS};}
+// V154: Duo mode is bought with companion coins (owner: 5,500), not euros. Play purchases made before still count (applyBillingStatus).
+const SLOT2_COINS=5500;
+function buySlot2(){return new Promise(res=>{confirmBuy({art:'<span class="mk-emoji is-big">👯</span>',name:'Duo mode',desc:`A second companion on screen · all growth ×1.25 · duo games`,price:SLOT2_COINS,label:'Unlock'},()=>{slot2.bought=true;saveSlot2();closeModal();toast('Second companion slot unlocked!','new');companions.start();res(true);},()=>{closeModal();res(false);});});}
 async function watchSlot2Ad(){if(classicDiscoveredCount()<SLOT2_MIN_ELEMENTS||slot2Unlocked())return false;if(rewardedHintBusy)return false;
  if(!rewardedAvailable()){toast('Rewarded ads work in the Android app','repeat');return false;}
  rewardedHintBusy=true;let r=null;try{r=await getRewardBridge().showRewarded({kind:'companion_slot',step:slot2.ads+1,total:SLOT2_ADS});}catch(e){console.warn('Slot ad unavailable',e);}finally{rewardedHintBusy=false;}
@@ -503,7 +501,7 @@ function shinyCard(item){return `<p class="shiny-trivia"><span aria-hidden="true
 function showShinyFound(id){const it=byId.get(id);if(!it)return;
  showModal(`<div class="modal-tag shiny-tag">✦ SHINY ELEMENT</div><div class="modal-art is-shiny">${staticArt(it)}</div><h2>Shiny ${escapeText(uiName(it))}</h2>${shinyCard(it)}<div class="modal-milestone">${shiny.size.toLocaleString('en-US')} shiny ${shiny.size===1?'element':'elements'} · ${Math.round(shinyChance()*100)}% chance per combination</div>`);
 }
-const APP_VERSION='1.0.53';
+const APP_VERSION='1.0.54';
 // V83: status line + Google consent (UMP) privacy options, required for EEA players.
 async function refreshAdStatus(){
  const el=$('settingsAdStatus'),bridge=getRewardBridge();

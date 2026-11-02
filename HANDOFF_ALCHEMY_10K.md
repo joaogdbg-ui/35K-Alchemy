@@ -90,6 +90,11 @@ Preserve 200-per-batch policy and do not start another content release on top of
 
 - **Art redraw wave 3 (V85, done): 3,991 icons** — every remaining older element. All 6,012 pre-V83 elements now use the 2026 art direction (`ART_REDRAW`), plus 200 V83 and 200 V85 originals. Six near-duplicates found by the audit were redrawn; 36 reviewed false alarms are in `tools/art-redraw-reviewed-pairs.json` (the audit now also honours them for V83 comparisons).
 
+## V154 — visiting elements; Duo mode for 🪙5,500; Market→Alchemy check (2 November 2026)
+- Test `v154-market-recipes`: every Market item is an element reachable by crafting from the four starters (all pass). Buying grants the element (V139).
+- Visiting elements (`visitorScene` in companion-engine-v86.js, ~7% every ≥45 s when the companion is on a top rail in Alchemy): a visible element chip whose name matches `VISITORS` comes out and plays: vampire/bat chases and bites · mask goes on the face then thrown · spider web traps (Power = faster escape) · vehicles: companion drives (Run ≥35 smooth, else wobbly) · pool/lake: swims (Swim ≥35 graceful) · balloon/kite/broom: floats (Fly → height) · instruments: dances (Dancing School level → more twirls) · ghost: boo scare · bee/wasp: chase · ball: kick. Vehicles and balloons become a `.companion-fx` child while moving.
+- Duo mode (second slot) costs **🪙5,500 companion coins** through `confirmBuy` (`SLOT2_COINS`); the free path (2,000 elements + 20 ads) stays; old Play purchases still count.
+
 ## V153 — make room costs 🪙150 and goes through the confirm sheet (2 November 2026)
 
 ## V152 — full belly after 20 elements; depth fix when walking north (2 November 2026)

@@ -434,6 +434,7 @@ export function createCompanionSystem(ctx){
   if(slot&&now()-lastPoint>60000){lastPoint=now();await pointAtSlot(slot);timer=setTimeout(loop,800);return;}
   placeToy();
   {const sk=skillsOf(meta.id);if(sk.length&&now()-lastSkill>25000&&Math.random()<0.06+0.02*Math.max(...sk.map(k=>skillLevel(meta.id,k)))){lastSkill=now();await performSkill(sk[Math.floor(Math.random()*sk.length)]);timer=setTimeout(loop,800);return;}}
+  if(rail.kind==='top'&&now()-lastVisit>45000&&Math.random()<0.07){lastVisit=now();if(await visitorScene()){timer=setTimeout(loop,900);return;}}
   if(ctx.toy?.()&&rail.kind==='top'&&now()-lastToy>30000&&Math.random()<0.07){lastToy=now();if(await playToy()){timer=setTimeout(loop,800);return;}}
   if(duoActive()&&bud&&!bud.sprite.hidden&&rail.kind==='top'&&(duoRequest||(now()-lastDuo>18000&&Math.random()<0.2))){const k=duoRequest;duoRequest=null;await duoPlay(k);timer=setTimeout(loop,900);return;}
   const roll=Math.random();
@@ -845,6 +846,57 @@ export function createCompanionSystem(ctx){
  /** How complete a themed look is (0..1): average weight of the theme's traits in their spots. */
  function themeCompletion(id,key){const th=LOOK_THEMES.find(([k])=>k===key);if(!th)return 0;const N=normLook(state.pets[id]?.look);const slots=['head','back','tail','aura'].filter(sl=>th[2][sl]);if(!slots.length)return 0;return slots.reduce((n,sl)=>n+(N.mix[sl][th[2][sl]]||0),0)/slots.length;}
 
+ // ---------- V154: visiting elements — some elements in the list come out and play with the companion ----------
+ // Each rule: name pattern → scene. Stats and School levels change how well the companion copes.
+ const VISITORS=[
+  ['vampire',/\b(dracula|vampire|nosferatu|bat)\b/],['mask',/\bmask\b/],['spider',/\b(spider|tarantula|web)\b/],
+  ['ride',/\b(car|bus|truck|kart|tractor|scooter|motorbike|motorcycle|skateboard|bicycle|bike|taxi|jeep|van|wagon|tank|race car|go-kart)\b/],
+  ['swim',/\b(pool|lake|pond|puddle|ocean|sea|river|bathtub|fountain)\b/],['float',/\b(balloon|kite|broom|umbrella|parachute|cloud)\b/],
+  ['music',/\b(guitar|drum|piano|trumpet|violin|microphone|radio|harp|flute|saxophone|jukebox|speaker)\b/],['boo',/\b(ghost|spirit|skeleton|zombie|mummy|phantom)\b/],
+  ['buzz',/\b(bee|wasp|mosquito|hornet|fly swarm)\b/],['kick',/\b(ball|football|soccer|basketball|beach ball)\b/]];
+ let lastVisit=0,actorEl=null;
+ const visitorOf=item=>{const t=' '+String(uiName(item)||item?.name||'').toLowerCase()+' ';const v=VISITORS.find(([,re])=>re.test(t));return v?v[0]:null;};
+ const statLv=(id,k)=>state.pets[id]?.stats?.[k]?.level||0;
+ function actorAt(item,x,y){actorEl?.remove();const a=document.createElement('span');a.className='screen-visitor';a.innerHTML=staticArt(item)||'';layerFront.append(a);actorEl=a;a._x=x;a._y=y;a.style.transform=`translate3d(${x}px,${y}px,0)`;return a;}
+ function actorMove(a,x,y,ms,arc=0){if(!a)return wait(ms);const x0=a._x,y0=a._y;a._x=x;a._y=y;const frames=[];for(let k=0;k<=8;k++){const t=k/8;frames.push({transform:`translate3d(${x0+(x-x0)*t}px,${y0+(y-y0)*t-Math.sin(Math.PI*t)*arc}px,0)`});}
+  const an=a.animate(frames,{duration:ms,easing:'ease-in-out',fill:'forwards'});return new Promise(r=>{an.onfinish=()=>{a.style.transform=`translate3d(${x}px,${y}px,0)`;an.cancel();r();};});}
+ async function visitorScene(){
+  const meta=activeMeta();if(!meta||!rail||rail.kind!=='top'||reducedMotion())return false;
+  const chips=[...document.querySelectorAll('#viewPlay:not([hidden]) .element-chip')].filter(c=>{const r=c.getBoundingClientRect();return r.top>90&&r.bottom<window.innerHeight-70;});
+  const pool=chips.map(c=>({c,item:byId.get(c.dataset.id)})).filter(o=>o.item&&visitorOf(o.item));if(!pool.length)return false;
+  const {c,item}=pool[Math.floor(Math.random()*pool.length)],kind=visitorOf(item),id=meta.id;
+  const cr=c.querySelector('.chip-art')?.getBoundingClientRect()||c.getBoundingClientRect();const home={x:cr.left+cr.width/2-18,y:cr.top+cr.height/2-18};
+  busy=true;const art=c.querySelector('.chip-art');art?.classList.add('is-away');
+  const a=actorAt(item,home.x,home.y);const y=rail.y+SIZE-36,L=rail.x1,R=rail.x2,mid=(L+R)/2;
+  const say=(t,ms=1600)=>{try{showNoteWindow(meta,[t]);}catch{}};
+  try{
+   if(kind==='vampire'){await actorMove(a,clampX(rail,pos.x+60),y-30,700,60);emote('spiral',1400);sfx.refuse?.();
+    const far=pos.x-L>R-pos.x?L:R;sprite.dataset.anim='walk';const run=travel({x:far,y:rail.y,ms:900});await Promise.all([run,actorMove(a,far+(far===L?40:-40),y-26,1000,24)]);
+    sprite.dataset.anim='duo-cover';await actorMove(a,pos.x+12,y-34,350,10);fx('stars',900);await wait(500);
+    const back=far===L?R:L;sprite.dataset.anim='walk';await Promise.all([travel({x:back,y:rail.y,ms:1100}),actorMove(a,back+(back===L?50:-50),y-30,1250,30)]);sprite.dataset.anim='duo-laugh';emote('heart',1200);await wait(600);}
+   else if(kind==='mask'){await actorMove(a,pos.x+12,y-6,700,70);sprite.dataset.anim='grab';await wait(400);a.classList.add('is-on-face');await actorMove(a,pos.x+11,rail.y+10,250,0);sprite.dataset.anim='duo-laugh';sfx.giggle?.();await wait(1500);
+    sprite.dataset.anim='duo-throw';a.classList.remove('is-on-face');await actorMove(a,pos.x+(pos.x>mid?-140:140),y+10,700,90);await wait(250);}
+   else if(kind==='spider'){await actorMove(a,pos.x+12,rail.y-70,700,30);a.classList.add('has-thread');await wait(300);const web=fx('web',3200);
+    const esc=Math.max(900,2600-statLv(id,'power')*14);sprite.dataset.anim='refuse';emote('spiral',esc);await wait(esc);web.remove();sprite.dataset.anim='duo-cheer';say(statLv(id,'power')>=40?'Broke free in a second!':'Finally free!');await wait(600);a.classList.remove('has-thread');}
+   else if(kind==='ride'){const lv=statLv(id,'run');await actorMove(a,pos.x+6,rail.y+SIZE-34,700,40);sprite.dataset.anim='jump';await travel({x:pos.x,y:rail.y-20,arc:30,ms:380,anim:'jump'});
+    // the vehicle becomes part of the companion while it drives (so they always move together)
+    a.style.visibility='hidden';const car=fx('vehicle',60000);car.innerHTML=staticArt(item)||'';const good=lv>=35,ms=good?900:1500;car.classList.toggle('is-wobble',!good);sprite.dataset.anim='idle';
+    for(const tx of [R,L,clampX(rail,mid)]){pos.face=tx>pos.x?1:-1;sprite.dataset.face=pos.face>0?'right':'left';await travel({x:tx,y:rail.y-20,ms,anim:'idle'});}
+    car.remove();a._x=pos.x+6;a._y=rail.y+SIZE-34;a.style.transform=`translate3d(${a._x}px,${a._y}px,0)`;a.style.visibility='';await travel({x:pos.x,y:rail.y,arc:24,ms:360,anim:'jump'});if(good){sprite.dataset.anim='duo-cheer';say('Smooth driver!');}else{fx('stars',900);emote('spiral',1200);say('Bumpy ride… Run training helps');}await wait(800);}
+   else if(kind==='swim'){const lv=statLv(id,'swim');await actorMove(a,clampX(rail,pos.x),y+20,700,40);a.classList.add('is-puddle');sprite.dataset.anim='jump';await travel({x:pos.x,y:rail.y+6,arc:40,ms:420,anim:'jump'});
+    const good=lv>=35;for(let k=0;k<(good?3:2);k++){sprite.dataset.anim=good?'hopwalk':'refuse';fx('splash',700);await wait(good?650:900);}await travel({x:pos.x,y:rail.y,arc:30,ms:380,anim:'jump'});say(good?'Graceful laps!':'Lots of splashing… Swim training helps');sprite.dataset.anim=good?'duo-cheer':'idle';await wait(700);a.classList.remove('is-puddle');}
+   else if(kind==='float'){const lv=statLv(id,'fly');await actorMove(a,pos.x+10,rail.y-34,700,40);sprite.dataset.anim='grab';await wait(300);const up=Math.min(170,50+lv*1.3);
+    a.style.visibility='hidden';const bal=fx('balloon',60000);bal.innerHTML=staticArt(item)||'';bal.classList.toggle('is-wobble',lv<35);sprite.dataset.anim='fly';await travel({x:pos.x,y:rail.y-up,ms:1400,anim:'fly'});await wait(700);await travel({x:pos.x,y:rail.y,ms:1100,anim:'fly'});
+    bal.remove();a._x=pos.x+10;a._y=rail.y-34;a.style.transform=`translate3d(${a._x}px,${a._y}px,0)`;a.style.visibility='';sprite.dataset.anim='land';say(lv>=35?'Floated up high!':'Wobbly flight… Fly training helps');await wait(300);}
+   else if(kind==='music'){const lv=skillsOf(id).includes('dance')?skillLevel(id,'dance')+1:0;await actorMove(a,clampX(rail,pos.x+50),y,700,40);a.classList.add('is-beat');
+    sprite.dataset.anim='sk-dance';for(let k=0;k<6+lv*2;k++)setTimeout(()=>sfx.count?.(),k*330);await wait(1800);for(let t=0;t<lv;t++){sprite.dataset.anim='quirk-twirl';await wait(900);}sprite.dataset.anim='duo-cheer';await wait(500);a.classList.remove('is-beat');}
+   else if(kind==='boo'){await actorMove(a,clampX(rail,pos.x+30),y-36,900,20);a.classList.add('is-boo');await wait(250);sprite.dataset.anim='jump';emote('spiral',1400);sfx.refuse?.();await travel({x:pos.x,y:rail.y-50,arc:0,ms:220});await travel({x:pos.x,y:rail.y,ms:240});sprite.dataset.anim='duo-hide';await wait(1100);sprite.dataset.anim='duo-peek';await wait(600);a.classList.remove('is-boo');}
+   else if(kind==='buzz'){for(let k=0;k<3;k++){await actorMove(a,pos.x+(k%2?50:-30),y-30-k*6,500,20);}const far=pos.x-L>R-pos.x?L:R;sprite.dataset.anim='walk';await Promise.all([travel({x:far,y:rail.y,ms:800}),actorMove(a,far,y-34,850,30)]);fx('stars',700);emote('spiral',1000);await wait(500);}
+   else if(kind==='kick'){await actorMove(a,clampX(rail,pos.x+40),y+14,700,50);await walkTo(clampX(rail,a._x-SIZE+20),rail.y);sprite.dataset.anim='duo-kick';sfx.kick?.();await wait(180);await actorMove(a,a._x+(a._x>mid?-160:160),y-60,700,80);sprite.dataset.anim='duo-cheer';await wait(500);}
+   await actorMove(a,home.x,home.y,800,80);
+  }catch(e){console.warn('visitor',e);}finally{a.remove();if(actorEl===a)actorEl=null;art?.classList.remove('is-away');sprite.dataset.anim='idle';busy=false;}
+  return true;}
+
  // ---------- views ----------
  const listeners=new Set();function refreshViews(){for(const fn of listeners)try{fn();}catch(e){console.warn(e);}}
  function statsHtml(id){const meta=metaById.get(id);if(!meta||!isDiscovered(id))return '';const p=pet(id);settleMood(p);return `<span class="pet-needs"><span><i>Mood</i><b><em style="width:${p.mood}%"></em></b></span><span><i>Belly</i><b class="is-belly"><em style="width:${p.belly}%"></em></b></span></span>`+statPanel(meta,p);}
@@ -994,7 +1046,7 @@ export function createCompanionSystem(ctx){
   return {cid,known,name:nameOf(meta),taste,fresh,cooldownMin:fresh?0:Math.max(1,Math.ceil((FEED_COOLDOWN_MS-(now()-last))/60000)),stats,depth,depthMult:feedDepthMult(depth),looks:lookEffects(item.name||uiName(item),familyFor(item),item.category,depth)};}
  function tasted(itemId){return !!state.tasted?.[itemId]||Object.values(state.pets||{}).some(q=>q?.fed?.[itemId]);}
  function looksOf(itemId){const item=byId.get(itemId);if(!item)return null;return lookEffects(item.name||uiName(item),familyFor(item),item.category,ctx.depthOf?.(item.id));}
- return {fullLeft,makeRoom,feedStatsOf:itemId=>{const it=byId.get(itemId);return it?(FAMILY_FEEDS[familyFor(it)]||['stamina','hp']):[];},activeStats:()=>{const m=activeMeta();return m?{name:nameOf(m),family:m.family,stats:pet(m.id).stats}:null;},duoActive,applyRivalLook:(svg,id,look)=>applyLookSvg(svg,look,id+'-rival'),setBuddy,swapDuo,requestDuo:k=>{duoRequest=k||'any';},duoPlay,buddy:()=>buddyMeta()?.id||null,duoPair:()=>duoActive()?[state.active,state.buddy]:[],tasted,looksOf,mealPreview,lookOf,applyLook:(svg,id)=>{applyLookSvg(svg,lookOf(id),id);applyWearSvg(svg,id);},wearOf:id=>({...(state.pets[id]?.wear||{})}),setWear,takeOff,marketFeed,learn,skillsOf,skillLevel,themeCompletion,playToy,placeToy,performSkill,start,stop,setActive,statsHtml,info,gameReward,choose,homeEffect,syncSeen,markSeen,isCompanion,freeChoiceLeft,emote,feed,hitTest,onDiscovery,renderTab,openCard,get active(){return activeMeta();},state:()=>state,unlocked,refreshViews,
+ return {visitorScene,fullLeft,makeRoom,feedStatsOf:itemId=>{const it=byId.get(itemId);return it?(FAMILY_FEEDS[familyFor(it)]||['stamina','hp']):[];},activeStats:()=>{const m=activeMeta();return m?{name:nameOf(m),family:m.family,stats:pet(m.id).stats}:null;},duoActive,applyRivalLook:(svg,id,look)=>applyLookSvg(svg,look,id+'-rival'),setBuddy,swapDuo,requestDuo:k=>{duoRequest=k||'any';},duoPlay,buddy:()=>buddyMeta()?.id||null,duoPair:()=>duoActive()?[state.active,state.buddy]:[],tasted,looksOf,mealPreview,lookOf,applyLook:(svg,id)=>{applyLookSvg(svg,lookOf(id),id);applyWearSvg(svg,id);},wearOf:id=>({...(state.pets[id]?.wear||{})}),setWear,takeOff,marketFeed,learn,skillsOf,skillLevel,themeCompletion,playToy,placeToy,performSkill,start,stop,setActive,statsHtml,info,gameReward,choose,homeEffect,syncSeen,markSeen,isCompanion,freeChoiceLeft,emote,feed,hitTest,onDiscovery,renderTab,openCard,get active(){return activeMeta();},state:()=>state,unlocked,refreshViews,
   onViewChange(){if(activeMeta()&&sprite&&!sprite.hidden)setTimeout(()=>{if(cancelMove)cancelMove();const r=pickRail();if(r){rail=r;setLayer(r.layer);place(clampX(r,pos.x),r.y);sprite.dataset.anim='idle';}},80);},
   importState(raw){if(raw&&raw.pets){state=normalize(raw);save();syncSeen();}},grades:companionGrades};
 }
