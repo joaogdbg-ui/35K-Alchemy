@@ -123,7 +123,7 @@ import { STADIUM_ART_V95 } from './stadium-art-v95.js';
 import { createStadiumSfx } from './stadium-sfx-v95.js';
 import { COMPANIONS_V86, COMPANION_SPRITES_V86 } from './companions-v86.js';
 import { createCompanionSystem, COMPANION_STORAGE_KEY, rivalLook, traitIconSvg } from './companion-engine-v86.js';
-import { ACCESSORIES, wearableFor, MARKET, MARKET_TABS, COIN_PACK, COIN_PACKS, FAIR_PLAY_NOTE, coinsFor, LESSONS, LESSON_LEVELS, LESSON_MINUTES, lessonPrice, SCHOOL_AD_CUT_MIN, accPrice, DAILY_COINS } from './market-v136.js';
+import { ACCESSORIES, wearableFor, MARKET, MARKET_TABS, COIN_PACK, COIN_PACKS, FAIR_PLAY_NOTE, coinsFor, LESSONS, LESSON_LEVELS, LESSON_MINUTES, lessonPrice, SCHOOL_AD_CUT_MIN, accPrice, DAILY_COINS, DISCOVERY_COINS, COMPANION_FIND_COINS, FIND_AD_MULT } from './market-v136.js';
 import { PUBLIC_LABELS_V86 } from './public-labels-v86.js';
 import { reconcileLegacyFamilies } from './family-compatibility-v82.js';
 import { synchronizeFamilyProfiles, sharedMembership } from './family-shared-v51.js';
@@ -501,7 +501,7 @@ function shinyCard(item){return `<p class="shiny-trivia"><span aria-hidden="true
 function showShinyFound(id){const it=byId.get(id);if(!it)return;
  showModal(`<div class="modal-tag shiny-tag">✦ SHINY ELEMENT</div><div class="modal-art is-shiny">${staticArt(it)}</div><h2>Shiny ${escapeText(uiName(it))}</h2>${shinyCard(it)}<div class="modal-milestone">${shiny.size.toLocaleString('en-US')} shiny ${shiny.size===1?'element':'elements'} · ${Math.round(shinyChance()*100)}% chance per combination</div>`);
 }
-const APP_VERSION='1.0.56';
+const APP_VERSION='1.0.57';
 // V83: status line + Google consent (UMP) privacy options, required for EEA players.
 async function refreshAdStatus(){
  const el=$('settingsAdStatus'),bridge=getRewardBridge();
@@ -1296,6 +1296,8 @@ function completeCombination(resultId,a,b,kind='recipe'){
  const key=pairKey(a,b),fresh=!unlocked.has(resultId),scene=takeCraftScene();
  recipes.set(key,resultId);known.add(key);unlocked.add(resultId);last=resultId;
  if(fresh&&!STARTERS.has(resultId))discoveryLedger.set(resultId,{at:new Date().toISOString(),source:kind,ingredients:[a,b]});
+ // V157: every new element is worth 10 companion coins
+ if(fresh&&!STARTERS.has(resultId)){try{addCoins(DISCOVERY_COINS);coinPop(DISCOVERY_COINS);}catch{}}
  recent=[resultId,...recent.filter(i=>i!==resultId)].slice(0,350);
  const gotShiny=kind!=='batch'&&rollShiny(resultId);
  save();updateCounts();updateLatest();syncFamilyBanner();
@@ -1752,15 +1754,17 @@ async function checkIdleFinds(){
  const trainedHtml=Object.entries(trained).map(([cid,es])=>`<li>${escapeText(companions.state().pets[cid]?.nick||uiName(byId.get(cid)))} trained ${es.map(e=>({run:'Run',swim:'Swim',power:'Power',fly:'Fly',stamina:'Stamina',hp:'HP'})[e]).join(', ')}</li>`).join('');
  const art=finds.map(([id],i)=>`<span class="idle-find ${i<free?'is-free':'is-locked'}" title="${escapeText(uiName(byId.get(id)))}">${staticArt(byId.get(id))}${i<free?'':'<i class="idle-lock" aria-hidden="true"></i>'}</span>`).join('');
  const canAd=!adFree()&&finds.length>free&&rewardedAvailable();
- showModal(`<div class="modal-tag companion-tag">WHILE YOU WERE AWAY · ${hrs}</div><h2>${finds.length?`Your companions discovered ${finds.length} element${finds.length>1?'s':''}!`:'Your companions trained at home'}</h2>${finds.length?`<div class="idle-finds">${art}</div><p class="mini-muted">${free===finds.length?'All of them are yours.':`${free} ${free>1?'are':'is'} yours for free. ${canAd?'Watch one ad to keep all of them.':'Ads are unavailable here, so the rest are lost this time.'}`}</p>`:''}${trainedHtml?`<ul class="idle-trained">${trainedHtml}</ul>`:''}${canAd?'<button type="button" class="modal-button" id="idleAd">Watch ad · keep all</button>':''}<button type="button" class="modal-button ${canAd?'secondary':''}" id="idleKeep">${finds.length&&free<finds.length?`Keep ${free}`:'Great'}</button>`);
+ showModal(`<div class="modal-tag companion-tag">WHILE YOU WERE AWAY · ${hrs}</div><h2>${finds.length?`Your companions discovered ${finds.length} element${finds.length>1?'s':''}!`:'Your companions trained at home'}</h2>${finds.length?`<div class="idle-finds">${art}</div><p class="mini-muted">${free===finds.length?'All of them are yours.':`${free} ${free>1?'are':'is'} yours for free (🪙${free*COMPANION_FIND_COINS}). ${canAd?`Watch one ad to keep all of them and get 🪙${finds.length*COMPANION_FIND_COINS*FIND_AD_MULT} (×${FIND_AD_MULT}).`:'Ads are unavailable here, so the rest are lost this time.'}`}</p>`:''}${trainedHtml?`<ul class="idle-trained">${trainedHtml}</ul>`:''}${canAd?'<button type="button" class="modal-button" id="idleAd">Watch ad · keep all</button>':''}<button type="button" class="modal-button ${canAd?'secondary':''}" id="idleKeep">${finds.length&&free<finds.length?`Keep ${free}`:'Great'}</button>`);
  // The free finds are kept right away (closing the sheet never loses them); the ad adds the rest.
- const grant=(from,to)=>{for(const f of finds.slice(from,to))applyIdleFind(f);if(to>from){save();updateCounts();updateLatest();rerenderCollections();syncFamilyBanner();}};
+ const grant=(from,to)=>{for(const f of finds.slice(from,to))applyIdleFind(f);if(to>from)addCoins((to-from)*COMPANION_FIND_COINS);if(to>from){save();updateCounts();updateLatest();rerenderCollections();syncFamilyBanner();}};
  grant(0,free);
  const finish=n=>{grant(free,n);if(n)toast(`${n} new discover${n>1?'ies':'y'} from your companions`,'new');closeModal();};
  $('idleKeep').onclick=()=>finish(free);
  const ad=$('idleAd');if(ad)ad.onclick=async()=>{if(rewardedHintBusy)return;rewardedHintBusy=true;let result=null;
   try{result=await getRewardBridge().showRewarded({kind:'idle_finds',count:finds.length});}catch(e){console.warn('Idle rewarded ad failed',e);}finally{rewardedHintBusy=false;}
-  if(result?.earned!==true){toast('Ad not completed · keeping the free ones','repeat');finish(free);return;}finish(finds.length);};
+  if(result?.earned!==true){toast('Ad not completed · keeping the free ones','repeat');finish(free);return;}
+  // V157: the ad keeps every find and multiplies the coins ×5 (the free ones were already paid ×1)
+  finish(finds.length);const bonus=finds.length*COMPANION_FIND_COINS*FIND_AD_MULT-free*COMPANION_FIND_COINS-(finds.length-free)*COMPANION_FIND_COINS;if(bonus>0){addCoins(bonus);}toast(`+${finds.length*COMPANION_FIND_COINS*FIND_AD_MULT} coins from your companions' finds`,'new');};
 }
 // V93: the Games tab (races + sparring ring) appears once the player has a house and a companion.
 const GAMES_SEEN_KEY='alchemy10k_games_seen_v1';
@@ -1777,6 +1781,8 @@ function saveWallet(){try{localStorage.setItem(WALLET_KEY,JSON.stringify(wallet)
 // V141 TESTER GIFT (owner request): 100,000 coins once, enough to buy every Market item and test it. REMOVE before the Play Store release.
 const TESTER_GIFT_KEY='alchemy10k_tester_coins_v141',TESTER_GIFT=100000;
 try{if(!localStorage.getItem(TESTER_GIFT_KEY)){wallet.coins+=TESTER_GIFT;localStorage.setItem(TESTER_GIFT_KEY,'1');saveWallet();}}catch{}
+/** V157: a small "+10 🪙" that floats up from the element counter. */
+function coinPop(n){try{const at=document.getElementById('discoveredCount')||document.body;const r=at.getBoundingClientRect();const e=document.createElement('span');e.className='coin-pop';e.textContent=`+${n} 🪙`;e.style.left=(r.left+r.width/2)+'px';e.style.top=(r.top+r.height)+'px';document.body.append(e);setTimeout(()=>e.remove(),1300);}catch{}}
 function addCoins(n){wallet.coins=Math.max(0,wallet.coins+Math.round(n));saveWallet();syncCoinLabels();return wallet.coins;}
 function spendCoins(n){if(wallet.coins<n)return false;wallet.coins-=n;saveWallet();syncCoinLabels();return true;}
 function syncCoinLabels(){document.querySelectorAll('[data-coins]').forEach(e=>e.textContent=wallet.coins.toLocaleString('en-US'));const s=$('stCoins');if(s)s.textContent='🪙 '+wallet.coins.toLocaleString('en-US');}

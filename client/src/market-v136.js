@@ -80,7 +80,11 @@ export function coinsFor(kind,level,place,{theme=false,firstGold=false}={}){
 export const LESSON_LEVELS=['Novice','Apprentice','Skilled','Expert','Master'];
 export const LESSON_MINUTES=[5,30,120,360,720];
 const LESSON_MULT=[1,2.5,5,9,15];
-export const lessonPrice=(l,level)=>Math.round(l.price*LESSON_MULT[level]/10)*10;
+/** V157: School costs half (owner). */
+export const LESSON_DISCOUNT=0.5;
+export const lessonPrice=(l,level)=>Math.round(l.price*LESSON_MULT[level]*LESSON_DISCOUNT/10)*10;
+/** V157: coins for discoveries — 10 per new Alchemy element; 10 per companion find, ×5 with an ad. */
+export const DISCOVERY_COINS=10,COMPANION_FIND_COINS=10,FIND_AD_MULT=5;
 export const SCHOOL_AD_CUT_MIN=30;
 export const LESSONS=[
  {id:'sing',name:'Singing',icon:'🎤',price:60,desc:'Sings a little tune with floating notes'},
