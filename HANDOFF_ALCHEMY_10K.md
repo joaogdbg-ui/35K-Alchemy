@@ -90,6 +90,8 @@ Preserve 200-per-batch policy and do not start another content release on top of
 
 - **Art redraw wave 3 (V85, done): 3,991 icons** — every remaining older element. All 6,012 pre-V83 elements now use the 2026 art direction (`ART_REDRAW`), plus 200 V83 and 200 V85 originals. Six near-duplicates found by the audit were redrawn; 36 reviewed false alarms are in `tools/art-redraw-reviewed-pairs.json` (the audit now also honours them for V83 comparisons).
 
+## V153 — make room costs 🪙150 and goes through the confirm sheet (2 November 2026)
+
 ## V152 — full belly after 20 elements; depth fix when walking north (2 November 2026)
 - Hidden per-companion counter (`p.eaten`, `p.fullUntil` in companion-engine-v86.js; `FULL_AFTER=20`, `FULL_MS=1h`). Element meals (drag or self-feed) count; refused elements and Market food don't. When full, dropping an element opens the "FULL BELLY" sheet (`openFullSheet` in app.js): wait (minutes left), ▶ rewarded ad `make_room`, or 🪙100 → `companions.makeRoom(id)` (another 20).
 - Home: a resident walking north keeps its current (front) z-index until the leg ends, so it no longer slips under the sprite it is walking past (`walkPath` in home-engine-v90.js).

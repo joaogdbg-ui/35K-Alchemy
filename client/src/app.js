@@ -503,7 +503,7 @@ function shinyCard(item){return `<p class="shiny-trivia"><span aria-hidden="true
 function showShinyFound(id){const it=byId.get(id);if(!it)return;
  showModal(`<div class="modal-tag shiny-tag">✦ SHINY ELEMENT</div><div class="modal-art is-shiny">${staticArt(it)}</div><h2>Shiny ${escapeText(uiName(it))}</h2>${shinyCard(it)}<div class="modal-milestone">${shiny.size.toLocaleString('en-US')} shiny ${shiny.size===1?'element':'elements'} · ${Math.round(shinyChance()*100)}% chance per combination</div>`);
 }
-const APP_VERSION='1.0.52';
+const APP_VERSION='1.0.53';
 // V83: status line + Google consent (UMP) privacy options, required for EEA players.
 async function refreshAdStatus(){
  const el=$('settingsAdStatus'),bridge=getRewardBridge();
@@ -1796,13 +1796,14 @@ const coinBar=()=>`<div class="mk-wallet"><span class="mk-coins">🪙 <b data-co
 function wireCoinBar(back){const b=$('mkBuyCoins');if(b)b.onclick=()=>openCoinShop(back);}
 // V137: coin packs — bigger packs give more coins per euro
 // V152: a full companion (20 elements) can eat again after 1 h, or now with an ad or 100 coins
-const MAKE_ROOM_COINS=100;
+const MAKE_ROOM_COINS=150;
 function openFullSheet({id,name,leftMs}){const mins=Math.max(1,Math.ceil(leftMs/60000));const ad=rewardedAvailable();
  showModal(`<div class="modal-tag">FULL BELLY</div><div class="cf-art"><span class="companion fr-ava" data-companion="${id}"><span class="companion-art">${COMPANION_SPRITES_V86[id]||''}</span></span></div><h2>${escapeText(name)} is full</h2><p>It ate 20 elements and needs a break. Hungry again in <b>${mins} min</b>.</p>
   ${ad?`<button type="button" class="modal-button" id="frAd">▶ Watch an ad · make room</button>`:''}<button type="button" class="modal-button ${ad?'secondary':''}" id="frCoins">🪙 ${MAKE_ROOM_COINS} · make room</button><button type="button" class="modal-button secondary" id="frWait">Wait</button>`);
  try{wearAll($('modalContent'));}catch{}
  $('frWait').onclick=closeModal;
- $('frCoins').onclick=()=>{if(!spendCoins(MAKE_ROOM_COINS)){closeModal();openCoinShop(()=>openFullSheet({id,name,leftMs:companions.fullLeft(id)}));return;}companions.makeRoom(id);closeModal();toast(`${name} can eat 20 more elements`,'new');};
+ // V153: coins are only spent after the player confirms (same confirm sheet as the Market)
+ $('frCoins').onclick=()=>{const back=()=>openFullSheet({id,name,leftMs:companions.fullLeft(id)});confirmBuy({art:`<span class="companion fr-ava" data-companion="${id}"><span class="companion-art">${COMPANION_SPRITES_V86[id]||''}</span></span>`,name:`Make room for ${name}`,desc:'It can eat 20 more elements right away.',price:MAKE_ROOM_COINS,label:'Make room'},()=>{companions.makeRoom(id);closeModal();toast(`${name} can eat 20 more elements`,'new');},back);try{wearAll($('modalContent'));}catch{}};
  const b=$('frAd');if(b)b.onclick=async()=>{if(rewardedHintBusy)return;rewardedHintBusy=true;b.disabled=true;let r=null;try{r=await getRewardBridge().showRewarded({kind:'make_room',companion:id});}catch(e){console.warn('Make room ad',e);}finally{rewardedHintBusy=false;}
   if(r?.earned!==true){toast('Ad not completed','repeat');b.disabled=false;return;}companions.makeRoom(id);closeModal();toast(`${name} can eat 20 more elements`,'new');};}
 function openCoinShop(back){
