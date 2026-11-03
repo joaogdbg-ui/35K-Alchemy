@@ -43,37 +43,45 @@ export const COIN_PACKS=[{id:'coins_100',coins:600,price:'€1.00',bonus:0},{id:
 export const FIRST_BUY_MULT=2;
 /** V174: companion colours — a coin sink (cosmetic). Exclusive ones come only with the big coin packs. */
 export const DYES=[
- {id:'dye-mint',name:'Mint',price:300,filter:'hue-rotate(60deg) saturate(1.1)'},
- {id:'dye-sky',name:'Sky',price:400,filter:'hue-rotate(150deg)'},
- {id:'dye-berry',name:'Berry',price:500,filter:'hue-rotate(250deg) saturate(1.2)'},
- {id:'dye-sunset',name:'Sunset',price:600,filter:'hue-rotate(320deg) saturate(1.4)'},
- {id:'dye-snow',name:'Snow',price:800,filter:'saturate(.25) brightness(1.18)'},
- {id:'dye-cocoa',name:'Cocoa',price:1000,filter:'sepia(.7) saturate(1.3) brightness(.85)'},
- {id:'dye-gold',name:'Gold',exclusive:'coins_1200',filter:'sepia(1) saturate(2.6) brightness(1.08) hue-rotate(-8deg)'},
- {id:'dye-aurora',name:'Aurora',exclusive:'coins_2600',filter:'hue-rotate(0deg)',anim:'dye-aurora'},
- {id:'dye-shadow',name:'Shadow',exclusive:'coins_7000',filter:'brightness(.55) contrast(1.4) saturate(.8)'},
- {id:'dye-rainbow',name:'Rainbow',exclusive:'coins_15000',filter:'hue-rotate(0deg) saturate(1.5)',anim:'dye-rainbow'}];
+ {id:'dye-mint',name:'Mint',price:600,tint:'mint',match:/\b(mint|herb|tea|leaf|lime|cactus|emerald|jade|lettuce|pea|cucumber|algae)\b/},
+ {id:'dye-sky',name:'Sky',price:800,tint:'sky',match:/\b(sky|ice|glass|crystal|bubble|blue|frost|diamond|window|lens|mirror)\b/},
+ {id:'dye-berry',name:'Berry',price:1000,tint:'berry',match:/\b(berry|grape|plum|wine|jam|cherry|beet|violet|lavender|juice)\b/},
+ {id:'dye-sunset',name:'Sunset',price:1200,tint:'sunset',match:/\b(sunset|orange|peach|mango|carrot|pumpkin|autumn|evening|apricot|brick|rust)\b/},
+ {id:'dye-snow',name:'Snow',price:1500,tint:'snow',match:/\b(white|milk|paper|cotton|salt|sugar|cream|ghost|marshmallow|flour|snowman|bandage)\b/},
+ {id:'dye-cocoa',name:'Cocoa',price:2000,tint:'cocoa',match:/\b(chocolate|coffee|cocoa|wood|bread|toast|brown|caramel|clay|leather|cookie|barrel)\b/},
+ {id:'dye-gold',name:'Gold',exclusive:'coins_1200',tint:'gold',match:/\b(gold|coin|treasure|crown|money|trophy|medal|king|queen|bank)\b/},
+ {id:'dye-aurora',name:'Aurora',exclusive:'coins_2600',tint:'aurora',match:/\b(aurora|galaxy|nebula|space|star|planet|comet|rocket|satellite|universe)\b/},
+ {id:'dye-shadow',name:'Shadow',exclusive:'coins_7000',tint:'onyx',match:/\b(shadow|night|dark|black|coal|oil|ink|smoke|bat|void|cave)\b/},
+ {id:'dye-rainbow',name:'Rainbow',exclusive:'coins_15000',tint:'rainbow',match:/\b(rainbow|unicorn|prism|party|confetti|colou?r|paint|candy|firework|balloon)\b/}];
+/** V175: give every colour a set of Alchemy elements that had no look effect: keyword matches first, then a stable fill. */
+export const DYE_MIN=12;
+export function assignDyes(names,hasLook){const free=names.filter(n=>!hasLook(n));const map=new Map(),taken=new Set();
+ for(const d of DYES)for(const n of free){if(taken.has(n))continue;if(d.match.test(n.toLowerCase())){map.set(n,d.id);taken.add(n);}}
+ const hash=s=>{let h=7;for(const c of s)h=(h*31+c.charCodeAt(0))>>>0;return h;};
+ const rest=free.filter(n=>!taken.has(n)).sort((a,b)=>hash(a)-hash(b));let k=0;
+ for(const d of DYES){let have=[...map.values()].filter(v=>v===d.id).length;while(have<DYE_MIN&&k<rest.length){map.set(rest[k++],d.id);have++;}}
+ return map;}
 /** V149: shown in the Market and the coin shop — nothing is pay-only. */
 export const FAIR_PLAY_NOTE='Everything that helps you play can be found in Alchemy or earned by playing (races, Karate, daily coins). Only four cosmetic colours come with the big coin packs.';
 export const MARKET=[
  // food: given straight to the companion on screen
  // V137: food is placed on the main screen; drag it onto a companion
- {id:'fruit-run',kind:'food',name:'Swift fruit',icon:'🍐',price:90,stat:'run',amount:60,desc:'Run +60 XP'},
- {id:'fruit-swim',kind:'food',name:'Sea fruit',icon:'🫐',price:90,stat:'swim',amount:60,desc:'Swim +60 XP'},
- {id:'fruit-fly',kind:'food',name:'Cloud fruit',icon:'🍑',price:90,stat:'fly',amount:60,desc:'Fly +60 XP'},
- {id:'fruit-power',kind:'food',name:'Strong fruit',icon:'🍎',price:90,stat:'power',amount:60,desc:'Power +60 XP'},
- {id:'fruit-stamina',kind:'food',name:'Hearty fruit',icon:'🍊',price:90,stat:'stamina',amount:60,desc:'Stamina +60 XP'},
- {id:'fruit-hp',kind:'food',name:'Life fruit',icon:'🍓',price:90,stat:'hp',amount:60,desc:'HP +60 XP'},
- {id:'mood-cookie',kind:'food',name:'Happy cookie',icon:'🍪',price:45,mood:30,desc:'Mood +30, Belly +30'},
- {id:'soap',kind:'food',name:'Bubble soap',icon:'🧼',price:70,look:'Soap',desc:'Washes colour off'},
- {id:'mirror',kind:'food',name:'Mirror drop',icon:'🪞',price:70,look:'Mirror',desc:'Undoes size and head trait'},
- {id:'rebirth',kind:'food',name:'Rebirth egg',icon:'🥚',price:180,look:'Egg',desc:'Back to the natural look'},
+ {id:'fruit-run',kind:'food',name:'Swift fruit',icon:'🍐',price:140,stat:'run',amount:60,desc:'Run +60 XP'},
+ {id:'fruit-swim',kind:'food',name:'Sea fruit',icon:'🫐',price:140,stat:'swim',amount:60,desc:'Swim +60 XP'},
+ {id:'fruit-fly',kind:'food',name:'Cloud fruit',icon:'🍑',price:140,stat:'fly',amount:60,desc:'Fly +60 XP'},
+ {id:'fruit-power',kind:'food',name:'Strong fruit',icon:'🍎',price:140,stat:'power',amount:60,desc:'Power +60 XP'},
+ {id:'fruit-stamina',kind:'food',name:'Hearty fruit',icon:'🍊',price:140,stat:'stamina',amount:60,desc:'Stamina +60 XP'},
+ {id:'fruit-hp',kind:'food',name:'Life fruit',icon:'🍓',price:140,stat:'hp',amount:60,desc:'HP +60 XP'},
+ {id:'mood-cookie',kind:'food',name:'Happy cookie',icon:'🍪',price:70,mood:30,desc:'Mood +30, Belly +30'},
+ {id:'soap',kind:'food',name:'Bubble soap',icon:'🧼',price:100,look:'Soap',desc:'Washes colour off'},
+ {id:'mirror',kind:'food',name:'Mirror drop',icon:'🪞',price:100,look:'Mirror',desc:'Undoes size and head trait'},
+ {id:'rebirth',kind:'food',name:'Rebirth egg',icon:'🥚',price:270,look:'Egg',desc:'Back to the natural look'},
  // accessories
  ...['party-hat','cap','bow','headphones','sunglasses','star-glasses','monocle','scarf','bandana','bowtie','top-hat','wizard-hat','cape'].map((a,i)=>({id:'acc-'+a,kind:'acc',acc:a,price:[180,180,160,280,240,300,360,200,200,220,420,520,650][i]})),
  // toys for the main screen
- {id:'toy-ball',kind:'toy',toy:'ball',name:'Bouncy ball',icon:'⚽',price:400,desc:'Your companions kick it around now and then'},
- {id:'toy-top',kind:'toy',toy:'top',name:'Spinning top',icon:'🪀',price:400,desc:'Spins when they give it a push'},
- {id:'toy-drum',kind:'toy',toy:'drum',name:'Little drum',icon:'🥁',price:500,desc:'They drum a little beat on it'},
+ {id:'toy-ball',kind:'toy',toy:'ball',name:'Bouncy ball',icon:'⚽',price:600,desc:'Your companions kick it around now and then'},
+ {id:'toy-top',kind:'toy',toy:'top',name:'Spinning top',icon:'🪀',price:600,desc:'Spins when they give it a push'},
+ {id:'toy-drum',kind:'toy',toy:'drum',name:'Little drum',icon:'🥁',price:750,desc:'They drum a little beat on it'},
  // furniture and houses: added to your elements
  ...[['organic89:running-wheel',650],['organic89:paddling-pool',650],['organic89:punching-bag',650],['organic89:trampoline',650],['organic89:climbing-wall',800],['organic89:bookshelf',800],['organic89:food-bowl',350],['organic89:ball-pit',600]].map(([el,price])=>({id:'el-'+el,kind:'furniture',element:el,price})),
  ...[['organic89:companion-tent',900],['organic89:companion-hut',1800],['organic89:companion-cabin',3200],['organic89:companion-cottage',5000],['organic89:companion-villa',7500],['organic89:companion-castle',11000],['organic139:grand-castle',16000]].map(([el,price])=>({id:'el-'+el,kind:'house',element:el,price}))

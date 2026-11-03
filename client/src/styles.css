@@ -2161,3 +2161,7 @@ body.ar-playing>*:not(.ar-stage){display:none!important}
 .cp-pack s{opacity:.6}.cp-gift{display:block;font-weight:900;color:#b4483b}
 .dye-art svg{width:100%;height:100%}.dye-art{display:block}
 .mk-tile.is-excl{background:linear-gradient(180deg,var(--surface),var(--accent-2))}
+/* V175: colour swatches */
+.dye-sw{display:block;width:52px;height:52px;margin:0 auto;border-radius:50%;border:3px solid #657D89;box-shadow:inset 0 -6px 0 rgba(0,0,0,.15),inset 0 4px 0 rgba(255,255,255,.35)}
+.dye-list{font-size:13px;line-height:1.5;color:var(--ink-2);max-height:200px;overflow:auto;background:var(--surface-2);border-radius:12px;padding:8px 10px}
+.mp-locked i,.mp-tint i{display:inline-block;width:12px;height:12px;border-radius:50%;margin-right:4px;vertical-align:-1px;border:1.5px solid #657D89}
