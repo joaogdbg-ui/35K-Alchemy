@@ -88,3 +88,22 @@ test('V175: market colour tints only after unlock', async () => {
   assert.equal(r.tint, 'berry');
   E.setMarketLook(null);
 });
+test('V176: looks and colours are gated, size is free, rivals unaffected', async () => {
+  const E = await import('../src/companion-engine-v86.js');
+  const M = await import('../src/market-v136.js');
+  assert.equal(M.LOOK_ITEMS.length, 24); assert.equal(M.TINT_ITEMS.length, 9);
+  assert.ok(M.LOOK_ITEMS.every(l => l.price >= 1500 && l.price <= 4000));
+  assert.ok(M.TINT_ITEMS.every(t => t.price >= 600 && t.price <= 1200));
+  const owned = { tints: [], looks: [] };
+  E.setLookGate({ tint: k => owned.tints.includes(k), theme: k => owned.looks.includes(k) });
+  let r = E.lookAfterMeal(undefined, 'Dragon', '', '', 3, true);
+  assert.equal(r.tint, null, 'dragon colour locked'); assert.ok(!Object.keys(r.look.mix.head || {}).length, 'no traits while locked');
+  const ungated = E.lookAfterMeal(undefined, 'Dragon', '', '', 3);
+  assert.ok(ungated.tint, 'rivals / previews of the catalogue are not gated');
+  owned.looks.push('dragon'); r = E.lookAfterMeal(undefined, 'Dragon', '', '', 3, true);
+  assert.ok(r.tint && Object.keys(r.look.mix.head || r.look.mix.back || {}).length >= 0);
+  const big = E.lookAfterMeal(undefined, 'Cake', '', 'food', 1, true); assert.ok(big.look.size > 0, 'size stays free');
+  let L = E.lookEffects('Leaf', 'nature', '', 1, true); assert.equal(L.tint, null); assert.equal(L.lockedTint.key, 'green');
+  owned.tints.push('green'); L = E.lookEffects('Leaf', 'nature', '', 1, true); assert.equal(L.tint.key, 'green');
+  E.setLookGate(null);
+});

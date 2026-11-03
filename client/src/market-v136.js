@@ -53,6 +53,10 @@ export const DYES=[
  {id:'dye-aurora',name:'Aurora',exclusive:'coins_2600',tint:'aurora',match:/\b(aurora|galaxy|nebula|space|star|planet|comet|rocket|satellite|universe)\b/},
  {id:'dye-shadow',name:'Shadow',exclusive:'coins_7000',tint:'onyx',match:/\b(shadow|night|dark|black|coal|oil|ink|smoke|bat|void|cave)\b/},
  {id:'dye-rainbow',name:'Rainbow',exclusive:'coins_15000',tint:'rainbow',match:/\b(rainbow|unicorn|prism|party|confetti|colou?r|paint|candy|firework|balloon)\b/}];
+/** V176: every look and colour change must be bought. Natural colours (tints from element families) and the 24 looks (traits). */
+export const TINT_ITEMS=[{key:'warm',name:'Warm',price:600},{key:'cool',name:'Cool',price:600},{key:'green',name:'Leafy',price:600},{key:'pink',name:'Rosy',price:600},{key:'light',name:'Bright',price:800},{key:'metal',name:'Metallic',price:900},{key:'purple',name:'Mystic',price:900},{key:'gold',name:'Golden',price:1200},{key:'dark',name:'Shadowy',price:1200}];
+const LP={dragon:4000,phoenix:4000,royal:4000,angel:4000,demon:3500,vampire:3500,space:3500,gold:3500,fairy:2500,ocean:2500,robot:2500,magic:2500,ice:2500,fire:2500,metal:2500};
+export const LOOK_ITEMS=['demon','vampire','angel','phoenix','dragon','fairy','ocean','fox','robot','bird','ice','fire','flower','plant','space','royal','love','music','magic','bubbles','metal','gold','sweet','water'].map(key=>({key,name:key[0].toUpperCase()+key.slice(1),price:LP[key]||1500})).sort((a,b)=>a.price-b.price);
 /** V175: give every colour a set of Alchemy elements that had no look effect: keyword matches first, then a stable fill. */
 export const DYE_MIN=12;
 export function assignDyes(names,hasLook){const free=names.filter(n=>!hasLook(n));const map=new Map(),taken=new Set();
@@ -91,7 +95,7 @@ export const MARKET_ELEMENT={'fruit-run':'organic139:swift-fruit','fruit-swim':'
  'acc-party-hat':'organic139:party-hat','acc-cap':'organic139:sports-cap','acc-bow':'legacy:607','acc-headphones':'legacy:330','acc-sunglasses':'organic139:sunglasses','acc-star-glasses':'organic139:star-glasses','acc-monocle':'organic139:monocle','acc-scarf':'organic139:scarf','acc-bandana':'organic139:bandana','acc-bowtie':'organic139:bow-tie','acc-top-hat':'organic139:top-hat','acc-wizard-hat':'organic139:wizard-hat','acc-cape':'organic139:hero-cape',
  'toy-ball':'legacy:557','toy-top':'organic89:spinning-top','toy-drum':'organic40:drum'};
 for(const it of MARKET)it.element=it.element||it.el||MARKET_ELEMENT[it.id]||null;
-export const MARKET_TABS=[['food','Food'],['acc','Wear'],['dye','Colours'],['toy','Toys'],['furniture','Furniture'],['house','Houses']];
+export const MARKET_TABS=[['food','Food'],['acc','Wear'],['look','Looks'],['dye','Colours'],['toy','Toys'],['furniture','Furniture'],['house','Houses']];
 /** V138: each extra copy of the same accessory costs more. */
 export const accPrice=(base,owned)=>Math.round(base*Math.pow(1.6,owned||0)/10)*10;
 /** V173 economy: daily gift 50, growing to 100 after 7 days in a row. */
