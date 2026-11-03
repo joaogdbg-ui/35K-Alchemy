@@ -107,3 +107,15 @@ test('V176: looks and colours are gated, size is free, rivals unaffected', async
   owned.tints.push('green'); L = E.lookEffects('Leaf', 'nature', '', 1, true); assert.equal(L.tint.key, 'green');
   E.setLookGate(null);
 });
+test('V177: ultra-rare drops', async () => {
+  const M = await import('../src/market-v136.js');
+  const E = await import('../src/companion-engine-v86.js');
+  assert.equal(M.champUltraChance(0), 0.05); assert.ok(Math.abs(M.champUltraChance(4) - 0.15) < 1e-9);
+  assert.equal(M.MINI_UNIQUE_CHANCE, 0.0001);
+  assert.equal(M.rollUltra('champ', [], () => 0.99, 0.1), null, 'no drop above the chance');
+  const u = M.rollUltra('champ', [], () => 0, 0.1); assert.equal(u.from, 'champ');
+  const all = M.ULTRA.filter(x => x.from === 'champ').map(x => x.id);
+  assert.equal(M.rollUltra('champ', all, () => 0, 1), null, 'nothing left to drop');
+  for (const x of M.ULTRA) { const ess = M.MARKET.find(m => m.id === x.ess); assert.ok(ess && ess.hidden && ess.look); const r = E.lookAfterMeal(undefined, ess.look, '', '', 3); assert.ok(r.tint, x.id + ' essence tints'); }
+  assert.ok(!M.MARKET.filter(m => m.hidden).some(m => !m.id.startsWith('ess-')));
+});

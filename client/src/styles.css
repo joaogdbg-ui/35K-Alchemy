@@ -2167,3 +2167,6 @@ body.ar-playing>*:not(.ar-stage){display:none!important}
 .mp-locked i,.mp-tint i{display:inline-block;width:12px;height:12px;border-radius:50%;margin-right:4px;vertical-align:-1px;border:1.5px solid #657D89}
 /* V176: look icons in the Market */
 .lk-ico{display:grid;place-items:center;width:52px;height:52px;margin:0 auto;border-radius:50%;background:var(--accent-2);border:2.5px solid #657D89}.lk-ico svg{width:40px;height:40px}
+/* V177: ultra rare */
+.mk-tile.is-ultra{background:linear-gradient(160deg,#fff5d6,#f3dfc8 60%,#e9d5ff)}.mk-tile.is-ultra .lk-ico{font-size:26px;background:#fff8ec}
+.g-prize.is-ultra{background:linear-gradient(135deg,#fff5d6,#e9d5ff);border:2px solid #d08a4c;animation:arBump 1s ease-in-out 3}.g-prize.is-ultra>span{font-size:30px;color:#d08a4c}

@@ -70,8 +70,9 @@ export function moodLabel(m){return m>=MOOD.happy?'Happy':m<=MOOD.sad?'Sad':'Con
  * Resets: soap/bath wash the tint, mirror undoes size and head, egg/rebirth/reset restores all.
  */
 export const LOOK_COLORS={warm:[255,138,61],cool:[74,168,255],green:[79,191,90],metal:[150,165,180],purple:[160,112,224],gold:[232,192,64],pink:[255,143,192],dark:[70,48,92],light:[255,250,232],
- mint:[120,220,180],sky:[120,190,250],berry:[170,60,140],sunset:[255,110,80],snow:[245,248,255],cocoa:[130,85,55],aurora:[90,220,210],onyx:[40,40,52],rainbow:[255,90,200]};
-const TINT_NAME={warm:'Warm',cool:'Cool',green:'Leafy',metal:'Metallic',purple:'Mystic',gold:'Golden',pink:'Rosy',dark:'Shadowy',light:'Bright',mint:'Mint',sky:'Sky',berry:'Berry',sunset:'Sunset',snow:'Snow',cocoa:'Cocoa',aurora:'Aurora',onyx:'Shadow',rainbow:'Rainbow'};
+ mint:[120,220,180],sky:[120,190,250],berry:[170,60,140],sunset:[255,110,80],snow:[245,248,255],cocoa:[130,85,55],aurora:[90,220,210],onyx:[40,40,52],rainbow:[255,90,200],
+ starlight:[215,230,255],obsidian:[28,18,40],ember:[255,80,30],pearl:[250,238,225],neon:[60,255,170],radiant:[255,215,90]};
+const TINT_NAME={warm:'Warm',cool:'Cool',green:'Leafy',metal:'Metallic',purple:'Mystic',gold:'Golden',pink:'Rosy',dark:'Shadowy',light:'Bright',mint:'Mint',sky:'Sky',berry:'Berry',sunset:'Sunset',snow:'Snow',cocoa:'Cocoa',aurora:'Aurora',onyx:'Shadow',rainbow:'Rainbow',starlight:'Starlight',obsidian:'Obsidian',ember:'Ember',pearl:'Pearl',neon:'Neon',radiant:'Radiant'};
 /** V175: Market colours — elements with no natural look can carry a colour that the Market unlocks. fn(name) → {name,tint,unlocked} */
 let MARKET_LOOK=null;
 export function setMarketLook(fn){MARKET_LOOK=typeof fn==="function"?fn:null;}
@@ -105,7 +106,14 @@ export const LOOK_THEMES=[
  ['metal',/\b(metal|steel|iron|gear|machine|computer|console|engine)\b/,{tint:'metal'}],
  ['gold',/\b(gold|golden|treasure|coin|trophy|jewel)\b/,{tint:'gold'}],
  ['sweet',/\b(candy|sugar|cake|sweet|cupcake|cookie)\b/,{tint:'pink'}],
- ['water',/\b(water|rain|river|lake|ocean|sea|wave)\b/,{tint:'cool'}]];
+ ['water',/\b(water|rain|river|lake|ocean|sea|wave)\b/,{tint:'cool'}],
+ // V177 ultra-rare looks and colours: only their essences carry them
+ ['celestial',/\bcelestial essence\b/,{tint:'starlight',head:'halo',back:'feather-wings',aura:'sparkle'}],
+ ['abyssal',/\babyssal essence\b/,{tint:'obsidian',head:'devil-horns',back:'bat-wings',tail:'devil-tail',aura:'embers'}],
+ ['titan',/\btitan essence\b/,{tint:'ember',head:'dragon-horns',back:'dragon-wings',tail:'dragon-tail',aura:'embers'}],
+ ['supreme',/\bsupreme essence\b/,{tint:'radiant',head:'crown',back:'fire-wings',tail:'fox-tail',aura:'sparkle'}],
+ ['u-starlight',/\bstarlight essence\b/,{tint:'starlight'}],['u-obsidian',/\bobsidian essence\b/,{tint:'obsidian'}],['u-ember',/\bember essence\b/,{tint:'ember'}],
+ ['u-pearl',/\bpearl essence\b/,{tint:'pearl'}],['u-neon',/\bneon essence\b/,{tint:'neon'}]];
 /** V121: hand-picked corrections. name (lower case) → theme key, or '-' for no theme. A hand-picked name
  * never triggers reset/wash/mirror (e.g. "Dragon Egg Cradle" is a dragon, "Black Sabbath" is not a bath). */
 export const LOOK_OVERRIDES={

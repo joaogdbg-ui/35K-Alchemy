@@ -13,5 +13,5 @@ test('V154: every Market item is an element that Alchemy can craft (reachable fr
   const have=new Set(['legacy:0','legacy:1','legacy:2','legacy:3']);let grew=true;
   while(grew){grew=false;for(const [k,v] of pairs){if(have.has(v))continue;const [a,b]=k.split('|');if(have.has(a)&&have.has(b)){have.add(v);grew=true;}}}
   const ids=new Set((Array.isArray(items)?items:[...items.values()]).map(i=>i.id));
-  for(const it of MARKET){assert.ok(it.element,`${it.id} has an element`);assert.ok(ids.has(it.element),`${it.element} is in the catalog`);assert.ok(have.has(it.element),`${it.element} (${it.id}) can be crafted in Alchemy`);}
+  for(const it of MARKET){if(it.hidden)continue;assert.ok(it.element,`${it.id} has an element`);assert.ok(ids.has(it.element),`${it.element} is in the catalog`);assert.ok(have.has(it.element),`${it.element} (${it.id}) can be crafted in Alchemy`);}
 });
