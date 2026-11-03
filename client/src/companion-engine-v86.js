@@ -69,8 +69,13 @@ export function moodLabel(m){return m>=MOOD.happy?'Happy':m<=MOOD.sad?'Sad':'Con
  * traits, 9+ gives RADIANT traits (bigger, glowing, animated) and a deeper tint.
  * Resets: soap/bath wash the tint, mirror undoes size and head, egg/rebirth/reset restores all.
  */
-export const LOOK_COLORS={warm:[255,138,61],cool:[74,168,255],green:[79,191,90],metal:[150,165,180],purple:[160,112,224],gold:[232,192,64],pink:[255,143,192],dark:[70,48,92],light:[255,250,232]};
-const TINT_NAME={warm:'Warm',cool:'Cool',green:'Leafy',metal:'Metallic',purple:'Mystic',gold:'Golden',pink:'Rosy',dark:'Shadowy',light:'Bright'};
+export const LOOK_COLORS={warm:[255,138,61],cool:[74,168,255],green:[79,191,90],metal:[150,165,180],purple:[160,112,224],gold:[232,192,64],pink:[255,143,192],dark:[70,48,92],light:[255,250,232],
+ mint:[120,220,180],sky:[120,190,250],berry:[170,60,140],sunset:[255,110,80],snow:[245,248,255],cocoa:[130,85,55],aurora:[90,220,210],onyx:[40,40,52],rainbow:[255,90,200]};
+const TINT_NAME={warm:'Warm',cool:'Cool',green:'Leafy',metal:'Metallic',purple:'Mystic',gold:'Golden',pink:'Rosy',dark:'Shadowy',light:'Bright',mint:'Mint',sky:'Sky',berry:'Berry',sunset:'Sunset',snow:'Snow',cocoa:'Cocoa',aurora:'Aurora',onyx:'Shadow',rainbow:'Rainbow'};
+/** V175: Market colours — elements with no natural look can carry a colour that the Market unlocks. fn(name) → {name,tint,unlocked} */
+let MARKET_LOOK=null;
+export function setMarketLook(fn){MARKET_LOOK=typeof fn==="function"?fn:null;}
+export function hasNaturalLook(name,family=''){const tf=themeFor(name);return !!(tf.theme||FAMILY_TINT[family]);}
 const TRAIT_NAME={leaf:'Leaf sprout',flower:'Flower',flame:'Little flame',flake:'Snowflake',antenna:'Antenna',star:'Star',crown:'Crown','devil-horns':'Devil horns','dragon-horns':'Dragon horns',halo:'Halo','bat-wings':'Bat wings','feather-wings':'Feathered wings','butterfly-wings':'Butterfly wings','dragon-wings':'Dragon wings','fire-wings':'Fire wings',fin:'Fin','devil-tail':'Devil tail','fox-tail':'Fox tail','fish-tail':'Fish tail','dragon-tail':'Dragon tail',sparkle:'Sparkles',bubbles:'Bubbles',hearts:'Hearts',notes:'Music notes',embers:'Embers'};
 export const LOOK_THEMES=[
  ['demon',/\b(demon|devil|imp|fiend|lucifer|hellhound|inferno|underworld|diablo)\b/,{tint:'dark',head:'devil-horns',back:'bat-wings',tail:'devil-tail'}],
@@ -137,7 +142,7 @@ export function lookAfterMeal(look,name,family='',category='',depth){
  if(wash&&L.k>0){L.k=Math.round(L.k*0.4*100)/100;if(L.k<0.04){L.k=0;L.tint=null;}L.aura=null;notes.push('Washed some colour off');}
  if(/mirror|reflection/.test(t)&&(L.size||Object.keys(L.mix.head).length)){L.size=Math.round(L.size*0.4*100)/100;L.mix.head={};L.head=null;notes.push('Looks more like itself');}
  const theme=tf.theme;const set=theme?theme[2]:{};const tl=` ${String(name||'').toLowerCase()} `;
- const tk=set.tint||FAMILY_TINT[family];
+ let tk=set.tint||FAMILY_TINT[family];if(!tk&&!theme){const ml=MARKET_LOOK?.(name);if(ml?.unlocked&&LOOK_COLORS[ml.tint])tk=ml.tint;}
  if(tk&&!wash){const c=LOOK_COLORS[tk];const step=[0,0.05,0.07,0.1][tier],cap=tier===3?0.62:0.5;L.tint=L.tint&&L.k>0?mix(L.tint,c,tier===3?0.6:0.4):c;const was=L.k;L.k=Math.min(cap,Math.round((L.k+step)*100)/100);if(L.k>was)notes.push(`A little more ${TINT_NAME[tk].toLowerCase()}`);}
  const grow=category==='food'||/\b(food|cake|bread|pie|burger|pizza|meal|feast|mountain|whale|giant|elephant|huge|titan|mammoth)\b/.test(tl),shrink=/\b(air|feather|cloud|bubble|tiny|mini|small|ant|mouse|dust|pebble)\b/.test(tl);
  if(grow&&!shrink&&L.size<0.15){L.size=Math.min(0.15,Math.round((L.size+0.02)*100)/100);notes.push('Grew a bit');}
@@ -174,10 +179,10 @@ export function rivalLook(seed,level=0){let x=(Math.abs(Math.floor(seed))%214748
  return L;}
 /** V118: what an element WOULD do to a companion's looks (for the element sheet), from a plain look. */
 export function lookEffects(name,family='',category='',depth){const tf=themeFor(name);const t=tf.picked?' ':` ${String(name||'').toLowerCase()} `;const tier=lookTier(depth);const r=lookAfterMeal(defaultLook(),name,family,category,depth).look;
- const theme=tf.theme;const set=theme?theme[2]:{};const tk=set.tint||FAMILY_TINT[family]||null;
+ const theme=tf.theme;const set=theme?theme[2]:{};const ml=!theme&&!FAMILY_TINT[family]?MARKET_LOOK?.(name):null;const tk=set.tint||FAMILY_TINT[family]||(ml?.unlocked?ml.tint:null)||null;
  const traits=['head','back','tail','aura'].filter(sl=>set[sl]).map(sl=>({slot:sl,label:TRAIT_NAME[set[sl]],lux:tier===3,locked:tier<2}));
  const resets=[];if(/rebirth|\begg\b|reset|reincarnat/.test(t))resets.push('Restores the natural look');if(/soap|bath|shower|wash|sponge|clean/.test(t))resets.push('Washes colour off');if(/mirror|reflection/.test(t))resets.push('Undoes size and head trait');
- return {tint:tk&&!/soap|bath|shower|wash|sponge|clean/.test(t)?{key:tk,name:TINT_NAME[tk],rgb:LOOK_COLORS[tk]}:null,size:r.size,traits,resets,tier,theme:theme?.[0]||null};}
+ return {tint:tk&&!/soap|bath|shower|wash|sponge|clean/.test(t)?{key:tk,name:TINT_NAME[tk],rgb:LOOK_COLORS[tk]}:null,size:r.size,traits,resets,tier,theme:theme?.[0]||null,market:ml?{name:ml.name,locked:!ml.unlocked,rgb:LOOK_COLORS[ml.tint]||[200,200,200]}:null};}
 export function lookLabel(look){if(!look)return '';const out=[];const tk=look.tint&&look.k>0.02?Object.entries(LOOK_COLORS).sort((a,b)=>dist(a[1],look.tint)-dist(b[1],look.tint))[0][0]:null;
  if(tk)out.push(`${TINT_NAME[tk]} tint`);const N=normLook(look);for(const sl of ['head','back','tail','aura']){const e=Object.entries(N.mix[sl]).filter(([,w])=>w>0.04).sort((a,b)=>b[1]-a[1]);if(!e.length)continue;const lx=e.some(([k])=>N.lux[sl+':'+k]);const tot=e.reduce((n,[,w])=>n+w,0);
   out.push((lx?'✦ ':'')+(e.length>1?`${TRAIT_NAME[e[0][0]]} / ${TRAIT_NAME[e[1][0]].toLowerCase()} mix`:TRAIT_NAME[e[0][0]])+(tot<0.99?` ${Math.round(tot*100)}%`:''));}if(Math.abs(look.size||0)>=0.01)out.push(`Size ${look.size>0?'+':''}${Math.round(look.size*100)}%`);return out.join(' · ');}

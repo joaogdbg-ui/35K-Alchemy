@@ -67,3 +67,24 @@ test('V174: bigger packs, first-buy bonus, colours', async () => {
   assert.ok(M.DYES.filter(d => !d.exclusive).every(d => d.price >= 300));
   assert.ok(M.MARKET_TABS.some(t => t[0] === 'dye'));
 });
+test('V175: colours live in elements without a natural look', async () => {
+  const M = await import('../src/market-v136.js');
+  const names = ['Grape', 'Wine', 'Gold coin', 'Robot', 'Lamp', 'Chair', 'Fire', 'Coffee', ...Array.from({ length: 300 }, (_, i) => 'Thing ' + i)];
+  const map = M.assignDyes(names, n => n === 'Fire');
+  assert.equal(map.get('Grape'), 'dye-berry'); assert.equal(map.get('Gold coin'), 'dye-gold'); assert.equal(map.get('Coffee'), 'dye-cocoa');
+  assert.ok(!map.has('Fire'), 'elements with a natural look are never used');
+  for (const d of M.DYES) assert.ok([...map.values()].filter(v => v === d.id).length >= M.DYE_MIN, d.id + ' has enough elements');
+  assert.ok(M.DYES.filter(d => !d.exclusive).every(d => d.price >= 600));
+});
+test('V175: market colour tints only after unlock', async () => {
+  const E = await import('../src/companion-engine-v86.js');
+  let unlocked = false;
+  E.setMarketLook(n => n === 'Berry Jam' ? { name: 'Berry', tint: 'berry', unlocked } : null);
+  let L = E.lookEffects('Berry Jam', '', 'food', 1);
+  assert.equal(L.tint, null); assert.equal(L.market.locked, true);
+  unlocked = true; L = E.lookEffects('Berry Jam', '', 'food', 1);
+  assert.equal(L.tint.key, 'berry');
+  const r = E.lookAfterMeal(undefined, 'Berry Jam', '', 'food', 1);
+  assert.equal(r.tint, 'berry');
+  E.setMarketLook(null);
+});
