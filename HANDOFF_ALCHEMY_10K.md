@@ -90,6 +90,12 @@ Preserve 200-per-batch policy and do not start another content release on top of
 
 - **Art redraw wave 3 (V85, done): 3,991 icons** — every remaining older element. All 6,012 pre-V83 elements now use the 2026 art direction (`ART_REDRAW`), plus 200 V83 and 200 V85 originals. Six near-duplicates found by the audit were redrawn; 36 reviewed false alarms are in `tools/art-redraw-reviewed-pairs.json` (the audit now also honours them for V83 comparisons).
 
+## V176 — All look and colour changes are bought in the Market
+- Owner decision: every colour and trait change needs a Market unlock; size changes stay free; looks companions already have are kept; themed races need the look bought first (hint in the event sheet).
+- Engine: setLookGate({tint,theme}); lookAfterMeal/lookEffects take gate=true only for the player's own feeding and meal preview (rivals, catalogue filter stay ungated). lookEffects returns lockedTint and traits with buy:true; themeInfo(key) for the Market.
+- Market: new Looks tab (LOOK_ITEMS, 24 looks, 1,500–4,000: Dragon/Phoenix/Royal/Angel 4,000 …) and Colours tab with 9 natural colours (TINT_ITEMS, 600–1,200) above the special colours. Wallet persists looks[] and tints[]. A look unlock also opens its own colour.
+- Meal preview shows "🔒 … tint · Market › Colours" and "🔒 … · Market › Looks".
+
 ## V175 — Colours live in Alchemy elements; Market a bit pricier
 - Owner design: a bought colour is no longer applied directly. Each colour (DYES, with tint key + keyword match) belongs to Alchemy elements that had no look effect (no theme, no family tint): assignDyes(names, hasNaturalLook) picks keyword matches (Berry → jams, Cocoa → chocolate/coffee/wood…) and fills each colour to ≥ 12 elements by a stable hash.
 - Engine: new tint keys in LOOK_COLORS/TINT_NAME (mint, sky, berry, sunset, snow, cocoa, aurora, onyx, rainbow); setMarketLook(fn) hook used by lookAfterMeal (tint only if unlocked) and lookEffects (returns market:{name,locked,rgb}). Meal preview shows "🔒 Berry tint · unlock in Market › Colours" while locked.

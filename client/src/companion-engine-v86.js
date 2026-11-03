@@ -75,6 +75,10 @@ const TINT_NAME={warm:'Warm',cool:'Cool',green:'Leafy',metal:'Metallic',purple:'
 /** V175: Market colours — elements with no natural look can carry a colour that the Market unlocks. fn(name) → {name,tint,unlocked} */
 let MARKET_LOOK=null;
 export function setMarketLook(fn){MARKET_LOOK=typeof fn==="function"?fn:null;}
+/** V176: every look change (colours and traits; size stays free) must be bought in the Market. Gate = {tint:key=>bool, theme:key=>bool}. Rivals and previews of the full catalogue pass gate=false. */
+let LOOK_GATE=null;
+export function setLookGate(g){LOOK_GATE=g&&typeof g==='object'?g:null;}
+const tintOpen=k=>!LOOK_GATE||!!LOOK_GATE.tint?.(k);const themeOpen=k=>!LOOK_GATE||!!LOOK_GATE.theme?.(k);
 export function hasNaturalLook(name,family=''){const tf=themeFor(name);return !!(tf.theme||FAMILY_TINT[family]);}
 const TRAIT_NAME={leaf:'Leaf sprout',flower:'Flower',flame:'Little flame',flake:'Snowflake',antenna:'Antenna',star:'Star',crown:'Crown','devil-horns':'Devil horns','dragon-horns':'Dragon horns',halo:'Halo','bat-wings':'Bat wings','feather-wings':'Feathered wings','butterfly-wings':'Butterfly wings','dragon-wings':'Dragon wings','fire-wings':'Fire wings',fin:'Fin','devil-tail':'Devil tail','fox-tail':'Fox tail','fish-tail':'Fish tail','dragon-tail':'Dragon tail',sparkle:'Sparkles',bubbles:'Bubbles',hearts:'Hearts',notes:'Music notes',embers:'Embers'};
 export const LOOK_THEMES=[
@@ -135,7 +139,7 @@ const mix=(a,b,t)=>a.map((v,i)=>Math.round(v+(b[i]-v)*t));
 const POWER_FX={fire:(i,n,r)=>[48+i*5+r*14,(r-.5)*18-i,1.2+i*.12],frost:(i,n,r)=>[44+i*5+r*12,(r-.5)*16,1+i*.1],
  fairy:(i,n,r)=>[(r-.5)*80,24+r*40,.6+r*.6],phoenix:(i,n)=>{const a=i/n*2*Math.PI;return [Math.cos(a)*46,Math.sin(a)*40-10,1];},
  shadow:(i,n,r)=>[(r-.5)*60,-30-r*30,1.4+r],holy:(i,n,r)=>[(i-n/2)*7,-18-r*14,.8+r*.4],water:(i,n,r)=>[(r-.5)*44,-28-i*2+r*8,.8+r*.5]};
-export function lookAfterMeal(look,name,family='',category='',depth){
+export function lookAfterMeal(look,name,family='',category='',depth,gate=false){
  const L=normLook(look);const tf=themeFor(name);const t=tf.picked?' ':` ${String(name||'').toLowerCase()} `;const notes=[];const tier=lookTier(depth);
  if(/rebirth|\begg\b|reset|reincarnat/.test(t)&&(L.k>0||L.size||['head','back','tail','aura'].some(sl=>Object.keys(L.mix[sl]).length))){notes.push('Back to its natural look');return {look:defaultLook(),notes};}
  const wash=/soap|bath|shower|wash|sponge|clean/.test(t);
@@ -143,11 +147,12 @@ export function lookAfterMeal(look,name,family='',category='',depth){
  if(/mirror|reflection/.test(t)&&(L.size||Object.keys(L.mix.head).length)){L.size=Math.round(L.size*0.4*100)/100;L.mix.head={};L.head=null;notes.push('Looks more like itself');}
  const theme=tf.theme;const set=theme?theme[2]:{};const tl=` ${String(name||'').toLowerCase()} `;
  let tk=set.tint||FAMILY_TINT[family];if(!tk&&!theme){const ml=MARKET_LOOK?.(name);if(ml?.unlocked&&LOOK_COLORS[ml.tint])tk=ml.tint;}
+ if(gate&&tk&&!(theme&&set.tint===tk&&themeOpen(theme[0]))&&!(MARKET_LOOK?.(name)?.tint===tk)&&!tintOpen(tk))tk=null;
  if(tk&&!wash){const c=LOOK_COLORS[tk];const step=[0,0.05,0.07,0.1][tier],cap=tier===3?0.62:0.5;L.tint=L.tint&&L.k>0?mix(L.tint,c,tier===3?0.6:0.4):c;const was=L.k;L.k=Math.min(cap,Math.round((L.k+step)*100)/100);if(L.k>was)notes.push(`A little more ${TINT_NAME[tk].toLowerCase()}`);}
  const grow=category==='food'||/\b(food|cake|bread|pie|burger|pizza|meal|feast|mountain|whale|giant|elephant|huge|titan|mammoth)\b/.test(tl),shrink=/\b(air|feather|cloud|bubble|tiny|mini|small|ant|mouse|dust|pebble)\b/.test(tl);
  if(grow&&!shrink&&L.size<0.15){L.size=Math.min(0.15,Math.round((L.size+0.02)*100)/100);notes.push('Grew a bit');}
  else if(shrink&&!grow&&L.size>-0.15){L.size=Math.max(-0.15,Math.round((L.size-0.02)*100)/100);notes.push('Got a bit smaller');}
- if(tier>=2)for(const slot of ['head','back','tail','aura']){const v=set[slot];if(!v)continue;const mx=L.mix[slot];const gain=tier===3?0.4:0.25;
+ if(tier>=2&&!(gate&&theme&&!themeOpen(theme[0])))for(const slot of ['head','back','tail','aura']){const v=set[slot];if(!v)continue;const mx=L.mix[slot];const gain=tier===3?0.4:0.25;
   const before=dominant(mx),had=mx[v]||0;mx[v]=Math.min(1,had+gain);const others=Object.keys(mx).filter(k=>k!==v);const oSum=others.reduce((n,k)=>n+mx[k],0);
   if(mx[v]+oSum>1&&oSum>0){const f=Math.max(0,1-mx[v])/oSum;for(const k of others){mx[k]=Math.round(mx[k]*f*100)/100;if(mx[k]<0.04)delete mx[k];}}
   mx[v]=Math.round(mx[v]*100)/100;if(tier===3)L.lux[slot+':'+v]=1;
@@ -178,11 +183,13 @@ export function rivalLook(seed,level=0){let x=(Math.abs(Math.floor(seed))%214748
  if(rnd()<0.35)for(let i=0;i<1+level;i++)L=lookAfterMeal(L,rnd()<0.5?'Cake':'Feather','','food',3).look;
  return L;}
 /** V118: what an element WOULD do to a companion's looks (for the element sheet), from a plain look. */
-export function lookEffects(name,family='',category='',depth){const tf=themeFor(name);const t=tf.picked?' ':` ${String(name||'').toLowerCase()} `;const tier=lookTier(depth);const r=lookAfterMeal(defaultLook(),name,family,category,depth).look;
+export function lookEffects(name,family='',category='',depth,gate=false){const tf=themeFor(name);const t=tf.picked?' ':` ${String(name||'').toLowerCase()} `;const tier=lookTier(depth);const r=lookAfterMeal(defaultLook(),name,family,category,depth).look;
  const theme=tf.theme;const set=theme?theme[2]:{};const ml=!theme&&!FAMILY_TINT[family]?MARKET_LOOK?.(name):null;const tk=set.tint||FAMILY_TINT[family]||(ml?.unlocked?ml.tint:null)||null;
- const traits=['head','back','tail','aura'].filter(sl=>set[sl]).map(sl=>({slot:sl,label:TRAIT_NAME[set[sl]],lux:tier===3,locked:tier<2}));
+ const thLocked=gate&&theme&&!themeOpen(theme[0]);
+ const traits=['head','back','tail','aura'].filter(sl=>set[sl]).map(sl=>({slot:sl,label:TRAIT_NAME[set[sl]],lux:tier===3,locked:tier<2,buy:thLocked}));
+ const natTint=set.tint||FAMILY_TINT[family]||null;const tintLocked=gate&&natTint&&!(theme&&set.tint===natTint&&themeOpen(theme[0]))&&!tintOpen(natTint);
  const resets=[];if(/rebirth|\begg\b|reset|reincarnat/.test(t))resets.push('Restores the natural look');if(/soap|bath|shower|wash|sponge|clean/.test(t))resets.push('Washes colour off');if(/mirror|reflection/.test(t))resets.push('Undoes size and head trait');
- return {tint:tk&&!/soap|bath|shower|wash|sponge|clean/.test(t)?{key:tk,name:TINT_NAME[tk],rgb:LOOK_COLORS[tk]}:null,size:r.size,traits,resets,tier,theme:theme?.[0]||null,market:ml?{name:ml.name,locked:!ml.unlocked,rgb:LOOK_COLORS[ml.tint]||[200,200,200]}:null};}
+ const wash2=/soap|bath|shower|wash|sponge|clean/.test(t);return {tint:tk&&!wash2&&!tintLocked?{key:tk,name:TINT_NAME[tk],rgb:LOOK_COLORS[tk]}:null,lockedTint:tintLocked&&!wash2?{key:natTint,name:TINT_NAME[natTint],rgb:LOOK_COLORS[natTint]}:null,lookLocked:thLocked?theme[0]:null,size:r.size,traits,resets,tier,theme:theme?.[0]||null,market:ml?{name:ml.name,locked:!ml.unlocked,rgb:LOOK_COLORS[ml.tint]||[200,200,200]}:null};}
 export function lookLabel(look){if(!look)return '';const out=[];const tk=look.tint&&look.k>0.02?Object.entries(LOOK_COLORS).sort((a,b)=>dist(a[1],look.tint)-dist(b[1],look.tint))[0][0]:null;
  if(tk)out.push(`${TINT_NAME[tk]} tint`);const N=normLook(look);for(const sl of ['head','back','tail','aura']){const e=Object.entries(N.mix[sl]).filter(([,w])=>w>0.04).sort((a,b)=>b[1]-a[1]);if(!e.length)continue;const lx=e.some(([k])=>N.lux[sl+':'+k]);const tot=e.reduce((n,[,w])=>n+w,0);
   out.push((lx?'✦ ':'')+(e.length>1?`${TRAIT_NAME[e[0][0]]} / ${TRAIT_NAME[e[1][0]].toLowerCase()} mix`:TRAIT_NAME[e[0][0]])+(tot<0.99?` ${Math.round(tot*100)}%`:''));}if(Math.abs(look.size||0)>=0.01)out.push(`Size ${look.size>0?'+':''}${Math.round(look.size*100)}%`);return out.join(' · ');}
@@ -263,6 +270,8 @@ export function morphBlend(group,mix,lux={},slot=''){const V=MORPH[group];const 
  return {pts,color:`rgb(${col.map(Math.round).join(',')})`,grow:0.35+0.65*Math.min(1,tot),lux:e.some(([id])=>lux[slot+':'+id])};}
 /** Smooth closed path through points (quadratic curves via midpoints), scaled and placed. */
 /** V134: small icon of a trait (its real outline/colour) for the Looks filter. */
+/** V176: what a look theme gives (for the Market). */
+export function themeInfo(key){const th=LOOK_THEMES.find(([k])=>k===key);if(!th)return null;const set=th[2];const traits=['head','back','tail','aura'].filter(sl=>set[sl]).map(sl=>TRAIT_NAME[set[sl]]);return {key,traits,tint:set.tint?{key:set.tint,name:TINT_NAME[set.tint],rgb:LOOK_COLORS[set.tint]}:null,icon:traits[0]?traitIconSvg(traits[0]):''};}
 export function traitIconSvg(label){const id=Object.keys(TRAIT_NAME).find(k=>TRAIT_NAME[k]===label);if(!id)return '';
  const g=Object.keys(MORPH).find(k=>MORPH[k][id]);const wrap=b=>`<svg viewBox="-24 -24 48 48" width="40" height="40" aria-hidden="true">${b}</svg>`;
  if(g){const pts=MORPH[g][id];let xs=pts.map(p=>p[0]),ys=pts.map(p=>p[1]);const w=Math.max(...xs)-Math.min(...xs),h=Math.max(...ys)-Math.min(...ys);const sc=34/Math.max(w,h);
@@ -566,7 +575,7 @@ export function createCompanionSystem(ctx){
   // V135: filters/counts in the element list depend on what was fed — refresh them right away
   try{ctx.onMeal?.(item.id,self);}catch(e){console.warn('onMeal',e);}
   const lookBefore=p.look;
-  const lk=self?{look:p.look,notes:[]}:lookAfterMeal(p.look,item.name||uiName(item),familyFor(item),item.category,ctx.depthOf?.(item.id));p.look=lk.look;save();if(lk.notes.length)try{ctx.wear?.(sprite.parentElement||sprite);}catch{}
+  const lk=self?{look:p.look,notes:[]}:lookAfterMeal(p.look,item.name||uiName(item),familyFor(item),item.category,ctx.depthOf?.(item.id),true);p.look=lk.look;save();if(lk.notes.length)try{ctx.wear?.(sprite.parentElement||sprite);}catch{}
   if(changes.length)showStatWindow(meta,changes,2800);
   else{const left=Math.max(1,Math.ceil((FEED_COOLDOWN_MS-(now()-last))/60000));showNoteWindow(meta,fresh?[`<b>${escapeText(uiName(item))}</b> · stats already at max`,`Belly +${Math.round(25*growth(meta.id,'food'))} · Mood +${taste==='love'?12:5}`]:[`Already ate <b>${escapeText(uiName(item))}</b> recently`,`No growth for ${left} min — try another element`,`Belly +${Math.round(10*growth(meta.id,'food'))} · Mood +${taste==='love'?12:5}`],3200);}
   if(!self&&statWin&&!statWin.hidden){const rows=lookDiff(lookBefore,lk.look,lk.tint);const resets=lk.notes.filter(n=>/natural|washed|itself/i.test(n));
@@ -1159,7 +1168,7 @@ export function createCompanionSystem(ctx){
   const taste=likes(meta,item),last=p.fed[item.id]||0,fresh=now()-last>FEED_COOLDOWN_MS,depth=ctx.depthOf?.(item.id);
   const stats=taste==='no'?[]:feedPlan(meta,item).map(c=>({stat:c.stat,label:STAT_LABEL[c.stat],amount:Math.round(c.amount*growth(cid,c.stat))}));
   const known=tasted(item.id);
-  return {cid,known,name:nameOf(meta),taste,fresh,cooldownMin:fresh?0:Math.max(1,Math.ceil((FEED_COOLDOWN_MS-(now()-last))/60000)),stats,depth,depthMult:feedDepthMult(depth),looks:lookEffects(item.name||uiName(item),familyFor(item),item.category,depth)};}
+  return {cid,known,name:nameOf(meta),taste,fresh,cooldownMin:fresh?0:Math.max(1,Math.ceil((FEED_COOLDOWN_MS-(now()-last))/60000)),stats,depth,depthMult:feedDepthMult(depth),looks:lookEffects(item.name||uiName(item),familyFor(item),item.category,depth,true)};}
  function tasted(itemId){return !!state.tasted?.[itemId]||Object.values(state.pets||{}).some(q=>q?.fed?.[itemId]);}
  function looksOf(itemId){const item=byId.get(itemId);if(!item)return null;return lookEffects(item.name||uiName(item),familyFor(item),item.category,ctx.depthOf?.(item.id));}
  return {visitorScene,fullLeft,makeRoom,feedStatsOf:itemId=>{const it=byId.get(itemId);return it?(FAMILY_FEEDS[familyFor(it)]||['stamina','hp']):[];},activeStats:()=>{const m=activeMeta();return m?{name:nameOf(m),family:m.family,stats:pet(m.id).stats}:null;},duoActive,applyRivalLook:(svg,id,look)=>applyLookSvg(svg,look,id+'-rival'),setBuddy,swapDuo,requestDuo:k=>{duoRequest=k||'any';},duoPlay,buddy:()=>buddyMeta()?.id||null,duoPair:()=>duoActive()?[state.active,state.buddy]:[],tasted,looksOf,mealPreview,lookOf,applyLook:(svg,id)=>{applyLookSvg(svg,lookOf(id),id);applyWearSvg(svg,id);},wearOf:id=>({...(state.pets[id]?.wear||{})}),setWear,takeOff,marketFeed,learn,skillsOf,skillLevel,themeCompletion,playToy,placeToy,performSkill,start,stop,setActive,statsHtml,info,gameReward,choose,homeEffect,syncSeen,markSeen,isCompanion,freeChoiceLeft,emote,feed,hitTest,onDiscovery,renderTab,openCard,get active(){return activeMeta();},state:()=>state,unlocked,refreshViews,
