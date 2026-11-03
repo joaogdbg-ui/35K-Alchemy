@@ -238,7 +238,7 @@ export function createGamesSystem(ctx){
   if(!mount)return;if(preview&&!owned().some(c=>c.id===preview))preview=null;const pid=shown();
   if(!pid){mount.innerHTML='<div class="pets-scroll"><div class="section-head"><h2>Stadium</h2><p>Discover a companion to enter the races.</p></div></div>';return;}
   const info=companionInfo(pid),n=medalCounts(),belt=belts.find(b=>b.id===beltOf(pid));
-  const toys=COURSES.map(c=>trophyOf(c.id)),won=toys.filter(p=>hasPrize(p.id)).length;
+  const toys=[...COURSES.map(c=>trophyOf(c.id)),...THEME_COURSES.map(c=>({id:'acc:'+c.prize}))],won=COURSES.filter(c=>hasPrize(trophyOf(c.id).id)).length+THEME_COURSES.filter(c=>ctx.hasAcc?.(c.prize)).length;
   const goldN=EVENTS().filter(e=>best(bagOf(e),LEVELS.length-1)===1).length;const openN=EVENTS().filter(e=>e.kind!=='race'||courseOpen(e.course)).length;
   const shopBtn=(id,ico,b,sm)=>`<button type="button" class="st-shop-btn" id="${id}"><span>${ico}</span><b>${b}</b><small>${sm}</small></button>`;
   const shop=`<div class="st-shop is-hub">${shopBtn('stGames','🎮','Games',`Minigames, races &amp; karate · ${goldN}/${EVENTS().length} gold`)}${shopBtn('stSchool','🏫','School','Teach new tricks')}${shopBtn('stPrizes','🏆','Prizes',`${won}/${toys.length} trophies${belt?' · '+escapeText(belt.name.replace(' Belt','')):''}`)}${shopBtn('stMarket','🛒','Market','Food, wear, toys, houses')}</div>`;
@@ -296,6 +296,7 @@ export function createGamesSystem(ctx){
   const others=owned().filter(c=>c.id!==pid).map(c=>({c,n:COURSES.filter(x=>hasPrize(trophyOf(x.id,c.id).id)).length})).filter(x=>x.n);
   const beltRows=owned().filter(c=>beltOf(c.id)).map(c=>{const b=belts.find(x=>x.id===beltOf(c.id));return `<span class="st-beltrow">${prizes.beltSvg(b,26)}<b>${escapeText(companionInfo(c.id).name)}</b><small>${b.name}</small></span>`;}).join('');
   showModal(`<div class="modal-tag">PRIZES</div><strong class="st-h">${who}'s trophies</strong><div class="st-toys">${toys.map(({c,p})=>`<span class="st-toy ${hasPrize(p.id)?'is-won':''}"><span class="st-toy-art">${p.art}</span><small>${escapeText(p.name)}</small><em>${hasPrize(p.id)?'Place it from Home':escapeText(c.name)+' · Champion'}</em></span>`).join('')}</div>${others.length?`<p class="mini-muted">Other companions: ${others.map(x=>escapeText(companionInfo(x.c.id).name)+' '+x.n+'/6').join(' · ')}</p>`:''}
+   <strong class="st-h">Themed race prizes</strong><div class="st-toys">${THEME_COURSES.map(c=>{const w=ctx.hasAcc?.(c.prize);return `<span class="st-toy ${w?'is-won':''}"><span class="st-toy-art">${ctx.accIcon?.(c.prize)||'🎁'}</span><small>${escapeText(ctx.accessories?.[c.prize]?.name||c.prize)}</small><em>${w?'Won · wear it':escapeText(c.name)+' · Champion'}</em></span>`;}).join('')}</div>
    <strong class="st-h">Belts</strong>${beltRows?`<div class="st-beltrows">${beltRows}</div>`:'<p class="mini-muted">No belts yet — win a Karate level.</p>'}<button type="button" class="modal-button secondary" id="stClose">Close</button>`);
   $('stClose').onclick=closeModal;
  }
@@ -419,9 +420,10 @@ export function createGamesSystem(ctx){
  function finishRace(mount,course,level,place,racers,finished){
   const R=myRaces();const bag=R[course.id]=R[course.id]||{};const prev=bag[level]||0;const improved=!prev||place<prev;if(improved)bag[level]=place;
   const prize=course.theme?null:trophyOf(course.id);let newPrize=false;if(prize&&place===1&&level===LEVELS.length-1&&!hasPrize(prize.id)){state.prizes.push(prize.id);newPrize=true;}
+  const ultra=place===1&&course.id==='grand'?ctx.rollChampUltra?.(level):null;
   const firstGold=place===1&&prev!==1;const coins=Math.round((ctx.coinsFor?.('race',level,place,{theme:!!course.theme,firstGold,repeat:prev===1})||0)*(1+perkOf(PK,'magic')));if(coins)ctx.addCoins?.(coins);
   const accId=course.theme?(place===1&&level===LEVELS.length-1?course.prize:null):(place===1&&level>=3?COURSE_ACC[course.id]:null);const newAcc=accId&&ctx.grantAccessory?.(accId)?accId:null;
-  save();
+  save();if(newPrize||newAcc||ultra)try{ctx.onPrize?.();}catch{}
   if(newPrize)setTimeout(()=>sfx.prize(),500);else if(place<=3)setTimeout(()=>sfx.medal(),300);
   const trained=onResult?.(pick(),'race',course.focus,place)||[];
   const podium=[0,1,2].map(i=>finished[i]||racers.find(r=>!finished.includes(r)&&r!==finished[0])).filter(Boolean);
@@ -429,6 +431,7 @@ export function createGamesSystem(ctx){
   showModal(`<div class="modal-tag">${escapeText(course.name)} · ${LEVELS[level].toUpperCase()}</div>
    <div class="g-podium">${podium.map((r,i)=>`<div class="g-pod is-${i+1}"><span class="companion" data-companion="${r.id}"${rivalAttr(r.id)}><span class="companion-art"></span></span><b>${i+1}</b></div>`).join('')}</div>
    <div class="g-result">${medalDot(place,true)}</div><h2>${place===1?'You won!':`Finished ${ORD(place)} of ${racers.length}`}</h2>${unlocked}
+   ${ultra?`<div class="g-prize is-ultra"><span>✦</span><div><b>ULTRA RARE: ${escapeText(ultra.name)}!</b><small>Free essences are on the food tray — drag them onto a companion.</small></div></div>`:''}
    ${newPrize?`<div class="g-prize"><span>${prize.art}</span><div><b>New trophy for ${escapeText(companionInfo(pick())?.name||'')}!</b><small>${escapeText(prize.name)} — place it from the Home tab.</small></div></div>`:''}
    ${coins?`<p class="g-coinline">🪙 +${coins} coins${firstGold?' · first gold ×2':''}</p>`:''}${newAcc?`<div class="g-prize"><span class="st-acc-ico">${ctx.accIcon?.(newAcc)||''}</span><div><b>New accessory: ${escapeText(ctx.accessories?.[newAcc]?.name||'')}</b><small>Put it on from Home → Wear.</small></div></div>`:''}
    ${trained.length?`<p class="mini-muted">Trained ${trained.join(', ')}.</p>`:''}

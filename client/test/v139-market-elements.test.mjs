@@ -7,7 +7,7 @@ import { HOUSE_LAYOUTS, HOUSE_GROWTH, EXT_INFO } from '../src/home-engine-v90.js
 
 const ids = new Set(ORGANIC_V139.items.map(i => i.id));
 test('V139: every Market item maps to a real element', () => {
-  for (const it of MARKET) assert.ok(it.element, `${it.id} has an element`);
+  for (const it of MARKET) if (!it.hidden) assert.ok(it.element, `${it.id} has an element`); /* V177: hidden ultra essences are not shop items */
   for (const el of Object.values(MARKET_ELEMENT)) if (el.startsWith('organic139:')) assert.ok(ids.has(el), el);
 });
 test('V139: each new element has a recipe', () => {

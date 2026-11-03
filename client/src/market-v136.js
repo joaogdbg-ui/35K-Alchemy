@@ -53,6 +53,23 @@ export const DYES=[
  {id:'dye-aurora',name:'Aurora',exclusive:'coins_2600',tint:'aurora',match:/\b(aurora|galaxy|nebula|space|star|planet|comet|rocket|satellite|universe)\b/},
  {id:'dye-shadow',name:'Shadow',exclusive:'coins_7000',tint:'onyx',match:/\b(shadow|night|dark|black|coal|oil|ink|smoke|bat|void|cave)\b/},
  {id:'dye-rainbow',name:'Rainbow',exclusive:'coins_15000',tint:'rainbow',match:/\b(rainbow|unicorn|prism|party|confetti|colou?r|paint|candy|firework|balloon)\b/}];
+/** V177: ultra-rare looks and colours. Championship wins can drop the first six; minigames have a 0.01% chance of the unique two;
+ * the supreme look is for winning an ultra race (next update). An unlock gives free essences; more essences cost coins (hidden food items). */
+export const ULTRA=[
+ {id:'u-celestial',kind:'look',name:'Celestial look',ess:'ess-celestial',give:3,from:'champ'},
+ {id:'u-abyssal',kind:'look',name:'Abyssal look',ess:'ess-abyssal',give:3,from:'champ'},
+ {id:'u-titan',kind:'look',name:'Titan look',ess:'ess-titan',give:3,from:'champ'},
+ {id:'u-starlight',kind:'tint',name:'Starlight colour',ess:'ess-starlight',give:6,from:'champ'},
+ {id:'u-obsidian',kind:'tint',name:'Obsidian colour',ess:'ess-obsidian',give:6,from:'champ'},
+ {id:'u-ember',kind:'tint',name:'Ember colour',ess:'ess-ember',give:6,from:'champ'},
+ {id:'u-pearl',kind:'tint',name:'Pearl colour',ess:'ess-pearl',give:6,from:'mini'},
+ {id:'u-neon',kind:'tint',name:'Neon colour',ess:'ess-neon',give:6,from:'mini'},
+ {id:'u-supreme',kind:'look',name:'Supreme look',ess:'ess-supreme',give:3,from:'ultra-race'}];
+/** Chance that a Championship win (level 0-4) drops an ultra-rare unlock. */
+export const champUltraChance=level=>0.05+0.025*Math.max(0,Math.min(4,level));
+export const MINI_UNIQUE_CHANCE=0.0001;
+/** Pure: pick an ultra unlock the player does not own yet from a source, or null. */
+export function rollUltra(from,owned,rnd=Math.random,chance=1){if(rnd()>=chance)return null;const left=ULTRA.filter(u=>u.from===from&&!owned.includes(u.id));return left.length?left[Math.floor(rnd()*left.length)]:null;}
 /** V176: every look and colour change must be bought. Natural colours (tints from element families) and the 24 looks (traits). */
 export const TINT_ITEMS=[{key:'warm',name:'Warm',price:600},{key:'cool',name:'Cool',price:600},{key:'green',name:'Leafy',price:600},{key:'pink',name:'Rosy',price:600},{key:'light',name:'Bright',price:800},{key:'metal',name:'Metallic',price:900},{key:'purple',name:'Mystic',price:900},{key:'gold',name:'Golden',price:1200},{key:'dark',name:'Shadowy',price:1200}];
 const LP={dragon:4000,phoenix:4000,royal:4000,angel:4000,demon:3500,vampire:3500,space:3500,gold:3500,fairy:2500,ocean:2500,robot:2500,magic:2500,ice:2500,fire:2500,metal:2500};
@@ -80,6 +97,15 @@ export const MARKET=[
  {id:'soap',kind:'food',name:'Bubble soap',icon:'🧼',price:100,look:'Soap',desc:'Washes colour off'},
  {id:'mirror',kind:'food',name:'Mirror drop',icon:'🪞',price:100,look:'Mirror',desc:'Undoes size and head trait'},
  {id:'rebirth',kind:'food',name:'Rebirth egg',icon:'🥚',price:270,look:'Egg',desc:'Back to the natural look'},
+ {id:'ess-celestial',kind:'food',name:'Celestial essence',icon:'🌟',price:1000,look:'Celestial essence',desc:'Ultra-rare essence',hidden:true},
+ {id:'ess-abyssal',kind:'food',name:'Abyssal essence',icon:'🌑',price:1000,look:'Abyssal essence',desc:'Ultra-rare essence',hidden:true},
+ {id:'ess-titan',kind:'food',name:'Titan essence',icon:'🔥',price:1000,look:'Titan essence',desc:'Ultra-rare essence',hidden:true},
+ {id:'ess-supreme',kind:'food',name:'Supreme essence',icon:'👑',price:1000,look:'Supreme essence',desc:'Ultra-rare essence',hidden:true},
+ {id:'ess-starlight',kind:'food',name:'Starlight essence',icon:'✨',price:1000,look:'Starlight essence',desc:'Ultra-rare essence',hidden:true},
+ {id:'ess-obsidian',kind:'food',name:'Obsidian essence',icon:'🖤',price:1000,look:'Obsidian essence',desc:'Ultra-rare essence',hidden:true},
+ {id:'ess-ember',kind:'food',name:'Ember essence',icon:'🧡',price:1000,look:'Ember essence',desc:'Ultra-rare essence',hidden:true},
+ {id:'ess-pearl',kind:'food',name:'Pearl essence',icon:'🤍',price:1000,look:'Pearl essence',desc:'Ultra-rare essence',hidden:true},
+ {id:'ess-neon',kind:'food',name:'Neon essence',icon:'💚',price:1000,look:'Neon essence',desc:'Ultra-rare essence',hidden:true},
  // accessories
  ...['party-hat','cap','bow','headphones','sunglasses','star-glasses','monocle','scarf','bandana','bowtie','top-hat','wizard-hat','cape'].map((a,i)=>({id:'acc-'+a,kind:'acc',acc:a,price:[180,180,160,280,240,300,360,200,200,220,420,520,650][i]})),
  // toys for the main screen

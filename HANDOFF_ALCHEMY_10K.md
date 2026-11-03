@@ -90,6 +90,13 @@ Preserve 200-per-batch policy and do not start another content release on top of
 
 - **Art redraw wave 3 (V85, done): 3,991 icons** — every remaining older element. All 6,012 pre-V83 elements now use the 2026 art direction (`ART_REDRAW`), plus 200 V83 and 200 V85 originals. Six near-duplicates found by the audit were redrawn; 36 reviewed false alarms are in `tools/art-redraw-reviewed-pairs.json` (the audit now also honours them for V83 comparisons).
 
+## V177 — Ultra-rare looks/colours, themed race prizes, make-room 500 / 3 ads
+- ULTRA (market-v136): Celestial / Abyssal / Titan looks and Starlight / Obsidian / Ember colours drop from Championship wins (5% Rookie → 15% Champion, champUltraChance, rollUltra); Pearl / Neon colours have a 0.01% chance after any minigame/microgame (MINI_UNIQUE_CHANCE); Supreme look reserved for the ultra races (next). Engine: new tints (starlight, obsidian, ember, pearl, neon, radiant) and essence-only LOOK_THEMES. An unlock (wallet.ultra) puts free essences (hidden MARKET food ess-*) on the food tray: 3 for looks, 6 for colours; more essences cost 1,000 in Market › Looks › Ultra rare.
+- Prizes sheet lists the 5 themed race prizes (their accessories); Prizes tile counts 11.
+- Trophy/accessory/ultra wins call ctx.onPrize → companions.refreshViews() so counts update without leaving the screen.
+- Full belly: make room costs 500 coins or 3 rewarded ads (counter per companion).
+- Tests: hidden essences exempt from the "every Market item is an element" rule.
+
 ## V176 — All look and colour changes are bought in the Market
 - Owner decision: every colour and trait change needs a Market unlock; size changes stay free; looks companions already have are kept; themed races need the look bought first (hint in the event sheet).
 - Engine: setLookGate({tint,theme}); lookAfterMeal/lookEffects take gate=true only for the player's own feeding and meal preview (rivals, catalogue filter stay ungated). lookEffects returns lockedTint and traits with buy:true; themeInfo(key) for the Market.

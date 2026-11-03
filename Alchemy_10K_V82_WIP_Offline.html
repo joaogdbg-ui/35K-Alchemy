@@ -2176,6 +2176,9 @@ body.ar-playing>*:not(.ar-stage){display:none!important}
 .mp-locked i,.mp-tint i{display:inline-block;width:12px;height:12px;border-radius:50%;margin-right:4px;vertical-align:-1px;border:1.5px solid #657D89}
 /* V176: look icons in the Market */
 .lk-ico{display:grid;place-items:center;width:52px;height:52px;margin:0 auto;border-radius:50%;background:var(--accent-2);border:2.5px solid #657D89}.lk-ico svg{width:40px;height:40px}
+/* V177: ultra rare */
+.mk-tile.is-ultra{background:linear-gradient(160deg,#fff5d6,#f3dfc8 60%,#e9d5ff)}.mk-tile.is-ultra .lk-ico{font-size:26px;background:#fff8ec}
+.g-prize.is-ultra{background:linear-gradient(135deg,#fff5d6,#e9d5ff);border:2px solid #d08a4c;animation:arBump 1s ease-in-out 3}.g-prize.is-ultra>span{font-size:30px;color:#d08a4c}
 
 </style>
 </head>
@@ -3129,7 +3132,7 @@ function createGamesSystem(ctx){
   if(!mount)return;if(preview&&!owned().some(c=>c.id===preview))preview=null;const pid=shown();
   if(!pid){mount.innerHTML='<div class="pets-scroll"><div class="section-head"><h2>Stadium</h2><p>Discover a companion to enter the races.</p></div></div>';return;}
   const info=companionInfo(pid),n=medalCounts(),belt=belts.find(b=>b.id===beltOf(pid));
-  const toys=COURSES.map(c=>trophyOf(c.id)),won=toys.filter(p=>hasPrize(p.id)).length;
+  const toys=[...COURSES.map(c=>trophyOf(c.id)),...THEME_COURSES.map(c=>({id:'acc:'+c.prize}))],won=COURSES.filter(c=>hasPrize(trophyOf(c.id).id)).length+THEME_COURSES.filter(c=>ctx.hasAcc?.(c.prize)).length;
   const goldN=EVENTS().filter(e=>best(bagOf(e),LEVELS.length-1)===1).length;const openN=EVENTS().filter(e=>e.kind!=='race'||courseOpen(e.course)).length;
   const shopBtn=(id,ico,b,sm)=>`<button type="button" class="st-shop-btn" id="${id}"><span>${ico}</span><b>${b}</b><small>${sm}</small></button>`;
   const shop=`<div class="st-shop is-hub">${shopBtn('stGames','🎮','Games',`Minigames, races &amp; karate · ${goldN}/${EVENTS().length} gold`)}${shopBtn('stSchool','🏫','School','Teach new tricks')}${shopBtn('stPrizes','🏆','Prizes',`${won}/${toys.length} trophies${belt?' · '+escapeText(belt.name.replace(' Belt','')):''}`)}${shopBtn('stMarket','🛒','Market','Food, wear, toys, houses')}</div>`;
@@ -3187,6 +3190,7 @@ function createGamesSystem(ctx){
   const others=owned().filter(c=>c.id!==pid).map(c=>({c,n:COURSES.filter(x=>hasPrize(trophyOf(x.id,c.id).id)).length})).filter(x=>x.n);
   const beltRows=owned().filter(c=>beltOf(c.id)).map(c=>{const b=belts.find(x=>x.id===beltOf(c.id));return `<span class="st-beltrow">${prizes.beltSvg(b,26)}<b>${escapeText(companionInfo(c.id).name)}</b><small>${b.name}</small></span>`;}).join('');
   showModal(`<div class="modal-tag">PRIZES</div><strong class="st-h">${who}'s trophies</strong><div class="st-toys">${toys.map(({c,p})=>`<span class="st-toy ${hasPrize(p.id)?'is-won':''}"><span class="st-toy-art">${p.art}</span><small>${escapeText(p.name)}</small><em>${hasPrize(p.id)?'Place it from Home':escapeText(c.name)+' · Champion'}</em></span>`).join('')}</div>${others.length?`<p class="mini-muted">Other companions: ${others.map(x=>escapeText(companionInfo(x.c.id).name)+' '+x.n+'/6').join(' · ')}</p>`:''}
+   <strong class="st-h">Themed race prizes</strong><div class="st-toys">${THEME_COURSES.map(c=>{const w=ctx.hasAcc?.(c.prize);return `<span class="st-toy ${w?'is-won':''}"><span class="st-toy-art">${ctx.accIcon?.(c.prize)||'🎁'}</span><small>${escapeText(ctx.accessories?.[c.prize]?.name||c.prize)}</small><em>${w?'Won · wear it':escapeText(c.name)+' · Champion'}</em></span>`;}).join('')}</div>
    <strong class="st-h">Belts</strong>${beltRows?`<div class="st-beltrows">${beltRows}</div>`:'<p class="mini-muted">No belts yet — win a Karate level.</p>'}<button type="button" class="modal-button secondary" id="stClose">Close</button>`);
   $('stClose').onclick=closeModal;
  }
@@ -3310,9 +3314,10 @@ function createGamesSystem(ctx){
  function finishRace(mount,course,level,place,racers,finished){
   const R=myRaces();const bag=R[course.id]=R[course.id]||{};const prev=bag[level]||0;const improved=!prev||place<prev;if(improved)bag[level]=place;
   const prize=course.theme?null:trophyOf(course.id);let newPrize=false;if(prize&&place===1&&level===LEVELS.length-1&&!hasPrize(prize.id)){state.prizes.push(prize.id);newPrize=true;}
+  const ultra=place===1&&course.id==='grand'?ctx.rollChampUltra?.(level):null;
   const firstGold=place===1&&prev!==1;const coins=Math.round((ctx.coinsFor?.('race',level,place,{theme:!!course.theme,firstGold,repeat:prev===1})||0)*(1+perkOf(PK,'magic')));if(coins)ctx.addCoins?.(coins);
   const accId=course.theme?(place===1&&level===LEVELS.length-1?course.prize:null):(place===1&&level>=3?COURSE_ACC[course.id]:null);const newAcc=accId&&ctx.grantAccessory?.(accId)?accId:null;
-  save();
+  save();if(newPrize||newAcc||ultra)try{ctx.onPrize?.();}catch{}
   if(newPrize)setTimeout(()=>sfx.prize(),500);else if(place<=3)setTimeout(()=>sfx.medal(),300);
   const trained=onResult?.(pick(),'race',course.focus,place)||[];
   const podium=[0,1,2].map(i=>finished[i]||racers.find(r=>!finished.includes(r)&&r!==finished[0])).filter(Boolean);
@@ -3320,6 +3325,7 @@ function createGamesSystem(ctx){
   showModal(`<div class="modal-tag">${escapeText(course.name)} · ${LEVELS[level].toUpperCase()}</div>
    <div class="g-podium">${podium.map((r,i)=>`<div class="g-pod is-${i+1}"><span class="companion" data-companion="${r.id}"${rivalAttr(r.id)}><span class="companion-art"></span></span><b>${i+1}</b></div>`).join('')}</div>
    <div class="g-result">${medalDot(place,true)}</div><h2>${place===1?'You won!':`Finished ${ORD(place)} of ${racers.length}`}</h2>${unlocked}
+   ${ultra?`<div class="g-prize is-ultra"><span>✦</span><div><b>ULTRA RARE: ${escapeText(ultra.name)}!</b><small>Free essences are on the food tray — drag them onto a companion.</small></div></div>`:''}
    ${newPrize?`<div class="g-prize"><span>${prize.art}</span><div><b>New trophy for ${escapeText(companionInfo(pick())?.name||'')}!</b><small>${escapeText(prize.name)} — place it from the Home tab.</small></div></div>`:''}
    ${coins?`<p class="g-coinline">🪙 +${coins} coins${firstGold?' · first gold ×2':''}</p>`:''}${newAcc?`<div class="g-prize"><span class="st-acc-ico">${ctx.accIcon?.(newAcc)||''}</span><div><b>New accessory: ${escapeText(ctx.accessories?.[newAcc]?.name||'')}</b><small>Put it on from Home → Wear.</small></div></div>`:''}
    ${trained.length?`<p class="mini-muted">Trained ${trained.join(', ')}.</p>`:''}
@@ -3535,9 +3541,9 @@ function createArcade(ctx){
   o.countdown=(go)=>{const c=document.createElement('div');c.className='g-banner is-count';s.append(c);const seq=['3','2','1','GO!'];let i=0;const tick=()=>{if(o.over){c.remove();return;}c.textContent=seq[i];c.className='g-banner '+(i===3?'is-go':'is-count');void c.offsetWidth;c.classList.add('is-in');i===3?sfx.go():sfx.tick();i++;if(i<seq.length)setTimeout(tick,650);else setTimeout(()=>{c.remove();if(!o.over)go();},500);};tick();};
   return o;}
  function result(id,score,statKey){const g=[...ARCADE_GAMES,...MICRO_PACKS].find(x=>x.id===id);const micro=!!g.pack;const prev=st.best[id]||0;const rec=score>prev;if(rec){st.best[id]=score;save();}
-  const today=new Date().toDateString();if(!st.coinDay||st.coinDay.d!==today)st.coinDay={d:today,got:0};const coins=Math.min(arcadeCoins(score),Math.max(0,ARCADE_DAILY_CAP-st.coinDay.got));st.coinDay.got+=coins;save();if(coins)ctx.addCoins?.(coins);const capped=st.coinDay.got>=ARCADE_DAILY_CAP;if(statKey&&score>0)ctx.train?.(statKey,Math.min(12,1+Math.round(score/150)));
+  const today=new Date().toDateString();if(!st.coinDay||st.coinDay.d!==today)st.coinDay={d:today,got:0};const coins=Math.min(arcadeCoins(score),Math.max(0,ARCADE_DAILY_CAP-st.coinDay.got));st.coinDay.got+=coins;save();if(coins)ctx.addCoins?.(coins);const capped=st.coinDay.got>=ARCADE_DAILY_CAP;const uniq=score>0?ctx.rollMiniUnique?.():null;if(statKey&&score>0)ctx.train?.(statKey,Math.min(12,1+Math.round(score/150)));
   const stars=score>=prev*1.2&&score>0?3:score>0?(rec?3:2):1;
-  showModal(`<div class="modal-tag">${micro?'MICROGAMES':'MINIGAME'}</div><div class="ar-res-stars">${[1,2,3].map(i=>`<i class="${i<=stars?'on':''}" style="--i:${i}">★</i>`).join('')}</div><div class="ar-big">${g.icon}</div><h2 class="ar-res-score" data-to="${score}">0</h2><p>${rec?'<b class="ar-rec-badge">New best!</b>':`Best: ${prev.toLocaleString('en-US')}`}</p><p class="ar-help">🪙 +${coins} coins${capped?' · daily coin limit reached':''}${statKey&&score>0?` · ${({run:'Run',swim:'Swim',fly:'Fly',power:'Power',stamina:'Stamina'})[statKey]} training`:''}</p>
+  showModal(`<div class="modal-tag">${micro?'MICROGAMES':'MINIGAME'}</div><div class="ar-res-stars">${[1,2,3].map(i=>`<i class="${i<=stars?'on':''}" style="--i:${i}">★</i>`).join('')}</div><div class="ar-big">${g.icon}</div><h2 class="ar-res-score" data-to="${score}">0</h2><p>${rec?'<b class="ar-rec-badge">New best!</b>':`Best: ${prev.toLocaleString('en-US')}`}</p>${uniq?`<div class="g-prize is-ultra"><span>✦</span><div><b>1 in 10,000! ${escapeText(uniq.name)} unlocked!</b><small>Free essences are on the food tray.</small></div></div>`:''}<p class="ar-help">🪙 +${coins} coins${capped?' · daily coin limit reached':''}${statKey&&score>0?` · ${({run:'Run',swim:'Swim',fly:'Fly',power:'Power',stamina:'Stamina'})[statKey]} training`:''}</p>
    <button type="button" class="modal-button" id="arAgain">Play again</button><button type="button" class="modal-button secondary" id="arDone">Back to ${micro?'microgames':'minigames'}</button>`);
   const h=document.querySelector('.ar-res-score');const t0=performance.now();const up=t=>{const k=Math.min(1,(t-t0)/700);if(h&&document.body.contains(h)){h.textContent=Math.round(score*k).toLocaleString('en-US')+' pts';if(k<1)requestAnimationFrame(up);}};requestAnimationFrame(up);
   $('arAgain').onclick=()=>{if(ctx.showAd&&!arcadePassLeft(st,id)){micro?microIntro(id):intro(id);return;}closeModal();setTimeout(()=>GAMES[id](),300);};$('arDone').onclick=()=>micro?openMicro(lastMicroBack):open();}
@@ -4317,6 +4323,23 @@ const DYES=[
  {id:'dye-aurora',name:'Aurora',exclusive:'coins_2600',tint:'aurora',match:/\b(aurora|galaxy|nebula|space|star|planet|comet|rocket|satellite|universe)\b/},
  {id:'dye-shadow',name:'Shadow',exclusive:'coins_7000',tint:'onyx',match:/\b(shadow|night|dark|black|coal|oil|ink|smoke|bat|void|cave)\b/},
  {id:'dye-rainbow',name:'Rainbow',exclusive:'coins_15000',tint:'rainbow',match:/\b(rainbow|unicorn|prism|party|confetti|colou?r|paint|candy|firework|balloon)\b/}];
+/** V177: ultra-rare looks and colours. Championship wins can drop the first six; minigames have a 0.01% chance of the unique two;
+ * the supreme look is for winning an ultra race (next update). An unlock gives free essences; more essences cost coins (hidden food items). */
+const ULTRA=[
+ {id:'u-celestial',kind:'look',name:'Celestial look',ess:'ess-celestial',give:3,from:'champ'},
+ {id:'u-abyssal',kind:'look',name:'Abyssal look',ess:'ess-abyssal',give:3,from:'champ'},
+ {id:'u-titan',kind:'look',name:'Titan look',ess:'ess-titan',give:3,from:'champ'},
+ {id:'u-starlight',kind:'tint',name:'Starlight colour',ess:'ess-starlight',give:6,from:'champ'},
+ {id:'u-obsidian',kind:'tint',name:'Obsidian colour',ess:'ess-obsidian',give:6,from:'champ'},
+ {id:'u-ember',kind:'tint',name:'Ember colour',ess:'ess-ember',give:6,from:'champ'},
+ {id:'u-pearl',kind:'tint',name:'Pearl colour',ess:'ess-pearl',give:6,from:'mini'},
+ {id:'u-neon',kind:'tint',name:'Neon colour',ess:'ess-neon',give:6,from:'mini'},
+ {id:'u-supreme',kind:'look',name:'Supreme look',ess:'ess-supreme',give:3,from:'ultra-race'}];
+/** Chance that a Championship win (level 0-4) drops an ultra-rare unlock. */
+const champUltraChance=level=>0.05+0.025*Math.max(0,Math.min(4,level));
+const MINI_UNIQUE_CHANCE=0.0001;
+/** Pure: pick an ultra unlock the player does not own yet from a source, or null. */
+function rollUltra(from,owned,rnd=Math.random,chance=1){if(rnd()>=chance)return null;const left=ULTRA.filter(u=>u.from===from&&!owned.includes(u.id));return left.length?left[Math.floor(rnd()*left.length)]:null;}
 /** V176: every look and colour change must be bought. Natural colours (tints from element families) and the 24 looks (traits). */
 const TINT_ITEMS=[{key:'warm',name:'Warm',price:600},{key:'cool',name:'Cool',price:600},{key:'green',name:'Leafy',price:600},{key:'pink',name:'Rosy',price:600},{key:'light',name:'Bright',price:800},{key:'metal',name:'Metallic',price:900},{key:'purple',name:'Mystic',price:900},{key:'gold',name:'Golden',price:1200},{key:'dark',name:'Shadowy',price:1200}];
 const LP={dragon:4000,phoenix:4000,royal:4000,angel:4000,demon:3500,vampire:3500,space:3500,gold:3500,fairy:2500,ocean:2500,robot:2500,magic:2500,ice:2500,fire:2500,metal:2500};
@@ -4344,6 +4367,15 @@ const MARKET=[
  {id:'soap',kind:'food',name:'Bubble soap',icon:'🧼',price:100,look:'Soap',desc:'Washes colour off'},
  {id:'mirror',kind:'food',name:'Mirror drop',icon:'🪞',price:100,look:'Mirror',desc:'Undoes size and head trait'},
  {id:'rebirth',kind:'food',name:'Rebirth egg',icon:'🥚',price:270,look:'Egg',desc:'Back to the natural look'},
+ {id:'ess-celestial',kind:'food',name:'Celestial essence',icon:'🌟',price:1000,look:'Celestial essence',desc:'Ultra-rare essence',hidden:true},
+ {id:'ess-abyssal',kind:'food',name:'Abyssal essence',icon:'🌑',price:1000,look:'Abyssal essence',desc:'Ultra-rare essence',hidden:true},
+ {id:'ess-titan',kind:'food',name:'Titan essence',icon:'🔥',price:1000,look:'Titan essence',desc:'Ultra-rare essence',hidden:true},
+ {id:'ess-supreme',kind:'food',name:'Supreme essence',icon:'👑',price:1000,look:'Supreme essence',desc:'Ultra-rare essence',hidden:true},
+ {id:'ess-starlight',kind:'food',name:'Starlight essence',icon:'✨',price:1000,look:'Starlight essence',desc:'Ultra-rare essence',hidden:true},
+ {id:'ess-obsidian',kind:'food',name:'Obsidian essence',icon:'🖤',price:1000,look:'Obsidian essence',desc:'Ultra-rare essence',hidden:true},
+ {id:'ess-ember',kind:'food',name:'Ember essence',icon:'🧡',price:1000,look:'Ember essence',desc:'Ultra-rare essence',hidden:true},
+ {id:'ess-pearl',kind:'food',name:'Pearl essence',icon:'🤍',price:1000,look:'Pearl essence',desc:'Ultra-rare essence',hidden:true},
+ {id:'ess-neon',kind:'food',name:'Neon essence',icon:'💚',price:1000,look:'Neon essence',desc:'Ultra-rare essence',hidden:true},
  // accessories
  ...['party-hat','cap','bow','headphones','sunglasses','star-glasses','monocle','scarf','bandana','bowtie','top-hat','wizard-hat','cape'].map((a,i)=>({id:'acc-'+a,kind:'acc',acc:a,price:[180,180,160,280,240,300,360,200,200,220,420,520,650][i]})),
  // toys for the main screen
@@ -4389,7 +4421,7 @@ const LESSONS=[
  {id:'magic',name:'Magic trick',icon:'🎩',price:120,desc:'Pulls elements out of a hat'}
 ];
 
-return {ACCESSORIES,wearableFor,MARKET,MARKET_TABS,COIN_PACK,COIN_PACKS,FAIR_PLAY_NOTE,coinsFor,LESSONS,LESSON_LEVELS,LESSON_MINUTES,lessonPrice,SCHOOL_AD_CUT_MIN,accPrice,DAILY_COINS,DISCOVERY_COINS,COMPANION_FIND_COINS,FIND_AD_MULT,dailyCoins,DISCOVERY_MILESTONE,DISCOVERY_MILESTONE_COINS,FIRST_BUY_MULT,DYES,assignDyes,LOOK_ITEMS,TINT_ITEMS};})();
+return {ACCESSORIES,wearableFor,MARKET,MARKET_TABS,COIN_PACK,COIN_PACKS,FAIR_PLAY_NOTE,coinsFor,LESSONS,LESSON_LEVELS,LESSON_MINUTES,lessonPrice,SCHOOL_AD_CUT_MIN,accPrice,DAILY_COINS,DISCOVERY_COINS,COMPANION_FIND_COINS,FIND_AD_MULT,dailyCoins,DISCOVERY_MILESTONE,DISCOVERY_MILESTONE_COINS,FIRST_BUY_MULT,DYES,assignDyes,LOOK_ITEMS,TINT_ITEMS,ULTRA,champUltraChance,MINI_UNIQUE_CHANCE,rollUltra};})();
 window.__companionEngine86=(function(){/**
  * V86 Companions (owner request 30/10/2026).
  * Five companion elements per family. Once discovered (in any mode) a companion can be made
@@ -4462,8 +4494,9 @@ function moodLabel(m){return m>=MOOD.happy?'Happy':m<=MOOD.sad?'Sad':'Content';}
  * Resets: soap/bath wash the tint, mirror undoes size and head, egg/rebirth/reset restores all.
  */
 const LOOK_COLORS={warm:[255,138,61],cool:[74,168,255],green:[79,191,90],metal:[150,165,180],purple:[160,112,224],gold:[232,192,64],pink:[255,143,192],dark:[70,48,92],light:[255,250,232],
- mint:[120,220,180],sky:[120,190,250],berry:[170,60,140],sunset:[255,110,80],snow:[245,248,255],cocoa:[130,85,55],aurora:[90,220,210],onyx:[40,40,52],rainbow:[255,90,200]};
-const TINT_NAME={warm:'Warm',cool:'Cool',green:'Leafy',metal:'Metallic',purple:'Mystic',gold:'Golden',pink:'Rosy',dark:'Shadowy',light:'Bright',mint:'Mint',sky:'Sky',berry:'Berry',sunset:'Sunset',snow:'Snow',cocoa:'Cocoa',aurora:'Aurora',onyx:'Shadow',rainbow:'Rainbow'};
+ mint:[120,220,180],sky:[120,190,250],berry:[170,60,140],sunset:[255,110,80],snow:[245,248,255],cocoa:[130,85,55],aurora:[90,220,210],onyx:[40,40,52],rainbow:[255,90,200],
+ starlight:[215,230,255],obsidian:[28,18,40],ember:[255,80,30],pearl:[250,238,225],neon:[60,255,170],radiant:[255,215,90]};
+const TINT_NAME={warm:'Warm',cool:'Cool',green:'Leafy',metal:'Metallic',purple:'Mystic',gold:'Golden',pink:'Rosy',dark:'Shadowy',light:'Bright',mint:'Mint',sky:'Sky',berry:'Berry',sunset:'Sunset',snow:'Snow',cocoa:'Cocoa',aurora:'Aurora',onyx:'Shadow',rainbow:'Rainbow',starlight:'Starlight',obsidian:'Obsidian',ember:'Ember',pearl:'Pearl',neon:'Neon',radiant:'Radiant'};
 /** V175: Market colours — elements with no natural look can carry a colour that the Market unlocks. fn(name) → {name,tint,unlocked} */
 let MARKET_LOOK=null;
 function setMarketLook(fn){MARKET_LOOK=typeof fn==="function"?fn:null;}
@@ -4497,7 +4530,14 @@ const LOOK_THEMES=[
  ['metal',/\b(metal|steel|iron|gear|machine|computer|console|engine)\b/,{tint:'metal'}],
  ['gold',/\b(gold|golden|treasure|coin|trophy|jewel)\b/,{tint:'gold'}],
  ['sweet',/\b(candy|sugar|cake|sweet|cupcake|cookie)\b/,{tint:'pink'}],
- ['water',/\b(water|rain|river|lake|ocean|sea|wave)\b/,{tint:'cool'}]];
+ ['water',/\b(water|rain|river|lake|ocean|sea|wave)\b/,{tint:'cool'}],
+ // V177 ultra-rare looks and colours: only their essences carry them
+ ['celestial',/\bcelestial essence\b/,{tint:'starlight',head:'halo',back:'feather-wings',aura:'sparkle'}],
+ ['abyssal',/\babyssal essence\b/,{tint:'obsidian',head:'devil-horns',back:'bat-wings',tail:'devil-tail',aura:'embers'}],
+ ['titan',/\btitan essence\b/,{tint:'ember',head:'dragon-horns',back:'dragon-wings',tail:'dragon-tail',aura:'embers'}],
+ ['supreme',/\bsupreme essence\b/,{tint:'radiant',head:'crown',back:'fire-wings',tail:'fox-tail',aura:'sparkle'}],
+ ['u-starlight',/\bstarlight essence\b/,{tint:'starlight'}],['u-obsidian',/\bobsidian essence\b/,{tint:'obsidian'}],['u-ember',/\bember essence\b/,{tint:'ember'}],
+ ['u-pearl',/\bpearl essence\b/,{tint:'pearl'}],['u-neon',/\bneon essence\b/,{tint:'neon'}]];
 /** V121: hand-picked corrections. name (lower case) → theme key, or '-' for no theme. A hand-picked name
  * never triggers reset/wash/mirror (e.g. "Dragon Egg Cradle" is a dragon, "Black Sabbath" is not a bath). */
 const LOOK_OVERRIDES={
@@ -6915,7 +6955,7 @@ const {STADIUM_ART_V95}=window.__stadiumArt95;
 const {createStadiumSfx}=window.__stadiumSfx95;
 const {COMPANIONS_V86,COMPANION_SPRITES_V86}=window.__companions86;
 const {createCompanionSystem,COMPANION_STORAGE_KEY,rivalLook,traitIconSvg,setMarketLook,hasNaturalLook,setLookGate,themeInfo}=window.__companionEngine86;
-const {ACCESSORIES,wearableFor,MARKET,MARKET_TABS,COIN_PACK,COIN_PACKS,FAIR_PLAY_NOTE,coinsFor,LESSONS,LESSON_LEVELS,LESSON_MINUTES,lessonPrice,SCHOOL_AD_CUT_MIN,accPrice,DAILY_COINS,DISCOVERY_COINS,COMPANION_FIND_COINS,FIND_AD_MULT,dailyCoins,DISCOVERY_MILESTONE,DISCOVERY_MILESTONE_COINS,FIRST_BUY_MULT,DYES,assignDyes,LOOK_ITEMS,TINT_ITEMS}=window.__market136;
+const {ACCESSORIES,wearableFor,MARKET,MARKET_TABS,COIN_PACK,COIN_PACKS,FAIR_PLAY_NOTE,coinsFor,LESSONS,LESSON_LEVELS,LESSON_MINUTES,lessonPrice,SCHOOL_AD_CUT_MIN,accPrice,DAILY_COINS,DISCOVERY_COINS,COMPANION_FIND_COINS,FIND_AD_MULT,dailyCoins,DISCOVERY_MILESTONE,DISCOVERY_MILESTONE_COINS,FIRST_BUY_MULT,DYES,assignDyes,LOOK_ITEMS,TINT_ITEMS,ULTRA,champUltraChance,MINI_UNIQUE_CHANCE,rollUltra}=window.__market136;
 const {PUBLIC_LABELS_V86}=window.__publicLabels86;
 const {reconcileLegacyFamilies}=window.__familyCompat82;
 const {synchronizeFamilyProfiles,sharedMembership}=window.__familyShared51;
@@ -7293,7 +7333,7 @@ function shinyCard(item){return `<p class="shiny-trivia"><span aria-hidden="true
 function showShinyFound(id){const it=byId.get(id);if(!it)return;
  showModal(`<div class="modal-tag shiny-tag">✦ SHINY ELEMENT</div><div class="modal-art is-shiny">${staticArt(it)}</div><h2>Shiny ${escapeText(uiName(it))}</h2>${shinyCard(it)}<div class="modal-milestone">${shiny.size.toLocaleString('en-US')} shiny ${shiny.size===1?'element':'elements'} · ${Math.round(shinyChance()*100)}% chance per combination</div>`);
 }
-const APP_VERSION='1.0.76';
+const APP_VERSION='1.0.77';
 // V83: status line + Google consent (UMP) privacy options, required for EEA players.
 async function refreshAdStatus(){
  const el=$('settingsAdStatus'),bridge=getRewardBridge();
@@ -8565,11 +8605,13 @@ function syncGamesTab(){const t=document.querySelector('.tab-games');if(!t)retur
 function gamesSeen(){try{localStorage.setItem(GAMES_SEEN_KEY,'1');}catch{}syncGamesTab();}
 // ---------- V136: companion coins, Black Market, School, Wardrobe ----------
 const WALLET_KEY='alchemy10k_wallet_v136';
-let wallet={coins:0,acc:{},toys:[],toy:null,tokens:[],bag:{},daily:null,classes:{},streak:0,firstBuy:false,dyes:[],dyeOn:{},looks:[],tints:[]};
-try{const r=JSON.parse(localStorage.getItem(WALLET_KEY)||'null');if(r&&typeof r==='object')wallet={coins:Math.max(0,Math.floor(Number(r.coins)||0)),acc:Array.isArray(r.acc)?Object.fromEntries(r.acc.filter(a=>ACCESSORIES[a]).map(a=>[a,1])):(r.acc&&typeof r.acc==='object'?r.acc:{}),daily:typeof r.daily==='string'?r.daily:null,classes:r.classes&&typeof r.classes==='object'?r.classes:{},toys:Array.isArray(r.toys)?r.toys:[],toy:typeof r.toy==='string'?r.toy:null,tokens:Array.isArray(r.tokens)?r.tokens.slice(-200):[],bag:r.bag&&typeof r.bag==='object'?r.bag:{},streak:Number(r.streak)||0,firstBuy:r.firstBuy===true,dyes:Array.isArray(r.dyes)?r.dyes.filter(d=>DYES.some(x=>x.id===d)):[],dyeOn:r.dyeOn&&typeof r.dyeOn==='object'?r.dyeOn:{},looks:Array.isArray(r.looks)?r.looks:[],tints:Array.isArray(r.tints)?r.tints:[]};}catch{}
+let wallet={coins:0,acc:{},toys:[],toy:null,tokens:[],bag:{},daily:null,classes:{},streak:0,firstBuy:false,dyes:[],dyeOn:{},looks:[],tints:[],ultra:[]};
+try{const r=JSON.parse(localStorage.getItem(WALLET_KEY)||'null');if(r&&typeof r==='object')wallet={coins:Math.max(0,Math.floor(Number(r.coins)||0)),acc:Array.isArray(r.acc)?Object.fromEntries(r.acc.filter(a=>ACCESSORIES[a]).map(a=>[a,1])):(r.acc&&typeof r.acc==='object'?r.acc:{}),daily:typeof r.daily==='string'?r.daily:null,classes:r.classes&&typeof r.classes==='object'?r.classes:{},toys:Array.isArray(r.toys)?r.toys:[],toy:typeof r.toy==='string'?r.toy:null,tokens:Array.isArray(r.tokens)?r.tokens.slice(-200):[],bag:r.bag&&typeof r.bag==='object'?r.bag:{},streak:Number(r.streak)||0,firstBuy:r.firstBuy===true,dyes:Array.isArray(r.dyes)?r.dyes.filter(d=>DYES.some(x=>x.id===d)):[],dyeOn:r.dyeOn&&typeof r.dyeOn==='object'?r.dyeOn:{},looks:Array.isArray(r.looks)?r.looks:[],tints:Array.isArray(r.tints)?r.tints:[],ultra:Array.isArray(r.ultra)?r.ultra:[]};}catch{}
 const packPrices={};
 let coinsPrice=COIN_PACK.price,coinsAvailable=false;
 function saveWallet(){try{localStorage.setItem(WALLET_KEY,JSON.stringify(wallet));}catch{}}
+// V177: ultra-rare unlocks — the look/colour opens and free essences land on the food tray
+function grantUltra(u){if(!u||wallet.ultra.includes(u.id))return null;wallet.ultra.push(u.id);wallet.bag[u.ess]=(wallet.bag[u.ess]||0)+u.give;saveWallet();try{renderFoodTray();}catch{}return u;}
 // V174: companion colours are applied everywhere a companion is drawn (any element with data-companion)
 function applyDyes(){const old=document.getElementById('dyeStyle');if(old)old.textContent='';}
 function applyDyesV174(){let el=document.getElementById('dyeStyle');if(!el){el=document.createElement('style');el.id='dyeStyle';document.head.append(el);}
@@ -8603,16 +8645,16 @@ const coinBar=()=>`<div class="mk-wallet"><span class="mk-coins">🪙 <b data-co
 function wireCoinBar(back){const b=$('mkBuyCoins');if(b)b.onclick=()=>openCoinShop(back);}
 // V137: coin packs — bigger packs give more coins per euro
 // V152: a full companion (20 elements) can eat again after 1 h, or now with an ad or 100 coins
-const MAKE_ROOM_COINS=150;
+const MAKE_ROOM_COINS=500,MAKE_ROOM_ADS=3;const roomAds={};
 function openFullSheet({id,name,leftMs}){const mins=Math.max(1,Math.ceil(leftMs/60000));const ad=rewardedAvailable();
  showModal(`<div class="modal-tag">FULL BELLY</div><div class="cf-art"><span class="companion fr-ava" data-companion="${id}"><span class="companion-art">${COMPANION_SPRITES_V86[id]||''}</span></span></div><h2>${escapeText(name)} is full</h2><p>It ate 20 elements and needs a break. Hungry again in <b>${mins} min</b>.</p>
-  ${ad?`<button type="button" class="modal-button" id="frAd">▶ Watch an ad · make room</button>`:''}<button type="button" class="modal-button ${ad?'secondary':''}" id="frCoins">🪙 ${MAKE_ROOM_COINS} · make room</button><button type="button" class="modal-button secondary" id="frWait">Wait</button>`);
+  ${ad?`<button type="button" class="modal-button" id="frAd">▶ Watch ad ${(roomAds[id]||0)+1}/${MAKE_ROOM_ADS} · make room</button>`:''}<button type="button" class="modal-button ${ad?'secondary':''}" id="frCoins">🪙 ${MAKE_ROOM_COINS} · make room</button><button type="button" class="modal-button secondary" id="frWait">Wait</button>`);
  try{wearAll($('modalContent'));}catch{}
  $('frWait').onclick=closeModal;
  // V153: coins are only spent after the player confirms (same confirm sheet as the Market)
  $('frCoins').onclick=()=>{const back=()=>openFullSheet({id,name,leftMs:companions.fullLeft(id)});confirmBuy({art:`<span class="companion fr-ava" data-companion="${id}"><span class="companion-art">${COMPANION_SPRITES_V86[id]||''}</span></span>`,name:`Make room for ${name}`,desc:'It can eat 20 more elements right away.',price:MAKE_ROOM_COINS,label:'Make room'},()=>{companions.makeRoom(id);closeModal();toast(`${name} can eat 20 more elements`,'new');},back);try{wearAll($('modalContent'));}catch{}};
  const b=$('frAd');if(b)b.onclick=async()=>{if(rewardedHintBusy)return;rewardedHintBusy=true;b.disabled=true;let r=null;try{r=await getRewardBridge().showRewarded({kind:'make_room',companion:id});}catch(e){console.warn('Make room ad',e);}finally{rewardedHintBusy=false;}
-  if(r?.earned!==true){toast('Ad not completed','repeat');b.disabled=false;return;}companions.makeRoom(id);closeModal();toast(`${name} can eat 20 more elements`,'new');};}
+  if(r?.earned!==true){toast('Ad not completed','repeat');b.disabled=false;return;}roomAds[id]=(roomAds[id]||0)+1;if(roomAds[id]<MAKE_ROOM_ADS){toast(`Ad ${roomAds[id]}/${MAKE_ROOM_ADS} watched`,'repeat');openFullSheet({id,name,leftMs:companions.fullLeft(id)});return;}roomAds[id]=0;companions.makeRoom(id);closeModal();toast(`${name} can eat 20 more elements`,'new');};}
 function openCoinShop(back){
  showModal(`<div class="modal-tag">COMPANION COINS</div><h2>Get more coins</h2><div class="fair-note"><b>✓ Fair play</b><span>${escapeText(FAIR_PLAY_NOTE)}</span></div>${wallet.firstBuy?'':'<div class="cp-first">🎉 <b>First purchase: double coins!</b></div>'}<p class="mini-muted">You have 🪙 <b data-coins>${wallet.coins.toLocaleString('en-US')}</b> · bigger packs are better value</p>
   <div class="cp-list">${COIN_PACKS.map(p=>`<button type="button" class="cp-pack ${p.tag?'is-hot':''}" data-pack="${p.id}">${p.tag?`<span class="cp-tag">${p.tag}</span>`:''}<span class="cp-pile">${'🪙'.repeat(1+COIN_PACKS.indexOf(p))}</span><b>${(p.coins*(wallet.firstBuy?1:FIRST_BUY_MULT)).toLocaleString('en-US')}</b><small>${wallet.firstBuy?'':`<s>${p.coins.toLocaleString('en-US')}</s> `}${p.bonus?`+${p.bonus}% bonus`:'coins'}</small>${p.gift?`<small class="cp-gift">+ ${escapeText(DYES.find(d=>d.id===p.gift)?.name||'')} colour</small>`:''}<em>${escapeText(packPrices[p.id]||p.price)}</em></button>`).join('')}</div>
@@ -8652,7 +8694,7 @@ function nextStreak(){return wallet.daily===yesterdayKey()?Math.min(7,(wallet.st
 function openMarket(onClose,tab){if(tab)marketTab=tab;
  const owned=it=>it.kind==='toy'?wallet.toys.includes(it.toy):(it.kind==='furniture'||it.kind==='house')?unlocked.has(it.element):false;
  const priceOf=it=>it.kind==='acc'?accPrice(it.price,accOwned(it.acc)):it.price;
- const items=MARKET.filter(it=>it.kind===marketTab&&(!it.element||byId.has(it.element)));
+ const items=MARKET.filter(it=>it.kind===marketTab&&!it.hidden&&(!it.element||byId.has(it.element)));
  // V175: Colours tab — buying a colour unlocks it on a set of Alchemy elements; feeding those elements tints the companion
  const swatch=d=>{const c={mint:'#78dcb4',sky:'#78bef9',berry:'#aa3c8c',sunset:'#ff6e50',snow:'#f5f8ff',cocoa:'#825537',gold:'#e8c040',aurora:'#5adcd2',onyx:'#282834',rainbow:'conic-gradient(#ff5a5a,#ffd166,#8fbf68,#5aaed2,#b39ddb,#ff5a5a)'}[d.tint]||'#ccc';return `<span class="mk-art dye-sw" style="background:${c}"></span>`;};
  const dyeTile=d=>{const own=wallet.dyes.includes(d.id);const pack=d.exclusive?COIN_PACKS.find(p=>p.id===d.exclusive):null;const n=dyeElements(d.id).length;
@@ -8661,7 +8703,8 @@ function openMarket(onClose,tab){if(tab)marketTab=tab;
  const rgbCss=c=>c?`rgb(${c.join(',')})`:'#ccc';
  const tintTile=t=>{const own=wallet.tints.includes(t.key);const inf=themeInfo?.(t.key);return `<button type="button" class="stat-tile mk-tile ${own?'is-owned':''}" data-tint="${t.key}"><span class="mk-art dye-sw" style="background:${rgbCss(TINT_RGB[t.key])}"></span><b>${escapeText(t.name)}</b><small>Natural colour</small><em class="mk-price ${!own&&wallet.coins<t.price?'is-short':''}">${own?'Unlocked':`🪙 ${t.price.toLocaleString('en-US')}`}</em></button>`;};
  const lookTile=l=>{const own=wallet.looks.includes(l.key);const inf=themeInfo(l.key)||{traits:[],icon:''};return `<button type="button" class="stat-tile mk-tile ${own?'is-owned':''}" data-look="${l.key}"><span class="mk-art lk-ico">${inf.icon||'✨'}</span><b>${escapeText(l.name)}</b><small>${escapeText(inf.traits.join(' · ')||'Colour')}</small><em class="mk-price ${!own&&wallet.coins<l.price?'is-short':''}">${own?'Unlocked':`🪙 ${l.price.toLocaleString('en-US')}`}</em></button>`;};
- const lookGrid=marketTab==='look'?`<p class="mini-muted">Looks give traits (horns, wings, tails, auras) and their colour. Unlock a look, then feed its elements — e.g. Dragon elements grow dragon horns. Size changes stay free.</p><div class="stat-tiles mk-grid">${LOOK_ITEMS.map(lookTile).join('')}</div>`:'';
+ const ultraTile=u=>{const own=wallet.ultra.includes(u.id);const ess=MARKET.find(x=>x.id===u.ess);return `<button type="button" class="stat-tile mk-tile is-ultra ${own?'is-owned':''}" data-ultra="${u.id}"><span class="mk-art lk-ico">${ess?.icon||'✨'}</span><b>${escapeText(u.name)}</b><small>${own?`${wallet.bag[u.ess]||0} essences`:u.from==='champ'?'Win the Championship':u.from==='mini'?'0.01% in minigames':'Win an ultra race'}</small><em class="mk-price">${own?`Essence · 🪙 ${(ess?.price||1000).toLocaleString('en-US')}`:'🔒 Ultra rare'}</em></button>`;};
+ const lookGrid=marketTab==='look'?`<p class="mini-muted">Looks give traits (horns, wings, tails, auras) and their colour. Unlock a look, then feed its elements — e.g. Dragon elements grow dragon horns. Size changes stay free.</p><div class="stat-tiles mk-grid">${LOOK_ITEMS.map(lookTile).join('')}</div><h3 class="st-sub">✦ Ultra rare</h3><div class="stat-tiles mk-grid">${ULTRA.map(ultraTile).join('')}</div>`:'';
  const dyeGrid=marketTab==='dye'?`<p class="mini-muted">Colours change only after you unlock them. Then feed elements of that colour to a companion.</p><h3 class="st-sub">Natural colours</h3><div class="stat-tiles mk-grid">${TINT_ITEMS.map(tintTile).join('')}</div><h3 class="st-sub">Special colours · live in elements that had no effect</h3><div class="stat-tiles mk-grid">${DYES.map(dyeTile).join('')}</div>`:'';
  const isEl=it=>it.kind==='furniture'||it.kind==='house';
  const artOf=it=>it.kind==='acc'?accIcon(it.acc):isEl(it)?homeStaticArt(byId.get(it.element)):`<span class="mk-emoji">${it.icon}</span>`;
@@ -8681,6 +8724,8 @@ function openMarket(onClose,tab){if(tab)marketTab=tab;
  $('modalContent').querySelectorAll('[data-mktab]').forEach(b=>b.onclick=()=>{marketTab=b.dataset.mktab;again();});
  $('modalContent').querySelectorAll('[data-tint]').forEach(b=>b.onclick=()=>{const t=TINT_ITEMS.find(x=>x.key===b.dataset.tint);if(wallet.tints.includes(t.key)){toast(`${t.name} colour is unlocked`,'repeat');return;}
   confirmBuy({art:`<span class="dye-sw" style="background:${rgbCss(TINT_RGB[t.key])}"></span>`,name:`${t.name} colour`,desc:'Elements of this colour can now tint your companions.',price:t.price,label:'Unlock'},()=>{wallet.tints.push(t.key);saveWallet();SFX.happy?.();again();},again);});
+ $('modalContent').querySelectorAll('[data-ultra]').forEach(b=>b.onclick=()=>{const u=ULTRA.find(x=>x.id===b.dataset.ultra);if(!wallet.ultra.includes(u.id)){toast(u.from==='champ'?'Win Championship races for a chance to unlock it':u.from==='mini'?'A 1-in-10,000 chance in any minigame':'Coming with the ultra races','repeat');return;}
+  const ess=MARKET.find(x=>x.id===u.ess);confirmBuy({art:`<span class="lk-ico">${ess.icon}</span>`,name:ess.name,desc:'Drag it from the food tray onto a companion.',price:ess.price,label:'Buy essence'},()=>{wallet.bag[u.ess]=(wallet.bag[u.ess]||0)+1;saveWallet();renderFoodTray();again();},again);});
  $('modalContent').querySelectorAll('[data-look]').forEach(b=>b.onclick=()=>{const l=LOOK_ITEMS.find(x=>x.key===b.dataset.look);const inf=themeInfo(l.key)||{traits:[],icon:''};if(wallet.looks.includes(l.key)){toast(`${l.name} look is unlocked · feed its elements`,'repeat');return;}
   confirmBuy({art:`<span class="lk-ico">${inf.icon||'✨'}</span>`,name:`${l.name} look`,desc:`${inf.traits.join(', ')||'Its colour'} — grow it by feeding ${l.name.toLowerCase()} elements.`,price:l.price,label:'Unlock'},()=>{wallet.looks.push(l.key);saveWallet();SFX.happy?.();toast(`${l.name} look unlocked!`,'new');again();},again);});
  $('modalContent').querySelectorAll('[data-dye]').forEach(b=>b.onclick=()=>{const d=DYES.find(x=>x.id===b.dataset.dye);const els=dyeElements(d.id);const list=els.slice(0,40).map(n=>escapeText(n)).join(' · ')+(els.length>40?` · +${els.length-40} more`:'');
@@ -8737,13 +8782,13 @@ function openWardrobe(cid){const info=companions.info(cid);if(!info)return;const
 
 
 // V158: Arcade minigames (one per 250 new elements)
-const arcade=createArcade({$,escapeText,art:STADIUM_ART_V95,showAd:async kind=>{const b=getRewardBridge();if(!b)return true;const r=await b.showRewarded({kind});return r?.earned===true;},pauseWorld:()=>{document.body.classList.add('ar-playing');try{companions.stop();}catch{}},resumeWorld:()=>{document.body.classList.remove('ar-playing');try{companions.start();}catch{}},showModal,closeModal,toast,staticArt,sfx:SFX,item:id=>byId.get(id),itemName:id=>uiName(byId.get(id)),
+const arcade=createArcade({rollMiniUnique:()=>grantUltra(rollUltra('mini',wallet.ultra,Math.random,MINI_UNIQUE_CHANCE)),$,escapeText,art:STADIUM_ART_V95,showAd:async kind=>{const b=getRewardBridge();if(!b)return true;const r=await b.showRewarded({kind});return r?.earned===true;},pauseWorld:()=>{document.body.classList.add('ar-playing');try{companions.stop();}catch{}},resumeWorld:()=>{document.body.classList.remove('ar-playing');try{companions.start();}catch{}},showModal,closeModal,toast,staticArt,sfx:SFX,item:id=>byId.get(id),itemName:id=>uiName(byId.get(id)),
  unlocked:()=>[...unlocked].filter(id=>byId.has(id)&&!STARTERS.has(id)),
  knownRecipes:()=>{const out=[];for(const [k,r] of recipes){if(!unlocked.has(r)||STARTERS.has(r))continue;const [a,b]=k.split('|');if(unlocked.has(a)&&unlocked.has(b)&&a!==r&&b!==r)out.push([a,b,r]);if(out.length>600)break;}return out;},
  count:()=>classicDiscoveredCount(),activeId:()=>companions.active?.id||null,sprite:id=>COMPANION_SPRITES_V86[id]||'',wear:root=>{try{wearAll(root);}catch{}},
  statLevel:(id,k)=>companions.info(id)?.stats?.[k]?.level||0,skillLevel:(id,k)=>companions.skillsOf(id).includes(k)?companions.skillLevel(id,k)+1:0,
  addCoins:n=>addCoins(n),train:(k,amt)=>{const id=companions.active?.id;if(id)companions.gameReward(id,[k],amt);}});
-const games=createGamesSystem({lookOwned:k=>wallet.looks.includes(k),openArcade:back=>arcade.open(back),openMicro:back=>arcade.openMicro(back),arcadeInfo:()=>{const s=arcade.state();return s?{got:s.unlocked.length,total:16}:null;},themedArt,recolorSvg,skillLevels:cid=>Object.fromEntries(companions.skillsOf(cid).map(k=>[k,companions.skillLevel(cid,k)+1])),coins:()=>wallet.coins,addCoins,coinsFor,grantAccessory,accIcon,accessories:ACCESSORIES,openMarket:(cb)=>openMarket(cb),openSchool:(cid,cb)=>openSchool(cid,cb),themeCompletion:(cid,k)=>companions.themeCompletion(cid,k),$,escapeText,roster:COMPANIONS_V86,sprites:COMPANION_SPRITES_V86,byId,uiName,isDiscovered:companionOwned,companionInfo:id=>companions.info(id),activeId:()=>companions.state().active,
+const games=createGamesSystem({lookOwned:k=>wallet.looks.includes(k),hasAcc:a=>!!wallet.acc?.[a],onPrize:()=>{try{companions.refreshViews();}catch{}},rollChampUltra:level=>grantUltra(rollUltra('champ',wallet.ultra,Math.random,champUltraChance(level))),openArcade:back=>arcade.open(back),openMicro:back=>arcade.openMicro(back),arcadeInfo:()=>{const s=arcade.state();return s?{got:s.unlocked.length,total:16}:null;},themedArt,recolorSvg,skillLevels:cid=>Object.fromEntries(companions.skillsOf(cid).map(k=>[k,companions.skillLevel(cid,k)+1])),coins:()=>wallet.coins,addCoins,coinsFor,grantAccessory,accIcon,accessories:ACCESSORIES,openMarket:(cb)=>openMarket(cb),openSchool:(cid,cb)=>openSchool(cid,cb),themeCompletion:(cid,k)=>companions.themeCompletion(cid,k),$,escapeText,roster:COMPANIONS_V86,sprites:COMPANION_SPRITES_V86,byId,uiName,isDiscovered:companionOwned,companionInfo:id=>companions.info(id),activeId:()=>companions.state().active,
  prizes:{RACE_PRIZES,beltSvg,personal:(course,cid,name,sprite)=>personalPrize(course,cid,companions.state().pets?.[cid]?.nick||name,sprite)},starterCompanion:STARTER_COMPANION,belts:BELTS,wear:wearAll,alchemyGrowth,classicCount:classicDiscoveredCount,openCard:id=>companions.openCard(id),art:STADIUM_ART_V95,sfx:SFX,rivalLook:(seed,level)=>rivalLook(seed,level),onBelt:()=>{companions.refreshViews();companions.start();},
  onResult:(id,kind,focus,place)=>{const amt=[0,12,8,5,3,3][place]||3;const stats=kind==='karate'?['power','hp']:focus==='all'?['run','swim','fly','power']:focus==='stamina'?['stamina','run']:[focus,'stamina'];return companions.gameReward(id,stats,amt);},
  showModal,closeModal,toast,reducedMotion:()=>Boolean(window.matchMedia?.('(prefers-reduced-motion: reduce)')?.matches)});
