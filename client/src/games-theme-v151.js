@@ -240,19 +240,81 @@ const SC={
  'organic85:tango':{sky:['#150F2E','#3A1F4A','#8A3A4A'],body:['crescent','#FFE9B8',80,56,20],far:[['skyline','#2A1A3A',230,80,'#FFD9A8'],['lamps','#150F2E','#FFD9A8',266]],ext:[['stars']],gnd:'#5A4A5A',fence:['iron','#150F2E'],night:1},
  'organic85:rio-carnival':{sky:['#3FB0E8','#A8E0C8','#FFF1A8'],body:['sun','#fff',70,56,24],far:[['mountains','#5FAE8A',238,90,2,''],['tents','#3A5A6A','#FF7AD9','#FFD166',266]],ext:[['bunting','#FF7AD9','#FFD166','#5FD0A8'],['clouds','#fff']],gnd:'#7FCF7A',fence:['rope','#FF7AD9','#FFD166']},
  'organic85:day-of-the-dead':{sky:['#1F0F3A','#5A1F6A','#E0702A'],body:['moon','#FFE9B8',310,64,24],far:[['arches','#3A1F4A','#FFB04A',240],['graves','#1F0F2A',268]],ext:[['stars'],['bunting','#FF7AD9','#FFB04A','#7FE0D0'],['embers','#FFB04A']],gnd:'#7A4A6A',fence:['iron','#1F0F2A'],night:1}};
-export function worldSky(cid){const S=SC[cid];if(!S)return null;const [a,b,c]=S.sky;let o=`<defs><linearGradient id="wsk" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="${a}"/><stop offset=".55" stop-color="${b}"/><stop offset="1" stop-color="${c}"/></linearGradient></defs><rect width="400" height="300" fill="url(#wsk)"/>`;
+const mixHex=(h,t,k)=>{const a=hex2rgb(h),b=hex2rgb(t);return '#'+a.map((v,i)=>Math.round(v+(b[i]-v)*k).toString(16).padStart(2,'0')).join('');};
+const recolorOne=(svg,from,to)=>svg.split(`fill="${from}"`).join(`fill="${to}"`).split(`stroke="${from}"`).join(`stroke="${to}"`);
+export function worldSky(cid){const S=SC[cid];if(!S)return null;const [a,b,c]=S.sky;
+ let o=`<defs><linearGradient id="wsk" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="${a}"/><stop offset=".55" stop-color="${b}"/><stop offset="1" stop-color="${c}"/></linearGradient><linearGradient id="whz" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="${c}" stop-opacity="0"/><stop offset="1" stop-color="${c}" stop-opacity=".55"/></linearGradient><linearGradient id="wsh" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#000" stop-opacity="0"/><stop offset="1" stop-color="#000" stop-opacity=".16"/></linearGradient></defs><rect width="400" height="300" fill="url(#wsk)"/>`;
  const back=S.ext.filter(e=>['stars','aurora','rays'].includes(e[0])),front=S.ext.filter(e=>!['stars','aurora','rays'].includes(e[0]));
  for(const [k,...args] of back)o+=EXT[k](...args);
  if(S.body[0]!=='none'){const [t,...args]=S.body;o+=BODY[t](...args);}
- S.far.forEach(([k,...args],i)=>{o+=`<g opacity="${i===0&&S.far.length>1?0.75:1}">${SIL[k](...args)}</g>`;});
+ o+=`<rect x="0" y="150" width="400" height="150" fill="url(#whz)"/>`;
+ // each horizon layer: a lighter rim (the same shape lifted a little) for a lit edge, the shape, then haze so depth reads
+ S.far.forEach(([k,...args],i)=>{const main=args[0];const shape=SIL[k](...args);const last=i===S.far.length-1;
+  const rim=typeof main==='string'&&/^#[0-9a-fA-F]{6}$/.test(main)?`<g transform="translate(0 -2.6)" opacity=".9">${recolorOne(shape,main,mixHex(main,S.night?'#B8C0FF':'#FFFFFF',S.night?0.22:0.34))}</g>`:'';
+  o+=`<g opacity="${i===0&&S.far.length>1?0.82:1}">${rim}${shape}</g>`;
+  if(!last)o+=`<rect x="0" y="${Math.round((args.find(v=>typeof v==='number')||230))-6}" width="400" height="80" fill="${c}" opacity=".22"/>`;});
+ o+=`<rect x="0" y="236" width="400" height="64" fill="url(#wsh)"/>`;
  for(const [k,...args] of front)o+=EXT[k](...args);
  return SV('0 0 400 300',o);}
-export function worldMid(cid,props){const S=SC[cid];if(!S)return null;const [ft,...fa]=S.fence;
- let o=`<defs><linearGradient id="wgd" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="${S.gnd}" stop-opacity="0"/><stop offset=".35" stop-color="${S.gnd}" stop-opacity=".95"/><stop offset="1" stop-color="${S.gnd}" stop-opacity="0"/></linearGradient></defs><rect x="0" y="84" width="400" height="76" fill="url(#wgd)"/><g stroke-linejoin="round" stroke-linecap="round">${FENCE[ft](...fa)}</g>`;
- const ks=props||[];[[36,1.5,0],[118,1.15,1],[204,1.7,0],[286,1.2,1],[364,1.45,0]].forEach(([x,s,i])=>{const f=PROP_LIB[ks[i%ks.length]];if(f)o+=f(x,140).replace(')"',`) scale(${s})"`);});
+export function worldMid(cid,props){const S=SC[cid];if(!S)return null;const [ft,...fa]=S.fence;const r=prng(cid.length*131+7);const dk=mixHex(S.gnd,'#000000',0.22),lt=mixHex(S.gnd,'#FFFFFF',0.35);
+ let o=`<defs><linearGradient id="wgd" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="${S.gnd}" stop-opacity="0"/><stop offset=".3" stop-color="${S.gnd}" stop-opacity=".97"/><stop offset="1" stop-color="${S.gnd}" stop-opacity="0"/></linearGradient></defs><rect x="0" y="80" width="400" height="80" fill="url(#wgd)"/>`;
+ // back row of small scenery, fence, then the big props with soft shadows and ground detail in front
+ const ks=props||[];
+ [[78,0.8,1],[160,0.7,0],[246,0.85,1],[326,0.75,0]].forEach(([x,sc,i])=>{const f=PROP_LIB[ks[i%ks.length]];if(f)o+=`<g opacity=".6">${f(x,112).replace(')"',`) scale(${sc})"`)}</g>`;});
+ o+=`<g stroke-linejoin="round" stroke-linecap="round">${FENCE[ft](...fa)}</g>`;
+ [[36,1.55,0],[118,1.2,1],[204,1.8,0],[286,1.25,1],[364,1.5,0]].forEach(([x,sc,i])=>{const f=PROP_LIB[ks[i%ks.length]];if(f)o+=`<ellipse cx="${x}" cy="141" rx="${n1(20*sc)}" ry="4.5" fill="#000" opacity=".16"/>`+f(x,140).replace(')"',`) scale(${sc})"`);});
+ for(let i=0;i<22;i++){const x=n1(r()*400),y=n1(132+r()*20),t=r();
+  o+=t<0.5?`<path d="M${x} ${y}l-3 -7M${x} ${y}l0 -9M${x} ${y}l3 -7" stroke="${dk}" stroke-width="1.8" stroke-linecap="round" fill="none"/>`:t<0.75?`<ellipse cx="${x}" cy="${y}" rx="${n1(3+r()*3)}" ry="2" fill="${lt}" stroke="${dk}" stroke-width="1.2"/>`:`<circle cx="${x}" cy="${n1(+y-5)}" r="2.4" fill="${W_ACC[cid]||'#fff'}" stroke="${dk}" stroke-width="1"/><path d="M${x} ${n1(+y-3)}v4" stroke="${dk}" stroke-width="1.4"/>`;}
  return SV('0 0 400 160',o);}
+const W_ACC={};
+/** V195: things buried under the track — roots, gems, fossils and half-buried scenery of the world (transparent tile 400×260). */
+export function worldUnder(cid,props){const S=SC[cid];if(!S)return null;const r=prng(cid.length*313+11);const acc=W_ACC[cid]||'#FFD166';const dk=S.night?'#0B0B1A':'#3A2A1F';let o='';
+ for(let i=0;i<6;i++){const x=n1(20+r()*360),h=n1(30+r()*60);o+=`<path d="M${x} 0q${n1(-8+r()*16)} ${n1(h*0.5)} ${n1(-6+r()*12)} ${h}M${x} ${n1(h*0.4)}q${n1(8+r()*8)} 6 ${n1(12+r()*10)} ${n1(14+r()*10)}" stroke="${dk}" stroke-width="2.5" fill="none" opacity=".28" stroke-linecap="round"/>`;}
+ for(let i=0;i<7;i++){const x=n1(14+r()*372),y=n1(50+r()*190),q=n1(5+r()*4);o+=`<path d="M${x} ${n1(y-q)}l${q} ${q}l${-q} ${n1(q*1.2)}l${-q} ${n1(-q*1.2)}Z" fill="${acc}" stroke="${dk}" stroke-width="1.5" opacity=".85"/><path d="M${x} ${n1(y-q)}v${n1(q*2.2)}" stroke="#fff" stroke-width="1" opacity=".6"/>`;}
+ for(let i=0;i<3;i++){const x=n1(40+r()*320),y=n1(70+r()*160);o+=`<path d="M${x} ${y}m-9 0a9 9 0 1 1 9 9a6 6 0 1 1 -6 -6a3.5 3.5 0 1 1 3.5 3.5" stroke="#fff" stroke-width="2" fill="none" opacity=".45"/>`;}
+ const ks=props||[];[[70,96],[210,170],[330,110]].forEach(([x,y],i)=>{const f=PROP_LIB[ks[i%ks.length]];if(f)o+=`<g opacity=".4">${f(x,y).replace(')"',`) scale(0.9) rotate(${i%2?14:-12})"`)}</g>`;});
+ return SV('0 0 400 260',o);}
+/* ---- V195: living worlds — clouds, flocks, bats, balloons, flyers, smoke, fireworks, beams, bugs and weather (DOM, GPU-friendly) ---- */
+const FLY={dragon:'M2 18q10-6 18-2l8-14 6 14q10-4 22 2q-10 2-14 6q6 6 4 8q-8-4-14-8q-8 4-18 0q-6 2-12-6Z',ptero:'M2 16l20-3 9-11 5 11 22 5-22 2-7 8-4-8Z',eagle:'M2 14q12-9 24 0q4-4 8 0q12-9 24 0q-14-2-24 7q-4 4-8 0q-10-9-24-7Z',ghost:'M18 30V14q0-12 12-12q12 0 12 12v16l-6-5-6 5-6-5Z',ufo:'M4 20q26-12 52 0q-26 10-52 0ZM18 14q12-14 24 0Z'};
+const LIFE={
+ 'Pixel Plains':{cl:['#fff',3],fl:'#3F6A4A',bug:['fly','#FF7AD9'],fx:'spark'},'Circuit City':{tw:1,sh:1,fy:['ufo','#9FE0D8'],bm:['#7FE0D0','#FFD166'],bug:['glow','#7FE0D0'],fx:'spark'},
+ 'Castle Road':{cl:['#fff',3],fl:'#4F6269',fy:['eagle','#5A4A3A'],bug:['fly','#FFD166'],fx:'petal'},'Moonlit Woods':{tw:1,sh:1,bt:1,cl:['#3A3F6A',2],bug:['glow','#DFE6FF'],fx:'firefly'},
+ 'Paint Meadow':{cl:['#fff',3],bl:['#E0675A','#7CC3E0','#FFD166'],bug:['fly','#9B7FC4'],fx:'confetti'},'Bamboo Grove':{cl:['#fff',2],fl:'#3F6A4A',bug:['fly','#F2A7B8'],fx:'leaf'},
+ 'Ice Shelf':{cl:['#fff',2],fl:'#3F5A7A',fx:'snow'},'Neon Stage':{tw:1,bm:['#FF7AD9','#7FE0F0'],fw:['#FF7AD9','#7FE0F0','#FFD166'],fx:'note'},
+ 'Dusk Dojo':{cl:['#FFC9B8',2],fl:'#3A1F3A',bug:['glow','#FFD166'],fx:'petal'},'Mecha Bay':{cl:['#C9D2E0',3],fl:'#3F4A5E',sm:[[42,34],[72,44]],fx:'spark'},
+ 'Autumn Wood':{cl:['#FFE9C9',2],fl:'#7A3A1C',bug:['fly','#F2B84B'],fx:'leaf'},'Night Forest':{tw:1,sh:1,fy:['eagle','#0F2030'],bug:['glow','#FFE9A8'],fx:'firefly'},
+ 'Berry Hedge':{cl:['#fff',3],fl:'#4F6269',bug:['bee','#FFD166'],fx:'petal'},'Lily Marsh':{cl:['#fff',2],fl:'#3F6A4A',bug:['glow','#EFFF9A'],fx:'firefly'},
+ 'River Bend':{cl:['#fff',3],fy:['eagle','#4A3A2A'],bug:['fly','#7CC3E0'],fx:'bubble'},'Ember Ridge':{sm:[[50,30]],fy:['dragon','#2A0F14'],fx:'ember'},
+ 'Arcade Alley':{tw:1,fy:['ufo','#7FE0D0'],bm:['#7FE0D0','#FF7AD9'],fx:'spark'},'Haunted Hollow':{tw:1,bt:1,fy:['ghost','#E6E0FF'],cl:['#4A4670',2],bug:['glow','#C9B8FF'],fx:'firefly'},
+ 'Starfall Tower':{tw:1,sh:3,cl:['#6A4AB0',2],bug:['glow','#FFE08A'],fx:'spark'},'Boulder Highlands':{cl:['#fff',3],fy:['eagle','#4F4A46'],fl:'#4F6269',fx:'petal'},
+ 'Picnic Fields':{cl:['#fff',3],bl:['#E0675A','#FFD166'],bug:['fly','#F2A7B8'],fx:'petal'},'Jungle Trail':{cl:['#EAF7E0',2],fl:'#1F4A3A',bug:['fly','#FFB04A'],fx:'leaf'},
+ 'Honey Meadow':{cl:['#FFF9E6',3],bug:['bee','#3A2A12'],fx:'petal'},'Golden Hour':{cl:['#FFD9A8',2],fl:'#4A1F14',bl:['#7A3A2A','#FFF1C9'],fx:'dust'},
+ 'Dig Site':{cl:['#fff',2],fl:'#7A5A2A',fx:'dust'},'Eagle Crags':{cl:['#fff',3],fy:['eagle','#3A2A1F'],fx:'petal'},
+ 'Sunfire Canyon':{fy:['eagle','#FFD166'],cl:['#FFB37A',2],fx:'ember'},'Desert Riddle':{cl:['#fff',1],fl:'#7A5A2A',fx:'dust'},
+ 'Underworld Gate':{bt:1,sm:[[30,40],[70,36]],fx:'ember'},'Cloud Kingdom':{cl:['#fff',5],fy:['eagle','#fff'],fx:'spark'},
+ 'Fern Valley':{sm:[[50,26]],fy:['ptero','#3F5A4A'],cl:['#EAF7E0',2],bug:['fly','#FFD166'],fx:'leaf'},'Volcano Plains':{sm:[[50,24]],fy:['ptero','#4A2A1F'],fx:'ember'},
+ 'Frozen Tundra':{cl:['#fff',3],fx:'snow'},'Sky Cliffs':{cl:['#fff',4],fy:['ptero','#3F5A5A'],fl:'#2F4A4A',fx:'petal'},
+ 'Ice Age Steppe':{cl:['#fff',3],fl:'#5A6A7A',fx:'snow'},'Easter Shore':{cl:['#fff',3],fl:'#fff',bug:['fly','#fff'],fx:'bubble'},
+ 'Seville Plaza':{cl:['#FFE0B8',2],fl:'#7A3A1F',bug:['fly','#E0675A'],fx:'petal'},'Midnight Milonga':{tw:1,sh:1,bug:['glow','#FFD9A8'],fx:'note'},
+ 'Carnival Parade':{cl:['#fff',2],bl:['#FF7AD9','#FFD166','#5FD0A8'],fw:['#FF7AD9','#FFD166','#5FD0A8'],fx:'confetti'},'Marigold Night':{tw:1,bt:1,fw:['#FFB04A','#FF7AD9'],bug:['glow','#FFB04A'],fx:'petal'}};
+/** HTML for the living layers of a world: free actors in the sky, anchored actors (repeat with the backdrop tile), bugs near the track, weather kind. */
+export function worldLife(cid){const W=COMPANION_WORLDS[cid],L=W&&LIFE[W.name];if(!L)return null;const r=prng(cid.length*977+3);let sky='',tile='',mid='';
+ if(L.tw)for(let i=0;i<14;i++)sky+=`<i class="wl-star" style="left:${n1(r()*100)}%;top:${n1(r()*55)}%;animation-delay:-${n1(r()*4)}s"></i>`;
+ for(let i=0;i<(L.sh||0);i++)sky+=`<i class="wl-shoot" style="left:${n1(10+r()*60)}%;top:${n1(4+r()*26)}%;animation-delay:-${n1(i*3.1+r()*2)}s"></i>`;
+ if(L.cl)for(let i=0;i<L.cl[1];i++)sky+=`<i class="wl-cloud" style="top:${n1(6+r()*34)}%;--c:${L.cl[0]};--s:${n1(0.7+r()*0.7)};animation-duration:${Math.round(70+r()*60)}s;animation-delay:-${Math.round(r()*120)}s"></i>`;
+ const flock=(c,cls,n)=>`<i class="wl-flock ${cls}" style="top:${n1(10+r()*30)}%;color:${c};animation-duration:${Math.round(22+r()*16)}s;animation-delay:-${Math.round(r()*30)}s">${Array.from({length:n},(_,k)=>`<b style="left:${k*16}px;top:${(k%2)*9+Math.round(r()*6)}px;animation-delay:-${n1(r())}s"></b>`).join('')}</i>`;
+ if(L.fl)sky+=flock(L.fl,'',4)+flock(L.fl,'',3);
+ if(L.bt)sky+=flock('#1A1228','is-bat',4)+flock('#1A1228','is-bat',3);
+ if(L.bl)L.bl.forEach((c,i)=>{sky+=`<i class="wl-balloon" style="top:${n1(8+r()*24)}%;--c:${c};animation-duration:${Math.round(90+r()*50)}s;animation-delay:-${Math.round(i*37+r()*40)}s"><svg viewBox="0 0 30 44"><path d="M15 2C6 2 2 9 2 16c0 8 7 13 10 18h6c3-5 10-10 10-18C28 9 24 2 15 2Z" fill="${c}" stroke="#657D89" stroke-width="1.5"/><path d="M15 2c-4 4-5 20 0 32M15 2c4 4 5 20 0 32" fill="none" stroke="#fff" stroke-width="1.5" opacity=".6"/><path d="M12 34l1 5h4l1-5" fill="none" stroke="#657D89" stroke-width="1"/><rect x="12" y="38" width="6" height="5" rx="1" fill="#A0683C" stroke="#657D89" stroke-width="1"/></svg></i>`;});
+ if(L.fy)sky+=`<i class="wl-flyer is-${L.fy[0]}" style="top:${n1(12+r()*20)}%;animation-duration:${Math.round(26+r()*14)}s;animation-delay:-${Math.round(r()*20)}s"><svg viewBox="0 0 60 32"><path d="${FLY[L.fy[0]]}" fill="${L.fy[1]}"/></svg></i>`;
+ if(L.sm)for(const [x,y] of L.sm)tile+=`<i class="wl-smoke" style="left:${x}%;top:${y}%"><b></b><b></b><b></b></i>`;
+ if(L.bm)L.bm.forEach((c,i)=>{tile+=`<i class="wl-beam" style="left:${22+i*52}%;--c:${c};animation-delay:-${i*2.3}s"></i>`;});
+ if(L.fw)for(let i=0;i<4;i++)tile+=`<i class="wl-fw" style="left:${n1(12+r()*76)}%;top:${n1(10+r()*34)}%;--c:${L.fw[i%L.fw.length]};animation-delay:-${n1(i*1.3+r())}s"></i>`;
+ if(L.bug)for(let i=0;i<7;i++)mid+=`<i class="wl-bug is-${L.bug[0]}" style="left:${n1(4+r()*90)}%;top:${n1(30+r()*50)}%;--c:${L.bug[1]};animation-duration:${n1(5+r()*6)}s;animation-delay:-${n1(r()*8)}s"></i>`;
+ return {sky,tile,mid,fx:L.fx||'spark'};}
 export const COMPANION_WORLDS=Object.fromEntries(Object.entries(CT).map(([id,[name,g,b,w,sk,n,pa,pb,fxc]])=>[id,{name,map:{g,b,w,s:sk,n},props:[pa,pb],fx:fxc}]));
+for(const [id,w] of Object.entries(COMPANION_WORLDS))W_ACC[id]=w.fx;
 /** The art set for a companion's own world (null for unknown ids). */
 export function companionArt(base,cid){const W=COMPANION_WORLDS[cid];if(!W)return null;const out={};
  for(const k of ['run','swim','fly','climb','mid'])out[k]=recolorSvg(base[k],W.map,false);
- out.sky=worldSky(cid)||recolorSvg(base.sky,W.map,true);out.mid=worldMid(cid,W.props)||out.mid;out.night=!!SC[cid]?.night;out.scene=true;out.map=W.map;const [a,b]=W.props.map(k=>PROP_LIB[k]);out.prop=(x,y,r)=>(r<.5?a:b)(x,y).replace(')"',') scale(1.35)"');out.dense=true;out.name=W.name;out.fx=W.fx;return out;}
+ out.sky=worldSky(cid)||recolorSvg(base.sky,W.map,true);out.mid=worldMid(cid,W.props)||out.mid;out.night=!!SC[cid]?.night;out.scene=true;out.life=worldLife(cid);out.under=worldUnder(cid,W.props);out.map=W.map;const [a,b]=W.props.map(k=>PROP_LIB[k]);out.prop=(x,y,r)=>(r<.5?a:b)(x,y).replace(')"',') scale(1.35)"');out.dense=true;out.name=W.name;out.fx=W.fx;return out;}
