@@ -81,8 +81,28 @@ export function fits(house,layout,objects,sprites,cand,ignoreIndex=-1){
 export function growthMultiplier(capacity,house,objects,kind,bonusOf=()=>FURNITURE_BONUS){const base=HOUSE_GROWTH[capacity]||1;const add=(house?.furniture||[]).filter(f=>objects[f.id]?.effect===kind).reduce((n,f)=>n+bonusOf(f.id),0);return Math.round(base*(1+Math.min(FURNITURE_BONUS_MAX,add))*100)/100;}
 export function houseSummary(house,objects){const out={};for(const f of house?.furniture||[]){const e=objects[f.id]?.effect;if(e)out[e]=(out[e]||0)+1;}return out;}
 
+/** V188: every companion has its own little personality at home — a favourite and a disliked kind of furniture,
+ *  a tempo (lazy … hyper), a signature idle move and a voice (pitch, wave and melody). Pure and deterministic. */
+export const HOME_QUIRKS=['spin','hop','wiggle','nod','stretch','shiver','bow','sway'];
+const P_EFFECTS=['run','swim','power','fly','stamina','hp','mood','food','discovery'];
+const P_EMOJI={spin:'🌀',hop:'✨',wiggle:'🎵',nod:'👍',stretch:'🥱',shiver:'❄️',bow:'🙇',sway:'🎶'};
+export function personalityOf(cid){let h=2166136261;for(const ch of String(cid)){h^=ch.charCodeAt(0);h=Math.imul(h,16777619)>>>0;}
+ const r=n=>{h=Math.imul(h^(h>>>15),2246822507)>>>0;h=Math.imul(h^(h>>>13),3266489909)>>>0;h=(h^(h>>>16))>>>0;return h%n;};
+ const fav=P_EFFECTS[r(P_EFFECTS.length)];let shy=P_EFFECTS[r(P_EFFECTS.length)];if(shy===fav)shy=P_EFFECTS[(P_EFFECTS.indexOf(fav)+4)%P_EFFECTS.length];
+ const tempo=[0.8,0.9,1,1,1.12,1.25][r(6)],quirk=HOME_QUIRKS[r(HOME_QUIRKS.length)];
+ const voice={hz:[262,294,330,392,440,523,587,659,784][r(9)],wave:['sine','triangle','square','sine'][r(4)],steps:[[0,4],[0,7],[0,-3,0],[0,5,9],[0,2,4],[7,0],[0,12],[0,3,0,3]][r(8)],len:[0.07,0.09,0.11,0.14][r(4)]};
+ return {fav,shy,tempo,quirk,voice,emoji:P_EMOJI[quirk],style:tempo<0.95?'lazy':tempo>1.1?'hyper':'steady'};}
+/** Plays a companion's own little melody. kind: 'hi' | 'happy' | 'no' | 'use'. */
+export function companionVoice(audio,cid,kind='hi'){try{const a=audio?.();if(!a||a.state==='closed')return false;const v=personalityOf(cid).voice;
+  const steps=kind==='no'?[0,-5]:kind==='happy'?[...v.steps,12]:kind==='use'?v.steps.slice(0,2):v.steps;let t=a.currentTime+0.01;
+  for(const st of steps){const o=a.createOscillator(),g=a.createGain();o.type=v.wave;const f=v.hz*Math.pow(2,st/12);o.frequency.setValueAtTime(f,t);o.frequency.exponentialRampToValueAtTime(f*(kind==='no'?0.9:1.06),t+v.len);
+   g.gain.setValueAtTime(0.0001,t);g.gain.exponentialRampToValueAtTime(v.wave==='square'?0.028:0.05,t+0.012);g.gain.exponentialRampToValueAtTime(0.0001,t+v.len);o.connect(g);g.connect(a.destination);o.start(t);o.stop(t+v.len+0.02);t+=v.len*0.9;}
+  return true;}catch{return false;}}
+const STYLE_VERB={lazy:{run:'Strolling on',swim:'Floating in',power:'Poking at',fly:'Wobbling on',stamina:'Taking it easy on',hp:'Snoozing on',mood:'Daydreaming with',food:'Nibbling at',discovery:'Leafing through'},
+ hyper:{run:'Sprinting on',swim:'Cannonballing into',power:'Smashing',fly:'Rocketing off',stamina:'Racing up',hp:'Bouncing on',mood:'Going wild with',food:'Wolfing it down at',discovery:'Speed-reading at'}};
 export function createHomeSystem(ctx){
  const {$,escapeText,byId,uiName,staticArt,isDiscovered,objects:baseObjects,roomSprites,roster,sprites,companionName,statsHtml,wear,applyEffect,showModal,closeModal,toast,reducedMotion,onChange}=ctx;
+ let voiceAt=0;const voice=(cid,kind)=>{const now=Date.now();if(now-voiceAt<900)return;if(companionVoice(ctx.audio,cid,kind))voiceAt=now;};
  // V143: add-on scenery pieces drawn in the room-sprite style (same palette and 3/4 view as tools/v90-assemble-room.py).
  const ZONE_OBJECTS={'zone:pool':{kind:'zone',effect:'swim',size:[3,2]},'zone:lounger':{kind:'zone',effect:'decor',size:[1,1]},'zone:stairs':{kind:'zone',effect:'decor',size:[1,2]},'zone:stairwell':{kind:'zone',effect:'decor',size:[1,2]}};
  const ZONE_SPRITES={
@@ -154,11 +174,12 @@ export function createHomeSystem(ctx){
   const o=objects[hid],L=layoutOf(hid),h=house(hid),it=byId.get(hid),cap=capOf(hid);
   const sumHtml=bonusChips(hid);
   const residents=h.residents.filter(isDiscovered);
-  const resHtml=residents.map(cid=>`<button type="button" class="home-life" data-res="${cid}"><span class="home-life-art">${sprites[cid]||''}</span><span class="home-life-main"><b>${escapeText(companionName(cid))}</b><small data-act="${cid}">Looking around</small></span><em data-gain="${cid}"></em></button>`).join('')+(residents.length<cap?`<button type="button" class="home-life is-add" id="homeAddRes"><span class="home-life-art">+</span><span class="home-life-main"><b>Invite a companion</b><small>${cap-residents.length} free spot${cap-residents.length>1?'s':''} · everyone living here grows ×${HOUSE_GROWTH[objects[hid].capacity]||1} faster</small></span></button>`:'');
+  const resHtml=residents.map(cid=>`<button type="button" class="home-life" data-res="${cid}"><span class="home-life-art">${sprites[cid]||''}</span><span class="home-life-main"><b>${escapeText(companionName(cid))}</b><small data-act="${cid}">Looking around</small></span><em data-gain="${cid}"></em></button>`).join('');
   const hr=new Date().getHours(),tod=hr>=21||hr<6?'night':hr>=18?'evening':hr<9?'morning':'day';
   mount.innerHTML=`<section class="home-card">
    <div class="home-chips" role="tablist" aria-label="Your houses">${chips}</div>
    <div class="home-head"><strong>${escapeText(uiName(it))}</strong><small>${residents.length}/${cap} companions · ${h.furniture.length} furniture</small></div>
+   <div class="home-crew" aria-label="Who lives here">${residents.map(cid=>`<button type="button" class="home-seat" data-res="${cid}" aria-label="${escapeText(companionName(cid))}"><span>${sprites[cid]||''}</span><small>${escapeText(companionName(cid))}</small></button>`).join('')}${Array.from({length:Math.max(0,cap-residents.length)},(_,i)=>`<button type="button" class="home-seat is-free" data-seat="${i}" aria-label="Invite a companion"><span>+</span><small>${i===0?'Invite':'Free'}</small></button>`).join('')}<button type="button" class="home-seat is-tool" id="homeAddFur" aria-label="Add furniture"><span>🪑</span><small>Furniture</small></button></div>
    <div class="home-plot ${extOn(hid,'garden')||extOn(hid,'pool')?'has-yard':''}" data-theme="${L.theme}" style="--cols:${L.cols};--rows:${L.rows}">
    <div class="home-room" data-theme="${L.theme}" data-tod="${tod}" style="--cols:${L.cols};--rows:${L.rows}">
     <div class="home-wall" id="homeWall">
@@ -178,11 +199,14 @@ export function createHomeSystem(ctx){
    </div>
    ${moving?`<p class="home-hint">Drag ${escapeText(uiName(byId.get(h.furniture[moving.index]?.id)))} to its new spot · <button type="button" class="home-link" id="homeCancelMove">Done</button></p>`:''}
    <div class="home-effects">${sumHtml}</div>
-   <div class="home-life-list"><span class="home-life-h">Who lives here · tap a companion in the room to pet it</span>${resHtml}</div>
+   <div class="home-life-list"><span class="home-life-h">What they are up to · tap a companion in the room to pet it</span>${resHtml}</div>
   </section>`;
   mount.querySelectorAll('[data-house]').forEach(b=>b.onclick=()=>houseInfo(mount,b.dataset.house));
   mount.querySelectorAll('[data-res]').forEach(r=>r.onclick=()=>tapResident(mount,hid,r.dataset.res));
-  const add=$('homeAddRes');if(add)add.onclick=()=>pickResident(mount,hid);
+  mount.querySelectorAll('[data-seat]').forEach(b=>b.onclick=()=>pickResident(mount,hid));
+  const af=$('homeAddFur');if(af)af.onclick=()=>{const b=new Set();for(const f of h.furniture){if(layerOf(RS,f.id)==='wall')continue;const [fw,fh]=footprint(objects,f);for(let yy=f.y;yy<f.y+fh;yy++)for(let xx=f.x;xx<f.x+fw;xx++)b.add(yy*L.cols+xx);}
+   let spot=null;for(let y=0;y<L.rows&&!spot;y++)for(let x=0;x<L.cols;x++)if(!b.has(y*L.cols+x)){spot={x,y};break;}
+   if(!spot){toast('The floor is full — put a piece away first','repeat');return;}tapSpot(mount,hid,spot.x,spot.y,false);};
   mount.querySelectorAll('.home-effects [data-eff]').forEach(b=>b.onclick=()=>bonusSheet(hid,b.dataset.eff));
   mount.querySelectorAll('#homeFloor .home-tile').forEach(t=>t.onclick=()=>tapSpot(mount,hid,Number(t.dataset.x),Number(t.dataset.y),false));
   mount.querySelectorAll('.home-walltile').forEach(t=>t.onclick=()=>tapSpot(mount,hid,Number(t.dataset.wx),-1,true));
@@ -281,13 +305,13 @@ export function createHomeSystem(ctx){
   const h=house(hid),cap=capOf(hid);
   const list=roster.filter(c=>isDiscovered(c.id)&&!h.residents.includes(c.id));
   if(!list.length){showModal(`<div class="modal-tag">RESIDENTS</div><h2>No companion available</h2><p>Discover companion elements (five per family) to invite them home.</p><button type="button" class="modal-button secondary" id="homeClose">Close</button>`);$('homeClose').onclick=closeModal;return;}
-  showModal(`<div class="modal-tag">INVITE A COMPANION</div><h2>${h.residents.length}/${cap} living here</h2><div class="home-pick-list">${list.map(c=>{const w=residentOf(c.id);return `<button type="button" class="home-pick" data-inv="${c.id}"><span class="home-pick-art">${sprites[c.id]||''}</span><span class="home-pick-main"><strong>${escapeText(companionName(c.id))}</strong><small>${w?'moves from '+escapeText(uiName(byId.get(w))):'free'}</small></span></button>`;}).join('')}</div><button type="button" class="modal-button secondary" id="homeClose">Close</button>`);
+  showModal(`<div class="modal-tag">INVITE A COMPANION</div><h2>${h.residents.length}/${cap} living here</h2><div class="home-pick-list">${list.map(c=>{const w=residentOf(c.id);return `<button type="button" class="home-pick" data-inv="${c.id}"><span class="home-pick-art">${sprites[c.id]||''}</span><span class="home-pick-main"><strong>${escapeText(companionName(c.id))}</strong><small>${w?'moves from '+escapeText(uiName(byId.get(w))):'no home yet'} · loves ${EFFECT_LABEL[personalityOf(c.id).fav]||'fun'}</small></span></button>`;}).join('')}</div><button type="button" class="modal-button secondary" id="homeClose">Close</button>`);
   $('homeClose').onclick=closeModal;
   document.querySelectorAll('[data-inv]').forEach(b=>b.onclick=()=>{const cid=b.dataset.inv,w=residentOf(cid);if(w)state.houses[w].residents=state.houses[w].residents.filter(x=>x!==cid);if(h.residents.length<cap)h.residents.push(cid);save();closeModal();render(mount);});
  }
  function tapResident(mount,hid,cid){
   const g=HOUSE_GROWTH[objects[hid].capacity]||1;
-  showModal(`<div class="modal-tag">RESIDENT</div><div class="home-res-head"><span class="home-res-big">${sprites[cid]||''}</span><div><h2>${escapeText(companionName(cid))}</h2><small>Lives in ${escapeText(uiName(byId.get(hid)))} · grows ×${g} faster</small></div></div>${statsHtml?.(cid)||''}<button type="button" class="modal-button secondary" id="homeEvict">Move out</button><button type="button" class="modal-button secondary" id="homeClose">Close</button>`);
+  showModal(`<div class="modal-tag">RESIDENT</div><div class="home-res-head"><span class="home-res-big">${sprites[cid]||''}</span><div><h2>${escapeText(companionName(cid))}</h2><small>Lives in ${escapeText(uiName(byId.get(hid)))} · grows ×${g} faster</small></div></div><p class="home-persona">${(p=>`${p.emoji} ${p.style==='lazy'?'Easy-going':p.style==='hyper'?'Full of energy':'Steady'} · loves <b>${EFFECT_LABEL[p.fav]||p.fav}</b> furniture · not keen on <b>${EFFECT_LABEL[p.shy]||p.shy}</b></p>`)(personalityOf(cid))}${statsHtml?.(cid)||''}<button type="button" class="modal-button secondary" id="homeEvict">Move out</button><button type="button" class="modal-button secondary" id="homeClose">Close</button>`);
   $('homeClose').onclick=closeModal;$('homeEvict').onclick=()=>{const h=house(hid);h.residents=h.residents.filter(x=>x!==cid);save();closeModal();render(mount);};
  }
 
@@ -308,10 +332,11 @@ export function createHomeSystem(ctx){
   const usable=h.furniture.filter(f=>layerOf(RS,f.id)!=='wall'&&objects[f.id]?.effect!=='decor');
   const walkers=residents.map((cid,i)=>{const el=document.createElement('span');el.className='companion home-walker';el.dataset.anim='idle';el.dataset.companion=cid;
    const art=document.createElement('span');art.className='companion-art';rig(art,cid);el.append(art);const fx=document.createElement('span');fx.className='home-fx';el.append(fx);const say=document.createElement('span');say.className='home-say';el.append(say);const gain=document.createElement('span');gain.className='home-gain';el.append(gain);const sh=document.createElement('i');sh.className='home-shadow';el.prepend(sh);const pet=document.createElement('button');pet.type='button';pet.className='home-pet';pet.setAttribute('aria-label','Pet');el.append(pet);box.append(el);
-   const p={x:(i*2+1)%L.cols,y:L.rows-1-(i%L.rows),face:1};place(el,p);const w={cid,el,p,busyUntil:0,taken:null,petAt:0};
-   pet.onclick=e=>{e.stopPropagation();bubble(w,'❤',1100);if(!el.classList.contains('is-using')){el.dataset.anim='jump';setTimeout(()=>{if(el.dataset.anim==='jump')el.dataset.anim='idle';},700);}
+   const p={x:(i*2+1)%L.cols,y:L.rows-1-(i%L.rows),face:1};place(el,p);const w={cid,el,p,busyUntil:0,taken:null,petAt:0,per:personalityOf(cid)};
+   pet.onclick=e=>{e.stopPropagation();bubble(w,'❤',1100);voiceAt=0;voice(cid,'happy');if(!el.classList.contains('is-using')){el.dataset.anim='jump';setTimeout(()=>{if(el.dataset.anim==='jump')el.dataset.anim='idle';},700);}
     if(Date.now()-w.petAt>20000){w.petAt=Date.now();if(train&&applyEffect?.(cid,'mood'))gainPop(w,'mood');}};
    return w;});
+  const QUIRK_TEXT={spin:'Doing a little twirl',hop:'Hopping on the spot',wiggle:'Wiggling to a tune',nod:'Nodding along',stretch:'Having a big stretch',shiver:'Shaking off a chill',bow:'Taking a bow',sway:'Swaying happily'};
   const ICON={run:'🏃',swim:'💦',power:'💪',fly:'🪽',stamina:'🧗',hp:'💤',mood:'🎵',food:'🍖',discovery:'📖'};
   const VERB={run:'Running on',swim:'Splashing in',power:'Training with',fly:'Bouncing on',stamina:'Working out on',hp:'Resting on',mood:'Having fun with',food:'Eating at',discovery:'Studying at'};
   const bubble=(w,txt,ms)=>{const b=w.el.querySelector('.home-say');b.textContent=txt;b.classList.add('is-on');clearTimeout(w.sayT);w.sayT=setTimeout(()=>b.classList.remove('is-on'),ms);};
@@ -335,7 +360,7 @@ export function createHomeSystem(ctx){
     if(w.taken){taken.delete(w.taken);w.taken=null;}
     w.el.className='companion home-walker';w.el.dataset.anim='idle';
     const free=usable.filter(f=>!taken.has(f));let f=null;
-    if(free.length&&Math.random()<0.65)f=free[Math.floor(Math.random()*free.length)];
+    if(free.length&&Math.random()<0.65){const wt=free.map(x=>{const e=objects[x.id]?.effect;return e===w.per.fav?3:e===w.per.shy?0.35:1;});let r=Math.random()*wt.reduce((a,b)=>a+b,0);f=free[free.length-1];for(let q=0;q<free.length;q++){r-=wt[q];if(r<=0){f=free[q];break;}}}
     let tx,ty,spot=null;
     if(f){spot=useSpot(f,L);tx=spot.x;ty=spot.y;}
     else{const o=openTiles();let t=o[Math.floor(Math.random()*o.length)]||{x:w.p.x,y:w.p.y};
@@ -349,18 +374,21 @@ export function createHomeSystem(ctx){
     const pts=[...path];if(f&&(Math.abs(tile.x-tx)>0.01||Math.abs(tile.y-ty)>0.01))pts.push({x:tx,y:ty});
     if(!pts.length)pts.push({x:w.p.x,y:w.p.y});
     const walkMs=walkPath(w,pts);const fname=f?uiName(byId.get(f.id))||'':'';if(f){bubble(w,ICON[objects[f.id].effect]||'✨',Math.max(900,walkMs));act(w,`Going to the ${fname}`);}else act(w,w.meet?'Visiting a housemate':'Looking around');
-    const useMs=f?3800+Math.random()*2500:900+Math.random()*1200;w.busyUntil=now+walkMs+useMs;
+    const effF=f?objects[f.id].effect:null;const refuse=!!f&&effF===w.per.shy&&Math.random()<0.6;const useMs=refuse?1500:f?(3800+Math.random()*2500)*(effF===w.per.fav?1.35:1)/(effF==='hp'?w.per.tempo*w.per.tempo:1):(900+Math.random()*1200)/w.per.tempo;w.busyUntil=now+walkMs+useMs;
     w.t=setTimeout(()=>{
      if(!f){w.el.dataset.anim='idle';const m=w.meet;w.meet=null;
+      if(!m&&Math.random()<0.5){w.el.classList.add('q-'+w.per.quirk);bubble(w,w.per.emoji,1200);act(w,QUIRK_TEXT[w.per.quirk]);voice(w.cid,'hi');return;}
       if(m&&Math.abs(m.p.x-w.p.x)+Math.abs(m.p.y-w.p.y)<=1.5){const face=m.p.x>=w.p.x?1:-1;w.p.face=face;w.el.dataset.face=face>0?'right':'left';w.el.dataset.anim='duo-cheer';bubble(w,'❤',1400);act(w,'Chatting with a housemate');
        if(m.el.dataset.anim==='idle'){m.el.dataset.face=face>0?'left':'right';m.el.dataset.anim='duo-laugh';bubble(m,'🎶',1400);setTimeout(()=>{if(m.el.dataset.anim==='duo-laugh')m.el.dataset.anim='idle';},1400);}
        setTimeout(()=>{if(w.el.dataset.anim==='duo-cheer')w.el.dataset.anim='idle';},1400);}
       return;}
-     act(w,`${VERB[objects[f.id].effect]||'Using'} the ${fname}`);
      const eff=objects[f.id].effect,u=USE[eff]||USE.decor;
+     if(refuse){w.el.dataset.anim='shake';bubble(w,'🙅',1400);act(w,`Not a fan of the ${fname}`);voice(w.cid,'no');setTimeout(()=>{if(w.el.dataset.anim==='shake')w.el.dataset.anim='idle';},900);return;}
+     const loves=eff===w.per.fav;act(w,loves?`Loves the ${fname} ♥`:`${STYLE_VERB[w.per.style]?.[eff]||VERB[eff]||'Using'} the ${fname}`);
+     if(loves){bubble(w,'💖',1600);voice(w.cid,'happy');}else if(Math.random()<0.35)voice(w.cid,'use');w.el.classList.add('p-'+w.per.style);
      if(spot.front){w.p.face=1;w.el.dataset.face='right';}
      else{const [,fh]=footprint(objects,f);w.el.style.setProperty('--z',11+(f.y+fh)*2);}
-     w.el.dataset.anim=u.anim;if(u.cls)w.el.classList.add(u.cls);w.el.classList.add('is-using');
+     w.el.dataset.anim=(eff==='hp'&&w.per.style==='hyper')?'jump':u.anim;if(u.cls&&!(eff==='hp'&&w.per.style==='hyper'))w.el.classList.add(u.cls);w.el.classList.add('is-using');
      const piece=root.querySelector(`[${attr}="${h.furniture.indexOf(f)}"]`);const mk=motionOf(f.id,uiName(byId.get(f.id))||'',eff);
      if(mk){w.el.classList.add('m-'+mk);if(mk==='wheel'||mk==='treadmill'||mk==='bike'){w.p.face=1;w.el.dataset.face='right';w.el.dataset.anim='walk';}}
      if(piece){piece.classList.add('is-in-use');if(mk)piece.classList.add('m-'+mk);const o=MOTION_OV[mk];let ovEl=null;
