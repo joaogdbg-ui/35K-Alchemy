@@ -320,7 +320,7 @@ export function createHomeSystem(ctx){
   try{wear?.(box);}catch{}
   if(!walkers.length||reducedMotion())return;
   const taken=new Set();
-  const blockedFor=open=>{const b=new Set();for(const f of h.furniture){if(f===open||layerOf(RS,f.id)!=='object')continue;const [fw,fh]=footprint(objects,f);for(let yy=f.y;yy<f.y+fh;yy++)for(let xx=f.x;xx<f.x+fw;xx++)b.add(yy*L.cols+xx);}return b;};
+  const blockedFor=open=>{const b=new Set();for(const f of h.furniture){if(f===open||(layerOf(RS,f.id)!=='object'&&objects[f.id]?.effect!=='swim'))continue; /* V182: pools are not walked over */const [fw,fh]=footprint(objects,f);for(let yy=f.y;yy<f.y+fh;yy++)for(let xx=f.x;xx<f.x+fw;xx++)b.add(yy*L.cols+xx);}return b;};
   const openTiles=()=>{const b=blockedFor(null),o=[];for(let y=0;y<L.rows;y++)for(let x=0;x<L.cols;x++)if(!b.has(y*L.cols+x))o.push({x,y});return o;};
   {const o=openTiles();walkers.forEach((w,i)=>{if(o.length){const t=o[(i*3+o.length-1)%o.length];w.p.x=t.x;w.p.y=t.y;place(w.el,w.p);}});}
   // walk a list of waypoints, one CSS transition per segment; returns the total time
