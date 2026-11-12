@@ -207,3 +207,14 @@ test('V194: every companion world has a drawn sky and track-side strip, all diff
   const art = companionArt({ run: '', swim: '', fly: '', climb: '', mid: 'BASE', sky: 'BASE' }, 'organic38:frog');
   assert.ok(art.scene && art.sky !== 'BASE' && art.mid !== 'BASE');
 });
+test('V195: every world is alive — actors, weather and buried detail', async () => {
+  const { COMPANION_WORLDS, worldLife, worldUnder, companionArt } = await import('../src/games-theme-v151.js');
+  const kinds = new Set();
+  for (const [id, w] of Object.entries(COMPANION_WORLDS)) {
+    const l = worldLife(id); assert.ok(l && (l.sky + l.tile + l.mid).length > 200, id); kinds.add(l.fx);
+    const u = worldUnder(id, w.props); assert.ok(u.startsWith('<svg') && !/NaN|undefined/.test(u + l.sky + l.tile + l.mid), id);
+  }
+  assert.ok(kinds.size >= 8);
+  const art = companionArt({ run: '', swim: '', fly: '', climb: '', mid: '', sky: '' }, 'pack:ghost');
+  assert.ok(art.life && art.under);
+});

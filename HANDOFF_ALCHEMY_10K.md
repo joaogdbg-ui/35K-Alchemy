@@ -90,6 +90,15 @@ Preserve 200-per-batch policy and do not start another content release on top of
 
 - **Art redraw wave 3 (V85, done): 3,991 icons** — every remaining older element. All 6,012 pre-V83 elements now use the 2026 art direction (`ART_REDRAW`), plus 200 V83 and 200 V85 originals. Six near-duplicates found by the audit were redrawn; 36 reviewed false alarms are in `tools/art-redraw-reviewed-pairs.json` (the audit now also honours them for V83 comparisons).
 
+## V195 — Mundos com vida, profundidade e acabamento
+
+- **Acabamento estático** (`worldSky`): brilho no horizonte, orla iluminada em cada plano (mesma forma levantada 2,6 px em tom mais claro), neblina entre planos, sombra na base. `worldMid`: fila de trás de adereços pequenos, sombras sob os adereços grandes, 22 pormenores no chão (tufos, pedras, flores na cor do mundo).
+- **Vida** (`worldLife(cid)` → HTML animado só com transform/opacity, classes `wl-*`): nuvens a passar, bandos de pássaros, morcegos, balões de ar quente, voadores (dragão, pterossauro, águia, fantasma, ovni), estrelas a piscar, estrelas cadentes, fumo dos vulcões/chaminés, holofotes, fogo de artifício, e bichos junto à pista (pirilampos, abelhas, borboletas). Os atores ancorados ao cenário repetem-se por mosaico (`.g-life-tiles`) e seguem o paralaxe do céu.
+- **Tempo por mundo** (`fx-*` em `.g-themefx`): neve, folhas, pétalas, confetti, brasas, pirilampos, notas musicais, bolhas, pó, faíscas.
+- **Subsolo** (`worldUnder`): raízes, gemas na cor do mundo, fósseis e adereços meio enterrados sobre as camadas de terra (`.g-under`, acompanha a câmara).
+- `prefers-reduced-motion` esconde as camadas de vida.
+- `APP_VERSION` 1.0.95.
+
 ## V194 — Mundos desenhados (não só paleta)
 
 - games-theme-v151.js: cada um dos 40 mundos tem agora cenário próprio composto à mão em `SC` (céu em gradiente, astro, 2–3 planos de horizonte, extras, cor do chão, vedação, noite): geradores `SIL` (hills, mountains, skyline, pines, round, bergs, mesas, pyramids, volcano, castle, pagoda, temple, palms, bamboo, spires, tents, arches, graves, moai, towers, blocks, spire, stage, flowers, reedbed, saur, lamps), `BODY` (sun, bigsun, moon, crescent, planet), `EXT` (stars, aurora, birds, clouds, bunting, lanterns, mist, embers, snow, rays) e `FENCE` (wood, stone, iron, rope, ice, bamboo, neon, hedge, none).

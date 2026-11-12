@@ -2498,3 +2498,60 @@ body[data-tab="Games"] .companion-layer{display:none}
 .g-stage[data-scene] .g-cloud{display:none}
 .g-stage[data-scene] .g-sky{background-color:transparent}
 
+
+/* ===== V195: living race worlds ===== */
+.g-sky{overflow:hidden}
+.g-life,.g-life-tiles{position:absolute;inset:0;pointer-events:none}.g-life-tiles{will-change:transform}
+.g-life-tile{position:absolute;top:0;bottom:0}
+.g-life-mid{position:absolute;inset:0;pointer-events:none;overflow:hidden}
+.wl-star{position:absolute;width:3px;height:3px;border-radius:50%;background:#fff;animation:wl-tw 3.2s ease-in-out infinite}
+@keyframes wl-tw{0%,100%{opacity:.25;transform:scale(.7)}50%{opacity:1;transform:scale(1.5)}}
+.wl-shoot{position:absolute;width:70px;height:2px;border-radius:2px;background:linear-gradient(90deg,transparent,#fff);opacity:0;transform:rotate(24deg);animation:wl-shoot 9s ease-in infinite}
+@keyframes wl-shoot{0%,88%{opacity:0;translate:-60px -26px}90%{opacity:1}100%{opacity:0;translate:120px 54px}}
+.wl-cloud{position:absolute;left:-140px;width:96px;height:26px;border-radius:999px;background:var(--c);opacity:.9;scale:var(--s);box-shadow:26px -12px 0 -3px var(--c),-22px -8px 0 -6px var(--c),6px -18px 0 -8px var(--c);animation:wl-drift 90s linear infinite}
+@keyframes wl-drift{to{transform:translateX(calc(100vw + 300px))}}
+.wl-flock{position:absolute;left:-90px;width:70px;height:30px;animation:wl-drift 28s linear infinite}
+.wl-flock b{position:absolute;width:14px;height:7px;border:2px solid currentColor;border-color:currentColor transparent transparent transparent;border-radius:50% 50% 0 0;animation:wl-flap .5s ease-in-out infinite alternate}
+.wl-flock b::after{content:"";position:absolute;left:10px;top:-2px;width:14px;height:7px;border:2px solid currentColor;border-color:currentColor transparent transparent transparent;border-radius:50% 50% 0 0}
+@keyframes wl-flap{to{transform:scaleY(.25) translateY(4px)}}
+.wl-flock.is-bat{animation-name:wl-batfly}.wl-flock.is-bat b{border-width:3px;animation-duration:.22s}.wl-flock.is-bat b::after{border-width:3px}
+@keyframes wl-batfly{0%{transform:translate(0,0)}25%{transform:translate(calc(25vw + 70px),18px)}50%{transform:translate(calc(50vw + 140px),-10px)}75%{transform:translate(calc(75vw + 210px),14px)}100%{transform:translate(calc(100vw + 300px),0)}}
+.wl-balloon{position:absolute;left:-60px;width:34px;animation:wl-drift 110s linear infinite}.wl-balloon svg{display:block;width:100%;animation:wl-bob 4s ease-in-out infinite alternate}
+@keyframes wl-bob{to{transform:translateY(-10px) rotate(3deg)}}
+.wl-flyer{position:absolute;left:-90px;width:64px;animation:wl-drift 30s linear infinite}.wl-flyer svg{display:block;width:100%;animation:wl-glide 2.2s ease-in-out infinite alternate;filter:drop-shadow(0 2px 0 rgba(0,0,0,.12))}
+@keyframes wl-glide{0%{transform:translateY(0) scaleY(1)}100%{transform:translateY(-8px) scaleY(.8)}}
+.wl-flyer.is-ufo svg{animation:wl-bob 1.6s ease-in-out infinite alternate}.wl-flyer.is-ghost{width:34px;opacity:.75}.wl-flyer.is-ghost svg{animation:wl-bob 2.6s ease-in-out infinite alternate}
+.wl-smoke{position:absolute;width:0;height:0}
+.wl-smoke b{position:absolute;left:-9px;top:0;width:18px;height:18px;border-radius:50%;background:rgba(255,255,255,.45);animation:wl-smoke 4.5s ease-out infinite}
+.wl-smoke b:nth-child(2){animation-delay:-1.5s}.wl-smoke b:nth-child(3){animation-delay:-3s}
+@keyframes wl-smoke{0%{transform:translate(0,0) scale(.4);opacity:.7}100%{transform:translate(18px,-90px) scale(2.2);opacity:0}}
+.wl-beam{position:absolute;top:26%;width:0;height:0;border-left:30px solid transparent;border-right:30px solid transparent;border-bottom:170px solid var(--c);opacity:.2;transform-origin:50% 0;margin-left:-30px;animation:wl-beam 5s ease-in-out infinite alternate}
+@keyframes wl-beam{0%{transform:rotate(-24deg)}100%{transform:rotate(24deg)}}
+.wl-fw{position:absolute;width:64px;height:64px;margin:-32px;border-radius:50%;border:3px dotted var(--c);box-shadow:0 0 0 10px transparent,inset 0 0 0 8px transparent;opacity:0;animation:wl-fw 4.2s ease-out infinite}
+.wl-fw::after{content:"";position:absolute;inset:12px;border-radius:50%;border:3px dotted var(--c)}
+@keyframes wl-fw{0%{transform:scale(.1);opacity:0}8%{opacity:1}45%{transform:scale(1.1);opacity:.9}70%,100%{transform:scale(1.35);opacity:0}}
+.wl-bug{position:absolute;width:5px;height:5px;border-radius:50%;background:var(--c);animation:wl-bug 7s ease-in-out infinite}
+.wl-bug.is-glow{box-shadow:0 0 8px 2px var(--c);animation-name:wl-bugglow}
+.wl-bug.is-bee{width:6px;height:5px;background:#3A2A12;box-shadow:-2px 0 0 #FFD166,2px -3px 0 -1px rgba(255,255,255,.8);animation-duration:3.5s!important}
+.wl-bug.is-fly{width:7px;height:7px;border-radius:50% 0 50% 0;animation-name:wl-bugfly}
+@keyframes wl-bug{0%,100%{transform:translate(0,0)}25%{transform:translate(18px,-12px)}50%{transform:translate(36px,4px)}75%{transform:translate(14px,10px)}}
+@keyframes wl-bugglow{0%,100%{transform:translate(0,0);opacity:.2}30%{transform:translate(14px,-16px);opacity:1}60%{transform:translate(30px,-4px);opacity:.3}80%{transform:translate(12px,8px);opacity:1}}
+@keyframes wl-bugfly{0%,100%{transform:translate(0,0) rotate(0) scaleX(1)}20%{transform:translate(12px,-14px) rotate(20deg) scaleX(.3)}40%{transform:translate(28px,-6px) rotate(-10deg) scaleX(1)}60%{transform:translate(40px,-18px) rotate(15deg) scaleX(.3)}80%{transform:translate(20px,-4px) rotate(-15deg) scaleX(1)}}
+/* weather per world (replaces the plain rising dots) */
+.g-themefx.is-world i{box-shadow:none}
+.g-themefx.fx-ember i,.g-themefx.fx-spark i,.g-themefx.fx-firefly i{box-shadow:0 0 7px var(--fxc)}
+.g-themefx.fx-firefly i{animation-name:gWorldFloat;width:5px;height:5px}
+.g-themefx.fx-snow i{top:-10px;background:#fff;width:7px;height:7px;animation-name:gWorldFall}
+.g-themefx.fx-leaf i{top:-10px;width:11px;height:7px;border-radius:70% 0 70% 0;animation-name:gWorldSpin}
+.g-themefx.fx-petal i{top:-10px;width:9px;height:6px;border-radius:60% 40% 60% 40%;animation-name:gWorldSpin;opacity:.9}
+.g-themefx.fx-confetti i{top:-10px;width:6px;height:10px;border-radius:1px;animation-name:gWorldSpin}
+.g-themefx.fx-confetti i:nth-child(3n){background:#7CC3E0}.g-themefx.fx-confetti i:nth-child(3n+1){background:#FFD166}.g-themefx.fx-confetti i:nth-child(4n){background:#8FBF68}
+.g-themefx.fx-note i{background:none;width:auto;height:auto;font-style:normal;color:var(--fxc);font-size:16px;font-weight:900;text-shadow:0 0 6px var(--fxc)}.g-themefx.fx-note i::before{content:"♪"}.g-themefx.fx-note i:nth-child(2n)::before{content:"♫"}
+.g-themefx.fx-bubble i{background:transparent;border:1.5px solid rgba(255,255,255,.85);width:9px;height:9px}
+.g-themefx.fx-dust i{width:22px;height:3px;border-radius:3px;background:rgba(255,255,255,.55);animation-name:gThemeWind}
+@keyframes gWorldFall{0%{transform:translate(0,0)}100%{transform:translate(40px,105vh)}}
+@keyframes gWorldSpin{0%{transform:translate(0,0) rotate(0)}50%{transform:translate(-30px,52vh) rotate(260deg)}100%{transform:translate(30px,105vh) rotate(520deg)}}
+@keyframes gWorldFloat{0%{transform:translate(0,0);opacity:0}20%{opacity:1}50%{transform:translate(30px,-34vh);opacity:.3}80%{opacity:1}100%{transform:translate(-20px,-70vh);opacity:0}}
+@media (prefers-reduced-motion:reduce){.g-life,.g-life-tiles,.g-life-mid{display:none}}
+
+.g-under{position:absolute;left:0;right:0;top:66%;bottom:0;background-repeat:repeat-x;background-size:auto 100%;pointer-events:none;z-index:2}
