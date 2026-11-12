@@ -506,7 +506,7 @@ function shinyCard(item){return `<p class="shiny-trivia"><span aria-hidden="true
 function showShinyFound(id){const it=byId.get(id);if(!it)return;
  showModal(`<div class="modal-tag shiny-tag">✦ SHINY ELEMENT</div><div class="modal-art is-shiny">${staticArt(it)}</div><h2>Shiny ${escapeText(uiName(it))}</h2>${shinyCard(it)}<div class="modal-milestone">${shiny.size.toLocaleString('en-US')} shiny ${shiny.size===1?'element':'elements'} · ${Math.round(shinyChance()*100)}% chance per combination</div>`);
 }
-const APP_VERSION='1.0.86';
+const APP_VERSION='1.0.87';
 // V83: status line + Google consent (UMP) privacy options, required for EEA players.
 async function refreshAdStatus(){
  const el=$('settingsAdStatus'),bridge=getRewardBridge();
@@ -1306,7 +1306,7 @@ function completeCombination(resultId,a,b,kind='recipe'){
  recent=[resultId,...recent.filter(i=>i!==resultId)].slice(0,350);
  const gotShiny=kind!=='batch'&&rollShiny(resultId);
  save();updateCounts();updateLatest();syncFamilyBanner();
- if(fresh)companions.onDiscovery(resultId);
+ if(fresh)companions.onDiscovery(resultId);if(fresh)setTimeout(ensureStarterHouse,1500);
  if(fresh){announceCraft('new',(gotShiny?'✦ Shiny discovery · ':'New discovery · ')+uiName(byId.get(resultId)));rerenderCollections();if(tab==='World')renderDiscoveries();showDiscovery(resultId,a,b,scene,gotShiny);}
  else {announceCraft('repeat',(gotShiny?'✦ Shiny · ':'Already discovered · ')+uiName(byId.get(resultId)));playCraftMotion(scene,'repeat',byId.get(resultId));if(gotShiny){playVirtual.refresh();setTimeout(()=>showShinyFound(resultId),480);}}
 }
@@ -1744,7 +1744,7 @@ function idlePlan(awayMs){
  const cap=Math.min(18,2+residents.length+Math.floor(disc/2)+(duo.length?3:0));
  return {residents,hours,count:Math.min(cap,Math.floor(rate*hours+Math.random()*0.6))};
 }
-function applyIdleFind([id,a,b]){if(unlocked.has(id))return;unlocked.add(id);if(!STARTERS.has(id))discoveryLedger.set(id,{at:new Date().toISOString(),source:'companions',ingredients:[a,b]});recent=[id,...recent.filter(x=>x!==id)].slice(0,350);companions.onDiscovery(id);}
+function applyIdleFind([id,a,b]){if(unlocked.has(id))return;setTimeout(ensureStarterHouse,1500);unlocked.add(id);if(!STARTERS.has(id))discoveryLedger.set(id,{at:new Date().toISOString(),source:'companions',ingredients:[a,b]});recent=[id,...recent.filter(x=>x!==id)].slice(0,350);companions.onDiscovery(id);}
 async function checkIdleFinds(){
  const v=idleRead(),now=Date.now();const away=v.lastSeen?now-v.lastSeen:0;idleTouch();
  if(away<IDLE_MIN_MS||document.querySelector('#modal:not([hidden])'))return;
@@ -1790,8 +1790,7 @@ function applyDyes(){const old=document.getElementById('dyeStyle');if(old)old.te
 function applyDyesV174(){let el=document.getElementById('dyeStyle');if(!el){el=document.createElement('style');el.id='dyeStyle';document.head.append(el);}
  el.textContent=Object.entries(wallet.dyeOn||{}).map(([cid,did])=>{const d=DYES.find(x=>x.id===did);if(!d)return '';const sel=`[data-companion="${String(cid).replace(/["\\]/g,'')}"] .companion-art svg`;return `${sel}{filter:${d.filter}${d.anim?`;animation:${d.anim} ${d.anim==='dye-rainbow'?3:9}s linear infinite`:''}}`;}).join('\n');}
 // V141 TESTER GIFT (owner request): 100,000 coins once, enough to buy every Market item and test it. REMOVE before the Play Store release.
-const TESTER_GIFT_KEY='alchemy10k_tester_coins_v141',TESTER_GIFT=100000;
-try{if(!localStorage.getItem(TESTER_GIFT_KEY)){wallet.coins+=TESTER_GIFT;localStorage.setItem(TESTER_GIFT_KEY,'1');saveWallet();}}catch{}
+/* V187: the 100k tester coin gift was removed for launch (coins already granted stay). */
 try{applyDyes();}catch{}
 // V175: each Market colour belongs to Alchemy elements that had no look effect; feeding them tints a companion once the colour is bought
 const TINT_RGB={warm:[255,138,61],cool:[74,168,255],green:[79,191,90],metal:[150,165,180],purple:[160,112,224],gold:[232,192,64],pink:[255,143,192],dark:[70,48,92],light:[255,250,232]};
@@ -1814,6 +1813,11 @@ async function buyCoins(pack='coins_100'){const b=billingBridge();if(!b?.purchas
  try{const r=await b.purchaseCoins({pack});applyBillingStatus(r);await refreshBilling();if(r?.cancelled)toast('Purchase cancelled','repeat');else if(r?.pending)toast('Purchase pending · coins arrive when Google Play confirms it','repeat');return true;}catch(e){console.warn(e);toast('Google Play purchase is not available yet','error');return false;}}
 function grantAccessory(id){if(!ACCESSORIES[id]||(wallet.acc[id]||0)>0)return false;wallet.acc[id]=1;saveWallet();return true;}
 function accIcon(id,size=40){const a=ACCESSORIES[id];if(!a)return '';const oy=a.slot==='head'?12:a.slot==='neck'?-8:0;return `<svg viewBox="-30 -30 60 60" width="${size}" height="${size}" aria-hidden="true"><g transform="translate(0 ${oy})">${a.draw(a.slot==='neck'?44:40)}</g></svg>`;}
+/** V187 (owner): nobody reaches 200 Classic elements without a home — if no house was found by then, the Companion Tent is given. */
+const STARTER_HOUSE_AT=200,STARTER_HOUSE_ID='organic89:companion-tent';
+function ensureStarterHouse(){try{if(currentMode!=='classic'||classicDiscoveredCount()<STARTER_HOUSE_AT)return false;
+ if([...unlocked].some(id=>HOME_OBJECTS[id]?.kind==='house'))return false;
+ if(!grantElement(STARTER_HOUSE_ID))return false;toast('🏕 200 elements! A Companion Tent is now yours — open Home to move in','gift');return true;}catch{return false;}}
 function grantElement(id){if(!byId.has(id)||unlocked.has(id))return false;unlocked.add(id);discoveryLedger.set(id,{at:new Date().toISOString(),source:'market',ingredients:[]});recent=[id,...recent.filter(x=>x!==id)].slice(0,350);companions.onDiscovery(id);save();updateCounts();updateLatest();rerenderCollections();try{companions.refreshViews();}catch{}return true;}
 /** V139: things bought before V139 also become elements (quietly, once). */
 setTimeout(()=>{try{for(const it of MARKET){if(it.kind==='furniture'||it.kind==='house'||!it.element||!byId.has(it.element)||unlocked.has(it.element))continue;
@@ -2641,3 +2645,4 @@ document.addEventListener('visibilitychange',()=>{if(document.visibilityState===
 // only on a visible active game, and never more than once every 90 seconds.
 setInterval(()=>{if(apiBase&&sessionToken&&pendingCount>0&&document.visibilityState==='visible'&&Date.now()-lastPendingCheck>90000)refreshPending(true);},30000);
 document.addEventListener('visibilitychange',()=>{if(document.visibilityState==='visible'&&apiBase&&sessionToken&&Date.now()-lastPendingCheck>90000)refreshPending(true);});
+try{setTimeout(ensureStarterHouse,2500);}catch{}

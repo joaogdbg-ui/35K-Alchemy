@@ -90,6 +90,13 @@ Preserve 200-per-batch policy and do not start another content release on top of
 
 - **Art redraw wave 3 (V85, done): 3,991 icons** — every remaining older element. All 6,012 pre-V83 elements now use the 2026 art direction (`ART_REDRAW`), plus 200 V83 and 200 V85 originals. Six near-duplicates found by the audit were redrawn; 36 reviewed false alarms are in `tools/art-redraw-reviewed-pairs.json` (the audit now also honours them for V83 comparisons).
 
+## V187 — Afinação para lançamento
+
+- Removida a oferta de 100 000 moedas de teste (`TESTER_GIFT`); quem já as recebeu mantém o saldo.
+- `ARCADE_TESTER_ALL=false`: os minijogos voltam a desbloquear por progresso (os já desbloqueados no save ficam).
+- Casa garantida: `ensureStarterHouse()` — ao chegar a 200 elementos descobertos no Classic sem nenhuma casa (`HOME_OBJECTS[id].kind==='house'`), a Companion Tent (`organic89:companion-tent`) é oferecida com aviso. Corre após cada descoberta, achados dos companions e no arranque.
+- `APP_VERSION` 1.0.87.
+
 ## V186 — Lote 2 de elementos: Mar profundo e espaço (+165) → 7 000
 
 - Pack `client/src/organic-pack-v186.js` (`ORGANIC_V186`, ids `organic186:*`), arte `client/src/organic-art-v186.js`, SVG fonte em `client/assets/v186/`, manifesto `shared/v186-approved.json` com `owner_exception:true` (dono aprovou ~165 para fechar nos 7 000).
