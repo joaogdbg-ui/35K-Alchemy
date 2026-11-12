@@ -129,3 +129,12 @@ test('V181: ultra races are longer and every rival is a legend', async () => {
     const o = G.opponentStats(c, 0, 3); assert.ok(Object.values(o).every(v => v >= 95 && v <= 99));
   }
 });
+test('V187: launch tuning — no tester gift, minigames locked by progress, tent guaranteed at 200', async () => {
+  const { readFileSync } = await import('node:fs');
+  const app = readFileSync(new URL('../src/app.js', import.meta.url), 'utf8');
+  const arc = readFileSync(new URL('../src/arcade-v158.js', import.meta.url), 'utf8');
+  assert.doesNotMatch(app, /TESTER_GIFT=/);
+  assert.match(arc, /export const ARCADE_TESTER_ALL=false;/);
+  assert.match(app, /STARTER_HOUSE_AT=200,STARTER_HOUSE_ID='organic89:companion-tent'/);
+  assert.match(app, /HOME_OBJECTS\[id\]\?\.kind==='house'\)\)return false;\s*if\(!grantElement\(STARTER_HOUSE_ID\)\)/);
+});

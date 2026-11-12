@@ -3,7 +3,7 @@
  * School levels and stats help in the matching minigames. No imports: everything comes through ctx. */
 export const ARCADE_KEY='alchemy10k_arcade_v158';
 /** V159 TESTER: every minigame open for testing. Set to false before the Play release. */
-export const ARCADE_TESTER_ALL=true;
+export const ARCADE_TESTER_ALL=false;
 export const ARCADE_STEP=250,ARCADE_TOTAL=16,ARCADE_STEP_COINS=50;
 /** Implemented minigames (more arrive in later updates up to ARCADE_TOTAL). help = School subject or stat that helps. */
 export const ARCADE_GAMES=[
