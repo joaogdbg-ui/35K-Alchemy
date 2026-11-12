@@ -330,6 +330,15 @@ export function applyLookSvg(svg,look,key){
   add(svg,`<g class="look-aura">${pts.map(([x,y],i)=>`<g transform="translate(${f1(x)} ${f1(y)})"><g style="animation-delay:${i*.35}s">${aura?`<path d="${smoothPath(aura.pts,s)}" fill="${aura.color}" opacity=".9"/>`:''}${notesW>0.04?`<text font-size="${f1(s*1.8)}" fill="#9b7fc4" text-anchor="middle" opacity="${Math.min(1,.3+notesW).toFixed(2)}">♪</text>`:''}</g></g>`).join('')}</g>`,false,gl(aura));}}
 }
 
+// V200: every rig draws its arms/wings differently, so poses are aimed from the limb's real rest direction
+export function poseRig(art,tries=0){if(!art)return;const limbs=[...art.querySelectorAll('[data-part="arm-l"],[data-part="arm-r"],[data-part="wing-l"],[data-part="wing-r"]')];
+ art.dataset.rig=art.querySelector('[data-part="arm-r"]')?'biped':art.querySelector('[data-part="wing-r"]')?'winged':'quad';let miss=false;
+ for(const g of limbs){let b=null;try{b=g.getBBox();}catch{}if(!b||(!b.width&&!b.height)){miss=true;continue;}
+  const [px,py]=(g.dataset.pivot||'50 50').split(/\s+/).map(Number),th=Math.atan2(b.y+b.height/2-py,b.x+b.width/2-px)*180/Math.PI,left=px<50;
+  const d=t=>((t-th)%360+540)%360-180,set=(n,v)=>g.style.setProperty(n,Math.round(v)+'deg');
+  let up=d(-90);if(Math.abs(up)>120){if(left&&up<0)up+=360;if(!left&&up>0)up-=360;}if(Math.abs(d(-90))<62)up=0;const cl=v=>Math.max(-55,Math.min(55,v));
+  set('--up',up);set('--fwd',d(0));set('--back',d(180));set('--down',d(90));set('--in',cl(d(left?35:145)));set('--out',d(left?200:-20));}
+ if(miss&&tries<6)setTimeout(()=>poseRig(art,tries+1),350);}
 export function createCompanionSystem(ctx){
  const {roster,sprites,$,escapeText,byId,uiName,staticArt,familyFor,isDiscovered,isShiny,elementIsUseful,getSlots,isLeftLocked,toast,showModal,closeModal,reducedMotion,FAMILIES}=ctx;
  const requestActivation=ctx.requestActivation||(async()=>true);
@@ -380,7 +389,7 @@ export function createCompanionSystem(ctx){
  function setArt(meta){
   const svg=sprites[meta.id]||'';
   const art=sprite.querySelector('.companion-art');art.innerHTML=svg;
-  for(const g of art.querySelectorAll('[data-part]')){const p=(g.dataset.pivot||'50 50').split(/\s+/).map(Number);g.style.transformOrigin=`${p[0]}px ${p[1]}px`;g.style.transformBox='view-box';}
+  for(const g of art.querySelectorAll('[data-part]')){const p=(g.dataset.pivot||'50 50').split(/\s+/).map(Number);g.style.transformOrigin=`${p[0]}px ${p[1]}px`;g.style.transformBox='view-box';}poseRig(art);
   sprite.dataset.move=meta.move;sprite.dataset.quirk=meta.quirkAnim||'wiggle';sprite.dataset.companion=meta.id;sprite.classList.toggle('is-shiny',isShiny(meta.id));
   const svgEl=art.querySelector('svg');if(svgEl){svgEl.setAttribute('width','100%');svgEl.setAttribute('height','100%');}
   try{ctx.wear?.(sprite.parentElement||sprite);}catch{}
@@ -466,6 +475,7 @@ export function createCompanionSystem(ctx){
   if(rail.kind==='top'&&now()-lastVisit>45000&&Math.random()<0.07){lastVisit=now();if(await visitorScene()){timer=setTimeout(loop,900);return;}}
   if(ctx.toy?.()&&rail.kind==='top'&&now()-lastToy>30000&&Math.random()<0.07){lastToy=now();if(await playToy()){timer=setTimeout(loop,800);return;}}
   if(ko.main){timer=setTimeout(loop,900);return;}
+  if(rail.kind==='top'&&now()-lastHello>38000&&Math.random()<0.1){lastHello=now();const h=['wave','peek','sniff'][Math.floor(Math.random()*3)];sprite.dataset.anim=h;expr(sprite,h==='peek'?'wow':'happy',1800);if(h==='wave')sfx.boop?.();await wait(1900);if(sprite.dataset.anim===h)sprite.dataset.anim='idle';timer=setTimeout(loop,600);return;}
   if(duoActive()&&bud&&!bud.sprite.hidden&&!ko.bud&&rail.kind==='top'&&(duoRequest||(now()-lastDuo>18000&&Math.random()<0.2))){const k=duoRequest;duoRequest=null;await duoPlay(k);timer=setTimeout(loop,900);return;}
   const roll=Math.random();
   {const pws=powersOf(pet(meta.id).look);if(pws.length&&rail.kind!=='side'&&Math.random()<0.1){await usePower(pws[Math.floor(Math.random()*pws.length)]);timer=setTimeout(loop,700);return;}}
@@ -668,9 +678,10 @@ export function createCompanionSystem(ctx){
  const slot2=()=>{try{return !!ctx.slot2Unlocked?.();}catch{return false;}};
  const buddyMeta=()=>{const id=state.buddy;if(!id||id===state.active||!activeMeta()||!isDiscovered(id)||!slot2())return null;return metaById.get(id)||null;};
  const duoActive=()=>!!buddyMeta();
+ const expr=(el,k,ms=1600)=>{if(!el)return;el.dataset.expr=k;clearTimeout(el._ex);if(ms)el._ex=setTimeout(()=>{if(el.dataset.expr===k)delete el.dataset.expr;},ms);};let lastHello=0;
  const famOf=id=>metaById.get(id)?.family;const relation=(a,b)=>relationOf(a,b,!!a&&!!b&&famOf(a)===famOf(b));
  const ko={main:false,bud:false};
- function setKo(who,on){ko[who]=on;const el=who==='main'?sprite:bud?.sprite;if(!el)return;el.classList.toggle('is-ko',on);if(on){el.dataset.anim='tumble';emoteOn(el,'spiral',600000);}else{el.dataset.anim='jump';const e=el.querySelector('.companion-emote');if(e)e.hidden=true;emoteOn(el,'heart',1400);sfx.happy?.();setTimeout(()=>{if(el.dataset.anim==='jump')el.dataset.anim='idle';},700);}}
+ function setKo(who,on){ko[who]=on;const el=who==='main'?sprite:bud?.sprite;if(!el)return;el.classList.toggle('is-ko',on);if(on){el.dataset.anim='tumble';expr(el,'dizzy',0);emoteOn(el,'spiral',600000);}else{delete el.dataset.expr;el.dataset.anim='getup';setTimeout(()=>{if(el.dataset.anim==='getup'){el.dataset.anim='celebrate';expr(el,'happy',1200);setTimeout(()=>{if(el.dataset.anim==='celebrate')el.dataset.anim='idle';},1300);}},800);const e=el.querySelector('.companion-emote');if(e)e.hidden=true;emoteOn(el,'heart',1400);sfx.happy?.();}}
  function reviveIfKo(who){if(!ko[who])return false;setKo(who,false);const id=who==='main'?state.active:state.buddy;try{toast(`${nameOf(metaById.get(id))} is back on its feet!`,'new');}catch{}return true;}
  let bud=null,budTimer=null,duoBusy=false,duoAbort=false,lastDuo=0,duoRequest=null;
  function ensureBud(){ensureLayer();if(bud)return bud;
@@ -688,7 +699,7 @@ export function createCompanionSystem(ctx){
  function bPlace(x,y){bud.pos.x=x;bud.pos.y=y;bud.sprite.style.transform=`translate3d(${x.toFixed(1)}px,${y.toFixed(1)}px,0)`;bud.sprite.dataset.face=bud.pos.face>0?'right':'left';}
  function bLayer(which){const L=which==='back'?layerBack:layerFront;if(bud.sprite.parentElement!==L)L.append(bud.sprite);}
  function bSetArt(meta){bud.meta=meta;const art=bud.sprite.querySelector('.companion-art');art.innerHTML=sprites[meta.id]||'';
-  for(const g of art.querySelectorAll('[data-part]')){const p=(g.dataset.pivot||'50 50').split(/\s+/).map(Number);g.style.transformOrigin=`${p[0]}px ${p[1]}px`;g.style.transformBox='view-box';}
+  for(const g of art.querySelectorAll('[data-part]')){const p=(g.dataset.pivot||'50 50').split(/\s+/).map(Number);g.style.transformOrigin=`${p[0]}px ${p[1]}px`;g.style.transformBox='view-box';}poseRig(art);
   bud.sprite.dataset.move=meta.move;bud.sprite.dataset.companion=meta.id;bud.sprite.classList.toggle('is-shiny',isShiny(meta.id));
   const svgEl=art.querySelector('svg');if(svgEl){svgEl.setAttribute('width','100%');svgEl.setAttribute('height','100%');}
   try{ctx.wear?.(bud.sprite.parentElement||bud.sprite);}catch{}}
@@ -823,17 +834,19 @@ export function createCompanionSystem(ctx){
   emoteOn(sprite,'burst',1200);emoteOn(bud.sprite,'burst',1200);sfx.found?.();await w8(500);
   const lr=layerFront.getBoundingClientRect();const tgt=i=>{const el=$('slot'+i);if(!el)return null;const q=el.getBoundingClientRect();return [q.left-lr.left+q.width/2-11,q.top-lr.top+q.height/2-11];};
   const t0=tgt(0),t1=tgt(1);if(!t0||!t1)return;
+  expr(sprite,'wow',900);expr(bud.sprite,'wow',900);
   const fa=flyer(f.a,'duo-throwable'),fb=flyer(f.b,'duo-throwable');const ha=handOf(A.m,10),hb=handOf(A.b,10);fa.style.transform=`translate3d(${ha[0]}px,${ha[1]}px,0)`;fb.style.transform=`translate3d(${hb[0]}px,${hb[1]}px,0)`;
+  A.m.anim('carry');A.b.anim('carry');const up=(el,h)=>{el.style.transform=`translate3d(${h[0]}px,${h[1]-26}px,0)`;};up(fa,ha);up(fb,hb);await w8(900);
   A.m.anim('duo-windup');A.b.anim('duo-windup');await w8(380);A.m.anim('duo-throw');A.b.anim('duo-throw');sfx.whoosh?.();
   await Promise.all([arcFly(fa,ha,t0,{ms:700,arc:90}),arcFly(fb,hb,t1,{ms:760,arc:110})]);fa.remove();fb.remove();
   try{ctx.coopCraft?.(f);}catch{}
-  faceEach(A.m,A.b);A.m.anim('duo-cheer');A.b.anim('duo-cheer');sfx.cheer?.();emoteOn(sprite,'heart',1400);emoteOn(bud.sprite,'heart',1400);await w8(1200);}
+  faceEach(A.m,A.b);A.m.anim('celebrate');A.b.anim('celebrate');expr(sprite,'love',1400);expr(bud.sprite,'love',1400);sfx.cheer?.();await w8(1400);}
  // V199: sworn enemies — a real brawl; the loser is knocked out until the player taps it
- async function brawl(){const r=await meet(46);if(!r)return;sfx.fight?.();A.m.anim('duo-guard');A.b.anim('duo-guard');emoteOn(sprite,'burst',900);emoteOn(bud.sprite,'burst',900);await w8(600);
+ async function brawl(){const r=await meet(46);if(!r)return;sfx.fight?.();A.m.anim('stomp');A.b.anim('stomp');expr(sprite,'angry',5000);expr(bud.sprite,'angry',5000);await w8(900);A.m.anim('duo-guard');A.b.anim('duo-guard');await w8(300);
   let att=Math.random()<0.5?A.m:A.b;for(let i=0;i<6;i++){const def=att===A.m?A.b:A.m;att.anim(i%2?'duo-kick':'duo-punch');sfx.swish?.();await w8(150);def.anim('duo-hit');sfx.hit?.();fxOn(def.el(),'impact',400);await w8(260);att=def;}
   const loser=Math.random()<0.5?A.m:A.b,winner=loser===A.m?A.b:A.m;winner.anim('duo-charge');sfx.charge?.();await w8(420);winner.anim('duo-punch');sfx.hit?.();fxOn(loser.el(),'impact',600);
   const who=loser===A.m?'main':'bud';setKo(who,true);const lid=who==='main'?state.active:state.buddy;const lp=pet(lid);settleMood(lp);lp.mood=Math.max(0,lp.mood-10);lp.moodAt=now();
-  winner.anim('duo-cheer');await wait(900);winner.anim('idle');try{toast(`${nameOf(metaById.get(lid))} was knocked out — tap it to revive it`,'repeat');}catch{}}
+  winner.anim('taunt');expr(winner.el(),'smug',1500);await wait(1500);winner.anim('idle');try{toast(`${nameOf(metaById.get(lid))} was knocked out — tap it to revive it`,'repeat');}catch{}}
  const DUO_GAMES=[spar,throwing,tag,hideSeek,ballGame];
  const DUO_BY_REL={friends:[tag,hideSeek,ballGame,coop,coop,coop],neutral:[spar,throwing,tag,hideSeek,ballGame],rivals:[spar,spar,throwing,throwing,tag],nemesis:[brawl,brawl,spar,throwing]};
  async function duoPlay(kind=null){if(duoBusy||!duoActive()||!bud||bud.sprite.hidden||sleeping||petting)return false;
@@ -842,6 +855,9 @@ export function createCompanionSystem(ctx){
   const pool=DUO_BY_REL[relation(state.active,state.buddy)]||DUO_GAMES;
   const game=kind&&kind!=='any'?[...DUO_GAMES,coop,brawl].find(g=>g.name===kind)||DUO_GAMES[0]:pool[Math.floor(Math.random()*pool.length)];
   try{await game();}catch(e){if(e?.message!=='duo-abort')console.warn('duo',e);}
+  try{const rl=relation(state.active,state.buddy);if(!ko.main&&!ko.bud&&!duoAbort&&game!==coop){
+    if(rl==='rivals'){const w=Math.random()<0.5?A.m:A.b,l=w===A.m?A.b:A.m;w.anim('taunt');expr(w.el(),'smug',1500);l.anim('stomp');expr(l.el(),'angry',1500);await wait(1500);}
+    else if(rl==='friends'){A.m.anim('wave');A.b.anim('wave');expr(sprite,'happy',1200);expr(bud.sprite,'happy',1200);await wait(1200);}}}catch{}
   finally{if(!ko.main&&(sprite.dataset.anim?.startsWith('duo-')||sprite.dataset.anim==='tumble'||sprite.dataset.anim==='shake'))sprite.dataset.anim='idle';if(bud&&!ko.bud){bud.sprite.dataset.anim='idle';}
    // happy play time lifts both moods a little
    for(const id of [state.active,state.buddy]){if(!id)continue;const p=pet(id);settleMood(p);p.mood=Math.min(100,p.mood+3);p.moodAt=now();}save();
@@ -1224,7 +1240,7 @@ export function createCompanionSystem(ctx){
   return {cid,known,name:nameOf(meta),taste,fresh,cooldownMin:fresh?0:Math.max(1,Math.ceil((FEED_COOLDOWN_MS-(now()-last))/60000)),stats,depth,depthMult:feedDepthMult(depth),looks:lookEffects(item.name||uiName(item),familyFor(item),item.category,depth,true)};}
  function tasted(itemId){return !!state.tasted?.[itemId]||Object.values(state.pets||{}).some(q=>q?.fed?.[itemId]);}
  function looksOf(itemId){const item=byId.get(itemId);if(!item)return null;return lookEffects(item.name||uiName(item),familyFor(item),item.category,ctx.depthOf?.(item.id));}
- return {requestDuo:k=>{duoRequest=k||'any';lastDuo=0;},koState:()=>({...ko}),relation,relInfo:r=>REL_INFO[r],visitorScene,fullLeft,makeRoom,feedStatsOf:itemId=>{const it=byId.get(itemId);return it?(FAMILY_FEEDS[familyFor(it)]||['stamina','hp']):[];},activeStats:()=>{const m=activeMeta();return m?{name:nameOf(m),family:m.family,stats:pet(m.id).stats}:null;},duoActive,applyRivalLook:(svg,id,look)=>applyLookSvg(svg,look,id+'-rival'),setBuddy,swapDuo,requestDuo:k=>{duoRequest=k||'any';},duoPlay,buddy:()=>buddyMeta()?.id||null,duoPair:()=>duoActive()?[state.active,state.buddy]:[],tasted,looksOf,mealPreview,lookOf,applyLook:(svg,id)=>{applyLookSvg(svg,lookOf(id),id);applyWearSvg(svg,id);},wearOf:id=>({...(state.pets[id]?.wear||{})}),setWear,takeOff,marketFeed,learn,skillsOf,skillLevel,themeCompletion,playToy,placeToy,performSkill,start,stop,setActive,statsHtml,info,gameReward,choose,homeEffect,syncSeen,markSeen,isCompanion,freeChoiceLeft,emote,feed,hitTest,onDiscovery,renderTab,openCard,get active(){return activeMeta();},state:()=>state,unlocked,refreshViews,
+ return {poseRig,requestDuo:k=>{duoRequest=k||'any';lastDuo=0;},koState:()=>({...ko}),relation,relInfo:r=>REL_INFO[r],visitorScene,fullLeft,makeRoom,feedStatsOf:itemId=>{const it=byId.get(itemId);return it?(FAMILY_FEEDS[familyFor(it)]||['stamina','hp']):[];},activeStats:()=>{const m=activeMeta();return m?{name:nameOf(m),family:m.family,stats:pet(m.id).stats}:null;},duoActive,applyRivalLook:(svg,id,look)=>applyLookSvg(svg,look,id+'-rival'),setBuddy,swapDuo,requestDuo:k=>{duoRequest=k||'any';},duoPlay,buddy:()=>buddyMeta()?.id||null,duoPair:()=>duoActive()?[state.active,state.buddy]:[],tasted,looksOf,mealPreview,lookOf,applyLook:(svg,id)=>{applyLookSvg(svg,lookOf(id),id);applyWearSvg(svg,id);},wearOf:id=>({...(state.pets[id]?.wear||{})}),setWear,takeOff,marketFeed,learn,skillsOf,skillLevel,themeCompletion,playToy,placeToy,performSkill,start,stop,setActive,statsHtml,info,gameReward,choose,homeEffect,syncSeen,markSeen,isCompanion,freeChoiceLeft,emote,feed,hitTest,onDiscovery,renderTab,openCard,get active(){return activeMeta();},state:()=>state,unlocked,refreshViews,
   onViewChange(){if(activeMeta()&&sprite&&!sprite.hidden)setTimeout(()=>{if(cancelMove)cancelMove();const r=pickRail();if(r){rail=r;setLayer(r.layer);place(clampX(r,pos.x),r.y);sprite.dataset.anim='idle';}},80);},
   importState(raw){if(raw&&raw.pets){state=normalize(raw);save();syncSeen();}},grades:companionGrades};
 }

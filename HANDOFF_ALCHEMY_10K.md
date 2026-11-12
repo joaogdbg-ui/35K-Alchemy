@@ -90,6 +90,14 @@ Preserve 200-per-batch policy and do not start another content release on top of
 
 - **Art redraw wave 3 (V85, done): 3,991 icons** — every remaining older element. All 6,012 pre-V83 elements now use the 2026 art direction (`ART_REDRAW`), plus 200 V83 and 200 V85 originals. Six near-duplicates found by the audit were redrawn; 36 reviewed false alarms are in `tools/art-redraw-reviewed-pairs.json` (the audit now also honours them for V83 comparisons).
 
+## V200 — Companions que "representam" (poses, expressões, virar)
+- **Virar** já não é uma folha de papel: pequeno salto, a troca de lado acontece no ar, aterra com squash (`cp-turn-l/r` no `svg` dentro de `.companion-art`).
+- **Expressões** `data-expr` (angry, happy, sad, wow, dizzy, sleepy, love, smug): mexem olhos/boca/cabeça com as propriedades `scale/rotate/translate` (compõem com qualquer animação) + símbolo (💢 💧 ❗ 💕). Helper `expr(el,k,ms)` no motor e nas casas.
+- **Poses novas para os 40 rigs**: carry, push, wave, peek, stomp, taunt, sulk, scared, celebrate, sniff, getup. `poseRig(art)` (exportado, corre ao montar cada sprite) mede a direção real de cada braço/asa e grava `--up/--fwd/--in/--down/--out`; marca `data-rig` biped/winged/quad (quadrúpedes usam pata/cauda/cabeça). Braços que já seguram algo ao alto não rodam para cima da cara.
+- **Onde aparecem**: co-op carrega os elementos por cima da cabeça antes de atirar e festeja com pirueta; luta começa com birra (stomp), vencedor faz troça; rivais troça/birra, amigos acenam; KO = olhos a rodar, levantar-se = getup + festejo; de vez em quando o companion acena, espreita o ecrã ou fareja. Casas: recusa = amuo, rivais birra/troça, némesis trocam socos e pontapés, amigos festejam, festa = olhos felizes.
+- Rotação/inclinação ao nível de `.companion-art` continua a precisar de `var(--dir)`; dentro das partes não.
+- Por fazer: poses específicas por companion (objetos próprios), novas poses nas corridas/karaté/microjogos.
+
 ## V199 — Química entre companions (Duo e casas)
 
 - `relationOf(a,b,sameFamily)` (companion-engine, puro e simétrico): `friends` / `neutral` / `rivals` / `nemesis`, com pares fixos (`REL_BEST`, `REL_NEMESIS`: p.ex. Frog+Otter amigos; Hero×Werewolf, Pegasus×Cerberus, Phoenix×Penguin inimigos) e o resto por hash (mesma família é mais amigável). `REL_INFO` tem ícone, nome e nota.

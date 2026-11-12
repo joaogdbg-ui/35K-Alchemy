@@ -316,7 +316,7 @@ export function createHomeSystem(ctx){
  }
 
  // ---------- residents walk to furniture and use it ----------
- function rig(el,cid){el.innerHTML=sprites[cid]||'';for(const g of el.querySelectorAll('[data-part]')){const p=(g.dataset.pivot||'50 50').split(/\s+/).map(Number);g.style.transformOrigin=`${p[0]}px ${p[1]}px`;g.style.transformBox='view-box';}const svg=el.querySelector('svg');if(svg){svg.setAttribute('width','100%');svg.setAttribute('height','100%');}}
+ function rig(el,cid){el.innerHTML=sprites[cid]||'';for(const g of el.querySelectorAll('[data-part]')){const p=(g.dataset.pivot||'50 50').split(/\s+/).map(Number);g.style.transformOrigin=`${p[0]}px ${p[1]}px`;g.style.transformBox='view-box';}ctx.poseRig?.(el);const svg=el.querySelector('svg');if(svg){svg.setAttribute('width','100%');svg.setAttribute('height','100%');}}
  function useSpot(f,L){const [w,h]=footprint(objects,f);const name=uiName(byId.get(f.id))||'';const layer=layerOf(RS,f.id);
   // V112: residents stand in the CENTRE of what they use (fractional tiles), not on its first tile.
   if(layer!=='floor'&&FRONT_USE.test(name)){const fy=f.y+h-(/punching/i.test(f.id)?1:0.45);return {x:f.x+(w-1)/2,y:Math.min(L.rows-1,fy),front:true};}
@@ -333,12 +333,13 @@ export function createHomeSystem(ctx){
   const walkers=residents.map((cid,i)=>{const el=document.createElement('span');el.className='companion home-walker';el.dataset.anim='idle';el.dataset.companion=cid;
    const art=document.createElement('span');art.className='companion-art';rig(art,cid);el.append(art);const fx=document.createElement('span');fx.className='home-fx';el.append(fx);const say=document.createElement('span');say.className='home-say';el.append(say);const gain=document.createElement('span');gain.className='home-gain';el.append(gain);const sh=document.createElement('i');sh.className='home-shadow';el.prepend(sh);const pet=document.createElement('button');pet.type='button';pet.className='home-pet';pet.setAttribute('aria-label','Pet');el.append(pet);box.append(el);
    const p={x:(i*2+1)%L.cols,y:L.rows-1-(i%L.rows),face:1};place(el,p);const w={cid,el,p,busyUntil:0,taken:null,petAt:0,per:personalityOf(cid)};
-   pet.onclick=e=>{e.stopPropagation();bubble(w,'❤',1100);voiceAt=0;voice(cid,'happy');if(!el.classList.contains('is-using')){el.dataset.anim='jump';setTimeout(()=>{if(el.dataset.anim==='jump')el.dataset.anim='idle';},700);}
+   pet.onclick=e=>{e.stopPropagation();bubble(w,'❤',1100);el.dataset.expr='happy';setTimeout(()=>{if(el.dataset.expr==='happy')delete el.dataset.expr;},1200);voiceAt=0;voice(cid,'happy');if(!el.classList.contains('is-using')){el.dataset.anim='jump';setTimeout(()=>{if(el.dataset.anim==='jump')el.dataset.anim='idle';},700);}
     if(Date.now()-w.petAt>20000){w.petAt=Date.now();if(train&&applyEffect?.(cid,'mood'))gainPop(w,'mood');}};
    return w;});
   const QUIRK_TEXT={spin:'Doing a little twirl',hop:'Hopping on the spot',wiggle:'Wiggling to a tune',nod:'Nodding along',stretch:'Having a big stretch',shiver:'Shaking off a chill',bow:'Taking a bow',sway:'Swaying happily'};
   const ICON={run:'🏃',swim:'💦',power:'💪',fly:'🪽',stamina:'🧗',hp:'💤',mood:'🎵',food:'🍖',discovery:'📖'};
   const VERB={run:'Running on',swim:'Splashing in',power:'Training with',fly:'Bouncing on',stamina:'Working out on',hp:'Resting on',mood:'Having fun with',food:'Eating at',discovery:'Studying at'};
+  const expr=(w,k,ms=1500)=>{w.el.dataset.expr=k;clearTimeout(w.exT);if(ms)w.exT=setTimeout(()=>{if(w.el.dataset.expr===k)delete w.el.dataset.expr;},ms);};
   const bubble=(w,txt,ms)=>{const b=w.el.querySelector('.home-say');b.textContent=txt;b.classList.add('is-on');clearTimeout(w.sayT);w.sayT=setTimeout(()=>b.classList.remove('is-on'),ms);};
   const act=(w,txt)=>{const a=(root.closest('.home-card')||root).querySelector(`[data-act="${w.cid}"]`);if(a)a.textContent=txt;};
   const gainPop=(w,eff)=>{const g=w.el.querySelector('.home-gain');g.textContent='+'+(EFFECT_LABEL[eff]||'');g.dataset.eff=eff;g.classList.remove('is-pop');void g.offsetWidth;g.classList.add('is-pop');const a=(root.closest('.home-card')||root).querySelector(`[data-gain="${w.cid}"]`);if(a){a.textContent='+'+(EFFECT_LABEL[eff]||'');a.classList.remove('is-pop');void a.offsetWidth;a.classList.add('is-pop');}};
@@ -355,8 +356,8 @@ export function createHomeSystem(ctx){
       // V152: going north the companion stays in front of what it is walking past until it gets there
       if(north&&zOld){const zNew=Number(w.el.style.getPropertyValue('--z'));w.el.style.setProperty('--z',Math.max(zOld,zNew));w.legs.push(setTimeout(()=>{if(Number(w.el.style.getPropertyValue('--z'))>zNew&&!w.el.classList.contains('is-using'))w.el.style.setProperty('--z',zNew);},ms));}},at));t+=ms;cur=pt;}
    return t;};
-  const knockOut=w=>{w.ko=true;w.busyUntil=Infinity;if(w.taken){taken.delete(w.taken);w.taken=null;}w.el.className='companion home-walker is-ko';w.el.dataset.anim='idle';bubble(w,'💫',600000);act(w,'Knocked out — tap to revive');};
-  const revive=w=>{w.ko=false;w.busyUntil=Date.now()+900;w.el.classList.remove('is-ko');w.el.dataset.anim='jump';bubble(w,'❤',1200);act(w,'Back on its feet');voiceAt=0;voice(w.cid,'happy');setTimeout(()=>{if(w.el.dataset.anim==='jump')w.el.dataset.anim='idle';},700);};
+  const knockOut=w=>{w.ko=true;w.busyUntil=Infinity;if(w.taken){taken.delete(w.taken);w.taken=null;}w.el.className='companion home-walker is-ko';w.el.dataset.anim='idle';expr(w,'dizzy',0);bubble(w,'💫',600000);act(w,'Knocked out — tap to revive');};
+  const revive=w=>{w.ko=false;w.busyUntil=Date.now()+900;w.el.classList.remove('is-ko');delete w.el.dataset.expr;w.el.dataset.anim='getup';bubble(w,'❤',1200);act(w,'Back on its feet');voiceAt=0;voice(w.cid,'happy');setTimeout(()=>{if(w.el.dataset.anim==='getup'){w.el.dataset.anim='celebrate';expr(w,'happy',1000);setTimeout(()=>{if(w.el.dataset.anim==='celebrate')w.el.dataset.anim='idle';},1000);}},800);w.busyUntil=Date.now()+1900;};
   for(const w of walkers){const pb=w.el.querySelector('.home-pet');if(pb){const old=pb.onclick;pb.onclick=e=>{if(w.ko){e.stopPropagation();revive(w);return;}old?.(e);};}}
   const tick=()=>{if(!document.body.contains(box))return stopWander();const now=Date.now();
    for(const w of walkers){if(w.ko||now<w.busyUntil)continue;
@@ -384,17 +385,17 @@ export function createHomeSystem(ctx){
       if(m&&!m.ko&&Math.abs(m.p.x-w.p.x)+Math.abs(m.p.y-w.p.y)<=1.5){const face=m.p.x>=w.p.x?1:-1;w.p.face=face;w.el.dataset.face=face>0?'right':'left';
        // V199: chemistry — friends cheer (and both feel better), rivals bicker, sworn enemies fight until one is knocked out (tap it to revive)
        const rel=(()=>{try{return ctx.relation?.(w.cid,m.cid)||'neutral';}catch{return 'neutral';}})();const mName=companionName(m.cid);
-       if(rel==='rivals'){w.el.dataset.anim='shake';bubble(w,'😤',1400);act(w,`Bickering with ${mName}`);voice(w.cid,'no');if(m.el.dataset.anim==='idle'){m.el.dataset.face=face>0?'left':'right';m.el.dataset.anim='shake';bubble(m,'💢',1400);setTimeout(()=>{if(m.el.dataset.anim==='shake')m.el.dataset.anim='idle';},1200);}setTimeout(()=>{if(w.el.dataset.anim==='shake')w.el.dataset.anim='idle';},1200);return;}
-       if(rel==='nemesis'&&m.el.dataset.anim==='idle'){m.el.dataset.face=face>0?'left':'right';w.el.dataset.anim='knock';m.el.dataset.anim='knock';bubble(w,'💥',1500);bubble(m,'💥',1500);act(w,`Fighting ${mName}!`);act(m,`Fighting ${companionName(w.cid)}!`);voice(w.cid,'no');w.busyUntil=Date.now()+2600;m.busyUntil=Date.now()+2600;
-        setTimeout(()=>{const lose=Math.random()<0.5?w:m,win=lose===w?m:w;knockOut(lose);win.el.dataset.anim='jump';bubble(win,'😼',1300);act(win,`Won a fight with ${companionName(lose.cid)}`);setTimeout(()=>{if(win.el.dataset.anim==='jump')win.el.dataset.anim='idle';},800);},1500);return;}
-       w.el.dataset.anim='duo-cheer';bubble(w,rel==='friends'?'💚':'❤',1400);act(w,rel==='friends'?`Having fun with best friend ${mName}`:'Chatting with a housemate');if(rel==='friends'){voice(w.cid,'happy');if(train&&applyEffect?.(w.cid,'mood'))gainPop(w,'mood');if(train)applyEffect?.(m.cid,'mood');}
+       if(rel==='rivals'){w.el.dataset.anim='stomp';expr(w,'angry',1400);bubble(w,'😤',1400);act(w,`Bickering with ${mName}`);voice(w.cid,'no');if(m.el.dataset.anim==='idle'){m.el.dataset.face=face>0?'left':'right';m.el.dataset.anim='taunt';expr(m,'smug',1400);bubble(m,'💢',1400);setTimeout(()=>{if(m.el.dataset.anim==='taunt')m.el.dataset.anim='idle';},1300);}setTimeout(()=>{if(w.el.dataset.anim==='stomp')w.el.dataset.anim='idle';},1300);return;}
+       if(rel==='nemesis'&&m.el.dataset.anim==='idle'){m.el.dataset.face=face>0?'left':'right';w.el.dataset.anim='duo-punch';m.el.dataset.anim='duo-kick';expr(w,'angry',1500);expr(m,'angry',1500);const sw=setInterval(()=>{if(w.ko||m.ko)return clearInterval(sw);const t=w.el.dataset.anim;w.el.dataset.anim=m.el.dataset.anim==='duo-kick'?'duo-hit':'duo-punch';m.el.dataset.anim=t==='duo-punch'?'duo-hit':'duo-kick';},320);setTimeout(()=>clearInterval(sw),1450);bubble(w,'💥',1500);bubble(m,'💥',1500);act(w,`Fighting ${mName}!`);act(m,`Fighting ${companionName(w.cid)}!`);voice(w.cid,'no');w.busyUntil=Date.now()+2600;m.busyUntil=Date.now()+2600;
+        setTimeout(()=>{const lose=Math.random()<0.5?w:m,win=lose===w?m:w;knockOut(lose);win.el.dataset.anim='taunt';expr(win,'smug',1300);bubble(win,'😼',1300);act(win,`Won a fight with ${companionName(lose.cid)}`);setTimeout(()=>{if(win.el.dataset.anim==='taunt')win.el.dataset.anim='idle';},1300);},1500);return;}
+       w.el.dataset.anim=rel==='friends'?'celebrate':'wave';expr(w,rel==='friends'?'love':'happy',1400);if(m.el.dataset.anim==='idle'){m.el.dataset.face=face>0?'left':'right';m.el.dataset.anim='wave';expr(m,'happy',1400);setTimeout(()=>{if(m.el.dataset.anim==='wave')m.el.dataset.anim='idle';},1400);}setTimeout(()=>{if(w.el.dataset.anim==='celebrate'||w.el.dataset.anim==='wave')w.el.dataset.anim='idle';},1400);bubble(w,rel==='friends'?'💚':'❤',1400);act(w,rel==='friends'?`Having fun with best friend ${mName}`:'Chatting with a housemate');if(rel==='friends'){voice(w.cid,'happy');if(train&&applyEffect?.(w.cid,'mood'))gainPop(w,'mood');if(train)applyEffect?.(m.cid,'mood');}
        if(m.el.dataset.anim==='idle'){m.el.dataset.face=face>0?'left':'right';m.el.dataset.anim='duo-laugh';bubble(m,'🎶',1400);setTimeout(()=>{if(m.el.dataset.anim==='duo-laugh')m.el.dataset.anim='idle';},1400);}
        setTimeout(()=>{if(w.el.dataset.anim==='duo-cheer')w.el.dataset.anim='idle';},1400);}
       return;}
      const eff=objects[f.id].effect,u=USE[eff]||USE.decor;
-     if(refuse){w.el.dataset.anim='shake';bubble(w,'🙅',1400);act(w,`Not a fan of the ${fname}`);voice(w.cid,'no');setTimeout(()=>{if(w.el.dataset.anim==='shake')w.el.dataset.anim='idle';},900);return;}
+     if(refuse){w.el.dataset.anim='sulk';expr(w,'sad',1400);bubble(w,'🙅',1400);act(w,`Not a fan of the ${fname}`);voice(w.cid,'no');setTimeout(()=>{if(w.el.dataset.anim==='sulk')w.el.dataset.anim='idle';},1300);return;}
      const loves=eff===w.per.fav;act(w,loves?`Loves the ${fname} ♥`:`${STYLE_VERB[w.per.style]?.[eff]||VERB[eff]||'Using'} the ${fname}`);
-     if(loves){bubble(w,'💖',1600);voice(w.cid,'happy');}else if(Math.random()<0.35)voice(w.cid,'use');w.el.classList.add('p-'+w.per.style);
+     if(loves){bubble(w,'💖',1600);expr(w,'love',2200);voice(w.cid,'happy');}else if(Math.random()<0.35)voice(w.cid,'use');w.el.classList.add('p-'+w.per.style);
      if(spot.front){w.p.face=1;w.el.dataset.face='right';}
      else{const [,fh]=footprint(objects,f);w.el.style.setProperty('--z',11+(f.y+fh)*2);}
      w.el.dataset.anim=(eff==='hp'&&w.per.style==='hyper')?'jump':u.anim;if(u.cls&&!(eff==='hp'&&w.per.style==='hyper'))w.el.classList.add(u.cls);w.el.classList.add('is-using');

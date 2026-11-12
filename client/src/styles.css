@@ -2659,3 +2659,106 @@ body[data-tab="Games"] .companion-layer{display:none}
 .home-rels li{display:flex;align-items:center;gap:8px;padding:6px 10px;border-radius:12px;background:#F1F7EC;font-size:13px}
 .home-rels li small{margin-left:auto;font-weight:800;color:var(--ink-2)}
 .home-rels li.is-neutral{background:#F4F1E8}.home-rels li.is-rivals{background:#FFF3E3}.home-rels li.is-nemesis{background:#FDECEA}
+
+/* ===== V200: companion acting — hop-turn, expressions and readable poses for all 40 rigs ===== */
+/* turning: a little hop and the flip happens in the air (no paper-thin frames), then a soft landing */
+.companion[data-face="left"] .companion-art>svg{animation:cp-turn-l .36s cubic-bezier(.3,.9,.4,1) 1}
+.companion[data-face="right"] .companion-art>svg{animation:cp-turn-r .36s cubic-bezier(.3,.9,.4,1) 1}
+@keyframes cp-turn-l{0%{transform:scaleX(-1) scaleY(.9) translateY(4%)}38%{transform:scaleX(-1) translateY(-16%) rotate(6deg)}39%{transform:scaleX(1) translateY(-16%) rotate(-6deg)}78%{transform:translateY(0) scale(1.07,.9)}100%{transform:none}}
+@keyframes cp-turn-r{0%{transform:scaleX(-1) scaleY(.9) translateY(4%)}38%{transform:scaleX(-1) translateY(-16%) rotate(6deg)}39%{transform:scaleX(1) translateY(-16%) rotate(-6deg)}78%{transform:translateY(0) scale(1.07,.9)}100%{transform:none}}
+.companion.is-ko .companion-art>svg,.companion[data-anim="climb"] .companion-art>svg,.companion[data-anim="sleep"] .companion-art>svg{animation:none}
+/* expressions (eyes and mouth exist on every rig) */
+.companion [data-part="eye-l"],.companion [data-part="eye-r"],.companion [data-part="mouth"]{transition:scale .14s,rotate .14s,translate .14s}
+.companion[data-expr="angry"] [data-part="eye-l"]{scale:1 .55;rotate:16deg}.companion[data-expr="angry"] [data-part="eye-r"]{scale:1 .55;rotate:-16deg}
+.companion[data-expr="angry"] [data-part="mouth"]{scale:.8 .6;translate:0 1px}
+.companion[data-expr="angry"]::before{content:"💢";position:absolute;right:-4px;top:-6px;font-size:16px;animation:ex-pop .5s ease-in-out infinite alternate;z-index:4;pointer-events:none}
+.companion[data-expr="happy"] [data-part="eye-l"],.companion[data-expr="happy"] [data-part="eye-r"]{scale:1 .32;translate:0 -1px}
+.companion[data-expr="happy"] [data-part="mouth"]{scale:1.3 1.35}
+.companion[data-expr="sad"] [data-part="eye-l"]{scale:1 .8;rotate:-14deg}.companion[data-expr="sad"] [data-part="eye-r"]{scale:1 .8;rotate:14deg}
+.companion[data-expr="sad"] [data-part="mouth"]{scale:1 -1}.companion[data-expr="sad"] [data-part="head"]{translate:0 2px}
+.companion[data-expr="sad"]::before{content:"💧";position:absolute;left:8px;top:4px;font-size:11px;animation:ex-drop 1.1s ease-in infinite;z-index:4;pointer-events:none}
+.companion[data-expr="wow"] [data-part="eye-l"],.companion[data-expr="wow"] [data-part="eye-r"]{scale:1.35}
+.companion[data-expr="wow"] [data-part="mouth"]{scale:.75 1.7}
+.companion[data-expr="wow"]::before{content:"❗";position:absolute;right:2px;top:-12px;font-size:15px;animation:ex-pop .3s ease-out 1;z-index:4;pointer-events:none}
+.companion[data-expr="dizzy"] [data-part="eye-l"],.companion[data-expr="dizzy"] [data-part="eye-r"]{animation:ex-spin .7s linear infinite;scale:.85}
+.companion[data-expr="sleepy"] [data-part="eye-l"],.companion[data-expr="sleepy"] [data-part="eye-r"]{scale:1 .14}
+.companion[data-expr="love"] [data-part="eye-l"],.companion[data-expr="love"] [data-part="eye-r"]{scale:1.2;animation:ex-beat .5s ease-in-out infinite alternate}
+.companion[data-expr="love"]::before{content:"💕";position:absolute;right:-2px;top:-10px;font-size:14px;animation:ex-float 1.2s ease-out infinite;z-index:4;pointer-events:none}
+.companion[data-expr="smug"] [data-part="eye-l"]{scale:1 .5}.companion[data-expr="smug"] [data-part="eye-r"]{scale:1 .5}.companion[data-expr="smug"] [data-part="mouth"]{scale:1.25 1;rotate:-8deg}
+@keyframes ex-pop{from{transform:scale(.7) rotate(-10deg)}to{transform:scale(1.15) rotate(8deg)}}
+@keyframes ex-drop{0%{transform:translateY(0);opacity:0}20%{opacity:1}100%{transform:translateY(16px);opacity:0}}
+@keyframes ex-spin{to{rotate:360deg}}
+@keyframes ex-beat{to{scale:1.4}}
+@keyframes ex-float{0%{transform:translateY(4px) scale(.6);opacity:0}30%{opacity:1}100%{transform:translateY(-14px) scale(1.1);opacity:0}}
+/* poses: every one must read from the silhouette alone. Limb angles come from the rig (--up/--fwd/--in/--down set by poseRig) */
+.companion [data-part^="arm-"],.companion [data-part^="wing-"]{transition:rotate .16s ease-out}
+/* carry — holds something overhead and walks with it */
+.companion[data-anim="carry"] .companion-art{animation:pz-bob .34s ease-in-out infinite}
+.companion[data-anim="carry"] :is([data-part^="arm-"],[data-part^="wing-"]){rotate:var(--up,0deg)}
+.companion[data-anim="carry"] [data-part="head"]{rotate:-9deg;translate:0 1px}
+.companion[data-anim="carry"] [data-part="leg-l"]{animation:pz-step .34s ease-in-out infinite}.companion[data-anim="carry"] [data-part="leg-r"]{animation:pz-step .34s ease-in-out infinite reverse}
+/* push — leans in with both arms forward, feet digging */
+.companion[data-anim="push"] .companion-art{rotate:calc(var(--dir) * 14deg);animation:pz-shove .5s ease-in-out infinite}
+.companion[data-anim="push"] [data-part^="arm-"]{rotate:var(--fwd,0deg)}
+.companion[data-anim="push"] [data-part="leg-l"]{animation:pz-step .5s ease-in-out infinite}.companion[data-anim="push"] [data-part="leg-r"]{animation:pz-step .5s ease-in-out infinite reverse}
+.companion[data-anim="push"] [data-part="head"]{rotate:8deg;translate:2px 1px}
+/* wave — looks at the player and waves */
+.companion[data-anim="wave"] .companion-art{animation:pz-bob .5s ease-in-out infinite}
+.companion[data-anim="wave"] :is([data-part="arm-r"],[data-part="wing-r"]){animation:pz-wave .3s ease-in-out infinite alternate}
+.companion[data-anim="wave"] [data-part="head"]{animation:pz-tilt .6s ease-in-out infinite alternate}
+.companion[data-anim="wave"] [data-part="tail"]{animation:pz-wag .2s ease-in-out infinite alternate}
+.companion[data-anim="wave"] .companion-art[data-rig="quad"] [data-part="leg-r"]{animation:pz-paw .3s ease-in-out infinite alternate}
+/* peek — presses its face against the screen */
+.companion[data-anim="peek"] .companion-art{animation:pz-peek 1.8s cubic-bezier(.3,1.3,.5,1) 1 forwards}
+.companion[data-anim="peek"] [data-part="eye-l"],.companion[data-anim="peek"] [data-part="eye-r"]{animation:pz-look 1.8s ease-in-out 1}
+.companion[data-anim="peek"] :is([data-part^="arm-"],[data-part^="wing-"]){rotate:var(--up,0deg)}
+/* stomp — angry little stamps, fists down */
+.companion[data-anim="stomp"] .companion-art{animation:pz-stamp .26s ease-in infinite}
+.companion[data-anim="stomp"] [data-part="leg-l"]{animation:pz-kickdown .26s ease-in infinite}.companion[data-anim="stomp"] [data-part="leg-r"]{animation:pz-kickdown .26s ease-in infinite .13s}
+.companion[data-anim="stomp"] [data-part^="arm-"]{animation:pz-fists .13s ease-in-out infinite alternate}
+.companion[data-anim="stomp"] [data-part="head"]{animation:pz-fume .26s ease-in-out infinite alternate}
+.companion[data-anim="stomp"] [data-part="tail"]{animation:pz-wag .13s linear infinite alternate}
+/* taunt — leans back, points and laughs */
+.companion[data-anim="taunt"] .companion-art{rotate:calc(var(--dir) * -12deg);animation:pz-laugh .22s ease-in-out infinite alternate}
+.companion[data-anim="taunt"] [data-part="arm-r"]{rotate:var(--fwd,0deg)}
+.companion[data-anim="taunt"] [data-part="head"]{rotate:-12deg}.companion[data-anim="taunt"] [data-part="mouth"]{scale:1.3 1.6}
+.companion[data-anim="taunt"] .companion-art[data-rig="quad"] [data-part="leg-r"]{rotate:-55deg}
+/* sulk — turns in on itself, head down, arms crossed */
+.companion[data-anim="sulk"] .companion-art{scale:.94;translate:0 3%;animation:pz-sigh 1.6s ease-in-out infinite}
+.companion[data-anim="sulk"] [data-part="head"]{rotate:15deg;translate:0 3px}
+.companion[data-anim="sulk"] [data-part^="arm-"]{rotate:var(--in,0deg)}
+.companion[data-anim="sulk"] [data-part="tail"]{rotate:22deg}
+/* scared — leans away, arms up, shivering */
+.companion[data-anim="scared"] .companion-art{rotate:calc(var(--dir) * -16deg);animation:pz-shiver .09s linear infinite}
+.companion[data-anim="scared"] :is([data-part^="arm-"],[data-part^="wing-"]){rotate:var(--up,0deg)}
+.companion[data-anim="scared"] [data-part="tail"]{rotate:30deg}
+/* celebrate — jump with a spin, arms up */
+.companion[data-anim="celebrate"] .companion-art{animation:pz-celebrate .7s cubic-bezier(.3,1.4,.5,1) infinite}
+.companion[data-anim="celebrate"] :is([data-part^="arm-"],[data-part^="wing-"]){rotate:var(--up,0deg)}
+.companion[data-anim="celebrate"] [data-part="leg-l"]{rotate:18deg}.companion[data-anim="celebrate"] [data-part="leg-r"]{rotate:-18deg}
+/* sniff — nose forward, quick little bobs */
+.companion[data-anim="sniff"] .companion-art{rotate:calc(var(--dir) * 10deg)}
+.companion[data-anim="sniff"] [data-part="head"]{animation:pz-sniff .28s ease-in-out infinite alternate}
+.companion[data-anim="sniff"] [data-part="tail"]{animation:pz-wag .4s ease-in-out infinite alternate}
+/* getup — wobbles back onto its feet */
+.companion[data-anim="getup"] .companion-art{animation:pz-getup .8s cubic-bezier(.3,1.5,.5,1) 1}
+@keyframes pz-bob{50%{translate:0 -5%}}
+@keyframes pz-step{0%,100%{rotate:-22deg}50%{rotate:22deg}}
+@keyframes pz-shove{50%{translate:calc(var(--dir) * 4%) 2%}}
+@keyframes pz-wave{from{rotate:calc(var(--up,0deg) - 26deg)}to{rotate:calc(var(--up,0deg) + 22deg)}}
+@keyframes pz-wag{from{rotate:-16deg}to{rotate:16deg}}
+@keyframes pz-paw{from{rotate:-70deg}to{rotate:-40deg}}
+@keyframes pz-fists{from{rotate:calc(var(--down,0deg) - 10deg)}to{rotate:calc(var(--down,0deg) + 10deg)}}
+@keyframes pz-tilt{from{rotate:-7deg}to{rotate:7deg}}
+@keyframes pz-peek{0%{scale:1;translate:0 0}30%,80%{scale:1.38;translate:0 12%}100%{scale:1;translate:0 0}}
+@keyframes pz-look{0%,100%{translate:0 0}35%{translate:-1.5px 0}60%{translate:1.5px 0}}
+@keyframes pz-stamp{0%,100%{translate:0 0;scale:1 1}50%{translate:0 -7%;scale:.97 1.04}85%{scale:1.06 .92}}
+@keyframes pz-kickdown{0%,100%{rotate:0deg}50%{rotate:-30deg;translate:0 -2px}}
+@keyframes pz-fume{from{rotate:-5deg}to{rotate:5deg}}
+@keyframes pz-laugh{from{translate:0 0}to{translate:0 -5%}}
+@keyframes pz-sigh{50%{scale:.94 .9}}
+@keyframes pz-shiver{0%{translate:-2% 0}100%{translate:2% 0}}
+@keyframes pz-celebrate{0%{translate:0 0;scale:1.06 .9}45%{translate:0 -34%;scale:.94 1.08;rotate:calc(var(--dir) * 180deg)}90%{translate:0 0;rotate:calc(var(--dir) * 360deg)}100%{rotate:calc(var(--dir) * 360deg);scale:1.05 .93}}
+@keyframes pz-sniff{from{translate:0 0}to{translate:2px 2px}}
+@keyframes pz-getup{0%{rotate:calc(var(--dir) * 88deg);translate:10% 6%}55%{rotate:calc(var(--dir) * -12deg)}80%{rotate:calc(var(--dir) * 6deg)}100%{rotate:0deg;translate:0 0}}
+@media (prefers-reduced-motion:reduce){.companion[data-face] .companion-art>svg{animation:none}}
