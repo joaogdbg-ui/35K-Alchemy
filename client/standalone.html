@@ -2322,6 +2322,31 @@ body[data-tab="Pets"] .companion-layer{display:none}
 /* V188: bigger microgame pieces */
 .ar-micro.is-v188 .ar-bubble{scale:1.3}.ar-micro.is-v188 .ar-toss{scale:1.35}.ar-micro.is-v188 .ar-card2{scale:1.2}.ar-micro.is-v188 .ar-dial{scale:1.15}.ar-micro.is-v188 .ar-boulder{scale:1.25}
 
+/* V189: goal strip, combo chip, discovery loop box, confetti */
+.goal-strip{display:flex;align-items:center;gap:10px;width:100%;margin:8px 0 0;padding:7px 12px;border-radius:16px;border:1px solid var(--line);background:var(--surface);color:var(--ink);text-align:left}
+.goal-strip[hidden]{display:none}
+.goal-ico{font-size:22px;line-height:1}.goal-strip.is-near .goal-ico{animation:goal-wob .8s ease-in-out infinite}
+.goal-main{flex:1;min-width:0;display:grid;grid-template-columns:auto 1fr;column-gap:8px;align-items:baseline}
+.goal-main b{font-size:14px;font-weight:900;white-space:nowrap}.goal-main small{font-size:11.5px;color:var(--ink-2);white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.goal-bar{grid-column:1/-1;display:block;height:6px;margin-top:4px;border-radius:4px;background:var(--surface-2);overflow:hidden}.goal-bar em{display:block;height:100%;border-radius:4px;background:linear-gradient(90deg,#8fbf68,#ffd166);transition:width .5s}
+.goal-strip.is-big .goal-bar em{background:linear-gradient(90deg,#ffd166,#e8a35f)}
+.goal-combo{position:relative;flex:none;padding:4px 10px 6px;border-radius:12px;background:#E8703C;color:#fff;font-weight:900;font-size:14px;overflow:hidden;animation:goal-pop .35s ease}
+.goal-combo i{position:absolute;left:0;bottom:0;height:3px;width:100%;background:#FFE08A;transform-origin:0 50%;animation:combo-drain linear forwards}
+@keyframes combo-drain{to{transform:scaleX(0)}}
+@keyframes goal-pop{0%{transform:scale(.6)}70%{transform:scale(1.15)}100%{transform:none}}
+@keyframes goal-wob{50%{transform:rotate(-12deg) scale(1.15)}}
+.goal-strip.is-pulse{animation:goal-pulse .5s ease}
+@keyframes goal-pulse{40%{transform:scale(1.03);box-shadow:0 0 0 4px rgba(255,209,102,.5)}}
+.loop-box{display:grid;gap:6px;margin:10px 0 2px;text-align:left}
+.loop-row{display:flex;justify-content:space-between;align-items:center;gap:8px;padding:7px 12px;border-radius:12px;font-size:14px}
+.loop-row.is-combo{background:#FBE3D6;color:#8A3A1C}.loop-row.is-goal{background:#FFF1C9;color:#6B4A0E}.loop-row span{font-weight:900;white-space:nowrap}
+.loop-next span{display:flex;justify-content:space-between;gap:8px;font-size:12.5px;color:var(--ink-2);font-weight:700}.loop-next b{color:var(--ink)}
+.loop-next i{display:block;height:7px;margin-top:4px;border-radius:4px;background:var(--surface-2);overflow:hidden}.loop-next em{display:block;height:100%;background:linear-gradient(90deg,#8fbf68,#ffd166);border-radius:4px}
+.loop-confetti{position:absolute;inset:0;pointer-events:none;overflow:hidden;z-index:3}
+.loop-confetti i{position:absolute;top:-12px;width:8px;height:12px;border-radius:2px;animation:loop-fall 1.7s ease-in forwards}
+@keyframes loop-fall{to{transform:translate(var(--dx),420px) rotate(var(--r));opacity:0}}
+@media(max-height:680px) and (max-width:849px){.goal-strip{padding:4px 10px;margin-top:5px}.goal-ico{font-size:18px}}
+
 </style>
 </head>
 <body>
@@ -7288,7 +7313,8 @@ function soundForResult(kind){
  if(!soundEnabled||!['new','repeat','invalid'].includes(kind))return;
  const ctx=acquireSoundEngine();if(!ctx||ctx.state==='closed')return;
  const now=ctx.currentTime;
- const notes=kind==='new'?[[587.33,0,.075],[783.99,.1,.12]]:kind==='repeat'?[[440,0,.065]]:[[196,0,.09]];
+ const up=kind==='new'?Math.pow(2,Math.min(9,Math.max(0,(typeof comboCount==='number'?comboCount:1)-1))/12):1;
+ const notes=kind==='new'?[[587.33*up,0,.075],[783.99*up,.1,.12],...(up>1.12?[[1174.66*up,.2,.16]]:[])]:kind==='repeat'?[[440,0,.065]]:[[196,0,.09]];
  for(const [hz,offset,duration] of notes){
   try{const osc=ctx.createOscillator(),gain=ctx.createGain();osc.type=kind==='invalid'?'triangle':'sine';osc.frequency.setValueAtTime(hz,now+offset);gain.gain.setValueAtTime(.0001,now+offset);gain.gain.exponentialRampToValueAtTime(kind==='new'?.095:.056,now+offset+.014);gain.gain.exponentialRampToValueAtTime(.0001,now+offset+duration);osc.connect(gain);gain.connect(ctx.destination);osc.start(now+offset);osc.stop(now+offset+duration+.015);}catch{}
  }
@@ -7567,7 +7593,7 @@ function shinyCard(item){return `<p class="shiny-trivia"><span aria-hidden="true
 function showShinyFound(id){const it=byId.get(id);if(!it)return;
  showModal(`<div class="modal-tag shiny-tag">✦ SHINY ELEMENT</div><div class="modal-art is-shiny">${staticArt(it)}</div><h2>Shiny ${escapeText(uiName(it))}</h2>${shinyCard(it)}<div class="modal-milestone">${shiny.size.toLocaleString('en-US')} shiny ${shiny.size===1?'element':'elements'} · ${Math.round(shinyChance()*100)}% chance per combination</div>`);
 }
-const APP_VERSION='1.0.88';
+const APP_VERSION='1.0.89';
 // V83: status line + Google consent (UMP) privacy options, required for EEA players.
 async function refreshAdStatus(){
  const el=$('settingsAdStatus'),bridge=getRewardBridge();
@@ -8132,7 +8158,7 @@ function clearCraftFeedback(){
 function toast(msg,kind='info'){
  const el=$('toast');el.textContent=msg;el.dataset.kind=kind;el.hidden=false;clearTimeout(toastTimer);toastTimer=setTimeout(()=>el.hidden=true,kind==='error'?2600:2100);
 }
-function updateCounts(){try{syncGamesTab();}catch{}try{arcade?.sync();}catch{}
+function updateCounts(){try{syncGamesTab();}catch{}try{syncGoalStrip();}catch{}try{arcade?.sync();}catch{}
  const earned=[...unlocked].filter(id=>!STARTERS.has(id)).length;
  $('discoveredCount').textContent=unlocked.size.toLocaleString('en-US');
  $('statCollected').textContent=unlocked.size.toLocaleString('en-US');
@@ -8364,6 +8390,7 @@ function completeCombination(resultId,a,b,kind='recipe'){
  if(fresh&&!STARTERS.has(resultId))discoveryLedger.set(resultId,{at:new Date().toISOString(),source:kind,ingredients:[a,b]});
  // V157: every new element is worth 10 companion coins
  if(fresh&&!STARTERS.has(resultId)){try{addCoins(DISCOVERY_COINS);coinPop(DISCOVERY_COINS);const n=classicDiscoveredCount();if(n>0&&n%DISCOVERY_MILESTONE===0){addCoins(DISCOVERY_MILESTONE_COINS);toast(`${n.toLocaleString('en-US')} elements! +${DISCOVERY_MILESTONE_COINS} coins`,'new');}}catch{}}
+ pendingLoop=null;if(fresh&&!STARTERS.has(resultId)&&kind!=='batch'){try{pendingLoop=discoveryLoopStep();}catch{}}
  recent=[resultId,...recent.filter(i=>i!==resultId)].slice(0,350);
  const gotShiny=kind!=='batch'&&rollShiny(resultId);
  save();updateCounts();updateLatest();syncFamilyBanner();
@@ -8437,10 +8464,39 @@ function elementInfo(id){const it=byId.get(id);if(!it)return;const fams=families
   ${wearableFor(uiName(it))&&companions.active&&unlocked.has(id)?`<button type="button" class="modal-button is-wear" id="infoWear">${accIcon(wearableFor(uiName(it)),22)} Wear on ${escapeText(companions.info(companions.active.id).name)}</button>`:''}<button type="button" class="modal-button" id="infoUse">Use in craft table</button><button type="button" class="modal-button secondary" id="infoPaths">Recipes</button>`);
  {const wb=$('infoWear');if(wb)wb.onclick=()=>{const a=wearableFor(uiName(it));grantAccessory(a);const cid=companions.active.id;closeModal();if(Object.values(companions.wearOf(cid)).includes(a)){toast(`${companions.info(cid).name} is already wearing it`,'repeat');return;}if(equipAcc(cid,a,()=>closeModal()))toast(`${companions.info(cid).name} is wearing ${ACCESSORIES[a].name}`,'new');};}
  $('infoUse').onclick=()=>{closeModal();insertDirect(id);};$('infoPaths').onclick=()=>{closeModal();openRecipePaths(id);};}
-function showDiscovery(id,a,b,scene=null,isShiny=false){
+/* ===== V189: discovery loop — short goals always in sight, combos for quick finds, more celebration ===== */
+const GOAL_STEP=20,GOAL_COINS=5,COMBO_WINDOW_MS=45000,COMBO_KEY='alchemy7k_combo_v189';
+let comboCount=0,comboAt=0,comboBest=0;try{comboBest=Math.max(0,Number(JSON.parse(localStorage.getItem(COMBO_KEY)||'{}').best)||0);}catch{}
+const comboReward=n=>n===3?3:n===5?5:n>=10&&n%10===0?10:0;
+const goalInfo=()=>{const n=classicDiscoveredCount(),next=(Math.floor(n/GOAL_STEP)+1)*GOAL_STEP,big=next%DISCOVERY_MILESTONE===0;return {n,next,left:next-n,coins:big?DISCOVERY_MILESTONE_COINS:GOAL_COINS,big,k:(n%GOAL_STEP)/GOAL_STEP};};
+function discoveryLoopStep(){const now=Date.now();comboCount=now-comboAt<=COMBO_WINDOW_MS?comboCount+1:1;comboAt=now;
+ if(comboCount>comboBest){comboBest=comboCount;try{localStorage.setItem(COMBO_KEY,JSON.stringify({best:comboBest}));}catch{}}
+ const comboCoins=comboReward(comboCount);if(comboCoins)addCoins(comboCoins);
+ let goalCoins=0;const n=classicDiscoveredCount();if(currentMode==='classic'&&n>0&&n%GOAL_STEP===0&&n%DISCOVERY_MILESTONE!==0){goalCoins=GOAL_COINS;addCoins(goalCoins);}
+ const hit100=currentMode==='classic'&&n>0&&n%DISCOVERY_MILESTONE===0;
+ syncGoalStrip(true);return {combo:comboCount,comboCoins,goalCoins,hit100,n};}
+function loopHtml(l){if(!l)return '';const g=goalInfo();const rows=[];
+ if(l.combo>=2)rows.push(`<div class="loop-row is-combo"><b>🔥 Combo ×${l.combo}</b><span>${l.comboCoins?`+${l.comboCoins} 🪙`:l.combo<3?'3 in a row pays':l.combo<5?'5 in a row pays more':'keep going!'}</span></div>`);
+ if(l.goalCoins||l.hit100)rows.push(`<div class="loop-row is-goal"><b>🎁 Goal reached · ${l.n.toLocaleString('en-US')} elements</b><span>+${l.hit100?DISCOVERY_MILESTONE_COINS:l.goalCoins} 🪙</span></div>`);
+ rows.push(`<div class="loop-next"><span>${g.left} to go · next reward at ${g.next.toLocaleString('en-US')} <b>+${g.coins} 🪙</b></span><i><em style="width:${Math.round(g.k*100)}%"></em></i></div>`);
+ return `<div class="loop-box">${rows.join('')}</div>`;}
+function confettiIn(box){try{if(!box||window.matchMedia?.('(prefers-reduced-motion: reduce)')?.matches)return;const w=document.createElement('div');w.className='loop-confetti';const C=['#E0675A','#FFD166','#8FBF68','#7CC3E0','#9B7FC4','#F2A7B8'];
+  for(let i=0;i<22;i++){const p=document.createElement('i');p.style.cssText=`left:${4+Math.random()*92}%;background:${C[i%C.length]};animation-delay:${(Math.random()*0.35).toFixed(2)}s;--dx:${Math.round(Math.random()*60-30)}px;--r:${Math.round(Math.random()*540)}deg`;w.append(p);}
+  box.prepend(w);setTimeout(()=>w.remove(),2200);}catch{}}
+let comboTimer=0;
+function syncGoalStrip(pulse=false){try{let s=$('goalStrip');
+  if(!s){const card=document.querySelector('.craft-card');if(!card)return;card.insertAdjacentHTML('afterend','<button type="button" class="goal-strip" id="goalStrip" aria-label="Next reward"><span class="goal-ico" aria-hidden="true">🎁</span><span class="goal-main"><b id="goalLeft"></b><small id="goalNext"></small><i class="goal-bar"><em id="goalFill"></em></i></span><span class="goal-combo" id="goalCombo" hidden></span></button>');s=$('goalStrip');s.onclick=openGoalSheet;}
+  const g=goalInfo();s.hidden=currentMode!=='classic';$('goalLeft').textContent=`${g.left} to go`;$('goalNext').textContent=`Reward at ${g.next.toLocaleString('en-US')} elements · +${g.coins} 🪙`;$('goalFill').style.width=Math.round(g.k*100)+'%';s.classList.toggle('is-big',g.big);s.classList.toggle('is-near',g.left<=3);
+  const live=comboCount>=2&&Date.now()-comboAt<COMBO_WINDOW_MS,c=$('goalCombo');c.hidden=!live;
+  if(live){c.innerHTML=`🔥 ×${comboCount}<i style="animation-duration:${COMBO_WINDOW_MS}ms"></i>`;clearTimeout(comboTimer);comboTimer=setTimeout(()=>syncGoalStrip(),COMBO_WINDOW_MS-(Date.now()-comboAt)+50);}
+  if(pulse){s.classList.remove('is-pulse');void s.offsetWidth;s.classList.add('is-pulse');}}catch{}}
+function openGoalSheet(){const g=goalInfo();showModal(`<div class="modal-tag">REWARDS</div><h2>${g.left} to the next reward</h2><div class="loop-box"><div class="loop-next"><span>${g.n.toLocaleString('en-US')} / ${g.next.toLocaleString('en-US')} elements <b>+${g.coins} 🪙</b></span><i><em style="width:${Math.round(g.k*100)}%"></em></i></div></div>
+ <ul class="perk-list"><li>Every new element: +${DISCOVERY_COINS} 🪙</li><li>Every ${GOAL_STEP} elements: +${GOAL_COINS} 🪙 · every ${DISCOVERY_MILESTONE}: +${DISCOVERY_MILESTONE_COINS} 🪙</li><li>🔥 Combo: find new elements less than ${COMBO_WINDOW_MS/1000} seconds apart — 3 in a row +3, 5 in a row +5, every 10 in a row +10</li><li>Your best combo: ×${comboBest}</li></ul><button type="button" class="modal-button secondary" id="goalClose">Close</button>`);$('goalClose').onclick=closeModal;}
+let pendingLoop=null;
+function showDiscovery(id,a,b,scene=null,isShiny=false,loop=null){loop=loop||pendingLoop;pendingLoop=null;
  const it=byId.get(id),isFirst=worldFirsts.has(id),earned=[...unlocked].filter(x=>!STARTERS.has(x)).length,isComp=companions.isCompanion(id);
- showModal(`<div class="modal-tag ${isShiny?'shiny-tag':isFirst?'world-first-tag':isComp?'companion-tag':''}">${isShiny?'✦ SHINY DISCOVERY':isFirst?'★ WORLD FIRST':isComp?'NEW COMPANION':'✦ NEW DISCOVERY'}</div><div class="modal-art${isShiny?' is-shiny':''}${isComp?' is-companion':''}">${isComp&&COMPANION_SPRITES_V86[id]?COMPANION_SPRITES_V86[id]:staticArt(it)}</div><h2>${isShiny?'Shiny ':''}${escapeText(uiName(it))}</h2><p>${escapeText(uiName(byId.get(a)))} + ${escapeText(uiName(byId.get(b)))}</p>${isShiny?shinyCard(it):(wittyDiscovery(it)||it.summary)?`<p class="discovery-wit">${escapeText(publicText(wittyDiscovery(it)||it.summary))}</p>`:""}${companionCallout(id)}${homeCallout(id)}<div class="modal-milestone">${earned.toLocaleString('en-US')} personal discoveries</div>`);
- $('continueBtn')?.remove();$('modal').dataset.dismiss='x-only';
+ showModal(`<div class="modal-tag ${isShiny?'shiny-tag':isFirst?'world-first-tag':isComp?'companion-tag':''}">${isShiny?'✦ SHINY DISCOVERY':isFirst?'★ WORLD FIRST':isComp?'NEW COMPANION':'✦ NEW DISCOVERY'}</div><div class="modal-art${isShiny?' is-shiny':''}${isComp?' is-companion':''}">${isComp&&COMPANION_SPRITES_V86[id]?COMPANION_SPRITES_V86[id]:staticArt(it)}</div><h2>${isShiny?'Shiny ':''}${escapeText(uiName(it))}</h2><p>${escapeText(uiName(byId.get(a)))} + ${escapeText(uiName(byId.get(b)))}</p>${isShiny?shinyCard(it):(wittyDiscovery(it)||it.summary)?`<p class="discovery-wit">${escapeText(publicText(wittyDiscovery(it)||it.summary))}</p>`:""}${companionCallout(id)}${homeCallout(id)}${loopHtml(loop)}<div class="modal-milestone">${earned.toLocaleString('en-US')} personal discoveries</div>`);
+ $('continueBtn')?.remove();if(loop&&(loop.comboCoins||loop.goalCoins||loop.hit100||loop.combo>=3))confettiIn($('modalContent'));$('modal').dataset.dismiss='x-only';
  playCraftMotion(scene,'new',it);
  if(isComp){const go=$('meetCompanion');if(go)go.onclick=()=>{closeModal();switchTab('Pets');};}
 }

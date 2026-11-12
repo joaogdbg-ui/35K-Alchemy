@@ -154,3 +154,11 @@ test('V188: companion personalities are deterministic and varied; microgame meda
   assert.equal(companionVoice(() => null, ids[0]), false);
   assert.deepEqual(MICRO_MEDALS.map(m => m[0]), [5, 10, 15]);
 });
+test('V189: discovery loop — goal strip, timed combos and rewards are wired', async () => {
+  const { readFileSync } = await import('node:fs');
+  const app = readFileSync(new URL('../src/app.js', import.meta.url), 'utf8');
+  assert.match(app, /const GOAL_STEP=20,GOAL_COINS=5,COMBO_WINDOW_MS=45000/);
+  assert.match(app, /const comboReward=n=>n===3\?3:n===5\?5:n>=10&&n%10===0\?10:0;/);
+  assert.match(app, /kind!=='batch'\)\{try\{pendingLoop=discoveryLoopStep\(\)/);
+  assert.match(app, /function syncGoalStrip/);
+});
