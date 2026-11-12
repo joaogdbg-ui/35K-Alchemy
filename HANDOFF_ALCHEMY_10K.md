@@ -96,6 +96,7 @@ Preserve 200-per-batch policy and do not start another content release on top of
 - Conteúdo: ingredientes em falta (Meat, Corn, Chili Pepper, Coconut, Banana…), utensílios (Cooking Pot, Oven, Wok, Grill…), preparações e bebidas (Sauce, Stew, Juice, Wine, Beer…), pratos do mundo (Taco, Ramen, Biryani, Bacalhau, Pastel de Nata, Francesinha, Caldo Verde…), queijos, cafés e sobremesas.
 - Cada elemento tem 1 receita nova; nenhum par A+B existente foi alterado.
 - Catálogo: 6 635 → **6 835** (meta 7 000). Falta ~165 (lote 2: Mar profundo e espaço).
+- Gate CONTENT-200: manifesto `shared/v184-approved.json` + SVG fonte em `client/assets/v184/` (gerados por script; a arte runtime tem de ser byte-idêntica).
 - Testes: `client/test/v184-food-batch.test.mjs`; totais actualizados em v85/v87.
 - `APP_VERSION` 1.0.84.
 
