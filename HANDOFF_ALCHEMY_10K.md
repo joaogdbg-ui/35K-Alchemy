@@ -90,6 +90,11 @@ Preserve 200-per-batch policy and do not start another content release on top of
 
 - **Art redraw wave 3 (V85, done): 3,991 icons** — every remaining older element. All 6,012 pre-V83 elements now use the 2026 art direction (`ART_REDRAW`), plus 200 V83 and 200 V85 originals. Six near-duplicates found by the audit were redrawn; 36 reviewed false alarms are in `tools/art-redraw-reviewed-pairs.json` (the audit now also honours them for V83 comparisons).
 
+## V182 — Small UI clean-up + pool pathing
+- Market sheet: header reduced to MARKET + coin bar (the Fair play note lives only in the Get coins sheet). Stadium tile "Games" renamed "Play" (the tab is already called Games); its sheet is "Choose a game".
+- Home: residents no longer walk across pools (swim pieces block the path unless they are the piece being used).
+- Next: element batches towards ~8,000 (6,635 today), 200 per release with hand-drawn SVG art as in V82+.
+
 ## V181 — Renamed to Alchemy 8K + ultra races
 - Owner: the game is now "Alchemy 8K" (target ~8,000 elements). Changed: page title, brand word, Capacitor appName, About line, backup file name, CATALOG_GOAL=8000. NOT changed on purpose: storage keys (alchemy10k_*), appId, repo name, APK file name, the WIP html file name, workflow names.
 - Ultra races (games-v93.js ULTRA_COURSES): Celestial Ascent, Abyssal Descent, Titan Trial. Listed under "✦ Ultra races" only when the matching ultra look is unlocked (ctx.ultraOwned). +6 sections at every level (12 → 20), every rival 95–99. Champion gold → ctx.grantSupreme() unlocks the Supreme look (3 free essences).
