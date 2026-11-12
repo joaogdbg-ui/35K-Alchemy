@@ -250,7 +250,7 @@ export function createGamesSystem(ctx){
   const toys=[...COURSES.map(c=>trophyOf(c.id)),...THEME_COURSES.map(c=>({id:'acc:'+c.prize}))],won=COURSES.filter(c=>hasPrize(trophyOf(c.id).id)).length+THEME_COURSES.filter(c=>ctx.hasAcc?.(c.prize)).length;
   const goldN=EVENTS().filter(e=>best(bagOf(e),LEVELS.length-1)===1).length;const openN=EVENTS().filter(e=>e.kind!=='race'||courseOpen(e.course)).length;
   const shopBtn=(id,ico,b,sm)=>`<button type="button" class="st-shop-btn" id="${id}"><span>${ico}</span><b>${b}</b><small>${sm}</small></button>`;
-  const shop=`<div class="st-shop is-hub">${shopBtn('stGames','🎮','Play',`Minigames, races &amp; karate · ${goldN}/${EVENTS().length} gold`)}${shopBtn('stSchool','🏫','School','Teach new tricks')}${shopBtn('stPrizes','🏆','Prizes',`${won}/${toys.length} trophies${belt?' · '+escapeText(belt.name.replace(' Belt','')):''}`)}${shopBtn('stMarket','🛒','Market','Food, wear, toys, houses')}</div>`;
+  const shop=`<div class="st-shop is-hub">${shopBtn('stGames','🎮','Play',`Minigames, races &amp; karate · ${goldN}/${EVENTS().length} gold`)}${shopBtn('stSchool','🏫','School','Teach new tricks')}${shopBtn('stPrizes','🏆','Prizes',`${won}/${toys.length} trophies${belt?' · '+escapeText(belt.name.replace(' Belt','')):''}`)}</div>`;
   const rowsHtml=(f=()=>true)=>EVENTS().filter(f).map(e=>{const open=e.kind!=='race'||courseOpen(e.course);const lv=nextLevel(e);const done=best(bagOf(e),LEVELS.length-1)===1;
    return `${e.theme&&e.id===THEME_COURSES[0].id?'<h3 class="st-sub">Theme races · need a full look</h3>':''}${e.ultra&&e.id===EVENTS().find(x=>x.ultra)?.id?'<h3 class="st-sub">✦ Ultra races · legends only</h3>':''}<div class="st-row ${open?'':'is-locked'} ${e.theme?'is-theme is-'+e.id:''}" data-ev="${e.id}"><span class="st-course-ico" data-focus="${e.focus}" ${e.theme?`data-theme="${e.id}"`:''}></span><div class="st-row-main"><strong>${escapeText(e.name)}</strong>${e.theme&&!open?`<small class="st-need">${escapeText(e.course.look)} look ${themePct(e.course)}% / 85%</small>`:dots(e)}</div>${open?`<button type="button" class="st-play" data-play="${e.id}">${done?'Replay':LEVELS[lv]}<i></i></button>`:'<span class="st-lock"></span>'}</div>`;}).join('');
   mount.innerHTML=`<div class="pets-scroll st-scroll"><div class="section-head g-head"><h2>Stadium</h2><button type="button" class="g-coins" id="stCoins">🪙 ${(ctx.coins?.()||0).toLocaleString('en-US')}</button><span class="g-tally"><i class="g-medal is-gold"></i>${n.gold}<i class="g-medal is-silver"></i>${n.silver}<i class="g-medal is-bronze"></i>${n.bronze}</span></div>
@@ -270,7 +270,7 @@ export function createGamesSystem(ctx){
   mount.querySelectorAll('[data-play]').forEach(b=>b.onclick=e=>{e.stopPropagation();if(preview){state.pick=preview;preview=null;save();}const ev=EVENTS().find(x=>x.id===b.dataset.play);const lv=nextLevel(ev);ev.kind==='race'?startRace(mount,ev.course,lv):startKarate(mount,lv);});
   mount.querySelectorAll('[data-ev]').forEach(r=>r.onclick=()=>eventSheet(mount,EVENTS().find(x=>x.id===r.dataset.ev)));
   $('stPrizes').onclick=()=>prizeSheet(mount);$('stGames').onclick=()=>gamesSheet(mount,rowsHtml);
-  $('stMarket').onclick=()=>ctx.openMarket?.(()=>render(mount));$('stSchool').onclick=()=>ctx.openSchool?.(pid,()=>render(mount));$('stCoins').onclick=()=>ctx.openMarket?.(()=>render(mount));
+  $('stSchool').onclick=()=>ctx.openSchool?.(pid,()=>render(mount));$('stCoins').onclick=()=>ctx.openMarket?.(()=>render(mount));
  }
  /** V141: races and Karate live in their own sheet (hub tile "Games"). */
  let lastRows=null;

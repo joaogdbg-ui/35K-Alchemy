@@ -2801,6 +2801,61 @@ body[data-tab="Games"] .companion-layer{display:none}
 .home-walker.use-soak .companion-art{clip-path:inset(0 0 34% 0);translate:0 10%;animation:home-bob 1.8s ease-in-out infinite}
 .home-walker.use-soak::after{content:"";position:absolute;left:10%;right:10%;top:62%;height:12%;border:2px solid rgba(255,255,255,.85);border-radius:50%;animation:home-ripple 1.6s ease-out infinite}
 
+/* ===== V202: Market tab, coins panel, Remove ads card ===== */
+.view-market{display:flex;flex-direction:column;min-height:0}
+.view-market .mk-scroll{flex:1;overflow-y:auto;padding:10px 14px 18px}
+.view-market .mk-shop{max-width:720px;margin:0 auto}
+body[data-tab="Market"] .companion-layer{display:none}
+.tabbar .tab{min-width:0}
+.mk-noads{display:grid;grid-template-columns:auto 1fr auto;align-items:center;gap:12px;width:100%;margin:4px 0 6px;padding:14px;border:2px solid #E8843C;border-radius:20px;background:linear-gradient(135deg,#FFF3DF,#FBD9B0);box-shadow:0 5px 0 #D97A35;color:#3B2A1A;text-align:left;font:inherit;position:relative;overflow:hidden}
+.mk-noads::after{content:"";position:absolute;inset:0;background:linear-gradient(105deg,transparent 40%,rgba(255,255,255,.55) 50%,transparent 60%);transform:translateX(-100%);animation:mk-shine 3.6s ease-in-out infinite}
+@keyframes mk-shine{0%,60%{transform:translateX(-100%)}100%{transform:translateX(100%)}}
+.mk-noads:active{transform:translateY(3px);box-shadow:0 2px 0 #D97A35}
+.mk-noads>i{font-style:normal;font-weight:900;font-size:12px;letter-spacing:.06em;color:#fff;background:#D9584A;padding:6px 9px;border-radius:10px;rotate:-6deg;box-shadow:0 2px 0 #A53C31}
+.mk-noads b{display:block;font-size:17px;color:#3B2A1A}.mk-noads small{display:block;font-size:12.5px;color:#6B5540;line-height:1.3}
+.mk-noads em{font-style:normal;font-weight:900;font-size:19px;color:#A8501A}
+.mk-noads.is-owned{border-color:#6FB26A;background:linear-gradient(135deg,#F0F8EA,#D9EDCF);box-shadow:0 4px 0 #5C9A58}.mk-noads.is-owned>i{background:#6FB26A;box-shadow:0 2px 0 #4C8748;rotate:0deg;font-size:16px}
+.mk-coins-panel .modal-button{margin-top:8px}
+#viewGames .st-shop.is-hub .st-shop-btn:first-child{grid-column:1/-1}
+/* V202: remaining old sheets get the game skin (works in both themes through --sk-*) */
+:root{--sk-card:linear-gradient(#FFFDF8,#F6EEDF);--sk-line:#E3D6BE;--sk-drop:#D9CBB0;--sk-well:#F3ECDD}
+html[data-theme="dark"]{--sk-card:linear-gradient(#2E353D,#262C33);--sk-line:#4B5661;--sk-drop:#14181C;--sk-well:#1C2126}
+.view-market .cp-first,.mk-coins-panel .cp-first{margin:8px 0;border-radius:16px}
+.home-pick-list{gap:10px}
+.home-pick{grid-template-columns:54px 1fr;padding:10px 12px;border:2px solid var(--sk-line);border-radius:18px;background:var(--sk-card);box-shadow:0 4px 0 var(--sk-drop);text-align:left;transition:transform .08s}
+.home-pick:active{transform:translateY(3px);box-shadow:0 1px 0 var(--sk-drop)}
+.home-pick.is-off{opacity:.55;box-shadow:none}
+.home-pick-art{width:54px;height:54px;border-radius:14px;background:var(--sk-well);display:grid;place-items:center;padding:4px}
+.home-pick-main strong{font-size:16px}.home-pick-main small{display:block;margin-top:2px}
+.cf-art{width:108px;height:108px;margin:8px auto;border-radius:26px;border:2px solid var(--sk-line);background:var(--sk-card);box-shadow:0 5px 0 var(--sk-drop);font-size:54px}
+.cf-sum{max-width:none;margin:12px 0;padding:12px 16px;border:2px solid var(--sk-line);border-radius:18px;background:var(--sk-well);font-size:15.5px;gap:8px 12px}
+.cf-sum b{font-size:16.5px}.cf-sum>span:nth-last-of-type(1),.cf-sum>b:last-child{padding-top:8px;border-top:2px dashed var(--sk-line)}
+.meal-preview{padding:14px;border:2px solid var(--sk-line);border-radius:18px;background:var(--sk-well)}
+.meal-preview h3{margin:0 0 8px;font-size:16px}
+.meal-preview .mp-line>span{font-weight:800;font-size:11.5px;letter-spacing:.08em;text-transform:uppercase}
+.meal-preview .mp-q{display:inline-block;padding:3px 12px;border-radius:999px;background:var(--sk-card);border:2px solid var(--sk-line);opacity:1}
+.modal-art.is-info{width:132px;height:132px;margin:10px auto;border-radius:30px;border:2px solid var(--sk-line);background:var(--sk-card);box-shadow:0 6px 0 var(--sk-drop);display:grid;place-items:center;padding:14px}
+.cc-art{width:84px;height:84px;border:2px solid var(--sk-line);border-radius:22px;background:var(--sk-card);box-shadow:0 4px 0 var(--sk-drop)}
+.cs-panel{border:2px solid var(--sk-line);border-radius:18px;background:var(--sk-well);padding:10px 12px}
+.cc-actions .pets-btn{border:2px solid var(--sk-line);border-radius:18px;background:var(--sk-card);box-shadow:0 4px 0 var(--sk-drop);padding:12px 4px;font-weight:800;color:var(--ink)}
+.cc-actions .pets-btn:active{transform:translateY(3px);box-shadow:0 1px 0 var(--sk-drop)}
+.cc-actions .pets-btn:not(.is-quiet){border-color:#E8843C;background:linear-gradient(#F6A765,#E8843C);box-shadow:0 4px 0 #B8601F;color:#fff}
+.cc-actions .pets-btn b{font-size:22px}
+.cc-status{border:2px solid var(--sk-line);border-radius:16px;background:var(--sk-well);padding:10px 12px}
+.cc-tag{border:2px solid var(--sk-line);font-weight:800}
+/* V202 dark-theme leftovers */
+.mk-coins-panel .cp-first{animation:none}
+html[data-theme="dark"] .home-seat.is-free{--ink:#f1eee8!important;--muted:#a3adb5!important;color:var(--accent)!important}
+html[data-theme="dark"] .st-entrant-main{--ink:#26323A!important;--ink-2:#44545C!important;--muted:#66747C!important;color:#26323A!important}
+html[data-theme="dark"] .st-entrant-main strong,html[data-theme="dark"] .st-entrant-main b{color:#26323A}
+/* DARK-SKIN:start (generated by tools/gen-dark-skin.py) */
+html[data-theme="dark"] :is(.discover-entry.recipe,.fx-stars,.companion[data-anim="quirk-flash"] .companion-layer,.st-course-ico[data-focus="swim"],.st-course-ico[data-focus="fly"],.st-course-ico[data-focus="run"],.st-course-ico[data-focus="power"],.st-course-ico[data-focus="stamina"],.st-course-ico[data-focus="all"],.st-course-ico[data-focus="karate"],.st-prize.is-won,.st-strip .is-fly,.st-level.is-gold,.g-stage,.g-stage.is-race .g-stage-body,.g-cloud,.g-seg.is-run,.g-seg.is-fly,.g-fx.is-splash.is-big,.g-stage.is-karate,.g-dojo,.g-fx.is-spark,.g-fx.is-stars,.g-prize,.g-progress,.g-progress b.is-glide,.is-fairy b,.fx-spark,.bx-card.is-all .bx-pips i.on,.g-themefx.is-glade i,.g-themefx.is-heaven i,.companion-fx .fx-splash,.companion-fx .fx-sparkle,.companion-fx .fx-zap,.companion-fx .fx-feathers,.screen-snowball,.ar-burst i,.ar-burst.is-star i,.ar-burst.is-gold i,.ar-burst.is-magic i){--ink:#26323A;--ink-2:#44545C;--muted:#66747C;--line:#D9CBB0;--line-2:#C9B998;--surface-2:#F3ECDD;--surface-3:#E9DFCB;color:#26323A}
+html[data-theme="dark"] :is(.ar-face,.ar-card.is-done .ar-face,.ar-card.is-wrong .ar-face,.ar-foe-card,.ar-ring,.ar-pick,.ar-rec-target,.ar-bub,.ar-cauldron.is-boil .ar-bub,.ar-cauldron.is-smoke .ar-bub,.ar-rec-opt.is-ok,.ar-rec-opt.is-bad,.ar-trail,.ar-hitline,.ar-board,.ar-pal,.ar-ball.companion,.ar-mfuse,.ar-mbar,.ar-dial,.ar-find-t,.ar-spot2,.ar-card2,.ar-window,.mk-tile.is-ultra,.mk-tile.is-ultra .lk-ico,.g-prize.is-ultra,.home-say,.ar-mtrack,.ar-mtrack b,.ar-marea[class*="sc-"],.ar-marea.sc-desk,.ar-marea.sc-window,.ar-marea.sc-garden,.goal-combo i,.mk-stall,.mk-shop .mk-wallet,.mk-deal .mk-art,.mk-shop .mk-tile,.mk-shop .mk-tile.is-ultra){--ink:#26323A;--ink-2:#44545C;--muted:#66747C;--line:#D9CBB0;--line-2:#C9B998;--surface-2:#F3ECDD;--surface-3:#E9DFCB;color:#26323A}
+html[data-theme="dark"] :is(.craft-card,.craft-slot,.goal-strip,.element-chip,.tabbar,.modal-button.secondary,.home-chip,.home-chip.is-active,.home-seat,.home-life,#viewGames .st-shop.is-hub .st-shop-btn,.st-shop.st-games-hub .st-shop-btn,#stGames,#stSchool,#stPrizes,#stMarket,#stArcade,#stMicro,#stRaces,.ar-grid .st-shop-btn,.td-card i,.td-card.is-gift.is-ready,.settings-section,.settings-sound-toggle,.settings-theme-choices button,.settings-link:active,.settings-divider,.bx-noads,.settings-page .stat-tile,.settings-save-grid button,.backup-grid button,.st-grid .st-tile,.wl-star,.wl-shoot,.g-themefx.fx-snow i,.g-themefx.fx-confetti i:nth-child(3n+1),.team,.team-art,.team-slot.is-free,.team-slot.is-locked){--ink:#26323A;--ink-2:#44545C;--muted:#66747C;--line:#D9CBB0;--line-2:#C9B998;--surface-2:#F3ECDD;--surface-3:#E9DFCB;color:#26323A}
+html[data-theme="dark"] :is(.team-slot.is-locked .team-art,.team-bar,.cp-bank-head,.cp-ways li,.shiny-perks li,.cp-pack,.cp-pack.is-hot,.tool-chip,.tool-chip.is-on,.sort-option,.sort-segment button,.sort-hint,.batch-family-choice,.stat-tiles .stat-tile,.stat-tiles .stat-tile.is-on,.stat-tiles .stat-tile[aria-pressed="true"],.stat-mode button,.inline-search,.lk-mystery,.lk-row,.lk-opt,.lk-mystery.is-on,.lk-row.is-on,.lk-opt.is-on,.team-rel,.team-rel.is-neutral,.team-rel.is-rivals,.team-rel.is-nemesis,.home-rels li,.home-rels li.is-neutral,.home-rels li.is-rivals,.home-rels li.is-nemesis,.mk-noads.is-owned){--ink:#26323A;--ink-2:#44545C;--muted:#66747C;--line:#D9CBB0;--line-2:#C9B998;--surface-2:#F3ECDD;--surface-3:#E9DFCB;color:#26323A}
+html[data-theme="dark"] :is(.modal-tag.shiny-tag,.shiny-trivia,.shiny-chip[aria-pressed="true"],.g-tag em,.g-pod.is-1 b,.g-pow,.mp-line b.mp-lux,.coin-pop,.ar-stage,.ar-rec-opt,.ar-jcount,.loop-row.is-combo,.loop-row.is-goal,.mk-say,.mk-deal,.mk-shop .mk-price.is-short,.coin-chip,.compass-mini,.compass-mini.packs-mini,.st-change,.td-card,.g-confirm-box,.team-slot,.team-slot.is-free .team-art,.sort-segment button[aria-pressed="true"],.buddy-rel,.buddy-rel.is-neutral,.buddy-rel.is-rivals,.buddy-rel.is-nemesis,.mk-noads){--ink:#26323A;--ink-2:#44545C;--muted:#66747C;--line:#D9CBB0;--line-2:#C9B998;--surface-2:#F3ECDD;--surface-3:#E9DFCB}
+/* DARK-SKIN:end */
+
 </style>
 </head>
 <body>
@@ -2892,11 +2947,13 @@ body[data-tab="Games"] .companion-layer{display:none}
     </section>
     <section id="viewPets" class="view view-pets" hidden aria-label="Home and companions"></section>
     <section id="viewGames" class="view view-games" hidden aria-label="Companion games"></section>
+    <section id="viewMarket" class="view view-market" hidden aria-label="Market"></section>
   </main>
   <nav class="tabbar" aria-label="Primary navigation">
     <button class="tab active" data-view="Play" aria-current="page"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M9 3h6M12 3v6M8.5 9h7l4.5 9.5a1 1 0 0 1-.9 1.5H4.9a1 1 0 0 1-.9-1.5Z"/></svg><span>Alchemy</span></button>
     <button class="tab" data-view="Pets"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M3.5 11 12 4l8.5 7"/><path d="M5.5 9.5V20h13V9.5"/><path d="M10 20v-5h4v5"/></svg><span>Home</span><i class="tab-badge" id="petsBadge" hidden aria-label="New companion">!</i></button>
     <button class="tab tab-games" data-view="Games" hidden><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M8 4h8v5a4 4 0 0 1-8 0Z"/><path d="M8 6H5a2 2 0 0 0 2 4h1M16 6h3a2 2 0 0 1-2 4h-1"/><path d="M12 13v3M9 20h6M10 16h4v4h-4z"/></svg><span>Games</span><i class="tab-badge" id="gamesBadge" hidden aria-label="Games unlocked">!</i></button>
+    <button class="tab tab-market" data-view="Market"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 9.5 5.5 4h13L20 9.5"/><path d="M4 9.5a2.7 2.7 0 0 0 5.3 0 2.7 2.7 0 0 0 5.4 0 2.7 2.7 0 0 0 5.3 0"/><path d="M5.5 12v8h13v-8"/><path d="M10 20v-4.5h4V20"/></svg><span>Market</span><i class="tab-badge" id="marketBadge" hidden aria-label="Daily gift">!</i></button>
   </nav>
 </div>
 <div id="dragGhost" class="drag-ghost" hidden aria-hidden="true"></div>
@@ -3861,7 +3918,7 @@ function createGamesSystem(ctx){
   const toys=[...COURSES.map(c=>trophyOf(c.id)),...THEME_COURSES.map(c=>({id:'acc:'+c.prize}))],won=COURSES.filter(c=>hasPrize(trophyOf(c.id).id)).length+THEME_COURSES.filter(c=>ctx.hasAcc?.(c.prize)).length;
   const goldN=EVENTS().filter(e=>best(bagOf(e),LEVELS.length-1)===1).length;const openN=EVENTS().filter(e=>e.kind!=='race'||courseOpen(e.course)).length;
   const shopBtn=(id,ico,b,sm)=>`<button type="button" class="st-shop-btn" id="${id}"><span>${ico}</span><b>${b}</b><small>${sm}</small></button>`;
-  const shop=`<div class="st-shop is-hub">${shopBtn('stGames','🎮','Play',`Minigames, races &amp; karate · ${goldN}/${EVENTS().length} gold`)}${shopBtn('stSchool','🏫','School','Teach new tricks')}${shopBtn('stPrizes','🏆','Prizes',`${won}/${toys.length} trophies${belt?' · '+escapeText(belt.name.replace(' Belt','')):''}`)}${shopBtn('stMarket','🛒','Market','Food, wear, toys, houses')}</div>`;
+  const shop=`<div class="st-shop is-hub">${shopBtn('stGames','🎮','Play',`Minigames, races &amp; karate · ${goldN}/${EVENTS().length} gold`)}${shopBtn('stSchool','🏫','School','Teach new tricks')}${shopBtn('stPrizes','🏆','Prizes',`${won}/${toys.length} trophies${belt?' · '+escapeText(belt.name.replace(' Belt','')):''}`)}</div>`;
   const rowsHtml=(f=()=>true)=>EVENTS().filter(f).map(e=>{const open=e.kind!=='race'||courseOpen(e.course);const lv=nextLevel(e);const done=best(bagOf(e),LEVELS.length-1)===1;
    return `${e.theme&&e.id===THEME_COURSES[0].id?'<h3 class="st-sub">Theme races · need a full look</h3>':''}${e.ultra&&e.id===EVENTS().find(x=>x.ultra)?.id?'<h3 class="st-sub">✦ Ultra races · legends only</h3>':''}<div class="st-row ${open?'':'is-locked'} ${e.theme?'is-theme is-'+e.id:''}" data-ev="${e.id}"><span class="st-course-ico" data-focus="${e.focus}" ${e.theme?`data-theme="${e.id}"`:''}></span><div class="st-row-main"><strong>${escapeText(e.name)}</strong>${e.theme&&!open?`<small class="st-need">${escapeText(e.course.look)} look ${themePct(e.course)}% / 85%</small>`:dots(e)}</div>${open?`<button type="button" class="st-play" data-play="${e.id}">${done?'Replay':LEVELS[lv]}<i></i></button>`:'<span class="st-lock"></span>'}</div>`;}).join('');
   mount.innerHTML=`<div class="pets-scroll st-scroll"><div class="section-head g-head"><h2>Stadium</h2><button type="button" class="g-coins" id="stCoins">🪙 ${(ctx.coins?.()||0).toLocaleString('en-US')}</button><span class="g-tally"><i class="g-medal is-gold"></i>${n.gold}<i class="g-medal is-silver"></i>${n.silver}<i class="g-medal is-bronze"></i>${n.bronze}</span></div>
@@ -3881,7 +3938,7 @@ function createGamesSystem(ctx){
   mount.querySelectorAll('[data-play]').forEach(b=>b.onclick=e=>{e.stopPropagation();if(preview){state.pick=preview;preview=null;save();}const ev=EVENTS().find(x=>x.id===b.dataset.play);const lv=nextLevel(ev);ev.kind==='race'?startRace(mount,ev.course,lv):startKarate(mount,lv);});
   mount.querySelectorAll('[data-ev]').forEach(r=>r.onclick=()=>eventSheet(mount,EVENTS().find(x=>x.id===r.dataset.ev)));
   $('stPrizes').onclick=()=>prizeSheet(mount);$('stGames').onclick=()=>gamesSheet(mount,rowsHtml);
-  $('stMarket').onclick=()=>ctx.openMarket?.(()=>render(mount));$('stSchool').onclick=()=>ctx.openSchool?.(pid,()=>render(mount));$('stCoins').onclick=()=>ctx.openMarket?.(()=>render(mount));
+  $('stSchool').onclick=()=>ctx.openSchool?.(pid,()=>render(mount));$('stCoins').onclick=()=>ctx.openMarket?.(()=>render(mount));
  }
  /** V141: races and Karate live in their own sheet (hub tile "Games"). */
  let lastRows=null;
@@ -8455,7 +8512,7 @@ function shinyFanfare(){if(!soundEnabled)return;const ctx=acquireSoundEngine();i
 function showShinyFound(id){const it=byId.get(id);if(!it)return;
  showModal(`<div class="modal-tag shiny-tag">✦ SHINY ELEMENT</div><div class="modal-art is-shiny">${staticArt(it)}</div><h2>Shiny ${escapeText(uiName(it))}</h2>${shinyPerks(it)}${shinyCard(it)}`);shinyDress();
 }
-const APP_VERSION='1.1.01';
+const APP_VERSION='1.1.02';
 // V83: status line + Google consent (UMP) privacy options, required for EEA players.
 async function refreshAdStatus(){
  const el=$('settingsAdStatus'),bridge=getRewardBridge();
@@ -9630,9 +9687,10 @@ function homeAwaySummary(){
 function switchTab(view){
  const wasHome=tab==='Pets';
  // V123: Collection tab removed (owner) — everything lives in Alchemy; old 'World' routes go to Play
- tab=view==='Pets'?'Pets':view==='Games'&&gamesUnlocked()?'Games':'Play';
- for(const name of ['Play','World','Pets','Games'])$(`view${name}`).hidden=name!==tab;try{document.body.dataset.tab=tab;}catch{}
+ tab=view==='Pets'?'Pets':view==='Market'?'Market':view==='Games'&&gamesUnlocked()?'Games':'Play';
+ for(const name of ['Play','World','Pets','Games','Market'])$(`view${name}`).hidden=name!==tab;try{document.body.dataset.tab=tab;}catch{}
  if(tab==='Games'){games.render($('viewGames'));gamesSeen();}
+ if(tab==='Market')openMarket();
  document.querySelectorAll('.tab').forEach(b=>{const active=b.dataset.view===tab;b.classList.toggle('active',active);b.setAttribute('aria-current',active?'page':'false');});
  if(tab==='World')renderDiscoveries();else if(tab==='Pets')companions.renderTab();else playVirtual.draw(true);
  if(tab==='Pets')companions.markSeen();else companions.syncSeen();
@@ -9793,7 +9851,7 @@ function spendCoins(n){if(wallet.coins<n)return false;wallet.coins-=n;saveWallet
 let lastCoinShown=null;
 function syncCoinLabels(){document.querySelectorAll('[data-coins]').forEach(e=>e.textContent=wallet.coins.toLocaleString('en-US'));const s=$('stCoins');if(s)s.textContent='🪙 '+wallet.coins.toLocaleString('en-US');
  /* V185: coins are always visible in the top bar; a gain pops a small +N next to the chip. */
- const t=$('topCoins');if(t){if(!t.onclick)t.onclick=()=>openCoinShop();const d=lastCoinShown===null?0:wallet.coins-lastCoinShown;lastCoinShown=wallet.coins;
+ const t=$('topCoins');if(t){if(!t.onclick)t.onclick=()=>openMarket(null,'coins');const d=lastCoinShown===null?0:wallet.coins-lastCoinShown;lastCoinShown=wallet.coins;
   if(d){t.classList.remove('bump');void t.offsetWidth;t.classList.add('bump');const f=document.createElement('span');f.className='coin-fly'+(d<0?' minus':'');f.textContent=(d>0?'+':'−')+Math.abs(d).toLocaleString('en-US');t.appendChild(f);setTimeout(()=>f.remove(),1300);}}}
 try{syncCoinLabels();}catch{}
 function creditCoinTokens(tokens){let got=0;for(const t of tokens||[]){if(typeof t!=='string'||wallet.tokens.includes(t))continue;const pack=t.includes('|')?COIN_PACKS.find(x=>x.id===t.split('|')[0]):COIN_PACK;if(!pack)continue;wallet.tokens.push(t);let add=pack.coins;if(!wallet.firstBuy&&pack!==COIN_PACK){wallet.firstBuy=true;add*=FIRST_BUY_MULT;}wallet.coins+=add;got+=add;if(pack.gift&&!wallet.dyes.includes(pack.gift)){wallet.dyes.push(pack.gift);const d=DYES.find(x=>x.id===pack.gift);setTimeout(()=>toast(`Exclusive colour unlocked: ${d?.name} · Market › Colours`,'new'),1500);}}if(got){saveWallet();syncCoinLabels();applyDyes();toast(`+${got.toLocaleString('en-US')} coins · thank you!`,'new');}return got;}
@@ -9829,6 +9887,21 @@ function openFullSheet({id,name,leftMs}){const mins=Math.max(1,Math.ceil(leftMs/
 const AD_COINS=20,AD_COINS_PER_DAY=5;
 function adCoinsLeft(){const d=dailyKey();if(wallet.adDay!==d){wallet.adDay=d;wallet.adN=0;}return Math.max(0,AD_COINS_PER_DAY-(wallet.adN||0));}
 function claimDaily(){if(wallet.daily===dailyKey())return 0;const st=nextStreak(),c=dailyCoins(st);wallet.streak=st;wallet.daily=dailyKey();addCoins(c);SFX.prize?.();toast(`+${c} daily coins!`,'new');return c;}
+// V202: Remove ads first, then free coins, then coin packs — shared by the Market tab and the coin sheet
+function coinsPanelHtml(){const daily=wallet.daily!==dailyKey();const left=adCoinsLeft();const ad=rewardedAvailable()&&left>0;
+ const row=(ico,t,sm)=>`<li><span>${ico}</span><div><b>${t}</b><small>${sm}</small></div></li>`;
+ const noAds=adFree()?`<div class="mk-noads is-owned"><i>✓</i><span><b>Ads removed</b><small>Thank you for supporting Alchemy 7K!</small></span></div>`:`<button type="button" class="mk-noads" data-noads><i>AD-FREE</i><span><b>Remove ads</b><small>No forced ads · ${HINT_BANK_MAX} hints included · 5% Shiny chance</small></span><em>${escapeText(billingPrice)}</em></button>`;
+ return `<div class="mk-coins-panel">${noAds}<h3 class="st-sub">Free coins</h3>
+  <button type="button" class="modal-button" data-cpdaily ${daily?'':'disabled'}>${daily?`🎁 Daily gift · +${dailyCoins(nextStreak())}`:'🎁 Daily gift claimed · back tomorrow'}</button>
+  ${rewardedAvailable()?`<button type="button" class="modal-button secondary" data-cpad ${ad?'':'disabled'}>▶ Watch an ad · +${AD_COINS} <small>(${left} left today)</small></button>`:''}
+  <h3 class="st-sub">Coin packs</h3>${wallet.firstBuy?'':'<div class="cp-first">🎉 <b>First purchase: double coins!</b></div>'}<div class="cp-list">${COIN_PACKS.map(p=>`<button type="button" class="cp-pack ${p.tag?'is-hot':''}" data-pack="${p.id}">${p.tag?`<span class="cp-tag">${p.tag}</span>`:''}<span class="cp-pile">${'🪙'.repeat(1+COIN_PACKS.indexOf(p))}</span><b>${(p.coins*(wallet.firstBuy?1:FIRST_BUY_MULT)).toLocaleString('en-US')}</b><small>${wallet.firstBuy?'':`<s>${p.coins.toLocaleString('en-US')}</s> `}${p.bonus?`+${p.bonus}% bonus`:'coins'}</small><em>${escapeText(packPrices[p.id]||p.price)}</em></button>`).join('')}</div>
+  <h3 class="st-sub">Earn them by playing</h3><ul class="cp-ways">${row('⚗️','Discover elements',`+${DISCOVERY_COINS} each · +${GOAL_COINS} every ${GOAL_STEP} · +${DISCOVERY_MILESTONE_COINS} every ${DISCOVERY_MILESTONE} · combos`)}${row('🏁','Races and Karate','Best on your first gold of each level')}${row('🎮','Minigames and Microgames','Up to 40 a game · 150 a day')}${row('🔍','Companion finds',`+${COMPANION_FIND_COINS} each`)}</ul><p class="mini-muted">${escapeText(FAIR_PLAY_NOTE)}</p></div>`;}
+async function watchCoinAd(again){let r=null;try{r=await getRewardBridge().showRewarded({kind:'coins'});}catch{}if(r?.earned!==true){toast('Ad not completed','repeat');again();return;}adCoinsLeft();wallet.adN=(wallet.adN||0)+1;addCoins(AD_COINS);toast(`+${AD_COINS} coins`,'new');again();}
+function wireCoinsPanel(root,again){
+ root.querySelectorAll('[data-pack]').forEach(b=>b.onclick=async()=>{b.disabled=true;await buyCoins(b.dataset.pack);b.disabled=false;syncCoinLabels();again();});
+ const d=root.querySelector('[data-cpdaily]');if(d)d.onclick=()=>{if(claimDaily()){syncMarketBadge();again();}};
+ const na=root.querySelector('[data-noads]');if(na)na.onclick=openRemoveAds;
+ const ad=root.querySelector('[data-cpad]');if(ad)ad.onclick=()=>watchCoinAd(again);}
 function openCoinShop(back){const daily=wallet.daily!==dailyKey();const left=adCoinsLeft();const ad=rewardedAvailable()&&left>0;const again=()=>openCoinShop(back);
  const row=(ico,t,sm)=>`<li><span>${ico}</span><div><b>${t}</b><small>${sm}</small></div></li>`;
  showModal(`<div class="cp-bank-head"><small>COMPANION COINS</small><b>🪙 <span data-coins>${wallet.coins.toLocaleString('en-US')}</span></b><span>Spend them in the Market, on minigames and on your companions</span></div><h2>Get coins</h2><h3 class="st-sub">Free</h3>
@@ -9839,7 +9912,7 @@ function openCoinShop(back){const daily=wallet.daily!==dailyKey();const left=adC
   ${back?'<button type="button" class="modal-button secondary" id="cpBack">Back</button>':'<button type="button" class="modal-button secondary" id="cpBack">Close</button>'}`);
  $('modalContent').querySelectorAll('[data-pack]').forEach(b=>b.onclick=async()=>{b.disabled=true;await buyCoins(b.dataset.pack);b.disabled=false;syncCoinLabels();again();});
  $('cpDaily').onclick=()=>{if(claimDaily())again();};
- const a=$('cpAd');if(a)a.onclick=async()=>{a.disabled=true;let r=null;try{r=await getRewardBridge().showRewarded({kind:'coins'});}catch{}if(r?.earned!==true){toast('Ad not completed','repeat');again();return;}adCoinsLeft();wallet.adN=(wallet.adN||0)+1;addCoins(AD_COINS);toast(`+${AD_COINS} coins`,'new');again();};
+ const a=$('cpAd');if(a)a.onclick=()=>{a.disabled=true;watchCoinAd(again);};
  modalBack=back||null;$('cpBack').onclick=()=>{modalBack=null;back?back():closeModal();};}
 // V137: bought food sits on the main screen (on top of the craft card); drag it onto a companion
 function renderFoodTray(){let tray=$('foodTray');const card=document.querySelector('#viewPlay .craft-card');if(!card)return;
@@ -9857,7 +9930,10 @@ function startFoodDrag(e){const tok=e.currentTarget,id=tok.dataset.food,item=MAR
   if(ev.type==='pointerup'&&Math.hypot(ev.clientX-e.clientX,ev.clientY-e.clientY)<8)toast(`Drag ${item.name} onto a companion · ${item.desc}`,'repeat');};
  document.addEventListener('pointermove',move);document.addEventListener('pointerup',end);document.addEventListener('pointercancel',end);}
 
-let marketTab='food';
+let marketTab='coins';
+// V202: the Market is its own tab — it paints into #viewMarket; from anywhere else openMarket() jumps to that tab
+const marketHost=()=>tab==='Market'?$('viewMarket'):null;
+const syncMarketBadge=()=>{try{$('marketBadge').hidden=wallet.daily===dailyKey();}catch{}};
 // V138: X / Back on a sub-sheet returns to the sheet it came from
 const accOwned=a=>wallet.acc[a]||0;
 function accInUse(a,except=null){let n=0;for(const [cid,p] of Object.entries(companions.state().pets||{})){if(cid===except)continue;if(Object.values(p?.wear||{}).includes(a))n++;}return n;}
@@ -9871,7 +9947,9 @@ function dailyKey(){const d=new Date();return d.getFullYear()+'-'+(d.getMonth()+
 // V173: daily streak — claiming yesterday keeps it going (max 7), otherwise it restarts at day 1
 function yesterdayKey(){const d=new Date();d.setDate(d.getDate()-1);return d.getFullYear()+'-'+(d.getMonth()+1)+'-'+d.getDate();}
 function nextStreak(){return wallet.daily===yesterdayKey()?Math.min(7,(wallet.streak||0)+1):1;}
-function openMarket(onClose,tab){if(tab)marketTab=tab;
+function openMarket(onClose,mkTab){if(mkTab)marketTab=mkTab;
+ if(!marketHost()){if(!$('modal').hidden)closeModal();switchTab('Market');return;}
+ const root=$('viewMarket');syncMarketBadge();
  const owned=it=>it.kind==='toy'?wallet.toys.includes(it.toy):(it.kind==='furniture'||it.kind==='house')?unlocked.has(it.element):false;
  const basePrice=it=>it.kind==='acc'?accPrice(it.price,accOwned(it.acc)):it.price;
  // V191: one item is 25% off each day (food, wearables, toys and furniture that are not owned yet)
@@ -9898,29 +9976,31 @@ function openMarket(onClose,tab){if(tab)marketTab=tab;
  const tile=it=>{const o=owned(it);const label=it.kind==='toy'&&o?(wallet.toy===it.toy?'On screen':'Show'):o?'Owned':`🪙 ${priceOf(it).toLocaleString('en-US')}`;
   return `<button type="button" class="stat-tile mk-tile ${o?'is-owned':''} ${it.kind==='toy'&&wallet.toy===it.toy?'is-on':''} ${deal&&deal.id===it.id&&!o?'is-deal':''}" data-mk="${it.id}">${deal&&deal.id===it.id&&!o?'<i class="mk-flag">−25%</i>':o?'<i class="mk-flag is-own">✓</i>':''}<span class="mk-art">${artOf(it)}</span><b>${escapeText(nameOf(it))}</b><small>${escapeText(descOf(it)||'')}</small>${it.ext?`<small class="mk-fits">${escapeText(fitsOf(it))}</small>`:''}<em class="mk-price ${!o&&wallet.coins<priceOf(it)?'is-short':''}">${label}</em></button>`;};
  const daily=wallet.daily!==dailyKey();
- const TAB_ICON={food:'🍎',acc:'🎩',look:'✨',dye:'🎨',toy:'🧸',furniture:'🪑',house:'🏠'};
+ const TAB_ICON={coins:'🪙',food:'🍎',acc:'🎩',look:'✨',dye:'🎨',toy:'🧸',furniture:'🪑',house:'🏠'};
  const bagN=Object.values(wallet.bag||{}).reduce((n,v)=>n+v,0);
- const SAY={food:`Fresh today! Bought food waits on the Alchemy screen — drag it onto a companion.${bagN?` You have ${bagN} waiting.`:''}`,acc:'One copy dresses one companion. Each extra copy costs a little more.',look:'Looks give horns, wings, tails and auras. Unlock one, then feed its elements — Dragon elements grow dragon horns. Size changes stay free.',dye:'Unlock a colour, then feed elements of that colour to tint a companion.',toy:'One toy sits on the craft card — your companion plays with it now and then.',furniture:'Furniture trains your companions at home. Place it in a house!',house:'Bigger houses fit more companions and make everyone grow faster.'};
+ const SAY={coins:adFree()?'Thanks for supporting the shop! Grab your daily gift here.':'Welcome! Going ad-free is the best deal in the shop. Coins are right below.',food:`Fresh today! Bought food waits on the Alchemy screen — drag it onto a companion.${bagN?` You have ${bagN} waiting.`:''}`,acc:'One copy dresses one companion. Each extra copy costs a little more.',look:'Looks give horns, wings, tails and auras. Unlock one, then feed its elements — Dragon elements grow dragon horns. Size changes stay free.',dye:'Unlock a colour, then feed elements of that colour to tint a companion.',toy:'One toy sits on the craft card — your companion plays with it now and then.',furniture:'Furniture trains your companions at home. Place it in a house!',house:'Bigger houses fit more companions and make everyone grow faster.'};
  const keeper=COMPANION_SPRITES_V86[companions.state().active]||'<span class="mk-emoji">🧑‍🍳</span>';
  const dealHtml=deal?`<button type="button" class="mk-deal" data-mk="${deal.id}"><i class="mk-deal-burst">−25%</i><span class="mk-art">${artOf(deal)}</span><span class="mk-deal-main"><small>⭐ TODAY'S DEAL</small><b>${escapeText(nameOf(deal))}</b><span><s>🪙 ${basePrice(deal).toLocaleString('en-US')}</s> <em class="mk-price ${wallet.coins<priceOf(deal)?'is-short':''}">🪙 ${priceOf(deal).toLocaleString('en-US')}</em></span></span></button>`:'';
- showModal(`<div class="mk-shop" data-tab="${marketTab}"><div class="mk-stall"><i class="mk-awning" aria-hidden="true"></i><div class="modal-tag">MARKET</div><div class="mk-keeper"><span class="mk-keeper-art">${keeper}</span><p class="mk-say">${escapeText(SAY[marketTab]||'Welcome!')}</p></div></div>${coinBar()}
+ if(!$('modal').hidden)closeModal();const keepY=root.querySelector('.mk-scroll')?.scrollTop||0;
+ root.innerHTML=(`<div class="pets-scroll mk-scroll"><div class="mk-shop" data-tab="${marketTab}"><div class="mk-stall"><i class="mk-awning" aria-hidden="true"></i><div class="modal-tag">MARKET</div><div class="mk-keeper"><span class="mk-keeper-art">${keeper}</span><p class="mk-say">${escapeText(SAY[marketTab]||'Welcome!')}</p></div></div>${coinBar()}
   ${dealHtml}
-  <div class="mk-tabs">${MARKET_TABS.map(([k,l])=>`<button type="button" data-mktab="${k}" aria-pressed="${k===marketTab}"><i aria-hidden="true">${TAB_ICON[k]||''}</i>${l}</button>`).join('')}</div>
-  ${marketTab==='dye'?dyeGrid:marketTab==='look'?lookGrid:`<div class="stat-tiles mk-grid">${items.map(tile).join('')}</div>`}<p class="mini-muted">Earn coins by discovering elements, winning races and playing minigames.</p></div>`);
- const again=()=>openMarket(onClose);wireCoinBar(again);
+  <div class="mk-tabs">${[['coins','Coins'],...MARKET_TABS].map(([k,l])=>`<button type="button" data-mktab="${k}" aria-pressed="${k===marketTab}"><i aria-hidden="true">${TAB_ICON[k]||''}</i>${l}</button>`).join('')}</div>
+  ${marketTab==='coins'?coinsPanelHtml():marketTab==='dye'?dyeGrid:marketTab==='look'?lookGrid:`<div class="stat-tiles mk-grid">${items.map(tile).join('')}</div>`}<p class="mini-muted">Earn coins by discovering elements, winning races and playing minigames.</p></div></div>`);
+ const again=()=>openMarket(onClose);wireCoinBar(()=>openMarket(null,'coins'));{const sc=root.querySelector('.mk-scroll');if(sc)sc.scrollTop=keepY;}
+ if(marketTab==='coins')wireCoinsPanel(root,again);
 
- $('modalContent').querySelectorAll('[data-mktab]').forEach(b=>b.onclick=()=>{marketTab=b.dataset.mktab;again();});
- $('modalContent').querySelectorAll('[data-tint]').forEach(b=>b.onclick=()=>{const t=TINT_ITEMS.find(x=>x.key===b.dataset.tint);if(wallet.tints.includes(t.key)){toast(`${t.name} colour is unlocked`,'repeat');return;}
+ root.querySelectorAll('[data-mktab]').forEach(b=>b.onclick=()=>{marketTab=b.dataset.mktab;again();});
+ root.querySelectorAll('[data-tint]').forEach(b=>b.onclick=()=>{const t=TINT_ITEMS.find(x=>x.key===b.dataset.tint);if(wallet.tints.includes(t.key)){toast(`${t.name} colour is unlocked`,'repeat');return;}
   confirmBuy({art:`<span class="dye-sw" style="background:${rgbCss(TINT_RGB[t.key])}"></span>`,name:`${t.name} colour`,desc:'Elements of this colour can now tint your companions.',price:t.price,label:'Unlock'},()=>{wallet.tints.push(t.key);saveWallet();SFX.happy?.();again();},again);});
- $('modalContent').querySelectorAll('[data-ultra]').forEach(b=>b.onclick=()=>{const u=ULTRA.find(x=>x.id===b.dataset.ultra);if(!wallet.ultra.includes(u.id)){toast(u.from==='champ'?'Win Championship races for a chance to unlock it':u.from==='mini'?'A 1-in-10,000 chance in any minigame':'Coming with the ultra races','repeat');return;}
+ root.querySelectorAll('[data-ultra]').forEach(b=>b.onclick=()=>{const u=ULTRA.find(x=>x.id===b.dataset.ultra);if(!wallet.ultra.includes(u.id)){toast(u.from==='champ'?'Win Championship races for a chance to unlock it':u.from==='mini'?'A 1-in-10,000 chance in any minigame':'Coming with the ultra races','repeat');return;}
   const ess=MARKET.find(x=>x.id===u.ess);confirmBuy({art:`<span class="lk-ico">${ess.icon}</span>`,name:ess.name,desc:'Drag it from the food tray onto a companion.',price:ess.price,label:'Buy essence'},()=>{wallet.bag[u.ess]=(wallet.bag[u.ess]||0)+1;saveWallet();renderFoodTray();again();},again);});
- $('modalContent').querySelectorAll('[data-look]').forEach(b=>b.onclick=()=>{const l=LOOK_ITEMS.find(x=>x.key===b.dataset.look);const inf=themeInfo(l.key)||{traits:[],icon:''};if(wallet.looks.includes(l.key)){toast(`${l.name} look is unlocked · feed its elements`,'repeat');return;}
+ root.querySelectorAll('[data-look]').forEach(b=>b.onclick=()=>{const l=LOOK_ITEMS.find(x=>x.key===b.dataset.look);const inf=themeInfo(l.key)||{traits:[],icon:''};if(wallet.looks.includes(l.key)){toast(`${l.name} look is unlocked · feed its elements`,'repeat');return;}
   confirmBuy({art:`<span class="lk-ico">${inf.icon||'✨'}</span>`,name:`${l.name} look`,desc:`${inf.traits.join(', ')||'Its colour'} — grow it by feeding ${l.name.toLowerCase()} elements.`,price:l.price,label:'Unlock'},()=>{wallet.looks.push(l.key);saveWallet();SFX.happy?.();toast(`${l.name} look unlocked!`,'new');again();},again);});
- $('modalContent').querySelectorAll('[data-dye]').forEach(b=>b.onclick=()=>{const d=DYES.find(x=>x.id===b.dataset.dye);const els=dyeElements(d.id);const list=els.slice(0,40).map(n=>escapeText(n)).join(' · ')+(els.length>40?` · +${els.length-40} more`:'');
+ root.querySelectorAll('[data-dye]').forEach(b=>b.onclick=()=>{const d=DYES.find(x=>x.id===b.dataset.dye);const els=dyeElements(d.id);const list=els.slice(0,40).map(n=>escapeText(n)).join(' · ')+(els.length>40?` · +${els.length-40} more`:'');
   const show=()=>{showModal(`<div class="modal-tag">COLOUR</div>${swatch(d)}<h2>${escapeText(d.name)} colour</h2><p>${wallet.dyes.includes(d.id)?'Unlocked! Feed any of these elements to a companion to tint it:':'Unlock it to make these elements tint your companions when they eat them:'}</p><p class="dye-list">${list}</p>
    ${wallet.dyes.includes(d.id)?'':`<button type="button" class="modal-button" id="dyBuy">Unlock · 🪙 ${d.price.toLocaleString('en-US')}</button>`}<button type="button" class="modal-button secondary" id="dyBack">Back</button>`);
    $('dyBack').onclick=again;const by=$('dyBuy');if(by)by.onclick=()=>{confirmBuy({art:swatch(d),name:`${d.name} colour`,desc:`Unlocks the colour on ${els.length} elements.`,price:d.price,label:'Unlock'},()=>{wallet.dyes.push(d.id);saveWallet();SFX.happy?.();toast(`${d.name} colour unlocked · feed its elements`,'new');show();},show);};};show();});
- $('modalContent').querySelectorAll('[data-mk]').forEach(b=>b.onclick=()=>{const it=MARKET.find(x=>x.id===b.dataset.mk);if(!it)return;
+ root.querySelectorAll('[data-mk]').forEach(b=>b.onclick=()=>{const it=MARKET.find(x=>x.id===b.dataset.mk);if(!it)return;
   if(it.kind==='toy'&&owned(it)){wallet.toy=wallet.toy===it.toy?null:it.toy;saveWallet();companions.placeToy?.();again();return;}
   if(owned(it))return;
   const price=priceOf(it);
