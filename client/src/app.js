@@ -122,7 +122,7 @@ import { createHomeSystem, HOME_STORAGE_KEY, pieceQuality, starsText } from './h
 import { ROOM_SPRITES_V90 } from './room-sprites-v90.js';
 import { createGamesSystem, GAMES_STORAGE_KEY, SKILL_PERKS, perkOf } from './games-v93.js';
 import { themedArt, recolorSvg } from './games-theme-v151.js';
-import { createArcade } from './arcade-v158.js';
+import { createArcade, arcadeProgress, ARCADE_STEP } from './arcade-v158.js';
 import { RACE_PRIZES, PRIZE_BY_ID, BELTS, beltSvg, wearBelt, personalPrize, personalPrizeId, parsePersonalPrize } from './prizes-v94.js';
 import { STADIUM_ART_V95 } from './stadium-art-v95.js';
 import { createStadiumSfx } from './stadium-sfx-v95.js';
@@ -507,7 +507,7 @@ function shinyCard(item){return `<p class="shiny-trivia"><span aria-hidden="true
 function showShinyFound(id){const it=byId.get(id);if(!it)return;
  showModal(`<div class="modal-tag shiny-tag">✦ SHINY ELEMENT</div><div class="modal-art is-shiny">${staticArt(it)}</div><h2>Shiny ${escapeText(uiName(it))}</h2>${shinyCard(it)}<div class="modal-milestone">${shiny.size.toLocaleString('en-US')} shiny ${shiny.size===1?'element':'elements'} · ${Math.round(shinyChance()*100)}% chance per combination</div>`);
 }
-const APP_VERSION='1.0.91';
+const APP_VERSION='1.0.92';
 // V83: status line + Google consent (UMP) privacy options, required for EEA players.
 async function refreshAdStatus(){
  const el=$('settingsAdStatus'),bridge=getRewardBridge();
@@ -2020,7 +2020,14 @@ const arcade=createArcade({hasHouse:()=>{try{return [...unlocked,...(classicSnap
  count:()=>classicDiscoveredCount(),activeId:()=>companions.active?.id||null,sprite:id=>COMPANION_SPRITES_V86[id]||'',wear:root=>{try{wearAll(root);}catch{}},
  statLevel:(id,k)=>companions.info(id)?.stats?.[k]?.level||0,skillLevel:(id,k)=>companions.skillsOf(id).includes(k)?companions.skillLevel(id,k)+1:0,
  addCoins:n=>addCoins(n),train:(k,amt)=>{const id=companions.active?.id;if(id)companions.gameReward(id,[k],amt);}});
-const games=createGamesSystem({ultraOwned:id=>wallet.ultra.includes(id),grantSupreme:()=>grantUltra(ULTRA.find(u=>u.id==='u-supreme')),lookOwned:k=>wallet.looks.includes(k),hasAcc:a=>!!wallet.acc?.[a],onPrize:()=>{try{companions.refreshViews();}catch{}},rollChampUltra:level=>grantUltra(rollUltra('champ',wallet.ultra,Math.random,champUltraChance(level))),openArcade:back=>arcade.open(back),openMicro:back=>arcade.openMicro(back),arcadeInfo:()=>{const s=arcade.state();return s?{got:s.unlocked.length,total:16}:null;},themedArt,recolorSvg,skillLevels:cid=>Object.fromEntries(companions.skillsOf(cid).map(k=>[k,companions.skillLevel(cid,k)+1])),coins:()=>wallet.coins,addCoins,coinsFor,grantAccessory,accIcon,accessories:ACCESSORIES,openMarket:(cb)=>openMarket(cb),openSchool:(cid,cb)=>openSchool(cid,cb),themeCompletion:(cid,k)=>companions.themeCompletion(cid,k),$,escapeText,roster:COMPANIONS_V86,sprites:COMPANION_SPRITES_V86,byId,uiName,isDiscovered:companionOwned,companionInfo:id=>companions.info(id),activeId:()=>companions.state().active,
+/** V192: "Today" cards on the Stadium screen — daily gift, next minigame, next discovery reward. */
+function todayHtml(){try{const daily=wallet.daily!==dailyKey(),g=goalInfo();const st=arcade?.state?.()||{};const total=arcade?.games?.length||0,got=(st.unlocked||[]).length;
+  let mini='';if(total){if(!st.houseGiven)mini=`<div class="td-card is-mini"><span>🔒</span><div><b>First minigame</b><small>Arrives with your first companion house</small></div></div>`;
+   else if(got<total){const p=arcadeProgress(st,classicDiscoveredCount(),undefined,Math.random,{house:true});const left=Math.max(0,p.next-classicDiscoveredCount());mini=`<div class="td-card is-mini"><span>🎮</span><div><b>Next minigame · ${left.toLocaleString('en-US')} elements to go</b><small>${got}/${total} unlocked</small><i><em style="width:${Math.round(100*(1-left/ARCADE_STEP))}%"></em></i></div></div>`;}}
+  return `<h3 class="td-h">Today</h3><div class="td-list"><button type="button" class="td-card is-gift ${daily?'is-ready':''}" id="tdDaily" ${daily?'':'disabled'}><span>🎁</span><div><b>${daily?`Daily gift · +${dailyCoins(nextStreak())} 🪙`:'Daily gift claimed'}</b><small>${daily?`Day ${nextStreak()} of your streak — tap to claim`:`Streak day ${wallet.streak||1} · come back tomorrow`}</small></div></button>
+   ${mini}<div class="td-card is-goal"><span>⚗️</span><div><b>${g.left} elements to the next reward</b><small>+${g.coins} 🪙 at ${g.next.toLocaleString('en-US')} · best combo ×${comboBest}</small><i><em style="width:${Math.round(g.k*100)}%"></em></i></div></div></div>`;}catch{return '';}}
+function wireToday(mount,again){const d=mount.querySelector('#tdDaily');if(d)d.onclick=()=>{if(claimDaily())again?.();};}
+const games=createGamesSystem({todayHtml:()=>todayHtml(),wireToday:(m,again)=>wireToday(m,again),ultraOwned:id=>wallet.ultra.includes(id),grantSupreme:()=>grantUltra(ULTRA.find(u=>u.id==='u-supreme')),lookOwned:k=>wallet.looks.includes(k),hasAcc:a=>!!wallet.acc?.[a],onPrize:()=>{try{companions.refreshViews();}catch{}},rollChampUltra:level=>grantUltra(rollUltra('champ',wallet.ultra,Math.random,champUltraChance(level))),openArcade:back=>arcade.open(back),openMicro:back=>arcade.openMicro(back),arcadeInfo:()=>{const s=arcade.state();return s?{got:s.unlocked.length,total:16}:null;},themedArt,recolorSvg,skillLevels:cid=>Object.fromEntries(companions.skillsOf(cid).map(k=>[k,companions.skillLevel(cid,k)+1])),coins:()=>wallet.coins,addCoins,coinsFor,grantAccessory,accIcon,accessories:ACCESSORIES,openMarket:(cb)=>openMarket(cb),openSchool:(cid,cb)=>openSchool(cid,cb),themeCompletion:(cid,k)=>companions.themeCompletion(cid,k),$,escapeText,roster:COMPANIONS_V86,sprites:COMPANION_SPRITES_V86,byId,uiName,isDiscovered:companionOwned,companionInfo:id=>companions.info(id),activeId:()=>companions.state().active,
  prizes:{RACE_PRIZES,beltSvg,personal:(course,cid,name,sprite)=>personalPrize(course,cid,companions.state().pets?.[cid]?.nick||name,sprite)},starterCompanion:STARTER_COMPANION,belts:BELTS,wear:wearAll,alchemyGrowth,classicCount:classicDiscoveredCount,openCard:id=>companions.openCard(id),art:STADIUM_ART_V95,sfx:SFX,rivalLook:(seed,level)=>rivalLook(seed,level),onBelt:()=>{companions.refreshViews();companions.start();},
  onResult:(id,kind,focus,place)=>{const amt=[0,12,8,5,3,3][place]||3;const stats=kind==='karate'?['power','hp']:focus==='all'?['run','swim','fly','power']:focus==='stamina'?['stamina','run']:[focus,'stamina'];return companions.gameReward(id,stats,amt);},
  showModal,closeModal,toast,reducedMotion:()=>Boolean(window.matchMedia?.('(prefers-reduced-motion: reduce)')?.matches)});

@@ -90,6 +90,13 @@ Preserve 200-per-batch policy and do not start another content release on top of
 
 - **Art redraw wave 3 (V85, done): 3,991 icons** — every remaining older element. All 6,012 pre-V83 elements now use the 2026 art direction (`ART_REDRAW`), plus 200 V83 and 200 V85 originals. Six near-duplicates found by the audit were redrawn; 36 reviewed false alarms are in `tools/art-redraw-reviewed-pairs.json` (the audit now also honours them for V83 comparisons).
 
+## V192 — "Game skin" em todo o jogo + cartões Today
+
+- Bloco CSS "V192: game skin" no fim de styles.css: a linguagem do Market (contornos de 2 px, sombra inferior 3D, gradientes quentes, botões que afundam ao toque) aplicada à barra de topo, mesa de combinação, botões Packs/Hint, faixa de objetivo, cartões de elementos, barra de separadores (ativo escuro e elevado), botões e etiquetas dos modais, Home (separadores, casas, lugares, cartões) e Stadium (cartaz com bandeirinhas e relva, quatro cartões grandes coloridos, hub Play colorido).
+- Stadium: secção **Today** (`todayHtml`/`wireToday` em app.js, injetada por `ctx.todayHtml` em games-v93.js): oferta diária (reclamável ali), próximo minijogo (elementos em falta) e próxima recompensa de descoberta + melhor combo. O chip de moedas duplicado do Stadium foi escondido.
+- build-standalone: tuplo do arcade exporta também `arcadeProgress` e `ARCADE_STEP`.
+- `APP_VERSION` 1.0.92.
+
 ## V191 — Market com cara de loja
 
 - `openMarket`: banca com toldo às riscas (`.mk-stall`), o companion ativo como lojista com balão de fala (a nota de cada separador passou para o balão `SAY`), separadores com ícone, cartões com pedestal colorido por separador, preço em botão verde (cinzento se faltam moedas), selo ✓ nos comprados.
