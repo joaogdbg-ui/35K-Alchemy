@@ -2645,3 +2645,17 @@ body[data-tab="Games"] .companion-layer{display:none}
 .sort-option:not([aria-pressed="true"]) .sort-choice-mark{visibility:hidden}
 .lk-mystery,.lk-row,.lk-opt{border:2px solid #E3D6BE!important;border-radius:18px!important;background:linear-gradient(#fff,#FBF3E2)!important;box-shadow:0 4px 0 #E3D6BE}
 .lk-mystery.is-on,.lk-row.is-on,.lk-opt.is-on{border-color:#E8843C!important;box-shadow:0 4px 0 #E8843C;background:linear-gradient(#FFF6EA,#FFE3C2)!important}
+
+/* ===== V199: companion chemistry ===== */
+.companion.is-ko .companion-art{transform:rotate(88deg) translate(10%,6%);filter:grayscale(.7) brightness(.95);transition:transform .35s cubic-bezier(.3,1.6,.5,1)}
+.companion.is-ko{cursor:pointer}
+.companion.is-ko::after{content:"TAP!";position:absolute;left:50%;top:-22px;translate:-50% 0;padding:2px 8px;border-radius:10px;background:#E0675A;color:#fff;font:900 11px/1.2 system-ui;box-shadow:0 2px 0 #A8382F;animation:seat-pulse 1s ease-in-out infinite;z-index:5;pointer-events:none}
+.team-rel{margin:10px 2px 0;padding:8px 10px;border-radius:12px;font-size:12.5px;line-height:1.3;background:#F1F7EC;border:2px solid #CFE6C2}
+.team-rel b{display:block;font-size:13.5px}
+.team-rel.is-neutral{background:#F4F1E8;border-color:#E3D6BE}.team-rel.is-rivals{background:#FFF3E3;border-color:#F2C89A}.team-rel.is-nemesis{background:#FDECEA;border-color:#F0B4AC}
+.buddy-rel{display:block;font-style:normal;font-size:10.5px;font-weight:900;margin-top:2px;padding:1px 6px;border-radius:8px;background:#EEF6E8;color:#2F6A3A}
+.buddy-rel.is-neutral{background:#F1EEE6;color:#5C6A70}.buddy-rel.is-rivals{background:#FFEBD2;color:#8A4A12}.buddy-rel.is-nemesis{background:#FBDAD6;color:#8A2A22}
+.home-rels{list-style:none;margin:0 0 10px;padding:0;display:grid;gap:6px}
+.home-rels li{display:flex;align-items:center;gap:8px;padding:6px 10px;border-radius:12px;background:#F1F7EC;font-size:13px}
+.home-rels li small{margin-left:auto;font-weight:800;color:var(--ink-2)}
+.home-rels li.is-neutral{background:#F4F1E8}.home-rels li.is-rivals{background:#FFF3E3}.home-rels li.is-nemesis{background:#FDECEA}
