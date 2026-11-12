@@ -138,3 +138,19 @@ test('V187: launch tuning — no tester gift, minigames locked by progress, tent
   assert.match(app, /STARTER_HOUSE_AT=200,STARTER_HOUSE_ID='organic89:companion-tent'/);
   assert.match(app, /HOME_OBJECTS\[id\]\?\.kind==='house'\)\)return false;\s*if\(!grantElement\(STARTER_HOUSE_ID\)\)/);
 });
+test('V188: companion personalities are deterministic and varied; microgame medals', async () => {
+  const { personalityOf, HOME_QUIRKS, companionVoice } = await import('../src/home-engine-v90.js');
+  const { MICRO_MEDALS } = await import('../src/arcade-v158.js');
+  const { COMPANIONS_V86 } = await import('../src/companions-v86.js').catch(() => ({ COMPANIONS_V86: null }));
+  const ids = (COMPANIONS_V86 || Array.from({ length: 40 }, (_, i) => ({ id: 'c' + i }))).map(c => c.id);
+  const ps = ids.map(personalityOf);
+  for (const [i, p] of ps.entries()) {
+    assert.deepEqual(p, personalityOf(ids[i]));
+    assert.ok(p.fav !== p.shy && HOME_QUIRKS.includes(p.quirk) && p.voice.hz > 200 && p.tempo >= 0.8 && p.tempo <= 1.25);
+  }
+  assert.ok(new Set(ps.map(p => p.quirk)).size >= 5);
+  assert.ok(new Set(ps.map(p => p.fav)).size >= 5);
+  assert.ok(new Set(ps.map(p => p.voice.hz + p.voice.wave + p.voice.steps.join())).size >= ids.length * 0.6);
+  assert.equal(companionVoice(() => null, ids[0]), false);
+  assert.deepEqual(MICRO_MEDALS.map(m => m[0]), [5, 10, 15]);
+});

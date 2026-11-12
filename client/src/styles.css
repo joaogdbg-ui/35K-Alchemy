@@ -2230,3 +2230,85 @@ body.ar-playing>*:not(.ar-stage){display:none!important}
 .coin-fly{position:absolute;right:8px;top:100%;font-size:13px;font-weight:800;color:#2E9B5B;pointer-events:none;animation:coin-fly 1.25s ease-out forwards;white-space:nowrap}
 .coin-fly.minus{color:#C9483C}
 @keyframes coin-fly{0%{opacity:0;transform:translateY(8px)}20%{opacity:1}100%{opacity:0;transform:translateY(-14px)}}
+
+/* V188: microgames — goal strip, medal track, themed scenes, low-time fuse */
+.ar-micro.is-v188{grid-template-rows:auto auto 1fr auto}
+.ar-mtrack{position:relative;height:10px;margin:14px 26px 16px 14px;border-radius:6px;background:#fff8ec;border:2px solid #657D89}
+.ar-mtrack>i{display:block;height:100%;width:0;border-radius:4px;background:linear-gradient(90deg,#8fbf68,#ffd166);transition:width .4s}
+.ar-mtrack b{position:absolute;top:50%;translate:-50% -50%;width:26px;height:26px;border-radius:50%;display:grid;place-items:center;font-size:15px;background:#fff8ec;border:2px solid #657D89;filter:grayscale(1);opacity:.75;transition:all .3s}
+.ar-mtrack b.is-on{filter:none;opacity:1;scale:1.25;box-shadow:0 0 0 3px #ffd166}
+.ar-mtrack b small{position:absolute;top:100%;left:50%;translate:-50% 1px;font-size:9px;font-weight:800;color:#4F6269}
+.ar-mgoal{display:flex;align-items:center;gap:8px;margin:2px 6px 4px;padding:6px 10px;border-radius:14px;background:#4F6269;color:#fff8ec;min-height:36px}
+.ar-mgoal b{font-size:15px;font-weight:900;letter-spacing:.5px;color:#ffd166;white-space:nowrap}
+.ar-mgoal span{font-size:12.5px;font-weight:700;line-height:1.15}
+.ar-mgoal.is-in{animation:arGoalIn .35s ease}
+@keyframes arGoalIn{0%{transform:scale(.9);opacity:.3}60%{transform:scale(1.04)}100%{transform:none;opacity:1}}
+.ar-mfuse.is-low em{background:repeating-linear-gradient(45deg,#e0675a 0 8px,#c9483c 8px 16px)}
+.ar-mfuse.is-low{animation:arFuseLow .25s infinite alternate}
+@keyframes arFuseLow{to{transform:scale(1.03);box-shadow:0 0 0 3px rgba(224,103,90,.35)}}
+.ar-mbanner.is-ok{font-size:60px}.ar-mbanner.is-bad{font-size:52px}
+.ar-marea[class*="sc-"]{background-color:#eaf6fb}
+.ar-marea[class*="sc-"]::before{content:"";position:absolute;inset:0;pointer-events:none;z-index:0}
+.ar-marea>*{z-index:1}
+.ar-marea.sc-sky{background:linear-gradient(#7fc8ee,#dff3f8)}
+.ar-marea.sc-sky::before{background:radial-gradient(60px 22px at 22% 18%,#fff 60%,transparent 62%),radial-gradient(70px 24px at 74% 30%,#fff 60%,transparent 62%),radial-gradient(50px 18px at 50% 70%,rgba(255,255,255,.7) 60%,transparent 62%)}
+.ar-marea.sc-night{background:linear-gradient(#27325a 0 64%,#6b5a8a 64%)}
+.ar-marea.sc-night::before{background:radial-gradient(2px 2px at 18% 14%,#fff 99%,transparent),radial-gradient(2px 2px at 60% 9%,#fff 99%,transparent),radial-gradient(3px 3px at 82% 22%,#ffe08a 99%,transparent),radial-gradient(2px 2px at 36% 30%,#fff 99%,transparent),radial-gradient(34px 34px at 84% 12%,#ffe9a8 60%,transparent 62%)}
+.ar-marea.sc-play{background:linear-gradient(#bfe6fa 0 66%,#8fbf68 66% 70%,#7aa85a 70%)}
+.ar-marea.sc-market{background:linear-gradient(#ffe9c4 0 72%,#c98a5e 72%)}
+.ar-marea.sc-market::before{background:repeating-linear-gradient(90deg,#e0675a 0 26px,#fff8ec 26px 52px);height:26px;inset:0 0 auto 0;border-bottom:3px solid #657D89}
+.ar-marea.sc-dial{background:radial-gradient(circle at 50% 45%,#fff8ec 0 30%,#f7dba8 70%,#e8b86a)}
+.ar-marea.sc-desk{background:repeating-linear-gradient(90deg,#e3c79a 0 46px,#dcbc8a 46px 48px)}
+.ar-marea.sc-ticket{background:linear-gradient(135deg,#ffd97a,#f2a03c)}
+.ar-marea.sc-ticket::before{background:radial-gradient(4px 4px at 20% 20%,#fff 99%,transparent),radial-gradient(5px 5px at 78% 28%,#fff 99%,transparent),radial-gradient(4px 4px at 30% 80%,#fff 99%,transparent),radial-gradient(5px 5px at 70% 76%,#fff 99%,transparent)}
+.ar-marea.sc-museum{background:linear-gradient(#ece6f4 0 70%,#b7a6c2 70% 72%,#9a8aa8 72%)}
+.ar-marea.sc-museum::before{background:radial-gradient(120px 60px at 50% 0,rgba(255,240,180,.8),transparent 70%)}
+.ar-marea.sc-window{background:linear-gradient(#a8dcee,#eef8fa)}
+.ar-marea.sc-sofa{background:linear-gradient(#fbe3e6 0 68%,#e0a3ae 68%)}
+.ar-marea.sc-sofa::before{background:radial-gradient(10px 10px at 20% 20%,#f7c9d0 99%,transparent),radial-gradient(10px 10px at 60% 34%,#f7c9d0 99%,transparent),radial-gradient(10px 10px at 84% 16%,#f7c9d0 99%,transparent)}
+.ar-marea.sc-lab{background:linear-gradient(#3a3458 0 78%,#2a2540 78%)}
+.ar-marea.sc-lab::before{background:radial-gradient(90px 90px at 50% 96%,rgba(155,127,196,.55),transparent 70%),radial-gradient(3px 3px at 16% 20%,#c99bf0 99%,transparent),radial-gradient(3px 3px at 82% 30%,#7fe0d0 99%,transparent)}
+.ar-marea.sc-kitchen{background:linear-gradient(#fff6e0 0 76%,#d9a566 76%)}
+.ar-marea.sc-kitchen::before{background:repeating-linear-gradient(90deg,transparent 0 38px,rgba(101,125,137,.15) 38px 40px),repeating-linear-gradient(0deg,transparent 0 38px,rgba(101,125,137,.15) 38px 40px);inset:0 0 24% 0}
+.ar-marea.sc-forest{background:linear-gradient(#cfe8c0 0 62%,#9a7a52 62%)}
+.ar-marea.sc-forest::before{background:radial-gradient(40px 70px at 12% 34%,#6fa65a 60%,transparent 62%),radial-gradient(46px 80px at 88% 30%,#6fa65a 60%,transparent 62%),radial-gradient(36px 60px at 50% 26%,#8fbf68 60%,transparent 62%)}
+.ar-marea.sc-garden{background:linear-gradient(#bfe6fa 0 50%,#9ccf7a 50%)}
+.ar-marea.sc-garden::before{background:radial-gradient(34px 34px at 84% 14%,#ffe08a 60%,transparent 62%)}
+.ar-marea.sc-quarry{background:linear-gradient(#f7e2bc 0 66%,#b08a5e 66%)}
+.ar-marea.sc-quarry::before{background:radial-gradient(70px 40px at 14% 66%,#c9a678 60%,transparent 62%),radial-gradient(90px 50px at 86% 66%,#c9a678 60%,transparent 62%)}
+
+/* V188: who-lives-here bar (seats = capacity), persona line, companion quirks */
+.home-crew{display:flex;gap:6px;overflow-x:auto;padding:2px 2px 10px;scrollbar-width:none}.home-crew::-webkit-scrollbar{display:none}
+.home-seat{flex:0 0 56px;display:grid;justify-items:center;gap:2px;padding:6px 4px 5px;border-radius:16px;border:1.5px solid var(--line);background:var(--surface-2);color:var(--ink)}
+.home-seat span{width:40px;height:40px;display:grid;place-items:center;font-size:22px;font-weight:900}.home-seat span svg{width:100%;height:100%}
+.home-seat small{max-width:56px;font-size:10.5px;font-weight:800;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;color:var(--ink-2)}
+.home-seat.is-free{border-style:dashed;background:transparent;color:var(--accent)}.home-seat.is-free:first-of-type span,.home-seat.is-free span{animation:seat-pulse 1.8s ease-in-out infinite}
+.home-seat.is-free~.home-seat.is-free span{animation:none;opacity:.5}
+.home-seat.is-tool{margin-left:auto;border-color:var(--accent);background:var(--accent-soft,#f4e0c8)}
+@keyframes seat-pulse{50%{transform:scale(1.18)}}
+.home-persona{margin:6px 0 10px;padding:8px 10px;border-radius:12px;background:var(--surface-2);font-size:13px;line-height:1.3}
+.home-walker.q-spin:not(.is-using) .companion-art{animation:hq-spin 1s ease-in-out 1}
+.home-walker.q-hop:not(.is-using) .companion-art{animation:hq-hop .9s ease-out 1}
+.home-walker.q-wiggle:not(.is-using) .companion-art{animation:hq-wiggle 1s ease-in-out 1;transform-origin:50% 90%}
+.home-walker.q-nod:not(.is-using) .companion-art{animation:hq-nod .9s ease-in-out 1}
+.home-walker.q-stretch:not(.is-using) .companion-art{animation:hq-stretch 1.2s ease-in-out 1;transform-origin:50% 100%}
+.home-walker.q-shiver:not(.is-using) .companion-art{animation:hq-shiver .7s linear 1}
+.home-walker.q-bow:not(.is-using) .companion-art{animation:hq-bow 1.1s ease-in-out 1;transform-origin:50% 95%}
+.home-walker.q-sway:not(.is-using) .companion-art{animation:hq-sway 1.3s ease-in-out 1;transform-origin:50% 100%}
+@keyframes hq-spin{to{transform:rotateY(360deg)}}
+@keyframes hq-hop{0%,100%{transform:none}25%{transform:translateY(-22%)}50%{transform:none}75%{transform:translateY(-12%)}}
+@keyframes hq-wiggle{0%,100%{transform:none}20%,60%{transform:rotate(-9deg)}40%,80%{transform:rotate(9deg)}}
+@keyframes hq-nod{0%,100%{transform:none}25%,75%{transform:translateY(5%) scaleY(.94)}50%{transform:none}}
+@keyframes hq-stretch{0%,100%{transform:none}40%{transform:scale(.9,1.16)}70%{transform:scale(1.08,.94)}}
+@keyframes hq-shiver{0%,100%{transform:none}10%,30%,50%,70%,90%{transform:translateX(-3%)}20%,40%,60%,80%{transform:translateX(3%)}}
+@keyframes hq-bow{0%,100%{transform:none}40%,60%{transform:rotate(24deg) translateY(4%)}}
+@keyframes hq-sway{0%,100%{transform:none}25%{transform:rotate(-7deg) translateX(-4%)}75%{transform:rotate(7deg) translateX(4%)}}
+.home-walker.p-lazy.is-using .companion-art{animation-duration:2.4s}
+.home-walker.p-hyper.is-using .companion-art{animation-duration:.45s}
+.home-walker.p-hyper.use-run,.home-walker.p-hyper.m-treadmill,.home-walker.p-hyper.m-wheel{--stride:.12s}
+.home-walker.p-lazy.use-run,.home-walker.p-lazy.m-treadmill,.home-walker.p-lazy.m-wheel{--stride:.34s}
+@media (prefers-reduced-motion:reduce){.home-seat span{animation:none!important}}
+/* V188: the on-screen companion stays out of the Home tab (it used to cover the buttons) */
+body[data-tab="Pets"] .companion-layer{display:none}
+/* V188: bigger microgame pieces */
+.ar-micro.is-v188 .ar-bubble{scale:1.3}.ar-micro.is-v188 .ar-toss{scale:1.35}.ar-micro.is-v188 .ar-card2{scale:1.2}.ar-micro.is-v188 .ar-dial{scale:1.15}.ar-micro.is-v188 .ar-boulder{scale:1.25}

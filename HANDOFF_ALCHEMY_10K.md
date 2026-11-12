@@ -90,6 +90,14 @@ Preserve 200-per-batch policy and do not start another content release on top of
 
 - **Art redraw wave 3 (V85, done): 3,991 icons** — every remaining older element. All 6,012 pre-V83 elements now use the 2026 art direction (`ART_REDRAW`), plus 200 V83 and 200 V85 originals. Six near-duplicates found by the audit were redrawn; 36 reviewed false alarms are in `tools/art-redraw-reviewed-pairs.json` (the audit now also honours them for V83 comparisons).
 
+## V188 — Vida dos companions, UI da casa e microjogos
+
+- **Personalidades** (`personalityOf(cid)` em home-engine-v90.js, puro e determinístico por id): mobília favorita (`fav`, pesa ×3 e uso +35%, "Loves the X ♥"), mobília de que não gosta (`shy`, pesa ×0.35; 60% das vezes recusa com 🙅 "Not a fan of the X"), ritmo (`lazy`/`steady`/`hyper` → verbos próprios `STYLE_VERB`, passada e duração; hyper salta na cama em vez de dormir), gesto próprio (`HOME_QUIRKS`: spin, hop, wiggle, nod, stretch, shiver, bow, sway; classes `q-*`) e **voz** (`companionVoice`: tom, onda e melodia por companion; festas, favorito, recusa; máx. 1 voz/0,9 s; respeita o som desligado via `ctx.audio`).
+- **Casa**: barra "quem vive aqui" por baixo do título (`.home-crew`): um lugar por vaga da casa, vagas livres com "+ Invite", botão "Furniture" (abre o seletor no primeiro espaço livre). Ficha do residente mostra a personalidade. A linha "Invite a companion" do fundo saiu. O companion flutuante deixa de aparecer no separador Home (`body[data-tab]`).
+- **Batch all**: 4 → 3 anúncios (`BATCH_ALL_ADS`).
+- **Microjogos**: faixa de objetivo sempre visível (palavra + instrução `how`), cenário próprio por microjogo (`scene` → `.sc-*`), medalhas 🥉5/🥈10/🥇15 (`MICRO_MEDALS`, cada uma devolve 1 vida), elogios variados, "TOO SLOW!" no tempo esgotado, rastilho vermelho nos últimos 30%, peças maiores.
+- `APP_VERSION` 1.0.88.
+
 ## V187 — Afinação para lançamento
 
 - Removida a oferta de 100 000 moedas de teste (`TESTER_GIFT`); quem já as recebeu mantém o saldo.

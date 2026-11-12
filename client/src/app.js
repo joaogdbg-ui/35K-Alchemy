@@ -506,7 +506,7 @@ function shinyCard(item){return `<p class="shiny-trivia"><span aria-hidden="true
 function showShinyFound(id){const it=byId.get(id);if(!it)return;
  showModal(`<div class="modal-tag shiny-tag">✦ SHINY ELEMENT</div><div class="modal-art is-shiny">${staticArt(it)}</div><h2>Shiny ${escapeText(uiName(it))}</h2>${shinyCard(it)}<div class="modal-milestone">${shiny.size.toLocaleString('en-US')} shiny ${shiny.size===1?'element':'elements'} · ${Math.round(shinyChance()*100)}% chance per combination</div>`);
 }
-const APP_VERSION='1.0.87';
+const APP_VERSION='1.0.88';
 // V83: status line + Google consent (UMP) privacy options, required for EEA players.
 async function refreshAdStatus(){
  const el=$('settingsAdStatus'),bridge=getRewardBridge();
@@ -1650,7 +1650,7 @@ function switchTab(view){
  const wasHome=tab==='Pets';
  // V123: Collection tab removed (owner) — everything lives in Alchemy; old 'World' routes go to Play
  tab=view==='Pets'?'Pets':view==='Games'&&gamesUnlocked()?'Games':'Play';
- for(const name of ['Play','World','Pets','Games'])$(`view${name}`).hidden=name!==tab;
+ for(const name of ['Play','World','Pets','Games'])$(`view${name}`).hidden=name!==tab;try{document.body.dataset.tab=tab;}catch{}
  if(tab==='Games'){games.render($('viewGames'));gamesSeen();}
  document.querySelectorAll('.tab').forEach(b=>{const active=b.dataset.view===tab;b.classList.toggle('active',active);b.setAttribute('aria-current',active?'page':'false');});
  if(tab==='World')renderDiscoveries();else if(tab==='Pets')companions.renderTab();else playVirtual.draw(true);
@@ -1719,7 +1719,7 @@ function alchemyGrowth(){return Math.round((1+Math.min(1,classicDiscoveredCount(
 function wearAll(root){if(!root)return;const els=root.querySelectorAll?.('[data-companion], .pet-ava[data-card], .pet-card[data-pet], .home-res[data-res], .pets-now-art[data-card]')||[];for(const el of els){const id=el.dataset.companion||el.dataset.card||el.dataset.pet||el.dataset.res;const svg=el.querySelector('svg');if(!svg)continue;try{const rl=el.dataset.rival&&!companions.lookOf(id)?games.rivalLookOf?.(id):null;if(rl)companions.applyRivalLook(svg,id,rl);else companions.applyLook(svg,id);}catch{}const belt=games.beltOf(id);if(belt)wearBelt(svg,belt);}}
 const homes=createHomeSystem({$,escapeText,byId:homeById,uiName:homeUiName,staticArt:homeStaticArt,isDiscovered:homeDiscovered,objects:HOME_OBJECTS,sprites:COMPANION_SPRITES_V86,roster:COMPANIONS_V86,
  roomSprites:ROOM_SPRITES,depthOf:id=>routeDepth.get(id),alchemy:()=>({mult:alchemyGrowth(),finds:classicDiscoveredCount()}),wear:wearAll,applyEffect:(cid,eff)=>companions.homeEffect(cid,eff),
- companionName:id=>companions.state().pets[id]?.nick||uiName(byId.get(id)),statsHtml:id=>companions.statsHtml(id),showModal,closeModal,toast,reducedMotion:()=>Boolean(window.matchMedia?.('(prefers-reduced-motion: reduce)')?.matches)});
+ audio:()=>soundEnabled?acquireSoundEngine():null,companionName:id=>companions.state().pets[id]?.nick||uiName(byId.get(id)),statsHtml:id=>companions.statsHtml(id),showModal,closeModal,toast,reducedMotion:()=>Boolean(window.matchMedia?.('(prefers-reduced-motion: reduce)')?.matches)});
 // V91 idle discoveries: while the game is closed, companions living in houses find elements the
 // player could already craft right now (both ingredients owned, result not yet found). Rate grows
 // with residents, their total level and the discovery furniture; capped by time (8 h) and size.
@@ -2212,8 +2212,8 @@ function batchFamilySnapshot(){
  return groups;
 }
 let pendingBatchFamilies=null;
-// V126: Batch ALL families = 4 rewarded ads (credit kept per locked element) or free without ads.
-const BATCH_ALL_ADS=4,BATCH_ALL_KEY='alchemy10k_batch_all_v126';
+// V126: Batch ALL families = 3 rewarded ads (V188; was 4) (credit kept per locked element) or free without ads.
+const BATCH_ALL_ADS=3,BATCH_ALL_KEY='alchemy10k_batch_all_v126';
 let batchAllCredit=null;try{const r=JSON.parse(localStorage.getItem(BATCH_ALL_KEY)||'null');if(r&&typeof r.locked==='string'&&r.completed>=1&&r.completed<BATCH_ALL_ADS)batchAllCredit=r;}catch{}
 function saveBatchAllCredit(){try{if(batchAllCredit)localStorage.setItem(BATCH_ALL_KEY,JSON.stringify(batchAllCredit));else localStorage.removeItem(BATCH_ALL_KEY);}catch{}}
 function familyBatchCandidates(family){if(family==='all')return [...(pendingBatchFamilies||batchFamilySnapshot()).values()].flat().sort((a,b)=>uiName(byId.get(a)).localeCompare(uiName(byId.get(b))));return (pendingBatchFamilies?.get(family)||batchFamilySnapshot().get(family)||[]).slice().sort((a,b)=>uiName(byId.get(a)).localeCompare(uiName(byId.get(b))));}
