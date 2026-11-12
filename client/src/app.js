@@ -507,7 +507,7 @@ function shinyCard(item){return `<p class="shiny-trivia"><span aria-hidden="true
 function showShinyFound(id){const it=byId.get(id);if(!it)return;
  showModal(`<div class="modal-tag shiny-tag">✦ SHINY ELEMENT</div><div class="modal-art is-shiny">${staticArt(it)}</div><h2>Shiny ${escapeText(uiName(it))}</h2>${shinyCard(it)}<div class="modal-milestone">${shiny.size.toLocaleString('en-US')} shiny ${shiny.size===1?'element':'elements'} · ${Math.round(shinyChance()*100)}% chance per combination</div>`);
 }
-const APP_VERSION='1.0.89';
+const APP_VERSION='1.0.90';
 // V83: status line + Google consent (UMP) privacy options, required for EEA players.
 async function refreshAdStatus(){
  const el=$('settingsAdStatus'),bridge=getRewardBridge();
@@ -1379,9 +1379,9 @@ function elementInfo(id){const it=byId.get(id);if(!it)return;const fams=families
  {const wb=$('infoWear');if(wb)wb.onclick=()=>{const a=wearableFor(uiName(it));grantAccessory(a);const cid=companions.active.id;closeModal();if(Object.values(companions.wearOf(cid)).includes(a)){toast(`${companions.info(cid).name} is already wearing it`,'repeat');return;}if(equipAcc(cid,a,()=>closeModal()))toast(`${companions.info(cid).name} is wearing ${ACCESSORIES[a].name}`,'new');};}
  $('infoUse').onclick=()=>{closeModal();insertDirect(id);};$('infoPaths').onclick=()=>{closeModal();openRecipePaths(id);};}
 /* ===== V189: discovery loop — short goals always in sight, combos for quick finds, more celebration ===== */
-const GOAL_STEP=20,GOAL_COINS=5,COMBO_WINDOW_MS=45000,COMBO_KEY='alchemy7k_combo_v189';
+const GOAL_STEP=25,GOAL_COINS=5,COMBO_WINDOW_MS=45000,COMBO_KEY='alchemy7k_combo_v189';
 let comboCount=0,comboAt=0,comboBest=0;try{comboBest=Math.max(0,Number(JSON.parse(localStorage.getItem(COMBO_KEY)||'{}').best)||0);}catch{}
-const comboReward=n=>n===3?3:n===5?5:n>=10&&n%10===0?10:0;
+const comboReward=n=>n===5?2:n>=10&&n%10===0?5:0; /* V190: trimmed (was 3/5/10) */
 const goalInfo=()=>{const n=classicDiscoveredCount(),next=(Math.floor(n/GOAL_STEP)+1)*GOAL_STEP,big=next%DISCOVERY_MILESTONE===0;return {n,next,left:next-n,coins:big?DISCOVERY_MILESTONE_COINS:GOAL_COINS,big,k:(n%GOAL_STEP)/GOAL_STEP};};
 function discoveryLoopStep(){const now=Date.now();comboCount=now-comboAt<=COMBO_WINDOW_MS?comboCount+1:1;comboAt=now;
  if(comboCount>comboBest){comboBest=comboCount;try{localStorage.setItem(COMBO_KEY,JSON.stringify({best:comboBest}));}catch{}}
@@ -1390,7 +1390,7 @@ function discoveryLoopStep(){const now=Date.now();comboCount=now-comboAt<=COMBO_
  const hit100=currentMode==='classic'&&n>0&&n%DISCOVERY_MILESTONE===0;
  syncGoalStrip(true);return {combo:comboCount,comboCoins,goalCoins,hit100,n};}
 function loopHtml(l){if(!l)return '';const g=goalInfo();const rows=[];
- if(l.combo>=2)rows.push(`<div class="loop-row is-combo"><b>🔥 Combo ×${l.combo}</b><span>${l.comboCoins?`+${l.comboCoins} 🪙`:l.combo<3?'3 in a row pays':l.combo<5?'5 in a row pays more':'keep going!'}</span></div>`);
+ if(l.combo>=2)rows.push(`<div class="loop-row is-combo"><b>🔥 Combo ×${l.combo}</b><span>${l.comboCoins?`+${l.comboCoins} 🪙`:l.combo<5?'5 in a row pays':'10 in a row pays more'}</span></div>`);
  if(l.goalCoins||l.hit100)rows.push(`<div class="loop-row is-goal"><b>🎁 Goal reached · ${l.n.toLocaleString('en-US')} elements</b><span>+${l.hit100?DISCOVERY_MILESTONE_COINS:l.goalCoins} 🪙</span></div>`);
  rows.push(`<div class="loop-next"><span>${g.left} to go · next reward at ${g.next.toLocaleString('en-US')} <b>+${g.coins} 🪙</b></span><i><em style="width:${Math.round(g.k*100)}%"></em></i></div>`);
  return `<div class="loop-box">${rows.join('')}</div>`;}
@@ -1405,7 +1405,7 @@ function syncGoalStrip(pulse=false){try{let s=$('goalStrip');
   if(live){c.innerHTML=`🔥 ×${comboCount}<i style="animation-duration:${COMBO_WINDOW_MS}ms"></i>`;clearTimeout(comboTimer);comboTimer=setTimeout(()=>syncGoalStrip(),COMBO_WINDOW_MS-(Date.now()-comboAt)+50);}
   if(pulse){s.classList.remove('is-pulse');void s.offsetWidth;s.classList.add('is-pulse');}}catch{}}
 function openGoalSheet(){const g=goalInfo();showModal(`<div class="modal-tag">REWARDS</div><h2>${g.left} to the next reward</h2><div class="loop-box"><div class="loop-next"><span>${g.n.toLocaleString('en-US')} / ${g.next.toLocaleString('en-US')} elements <b>+${g.coins} 🪙</b></span><i><em style="width:${Math.round(g.k*100)}%"></em></i></div></div>
- <ul class="perk-list"><li>Every new element: +${DISCOVERY_COINS} 🪙</li><li>Every ${GOAL_STEP} elements: +${GOAL_COINS} 🪙 · every ${DISCOVERY_MILESTONE}: +${DISCOVERY_MILESTONE_COINS} 🪙</li><li>🔥 Combo: find new elements less than ${COMBO_WINDOW_MS/1000} seconds apart — 3 in a row +3, 5 in a row +5, every 10 in a row +10</li><li>Your best combo: ×${comboBest}</li></ul><button type="button" class="modal-button secondary" id="goalClose">Close</button>`);$('goalClose').onclick=closeModal;}
+ <ul class="perk-list"><li>Every new element: +${DISCOVERY_COINS} 🪙</li><li>Every ${GOAL_STEP} elements: +${GOAL_COINS} 🪙 · every ${DISCOVERY_MILESTONE}: +${DISCOVERY_MILESTONE_COINS} 🪙</li><li>🔥 Combo: find new elements less than ${COMBO_WINDOW_MS/1000} seconds apart — 5 in a row +2, every 10 in a row +5</li><li>Your best combo: ×${comboBest}</li></ul><button type="button" class="modal-button secondary" id="goalClose">Close</button>`);$('goalClose').onclick=closeModal;}
 let pendingLoop=null;
 function showDiscovery(id,a,b,scene=null,isShiny=false,loop=null){loop=loop||pendingLoop;pendingLoop=null;
  const it=byId.get(id),isFirst=worldFirsts.has(id),earned=[...unlocked].filter(x=>!STARTERS.has(x)).length,isComp=companions.isCompanion(id);
@@ -2005,7 +2005,7 @@ function openWardrobe(cid){const info=companions.info(cid);if(!info)return;const
 
 
 // V158: Arcade minigames (one per 250 new elements)
-const arcade=createArcade({rollMiniUnique:()=>grantUltra(rollUltra('mini',wallet.ultra,Math.random,MINI_UNIQUE_CHANCE)),$,escapeText,art:STADIUM_ART_V95,showAd:async kind=>{const b=getRewardBridge();if(!b)return true;const r=await b.showRewarded({kind});return r?.earned===true;},pauseWorld:()=>{document.body.classList.add('ar-playing');try{companions.stop();}catch{}},resumeWorld:()=>{document.body.classList.remove('ar-playing');try{companions.start();}catch{}},showModal,closeModal,toast,staticArt,sfx:SFX,item:id=>byId.get(id),itemName:id=>uiName(byId.get(id)),
+const arcade=createArcade({hasHouse:()=>{try{return [...unlocked,...(classicSnapshot?.unlocked||[])].some(id=>HOME_OBJECTS[id]?.kind==='house');}catch{return false;}},coins:()=>wallet.coins,spendCoins:n=>spendCoins(n),rollMiniUnique:()=>grantUltra(rollUltra('mini',wallet.ultra,Math.random,MINI_UNIQUE_CHANCE)),$,escapeText,art:STADIUM_ART_V95,showAd:async kind=>{const b=getRewardBridge();if(!b)return true;const r=await b.showRewarded({kind});return r?.earned===true;},pauseWorld:()=>{document.body.classList.add('ar-playing');try{companions.stop();}catch{}},resumeWorld:()=>{document.body.classList.remove('ar-playing');try{companions.start();}catch{}},showModal,closeModal,toast,staticArt,sfx:SFX,item:id=>byId.get(id),itemName:id=>uiName(byId.get(id)),
  unlocked:()=>[...unlocked].filter(id=>byId.has(id)&&!STARTERS.has(id)),
  knownRecipes:()=>{const out=[];for(const [k,r] of recipes){if(!unlocked.has(r)||STARTERS.has(r))continue;const [a,b]=k.split('|');if(unlocked.has(a)&&unlocked.has(b)&&a!==r&&b!==r)out.push([a,b,r]);if(out.length>600)break;}return out;},
  count:()=>classicDiscoveredCount(),activeId:()=>companions.active?.id||null,sprite:id=>COMPANION_SPRITES_V86[id]||'',wear:root=>{try{wearAll(root);}catch{}},

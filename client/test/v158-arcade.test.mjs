@@ -157,8 +157,22 @@ test('V188: companion personalities are deterministic and varied; microgame meda
 test('V189: discovery loop — goal strip, timed combos and rewards are wired', async () => {
   const { readFileSync } = await import('node:fs');
   const app = readFileSync(new URL('../src/app.js', import.meta.url), 'utf8');
-  assert.match(app, /const GOAL_STEP=20,GOAL_COINS=5,COMBO_WINDOW_MS=45000/);
-  assert.match(app, /const comboReward=n=>n===3\?3:n===5\?5:n>=10&&n%10===0\?10:0;/);
+  assert.match(app, /const GOAL_STEP=25,GOAL_COINS=5,COMBO_WINDOW_MS=45000/);
+  assert.match(app, /const comboReward=n=>n===5\?2:n>=10&&n%10===0\?5:0;/);
   assert.match(app, /kind!=='batch'\)\{try\{pendingLoop=discoveryLoopStep\(\)/);
   assert.match(app, /function syncGoalStrip/);
+});
+test('V190: first minigame comes with the first house; coins buy one; 250 elements add one', async () => {
+  const { arcadeProgress, ARCADE_STEP, ARCADE_BUY_COINS } = await import('../src/arcade-v158.js');
+  let p = arcadeProgress(null, 0, undefined, () => 0, { house: false });
+  assert.equal(p.state.unlocked.length, 0);
+  p = arcadeProgress(p.state, 100, undefined, () => 0, { house: true });
+  assert.equal(p.state.unlocked.length, 1); assert.equal(p.next, ARCADE_STEP);
+  p = arcadeProgress(p.state, 120, undefined, () => 0, { house: false });
+  assert.equal(p.state.unlocked.length, 1, 'the house game is kept');
+  p = arcadeProgress({ ...p.state, bought: 1 }, 120, undefined, () => 0, { house: true });
+  assert.equal(p.state.unlocked.length, 2); assert.equal(p.next, ARCADE_STEP, 'buying does not move the element goal');
+  p = arcadeProgress(p.state, ARCADE_STEP, undefined, () => 0, { house: true });
+  assert.equal(p.state.unlocked.length, 3); assert.equal(p.next, ARCADE_STEP * 2);
+  assert.ok(ARCADE_BUY_COINS >= 2000);
 });

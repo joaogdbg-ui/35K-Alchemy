@@ -2337,3 +2337,7 @@ body[data-tab="Pets"] .companion-layer{display:none}
 .loop-confetti i{position:absolute;top:-12px;width:8px;height:12px;border-radius:2px;animation:loop-fall 1.7s ease-in forwards}
 @keyframes loop-fall{to{transform:translate(var(--dx),420px) rotate(var(--r));opacity:0}}
 @media(max-height:680px) and (max-width:849px){.goal-strip{padding:4px 10px;margin-top:5px}.goal-ico{font-size:18px}}
+
+/* V190: minigame unlock explainer */
+.ar-how{margin:4px 0 10px;padding:9px 12px;border-radius:12px;background:var(--surface-2);font-size:13.5px;line-height:1.35;text-align:left}
+.ar-tile.is-locked{opacity:.8;border-style:dashed}

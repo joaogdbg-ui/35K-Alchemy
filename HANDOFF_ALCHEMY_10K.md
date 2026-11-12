@@ -90,6 +90,13 @@ Preserve 200-per-batch policy and do not start another content release on top of
 
 - **Art redraw wave 3 (V85, done): 3,991 icons** — every remaining older element. All 6,012 pre-V83 elements now use the 2026 art direction (`ART_REDRAW`), plus 200 V83 and 200 V85 originals. Six near-duplicates found by the audit were redrawn; 36 reviewed false alarms are in `tools/art-redraw-reviewed-pairs.json` (the audit now also honours them for V83 comparisons).
 
+## V190 — Minijogos por desbloquear e economia aparada
+
+- **Desbloqueio de minijogos** (`arcadeProgress(st,count,ids,rnd,{house})`): o 1.º minijogo (aleatório) chega com a **primeira casa** (`houseGiven`, fica para sempre); +1 aleatório a cada 250 elementos; ou compra de 1 aleatório por `ARCADE_BUY_COINS=3000` (`st.bought`, não mexe na meta dos 250). Bloqueados aparecem como 🔒 ??? com a explicação; tocar num ??? abre a compra. Passe de 24 h por anúncio mantém-se.
+- Migração única (`st.v<190`): saves antigos (testers com tudo aberto) são repostos pelo modelo novo (base 0); recordes e passes ficam.
+- **Economia da V189 aparada**: objetivo a cada 25 elementos (+5; +15 por 100 em vez de +20); combo paga só ×5 → +2 e cada ×10 → +5 (antes 3/5/10).
+- `APP_VERSION` 1.0.90.
+
 ## V189 — Ciclo de descoberta (objetivos curtos, combos, celebração)
 
 - **Faixa de objetivo** no ecrã principal (`#goalStrip`, criada por `syncGoalStrip()` a seguir ao `.craft-card`, só no Classic): "N to go · Reward at X elements · +moedas" com barra; toca → folha REWARDS. Objetivo a cada `GOAL_STEP=20` elementos (+`GOAL_COINS=5`); aos múltiplos de 100 mantém-se o prémio antigo de +50.

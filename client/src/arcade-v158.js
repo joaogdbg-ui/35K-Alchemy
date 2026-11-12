@@ -39,22 +39,27 @@ export const ARCADE_PASS_MS=24*60*60*1000;
 export const arcadePassLeft=(st,id,now=Date.now())=>Math.max(0,(st?.passes?.[id]||0)-now);
 export const fmtPass=ms=>{const m=Math.ceil(ms/60000);return m>=60?`${Math.floor(m/60)}h ${String(m%60).padStart(2,'0')}m`:`${m}m`;};
 /** Pure: what the save looks like after `count` discoveries. */
-export function arcadeProgress(st,count,ids=ARCADE_GAMES.map(g=>g.id),rnd=Math.random){
- const s={base:st?.base??count,unlocked:Array.isArray(st?.unlocked)?st.unlocked.filter(i=>ids.includes(i)):[],paid:st?.paid||0,best:st?.best||{},passes:st?.passes&&typeof st.passes==='object'?st.passes:{},coinDay:st?.coinDay||null};
- const steps=Math.max(0,Math.floor((count-s.base)/ARCADE_STEP));const want=1+steps;const fresh=[];let coins=0;
+export function arcadeProgress(st,count,ids=ARCADE_GAMES.map(g=>g.id),rnd=Math.random,opts={}){
+ const s={base:st?.base??count,unlocked:Array.isArray(st?.unlocked)?st.unlocked.filter(i=>ids.includes(i)):[],paid:st?.paid||0,best:st?.best||{},passes:st?.passes&&typeof st.passes==='object'?st.passes:{},coinDay:st?.coinDay||null,
+  bought:Math.max(0,st?.bought|0),houseGiven:opts.house===undefined?true:!!(st?.houseGiven||opts.house),v:st?.v||0};
+ // V190: the first (random) minigame arrives with the first companion house; every 250 elements adds one; coins can buy one.
+ const steps=Math.max(0,Math.floor((count-s.base)/ARCADE_STEP));const first=s.houseGiven?1:0;const want=first+steps+s.bought;const fresh=[];let coins=0;
  while(s.unlocked.length<Math.min(want,ARCADE_TOTAL)){const left=ids.filter(i=>!s.unlocked.includes(i));if(!left.length)break;const id=left[Math.floor(rnd()*left.length)];s.unlocked.push(id);fresh.push(id);}
  // after all 16 minigames exist and are unlocked, each further step pays coins once
- if(s.unlocked.length>=ARCADE_TOTAL){const extra=Math.max(0,want-ARCADE_TOTAL);if(extra>s.paid){coins=(extra-s.paid)*ARCADE_STEP_COINS;s.paid=extra;}}
- const next=s.base+(s.unlocked.length+s.paid)*ARCADE_STEP;
+ if(s.unlocked.length>=ARCADE_TOTAL){const extra=Math.max(0,1+steps-ARCADE_TOTAL);if(extra>s.paid){coins=(extra-s.paid)*ARCADE_STEP_COINS;s.paid=extra;}}
+ const next=s.base+(Math.max(0,s.unlocked.length-s.bought-first)+1+s.paid)*ARCADE_STEP;
  return {state:s,fresh,coins,next};}
+/** V190: coins can open one more random minigame early. */
+export const ARCADE_BUY_COINS=3000;
 
 export function createArcade(ctx){
  const {$,escapeText,showModal,closeModal,toast,staticArt,itemName}=ctx;
  const sfx=new Proxy(ctx.sfx||{},{get:(t,k)=>t[k]||(()=>{})});
  let st=null;try{st=JSON.parse(localStorage.getItem(ARCADE_KEY)||'null');}catch{}
  const save=()=>{try{localStorage.setItem(ARCADE_KEY,JSON.stringify(st));}catch{}};
- function sync(){const p=arcadeProgress(st,ctx.count());st=p.state;if(ARCADE_TESTER_ALL){for(const g of ARCADE_GAMES)if(!st.unlocked.includes(g.id))st.unlocked.push(g.id);p.fresh=[];}save();
-  for(const id of p.fresh){const g=ARCADE_GAMES.find(x=>x.id===id);if(g&&st.unlocked.length>1)toast(`New minigame unlocked: ${g.name}!`,'new');}
+ function sync(){if(st&&(st.v|0)<190){st={...st,unlocked:[],base:0,bought:0,houseGiven:false,v:190};} /* V190: testers had everything open */
+  const p=arcadeProgress(st,ctx.count(),undefined,Math.random,{house:!!ctx.hasHouse?.()});st=p.state;st.v=190;if(ARCADE_TESTER_ALL){for(const g of ARCADE_GAMES)if(!st.unlocked.includes(g.id))st.unlocked.push(g.id);p.fresh=[];}save();
+  for(const id of p.fresh){const g=ARCADE_GAMES.find(x=>x.id===id);if(g)toast(`New minigame unlocked: ${g.name}!`,'new');}
   if(p.coins){ctx.addCoins?.(p.coins);toast(`+${p.coins} coins · ${ARCADE_STEP} more elements found`,'new');}
   return p;}
  const lvl=(skill)=>{const id=ctx.activeId?.();return id&&skill?(ctx.skillLevel?.(id,skill)||0):0;};
@@ -63,10 +68,18 @@ export function createArcade(ctx){
  const art=id=>staticArt(ctx.item(id))||'';
  // ---------- hub sheet ----------
  function open(back){const p=sync();const got=st.unlocked.length;const ads=!!ctx.showAd;
-  const tiles=ARCADE_GAMES.map(g=>{const on=st.unlocked.includes(g.id),best=st.best[g.id];return `<button type="button" class="st-shop-btn ar-tile ${on?'':'is-locked'}" data-ar="${g.id}" ${on?'':'disabled'}><span>${on?g.icon:'🔒'}</span><b>${on?escapeText(g.name):'???'}</b><small>${on?(ads?(arcadePassLeft(st,g.id)?`⏳ ${fmtPass(arcadePassLeft(st,g.id))}`:'▶ Ad · 24h'):(best?`Best ${best}`:'New!')):'Locked'}</small></button>`;}).join('');
-  const soon=ARCADE_TOTAL-ARCADE_GAMES.length;
-  showModal(`<div class="modal-tag">MINIGAMES</div><h2>${got}/${ARCADE_TOTAL} unlocked</h2><p class="mini-muted">A new minigame unlocks every ${ARCADE_STEP} new elements found in Alchemy · next at <b>${p.next.toLocaleString('en-US')}</b> (you have ${ctx.count().toLocaleString('en-US')}).${soon>0?` ${soon} more minigames are coming in updates.`:''} Once all ${ARCADE_TOTAL} are open, every ${ARCADE_STEP} elements gives 🪙${ARCADE_STEP_COINS}.</p>
-   ${ads?`<p class="ar-pass">▶ One ad opens a minigame for 24 hours</p>`:''}<div class="st-shop is-hub ar-grid">${tiles}</div><button type="button" class="modal-button secondary" id="arClose">${back?'Back':'Close'}</button>`);
+  const lockedN=ARCADE_GAMES.length-got;
+  const tiles=[...ARCADE_GAMES].sort((a,b)=>st.unlocked.includes(b.id)-st.unlocked.includes(a.id)).map(g=>{const on=st.unlocked.includes(g.id),best=st.best[g.id];return on?`<button type="button" class="st-shop-btn ar-tile" data-ar="${g.id}"><span>${g.icon}</span><b>${escapeText(g.name)}</b><small>${ads?(arcadePassLeft(st,g.id)?`⏳ ${fmtPass(arcadePassLeft(st,g.id))}`:'▶ Ad · 24h'):(best?`Best ${best}`:'New!')}</small></button>`:`<button type="button" class="st-shop-btn ar-tile is-locked" data-arlock="1"><span>🔒</span><b>???</b><small>${ARCADE_STEP} elements or 🪙${ARCADE_BUY_COINS.toLocaleString('en-US')}</small></button>`;}).join('');
+  const left=Math.max(0,p.next-ctx.count());
+  showModal(`<div class="modal-tag">MINIGAMES</div><h2>${got}/${ARCADE_GAMES.length} unlocked</h2>
+   ${!st.houseGiven?`<p class="ar-how">🏠 Your first minigame — a random one — arrives with your <b>first companion house</b>.</p>`:lockedN?`<p class="ar-how">🔒 A random <b>???</b> opens every <b>${ARCADE_STEP} elements</b> you find — ${left.toLocaleString('en-US')} to go — or right now for <b>🪙${ARCADE_BUY_COINS.toLocaleString('en-US')}</b>.</p>`:`<p class="ar-how">All minigames are open! Every ${ARCADE_STEP} more elements gives 🪙${ARCADE_STEP_COINS}.</p>`}
+   ${ads&&got?`<p class="ar-pass">▶ One ad opens an unlocked minigame for 24 hours</p>`:''}<div class="st-shop is-hub ar-grid">${tiles}</div>
+   ${st.houseGiven&&lockedN?`<button type="button" class="modal-button" id="arBuy">Unlock a random minigame · 🪙${ARCADE_BUY_COINS.toLocaleString('en-US')}</button>`:''}<button type="button" class="modal-button secondary" id="arClose">${back?'Back':'Close'}</button>`);
+  const buy=()=>{if(!st.houseGiven){toast('Find your first companion house to get your first minigame','repeat');return;}
+   if((ctx.coins?.()??0)<ARCADE_BUY_COINS){toast(`You need 🪙${ARCADE_BUY_COINS.toLocaleString('en-US')} — or find ${left.toLocaleString('en-US')} more elements`,'repeat');return;}
+   showModal(`<div class="modal-tag">MINIGAMES</div><div class="ar-big">🔓</div><h2>Unlock a random minigame?</h2><p>One of the ${lockedN} locked minigames opens for good. It costs <b>🪙${ARCADE_BUY_COINS.toLocaleString('en-US')}</b>.</p><button type="button" class="modal-button" id="arBuyOk">Unlock · 🪙${ARCADE_BUY_COINS.toLocaleString('en-US')}</button><button type="button" class="modal-button secondary" id="arBuyNo">Back</button>`);
+   $('arBuyNo').onclick=()=>open(back);$('arBuyOk').onclick=()=>{if(!ctx.spendCoins?.(ARCADE_BUY_COINS)){open(back);return;}st.bought=(st.bought|0)+1;save();sfx.unlock();sync();open(back);};};
+  const bb=$('arBuy');if(bb)bb.onclick=buy;document.querySelectorAll('[data-arlock]').forEach(b=>b.onclick=buy);
   $('arClose').onclick=()=>back?back():closeModal();
   document.querySelectorAll('[data-ar]').forEach(b=>b.onclick=()=>intro(b.dataset.ar,back));}
  function intro(id,back){const g=ARCADE_GAMES.find(x=>x.id===id);const need=!!ctx.showAd&&!arcadePassLeft(st,id);const h=g.help;const sk=h.skill?lvl(h.skill):0,sv=h.stat?stat(h.stat):0;
