@@ -292,3 +292,20 @@ test('V202: Market is its own tab with Remove ads first, old sheets are skinned,
   assert.ok(css.includes('/* DARK-SKIN:start') && css.trimEnd().endsWith('/* DARK-SKIN:end */'), 'generated dark block stays last');
   assert.match(css, /html\[data-theme="dark"\] :is\([^)]*\.element-chip/);
 });
+
+test('V203: living elements — built-in motion by name, rare screen effects, companions react', async () => {
+  const fs = await import('node:fs');
+  const rd = p => fs.readFileSync(new URL(p, import.meta.url), 'utf8');
+  const { liveKind, bleedOf, LIVE_MS, REACT, BLEED } = await import('../src/living-v203.js');
+  const want = { Fire: 'flame', 'Ice Cube': 'melt', Steam: 'smoke', Volcano: 'erupt', Life: 'beat', Smoke: 'smoke', Cake: 'glow', Angel: 'flap', 'Hermit Crab': 'shell', Water: 'water', Wind: 'wind', Energy: 'zap', Cat: 'critter', Shark: 'swim', Wheel: 'spin', Balloon: 'bounce' };
+  for (const [n, k] of Object.entries(want)) assert.equal(liveKind(n), k, n);
+  for (const n of ['Price', 'Police', 'Notice', 'Device', 'Catfish', 'Starfish', 'Earth', 'Sound']) assert.equal(liveKind(n), '', n + ' must not match inside another word');
+  assert.equal(bleedOf('Fire'), 'burn'); assert.equal(bleedOf('Smoke'), 'smoke'); assert.equal(bleedOf('Ice'), 'frost'); assert.equal(bleedOf('Life'), '');
+  const css = rd('../src/styles.css'), app = rd('../src/app.js'), eng = rd('../src/companion-engine-v86.js'), mod = rd('../src/living-v203.js');
+  for (const k of Object.keys(LIVE_MS)) assert.ok(css.includes(`.element-chip[data-live="${k}"] .chip-art`), k);
+  for (const t of new Set(Object.values(BLEED))) assert.ok(REACT[t], t);
+  for (const c of ['.lf-burn{', '.lf-puff{', '.lf-flood{', '.lf-frost{', '.lf-streak{', '.lf-flash{']) assert.ok(css.includes(c), c);
+  assert.ok(mod.includes('live>=2') && mod.includes('fx.childElementCount'), 'never everything at once');
+  assert.ok(app.includes('createLiving({') && eng.includes('function react(anim,ex,ms=2400)'));
+  const { COMPANIONS_V86 } = await import('../src/companions-v86.js'); assert.ok(COMPANIONS_V86.length === 40);
+});

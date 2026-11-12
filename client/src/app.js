@@ -128,6 +128,7 @@ import { STADIUM_ART_V95 } from './stadium-art-v95.js';
 import { createStadiumSfx } from './stadium-sfx-v95.js';
 import { COMPANIONS_V86, COMPANION_SPRITES_V86 } from './companions-v86.js';
 import { createCompanionSystem, COMPANION_STORAGE_KEY, rivalLook, traitIconSvg, setMarketLook, hasNaturalLook, setLookGate, themeInfo } from './companion-engine-v86.js';
+import { createLiving, liveKind, bleedOf } from './living-v203.js';
 import { ACCESSORIES, wearableFor, MARKET, MARKET_TABS, COIN_PACK, COIN_PACKS, FAIR_PLAY_NOTE, coinsFor, LESSONS, LESSON_LEVELS, LESSON_MINUTES, lessonPrice, SCHOOL_AD_CUT_MIN, accPrice, DAILY_COINS, DISCOVERY_COINS, COMPANION_FIND_COINS, FIND_AD_MULT, dailyCoins, DISCOVERY_MILESTONE, DISCOVERY_MILESTONE_COINS, FIRST_BUY_MULT, DYES, assignDyes, LOOK_ITEMS, TINT_ITEMS, ULTRA, champUltraChance, MINI_UNIQUE_CHANCE, rollUltra } from './market-v136.js';
 import { PUBLIC_LABELS_V86 } from './public-labels-v86.js';
 import { reconcileLegacyFamilies } from './family-compatibility-v82.js';
@@ -514,7 +515,7 @@ function shinyFanfare(){if(!soundEnabled)return;const ctx=acquireSoundEngine();i
 function showShinyFound(id){const it=byId.get(id);if(!it)return;
  showModal(`<div class="modal-tag shiny-tag">✦ SHINY ELEMENT</div><div class="modal-art is-shiny">${staticArt(it)}</div><h2>Shiny ${escapeText(uiName(it))}</h2>${shinyPerks(it)}${shinyCard(it)}`);shinyDress();
 }
-const APP_VERSION='1.1.02';
+const APP_VERSION='1.1.03';
 // V83: status line + Google consent (UMP) privacy options, required for EEA players.
 async function refreshAdStatus(){
  const el=$('settingsAdStatus'),bridge=getRewardBridge();
@@ -1765,6 +1766,9 @@ function classicDiscoveredCount(){try{const list=currentMode==='classic'?[...unl
 function alchemyGrowth(){return Math.round((1+Math.min(1,classicDiscoveredCount()/4000))*100)/100;}
 function wearAll(root){if(!root)return;const els=root.querySelectorAll?.('[data-companion], .pet-ava[data-card], .pet-card[data-pet], .home-res[data-res], .pets-now-art[data-card]')||[];for(const el of els){const id=el.dataset.companion||el.dataset.card||el.dataset.pet||el.dataset.res;const svg=el.querySelector('svg');if(!svg)continue;try{const rl=el.dataset.rival&&!companions.lookOf(id)?games.rivalLookOf?.(id):null;if(rl)companions.applyRivalLook(svg,id,rl);else companions.applyLook(svg,id);}catch{}const belt=games.beltOf(id);if(belt)wearBelt(svg,belt);}}
 try{if(window.__m)window.__companions=companions;}catch{}
+// V203: living elements — one element at a time moves by itself; rarely its effect spills onto the screen
+const living=createLiving({audio:()=>soundEnabled?acquireSoundEngine():null,nameOf:id=>byId.get(id)?.name||'',canRun:()=>tab==='Play'&&$('modal').hidden&&!document.hidden&&!document.body.classList.contains('keyboard-open'),react:(anim,ex,ms)=>companions.react?.(anim,ex,ms)});
+setTimeout(()=>{try{living.start();}catch{}},2500);try{if(window.__m)window.__living=living;}catch{}
 const homes=createHomeSystem({$,escapeText,byId:homeById,uiName:homeUiName,staticArt:homeStaticArt,isDiscovered:homeDiscovered,objects:HOME_OBJECTS,sprites:COMPANION_SPRITES_V86,roster:COMPANIONS_V86,
  roomSprites:ROOM_SPRITES,depthOf:id=>routeDepth.get(id),alchemy:()=>({mult:alchemyGrowth(),finds:classicDiscoveredCount()}),wear:wearAll,applyEffect:(cid,eff)=>companions.homeEffect(cid,eff),
  audio:()=>soundEnabled?acquireSoundEngine():null,relation:(x,y)=>companions.relation(x,y),relInfo:r=>companions.relInfo(r),poseRig:el=>companions.poseRig(el),companionName:id=>companions.state().pets[id]?.nick||uiName(byId.get(id)),statsHtml:id=>companions.statsHtml(id),showModal,closeModal,toast,reducedMotion:()=>Boolean(window.matchMedia?.('(prefers-reduced-motion: reduce)')?.matches)});
