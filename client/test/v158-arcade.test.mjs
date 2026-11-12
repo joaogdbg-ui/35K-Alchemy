@@ -176,3 +176,20 @@ test('V190: first minigame comes with the first house; coins buy one; 250 elemen
   assert.equal(p.state.unlocked.length, 3); assert.equal(p.next, ARCADE_STEP * 2);
   assert.ok(ARCADE_BUY_COINS >= 2000);
 });
+test('V193: every companion has its own race world with real props', async () => {
+  const { COMPANION_WORLDS, PROP_LIB, companionArt } = await import('../src/games-theme-v151.js');
+  const { COMPANIONS_V86 } = await import('../src/companions-v86.js');
+  const names = new Set();
+  for (const c of COMPANIONS_V86) {
+    const w = COMPANION_WORLDS[c.id]; assert.ok(w, c.id); names.add(w.name);
+    for (const p of w.props) assert.equal(typeof PROP_LIB[p], 'function', p);
+    const art = companionArt({ run: '<svg><rect fill="#8fbf68"/></svg>', swim: '', fly: '', climb: '', mid: '', sky: '<svg><rect fill="#7cc3e0"/></svg>' }, c.id);
+    assert.ok(art.prop(10, 20, 0.2).startsWith('<g') && art.prop(10, 20, 0.8).startsWith('<g') && art.name === w.name);
+  }
+  assert.equal(names.size, COMPANIONS_V86.length, 'world names are unique');
+  assert.equal(companionArt({}, 'nope'), null);
+  const { readFileSync } = await import('node:fs');
+  const g = readFileSync(new URL('../src/games-v93.js', import.meta.url), 'utf8');
+  assert.match(g, /function finishRace\(mount,course,level,place,racers,finished\)\{\n  const PK=/);
+  assert.match(g, /function askQuit/);
+});

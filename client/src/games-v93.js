@@ -115,7 +115,7 @@ export function courseSvg(c,art={},theme=null){
    const n=Math.floor((z.pb-z.pa)/36);for(let j=0;j<n;j++){const x=z.pa+18+j*36,k=(x-z.pa)/(z.pb-z.pa),d=10+((j*37)%70),y=groundAt(z,k);mid.push(j%3===1?`<ellipse cx="${f1(x+d*SK)}" cy="${f1(y+d)}" rx="9" ry="4" fill="#6fa65a" stroke="#4d7a3c" stroke-width="1.5"/>`:`<path d="M${f1(x+d*SK)} ${f1(y+d)}q5-4 10 0" stroke="#fff" stroke-width="2.2" fill="none" opacity=".8"/>`);}
    back.push(`<path d="M${f1(z.pa+10)} ${f1(z.y0+2)}v-20M${f1(z.pa+16)} ${f1(z.y0+2)}v-27M${f1(z.pb-12)} ${f1(z.y0+2)}v-23" stroke="#6d8f3e" stroke-width="3" stroke-linecap="round"/><ellipse cx="${f1(z.pa+16)}" cy="${f1(z.y0-24)}" rx="3" ry="6" fill="#9a6a3e"/>`);continue;}
   mid.push(ground(T));
-  if(z.kind!=='puzzle'){const n=Math.floor((z.pb-z.pa)/150);for(let j=0;j<n;j++){if(rnd()<0.45)continue;const x=z.pa+40+j*150+rnd()*40,y=groundAt(z,(x-z.pa)/(z.pb-z.pa));back.push(bush(x,y+4));}}
+  if(z.kind!=='puzzle'){const n=Math.floor((z.pb-z.pa)/150);for(let j=0;j<n;j++){if(rnd()<0.45&&!theme?.dense)continue;const x=z.pa+40+j*150+rnd()*40,y=groundAt(z,(x-z.pa)/(z.pb-z.pa));back.push(bush(x,y+4));}}
   else{const yy=z.y0,gx=z.pa+(z.pb-z.pa)*0.9;
    for(let i=0;i<4;i++){const x=panelPx(z,i),d=B*0.55;mid.push(`<g id="rcP${z.i}_${i}" class="rc-panel"><ellipse cx="${f1(x+d*SK)}" cy="${f1(yy+d)}" rx="16" ry="10" fill="#e9dcc6" stroke="#8a6a4a" stroke-width="2.5"/><text x="${f1(x+d*SK)}" y="${f1(yy+d+6)}" text-anchor="middle" font-size="16">${z.opts[i]}</text></g>`);}
    back.push(`<rect x="${f1(gx-4)}" y="${yy-96}" width="9" height="100" rx="3" fill="#C9934E" stroke="#7a5b3a" stroke-width="2.5"/><rect x="${f1(gx-40)}" y="${yy-120}" width="80" height="34" rx="9" fill="#fff8ec" stroke="#7a5b3a" stroke-width="3"/><text x="${f1(gx)}" y="${yy-96}" text-anchor="middle" font-size="17">${z.recipe[0]}+${z.recipe[1]}</text>`);}
@@ -316,6 +316,9 @@ export function createGamesSystem(ctx){
  // ---------- shared stage ----------
  function actor(id,cls=''){const el=document.createElement('span');el.className='companion g-actor '+cls;el.dataset.anim='idle';el.dataset.face='right';el.dataset.companion=id;if(rivalLooks.has(id))el.dataset.rival='1';const art=document.createElement('span');art.className='companion-art';rig(art,id);el.append(art);return el;}
  function stage(title,kind){const st=document.createElement('div');st.className='g-stage is-'+kind;st.innerHTML=`<div class="g-stage-top"><strong>${escapeText(title)}</strong><button type="button" class="g-quit" aria-label="Quit">✕</button></div><div class="g-stage-body"></div><div class="g-hud"></div><div class="g-banner" hidden></div>`;document.body.append(st);return st;}
+ /** V193: the ✕ asks before leaving a game. */
+ function askQuit(st,leave,hold){if(st.querySelector('.g-confirm'))return;hold?.(true);const c=document.createElement('div');c.className='g-confirm';c.innerHTML='<div class="g-confirm-box"><b>Leave the game?</b><p>This round will not count.</p><button type="button" class="modal-button" data-k="stay">Keep playing</button><button type="button" class="modal-button secondary" data-k="go">Leave</button></div>';st.append(c);
+  c.querySelector('[data-k="stay"]').onclick=()=>{c.remove();hold?.(false);};c.querySelector('[data-k="go"]').onclick=()=>{c.remove();leave();};}
  function banner(st,text,cls='',ms=900){const b=st.querySelector('.g-banner');b.textContent=text;b.className='g-banner '+cls;b.hidden=false;b.classList.remove('is-in');void b.offsetWidth;b.classList.add('is-in');clearTimeout(b._t);b._t=setTimeout(()=>{b.hidden=true;},ms);}
  const countdown=(st,done)=>{const seq=['3','2','1','GO!'];let i=0;const tick=()=>{banner(st,seq[i],seq[i]==='GO!'?'is-go':'is-count',seq[i]==='GO!'?700:800);if(seq[i]==='GO!')sfx.go();else sfx.tick();i++;if(i<seq.length)setTimeout(tick,800);else setTimeout(done,150);};tick();};
  const fxAt=(parent,cls,x,y,ms=700)=>{const f=document.createElement('i');f.className='g-fx '+cls;f.style.left=x+'px';f.style.top=y+'px';parent.append(f);setTimeout(()=>f.remove(),ms);return f;};
@@ -331,10 +334,11 @@ export function createGamesSystem(ctx){
   const C=buildCourse(planFor(course,level),course.id.length*31+level);const L=C.L;
   const rivals=opponentsFor(4,pid,level);const growth=Number(ctx.alchemyGrowth?.()||1);
   // V151: theme races get their own map (recoloured textures, themed sky and props)
-  const TA=course.theme&&ctx.themedArt?ctx.themedArt(art,course.id):null;const A=TA||art;const bgA=k=>A[k]?`url('data:image/svg+xml,${encodeURIComponent(A[k]).replace(/'/g,'%27')}')`:'none';
+  const CA=!course.theme&&ctx.companionArt?ctx.companionArt(art,pid):null; /* V193: the racer's own world */
+  const TA=course.theme&&ctx.themedArt?ctx.themedArt(art,course.id):CA;const A=TA||art;const bgA=k=>A[k]?`url('data:image/svg+xml,${encodeURIComponent(A[k]).replace(/'/g,'%27')}')`:'none';
   const PK=ctx.skillLevels?.(pid)||{};
-  const st=stage(`${course.name} · ${LEVELS[level]}`,'race');st.dataset.level=level;if(course.theme)st.dataset.theme=course.id;const body=st.querySelector('.g-stage-body'),hud=st.querySelector('.g-hud');
-  body.innerHTML=`<div class="g-sky" style="background-image:${bgA('sky')}"><i class="g-cloud" style="--d:0"></i><i class="g-cloud" style="--d:1"></i><i class="g-cloud" style="--d:2"></i></div><div class="g-mid" style="background-image:${bgA('mid')}"></div><div class="g-track is-v99" style="width:${C.W}px">${courseSvg(C,A,TA?{prop:TA.prop,recolor:ctx.recolorSvg?(x=>ctx.recolorSvg(x,TA.map)):null}:null)}${courseFrontSvg(C)}</div><div class="g-fore" style="background-image:${bgA('mid')}"></div><div class="g-tint"></div>${TA?`<div class="g-themefx is-${course.id}">${'<i></i>'.repeat(14)}</div>`:''}`;
+  const st=stage(`${course.name} · ${LEVELS[level]}`,'race');if(CA){st.dataset.world='1';st.querySelector('.g-stage-top strong').insertAdjacentHTML('beforeend',`<small class="g-world">${escapeText(CA.name)}</small>`);}st.dataset.level=level;if(course.theme)st.dataset.theme=course.id;const body=st.querySelector('.g-stage-body'),hud=st.querySelector('.g-hud');
+  body.innerHTML=`<div class="g-sky" style="background-image:${bgA('sky')}"><i class="g-cloud" style="--d:0"></i><i class="g-cloud" style="--d:1"></i><i class="g-cloud" style="--d:2"></i></div><div class="g-mid" style="background-image:${bgA('mid')}"></div><div class="g-track is-v99" style="width:${C.W}px">${courseSvg(C,A,TA?{prop:TA.prop,dense:TA.dense,recolor:ctx.recolorSvg?(x=>ctx.recolorSvg(x,TA.map)):null}:null)}${courseFrontSvg(C)}</div><div class="g-fore" style="background-image:${bgA('mid')}"></div><div class="g-tint"></div>${TA?`<div class="g-themefx ${CA?'is-world':'is-'+course.id}" ${CA?`style="--fxc:${CA.fx}"`:''}>${'<i></i>'.repeat(14)}</div>`:''}`;
   body.classList.add('has-v99');const track=body.querySelector('.g-track'),hills=body.querySelector('.g-mid');
   const avg=s=>['run','swim','fly','power','stamina'].reduce((n,k)=>n+(s[k]||0),0)/5/99;
   const racers=[{id:pid,me:true,stats:Object.fromEntries(Object.entries(me.stats).map(([k,v])=>[k,v.level])),mood:me.mood,belly:me.belly??60,name:me.name},...rivals.map((c,i)=>({id:c.id,stats:opponentStats(course,level,i+1+Date.now()%97),mood:35+Math.random()*50,belly:40+Math.random()*60,name:companionInfo(c.id).name}))];
@@ -351,10 +355,10 @@ export function createGamesSystem(ctx){
    if(r.ev){r.ev=null;r.boost=0.5;sfx.cheer();fxAt(r.el,'is-ok',26,-10,700);banner(st,'BACK IN IT!','is-pass',600);return;}if(r.energy<6){r.el.classList.add('g-tired');cheer.classList.add('is-no');sfx.tired();try{navigator.vibrate?.([8,40,8]);}catch{}setTimeout(()=>{r.el.classList.remove('g-tired');cheer.classList.remove('is-no');},300);return;}
    r.energy-=6*(1-perkOf(PK,'sing'));r.boost=0.8*(1+perkOf(PK,'drums'));if(r.gl&&r.gl.ph==='air')r.gl.reach+=0.08;sfx.cheer();try{navigator.vibrate?.(15);}catch{}cheer.classList.remove('is-pop');void cheer.offsetWidth;cheer.classList.add('is-pop');const b=document.createElement('i');b.className='g-burst';r.el.append(b);setTimeout(()=>b.remove(),500);};
   body.addEventListener('pointerdown',doCheer);cheer.addEventListener('pointerdown',e=>{e.stopPropagation();doCheer();});
-  st.querySelector('.g-quit').onclick=()=>{quit=true;cancelAnimationFrame(raf);st.remove();};
+  let held=false;st.querySelector('.g-quit').onclick=()=>askQuit(st,()=>{quit=true;cancelAnimationFrame(raf);st.remove();},h=>{held=h;if(!h)last=0;});
   const flash=(z,i,ok)=>{const el=track.querySelector(`#rcP${z.i}_${i}`);if(!el)return;el.classList.remove('is-ok','is-bad');void el.getBoundingClientRect();el.classList.add(ok?'is-ok':'is-bad');setTimeout(()=>el.classList.remove('is-ok','is-bad'),600);};
   const ANIM={run:'walk',swim:'hopwalk',wall:'climb',glide:'fly',puzzle:'walk'},CLS={run:'run',swim:'swim',wall:'climb on-wall',glide:'fly',puzzle:'run'};
-  const step=now=>{if(quit)return;const dt=Math.min(0.05,(now-(last||now))/1000);last=now;
+  const step=now=>{if(quit)return;if(held){last=0;raf=requestAnimationFrame(step);return;}const dt=Math.min(0.05,(now-(last||now))/1000);last=now;
    for(const r of racers){if(r.done)continue;let P=posAt(C,r.x,r.lane);let z=P.z;
     if(r.seg!==z.seg){r.seg=z.seg;if(r.me&&z.a>0){banner(st,SEG_WORD[z.t],'is-seg is-'+(z.t==='puzzle'?'climb':z.t),700);sfx.section();}}
     if(r.kind!==z.kind){const was=r.kind;r.kind=z.kind;if(z.kind==='swim'&&was)fxAt(r.el,'is-splash is-big',10,40,700),r.me&&sfx.splash();if(z.kind==='glide'&&r.me)sfx.flap();if(was==='wall'&&r.me)fxAt(r.el,'is-dust',20,50,500);}
@@ -430,6 +434,7 @@ export function createGamesSystem(ctx){
  }
  function confetti(parent){if(reducedMotion())return;for(let i=0;i<26;i++){const f=document.createElement('i');f.className='g-confetti';f.style.setProperty('--i',i);f.style.left=(20+Math.random()*60)+'%';f.style.setProperty('--c',['#e0675a','#f1c26b','#5aaed2','#8dbf8a','#9b7fc4'][i%5]);parent.append(f);setTimeout(()=>f.remove(),1800);}}
  function finishRace(mount,course,level,place,racers,finished){
+  const PK=ctx.skillLevels?.(pick())||{}; /* V193: was undefined here — the result screen crashed and the race coins were never paid */
   const R=myRaces();const bag=R[course.id]=R[course.id]||{};const prev=bag[level]||0;const improved=!prev||place<prev;if(improved)bag[level]=place;
   const prize=course.theme?null:trophyOf(course.id);let newPrize=false;if(prize&&place===1&&level===LEVELS.length-1&&!hasPrize(prize.id)){state.prizes.push(prize.id);newPrize=true;}
   const ultra=place===1&&course.id==='grand'?ctx.rollChampUltra?.(level):place===1&&course.ultra&&level===LEVELS.length-1?ctx.grantSupreme?.():null;
@@ -471,7 +476,7 @@ export function createGamesSystem(ctx){
   let over=false,turn=0,timer=0,round=0,live=false,hitStop=0;
   const arm=()=>{if(over||!live||A.power)return;if(A.energy<20){cheer.classList.add('is-no');sfx.tired();setTimeout(()=>cheer.classList.remove('is-no'),300);return;}A.energy-=20*(1-perkOf(PK,'juggle'));A.power=true;A.el.classList.add('is-charged');sfx.charge();cheer.classList.remove('is-pop');void cheer.offsetWidth;cheer.classList.add('is-pop');upd();};
   body.addEventListener('pointerdown',arm);cheer.addEventListener('pointerdown',e=>{e.stopPropagation();arm();});
-  st.querySelector('.g-quit').onclick=()=>{over=true;clearTimeout(timer);st.remove();};
+  st.querySelector('.g-quit').onclick=()=>askQuit(st,()=>{over=true;clearTimeout(timer);st.remove();});
   // V106: readable fight choreography (Web Animations): wind-up → dash → impact → recoil / dodge / block → back.
   const move=(e,frames,ms,opt={})=>{if(reducedMotion()||!e.animate)return null;try{return e.animate(frames,{duration:ms,easing:'cubic-bezier(.3,.7,.3,1)',...opt});}catch{return null;}};
   const hit=(att,def)=>{
@@ -505,6 +510,7 @@ export function createGamesSystem(ctx){
   setTimeout(startRound,500);
  }
  function finishKarate(mount,level,win,A,B){
+  const PK=ctx.skillLevels?.(A.id)||{};
   const K=myKarate();const prev=K[level]||0;if(win)K[level]=1;else if(!prev)K[level]=2;
   let newBelt=null;if(win){const b=belts[level];const cur=belts.findIndex(x=>x.id===state.belts[A.id]);if(level>cur){state.belts[A.id]=b.id;newBelt=b;onBelt?.(A.id,b.id);}}
   save();

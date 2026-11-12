@@ -2458,3 +2458,38 @@ html:not([data-theme="dark"]) body[data-game-mode="family"] .tab.active{backgrou
 .td-card.is-gift.is-ready{border-color:#E8843C;box-shadow:0 4px 0 #E8843C;background:linear-gradient(#FFF3E3,#FFD9B0)}.td-card.is-gift.is-ready>span{animation:goal-wob .9s ease-in-out infinite}
 .td-card:disabled{opacity:.7;box-shadow:none}
 body[data-tab="Games"] .companion-layer{display:none}
+
+/* V193: quit confirmation inside games */
+.g-confirm{position:absolute;inset:0;z-index:200;display:grid;place-items:center;background:rgba(40,50,56,.55);backdrop-filter:blur(2px)}
+.g-confirm-box{width:min(300px,84%);padding:18px 16px 14px;border-radius:22px;background:#FFF8EC;border:2px solid #657D89;box-shadow:0 6px 0 rgba(0,0,0,.25);text-align:center;color:#2F3A40}
+.g-confirm-box b{font-size:19px}.g-confirm-box p{margin:6px 0 4px;font-size:13.5px;color:#5C6A70}
+
+/* V193: companion worlds in races */
+.g-themefx.is-world i{background:var(--fxc,#fff);box-shadow:0 0 6px var(--fxc,#fff)}
+.g-world{display:block;font-size:11px;font-weight:800;color:#8A5A1C;letter-spacing:.04em}
+
+/* V193: Settings in the game skin */
+.settings-header h2{font-size:24px}
+.settings-header h2::before{content:"⚙️ ";font-size:20px}
+.settings-back{border:2px solid #D9CFBB;box-shadow:0 3px 0 #D9CFBB;border-radius:13px}
+.settings-section{border:2px solid #E3D6BE;border-radius:20px;background:linear-gradient(#fff,#FBF3E2);box-shadow:0 4px 0 #E3D6BE;padding:6px 14px}
+.settings-row label,.settings-row-title{font-weight:800}
+.settings-sound-toggle{height:38px;min-width:72px;border-radius:13px;border:2px solid #D9CFBB;background:#F4EEE2;box-shadow:0 3px 0 #D9CFBB;font-size:13px;font-weight:900}
+.settings-sound-toggle[aria-pressed="true"]{background:#6FB26A;border-color:#4F8A4C;box-shadow:0 3px 0 #4F8A4C;color:#fff}
+.settings-theme-choices{gap:8px}
+.settings-theme-choices button{height:40px;border-radius:13px;border:2px solid #D9CFBB;background:#fff;box-shadow:0 3px 0 #D9CFBB;font-size:13px;font-weight:900}
+.settings-theme-choices button[aria-pressed="true"]{background:#4F6269;border-color:#33444B;box-shadow:0 3px 0 #33444B;color:#FFE9B8;transform:translateY(-1px)}
+.settings-sound-toggle:active,.settings-theme-choices button:active{transform:translateY(2px);box-shadow:none}
+.settings-service-title{display:inline-block;margin:8px 0 2px;padding:3px 12px;border-radius:999px;background:#4F6269;color:#FFE9B8;letter-spacing:.12em}
+.settings-link{border:2px solid transparent;border-radius:14px;font-weight:800}
+.settings-link:active{background:#F7EFE0;border-color:#E3D6BE}
+.settings-divider{height:2px;background:#EFE5CF;border-radius:2px}
+.bx-noads{border:2px solid #E8843C!important;border-style:solid!important;border-radius:20px!important;background:linear-gradient(120deg,#FFF3E3,#FFD9B0)!important;box-shadow:0 4px 0 #E8843C}
+.bx-noads-badge{background:#E0675A!important;color:#fff!important;border-radius:10px!important;rotate:-4deg}
+.bx-noads-price{font-size:18px!important;font-weight:900!important;color:#7A3A12!important}
+.settings-page .stat-tile,.settings-save-grid button,.backup-grid button{border:2px solid #E3D6BE!important;border-radius:18px!important;background:linear-gradient(#fff,#FBF3E2)!important;box-shadow:0 4px 0 #E3D6BE}
+.settings-page .stat-tile:active{transform:translateY(3px);box-shadow:0 1px 0 #E3D6BE}
+.settings-service-title{width:max-content;max-width:100%}
+.st-grid .st-tile{border:2px solid #E3D6BE!important;border-radius:18px!important;background:linear-gradient(#fff,#FBF3E2)!important;box-shadow:0 4px 0 #E3D6BE;transition:transform .1s}
+.st-grid .st-tile:active{transform:translateY(3px);box-shadow:0 1px 0 #E3D6BE}
+.st-grid .st-tile i{box-shadow:0 2px 0 rgba(0,0,0,.08)}

@@ -140,7 +140,7 @@ export function createArcade(ctx){
    shake(){s.classList.remove('is-shake');void s.offsetWidth;s.classList.add('is-shake');},
    rect(el){const r=el.getBoundingClientRect(),b=o.body.getBoundingClientRect();return {x:r.left-b.left+r.width/2,y:r.top-b.top+r.height/2,w:r.width,h:r.height};},
    end:null};
-  s.querySelector('.g-quit').onclick=()=>o.finish(true);
+  s.querySelector('.g-quit').onclick=()=>{if(o.over||s.querySelector('.g-confirm'))return;const c=document.createElement('div');c.className='g-confirm';c.innerHTML='<div class="g-confirm-box"><b>Leave the game?</b><p>Your score so far will not count.</p><button type="button" class="modal-button" data-k="stay">Keep playing</button><button type="button" class="modal-button secondary" data-k="go">Leave</button></div>';s.append(c);c.querySelector('[data-k="stay"]').onclick=()=>c.remove();c.querySelector('[data-k="go"]').onclick=()=>{c.remove();o.finish(true);};};
   o.finish=(quit=false)=>{if(o.over)return;o.over=true;o.timers.forEach(clearTimeout);cancelAnimationFrame(o.raf);o.end?.();if(quit){s.remove();ctx.resumeWorld?.();return;}
    const t=document.createElement('div');t.className='g-banner is-in ar-end';t.textContent=o.endText||'Time!';s.append(t);sfx.prize();setTimeout(()=>{s.remove();ctx.resumeWorld?.();result(o.id,o.score,o.statKey);},1100);};
   o.countdown=(go)=>{const c=document.createElement('div');c.className='g-banner is-count';s.append(c);const seq=['3','2','1','GO!'];let i=0;const tick=()=>{if(o.over){c.remove();return;}c.textContent=seq[i];c.className='g-banner '+(i===3?'is-go':'is-count');void c.offsetWidth;c.classList.add('is-in');i===3?sfx.go():sfx.tick();i++;if(i<seq.length)setTimeout(tick,650);else setTimeout(()=>{c.remove();if(!o.over)go();},500);};tick();};
