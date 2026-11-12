@@ -90,6 +90,12 @@ Preserve 200-per-batch policy and do not start another content release on top of
 
 - **Art redraw wave 3 (V85, done): 3,991 icons** — every remaining older element. All 6,012 pre-V83 elements now use the 2026 art direction (`ART_REDRAW`), plus 200 V83 and 200 V85 originals. Six near-duplicates found by the audit were redrawn; 36 reviewed false alarms are in `tools/art-redraw-reviewed-pairs.json` (the audit now also honours them for V83 comparisons).
 
+## V185 — Moedas visíveis no ecrã principal
+
+- Barra de topo: chip `#topCoins` (🪙 + saldo, `data-coins`) ao lado das definições, em todos os separadores; tocar abre "Get coins".
+- `syncCoinLabels()` anima o chip e mostra "+N"/"−N" quando o saldo muda (descobertas, prémios, compras).
+- `APP_VERSION` 1.0.85.
+
 ## V184 — Lote 1 de elementos: Cozinha e comidas do mundo (+200)
 
 - Novo pack `client/src/organic-pack-v184.js` (`ORGANIC_V184`, ids `organic184:*`, categoria `food`) e arte `client/src/organic-art-v184.js` (200 SVG originais).
