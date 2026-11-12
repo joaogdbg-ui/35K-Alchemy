@@ -311,9 +311,15 @@ test('V204: living elements — sensible motion (parts where the art allows), pa
   // effects: every rule has a reaction, a builder and starts at the element
   const types = [...new Set(L.BLEED_RULES.map(r => r[0]))]; assert.ok(types.length >= 24, String(types.length));
   for (const t of types) { assert.ok(L.REACT[t], t); assert.ok(mod.includes(`type==='${t}'`), 'builder ' + t); }
-  const exp = { Fire: 'burn', Spider: 'web', Love: 'hearts', Moon: 'night', Music: 'music', Gold: 'gold', Ghost: 'ghost', Cake: 'confetti', 'Black Hole': 'pull', Ice: 'frost', Rainbow: 'rainbow', Ink: 'ink', Sleep: 'zzz', Price: '', Earth: '' };
+  const exp = { Fire: 'burn', Spider: 'web', Love: 'hearts', Moon: 'night', Music: 'music', Gold: 'gold', Ghost: 'ghost', Cake: 'confetti', 'Black Hole': 'pull', Ice: 'frost', Rainbow: 'rainbow', Ink: 'ink', Sleep: 'zzz', Rocket: 'zoom', Sword: 'slash', Rock: 'crack', Seed: 'grow', Book: 'letters', Robot: 'pixels', Price: '' };
   for (const [n, k] of Object.entries(exp)) assert.equal(L.bleedOf(n), k, n);
-  assert.ok(mod.includes('fx.childElementCount') && mod.includes("chip.classList.add('is-source')") && mod.includes('MAX_LIVE=8'), 'one effect at a time, from a marked source; motions may overlap');
+  assert.ok(mod.includes('fx.childElementCount') && mod.includes("classList.add('is-source')") && mod.includes('MAX_LIVE=12'), 'one effect at a time, from a marked source; motions may overlap');
+  // V205: motion belongs to the element id and is carried over when the list re-renders (scrolling, tapping)
+  assert.ok(mod.includes('new MutationObserver') && mod.includes('function carry()') && mod.includes("'--lv-delay',(-gone)+'ms'"));
+  assert.ok(css.includes('.element-chip.is-live .chip-art>*{animation-delay:var(--lv-delay,0ms)}'));
+  for (const [f, k] of Object.entries(L.FAMILY_BLEED)) { assert.ok(L.REACT[k], f); assert.ok(mod.includes(`type==='${k}'`), k); }
+  assert.equal(L.bleedOf('Nameless Thing', 'games'), 'pixels'); assert.equal(L.bleedOf('Nameless Thing'), ''); assert.equal(L.bleedOf('Cat', 'games'), 'paws');
+  assert.ok(types.length >= 36, 'plenty of different effects: ' + types.length);
   assert.ok(css.includes('.element-chip.is-source{') && css.includes('.lf-wash{position:absolute;inset:0;clip-path:circle(0 at var(--x) var(--y))'));
   for (const [a] of Object.values(L.REACT)) assert.ok(css.includes(`.companion[data-anim="${a}"]`), 'pose ' + a);
   assert.ok(app.includes('createLiving({') && eng.includes('function react(anim,ex,ms=2400)'));
