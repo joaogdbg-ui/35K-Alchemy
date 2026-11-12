@@ -262,3 +262,18 @@ test('V200: companions act — hop turn, expressions and readable poses on every
   for (const k of ["A.m.anim('carry')", "A.m.anim('stomp')", "winner.anim('taunt')", "expr(el,'dizzy',0)", "'getup'"]) assert.ok(eng.includes(k), k);
   for (const k of ["dataset.anim='sulk'", "dataset.anim='stomp'", "'celebrate':'wave'", "ctx.poseRig?.(el)"]) assert.ok(home.includes(k), k);
 });
+
+test('V201: furniture is used from beside it (watch, warm up, rummage) instead of standing on top', async () => {
+  const fs = await import('node:fs');
+  const { useStyle } = await import('../src/home-engine-v90.js');
+  const css = fs.readFileSync(new URL('../src/styles.css', import.meta.url), 'utf8');
+  const home = fs.readFileSync(new URL('../src/home-engine-v90.js', import.meta.url), 'utf8');
+  assert.deepEqual([useStyle('Aquarium').mode, useStyle('Aquarium').pose], ['side', 'watch']);
+  assert.equal(useStyle('Fireplace').pose, 'warm'); assert.equal(useStyle('Campfire').pose, 'warm');
+  assert.equal(useStyle('Wardrobe').pose, 'rummage'); assert.equal(useStyle('Dollhouse').pose, 'play');
+  assert.equal(useStyle('Food Bowl').mode, 'front'); assert.equal(useStyle('Punching Bag').mode, 'front');
+  for (const n of ['Bed', 'Sofa', 'Treadmill', 'Trampoline', 'Paddling Pool', 'Armchair']) assert.equal(useStyle(n).mode, 'on', n);
+  for (const a of ['warm', 'watch', 'rummage']) assert.ok(css.includes(`.companion[data-anim="${a}"] .companion-art`), a);
+  assert.ok(css.includes('.home-walker.rest-curl') && css.includes('.home-walker.use-soak'));
+  assert.ok(home.includes("useSpot(f,L,blockedFor(f))") && home.includes("classList.add('use-soak')"));
+});

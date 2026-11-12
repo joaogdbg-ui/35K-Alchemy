@@ -2772,6 +2772,35 @@ body[data-tab="Games"] .companion-layer{display:none}
 @keyframes pz-getup{0%{rotate:calc(var(--dir) * 88deg);translate:10% 6%}55%{rotate:calc(var(--dir) * -12deg)}80%{rotate:calc(var(--dir) * 6deg)}100%{rotate:0deg;translate:0 0}}
 @media (prefers-reduced-motion:reduce){.companion[data-face] .companion-art>svg{animation:none}}
 
+/* ===== V201: using furniture from beside it — warm up, watch, rummage ===== */
+.companion[data-anim="warm"] .companion-art{rotate:calc(var(--dir) * 5deg);animation:pz-sigh 1.8s ease-in-out infinite}
+.companion[data-anim="warm"] [data-part^="arm-"]{rotate:var(--fwd,0deg);animation:fu-rub .5s ease-in-out infinite alternate}
+.companion[data-anim="warm"] [data-part^="wing-"]{rotate:var(--fwd,0deg)}
+.companion[data-anim="warm"] [data-part="tail"]{animation:pz-wag .9s ease-in-out infinite alternate}
+.companion[data-anim="watch"] .companion-art{rotate:calc(var(--dir) * 9deg);translate:calc(var(--dir) * 4%) 0}
+.companion[data-anim="watch"] [data-part="head"]{animation:fu-follow 2.4s ease-in-out infinite}
+.companion[data-anim="watch"] [data-part="eye-l"],.companion[data-anim="watch"] [data-part="eye-r"]{animation:fu-eyes 2.4s ease-in-out infinite}
+.companion[data-anim="watch"] [data-part="arm-r"]{rotate:var(--fwd,0deg)}
+.companion[data-anim="watch"] [data-part="tail"]{animation:pz-wag .5s ease-in-out infinite alternate}
+.companion[data-anim="rummage"] .companion-art{rotate:calc(var(--dir) * 16deg);translate:calc(var(--dir) * 6%) 2%;animation:fu-dig .36s ease-in-out infinite}
+.companion[data-anim="rummage"] [data-part="arm-l"]{animation:fu-paw .36s ease-in-out infinite}.companion[data-anim="rummage"] [data-part="arm-r"]{animation:fu-paw .36s ease-in-out infinite reverse}
+.companion[data-anim="rummage"] [data-part="head"]{rotate:12deg;translate:2px 2px}
+.companion[data-anim="rummage"] [data-part="tail"]{animation:pz-wag .18s linear infinite alternate}
+.companion[data-anim="rummage"] .companion-art[data-rig="quad"] [data-part="leg-r"]{animation:pz-paw .18s ease-in-out infinite alternate}
+@keyframes fu-rub{from{translate:0 -1px}to{translate:0 1.5px}}
+@keyframes fu-follow{0%,100%{rotate:-6deg}50%{rotate:8deg;translate:1px 1px}}
+@keyframes fu-eyes{0%,100%{translate:.6px -.6px}50%{translate:1.4px .8px}}
+@keyframes fu-dig{50%{translate:calc(var(--dir) * 9%) 4%}}
+@keyframes fu-paw{0%,100%{rotate:calc(var(--fwd,0deg) - 24deg)}50%{rotate:calc(var(--fwd,0deg) + 24deg)}}
+.home-walker.use-rest .companion-art{translate:30% -10%}
+.home-walker.rest-curl .companion-art{scale:1.04 .8;translate:0 8%;animation:pz-sigh 2.4s ease-in-out infinite}
+.home-walker.rest-curl [data-part="head"]{rotate:16deg;translate:1px 3px}
+.home-walker.rest-curl [data-part^="arm-"]{rotate:var(--in,0deg)}
+.home-walker.rest-curl [data-part="leg-l"],.home-walker.rest-curl [data-part="leg-r"]{scale:1 .6}
+.home-walker.rest-curl::after{content:"z";position:absolute;right:2px;top:-4px;font:800 12px system-ui;color:#657D89;animation:ex-float 1.8s ease-out infinite}
+.home-walker.use-soak .companion-art{clip-path:inset(0 0 34% 0);translate:0 10%;animation:home-bob 1.8s ease-in-out infinite}
+.home-walker.use-soak::after{content:"";position:absolute;left:10%;right:10%;top:62%;height:12%;border:2px solid rgba(255,255,255,.85);border-radius:50%;animation:home-ripple 1.6s ease-out infinite}
+
 </style>
 </head>
 <body>
@@ -3197,6 +3226,13 @@ function motionOf(id,name='',effect=''){const t=(id+' '+name).toLowerCase();
  if(/stove|oven|kettle|campfire|fireplace|hot-spring|bathtub|soaking/.test(t))return 'steam';if(effect==='swim')return 'pool';if(/globe/.test(t))return 'spin';return '';}   // sprite height band above the footprint (in tiles)
 // How a resident uses a piece: stand ON it, or stand IN FRONT of it.
 const FRONT_USE=/shelf|desk|bowl|trough|stove|oven|punching|television|piano|computer|telescope|microscope|globe|aquarium|radio|arcade|pinball|cupboard|pantry|icebox|counter|sink|basin|chest|clock|kettle|jar|box|post|monitor|typewriter|guitar|drum|speaker|vinyl|loom|workbench|easel|wall|barrel|dresser|wardrobe|lamp/i;
+// V201: pieces you look at, warm up at, rummage in or play with are used from BESIDE them, facing them — never by standing on top.
+const SIDE_USE=/fireplace|campfire|stove|oven|kettle|aquarium|fish|dollhouse|toy chest|night light|clock|wardrobe|dresser|cupboard|pantry|icebox|bookshelf|bookcase|telescope|microscope|globe|workbench|loom|scratching|cookie jar|bread box|barrel|toolbox|lamp|lantern|bird|bonsai|flower|coat rack|umbrella|folding screen|laundry|dish rack|towel rack|sink|basin|counter|spice|piano|vinyl|desk|shelf|kite|picnic|photo album|building blocks|puzzle|spinning top|bath duck|table|nightstand|gate|fence|television|computer|radio|arcade|pinball|easel|chest|statue|vase|plant|mirror|jukebox|drum|guitar|speaker/i;
+const SIDE_POSE=[[/fireplace|campfire|stove|oven|kettle/i,'warm','happy','Warming up by'],[/aquarium|fish|clock|night light|lamp|lantern|globe|telescope|microscope|bonsai|flower|bird|album|television|mirror|statue|vase|plant|easel/i,'watch','wow','Watching'],[/wardrobe|dresser|cupboard|pantry|icebox|chest|toolbox|barrel|box|jar|rack|counter|sink|basin|shelf|bookcase|laundry|picnic|umbrella|table|nightstand/i,'rummage','','Rummaging in'],[/dollhouse|blocks|puzzle|spinning top|bath duck|kite/i,'play','happy','Playing with']];
+/** Pure: how a piece is used — {mode:'side'|'front'|'on', pose, expr, verb}. */
+function useStyle(name='',id=''){const t=name+' '+id;if(/punching/i.test(t))return {mode:'front'};if(/bowl|trough/i.test(t))return {mode:'front'};
+ if(SIDE_USE.test(name)){const p=SIDE_POSE.find(([re])=>re.test(name));return {mode:'side',pose:p?.[1]||'',expr:p?.[2]||'',verb:p?.[3]||''};}
+ return {mode:FRONT_USE.test(name)?'front':'on'};}
 const USE={run:{anim:'walk',cls:'use-run'},swim:{anim:'hopwalk',cls:'use-swim'},power:{anim:'knock',cls:'use-power'},fly:{anim:'jump',cls:'use-fly'},
  stamina:{anim:'climb',cls:'use-climb'},hp:{anim:'sleep',cls:'use-rest'},mood:{anim:'idle',cls:'is-happy'},food:{anim:'eat',cls:'use-eat'},discovery:{anim:'point',cls:'use-look'},decor:{anim:'idle',cls:''}};
 function layoutFor(capacity){return HOUSE_LAYOUTS[capacity]||HOUSE_LAYOUTS[Object.keys(HOUSE_LAYOUTS).map(Number).filter(n=>n<=capacity).pop()||1];}
@@ -3452,7 +3488,11 @@ function createHomeSystem(ctx){
 
  // ---------- residents walk to furniture and use it ----------
  function rig(el,cid){el.innerHTML=sprites[cid]||'';for(const g of el.querySelectorAll('[data-part]')){const p=(g.dataset.pivot||'50 50').split(/\s+/).map(Number);g.style.transformOrigin=`${p[0]}px ${p[1]}px`;g.style.transformBox='view-box';}ctx.poseRig?.(el);const svg=el.querySelector('svg');if(svg){svg.setAttribute('width','100%');svg.setAttribute('height','100%');}}
- function useSpot(f,L){const [w,h]=footprint(objects,f);const name=uiName(byId.get(f.id))||'';const layer=layerOf(RS,f.id);
+ function useSpot(f,L,blocked){const [w,h]=footprint(objects,f);const name=uiName(byId.get(f.id))||'';const layer=layerOf(RS,f.id);
+  const st=useStyle(name,f.id);
+  if(layer!=='wall'&&st.mode==='side'){const y=f.y+h-1,ok=x=>x>=0&&x<L.cols&&!(blocked&&blocked.has(y*L.cols+x));const opts=[];if(ok(f.x-1))opts.push({x:f.x-0.72,face:1});if(ok(f.x+w))opts.push({x:f.x+w-0.28,face:-1});
+   if(opts.length){const o=opts[Math.floor(Math.random()*opts.length)];return {x:o.x,y,side:true,face:o.face,st};}
+   if(f.y+h<L.rows)return {x:f.x+(w-1)/2,y:f.y+h-0.1,front:true,below:true,st};}
   // V112: residents stand in the CENTRE of what they use (fractional tiles), not on its first tile.
   if(layer!=='floor'&&FRONT_USE.test(name)){const fy=f.y+h-(/punching/i.test(f.id)?1:0.45);return {x:f.x+(w-1)/2,y:Math.min(L.rows-1,fy),front:true};}
   const m=motionOf(f.id,name,objects[f.id]?.effect);const lift=m==='wheel'?-0.36:m==='bike'||m==='rock'?0.15:0;
@@ -3501,7 +3541,7 @@ function createHomeSystem(ctx){
     const free=usable.filter(f=>!taken.has(f));let f=null;
     if(free.length&&Math.random()<0.65){const wt=free.map(x=>{const e=objects[x.id]?.effect;return e===w.per.fav?3:e===w.per.shy?0.35:1;});let r=Math.random()*wt.reduce((a,b)=>a+b,0);f=free[free.length-1];for(let q=0;q<free.length;q++){r-=wt[q];if(r<=0){f=free[q];break;}}}
     let tx,ty,spot=null;
-    if(f){spot=useSpot(f,L);tx=spot.x;ty=spot.y;}
+    if(f){spot=useSpot(f,L,blockedFor(f));tx=spot.x;ty=spot.y;}
     else{const o=openTiles();let t=o[Math.floor(Math.random()*o.length)]||{x:w.p.x,y:w.p.y};
      // V179: sometimes go and say hi to a housemate
      const mate=walkers.length>1&&Math.random()<0.45?walkers.filter(m=>m!==w)[Math.floor(Math.random()*(walkers.length-1))]:null;
@@ -3531,9 +3571,15 @@ function createHomeSystem(ctx){
      if(refuse){w.el.dataset.anim='sulk';expr(w,'sad',1400);bubble(w,'🙅',1400);act(w,`Not a fan of the ${fname}`);voice(w.cid,'no');setTimeout(()=>{if(w.el.dataset.anim==='sulk')w.el.dataset.anim='idle';},1300);return;}
      const loves=eff===w.per.fav;act(w,loves?`Loves the ${fname} ♥`:`${STYLE_VERB[w.per.style]?.[eff]||VERB[eff]||'Using'} the ${fname}`);
      if(loves){bubble(w,'💖',1600);expr(w,'love',2200);voice(w.cid,'happy');}else if(Math.random()<0.35)voice(w.cid,'use');w.el.classList.add('p-'+w.per.style);
-     if(spot.front){w.p.face=1;w.el.dataset.face='right';}
+     if(spot.side){w.p.face=spot.face;w.el.dataset.face=spot.face>0?'right':'left';const [,fh]=footprint(objects,f);w.el.style.setProperty('--z',12+(f.y+fh)*2);}
+     else if(spot.front){w.p.face=1;w.el.dataset.face='right';if(spot.below){const [,fh]=footprint(objects,f);w.el.style.setProperty('--z',13+(f.y+fh)*2);}}
      else{const [,fh]=footprint(objects,f);w.el.style.setProperty('--z',11+(f.y+fh)*2);}
      w.el.dataset.anim=(eff==='hp'&&w.per.style==='hyper')?'jump':u.anim;if(u.cls&&!(eff==='hp'&&w.per.style==='hyper'))w.el.classList.add(u.cls);w.el.classList.add('is-using');
+     if(eff==='hp'&&w.el.classList.contains('use-rest')){const [fw]=footprint(objects,f);expr(w,'sleepy',useMs);
+      if(/tub|spring|shower|bath/i.test(fname)){w.el.classList.remove('use-rest');w.el.classList.add('use-soak');w.el.dataset.anim='idle';expr(w,'happy',useMs);}
+      else if(fw<2||/roller|chair|hammock/i.test(fname)){w.el.classList.remove('use-rest');w.el.classList.add('rest-curl');}}
+     if(spot.st?.pose&&(spot.side||spot.below)){w.el.dataset.anim=spot.st.pose==='play'?'duo-cheer':spot.st.pose;if(u.cls)w.el.classList.remove(u.cls);if(spot.st.expr)expr(w,spot.st.expr,useMs);if(!loves)act(w,`${spot.st.verb} the ${fname}`);}
+     else if(spot.side&&eff==='mood'){w.el.dataset.anim='wave';expr(w,'happy',useMs);}
      const piece=root.querySelector(`[${attr}="${h.furniture.indexOf(f)}"]`);const mk=motionOf(f.id,uiName(byId.get(f.id))||'',eff);
      if(mk){w.el.classList.add('m-'+mk);if(mk==='wheel'||mk==='treadmill'||mk==='bike'){w.p.face=1;w.el.dataset.face='right';w.el.dataset.anim='walk';}}
      if(piece){piece.classList.add('is-in-use');if(mk)piece.classList.add('m-'+mk);const o=MOTION_OV[mk];let ovEl=null;
@@ -8409,7 +8455,7 @@ function shinyFanfare(){if(!soundEnabled)return;const ctx=acquireSoundEngine();i
 function showShinyFound(id){const it=byId.get(id);if(!it)return;
  showModal(`<div class="modal-tag shiny-tag">✦ SHINY ELEMENT</div><div class="modal-art is-shiny">${staticArt(it)}</div><h2>Shiny ${escapeText(uiName(it))}</h2>${shinyPerks(it)}${shinyCard(it)}`);shinyDress();
 }
-const APP_VERSION='1.1.00';
+const APP_VERSION='1.1.01';
 // V83: status line + Google consent (UMP) privacy options, required for EEA players.
 async function refreshAdStatus(){
  const el=$('settingsAdStatus'),bridge=getRewardBridge();

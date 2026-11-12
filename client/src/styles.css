@@ -2762,3 +2762,32 @@ body[data-tab="Games"] .companion-layer{display:none}
 @keyframes pz-sniff{from{translate:0 0}to{translate:2px 2px}}
 @keyframes pz-getup{0%{rotate:calc(var(--dir) * 88deg);translate:10% 6%}55%{rotate:calc(var(--dir) * -12deg)}80%{rotate:calc(var(--dir) * 6deg)}100%{rotate:0deg;translate:0 0}}
 @media (prefers-reduced-motion:reduce){.companion[data-face] .companion-art>svg{animation:none}}
+
+/* ===== V201: using furniture from beside it — warm up, watch, rummage ===== */
+.companion[data-anim="warm"] .companion-art{rotate:calc(var(--dir) * 5deg);animation:pz-sigh 1.8s ease-in-out infinite}
+.companion[data-anim="warm"] [data-part^="arm-"]{rotate:var(--fwd,0deg);animation:fu-rub .5s ease-in-out infinite alternate}
+.companion[data-anim="warm"] [data-part^="wing-"]{rotate:var(--fwd,0deg)}
+.companion[data-anim="warm"] [data-part="tail"]{animation:pz-wag .9s ease-in-out infinite alternate}
+.companion[data-anim="watch"] .companion-art{rotate:calc(var(--dir) * 9deg);translate:calc(var(--dir) * 4%) 0}
+.companion[data-anim="watch"] [data-part="head"]{animation:fu-follow 2.4s ease-in-out infinite}
+.companion[data-anim="watch"] [data-part="eye-l"],.companion[data-anim="watch"] [data-part="eye-r"]{animation:fu-eyes 2.4s ease-in-out infinite}
+.companion[data-anim="watch"] [data-part="arm-r"]{rotate:var(--fwd,0deg)}
+.companion[data-anim="watch"] [data-part="tail"]{animation:pz-wag .5s ease-in-out infinite alternate}
+.companion[data-anim="rummage"] .companion-art{rotate:calc(var(--dir) * 16deg);translate:calc(var(--dir) * 6%) 2%;animation:fu-dig .36s ease-in-out infinite}
+.companion[data-anim="rummage"] [data-part="arm-l"]{animation:fu-paw .36s ease-in-out infinite}.companion[data-anim="rummage"] [data-part="arm-r"]{animation:fu-paw .36s ease-in-out infinite reverse}
+.companion[data-anim="rummage"] [data-part="head"]{rotate:12deg;translate:2px 2px}
+.companion[data-anim="rummage"] [data-part="tail"]{animation:pz-wag .18s linear infinite alternate}
+.companion[data-anim="rummage"] .companion-art[data-rig="quad"] [data-part="leg-r"]{animation:pz-paw .18s ease-in-out infinite alternate}
+@keyframes fu-rub{from{translate:0 -1px}to{translate:0 1.5px}}
+@keyframes fu-follow{0%,100%{rotate:-6deg}50%{rotate:8deg;translate:1px 1px}}
+@keyframes fu-eyes{0%,100%{translate:.6px -.6px}50%{translate:1.4px .8px}}
+@keyframes fu-dig{50%{translate:calc(var(--dir) * 9%) 4%}}
+@keyframes fu-paw{0%,100%{rotate:calc(var(--fwd,0deg) - 24deg)}50%{rotate:calc(var(--fwd,0deg) + 24deg)}}
+.home-walker.use-rest .companion-art{translate:30% -10%}
+.home-walker.rest-curl .companion-art{scale:1.04 .8;translate:0 8%;animation:pz-sigh 2.4s ease-in-out infinite}
+.home-walker.rest-curl [data-part="head"]{rotate:16deg;translate:1px 3px}
+.home-walker.rest-curl [data-part^="arm-"]{rotate:var(--in,0deg)}
+.home-walker.rest-curl [data-part="leg-l"],.home-walker.rest-curl [data-part="leg-r"]{scale:1 .6}
+.home-walker.rest-curl::after{content:"z";position:absolute;right:2px;top:-4px;font:800 12px system-ui;color:#657D89;animation:ex-float 1.8s ease-out infinite}
+.home-walker.use-soak .companion-art{clip-path:inset(0 0 34% 0);translate:0 10%;animation:home-bob 1.8s ease-in-out infinite}
+.home-walker.use-soak::after{content:"";position:absolute;left:10%;right:10%;top:62%;height:12%;border:2px solid rgba(255,255,255,.85);border-radius:50%;animation:home-ripple 1.6s ease-out infinite}
