@@ -38,8 +38,8 @@ export const COIN_PACK={id:'coins_100',coins:200,price:'€1.00'};
 /** V137: bigger packs are better value (bonus vs the 100-coin pack). */
 /** V150: coins doubled for the same euros (product ids keep their original names). */
 /** V174: packs give much more (≈3 days of play for €1); the 4 biggest also give a pack-exclusive colour. Product ids unchanged. */
-/** V178: coin packs removed — Remove ads is the only real-money purchase. Kept empty so old purchase tokens are simply ignored. */
-export const COIN_PACKS=[];
+/** V179: coin packs are back (owner: "+ Coins" may stay real money). Two real-money things: Remove ads and coin packs. Product ids unchanged. */
+export const COIN_PACKS=[{id:'coins_100',coins:600,price:'€1.00',bonus:0},{id:'coins_210',coins:1300,price:'€2.00',bonus:8},{id:'coins_550',coins:3500,price:'€5.00',bonus:17},{id:'coins_1200',coins:8000,price:'€10.00',bonus:33,tag:'Popular'},{id:'coins_2600',coins:17000,price:'€20.00',bonus:42},{id:'coins_7000',coins:45000,price:'€50.00',bonus:50},{id:'coins_15000',coins:100000,price:'€100.00',bonus:67,tag:'Best value'}];
 /** V174: the very first coin pack bought gives double coins. */
 export const FIRST_BUY_MULT=2;
 /** V174: companion colours — a coin sink (cosmetic). Exclusive ones come only with the big coin packs. */
@@ -84,7 +84,7 @@ export function assignDyes(names,hasLook){const free=names.filter(n=>!hasLook(n)
  for(const d of DYES){let have=[...map.values()].filter(v=>v===d.id).length;while(have<DYE_MIN&&k<rest.length){map.set(rest[k++],d.id);have++;}}
  return map;}
 /** V149: shown in the Market and the coin shop — nothing is pay-only. */
-export const FAIR_PLAY_NOTE='Everything is bought with Companion Coins, and coins are only earned by playing. The only real-money purchase is Remove ads.';
+export const FAIR_PLAY_NOTE='Everything is bought with Companion Coins, and all of it can be earned by playing. Coin packs only save time. Real money is only for coin packs and Remove ads.';
 export const MARKET=[
  // food: given straight to the companion on screen
  // V137: food is placed on the main screen; drag it onto a companion
