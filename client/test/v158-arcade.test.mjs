@@ -120,3 +120,12 @@ test('V180: ambient furniture kinds', async () => {
   assert.equal(H.ambientOf('organic89:curtain', 'Curtain'), 'breeze');
   assert.equal(H.ambientOf('organic89:bed', 'Bed'), '');
 });
+test('V181: ultra races are longer and every rival is a legend', async () => {
+  const G = await import('../src/games-v93.js');
+  assert.equal(G.ULTRA_COURSES.length, 3);
+  for (const c of G.ULTRA_COURSES) {
+    assert.ok(G.ROUTES[c.id], c.id + ' has a route');
+    assert.equal(G.planFor(c, 4).length, 20); assert.equal(G.planFor(c, 0).length, 12);
+    const o = G.opponentStats(c, 0, 3); assert.ok(Object.values(o).every(v => v >= 95 && v <= 99));
+  }
+});

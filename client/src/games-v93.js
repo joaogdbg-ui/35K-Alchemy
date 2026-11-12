@@ -146,6 +146,7 @@ export const statSpeed=lv=>0.55+Math.max(0,Math.min(99,lv))/99*0.9;
 export const energyMax=lv=>60+Math.max(0,Math.min(99,lv))*1.6;
 export function opponentStats(course,level,seed){
  let s=seed*9301+level*49297+course.id.length*233;const rnd=()=>{s=(s*9301+49297)%233280;return s/233280;};
+ if(course.ultra){const out={};for(const k of ['hp','stamina','run','power','swim','fly'])out[k]=95+Math.floor(rnd()*5);return out;}
  const base=LEVEL_POWER[level],out={};
  for(const k of ['hp','stamina','run','power','swim','fly']){let v=base*(0.7+rnd()*0.6);if(course.focus===k||course.focus==='all')v*=1.25;out[k]=Math.round(Math.max(0,Math.min(99,v)));}
  return out;
@@ -167,7 +168,15 @@ export const THEME_COURSES=[
  {id:'deepsea',name:'Deep Sea Dash',focus:'swim',theme:'ocean',look:'Ocean',blurb:'Reefs and long swims. Only sea creatures may enter.',prize:'snorkel'}];
 // V136: Expert gold on a regular course also gives an accessory
 export const COURSE_ACC={pond:'snorkel',cliffs:'aviator',meadow:'cap',boulder:'headband',trail:'bandana',grand:'gold-crown',dojo:'medal'};
+/** V181 ultra races: appear once the matching ultra-rare look is unlocked. Longer (+6 sections), every rival at the very top (95-99). Champion gold wins the Supreme look. */
+export const ULTRA_COURSES=[
+ {id:'celestialrun',name:'Celestial Ascent',focus:'fly',theme:'celestial',look:'Celestial',ultra:'u-celestial',blurb:'A stairway of clouds above the sky. The longest flight there is — every rival is a legend.'},
+ {id:'abyssalrun',name:'Abyssal Descent',focus:'power',theme:'abyssal',look:'Abyssal',ultra:'u-abyssal',blurb:'Down the black cliffs of the abyss. Brutal walls — every rival is a legend.'},
+ {id:'titanrun',name:'Titan Trial',focus:'all',theme:'titan',look:'Titan',ultra:'u-titan',blurb:'Run, swim, fly, climb and think without a break. Every rival is a legend.'}];
 export const ROUTES={
+ celestialrun:['fly','fly','run','fly','puzzle','fly','swim','fly','fly','climb','fly','puzzle','fly','fly','run','fly','fly','fly'],
+ abyssalrun:['climb','climb','run','climb','puzzle','climb','fly','climb','climb','swim','climb','puzzle','climb','fly','climb','climb','run','climb'],
+ titanrun:['run','swim','fly','climb','puzzle','swim','fly','climb','run','puzzle','fly','climb','swim','run','fly','climb','swim','puzzle'],
  heaven:['fly','run','fly','fly','puzzle','fly','run','fly','fly','swim','fly','fly'],
  inferno:['climb','run','climb','puzzle','climb','fly','climb','run','climb','climb','fly','climb'],
  dragonpeak:['fly','climb','fly','climb','run','fly','climb','puzzle','fly','climb','fly','run'],
@@ -182,7 +191,7 @@ export const ROUTES={
 };
 const FOCUS_SEG={swim:'swim',fly:'fly',run:'run',power:'climb'};
 export function planFor(course,level){
- const n=[6,8,10,12,14][level];const route=ROUTES[course.id]||ROUTES.trail;const out=[{t:'run',len:SEG_LEN}];
+ const n=[6,8,10,12,14][level]+(course.ultra?6:0);const route=ROUTES[course.id]||ROUTES.trail;const out=[{t:'run',len:SEG_LEN}];
  for(let i=0;i<n-2;i++){const t=route[i%route.length];
   const focus=FOCUS_SEG[course.focus]===t;
   const len=t==='puzzle'?Math.round(SEG_LEN*1.6):t==='run'?Math.round(SEG_LEN*(course.focus==='run'?1.3+level*0.1:1)):Math.round(SEG_LEN*(1+level*0.12+(focus&&level>=2?0.3:0)));
@@ -218,7 +227,7 @@ export function createGamesSystem(ctx){
  const pick=()=>{const o=owned();if(!o.length)return null;if(!o.some(c=>c.id===state.pick))state.pick=(activeId?.()&&o.some(c=>c.id===activeId()))?activeId():o[0].id;return state.pick;};
  const best=(bag,l)=>bag?.[l]||0;
  const levelOpen=(bag,l)=>l===0||best(bag,l-1)===1;
- const courseOpen=c=>c.theme?(Math.round(100*(ctx.themeCompletion?.(shown(),c.theme)||0))>=85):!c.locked||COURSES.filter(x=>!x.locked).every(x=>best(myRaces()[x.id],0)===1);
+ const courseOpen=c=>c.ultra?!!ctx.ultraOwned?.(c.ultra):c.theme?(Math.round(100*(ctx.themeCompletion?.(shown(),c.theme)||0))>=85):!c.locked||COURSES.filter(x=>!x.locked).every(x=>best(myRaces()[x.id],0)===1);
  const beltOf=cid=>state.belts[cid]||null;
  const hasPrize=id=>state.prizes.includes(id);
  function medalCounts(cid=shown()){const n={gold:0,silver:0,bronze:0};const P=prog(cid);const all=[...Object.values(P.races),P.karate];for(const lv of all)for(const p of Object.values(lv||{})){const m=medalFor(p);if(m)n[m]++;}return n;}
@@ -229,7 +238,7 @@ export function createGamesSystem(ctx){
  const dress=root=>{try{wear?.(root);}catch{}};
 
  // ---------- hub (V96: one entrant card, one event list, no tabs) ----------
- const EVENTS=()=>[...COURSES.map(c=>({kind:'race',id:c.id,name:c.name,focus:c.focus,course:c})),{kind:'karate',id:'dojo',name:'Karate Dojo',focus:'karate'},...THEME_COURSES.map(c=>({kind:'race',id:c.id,name:c.name,focus:c.focus,course:c,theme:true}))];
+ const EVENTS=()=>[...COURSES.map(c=>({kind:'race',id:c.id,name:c.name,focus:c.focus,course:c})),{kind:'karate',id:'dojo',name:'Karate Dojo',focus:'karate'},...THEME_COURSES.map(c=>({kind:'race',id:c.id,name:c.name,focus:c.focus,course:c,theme:true})),...ULTRA_COURSES.filter(c=>ctx.ultraOwned?.(c.ultra)).map(c=>({kind:'race',id:c.id,name:c.name,focus:c.focus,course:c,theme:true,ultra:true}))];
  const themePct=(c,cid=shown())=>Math.round(100*(ctx.themeCompletion?.(cid,c.theme)||0));
  const bagOf=e=>e.kind==='race'?(myRaces()[e.id]||{}):myKarate();
  const nextLevel=e=>{const bag=bagOf(e);for(let i=0;i<LEVELS.length;i++)if(best(bag,i)!==1)return i;return LEVELS.length-1;};
@@ -243,7 +252,7 @@ export function createGamesSystem(ctx){
   const shopBtn=(id,ico,b,sm)=>`<button type="button" class="st-shop-btn" id="${id}"><span>${ico}</span><b>${b}</b><small>${sm}</small></button>`;
   const shop=`<div class="st-shop is-hub">${shopBtn('stGames','🎮','Games',`Minigames, races &amp; karate · ${goldN}/${EVENTS().length} gold`)}${shopBtn('stSchool','🏫','School','Teach new tricks')}${shopBtn('stPrizes','🏆','Prizes',`${won}/${toys.length} trophies${belt?' · '+escapeText(belt.name.replace(' Belt','')):''}`)}${shopBtn('stMarket','🛒','Market','Food, wear, toys, houses')}</div>`;
   const rowsHtml=(f=()=>true)=>EVENTS().filter(f).map(e=>{const open=e.kind!=='race'||courseOpen(e.course);const lv=nextLevel(e);const done=best(bagOf(e),LEVELS.length-1)===1;
-   return `${e.theme&&e.id===THEME_COURSES[0].id?'<h3 class="st-sub">Theme races · need a full look</h3>':''}<div class="st-row ${open?'':'is-locked'} ${e.theme?'is-theme is-'+e.id:''}" data-ev="${e.id}"><span class="st-course-ico" data-focus="${e.focus}" ${e.theme?`data-theme="${e.id}"`:''}></span><div class="st-row-main"><strong>${escapeText(e.name)}</strong>${e.theme&&!open?`<small class="st-need">${escapeText(e.course.look)} look ${themePct(e.course)}% / 85%</small>`:dots(e)}</div>${open?`<button type="button" class="st-play" data-play="${e.id}">${done?'Replay':LEVELS[lv]}<i></i></button>`:'<span class="st-lock"></span>'}</div>`;}).join('');
+   return `${e.theme&&e.id===THEME_COURSES[0].id?'<h3 class="st-sub">Theme races · need a full look</h3>':''}${e.ultra&&e.id===EVENTS().find(x=>x.ultra)?.id?'<h3 class="st-sub">✦ Ultra races · legends only</h3>':''}<div class="st-row ${open?'':'is-locked'} ${e.theme?'is-theme is-'+e.id:''}" data-ev="${e.id}"><span class="st-course-ico" data-focus="${e.focus}" ${e.theme?`data-theme="${e.id}"`:''}></span><div class="st-row-main"><strong>${escapeText(e.name)}</strong>${e.theme&&!open?`<small class="st-need">${escapeText(e.course.look)} look ${themePct(e.course)}% / 85%</small>`:dots(e)}</div>${open?`<button type="button" class="st-play" data-play="${e.id}">${done?'Replay':LEVELS[lv]}<i></i></button>`:'<span class="st-lock"></span>'}</div>`;}).join('');
   mount.innerHTML=`<div class="pets-scroll st-scroll"><div class="section-head g-head"><h2>Stadium</h2><button type="button" class="g-coins" id="stCoins">🪙 ${(ctx.coins?.()||0).toLocaleString('en-US')}</button><span class="g-tally"><i class="g-medal is-gold"></i>${n.gold}<i class="g-medal is-silver"></i>${n.silver}<i class="g-medal is-bronze"></i>${n.bronze}</span></div>
    <section class="st-entrant is-simple"><button type="button" class="st-entrant-art companion" data-companion="${pid}" data-card="${pid}" aria-label="Stats"><span class="companion-art"></span>${belt?`<span class="st-entrant-belt">${prizes.beltSvg(belt,22)}</span>`:''}</button>
     <button type="button" class="st-entrant-main" data-card="${pid}"><strong>${escapeText(info.name)}</strong><small>Lv ${totalLv(info)} · ${info.mood>=70?'Happy':info.mood<=30?'Sad':'Content'}${belt?' · '+escapeText(belt.name):''}</small><em>Growth ×${ctx.alchemyGrowth?.()||1} from ${(ctx.classicCount?.()||0).toLocaleString('en-US')} Classic finds</em></button>
@@ -284,7 +293,8 @@ export function createGamesSystem(ctx){
   const bag=bagOf(e),open=e.kind!=='race'||courseOpen(e.course);
   const levels=LEVELS.map((l,i)=>{const ok=open&&levelOpen(bag,i);return `<button type="button" class="st-level ${ok?'':'is-locked'} ${best(bag,i)===1?'is-gold':''}" data-lv="${i}" ${ok?'':'disabled'}>${medalDot(best(bag,i))}<span>${l}</span></button>`;}).join('');
   let extra='';
-  if(e.kind==='race'&&e.course.theme){const c=e.course,lvN=nextLevel(e),plan=planFor(c,lvN),acc=ctx.accessories?.[c.prize];const pct=themePct(c);extra=`<p>${escapeText(c.blurb)}</p><div class="st-theme-need ${pct>=85?'is-ok':''}"><b>${escapeText(c.look)} look</b><span><i style="width:${Math.min(100,pct)}%"></i></span><em>${pct}% / 85%</em></div><small class="st-foot">${LEVELS[lvN]}: ${plan.length} sections · coins ×1.5</small><div class="st-strip">${plan.map(x=>`<i class="is-${x.t}" style="flex:${x.len}"></i>`).join('')}</div>${acc?`<div class="st-prizeline"><span class="st-acc-ico">${ctx.accIcon?.(c.prize)||''}</span><small>Champion gold wins <b>${escapeText(acc.name)}</b> to wear</small></div>`:''}${open?'':`<p class="mini-muted">${ctx.lookOwned&&!ctx.lookOwned(c.theme)?`Unlock the ${escapeText(c.look)} look in Market › Looks, then feed`:'Feed'} ${escapeText(c.look.toLowerCase())} elements until the look is at least 85% grown.</p>`}`;}
+  if(e.kind==='race'&&e.course.ultra){const c=e.course,lvN=nextLevel(e),plan=planFor(c,lvN);extra=`<p>${escapeText(c.blurb)}</p><small class="st-foot">${LEVELS[lvN]}: ${plan.length} sections · every rival at 95–99</small><div class="st-strip">${plan.map(x=>`<i class="is-${x.t}" style="flex:${x.len}"></i>`).join('')}</div><div class="st-prizeline"><span>👑</span><small>Champion gold wins the <b>Supreme look</b></small></div>`;}
+  else if(e.kind==='race'&&e.course.theme){const c=e.course,lvN=nextLevel(e),plan=planFor(c,lvN),acc=ctx.accessories?.[c.prize];const pct=themePct(c);extra=`<p>${escapeText(c.blurb)}</p><div class="st-theme-need ${pct>=85?'is-ok':''}"><b>${escapeText(c.look)} look</b><span><i style="width:${Math.min(100,pct)}%"></i></span><em>${pct}% / 85%</em></div><small class="st-foot">${LEVELS[lvN]}: ${plan.length} sections · coins ×1.5</small><div class="st-strip">${plan.map(x=>`<i class="is-${x.t}" style="flex:${x.len}"></i>`).join('')}</div>${acc?`<div class="st-prizeline"><span class="st-acc-ico">${ctx.accIcon?.(c.prize)||''}</span><small>Champion gold wins <b>${escapeText(acc.name)}</b> to wear</small></div>`:''}${open?'':`<p class="mini-muted">${ctx.lookOwned&&!ctx.lookOwned(c.theme)?`Unlock the ${escapeText(c.look)} look in Market › Looks, then feed`:'Feed'} ${escapeText(c.look.toLowerCase())} elements until the look is at least 85% grown.</p>`}`;}
   else if(e.kind==='race'){const c=e.course,prize=trophyOf(c.id),won=hasPrize(prize.id);const lvN=nextLevel(e),plan=planFor(c,lvN);extra=`<p>${escapeText(c.blurb)}</p><small class="st-foot">${LEVELS[lvN]}: ${plan.length} sections · ${['morning','noon','afternoon','sunset','night'][lvN]}</small><div class="st-strip">${plan.map(x=>`<i class="is-${x.t}" style="flex:${x.len}"></i>`).join('')}</div><div class="st-prizeline ${won?'is-won':''}"><span>${prize.art}</span><small>${won?'Trophy won: ':'Champion gold wins '}<b>${escapeText(prize.name)}</b>${won?'':' for the house'}</small></div>${open?'':'<p class="mini-muted">Win Rookie on the other five courses to open it.</p>'}`;}
   else extra=`<p>Best of three rounds. HP is health, Power hits, Swim blocks, Fly dodges, Run strikes faster, Stamina keeps the fight going.</p><div class="st-belts">${belts.map((b,i)=>`<span class="st-belt ${best(bag,i)===1?'is-won':''}">${prizes.beltSvg(b,28)}<small>${b.name.replace(' Belt','')}</small></span>`).join('')}</div>`;
   showModal(`<div class="modal-tag">${e.kind==='race'?'RACE':'KARATE'}</div><h2>${escapeText(e.name)}</h2>${extra}<div class="st-levels">${levels}</div><button type="button" class="modal-button secondary" id="stClose">${fromGames?'Back':'Close'}</button>`);
@@ -420,7 +430,7 @@ export function createGamesSystem(ctx){
  function finishRace(mount,course,level,place,racers,finished){
   const R=myRaces();const bag=R[course.id]=R[course.id]||{};const prev=bag[level]||0;const improved=!prev||place<prev;if(improved)bag[level]=place;
   const prize=course.theme?null:trophyOf(course.id);let newPrize=false;if(prize&&place===1&&level===LEVELS.length-1&&!hasPrize(prize.id)){state.prizes.push(prize.id);newPrize=true;}
-  const ultra=place===1&&course.id==='grand'?ctx.rollChampUltra?.(level):null;
+  const ultra=place===1&&course.id==='grand'?ctx.rollChampUltra?.(level):place===1&&course.ultra&&level===LEVELS.length-1?ctx.grantSupreme?.():null;
   const firstGold=place===1&&prev!==1;const coins=Math.round((ctx.coinsFor?.('race',level,place,{theme:!!course.theme,firstGold,repeat:prev===1})||0)*(1+perkOf(PK,'magic')));if(coins)ctx.addCoins?.(coins);
   const accId=course.theme?(place===1&&level===LEVELS.length-1?course.prize:null):(place===1&&level>=3?COURSE_ACC[course.id]:null);const newAcc=accId&&ctx.grantAccessory?.(accId)?accId:null;
   save();if(newPrize||newAcc||ultra)try{ctx.onPrize?.();}catch{}
