@@ -193,3 +193,17 @@ test('V193: every companion has its own race world with real props', async () =>
   assert.match(g, /function finishRace\(mount,course,level,place,racers,finished\)\{\n  const PK=/);
   assert.match(g, /function askQuit/);
 });
+test('V194: every companion world has a drawn sky and track-side strip, all different', async () => {
+  const { COMPANION_WORLDS, worldSky, worldMid, companionArt } = await import('../src/games-theme-v151.js');
+  const skies = new Set(), mids = new Set();
+  for (const [id, w] of Object.entries(COMPANION_WORLDS)) {
+    const s = worldSky(id), m = worldMid(id, w.props);
+    assert.ok(s.startsWith('<svg') && s.includes('viewBox="0 0 400 300"') && s.length > 1500, id);
+    assert.ok(m.startsWith('<svg') && m.includes('viewBox="0 0 400 160"') && m.length > 800, id);
+    assert.ok(!/NaN|undefined/.test(s + m), id);
+    skies.add(s); mids.add(m);
+  }
+  assert.equal(skies.size, 40); assert.equal(mids.size, 40);
+  const art = companionArt({ run: '', swim: '', fly: '', climb: '', mid: 'BASE', sky: 'BASE' }, 'organic38:frog');
+  assert.ok(art.scene && art.sky !== 'BASE' && art.mid !== 'BASE');
+});
