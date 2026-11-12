@@ -2221,3 +2221,12 @@ body.ar-playing>*:not(.ar-stage){display:none!important}
 .home-piece.a-tick svg{transform-origin:50% 20%;animation:amb-tick 1s steps(2) infinite}@keyframes amb-tick{50%{transform:rotate(1.6deg)}}
 .home-piece.is-in-use.a-sway svg,.home-piece.is-moving svg{animation:none}
 @media (prefers-reduced-motion:reduce){.home-piece::after,.home-piece svg{animation:none!important}}
+
+/* V185: coin chip in the top bar */
+.coin-chip{position:relative;order:-1;height:38px;padding:0 12px;border-radius:12px;display:inline-flex;align-items:center;gap:6px;font-weight:800;font-size:14px;color:var(--ink);background:var(--surface);border:1px solid var(--line)}
+.coin-chip b{font-variant-numeric:tabular-nums}
+.coin-chip.bump{animation:coin-bump .45s ease}
+@keyframes coin-bump{0%{transform:scale(1)}40%{transform:scale(1.14)}100%{transform:scale(1)}}
+.coin-fly{position:absolute;right:8px;top:100%;font-size:13px;font-weight:800;color:#2E9B5B;pointer-events:none;animation:coin-fly 1.25s ease-out forwards;white-space:nowrap}
+.coin-fly.minus{color:#C9483C}
+@keyframes coin-fly{0%{opacity:0;transform:translateY(8px)}20%{opacity:1}100%{opacity:0;transform:translateY(-14px)}}

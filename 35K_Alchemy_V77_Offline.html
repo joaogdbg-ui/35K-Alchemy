@@ -2231,13 +2231,22 @@ body.ar-playing>*:not(.ar-stage){display:none!important}
 .home-piece.is-in-use.a-sway svg,.home-piece.is-moving svg{animation:none}
 @media (prefers-reduced-motion:reduce){.home-piece::after,.home-piece svg{animation:none!important}}
 
+/* V185: coin chip in the top bar */
+.coin-chip{position:relative;order:-1;height:38px;padding:0 12px;border-radius:12px;display:inline-flex;align-items:center;gap:6px;font-weight:800;font-size:14px;color:var(--ink);background:var(--surface);border:1px solid var(--line)}
+.coin-chip b{font-variant-numeric:tabular-nums}
+.coin-chip.bump{animation:coin-bump .45s ease}
+@keyframes coin-bump{0%{transform:scale(1)}40%{transform:scale(1.14)}100%{transform:scale(1)}}
+.coin-fly{position:absolute;right:8px;top:100%;font-size:13px;font-weight:800;color:#2E9B5B;pointer-events:none;animation:coin-fly 1.25s ease-out forwards;white-space:nowrap}
+.coin-fly.minus{color:#C9483C}
+@keyframes coin-fly{0%{opacity:0;transform:translateY(8px)}20%{opacity:1}100%{opacity:0;transform:translateY(-14px)}}
+
 </style>
 </head>
 <body>
 <div id="app" class="app">
   <header class="topbar">
     <div class="brand"><span class="brand-mark" aria-hidden="true">✳</span><span class="brand-name">Alchemy <span class="brand-word">7K</span><span class="brand-dot">.</span></span><span class="discovered-count" id="discoveredCount" title="Collected elements, including starters" aria-label="Collected elements" aria-live="polite">4</span></div>
-    <div class="header-end"><button class="header-icon" id="settingsBtn" aria-label="Settings" title="Settings and backups"><svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="3.2"/><path d="M19.4 15a1.7 1.7 0 0 0 .3 1.8l.1.1a2 2 0 1 1-2.8 2.8l-.1-.1a1.7 1.7 0 0 0-1.8-.3 1.7 1.7 0 0 0-1 1.5V21a2 2 0 1 1-4 0v-.1a1.7 1.7 0 0 0-1.1-1.5 1.7 1.7 0 0 0-1.8.3l-.1.1a2 2 0 1 1-2.8-2.8l.1-.1a1.7 1.7 0 0 0 .3-1.8 1.7 1.7 0 0 0-1.5-1H3a2 2 0 1 1 0-4h.1a1.7 1.7 0 0 0 1.5-1.1 1.7 1.7 0 0 0-.3-1.8l-.1-.1a2 2 0 1 1 2.8-2.8l.1.1a1.7 1.7 0 0 0 1.8.3H9a1.7 1.7 0 0 0 1-1.5V3a2 2 0 1 1 4 0v.1a1.7 1.7 0 0 0 1 1.5 1.7 1.7 0 0 0 1.8-.3l.1-.1a2 2 0 1 1 2.8 2.8l-.1.1a1.7 1.7 0 0 0-.3 1.8V9a1.7 1.7 0 0 0 1.5 1H21a2 2 0 1 1 0 4h-.1a1.7 1.7 0 0 0-1.5 1Z"/></svg></button><button type="button" id="modeBtn" class="mode-pill" aria-label="Game mode">Classic</button></div>
+    <div class="header-end"><button class="header-icon" id="settingsBtn" aria-label="Settings" title="Settings and backups"><svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="3.2"/><path d="M19.4 15a1.7 1.7 0 0 0 .3 1.8l.1.1a2 2 0 1 1-2.8 2.8l-.1-.1a1.7 1.7 0 0 0-1.8-.3 1.7 1.7 0 0 0-1 1.5V21a2 2 0 1 1-4 0v-.1a1.7 1.7 0 0 0-1.1-1.5 1.7 1.7 0 0 0-1.8.3l-.1.1a2 2 0 1 1-2.8-2.8l.1-.1a1.7 1.7 0 0 0 .3-1.8 1.7 1.7 0 0 0-1.5-1H3a2 2 0 1 1 0-4h.1a1.7 1.7 0 0 0 1.5-1.1 1.7 1.7 0 0 0-.3-1.8l-.1-.1a2 2 0 1 1 2.8-2.8l.1.1a1.7 1.7 0 0 0 1.8.3H9a1.7 1.7 0 0 0 1-1.5V3a2 2 0 1 1 4 0v.1a1.7 1.7 0 0 0 1 1.5 1.7 1.7 0 0 0 1.8-.3l.1-.1a2 2 0 1 1 2.8 2.8l-.1.1a1.7 1.7 0 0 0-.3 1.8V9a1.7 1.7 0 0 0 1.5 1H21a2 2 0 1 1 0 4h-.1a1.7 1.7 0 0 0-1.5 1Z"/></svg></button><button type="button" id="modeBtn" class="mode-pill" aria-label="Game mode">Classic</button><button type="button" class="coin-chip" id="topCoins" aria-label="Companion Coins — tap to get more" title="Companion Coins"><span aria-hidden="true">🪙</span><b data-coins>0</b></button></div>
   </header>
   <main id="main" class="main">
     <section id="viewPlay" class="view view-play" aria-label="Play">
@@ -7430,7 +7439,7 @@ function shinyCard(item){return `<p class="shiny-trivia"><span aria-hidden="true
 function showShinyFound(id){const it=byId.get(id);if(!it)return;
  showModal(`<div class="modal-tag shiny-tag">✦ SHINY ELEMENT</div><div class="modal-art is-shiny">${staticArt(it)}</div><h2>Shiny ${escapeText(uiName(it))}</h2>${shinyCard(it)}<div class="modal-milestone">${shiny.size.toLocaleString('en-US')} shiny ${shiny.size===1?'element':'elements'} · ${Math.round(shinyChance()*100)}% chance per combination</div>`);
 }
-const APP_VERSION='1.0.84';
+const APP_VERSION='1.0.85';
 // V83: status line + Google consent (UMP) privacy options, required for EEA players.
 async function refreshAdStatus(){
  const el=$('settingsAdStatus'),bridge=getRewardBridge();
@@ -8727,7 +8736,12 @@ try{setMarketLook(name=>{const id=dyeMap().get(name);if(!id)return null;const d=
 function coinPop(n){try{const at=document.getElementById('discoveredCount')||document.body;const r=at.getBoundingClientRect();const e=document.createElement('span');e.className='coin-pop';e.textContent=`+${n} 🪙`;e.style.left=(r.left+r.width/2)+'px';e.style.top=(r.top+r.height)+'px';document.body.append(e);setTimeout(()=>e.remove(),1300);}catch{}}
 function addCoins(n){wallet.coins=Math.max(0,wallet.coins+Math.round(n));saveWallet();syncCoinLabels();return wallet.coins;}
 function spendCoins(n){if(wallet.coins<n)return false;wallet.coins-=n;saveWallet();syncCoinLabels();return true;}
-function syncCoinLabels(){document.querySelectorAll('[data-coins]').forEach(e=>e.textContent=wallet.coins.toLocaleString('en-US'));const s=$('stCoins');if(s)s.textContent='🪙 '+wallet.coins.toLocaleString('en-US');}
+let lastCoinShown=null;
+function syncCoinLabels(){document.querySelectorAll('[data-coins]').forEach(e=>e.textContent=wallet.coins.toLocaleString('en-US'));const s=$('stCoins');if(s)s.textContent='🪙 '+wallet.coins.toLocaleString('en-US');
+ /* V185: coins are always visible in the top bar; a gain pops a small +N next to the chip. */
+ const t=$('topCoins');if(t){if(!t.onclick)t.onclick=()=>openCoinShop();const d=lastCoinShown===null?0:wallet.coins-lastCoinShown;lastCoinShown=wallet.coins;
+  if(d){t.classList.remove('bump');void t.offsetWidth;t.classList.add('bump');const f=document.createElement('span');f.className='coin-fly'+(d<0?' minus':'');f.textContent=(d>0?'+':'−')+Math.abs(d).toLocaleString('en-US');t.appendChild(f);setTimeout(()=>f.remove(),1300);}}}
+try{syncCoinLabels();}catch{}
 function creditCoinTokens(tokens){let got=0;for(const t of tokens||[]){if(typeof t!=='string'||wallet.tokens.includes(t))continue;const pack=t.includes('|')?COIN_PACKS.find(x=>x.id===t.split('|')[0]):COIN_PACK;if(!pack)continue;wallet.tokens.push(t);let add=pack.coins;if(!wallet.firstBuy&&pack!==COIN_PACK){wallet.firstBuy=true;add*=FIRST_BUY_MULT;}wallet.coins+=add;got+=add;if(pack.gift&&!wallet.dyes.includes(pack.gift)){wallet.dyes.push(pack.gift);const d=DYES.find(x=>x.id===pack.gift);setTimeout(()=>toast(`Exclusive colour unlocked: ${d?.name} · Market › Colours`,'new'),1500);}}if(got){saveWallet();syncCoinLabels();applyDyes();toast(`+${got.toLocaleString('en-US')} coins · thank you!`,'new');}return got;}
 async function buyCoins(pack='coins_100'){const b=billingBridge();if(!b?.purchaseCoins){toast('Coin packs can be bought in the Play Store app','repeat');return false;}
  try{const r=await b.purchaseCoins({pack});applyBillingStatus(r);await refreshBilling();if(r?.cancelled)toast('Purchase cancelled','repeat');else if(r?.pending)toast('Purchase pending · coins arrive when Google Play confirms it','repeat');return true;}catch(e){console.warn(e);toast('Google Play purchase is not available yet','error');return false;}}

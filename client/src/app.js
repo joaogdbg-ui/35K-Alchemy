@@ -504,7 +504,7 @@ function shinyCard(item){return `<p class="shiny-trivia"><span aria-hidden="true
 function showShinyFound(id){const it=byId.get(id);if(!it)return;
  showModal(`<div class="modal-tag shiny-tag">✦ SHINY ELEMENT</div><div class="modal-art is-shiny">${staticArt(it)}</div><h2>Shiny ${escapeText(uiName(it))}</h2>${shinyCard(it)}<div class="modal-milestone">${shiny.size.toLocaleString('en-US')} shiny ${shiny.size===1?'element':'elements'} · ${Math.round(shinyChance()*100)}% chance per combination</div>`);
 }
-const APP_VERSION='1.0.84';
+const APP_VERSION='1.0.85';
 // V83: status line + Google consent (UMP) privacy options, required for EEA players.
 async function refreshAdStatus(){
  const el=$('settingsAdStatus'),bridge=getRewardBridge();
@@ -1801,7 +1801,12 @@ try{setMarketLook(name=>{const id=dyeMap().get(name);if(!id)return null;const d=
 function coinPop(n){try{const at=document.getElementById('discoveredCount')||document.body;const r=at.getBoundingClientRect();const e=document.createElement('span');e.className='coin-pop';e.textContent=`+${n} 🪙`;e.style.left=(r.left+r.width/2)+'px';e.style.top=(r.top+r.height)+'px';document.body.append(e);setTimeout(()=>e.remove(),1300);}catch{}}
 function addCoins(n){wallet.coins=Math.max(0,wallet.coins+Math.round(n));saveWallet();syncCoinLabels();return wallet.coins;}
 function spendCoins(n){if(wallet.coins<n)return false;wallet.coins-=n;saveWallet();syncCoinLabels();return true;}
-function syncCoinLabels(){document.querySelectorAll('[data-coins]').forEach(e=>e.textContent=wallet.coins.toLocaleString('en-US'));const s=$('stCoins');if(s)s.textContent='🪙 '+wallet.coins.toLocaleString('en-US');}
+let lastCoinShown=null;
+function syncCoinLabels(){document.querySelectorAll('[data-coins]').forEach(e=>e.textContent=wallet.coins.toLocaleString('en-US'));const s=$('stCoins');if(s)s.textContent='🪙 '+wallet.coins.toLocaleString('en-US');
+ /* V185: coins are always visible in the top bar; a gain pops a small +N next to the chip. */
+ const t=$('topCoins');if(t){if(!t.onclick)t.onclick=()=>openCoinShop();const d=lastCoinShown===null?0:wallet.coins-lastCoinShown;lastCoinShown=wallet.coins;
+  if(d){t.classList.remove('bump');void t.offsetWidth;t.classList.add('bump');const f=document.createElement('span');f.className='coin-fly'+(d<0?' minus':'');f.textContent=(d>0?'+':'−')+Math.abs(d).toLocaleString('en-US');t.appendChild(f);setTimeout(()=>f.remove(),1300);}}}
+try{syncCoinLabels();}catch{}
 function creditCoinTokens(tokens){let got=0;for(const t of tokens||[]){if(typeof t!=='string'||wallet.tokens.includes(t))continue;const pack=t.includes('|')?COIN_PACKS.find(x=>x.id===t.split('|')[0]):COIN_PACK;if(!pack)continue;wallet.tokens.push(t);let add=pack.coins;if(!wallet.firstBuy&&pack!==COIN_PACK){wallet.firstBuy=true;add*=FIRST_BUY_MULT;}wallet.coins+=add;got+=add;if(pack.gift&&!wallet.dyes.includes(pack.gift)){wallet.dyes.push(pack.gift);const d=DYES.find(x=>x.id===pack.gift);setTimeout(()=>toast(`Exclusive colour unlocked: ${d?.name} · Market › Colours`,'new'),1500);}}if(got){saveWallet();syncCoinLabels();applyDyes();toast(`+${got.toLocaleString('en-US')} coins · thank you!`,'new');}return got;}
 async function buyCoins(pack='coins_100'){const b=billingBridge();if(!b?.purchaseCoins){toast('Coin packs can be bought in the Play Store app','repeat');return false;}
  try{const r=await b.purchaseCoins({pack});applyBillingStatus(r);await refreshBilling();if(r?.cancelled)toast('Purchase cancelled','repeat');else if(r?.pending)toast('Purchase pending · coins arrive when Google Play confirms it','repeat');return true;}catch(e){console.warn(e);toast('Google Play purchase is not available yet','error');return false;}}
