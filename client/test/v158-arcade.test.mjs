@@ -277,3 +277,18 @@ test('V201: furniture is used from beside it (watch, warm up, rummage) instead o
   assert.ok(css.includes('.home-walker.rest-curl') && css.includes('.home-walker.use-soak'));
   assert.ok(home.includes("useSpot(f,L,blockedFor(f))") && home.includes("classList.add('use-soak')"));
 });
+
+test('V202: Market is its own tab with Remove ads first, old sheets are skinned, dark theme keeps light cards readable', async () => {
+  const fs = await import('node:fs');
+  const rd = p => fs.readFileSync(new URL(p, import.meta.url), 'utf8');
+  const app = rd('../src/app.js'), css = rd('../src/styles.css'), html = rd('../index.html'), games = rd('../src/games-v93.js');
+  assert.ok(html.includes('id="viewMarket"') && html.includes('data-view="Market"'));
+  assert.ok(app.includes("if(tab==='Market')openMarket();") && app.includes("const marketHost=()=>tab==='Market'?$('viewMarket'):null;"));
+  assert.ok(app.includes("[['coins','Coins'],...MARKET_TABS]") && app.includes("let marketTab='coins';"));
+  const panel = app.slice(app.indexOf('function coinsPanelHtml'), app.indexOf('function wireCoinsPanel'));
+  assert.ok(panel.indexOf('${noAds}') < panel.indexOf('Free coins') && panel.indexOf('Free coins') < panel.indexOf('Coin packs'), 'Remove ads comes first, then coins');
+  assert.ok(!games.includes("stMarket"), 'the Market tile left the Games tab');
+  for (const c of ['.mk-noads{', '.home-pick{grid-template-columns:54px', '.cf-sum{max-width:none', '.cs-panel{border:2px solid']) assert.ok(css.includes(c), c);
+  assert.ok(css.includes('/* DARK-SKIN:start') && css.trimEnd().endsWith('/* DARK-SKIN:end */'), 'generated dark block stays last');
+  assert.match(css, /html\[data-theme="dark"\] :is\([^)]*\.element-chip/);
+});
