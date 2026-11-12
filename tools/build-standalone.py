@@ -310,7 +310,7 @@ _v85=[('client/src/organic-pack-v85.js',['ORGANIC_V85'],'__gameverseOrganic85',"
  ('client/src/home-engine-v90.js',['createHomeSystem','HOME_STORAGE_KEY','pieceQuality','starsText'],'__homeEngine90',"import { createHomeSystem, HOME_STORAGE_KEY, pieceQuality, starsText } from './home-engine-v90.js';"),
  ('client/src/room-sprites-v90.js',['ROOM_SPRITES_V90'],'__roomSprites90',"import { ROOM_SPRITES_V90 } from './room-sprites-v90.js';"),
  ('client/src/games-v93.js',['createGamesSystem','GAMES_STORAGE_KEY','SKILL_PERKS','perkOf'],'__games93',"import { createGamesSystem, GAMES_STORAGE_KEY, SKILL_PERKS, perkOf } from './games-v93.js';"),
- ('client/src/arcade-v158.js',['createArcade'],'__arcade158',"import { createArcade } from './arcade-v158.js';"),
+ ('client/src/arcade-v158.js',['createArcade','arcadeProgress','ARCADE_STEP'],'__arcade158',"import { createArcade, arcadeProgress, ARCADE_STEP } from './arcade-v158.js';"),
  ('client/src/games-theme-v151.js',['themedArt','recolorSvg'],'__gamesTheme151',"import { themedArt, recolorSvg } from './games-theme-v151.js';"),
  ('client/src/prizes-v94.js',['RACE_PRIZES','PRIZE_BY_ID','BELTS','beltSvg','wearBelt','personalPrize','personalPrizeId','parsePersonalPrize'],'__prizes94',"import { RACE_PRIZES, PRIZE_BY_ID, BELTS, beltSvg, wearBelt, personalPrize, personalPrizeId, parsePersonalPrize } from './prizes-v94.js';"),
  ('client/src/stadium-art-v95.js',['STADIUM_ART_V95'],'__stadiumArt95',"import { STADIUM_ART_V95 } from './stadium-art-v95.js';"),

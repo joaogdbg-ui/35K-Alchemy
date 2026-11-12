@@ -2381,3 +2381,80 @@ body[data-tab="Pets"] .companion-layer{display:none}
 .mk-flag.is-own{background:#6FB26A}
 .mk-shop .st-sub{margin-top:14px}
 @media (prefers-reduced-motion:reduce){.mk-keeper-art,.mk-deal::after{animation:none}}
+
+/* ===== V192: game skin — the Market's look (chunky borders, 3D shadows, warm colours) for the whole game ===== */
+html:not([data-theme="dark"]) body{background:radial-gradient(circle at 1px 1px,rgba(101,125,137,.10) 1.2px,transparent 1.5px) 0 0/18px 18px,var(--bg)}
+.coin-chip{border:2px solid #E3B84E;background:linear-gradient(150deg,#FFF1C9,#FFE08A);box-shadow:0 3px 0 #D9A83C;color:#3C3320}
+.header-icon{border:2px solid #D9CFBB;box-shadow:0 3px 0 #D9CFBB}
+.coin-chip:active,.header-icon:active{transform:translateY(2px);box-shadow:none}
+.craft-card{border:2px solid #657D89;box-shadow:0 5px 0 rgba(101,125,137,.32);background:linear-gradient(#fff,#FBF6EC)}
+.craft-slot{border:2px dashed #C9B88A;background:#F8F0DF}
+.compass-mini{border:2px solid #E8A35F!important;background:linear-gradient(#FFF6E6,#FFE3BD)!important;box-shadow:0 3px 0 #E8A35F;color:#7A4A12!important;font-weight:900!important;border-radius:14px!important}
+.compass-mini.packs-mini{border-color:#B79CE0!important;background:linear-gradient(#F8F2FF,#E9DCFB)!important;box-shadow:0 3px 0 #B79CE0;color:#4F3A7A!important}
+.compass-mini:active{transform:translateY(2px);box-shadow:none}
+.goal-strip{border:2px solid #E3D6BE;box-shadow:0 3px 0 #E3D6BE;background:linear-gradient(#fff,#FBF3E2)}
+.shelf{border-top:2px solid #657D89;box-shadow:0 -3px 0 rgba(101,125,137,.12)}
+.element-chip{border:2px solid #E3D6BE;border-radius:16px;background:linear-gradient(#fff,#FBF3E2);box-shadow:0 3px 0 #E3D6BE;transition:transform .1s}
+.element-chip:active{transform:translateY(2px);box-shadow:0 1px 0 #E3D6BE}
+.tabbar{border-top:2px solid #657D89;background:#FFF8EC}
+html:not([data-theme="dark"]) .tab.active{background:#4F6269;color:#FFE9B8;box-shadow:0 3px 0 #33444B;transform:translateY(-3px)}
+html:not([data-theme="dark"]) body[data-game-mode="family"] .tab.active{background:#3F7A5C;color:#fff;box-shadow:0 3px 0 #2A5A40}
+.tab{transition:transform .15s,background .15s}.tab.active svg{animation:tab-pop .35s ease}
+@keyframes tab-pop{40%{transform:scale(1.25) rotate(-8deg)}}
+.modal-button{border-radius:16px;background:#E8843C;box-shadow:0 4px 0 #B8601F;font-size:14.5px;letter-spacing:.01em;transition:transform .08s}
+.modal-button:active{transform:translateY(3px);box-shadow:0 1px 0 #B8601F}
+.modal-button.secondary{background:#F7F1E4;border:2px solid #D9CFBB;box-shadow:0 3px 0 #D9CFBB}
+.modal-button.secondary:active{box-shadow:0 1px 0 #D9CFBB}
+.modal-button.danger{background:#D9534A;box-shadow:0 4px 0 #A8382F}
+.modal-button:disabled{box-shadow:none;transform:none}
+.modal-tag{display:inline-block;padding:4px 14px;border-radius:999px;background:#4F6269;color:#FFE9B8;letter-spacing:.14em}
+.mk-stall .modal-tag{background:none;padding:0}
+.modal-art{filter:drop-shadow(0 5px 0 rgba(101,125,137,.18))}
+/* Home */
+.home-tab{border:2px solid #E3D6BE!important;box-shadow:0 4px 0 #E3D6BE;border-radius:18px!important;opacity:1!important}
+.home-tab.is-on{border-color:#657D89!important;background:#4F6269!important;color:#fff!important;box-shadow:0 4px 0 #33444B;transform:translateY(-2px)}
+.home-tab.is-on small{color:#E7DFD0!important}
+.home-card{border:2px solid #657D89;box-shadow:0 5px 0 rgba(101,125,137,.3);border-radius:22px}
+.home-chip{border:2px solid #E3D6BE;box-shadow:0 3px 0 #E3D6BE;border-radius:14px;background:#fff}
+.home-chip.is-active{border-color:#E8843C;box-shadow:0 3px 0 #E8843C;background:#FFF1DC}
+.home-chip.is-locked{box-shadow:none;border-style:dashed;background:transparent}
+.home-seat{border-width:2px;box-shadow:0 3px 0 var(--line);background:#fff}
+.home-seat.is-free{box-shadow:none}.home-seat.is-tool{box-shadow:0 3px 0 var(--accent)}
+.home-life{border:2px solid #E3D6BE;background:linear-gradient(#fff,#FBF3E2)}
+.home-effects button,.home-effects [data-eff]{box-shadow:0 2px 0 rgba(0,0,0,.08)}
+.pet-card{border:2px solid #E3D6BE;box-shadow:0 3px 0 #E3D6BE;border-radius:16px}
+/* Stadium */
+.g-head h2{font-size:26px}
+.g-coins{display:none}
+.st-entrant.is-simple{position:relative;border:2px solid #657D89;border-radius:22px;box-shadow:0 5px 0 rgba(101,125,137,.32);background:linear-gradient(#A8DDF4 0 60%,#8FBF68 60% 66%,#7AA85A 66%);padding:30px 12px 12px;overflow:hidden}
+.st-entrant.is-simple::before{content:"";position:absolute;inset:0 0 auto 0;height:16px;background:conic-gradient(from 150deg at 50% 0,#E0675A 60deg,transparent 0) 0 0/28px 16px repeat-x,conic-gradient(from 150deg at 50% 0,#FFD166 60deg,transparent 0) 14px 0/28px 16px repeat-x;border-top:3px solid #657D89}
+.st-entrant.is-simple::after{content:"";position:absolute;right:18%;top:26px;width:38px;height:14px;border-radius:10px;background:#fff;box-shadow:-60px 10px 0 -2px #fff,40px 14px 0 -3px #fff;opacity:.85}
+.st-entrant.is-simple .st-entrant-art{background:radial-gradient(circle at 50% 60%,#fff 0 55%,rgba(255,255,255,.35) 56%);border-radius:50%;z-index:1}
+.st-entrant.is-simple .st-entrant-main{background:rgba(255,255,255,.92);border:2px solid #657D89;border-radius:14px;padding:6px 10px;z-index:1}
+.st-change{border:2px solid #657D89!important;background:#FFD166!important;box-shadow:0 3px 0 #C99A2E;font-weight:900!important;z-index:1;color:#3C3320!important}
+#viewGames .st-shop.is-hub,.st-shop.st-games-hub{gap:12px;margin-top:14px}
+#viewGames .st-shop.is-hub .st-shop-btn,.st-shop.st-games-hub .st-shop-btn{grid-template-columns:1fr;justify-items:center;text-align:center;row-gap:2px;padding:16px 10px 14px;min-height:132px;border:2px solid #E3D6BE;border-radius:22px;box-shadow:0 5px 0 #E3D6BE;background:linear-gradient(#fff,#FBF3E2);transition:transform .1s}
+#viewGames .st-shop.is-hub .st-shop-btn:active,.st-shop.st-games-hub .st-shop-btn:active{transform:translateY(3px);box-shadow:0 2px 0 #E3D6BE}
+#viewGames .st-shop.is-hub .st-shop-btn>span,.st-shop.st-games-hub .st-shop-btn>span{grid-row:auto;font-size:46px;line-height:1.1;filter:drop-shadow(0 3px 0 rgba(0,0,0,.12))}
+#viewGames .st-shop.is-hub .st-shop-btn b,.st-shop.st-games-hub .st-shop-btn b{font-size:17px}
+#stGames{border-color:#E8843C!important;box-shadow:0 5px 0 #E8843C!important;background:linear-gradient(#FFF3E3,#FFD9B0)!important}
+#stSchool{border-color:#6FA8D9!important;box-shadow:0 5px 0 #6FA8D9!important;background:linear-gradient(#EFF7FF,#CFE4F7)!important}
+#stPrizes{border-color:#E3B84E!important;box-shadow:0 5px 0 #E3B84E!important;background:linear-gradient(#FFF9E3,#FFE9A8)!important}
+#stMarket{border-color:#6FB26A!important;box-shadow:0 5px 0 #6FB26A!important;background:linear-gradient(#F1FAEC,#D2EDC8)!important}
+#stArcade{border-color:#B79CE0!important;box-shadow:0 5px 0 #B79CE0!important;background:linear-gradient(#F8F2FF,#E4D6FA)!important}
+#stMicro{border-color:#E0675A!important;box-shadow:0 5px 0 #E0675A!important;background:linear-gradient(#FFF1EE,#FFD3CC)!important}
+#stRaces{border-color:#6FB26A!important;box-shadow:0 5px 0 #6FB26A!important;background:linear-gradient(#F1FAEC,#D2EDC8)!important}
+.ar-grid .st-shop-btn{border:2px solid #E3D6BE;box-shadow:0 3px 0 #E3D6BE;border-radius:18px;background:linear-gradient(#fff,#FBF3E2)}
+.st-row{border:2px solid #E3D6BE!important;box-shadow:0 3px 0 #E3D6BE;border-radius:16px!important}
+.st-play{box-shadow:0 3px 0 rgba(0,0,0,.18)}
+@media (prefers-reduced-motion:reduce){.tab.active svg{animation:none}}
+
+/* V192: Today cards on the Stadium */
+.td-h{margin:18px 2px 8px;font-size:15px;font-weight:900;color:var(--ink)}
+.td-list{display:grid;gap:10px}
+.td-card{display:flex;align-items:center;gap:12px;width:100%;padding:12px 14px;border-radius:18px;border:2px solid #E3D6BE;background:linear-gradient(#fff,#FBF3E2);box-shadow:0 4px 0 #E3D6BE;text-align:left;color:var(--ink)}
+.td-card>span{flex:none;font-size:30px;line-height:1}.td-card>div{flex:1;min-width:0;display:grid;gap:2px}.td-card b{font-size:14.5px}.td-card small{font-size:12px;color:var(--ink-2)}
+.td-card i{display:block;height:7px;margin-top:4px;border-radius:4px;background:#EFE7D6;overflow:hidden}.td-card em{display:block;height:100%;border-radius:4px;background:linear-gradient(90deg,#8fbf68,#ffd166)}
+.td-card.is-gift.is-ready{border-color:#E8843C;box-shadow:0 4px 0 #E8843C;background:linear-gradient(#FFF3E3,#FFD9B0)}.td-card.is-gift.is-ready>span{animation:goal-wob .9s ease-in-out infinite}
+.td-card:disabled{opacity:.7;box-shadow:none}
+body[data-tab="Games"] .companion-layer{display:none}

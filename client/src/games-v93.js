@@ -260,7 +260,9 @@ export function createGamesSystem(ctx){
    <div class="st-picker" id="stPicker" ${preview?'':'hidden'}>${owned().map(c=>{const ci=companionInfo(c.id);return `<button type="button" class="st-pick ${c.id===pid?'is-active':''} ${c.id===state.pick?'is-current':''}" data-gpick="${c.id}"><span class="companion" data-companion="${c.id}"><span class="companion-art"></span></span><small>${escapeText(ci.name)}</small><em>Lv ${totalLv(ci)}</em></button>`;}).join('')}</div>
    ${preview?`<p class="st-preview-hint">${preview===state.pick?'Tap a companion to see its medals.':`Showing ${escapeText(info.name)}'s medals · tap <b>Change</b> to race with ${escapeText(info.name)}`}</p>`:''}
    ${shop}
+   ${ctx.todayHtml?.()||''}
    </div>`;
+  try{ctx.wireToday?.(mount,()=>render(mount));}catch{}
   mount.querySelectorAll('.companion[data-companion] .companion-art').forEach(a=>rig(a,a.parentElement.dataset.companion));dress(mount);
   $('stChange').onclick=()=>{if(preview){if(preview!==state.pick){state.pick=preview;save();}preview=null;}else preview=pick();render(mount);};
   mount.querySelectorAll('[data-card]').forEach(b=>b.onclick=()=>ctx.openCard?.(b.dataset.card));

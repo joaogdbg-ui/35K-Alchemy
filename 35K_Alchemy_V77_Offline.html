@@ -2391,6 +2391,83 @@ body[data-tab="Pets"] .companion-layer{display:none}
 .mk-shop .st-sub{margin-top:14px}
 @media (prefers-reduced-motion:reduce){.mk-keeper-art,.mk-deal::after{animation:none}}
 
+/* ===== V192: game skin — the Market's look (chunky borders, 3D shadows, warm colours) for the whole game ===== */
+html:not([data-theme="dark"]) body{background:radial-gradient(circle at 1px 1px,rgba(101,125,137,.10) 1.2px,transparent 1.5px) 0 0/18px 18px,var(--bg)}
+.coin-chip{border:2px solid #E3B84E;background:linear-gradient(150deg,#FFF1C9,#FFE08A);box-shadow:0 3px 0 #D9A83C;color:#3C3320}
+.header-icon{border:2px solid #D9CFBB;box-shadow:0 3px 0 #D9CFBB}
+.coin-chip:active,.header-icon:active{transform:translateY(2px);box-shadow:none}
+.craft-card{border:2px solid #657D89;box-shadow:0 5px 0 rgba(101,125,137,.32);background:linear-gradient(#fff,#FBF6EC)}
+.craft-slot{border:2px dashed #C9B88A;background:#F8F0DF}
+.compass-mini{border:2px solid #E8A35F!important;background:linear-gradient(#FFF6E6,#FFE3BD)!important;box-shadow:0 3px 0 #E8A35F;color:#7A4A12!important;font-weight:900!important;border-radius:14px!important}
+.compass-mini.packs-mini{border-color:#B79CE0!important;background:linear-gradient(#F8F2FF,#E9DCFB)!important;box-shadow:0 3px 0 #B79CE0;color:#4F3A7A!important}
+.compass-mini:active{transform:translateY(2px);box-shadow:none}
+.goal-strip{border:2px solid #E3D6BE;box-shadow:0 3px 0 #E3D6BE;background:linear-gradient(#fff,#FBF3E2)}
+.shelf{border-top:2px solid #657D89;box-shadow:0 -3px 0 rgba(101,125,137,.12)}
+.element-chip{border:2px solid #E3D6BE;border-radius:16px;background:linear-gradient(#fff,#FBF3E2);box-shadow:0 3px 0 #E3D6BE;transition:transform .1s}
+.element-chip:active{transform:translateY(2px);box-shadow:0 1px 0 #E3D6BE}
+.tabbar{border-top:2px solid #657D89;background:#FFF8EC}
+html:not([data-theme="dark"]) .tab.active{background:#4F6269;color:#FFE9B8;box-shadow:0 3px 0 #33444B;transform:translateY(-3px)}
+html:not([data-theme="dark"]) body[data-game-mode="family"] .tab.active{background:#3F7A5C;color:#fff;box-shadow:0 3px 0 #2A5A40}
+.tab{transition:transform .15s,background .15s}.tab.active svg{animation:tab-pop .35s ease}
+@keyframes tab-pop{40%{transform:scale(1.25) rotate(-8deg)}}
+.modal-button{border-radius:16px;background:#E8843C;box-shadow:0 4px 0 #B8601F;font-size:14.5px;letter-spacing:.01em;transition:transform .08s}
+.modal-button:active{transform:translateY(3px);box-shadow:0 1px 0 #B8601F}
+.modal-button.secondary{background:#F7F1E4;border:2px solid #D9CFBB;box-shadow:0 3px 0 #D9CFBB}
+.modal-button.secondary:active{box-shadow:0 1px 0 #D9CFBB}
+.modal-button.danger{background:#D9534A;box-shadow:0 4px 0 #A8382F}
+.modal-button:disabled{box-shadow:none;transform:none}
+.modal-tag{display:inline-block;padding:4px 14px;border-radius:999px;background:#4F6269;color:#FFE9B8;letter-spacing:.14em}
+.mk-stall .modal-tag{background:none;padding:0}
+.modal-art{filter:drop-shadow(0 5px 0 rgba(101,125,137,.18))}
+/* Home */
+.home-tab{border:2px solid #E3D6BE!important;box-shadow:0 4px 0 #E3D6BE;border-radius:18px!important;opacity:1!important}
+.home-tab.is-on{border-color:#657D89!important;background:#4F6269!important;color:#fff!important;box-shadow:0 4px 0 #33444B;transform:translateY(-2px)}
+.home-tab.is-on small{color:#E7DFD0!important}
+.home-card{border:2px solid #657D89;box-shadow:0 5px 0 rgba(101,125,137,.3);border-radius:22px}
+.home-chip{border:2px solid #E3D6BE;box-shadow:0 3px 0 #E3D6BE;border-radius:14px;background:#fff}
+.home-chip.is-active{border-color:#E8843C;box-shadow:0 3px 0 #E8843C;background:#FFF1DC}
+.home-chip.is-locked{box-shadow:none;border-style:dashed;background:transparent}
+.home-seat{border-width:2px;box-shadow:0 3px 0 var(--line);background:#fff}
+.home-seat.is-free{box-shadow:none}.home-seat.is-tool{box-shadow:0 3px 0 var(--accent)}
+.home-life{border:2px solid #E3D6BE;background:linear-gradient(#fff,#FBF3E2)}
+.home-effects button,.home-effects [data-eff]{box-shadow:0 2px 0 rgba(0,0,0,.08)}
+.pet-card{border:2px solid #E3D6BE;box-shadow:0 3px 0 #E3D6BE;border-radius:16px}
+/* Stadium */
+.g-head h2{font-size:26px}
+.g-coins{display:none}
+.st-entrant.is-simple{position:relative;border:2px solid #657D89;border-radius:22px;box-shadow:0 5px 0 rgba(101,125,137,.32);background:linear-gradient(#A8DDF4 0 60%,#8FBF68 60% 66%,#7AA85A 66%);padding:30px 12px 12px;overflow:hidden}
+.st-entrant.is-simple::before{content:"";position:absolute;inset:0 0 auto 0;height:16px;background:conic-gradient(from 150deg at 50% 0,#E0675A 60deg,transparent 0) 0 0/28px 16px repeat-x,conic-gradient(from 150deg at 50% 0,#FFD166 60deg,transparent 0) 14px 0/28px 16px repeat-x;border-top:3px solid #657D89}
+.st-entrant.is-simple::after{content:"";position:absolute;right:18%;top:26px;width:38px;height:14px;border-radius:10px;background:#fff;box-shadow:-60px 10px 0 -2px #fff,40px 14px 0 -3px #fff;opacity:.85}
+.st-entrant.is-simple .st-entrant-art{background:radial-gradient(circle at 50% 60%,#fff 0 55%,rgba(255,255,255,.35) 56%);border-radius:50%;z-index:1}
+.st-entrant.is-simple .st-entrant-main{background:rgba(255,255,255,.92);border:2px solid #657D89;border-radius:14px;padding:6px 10px;z-index:1}
+.st-change{border:2px solid #657D89!important;background:#FFD166!important;box-shadow:0 3px 0 #C99A2E;font-weight:900!important;z-index:1;color:#3C3320!important}
+#viewGames .st-shop.is-hub,.st-shop.st-games-hub{gap:12px;margin-top:14px}
+#viewGames .st-shop.is-hub .st-shop-btn,.st-shop.st-games-hub .st-shop-btn{grid-template-columns:1fr;justify-items:center;text-align:center;row-gap:2px;padding:16px 10px 14px;min-height:132px;border:2px solid #E3D6BE;border-radius:22px;box-shadow:0 5px 0 #E3D6BE;background:linear-gradient(#fff,#FBF3E2);transition:transform .1s}
+#viewGames .st-shop.is-hub .st-shop-btn:active,.st-shop.st-games-hub .st-shop-btn:active{transform:translateY(3px);box-shadow:0 2px 0 #E3D6BE}
+#viewGames .st-shop.is-hub .st-shop-btn>span,.st-shop.st-games-hub .st-shop-btn>span{grid-row:auto;font-size:46px;line-height:1.1;filter:drop-shadow(0 3px 0 rgba(0,0,0,.12))}
+#viewGames .st-shop.is-hub .st-shop-btn b,.st-shop.st-games-hub .st-shop-btn b{font-size:17px}
+#stGames{border-color:#E8843C!important;box-shadow:0 5px 0 #E8843C!important;background:linear-gradient(#FFF3E3,#FFD9B0)!important}
+#stSchool{border-color:#6FA8D9!important;box-shadow:0 5px 0 #6FA8D9!important;background:linear-gradient(#EFF7FF,#CFE4F7)!important}
+#stPrizes{border-color:#E3B84E!important;box-shadow:0 5px 0 #E3B84E!important;background:linear-gradient(#FFF9E3,#FFE9A8)!important}
+#stMarket{border-color:#6FB26A!important;box-shadow:0 5px 0 #6FB26A!important;background:linear-gradient(#F1FAEC,#D2EDC8)!important}
+#stArcade{border-color:#B79CE0!important;box-shadow:0 5px 0 #B79CE0!important;background:linear-gradient(#F8F2FF,#E4D6FA)!important}
+#stMicro{border-color:#E0675A!important;box-shadow:0 5px 0 #E0675A!important;background:linear-gradient(#FFF1EE,#FFD3CC)!important}
+#stRaces{border-color:#6FB26A!important;box-shadow:0 5px 0 #6FB26A!important;background:linear-gradient(#F1FAEC,#D2EDC8)!important}
+.ar-grid .st-shop-btn{border:2px solid #E3D6BE;box-shadow:0 3px 0 #E3D6BE;border-radius:18px;background:linear-gradient(#fff,#FBF3E2)}
+.st-row{border:2px solid #E3D6BE!important;box-shadow:0 3px 0 #E3D6BE;border-radius:16px!important}
+.st-play{box-shadow:0 3px 0 rgba(0,0,0,.18)}
+@media (prefers-reduced-motion:reduce){.tab.active svg{animation:none}}
+
+/* V192: Today cards on the Stadium */
+.td-h{margin:18px 2px 8px;font-size:15px;font-weight:900;color:var(--ink)}
+.td-list{display:grid;gap:10px}
+.td-card{display:flex;align-items:center;gap:12px;width:100%;padding:12px 14px;border-radius:18px;border:2px solid #E3D6BE;background:linear-gradient(#fff,#FBF3E2);box-shadow:0 4px 0 #E3D6BE;text-align:left;color:var(--ink)}
+.td-card>span{flex:none;font-size:30px;line-height:1}.td-card>div{flex:1;min-width:0;display:grid;gap:2px}.td-card b{font-size:14.5px}.td-card small{font-size:12px;color:var(--ink-2)}
+.td-card i{display:block;height:7px;margin-top:4px;border-radius:4px;background:#EFE7D6;overflow:hidden}.td-card em{display:block;height:100%;border-radius:4px;background:linear-gradient(90deg,#8fbf68,#ffd166)}
+.td-card.is-gift.is-ready{border-color:#E8843C;box-shadow:0 4px 0 #E8843C;background:linear-gradient(#FFF3E3,#FFD9B0)}.td-card.is-gift.is-ready>span{animation:goal-wob .9s ease-in-out infinite}
+.td-card:disabled{opacity:.7;box-shadow:none}
+body[data-tab="Games"] .companion-layer{display:none}
+
 </style>
 </head>
 <body>
@@ -3434,7 +3511,9 @@ function createGamesSystem(ctx){
    <div class="st-picker" id="stPicker" ${preview?'':'hidden'}>${owned().map(c=>{const ci=companionInfo(c.id);return `<button type="button" class="st-pick ${c.id===pid?'is-active':''} ${c.id===state.pick?'is-current':''}" data-gpick="${c.id}"><span class="companion" data-companion="${c.id}"><span class="companion-art"></span></span><small>${escapeText(ci.name)}</small><em>Lv ${totalLv(ci)}</em></button>`;}).join('')}</div>
    ${preview?`<p class="st-preview-hint">${preview===state.pick?'Tap a companion to see its medals.':`Showing ${escapeText(info.name)}'s medals · tap <b>Change</b> to race with ${escapeText(info.name)}`}</p>`:''}
    ${shop}
+   ${ctx.todayHtml?.()||''}
    </div>`;
+  try{ctx.wireToday?.(mount,()=>render(mount));}catch{}
   mount.querySelectorAll('.companion[data-companion] .companion-art').forEach(a=>rig(a,a.parentElement.dataset.companion));dress(mount);
   $('stChange').onclick=()=>{if(preview){if(preview!==state.pick){state.pick=preview;save();}preview=null;}else preview=pick();render(mount);};
   mount.querySelectorAll('[data-card]').forEach(b=>b.onclick=()=>ctx.openCard?.(b.dataset.card));
@@ -4369,7 +4448,7 @@ function createArcade(ctx){
  return {open,openMicro,sync,state:()=>st,games:ARCADE_GAMES};
 }
 
-return {createArcade};})();
+return {createArcade,arcadeProgress,ARCADE_STEP};})();
 window.__gamesTheme151=(function(){/* V151: themed race maps. The regular stadium art is recoloured per theme (same shapes, same style),
  * a themed sky/backdrop is used, and the bushes along the route are replaced by themed props.
  * Pure (no DOM, no imports) so tools/build-standalone.py can inline it. */
@@ -7265,7 +7344,7 @@ const {createHomeSystem,HOME_STORAGE_KEY,pieceQuality,starsText}=window.__homeEn
 const {ROOM_SPRITES_V90}=window.__roomSprites90;
 const {createGamesSystem,GAMES_STORAGE_KEY,SKILL_PERKS,perkOf}=window.__games93;
 const {themedArt,recolorSvg}=window.__gamesTheme151;
-const {createArcade}=window.__arcade158;
+const {createArcade,arcadeProgress,ARCADE_STEP}=window.__arcade158;
 const {RACE_PRIZES,PRIZE_BY_ID,BELTS,beltSvg,wearBelt,personalPrize,personalPrizeId,parsePersonalPrize}=window.__prizes94;
 const {STADIUM_ART_V95}=window.__stadiumArt95;
 const {createStadiumSfx}=window.__stadiumSfx95;
@@ -7650,7 +7729,7 @@ function shinyCard(item){return `<p class="shiny-trivia"><span aria-hidden="true
 function showShinyFound(id){const it=byId.get(id);if(!it)return;
  showModal(`<div class="modal-tag shiny-tag">✦ SHINY ELEMENT</div><div class="modal-art is-shiny">${staticArt(it)}</div><h2>Shiny ${escapeText(uiName(it))}</h2>${shinyCard(it)}<div class="modal-milestone">${shiny.size.toLocaleString('en-US')} shiny ${shiny.size===1?'element':'elements'} · ${Math.round(shinyChance()*100)}% chance per combination</div>`);
 }
-const APP_VERSION='1.0.91';
+const APP_VERSION='1.0.92';
 // V83: status line + Google consent (UMP) privacy options, required for EEA players.
 async function refreshAdStatus(){
  const el=$('settingsAdStatus'),bridge=getRewardBridge();
@@ -9163,7 +9242,14 @@ const arcade=createArcade({hasHouse:()=>{try{return [...unlocked,...(classicSnap
  count:()=>classicDiscoveredCount(),activeId:()=>companions.active?.id||null,sprite:id=>COMPANION_SPRITES_V86[id]||'',wear:root=>{try{wearAll(root);}catch{}},
  statLevel:(id,k)=>companions.info(id)?.stats?.[k]?.level||0,skillLevel:(id,k)=>companions.skillsOf(id).includes(k)?companions.skillLevel(id,k)+1:0,
  addCoins:n=>addCoins(n),train:(k,amt)=>{const id=companions.active?.id;if(id)companions.gameReward(id,[k],amt);}});
-const games=createGamesSystem({ultraOwned:id=>wallet.ultra.includes(id),grantSupreme:()=>grantUltra(ULTRA.find(u=>u.id==='u-supreme')),lookOwned:k=>wallet.looks.includes(k),hasAcc:a=>!!wallet.acc?.[a],onPrize:()=>{try{companions.refreshViews();}catch{}},rollChampUltra:level=>grantUltra(rollUltra('champ',wallet.ultra,Math.random,champUltraChance(level))),openArcade:back=>arcade.open(back),openMicro:back=>arcade.openMicro(back),arcadeInfo:()=>{const s=arcade.state();return s?{got:s.unlocked.length,total:16}:null;},themedArt,recolorSvg,skillLevels:cid=>Object.fromEntries(companions.skillsOf(cid).map(k=>[k,companions.skillLevel(cid,k)+1])),coins:()=>wallet.coins,addCoins,coinsFor,grantAccessory,accIcon,accessories:ACCESSORIES,openMarket:(cb)=>openMarket(cb),openSchool:(cid,cb)=>openSchool(cid,cb),themeCompletion:(cid,k)=>companions.themeCompletion(cid,k),$,escapeText,roster:COMPANIONS_V86,sprites:COMPANION_SPRITES_V86,byId,uiName,isDiscovered:companionOwned,companionInfo:id=>companions.info(id),activeId:()=>companions.state().active,
+/** V192: "Today" cards on the Stadium screen — daily gift, next minigame, next discovery reward. */
+function todayHtml(){try{const daily=wallet.daily!==dailyKey(),g=goalInfo();const st=arcade?.state?.()||{};const total=arcade?.games?.length||0,got=(st.unlocked||[]).length;
+  let mini='';if(total){if(!st.houseGiven)mini=`<div class="td-card is-mini"><span>🔒</span><div><b>First minigame</b><small>Arrives with your first companion house</small></div></div>`;
+   else if(got<total){const p=arcadeProgress(st,classicDiscoveredCount(),undefined,Math.random,{house:true});const left=Math.max(0,p.next-classicDiscoveredCount());mini=`<div class="td-card is-mini"><span>🎮</span><div><b>Next minigame · ${left.toLocaleString('en-US')} elements to go</b><small>${got}/${total} unlocked</small><i><em style="width:${Math.round(100*(1-left/ARCADE_STEP))}%"></em></i></div></div>`;}}
+  return `<h3 class="td-h">Today</h3><div class="td-list"><button type="button" class="td-card is-gift ${daily?'is-ready':''}" id="tdDaily" ${daily?'':'disabled'}><span>🎁</span><div><b>${daily?`Daily gift · +${dailyCoins(nextStreak())} 🪙`:'Daily gift claimed'}</b><small>${daily?`Day ${nextStreak()} of your streak — tap to claim`:`Streak day ${wallet.streak||1} · come back tomorrow`}</small></div></button>
+   ${mini}<div class="td-card is-goal"><span>⚗️</span><div><b>${g.left} elements to the next reward</b><small>+${g.coins} 🪙 at ${g.next.toLocaleString('en-US')} · best combo ×${comboBest}</small><i><em style="width:${Math.round(g.k*100)}%"></em></i></div></div></div>`;}catch{return '';}}
+function wireToday(mount,again){const d=mount.querySelector('#tdDaily');if(d)d.onclick=()=>{if(claimDaily())again?.();};}
+const games=createGamesSystem({todayHtml:()=>todayHtml(),wireToday:(m,again)=>wireToday(m,again),ultraOwned:id=>wallet.ultra.includes(id),grantSupreme:()=>grantUltra(ULTRA.find(u=>u.id==='u-supreme')),lookOwned:k=>wallet.looks.includes(k),hasAcc:a=>!!wallet.acc?.[a],onPrize:()=>{try{companions.refreshViews();}catch{}},rollChampUltra:level=>grantUltra(rollUltra('champ',wallet.ultra,Math.random,champUltraChance(level))),openArcade:back=>arcade.open(back),openMicro:back=>arcade.openMicro(back),arcadeInfo:()=>{const s=arcade.state();return s?{got:s.unlocked.length,total:16}:null;},themedArt,recolorSvg,skillLevels:cid=>Object.fromEntries(companions.skillsOf(cid).map(k=>[k,companions.skillLevel(cid,k)+1])),coins:()=>wallet.coins,addCoins,coinsFor,grantAccessory,accIcon,accessories:ACCESSORIES,openMarket:(cb)=>openMarket(cb),openSchool:(cid,cb)=>openSchool(cid,cb),themeCompletion:(cid,k)=>companions.themeCompletion(cid,k),$,escapeText,roster:COMPANIONS_V86,sprites:COMPANION_SPRITES_V86,byId,uiName,isDiscovered:companionOwned,companionInfo:id=>companions.info(id),activeId:()=>companions.state().active,
  prizes:{RACE_PRIZES,beltSvg,personal:(course,cid,name,sprite)=>personalPrize(course,cid,companions.state().pets?.[cid]?.nick||name,sprite)},starterCompanion:STARTER_COMPANION,belts:BELTS,wear:wearAll,alchemyGrowth,classicCount:classicDiscoveredCount,openCard:id=>companions.openCard(id),art:STADIUM_ART_V95,sfx:SFX,rivalLook:(seed,level)=>rivalLook(seed,level),onBelt:()=>{companions.refreshViews();companions.start();},
  onResult:(id,kind,focus,place)=>{const amt=[0,12,8,5,3,3][place]||3;const stats=kind==='karate'?['power','hp']:focus==='all'?['run','swim','fly','power']:focus==='stamina'?['stamina','run']:[focus,'stamina'];return companions.gameReward(id,stats,amt);},
  showModal,closeModal,toast,reducedMotion:()=>Boolean(window.matchMedia?.('(prefers-reduced-motion: reduce)')?.matches)});
