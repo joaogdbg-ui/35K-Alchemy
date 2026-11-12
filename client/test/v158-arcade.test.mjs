@@ -240,3 +240,25 @@ test('V199: companion chemistry is symmetric, deterministic and varied', async (
   const total = Object.values(count).reduce((n, v) => n + v, 0);
   assert.ok(count.friends > total * 0.15 && count.rivals > total * 0.1 && count.nemesis >= 8 && count.nemesis < total * 0.12 && count.neutral > total * 0.3, JSON.stringify(count));
 });
+
+test('V200: companions act — hop turn, expressions and readable poses on every rig', async () => {
+  const fs = await import('node:fs');
+  const css = fs.readFileSync(new URL('../src/styles.css', import.meta.url), 'utf8');
+  const eng = fs.readFileSync(new URL('../src/companion-engine-v86.js', import.meta.url), 'utf8');
+  const home = fs.readFileSync(new URL('../src/home-engine-v90.js', import.meta.url), 'utf8');
+  for (const p of ['carry', 'push', 'wave', 'peek', 'stomp', 'taunt', 'sulk', 'scared', 'celebrate', 'sniff', 'getup']) assert.ok(css.includes(`.companion[data-anim="${p}"] .companion-art`), p);
+  for (const e of ['angry', 'happy', 'sad', 'wow', 'dizzy', 'love', 'smug', 'sleepy']) assert.ok(css.includes(`.companion[data-expr="${e}"] [data-part="eye-l"]`), e);
+  assert.match(css, /\.companion\[data-face="left"\] \.companion-art>svg\{animation:cp-turn-l/);
+  assert.match(css, /rotate:var\(--up,0deg\)/);
+  const { poseRig } = await import('../src/companion-engine-v86.js');
+  const vars = {}; const limb = (part, pivot, box) => ({ dataset: { part, pivot }, getBBox: () => box, style: { setProperty: (k, v) => { (vars[part] ||= {})[k] = parseInt(v); } } });
+  const L = limb('arm-l', '40 54', { x: 34, y: 54, width: 6, height: 16 }), R = limb('arm-r', '60 54', { x: 58, y: 30, width: 6, height: 24 });
+  const art = { dataset: {}, querySelectorAll: () => [L, R], querySelector: s => s.includes('arm-r') ? R : null };
+  poseRig(art);
+  assert.equal(art.dataset.rig, 'biped');
+  assert.ok(vars['arm-l']['--up'] > 120, 'a hanging left arm swings up on the outside');
+  assert.equal(vars['arm-r']['--up'], 0, 'an arm already holding something up stays put');
+  assert.ok(Math.abs(vars['arm-l']['--in']) <= 55);
+  for (const k of ["A.m.anim('carry')", "A.m.anim('stomp')", "winner.anim('taunt')", "expr(el,'dizzy',0)", "'getup'"]) assert.ok(eng.includes(k), k);
+  for (const k of ["dataset.anim='sulk'", "dataset.anim='stomp'", "'celebrate':'wave'", "ctx.poseRig?.(el)"]) assert.ok(home.includes(k), k);
+});

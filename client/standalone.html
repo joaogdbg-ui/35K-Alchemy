@@ -2669,6 +2669,109 @@ body[data-tab="Games"] .companion-layer{display:none}
 .home-rels li small{margin-left:auto;font-weight:800;color:var(--ink-2)}
 .home-rels li.is-neutral{background:#F4F1E8}.home-rels li.is-rivals{background:#FFF3E3}.home-rels li.is-nemesis{background:#FDECEA}
 
+/* ===== V200: companion acting — hop-turn, expressions and readable poses for all 40 rigs ===== */
+/* turning: a little hop and the flip happens in the air (no paper-thin frames), then a soft landing */
+.companion[data-face="left"] .companion-art>svg{animation:cp-turn-l .36s cubic-bezier(.3,.9,.4,1) 1}
+.companion[data-face="right"] .companion-art>svg{animation:cp-turn-r .36s cubic-bezier(.3,.9,.4,1) 1}
+@keyframes cp-turn-l{0%{transform:scaleX(-1) scaleY(.9) translateY(4%)}38%{transform:scaleX(-1) translateY(-16%) rotate(6deg)}39%{transform:scaleX(1) translateY(-16%) rotate(-6deg)}78%{transform:translateY(0) scale(1.07,.9)}100%{transform:none}}
+@keyframes cp-turn-r{0%{transform:scaleX(-1) scaleY(.9) translateY(4%)}38%{transform:scaleX(-1) translateY(-16%) rotate(6deg)}39%{transform:scaleX(1) translateY(-16%) rotate(-6deg)}78%{transform:translateY(0) scale(1.07,.9)}100%{transform:none}}
+.companion.is-ko .companion-art>svg,.companion[data-anim="climb"] .companion-art>svg,.companion[data-anim="sleep"] .companion-art>svg{animation:none}
+/* expressions (eyes and mouth exist on every rig) */
+.companion [data-part="eye-l"],.companion [data-part="eye-r"],.companion [data-part="mouth"]{transition:scale .14s,rotate .14s,translate .14s}
+.companion[data-expr="angry"] [data-part="eye-l"]{scale:1 .55;rotate:16deg}.companion[data-expr="angry"] [data-part="eye-r"]{scale:1 .55;rotate:-16deg}
+.companion[data-expr="angry"] [data-part="mouth"]{scale:.8 .6;translate:0 1px}
+.companion[data-expr="angry"]::before{content:"💢";position:absolute;right:-4px;top:-6px;font-size:16px;animation:ex-pop .5s ease-in-out infinite alternate;z-index:4;pointer-events:none}
+.companion[data-expr="happy"] [data-part="eye-l"],.companion[data-expr="happy"] [data-part="eye-r"]{scale:1 .32;translate:0 -1px}
+.companion[data-expr="happy"] [data-part="mouth"]{scale:1.3 1.35}
+.companion[data-expr="sad"] [data-part="eye-l"]{scale:1 .8;rotate:-14deg}.companion[data-expr="sad"] [data-part="eye-r"]{scale:1 .8;rotate:14deg}
+.companion[data-expr="sad"] [data-part="mouth"]{scale:1 -1}.companion[data-expr="sad"] [data-part="head"]{translate:0 2px}
+.companion[data-expr="sad"]::before{content:"💧";position:absolute;left:8px;top:4px;font-size:11px;animation:ex-drop 1.1s ease-in infinite;z-index:4;pointer-events:none}
+.companion[data-expr="wow"] [data-part="eye-l"],.companion[data-expr="wow"] [data-part="eye-r"]{scale:1.35}
+.companion[data-expr="wow"] [data-part="mouth"]{scale:.75 1.7}
+.companion[data-expr="wow"]::before{content:"❗";position:absolute;right:2px;top:-12px;font-size:15px;animation:ex-pop .3s ease-out 1;z-index:4;pointer-events:none}
+.companion[data-expr="dizzy"] [data-part="eye-l"],.companion[data-expr="dizzy"] [data-part="eye-r"]{animation:ex-spin .7s linear infinite;scale:.85}
+.companion[data-expr="sleepy"] [data-part="eye-l"],.companion[data-expr="sleepy"] [data-part="eye-r"]{scale:1 .14}
+.companion[data-expr="love"] [data-part="eye-l"],.companion[data-expr="love"] [data-part="eye-r"]{scale:1.2;animation:ex-beat .5s ease-in-out infinite alternate}
+.companion[data-expr="love"]::before{content:"💕";position:absolute;right:-2px;top:-10px;font-size:14px;animation:ex-float 1.2s ease-out infinite;z-index:4;pointer-events:none}
+.companion[data-expr="smug"] [data-part="eye-l"]{scale:1 .5}.companion[data-expr="smug"] [data-part="eye-r"]{scale:1 .5}.companion[data-expr="smug"] [data-part="mouth"]{scale:1.25 1;rotate:-8deg}
+@keyframes ex-pop{from{transform:scale(.7) rotate(-10deg)}to{transform:scale(1.15) rotate(8deg)}}
+@keyframes ex-drop{0%{transform:translateY(0);opacity:0}20%{opacity:1}100%{transform:translateY(16px);opacity:0}}
+@keyframes ex-spin{to{rotate:360deg}}
+@keyframes ex-beat{to{scale:1.4}}
+@keyframes ex-float{0%{transform:translateY(4px) scale(.6);opacity:0}30%{opacity:1}100%{transform:translateY(-14px) scale(1.1);opacity:0}}
+/* poses: every one must read from the silhouette alone. Limb angles come from the rig (--up/--fwd/--in/--down set by poseRig) */
+.companion [data-part^="arm-"],.companion [data-part^="wing-"]{transition:rotate .16s ease-out}
+/* carry — holds something overhead and walks with it */
+.companion[data-anim="carry"] .companion-art{animation:pz-bob .34s ease-in-out infinite}
+.companion[data-anim="carry"] :is([data-part^="arm-"],[data-part^="wing-"]){rotate:var(--up,0deg)}
+.companion[data-anim="carry"] [data-part="head"]{rotate:-9deg;translate:0 1px}
+.companion[data-anim="carry"] [data-part="leg-l"]{animation:pz-step .34s ease-in-out infinite}.companion[data-anim="carry"] [data-part="leg-r"]{animation:pz-step .34s ease-in-out infinite reverse}
+/* push — leans in with both arms forward, feet digging */
+.companion[data-anim="push"] .companion-art{rotate:calc(var(--dir) * 14deg);animation:pz-shove .5s ease-in-out infinite}
+.companion[data-anim="push"] [data-part^="arm-"]{rotate:var(--fwd,0deg)}
+.companion[data-anim="push"] [data-part="leg-l"]{animation:pz-step .5s ease-in-out infinite}.companion[data-anim="push"] [data-part="leg-r"]{animation:pz-step .5s ease-in-out infinite reverse}
+.companion[data-anim="push"] [data-part="head"]{rotate:8deg;translate:2px 1px}
+/* wave — looks at the player and waves */
+.companion[data-anim="wave"] .companion-art{animation:pz-bob .5s ease-in-out infinite}
+.companion[data-anim="wave"] :is([data-part="arm-r"],[data-part="wing-r"]){animation:pz-wave .3s ease-in-out infinite alternate}
+.companion[data-anim="wave"] [data-part="head"]{animation:pz-tilt .6s ease-in-out infinite alternate}
+.companion[data-anim="wave"] [data-part="tail"]{animation:pz-wag .2s ease-in-out infinite alternate}
+.companion[data-anim="wave"] .companion-art[data-rig="quad"] [data-part="leg-r"]{animation:pz-paw .3s ease-in-out infinite alternate}
+/* peek — presses its face against the screen */
+.companion[data-anim="peek"] .companion-art{animation:pz-peek 1.8s cubic-bezier(.3,1.3,.5,1) 1 forwards}
+.companion[data-anim="peek"] [data-part="eye-l"],.companion[data-anim="peek"] [data-part="eye-r"]{animation:pz-look 1.8s ease-in-out 1}
+.companion[data-anim="peek"] :is([data-part^="arm-"],[data-part^="wing-"]){rotate:var(--up,0deg)}
+/* stomp — angry little stamps, fists down */
+.companion[data-anim="stomp"] .companion-art{animation:pz-stamp .26s ease-in infinite}
+.companion[data-anim="stomp"] [data-part="leg-l"]{animation:pz-kickdown .26s ease-in infinite}.companion[data-anim="stomp"] [data-part="leg-r"]{animation:pz-kickdown .26s ease-in infinite .13s}
+.companion[data-anim="stomp"] [data-part^="arm-"]{animation:pz-fists .13s ease-in-out infinite alternate}
+.companion[data-anim="stomp"] [data-part="head"]{animation:pz-fume .26s ease-in-out infinite alternate}
+.companion[data-anim="stomp"] [data-part="tail"]{animation:pz-wag .13s linear infinite alternate}
+/* taunt — leans back, points and laughs */
+.companion[data-anim="taunt"] .companion-art{rotate:calc(var(--dir) * -12deg);animation:pz-laugh .22s ease-in-out infinite alternate}
+.companion[data-anim="taunt"] [data-part="arm-r"]{rotate:var(--fwd,0deg)}
+.companion[data-anim="taunt"] [data-part="head"]{rotate:-12deg}.companion[data-anim="taunt"] [data-part="mouth"]{scale:1.3 1.6}
+.companion[data-anim="taunt"] .companion-art[data-rig="quad"] [data-part="leg-r"]{rotate:-55deg}
+/* sulk — turns in on itself, head down, arms crossed */
+.companion[data-anim="sulk"] .companion-art{scale:.94;translate:0 3%;animation:pz-sigh 1.6s ease-in-out infinite}
+.companion[data-anim="sulk"] [data-part="head"]{rotate:15deg;translate:0 3px}
+.companion[data-anim="sulk"] [data-part^="arm-"]{rotate:var(--in,0deg)}
+.companion[data-anim="sulk"] [data-part="tail"]{rotate:22deg}
+/* scared — leans away, arms up, shivering */
+.companion[data-anim="scared"] .companion-art{rotate:calc(var(--dir) * -16deg);animation:pz-shiver .09s linear infinite}
+.companion[data-anim="scared"] :is([data-part^="arm-"],[data-part^="wing-"]){rotate:var(--up,0deg)}
+.companion[data-anim="scared"] [data-part="tail"]{rotate:30deg}
+/* celebrate — jump with a spin, arms up */
+.companion[data-anim="celebrate"] .companion-art{animation:pz-celebrate .7s cubic-bezier(.3,1.4,.5,1) infinite}
+.companion[data-anim="celebrate"] :is([data-part^="arm-"],[data-part^="wing-"]){rotate:var(--up,0deg)}
+.companion[data-anim="celebrate"] [data-part="leg-l"]{rotate:18deg}.companion[data-anim="celebrate"] [data-part="leg-r"]{rotate:-18deg}
+/* sniff — nose forward, quick little bobs */
+.companion[data-anim="sniff"] .companion-art{rotate:calc(var(--dir) * 10deg)}
+.companion[data-anim="sniff"] [data-part="head"]{animation:pz-sniff .28s ease-in-out infinite alternate}
+.companion[data-anim="sniff"] [data-part="tail"]{animation:pz-wag .4s ease-in-out infinite alternate}
+/* getup — wobbles back onto its feet */
+.companion[data-anim="getup"] .companion-art{animation:pz-getup .8s cubic-bezier(.3,1.5,.5,1) 1}
+@keyframes pz-bob{50%{translate:0 -5%}}
+@keyframes pz-step{0%,100%{rotate:-22deg}50%{rotate:22deg}}
+@keyframes pz-shove{50%{translate:calc(var(--dir) * 4%) 2%}}
+@keyframes pz-wave{from{rotate:calc(var(--up,0deg) - 26deg)}to{rotate:calc(var(--up,0deg) + 22deg)}}
+@keyframes pz-wag{from{rotate:-16deg}to{rotate:16deg}}
+@keyframes pz-paw{from{rotate:-70deg}to{rotate:-40deg}}
+@keyframes pz-fists{from{rotate:calc(var(--down,0deg) - 10deg)}to{rotate:calc(var(--down,0deg) + 10deg)}}
+@keyframes pz-tilt{from{rotate:-7deg}to{rotate:7deg}}
+@keyframes pz-peek{0%{scale:1;translate:0 0}30%,80%{scale:1.38;translate:0 12%}100%{scale:1;translate:0 0}}
+@keyframes pz-look{0%,100%{translate:0 0}35%{translate:-1.5px 0}60%{translate:1.5px 0}}
+@keyframes pz-stamp{0%,100%{translate:0 0;scale:1 1}50%{translate:0 -7%;scale:.97 1.04}85%{scale:1.06 .92}}
+@keyframes pz-kickdown{0%,100%{rotate:0deg}50%{rotate:-30deg;translate:0 -2px}}
+@keyframes pz-fume{from{rotate:-5deg}to{rotate:5deg}}
+@keyframes pz-laugh{from{translate:0 0}to{translate:0 -5%}}
+@keyframes pz-sigh{50%{scale:.94 .9}}
+@keyframes pz-shiver{0%{translate:-2% 0}100%{translate:2% 0}}
+@keyframes pz-celebrate{0%{translate:0 0;scale:1.06 .9}45%{translate:0 -34%;scale:.94 1.08;rotate:calc(var(--dir) * 180deg)}90%{translate:0 0;rotate:calc(var(--dir) * 360deg)}100%{rotate:calc(var(--dir) * 360deg);scale:1.05 .93}}
+@keyframes pz-sniff{from{translate:0 0}to{translate:2px 2px}}
+@keyframes pz-getup{0%{rotate:calc(var(--dir) * 88deg);translate:10% 6%}55%{rotate:calc(var(--dir) * -12deg)}80%{rotate:calc(var(--dir) * 6deg)}100%{rotate:0deg;translate:0 0}}
+@media (prefers-reduced-motion:reduce){.companion[data-face] .companion-art>svg{animation:none}}
+
 </style>
 </head>
 <body>
@@ -3348,7 +3451,7 @@ function createHomeSystem(ctx){
  }
 
  // ---------- residents walk to furniture and use it ----------
- function rig(el,cid){el.innerHTML=sprites[cid]||'';for(const g of el.querySelectorAll('[data-part]')){const p=(g.dataset.pivot||'50 50').split(/\s+/).map(Number);g.style.transformOrigin=`${p[0]}px ${p[1]}px`;g.style.transformBox='view-box';}const svg=el.querySelector('svg');if(svg){svg.setAttribute('width','100%');svg.setAttribute('height','100%');}}
+ function rig(el,cid){el.innerHTML=sprites[cid]||'';for(const g of el.querySelectorAll('[data-part]')){const p=(g.dataset.pivot||'50 50').split(/\s+/).map(Number);g.style.transformOrigin=`${p[0]}px ${p[1]}px`;g.style.transformBox='view-box';}ctx.poseRig?.(el);const svg=el.querySelector('svg');if(svg){svg.setAttribute('width','100%');svg.setAttribute('height','100%');}}
  function useSpot(f,L){const [w,h]=footprint(objects,f);const name=uiName(byId.get(f.id))||'';const layer=layerOf(RS,f.id);
   // V112: residents stand in the CENTRE of what they use (fractional tiles), not on its first tile.
   if(layer!=='floor'&&FRONT_USE.test(name)){const fy=f.y+h-(/punching/i.test(f.id)?1:0.45);return {x:f.x+(w-1)/2,y:Math.min(L.rows-1,fy),front:true};}
@@ -3365,12 +3468,13 @@ function createHomeSystem(ctx){
   const walkers=residents.map((cid,i)=>{const el=document.createElement('span');el.className='companion home-walker';el.dataset.anim='idle';el.dataset.companion=cid;
    const art=document.createElement('span');art.className='companion-art';rig(art,cid);el.append(art);const fx=document.createElement('span');fx.className='home-fx';el.append(fx);const say=document.createElement('span');say.className='home-say';el.append(say);const gain=document.createElement('span');gain.className='home-gain';el.append(gain);const sh=document.createElement('i');sh.className='home-shadow';el.prepend(sh);const pet=document.createElement('button');pet.type='button';pet.className='home-pet';pet.setAttribute('aria-label','Pet');el.append(pet);box.append(el);
    const p={x:(i*2+1)%L.cols,y:L.rows-1-(i%L.rows),face:1};place(el,p);const w={cid,el,p,busyUntil:0,taken:null,petAt:0,per:personalityOf(cid)};
-   pet.onclick=e=>{e.stopPropagation();bubble(w,'❤',1100);voiceAt=0;voice(cid,'happy');if(!el.classList.contains('is-using')){el.dataset.anim='jump';setTimeout(()=>{if(el.dataset.anim==='jump')el.dataset.anim='idle';},700);}
+   pet.onclick=e=>{e.stopPropagation();bubble(w,'❤',1100);el.dataset.expr='happy';setTimeout(()=>{if(el.dataset.expr==='happy')delete el.dataset.expr;},1200);voiceAt=0;voice(cid,'happy');if(!el.classList.contains('is-using')){el.dataset.anim='jump';setTimeout(()=>{if(el.dataset.anim==='jump')el.dataset.anim='idle';},700);}
     if(Date.now()-w.petAt>20000){w.petAt=Date.now();if(train&&applyEffect?.(cid,'mood'))gainPop(w,'mood');}};
    return w;});
   const QUIRK_TEXT={spin:'Doing a little twirl',hop:'Hopping on the spot',wiggle:'Wiggling to a tune',nod:'Nodding along',stretch:'Having a big stretch',shiver:'Shaking off a chill',bow:'Taking a bow',sway:'Swaying happily'};
   const ICON={run:'🏃',swim:'💦',power:'💪',fly:'🪽',stamina:'🧗',hp:'💤',mood:'🎵',food:'🍖',discovery:'📖'};
   const VERB={run:'Running on',swim:'Splashing in',power:'Training with',fly:'Bouncing on',stamina:'Working out on',hp:'Resting on',mood:'Having fun with',food:'Eating at',discovery:'Studying at'};
+  const expr=(w,k,ms=1500)=>{w.el.dataset.expr=k;clearTimeout(w.exT);if(ms)w.exT=setTimeout(()=>{if(w.el.dataset.expr===k)delete w.el.dataset.expr;},ms);};
   const bubble=(w,txt,ms)=>{const b=w.el.querySelector('.home-say');b.textContent=txt;b.classList.add('is-on');clearTimeout(w.sayT);w.sayT=setTimeout(()=>b.classList.remove('is-on'),ms);};
   const act=(w,txt)=>{const a=(root.closest('.home-card')||root).querySelector(`[data-act="${w.cid}"]`);if(a)a.textContent=txt;};
   const gainPop=(w,eff)=>{const g=w.el.querySelector('.home-gain');g.textContent='+'+(EFFECT_LABEL[eff]||'');g.dataset.eff=eff;g.classList.remove('is-pop');void g.offsetWidth;g.classList.add('is-pop');const a=(root.closest('.home-card')||root).querySelector(`[data-gain="${w.cid}"]`);if(a){a.textContent='+'+(EFFECT_LABEL[eff]||'');a.classList.remove('is-pop');void a.offsetWidth;a.classList.add('is-pop');}};
@@ -3387,8 +3491,8 @@ function createHomeSystem(ctx){
       // V152: going north the companion stays in front of what it is walking past until it gets there
       if(north&&zOld){const zNew=Number(w.el.style.getPropertyValue('--z'));w.el.style.setProperty('--z',Math.max(zOld,zNew));w.legs.push(setTimeout(()=>{if(Number(w.el.style.getPropertyValue('--z'))>zNew&&!w.el.classList.contains('is-using'))w.el.style.setProperty('--z',zNew);},ms));}},at));t+=ms;cur=pt;}
    return t;};
-  const knockOut=w=>{w.ko=true;w.busyUntil=Infinity;if(w.taken){taken.delete(w.taken);w.taken=null;}w.el.className='companion home-walker is-ko';w.el.dataset.anim='idle';bubble(w,'💫',600000);act(w,'Knocked out — tap to revive');};
-  const revive=w=>{w.ko=false;w.busyUntil=Date.now()+900;w.el.classList.remove('is-ko');w.el.dataset.anim='jump';bubble(w,'❤',1200);act(w,'Back on its feet');voiceAt=0;voice(w.cid,'happy');setTimeout(()=>{if(w.el.dataset.anim==='jump')w.el.dataset.anim='idle';},700);};
+  const knockOut=w=>{w.ko=true;w.busyUntil=Infinity;if(w.taken){taken.delete(w.taken);w.taken=null;}w.el.className='companion home-walker is-ko';w.el.dataset.anim='idle';expr(w,'dizzy',0);bubble(w,'💫',600000);act(w,'Knocked out — tap to revive');};
+  const revive=w=>{w.ko=false;w.busyUntil=Date.now()+900;w.el.classList.remove('is-ko');delete w.el.dataset.expr;w.el.dataset.anim='getup';bubble(w,'❤',1200);act(w,'Back on its feet');voiceAt=0;voice(w.cid,'happy');setTimeout(()=>{if(w.el.dataset.anim==='getup'){w.el.dataset.anim='celebrate';expr(w,'happy',1000);setTimeout(()=>{if(w.el.dataset.anim==='celebrate')w.el.dataset.anim='idle';},1000);}},800);w.busyUntil=Date.now()+1900;};
   for(const w of walkers){const pb=w.el.querySelector('.home-pet');if(pb){const old=pb.onclick;pb.onclick=e=>{if(w.ko){e.stopPropagation();revive(w);return;}old?.(e);};}}
   const tick=()=>{if(!document.body.contains(box))return stopWander();const now=Date.now();
    for(const w of walkers){if(w.ko||now<w.busyUntil)continue;
@@ -3416,17 +3520,17 @@ function createHomeSystem(ctx){
       if(m&&!m.ko&&Math.abs(m.p.x-w.p.x)+Math.abs(m.p.y-w.p.y)<=1.5){const face=m.p.x>=w.p.x?1:-1;w.p.face=face;w.el.dataset.face=face>0?'right':'left';
        // V199: chemistry — friends cheer (and both feel better), rivals bicker, sworn enemies fight until one is knocked out (tap it to revive)
        const rel=(()=>{try{return ctx.relation?.(w.cid,m.cid)||'neutral';}catch{return 'neutral';}})();const mName=companionName(m.cid);
-       if(rel==='rivals'){w.el.dataset.anim='shake';bubble(w,'😤',1400);act(w,`Bickering with ${mName}`);voice(w.cid,'no');if(m.el.dataset.anim==='idle'){m.el.dataset.face=face>0?'left':'right';m.el.dataset.anim='shake';bubble(m,'💢',1400);setTimeout(()=>{if(m.el.dataset.anim==='shake')m.el.dataset.anim='idle';},1200);}setTimeout(()=>{if(w.el.dataset.anim==='shake')w.el.dataset.anim='idle';},1200);return;}
-       if(rel==='nemesis'&&m.el.dataset.anim==='idle'){m.el.dataset.face=face>0?'left':'right';w.el.dataset.anim='knock';m.el.dataset.anim='knock';bubble(w,'💥',1500);bubble(m,'💥',1500);act(w,`Fighting ${mName}!`);act(m,`Fighting ${companionName(w.cid)}!`);voice(w.cid,'no');w.busyUntil=Date.now()+2600;m.busyUntil=Date.now()+2600;
-        setTimeout(()=>{const lose=Math.random()<0.5?w:m,win=lose===w?m:w;knockOut(lose);win.el.dataset.anim='jump';bubble(win,'😼',1300);act(win,`Won a fight with ${companionName(lose.cid)}`);setTimeout(()=>{if(win.el.dataset.anim==='jump')win.el.dataset.anim='idle';},800);},1500);return;}
-       w.el.dataset.anim='duo-cheer';bubble(w,rel==='friends'?'💚':'❤',1400);act(w,rel==='friends'?`Having fun with best friend ${mName}`:'Chatting with a housemate');if(rel==='friends'){voice(w.cid,'happy');if(train&&applyEffect?.(w.cid,'mood'))gainPop(w,'mood');if(train)applyEffect?.(m.cid,'mood');}
+       if(rel==='rivals'){w.el.dataset.anim='stomp';expr(w,'angry',1400);bubble(w,'😤',1400);act(w,`Bickering with ${mName}`);voice(w.cid,'no');if(m.el.dataset.anim==='idle'){m.el.dataset.face=face>0?'left':'right';m.el.dataset.anim='taunt';expr(m,'smug',1400);bubble(m,'💢',1400);setTimeout(()=>{if(m.el.dataset.anim==='taunt')m.el.dataset.anim='idle';},1300);}setTimeout(()=>{if(w.el.dataset.anim==='stomp')w.el.dataset.anim='idle';},1300);return;}
+       if(rel==='nemesis'&&m.el.dataset.anim==='idle'){m.el.dataset.face=face>0?'left':'right';w.el.dataset.anim='duo-punch';m.el.dataset.anim='duo-kick';expr(w,'angry',1500);expr(m,'angry',1500);const sw=setInterval(()=>{if(w.ko||m.ko)return clearInterval(sw);const t=w.el.dataset.anim;w.el.dataset.anim=m.el.dataset.anim==='duo-kick'?'duo-hit':'duo-punch';m.el.dataset.anim=t==='duo-punch'?'duo-hit':'duo-kick';},320);setTimeout(()=>clearInterval(sw),1450);bubble(w,'💥',1500);bubble(m,'💥',1500);act(w,`Fighting ${mName}!`);act(m,`Fighting ${companionName(w.cid)}!`);voice(w.cid,'no');w.busyUntil=Date.now()+2600;m.busyUntil=Date.now()+2600;
+        setTimeout(()=>{const lose=Math.random()<0.5?w:m,win=lose===w?m:w;knockOut(lose);win.el.dataset.anim='taunt';expr(win,'smug',1300);bubble(win,'😼',1300);act(win,`Won a fight with ${companionName(lose.cid)}`);setTimeout(()=>{if(win.el.dataset.anim==='taunt')win.el.dataset.anim='idle';},1300);},1500);return;}
+       w.el.dataset.anim=rel==='friends'?'celebrate':'wave';expr(w,rel==='friends'?'love':'happy',1400);if(m.el.dataset.anim==='idle'){m.el.dataset.face=face>0?'left':'right';m.el.dataset.anim='wave';expr(m,'happy',1400);setTimeout(()=>{if(m.el.dataset.anim==='wave')m.el.dataset.anim='idle';},1400);}setTimeout(()=>{if(w.el.dataset.anim==='celebrate'||w.el.dataset.anim==='wave')w.el.dataset.anim='idle';},1400);bubble(w,rel==='friends'?'💚':'❤',1400);act(w,rel==='friends'?`Having fun with best friend ${mName}`:'Chatting with a housemate');if(rel==='friends'){voice(w.cid,'happy');if(train&&applyEffect?.(w.cid,'mood'))gainPop(w,'mood');if(train)applyEffect?.(m.cid,'mood');}
        if(m.el.dataset.anim==='idle'){m.el.dataset.face=face>0?'left':'right';m.el.dataset.anim='duo-laugh';bubble(m,'🎶',1400);setTimeout(()=>{if(m.el.dataset.anim==='duo-laugh')m.el.dataset.anim='idle';},1400);}
        setTimeout(()=>{if(w.el.dataset.anim==='duo-cheer')w.el.dataset.anim='idle';},1400);}
       return;}
      const eff=objects[f.id].effect,u=USE[eff]||USE.decor;
-     if(refuse){w.el.dataset.anim='shake';bubble(w,'🙅',1400);act(w,`Not a fan of the ${fname}`);voice(w.cid,'no');setTimeout(()=>{if(w.el.dataset.anim==='shake')w.el.dataset.anim='idle';},900);return;}
+     if(refuse){w.el.dataset.anim='sulk';expr(w,'sad',1400);bubble(w,'🙅',1400);act(w,`Not a fan of the ${fname}`);voice(w.cid,'no');setTimeout(()=>{if(w.el.dataset.anim==='sulk')w.el.dataset.anim='idle';},1300);return;}
      const loves=eff===w.per.fav;act(w,loves?`Loves the ${fname} ♥`:`${STYLE_VERB[w.per.style]?.[eff]||VERB[eff]||'Using'} the ${fname}`);
-     if(loves){bubble(w,'💖',1600);voice(w.cid,'happy');}else if(Math.random()<0.35)voice(w.cid,'use');w.el.classList.add('p-'+w.per.style);
+     if(loves){bubble(w,'💖',1600);expr(w,'love',2200);voice(w.cid,'happy');}else if(Math.random()<0.35)voice(w.cid,'use');w.el.classList.add('p-'+w.per.style);
      if(spot.front){w.p.face=1;w.el.dataset.face='right';}
      else{const [,fh]=footprint(objects,f);w.el.style.setProperty('--z',11+(f.y+fh)*2);}
      w.el.dataset.anim=(eff==='hp'&&w.per.style==='hyper')?'jump':u.anim;if(u.cls&&!(eff==='hp'&&w.per.style==='hyper'))w.el.classList.add(u.cls);w.el.classList.add('is-using');
@@ -5653,6 +5757,15 @@ function applyLookSvg(svg,look,key){
   add(svg,`<g class="look-aura">${pts.map(([x,y],i)=>`<g transform="translate(${f1(x)} ${f1(y)})"><g style="animation-delay:${i*.35}s">${aura?`<path d="${smoothPath(aura.pts,s)}" fill="${aura.color}" opacity=".9"/>`:''}${notesW>0.04?`<text font-size="${f1(s*1.8)}" fill="#9b7fc4" text-anchor="middle" opacity="${Math.min(1,.3+notesW).toFixed(2)}">♪</text>`:''}</g></g>`).join('')}</g>`,false,gl(aura));}}
 }
 
+// V200: every rig draws its arms/wings differently, so poses are aimed from the limb's real rest direction
+function poseRig(art,tries=0){if(!art)return;const limbs=[...art.querySelectorAll('[data-part="arm-l"],[data-part="arm-r"],[data-part="wing-l"],[data-part="wing-r"]')];
+ art.dataset.rig=art.querySelector('[data-part="arm-r"]')?'biped':art.querySelector('[data-part="wing-r"]')?'winged':'quad';let miss=false;
+ for(const g of limbs){let b=null;try{b=g.getBBox();}catch{}if(!b||(!b.width&&!b.height)){miss=true;continue;}
+  const [px,py]=(g.dataset.pivot||'50 50').split(/\s+/).map(Number),th=Math.atan2(b.y+b.height/2-py,b.x+b.width/2-px)*180/Math.PI,left=px<50;
+  const d=t=>((t-th)%360+540)%360-180,set=(n,v)=>g.style.setProperty(n,Math.round(v)+'deg');
+  let up=d(-90);if(Math.abs(up)>120){if(left&&up<0)up+=360;if(!left&&up>0)up-=360;}if(Math.abs(d(-90))<62)up=0;const cl=v=>Math.max(-55,Math.min(55,v));
+  set('--up',up);set('--fwd',d(0));set('--back',d(180));set('--down',d(90));set('--in',cl(d(left?35:145)));set('--out',d(left?200:-20));}
+ if(miss&&tries<6)setTimeout(()=>poseRig(art,tries+1),350);}
 function createCompanionSystem(ctx){
  const {roster,sprites,$,escapeText,byId,uiName,staticArt,familyFor,isDiscovered,isShiny,elementIsUseful,getSlots,isLeftLocked,toast,showModal,closeModal,reducedMotion,FAMILIES}=ctx;
  const requestActivation=ctx.requestActivation||(async()=>true);
@@ -5703,7 +5816,7 @@ function createCompanionSystem(ctx){
  function setArt(meta){
   const svg=sprites[meta.id]||'';
   const art=sprite.querySelector('.companion-art');art.innerHTML=svg;
-  for(const g of art.querySelectorAll('[data-part]')){const p=(g.dataset.pivot||'50 50').split(/\s+/).map(Number);g.style.transformOrigin=`${p[0]}px ${p[1]}px`;g.style.transformBox='view-box';}
+  for(const g of art.querySelectorAll('[data-part]')){const p=(g.dataset.pivot||'50 50').split(/\s+/).map(Number);g.style.transformOrigin=`${p[0]}px ${p[1]}px`;g.style.transformBox='view-box';}poseRig(art);
   sprite.dataset.move=meta.move;sprite.dataset.quirk=meta.quirkAnim||'wiggle';sprite.dataset.companion=meta.id;sprite.classList.toggle('is-shiny',isShiny(meta.id));
   const svgEl=art.querySelector('svg');if(svgEl){svgEl.setAttribute('width','100%');svgEl.setAttribute('height','100%');}
   try{ctx.wear?.(sprite.parentElement||sprite);}catch{}
@@ -5789,6 +5902,7 @@ function createCompanionSystem(ctx){
   if(rail.kind==='top'&&now()-lastVisit>45000&&Math.random()<0.07){lastVisit=now();if(await visitorScene()){timer=setTimeout(loop,900);return;}}
   if(ctx.toy?.()&&rail.kind==='top'&&now()-lastToy>30000&&Math.random()<0.07){lastToy=now();if(await playToy()){timer=setTimeout(loop,800);return;}}
   if(ko.main){timer=setTimeout(loop,900);return;}
+  if(rail.kind==='top'&&now()-lastHello>38000&&Math.random()<0.1){lastHello=now();const h=['wave','peek','sniff'][Math.floor(Math.random()*3)];sprite.dataset.anim=h;expr(sprite,h==='peek'?'wow':'happy',1800);if(h==='wave')sfx.boop?.();await wait(1900);if(sprite.dataset.anim===h)sprite.dataset.anim='idle';timer=setTimeout(loop,600);return;}
   if(duoActive()&&bud&&!bud.sprite.hidden&&!ko.bud&&rail.kind==='top'&&(duoRequest||(now()-lastDuo>18000&&Math.random()<0.2))){const k=duoRequest;duoRequest=null;await duoPlay(k);timer=setTimeout(loop,900);return;}
   const roll=Math.random();
   {const pws=powersOf(pet(meta.id).look);if(pws.length&&rail.kind!=='side'&&Math.random()<0.1){await usePower(pws[Math.floor(Math.random()*pws.length)]);timer=setTimeout(loop,700);return;}}
@@ -5991,9 +6105,10 @@ function createCompanionSystem(ctx){
  const slot2=()=>{try{return !!ctx.slot2Unlocked?.();}catch{return false;}};
  const buddyMeta=()=>{const id=state.buddy;if(!id||id===state.active||!activeMeta()||!isDiscovered(id)||!slot2())return null;return metaById.get(id)||null;};
  const duoActive=()=>!!buddyMeta();
+ const expr=(el,k,ms=1600)=>{if(!el)return;el.dataset.expr=k;clearTimeout(el._ex);if(ms)el._ex=setTimeout(()=>{if(el.dataset.expr===k)delete el.dataset.expr;},ms);};let lastHello=0;
  const famOf=id=>metaById.get(id)?.family;const relation=(a,b)=>relationOf(a,b,!!a&&!!b&&famOf(a)===famOf(b));
  const ko={main:false,bud:false};
- function setKo(who,on){ko[who]=on;const el=who==='main'?sprite:bud?.sprite;if(!el)return;el.classList.toggle('is-ko',on);if(on){el.dataset.anim='tumble';emoteOn(el,'spiral',600000);}else{el.dataset.anim='jump';const e=el.querySelector('.companion-emote');if(e)e.hidden=true;emoteOn(el,'heart',1400);sfx.happy?.();setTimeout(()=>{if(el.dataset.anim==='jump')el.dataset.anim='idle';},700);}}
+ function setKo(who,on){ko[who]=on;const el=who==='main'?sprite:bud?.sprite;if(!el)return;el.classList.toggle('is-ko',on);if(on){el.dataset.anim='tumble';expr(el,'dizzy',0);emoteOn(el,'spiral',600000);}else{delete el.dataset.expr;el.dataset.anim='getup';setTimeout(()=>{if(el.dataset.anim==='getup'){el.dataset.anim='celebrate';expr(el,'happy',1200);setTimeout(()=>{if(el.dataset.anim==='celebrate')el.dataset.anim='idle';},1300);}},800);const e=el.querySelector('.companion-emote');if(e)e.hidden=true;emoteOn(el,'heart',1400);sfx.happy?.();}}
  function reviveIfKo(who){if(!ko[who])return false;setKo(who,false);const id=who==='main'?state.active:state.buddy;try{toast(`${nameOf(metaById.get(id))} is back on its feet!`,'new');}catch{}return true;}
  let bud=null,budTimer=null,duoBusy=false,duoAbort=false,lastDuo=0,duoRequest=null;
  function ensureBud(){ensureLayer();if(bud)return bud;
@@ -6011,7 +6126,7 @@ function createCompanionSystem(ctx){
  function bPlace(x,y){bud.pos.x=x;bud.pos.y=y;bud.sprite.style.transform=`translate3d(${x.toFixed(1)}px,${y.toFixed(1)}px,0)`;bud.sprite.dataset.face=bud.pos.face>0?'right':'left';}
  function bLayer(which){const L=which==='back'?layerBack:layerFront;if(bud.sprite.parentElement!==L)L.append(bud.sprite);}
  function bSetArt(meta){bud.meta=meta;const art=bud.sprite.querySelector('.companion-art');art.innerHTML=sprites[meta.id]||'';
-  for(const g of art.querySelectorAll('[data-part]')){const p=(g.dataset.pivot||'50 50').split(/\s+/).map(Number);g.style.transformOrigin=`${p[0]}px ${p[1]}px`;g.style.transformBox='view-box';}
+  for(const g of art.querySelectorAll('[data-part]')){const p=(g.dataset.pivot||'50 50').split(/\s+/).map(Number);g.style.transformOrigin=`${p[0]}px ${p[1]}px`;g.style.transformBox='view-box';}poseRig(art);
   bud.sprite.dataset.move=meta.move;bud.sprite.dataset.companion=meta.id;bud.sprite.classList.toggle('is-shiny',isShiny(meta.id));
   const svgEl=art.querySelector('svg');if(svgEl){svgEl.setAttribute('width','100%');svgEl.setAttribute('height','100%');}
   try{ctx.wear?.(bud.sprite.parentElement||bud.sprite);}catch{}}
@@ -6146,17 +6261,19 @@ function createCompanionSystem(ctx){
   emoteOn(sprite,'burst',1200);emoteOn(bud.sprite,'burst',1200);sfx.found?.();await w8(500);
   const lr=layerFront.getBoundingClientRect();const tgt=i=>{const el=$('slot'+i);if(!el)return null;const q=el.getBoundingClientRect();return [q.left-lr.left+q.width/2-11,q.top-lr.top+q.height/2-11];};
   const t0=tgt(0),t1=tgt(1);if(!t0||!t1)return;
+  expr(sprite,'wow',900);expr(bud.sprite,'wow',900);
   const fa=flyer(f.a,'duo-throwable'),fb=flyer(f.b,'duo-throwable');const ha=handOf(A.m,10),hb=handOf(A.b,10);fa.style.transform=`translate3d(${ha[0]}px,${ha[1]}px,0)`;fb.style.transform=`translate3d(${hb[0]}px,${hb[1]}px,0)`;
+  A.m.anim('carry');A.b.anim('carry');const up=(el,h)=>{el.style.transform=`translate3d(${h[0]}px,${h[1]-26}px,0)`;};up(fa,ha);up(fb,hb);await w8(900);
   A.m.anim('duo-windup');A.b.anim('duo-windup');await w8(380);A.m.anim('duo-throw');A.b.anim('duo-throw');sfx.whoosh?.();
   await Promise.all([arcFly(fa,ha,t0,{ms:700,arc:90}),arcFly(fb,hb,t1,{ms:760,arc:110})]);fa.remove();fb.remove();
   try{ctx.coopCraft?.(f);}catch{}
-  faceEach(A.m,A.b);A.m.anim('duo-cheer');A.b.anim('duo-cheer');sfx.cheer?.();emoteOn(sprite,'heart',1400);emoteOn(bud.sprite,'heart',1400);await w8(1200);}
+  faceEach(A.m,A.b);A.m.anim('celebrate');A.b.anim('celebrate');expr(sprite,'love',1400);expr(bud.sprite,'love',1400);sfx.cheer?.();await w8(1400);}
  // V199: sworn enemies — a real brawl; the loser is knocked out until the player taps it
- async function brawl(){const r=await meet(46);if(!r)return;sfx.fight?.();A.m.anim('duo-guard');A.b.anim('duo-guard');emoteOn(sprite,'burst',900);emoteOn(bud.sprite,'burst',900);await w8(600);
+ async function brawl(){const r=await meet(46);if(!r)return;sfx.fight?.();A.m.anim('stomp');A.b.anim('stomp');expr(sprite,'angry',5000);expr(bud.sprite,'angry',5000);await w8(900);A.m.anim('duo-guard');A.b.anim('duo-guard');await w8(300);
   let att=Math.random()<0.5?A.m:A.b;for(let i=0;i<6;i++){const def=att===A.m?A.b:A.m;att.anim(i%2?'duo-kick':'duo-punch');sfx.swish?.();await w8(150);def.anim('duo-hit');sfx.hit?.();fxOn(def.el(),'impact',400);await w8(260);att=def;}
   const loser=Math.random()<0.5?A.m:A.b,winner=loser===A.m?A.b:A.m;winner.anim('duo-charge');sfx.charge?.();await w8(420);winner.anim('duo-punch');sfx.hit?.();fxOn(loser.el(),'impact',600);
   const who=loser===A.m?'main':'bud';setKo(who,true);const lid=who==='main'?state.active:state.buddy;const lp=pet(lid);settleMood(lp);lp.mood=Math.max(0,lp.mood-10);lp.moodAt=now();
-  winner.anim('duo-cheer');await wait(900);winner.anim('idle');try{toast(`${nameOf(metaById.get(lid))} was knocked out — tap it to revive it`,'repeat');}catch{}}
+  winner.anim('taunt');expr(winner.el(),'smug',1500);await wait(1500);winner.anim('idle');try{toast(`${nameOf(metaById.get(lid))} was knocked out — tap it to revive it`,'repeat');}catch{}}
  const DUO_GAMES=[spar,throwing,tag,hideSeek,ballGame];
  const DUO_BY_REL={friends:[tag,hideSeek,ballGame,coop,coop,coop],neutral:[spar,throwing,tag,hideSeek,ballGame],rivals:[spar,spar,throwing,throwing,tag],nemesis:[brawl,brawl,spar,throwing]};
  async function duoPlay(kind=null){if(duoBusy||!duoActive()||!bud||bud.sprite.hidden||sleeping||petting)return false;
@@ -6165,6 +6282,9 @@ function createCompanionSystem(ctx){
   const pool=DUO_BY_REL[relation(state.active,state.buddy)]||DUO_GAMES;
   const game=kind&&kind!=='any'?[...DUO_GAMES,coop,brawl].find(g=>g.name===kind)||DUO_GAMES[0]:pool[Math.floor(Math.random()*pool.length)];
   try{await game();}catch(e){if(e?.message!=='duo-abort')console.warn('duo',e);}
+  try{const rl=relation(state.active,state.buddy);if(!ko.main&&!ko.bud&&!duoAbort&&game!==coop){
+    if(rl==='rivals'){const w=Math.random()<0.5?A.m:A.b,l=w===A.m?A.b:A.m;w.anim('taunt');expr(w.el(),'smug',1500);l.anim('stomp');expr(l.el(),'angry',1500);await wait(1500);}
+    else if(rl==='friends'){A.m.anim('wave');A.b.anim('wave');expr(sprite,'happy',1200);expr(bud.sprite,'happy',1200);await wait(1200);}}}catch{}
   finally{if(!ko.main&&(sprite.dataset.anim?.startsWith('duo-')||sprite.dataset.anim==='tumble'||sprite.dataset.anim==='shake'))sprite.dataset.anim='idle';if(bud&&!ko.bud){bud.sprite.dataset.anim='idle';}
    // happy play time lifts both moods a little
    for(const id of [state.active,state.buddy]){if(!id)continue;const p=pet(id);settleMood(p);p.mood=Math.min(100,p.mood+3);p.moodAt=now();}save();
@@ -6547,7 +6667,7 @@ function createCompanionSystem(ctx){
   return {cid,known,name:nameOf(meta),taste,fresh,cooldownMin:fresh?0:Math.max(1,Math.ceil((FEED_COOLDOWN_MS-(now()-last))/60000)),stats,depth,depthMult:feedDepthMult(depth),looks:lookEffects(item.name||uiName(item),familyFor(item),item.category,depth,true)};}
  function tasted(itemId){return !!state.tasted?.[itemId]||Object.values(state.pets||{}).some(q=>q?.fed?.[itemId]);}
  function looksOf(itemId){const item=byId.get(itemId);if(!item)return null;return lookEffects(item.name||uiName(item),familyFor(item),item.category,ctx.depthOf?.(item.id));}
- return {requestDuo:k=>{duoRequest=k||'any';lastDuo=0;},koState:()=>({...ko}),relation,relInfo:r=>REL_INFO[r],visitorScene,fullLeft,makeRoom,feedStatsOf:itemId=>{const it=byId.get(itemId);return it?(FAMILY_FEEDS[familyFor(it)]||['stamina','hp']):[];},activeStats:()=>{const m=activeMeta();return m?{name:nameOf(m),family:m.family,stats:pet(m.id).stats}:null;},duoActive,applyRivalLook:(svg,id,look)=>applyLookSvg(svg,look,id+'-rival'),setBuddy,swapDuo,requestDuo:k=>{duoRequest=k||'any';},duoPlay,buddy:()=>buddyMeta()?.id||null,duoPair:()=>duoActive()?[state.active,state.buddy]:[],tasted,looksOf,mealPreview,lookOf,applyLook:(svg,id)=>{applyLookSvg(svg,lookOf(id),id);applyWearSvg(svg,id);},wearOf:id=>({...(state.pets[id]?.wear||{})}),setWear,takeOff,marketFeed,learn,skillsOf,skillLevel,themeCompletion,playToy,placeToy,performSkill,start,stop,setActive,statsHtml,info,gameReward,choose,homeEffect,syncSeen,markSeen,isCompanion,freeChoiceLeft,emote,feed,hitTest,onDiscovery,renderTab,openCard,get active(){return activeMeta();},state:()=>state,unlocked,refreshViews,
+ return {poseRig,requestDuo:k=>{duoRequest=k||'any';lastDuo=0;},koState:()=>({...ko}),relation,relInfo:r=>REL_INFO[r],visitorScene,fullLeft,makeRoom,feedStatsOf:itemId=>{const it=byId.get(itemId);return it?(FAMILY_FEEDS[familyFor(it)]||['stamina','hp']):[];},activeStats:()=>{const m=activeMeta();return m?{name:nameOf(m),family:m.family,stats:pet(m.id).stats}:null;},duoActive,applyRivalLook:(svg,id,look)=>applyLookSvg(svg,look,id+'-rival'),setBuddy,swapDuo,requestDuo:k=>{duoRequest=k||'any';},duoPlay,buddy:()=>buddyMeta()?.id||null,duoPair:()=>duoActive()?[state.active,state.buddy]:[],tasted,looksOf,mealPreview,lookOf,applyLook:(svg,id)=>{applyLookSvg(svg,lookOf(id),id);applyWearSvg(svg,id);},wearOf:id=>({...(state.pets[id]?.wear||{})}),setWear,takeOff,marketFeed,learn,skillsOf,skillLevel,themeCompletion,playToy,placeToy,performSkill,start,stop,setActive,statsHtml,info,gameReward,choose,homeEffect,syncSeen,markSeen,isCompanion,freeChoiceLeft,emote,feed,hitTest,onDiscovery,renderTab,openCard,get active(){return activeMeta();},state:()=>state,unlocked,refreshViews,
   onViewChange(){if(activeMeta()&&sprite&&!sprite.hidden)setTimeout(()=>{if(cancelMove)cancelMove();const r=pickRail();if(r){rail=r;setLayer(r.layer);place(clampX(r,pos.x),r.y);sprite.dataset.anim='idle';}},80);},
   importState(raw){if(raw&&raw.pets){state=normalize(raw);save();syncSeen();}},grades:companionGrades};
 }
@@ -8289,7 +8409,7 @@ function shinyFanfare(){if(!soundEnabled)return;const ctx=acquireSoundEngine();i
 function showShinyFound(id){const it=byId.get(id);if(!it)return;
  showModal(`<div class="modal-tag shiny-tag">✦ SHINY ELEMENT</div><div class="modal-art is-shiny">${staticArt(it)}</div><h2>Shiny ${escapeText(uiName(it))}</h2>${shinyPerks(it)}${shinyCard(it)}`);shinyDress();
 }
-const APP_VERSION='1.0.99';
+const APP_VERSION='1.1.00';
 // V83: status line + Google consent (UMP) privacy options, required for EEA players.
 async function refreshAdStatus(){
  const el=$('settingsAdStatus'),bridge=getRewardBridge();
@@ -9541,7 +9661,7 @@ function wearAll(root){if(!root)return;const els=root.querySelectorAll?.('[data-
 try{if(window.__m)window.__companions=companions;}catch{}
 const homes=createHomeSystem({$,escapeText,byId:homeById,uiName:homeUiName,staticArt:homeStaticArt,isDiscovered:homeDiscovered,objects:HOME_OBJECTS,sprites:COMPANION_SPRITES_V86,roster:COMPANIONS_V86,
  roomSprites:ROOM_SPRITES,depthOf:id=>routeDepth.get(id),alchemy:()=>({mult:alchemyGrowth(),finds:classicDiscoveredCount()}),wear:wearAll,applyEffect:(cid,eff)=>companions.homeEffect(cid,eff),
- audio:()=>soundEnabled?acquireSoundEngine():null,relation:(x,y)=>companions.relation(x,y),relInfo:r=>companions.relInfo(r),companionName:id=>companions.state().pets[id]?.nick||uiName(byId.get(id)),statsHtml:id=>companions.statsHtml(id),showModal,closeModal,toast,reducedMotion:()=>Boolean(window.matchMedia?.('(prefers-reduced-motion: reduce)')?.matches)});
+ audio:()=>soundEnabled?acquireSoundEngine():null,relation:(x,y)=>companions.relation(x,y),relInfo:r=>companions.relInfo(r),poseRig:el=>companions.poseRig(el),companionName:id=>companions.state().pets[id]?.nick||uiName(byId.get(id)),statsHtml:id=>companions.statsHtml(id),showModal,closeModal,toast,reducedMotion:()=>Boolean(window.matchMedia?.('(prefers-reduced-motion: reduce)')?.matches)});
 // V91 idle discoveries: while the game is closed, companions living in houses find elements the
 // player could already craft right now (both ingredients owned, result not yet found). Rate grows
 // with residents, their total level and the discovery furniture; capped by time (8 h) and size.
