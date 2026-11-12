@@ -1,0 +1,2496 @@
+{
+ "version": 186,
+ "status": "OWNER_APPROVED",
+ "owner_exception": true,
+ "owner_exception_reason": "Owner request (12 November 2026): game renamed Alchemy 7K with a target of about 7,000 elements; final batch of 165 approved to reach exactly 7,000.",
+ "cohort_count": 165,
+ "expansion_goal": 165,
+ "expansion_progress": 165,
+ "remaining_to_goal": 0,
+ "cycle_complete": true,
+ "themes": {
+  "deep-sea": 83,
+  "space": 82
+ },
+ "base_catalog": {
+  "elements": 6835
+ },
+ "alternative_recipes_for_existing_items": 0,
+ "new_items": [
+  {
+   "id": "organic186:anglerfish",
+   "name": "Anglerfish",
+   "category": "nature",
+   "summary": "A round, dark deep-sea fish with needle teeth and a glowing lure dangling over its mouth.",
+   "familyCampaigns": [
+    "nature"
+   ],
+   "ingredients": [
+    "legacy:27",
+    "organic37:bioluminescence"
+   ],
+   "art_mode": "bespoke-subject",
+   "path": "client/assets/v186/anglerfish.svg"
+  },
+  {
+   "id": "organic186:giant-squid",
+   "name": "Giant Squid",
+   "category": "nature",
+   "summary": "A huge red squid with long feeding tentacles and eyes the size of dinner plates.",
+   "familyCampaigns": [
+    "nature"
+   ],
+   "ingredients": [
+    "organic38:squid",
+    "legacy:591"
+   ],
+   "art_mode": "bespoke-subject",
+   "path": "client/assets/v186/giant-squid.svg"
+  },
+  {
+   "id": "organic186:colossal-squid",
+   "name": "Colossal Squid",
+   "category": "nature",
+   "summary": "A massive, heavy-bodied squid from Antarctic waters with hooked tentacles.",
+   "familyCampaigns": [
+    "nature"
+   ],
+   "ingredients": [
+    "organic186:giant-squid",
+    "legacy:35"
+   ],
+   "art_mode": "bespoke-subject",
+   "path": "client/assets/v186/colossal-squid.svg"
+  },
+  {
+   "id": "organic186:vampire-squid",
+   "name": "Vampire Squid",
+   "category": "nature",
+   "summary": "A small dark-red squid with a webbed cloak between its arms and pale blue eyes.",
+   "familyCampaigns": [
+    "nature"
+   ],
+   "ingredients": [
+    "organic38:squid",
+    "legacy:142"
+   ],
+   "art_mode": "bespoke-subject",
+   "path": "client/assets/v186/vampire-squid.svg"
+  },
+  {
+   "id": "organic186:dumbo-octopus",
+   "name": "Dumbo Octopus",
+   "category": "nature",
+   "summary": "A small, round pink octopus with two ear-like fins that flap as it swims.",
+   "familyCampaigns": [
+    "nature"
+   ],
+   "ingredients": [
+    "organic38:octopus",
+    "legacy:12"
+   ],
+   "art_mode": "bespoke-subject",
+   "path": "client/assets/v186/dumbo-octopus.svg"
+  },
+  {
+   "id": "organic186:gulper-eel",
+   "name": "Gulper Eel",
+   "category": "nature",
+   "summary": "A thin black eel with an enormous hinged mouth like an open sack.",
+   "familyCampaigns": [
+    "nature"
+   ],
+   "ingredients": [
+    "organic89:snake",
+    "legacy:591"
+   ],
+   "art_mode": "bespoke-subject",
+   "path": "client/assets/v186/gulper-eel.svg"
+  },
+  {
+   "id": "organic186:viperfish",
+   "name": "Viperfish",
+   "category": "nature",
+   "summary": "A slim silver-blue fish with fangs so long they curve outside its mouth.",
+   "familyCampaigns": [
+    "nature"
+   ],
+   "ingredients": [
+    "legacy:27",
+    "organic89:snake"
+   ],
+   "art_mode": "bespoke-subject",
+   "path": "client/assets/v186/viperfish.svg"
+  },
+  {
+   "id": "organic186:lanternfish",
+   "name": "Lanternfish",
+   "category": "nature",
+   "summary": "A small silvery fish dotted with rows of tiny glowing light organs.",
+   "familyCampaigns": [
+    "nature"
+   ],
+   "ingredients": [
+    "organic186:anglerfish",
+    "legacy:612"
+   ],
+   "art_mode": "bespoke-subject",
+   "path": "client/assets/v186/lanternfish.svg"
+  },
+  {
+   "id": "organic186:hatchetfish",
+   "name": "Hatchetfish",
+   "category": "nature",
+   "summary": "A thin silver fish shaped like a little axe blade with big upward-looking eyes.",
+   "familyCampaigns": [
+    "nature"
+   ],
+   "ingredients": [
+    "legacy:27",
+    "organic89:axe"
+   ],
+   "art_mode": "bespoke-subject",
+   "path": "client/assets/v186/hatchetfish.svg"
+  },
+  {
+   "id": "organic186:fangtooth",
+   "name": "Fangtooth",
+   "category": "nature",
+   "summary": "A stubby brown deep-sea fish with a huge head and the longest teeth for its size.",
+   "familyCampaigns": [
+    "nature"
+   ],
+   "ingredients": [
+    "organic186:viperfish",
+    "organic41:pressure"
+   ],
+   "art_mode": "bespoke-subject",
+   "path": "client/assets/v186/fangtooth.svg"
+  },
+  {
+   "id": "organic186:blobfish",
+   "name": "Blobfish",
+   "category": "nature",
+   "summary": "A pale pink, jelly-soft fish with a droopy nose and a permanently sad face.",
+   "familyCampaigns": [
+    "nature"
+   ],
+   "ingredients": [
+    "legacy:27",
+    "legacy:6"
+   ],
+   "art_mode": "bespoke-subject",
+   "path": "client/assets/v186/blobfish.svg"
+  },
+  {
+   "id": "organic186:goblin-shark",
+   "name": "Goblin Shark",
+   "category": "nature",
+   "summary": "A pale pink shark with a long flat snout and jaws that shoot forward to grab prey.",
+   "familyCampaigns": [
+    "nature"
+   ],
+   "ingredients": [
+    "organic38:shark",
+    "legacy:142"
+   ],
+   "art_mode": "bespoke-subject",
+   "path": "client/assets/v186/goblin-shark.svg"
+  },
+  {
+   "id": "organic186:frilled-shark",
+   "name": "Frilled Shark",
+   "category": "nature",
+   "summary": "A long, eel-like brown shark with six frilly gill slits and rows of trident teeth.",
+   "familyCampaigns": [
+    "nature"
+   ],
+   "ingredients": [
+    "organic38:shark",
+    "organic89:snake"
+   ],
+   "art_mode": "bespoke-subject",
+   "path": "client/assets/v186/frilled-shark.svg"
+  },
+  {
+   "id": "organic186:greenland-shark",
+   "name": "Greenland Shark",
+   "category": "nature",
+   "summary": "A slow, heavy grey shark of icy Arctic waters with a blunt snout and tiny eyes.",
+   "familyCampaigns": [
+    "nature"
+   ],
+   "ingredients": [
+    "organic38:shark",
+    "legacy:35"
+   ],
+   "art_mode": "bespoke-subject",
+   "path": "client/assets/v186/greenland-shark.svg"
+  },
+  {
+   "id": "organic186:oarfish",
+   "name": "Oarfish",
+   "category": "nature",
+   "summary": "A ribbon-like silver fish many metres long with a bright red crest along its back.",
+   "familyCampaigns": [
+    "nature"
+   ],
+   "ingredients": [
+    "legacy:27",
+    "organic38:wave"
+   ],
+   "art_mode": "bespoke-subject",
+   "path": "client/assets/v186/oarfish.svg"
+  },
+  {
+   "id": "organic186:giant-isopod",
+   "name": "Giant Isopod",
+   "category": "nature",
+   "summary": "A pale armoured sea creature like a woodlouse the size of a cat, with fourteen legs.",
+   "familyCampaigns": [
+    "nature"
+   ],
+   "ingredients": [
+    "organic38:crab",
+    "organic41:pressure"
+   ],
+   "art_mode": "bespoke-subject",
+   "path": "client/assets/v186/giant-isopod.svg"
+  },
+  {
+   "id": "organic186:sea-spider",
+   "name": "Sea Spider",
+   "category": "nature",
+   "summary": "A spindly orange sea creature that is almost all legs with a tiny body in the middle.",
+   "familyCampaigns": [
+    "nature"
+   ],
+   "ingredients": [
+    "organic40:spider",
+    "legacy:10"
+   ],
+   "art_mode": "bespoke-subject",
+   "path": "client/assets/v186/sea-spider.svg"
+  },
+  {
+   "id": "organic186:tube-worm",
+   "name": "Tube Worm",
+   "category": "nature",
+   "summary": "A cluster of tall white tubes on the seabed, each tipped with a feathery red plume.",
+   "familyCampaigns": [
+    "nature"
+   ],
+   "ingredients": [
+    "organic89:worm",
+    "legacy:11"
+   ],
+   "art_mode": "bespoke-subject",
+   "path": "client/assets/v186/tube-worm.svg"
+  },
+  {
+   "id": "organic186:yeti-crab",
+   "name": "Yeti Crab",
+   "category": "nature",
+   "summary": "A white, eyeless crab with long claws covered in silky blond bristles.",
+   "familyCampaigns": [
+    "nature"
+   ],
+   "ingredients": [
+    "organic38:crab",
+    "legacy:36"
+   ],
+   "art_mode": "bespoke-subject",
+   "path": "client/assets/v186/yeti-crab.svg"
+  },
+  {
+   "id": "organic186:hydrothermal-vent",
+   "name": "Hydrothermal Vent",
+   "category": "nature",
+   "summary": "A rocky chimney on the sea floor pouring out hot, mineral-rich water.",
+   "familyCampaigns": [
+    "nature"
+   ],
+   "ingredients": [
+    "legacy:8",
+    "organic41:pressure"
+   ],
+   "art_mode": "bespoke-subject",
+   "path": "client/assets/v186/hydrothermal-vent.svg"
+  },
+  {
+   "id": "organic186:black-smoker",
+   "name": "Black Smoker",
+   "category": "nature",
+   "summary": "A tall dark vent chimney belching thick black clouds of metal-rich water.",
+   "familyCampaigns": [
+    "nature"
+   ],
+   "ingredients": [
+    "organic186:hydrothermal-vent",
+    "organic43:smoke"
+   ],
+   "art_mode": "bespoke-subject",
+   "path": "client/assets/v186/black-smoker.svg"
+  },
+  {
+   "id": "organic186:cold-seep",
+   "name": "Cold Seep",
+   "category": "nature",
+   "summary": "A patch of seabed where cold gas bubbles up through mud between mussel beds.",
+   "familyCampaigns": [
+    "nature"
+   ],
+   "ingredients": [
+    "legacy:591",
+    "legacy:43"
+   ],
+   "art_mode": "bespoke-subject",
+   "path": "client/assets/v186/cold-seep.svg"
+  },
+  {
+   "id": "organic186:whale-fall",
+   "name": "Whale Fall",
+   "category": "nature",
+   "summary": "A whale skeleton resting on the dark seabed, covered in worms and crabs.",
+   "familyCampaigns": [
+    "nature"
+   ],
+   "ingredients": [
+    "organic89:whale",
+    "legacy:210"
+   ],
+   "art_mode": "bespoke-subject",
+   "path": "client/assets/v186/whale-fall.svg"
+  },
+  {
+   "id": "organic186:abyss",
+   "name": "Abyss",
+   "category": "nature",
+   "summary": "A bottomless dark blue drop beneath the sea, fading to black with a few tiny lights.",
+   "familyCampaigns": [
+    "nature"
+   ],
+   "ingredients": [
+    "legacy:591",
+    "legacy:548"
+   ],
+   "art_mode": "bespoke-subject",
+   "path": "client/assets/v186/abyss.svg"
+  },
+  {
+   "id": "organic186:hadal-zone",
+   "name": "Hadal Zone",
+   "category": "nature",
+   "summary": "The deepest ocean zone of all, hidden inside narrow V-shaped trenches in the sea floor.",
+   "familyCampaigns": [
+    "nature"
+   ],
+   "ingredients": [
+    "organic186:abyss",
+    "legacy:38"
+   ],
+   "art_mode": "bespoke-subject",
+   "path": "client/assets/v186/hadal-zone.svg"
+  },
+  {
+   "id": "organic186:abyssal-plain",
+   "name": "Abyssal Plain",
+   "category": "nature",
+   "summary": "A vast, flat, muddy plain on the deep ocean floor under dark still water.",
+   "familyCampaigns": [
+    "nature"
+   ],
+   "ingredients": [
+    "organic186:abyss",
+    "legacy:16"
+   ],
+   "art_mode": "bespoke-subject",
+   "path": "client/assets/v186/abyssal-plain.svg"
+  },
+  {
+   "id": "organic186:twilight-zone",
+   "name": "Twilight Zone",
+   "category": "nature",
+   "summary": "A dim layer of ocean where the last blue sunlight fades into darkness.",
+   "familyCampaigns": [
+    "nature"
+   ],
+   "ingredients": [
+    "legacy:591",
+    "organic43:smoke"
+   ],
+   "art_mode": "bespoke-subject",
+   "path": "client/assets/v186/twilight-zone.svg"
+  },
+  {
+   "id": "organic186:midnight-zone",
+   "name": "Midnight Zone",
+   "category": "nature",
+   "summary": "Pitch-black deep water where the only light comes from glowing animals.",
+   "familyCampaigns": [
+    "nature"
+   ],
+   "ingredients": [
+    "organic186:twilight-zone",
+    "legacy:142"
+   ],
+   "art_mode": "bespoke-subject",
+   "path": "client/assets/v186/midnight-zone.svg"
+  },
+  {
+   "id": "organic186:sea-pen",
+   "name": "Sea Pen",
+   "category": "nature",
+   "summary": "A soft coral shaped like an old feather quill, standing upright in the sand.",
+   "familyCampaigns": [
+    "nature"
+   ],
+   "ingredients": [
+    "organic42:coral",
+    "organic40:feather"
+   ],
+   "art_mode": "bespoke-subject",
+   "path": "client/assets/v186/sea-pen.svg"
+  },
+  {
+   "id": "organic186:glass-sponge",
+   "name": "Glass Sponge",
+   "category": "nature",
+   "summary": "A pale, vase-shaped deep-sea sponge with a delicate lattice skeleton of glass.",
+   "familyCampaigns": [
+    "nature"
+   ],
+   "ingredients": [
+    "legacy:23",
+    "organic42:coral"
+   ],
+   "art_mode": "bespoke-subject",
+   "path": "client/assets/v186/glass-sponge.svg"
+  },
+  {
+   "id": "organic186:deep-coral",
+   "name": "Deep Coral",
+   "category": "nature",
+   "summary": "A branching white and pink cold-water coral growing in the dark without sunlight.",
+   "familyCampaigns": [
+    "nature"
+   ],
+   "ingredients": [
+    "organic42:coral",
+    "organic186:abyss"
+   ],
+   "art_mode": "bespoke-subject",
+   "path": "client/assets/v186/deep-coral.svg"
+  },
+  {
+   "id": "organic186:comb-jelly",
+   "name": "Comb Jelly",
+   "category": "nature",
+   "summary": "A clear, egg-shaped jelly with rows of tiny beating combs that shimmer in rainbow colours.",
+   "familyCampaigns": [
+    "nature"
+   ],
+   "ingredients": [
+    "organic38:jellyfish",
+    "organic34:rainbow"
+   ],
+   "art_mode": "bespoke-subject",
+   "path": "client/assets/v186/comb-jelly.svg"
+  },
+  {
+   "id": "organic186:siphonophore",
+   "name": "Siphonophore",
+   "category": "nature",
+   "summary": "A long glowing chain of tiny linked animals drifting like a string of lights.",
+   "familyCampaigns": [
+    "nature"
+   ],
+   "ingredients": [
+    "organic38:jellyfish",
+    "organic89:worm"
+   ],
+   "art_mode": "bespoke-subject",
+   "path": "client/assets/v186/siphonophore.svg"
+  },
+  {
+   "id": "organic186:sea-angel",
+   "name": "Sea Angel",
+   "category": "nature",
+   "summary": "A tiny see-through sea slug with two wing-like flaps and a glowing orange centre.",
+   "familyCampaigns": [
+    "nature"
+   ],
+   "ingredients": [
+    "organic46:sea-slug",
+    "organic40:feather"
+   ],
+   "art_mode": "bespoke-subject",
+   "path": "client/assets/v186/sea-angel.svg"
+  },
+  {
+   "id": "organic186:sea-butterfly",
+   "name": "Sea Butterfly",
+   "category": "nature",
+   "summary": "A tiny swimming snail with a clear spiral shell and two flapping wings.",
+   "familyCampaigns": [
+    "nature"
+   ],
+   "ingredients": [
+    "organic37:butterfly",
+    "legacy:10"
+   ],
+   "art_mode": "bespoke-subject",
+   "path": "client/assets/v186/sea-butterfly.svg"
+  },
+  {
+   "id": "organic186:sperm-whale",
+   "name": "Sperm Whale",
+   "category": "nature",
+   "summary": "A grey whale with a huge square head, a narrow lower jaw and a small hump.",
+   "familyCampaigns": [
+    "nature"
+   ],
+   "ingredients": [
+    "organic89:whale",
+    "organic38:squid"
+   ],
+   "art_mode": "bespoke-subject",
+   "path": "client/assets/v186/sperm-whale.svg"
+  },
+  {
+   "id": "organic186:beaked-whale",
+   "name": "Beaked Whale",
+   "category": "nature",
+   "summary": "A sleek brown-grey whale with a dolphin-like beak and a body scarred with pale lines.",
+   "familyCampaigns": [
+    "nature"
+   ],
+   "ingredients": [
+    "organic89:whale",
+    "organic38:bird"
+   ],
+   "art_mode": "bespoke-subject",
+   "path": "client/assets/v186/beaked-whale.svg"
+  },
+  {
+   "id": "organic186:narwhal",
+   "name": "Narwhal",
+   "category": "nature",
+   "summary": "A speckled Arctic whale with one long spiral tusk pointing straight ahead.",
+   "familyCampaigns": [
+    "nature"
+   ],
+   "ingredients": [
+    "organic89:whale",
+    "legacy:35"
+   ],
+   "art_mode": "bespoke-subject",
+   "path": "client/assets/v186/narwhal.svg"
+  },
+  {
+   "id": "organic186:stingray",
+   "name": "Stingray",
+   "category": "nature",
+   "summary": "A flat, diamond-shaped ray gliding over the sand with a long whip tail.",
+   "familyCampaigns": [
+    "nature"
+   ],
+   "ingredients": [
+    "legacy:27",
+    "legacy:16"
+   ],
+   "art_mode": "bespoke-subject",
+   "path": "client/assets/v186/stingray.svg"
+  },
+  {
+   "id": "organic186:moray-eel",
+   "name": "Moray Eel",
+   "category": "nature",
+   "summary": "A thick, spotted green eel poking out of a hole in the reef with its mouth open.",
+   "familyCampaigns": [
+    "nature"
+   ],
+   "ingredients": [
+    "organic89:snake",
+    "organic42:coral"
+   ],
+   "art_mode": "bespoke-subject",
+   "path": "client/assets/v186/moray-eel.svg"
+  },
+  {
+   "id": "organic186:sea-dragon",
+   "name": "Sea Dragon",
+   "category": "nature",
+   "summary": "A seahorse relative covered in leafy fins that make it look like drifting seaweed.",
+   "familyCampaigns": [
+    "nature"
+   ],
+   "ingredients": [
+    "organic37:seahorse",
+    "organic38:seaweed"
+   ],
+   "art_mode": "bespoke-subject",
+   "path": "client/assets/v186/sea-dragon.svg"
+  },
+  {
+   "id": "organic186:pufferfish",
+   "name": "Pufferfish",
+   "category": "nature",
+   "summary": "A round, spiky yellow fish puffed up like a ball with wide surprised eyes.",
+   "familyCampaigns": [
+    "nature"
+   ],
+   "ingredients": [
+    "legacy:27",
+    "legacy:3"
+   ],
+   "art_mode": "bespoke-subject",
+   "path": "client/assets/v186/pufferfish.svg"
+  },
+  {
+   "id": "organic186:clownfish",
+   "name": "Clownfish",
+   "category": "nature",
+   "summary": "A small orange fish with three white bands edged in black, peeking from an anemone.",
+   "familyCampaigns": [
+    "nature"
+   ],
+   "ingredients": [
+    "organic38:sea-anemone",
+    "legacy:141"
+   ],
+   "art_mode": "bespoke-subject",
+   "path": "client/assets/v186/clownfish.svg"
+  },
+  {
+   "id": "organic186:krill",
+   "name": "Krill",
+   "category": "nature",
+   "summary": "A tiny pink see-through shrimp-like animal with black eyes and feathery legs.",
+   "familyCampaigns": [
+    "nature"
+   ],
+   "ingredients": [
+    "organic38:shrimp",
+    "organic37:plankton"
+   ],
+   "art_mode": "bespoke-subject",
+   "path": "client/assets/v186/krill.svg"
+  },
+  {
+   "id": "organic186:bathysphere",
+   "name": "Bathysphere",
+   "category": "nature",
+   "summary": "A heavy steel ball with round windows, lowered into the deep sea on a cable.",
+   "familyCampaigns": [
+    "nature"
+   ],
+   "ingredients": [
+    "legacy:22",
+    "organic186:abyss"
+   ],
+   "art_mode": "bespoke-subject",
+   "path": "client/assets/v186/bathysphere.svg"
+  },
+  {
+   "id": "organic186:submersible",
+   "name": "Submersible",
+   "category": "nature",
+   "summary": "A small yellow research sub with a clear bubble cabin, lights and robot arms.",
+   "familyCampaigns": [
+    "nature"
+   ],
+   "ingredients": [
+    "organic186:bathysphere",
+    "legacy:67"
+   ],
+   "art_mode": "bespoke-subject",
+   "path": "client/assets/v186/submersible.svg"
+  },
+  {
+   "id": "organic186:diving-bell",
+   "name": "Diving Bell",
+   "category": "nature",
+   "summary": "A bell-shaped metal chamber open at the bottom, holding a pocket of air under water.",
+   "familyCampaigns": [
+    "nature"
+   ],
+   "ingredients": [
+    "legacy:31",
+    "legacy:10"
+   ],
+   "art_mode": "bespoke-subject",
+   "path": "client/assets/v186/diving-bell.svg"
+  },
+  {
+   "id": "organic186:diving-suit",
+   "name": "Diving Suit",
+   "category": "nature",
+   "summary": "An old brass diving helmet with round windows on a heavy canvas suit.",
+   "familyCampaigns": [
+    "nature"
+   ],
+   "ingredients": [
+    "legacy:28",
+    "organic186:abyss"
+   ],
+   "art_mode": "bespoke-subject",
+   "path": "client/assets/v186/diving-suit.svg"
+  },
+  {
+   "id": "organic186:tsunami",
+   "name": "Tsunami",
+   "category": "nature",
+   "summary": "A towering wall of sea water curling over a tiny shoreline with palm trees.",
+   "familyCampaigns": [
+    "nature"
+   ],
+   "ingredients": [
+    "organic38:wave",
+    "organic41:pressure"
+   ],
+   "art_mode": "bespoke-subject",
+   "path": "client/assets/v186/tsunami.svg"
+  },
+  {
+   "id": "organic186:barnacle",
+   "name": "Barnacle",
+   "category": "nature",
+   "summary": "A cluster of small grey cone-shaped shells cemented onto a rock.",
+   "familyCampaigns": [
+    "nature"
+   ],
+   "ingredients": [
+    "organic38:crab",
+    "legacy:14"
+   ],
+   "art_mode": "bespoke-subject",
+   "path": "client/assets/v186/barnacle.svg"
+  },
+  {
+   "id": "organic186:orca",
+   "name": "Orca",
+   "category": "nature",
+   "summary": "A black and white whale with a tall dorsal fin and a white patch behind each eye.",
+   "familyCampaigns": [
+    "nature"
+   ],
+   "ingredients": [
+    "organic89:whale",
+    "organic38:dolphin"
+   ],
+   "art_mode": "bespoke-subject",
+   "path": "client/assets/v186/orca.svg"
+  },
+  {
+   "id": "organic186:walrus",
+   "name": "Walrus",
+   "category": "nature",
+   "summary": "A huge wrinkled brown sea mammal with a whiskery muzzle and two long ivory tusks.",
+   "familyCampaigns": [
+    "nature"
+   ],
+   "ingredients": [
+    "organic89:whale",
+    "organic89:dog"
+   ],
+   "art_mode": "bespoke-subject",
+   "path": "client/assets/v186/walrus.svg"
+  },
+  {
+   "id": "organic186:seal",
+   "name": "Seal",
+   "category": "nature",
+   "summary": "A sleek grey seal with big dark eyes, whiskers and flippers, resting on a rock.",
+   "familyCampaigns": [
+    "nature"
+   ],
+   "ingredients": [
+    "organic42:otter",
+    "legacy:10"
+   ],
+   "art_mode": "bespoke-subject",
+   "path": "client/assets/v186/seal.svg"
+  },
+  {
+   "id": "organic186:sea-lion",
+   "name": "Sea Lion",
+   "category": "nature",
+   "summary": "A golden-brown sea lion sitting upright on its flippers with small ear flaps.",
+   "familyCampaigns": [
+    "nature"
+   ],
+   "ingredients": [
+    "organic186:seal",
+    "organic89:lion"
+   ],
+   "art_mode": "bespoke-subject",
+   "path": "client/assets/v186/sea-lion.svg"
+  },
+  {
+   "id": "organic186:manatee",
+   "name": "Manatee",
+   "category": "nature",
+   "summary": "A gentle, grey, barrel-shaped sea mammal with a paddle tail, munching sea grass.",
+   "familyCampaigns": [
+    "nature"
+   ],
+   "ingredients": [
+    "organic89:cow",
+    "legacy:10"
+   ],
+   "art_mode": "bespoke-subject",
+   "path": "client/assets/v186/manatee.svg"
+  },
+  {
+   "id": "organic186:swordfish",
+   "name": "Swordfish",
+   "category": "nature",
+   "summary": "A fast blue fish with a long, flat, pointed bill like a sword and a tall fin.",
+   "familyCampaigns": [
+    "nature"
+   ],
+   "ingredients": [
+    "legacy:27",
+    "legacy:22"
+   ],
+   "art_mode": "bespoke-subject",
+   "path": "client/assets/v186/swordfish.svg"
+  },
+  {
+   "id": "organic186:tuna",
+   "name": "Tuna",
+   "category": "nature",
+   "summary": "A powerful, torpedo-shaped blue and silver fish with a crescent tail and tiny finlets.",
+   "familyCampaigns": [
+    "nature"
+   ],
+   "ingredients": [
+    "legacy:27",
+    "organic38:current"
+   ],
+   "art_mode": "bespoke-subject",
+   "path": "client/assets/v186/tuna.svg"
+  },
+  {
+   "id": "organic186:sunfish",
+   "name": "Sunfish",
+   "category": "nature",
+   "summary": "A giant flat, round grey fish with tall top and bottom fins and almost no tail.",
+   "familyCampaigns": [
+    "nature"
+   ],
+   "ingredients": [
+    "legacy:27",
+    "legacy:141"
+   ],
+   "art_mode": "bespoke-subject",
+   "path": "client/assets/v186/sunfish.svg"
+  },
+  {
+   "id": "organic186:flying-fish",
+   "name": "Flying Fish",
+   "category": "nature",
+   "summary": "A slim blue fish leaping from the waves on wide wing-like fins.",
+   "familyCampaigns": [
+    "nature"
+   ],
+   "ingredients": [
+    "legacy:27",
+    "legacy:65"
+   ],
+   "art_mode": "bespoke-subject",
+   "path": "client/assets/v186/flying-fish.svg"
+  },
+  {
+   "id": "organic186:barracuda",
+   "name": "Barracuda",
+   "category": "nature",
+   "summary": "A long, silver, pike-like fish with dark bars and a jutting jaw full of sharp teeth.",
+   "familyCampaigns": [
+    "nature"
+   ],
+   "ingredients": [
+    "legacy:27",
+    "organic89:wolf"
+   ],
+   "art_mode": "bespoke-subject",
+   "path": "client/assets/v186/barracuda.svg"
+  },
+  {
+   "id": "organic186:hagfish",
+   "name": "Hagfish",
+   "category": "nature",
+   "summary": "A pinkish-grey, eel-shaped fish with no jaws, tiny eyes and whiskers, tied in a knot.",
+   "familyCampaigns": [
+    "nature"
+   ],
+   "ingredients": [
+    "organic89:worm",
+    "organic186:abyss"
+   ],
+   "art_mode": "bespoke-subject",
+   "path": "client/assets/v186/hagfish.svg"
+  },
+  {
+   "id": "organic186:lamprey",
+   "name": "Lamprey",
+   "category": "nature",
+   "summary": "A grey, eel-like fish with a round sucker mouth lined with rings of tiny teeth.",
+   "familyCampaigns": [
+    "nature"
+   ],
+   "ingredients": [
+    "organic89:worm",
+    "legacy:27"
+   ],
+   "art_mode": "bespoke-subject",
+   "path": "client/assets/v186/lamprey.svg"
+  },
+  {
+   "id": "organic186:sea-snake",
+   "name": "Sea Snake",
+   "category": "nature",
+   "summary": "A slender snake banded in black and pale blue with a flat, paddle-shaped tail.",
+   "familyCampaigns": [
+    "nature"
+   ],
+   "ingredients": [
+    "organic89:snake",
+    "organic38:wave"
+   ],
+   "art_mode": "bespoke-subject",
+   "path": "client/assets/v186/sea-snake.svg"
+  },
+  {
+   "id": "organic186:mantis-shrimp",
+   "name": "Mantis Shrimp",
+   "category": "nature",
+   "summary": "A rainbow-coloured shrimp with stalked eyes and folded club-like punching arms.",
+   "familyCampaigns": [
+    "nature"
+   ],
+   "ingredients": [
+    "organic38:shrimp",
+    "organic34:rainbow"
+   ],
+   "art_mode": "bespoke-subject",
+   "path": "client/assets/v186/mantis-shrimp.svg"
+  },
+  {
+   "id": "organic186:spider-crab",
+   "name": "Spider Crab",
+   "category": "nature",
+   "summary": "An orange crab with a small pear-shaped body and extremely long, thin legs.",
+   "familyCampaigns": [
+    "nature"
+   ],
+   "ingredients": [
+    "organic38:crab",
+    "organic40:spider"
+   ],
+   "art_mode": "bespoke-subject",
+   "path": "client/assets/v186/spider-crab.svg"
+  },
+  {
+   "id": "organic186:nudibranch",
+   "name": "Nudibranch",
+   "category": "nature",
+   "summary": "A dazzling blue and yellow sea slug with frilly gills on its back and two horns.",
+   "familyCampaigns": [
+    "nature"
+   ],
+   "ingredients": [
+    "organic46:sea-slug",
+    "organic34:rainbow"
+   ],
+   "art_mode": "bespoke-subject",
+   "path": "client/assets/v186/nudibranch.svg"
+  },
+  {
+   "id": "organic186:zombie-worm",
+   "name": "Zombie Worm",
+   "category": "nature",
+   "summary": "Tiny red feathery worms growing like a carpet of flowers out of a whale bone.",
+   "familyCampaigns": [
+    "nature"
+   ],
+   "ingredients": [
+    "organic89:worm",
+    "organic186:whale-fall"
+   ],
+   "art_mode": "bespoke-subject",
+   "path": "client/assets/v186/zombie-worm.svg"
+  },
+  {
+   "id": "organic186:barreleye",
+   "name": "Barreleye",
+   "category": "nature",
+   "summary": "A deep-sea fish with a see-through dome head and two glowing green tube eyes inside.",
+   "familyCampaigns": [
+    "nature"
+   ],
+   "ingredients": [
+    "legacy:27",
+    "legacy:34"
+   ],
+   "art_mode": "bespoke-subject",
+   "path": "client/assets/v186/barreleye.svg"
+  },
+  {
+   "id": "organic186:tripod-fish",
+   "name": "Tripod Fish",
+   "category": "nature",
+   "summary": "A pale fish standing on the sea floor on three long, stilt-like fin rays.",
+   "familyCampaigns": [
+    "nature"
+   ],
+   "ingredients": [
+    "legacy:27",
+    "organic186:abyssal-plain"
+   ],
+   "art_mode": "bespoke-subject",
+   "path": "client/assets/v186/tripod-fish.svg"
+  },
+  {
+   "id": "organic186:sea-pig",
+   "name": "Sea Pig",
+   "category": "nature",
+   "summary": "A plump, pink, see-through sea cucumber walking on stubby tube legs with antennae.",
+   "familyCampaigns": [
+    "nature"
+   ],
+   "ingredients": [
+    "organic46:sea-cucumber",
+    "legacy:6"
+   ],
+   "art_mode": "bespoke-subject",
+   "path": "client/assets/v186/sea-pig.svg"
+  },
+  {
+   "id": "organic186:dragonfish",
+   "name": "Dragonfish",
+   "category": "nature",
+   "summary": "A long black deep-sea fish with fang-like teeth, a chin barbel and red glowing lights.",
+   "familyCampaigns": [
+    "nature"
+   ],
+   "ingredients": [
+    "organic186:viperfish",
+    "legacy:1"
+   ],
+   "art_mode": "bespoke-subject",
+   "path": "client/assets/v186/dragonfish.svg"
+  },
+  {
+   "id": "organic186:bobtail-squid",
+   "name": "Bobtail Squid",
+   "category": "nature",
+   "summary": "A thumb-sized round squid with big eyes, stubby arms and a softly glowing belly.",
+   "familyCampaigns": [
+    "nature"
+   ],
+   "ingredients": [
+    "organic38:squid",
+    "pack:moon"
+   ],
+   "art_mode": "bespoke-subject",
+   "path": "client/assets/v186/bobtail-squid.svg"
+  },
+  {
+   "id": "organic186:firefly-squid",
+   "name": "Firefly Squid",
+   "category": "nature",
+   "summary": "A small squid covered in bright blue glowing dots, lighting up the night sea.",
+   "familyCampaigns": [
+    "nature"
+   ],
+   "ingredients": [
+    "organic38:squid",
+    "legacy:63"
+   ],
+   "art_mode": "bespoke-subject",
+   "path": "client/assets/v186/firefly-squid.svg"
+  },
+  {
+   "id": "organic186:brine-pool",
+   "name": "Brine Pool",
+   "category": "nature",
+   "summary": "A lake of extra-salty water sitting on the sea floor with its own shoreline of mussels.",
+   "familyCampaigns": [
+    "nature"
+   ],
+   "ingredients": [
+    "organic38:salt",
+    "organic186:abyss"
+   ],
+   "art_mode": "bespoke-subject",
+   "path": "client/assets/v186/brine-pool.svg"
+  },
+  {
+   "id": "organic186:underwater-volcano",
+   "name": "Underwater Volcano",
+   "category": "nature",
+   "summary": "A cone-shaped volcano on the sea floor erupting glowing lava and bubbles.",
+   "familyCampaigns": [
+    "nature"
+   ],
+   "ingredients": [
+    "organic38:volcano",
+    "organic34:tide"
+   ],
+   "art_mode": "bespoke-subject",
+   "path": "client/assets/v186/underwater-volcano.svg"
+  },
+  {
+   "id": "organic186:ocean-floor",
+   "name": "Ocean Floor",
+   "category": "nature",
+   "summary": "The bottom of the sea, with sand ripples, a rock, a starfish and a strand of weed.",
+   "familyCampaigns": [
+    "nature"
+   ],
+   "ingredients": [
+    "organic186:abyss",
+    "legacy:2"
+   ],
+   "art_mode": "bespoke-subject",
+   "path": "client/assets/v186/ocean-floor.svg"
+  },
+  {
+   "id": "organic186:research-vessel",
+   "name": "Research Vessel",
+   "category": "nature",
+   "summary": "A white and orange science ship with a crane, a radar dome and a lab on deck.",
+   "familyCampaigns": [
+    "nature"
+   ],
+   "ingredients": [
+    "legacy:53",
+    "legacy:591"
+   ],
+   "art_mode": "bespoke-subject",
+   "path": "client/assets/v186/research-vessel.svg"
+  },
+  {
+   "id": "organic186:deep-sea-rover",
+   "name": "Deep Sea Rover",
+   "category": "nature",
+   "summary": "A boxy yellow underwater robot with thrusters, lamps, a camera and a grabbing arm.",
+   "familyCampaigns": [
+    "nature"
+   ],
+   "ingredients": [
+    "organic186:submersible",
+    "legacy:67"
+   ],
+   "art_mode": "bespoke-subject",
+   "path": "client/assets/v186/deep-sea-rover.svg"
+  },
+  {
+   "id": "organic186:atolla-jellyfish",
+   "name": "Atolla Jellyfish",
+   "category": "nature",
+   "summary": "A deep-red crown-shaped jellyfish that flashes rings of blue light when attacked.",
+   "familyCampaigns": [
+    "nature"
+   ],
+   "ingredients": [
+    "organic38:jellyfish",
+    "organic186:abyss"
+   ],
+   "art_mode": "bespoke-subject",
+   "path": "client/assets/v186/atolla-jellyfish.svg"
+  },
+  {
+   "id": "organic186:whale-shark",
+   "name": "Whale Shark",
+   "category": "nature",
+   "summary": "A gigantic, gentle blue-grey shark covered in white spots, with a wide flat mouth.",
+   "familyCampaigns": [
+    "nature"
+   ],
+   "ingredients": [
+    "organic38:shark",
+    "organic89:whale"
+   ],
+   "art_mode": "bespoke-subject",
+   "path": "client/assets/v186/whale-shark.svg"
+  },
+  {
+   "id": "organic186:hammerhead-shark",
+   "name": "Hammerhead Shark",
+   "category": "nature",
+   "summary": "A grey shark with a wide, flat, hammer-shaped head and an eye at each end.",
+   "familyCampaigns": [
+    "nature"
+   ],
+   "ingredients": [
+    "organic38:shark",
+    "legacy:22"
+   ],
+   "art_mode": "bespoke-subject",
+   "path": "client/assets/v186/hammerhead-shark.svg"
+  },
+  {
+   "id": "organic186:giant-clam",
+   "name": "Giant Clam",
+   "category": "nature",
+   "summary": "A huge clam with thick wavy shells opened to show a bright blue-green mantle.",
+   "familyCampaigns": [
+    "nature"
+   ],
+   "ingredients": [
+    "organic42:clam",
+    "organic34:coral-reef"
+   ],
+   "art_mode": "bespoke-subject",
+   "path": "client/assets/v186/giant-clam.svg"
+  },
+  {
+   "id": "organic186:sea-otter",
+   "name": "Sea Otter",
+   "category": "nature",
+   "summary": "A furry brown otter floating on its back, holding a shell on its tummy.",
+   "familyCampaigns": [
+    "nature"
+   ],
+   "ingredients": [
+    "organic42:otter",
+    "organic42:kelp"
+   ],
+   "art_mode": "bespoke-subject",
+   "path": "client/assets/v186/sea-otter.svg"
+  },
+  {
+   "id": "organic186:neutron-star",
+   "name": "Neutron Star",
+   "category": "science",
+   "summary": "A tiny, blindingly bright blue-white star left behind after a giant star explodes.",
+   "familyCampaigns": [
+    "nature"
+   ],
+   "ingredients": [
+    "organic40:supernova",
+    "organic41:pressure"
+   ],
+   "art_mode": "bespoke-subject",
+   "path": "client/assets/v186/neutron-star.svg"
+  },
+  {
+   "id": "organic186:pulsar",
+   "name": "Pulsar",
+   "category": "science",
+   "summary": "A spinning neutron star sweeping two beams of light through space like a lighthouse.",
+   "familyCampaigns": [
+    "nature"
+   ],
+   "ingredients": [
+    "organic186:neutron-star",
+    "legacy:63"
+   ],
+   "art_mode": "bespoke-subject",
+   "path": "client/assets/v186/pulsar.svg"
+  },
+  {
+   "id": "organic186:quasar",
+   "name": "Quasar",
+   "category": "science",
+   "summary": "A blazing galaxy core with a bright disk and two jets shooting out from a black hole.",
+   "familyCampaigns": [
+    "nature"
+   ],
+   "ingredients": [
+    "organic40:black-hole",
+    "legacy:63"
+   ],
+   "art_mode": "bespoke-subject",
+   "path": "client/assets/v186/quasar.svg"
+  },
+  {
+   "id": "organic186:milky-way",
+   "name": "Milky Way",
+   "category": "science",
+   "summary": "A pale, glowing band of countless stars stretching across the night sky.",
+   "familyCampaigns": [
+    "nature"
+   ],
+   "ingredients": [
+    "legacy:550",
+    "legacy:142"
+   ],
+   "art_mode": "bespoke-subject",
+   "path": "client/assets/v186/milky-way.svg"
+  },
+  {
+   "id": "organic186:andromeda-galaxy",
+   "name": "Andromeda Galaxy",
+   "category": "science",
+   "summary": "A tilted spiral galaxy seen as a glowing oval with a bright core and dusty lanes.",
+   "familyCampaigns": [
+    "nature"
+   ],
+   "ingredients": [
+    "organic186:milky-way",
+    "organic32:telescope"
+   ],
+   "art_mode": "bespoke-subject",
+   "path": "client/assets/v186/andromeda-galaxy.svg"
+  },
+  {
+   "id": "organic186:spiral-galaxy",
+   "name": "Spiral Galaxy",
+   "category": "science",
+   "summary": "A pinwheel of stars with bright curved arms winding out from a glowing centre.",
+   "familyCampaigns": [
+    "nature"
+   ],
+   "ingredients": [
+    "legacy:550",
+    "organic38:whirlpool"
+   ],
+   "art_mode": "bespoke-subject",
+   "path": "client/assets/v186/spiral-galaxy.svg"
+  },
+  {
+   "id": "organic186:galaxy-cluster",
+   "name": "Galaxy Cluster",
+   "category": "science",
+   "summary": "A swarm of many small galaxies of different shapes held together by gravity.",
+   "familyCampaigns": [
+    "nature"
+   ],
+   "ingredients": [
+    "legacy:550",
+    "legacy:635"
+   ],
+   "art_mode": "bespoke-subject",
+   "path": "client/assets/v186/galaxy-cluster.svg"
+  },
+  {
+   "id": "organic186:asteroid-belt",
+   "name": "Asteroid Belt",
+   "category": "science",
+   "summary": "A wide ring of tumbling rocks circling a small bright sun.",
+   "familyCampaigns": [
+    "nature"
+   ],
+   "ingredients": [
+    "organic40:asteroid",
+    "organic40:orbit"
+   ],
+   "art_mode": "bespoke-subject",
+   "path": "client/assets/v186/asteroid-belt.svg"
+  },
+  {
+   "id": "organic186:kuiper-belt",
+   "name": "Kuiper Belt",
+   "category": "science",
+   "summary": "A distant ring of icy bodies and dwarf planets far beyond the outer planets.",
+   "familyCampaigns": [
+    "nature"
+   ],
+   "ingredients": [
+    "organic186:asteroid-belt",
+    "legacy:35"
+   ],
+   "art_mode": "bespoke-subject",
+   "path": "client/assets/v186/kuiper-belt.svg"
+  },
+  {
+   "id": "organic186:oort-cloud",
+   "name": "Oort Cloud",
+   "category": "science",
+   "summary": "A vast, faint shell of icy comets wrapped around the whole solar system.",
+   "familyCampaigns": [
+    "nature"
+   ],
+   "ingredients": [
+    "organic186:kuiper-belt",
+    "legacy:17"
+   ],
+   "art_mode": "bespoke-subject",
+   "path": "client/assets/v186/oort-cloud.svg"
+  },
+  {
+   "id": "organic186:brown-dwarf",
+   "name": "Brown Dwarf",
+   "category": "science",
+   "summary": "A dim, banded reddish-brown ball too big to be a planet and too small to shine as a star.",
+   "familyCampaigns": [
+    "nature"
+   ],
+   "ingredients": [
+    "legacy:612",
+    "organic43:smoke"
+   ],
+   "art_mode": "bespoke-subject",
+   "path": "client/assets/v186/brown-dwarf.svg"
+  },
+  {
+   "id": "organic186:red-dwarf",
+   "name": "Red Dwarf",
+   "category": "science",
+   "summary": "A small, cool red star glowing gently with little flares on its surface.",
+   "familyCampaigns": [
+    "nature"
+   ],
+   "ingredients": [
+    "legacy:612",
+    "organic89:rust"
+   ],
+   "art_mode": "bespoke-subject",
+   "path": "client/assets/v186/red-dwarf.svg"
+  },
+  {
+   "id": "organic186:blue-giant",
+   "name": "Blue Giant",
+   "category": "science",
+   "summary": "An enormous, fiercely hot star shining brilliant blue-white.",
+   "familyCampaigns": [
+    "nature"
+   ],
+   "ingredients": [
+    "legacy:612",
+    "legacy:35"
+   ],
+   "art_mode": "bespoke-subject",
+   "path": "client/assets/v186/blue-giant.svg"
+  },
+  {
+   "id": "organic186:binary-star",
+   "name": "Binary Star",
+   "category": "science",
+   "summary": "Two stars, one golden and one blue, circling closely around each other.",
+   "familyCampaigns": [
+    "nature"
+   ],
+   "ingredients": [
+    "organic186:red-dwarf",
+    "organic186:blue-giant"
+   ],
+   "art_mode": "bespoke-subject",
+   "path": "client/assets/v186/binary-star.svg"
+  },
+  {
+   "id": "organic186:protostar",
+   "name": "Protostar",
+   "category": "science",
+   "summary": "A young star still forming inside a swirling cocoon of gas and dust.",
+   "familyCampaigns": [
+    "nature"
+   ],
+   "ingredients": [
+    "organic40:nebula",
+    "organic41:pressure"
+   ],
+   "art_mode": "bespoke-subject",
+   "path": "client/assets/v186/protostar.svg"
+  },
+  {
+   "id": "organic186:magnetar",
+   "name": "Magnetar",
+   "category": "science",
+   "summary": "A neutron star wrapped in looping lines of an unbelievably strong magnetic field.",
+   "familyCampaigns": [
+    "nature"
+   ],
+   "ingredients": [
+    "organic186:neutron-star",
+    "legacy:31"
+   ],
+   "art_mode": "bespoke-subject",
+   "path": "client/assets/v186/magnetar.svg"
+  },
+  {
+   "id": "organic186:planetary-nebula",
+   "name": "Planetary Nebula",
+   "category": "science",
+   "summary": "A glowing ring of coloured gas puffed out by a dying star, with a tiny white star inside.",
+   "familyCampaigns": [
+    "nature"
+   ],
+   "ingredients": [
+    "organic186:red-dwarf",
+    "legacy:17"
+   ],
+   "art_mode": "bespoke-subject",
+   "path": "client/assets/v186/planetary-nebula.svg"
+  },
+  {
+   "id": "organic186:gas-giant",
+   "name": "Gas Giant",
+   "category": "science",
+   "summary": "A huge striped planet of swirling gas with a big oval storm.",
+   "familyCampaigns": [
+    "nature"
+   ],
+   "ingredients": [
+    "legacy:549",
+    "legacy:17"
+   ],
+   "art_mode": "bespoke-subject",
+   "path": "client/assets/v186/gas-giant.svg"
+  },
+  {
+   "id": "organic186:ice-giant",
+   "name": "Ice Giant",
+   "category": "science",
+   "summary": "A smooth, pale blue-green planet made of icy slush with a faint thin ring.",
+   "familyCampaigns": [
+    "nature"
+   ],
+   "ingredients": [
+    "organic186:gas-giant",
+    "legacy:35"
+   ],
+   "art_mode": "bespoke-subject",
+   "path": "client/assets/v186/ice-giant.svg"
+  },
+  {
+   "id": "organic186:dwarf-planet",
+   "name": "Dwarf Planet",
+   "category": "science",
+   "summary": "A small round world of rock and ice with a heart-shaped pale plain.",
+   "familyCampaigns": [
+    "nature"
+   ],
+   "ingredients": [
+    "legacy:549",
+    "legacy:14"
+   ],
+   "art_mode": "bespoke-subject",
+   "path": "client/assets/v186/dwarf-planet.svg"
+  },
+  {
+   "id": "organic186:rogue-planet",
+   "name": "Rogue Planet",
+   "category": "science",
+   "summary": "A dark, lonely planet drifting through space with no star to orbit.",
+   "familyCampaigns": [
+    "nature"
+   ],
+   "ingredients": [
+    "legacy:549",
+    "legacy:142"
+   ],
+   "art_mode": "bespoke-subject",
+   "path": "client/assets/v186/rogue-planet.svg"
+  },
+  {
+   "id": "organic186:lava-planet",
+   "name": "Lava Planet",
+   "category": "science",
+   "summary": "A scorched black world criss-crossed by glowing rivers and seas of molten rock.",
+   "familyCampaigns": [
+    "nature"
+   ],
+   "ingredients": [
+    "legacy:549",
+    "legacy:8"
+   ],
+   "art_mode": "bespoke-subject",
+   "path": "client/assets/v186/lava-planet.svg"
+  },
+  {
+   "id": "organic186:ocean-planet",
+   "name": "Ocean Planet",
+   "category": "science",
+   "summary": "A deep blue world covered entirely by one endless ocean under white clouds.",
+   "familyCampaigns": [
+    "nature"
+   ],
+   "ingredients": [
+    "legacy:549",
+    "legacy:10"
+   ],
+   "art_mode": "bespoke-subject",
+   "path": "client/assets/v186/ocean-planet.svg"
+  },
+  {
+   "id": "organic186:mercury",
+   "name": "Mercury",
+   "category": "science",
+   "summary": "A small, grey, cratered planet baking close to a huge glowing sun.",
+   "familyCampaigns": [
+    "nature"
+   ],
+   "ingredients": [
+    "legacy:549",
+    "legacy:31"
+   ],
+   "art_mode": "bespoke-subject",
+   "path": "client/assets/v186/mercury.svg"
+  },
+  {
+   "id": "organic186:venus",
+   "name": "Venus",
+   "category": "science",
+   "summary": "A bright planet hidden under thick swirling yellow clouds.",
+   "familyCampaigns": [
+    "nature"
+   ],
+   "ingredients": [
+    "legacy:549",
+    "organic43:smoke"
+   ],
+   "art_mode": "bespoke-subject",
+   "path": "client/assets/v186/venus.svg"
+  },
+  {
+   "id": "organic186:mars",
+   "name": "Mars",
+   "category": "science",
+   "summary": "A rusty red planet with dark patches, a huge canyon scar and a white polar cap.",
+   "familyCampaigns": [
+    "nature"
+   ],
+   "ingredients": [
+    "legacy:549",
+    "organic89:rust"
+   ],
+   "art_mode": "bespoke-subject",
+   "path": "client/assets/v186/mars.svg"
+  },
+  {
+   "id": "organic186:saturn",
+   "name": "Saturn",
+   "category": "science",
+   "summary": "A pale golden planet circled by wide, bright, flat rings.",
+   "familyCampaigns": [
+    "nature"
+   ],
+   "ingredients": [
+    "legacy:549",
+    "organic40:orbit"
+   ],
+   "art_mode": "bespoke-subject",
+   "path": "client/assets/v186/saturn.svg"
+  },
+  {
+   "id": "organic186:uranus",
+   "name": "Uranus",
+   "category": "science",
+   "summary": "A smooth, pale cyan planet tipped on its side with thin upright rings.",
+   "familyCampaigns": [
+    "nature"
+   ],
+   "ingredients": [
+    "organic186:ice-giant",
+    "legacy:12"
+   ],
+   "art_mode": "bespoke-subject",
+   "path": "client/assets/v186/uranus.svg"
+  },
+  {
+   "id": "organic186:pluto",
+   "name": "Pluto",
+   "category": "science",
+   "summary": "A small tan and white world with a big pale heart-shaped plain on its surface.",
+   "familyCampaigns": [
+    "nature"
+   ],
+   "ingredients": [
+    "organic186:dwarf-planet",
+    "legacy:35"
+   ],
+   "art_mode": "bespoke-subject",
+   "path": "client/assets/v186/pluto.svg"
+  },
+  {
+   "id": "organic186:europa",
+   "name": "Europa",
+   "category": "science",
+   "summary": "A smooth, icy white moon covered in a web of long reddish-brown cracks.",
+   "familyCampaigns": [
+    "nature"
+   ],
+   "ingredients": [
+    "pack:moon",
+    "organic38:glacier"
+   ],
+   "art_mode": "bespoke-subject",
+   "path": "client/assets/v186/europa.svg"
+  },
+  {
+   "id": "organic186:io",
+   "name": "Io",
+   "category": "science",
+   "summary": "A yellow-orange moon spotted with dark volcanoes, one shooting a plume into space.",
+   "familyCampaigns": [
+    "nature"
+   ],
+   "ingredients": [
+    "pack:moon",
+    "organic38:volcano"
+   ],
+   "art_mode": "bespoke-subject",
+   "path": "client/assets/v186/io.svg"
+  },
+  {
+   "id": "organic186:ganymede",
+   "name": "Ganymede",
+   "category": "science",
+   "summary": "A big grey-brown moon with patches of dark old ground and pale grooved ice.",
+   "familyCampaigns": [
+    "nature"
+   ],
+   "ingredients": [
+    "pack:moon",
+    "legacy:31"
+   ],
+   "art_mode": "bespoke-subject",
+   "path": "client/assets/v186/ganymede.svg"
+  },
+  {
+   "id": "organic186:enceladus",
+   "name": "Enceladus",
+   "category": "science",
+   "summary": "A small, brilliantly white icy moon spraying jets of water vapour from its south pole.",
+   "familyCampaigns": [
+    "nature"
+   ],
+   "ingredients": [
+    "pack:moon",
+    "legacy:4"
+   ],
+   "art_mode": "bespoke-subject",
+   "path": "client/assets/v186/enceladus.svg"
+  },
+  {
+   "id": "organic186:phobos",
+   "name": "Phobos",
+   "category": "science",
+   "summary": "A small, lumpy, potato-shaped grey moon with one very large crater.",
+   "familyCampaigns": [
+    "nature"
+   ],
+   "ingredients": [
+    "organic40:asteroid",
+    "organic186:mars"
+   ],
+   "art_mode": "bespoke-subject",
+   "path": "client/assets/v186/phobos.svg"
+  },
+  {
+   "id": "organic186:ceres",
+   "name": "Ceres",
+   "category": "science",
+   "summary": "A round grey dwarf planet in the asteroid belt with strange bright white spots.",
+   "familyCampaigns": [
+    "nature"
+   ],
+   "ingredients": [
+    "organic186:dwarf-planet",
+    "organic186:asteroid-belt"
+   ],
+   "art_mode": "bespoke-subject",
+   "path": "client/assets/v186/ceres.svg"
+  },
+  {
+   "id": "organic186:solar-corona",
+   "name": "Solar Corona",
+   "category": "science",
+   "summary": "The Sun’s wispy outer atmosphere streaming out in pale glowing rays.",
+   "familyCampaigns": [
+    "nature"
+   ],
+   "ingredients": [
+    "legacy:141",
+    "organic40:aurora"
+   ],
+   "art_mode": "bespoke-subject",
+   "path": "client/assets/v186/solar-corona.svg"
+  },
+  {
+   "id": "organic186:solar-eclipse",
+   "name": "Solar Eclipse",
+   "category": "science",
+   "summary": "The dark disc of the Moon covering the Sun, leaving a ring of light and a diamond flash.",
+   "familyCampaigns": [
+    "nature"
+   ],
+   "ingredients": [
+    "organic40:eclipse",
+    "legacy:141"
+   ],
+   "art_mode": "bespoke-subject",
+   "path": "client/assets/v186/solar-eclipse.svg"
+  },
+  {
+   "id": "organic186:wormhole",
+   "name": "Wormhole",
+   "category": "science",
+   "summary": "A glowing tunnel through space, drawn as a funnel of grid lines joining two openings.",
+   "familyCampaigns": [
+    "nature"
+   ],
+   "ingredients": [
+    "organic40:black-hole",
+    "legacy:548"
+   ],
+   "art_mode": "bespoke-subject",
+   "path": "client/assets/v186/wormhole.svg"
+  },
+  {
+   "id": "organic186:event-horizon",
+   "name": "Event Horizon",
+   "category": "science",
+   "summary": "The edge of a black hole: a perfect black circle wrapped in a thin ring of bent light.",
+   "familyCampaigns": [
+    "nature"
+   ],
+   "ingredients": [
+    "organic40:black-hole",
+    "legacy:142"
+   ],
+   "art_mode": "bespoke-subject",
+   "path": "client/assets/v186/event-horizon.svg"
+  },
+  {
+   "id": "organic186:accretion-disk",
+   "name": "Accretion Disk",
+   "category": "science",
+   "summary": "A flat, spinning disk of glowing gas spiralling into a black hole.",
+   "familyCampaigns": [
+    "nature"
+   ],
+   "ingredients": [
+    "organic40:black-hole",
+    "legacy:9"
+   ],
+   "art_mode": "bespoke-subject",
+   "path": "client/assets/v186/accretion-disk.svg"
+  },
+  {
+   "id": "organic186:big-bang",
+   "name": "Big Bang",
+   "category": "science",
+   "summary": "A burst of light and colour exploding outward from a single bright point.",
+   "familyCampaigns": [
+    "nature"
+   ],
+   "ingredients": [
+    "legacy:548",
+    "legacy:1"
+   ],
+   "art_mode": "bespoke-subject",
+   "path": "client/assets/v186/big-bang.svg"
+  },
+  {
+   "id": "organic186:dark-matter",
+   "name": "Dark Matter",
+   "category": "science",
+   "summary": "An invisible something shown as a dark, ghostly web holding a galaxy together.",
+   "familyCampaigns": [
+    "nature"
+   ],
+   "ingredients": [
+    "legacy:548",
+    "legacy:142"
+   ],
+   "art_mode": "bespoke-subject",
+   "path": "client/assets/v186/dark-matter.svg"
+  },
+  {
+   "id": "organic186:dark-energy",
+   "name": "Dark Energy",
+   "category": "science",
+   "summary": "A mysterious force pictured as arrows pushing galaxies apart in every direction.",
+   "familyCampaigns": [
+    "nature"
+   ],
+   "ingredients": [
+    "legacy:548",
+    "organic41:pressure"
+   ],
+   "art_mode": "bespoke-subject",
+   "path": "client/assets/v186/dark-energy.svg"
+  },
+  {
+   "id": "organic186:stardust",
+   "name": "Stardust",
+   "category": "science",
+   "summary": "A drifting swirl of sparkling golden dust blown out by dying stars.",
+   "familyCampaigns": [
+    "nature"
+   ],
+   "ingredients": [
+    "organic40:supernova",
+    "legacy:9"
+   ],
+   "art_mode": "bespoke-subject",
+   "path": "client/assets/v186/stardust.svg"
+  },
+  {
+   "id": "organic186:light-year",
+   "name": "Light Year",
+   "category": "science",
+   "summary": "A long glowing beam of light crossing space between two stars, marked like a ruler.",
+   "familyCampaigns": [
+    "nature"
+   ],
+   "ingredients": [
+    "legacy:63",
+    "organic40:orbit"
+   ],
+   "art_mode": "bespoke-subject",
+   "path": "client/assets/v186/light-year.svg"
+  },
+  {
+   "id": "organic186:shooting-star",
+   "name": "Shooting Star",
+   "category": "science",
+   "summary": "A bright streak of light flashing across the night sky above dark hills.",
+   "familyCampaigns": [
+    "nature"
+   ],
+   "ingredients": [
+    "organic40:meteor",
+    "legacy:63"
+   ],
+   "art_mode": "bespoke-subject",
+   "path": "client/assets/v186/shooting-star.svg"
+  },
+  {
+   "id": "organic186:cosmic-ray",
+   "name": "Cosmic Ray",
+   "category": "science",
+   "summary": "A high-energy particle from deep space hitting the air and bursting into a shower.",
+   "familyCampaigns": [
+    "nature"
+   ],
+   "ingredients": [
+    "organic40:supernova",
+    "legacy:5"
+   ],
+   "art_mode": "bespoke-subject",
+   "path": "client/assets/v186/cosmic-ray.svg"
+  },
+  {
+   "id": "organic186:gamma-ray-burst",
+   "name": "Gamma Ray Burst",
+   "category": "science",
+   "summary": "A collapsing star firing two narrow, dazzling beams of energy into space.",
+   "familyCampaigns": [
+    "nature"
+   ],
+   "ingredients": [
+    "organic40:supernova",
+    "legacy:18"
+   ],
+   "art_mode": "bespoke-subject",
+   "path": "client/assets/v186/gamma-ray-burst.svg"
+  },
+  {
+   "id": "organic186:habitable-zone",
+   "name": "Habitable Zone",
+   "category": "science",
+   "summary": "A green ring around a star where a planet is neither too hot nor too cold for water.",
+   "familyCampaigns": [
+    "nature"
+   ],
+   "ingredients": [
+    "legacy:612",
+    "legacy:21"
+   ],
+   "art_mode": "bespoke-subject",
+   "path": "client/assets/v186/habitable-zone.svg"
+  },
+  {
+   "id": "organic186:crater",
+   "name": "Crater",
+   "category": "science",
+   "summary": "A bowl-shaped hollow with a raised rim, blasted into the ground by a falling rock.",
+   "familyCampaigns": [
+    "nature"
+   ],
+   "ingredients": [
+    "organic40:asteroid",
+    "legacy:14"
+   ],
+   "art_mode": "bespoke-subject",
+   "path": "client/assets/v186/crater.svg"
+  },
+  {
+   "id": "organic186:moon-rock",
+   "name": "Moon Rock",
+   "category": "science",
+   "summary": "A rough grey chunk of lunar rock full of tiny holes, displayed on a small stand.",
+   "familyCampaigns": [
+    "nature"
+   ],
+   "ingredients": [
+    "pack:moon",
+    "legacy:34"
+   ],
+   "art_mode": "bespoke-subject",
+   "path": "client/assets/v186/moon-rock.svg"
+  },
+  {
+   "id": "organic186:moon-dust",
+   "name": "Moon Dust",
+   "category": "science",
+   "summary": "Fine grey lunar dust with a single clear boot print pressed into it.",
+   "familyCampaigns": [
+    "nature"
+   ],
+   "ingredients": [
+    "organic186:moon-rock",
+    "organic41:pressure"
+   ],
+   "art_mode": "bespoke-subject",
+   "path": "client/assets/v186/moon-dust.svg"
+  },
+  {
+   "id": "organic186:earthrise",
+   "name": "Earthrise",
+   "category": "science",
+   "summary": "The blue Earth rising over the grey, curved horizon of the Moon.",
+   "familyCampaigns": [
+    "nature"
+   ],
+   "ingredients": [
+    "organic186:moon-dust",
+    "legacy:2"
+   ],
+   "art_mode": "bespoke-subject",
+   "path": "client/assets/v186/earthrise.svg"
+  },
+  {
+   "id": "organic186:zero-gravity",
+   "name": "Zero Gravity",
+   "category": "science",
+   "summary": "An astronaut floating upside down beside a drifting drink bubble and a pen.",
+   "familyCampaigns": [
+    "nature"
+   ],
+   "ingredients": [
+    "legacy:548",
+    "organic40:feather"
+   ],
+   "art_mode": "bespoke-subject",
+   "path": "client/assets/v186/zero-gravity.svg"
+  },
+  {
+   "id": "organic186:space-station",
+   "name": "Space Station",
+   "category": "science",
+   "summary": "A long orbiting laboratory of joined modules with wide blue solar panels.",
+   "familyCampaigns": [
+    "nature"
+   ],
+   "ingredients": [
+    "legacy:53",
+    "organic40:orbit"
+   ],
+   "art_mode": "bespoke-subject",
+   "path": "client/assets/v186/space-station.svg"
+  },
+  {
+   "id": "organic186:space-shuttle",
+   "name": "Space Shuttle",
+   "category": "science",
+   "summary": "A white winged spacecraft with a black nose and belly, built to fly to orbit and glide home.",
+   "familyCampaigns": [
+    "nature"
+   ],
+   "ingredients": [
+    "legacy:22",
+    "organic40:feather"
+   ],
+   "art_mode": "bespoke-subject",
+   "path": "client/assets/v186/space-shuttle.svg"
+  },
+  {
+   "id": "organic186:space-probe",
+   "name": "Space Probe",
+   "category": "science",
+   "summary": "A small robotic spacecraft with a big dish antenna, a boom and a golden body.",
+   "familyCampaigns": [
+    "nature"
+   ],
+   "ingredients": [
+    "legacy:22",
+    "legacy:549"
+   ],
+   "art_mode": "bespoke-subject",
+   "path": "client/assets/v186/space-probe.svg"
+  },
+  {
+   "id": "organic186:mars-rover",
+   "name": "Mars Rover",
+   "category": "science",
+   "summary": "A six-wheeled robot with a camera mast and a robotic arm on dusty red ground.",
+   "familyCampaigns": [
+    "nature"
+   ],
+   "ingredients": [
+    "legacy:22",
+    "organic186:mars"
+   ],
+   "art_mode": "bespoke-subject",
+   "path": "client/assets/v186/mars-rover.svg"
+  },
+  {
+   "id": "organic186:lunar-rover",
+   "name": "Lunar Rover",
+   "category": "science",
+   "summary": "An open, four-wheeled Moon buggy with wire wheels, two seats and a dish antenna.",
+   "familyCampaigns": [
+    "nature"
+   ],
+   "ingredients": [
+    "legacy:22",
+    "pack:moon"
+   ],
+   "art_mode": "bespoke-subject",
+   "path": "client/assets/v186/lunar-rover.svg"
+  },
+  {
+   "id": "organic186:space-telescope",
+   "name": "Space Telescope",
+   "category": "science",
+   "summary": "A silver tube telescope floating in orbit with an open lid and two solar panels.",
+   "familyCampaigns": [
+    "nature"
+   ],
+   "ingredients": [
+    "organic32:telescope",
+    "organic40:orbit"
+   ],
+   "art_mode": "bespoke-subject",
+   "path": "client/assets/v186/space-telescope.svg"
+  },
+  {
+   "id": "organic186:radio-telescope",
+   "name": "Radio Telescope",
+   "category": "science",
+   "summary": "A giant white dish antenna tilted towards the sky on a steel frame.",
+   "familyCampaigns": [
+    "nature"
+   ],
+   "ingredients": [
+    "organic32:telescope",
+    "organic38:wave"
+   ],
+   "art_mode": "bespoke-subject",
+   "path": "client/assets/v186/radio-telescope.svg"
+  },
+  {
+   "id": "organic186:spacesuit",
+   "name": "Spacesuit",
+   "category": "science",
+   "summary": "A bulky white pressurised suit with a round helmet, backpack and coloured stripes.",
+   "familyCampaigns": [
+    "nature"
+   ],
+   "ingredients": [
+    "legacy:28",
+    "organic40:orbit"
+   ],
+   "art_mode": "bespoke-subject",
+   "path": "client/assets/v186/spacesuit.svg"
+  },
+  {
+   "id": "organic186:space-helmet",
+   "name": "Space Helmet",
+   "category": "science",
+   "summary": "A round white helmet with a wide gold-tinted visor reflecting the stars.",
+   "familyCampaigns": [
+    "nature"
+   ],
+   "ingredients": [
+    "organic186:spacesuit",
+    "legacy:23"
+   ],
+   "art_mode": "bespoke-subject",
+   "path": "client/assets/v186/space-helmet.svg"
+  },
+  {
+   "id": "organic186:spacewalk",
+   "name": "Spacewalk",
+   "category": "science",
+   "summary": "An astronaut floating outside on a safety tether with the curve of Earth below.",
+   "familyCampaigns": [
+    "nature"
+   ],
+   "ingredients": [
+    "organic186:spacesuit",
+    "organic40:orbit"
+   ],
+   "art_mode": "bespoke-subject",
+   "path": "client/assets/v186/spacewalk.svg"
+  },
+  {
+   "id": "organic186:launch-pad",
+   "name": "Launch Pad",
+   "category": "science",
+   "summary": "A concrete platform with a tall steel tower holding a rocket ready for launch.",
+   "familyCampaigns": [
+    "nature"
+   ],
+   "ingredients": [
+    "legacy:14",
+    "legacy:43"
+   ],
+   "art_mode": "bespoke-subject",
+   "path": "client/assets/v186/launch-pad.svg"
+  },
+  {
+   "id": "organic186:mission-control",
+   "name": "Mission Control",
+   "category": "science",
+   "summary": "A control room desk with screens showing an orbit map, graphs and a countdown.",
+   "familyCampaigns": [
+    "nature"
+   ],
+   "ingredients": [
+    "legacy:28",
+    "organic32:telescope"
+   ],
+   "art_mode": "bespoke-subject",
+   "path": "client/assets/v186/mission-control.svg"
+  },
+  {
+   "id": "organic186:space-capsule",
+   "name": "Space Capsule",
+   "category": "science",
+   "summary": "A cone-shaped crew capsule drifting down to the sea under striped parachutes.",
+   "familyCampaigns": [
+    "nature"
+   ],
+   "ingredients": [
+    "legacy:22",
+    "organic40:meteor"
+   ],
+   "art_mode": "bespoke-subject",
+   "path": "client/assets/v186/space-capsule.svg"
+  },
+  {
+   "id": "organic186:moon-base",
+   "name": "Moon Base",
+   "category": "science",
+   "summary": "A cluster of white domes and tubes on the grey Moon with Earth in the black sky.",
+   "familyCampaigns": [
+    "nature"
+   ],
+   "ingredients": [
+    "pack:moon",
+    "legacy:21"
+   ],
+   "art_mode": "bespoke-subject",
+   "path": "client/assets/v186/moon-base.svg"
+  },
+  {
+   "id": "organic186:space-elevator",
+   "name": "Space Elevator",
+   "category": "science",
+   "summary": "A cable rising from the Earth straight up to a station in orbit, with a climbing car.",
+   "familyCampaigns": [
+    "nature"
+   ],
+   "ingredients": [
+    "organic40:orbit",
+    "legacy:19"
+   ],
+   "art_mode": "bespoke-subject",
+   "path": "client/assets/v186/space-elevator.svg"
+  },
+  {
+   "id": "organic186:space-food",
+   "name": "Space Food",
+   "category": "science",
+   "summary": "A tray of silver food pouches with straws and a floating blob of juice.",
+   "familyCampaigns": [
+    "nature"
+   ],
+   "ingredients": [
+    "organic186:spacesuit",
+    "organic37:bread"
+   ],
+   "art_mode": "bespoke-subject",
+   "path": "client/assets/v186/space-food.svg"
+  },
+  {
+   "id": "organic186:space-junk",
+   "name": "Space Junk",
+   "category": "science",
+   "summary": "Broken satellite parts, bolts and panels tumbling in orbit above the Earth.",
+   "familyCampaigns": [
+    "nature"
+   ],
+   "ingredients": [
+    "organic89:rust",
+    "organic40:orbit"
+   ],
+   "art_mode": "bespoke-subject",
+   "path": "client/assets/v186/space-junk.svg"
+  },
+  {
+   "id": "organic186:star-map",
+   "name": "Star Map",
+   "category": "science",
+   "summary": "A round chart of the night sky with constellations joined by thin lines.",
+   "familyCampaigns": [
+    "nature"
+   ],
+   "ingredients": [
+    "legacy:106",
+    "legacy:612"
+   ],
+   "art_mode": "bespoke-subject",
+   "path": "client/assets/v186/star-map.svg"
+  },
+  {
+   "id": "organic186:planetarium",
+   "name": "Planetarium",
+   "category": "science",
+   "summary": "A domed building with stars projected across its ceiling and a doorway below.",
+   "familyCampaigns": [
+    "nature"
+   ],
+   "ingredients": [
+    "organic186:star-map",
+    "legacy:14"
+   ],
+   "art_mode": "bespoke-subject",
+   "path": "client/assets/v186/planetarium.svg"
+  },
+  {
+   "id": "organic186:countdown",
+   "name": "Countdown",
+   "category": "science",
+   "summary": "A big digital launch clock showing the last seconds, with a rocket waiting behind.",
+   "familyCampaigns": [
+    "nature"
+   ],
+   "ingredients": [
+    "organic186:launch-pad",
+    "legacy:63"
+   ],
+   "art_mode": "bespoke-subject",
+   "path": "client/assets/v186/countdown.svg"
+  },
+  {
+   "id": "organic186:liftoff",
+   "name": "Liftoff",
+   "category": "science",
+   "summary": "A rocket rising on a pillar of fire and billowing white clouds of smoke.",
+   "familyCampaigns": [
+    "nature"
+   ],
+   "ingredients": [
+    "organic186:launch-pad",
+    "legacy:1"
+   ],
+   "art_mode": "bespoke-subject",
+   "path": "client/assets/v186/liftoff.svg"
+  },
+  {
+   "id": "organic186:reentry",
+   "name": "Reentry",
+   "category": "science",
+   "summary": "A capsule plunging through the air inside a glowing orange fireball.",
+   "familyCampaigns": [
+    "nature"
+   ],
+   "ingredients": [
+    "organic186:space-capsule",
+    "legacy:1"
+   ],
+   "art_mode": "bespoke-subject",
+   "path": "client/assets/v186/reentry.svg"
+  },
+  {
+   "id": "organic186:heat-shield",
+   "name": "Heat Shield",
+   "category": "science",
+   "summary": "A round, dark shield of heat-proof tiles glowing orange at its scorched edge.",
+   "familyCampaigns": [
+    "nature"
+   ],
+   "ingredients": [
+    "organic186:space-capsule",
+    "legacy:14"
+   ],
+   "art_mode": "bespoke-subject",
+   "path": "client/assets/v186/heat-shield.svg"
+  },
+  {
+   "id": "organic186:airlock",
+   "name": "Airlock",
+   "category": "science",
+   "summary": "A thick round hatch door with a wheel handle, a small window and warning stripes.",
+   "familyCampaigns": [
+    "nature"
+   ],
+   "ingredients": [
+    "organic186:space-station",
+    "legacy:3"
+   ],
+   "art_mode": "bespoke-subject",
+   "path": "client/assets/v186/airlock.svg"
+  },
+  {
+   "id": "organic186:ion-engine",
+   "name": "Ion Engine",
+   "category": "science",
+   "summary": "A small engine with a round grid glowing pale blue as it pushes out charged gas.",
+   "familyCampaigns": [
+    "nature"
+   ],
+   "ingredients": [
+    "legacy:67",
+    "legacy:43"
+   ],
+   "art_mode": "bespoke-subject",
+   "path": "client/assets/v186/ion-engine.svg"
+  },
+  {
+   "id": "organic186:booster",
+   "name": "Booster",
+   "category": "science",
+   "summary": "A tall white rocket booster with landing legs, standing upright on a pad after flight.",
+   "familyCampaigns": [
+    "nature"
+   ],
+   "ingredients": [
+    "legacy:43",
+    "legacy:22"
+   ],
+   "art_mode": "bespoke-subject",
+   "path": "client/assets/v186/booster.svg"
+  },
+  {
+   "id": "organic186:space-garden",
+   "name": "Space Garden",
+   "category": "science",
+   "summary": "A small box of leafy lettuce growing under pink lights inside a spacecraft.",
+   "familyCampaigns": [
+    "nature"
+   ],
+   "ingredients": [
+    "legacy:592",
+    "legacy:548"
+   ],
+   "art_mode": "bespoke-subject",
+   "path": "client/assets/v186/space-garden.svg"
+  },
+  {
+   "id": "organic186:space-dog",
+   "name": "Space Dog",
+   "category": "science",
+   "summary": "A small brave dog in a round space helmet and a little harness, floating among stars.",
+   "familyCampaigns": [
+    "nature"
+   ],
+   "ingredients": [
+    "organic89:dog",
+    "legacy:548"
+   ],
+   "art_mode": "bespoke-subject",
+   "path": "client/assets/v186/space-dog.svg"
+  }
+ ]
+}
