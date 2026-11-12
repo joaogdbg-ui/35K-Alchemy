@@ -90,6 +90,11 @@ Preserve 200-per-batch policy and do not start another content release on top of
 
 - **Art redraw wave 3 (V85, done): 3,991 icons** — every remaining older element. All 6,012 pre-V83 elements now use the 2026 art direction (`ART_REDRAW`), plus 200 V83 and 200 V85 originals. Six near-duplicates found by the audit were redrawn; 36 reviewed false alarms are in `tools/art-redraw-reviewed-pairs.json` (the audit now also honours them for V83 comparisons).
 
+## V198 — Skin nos menus da lista de elementos
+
+- Só CSS (bloco "V198"): chips Sort/Families/Stat/Looks, folha Sort (opções com ícone, selecionada escura com visto verde, segmentos Show e List size, títulos em pílula), filtro de famílias, filtro de stats, filtro de looks e caixa de pesquisa no estilo do jogo.
+- `APP_VERSION` 1.0.98.
+
 ## V197 — Correção do saldo no banco de moedas
 
 - O número do saldo no cabeçalho de "Get coins" herdava o tamanho pequeno; corrigido. A linha "Discover elements" menciona os objetivos de 25 e os combos.
