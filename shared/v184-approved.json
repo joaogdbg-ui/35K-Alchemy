@@ -1,0 +1,3018 @@
+{
+ "version": 184,
+ "status": "OWNER_APPROVED",
+ "cohort_count": 200,
+ "expansion_goal": 200,
+ "expansion_progress": 200,
+ "remaining_to_goal": 0,
+ "cycle_complete": true,
+ "themes": {
+  "food": 200
+ },
+ "base_catalog": {
+  "elements": 6635
+ },
+ "alternative_recipes_for_existing_items": 0,
+ "new_items": [
+  {
+   "id": "organic184:meat",
+   "name": "Meat",
+   "category": "nature",
+   "summary": "A raw cut of red meat with a white bone, ready for the pan, the grill or a slow stew.",
+   "familyCampaigns": [
+    "nature"
+   ],
+   "ingredients": [
+    "legacy:26",
+    "organic89:kitchen"
+   ],
+   "art_mode": "bespoke-subject",
+   "path": "client/assets/v184/meat.svg"
+  },
+  {
+   "id": "organic184:corn",
+   "name": "Corn",
+   "category": "nature",
+   "summary": "A golden cob of corn wrapped in green husks, with rows of sweet kernels.",
+   "familyCampaigns": [
+    "nature"
+   ],
+   "ingredients": [
+    "organic89:wheat",
+    "legacy:141"
+   ],
+   "art_mode": "bespoke-subject",
+   "path": "client/assets/v184/corn.svg"
+  },
+  {
+   "id": "organic184:chili-pepper",
+   "name": "Chili Pepper",
+   "category": "nature",
+   "summary": "A curved red chili pepper with a green stem and plenty of heat inside.",
+   "familyCampaigns": [
+    "nature"
+   ],
+   "ingredients": [
+    "organic37:vegetable",
+    "organic85:mexico"
+   ],
+   "art_mode": "bespoke-subject",
+   "path": "client/assets/v184/chili-pepper.svg"
+  },
+  {
+   "id": "organic184:coconut",
+   "name": "Coconut",
+   "category": "nature",
+   "summary": "A hairy brown coconut cracked in half to show its white flesh and sweet water.",
+   "familyCampaigns": [
+    "nature"
+   ],
+   "ingredients": [
+    "legacy:19",
+    "organic85:thailand"
+   ],
+   "art_mode": "bespoke-subject",
+   "path": "client/assets/v184/coconut.svg"
+  },
+  {
+   "id": "organic184:banana",
+   "name": "Banana",
+   "category": "nature",
+   "summary": "A bunch of curved yellow bananas joined at a dark stem.",
+   "familyCampaigns": [
+    "nature"
+   ],
+   "ingredients": [
+    "organic37:fruit",
+    "organic85:brazil"
+   ],
+   "art_mode": "bespoke-subject",
+   "path": "client/assets/v184/banana.svg"
+  },
+  {
+   "id": "organic184:mango",
+   "name": "Mango",
+   "category": "nature",
+   "summary": "A plump mango blushing from green to orange and red, heavy with sweet juice.",
+   "familyCampaigns": [
+    "nature"
+   ],
+   "ingredients": [
+    "organic37:fruit",
+    "organic85:india"
+   ],
+   "art_mode": "bespoke-subject",
+   "path": "client/assets/v184/mango.svg"
+  },
+  {
+   "id": "organic184:pineapple",
+   "name": "Pineapple",
+   "category": "nature",
+   "summary": "A golden pineapple with diamond-patterned skin and a spiky green crown.",
+   "familyCampaigns": [
+    "nature"
+   ],
+   "ingredients": [
+    "organic37:fruit",
+    "legacy:558"
+   ],
+   "art_mode": "bespoke-subject",
+   "path": "client/assets/v184/pineapple.svg"
+  },
+  {
+   "id": "organic184:strawberry",
+   "name": "Strawberry",
+   "category": "nature",
+   "summary": "A bright red strawberry dotted with seeds under a leafy green cap.",
+   "familyCampaigns": [
+    "nature"
+   ],
+   "ingredients": [
+    "organic37:fruit",
+    "organic85:france"
+   ],
+   "art_mode": "bespoke-subject",
+   "path": "client/assets/v184/strawberry.svg"
+  },
+  {
+   "id": "organic184:cherry",
+   "name": "Cherry",
+   "category": "nature",
+   "summary": "Two glossy red cherries hanging from one forked green stem with a leaf.",
+   "familyCampaigns": [
+    "nature"
+   ],
+   "ingredients": [
+    "organic37:fruit",
+    "legacy:244"
+   ],
+   "art_mode": "bespoke-subject",
+   "path": "client/assets/v184/cherry.svg"
+  },
+  {
+   "id": "organic184:orange",
+   "name": "Orange",
+   "category": "nature",
+   "summary": "A round orange with dimpled peel beside a juicy cut half showing its segments.",
+   "familyCampaigns": [
+    "nature"
+   ],
+   "ingredients": [
+    "organic37:fruit",
+    "organic85:spain"
+   ],
+   "art_mode": "bespoke-subject",
+   "path": "client/assets/v184/orange.svg"
+  },
+  {
+   "id": "organic184:lime",
+   "name": "Lime",
+   "category": "nature",
+   "summary": "A small green lime with a cut wedge showing pale, sharp flesh.",
+   "familyCampaigns": [
+    "nature"
+   ],
+   "ingredients": [
+    "organic38:lemon",
+    "legacy:15"
+   ],
+   "art_mode": "bespoke-subject",
+   "path": "client/assets/v184/lime.svg"
+  },
+  {
+   "id": "organic184:peach",
+   "name": "Peach",
+   "category": "nature",
+   "summary": "A fuzzy peach glowing orange and pink, with a soft crease and one green leaf.",
+   "familyCampaigns": [
+    "nature"
+   ],
+   "ingredients": [
+    "organic37:fruit",
+    "legacy:1335"
+   ],
+   "art_mode": "bespoke-subject",
+   "path": "client/assets/v184/peach.svg"
+  },
+  {
+   "id": "organic184:pear",
+   "name": "Pear",
+   "category": "nature",
+   "summary": "A green pear, narrow at the top and round at the bottom, with a short stem.",
+   "familyCampaigns": [
+    "nature"
+   ],
+   "ingredients": [
+    "organic37:fruit",
+    "legacy:559"
+   ],
+   "art_mode": "bespoke-subject",
+   "path": "client/assets/v184/pear.svg"
+  },
+  {
+   "id": "organic184:avocado",
+   "name": "Avocado",
+   "category": "nature",
+   "summary": "A halved avocado with dark skin, creamy green flesh and a round brown stone.",
+   "familyCampaigns": [
+    "nature"
+   ],
+   "ingredients": [
+    "organic37:fruit",
+    "organic85:mexico"
+   ],
+   "art_mode": "bespoke-subject",
+   "path": "client/assets/v184/avocado.svg"
+  },
+  {
+   "id": "organic184:olive",
+   "name": "Olive",
+   "category": "nature",
+   "summary": "A sprig of green and black olives with slim silver-green leaves.",
+   "familyCampaigns": [
+    "nature"
+   ],
+   "ingredients": [
+    "legacy:19",
+    "organic85:greece"
+   ],
+   "art_mode": "bespoke-subject",
+   "path": "client/assets/v184/olive.svg"
+  },
+  {
+   "id": "organic184:peanut",
+   "name": "Peanut",
+   "category": "nature",
+   "summary": "A knobbly peanut shell cracked open to show two reddish nuts inside.",
+   "familyCampaigns": [
+    "nature"
+   ],
+   "ingredients": [
+    "organic38:bean",
+    "legacy:2"
+   ],
+   "art_mode": "bespoke-subject",
+   "path": "client/assets/v184/peanut.svg"
+  },
+  {
+   "id": "organic184:almond",
+   "name": "Almond",
+   "category": "nature",
+   "summary": "Teardrop-shaped almonds with ridged brown skins, one split to show the pale nut.",
+   "familyCampaigns": [
+    "nature"
+   ],
+   "ingredients": [
+    "organic34:seed",
+    "organic85:spain"
+   ],
+   "art_mode": "bespoke-subject",
+   "path": "client/assets/v184/almond.svg"
+  },
+  {
+   "id": "organic184:ginger",
+   "name": "Ginger",
+   "category": "nature",
+   "summary": "A knobbly root of fresh ginger with pale golden skin and stubby branches.",
+   "familyCampaigns": [
+    "nature"
+   ],
+   "ingredients": [
+    "legacy:15",
+    "legacy:1203"
+   ],
+   "art_mode": "bespoke-subject",
+   "path": "client/assets/v184/ginger.svg"
+  },
+  {
+   "id": "organic184:cabbage",
+   "name": "Cabbage",
+   "category": "nature",
+   "summary": "A round head of cabbage with crinkled, overlapping pale green leaves.",
+   "familyCampaigns": [
+    "nature"
+   ],
+   "ingredients": [
+    "organic37:vegetable",
+    "legacy:559"
+   ],
+   "art_mode": "bespoke-subject",
+   "path": "client/assets/v184/cabbage.svg"
+  },
+  {
+   "id": "organic184:lettuce",
+   "name": "Lettuce",
+   "category": "nature",
+   "summary": "A leafy green lettuce with frilly edges gathered at a pale stalk.",
+   "familyCampaigns": [
+    "nature"
+   ],
+   "ingredients": [
+    "organic37:vegetable",
+    "organic37:salad"
+   ],
+   "art_mode": "bespoke-subject",
+   "path": "client/assets/v184/lettuce.svg"
+  },
+  {
+   "id": "organic184:cucumber",
+   "name": "Cucumber",
+   "category": "nature",
+   "summary": "A long dark-green cucumber with a few round slices cut from one end.",
+   "familyCampaigns": [
+    "nature"
+   ],
+   "ingredients": [
+    "organic37:vegetable",
+    "legacy:39"
+   ],
+   "art_mode": "bespoke-subject",
+   "path": "client/assets/v184/cucumber.svg"
+  },
+  {
+   "id": "organic184:eggplant",
+   "name": "Eggplant",
+   "category": "nature",
+   "summary": "A glossy purple eggplant with a green cap and a curved stem.",
+   "familyCampaigns": [
+    "nature"
+   ],
+   "ingredients": [
+    "organic37:vegetable",
+    "legacy:142"
+   ],
+   "art_mode": "bespoke-subject",
+   "path": "client/assets/v184/eggplant.svg"
+  },
+  {
+   "id": "organic184:spinach",
+   "name": "Spinach",
+   "category": "nature",
+   "summary": "A bunch of dark green spinach leaves tied together at their pink stems.",
+   "familyCampaigns": [
+    "nature"
+   ],
+   "ingredients": [
+    "organic38:herb",
+    "legacy:578"
+   ],
+   "art_mode": "bespoke-subject",
+   "path": "client/assets/v184/spinach.svg"
+  },
+  {
+   "id": "organic184:broccoli",
+   "name": "Broccoli",
+   "category": "nature",
+   "summary": "A little green broccoli tree with a thick stalk and bumpy florets.",
+   "familyCampaigns": [
+    "nature"
+   ],
+   "ingredients": [
+    "organic37:vegetable",
+    "legacy:19"
+   ],
+   "art_mode": "bespoke-subject",
+   "path": "client/assets/v184/broccoli.svg"
+  },
+  {
+   "id": "organic184:pumpkin",
+   "name": "Pumpkin",
+   "category": "nature",
+   "summary": "A fat orange pumpkin with deep ribs and a twisted green stem.",
+   "familyCampaigns": [
+    "nature"
+   ],
+   "ingredients": [
+    "organic37:vegetable",
+    "organic85:festival"
+   ],
+   "art_mode": "bespoke-subject",
+   "path": "client/assets/v184/pumpkin.svg"
+  },
+  {
+   "id": "organic184:sweet-potato",
+   "name": "Sweet Potato",
+   "category": "nature",
+   "summary": "A pointed sweet potato with rosy skin, cut to show bright orange flesh.",
+   "familyCampaigns": [
+    "nature"
+   ],
+   "ingredients": [
+    "organic38:potato",
+    "organic38:sugar"
+   ],
+   "art_mode": "bespoke-subject",
+   "path": "client/assets/v184/sweet-potato.svg"
+  },
+  {
+   "id": "organic184:cassava",
+   "name": "Cassava",
+   "category": "nature",
+   "summary": "Long brown cassava roots with rough bark and snowy white flesh.",
+   "familyCampaigns": [
+    "nature"
+   ],
+   "ingredients": [
+    "legacy:15",
+    "organic85:brazil"
+   ],
+   "art_mode": "bespoke-subject",
+   "path": "client/assets/v184/cassava.svg"
+  },
+  {
+   "id": "organic184:lentils",
+   "name": "Lentils",
+   "category": "nature",
+   "summary": "A wooden scoop spilling small round lentils in orange, green and brown.",
+   "familyCampaigns": [
+    "nature"
+   ],
+   "ingredients": [
+    "organic34:seed",
+    "organic38:bean"
+   ],
+   "art_mode": "bespoke-subject",
+   "path": "client/assets/v184/lentils.svg"
+  },
+  {
+   "id": "organic184:chickpea",
+   "name": "Chickpea",
+   "category": "nature",
+   "summary": "A bowl of pale, round chickpeas, each with a tiny beak-like point.",
+   "familyCampaigns": [
+    "nature"
+   ],
+   "ingredients": [
+    "organic38:bean",
+    "legacy:141"
+   ],
+   "art_mode": "bespoke-subject",
+   "path": "client/assets/v184/chickpea.svg"
+  },
+  {
+   "id": "organic184:sesame",
+   "name": "Sesame",
+   "category": "nature",
+   "summary": "A pile of tiny teardrop sesame seeds, pale cream with a few black ones.",
+   "familyCampaigns": [
+    "nature"
+   ],
+   "ingredients": [
+    "organic34:seed",
+    "legacy:1203"
+   ],
+   "art_mode": "bespoke-subject",
+   "path": "client/assets/v184/sesame.svg"
+  },
+  {
+   "id": "organic184:oats",
+   "name": "Oats",
+   "category": "nature",
+   "summary": "A drooping stalk of oats with hanging grains beside a pile of rolled flakes.",
+   "familyCampaigns": [
+    "nature"
+   ],
+   "ingredients": [
+    "organic89:wheat",
+    "legacy:559"
+   ],
+   "art_mode": "bespoke-subject",
+   "path": "client/assets/v184/oats.svg"
+  },
+  {
+   "id": "organic184:barley",
+   "name": "Barley",
+   "category": "nature",
+   "summary": "A bearded ear of barley with long golden whiskers and plump grains.",
+   "familyCampaigns": [
+    "nature"
+   ],
+   "ingredients": [
+    "organic89:wheat",
+    "legacy:12"
+   ],
+   "art_mode": "bespoke-subject",
+   "path": "client/assets/v184/barley.svg"
+  },
+  {
+   "id": "organic184:soybean",
+   "name": "Soybean",
+   "category": "nature",
+   "summary": "A fuzzy green soybean pod opened to show three round beans.",
+   "familyCampaigns": [
+    "nature"
+   ],
+   "ingredients": [
+    "organic38:bean",
+    "legacy:1203"
+   ],
+   "art_mode": "bespoke-subject",
+   "path": "client/assets/v184/soybean.svg"
+  },
+  {
+   "id": "organic184:tofu",
+   "name": "Tofu",
+   "category": "nature",
+   "summary": "A wobbly white block of tofu on a small plate, with one cube cut away.",
+   "familyCampaigns": [
+    "nature"
+   ],
+   "ingredients": [
+    "organic184:soybean",
+    "legacy:0"
+   ],
+   "art_mode": "bespoke-subject",
+   "path": "client/assets/v184/tofu.svg"
+  },
+  {
+   "id": "organic184:soy-sauce",
+   "name": "Soy Sauce",
+   "category": "nature",
+   "summary": "A small glass bottle of dark soy sauce with a red cap and a dripping spout.",
+   "familyCampaigns": [
+    "nature"
+   ],
+   "ingredients": [
+    "organic184:soybean",
+    "organic38:salt"
+   ],
+   "art_mode": "bespoke-subject",
+   "path": "client/assets/v184/soy-sauce.svg"
+  },
+  {
+   "id": "organic184:vinegar",
+   "name": "Vinegar",
+   "category": "nature",
+   "summary": "A tall bottle of amber vinegar with a cork and a sprig of herbs inside.",
+   "familyCampaigns": [
+    "nature"
+   ],
+   "ingredients": [
+    "organic89:grape",
+    "legacy:210"
+   ],
+   "art_mode": "bespoke-subject",
+   "path": "client/assets/v184/vinegar.svg"
+  },
+  {
+   "id": "organic184:yogurt",
+   "name": "Yogurt",
+   "category": "nature",
+   "summary": "A glass pot of thick white yogurt with a spoon and a swirl on top.",
+   "familyCampaigns": [
+    "nature"
+   ],
+   "ingredients": [
+    "organic38:milk",
+    "organic85:greece"
+   ],
+   "art_mode": "bespoke-subject",
+   "path": "client/assets/v184/yogurt.svg"
+  },
+  {
+   "id": "organic184:sausage",
+   "name": "Sausage",
+   "category": "nature",
+   "summary": "A string of plump sausages tied at the ends, curved like smiles.",
+   "familyCampaigns": [
+    "nature"
+   ],
+   "ingredients": [
+    "organic184:meat",
+    "organic38:spice"
+   ],
+   "art_mode": "bespoke-subject",
+   "path": "client/assets/v184/sausage.svg"
+  },
+  {
+   "id": "organic184:bacon",
+   "name": "Bacon",
+   "category": "nature",
+   "summary": "Wavy strips of bacon striped in red and creamy white.",
+   "familyCampaigns": [
+    "nature"
+   ],
+   "ingredients": [
+    "organic184:meat",
+    "organic43:smoke"
+   ],
+   "art_mode": "bespoke-subject",
+   "path": "client/assets/v184/bacon.svg"
+  },
+  {
+   "id": "organic184:ham",
+   "name": "Ham",
+   "category": "nature",
+   "summary": "A whole glazed ham on the bone with a criss-cross pattern and one slice cut.",
+   "familyCampaigns": [
+    "nature"
+   ],
+   "ingredients": [
+    "organic184:meat",
+    "organic38:salt"
+   ],
+   "art_mode": "bespoke-subject",
+   "path": "client/assets/v184/ham.svg"
+  },
+  {
+   "id": "organic184:steak",
+   "name": "Steak",
+   "category": "nature",
+   "summary": "A thick grilled steak with dark sear lines and a small bone.",
+   "familyCampaigns": [
+    "nature"
+   ],
+   "ingredients": [
+    "organic184:meat",
+    "legacy:1"
+   ],
+   "art_mode": "bespoke-subject",
+   "path": "client/assets/v184/steak.svg"
+  },
+  {
+   "id": "organic184:cooking-pot",
+   "name": "Cooking Pot",
+   "category": "nature",
+   "summary": "A sturdy metal cooking pot with two handles and a lid lifting on a puff of steam.",
+   "familyCampaigns": [
+    "nature"
+   ],
+   "ingredients": [
+    "legacy:22",
+    "organic89:kitchen"
+   ],
+   "art_mode": "bespoke-subject",
+   "path": "client/assets/v184/cooking-pot.svg"
+  },
+  {
+   "id": "organic184:oven",
+   "name": "Oven",
+   "category": "nature",
+   "summary": "A cream kitchen oven with a glowing window, round dials and a tray of bread inside.",
+   "familyCampaigns": [
+    "nature"
+   ],
+   "ingredients": [
+    "organic89:kitchen",
+    "legacy:1"
+   ],
+   "art_mode": "bespoke-subject",
+   "path": "client/assets/v184/oven.svg"
+  },
+  {
+   "id": "organic184:kitchen-knife",
+   "name": "Kitchen Knife",
+   "category": "nature",
+   "summary": "A broad chef’s knife with a shining steel blade and a riveted wooden handle.",
+   "familyCampaigns": [
+    "nature"
+   ],
+   "ingredients": [
+    "legacy:22",
+    "organic37:chef"
+   ],
+   "art_mode": "bespoke-subject",
+   "path": "client/assets/v184/kitchen-knife.svg"
+  },
+  {
+   "id": "organic184:wok",
+   "name": "Wok",
+   "category": "nature",
+   "summary": "A deep round-bottomed wok tossing vegetables over a ring of flame.",
+   "familyCampaigns": [
+    "nature"
+   ],
+   "ingredients": [
+    "pack:pan",
+    "legacy:1335"
+   ],
+   "art_mode": "bespoke-subject",
+   "path": "client/assets/v184/wok.svg"
+  },
+  {
+   "id": "organic184:grill",
+   "name": "Grill",
+   "category": "nature",
+   "summary": "A round charcoal grill on three legs with a striped grate and glowing coals.",
+   "familyCampaigns": [
+    "nature"
+   ],
+   "ingredients": [
+    "legacy:22",
+    "organic43:charcoal"
+   ],
+   "art_mode": "bespoke-subject",
+   "path": "client/assets/v184/grill.svg"
+  },
+  {
+   "id": "organic184:skewer",
+   "name": "Skewer",
+   "category": "nature",
+   "summary": "A thin wooden skewer threaded with chunks of meat, pepper and onion.",
+   "familyCampaigns": [
+    "nature"
+   ],
+   "ingredients": [
+    "legacy:24",
+    "organic89:kitchen"
+   ],
+   "art_mode": "bespoke-subject",
+   "path": "client/assets/v184/skewer.svg"
+  },
+  {
+   "id": "organic184:chopsticks",
+   "name": "Chopsticks",
+   "category": "nature",
+   "summary": "A pair of slim lacquered chopsticks resting on a little ceramic holder.",
+   "familyCampaigns": [
+    "nature"
+   ],
+   "ingredients": [
+    "legacy:24",
+    "legacy:244"
+   ],
+   "art_mode": "bespoke-subject",
+   "path": "client/assets/v184/chopsticks.svg"
+  },
+  {
+   "id": "organic184:ladle",
+   "name": "Ladle",
+   "category": "nature",
+   "summary": "A deep steel ladle with a long hooked handle, lifting a scoop of golden soup.",
+   "familyCampaigns": [
+    "nature"
+   ],
+   "ingredients": [
+    "legacy:22",
+    "organic37:soup"
+   ],
+   "art_mode": "bespoke-subject",
+   "path": "client/assets/v184/ladle.svg"
+  },
+  {
+   "id": "organic184:mortar-and-pestle",
+   "name": "Mortar and Pestle",
+   "category": "nature",
+   "summary": "A heavy stone mortar with a pestle leaning inside and crushed spices at the bottom.",
+   "familyCampaigns": [
+    "nature"
+   ],
+   "ingredients": [
+    "legacy:14",
+    "organic38:spice"
+   ],
+   "art_mode": "bespoke-subject",
+   "path": "client/assets/v184/mortar-and-pestle.svg"
+  },
+  {
+   "id": "organic184:sauce",
+   "name": "Sauce",
+   "category": "nature",
+   "summary": "A small jug of thick red sauce with a spoon, ready to pour over anything.",
+   "familyCampaigns": [
+    "nature"
+   ],
+   "ingredients": [
+    "organic38:tomato",
+    "organic38:spice"
+   ],
+   "art_mode": "bespoke-subject",
+   "path": "client/assets/v184/sauce.svg"
+  },
+  {
+   "id": "organic184:stew",
+   "name": "Stew",
+   "category": "nature",
+   "summary": "A bubbling pot of brown stew with chunks of meat, carrot and potato.",
+   "familyCampaigns": [
+    "nature"
+   ],
+   "ingredients": [
+    "organic184:meat",
+    "organic184:cooking-pot"
+   ],
+   "art_mode": "bespoke-subject",
+   "path": "client/assets/v184/stew.svg"
+  },
+  {
+   "id": "organic184:broth",
+   "name": "Broth",
+   "category": "nature",
+   "summary": "A clear golden broth in a white bowl, with a few floating herbs.",
+   "familyCampaigns": [
+    "nature"
+   ],
+   "ingredients": [
+    "legacy:0",
+    "organic184:meat"
+   ],
+   "art_mode": "bespoke-subject",
+   "path": "client/assets/v184/broth.svg"
+  },
+  {
+   "id": "organic184:juice",
+   "name": "Juice",
+   "category": "nature",
+   "summary": "A tall glass of bright orange juice with a striped straw and a slice on the rim.",
+   "familyCampaigns": [
+    "nature"
+   ],
+   "ingredients": [
+    "organic184:orange",
+    "organic41:pressure"
+   ],
+   "art_mode": "bespoke-subject",
+   "path": "client/assets/v184/juice.svg"
+  },
+  {
+   "id": "organic184:smoothie",
+   "name": "Smoothie",
+   "category": "nature",
+   "summary": "A pink smoothie in a rounded glass, topped with a strawberry and a straw.",
+   "familyCampaigns": [
+    "nature"
+   ],
+   "ingredients": [
+    "organic184:juice",
+    "organic184:yogurt"
+   ],
+   "art_mode": "bespoke-subject",
+   "path": "client/assets/v184/smoothie.svg"
+  },
+  {
+   "id": "organic184:wine",
+   "name": "Wine",
+   "category": "nature",
+   "summary": "A stemmed glass of deep red wine beside a small bunch of grapes.",
+   "familyCampaigns": [
+    "nature"
+   ],
+   "ingredients": [
+    "organic89:grape",
+    "organic42:yeast"
+   ],
+   "art_mode": "bespoke-subject",
+   "path": "client/assets/v184/wine.svg"
+  },
+  {
+   "id": "organic184:beer",
+   "name": "Beer",
+   "category": "nature",
+   "summary": "A glass mug of golden beer with a thick white foam head spilling over.",
+   "familyCampaigns": [
+    "nature"
+   ],
+   "ingredients": [
+    "organic184:barley",
+    "organic42:yeast"
+   ],
+   "art_mode": "bespoke-subject",
+   "path": "client/assets/v184/beer.svg"
+  },
+  {
+   "id": "organic184:cider",
+   "name": "Cider",
+   "category": "nature",
+   "summary": "A bottle of cloudy apple cider with a red apple on its label.",
+   "familyCampaigns": [
+    "nature"
+   ],
+   "ingredients": [
+    "legacy:271",
+    "organic42:yeast"
+   ],
+   "art_mode": "bespoke-subject",
+   "path": "client/assets/v184/cider.svg"
+  },
+  {
+   "id": "organic184:mead",
+   "name": "Mead",
+   "category": "nature",
+   "summary": "A horn-shaped cup of golden mead with a drop of honey on the rim.",
+   "familyCampaigns": [
+    "nature"
+   ],
+   "ingredients": [
+    "organic34:honey",
+    "organic42:yeast"
+   ],
+   "art_mode": "bespoke-subject",
+   "path": "client/assets/v184/mead.svg"
+  },
+  {
+   "id": "organic184:sake",
+   "name": "Sake",
+   "category": "nature",
+   "summary": "A slim ceramic sake flask with two tiny matching cups.",
+   "familyCampaigns": [
+    "nature"
+   ],
+   "ingredients": [
+    "organic42:rice",
+    "organic42:yeast"
+   ],
+   "art_mode": "bespoke-subject",
+   "path": "client/assets/v184/sake.svg"
+  },
+  {
+   "id": "organic184:rum",
+   "name": "Rum",
+   "category": "nature",
+   "summary": "A squat dark bottle of rum with a palm tree on the label.",
+   "familyCampaigns": [
+    "nature"
+   ],
+   "ingredients": [
+    "organic38:sugar",
+    "legacy:558"
+   ],
+   "art_mode": "bespoke-subject",
+   "path": "client/assets/v184/rum.svg"
+  },
+  {
+   "id": "organic184:soda",
+   "name": "Soda",
+   "category": "nature",
+   "summary": "A red can of fizzy soda with a white wave and bubbles popping above it.",
+   "familyCampaigns": [
+    "nature"
+   ],
+   "ingredients": [
+    "organic38:sugar",
+    "legacy:3"
+   ],
+   "art_mode": "bespoke-subject",
+   "path": "client/assets/v184/soda.svg"
+  },
+  {
+   "id": "organic184:ketchup",
+   "name": "Ketchup",
+   "category": "nature",
+   "summary": "A red squeezy ketchup bottle with a pointed white cap and a tomato label.",
+   "familyCampaigns": [
+    "nature"
+   ],
+   "ingredients": [
+    "organic184:sauce",
+    "organic38:sugar"
+   ],
+   "art_mode": "bespoke-subject",
+   "path": "client/assets/v184/ketchup.svg"
+  },
+  {
+   "id": "organic184:mustard",
+   "name": "Mustard",
+   "category": "nature",
+   "summary": "A yellow jar of mustard with a wooden spreader and a golden swirl.",
+   "familyCampaigns": [
+    "nature"
+   ],
+   "ingredients": [
+    "organic34:seed",
+    "organic184:vinegar"
+   ],
+   "art_mode": "bespoke-subject",
+   "path": "client/assets/v184/mustard.svg"
+  },
+  {
+   "id": "organic184:mayonnaise",
+   "name": "Mayonnaise",
+   "category": "nature",
+   "summary": "A glass jar of pale creamy mayonnaise with a blue lid and a soft peak on a spoon.",
+   "familyCampaigns": [
+    "nature"
+   ],
+   "ingredients": [
+    "organic38:egg",
+    "organic184:vinegar"
+   ],
+   "art_mode": "bespoke-subject",
+   "path": "client/assets/v184/mayonnaise.svg"
+  },
+  {
+   "id": "organic184:pickle",
+   "name": "Pickle",
+   "category": "nature",
+   "summary": "A bumpy green pickle beside a jar of brine with dill floating inside.",
+   "familyCampaigns": [
+    "nature"
+   ],
+   "ingredients": [
+    "organic184:cucumber",
+    "organic184:vinegar"
+   ],
+   "art_mode": "bespoke-subject",
+   "path": "client/assets/v184/pickle.svg"
+  },
+  {
+   "id": "organic184:hot-sauce",
+   "name": "Hot Sauce",
+   "category": "nature",
+   "summary": "A tiny bottle of fiery red hot sauce with a flame on the label.",
+   "familyCampaigns": [
+    "nature"
+   ],
+   "ingredients": [
+    "organic184:chili-pepper",
+    "organic184:vinegar"
+   ],
+   "art_mode": "bespoke-subject",
+   "path": "client/assets/v184/hot-sauce.svg"
+  },
+  {
+   "id": "organic184:tortilla",
+   "name": "Tortilla",
+   "category": "nature",
+   "summary": "A stack of thin round corn tortillas with toasted brown spots.",
+   "familyCampaigns": [
+    "nature"
+   ],
+   "ingredients": [
+    "organic184:corn",
+    "legacy:1"
+   ],
+   "art_mode": "bespoke-subject",
+   "path": "client/assets/v184/tortilla.svg"
+  },
+  {
+   "id": "organic184:omelette",
+   "name": "Omelette",
+   "category": "nature",
+   "summary": "A folded golden omelette on a plate with a sprinkle of green herbs.",
+   "familyCampaigns": [
+    "nature"
+   ],
+   "ingredients": [
+    "organic38:egg",
+    "organic38:butter"
+   ],
+   "art_mode": "bespoke-subject",
+   "path": "client/assets/v184/omelette.svg"
+  },
+  {
+   "id": "organic184:porridge",
+   "name": "Porridge",
+   "category": "nature",
+   "summary": "A warm bowl of creamy porridge with a swirl of honey and three berries.",
+   "familyCampaigns": [
+    "nature"
+   ],
+   "ingredients": [
+    "organic184:oats",
+    "organic38:milk"
+   ],
+   "art_mode": "bespoke-subject",
+   "path": "client/assets/v184/porridge.svg"
+  },
+  {
+   "id": "organic184:cereal",
+   "name": "Cereal",
+   "category": "nature",
+   "summary": "A blue bowl of milk full of crunchy golden cereal rings with a spoon.",
+   "familyCampaigns": [
+    "nature"
+   ],
+   "ingredients": [
+    "organic184:corn",
+    "organic38:milk"
+   ],
+   "art_mode": "bespoke-subject",
+   "path": "client/assets/v184/cereal.svg"
+  },
+  {
+   "id": "organic184:potato-wedges",
+   "name": "Potato Wedges",
+   "category": "nature",
+   "summary": "A red paper carton stuffed with chunky golden potato wedges.",
+   "familyCampaigns": [
+    "nature"
+   ],
+   "ingredients": [
+    "organic38:potato",
+    "organic184:oven"
+   ],
+   "art_mode": "bespoke-subject",
+   "path": "client/assets/v184/potato-wedges.svg"
+  },
+  {
+   "id": "organic184:potato-chips",
+   "name": "Potato Chips",
+   "category": "nature",
+   "summary": "A crinkly bag of potato chips torn open, with thin curved chips spilling out.",
+   "familyCampaigns": [
+    "nature"
+   ],
+   "ingredients": [
+    "organic38:potato",
+    "organic184:kitchen-knife"
+   ],
+   "art_mode": "bespoke-subject",
+   "path": "client/assets/v184/potato-chips.svg"
+  },
+  {
+   "id": "organic184:burger",
+   "name": "Burger",
+   "category": "nature",
+   "summary": "A tall burger with a sesame bun, lettuce, cheese, tomato and a thick patty.",
+   "familyCampaigns": [
+    "nature"
+   ],
+   "ingredients": [
+    "organic184:meat",
+    "organic37:bread"
+   ],
+   "art_mode": "bespoke-subject",
+   "path": "client/assets/v184/burger.svg"
+  },
+  {
+   "id": "organic184:hot-dog",
+   "name": "Hot Dog",
+   "category": "nature",
+   "summary": "A sausage in a soft long bun with a wavy line of yellow mustard.",
+   "familyCampaigns": [
+    "nature"
+   ],
+   "ingredients": [
+    "organic184:sausage",
+    "organic37:bread"
+   ],
+   "art_mode": "bespoke-subject",
+   "path": "client/assets/v184/hot-dog.svg"
+  },
+  {
+   "id": "organic184:donut",
+   "name": "Donut",
+   "category": "nature",
+   "summary": "A ring donut with pink icing and rainbow sprinkles.",
+   "familyCampaigns": [
+    "nature"
+   ],
+   "ingredients": [
+    "organic37:dough",
+    "organic42:syrup"
+   ],
+   "art_mode": "bespoke-subject",
+   "path": "client/assets/v184/donut.svg"
+  },
+  {
+   "id": "organic184:candy",
+   "name": "Candy",
+   "category": "nature",
+   "summary": "A striped sweet wrapped in shiny paper with twisted ends.",
+   "familyCampaigns": [
+    "nature"
+   ],
+   "ingredients": [
+    "organic38:sugar",
+    "organic41:pressure"
+   ],
+   "art_mode": "bespoke-subject",
+   "path": "client/assets/v184/candy.svg"
+  },
+  {
+   "id": "organic184:lollipop",
+   "name": "Lollipop",
+   "category": "nature",
+   "summary": "A round swirled lollipop in pink and white on a paper stick.",
+   "familyCampaigns": [
+    "nature"
+   ],
+   "ingredients": [
+    "organic184:candy",
+    "legacy:24"
+   ],
+   "art_mode": "bespoke-subject",
+   "path": "client/assets/v184/lollipop.svg"
+  },
+  {
+   "id": "organic184:marshmallow",
+   "name": "Marshmallow",
+   "category": "nature",
+   "summary": "Three soft white marshmallows on a twig, one toasted golden at the edge.",
+   "familyCampaigns": [
+    "nature"
+   ],
+   "ingredients": [
+    "organic38:sugar",
+    "legacy:4"
+   ],
+   "art_mode": "bespoke-subject",
+   "path": "client/assets/v184/marshmallow.svg"
+  },
+  {
+   "id": "organic184:toast",
+   "name": "Toast",
+   "category": "nature",
+   "summary": "A slice of golden toast with a melting square of butter on top.",
+   "familyCampaigns": [
+    "nature"
+   ],
+   "ingredients": [
+    "organic37:bread",
+    "organic184:oven"
+   ],
+   "art_mode": "bespoke-subject",
+   "path": "client/assets/v184/toast.svg"
+  },
+  {
+   "id": "organic184:meatball",
+   "name": "Meatball",
+   "category": "nature",
+   "summary": "Three round browned meatballs in a pool of red sauce.",
+   "familyCampaigns": [
+    "nature"
+   ],
+   "ingredients": [
+    "organic184:meat",
+    "organic41:pressure"
+   ],
+   "art_mode": "bespoke-subject",
+   "path": "client/assets/v184/meatball.svg"
+  },
+  {
+   "id": "organic184:fried-egg",
+   "name": "Fried Egg",
+   "category": "nature",
+   "summary": "A sunny-side-up fried egg with a wobbly white and a round yellow yolk.",
+   "familyCampaigns": [
+    "nature"
+   ],
+   "ingredients": [
+    "organic38:egg",
+    "pack:pan"
+   ],
+   "art_mode": "bespoke-subject",
+   "path": "client/assets/v184/fried-egg.svg"
+  },
+  {
+   "id": "organic184:fried-chicken",
+   "name": "Fried Chicken",
+   "category": "nature",
+   "summary": "A crunchy golden fried chicken drumstick with a white bone handle.",
+   "familyCampaigns": [
+    "nature"
+   ],
+   "ingredients": [
+    "organic89:chicken",
+    "legacy:42"
+   ],
+   "art_mode": "bespoke-subject",
+   "path": "client/assets/v184/fried-chicken.svg"
+  },
+  {
+   "id": "organic184:barbecue",
+   "name": "Barbecue",
+   "category": "nature",
+   "summary": "A rack of glazed ribs sizzling on a grill with smoke curling up.",
+   "familyCampaigns": [
+    "nature"
+   ],
+   "ingredients": [
+    "organic184:meat",
+    "organic184:grill"
+   ],
+   "art_mode": "bespoke-subject",
+   "path": "client/assets/v184/barbecue.svg"
+  },
+  {
+   "id": "organic184:roast",
+   "name": "Roast",
+   "category": "nature",
+   "summary": "A golden roast chicken on a platter, legs tied, surrounded by potatoes.",
+   "familyCampaigns": [
+    "nature"
+   ],
+   "ingredients": [
+    "organic184:meat",
+    "organic184:oven"
+   ],
+   "art_mode": "bespoke-subject",
+   "path": "client/assets/v184/roast.svg"
+  },
+  {
+   "id": "organic184:gravy",
+   "name": "Gravy",
+   "category": "nature",
+   "summary": "A white gravy boat pouring a ribbon of thick brown gravy.",
+   "familyCampaigns": [
+    "nature"
+   ],
+   "ingredients": [
+    "organic184:roast",
+    "organic37:flour"
+   ],
+   "art_mode": "bespoke-subject",
+   "path": "client/assets/v184/gravy.svg"
+  },
+  {
+   "id": "organic184:pudding",
+   "name": "Pudding",
+   "category": "nature",
+   "summary": "A wobbly caramel pudding on a plate with dark syrup running down its sides.",
+   "familyCampaigns": [
+    "nature"
+   ],
+   "ingredients": [
+    "organic38:milk",
+    "organic42:caramel"
+   ],
+   "art_mode": "bespoke-subject",
+   "path": "client/assets/v184/pudding.svg"
+  },
+  {
+   "id": "organic184:whipped-cream",
+   "name": "Whipped Cream",
+   "category": "nature",
+   "summary": "A tall swirl of whipped cream with a pointed peak and a cherry on top.",
+   "familyCampaigns": [
+    "nature"
+   ],
+   "ingredients": [
+    "organic38:cream",
+    "legacy:12"
+   ],
+   "art_mode": "bespoke-subject",
+   "path": "client/assets/v184/whipped-cream.svg"
+  },
+  {
+   "id": "organic184:peanut-butter",
+   "name": "Peanut Butter",
+   "category": "nature",
+   "summary": "A jar of smooth peanut butter with a knife spreading a swirl on top.",
+   "familyCampaigns": [
+    "nature"
+   ],
+   "ingredients": [
+    "organic184:peanut",
+    "organic41:pressure"
+   ],
+   "art_mode": "bespoke-subject",
+   "path": "client/assets/v184/peanut-butter.svg"
+  },
+  {
+   "id": "organic184:olive-oil",
+   "name": "Olive Oil",
+   "category": "nature",
+   "summary": "A slender green-gold bottle of olive oil with an olive branch on the label.",
+   "familyCampaigns": [
+    "nature"
+   ],
+   "ingredients": [
+    "organic184:olive",
+    "organic41:pressure"
+   ],
+   "art_mode": "bespoke-subject",
+   "path": "client/assets/v184/olive-oil.svg"
+  },
+  {
+   "id": "organic184:coconut-milk",
+   "name": "Coconut Milk",
+   "category": "nature",
+   "summary": "A half coconut shell brimming with creamy white coconut milk.",
+   "familyCampaigns": [
+    "nature"
+   ],
+   "ingredients": [
+    "organic184:coconut",
+    "legacy:0"
+   ],
+   "art_mode": "bespoke-subject",
+   "path": "client/assets/v184/coconut-milk.svg"
+  },
+  {
+   "id": "organic184:mashed-potato",
+   "name": "Mashed Potato",
+   "category": "nature",
+   "summary": "A fluffy mound of mashed potato with a melting pat of butter and chives.",
+   "familyCampaigns": [
+    "nature"
+   ],
+   "ingredients": [
+    "organic38:potato",
+    "organic38:milk"
+   ],
+   "art_mode": "bespoke-subject",
+   "path": "client/assets/v184/mashed-potato.svg"
+  },
+  {
+   "id": "organic184:fried-rice",
+   "name": "Fried Rice",
+   "category": "nature",
+   "summary": "A bowl heaped with fried rice, peas, carrot cubes and bits of egg.",
+   "familyCampaigns": [
+    "nature"
+   ],
+   "ingredients": [
+    "organic42:rice",
+    "organic184:wok"
+   ],
+   "art_mode": "bespoke-subject",
+   "path": "client/assets/v184/fried-rice.svg"
+  },
+  {
+   "id": "organic184:grilled-fish",
+   "name": "Grilled Fish",
+   "category": "nature",
+   "summary": "A whole grilled fish with dark char lines and a wedge of lemon.",
+   "familyCampaigns": [
+    "nature"
+   ],
+   "ingredients": [
+    "legacy:27",
+    "organic184:grill"
+   ],
+   "art_mode": "bespoke-subject",
+   "path": "client/assets/v184/grilled-fish.svg"
+  },
+  {
+   "id": "organic184:fish-supper",
+   "name": "Fish Supper",
+   "category": "nature",
+   "summary": "A paper cone holding a battered fish fillet and thick-cut potato wedges.",
+   "familyCampaigns": [
+    "nature"
+   ],
+   "ingredients": [
+    "organic184:grilled-fish",
+    "organic184:potato-wedges"
+   ],
+   "art_mode": "bespoke-subject",
+   "path": "client/assets/v184/fish-supper.svg"
+  },
+  {
+   "id": "organic184:cheesecake",
+   "name": "Cheesecake",
+   "category": "nature",
+   "summary": "A creamy slice of cheesecake on a biscuit base with red berry topping.",
+   "familyCampaigns": [
+    "nature"
+   ],
+   "ingredients": [
+    "organic38:cheese",
+    "organic42:cake"
+   ],
+   "art_mode": "bespoke-subject",
+   "path": "client/assets/v184/cheesecake.svg"
+  },
+  {
+   "id": "organic184:brownie",
+   "name": "Brownie",
+   "category": "nature",
+   "summary": "A dense square chocolate brownie with a crackled top and walnut pieces.",
+   "familyCampaigns": [
+    "nature"
+   ],
+   "ingredients": [
+    "organic38:chocolate",
+    "organic42:cake"
+   ],
+   "art_mode": "bespoke-subject",
+   "path": "client/assets/v184/brownie.svg"
+  },
+  {
+   "id": "organic184:muffin",
+   "name": "Muffin",
+   "category": "nature",
+   "summary": "A domed blueberry muffin rising out of a pleated paper case.",
+   "familyCampaigns": [
+    "nature"
+   ],
+   "ingredients": [
+    "organic42:cake",
+    "legacy:106"
+   ],
+   "art_mode": "bespoke-subject",
+   "path": "client/assets/v184/muffin.svg"
+  },
+  {
+   "id": "organic184:tomato-sauce",
+   "name": "Tomato Sauce",
+   "category": "nature",
+   "summary": "A pan of bright red tomato sauce with a basil leaf and a wooden spoon.",
+   "familyCampaigns": [
+    "nature"
+   ],
+   "ingredients": [
+    "organic38:tomato",
+    "organic184:olive-oil"
+   ],
+   "art_mode": "bespoke-subject",
+   "path": "client/assets/v184/tomato-sauce.svg"
+  },
+  {
+   "id": "organic184:blender",
+   "name": "Blender",
+   "category": "nature",
+   "summary": "A kitchen blender with a glass jug whirling a pink fruit mix.",
+   "familyCampaigns": [
+    "nature"
+   ],
+   "ingredients": [
+    "organic89:kitchen",
+    "legacy:12"
+   ],
+   "art_mode": "bespoke-subject",
+   "path": "client/assets/v184/blender.svg"
+  },
+  {
+   "id": "organic184:taco",
+   "name": "Taco",
+   "category": "nature",
+   "summary": "A folded corn taco shell filled with meat, lettuce, tomato and cheese.",
+   "familyCampaigns": [
+    "nature"
+   ],
+   "ingredients": [
+    "organic184:tortilla",
+    "organic184:meat"
+   ],
+   "art_mode": "bespoke-subject",
+   "path": "client/assets/v184/taco.svg"
+  },
+  {
+   "id": "organic184:burrito",
+   "name": "Burrito",
+   "category": "nature",
+   "summary": "A fat rolled burrito cut open to show rice, beans and salsa inside.",
+   "familyCampaigns": [
+    "nature"
+   ],
+   "ingredients": [
+    "organic184:tortilla",
+    "organic38:bean"
+   ],
+   "art_mode": "bespoke-subject",
+   "path": "client/assets/v184/burrito.svg"
+  },
+  {
+   "id": "organic184:nachos",
+   "name": "Nachos",
+   "category": "nature",
+   "summary": "A pile of triangular corn chips smothered in melted cheese and jalapeños.",
+   "familyCampaigns": [
+    "nature"
+   ],
+   "ingredients": [
+    "organic184:tortilla",
+    "organic38:cheese"
+   ],
+   "art_mode": "bespoke-subject",
+   "path": "client/assets/v184/nachos.svg"
+  },
+  {
+   "id": "organic184:guacamole",
+   "name": "Guacamole",
+   "category": "nature",
+   "summary": "A stone bowl of chunky green guacamole with a tortilla chip stuck in.",
+   "familyCampaigns": [
+    "nature"
+   ],
+   "ingredients": [
+    "organic184:avocado",
+    "organic184:lime"
+   ],
+   "art_mode": "bespoke-subject",
+   "path": "client/assets/v184/guacamole.svg"
+  },
+  {
+   "id": "organic184:salsa",
+   "name": "Salsa",
+   "category": "nature",
+   "summary": "A little clay bowl of chunky red salsa with flecks of onion and green herbs.",
+   "familyCampaigns": [
+    "nature"
+   ],
+   "ingredients": [
+    "organic38:tomato",
+    "organic184:chili-pepper"
+   ],
+   "art_mode": "bespoke-subject",
+   "path": "client/assets/v184/salsa.svg"
+  },
+  {
+   "id": "organic184:tamale",
+   "name": "Tamale",
+   "category": "nature",
+   "summary": "A steamed corn tamale wrapped in a husk and tied at both ends.",
+   "familyCampaigns": [
+    "nature"
+   ],
+   "ingredients": [
+    "organic184:corn",
+    "legacy:4"
+   ],
+   "art_mode": "bespoke-subject",
+   "path": "client/assets/v184/tamale.svg"
+  },
+  {
+   "id": "organic184:churros",
+   "name": "Churros",
+   "category": "nature",
+   "summary": "Ridged sticks of fried churros dusted with sugar beside a cup of thick chocolate.",
+   "familyCampaigns": [
+    "nature"
+   ],
+   "ingredients": [
+    "organic37:dough",
+    "organic85:spain"
+   ],
+   "art_mode": "bespoke-subject",
+   "path": "client/assets/v184/churros.svg"
+  },
+  {
+   "id": "organic184:empanada",
+   "name": "Empanada",
+   "category": "nature",
+   "summary": "A golden half-moon empanada with a braided crimped edge.",
+   "familyCampaigns": [
+    "nature"
+   ],
+   "ingredients": [
+    "organic37:dough",
+    "organic184:meat"
+   ],
+   "art_mode": "bespoke-subject",
+   "path": "client/assets/v184/empanada.svg"
+  },
+  {
+   "id": "organic184:ramen",
+   "name": "Ramen",
+   "category": "nature",
+   "summary": "A deep bowl of ramen with wavy noodles, half an egg, seaweed and sliced pork.",
+   "familyCampaigns": [
+    "nature"
+   ],
+   "ingredients": [
+    "organic42:noodles",
+    "organic184:broth"
+   ],
+   "art_mode": "bespoke-subject",
+   "path": "client/assets/v184/ramen.svg"
+  },
+  {
+   "id": "organic184:tempura",
+   "name": "Tempura",
+   "category": "nature",
+   "summary": "Two shrimp in a lacy, crisp golden tempura batter with pink tails.",
+   "familyCampaigns": [
+    "nature"
+   ],
+   "ingredients": [
+    "organic38:shrimp",
+    "organic37:flour"
+   ],
+   "art_mode": "bespoke-subject",
+   "path": "client/assets/v184/tempura.svg"
+  },
+  {
+   "id": "organic184:miso-soup",
+   "name": "Miso Soup",
+   "category": "nature",
+   "summary": "A lacquered bowl of cloudy miso soup with tofu cubes and green seaweed.",
+   "familyCampaigns": [
+    "nature"
+   ],
+   "ingredients": [
+    "organic184:soybean",
+    "organic184:broth"
+   ],
+   "art_mode": "bespoke-subject",
+   "path": "client/assets/v184/miso-soup.svg"
+  },
+  {
+   "id": "organic184:mochi",
+   "name": "Mochi",
+   "category": "nature",
+   "summary": "Three soft round mochi cakes in pink, white and green, dusted with flour.",
+   "familyCampaigns": [
+    "nature"
+   ],
+   "ingredients": [
+    "organic42:rice",
+    "organic41:pressure"
+   ],
+   "art_mode": "bespoke-subject",
+   "path": "client/assets/v184/mochi.svg"
+  },
+  {
+   "id": "organic184:onigiri",
+   "name": "Onigiri",
+   "category": "nature",
+   "summary": "A triangular rice ball wrapped with a strip of dark seaweed.",
+   "familyCampaigns": [
+    "nature"
+   ],
+   "ingredients": [
+    "organic42:rice",
+    "legacy:244"
+   ],
+   "art_mode": "bespoke-subject",
+   "path": "client/assets/v184/onigiri.svg"
+  },
+  {
+   "id": "organic184:gyoza",
+   "name": "Gyoza",
+   "category": "nature",
+   "summary": "A row of pan-fried gyoza with pleated tops and crisp browned bottoms.",
+   "familyCampaigns": [
+    "nature"
+   ],
+   "ingredients": [
+    "organic42:dumpling",
+    "pack:pan"
+   ],
+   "art_mode": "bespoke-subject",
+   "path": "client/assets/v184/gyoza.svg"
+  },
+  {
+   "id": "organic184:bao",
+   "name": "Bao",
+   "category": "nature",
+   "summary": "A fluffy white steamed bao bun with a twisted top in a bamboo basket.",
+   "familyCampaigns": [
+    "nature"
+   ],
+   "ingredients": [
+    "organic42:dumpling",
+    "legacy:4"
+   ],
+   "art_mode": "bespoke-subject",
+   "path": "client/assets/v184/bao.svg"
+  },
+  {
+   "id": "organic184:spring-roll",
+   "name": "Spring Roll",
+   "category": "nature",
+   "summary": "Crisp golden spring rolls, one cut to show shredded vegetables inside.",
+   "familyCampaigns": [
+    "nature"
+   ],
+   "ingredients": [
+    "organic37:vegetable",
+    "legacy:106"
+   ],
+   "art_mode": "bespoke-subject",
+   "path": "client/assets/v184/spring-roll.svg"
+  },
+  {
+   "id": "organic184:hot-pot",
+   "name": "Hot Pot",
+   "category": "nature",
+   "summary": "A shared hot pot split into a red spicy broth and a pale mild one.",
+   "familyCampaigns": [
+    "nature"
+   ],
+   "ingredients": [
+    "organic184:cooking-pot",
+    "organic184:broth"
+   ],
+   "art_mode": "bespoke-subject",
+   "path": "client/assets/v184/hot-pot.svg"
+  },
+  {
+   "id": "organic184:bibimbap",
+   "name": "Bibimbap",
+   "category": "nature",
+   "summary": "A stone bowl of rice topped with colourful vegetables around a fried egg.",
+   "familyCampaigns": [
+    "nature"
+   ],
+   "ingredients": [
+    "organic42:rice",
+    "organic85:kimchi"
+   ],
+   "art_mode": "bespoke-subject",
+   "path": "client/assets/v184/bibimbap.svg"
+  },
+  {
+   "id": "organic184:naan",
+   "name": "Naan",
+   "category": "nature",
+   "summary": "A teardrop-shaped naan bread with charred bubbles and a brush of butter.",
+   "familyCampaigns": [
+    "nature"
+   ],
+   "ingredients": [
+    "organic37:dough",
+    "organic85:india"
+   ],
+   "art_mode": "bespoke-subject",
+   "path": "client/assets/v184/naan.svg"
+  },
+  {
+   "id": "organic184:biryani",
+   "name": "Biryani",
+   "category": "nature",
+   "summary": "A copper pot of golden biryani rice layered with spices, meat and fried onions.",
+   "familyCampaigns": [
+    "nature"
+   ],
+   "ingredients": [
+    "organic42:rice",
+    "organic85:curry"
+   ],
+   "art_mode": "bespoke-subject",
+   "path": "client/assets/v184/biryani.svg"
+  },
+  {
+   "id": "organic184:samosa",
+   "name": "Samosa",
+   "category": "nature",
+   "summary": "Two crisp triangular samosas with a small bowl of green chutney.",
+   "familyCampaigns": [
+    "nature"
+   ],
+   "ingredients": [
+    "organic37:dough",
+    "organic85:curry"
+   ],
+   "art_mode": "bespoke-subject",
+   "path": "client/assets/v184/samosa.svg"
+  },
+  {
+   "id": "organic184:tandoori-chicken",
+   "name": "Tandoori Chicken",
+   "category": "nature",
+   "summary": "Bright red-orange tandoori chicken pieces with char marks, lemon and onion rings.",
+   "familyCampaigns": [
+    "nature"
+   ],
+   "ingredients": [
+    "organic89:chicken",
+    "organic85:curry"
+   ],
+   "art_mode": "bespoke-subject",
+   "path": "client/assets/v184/tandoori-chicken.svg"
+  },
+  {
+   "id": "organic184:lassi",
+   "name": "Lassi",
+   "category": "nature",
+   "summary": "A tall glass of creamy mango lassi with a pinch of spice on the foam.",
+   "familyCampaigns": [
+    "nature"
+   ],
+   "ingredients": [
+    "organic184:yogurt",
+    "organic184:mango"
+   ],
+   "art_mode": "bespoke-subject",
+   "path": "client/assets/v184/lassi.svg"
+  },
+  {
+   "id": "organic184:hummus",
+   "name": "Hummus",
+   "category": "nature",
+   "summary": "A shallow bowl of swirled hummus with a pool of olive oil and paprika.",
+   "familyCampaigns": [
+    "nature"
+   ],
+   "ingredients": [
+    "organic184:chickpea",
+    "organic184:olive-oil"
+   ],
+   "art_mode": "bespoke-subject",
+   "path": "client/assets/v184/hummus.svg"
+  },
+  {
+   "id": "organic184:falafel",
+   "name": "Falafel",
+   "category": "nature",
+   "summary": "Four crunchy brown falafel balls, one broken open to show its green middle.",
+   "familyCampaigns": [
+    "nature"
+   ],
+   "ingredients": [
+    "organic184:chickpea",
+    "legacy:42"
+   ],
+   "art_mode": "bespoke-subject",
+   "path": "client/assets/v184/falafel.svg"
+  },
+  {
+   "id": "organic184:kebab",
+   "name": "Kebab",
+   "category": "nature",
+   "summary": "A metal skewer of grilled meat cubes with charred edges on a flatbread.",
+   "familyCampaigns": [
+    "nature"
+   ],
+   "ingredients": [
+    "organic184:skewer",
+    "organic184:meat"
+   ],
+   "art_mode": "bespoke-subject",
+   "path": "client/assets/v184/kebab.svg"
+  },
+  {
+   "id": "organic184:shawarma",
+   "name": "Shawarma",
+   "category": "nature",
+   "summary": "A wrap of shaved roasted meat, pickles and sauce rolled in thin flatbread.",
+   "familyCampaigns": [
+    "nature"
+   ],
+   "ingredients": [
+    "organic184:kebab",
+    "organic37:bread"
+   ],
+   "art_mode": "bespoke-subject",
+   "path": "client/assets/v184/shawarma.svg"
+  },
+  {
+   "id": "organic184:baklava",
+   "name": "Baklava",
+   "category": "nature",
+   "summary": "Diamond-shaped pieces of flaky baklava, sticky with syrup and green pistachio.",
+   "familyCampaigns": [
+    "nature"
+   ],
+   "ingredients": [
+    "organic34:honey",
+    "organic184:almond"
+   ],
+   "art_mode": "bespoke-subject",
+   "path": "client/assets/v184/baklava.svg"
+  },
+  {
+   "id": "organic184:tzatziki",
+   "name": "Tzatziki",
+   "category": "nature",
+   "summary": "A bowl of cool white tzatziki with cucumber slices, dill and a drizzle of oil.",
+   "familyCampaigns": [
+    "nature"
+   ],
+   "ingredients": [
+    "organic184:yogurt",
+    "organic184:cucumber"
+   ],
+   "art_mode": "bespoke-subject",
+   "path": "client/assets/v184/tzatziki.svg"
+  },
+  {
+   "id": "organic184:tagine",
+   "name": "Tagine",
+   "category": "nature",
+   "summary": "A clay tagine with a tall cone lid lifted to show a spiced stew.",
+   "familyCampaigns": [
+    "nature"
+   ],
+   "ingredients": [
+    "organic184:stew",
+    "organic85:morocco"
+   ],
+   "art_mode": "bespoke-subject",
+   "path": "client/assets/v184/tagine.svg"
+  },
+  {
+   "id": "organic184:risotto",
+   "name": "Risotto",
+   "category": "nature",
+   "summary": "A wide plate of creamy risotto with mushrooms and shaved cheese.",
+   "familyCampaigns": [
+    "nature"
+   ],
+   "ingredients": [
+    "organic42:rice",
+    "organic85:italy"
+   ],
+   "art_mode": "bespoke-subject",
+   "path": "client/assets/v184/risotto.svg"
+  },
+  {
+   "id": "organic184:lasagna",
+   "name": "Lasagna",
+   "category": "nature",
+   "summary": "A square of layered lasagna with red sauce, white cream and a browned cheese top.",
+   "familyCampaigns": [
+    "nature"
+   ],
+   "ingredients": [
+    "organic38:pasta",
+    "organic38:cheese"
+   ],
+   "art_mode": "bespoke-subject",
+   "path": "client/assets/v184/lasagna.svg"
+  },
+  {
+   "id": "organic184:gelato",
+   "name": "Gelato",
+   "category": "nature",
+   "summary": "A cone of gelato with three flat scoops in pistachio, strawberry and vanilla.",
+   "familyCampaigns": [
+    "nature"
+   ],
+   "ingredients": [
+    "organic38:ice-cream",
+    "organic85:italy"
+   ],
+   "art_mode": "bespoke-subject",
+   "path": "client/assets/v184/gelato.svg"
+  },
+  {
+   "id": "organic184:tiramisu",
+   "name": "Tiramisu",
+   "category": "nature",
+   "summary": "A glass dish of tiramisu with coffee-soaked layers and a dusting of cocoa.",
+   "familyCampaigns": [
+    "nature"
+   ],
+   "ingredients": [
+    "organic38:coffee",
+    "organic42:cake"
+   ],
+   "art_mode": "bespoke-subject",
+   "path": "client/assets/v184/tiramisu.svg"
+  },
+  {
+   "id": "organic184:gazpacho",
+   "name": "Gazpacho",
+   "category": "nature",
+   "summary": "A chilled bowl of red gazpacho with diced cucumber and a swirl of oil.",
+   "familyCampaigns": [
+    "nature"
+   ],
+   "ingredients": [
+    "organic38:tomato",
+    "legacy:35"
+   ],
+   "art_mode": "bespoke-subject",
+   "path": "client/assets/v184/gazpacho.svg"
+  },
+  {
+   "id": "organic184:tapas",
+   "name": "Tapas",
+   "category": "nature",
+   "summary": "A wooden board of small bites: olives, ham on bread and a cube of omelette.",
+   "familyCampaigns": [
+    "nature"
+   ],
+   "ingredients": [
+    "organic184:olive",
+    "organic37:bread"
+   ],
+   "art_mode": "bespoke-subject",
+   "path": "client/assets/v184/tapas.svg"
+  },
+  {
+   "id": "organic184:bacalhau",
+   "name": "Bacalhau",
+   "category": "nature",
+   "summary": "A stiff, flat triangle of salted dried cod with pale, salt-crusted flesh.",
+   "familyCampaigns": [
+    "nature"
+   ],
+   "ingredients": [
+    "legacy:27",
+    "organic38:salt"
+   ],
+   "art_mode": "bespoke-subject",
+   "path": "client/assets/v184/bacalhau.svg"
+  },
+  {
+   "id": "organic184:pastel-de-nata",
+   "name": "Pastel de Nata",
+   "category": "nature",
+   "summary": "A small custard tart in crisp, flaky pastry with dark caramelised spots.",
+   "familyCampaigns": [
+    "nature"
+   ],
+   "ingredients": [
+    "organic85:portugal",
+    "organic42:cake"
+   ],
+   "art_mode": "bespoke-subject",
+   "path": "client/assets/v184/pastel-de-nata.svg"
+  },
+  {
+   "id": "organic184:francesinha",
+   "name": "Francesinha",
+   "category": "nature",
+   "summary": "A tall sandwich covered in melted cheese and a fried egg, sitting in orange sauce.",
+   "familyCampaigns": [
+    "nature"
+   ],
+   "ingredients": [
+    "organic38:sandwich",
+    "organic85:portugal"
+   ],
+   "art_mode": "bespoke-subject",
+   "path": "client/assets/v184/francesinha.svg"
+  },
+  {
+   "id": "organic184:caldo-verde",
+   "name": "Caldo Verde",
+   "category": "nature",
+   "summary": "A clay bowl of green caldo verde with shredded greens and a slice of sausage.",
+   "familyCampaigns": [
+    "nature"
+   ],
+   "ingredients": [
+    "organic37:soup",
+    "organic184:cabbage"
+   ],
+   "art_mode": "bespoke-subject",
+   "path": "client/assets/v184/caldo-verde.svg"
+  },
+  {
+   "id": "organic184:crepe",
+   "name": "Crepe",
+   "category": "nature",
+   "summary": "A thin folded crepe drizzled with chocolate and topped with strawberry slices.",
+   "familyCampaigns": [
+    "nature"
+   ],
+   "ingredients": [
+    "organic42:pancake",
+    "organic85:france"
+   ],
+   "art_mode": "bespoke-subject",
+   "path": "client/assets/v184/crepe.svg"
+  },
+  {
+   "id": "organic184:macaron",
+   "name": "Macaron",
+   "category": "nature",
+   "summary": "Three pastel macarons, pink, green and yellow, each with a ruffled foot and cream.",
+   "familyCampaigns": [
+    "nature"
+   ],
+   "ingredients": [
+    "organic184:almond",
+    "organic38:sugar"
+   ],
+   "art_mode": "bespoke-subject",
+   "path": "client/assets/v184/macaron.svg"
+  },
+  {
+   "id": "organic184:pierogi",
+   "name": "Pierogi",
+   "category": "nature",
+   "summary": "Plump half-moon pierogi with crimped edges, topped with fried onion.",
+   "familyCampaigns": [
+    "nature"
+   ],
+   "ingredients": [
+    "organic42:dumpling",
+    "organic38:potato"
+   ],
+   "art_mode": "bespoke-subject",
+   "path": "client/assets/v184/pierogi.svg"
+  },
+  {
+   "id": "organic184:borscht",
+   "name": "Borscht",
+   "category": "nature",
+   "summary": "A bowl of deep magenta beetroot borscht with a spoonful of sour cream and dill.",
+   "familyCampaigns": [
+    "nature"
+   ],
+   "ingredients": [
+    "organic37:soup",
+    "organic85:russia"
+   ],
+   "art_mode": "bespoke-subject",
+   "path": "client/assets/v184/borscht.svg"
+  },
+  {
+   "id": "organic184:goulash",
+   "name": "Goulash",
+   "category": "nature",
+   "summary": "A hanging kettle of red goulash with chunks of beef and paprika.",
+   "familyCampaigns": [
+    "nature"
+   ],
+   "ingredients": [
+    "organic184:stew",
+    "organic38:spice"
+   ],
+   "art_mode": "bespoke-subject",
+   "path": "client/assets/v184/goulash.svg"
+  },
+  {
+   "id": "organic184:sauerkraut",
+   "name": "Sauerkraut",
+   "category": "nature",
+   "summary": "A glass jar packed with pale shredded sauerkraut and a few juniper berries.",
+   "familyCampaigns": [
+    "nature"
+   ],
+   "ingredients": [
+    "organic184:cabbage",
+    "organic38:salt"
+   ],
+   "art_mode": "bespoke-subject",
+   "path": "client/assets/v184/sauerkraut.svg"
+  },
+  {
+   "id": "organic184:schnitzel",
+   "name": "Schnitzel",
+   "category": "nature",
+   "summary": "A huge thin breaded schnitzel hanging over the plate with a slice of lemon.",
+   "familyCampaigns": [
+    "nature"
+   ],
+   "ingredients": [
+    "organic184:meat",
+    "organic85:germany"
+   ],
+   "art_mode": "bespoke-subject",
+   "path": "client/assets/v184/schnitzel.svg"
+  },
+  {
+   "id": "organic184:strudel",
+   "name": "Strudel",
+   "category": "nature",
+   "summary": "A sliced apple strudel with flaky pastry, spiced filling and icing sugar.",
+   "familyCampaigns": [
+    "nature"
+   ],
+   "ingredients": [
+    "organic37:dough",
+    "organic85:germany"
+   ],
+   "art_mode": "bespoke-subject",
+   "path": "client/assets/v184/strudel.svg"
+  },
+  {
+   "id": "organic184:jollof-rice",
+   "name": "Jollof Rice",
+   "category": "nature",
+   "summary": "A pot of orange-red jollof rice with peppers and a bay leaf on top.",
+   "familyCampaigns": [
+    "nature"
+   ],
+   "ingredients": [
+    "organic42:rice",
+    "organic38:tomato"
+   ],
+   "art_mode": "bespoke-subject",
+   "path": "client/assets/v184/jollof-rice.svg"
+  },
+  {
+   "id": "organic184:poke-bowl",
+   "name": "Poke Bowl",
+   "category": "nature",
+   "summary": "A bowl of rice topped with cubes of raw fish, avocado, seaweed and sesame.",
+   "familyCampaigns": [
+    "nature"
+   ],
+   "ingredients": [
+    "organic42:rice",
+    "legacy:558"
+   ],
+   "art_mode": "bespoke-subject",
+   "path": "client/assets/v184/poke-bowl.svg"
+  },
+  {
+   "id": "organic184:feta",
+   "name": "Feta",
+   "category": "nature",
+   "summary": "A crumbly white block of feta with olive oil, oregano and one olive.",
+   "familyCampaigns": [
+    "nature"
+   ],
+   "ingredients": [
+    "organic38:cheese",
+    "organic85:greece"
+   ],
+   "art_mode": "bespoke-subject",
+   "path": "client/assets/v184/feta.svg"
+  },
+  {
+   "id": "organic184:mozzarella",
+   "name": "Mozzarella",
+   "category": "nature",
+   "summary": "A glossy white ball of mozzarella with tomato slices and a basil leaf.",
+   "familyCampaigns": [
+    "nature"
+   ],
+   "ingredients": [
+    "organic38:cheese",
+    "legacy:0"
+   ],
+   "art_mode": "bespoke-subject",
+   "path": "client/assets/v184/mozzarella.svg"
+  },
+  {
+   "id": "organic184:parmesan",
+   "name": "Parmesan",
+   "category": "nature",
+   "summary": "A hard golden wedge of parmesan with a stamped rind and a few shavings.",
+   "familyCampaigns": [
+    "nature"
+   ],
+   "ingredients": [
+    "organic38:cheese",
+    "legacy:210"
+   ],
+   "art_mode": "bespoke-subject",
+   "path": "client/assets/v184/parmesan.svg"
+  },
+  {
+   "id": "organic184:blue-cheese",
+   "name": "Blue Cheese",
+   "category": "nature",
+   "summary": "A pale wedge of blue cheese marbled with blue-green veins.",
+   "familyCampaigns": [
+    "nature"
+   ],
+   "ingredients": [
+    "organic38:cheese",
+    "legacy:142"
+   ],
+   "art_mode": "bespoke-subject",
+   "path": "client/assets/v184/blue-cheese.svg"
+  },
+  {
+   "id": "organic184:espresso",
+   "name": "Espresso",
+   "category": "nature",
+   "summary": "A tiny white cup of dark espresso with a golden layer of crema on a saucer.",
+   "familyCampaigns": [
+    "nature"
+   ],
+   "ingredients": [
+    "organic38:coffee",
+    "organic41:pressure"
+   ],
+   "art_mode": "bespoke-subject",
+   "path": "client/assets/v184/espresso.svg"
+  },
+  {
+   "id": "organic184:cappuccino",
+   "name": "Cappuccino",
+   "category": "nature",
+   "summary": "A wide cup of cappuccino with a heart drawn in the milk foam.",
+   "familyCampaigns": [
+    "nature"
+   ],
+   "ingredients": [
+    "organic184:espresso",
+    "organic38:milk"
+   ],
+   "art_mode": "bespoke-subject",
+   "path": "client/assets/v184/cappuccino.svg"
+  },
+  {
+   "id": "organic184:matcha",
+   "name": "Matcha",
+   "category": "nature",
+   "summary": "A bowl of frothy bright green matcha tea with a bamboo whisk beside it.",
+   "familyCampaigns": [
+    "nature"
+   ],
+   "ingredients": [
+    "organic37:tea",
+    "organic41:pressure"
+   ],
+   "art_mode": "bespoke-subject",
+   "path": "client/assets/v184/matcha.svg"
+  },
+  {
+   "id": "organic184:bubble-tea",
+   "name": "Bubble Tea",
+   "category": "nature",
+   "summary": "A cup of milky bubble tea with dark tapioca pearls and a fat straw.",
+   "familyCampaigns": [
+    "nature"
+   ],
+   "ingredients": [
+    "organic37:tea",
+    "organic184:cassava"
+   ],
+   "art_mode": "bespoke-subject",
+   "path": "client/assets/v184/bubble-tea.svg"
+  },
+  {
+   "id": "organic184:chai",
+   "name": "Chai",
+   "category": "nature",
+   "summary": "A clay cup of milky spiced chai with a cinnamon stick and star anise.",
+   "familyCampaigns": [
+    "nature"
+   ],
+   "ingredients": [
+    "organic37:tea",
+    "organic38:spice"
+   ],
+   "art_mode": "bespoke-subject",
+   "path": "client/assets/v184/chai.svg"
+  },
+  {
+   "id": "organic184:hot-chocolate",
+   "name": "Hot Chocolate",
+   "category": "nature",
+   "summary": "A big mug of hot chocolate topped with whipped cream and tiny marshmallows.",
+   "familyCampaigns": [
+    "nature"
+   ],
+   "ingredients": [
+    "organic38:chocolate",
+    "legacy:4"
+   ],
+   "art_mode": "bespoke-subject",
+   "path": "client/assets/v184/hot-chocolate.svg"
+  },
+  {
+   "id": "organic184:kombucha",
+   "name": "Kombucha",
+   "category": "nature",
+   "summary": "A swing-top bottle of fizzy amber kombucha with bubbles rising.",
+   "familyCampaigns": [
+    "nature"
+   ],
+   "ingredients": [
+    "organic37:tea",
+    "organic42:yeast"
+   ],
+   "art_mode": "bespoke-subject",
+   "path": "client/assets/v184/kombucha.svg"
+  },
+  {
+   "id": "organic184:sangria",
+   "name": "Sangria",
+   "category": "nature",
+   "summary": "A glass jug of red sangria packed with orange slices and chunks of fruit.",
+   "familyCampaigns": [
+    "nature"
+   ],
+   "ingredients": [
+    "organic184:wine",
+    "organic37:fruit"
+   ],
+   "art_mode": "bespoke-subject",
+   "path": "client/assets/v184/sangria.svg"
+  },
+  {
+   "id": "organic184:coconut-water",
+   "name": "Coconut Water",
+   "category": "nature",
+   "summary": "A green young coconut with its top cut off and a straw poking out.",
+   "familyCampaigns": [
+    "nature"
+   ],
+   "ingredients": [
+    "organic184:coconut",
+    "legacy:141"
+   ],
+   "art_mode": "bespoke-subject",
+   "path": "client/assets/v184/coconut-water.svg"
+  },
+  {
+   "id": "organic184:restaurant",
+   "name": "Restaurant",
+   "category": "nature",
+   "summary": "A cosy little restaurant with a striped awning, a glowing window and a menu board.",
+   "familyCampaigns": [
+    "nature"
+   ],
+   "ingredients": [
+    "organic89:kitchen",
+    "legacy:61"
+   ],
+   "art_mode": "bespoke-subject",
+   "path": "client/assets/v184/restaurant.svg"
+  },
+  {
+   "id": "organic184:menu",
+   "name": "Menu",
+   "category": "nature",
+   "summary": "A folded restaurant menu with a fork and knife on the cover and neat lines of dishes.",
+   "familyCampaigns": [
+    "nature"
+   ],
+   "ingredients": [
+    "legacy:106",
+    "organic184:restaurant"
+   ],
+   "art_mode": "bespoke-subject",
+   "path": "client/assets/v184/menu.svg"
+  },
+  {
+   "id": "organic184:chef-hat",
+   "name": "Chef Hat",
+   "category": "nature",
+   "summary": "A tall white pleated chef’s hat with a puffy top.",
+   "familyCampaigns": [
+    "nature"
+   ],
+   "ingredients": [
+    "organic37:chef",
+    "legacy:106"
+   ],
+   "art_mode": "bespoke-subject",
+   "path": "client/assets/v184/chef-hat.svg"
+  },
+  {
+   "id": "organic184:apron",
+   "name": "Apron",
+   "category": "nature",
+   "summary": "A striped kitchen apron with a front pocket, neck strap and waist ties.",
+   "familyCampaigns": [
+    "nature"
+   ],
+   "ingredients": [
+    "organic89:kitchen",
+    "legacy:106"
+   ],
+   "art_mode": "bespoke-subject",
+   "path": "client/assets/v184/apron.svg"
+  },
+  {
+   "id": "organic184:lunchbox",
+   "name": "Lunchbox",
+   "category": "nature",
+   "summary": "An open lunchbox with a sandwich, apple slices and carrot sticks in neat sections.",
+   "familyCampaigns": [
+    "nature"
+   ],
+   "ingredients": [
+    "organic38:sandwich",
+    "legacy:22"
+   ],
+   "art_mode": "bespoke-subject",
+   "path": "client/assets/v184/lunchbox.svg"
+  },
+  {
+   "id": "organic184:picnic",
+   "name": "Picnic",
+   "category": "nature",
+   "summary": "A wicker picnic basket on a red checked blanket with bread and fruit peeking out.",
+   "familyCampaigns": [
+    "nature"
+   ],
+   "ingredients": [
+    "organic38:sandwich",
+    "organic89:grass"
+   ],
+   "art_mode": "bespoke-subject",
+   "path": "client/assets/v184/picnic.svg"
+  },
+  {
+   "id": "organic184:food-truck",
+   "name": "Food Truck",
+   "category": "nature",
+   "summary": "A colourful food truck with a serving hatch, striped awning and a tiny menu.",
+   "familyCampaigns": [
+    "nature"
+   ],
+   "ingredients": [
+    "organic184:restaurant",
+    "legacy:22"
+   ],
+   "art_mode": "bespoke-subject",
+   "path": "client/assets/v184/food-truck.svg"
+  },
+  {
+   "id": "organic184:buffet",
+   "name": "Buffet",
+   "category": "nature",
+   "summary": "A long table of silver serving dishes with domed lids and a stack of plates.",
+   "familyCampaigns": [
+    "nature"
+   ],
+   "ingredients": [
+    "organic184:restaurant",
+    "organic85:festival"
+   ],
+   "art_mode": "bespoke-subject",
+   "path": "client/assets/v184/buffet.svg"
+  },
+  {
+   "id": "organic184:tandoor",
+   "name": "Tandoor",
+   "category": "nature",
+   "summary": "A round clay tandoor oven glowing inside, with flatbreads stuck to its wall.",
+   "familyCampaigns": [
+    "nature"
+   ],
+   "ingredients": [
+    "organic184:oven",
+    "organic41:clay"
+   ],
+   "art_mode": "bespoke-subject",
+   "path": "client/assets/v184/tandoor.svg"
+  },
+  {
+   "id": "organic184:pressure-cooker",
+   "name": "Pressure Cooker",
+   "category": "nature",
+   "summary": "A sealed steel pressure cooker with a locking lid and a jet of steam from its valve.",
+   "familyCampaigns": [
+    "nature"
+   ],
+   "ingredients": [
+    "organic184:cooking-pot",
+    "organic41:pressure"
+   ],
+   "art_mode": "bespoke-subject",
+   "path": "client/assets/v184/pressure-cooker.svg"
+  },
+  {
+   "id": "organic184:whisk",
+   "name": "Whisk",
+   "category": "nature",
+   "summary": "A balloon whisk of looping steel wires on a wooden handle.",
+   "familyCampaigns": [
+    "nature"
+   ],
+   "ingredients": [
+    "legacy:22",
+    "organic38:egg"
+   ],
+   "art_mode": "bespoke-subject",
+   "path": "client/assets/v184/whisk.svg"
+  },
+  {
+   "id": "organic184:spatula",
+   "name": "Spatula",
+   "category": "nature",
+   "summary": "A slotted metal spatula with a red handle, flipping a small pancake.",
+   "familyCampaigns": [
+    "nature"
+   ],
+   "ingredients": [
+    "legacy:22",
+    "pack:pan"
+   ],
+   "art_mode": "bespoke-subject",
+   "path": "client/assets/v184/spatula.svg"
+  },
+  {
+   "id": "organic184:cutting-board",
+   "name": "Cutting Board",
+   "category": "nature",
+   "summary": "A wooden cutting board with a handle hole, a sliced carrot and knife marks.",
+   "familyCampaigns": [
+    "nature"
+   ],
+   "ingredients": [
+    "legacy:24",
+    "organic184:kitchen-knife"
+   ],
+   "art_mode": "bespoke-subject",
+   "path": "client/assets/v184/cutting-board.svg"
+  },
+  {
+   "id": "organic184:cookbook",
+   "name": "Cookbook",
+   "category": "nature",
+   "summary": "A thick open cookbook with a ribbon bookmark and a drawing of a steaming pot.",
+   "familyCampaigns": [
+    "nature"
+   ],
+   "ingredients": [
+    "legacy:106",
+    "organic37:bread"
+   ],
+   "art_mode": "bespoke-subject",
+   "path": "client/assets/v184/cookbook.svg"
+  },
+  {
+   "id": "organic184:spice-jars",
+   "name": "Spice Jars",
+   "category": "nature",
+   "summary": "A wooden shelf of little glass spice jars in red, yellow, green and brown.",
+   "familyCampaigns": [
+    "nature"
+   ],
+   "ingredients": [
+    "organic38:spice",
+    "organic89:kitchen"
+   ],
+   "art_mode": "bespoke-subject",
+   "path": "client/assets/v184/spice-jars.svg"
+  },
+  {
+   "id": "organic184:larder",
+   "name": "Larder",
+   "category": "nature",
+   "summary": "An open larder cupboard with shelves of jars, tins, a loaf and a sack of flour.",
+   "familyCampaigns": [
+    "nature"
+   ],
+   "ingredients": [
+    "organic89:kitchen",
+    "legacy:210"
+   ],
+   "art_mode": "bespoke-subject",
+   "path": "client/assets/v184/larder.svg"
+  },
+  {
+   "id": "organic184:fermentation",
+   "name": "Fermentation",
+   "category": "nature",
+   "summary": "A big glass jar of bubbling liquid with an airlock on top letting gas escape.",
+   "familyCampaigns": [
+    "nature"
+   ],
+   "ingredients": [
+    "organic42:yeast",
+    "organic41:pressure"
+   ],
+   "art_mode": "bespoke-subject",
+   "path": "client/assets/v184/fermentation.svg"
+  },
+  {
+   "id": "organic184:granola",
+   "name": "Granola",
+   "category": "nature",
+   "summary": "A jar of toasted granola clusters with nuts, seeds and dried berries.",
+   "familyCampaigns": [
+    "nature"
+   ],
+   "ingredients": [
+    "organic184:oats",
+    "organic34:honey"
+   ],
+   "art_mode": "bespoke-subject",
+   "path": "client/assets/v184/granola.svg"
+  },
+  {
+   "id": "organic184:fudge",
+   "name": "Fudge",
+   "category": "nature",
+   "summary": "Stacked cubes of smooth brown chocolate fudge with a creamy swirl.",
+   "familyCampaigns": [
+    "nature"
+   ],
+   "ingredients": [
+    "organic38:chocolate",
+    "organic42:syrup"
+   ],
+   "art_mode": "bespoke-subject",
+   "path": "client/assets/v184/fudge.svg"
+  },
+  {
+   "id": "organic184:toffee",
+   "name": "Toffee",
+   "category": "nature",
+   "summary": "Broken shards of golden toffee, glossy and brittle, with a wrapped piece.",
+   "familyCampaigns": [
+    "nature"
+   ],
+   "ingredients": [
+    "organic42:caramel",
+    "organic41:pressure"
+   ],
+   "art_mode": "bespoke-subject",
+   "path": "client/assets/v184/toffee.svg"
+  },
+  {
+   "id": "organic184:pavlova",
+   "name": "Pavlova",
+   "category": "nature",
+   "summary": "A crisp white pavlova with a swirled meringue peak and a toasted tip.",
+   "familyCampaigns": [
+    "nature"
+   ],
+   "ingredients": [
+    "organic184:whipped-cream",
+    "organic184:oven"
+   ],
+   "art_mode": "bespoke-subject",
+   "path": "client/assets/v184/pavlova.svg"
+  },
+  {
+   "id": "organic184:eclair",
+   "name": "Eclair",
+   "category": "nature",
+   "summary": "A long choux pastry eclair filled with cream and topped with shiny chocolate.",
+   "familyCampaigns": [
+    "nature"
+   ],
+   "ingredients": [
+    "organic37:dough",
+    "organic184:whipped-cream"
+   ],
+   "art_mode": "bespoke-subject",
+   "path": "client/assets/v184/eclair.svg"
+  },
+  {
+   "id": "organic184:berry-tart",
+   "name": "Berry Tart",
+   "category": "nature",
+   "summary": "A round berry tart with glossy strawberries, kiwi and berries on custard.",
+   "familyCampaigns": [
+    "nature"
+   ],
+   "ingredients": [
+    "organic42:pie",
+    "organic37:fruit"
+   ],
+   "art_mode": "bespoke-subject",
+   "path": "client/assets/v184/berry-tart.svg"
+  },
+  {
+   "id": "organic184:banana-bread",
+   "name": "Banana Bread",
+   "category": "nature",
+   "summary": "A brown loaf of banana bread with two slices cut and banana coins on top.",
+   "familyCampaigns": [
+    "nature"
+   ],
+   "ingredients": [
+    "organic184:banana",
+    "organic37:bread"
+   ],
+   "art_mode": "bespoke-subject",
+   "path": "client/assets/v184/banana-bread.svg"
+  },
+  {
+   "id": "organic184:carrot-cake",
+   "name": "Carrot Cake",
+   "category": "nature",
+   "summary": "A slice of carrot cake with thick white frosting and a tiny icing carrot.",
+   "familyCampaigns": [
+    "nature"
+   ],
+   "ingredients": [
+    "organic38:carrot",
+    "organic42:cake"
+   ],
+   "art_mode": "bespoke-subject",
+   "path": "client/assets/v184/carrot-cake.svg"
+  },
+  {
+   "id": "organic184:apple-crumble",
+   "name": "Apple Crumble",
+   "category": "nature",
+   "summary": "A baking dish of bubbling apple crumble with a golden, lumpy topping.",
+   "familyCampaigns": [
+    "nature"
+   ],
+   "ingredients": [
+    "legacy:271",
+    "organic184:oats"
+   ],
+   "art_mode": "bespoke-subject",
+   "path": "client/assets/v184/apple-crumble.svg"
+  },
+  {
+   "id": "organic184:fruit-salad",
+   "name": "Fruit Salad",
+   "category": "nature",
+   "summary": "A glass bowl of chopped fruit: strawberry, banana, kiwi, orange and grapes.",
+   "familyCampaigns": [
+    "nature"
+   ],
+   "ingredients": [
+    "organic37:fruit",
+    "organic184:kitchen-knife"
+   ],
+   "art_mode": "bespoke-subject",
+   "path": "client/assets/v184/fruit-salad.svg"
+  },
+  {
+   "id": "organic184:coleslaw",
+   "name": "Coleslaw",
+   "category": "nature",
+   "summary": "A bowl of creamy coleslaw with shredded cabbage and orange carrot strips.",
+   "familyCampaigns": [
+    "nature"
+   ],
+   "ingredients": [
+    "organic184:cabbage",
+    "organic184:mayonnaise"
+   ],
+   "art_mode": "bespoke-subject",
+   "path": "client/assets/v184/coleslaw.svg"
+  },
+  {
+   "id": "organic184:pesto",
+   "name": "Pesto",
+   "category": "nature",
+   "summary": "A small jar of bright green pesto with a basil leaf and pine nuts beside it.",
+   "familyCampaigns": [
+    "nature"
+   ],
+   "ingredients": [
+    "organic38:basil",
+    "organic184:olive-oil"
+   ],
+   "art_mode": "bespoke-subject",
+   "path": "client/assets/v184/pesto.svg"
+  },
+  {
+   "id": "organic184:garlic-toast",
+   "name": "Garlic Toast",
+   "category": "nature",
+   "summary": "Slices of crunchy garlic toast glistening with butter and chopped parsley.",
+   "familyCampaigns": [
+    "nature"
+   ],
+   "ingredients": [
+    "organic184:toast",
+    "organic38:garlic"
+   ],
+   "art_mode": "bespoke-subject",
+   "path": "client/assets/v184/garlic-toast.svg"
+  },
+  {
+   "id": "organic184:bruschetta",
+   "name": "Bruschetta",
+   "category": "nature",
+   "summary": "Grilled bread slices piled with diced tomato, basil and a thread of oil.",
+   "familyCampaigns": [
+    "nature"
+   ],
+   "ingredients": [
+    "organic184:toast",
+    "organic38:tomato"
+   ],
+   "art_mode": "bespoke-subject",
+   "path": "client/assets/v184/bruschetta.svg"
+  },
+  {
+   "id": "organic184:minestrone",
+   "name": "Minestrone",
+   "category": "nature",
+   "summary": "A chunky bowl of minestrone with pasta shells, beans and diced vegetables.",
+   "familyCampaigns": [
+    "nature"
+   ],
+   "ingredients": [
+    "organic37:soup",
+    "organic38:bean"
+   ],
+   "art_mode": "bespoke-subject",
+   "path": "client/assets/v184/minestrone.svg"
+  },
+  {
+   "id": "organic184:pumpkin-soup",
+   "name": "Pumpkin Soup",
+   "category": "nature",
+   "summary": "A bowl of smooth orange pumpkin soup with a swirl of cream and toasted seeds.",
+   "familyCampaigns": [
+    "nature"
+   ],
+   "ingredients": [
+    "organic184:pumpkin",
+    "organic37:soup"
+   ],
+   "art_mode": "bespoke-subject",
+   "path": "client/assets/v184/pumpkin-soup.svg"
+  },
+  {
+   "id": "organic184:chili-con-carne",
+   "name": "Chili con Carne",
+   "category": "nature",
+   "summary": "A bowl of dark red chili with beans and meat, topped with cheese and a chili.",
+   "familyCampaigns": [
+    "nature"
+   ],
+   "ingredients": [
+    "organic38:bean",
+    "organic184:meat"
+   ],
+   "art_mode": "bespoke-subject",
+   "path": "client/assets/v184/chili-con-carne.svg"
+  },
+  {
+   "id": "organic184:mac-and-cheese",
+   "name": "Mac and Cheese",
+   "category": "nature",
+   "summary": "A skillet of elbow macaroni in thick orange cheese sauce with a crumb top.",
+   "familyCampaigns": [
+    "nature"
+   ],
+   "ingredients": [
+    "organic38:pasta",
+    "organic38:milk"
+   ],
+   "art_mode": "bespoke-subject",
+   "path": "client/assets/v184/mac-and-cheese.svg"
+  },
+  {
+   "id": "organic184:energy-bar",
+   "name": "Energy Bar",
+   "category": "nature",
+   "summary": "A chewy oat and nut bar half out of its torn foil wrapper.",
+   "familyCampaigns": [
+    "nature"
+   ],
+   "ingredients": [
+    "organic184:oats",
+    "organic38:chocolate"
+   ],
+   "art_mode": "bespoke-subject",
+   "path": "client/assets/v184/energy-bar.svg"
+  },
+  {
+   "id": "organic184:honey-cake",
+   "name": "Honey Cake",
+   "category": "nature",
+   "summary": "A layered honey cake slice with thin biscuit layers, cream and a drizzle of honey.",
+   "familyCampaigns": [
+    "nature"
+   ],
+   "ingredients": [
+    "organic34:honey",
+    "organic184:oven"
+   ],
+   "art_mode": "bespoke-subject",
+   "path": "client/assets/v184/honey-cake.svg"
+  }
+ ]
+}
