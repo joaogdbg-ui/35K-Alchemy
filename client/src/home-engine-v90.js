@@ -148,12 +148,13 @@ export function createHomeSystem(ctx){
   const o=objects[hid],L=layoutOf(hid),h=house(hid),it=byId.get(hid),cap=capOf(hid);
   const sumHtml=bonusChips(hid);
   const residents=h.residents.filter(isDiscovered);
-  const resHtml=residents.map(cid=>`<button type="button" class="home-res" data-res="${cid}" aria-label="${escapeText(companionName(cid))}"><span>${sprites[cid]||''}</span></button>`).join('')+(residents.length<cap?`<button type="button" class="home-res is-add" id="homeAddRes" aria-label="Add a companion">+</button>`:'');
+  const resHtml=residents.map(cid=>`<button type="button" class="home-life" data-res="${cid}"><span class="home-life-art">${sprites[cid]||''}</span><span class="home-life-main"><b>${escapeText(companionName(cid))}</b><small data-act="${cid}">Looking around</small></span><em data-gain="${cid}"></em></button>`).join('')+(residents.length<cap?`<button type="button" class="home-life is-add" id="homeAddRes"><span class="home-life-art">+</span><span class="home-life-main"><b>Invite a companion</b><small>${cap-residents.length} free spot${cap-residents.length>1?'s':''} · everyone living here grows ×${HOUSE_GROWTH[objects[hid].capacity]||1} faster</small></span></button>`:'');
+  const hr=new Date().getHours(),tod=hr>=21||hr<6?'night':hr>=18?'evening':hr<9?'morning':'day';
   mount.innerHTML=`<section class="home-card">
    <div class="home-chips" role="tablist" aria-label="Your houses">${chips}</div>
    <div class="home-head"><strong>${escapeText(uiName(it))}</strong><small>${residents.length}/${cap} companions · ${h.furniture.length} furniture</small></div>
    <div class="home-plot ${extOn(hid,'garden')||extOn(hid,'pool')?'has-yard':''}" data-theme="${L.theme}" style="--cols:${L.cols};--rows:${L.rows}">
-   <div class="home-room" data-theme="${L.theme}" style="--cols:${L.cols};--rows:${L.rows}">
+   <div class="home-room" data-theme="${L.theme}" data-tod="${tod}" style="--cols:${L.cols};--rows:${L.rows}">
     <div class="home-wall" id="homeWall">
      ${Array.from({length:L.cols},(_,i)=>`<button type="button" class="home-walltile" data-wx="${i}" aria-label="Wall"></button>`).join('')}
      ${h.furniture.map((f,i)=>layerOf(RS,f.id)==='wall'?pieceHtml(f,i):'').join('')}
@@ -163,14 +164,15 @@ export function createHomeSystem(ctx){
      ${Array.from({length:L.cols*L.rows},(_,i)=>`<button type="button" class="home-tile" data-x="${i%L.cols}" data-y="${Math.floor(i/L.cols)}" aria-label="Floor tile"></button>`).join('')}
      ${h.furniture.map((f,i)=>layerOf(RS,f.id)!=='wall'?pieceHtml(f,i):'').join('')}
      <div class="home-residents" id="homeResidents"></div>
+     <i class="home-light" aria-hidden="true"></i>
     </div>
-    <div class="home-door" aria-hidden="true"></div>
+    <div class="home-door" aria-hidden="true"></div><i class="home-tint" aria-hidden="true"></i>
    </div>
    ${extOn(hid,'garden')||extOn(hid,'pool')?yardHtml(hid):''}
    </div>
    ${moving?`<p class="home-hint">Drag ${escapeText(uiName(byId.get(h.furniture[moving.index]?.id)))} to its new spot · <button type="button" class="home-link" id="homeCancelMove">Done</button></p>`:''}
    <div class="home-effects">${sumHtml}</div>
-   <div class="home-res-row"><span>Residents</span><div class="home-res-list">${resHtml}</div></div>
+   <div class="home-life-list"><span class="home-life-h">Who lives here · tap a companion in the room to pet it</span>${resHtml}</div>
   </section>`;
   mount.querySelectorAll('[data-house]').forEach(b=>b.onclick=()=>houseInfo(mount,b.dataset.house));
   mount.querySelectorAll('[data-res]').forEach(r=>r.onclick=()=>tapResident(mount,hid,r.dataset.res));
@@ -299,8 +301,16 @@ export function createHomeSystem(ctx){
   const h={furniture};
   const usable=h.furniture.filter(f=>layerOf(RS,f.id)!=='wall'&&objects[f.id]?.effect!=='decor');
   const walkers=residents.map((cid,i)=>{const el=document.createElement('span');el.className='companion home-walker';el.dataset.anim='idle';el.dataset.companion=cid;
-   const art=document.createElement('span');art.className='companion-art';rig(art,cid);el.append(art);const fx=document.createElement('span');fx.className='home-fx';el.append(fx);box.append(el);
-   const p={x:(i*2+1)%L.cols,y:L.rows-1-(i%L.rows),face:1};place(el,p);return {cid,el,p,busyUntil:0,taken:null};});
+   const art=document.createElement('span');art.className='companion-art';rig(art,cid);el.append(art);const fx=document.createElement('span');fx.className='home-fx';el.append(fx);const say=document.createElement('span');say.className='home-say';el.append(say);const gain=document.createElement('span');gain.className='home-gain';el.append(gain);const sh=document.createElement('i');sh.className='home-shadow';el.prepend(sh);const pet=document.createElement('button');pet.type='button';pet.className='home-pet';pet.setAttribute('aria-label','Pet');el.append(pet);box.append(el);
+   const p={x:(i*2+1)%L.cols,y:L.rows-1-(i%L.rows),face:1};place(el,p);const w={cid,el,p,busyUntil:0,taken:null,petAt:0};
+   pet.onclick=e=>{e.stopPropagation();bubble(w,'❤',1100);if(!el.classList.contains('is-using')){el.dataset.anim='jump';setTimeout(()=>{if(el.dataset.anim==='jump')el.dataset.anim='idle';},700);}
+    if(Date.now()-w.petAt>20000){w.petAt=Date.now();if(train&&applyEffect?.(cid,'mood'))gainPop(w,'mood');}};
+   return w;});
+  const ICON={run:'🏃',swim:'💦',power:'💪',fly:'🪽',stamina:'🧗',hp:'💤',mood:'🎵',food:'🍖',discovery:'📖'};
+  const VERB={run:'Running on',swim:'Splashing in',power:'Training with',fly:'Bouncing on',stamina:'Working out on',hp:'Resting on',mood:'Having fun with',food:'Eating at',discovery:'Studying at'};
+  const bubble=(w,txt,ms)=>{const b=w.el.querySelector('.home-say');b.textContent=txt;b.classList.add('is-on');clearTimeout(w.sayT);w.sayT=setTimeout(()=>b.classList.remove('is-on'),ms);};
+  const act=(w,txt)=>{const a=(root.closest('.home-card')||root).querySelector(`[data-act="${w.cid}"]`);if(a)a.textContent=txt;};
+  const gainPop=(w,eff)=>{const g=w.el.querySelector('.home-gain');g.textContent='+'+(EFFECT_LABEL[eff]||'');g.dataset.eff=eff;g.classList.remove('is-pop');void g.offsetWidth;g.classList.add('is-pop');const a=(root.closest('.home-card')||root).querySelector(`[data-gain="${w.cid}"]`);if(a){a.textContent='+'+(EFFECT_LABEL[eff]||'');a.classList.remove('is-pop');void a.offsetWidth;a.classList.add('is-pop');}};
   try{wear?.(box);}catch{}
   if(!walkers.length||reducedMotion())return;
   const taken=new Set();
@@ -322,16 +332,25 @@ export function createHomeSystem(ctx){
     if(free.length&&Math.random()<0.65)f=free[Math.floor(Math.random()*free.length)];
     let tx,ty,spot=null;
     if(f){spot=useSpot(f,L);tx=spot.x;ty=spot.y;}
-    else{const o=openTiles();const t=o[Math.floor(Math.random()*o.length)]||{x:w.p.x,y:w.p.y};tx=t.x;ty=t.y;}
+    else{const o=openTiles();let t=o[Math.floor(Math.random()*o.length)]||{x:w.p.x,y:w.p.y};
+     // V179: sometimes go and say hi to a housemate
+     const mate=walkers.length>1&&Math.random()<0.45?walkers.filter(m=>m!==w)[Math.floor(Math.random()*(walkers.length-1))]:null;
+     if(mate){const near=o.filter(q=>Math.abs(q.x-mate.p.x)+Math.abs(q.y-mate.p.y)===1);if(near.length){t=near[Math.floor(Math.random()*near.length)];w.meet=mate;}}
+     tx=t.x;ty=t.y;}
     // grid path (around furniture) to the tile of the spot, then a short final step to the exact spot
     const blocked=blockedFor(f);const tile={x:Math.max(0,Math.min(L.cols-1,Math.round(tx))),y:Math.max(0,Math.min(L.rows-1,Math.round(ty)))};
     let path=findPath(L,blocked,w.p,tile);if(!path){if(f){f=null;spot=null;}path=[];}else{if(f)taken.add(f),w.taken=f;}
     const pts=[...path];if(f&&(Math.abs(tile.x-tx)>0.01||Math.abs(tile.y-ty)>0.01))pts.push({x:tx,y:ty});
     if(!pts.length)pts.push({x:w.p.x,y:w.p.y});
-    const walkMs=walkPath(w,pts);
+    const walkMs=walkPath(w,pts);const fname=f?uiName(byId.get(f.id))||'':'';if(f){bubble(w,ICON[objects[f.id].effect]||'✨',Math.max(900,walkMs));act(w,`Going to the ${fname}`);}else act(w,w.meet?'Visiting a housemate':'Looking around');
     const useMs=f?3800+Math.random()*2500:900+Math.random()*1200;w.busyUntil=now+walkMs+useMs;
     w.t=setTimeout(()=>{
-     if(!f){w.el.dataset.anim='idle';return;}
+     if(!f){w.el.dataset.anim='idle';const m=w.meet;w.meet=null;
+      if(m&&Math.abs(m.p.x-w.p.x)+Math.abs(m.p.y-w.p.y)<=1.5){const face=m.p.x>=w.p.x?1:-1;w.p.face=face;w.el.dataset.face=face>0?'right':'left';w.el.dataset.anim='duo-cheer';bubble(w,'❤',1400);act(w,'Chatting with a housemate');
+       if(m.el.dataset.anim==='idle'){m.el.dataset.face=face>0?'left':'right';m.el.dataset.anim='duo-laugh';bubble(m,'🎶',1400);setTimeout(()=>{if(m.el.dataset.anim==='duo-laugh')m.el.dataset.anim='idle';},1400);}
+       setTimeout(()=>{if(w.el.dataset.anim==='duo-cheer')w.el.dataset.anim='idle';},1400);}
+      return;}
+     act(w,`${VERB[objects[f.id].effect]||'Using'} the ${fname}`);
      const eff=objects[f.id].effect,u=USE[eff]||USE.decor;
      if(spot.front){w.p.face=1;w.el.dataset.face='right';}
      else{const [,fh]=footprint(objects,f);w.el.style.setProperty('--z',11+(f.y+fh)*2);}
@@ -341,7 +360,7 @@ export function createHomeSystem(ctx){
      if(piece){piece.classList.add('is-in-use');if(mk)piece.classList.add('m-'+mk);const o=MOTION_OV[mk];let ovEl=null;
       if(o&&!(f.r%2)){ovEl=document.createElement('span');ovEl.className='home-motion';ovEl.innerHTML=`<svg xmlns="http://www.w3.org/2000/svg" viewBox="${o.vb}">${o.svg}</svg>`;piece.insertBefore(ovEl,piece.querySelector('.home-hit'));}
       setTimeout(()=>{piece.classList.remove('is-in-use');if(mk)piece.classList.remove('m-'+mk);ovEl?.remove();},useMs);}
-     setTimeout(()=>{if(train&&applyEffect?.(w.cid,eff)){const fxEl=w.el.querySelector('.home-fx');fxEl.dataset.eff=eff;fxEl.classList.remove('is-pop');void fxEl.offsetWidth;fxEl.classList.add('is-pop');}},Math.min(1800,useMs/2));
+     setTimeout(()=>{if(train&&applyEffect?.(w.cid,eff))gainPop(w,eff);},Math.min(1800,useMs/2));
     },walkMs);}
    wanderTimers.push(setTimeout(tick,700));};
   wanderTimers.push(setTimeout(tick,500));
