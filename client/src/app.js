@@ -502,7 +502,7 @@ function shinyCard(item){return `<p class="shiny-trivia"><span aria-hidden="true
 function showShinyFound(id){const it=byId.get(id);if(!it)return;
  showModal(`<div class="modal-tag shiny-tag">✦ SHINY ELEMENT</div><div class="modal-art is-shiny">${staticArt(it)}</div><h2>Shiny ${escapeText(uiName(it))}</h2>${shinyCard(it)}<div class="modal-milestone">${shiny.size.toLocaleString('en-US')} shiny ${shiny.size===1?'element':'elements'} · ${Math.round(shinyChance()*100)}% chance per combination</div>`);
 }
-const APP_VERSION='1.0.77';
+const APP_VERSION='1.0.78';
 // V83: status line + Google consent (UMP) privacy options, required for EEA players.
 async function refreshAdStatus(){
  const el=$('settingsAdStatus'),bridge=getRewardBridge();
@@ -1775,7 +1775,7 @@ function gamesSeen(){try{localStorage.setItem(GAMES_SEEN_KEY,'1');}catch{}syncGa
 // ---------- V136: companion coins, Black Market, School, Wardrobe ----------
 const WALLET_KEY='alchemy10k_wallet_v136';
 let wallet={coins:0,acc:{},toys:[],toy:null,tokens:[],bag:{},daily:null,classes:{},streak:0,firstBuy:false,dyes:[],dyeOn:{},looks:[],tints:[],ultra:[]};
-try{const r=JSON.parse(localStorage.getItem(WALLET_KEY)||'null');if(r&&typeof r==='object')wallet={coins:Math.max(0,Math.floor(Number(r.coins)||0)),acc:Array.isArray(r.acc)?Object.fromEntries(r.acc.filter(a=>ACCESSORIES[a]).map(a=>[a,1])):(r.acc&&typeof r.acc==='object'?r.acc:{}),daily:typeof r.daily==='string'?r.daily:null,classes:r.classes&&typeof r.classes==='object'?r.classes:{},toys:Array.isArray(r.toys)?r.toys:[],toy:typeof r.toy==='string'?r.toy:null,tokens:Array.isArray(r.tokens)?r.tokens.slice(-200):[],bag:r.bag&&typeof r.bag==='object'?r.bag:{},streak:Number(r.streak)||0,firstBuy:r.firstBuy===true,dyes:Array.isArray(r.dyes)?r.dyes.filter(d=>DYES.some(x=>x.id===d)):[],dyeOn:r.dyeOn&&typeof r.dyeOn==='object'?r.dyeOn:{},looks:Array.isArray(r.looks)?r.looks:[],tints:Array.isArray(r.tints)?r.tints:[],ultra:Array.isArray(r.ultra)?r.ultra:[]};}catch{}
+try{const r=JSON.parse(localStorage.getItem(WALLET_KEY)||'null');if(r&&typeof r==='object')wallet={coins:Math.max(0,Math.floor(Number(r.coins)||0)),acc:Array.isArray(r.acc)?Object.fromEntries(r.acc.filter(a=>ACCESSORIES[a]).map(a=>[a,1])):(r.acc&&typeof r.acc==='object'?r.acc:{}),daily:typeof r.daily==='string'?r.daily:null,classes:r.classes&&typeof r.classes==='object'?r.classes:{},toys:Array.isArray(r.toys)?r.toys:[],toy:typeof r.toy==='string'?r.toy:null,tokens:Array.isArray(r.tokens)?r.tokens.slice(-200):[],bag:r.bag&&typeof r.bag==='object'?r.bag:{},streak:Number(r.streak)||0,firstBuy:r.firstBuy===true,dyes:Array.isArray(r.dyes)?r.dyes.filter(d=>DYES.some(x=>x.id===d)):[],dyeOn:r.dyeOn&&typeof r.dyeOn==='object'?r.dyeOn:{},looks:Array.isArray(r.looks)?r.looks:[],tints:Array.isArray(r.tints)?r.tints:[],ultra:Array.isArray(r.ultra)?r.ultra:[],adDay:r.adDay||null,adN:Number(r.adN)||0};}catch{}
 const packPrices={};
 let coinsPrice=COIN_PACK.price,coinsAvailable=false;
 function saveWallet(){try{localStorage.setItem(WALLET_KEY,JSON.stringify(wallet));}catch{}}
@@ -1810,7 +1810,7 @@ function grantElement(id){if(!byId.has(id)||unlocked.has(id))return false;unlock
 setTimeout(()=>{try{for(const it of MARKET){if(it.kind==='furniture'||it.kind==='house'||!it.element||!byId.has(it.element)||unlocked.has(it.element))continue;
  const has=it.kind==='acc'?(wallet.acc[it.acc]||0)>0:it.kind==='toy'?wallet.toys.includes(it.toy):(wallet.bag[it.id]||0)>0;
  if(has)grantElement(it.element);}}catch{}},2500);
-const coinBar=()=>`<div class="mk-wallet"><span class="mk-coins">🪙 <b data-coins>${wallet.coins.toLocaleString('en-US')}</b></span><button type="button" class="mk-buy" id="mkBuyCoins"><b>+ Coins</b></button></div>`;
+const coinBar=()=>`<div class="mk-wallet"><span class="mk-coins">🪙 <b data-coins>${wallet.coins.toLocaleString('en-US')}</b></span><button type="button" class="mk-buy ${wallet.daily!==dailyKey()?'has-gift':''}" id="mkBuyCoins"><b>${wallet.daily!==dailyKey()?'🎁 Daily gift':'Earn coins'}</b></button></div>`;
 function wireCoinBar(back){const b=$('mkBuyCoins');if(b)b.onclick=()=>openCoinShop(back);}
 // V137: coin packs — bigger packs give more coins per euro
 // V152: a full companion (20 elements) can eat again after 1 h, or now with an ad or 100 coins
@@ -1824,12 +1824,20 @@ function openFullSheet({id,name,leftMs}){const mins=Math.max(1,Math.ceil(leftMs/
  $('frCoins').onclick=()=>{const back=()=>openFullSheet({id,name,leftMs:companions.fullLeft(id)});confirmBuy({art:`<span class="companion fr-ava" data-companion="${id}"><span class="companion-art">${COMPANION_SPRITES_V86[id]||''}</span></span>`,name:`Make room for ${name}`,desc:'It can eat 20 more elements right away.',price:MAKE_ROOM_COINS,label:'Make room'},()=>{companions.makeRoom(id);closeModal();toast(`${name} can eat 20 more elements`,'new');},back);try{wearAll($('modalContent'));}catch{}};
  const b=$('frAd');if(b)b.onclick=async()=>{if(rewardedHintBusy)return;rewardedHintBusy=true;b.disabled=true;let r=null;try{r=await getRewardBridge().showRewarded({kind:'make_room',companion:id});}catch(e){console.warn('Make room ad',e);}finally{rewardedHintBusy=false;}
   if(r?.earned!==true){toast('Ad not completed','repeat');b.disabled=false;return;}roomAds[id]=(roomAds[id]||0)+1;if(roomAds[id]<MAKE_ROOM_ADS){toast(`Ad ${roomAds[id]}/${MAKE_ROOM_ADS} watched`,'repeat');openFullSheet({id,name,leftMs:companions.fullLeft(id)});return;}roomAds[id]=0;companions.makeRoom(id);closeModal();toast(`${name} can eat 20 more elements`,'new');};}
-function openCoinShop(back){
- showModal(`<div class="modal-tag">COMPANION COINS</div><h2>Get more coins</h2><div class="fair-note"><b>✓ Fair play</b><span>${escapeText(FAIR_PLAY_NOTE)}</span></div>${wallet.firstBuy?'':'<div class="cp-first">🎉 <b>First purchase: double coins!</b></div>'}<p class="mini-muted">You have 🪙 <b data-coins>${wallet.coins.toLocaleString('en-US')}</b> · bigger packs are better value</p>
-  <div class="cp-list">${COIN_PACKS.map(p=>`<button type="button" class="cp-pack ${p.tag?'is-hot':''}" data-pack="${p.id}">${p.tag?`<span class="cp-tag">${p.tag}</span>`:''}<span class="cp-pile">${'🪙'.repeat(1+COIN_PACKS.indexOf(p))}</span><b>${(p.coins*(wallet.firstBuy?1:FIRST_BUY_MULT)).toLocaleString('en-US')}</b><small>${wallet.firstBuy?'':`<s>${p.coins.toLocaleString('en-US')}</s> `}${p.bonus?`+${p.bonus}% bonus`:'coins'}</small>${p.gift?`<small class="cp-gift">+ ${escapeText(DYES.find(d=>d.id===p.gift)?.name||'')} colour</small>`:''}<em>${escapeText(packPrices[p.id]||p.price)}</em></button>`).join('')}</div>
-  <p class="mini-muted">Or earn them for free in races and Karate fights.</p>${back?'<button type="button" class="modal-button secondary" id="cpBack">Back</button>':''}`);
- $('modalContent').querySelectorAll('[data-pack]').forEach(b=>b.onclick=async()=>{b.disabled=true;await buyCoins(b.dataset.pack);b.disabled=false;syncCoinLabels();});
- modalBack=back||null;const bk=$('cpBack');if(bk)bk.onclick=()=>{modalBack=null;back();};}
+// V178: no coin packs any more — the only real-money purchase is Remove ads. Coins are earned by playing (or a few optional ads a day).
+const AD_COINS=20,AD_COINS_PER_DAY=5;
+function adCoinsLeft(){const d=dailyKey();if(wallet.adDay!==d){wallet.adDay=d;wallet.adN=0;}return Math.max(0,AD_COINS_PER_DAY-(wallet.adN||0));}
+function claimDaily(){if(wallet.daily===dailyKey())return 0;const st=nextStreak(),c=dailyCoins(st);wallet.streak=st;wallet.daily=dailyKey();addCoins(c);SFX.prize?.();toast(`+${c} daily coins!`,'new');return c;}
+function openCoinShop(back){const daily=wallet.daily!==dailyKey();const left=adCoinsLeft();const ad=rewardedAvailable()&&left>0;const again=()=>openCoinShop(back);
+ const row=(ico,t,sm)=>`<li><span>${ico}</span><div><b>${t}</b><small>${sm}</small></div></li>`;
+ showModal(`<div class="modal-tag">COMPANION COINS</div><h2>Earn coins</h2><p class="mini-muted">You have 🪙 <b data-coins>${wallet.coins.toLocaleString('en-US')}</b> · coins are never sold for real money.</p>
+  <button type="button" class="modal-button" id="cpDaily" ${daily?'':'disabled'}>${daily?`🎁 Daily gift · +${dailyCoins(nextStreak())}`:'🎁 Daily gift claimed · back tomorrow'}</button>
+  ${rewardedAvailable()?`<button type="button" class="modal-button secondary" id="cpAd" ${ad?'':'disabled'}>▶ Watch an ad · +${AD_COINS} <small>(${left} left today)</small></button>`:''}
+  <ul class="cp-ways">${row('⚗️','Discover elements',`+${DISCOVERY_COINS} each · +${DISCOVERY_MILESTONE_COINS} every ${DISCOVERY_MILESTONE}`)}${row('🏁','Races and Karate','Best on your first gold of each level')}${row('🎮','Minigames and Microgames','Up to 40 a game · 150 a day')}${row('🔍','Companion finds',`+${COMPANION_FIND_COINS} each`)}</ul>
+  ${back?'<button type="button" class="modal-button secondary" id="cpBack">Back</button>':'<button type="button" class="modal-button secondary" id="cpBack">Close</button>'}`);
+ $('cpDaily').onclick=()=>{if(claimDaily())again();};
+ const a=$('cpAd');if(a)a.onclick=async()=>{a.disabled=true;let r=null;try{r=await getRewardBridge().showRewarded({kind:'coins'});}catch{}if(r?.earned!==true){toast('Ad not completed','repeat');again();return;}adCoinsLeft();wallet.adN=(wallet.adN||0)+1;addCoins(AD_COINS);toast(`+${AD_COINS} coins`,'new');again();};
+ modalBack=back||null;$('cpBack').onclick=()=>{modalBack=null;back?back():closeModal();};}
 // V137: bought food sits on the main screen (on top of the craft card); drag it onto a companion
 function renderFoodTray(){let tray=$('foodTray');const card=document.querySelector('#viewPlay .craft-card');if(!card)return;
  if(!tray){tray=document.createElement('div');tray.id='foodTray';tray.className='food-tray';card.style.position='relative';card.append(tray);}
@@ -1852,7 +1860,7 @@ const accOwned=a=>wallet.acc[a]||0;
 function accInUse(a,except=null){let n=0;for(const [cid,p] of Object.entries(companions.state().pets||{})){if(cid===except)continue;if(Object.values(p?.wear||{}).includes(a))n++;}return n;}
 function confirmBuy({art,name,desc,price,label='Buy'},onBuy,onBack){const short=wallet.coins<price;
  showModal(`<div class="modal-tag">CONFIRM</div><div class="cf-art">${art}</div><h2>${escapeText(name)}</h2>${desc?`<p class="mini-muted">${escapeText(desc)}</p>`:''}<div class="cf-sum"><span>Price</span><b>🪙 ${price.toLocaleString('en-US')}</b><span>You have</span><b class="${short?'is-short':''}">🪙 ${wallet.coins.toLocaleString('en-US')}</b>${short?'':`<span>After</span><b>🪙 ${(wallet.coins-price).toLocaleString('en-US')}</b>`}</div>
-  ${short?`<button type="button" class="modal-button" id="cfCoins">Get more coins</button>`:`<button type="button" class="modal-button" id="cfBuy">${escapeText(label)} · 🪙 ${price.toLocaleString('en-US')}</button>`}<button type="button" class="modal-button secondary" id="cfBack">Cancel</button>`);
+  ${short?`<button type="button" class="modal-button" id="cfCoins">How to earn coins</button>`:`<button type="button" class="modal-button" id="cfBuy">${escapeText(label)} · 🪙 ${price.toLocaleString('en-US')}</button>`}<button type="button" class="modal-button secondary" id="cfBack">Cancel</button>`);
  modalBack=onBack;$('cfBack').onclick=()=>{modalBack=null;onBack();};
  const c=$('cfCoins');if(c)c.onclick=()=>openCoinShop(()=>confirmBuy({art,name,desc,price,label},onBuy,onBack));
  const b=$('cfBuy');if(b)b.onclick=()=>{if(!spendCoins(price)){toast('Not enough coins','repeat');return;}modalBack=null;SFX.unlock?.();onBuy();};}
@@ -1866,7 +1874,7 @@ function openMarket(onClose,tab){if(tab)marketTab=tab;
  const items=MARKET.filter(it=>it.kind===marketTab&&!it.hidden&&(!it.element||byId.has(it.element)));
  // V175: Colours tab — buying a colour unlocks it on a set of Alchemy elements; feeding those elements tints the companion
  const swatch=d=>{const c={mint:'#78dcb4',sky:'#78bef9',berry:'#aa3c8c',sunset:'#ff6e50',snow:'#f5f8ff',cocoa:'#825537',gold:'#e8c040',aurora:'#5adcd2',onyx:'#282834',rainbow:'conic-gradient(#ff5a5a,#ffd166,#8fbf68,#5aaed2,#b39ddb,#ff5a5a)'}[d.tint]||'#ccc';return `<span class="mk-art dye-sw" style="background:${c}"></span>`;};
- const dyeTile=d=>{const own=wallet.dyes.includes(d.id);const pack=d.exclusive?COIN_PACKS.find(p=>p.id===d.exclusive):null;const n=dyeElements(d.id).length;
+ const dyeTile=d=>{const own=wallet.dyes.includes(d.id);const pack=null;const n=dyeElements(d.id).length;
   const label=own?'Unlocked':pack?`${packPrices[pack.id]||pack.price} pack`:`🪙 ${d.price.toLocaleString('en-US')}`;
   return `<button type="button" class="stat-tile mk-tile ${own?'is-owned':''} ${pack&&!own?'is-excl':''}" data-dye="${d.id}">${swatch(d)}<b>${escapeText(d.name)}</b><small>${n} elements${pack?' · pack exclusive':''}</small><em class="mk-price ${!own&&!pack&&wallet.coins<d.price?'is-short':''}">${label}</em></button>`;};
  const rgbCss=c=>c?`rgb(${c.join(',')})`:'#ccc';
@@ -1884,12 +1892,12 @@ function openMarket(onClose,tab){if(tab)marketTab=tab;
   return `<button type="button" class="stat-tile mk-tile ${o?'is-owned':''} ${it.kind==='toy'&&wallet.toy===it.toy?'is-on':''}" data-mk="${it.id}"><span class="mk-art">${artOf(it)}</span><b>${escapeText(nameOf(it))}</b><small>${escapeText(descOf(it)||'')}</small>${it.ext?`<small class="mk-fits">${escapeText(fitsOf(it))}</small>`:''}<em class="mk-price ${!o&&wallet.coins<priceOf(it)?'is-short':''}">${label}</em></button>`;};
  const daily=wallet.daily!==dailyKey();
  showModal(`<div class="modal-tag">BLACK MARKET</div><h2>Spend your coins</h2><div class="fair-note"><b>✓ Fair play</b><span>${escapeText(FAIR_PLAY_NOTE)}</span></div>${coinBar()}
-  <button type="button" class="mk-daily ${daily?'':'is-done'}" id="mkDaily" ${daily?'':'disabled'}><span>🎁</span><b>${daily?`Daily coins · +${dailyCoins(nextStreak())}`:'Daily coins claimed'}</b><small>${daily?`Day ${Math.min(7,nextStreak())} of 7 · more each day in a row`:`Streak ${wallet.streak||1} · come back tomorrow`}</small></button>
+
   <div class="mk-tabs">${MARKET_TABS.map(([k,l])=>`<button type="button" data-mktab="${k}" aria-pressed="${k===marketTab}">${l}</button>`).join('')}</div>
   ${marketTab==='food'?`<p class="mini-muted">Bought food waits on the Alchemy screen — drag it onto a companion.${Object.values(wallet.bag||{}).reduce((n,v)=>n+v,0)?` · ${Object.values(wallet.bag).reduce((n,v)=>n+v,0)} waiting`:''}</p>`:marketTab==='toy'?'<p class="mini-muted">One toy sits on the craft card; your companion plays with it now and then.</p>':marketTab==='acc'?'<p class="mini-muted">One copy dresses one companion. Each extra copy costs more.</p>':''}
   ${marketTab==='dye'?dyeGrid:marketTab==='look'?lookGrid:`<div class="stat-tiles mk-grid">${items.map(tile).join('')}</div>`}<p class="mini-muted">Win races and Karate fights to earn coins.</p>`);
  const again=()=>openMarket(onClose);wireCoinBar(again);
- $('mkDaily').onclick=()=>{if(wallet.daily===dailyKey())return;const st=nextStreak(),c=dailyCoins(st);wallet.streak=st;wallet.daily=dailyKey();addCoins(c);SFX.prize?.();toast(`+${c} daily coins!`,'new');again();};
+
  $('modalContent').querySelectorAll('[data-mktab]').forEach(b=>b.onclick=()=>{marketTab=b.dataset.mktab;again();});
  $('modalContent').querySelectorAll('[data-tint]').forEach(b=>b.onclick=()=>{const t=TINT_ITEMS.find(x=>x.key===b.dataset.tint);if(wallet.tints.includes(t.key)){toast(`${t.name} colour is unlocked`,'repeat');return;}
   confirmBuy({art:`<span class="dye-sw" style="background:${rgbCss(TINT_RGB[t.key])}"></span>`,name:`${t.name} colour`,desc:'Elements of this colour can now tint your companions.',price:t.price,label:'Unlock'},()=>{wallet.tints.push(t.key);saveWallet();SFX.happy?.();again();},again);});
@@ -1899,8 +1907,8 @@ function openMarket(onClose,tab){if(tab)marketTab=tab;
   confirmBuy({art:`<span class="lk-ico">${inf.icon||'✨'}</span>`,name:`${l.name} look`,desc:`${inf.traits.join(', ')||'Its colour'} — grow it by feeding ${l.name.toLowerCase()} elements.`,price:l.price,label:'Unlock'},()=>{wallet.looks.push(l.key);saveWallet();SFX.happy?.();toast(`${l.name} look unlocked!`,'new');again();},again);});
  $('modalContent').querySelectorAll('[data-dye]').forEach(b=>b.onclick=()=>{const d=DYES.find(x=>x.id===b.dataset.dye);const els=dyeElements(d.id);const list=els.slice(0,40).map(n=>escapeText(n)).join(' · ')+(els.length>40?` · +${els.length-40} more`:'');
   const show=()=>{showModal(`<div class="modal-tag">COLOUR</div>${swatch(d)}<h2>${escapeText(d.name)} colour</h2><p>${wallet.dyes.includes(d.id)?'Unlocked! Feed any of these elements to a companion to tint it:':'Unlock it to make these elements tint your companions when they eat them:'}</p><p class="dye-list">${list}</p>
-   ${wallet.dyes.includes(d.id)?'':d.exclusive?`<button type="button" class="modal-button" id="dyBuy">Comes with the ${escapeText(packPrices[d.exclusive]||COIN_PACKS.find(p=>p.id===d.exclusive)?.price||'')} coin pack</button>`:`<button type="button" class="modal-button" id="dyBuy">Unlock · 🪙 ${d.price.toLocaleString('en-US')}</button>`}<button type="button" class="modal-button secondary" id="dyBack">Back</button>`);
-   $('dyBack').onclick=again;const by=$('dyBuy');if(by)by.onclick=()=>{if(d.exclusive){openCoinShop(show);return;}confirmBuy({art:swatch(d),name:`${d.name} colour`,desc:`Unlocks the colour on ${els.length} elements.`,price:d.price,label:'Unlock'},()=>{wallet.dyes.push(d.id);saveWallet();SFX.happy?.();toast(`${d.name} colour unlocked · feed its elements`,'new');show();},show);};};show();});
+   ${wallet.dyes.includes(d.id)?'':`<button type="button" class="modal-button" id="dyBuy">Unlock · 🪙 ${d.price.toLocaleString('en-US')}</button>`}<button type="button" class="modal-button secondary" id="dyBack">Back</button>`);
+   $('dyBack').onclick=again;const by=$('dyBuy');if(by)by.onclick=()=>{confirmBuy({art:swatch(d),name:`${d.name} colour`,desc:`Unlocks the colour on ${els.length} elements.`,price:d.price,label:'Unlock'},()=>{wallet.dyes.push(d.id);saveWallet();SFX.happy?.();toast(`${d.name} colour unlocked · feed its elements`,'new');show();},show);};};show();});
  $('modalContent').querySelectorAll('[data-mk]').forEach(b=>b.onclick=()=>{const it=MARKET.find(x=>x.id===b.dataset.mk);if(!it)return;
   if(it.kind==='toy'&&owned(it)){wallet.toy=wallet.toy===it.toy?null:it.toy;saveWallet();companions.placeToy?.();again();return;}
   if(owned(it))return;

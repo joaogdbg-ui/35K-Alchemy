@@ -90,6 +90,12 @@ Preserve 200-per-batch policy and do not start another content release on top of
 
 - **Art redraw wave 3 (V85, done): 3,991 icons** — every remaining older element. All 6,012 pre-V83 elements now use the 2026 art direction (`ART_REDRAW`), plus 200 V83 and 200 V85 originals. Six near-duplicates found by the audit were redrawn; 36 reviewed false alarms are in `tools/art-redraw-reviewed-pairs.json` (the audit now also honours them for V83 comparisons).
 
+## V178 — Coins-only shop + living home (first pass)
+- Owner decision (12/11): the ONLY real-money purchase is Remove ads (`no_ads`). COIN_PACKS is now empty (old tokens ignored); first-buy bonus and pack-exclusive colours removed — Gold/Aurora/Shadow/Rainbow colours now cost 3,000–6,000 coins. Play products coins_* are NOT needed any more.
+- "Earn coins" sheet replaces the coin shop: daily gift (claimDaily, the duplicate daily button in the Market was removed; the coin bar button shows "🎁 Daily gift" when available), optional rewarded ad +20 coins up to 5 a day (kind 'coins', wallet.adDay/adN), and the list of ways to earn.
+- Home (home-engine-v90.js): taller shaded wall, floor depth shading, furniture drop shadows, sun patch, time-of-day tint (morning/day/evening/night), resident ground shadows; thought bubble showing what a resident is going to do, "+Run/+HP/+Food" labels when furniture pays off, tap a resident to pet it (mood, 20 s cooldown), residents visit and chat with housemates; "Who lives here" rows with live activity text replace the round avatars; invite row explains the growth bonus.
+- Catalogue today: 6,635 elements. New target agreed: ~8,000 (not 10,000). Pending: ultra races + Supreme look, furniture art pass, remaining UI redundancy review, +~1,365 elements, release prep.
+
 ## V177 — Ultra-rare looks/colours, themed race prizes, make-room 500 / 3 ads
 - ULTRA (market-v136): Celestial / Abyssal / Titan looks and Starlight / Obsidian / Ember colours drop from Championship wins (5% Rookie → 15% Champion, champUltraChance, rollUltra); Pearl / Neon colours have a 0.01% chance after any minigame/microgame (MINI_UNIQUE_CHANCE); Supreme look reserved for the ultra races (next). Engine: new tints (starlight, obsidian, ember, pearl, neon, radiant) and essence-only LOOK_THEMES. An unlock (wallet.ultra) puts free essences (hidden MARKET food ess-*) on the food tray: 3 for looks, 6 for colours; more essences cost 1,000 in Market › Looks › Ultra rare.
 - Prizes sheet lists the 5 themed race prizes (their accessories); Prizes tile counts 11.

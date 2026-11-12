@@ -2179,6 +2179,41 @@ body.ar-playing>*:not(.ar-stage){display:none!important}
 /* V177: ultra rare */
 .mk-tile.is-ultra{background:linear-gradient(160deg,#fff5d6,#f3dfc8 60%,#e9d5ff)}.mk-tile.is-ultra .lk-ico{font-size:26px;background:#fff8ec}
 .g-prize.is-ultra{background:linear-gradient(135deg,#fff5d6,#e9d5ff);border:2px solid #d08a4c;animation:arBump 1s ease-in-out 3}.g-prize.is-ultra>span{font-size:30px;color:#d08a4c}
+/* V178 */
+.cp-ways{list-style:none;margin:10px 0;padding:0;display:grid;gap:6px}.cp-ways li{display:flex;gap:10px;align-items:center;padding:8px 12px;border-radius:14px;background:var(--surface-2)}.cp-ways span{font-size:22px}.cp-ways b{display:block}.cp-ways small{color:var(--ink-2)}
+.mk-buy.has-gift{animation:arBump 1.2s ease-in-out infinite}
+/* V179: living home — depth, light, time of day, activity rows, bubbles */
+.home-room{box-shadow:0 8px 0 rgba(101,125,137,.28),0 14px 24px rgba(32,38,43,.14)}
+.home-wall{height:calc(var(--tile) * 1.5);background:linear-gradient(180deg,rgba(32,38,43,.16),rgba(32,38,43,0) 30%),linear-gradient(180deg,transparent 0 62%,rgba(255,255,255,.22) 62% 64%,rgba(0,0,0,.05) 64% 100%),repeating-linear-gradient(90deg,var(--wallc1) 0 12px,var(--wallc2) 12px 24px)}
+.home-skirting{height:9px;border-top:2px solid rgba(255,255,255,.3)}
+.home-floor{background:radial-gradient(ellipse at 50% 55%,rgba(255,255,255,.14),rgba(255,255,255,0) 60%),linear-gradient(180deg,rgba(60,40,20,.26),rgba(60,40,20,0) calc(var(--tile) * .7)),linear-gradient(90deg,rgba(60,40,20,.12),rgba(60,40,20,0) 10% 90%,rgba(60,40,20,.12)),repeating-linear-gradient(0deg,var(--fl1) 0 calc(var(--tile) / 2 - 2px),var(--flgap) calc(var(--tile) / 2 - 2px) calc(var(--tile) / 2)),var(--fl1)}
+.home-piece.is-object svg,.home-piece:not(.is-wall):not(.is-floor) svg{filter:drop-shadow(0 4px 0 rgba(60,40,20,.18)) drop-shadow(0 7px 5px rgba(60,40,20,.16))}
+.home-piece.is-wall svg{filter:drop-shadow(0 3px 2px rgba(60,40,20,.2))}
+.home-light{position:absolute;left:8%;top:0;width:46%;height:70%;pointer-events:none;z-index:9;background:linear-gradient(180deg,rgba(255,244,200,.42),rgba(255,244,200,0));clip-path:polygon(18% 0,62% 0,100% 100%,0 100%);mix-blend-mode:soft-light;animation:home-sun 9s ease-in-out infinite alternate}
+@keyframes home-sun{to{opacity:.65;transform:translateX(3%)}}
+.home-tint{position:absolute;inset:0;pointer-events:none;z-index:60;box-shadow:inset 0 0 34px rgba(32,38,43,.22);transition:background 1s}
+.home-room[data-tod="morning"] .home-tint{background:linear-gradient(160deg,rgba(255,214,170,.18),transparent 60%)}
+.home-room[data-tod="evening"] .home-tint{background:linear-gradient(200deg,rgba(255,150,80,.22),rgba(120,70,120,.12))}
+.home-room[data-tod="evening"] .home-light{background:linear-gradient(180deg,rgba(255,170,90,.5),rgba(255,170,90,0))}
+.home-room[data-tod="night"] .home-tint{background:radial-gradient(ellipse at 50% 38%,rgba(255,196,110,.16) 0 26%,rgba(24,30,60,.42) 72%)}
+.home-room[data-tod="night"] .home-light{display:none}
+.home-shadow{position:absolute;left:18%;right:18%;bottom:2%;height:14%;border-radius:50%;background:rgba(60,40,20,.28);z-index:-1}
+.home-walker.is-using .home-shadow{opacity:.35}
+.home-walker.companion{filter:none}
+.home-pet{position:absolute;inset:10% 15% 0;border:0;background:transparent;padding:0;pointer-events:auto;border-radius:50%}
+.home-say{position:absolute;left:50%;bottom:92%;min-width:26px;height:26px;padding:0 4px;display:grid;place-items:center;translate:-50% 0;font-size:14px;line-height:1;background:#fff8ec;border:2px solid #657d89;border-radius:14px 14px 14px 4px;opacity:0;scale:.4;transform-origin:20% 100%;transition:opacity .18s,scale .25s cubic-bezier(.2,1.6,.4,1);pointer-events:none;z-index:5}
+.home-say.is-on{opacity:1;scale:1}
+.home-gain{position:absolute;left:50%;bottom:100%;translate:-50% 0;white-space:nowrap;font-weight:900;font-size:12px;color:#fff;background:#d08a4c;border-radius:999px;padding:1px 8px;box-shadow:0 2px 0 rgba(0,0,0,.2);opacity:0;pointer-events:none;z-index:6}
+.home-gain[data-eff="food"]{background:#3f8f6b}.home-gain[data-eff="mood"],.home-gain[data-eff="hp"]{background:#e0675a}.home-gain[data-eff="swim"]{background:#5aaed2}.home-gain[data-eff="discovery"]{background:#8a6fc4}
+.home-gain.is-pop{animation:home-gain 1.6s ease-out 1}@keyframes home-gain{0%{opacity:0;transform:translateY(8px) scale(.6)}18%{opacity:1;transform:translateY(-4px) scale(1.1)}75%{opacity:1}100%{opacity:0;transform:translateY(-26px)}}
+.home-fx{display:none}
+.home-life-list{display:grid;gap:6px;margin-top:8px}.home-life-h{font-size:12px;font-weight:800;color:var(--slate)}
+.home-life{display:flex;align-items:center;gap:10px;width:100%;text-align:left;padding:7px 10px;border-radius:14px;border:1px solid var(--line);background:var(--surface-2);color:var(--ink)}
+.home-life-art{flex:0 0 40px;width:40px;height:40px;display:grid;place-items:center;font-size:22px;font-weight:900;color:var(--accent)}.home-life-art svg{width:100%;height:100%}
+.home-life-main{flex:1;min-width:0}.home-life-main b{display:block}.home-life-main small{display:block;color:var(--ink-2);white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.home-life em{font-style:normal;font-weight:900;font-size:12px;color:#fff;background:var(--good);border-radius:999px;padding:1px 8px;opacity:0}.home-life em.is-pop{animation:home-gain 2.4s ease-out 1}
+.home-life.is-add{border-style:dashed;background:transparent}
+.home-life{box-sizing:border-box;max-width:100%;min-width:0}.home-life-list{min-width:0}
 
 </style>
 </head>
@@ -2675,12 +2710,13 @@ function createHomeSystem(ctx){
   const o=objects[hid],L=layoutOf(hid),h=house(hid),it=byId.get(hid),cap=capOf(hid);
   const sumHtml=bonusChips(hid);
   const residents=h.residents.filter(isDiscovered);
-  const resHtml=residents.map(cid=>`<button type="button" class="home-res" data-res="${cid}" aria-label="${escapeText(companionName(cid))}"><span>${sprites[cid]||''}</span></button>`).join('')+(residents.length<cap?`<button type="button" class="home-res is-add" id="homeAddRes" aria-label="Add a companion">+</button>`:'');
+  const resHtml=residents.map(cid=>`<button type="button" class="home-life" data-res="${cid}"><span class="home-life-art">${sprites[cid]||''}</span><span class="home-life-main"><b>${escapeText(companionName(cid))}</b><small data-act="${cid}">Looking around</small></span><em data-gain="${cid}"></em></button>`).join('')+(residents.length<cap?`<button type="button" class="home-life is-add" id="homeAddRes"><span class="home-life-art">+</span><span class="home-life-main"><b>Invite a companion</b><small>${cap-residents.length} free spot${cap-residents.length>1?'s':''} · everyone living here grows ×${HOUSE_GROWTH[objects[hid].capacity]||1} faster</small></span></button>`:'');
+  const hr=new Date().getHours(),tod=hr>=21||hr<6?'night':hr>=18?'evening':hr<9?'morning':'day';
   mount.innerHTML=`<section class="home-card">
    <div class="home-chips" role="tablist" aria-label="Your houses">${chips}</div>
    <div class="home-head"><strong>${escapeText(uiName(it))}</strong><small>${residents.length}/${cap} companions · ${h.furniture.length} furniture</small></div>
    <div class="home-plot ${extOn(hid,'garden')||extOn(hid,'pool')?'has-yard':''}" data-theme="${L.theme}" style="--cols:${L.cols};--rows:${L.rows}">
-   <div class="home-room" data-theme="${L.theme}" style="--cols:${L.cols};--rows:${L.rows}">
+   <div class="home-room" data-theme="${L.theme}" data-tod="${tod}" style="--cols:${L.cols};--rows:${L.rows}">
     <div class="home-wall" id="homeWall">
      ${Array.from({length:L.cols},(_,i)=>`<button type="button" class="home-walltile" data-wx="${i}" aria-label="Wall"></button>`).join('')}
      ${h.furniture.map((f,i)=>layerOf(RS,f.id)==='wall'?pieceHtml(f,i):'').join('')}
@@ -2690,14 +2726,15 @@ function createHomeSystem(ctx){
      ${Array.from({length:L.cols*L.rows},(_,i)=>`<button type="button" class="home-tile" data-x="${i%L.cols}" data-y="${Math.floor(i/L.cols)}" aria-label="Floor tile"></button>`).join('')}
      ${h.furniture.map((f,i)=>layerOf(RS,f.id)!=='wall'?pieceHtml(f,i):'').join('')}
      <div class="home-residents" id="homeResidents"></div>
+     <i class="home-light" aria-hidden="true"></i>
     </div>
-    <div class="home-door" aria-hidden="true"></div>
+    <div class="home-door" aria-hidden="true"></div><i class="home-tint" aria-hidden="true"></i>
    </div>
    ${extOn(hid,'garden')||extOn(hid,'pool')?yardHtml(hid):''}
    </div>
    ${moving?`<p class="home-hint">Drag ${escapeText(uiName(byId.get(h.furniture[moving.index]?.id)))} to its new spot · <button type="button" class="home-link" id="homeCancelMove">Done</button></p>`:''}
    <div class="home-effects">${sumHtml}</div>
-   <div class="home-res-row"><span>Residents</span><div class="home-res-list">${resHtml}</div></div>
+   <div class="home-life-list"><span class="home-life-h">Who lives here · tap a companion in the room to pet it</span>${resHtml}</div>
   </section>`;
   mount.querySelectorAll('[data-house]').forEach(b=>b.onclick=()=>houseInfo(mount,b.dataset.house));
   mount.querySelectorAll('[data-res]').forEach(r=>r.onclick=()=>tapResident(mount,hid,r.dataset.res));
@@ -2826,8 +2863,16 @@ function createHomeSystem(ctx){
   const h={furniture};
   const usable=h.furniture.filter(f=>layerOf(RS,f.id)!=='wall'&&objects[f.id]?.effect!=='decor');
   const walkers=residents.map((cid,i)=>{const el=document.createElement('span');el.className='companion home-walker';el.dataset.anim='idle';el.dataset.companion=cid;
-   const art=document.createElement('span');art.className='companion-art';rig(art,cid);el.append(art);const fx=document.createElement('span');fx.className='home-fx';el.append(fx);box.append(el);
-   const p={x:(i*2+1)%L.cols,y:L.rows-1-(i%L.rows),face:1};place(el,p);return {cid,el,p,busyUntil:0,taken:null};});
+   const art=document.createElement('span');art.className='companion-art';rig(art,cid);el.append(art);const fx=document.createElement('span');fx.className='home-fx';el.append(fx);const say=document.createElement('span');say.className='home-say';el.append(say);const gain=document.createElement('span');gain.className='home-gain';el.append(gain);const sh=document.createElement('i');sh.className='home-shadow';el.prepend(sh);const pet=document.createElement('button');pet.type='button';pet.className='home-pet';pet.setAttribute('aria-label','Pet');el.append(pet);box.append(el);
+   const p={x:(i*2+1)%L.cols,y:L.rows-1-(i%L.rows),face:1};place(el,p);const w={cid,el,p,busyUntil:0,taken:null,petAt:0};
+   pet.onclick=e=>{e.stopPropagation();bubble(w,'❤',1100);if(!el.classList.contains('is-using')){el.dataset.anim='jump';setTimeout(()=>{if(el.dataset.anim==='jump')el.dataset.anim='idle';},700);}
+    if(Date.now()-w.petAt>20000){w.petAt=Date.now();if(train&&applyEffect?.(cid,'mood'))gainPop(w,'mood');}};
+   return w;});
+  const ICON={run:'🏃',swim:'💦',power:'💪',fly:'🪽',stamina:'🧗',hp:'💤',mood:'🎵',food:'🍖',discovery:'📖'};
+  const VERB={run:'Running on',swim:'Splashing in',power:'Training with',fly:'Bouncing on',stamina:'Working out on',hp:'Resting on',mood:'Having fun with',food:'Eating at',discovery:'Studying at'};
+  const bubble=(w,txt,ms)=>{const b=w.el.querySelector('.home-say');b.textContent=txt;b.classList.add('is-on');clearTimeout(w.sayT);w.sayT=setTimeout(()=>b.classList.remove('is-on'),ms);};
+  const act=(w,txt)=>{const a=(root.closest('.home-card')||root).querySelector(`[data-act="${w.cid}"]`);if(a)a.textContent=txt;};
+  const gainPop=(w,eff)=>{const g=w.el.querySelector('.home-gain');g.textContent='+'+(EFFECT_LABEL[eff]||'');g.dataset.eff=eff;g.classList.remove('is-pop');void g.offsetWidth;g.classList.add('is-pop');const a=(root.closest('.home-card')||root).querySelector(`[data-gain="${w.cid}"]`);if(a){a.textContent='+'+(EFFECT_LABEL[eff]||'');a.classList.remove('is-pop');void a.offsetWidth;a.classList.add('is-pop');}};
   try{wear?.(box);}catch{}
   if(!walkers.length||reducedMotion())return;
   const taken=new Set();
@@ -2849,16 +2894,25 @@ function createHomeSystem(ctx){
     if(free.length&&Math.random()<0.65)f=free[Math.floor(Math.random()*free.length)];
     let tx,ty,spot=null;
     if(f){spot=useSpot(f,L);tx=spot.x;ty=spot.y;}
-    else{const o=openTiles();const t=o[Math.floor(Math.random()*o.length)]||{x:w.p.x,y:w.p.y};tx=t.x;ty=t.y;}
+    else{const o=openTiles();let t=o[Math.floor(Math.random()*o.length)]||{x:w.p.x,y:w.p.y};
+     // V179: sometimes go and say hi to a housemate
+     const mate=walkers.length>1&&Math.random()<0.45?walkers.filter(m=>m!==w)[Math.floor(Math.random()*(walkers.length-1))]:null;
+     if(mate){const near=o.filter(q=>Math.abs(q.x-mate.p.x)+Math.abs(q.y-mate.p.y)===1);if(near.length){t=near[Math.floor(Math.random()*near.length)];w.meet=mate;}}
+     tx=t.x;ty=t.y;}
     // grid path (around furniture) to the tile of the spot, then a short final step to the exact spot
     const blocked=blockedFor(f);const tile={x:Math.max(0,Math.min(L.cols-1,Math.round(tx))),y:Math.max(0,Math.min(L.rows-1,Math.round(ty)))};
     let path=findPath(L,blocked,w.p,tile);if(!path){if(f){f=null;spot=null;}path=[];}else{if(f)taken.add(f),w.taken=f;}
     const pts=[...path];if(f&&(Math.abs(tile.x-tx)>0.01||Math.abs(tile.y-ty)>0.01))pts.push({x:tx,y:ty});
     if(!pts.length)pts.push({x:w.p.x,y:w.p.y});
-    const walkMs=walkPath(w,pts);
+    const walkMs=walkPath(w,pts);const fname=f?uiName(byId.get(f.id))||'':'';if(f){bubble(w,ICON[objects[f.id].effect]||'✨',Math.max(900,walkMs));act(w,`Going to the ${fname}`);}else act(w,w.meet?'Visiting a housemate':'Looking around');
     const useMs=f?3800+Math.random()*2500:900+Math.random()*1200;w.busyUntil=now+walkMs+useMs;
     w.t=setTimeout(()=>{
-     if(!f){w.el.dataset.anim='idle';return;}
+     if(!f){w.el.dataset.anim='idle';const m=w.meet;w.meet=null;
+      if(m&&Math.abs(m.p.x-w.p.x)+Math.abs(m.p.y-w.p.y)<=1.5){const face=m.p.x>=w.p.x?1:-1;w.p.face=face;w.el.dataset.face=face>0?'right':'left';w.el.dataset.anim='duo-cheer';bubble(w,'❤',1400);act(w,'Chatting with a housemate');
+       if(m.el.dataset.anim==='idle'){m.el.dataset.face=face>0?'left':'right';m.el.dataset.anim='duo-laugh';bubble(m,'🎶',1400);setTimeout(()=>{if(m.el.dataset.anim==='duo-laugh')m.el.dataset.anim='idle';},1400);}
+       setTimeout(()=>{if(w.el.dataset.anim==='duo-cheer')w.el.dataset.anim='idle';},1400);}
+      return;}
+     act(w,`${VERB[objects[f.id].effect]||'Using'} the ${fname}`);
      const eff=objects[f.id].effect,u=USE[eff]||USE.decor;
      if(spot.front){w.p.face=1;w.el.dataset.face='right';}
      else{const [,fh]=footprint(objects,f);w.el.style.setProperty('--z',11+(f.y+fh)*2);}
@@ -2868,7 +2922,7 @@ function createHomeSystem(ctx){
      if(piece){piece.classList.add('is-in-use');if(mk)piece.classList.add('m-'+mk);const o=MOTION_OV[mk];let ovEl=null;
       if(o&&!(f.r%2)){ovEl=document.createElement('span');ovEl.className='home-motion';ovEl.innerHTML=`<svg xmlns="http://www.w3.org/2000/svg" viewBox="${o.vb}">${o.svg}</svg>`;piece.insertBefore(ovEl,piece.querySelector('.home-hit'));}
       setTimeout(()=>{piece.classList.remove('is-in-use');if(mk)piece.classList.remove('m-'+mk);ovEl?.remove();},useMs);}
-     setTimeout(()=>{if(train&&applyEffect?.(w.cid,eff)){const fxEl=w.el.querySelector('.home-fx');fxEl.dataset.eff=eff;fxEl.classList.remove('is-pop');void fxEl.offsetWidth;fxEl.classList.add('is-pop');}},Math.min(1800,useMs/2));
+     setTimeout(()=>{if(train&&applyEffect?.(w.cid,eff))gainPop(w,eff);},Math.min(1800,useMs/2));
     },walkMs);}
    wanderTimers.push(setTimeout(tick,700));};
   wanderTimers.push(setTimeout(tick,500));
@@ -4308,7 +4362,8 @@ const COIN_PACK={id:'coins_100',coins:200,price:'€1.00'};
 /** V137: bigger packs are better value (bonus vs the 100-coin pack). */
 /** V150: coins doubled for the same euros (product ids keep their original names). */
 /** V174: packs give much more (≈3 days of play for €1); the 4 biggest also give a pack-exclusive colour. Product ids unchanged. */
-const COIN_PACKS=[{id:'coins_100',coins:600,price:'€1.00',bonus:0},{id:'coins_210',coins:1300,price:'€2.00',bonus:8},{id:'coins_550',coins:3500,price:'€5.00',bonus:17},{id:'coins_1200',coins:8000,price:'€10.00',bonus:33,tag:'Popular',gift:'dye-gold'},{id:'coins_2600',coins:17000,price:'€20.00',bonus:42,gift:'dye-aurora'},{id:'coins_7000',coins:45000,price:'€50.00',bonus:50,gift:'dye-shadow'},{id:'coins_15000',coins:100000,price:'€100.00',bonus:67,tag:'Best value',gift:'dye-rainbow'}];
+/** V178: coin packs removed — Remove ads is the only real-money purchase. Kept empty so old purchase tokens are simply ignored. */
+const COIN_PACKS=[];
 /** V174: the very first coin pack bought gives double coins. */
 const FIRST_BUY_MULT=2;
 /** V174: companion colours — a coin sink (cosmetic). Exclusive ones come only with the big coin packs. */
@@ -4319,10 +4374,10 @@ const DYES=[
  {id:'dye-sunset',name:'Sunset',price:1200,tint:'sunset',match:/\b(sunset|orange|peach|mango|carrot|pumpkin|autumn|evening|apricot|brick|rust)\b/},
  {id:'dye-snow',name:'Snow',price:1500,tint:'snow',match:/\b(white|milk|paper|cotton|salt|sugar|cream|ghost|marshmallow|flour|snowman|bandage)\b/},
  {id:'dye-cocoa',name:'Cocoa',price:2000,tint:'cocoa',match:/\b(chocolate|coffee|cocoa|wood|bread|toast|brown|caramel|clay|leather|cookie|barrel)\b/},
- {id:'dye-gold',name:'Gold',exclusive:'coins_1200',tint:'gold',match:/\b(gold|coin|treasure|crown|money|trophy|medal|king|queen|bank)\b/},
- {id:'dye-aurora',name:'Aurora',exclusive:'coins_2600',tint:'aurora',match:/\b(aurora|galaxy|nebula|space|star|planet|comet|rocket|satellite|universe)\b/},
- {id:'dye-shadow',name:'Shadow',exclusive:'coins_7000',tint:'onyx',match:/\b(shadow|night|dark|black|coal|oil|ink|smoke|bat|void|cave)\b/},
- {id:'dye-rainbow',name:'Rainbow',exclusive:'coins_15000',tint:'rainbow',match:/\b(rainbow|unicorn|prism|party|confetti|colou?r|paint|candy|firework|balloon)\b/}];
+ {id:'dye-gold',name:'Gold',price:3000,tint:'gold',match:/\b(gold|coin|treasure|crown|money|trophy|medal|king|queen|bank)\b/},
+ {id:'dye-aurora',name:'Aurora',price:4000,tint:'aurora',match:/\b(aurora|galaxy|nebula|space|star|planet|comet|rocket|satellite|universe)\b/},
+ {id:'dye-shadow',name:'Shadow',price:5000,tint:'onyx',match:/\b(shadow|night|dark|black|coal|oil|ink|smoke|bat|void|cave)\b/},
+ {id:'dye-rainbow',name:'Rainbow',price:6000,tint:'rainbow',match:/\b(rainbow|unicorn|prism|party|confetti|colou?r|paint|candy|firework|balloon)\b/}];
 /** V177: ultra-rare looks and colours. Championship wins can drop the first six; minigames have a 0.01% chance of the unique two;
  * the supreme look is for winning an ultra race (next update). An unlock gives free essences; more essences cost coins (hidden food items). */
 const ULTRA=[
@@ -4353,7 +4408,7 @@ function assignDyes(names,hasLook){const free=names.filter(n=>!hasLook(n));const
  for(const d of DYES){let have=[...map.values()].filter(v=>v===d.id).length;while(have<DYE_MIN&&k<rest.length){map.set(rest[k++],d.id);have++;}}
  return map;}
 /** V149: shown in the Market and the coin shop — nothing is pay-only. */
-const FAIR_PLAY_NOTE='Everything that helps you play can be found in Alchemy or earned by playing (races, Karate, daily coins). Only four cosmetic colours come with the big coin packs.';
+const FAIR_PLAY_NOTE='Everything is bought with Companion Coins, and coins are only earned by playing. The only real-money purchase is Remove ads.';
 const MARKET=[
  // food: given straight to the companion on screen
  // V137: food is placed on the main screen; drag it onto a companion
@@ -7333,7 +7388,7 @@ function shinyCard(item){return `<p class="shiny-trivia"><span aria-hidden="true
 function showShinyFound(id){const it=byId.get(id);if(!it)return;
  showModal(`<div class="modal-tag shiny-tag">✦ SHINY ELEMENT</div><div class="modal-art is-shiny">${staticArt(it)}</div><h2>Shiny ${escapeText(uiName(it))}</h2>${shinyCard(it)}<div class="modal-milestone">${shiny.size.toLocaleString('en-US')} shiny ${shiny.size===1?'element':'elements'} · ${Math.round(shinyChance()*100)}% chance per combination</div>`);
 }
-const APP_VERSION='1.0.77';
+const APP_VERSION='1.0.78';
 // V83: status line + Google consent (UMP) privacy options, required for EEA players.
 async function refreshAdStatus(){
  const el=$('settingsAdStatus'),bridge=getRewardBridge();
@@ -8606,7 +8661,7 @@ function gamesSeen(){try{localStorage.setItem(GAMES_SEEN_KEY,'1');}catch{}syncGa
 // ---------- V136: companion coins, Black Market, School, Wardrobe ----------
 const WALLET_KEY='alchemy10k_wallet_v136';
 let wallet={coins:0,acc:{},toys:[],toy:null,tokens:[],bag:{},daily:null,classes:{},streak:0,firstBuy:false,dyes:[],dyeOn:{},looks:[],tints:[],ultra:[]};
-try{const r=JSON.parse(localStorage.getItem(WALLET_KEY)||'null');if(r&&typeof r==='object')wallet={coins:Math.max(0,Math.floor(Number(r.coins)||0)),acc:Array.isArray(r.acc)?Object.fromEntries(r.acc.filter(a=>ACCESSORIES[a]).map(a=>[a,1])):(r.acc&&typeof r.acc==='object'?r.acc:{}),daily:typeof r.daily==='string'?r.daily:null,classes:r.classes&&typeof r.classes==='object'?r.classes:{},toys:Array.isArray(r.toys)?r.toys:[],toy:typeof r.toy==='string'?r.toy:null,tokens:Array.isArray(r.tokens)?r.tokens.slice(-200):[],bag:r.bag&&typeof r.bag==='object'?r.bag:{},streak:Number(r.streak)||0,firstBuy:r.firstBuy===true,dyes:Array.isArray(r.dyes)?r.dyes.filter(d=>DYES.some(x=>x.id===d)):[],dyeOn:r.dyeOn&&typeof r.dyeOn==='object'?r.dyeOn:{},looks:Array.isArray(r.looks)?r.looks:[],tints:Array.isArray(r.tints)?r.tints:[],ultra:Array.isArray(r.ultra)?r.ultra:[]};}catch{}
+try{const r=JSON.parse(localStorage.getItem(WALLET_KEY)||'null');if(r&&typeof r==='object')wallet={coins:Math.max(0,Math.floor(Number(r.coins)||0)),acc:Array.isArray(r.acc)?Object.fromEntries(r.acc.filter(a=>ACCESSORIES[a]).map(a=>[a,1])):(r.acc&&typeof r.acc==='object'?r.acc:{}),daily:typeof r.daily==='string'?r.daily:null,classes:r.classes&&typeof r.classes==='object'?r.classes:{},toys:Array.isArray(r.toys)?r.toys:[],toy:typeof r.toy==='string'?r.toy:null,tokens:Array.isArray(r.tokens)?r.tokens.slice(-200):[],bag:r.bag&&typeof r.bag==='object'?r.bag:{},streak:Number(r.streak)||0,firstBuy:r.firstBuy===true,dyes:Array.isArray(r.dyes)?r.dyes.filter(d=>DYES.some(x=>x.id===d)):[],dyeOn:r.dyeOn&&typeof r.dyeOn==='object'?r.dyeOn:{},looks:Array.isArray(r.looks)?r.looks:[],tints:Array.isArray(r.tints)?r.tints:[],ultra:Array.isArray(r.ultra)?r.ultra:[],adDay:r.adDay||null,adN:Number(r.adN)||0};}catch{}
 const packPrices={};
 let coinsPrice=COIN_PACK.price,coinsAvailable=false;
 function saveWallet(){try{localStorage.setItem(WALLET_KEY,JSON.stringify(wallet));}catch{}}
@@ -8641,7 +8696,7 @@ function grantElement(id){if(!byId.has(id)||unlocked.has(id))return false;unlock
 setTimeout(()=>{try{for(const it of MARKET){if(it.kind==='furniture'||it.kind==='house'||!it.element||!byId.has(it.element)||unlocked.has(it.element))continue;
  const has=it.kind==='acc'?(wallet.acc[it.acc]||0)>0:it.kind==='toy'?wallet.toys.includes(it.toy):(wallet.bag[it.id]||0)>0;
  if(has)grantElement(it.element);}}catch{}},2500);
-const coinBar=()=>`<div class="mk-wallet"><span class="mk-coins">🪙 <b data-coins>${wallet.coins.toLocaleString('en-US')}</b></span><button type="button" class="mk-buy" id="mkBuyCoins"><b>+ Coins</b></button></div>`;
+const coinBar=()=>`<div class="mk-wallet"><span class="mk-coins">🪙 <b data-coins>${wallet.coins.toLocaleString('en-US')}</b></span><button type="button" class="mk-buy ${wallet.daily!==dailyKey()?'has-gift':''}" id="mkBuyCoins"><b>${wallet.daily!==dailyKey()?'🎁 Daily gift':'Earn coins'}</b></button></div>`;
 function wireCoinBar(back){const b=$('mkBuyCoins');if(b)b.onclick=()=>openCoinShop(back);}
 // V137: coin packs — bigger packs give more coins per euro
 // V152: a full companion (20 elements) can eat again after 1 h, or now with an ad or 100 coins
@@ -8655,12 +8710,20 @@ function openFullSheet({id,name,leftMs}){const mins=Math.max(1,Math.ceil(leftMs/
  $('frCoins').onclick=()=>{const back=()=>openFullSheet({id,name,leftMs:companions.fullLeft(id)});confirmBuy({art:`<span class="companion fr-ava" data-companion="${id}"><span class="companion-art">${COMPANION_SPRITES_V86[id]||''}</span></span>`,name:`Make room for ${name}`,desc:'It can eat 20 more elements right away.',price:MAKE_ROOM_COINS,label:'Make room'},()=>{companions.makeRoom(id);closeModal();toast(`${name} can eat 20 more elements`,'new');},back);try{wearAll($('modalContent'));}catch{}};
  const b=$('frAd');if(b)b.onclick=async()=>{if(rewardedHintBusy)return;rewardedHintBusy=true;b.disabled=true;let r=null;try{r=await getRewardBridge().showRewarded({kind:'make_room',companion:id});}catch(e){console.warn('Make room ad',e);}finally{rewardedHintBusy=false;}
   if(r?.earned!==true){toast('Ad not completed','repeat');b.disabled=false;return;}roomAds[id]=(roomAds[id]||0)+1;if(roomAds[id]<MAKE_ROOM_ADS){toast(`Ad ${roomAds[id]}/${MAKE_ROOM_ADS} watched`,'repeat');openFullSheet({id,name,leftMs:companions.fullLeft(id)});return;}roomAds[id]=0;companions.makeRoom(id);closeModal();toast(`${name} can eat 20 more elements`,'new');};}
-function openCoinShop(back){
- showModal(`<div class="modal-tag">COMPANION COINS</div><h2>Get more coins</h2><div class="fair-note"><b>✓ Fair play</b><span>${escapeText(FAIR_PLAY_NOTE)}</span></div>${wallet.firstBuy?'':'<div class="cp-first">🎉 <b>First purchase: double coins!</b></div>'}<p class="mini-muted">You have 🪙 <b data-coins>${wallet.coins.toLocaleString('en-US')}</b> · bigger packs are better value</p>
-  <div class="cp-list">${COIN_PACKS.map(p=>`<button type="button" class="cp-pack ${p.tag?'is-hot':''}" data-pack="${p.id}">${p.tag?`<span class="cp-tag">${p.tag}</span>`:''}<span class="cp-pile">${'🪙'.repeat(1+COIN_PACKS.indexOf(p))}</span><b>${(p.coins*(wallet.firstBuy?1:FIRST_BUY_MULT)).toLocaleString('en-US')}</b><small>${wallet.firstBuy?'':`<s>${p.coins.toLocaleString('en-US')}</s> `}${p.bonus?`+${p.bonus}% bonus`:'coins'}</small>${p.gift?`<small class="cp-gift">+ ${escapeText(DYES.find(d=>d.id===p.gift)?.name||'')} colour</small>`:''}<em>${escapeText(packPrices[p.id]||p.price)}</em></button>`).join('')}</div>
-  <p class="mini-muted">Or earn them for free in races and Karate fights.</p>${back?'<button type="button" class="modal-button secondary" id="cpBack">Back</button>':''}`);
- $('modalContent').querySelectorAll('[data-pack]').forEach(b=>b.onclick=async()=>{b.disabled=true;await buyCoins(b.dataset.pack);b.disabled=false;syncCoinLabels();});
- modalBack=back||null;const bk=$('cpBack');if(bk)bk.onclick=()=>{modalBack=null;back();};}
+// V178: no coin packs any more — the only real-money purchase is Remove ads. Coins are earned by playing (or a few optional ads a day).
+const AD_COINS=20,AD_COINS_PER_DAY=5;
+function adCoinsLeft(){const d=dailyKey();if(wallet.adDay!==d){wallet.adDay=d;wallet.adN=0;}return Math.max(0,AD_COINS_PER_DAY-(wallet.adN||0));}
+function claimDaily(){if(wallet.daily===dailyKey())return 0;const st=nextStreak(),c=dailyCoins(st);wallet.streak=st;wallet.daily=dailyKey();addCoins(c);SFX.prize?.();toast(`+${c} daily coins!`,'new');return c;}
+function openCoinShop(back){const daily=wallet.daily!==dailyKey();const left=adCoinsLeft();const ad=rewardedAvailable()&&left>0;const again=()=>openCoinShop(back);
+ const row=(ico,t,sm)=>`<li><span>${ico}</span><div><b>${t}</b><small>${sm}</small></div></li>`;
+ showModal(`<div class="modal-tag">COMPANION COINS</div><h2>Earn coins</h2><p class="mini-muted">You have 🪙 <b data-coins>${wallet.coins.toLocaleString('en-US')}</b> · coins are never sold for real money.</p>
+  <button type="button" class="modal-button" id="cpDaily" ${daily?'':'disabled'}>${daily?`🎁 Daily gift · +${dailyCoins(nextStreak())}`:'🎁 Daily gift claimed · back tomorrow'}</button>
+  ${rewardedAvailable()?`<button type="button" class="modal-button secondary" id="cpAd" ${ad?'':'disabled'}>▶ Watch an ad · +${AD_COINS} <small>(${left} left today)</small></button>`:''}
+  <ul class="cp-ways">${row('⚗️','Discover elements',`+${DISCOVERY_COINS} each · +${DISCOVERY_MILESTONE_COINS} every ${DISCOVERY_MILESTONE}`)}${row('🏁','Races and Karate','Best on your first gold of each level')}${row('🎮','Minigames and Microgames','Up to 40 a game · 150 a day')}${row('🔍','Companion finds',`+${COMPANION_FIND_COINS} each`)}</ul>
+  ${back?'<button type="button" class="modal-button secondary" id="cpBack">Back</button>':'<button type="button" class="modal-button secondary" id="cpBack">Close</button>'}`);
+ $('cpDaily').onclick=()=>{if(claimDaily())again();};
+ const a=$('cpAd');if(a)a.onclick=async()=>{a.disabled=true;let r=null;try{r=await getRewardBridge().showRewarded({kind:'coins'});}catch{}if(r?.earned!==true){toast('Ad not completed','repeat');again();return;}adCoinsLeft();wallet.adN=(wallet.adN||0)+1;addCoins(AD_COINS);toast(`+${AD_COINS} coins`,'new');again();};
+ modalBack=back||null;$('cpBack').onclick=()=>{modalBack=null;back?back():closeModal();};}
 // V137: bought food sits on the main screen (on top of the craft card); drag it onto a companion
 function renderFoodTray(){let tray=$('foodTray');const card=document.querySelector('#viewPlay .craft-card');if(!card)return;
  if(!tray){tray=document.createElement('div');tray.id='foodTray';tray.className='food-tray';card.style.position='relative';card.append(tray);}
@@ -8683,7 +8746,7 @@ const accOwned=a=>wallet.acc[a]||0;
 function accInUse(a,except=null){let n=0;for(const [cid,p] of Object.entries(companions.state().pets||{})){if(cid===except)continue;if(Object.values(p?.wear||{}).includes(a))n++;}return n;}
 function confirmBuy({art,name,desc,price,label='Buy'},onBuy,onBack){const short=wallet.coins<price;
  showModal(`<div class="modal-tag">CONFIRM</div><div class="cf-art">${art}</div><h2>${escapeText(name)}</h2>${desc?`<p class="mini-muted">${escapeText(desc)}</p>`:''}<div class="cf-sum"><span>Price</span><b>🪙 ${price.toLocaleString('en-US')}</b><span>You have</span><b class="${short?'is-short':''}">🪙 ${wallet.coins.toLocaleString('en-US')}</b>${short?'':`<span>After</span><b>🪙 ${(wallet.coins-price).toLocaleString('en-US')}</b>`}</div>
-  ${short?`<button type="button" class="modal-button" id="cfCoins">Get more coins</button>`:`<button type="button" class="modal-button" id="cfBuy">${escapeText(label)} · 🪙 ${price.toLocaleString('en-US')}</button>`}<button type="button" class="modal-button secondary" id="cfBack">Cancel</button>`);
+  ${short?`<button type="button" class="modal-button" id="cfCoins">How to earn coins</button>`:`<button type="button" class="modal-button" id="cfBuy">${escapeText(label)} · 🪙 ${price.toLocaleString('en-US')}</button>`}<button type="button" class="modal-button secondary" id="cfBack">Cancel</button>`);
  modalBack=onBack;$('cfBack').onclick=()=>{modalBack=null;onBack();};
  const c=$('cfCoins');if(c)c.onclick=()=>openCoinShop(()=>confirmBuy({art,name,desc,price,label},onBuy,onBack));
  const b=$('cfBuy');if(b)b.onclick=()=>{if(!spendCoins(price)){toast('Not enough coins','repeat');return;}modalBack=null;SFX.unlock?.();onBuy();};}
@@ -8697,7 +8760,7 @@ function openMarket(onClose,tab){if(tab)marketTab=tab;
  const items=MARKET.filter(it=>it.kind===marketTab&&!it.hidden&&(!it.element||byId.has(it.element)));
  // V175: Colours tab — buying a colour unlocks it on a set of Alchemy elements; feeding those elements tints the companion
  const swatch=d=>{const c={mint:'#78dcb4',sky:'#78bef9',berry:'#aa3c8c',sunset:'#ff6e50',snow:'#f5f8ff',cocoa:'#825537',gold:'#e8c040',aurora:'#5adcd2',onyx:'#282834',rainbow:'conic-gradient(#ff5a5a,#ffd166,#8fbf68,#5aaed2,#b39ddb,#ff5a5a)'}[d.tint]||'#ccc';return `<span class="mk-art dye-sw" style="background:${c}"></span>`;};
- const dyeTile=d=>{const own=wallet.dyes.includes(d.id);const pack=d.exclusive?COIN_PACKS.find(p=>p.id===d.exclusive):null;const n=dyeElements(d.id).length;
+ const dyeTile=d=>{const own=wallet.dyes.includes(d.id);const pack=null;const n=dyeElements(d.id).length;
   const label=own?'Unlocked':pack?`${packPrices[pack.id]||pack.price} pack`:`🪙 ${d.price.toLocaleString('en-US')}`;
   return `<button type="button" class="stat-tile mk-tile ${own?'is-owned':''} ${pack&&!own?'is-excl':''}" data-dye="${d.id}">${swatch(d)}<b>${escapeText(d.name)}</b><small>${n} elements${pack?' · pack exclusive':''}</small><em class="mk-price ${!own&&!pack&&wallet.coins<d.price?'is-short':''}">${label}</em></button>`;};
  const rgbCss=c=>c?`rgb(${c.join(',')})`:'#ccc';
@@ -8715,12 +8778,12 @@ function openMarket(onClose,tab){if(tab)marketTab=tab;
   return `<button type="button" class="stat-tile mk-tile ${o?'is-owned':''} ${it.kind==='toy'&&wallet.toy===it.toy?'is-on':''}" data-mk="${it.id}"><span class="mk-art">${artOf(it)}</span><b>${escapeText(nameOf(it))}</b><small>${escapeText(descOf(it)||'')}</small>${it.ext?`<small class="mk-fits">${escapeText(fitsOf(it))}</small>`:''}<em class="mk-price ${!o&&wallet.coins<priceOf(it)?'is-short':''}">${label}</em></button>`;};
  const daily=wallet.daily!==dailyKey();
  showModal(`<div class="modal-tag">BLACK MARKET</div><h2>Spend your coins</h2><div class="fair-note"><b>✓ Fair play</b><span>${escapeText(FAIR_PLAY_NOTE)}</span></div>${coinBar()}
-  <button type="button" class="mk-daily ${daily?'':'is-done'}" id="mkDaily" ${daily?'':'disabled'}><span>🎁</span><b>${daily?`Daily coins · +${dailyCoins(nextStreak())}`:'Daily coins claimed'}</b><small>${daily?`Day ${Math.min(7,nextStreak())} of 7 · more each day in a row`:`Streak ${wallet.streak||1} · come back tomorrow`}</small></button>
+
   <div class="mk-tabs">${MARKET_TABS.map(([k,l])=>`<button type="button" data-mktab="${k}" aria-pressed="${k===marketTab}">${l}</button>`).join('')}</div>
   ${marketTab==='food'?`<p class="mini-muted">Bought food waits on the Alchemy screen — drag it onto a companion.${Object.values(wallet.bag||{}).reduce((n,v)=>n+v,0)?` · ${Object.values(wallet.bag).reduce((n,v)=>n+v,0)} waiting`:''}</p>`:marketTab==='toy'?'<p class="mini-muted">One toy sits on the craft card; your companion plays with it now and then.</p>':marketTab==='acc'?'<p class="mini-muted">One copy dresses one companion. Each extra copy costs more.</p>':''}
   ${marketTab==='dye'?dyeGrid:marketTab==='look'?lookGrid:`<div class="stat-tiles mk-grid">${items.map(tile).join('')}</div>`}<p class="mini-muted">Win races and Karate fights to earn coins.</p>`);
  const again=()=>openMarket(onClose);wireCoinBar(again);
- $('mkDaily').onclick=()=>{if(wallet.daily===dailyKey())return;const st=nextStreak(),c=dailyCoins(st);wallet.streak=st;wallet.daily=dailyKey();addCoins(c);SFX.prize?.();toast(`+${c} daily coins!`,'new');again();};
+
  $('modalContent').querySelectorAll('[data-mktab]').forEach(b=>b.onclick=()=>{marketTab=b.dataset.mktab;again();});
  $('modalContent').querySelectorAll('[data-tint]').forEach(b=>b.onclick=()=>{const t=TINT_ITEMS.find(x=>x.key===b.dataset.tint);if(wallet.tints.includes(t.key)){toast(`${t.name} colour is unlocked`,'repeat');return;}
   confirmBuy({art:`<span class="dye-sw" style="background:${rgbCss(TINT_RGB[t.key])}"></span>`,name:`${t.name} colour`,desc:'Elements of this colour can now tint your companions.',price:t.price,label:'Unlock'},()=>{wallet.tints.push(t.key);saveWallet();SFX.happy?.();again();},again);});
@@ -8730,8 +8793,8 @@ function openMarket(onClose,tab){if(tab)marketTab=tab;
   confirmBuy({art:`<span class="lk-ico">${inf.icon||'✨'}</span>`,name:`${l.name} look`,desc:`${inf.traits.join(', ')||'Its colour'} — grow it by feeding ${l.name.toLowerCase()} elements.`,price:l.price,label:'Unlock'},()=>{wallet.looks.push(l.key);saveWallet();SFX.happy?.();toast(`${l.name} look unlocked!`,'new');again();},again);});
  $('modalContent').querySelectorAll('[data-dye]').forEach(b=>b.onclick=()=>{const d=DYES.find(x=>x.id===b.dataset.dye);const els=dyeElements(d.id);const list=els.slice(0,40).map(n=>escapeText(n)).join(' · ')+(els.length>40?` · +${els.length-40} more`:'');
   const show=()=>{showModal(`<div class="modal-tag">COLOUR</div>${swatch(d)}<h2>${escapeText(d.name)} colour</h2><p>${wallet.dyes.includes(d.id)?'Unlocked! Feed any of these elements to a companion to tint it:':'Unlock it to make these elements tint your companions when they eat them:'}</p><p class="dye-list">${list}</p>
-   ${wallet.dyes.includes(d.id)?'':d.exclusive?`<button type="button" class="modal-button" id="dyBuy">Comes with the ${escapeText(packPrices[d.exclusive]||COIN_PACKS.find(p=>p.id===d.exclusive)?.price||'')} coin pack</button>`:`<button type="button" class="modal-button" id="dyBuy">Unlock · 🪙 ${d.price.toLocaleString('en-US')}</button>`}<button type="button" class="modal-button secondary" id="dyBack">Back</button>`);
-   $('dyBack').onclick=again;const by=$('dyBuy');if(by)by.onclick=()=>{if(d.exclusive){openCoinShop(show);return;}confirmBuy({art:swatch(d),name:`${d.name} colour`,desc:`Unlocks the colour on ${els.length} elements.`,price:d.price,label:'Unlock'},()=>{wallet.dyes.push(d.id);saveWallet();SFX.happy?.();toast(`${d.name} colour unlocked · feed its elements`,'new');show();},show);};};show();});
+   ${wallet.dyes.includes(d.id)?'':`<button type="button" class="modal-button" id="dyBuy">Unlock · 🪙 ${d.price.toLocaleString('en-US')}</button>`}<button type="button" class="modal-button secondary" id="dyBack">Back</button>`);
+   $('dyBack').onclick=again;const by=$('dyBuy');if(by)by.onclick=()=>{confirmBuy({art:swatch(d),name:`${d.name} colour`,desc:`Unlocks the colour on ${els.length} elements.`,price:d.price,label:'Unlock'},()=>{wallet.dyes.push(d.id);saveWallet();SFX.happy?.();toast(`${d.name} colour unlocked · feed its elements`,'new');show();},show);};};show();});
  $('modalContent').querySelectorAll('[data-mk]').forEach(b=>b.onclick=()=>{const it=MARKET.find(x=>x.id===b.dataset.mk);if(!it)return;
   if(it.kind==='toy'&&owned(it)){wallet.toy=wallet.toy===it.toy?null:it.toy;saveWallet();companions.placeToy?.();again();return;}
   if(owned(it))return;
