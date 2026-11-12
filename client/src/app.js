@@ -514,7 +514,7 @@ function shinyFanfare(){if(!soundEnabled)return;const ctx=acquireSoundEngine();i
 function showShinyFound(id){const it=byId.get(id);if(!it)return;
  showModal(`<div class="modal-tag shiny-tag">✦ SHINY ELEMENT</div><div class="modal-art is-shiny">${staticArt(it)}</div><h2>Shiny ${escapeText(uiName(it))}</h2>${shinyPerks(it)}${shinyCard(it)}`);shinyDress();
 }
-const APP_VERSION='1.0.96';
+const APP_VERSION='1.0.97';
 // V83: status line + Google consent (UMP) privacy options, required for EEA players.
 async function refreshAdStatus(){
  const el=$('settingsAdStatus'),bridge=getRewardBridge();
@@ -1886,7 +1886,7 @@ function openCoinShop(back){const daily=wallet.daily!==dailyKey();const left=adC
  showModal(`<div class="cp-bank-head"><small>COMPANION COINS</small><b>🪙 <span data-coins>${wallet.coins.toLocaleString('en-US')}</span></b><span>Spend them in the Market, on minigames and on your companions</span></div><h2>Get coins</h2><h3 class="st-sub">Free</h3>
   <button type="button" class="modal-button" id="cpDaily" ${daily?'':'disabled'}>${daily?`🎁 Daily gift · +${dailyCoins(nextStreak())}`:'🎁 Daily gift claimed · back tomorrow'}</button>
   ${rewardedAvailable()?`<button type="button" class="modal-button secondary" id="cpAd" ${ad?'':'disabled'}>▶ Watch an ad · +${AD_COINS} <small>(${left} left today)</small></button>`:''}
-  <ul class="cp-ways">${row('⚗️','Discover elements',`+${DISCOVERY_COINS} each · +${DISCOVERY_MILESTONE_COINS} every ${DISCOVERY_MILESTONE}`)}${row('🏁','Races and Karate','Best on your first gold of each level')}${row('🎮','Minigames and Microgames','Up to 40 a game · 150 a day')}${row('🔍','Companion finds',`+${COMPANION_FIND_COINS} each`)}</ul>
+  <ul class="cp-ways">${row('⚗️','Discover elements',`+${DISCOVERY_COINS} each · +${GOAL_COINS} every ${GOAL_STEP} · +${DISCOVERY_MILESTONE_COINS} every ${DISCOVERY_MILESTONE} · combos`)}${row('🏁','Races and Karate','Best on your first gold of each level')}${row('🎮','Minigames and Microgames','Up to 40 a game · 150 a day')}${row('🔍','Companion finds',`+${COMPANION_FIND_COINS} each`)}</ul>
   <h3 class="st-sub">Coin packs</h3>${wallet.firstBuy?'':'<div class="cp-first">🎉 <b>First purchase: double coins!</b></div>'}<div class="cp-list">${COIN_PACKS.map(p=>`<button type="button" class="cp-pack ${p.tag?'is-hot':''}" data-pack="${p.id}">${p.tag?`<span class="cp-tag">${p.tag}</span>`:''}<span class="cp-pile">${'🪙'.repeat(1+COIN_PACKS.indexOf(p))}</span><b>${(p.coins*(wallet.firstBuy?1:FIRST_BUY_MULT)).toLocaleString('en-US')}</b><small>${wallet.firstBuy?'':`<s>${p.coins.toLocaleString('en-US')}</s> `}${p.bonus?`+${p.bonus}% bonus`:'coins'}</small><em>${escapeText(packPrices[p.id]||p.price)}</em></button>`).join('')}</div><p class="mini-muted">${escapeText(FAIR_PLAY_NOTE)}</p>
   ${back?'<button type="button" class="modal-button secondary" id="cpBack">Back</button>':'<button type="button" class="modal-button secondary" id="cpBack">Close</button>'}`);
  $('modalContent').querySelectorAll('[data-pack]').forEach(b=>b.onclick=async()=>{b.disabled=true;await buyCoins(b.dataset.pack);b.disabled=false;syncCoinLabels();again();});
