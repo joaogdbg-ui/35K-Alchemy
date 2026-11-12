@@ -2493,3 +2493,8 @@ body[data-tab="Games"] .companion-layer{display:none}
 .st-grid .st-tile{border:2px solid #E3D6BE!important;border-radius:18px!important;background:linear-gradient(#fff,#FBF3E2)!important;box-shadow:0 4px 0 #E3D6BE;transition:transform .1s}
 .st-grid .st-tile:active{transform:translateY(3px);box-shadow:0 1px 0 #E3D6BE}
 .st-grid .st-tile i{box-shadow:0 2px 0 rgba(0,0,0,.08)}
+
+/* V194: drawn world backdrops bring their own clouds and sky */
+.g-stage[data-scene] .g-cloud{display:none}
+.g-stage[data-scene] .g-sky{background-color:transparent}
+

@@ -90,6 +90,13 @@ Preserve 200-per-batch policy and do not start another content release on top of
 
 - **Art redraw wave 3 (V85, done): 3,991 icons** — every remaining older element. All 6,012 pre-V83 elements now use the 2026 art direction (`ART_REDRAW`), plus 200 V83 and 200 V85 originals. Six near-duplicates found by the audit were redrawn; 36 reviewed false alarms are in `tools/art-redraw-reviewed-pairs.json` (the audit now also honours them for V83 comparisons).
 
+## V194 — Mundos desenhados (não só paleta)
+
+- games-theme-v151.js: cada um dos 40 mundos tem agora cenário próprio composto à mão em `SC` (céu em gradiente, astro, 2–3 planos de horizonte, extras, cor do chão, vedação, noite): geradores `SIL` (hills, mountains, skyline, pines, round, bergs, mesas, pyramids, volcano, castle, pagoda, temple, palms, bamboo, spires, tents, arches, graves, moai, towers, blocks, spire, stage, flowers, reedbed, saur, lamps), `BODY` (sun, bigsun, moon, crescent, planet), `EXT` (stars, aurora, birds, clouds, bunting, lanterns, mist, embers, snow, rays) e `FENCE` (wood, stone, iron, rope, ice, bamboo, neon, hedge, none).
+- `worldSky(cid)` → SVG 400×300 do céu/horizonte; `worldMid(cid,props)` → SVG 400×160 da faixa junto à pista (chão, vedação própria e 5 adereços grandes). `companionArt` usa-os (`scene:true`, `night`); as texturas da pista continuam recoloridas.
+- games-v93: `data-scene`/`data-night` no palco; nuvens CSS genéricas escondidas nos mundos desenhados.
+- `APP_VERSION` 1.0.94.
+
 ## V193 — Corridas: ecrã de resultado corrigido, saída com aviso, mundo próprio por companion, Settings com skin
 
 - **Bug corrigido**: `finishRace`/`finishKarate` usavam `PK` (só definido em `startRace`/`startKarate`) → ReferenceError: o ecrã de resultado nunca aparecia e as moedas da prova não eram pagas. Agora `PK` é lido dentro de cada função.
