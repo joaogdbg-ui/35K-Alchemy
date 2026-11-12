@@ -514,7 +514,7 @@ function shinyFanfare(){if(!soundEnabled)return;const ctx=acquireSoundEngine();i
 function showShinyFound(id){const it=byId.get(id);if(!it)return;
  showModal(`<div class="modal-tag shiny-tag">✦ SHINY ELEMENT</div><div class="modal-art is-shiny">${staticArt(it)}</div><h2>Shiny ${escapeText(uiName(it))}</h2>${shinyPerks(it)}${shinyCard(it)}`);shinyDress();
 }
-const APP_VERSION='1.1.00';
+const APP_VERSION='1.1.01';
 // V83: status line + Google consent (UMP) privacy options, required for EEA players.
 async function refreshAdStatus(){
  const el=$('settingsAdStatus'),bridge=getRewardBridge();

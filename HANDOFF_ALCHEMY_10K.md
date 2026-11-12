@@ -90,6 +90,12 @@ Preserve 200-per-batch policy and do not start another content release on top of
 
 - **Art redraw wave 3 (V85, done): 3,991 icons** — every remaining older element. All 6,012 pre-V83 elements now use the 2026 art direction (`ART_REDRAW`), plus 200 V83 and 200 V85 originals. Six near-duplicates found by the audit were redrawn; 36 reviewed false alarms are in `tools/art-redraw-reviewed-pairs.json` (the audit now also honours them for V83 comparisons).
 
+## V201 — Uso da mobília com lógica
+- `useStyle(name,id)` (puro, exportado): `side` | `front` | `on`. Peças de ver/aquecer/remexer/brincar (aquário, lareira, fogueira, guarda-roupa, despensa, estante, telescópio, casa de bonecas, mesas, relógios, candeeiros…) usam-se **ao lado**, virado para a peça (`useSpot(f,L,blocked)` escolhe lado livre; sem lado livre fica à frente, abaixo da peça). Poses novas `warm`, `watch`, `rummage` (+ `duo-cheer` para brincar) e texto próprio ("Watching the Aquarium").
+- Descanso: camas largas = deitado (reposicionado); peças estreitas (cama de pet, berço, beliche, rede, cadeira) = enroscado a dormir (`rest-curl`, "z"); banheira/termas/chuveiro = dentro de água (`use-soak`).
+- Tigelas/comedouro e saco de boxe ficam como antes. Aparelhos (passadeira, trampolim, piscina…) também.
+- Harness: `/tmp/v160/fur.py <companion> <peças…>` renderiza cada peça em uso (máx ~9 de cada vez, uma execução de cada vez).
+
 ## V200 — Companions que "representam" (poses, expressões, virar)
 - **Virar** já não é uma folha de papel: pequeno salto, a troca de lado acontece no ar, aterra com squash (`cp-turn-l/r` no `svg` dentro de `.companion-art`).
 - **Expressões** `data-expr` (angry, happy, sad, wow, dizzy, sleepy, love, smug): mexem olhos/boca/cabeça com as propriedades `scale/rotate/translate` (compõem com qualquer animação) + símbolo (💢 💧 ❗ 💕). Helper `expr(el,k,ms)` no motor e nas casas.
