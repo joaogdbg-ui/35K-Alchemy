@@ -2341,3 +2341,43 @@ body[data-tab="Pets"] .companion-layer{display:none}
 /* V190: minigame unlock explainer */
 .ar-how{margin:4px 0 10px;padding:9px 12px;border-radius:12px;background:var(--surface-2);font-size:13.5px;line-height:1.35;text-align:left}
 .ar-tile.is-locked{opacity:.8;border-style:dashed}
+
+/* V191: the Market looks like a market stall */
+.mk-shop{position:relative}
+.mk-stall{position:relative;margin:-6px -4px 10px;padding:30px 12px 10px;border-radius:18px;background:linear-gradient(#fff3d9,#f7e1b8);border:2px solid #657D89;overflow:hidden}
+.mk-awning{position:absolute;inset:0 0 auto 0;height:24px;background:repeating-linear-gradient(90deg,#E0675A 0 28px,#FFF8EC 28px 56px);border-bottom:2px solid #657D89}
+.mk-awning::after{content:"";position:absolute;left:0;right:0;top:100%;height:9px;background:radial-gradient(circle at 14px 0,#E0675A 0 9px,transparent 9.5px) 0 0/56px 9px repeat-x,radial-gradient(circle at 42px 0,#FFF8EC 0 9px,transparent 9.5px) 0 0/56px 9px repeat-x;filter:drop-shadow(0 1.5px 0 #657D89)}
+.mk-stall .modal-tag{margin:6px 0 2px;color:#8A5A1C;letter-spacing:.2em}
+.mk-keeper{display:flex;align-items:center;gap:10px}
+.mk-keeper-art{flex:0 0 58px;width:58px;height:58px;display:grid;place-items:center;font-size:40px;animation:mk-bob 2.4s ease-in-out infinite}.mk-keeper-art svg{width:100%;height:100%}
+@keyframes mk-bob{50%{transform:translateY(-4px) rotate(-3deg)}}
+.mk-say{position:relative;flex:1;margin:0;padding:9px 12px;border-radius:14px;background:#fff;border:2px solid #657D89;font-size:12.5px;font-weight:700;line-height:1.3;text-align:left;color:#3C4B52}
+.mk-say::before{content:"";position:absolute;left:-9px;top:50%;margin-top:-7px;border:7px solid transparent;border-left:0;border-right:9px solid #657D89}
+.mk-say::after{content:"";position:absolute;left:-6px;top:50%;margin-top:-5px;border:5px solid transparent;border-left:0;border-right:7px solid #fff}
+.mk-shop .mk-wallet{border:2px solid #E3B84E;background:linear-gradient(150deg,#FFF1C9,#FFE08A)}
+.mk-deal{position:relative;display:flex;align-items:center;gap:12px;width:100%;margin:0 0 10px;padding:10px 14px;border-radius:18px;border:2px solid #E0675A;background:linear-gradient(120deg,#FFF1EC,#FFE3C9);color:var(--ink);text-align:left;overflow:hidden}
+.mk-deal::after{content:"";position:absolute;inset:0;background:linear-gradient(110deg,transparent 40%,rgba(255,255,255,.7) 50%,transparent 60%);transform:translateX(-100%);animation:mk-shine 3.2s ease-in-out infinite}
+@keyframes mk-shine{60%,100%{transform:translateX(100%)}}
+.mk-deal .mk-art{flex:0 0 54px;width:54px;height:54px;display:grid;place-items:center;font-size:36px;background:#fff;border-radius:16px;border:2px solid #F2B8A8}.mk-deal .mk-art svg{width:86%;height:86%}
+.mk-deal-main{flex:1;min-width:0;display:grid;gap:1px}.mk-deal-main small{font-size:10.5px;font-weight:900;letter-spacing:.08em;color:#C9483C}.mk-deal-main b{font-size:16px}.mk-deal-main s{font-size:12px;color:var(--muted)}
+.mk-deal-burst{position:absolute;right:-6px;top:-6px;padding:12px 14px 6px 10px;border-radius:0 0 0 18px;background:#E0675A;color:#fff;font-style:normal;font-weight:900;font-size:13px;rotate:6deg}
+.mk-shop .mk-tabs{gap:6px;padding:0;background:none;margin-bottom:2px}
+.mk-shop .mk-tabs button{flex:0 0 auto;height:auto;padding:6px 12px 5px;border-radius:14px;border:2px solid var(--line);background:var(--surface);display:grid;justify-items:center;gap:0;font-size:11px;color:var(--ink-2)}
+.mk-shop .mk-tabs button i{font-style:normal;font-size:20px;line-height:1.1}
+.mk-shop .mk-tabs button[aria-pressed="true"]{border-color:#657D89;background:#4F6269;color:#fff;box-shadow:0 3px 0 #33444B;transform:translateY(-2px)}
+.mk-shop .mk-tile{position:relative;border:2px solid #E3D6BE!important;border-radius:18px!important;background:linear-gradient(#fff,#FBF3E2)!important;box-shadow:0 3px 0 #E3D6BE;padding-top:10px!important;transition:transform .12s}
+.mk-shop .mk-tile:active{transform:translateY(2px);box-shadow:0 1px 0 #E3D6BE}
+.mk-shop .mk-tile .mk-art{width:58px;height:58px;display:grid;place-items:center;border-radius:50%;background:radial-gradient(circle at 50% 40%,#fff 0 40%,var(--mk-c,#FFE9B8) 100%);box-shadow:inset 0 -4px 0 rgba(0,0,0,.06)}
+.mk-shop .mk-tile .mk-art svg{width:78%;height:78%}.mk-shop .mk-tile .mk-emoji{font-size:32px}
+.mk-shop[data-tab="food"]{--mk-c:#FFD6C2}.mk-shop[data-tab="acc"]{--mk-c:#D6E6FF}.mk-shop[data-tab="look"]{--mk-c:#E9D5FF}.mk-shop[data-tab="dye"]{--mk-c:#D5F2E3}.mk-shop[data-tab="toy"]{--mk-c:#FFE9A8}.mk-shop[data-tab="furniture"]{--mk-c:#F2DDC0}.mk-shop[data-tab="house"]{--mk-c:#CFE8F7}
+.mk-shop .mk-tile .dye-sw{background-clip:padding-box}
+.mk-shop .mk-price{margin-top:4px;padding:5px 12px;border-radius:12px;background:#6FB26A!important;color:#fff!important;box-shadow:0 3px 0 #4F8A4C;font-size:13px!important;white-space:nowrap}
+.mk-shop .mk-price.is-short{opacity:1;background:#D9D2C4!important;color:#6E6A60!important;box-shadow:0 3px 0 #BDB5A4}
+.mk-shop .mk-tile.is-owned .mk-price{background:transparent!important;color:var(--muted)!important;box-shadow:none}
+.mk-shop .mk-tile.is-owned{box-shadow:none;background:var(--surface-2)!important;border-style:dashed!important}
+.mk-shop .mk-tile.is-ultra{background:linear-gradient(160deg,#fff5d6,#f3dfc8 60%,#e9d5ff)!important;border-color:#C9A6F0!important}
+.mk-shop .mk-tile.is-deal{border-color:#E0675A!important;box-shadow:0 3px 0 #E0675A}
+.mk-flag{position:absolute;top:-2px;right:-2px;padding:3px 8px;border-radius:0 16px 0 12px;background:#E0675A;color:#fff;font-style:normal;font-weight:900;font-size:11px;z-index:1}
+.mk-flag.is-own{background:#6FB26A}
+.mk-shop .st-sub{margin-top:14px}
+@media (prefers-reduced-motion:reduce){.mk-keeper-art,.mk-deal::after{animation:none}}

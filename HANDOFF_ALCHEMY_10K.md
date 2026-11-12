@@ -90,6 +90,12 @@ Preserve 200-per-batch policy and do not start another content release on top of
 
 - **Art redraw wave 3 (V85, done): 3,991 icons** — every remaining older element. All 6,012 pre-V83 elements now use the 2026 art direction (`ART_REDRAW`), plus 200 V83 and 200 V85 originals. Six near-duplicates found by the audit were redrawn; 36 reviewed false alarms are in `tools/art-redraw-reviewed-pairs.json` (the audit now also honours them for V83 comparisons).
 
+## V191 — Market com cara de loja
+
+- `openMarket`: banca com toldo às riscas (`.mk-stall`), o companion ativo como lojista com balão de fala (a nota de cada separador passou para o balão `SAY`), separadores com ícone, cartões com pedestal colorido por separador, preço em botão verde (cinzento se faltam moedas), selo ✓ nos comprados.
+- **Oferta do dia**: 1 artigo (comida, roupa, brinquedo ou mobília ainda não comprados) a −25% (`MARKET_DEAL_OFF`), escolhido pelo dia (`dailyKey`); cartão em destaque no topo e selo no cartão do separador. `priceOf` aplica o desconto na compra.
+- `APP_VERSION` 1.0.91.
+
 ## V190 — Minijogos por desbloquear e economia aparada
 
 - **Desbloqueio de minijogos** (`arcadeProgress(st,count,ids,rnd,{house})`): o 1.º minijogo (aleatório) chega com a **primeira casa** (`houseGiven`, fica para sempre); +1 aleatório a cada 250 elementos; ou compra de 1 aleatório por `ARCADE_BUY_COINS=3000` (`st.bought`, não mexe na meta dos 250). Bloqueados aparecem como 🔒 ??? com a explicação; tocar num ??? abre a compra. Passe de 24 h por anúncio mantém-se.

@@ -507,7 +507,7 @@ function shinyCard(item){return `<p class="shiny-trivia"><span aria-hidden="true
 function showShinyFound(id){const it=byId.get(id);if(!it)return;
  showModal(`<div class="modal-tag shiny-tag">✦ SHINY ELEMENT</div><div class="modal-art is-shiny">${staticArt(it)}</div><h2>Shiny ${escapeText(uiName(it))}</h2>${shinyCard(it)}<div class="modal-milestone">${shiny.size.toLocaleString('en-US')} shiny ${shiny.size===1?'element':'elements'} · ${Math.round(shinyChance()*100)}% chance per combination</div>`);
 }
-const APP_VERSION='1.0.90';
+const APP_VERSION='1.0.91';
 // V83: status line + Google consent (UMP) privacy options, required for EEA players.
 async function refreshAdStatus(){
  const el=$('settingsAdStatus'),bridge=getRewardBridge();
@@ -1378,6 +1378,7 @@ function elementInfo(id){const it=byId.get(id);if(!it)return;const fams=families
   ${wearableFor(uiName(it))&&companions.active&&unlocked.has(id)?`<button type="button" class="modal-button is-wear" id="infoWear">${accIcon(wearableFor(uiName(it)),22)} Wear on ${escapeText(companions.info(companions.active.id).name)}</button>`:''}<button type="button" class="modal-button" id="infoUse">Use in craft table</button><button type="button" class="modal-button secondary" id="infoPaths">Recipes</button>`);
  {const wb=$('infoWear');if(wb)wb.onclick=()=>{const a=wearableFor(uiName(it));grantAccessory(a);const cid=companions.active.id;closeModal();if(Object.values(companions.wearOf(cid)).includes(a)){toast(`${companions.info(cid).name} is already wearing it`,'repeat');return;}if(equipAcc(cid,a,()=>closeModal()))toast(`${companions.info(cid).name} is wearing ${ACCESSORIES[a].name}`,'new');};}
  $('infoUse').onclick=()=>{closeModal();insertDirect(id);};$('infoPaths').onclick=()=>{closeModal();openRecipePaths(id);};}
+const MARKET_DEAL_OFF=0.25;
 /* ===== V189: discovery loop — short goals always in sight, combos for quick finds, more celebration ===== */
 const GOAL_STEP=25,GOAL_COINS=5,COMBO_WINDOW_MS=45000,COMBO_KEY='alchemy7k_combo_v189';
 let comboCount=0,comboAt=0,comboBest=0;try{comboBest=Math.max(0,Number(JSON.parse(localStorage.getItem(COMBO_KEY)||'{}').best)||0);}catch{}
@@ -1916,7 +1917,11 @@ function yesterdayKey(){const d=new Date();d.setDate(d.getDate()-1);return d.get
 function nextStreak(){return wallet.daily===yesterdayKey()?Math.min(7,(wallet.streak||0)+1):1;}
 function openMarket(onClose,tab){if(tab)marketTab=tab;
  const owned=it=>it.kind==='toy'?wallet.toys.includes(it.toy):(it.kind==='furniture'||it.kind==='house')?unlocked.has(it.element):false;
- const priceOf=it=>it.kind==='acc'?accPrice(it.price,accOwned(it.acc)):it.price;
+ const basePrice=it=>it.kind==='acc'?accPrice(it.price,accOwned(it.acc)):it.price;
+ // V191: one item is 25% off each day (food, wearables, toys and furniture that are not owned yet)
+ const dealPool=MARKET.filter(it=>!it.hidden&&['food','acc','toy','furniture'].includes(it.kind)&&!it.ext&&(!it.element||byId.has(it.element))&&!owned(it));
+ const deal=dealPool.length?dealPool[[...dailyKey()].reduce((h,c)=>(h*31+c.charCodeAt(0))>>>0,7)%dealPool.length]:null;
+ const priceOf=it=>deal&&deal.id===it.id?Math.max(1,Math.round(basePrice(it)*(1-MARKET_DEAL_OFF))):basePrice(it);
  const items=MARKET.filter(it=>it.kind===marketTab&&!it.hidden&&(!it.element||byId.has(it.element)));
  // V175: Colours tab — buying a colour unlocks it on a set of Alchemy elements; feeding those elements tints the companion
  const swatch=d=>{const c={mint:'#78dcb4',sky:'#78bef9',berry:'#aa3c8c',sunset:'#ff6e50',snow:'#f5f8ff',cocoa:'#825537',gold:'#e8c040',aurora:'#5adcd2',onyx:'#282834',rainbow:'conic-gradient(#ff5a5a,#ffd166,#8fbf68,#5aaed2,#b39ddb,#ff5a5a)'}[d.tint]||'#ccc';return `<span class="mk-art dye-sw" style="background:${c}"></span>`;};
@@ -1927,21 +1932,25 @@ function openMarket(onClose,tab){if(tab)marketTab=tab;
  const tintTile=t=>{const own=wallet.tints.includes(t.key);const inf=themeInfo?.(t.key);return `<button type="button" class="stat-tile mk-tile ${own?'is-owned':''}" data-tint="${t.key}"><span class="mk-art dye-sw" style="background:${rgbCss(TINT_RGB[t.key])}"></span><b>${escapeText(t.name)}</b><small>Natural colour</small><em class="mk-price ${!own&&wallet.coins<t.price?'is-short':''}">${own?'Unlocked':`🪙 ${t.price.toLocaleString('en-US')}`}</em></button>`;};
  const lookTile=l=>{const own=wallet.looks.includes(l.key);const inf=themeInfo(l.key)||{traits:[],icon:''};return `<button type="button" class="stat-tile mk-tile ${own?'is-owned':''}" data-look="${l.key}"><span class="mk-art lk-ico">${inf.icon||'✨'}</span><b>${escapeText(l.name)}</b><small>${escapeText(inf.traits.join(' · ')||'Colour')}</small><em class="mk-price ${!own&&wallet.coins<l.price?'is-short':''}">${own?'Unlocked':`🪙 ${l.price.toLocaleString('en-US')}`}</em></button>`;};
  const ultraTile=u=>{const own=wallet.ultra.includes(u.id);const ess=MARKET.find(x=>x.id===u.ess);return `<button type="button" class="stat-tile mk-tile is-ultra ${own?'is-owned':''}" data-ultra="${u.id}"><span class="mk-art lk-ico">${ess?.icon||'✨'}</span><b>${escapeText(u.name)}</b><small>${own?`${wallet.bag[u.ess]||0} essences`:u.from==='champ'?'Win the Championship':u.from==='mini'?'0.01% in minigames':'Win an ultra race'}</small><em class="mk-price">${own?`Essence · 🪙 ${(ess?.price||1000).toLocaleString('en-US')}`:'🔒 Ultra rare'}</em></button>`;};
- const lookGrid=marketTab==='look'?`<p class="mini-muted">Looks give traits (horns, wings, tails, auras) and their colour. Unlock a look, then feed its elements — e.g. Dragon elements grow dragon horns. Size changes stay free.</p><div class="stat-tiles mk-grid">${LOOK_ITEMS.map(lookTile).join('')}</div><h3 class="st-sub">✦ Ultra rare</h3><div class="stat-tiles mk-grid">${ULTRA.map(ultraTile).join('')}</div>`:'';
- const dyeGrid=marketTab==='dye'?`<p class="mini-muted">Colours change only after you unlock them. Then feed elements of that colour to a companion.</p><h3 class="st-sub">Natural colours</h3><div class="stat-tiles mk-grid">${TINT_ITEMS.map(tintTile).join('')}</div><h3 class="st-sub">Special colours · live in elements that had no effect</h3><div class="stat-tiles mk-grid">${DYES.map(dyeTile).join('')}</div>`:'';
+ const lookGrid=marketTab==='look'?`<div class="stat-tiles mk-grid">${LOOK_ITEMS.map(lookTile).join('')}</div><h3 class="st-sub">✦ Ultra rare</h3><div class="stat-tiles mk-grid">${ULTRA.map(ultraTile).join('')}</div>`:'';
+ const dyeGrid=marketTab==='dye'?`<h3 class="st-sub">Natural colours</h3><div class="stat-tiles mk-grid">${TINT_ITEMS.map(tintTile).join('')}</div><h3 class="st-sub">Special colours · live in elements that had no effect</h3><div class="stat-tiles mk-grid">${DYES.map(dyeTile).join('')}</div>`:'';
  const isEl=it=>it.kind==='furniture'||it.kind==='house';
  const artOf=it=>it.kind==='acc'?accIcon(it.acc):isEl(it)?homeStaticArt(byId.get(it.element)):`<span class="mk-emoji">${it.icon}</span>`;
  const nameOf=it=>it.kind==='acc'?ACCESSORIES[it.acc].name:isEl(it)?uiName(byId.get(it.element)):it.name;
  const descOf=it=>it.kind==='acc'?`${({head:'Head',face:'Face',neck:'Neck'})[ACCESSORIES[it.acc].slot]}${accOwned(it.acc)?` · own ${accOwned(it.acc)}`:''}`:isEl(it)?(it.ext?homes.addonInfo(it.element)?.line:it.kind==='house'?`Room for ${HOME_OBJECTS[it.element]?.capacity||'?'}${HOME_OBJECTS[it.element]?.builtin?' · garden and pool built in':''}`:'Furniture'):it.desc;
  const fitsOf=it=>{const a=homes.addonInfo(it.element);return a?`Fits ${a.range}`:'';};
  const tile=it=>{const o=owned(it);const label=it.kind==='toy'&&o?(wallet.toy===it.toy?'On screen':'Show'):o?'Owned':`🪙 ${priceOf(it).toLocaleString('en-US')}`;
-  return `<button type="button" class="stat-tile mk-tile ${o?'is-owned':''} ${it.kind==='toy'&&wallet.toy===it.toy?'is-on':''}" data-mk="${it.id}"><span class="mk-art">${artOf(it)}</span><b>${escapeText(nameOf(it))}</b><small>${escapeText(descOf(it)||'')}</small>${it.ext?`<small class="mk-fits">${escapeText(fitsOf(it))}</small>`:''}<em class="mk-price ${!o&&wallet.coins<priceOf(it)?'is-short':''}">${label}</em></button>`;};
+  return `<button type="button" class="stat-tile mk-tile ${o?'is-owned':''} ${it.kind==='toy'&&wallet.toy===it.toy?'is-on':''} ${deal&&deal.id===it.id&&!o?'is-deal':''}" data-mk="${it.id}">${deal&&deal.id===it.id&&!o?'<i class="mk-flag">−25%</i>':o?'<i class="mk-flag is-own">✓</i>':''}<span class="mk-art">${artOf(it)}</span><b>${escapeText(nameOf(it))}</b><small>${escapeText(descOf(it)||'')}</small>${it.ext?`<small class="mk-fits">${escapeText(fitsOf(it))}</small>`:''}<em class="mk-price ${!o&&wallet.coins<priceOf(it)?'is-short':''}">${label}</em></button>`;};
  const daily=wallet.daily!==dailyKey();
- showModal(`<div class="modal-tag">MARKET</div>${coinBar()}
-
-  <div class="mk-tabs">${MARKET_TABS.map(([k,l])=>`<button type="button" data-mktab="${k}" aria-pressed="${k===marketTab}">${l}</button>`).join('')}</div>
-  ${marketTab==='food'?`<p class="mini-muted">Bought food waits on the Alchemy screen — drag it onto a companion.${Object.values(wallet.bag||{}).reduce((n,v)=>n+v,0)?` · ${Object.values(wallet.bag).reduce((n,v)=>n+v,0)} waiting`:''}</p>`:marketTab==='toy'?'<p class="mini-muted">One toy sits on the craft card; your companion plays with it now and then.</p>':marketTab==='acc'?'<p class="mini-muted">One copy dresses one companion. Each extra copy costs more.</p>':''}
-  ${marketTab==='dye'?dyeGrid:marketTab==='look'?lookGrid:`<div class="stat-tiles mk-grid">${items.map(tile).join('')}</div>`}<p class="mini-muted">Win races and Karate fights to earn coins.</p>`);
+ const TAB_ICON={food:'🍎',acc:'🎩',look:'✨',dye:'🎨',toy:'🧸',furniture:'🪑',house:'🏠'};
+ const bagN=Object.values(wallet.bag||{}).reduce((n,v)=>n+v,0);
+ const SAY={food:`Fresh today! Bought food waits on the Alchemy screen — drag it onto a companion.${bagN?` You have ${bagN} waiting.`:''}`,acc:'One copy dresses one companion. Each extra copy costs a little more.',look:'Looks give horns, wings, tails and auras. Unlock one, then feed its elements — Dragon elements grow dragon horns. Size changes stay free.',dye:'Unlock a colour, then feed elements of that colour to tint a companion.',toy:'One toy sits on the craft card — your companion plays with it now and then.',furniture:'Furniture trains your companions at home. Place it in a house!',house:'Bigger houses fit more companions and make everyone grow faster.'};
+ const keeper=COMPANION_SPRITES_V86[companions.state().active]||'<span class="mk-emoji">🧑‍🍳</span>';
+ const dealHtml=deal?`<button type="button" class="mk-deal" data-mk="${deal.id}"><i class="mk-deal-burst">−25%</i><span class="mk-art">${artOf(deal)}</span><span class="mk-deal-main"><small>⭐ TODAY'S DEAL</small><b>${escapeText(nameOf(deal))}</b><span><s>🪙 ${basePrice(deal).toLocaleString('en-US')}</s> <em class="mk-price ${wallet.coins<priceOf(deal)?'is-short':''}">🪙 ${priceOf(deal).toLocaleString('en-US')}</em></span></span></button>`:'';
+ showModal(`<div class="mk-shop" data-tab="${marketTab}"><div class="mk-stall"><i class="mk-awning" aria-hidden="true"></i><div class="modal-tag">MARKET</div><div class="mk-keeper"><span class="mk-keeper-art">${keeper}</span><p class="mk-say">${escapeText(SAY[marketTab]||'Welcome!')}</p></div></div>${coinBar()}
+  ${dealHtml}
+  <div class="mk-tabs">${MARKET_TABS.map(([k,l])=>`<button type="button" data-mktab="${k}" aria-pressed="${k===marketTab}"><i aria-hidden="true">${TAB_ICON[k]||''}</i>${l}</button>`).join('')}</div>
+  ${marketTab==='dye'?dyeGrid:marketTab==='look'?lookGrid:`<div class="stat-tiles mk-grid">${items.map(tile).join('')}</div>`}<p class="mini-muted">Earn coins by discovering elements, winning races and playing minigames.</p></div>`);
  const again=()=>openMarket(onClose);wireCoinBar(again);
 
  $('modalContent').querySelectorAll('[data-mktab]').forEach(b=>b.onclick=()=>{marketTab=b.dataset.mktab;again();});
