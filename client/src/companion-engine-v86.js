@@ -1069,12 +1069,20 @@ export function createCompanionSystem(ctx){
      <div class="s2-perks"><span><b>⚔</b>Duo games</span><span><b>×1.25</b>Growth</span><span><b>✦</b>More finds</span></div>
      <div class="s2-paths"><button type="button" class="s2-path is-buy" id="slot2Buy" ${info.canBuy?'':'disabled'}><small>INSTANT</small><b>${escapeText(info.price)}</b></button>
       <button type="button" class="s2-path" id="slot2Ad" ${ready&&info.canAd?'':'disabled'}><small>${ready?'FREE PATH':'FREE PATH · LOCKED'}</small>${ready?`<span class="s2-pips">${Array.from({length:info.adsNeeded},(_,k)=>`<i class="${k<info.ads?'on':''}"></i>`).join('')}</span><b>▶ Ad ${info.ads}/${info.adsNeeded}</b>`:`<span class="s2-bar"><i style="width:${pct.toFixed(1)}%"></i></span><b>${info.elements.toLocaleString('en-US')} / ${info.minElements.toLocaleString('en-US')}</b>`}</button></div></section>`;}}
+  // V196: "Your team" bar at the top — who is on screen and the Duo slot, instead of a card lost at the bottom
+  let team='';if(act){const info2=(()=>{try{return ctx.slot2Info?.()||null;}catch{return null;}})();const bm2=buddyMeta();const pa=pet(act.id);
+   const seat=(m,pp)=>`<button type="button" class="team-slot is-on" data-onscreen="${m.id}"><span class="team-art">${sprites[m.id]||''}</span><b>${escapeText(nameOf(m))}</b><small>Lv ${totalLevel(m.id)} · ${moodLabel(pp.mood)}</small></button>`;
+   const second=bm2?seat(bm2,pet(bm2.id)):info2?.unlocked?`<button type="button" class="team-slot is-free" id="buddyChange"><span class="team-art">+</span><b>Add a partner</b><small>Duo slot is open</small></button>`
+    :info2?`<button type="button" class="team-slot is-locked" data-s2open="1"><span class="team-art">🔒</span><b>Duo slot</b><small>${escapeText(info2.price)} · or ${info2.elements.toLocaleString('en-US')}/${info2.minElements.toLocaleString('en-US')} elements</small><i class="team-bar"><em style="width:${Math.min(100,100*info2.elements/info2.minElements).toFixed(1)}%"></em></i></button>`:'';
+   team=`<section class="team"><div class="team-top"><strong>Your team</strong><small>${bm2?`Duo mode · all growth ×${DUO_GROWTH}`:'On screen with you'}</small></div><div class="team-row">${seat(act,pa)}${second?`<span class="team-plus">+</span>${second}`:''}</div>${!bm2&&info2&&!info2.unlocked?`<p class="team-note">Unlock the <b>Duo slot</b> for a second companion on screen: duo games, growth ×${DUO_GROWTH} and more finds.</p>`:''}</section>`;}
   // V151: Companions / Houses as big tiles, like the Stadium hub
   const hi=(()=>{try{return ctx.homeInfo?.()||null;}catch{return null;}})();
   const tabs=`<div class="st-shop is-hub home-tabs" role="tablist">${[['companions','🐾','Companions',`${have}/${roster.length} found${act?' · '+escapeText(nameOf(act))+' on screen':''}`],['houses','🏠','Houses',hi?`${hi.owned}/${hi.total} owned · ${hi.residents} living`:'Where they live']].map(([k,ico,t,sm])=>`<button type="button" class="st-shop-btn home-tab ${homeTab===k?'is-on':''}" data-hometab="${k}" aria-pressed="${homeTab===k}"><span>${ico}</span><b>${t}</b><small>${sm}</small></button>`).join('')}</div>`;
   root.innerHTML=homeTab==='houses'?`<div class="pets-scroll"><div class="section-head home-title"><h2>Home</h2></div>${tabs}
    <div id="homeMount"></div></div>`:`<div class="pets-scroll"><div class="section-head home-title"><h2>Home</h2></div>${tabs}
    ${act?'':now}
+   ${team}
+   <h3 class="team-h">Collection · ${have}/${roster.length}</h3>
    <p class="mini-muted pets-legend"><i class="pet-ava-tag is-screen"></i> On screen <i class="pet-ava-tag is-home"></i> Lives in a house</p>
    <div class="pets-avatars">${groups.map(g=>`<div class="pets-ava-row"><span class="pets-ava-family">${escapeText(g.f.name)}</span><div class="pets-ava-list">${g.list.map(ava).join('')}</div></div>`).join('')}</div>
    <details class="pets-help"><summary>How companions and houses work</summary><ul>
@@ -1084,7 +1092,7 @@ export function createCompanionSystem(ctx){
     <li><strong>Furniture:</strong> tap the floor or the wall to place pieces, press and hold to drag them, tap one to rotate or put it away. Training pieces speed up their stat, food pieces make meals fill more, fun pieces lift mood faster, books and globes bring more finds while you are away.</li>
     <li><strong>While you are away:</strong> residents find elements you could already craft. One or two are free; one ad keeps them all.</li>
    </ul></details>
-   ${slot?`<h3 class="pets-family">Second slot</h3>${slot}`:''}</div>`;
+   </div>`;
   root.querySelectorAll('[data-hometab]').forEach(b=>b.onclick=()=>{homeTab=b.dataset.hometab;renderTab();});
   // V145: on-screen companions open their mood / wear / send-home card in a sheet
   root.querySelectorAll('[data-onscreen]').forEach(b=>b.onclick=()=>{const id=b.dataset.onscreen;const html=id===state.active?now:slot;
@@ -1096,6 +1104,9 @@ export function createCompanionSystem(ctx){
   const d=$('petDismiss');if(d)d.onclick=()=>setActive(null);
   root.querySelectorAll('[data-wardrobe]').forEach(b=>b.onclick=e=>{e.stopPropagation();ctx.openWardrobe?.(b.dataset.wardrobe);});
   const bc=$('buddyChange');if(bc)bc.onclick=pickBuddy;const bd=$('buddyDismiss');if(bd)bd.onclick=()=>setBuddy(null);
+  root.querySelectorAll('[data-s2open]').forEach(b=>b.onclick=()=>{showModal(`<div class="modal-tag">DUO SLOT</div>${slot}<button type="button" class="modal-button secondary" id="s2Close">Close</button>`);$('s2Close').onclick=closeModal;
+   const sb2=$('slot2Buy');if(sb2)sb2.onclick=async()=>{sb2.disabled=true;try{await ctx.buySlot2?.();}finally{closeModal();refreshViews();if(slot2()&&!state.buddy)pickBuddy();}};
+   const sa2=$('slot2Ad');if(sa2)sa2.onclick=async()=>{sa2.disabled=true;try{await ctx.watchSlot2Ad?.();}finally{closeModal();refreshViews();if(slot2()&&!state.buddy)pickBuddy();}};});
   const sb=$('slot2Buy');if(sb)sb.onclick=async()=>{sb.disabled=true;try{await ctx.buySlot2?.();}finally{refreshViews();if(slot2()&&!state.buddy)pickBuddy();}};
   const sa=$('slot2Ad');if(sa)sa.onclick=async()=>{sa.disabled=true;try{await ctx.watchSlot2Ad?.();}finally{refreshViews();if(slot2()&&!state.buddy)pickBuddy();}};
   try{ctx.renderExtra?.(root);}catch(e){console.warn('home',e);}

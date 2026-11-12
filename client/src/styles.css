@@ -2555,3 +2555,53 @@ body[data-tab="Games"] .companion-layer{display:none}
 @media (prefers-reduced-motion:reduce){.g-life,.g-life-tiles,.g-life-mid{display:none}}
 
 .g-under{position:absolute;left:0;right:0;top:66%;bottom:0;background-repeat:repeat-x;background-size:auto 100%;pointer-events:none;z-index:2}
+
+/* ===== V196: Your team bar, coin bank sheet, shiny celebration ===== */
+.team{margin:4px 0 14px;padding:12px;border-radius:22px;border:2px solid #657D89;background:linear-gradient(#FFF8EC,#F7E9CC);box-shadow:0 5px 0 rgba(101,125,137,.3)}
+.team-top{display:flex;justify-content:space-between;align-items:baseline;margin:0 2px 8px}.team-top strong{font-size:17px}.team-top small{font-size:12px;font-weight:800;color:#3F7A5C}
+.team-row{display:flex;align-items:stretch;gap:8px}
+.team-plus{align-self:center;font-size:22px;font-weight:900;color:#8A7F72}
+.team-slot{flex:1;min-width:0;display:grid;justify-items:center;gap:1px;padding:10px 8px 9px;border-radius:18px;border:2px solid #E3D6BE;background:#fff;box-shadow:0 4px 0 #E3D6BE;color:var(--ink);transition:transform .1s}
+.team-slot:active{transform:translateY(3px);box-shadow:0 1px 0 #E3D6BE}
+.team-slot.is-on{border-color:#6FB26A;box-shadow:0 4px 0 #6FB26A}
+.team-art{width:64px;height:64px;display:grid;place-items:center;font-size:34px;font-weight:900;border-radius:50%;background:radial-gradient(circle at 50% 40%,#fff 0 45%,#DFF1D8 100%)}.team-art svg{width:86%;height:86%}
+.team-slot b{font-size:14.5px;max-width:100%;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}.team-slot small{font-size:11px;color:var(--ink-2);text-align:center;line-height:1.2}
+.team-slot.is-free{border-style:dashed;border-color:#E8843C;box-shadow:none;background:#FFF3E3}.team-slot.is-free .team-art{background:#FFE3C2;color:#E8843C;animation:seat-pulse 1.8s ease-in-out infinite}
+.team-slot.is-locked{border-color:#C9B8E8;box-shadow:0 4px 0 #C9B8E8;background:linear-gradient(#FBF8FF,#EDE4FB)}.team-slot.is-locked .team-art{background:#E4D6FA}
+.team-bar{display:block;width:86%;height:6px;margin-top:4px;border-radius:4px;background:#E0D4F2;overflow:hidden}.team-bar em{display:block;height:100%;background:linear-gradient(90deg,#9B7FC4,#FF9AE0);border-radius:4px}
+.team-note{margin:10px 2px 0;font-size:12.5px;color:var(--ink-2);line-height:1.3}
+.team-h{margin:4px 2px 2px;font-size:15px;font-weight:900}
+/* coin bank */
+.cp-shop,.cp-bank{position:relative}
+.cp-bank-head{position:relative;margin:-4px -4px 12px;padding:26px 14px 14px;border-radius:18px;border:2px solid #C99A2E;background:linear-gradient(#FFE9A8,#FFD166);overflow:hidden;text-align:center}
+.cp-bank-head::before{content:"";position:absolute;inset:0;background:radial-gradient(circle at 12% 30%,rgba(255,255,255,.7) 0 6px,transparent 7px),radial-gradient(circle at 86% 22%,rgba(255,255,255,.6) 0 4px,transparent 5px),radial-gradient(circle at 70% 78%,rgba(255,255,255,.5) 0 5px,transparent 6px)}
+.cp-bank-head small{display:block;font-size:11px;font-weight:900;letter-spacing:.16em;color:#7A5A12}
+.cp-bank-head b{display:block;font-size:34px;font-weight:900;color:#3C2E0A;line-height:1.1}
+.cp-bank-head span{font-size:12.5px;font-weight:700;color:#6B4A0E}
+.cp-ways{list-style:none;margin:8px 0;padding:0;display:grid;gap:8px}
+.cp-ways li{display:flex;align-items:center;gap:12px;padding:10px 12px;border-radius:16px;border:2px solid #E3D6BE;background:linear-gradient(#fff,#FBF3E2);box-shadow:0 3px 0 #E3D6BE;text-align:left}
+.cp-ways li>span{font-size:26px;flex:none}.cp-ways li b{display:block;font-size:14.5px}.cp-ways li small{display:block;font-size:12px;color:var(--ink-2)}
+#cpDaily:not(:disabled){animation:goal-pulse 1.8s ease-in-out infinite}
+/* shiny */
+.shiny-fx{position:absolute;inset:0;pointer-events:none;overflow:hidden;border-radius:inherit;z-index:2}
+.shiny-fx i{position:absolute;top:-14px;color:#FFD166;font-style:normal;font-size:16px;text-shadow:0 0 8px #FFE9A8;animation:shiny-rain 2.6s ease-in infinite}
+@keyframes shiny-rain{0%{transform:translateY(0) rotate(0) scale(.6);opacity:0}15%{opacity:1}100%{transform:translateY(460px) rotate(200deg) scale(1.2);opacity:0}}
+.shiny-burst{position:relative;display:grid;place-items:center;margin:2px auto 0}
+.shiny-burst::before{content:"";position:absolute;width:230px;height:230px;border-radius:50%;background:repeating-conic-gradient(rgba(255,209,102,.55) 0 10deg,transparent 10deg 20deg);animation:shiny-spin 9s linear infinite;-webkit-mask:radial-gradient(circle,#000 30%,transparent 70%);mask:radial-gradient(circle,#000 30%,transparent 70%)}
+@keyframes shiny-spin{to{transform:rotate(360deg)}}
+.shiny-burst .modal-art{position:relative;animation:shiny-pop .7s cubic-bezier(.2,1.6,.4,1)}
+@keyframes shiny-pop{0%{transform:scale(.2) rotate(-20deg)}100%{transform:none}}
+.shiny-stamp{display:inline-block;margin:6px 0 2px;padding:5px 18px;border-radius:14px;background:linear-gradient(120deg,#FFD166,#FF9AE0,#7FE0F0,#FFD166);background-size:300% 100%;color:#3C2E0A;font-weight:900;font-size:20px;letter-spacing:.12em;box-shadow:0 4px 0 #C99A2E;animation:shiny-sheen 2.4s linear infinite;rotate:-3deg}
+@keyframes shiny-sheen{to{background-position:300% 0}}
+.shiny-perks{list-style:none;margin:10px 0 4px;padding:0;display:grid;gap:6px;text-align:left}
+.shiny-perks li{display:flex;gap:10px;align-items:center;padding:8px 12px;border-radius:14px;background:linear-gradient(120deg,#FFF6D9,#FFEFF9);border:2px solid #F2D58A;font-size:13.5px;font-weight:700}
+.shiny-perks li span{font-size:20px;flex:none}
+.modal-card.is-shiny-card{box-shadow:0 0 0 4px #FFD166,0 0 40px rgba(255,209,102,.8)}
+@media (prefers-reduced-motion:reduce){.shiny-fx,.shiny-burst::before{display:none}.shiny-stamp{animation:none}}
+
+.cp-pack{border:2px solid #E3D6BE!important;border-radius:20px!important;background:linear-gradient(#fff,#FBF3E2)!important;box-shadow:0 4px 0 #E3D6BE;transition:transform .1s}
+.cp-pack:active{transform:translateY(3px);box-shadow:0 1px 0 #E3D6BE}
+.cp-pack.is-hot{border-color:#E8843C!important;box-shadow:0 4px 0 #E8843C!important;background:linear-gradient(#FFF6EA,#FFE3C2)!important}
+.cp-pack em{background:#6FB26A!important;color:#fff!important;border-radius:12px!important;box-shadow:0 3px 0 #4F8A4C;padding:5px 16px!important;font-size:14px!important}
+.cp-pack b{font-size:24px}
+.cp-first{border:2px solid #B8601F;border-radius:16px!important}

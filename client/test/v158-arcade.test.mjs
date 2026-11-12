@@ -218,3 +218,11 @@ test('V195: every world is alive — actors, weather and buried detail', async (
   const art = companionArt({ run: '', swim: '', fly: '', climb: '', mid: '', sky: '' }, 'pack:ghost');
   assert.ok(art.life && art.under);
 });
+test('V196: team bar, shiny celebration and shelf guard are wired', async () => {
+  const { readFileSync } = await import('node:fs');
+  const app = readFileSync(new URL('../src/app.js', import.meta.url), 'utf8');
+  const eng = readFileSync(new URL('../src/companion-engine-v86.js', import.meta.url), 'utf8');
+  assert.match(app, /function insertDirect\(id\)\{\n if\(!byId\.has\(id\)\|\|!unlocked\.has\(id\)\)return;\n if\(!\$\('modal'\)\.hidden\)return;/);
+  assert.match(app, /function shinyPerks/); assert.match(app, /function shinyFanfare/); assert.match(app, /cp-bank-head/);
+  assert.match(eng, /class="team"/); assert.match(eng, /data-s2open/);
+});
