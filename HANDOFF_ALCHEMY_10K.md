@@ -90,6 +90,10 @@ Preserve 200-per-batch policy and do not start another content release on top of
 
 - **Art redraw wave 3 (V85, done): 3,991 icons** — every remaining older element. All 6,012 pre-V83 elements now use the 2026 art direction (`ART_REDRAW`), plus 200 V83 and 200 V85 originals. Six near-duplicates found by the audit were redrawn; 36 reviewed false alarms are in `tools/art-redraw-reviewed-pairs.json` (the audit now also honours them for V83 comparisons).
 
+## V183 — Renamed to Alchemy 7K
+- Owner (12/11): target is now ~7,000 elements and the game is "Alchemy 7K" (title, brand, appName, About, backup file name, CATALOG_GOAL=7000). Storage keys, appId, repo and APK names unchanged.
+- Catalogue: 6,635 → about 365 more elements needed (two batches: 200 + ~165).
+
 ## V182 — Small UI clean-up + pool pathing
 - Market sheet: header reduced to MARKET + coin bar (the Fair play note lives only in the Get coins sheet). Stadium tile "Games" renamed "Play" (the tab is already called Games); its sheet is "Choose a game".
 - Home: residents no longer walk across pools (swim pieces block the path unless they are the piece being used).

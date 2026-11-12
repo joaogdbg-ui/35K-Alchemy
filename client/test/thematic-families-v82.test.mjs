@@ -67,9 +67,9 @@ test('UI, Android identity, offline builder, content plan and no-ad integrity ar
  assert.match(app,/THEMATIC_FAMILY_ART/);
  assert.match(build,/family-campaigns-v82\.js/);
  assert.match(build,/window\.__familyCampaigns82/);
- assert.match(read('client/index.html'),/Alchemy <span class="brand-word">8K<\/span>/);
+ assert.match(read('client/index.html'),/Alchemy <span class="brand-word">7K<\/span>/);
  const config=JSON.parse(read('capacitor.config.json'));
- assert.equal(config.appName,"Alchemy 8K");
+ assert.equal(config.appName,"Alchemy 7K");
  assert.equal(config.appId,'com.joaogdbg.alchemy35k'); // Keep old saves and Android upgrade path.
  const plan=JSON.parse(read('shared/production-plan-200.json'));
  assert.equal(plan.target_minimum_elements,10000);

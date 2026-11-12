@@ -29,7 +29,7 @@ public class AlchemyBackupPlugin extends Plugin {
     @PluginMethod
     public void shareFile(PluginCall call) {
         String content = call.getString("content");
-        String requested = call.getString("filename", "Alchemy_8K_Backup.json");
+        String requested = call.getString("filename", "Alchemy_7K_Backup.json");
         if (content == null || content.isEmpty() || content.length() > MAX_CHARS) {
             call.reject("Invalid backup content");
             return;
@@ -50,7 +50,7 @@ public class AlchemyBackupPlugin extends Plugin {
             send.putExtra(Intent.EXTRA_SUBJECT, name);
             send.setClipData(ClipData.newRawUri(name, uri));
             send.addFlags(Intent.FLAG_GRANT_READ_URI_PERMISSION);
-            Intent chooser = Intent.createChooser(send, "Save Alchemy 8K backup");
+            Intent chooser = Intent.createChooser(send, "Save Alchemy 7K backup");
             chooser.addFlags(Intent.FLAG_GRANT_READ_URI_PERMISSION);
             getActivity().startActivity(chooser);
             JSObject result = new JSObject();
