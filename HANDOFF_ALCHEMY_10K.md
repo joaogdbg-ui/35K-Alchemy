@@ -90,6 +90,14 @@ Preserve 200-per-batch policy and do not start another content release on top of
 
 - **Art redraw wave 3 (V85, done): 3,991 icons** — every remaining older element. All 6,012 pre-V83 elements now use the 2026 art direction (`ART_REDRAW`), plus 200 V83 and 200 V85 originals. Six near-duplicates found by the audit were redrawn; 36 reviewed false alarms are in `tools/art-redraw-reviewed-pairs.json` (the audit now also honours them for V83 comparisons).
 
+## V196 — Equipa no topo do Home, banco de moedas, shiny especial, toques durante a descoberta
+
+- **Home → Companions**: barra "Your team" no topo (`.team`, companion-engine `renderTab`): companion no ecrã + lugar Duo (parceiro, "Add a partner" ou 🔒 com preço e progresso; tocar abre a folha DUO SLOT com compra/anúncios). O cartão "Second slot" do fundo saiu. Título "Collection · n/40" antes da grelha.
+- **Get coins**: cabeçalho de banco dourado com o saldo, formas grátis em cartões, packs com botão de preço verde (`.cp-bank-head`, `.cp-ways`, `.cp-pack`).
+- **Shiny**: `shinyPerks` (selo SHINY, para que serve: crescimento a dobrar ao dar de comer; companion shiny = +1 grau em todos os stats; contagem), `shinyDress` (raios a rodar, chuva de estrelas, contorno dourado, vibração) e `shinyFanfare` (arpejo). Usado na descoberta shiny e em `showShinyFound`.
+- **Bug**: `insertDirect` ignora toques na prateleira enquanto há uma folha aberta (a descoberta fica invisível durante a animação de fusão e os toques trocavam o que aparecia).
+- `APP_VERSION` 1.0.96.
+
 ## V195 — Mundos com vida, profundidade e acabamento
 
 - **Acabamento estático** (`worldSky`): brilho no horizonte, orla iluminada em cada plano (mesma forma levantada 2,6 px em tom mais claro), neblina entre planos, sombra na base. `worldMid`: fila de trás de adereços pequenos, sombras sob os adereços grandes, 22 pormenores no chão (tufos, pedras, flores na cor do mundo).

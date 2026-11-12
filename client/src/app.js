@@ -503,11 +503,18 @@ function saveShiny(){try{localStorage.setItem(SHINY_KEY,JSON.stringify({v:1,ids:
 function shinyChance(){return adFree()?0.05:0.01;}
 function rollShiny(id){if(shiny.has(id))return false;if(Math.random()>=shinyChance())return false;shiny.add(id);saveShiny();return true;}
 function shinyTrivia(item){return item?.trivia||item?.wit||wittyDiscovery(item)||item?.summary||'';}
-function shinyCard(item){return `<p class="shiny-trivia"><span aria-hidden="true">✦</span> ${escapeText(publicText(shinyTrivia(item)))}</p>`;}
+function shinyCard(item){if(!String(shinyTrivia(item)||'').trim())return '';return `<p class="shiny-trivia"><span aria-hidden="true">✦</span> ${escapeText(publicText(shinyTrivia(item)))}</p>`;}
+/* V196: a shiny find must feel special and say what it is good for */
+function shinyPerks(item){const comp=companions.isCompanion(item.id);return `<div class="shiny-stamp">✦ SHINY ✦</div><ul class="shiny-perks"><li><span>🍽️</span><div>Feed it to a companion: <b>double growth</b> from that meal</div></li>${comp?'<li><span>🐾</span><div>Shiny companion: <b>every stat is one grade better</b></div></li>':''}<li><span>✨</span><div>It sparkles in your collection · <b>${shiny.size.toLocaleString('en-US')}</b> shiny found · ${Math.round(shinyChance()*100)}% chance per combination</div></li></ul>`;}
+function shinyDress(){try{const card=$('modal').querySelector('.modal-card');if(card)card.classList.add('is-shiny-card');const mc=$('modalContent');const art=mc.querySelector('.modal-art');if(art&&!art.parentElement.classList.contains('shiny-burst')){const w=document.createElement('div');w.className='shiny-burst';art.replaceWith(w);w.append(art);}
+  if(!window.matchMedia?.('(prefers-reduced-motion: reduce)')?.matches){const fx=document.createElement('div');fx.className='shiny-fx';for(let i=0;i<14;i++){const s=document.createElement('i');s.textContent=i%3?'✦':'★';s.style.cssText=`left:${4+Math.random()*92}%;animation-delay:${(Math.random()*2.4).toFixed(2)}s;font-size:${12+Math.round(Math.random()*12)}px`;fx.append(s);}mc.prepend(fx);}
+  shinyFanfare();try{navigator.vibrate?.([20,40,20,40,60]);}catch{}}catch{}}
+function shinyFanfare(){if(!soundEnabled)return;const ctx=acquireSoundEngine();if(!ctx||ctx.state==='closed')return;const now=ctx.currentTime+0.12;
+ [[783.99,0],[987.77,.09],[1174.66,.18],[1567.98,.27],[1975.53,.36],[2349.32,.47]].forEach(([hz,at],i)=>{try{const o=ctx.createOscillator(),g=ctx.createGain();o.type=i%2?'triangle':'sine';o.frequency.setValueAtTime(hz,now+at);g.gain.setValueAtTime(.0001,now+at);g.gain.exponentialRampToValueAtTime(.07,now+at+.015);g.gain.exponentialRampToValueAtTime(.0001,now+at+(i===5?.5:.16));o.connect(g);g.connect(ctx.destination);o.start(now+at);o.stop(now+at+.55);}catch{}});}
 function showShinyFound(id){const it=byId.get(id);if(!it)return;
- showModal(`<div class="modal-tag shiny-tag">✦ SHINY ELEMENT</div><div class="modal-art is-shiny">${staticArt(it)}</div><h2>Shiny ${escapeText(uiName(it))}</h2>${shinyCard(it)}<div class="modal-milestone">${shiny.size.toLocaleString('en-US')} shiny ${shiny.size===1?'element':'elements'} · ${Math.round(shinyChance()*100)}% chance per combination</div>`);
+ showModal(`<div class="modal-tag shiny-tag">✦ SHINY ELEMENT</div><div class="modal-art is-shiny">${staticArt(it)}</div><h2>Shiny ${escapeText(uiName(it))}</h2>${shinyPerks(it)}${shinyCard(it)}`);shinyDress();
 }
-const APP_VERSION='1.0.95';
+const APP_VERSION='1.0.96';
 // V83: status line + Google consent (UMP) privacy options, required for EEA players.
 async function refreshAdStatus(){
  const el=$('settingsAdStatus'),bridge=getRewardBridge();
@@ -1100,6 +1107,7 @@ function pulseSelectedElement(id){
 // With the left lock active this gives continuous experimentation with one fixed ingredient.
 function insertDirect(id){
  if(!byId.has(id)||!unlocked.has(id))return;
+ if(!$('modal').hidden)return;
  pulseSelectedElement(id);
  if(tab!=='Play')switchTab('Play');
  place(slots[0]===null?0:1,id);
@@ -1340,7 +1348,7 @@ async function combine(){
  }catch(e){toast('Server unavailable · Offline progress preserved','error');console.warn(e);}
 }
 let modalBack=null;
-function showModal(content){cancelCraftMorph();modalBack=null;settleTimedHint(false);$('modal').removeAttribute('aria-labelledby');$('modal').dataset.dismiss='any';$('modalContent').innerHTML=content;$('modal').hidden=false;}
+function showModal(content){cancelCraftMorph();try{$('modal').querySelector('.modal-card')?.classList.remove('is-shiny-card');}catch{}modalBack=null;settleTimedHint(false);$('modal').removeAttribute('aria-labelledby');$('modal').dataset.dismiss='any';$('modalContent').innerHTML=content;$('modal').hidden=false;}
 function closeModal(){
  if(modalBack){const f=modalBack;modalBack=null;f();return;}
  cancelCraftMorph();settleTimedHint(false);
@@ -1410,8 +1418,8 @@ function openGoalSheet(){const g=goalInfo();showModal(`<div class="modal-tag">RE
 let pendingLoop=null;
 function showDiscovery(id,a,b,scene=null,isShiny=false,loop=null){loop=loop||pendingLoop;pendingLoop=null;
  const it=byId.get(id),isFirst=worldFirsts.has(id),earned=[...unlocked].filter(x=>!STARTERS.has(x)).length,isComp=companions.isCompanion(id);
- showModal(`<div class="modal-tag ${isShiny?'shiny-tag':isFirst?'world-first-tag':isComp?'companion-tag':''}">${isShiny?'✦ SHINY DISCOVERY':isFirst?'★ WORLD FIRST':isComp?'NEW COMPANION':'✦ NEW DISCOVERY'}</div><div class="modal-art${isShiny?' is-shiny':''}${isComp?' is-companion':''}">${isComp&&COMPANION_SPRITES_V86[id]?COMPANION_SPRITES_V86[id]:staticArt(it)}</div><h2>${isShiny?'Shiny ':''}${escapeText(uiName(it))}</h2><p>${escapeText(uiName(byId.get(a)))} + ${escapeText(uiName(byId.get(b)))}</p>${isShiny?shinyCard(it):(wittyDiscovery(it)||it.summary)?`<p class="discovery-wit">${escapeText(publicText(wittyDiscovery(it)||it.summary))}</p>`:""}${companionCallout(id)}${homeCallout(id)}${loopHtml(loop)}<div class="modal-milestone">${earned.toLocaleString('en-US')} personal discoveries</div>`);
- $('continueBtn')?.remove();if(loop&&(loop.comboCoins||loop.goalCoins||loop.hit100||loop.combo>=3))confettiIn($('modalContent'));$('modal').dataset.dismiss='x-only';
+ showModal(`<div class="modal-tag ${isShiny?'shiny-tag':isFirst?'world-first-tag':isComp?'companion-tag':''}">${isShiny?'✦ SHINY DISCOVERY':isFirst?'★ WORLD FIRST':isComp?'NEW COMPANION':'✦ NEW DISCOVERY'}</div><div class="modal-art${isShiny?' is-shiny':''}${isComp?' is-companion':''}">${isComp&&COMPANION_SPRITES_V86[id]?COMPANION_SPRITES_V86[id]:staticArt(it)}</div><h2>${isShiny?'Shiny ':''}${escapeText(uiName(it))}</h2><p>${escapeText(uiName(byId.get(a)))} + ${escapeText(uiName(byId.get(b)))}</p>${isShiny?shinyPerks(it)+shinyCard(it):(wittyDiscovery(it)||it.summary)?`<p class="discovery-wit">${escapeText(publicText(wittyDiscovery(it)||it.summary))}</p>`:""}${companionCallout(id)}${homeCallout(id)}${loopHtml(loop)}<div class="modal-milestone">${earned.toLocaleString('en-US')} personal discoveries</div>`);
+ $('continueBtn')?.remove();if(loop&&(loop.comboCoins||loop.goalCoins||loop.hit100||loop.combo>=3))confettiIn($('modalContent'));if(isShiny)shinyDress();$('modal').dataset.dismiss='x-only';
  playCraftMotion(scene,'new',it);
  if(isComp){const go=$('meetCompanion');if(go)go.onclick=()=>{closeModal();switchTab('Pets');};}
 }
@@ -1875,7 +1883,7 @@ function adCoinsLeft(){const d=dailyKey();if(wallet.adDay!==d){wallet.adDay=d;wa
 function claimDaily(){if(wallet.daily===dailyKey())return 0;const st=nextStreak(),c=dailyCoins(st);wallet.streak=st;wallet.daily=dailyKey();addCoins(c);SFX.prize?.();toast(`+${c} daily coins!`,'new');return c;}
 function openCoinShop(back){const daily=wallet.daily!==dailyKey();const left=adCoinsLeft();const ad=rewardedAvailable()&&left>0;const again=()=>openCoinShop(back);
  const row=(ico,t,sm)=>`<li><span>${ico}</span><div><b>${t}</b><small>${sm}</small></div></li>`;
- showModal(`<div class="modal-tag">COMPANION COINS</div><h2>Get coins</h2><p class="mini-muted">You have 🪙 <b data-coins>${wallet.coins.toLocaleString('en-US')}</b></p><h3 class="st-sub">Free</h3>
+ showModal(`<div class="cp-bank-head"><small>COMPANION COINS</small><b>🪙 <span data-coins>${wallet.coins.toLocaleString('en-US')}</span></b><span>Spend them in the Market, on minigames and on your companions</span></div><h2>Get coins</h2><h3 class="st-sub">Free</h3>
   <button type="button" class="modal-button" id="cpDaily" ${daily?'':'disabled'}>${daily?`🎁 Daily gift · +${dailyCoins(nextStreak())}`:'🎁 Daily gift claimed · back tomorrow'}</button>
   ${rewardedAvailable()?`<button type="button" class="modal-button secondary" id="cpAd" ${ad?'':'disabled'}>▶ Watch an ad · +${AD_COINS} <small>(${left} left today)</small></button>`:''}
   <ul class="cp-ways">${row('⚗️','Discover elements',`+${DISCOVERY_COINS} each · +${DISCOVERY_MILESTONE_COINS} every ${DISCOVERY_MILESTONE}`)}${row('🏁','Races and Karate','Best on your first gold of each level')}${row('🎮','Minigames and Microgames','Up to 40 a game · 150 a day')}${row('🔍','Companion finds',`+${COMPANION_FIND_COINS} each`)}</ul>

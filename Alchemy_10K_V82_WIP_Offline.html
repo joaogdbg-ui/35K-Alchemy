@@ -2565,6 +2565,56 @@ body[data-tab="Games"] .companion-layer{display:none}
 
 .g-under{position:absolute;left:0;right:0;top:66%;bottom:0;background-repeat:repeat-x;background-size:auto 100%;pointer-events:none;z-index:2}
 
+/* ===== V196: Your team bar, coin bank sheet, shiny celebration ===== */
+.team{margin:4px 0 14px;padding:12px;border-radius:22px;border:2px solid #657D89;background:linear-gradient(#FFF8EC,#F7E9CC);box-shadow:0 5px 0 rgba(101,125,137,.3)}
+.team-top{display:flex;justify-content:space-between;align-items:baseline;margin:0 2px 8px}.team-top strong{font-size:17px}.team-top small{font-size:12px;font-weight:800;color:#3F7A5C}
+.team-row{display:flex;align-items:stretch;gap:8px}
+.team-plus{align-self:center;font-size:22px;font-weight:900;color:#8A7F72}
+.team-slot{flex:1;min-width:0;display:grid;justify-items:center;gap:1px;padding:10px 8px 9px;border-radius:18px;border:2px solid #E3D6BE;background:#fff;box-shadow:0 4px 0 #E3D6BE;color:var(--ink);transition:transform .1s}
+.team-slot:active{transform:translateY(3px);box-shadow:0 1px 0 #E3D6BE}
+.team-slot.is-on{border-color:#6FB26A;box-shadow:0 4px 0 #6FB26A}
+.team-art{width:64px;height:64px;display:grid;place-items:center;font-size:34px;font-weight:900;border-radius:50%;background:radial-gradient(circle at 50% 40%,#fff 0 45%,#DFF1D8 100%)}.team-art svg{width:86%;height:86%}
+.team-slot b{font-size:14.5px;max-width:100%;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}.team-slot small{font-size:11px;color:var(--ink-2);text-align:center;line-height:1.2}
+.team-slot.is-free{border-style:dashed;border-color:#E8843C;box-shadow:none;background:#FFF3E3}.team-slot.is-free .team-art{background:#FFE3C2;color:#E8843C;animation:seat-pulse 1.8s ease-in-out infinite}
+.team-slot.is-locked{border-color:#C9B8E8;box-shadow:0 4px 0 #C9B8E8;background:linear-gradient(#FBF8FF,#EDE4FB)}.team-slot.is-locked .team-art{background:#E4D6FA}
+.team-bar{display:block;width:86%;height:6px;margin-top:4px;border-radius:4px;background:#E0D4F2;overflow:hidden}.team-bar em{display:block;height:100%;background:linear-gradient(90deg,#9B7FC4,#FF9AE0);border-radius:4px}
+.team-note{margin:10px 2px 0;font-size:12.5px;color:var(--ink-2);line-height:1.3}
+.team-h{margin:4px 2px 2px;font-size:15px;font-weight:900}
+/* coin bank */
+.cp-shop,.cp-bank{position:relative}
+.cp-bank-head{position:relative;margin:-4px -4px 12px;padding:26px 14px 14px;border-radius:18px;border:2px solid #C99A2E;background:linear-gradient(#FFE9A8,#FFD166);overflow:hidden;text-align:center}
+.cp-bank-head::before{content:"";position:absolute;inset:0;background:radial-gradient(circle at 12% 30%,rgba(255,255,255,.7) 0 6px,transparent 7px),radial-gradient(circle at 86% 22%,rgba(255,255,255,.6) 0 4px,transparent 5px),radial-gradient(circle at 70% 78%,rgba(255,255,255,.5) 0 5px,transparent 6px)}
+.cp-bank-head small{display:block;font-size:11px;font-weight:900;letter-spacing:.16em;color:#7A5A12}
+.cp-bank-head b{display:block;font-size:34px;font-weight:900;color:#3C2E0A;line-height:1.1}
+.cp-bank-head span{font-size:12.5px;font-weight:700;color:#6B4A0E}
+.cp-ways{list-style:none;margin:8px 0;padding:0;display:grid;gap:8px}
+.cp-ways li{display:flex;align-items:center;gap:12px;padding:10px 12px;border-radius:16px;border:2px solid #E3D6BE;background:linear-gradient(#fff,#FBF3E2);box-shadow:0 3px 0 #E3D6BE;text-align:left}
+.cp-ways li>span{font-size:26px;flex:none}.cp-ways li b{display:block;font-size:14.5px}.cp-ways li small{display:block;font-size:12px;color:var(--ink-2)}
+#cpDaily:not(:disabled){animation:goal-pulse 1.8s ease-in-out infinite}
+/* shiny */
+.shiny-fx{position:absolute;inset:0;pointer-events:none;overflow:hidden;border-radius:inherit;z-index:2}
+.shiny-fx i{position:absolute;top:-14px;color:#FFD166;font-style:normal;font-size:16px;text-shadow:0 0 8px #FFE9A8;animation:shiny-rain 2.6s ease-in infinite}
+@keyframes shiny-rain{0%{transform:translateY(0) rotate(0) scale(.6);opacity:0}15%{opacity:1}100%{transform:translateY(460px) rotate(200deg) scale(1.2);opacity:0}}
+.shiny-burst{position:relative;display:grid;place-items:center;margin:2px auto 0}
+.shiny-burst::before{content:"";position:absolute;width:230px;height:230px;border-radius:50%;background:repeating-conic-gradient(rgba(255,209,102,.55) 0 10deg,transparent 10deg 20deg);animation:shiny-spin 9s linear infinite;-webkit-mask:radial-gradient(circle,#000 30%,transparent 70%);mask:radial-gradient(circle,#000 30%,transparent 70%)}
+@keyframes shiny-spin{to{transform:rotate(360deg)}}
+.shiny-burst .modal-art{position:relative;animation:shiny-pop .7s cubic-bezier(.2,1.6,.4,1)}
+@keyframes shiny-pop{0%{transform:scale(.2) rotate(-20deg)}100%{transform:none}}
+.shiny-stamp{display:inline-block;margin:6px 0 2px;padding:5px 18px;border-radius:14px;background:linear-gradient(120deg,#FFD166,#FF9AE0,#7FE0F0,#FFD166);background-size:300% 100%;color:#3C2E0A;font-weight:900;font-size:20px;letter-spacing:.12em;box-shadow:0 4px 0 #C99A2E;animation:shiny-sheen 2.4s linear infinite;rotate:-3deg}
+@keyframes shiny-sheen{to{background-position:300% 0}}
+.shiny-perks{list-style:none;margin:10px 0 4px;padding:0;display:grid;gap:6px;text-align:left}
+.shiny-perks li{display:flex;gap:10px;align-items:center;padding:8px 12px;border-radius:14px;background:linear-gradient(120deg,#FFF6D9,#FFEFF9);border:2px solid #F2D58A;font-size:13.5px;font-weight:700}
+.shiny-perks li span{font-size:20px;flex:none}
+.modal-card.is-shiny-card{box-shadow:0 0 0 4px #FFD166,0 0 40px rgba(255,209,102,.8)}
+@media (prefers-reduced-motion:reduce){.shiny-fx,.shiny-burst::before{display:none}.shiny-stamp{animation:none}}
+
+.cp-pack{border:2px solid #E3D6BE!important;border-radius:20px!important;background:linear-gradient(#fff,#FBF3E2)!important;box-shadow:0 4px 0 #E3D6BE;transition:transform .1s}
+.cp-pack:active{transform:translateY(3px);box-shadow:0 1px 0 #E3D6BE}
+.cp-pack.is-hot{border-color:#E8843C!important;box-shadow:0 4px 0 #E8843C!important;background:linear-gradient(#FFF6EA,#FFE3C2)!important}
+.cp-pack em{background:#6FB26A!important;color:#fff!important;border-radius:12px!important;box-shadow:0 3px 0 #4F8A4C;padding:5px 16px!important;font-size:14px!important}
+.cp-pack b{font-size:24px}
+.cp-first{border:2px solid #B8601F;border-radius:16px!important}
+
 </style>
 </head>
 <body>
@@ -6279,12 +6329,20 @@ function createCompanionSystem(ctx){
      <div class="s2-perks"><span><b>⚔</b>Duo games</span><span><b>×1.25</b>Growth</span><span><b>✦</b>More finds</span></div>
      <div class="s2-paths"><button type="button" class="s2-path is-buy" id="slot2Buy" ${info.canBuy?'':'disabled'}><small>INSTANT</small><b>${escapeText(info.price)}</b></button>
       <button type="button" class="s2-path" id="slot2Ad" ${ready&&info.canAd?'':'disabled'}><small>${ready?'FREE PATH':'FREE PATH · LOCKED'}</small>${ready?`<span class="s2-pips">${Array.from({length:info.adsNeeded},(_,k)=>`<i class="${k<info.ads?'on':''}"></i>`).join('')}</span><b>▶ Ad ${info.ads}/${info.adsNeeded}</b>`:`<span class="s2-bar"><i style="width:${pct.toFixed(1)}%"></i></span><b>${info.elements.toLocaleString('en-US')} / ${info.minElements.toLocaleString('en-US')}</b>`}</button></div></section>`;}}
+  // V196: "Your team" bar at the top — who is on screen and the Duo slot, instead of a card lost at the bottom
+  let team='';if(act){const info2=(()=>{try{return ctx.slot2Info?.()||null;}catch{return null;}})();const bm2=buddyMeta();const pa=pet(act.id);
+   const seat=(m,pp)=>`<button type="button" class="team-slot is-on" data-onscreen="${m.id}"><span class="team-art">${sprites[m.id]||''}</span><b>${escapeText(nameOf(m))}</b><small>Lv ${totalLevel(m.id)} · ${moodLabel(pp.mood)}</small></button>`;
+   const second=bm2?seat(bm2,pet(bm2.id)):info2?.unlocked?`<button type="button" class="team-slot is-free" id="buddyChange"><span class="team-art">+</span><b>Add a partner</b><small>Duo slot is open</small></button>`
+    :info2?`<button type="button" class="team-slot is-locked" data-s2open="1"><span class="team-art">🔒</span><b>Duo slot</b><small>${escapeText(info2.price)} · or ${info2.elements.toLocaleString('en-US')}/${info2.minElements.toLocaleString('en-US')} elements</small><i class="team-bar"><em style="width:${Math.min(100,100*info2.elements/info2.minElements).toFixed(1)}%"></em></i></button>`:'';
+   team=`<section class="team"><div class="team-top"><strong>Your team</strong><small>${bm2?`Duo mode · all growth ×${DUO_GROWTH}`:'On screen with you'}</small></div><div class="team-row">${seat(act,pa)}${second?`<span class="team-plus">+</span>${second}`:''}</div>${!bm2&&info2&&!info2.unlocked?`<p class="team-note">Unlock the <b>Duo slot</b> for a second companion on screen: duo games, growth ×${DUO_GROWTH} and more finds.</p>`:''}</section>`;}
   // V151: Companions / Houses as big tiles, like the Stadium hub
   const hi=(()=>{try{return ctx.homeInfo?.()||null;}catch{return null;}})();
   const tabs=`<div class="st-shop is-hub home-tabs" role="tablist">${[['companions','🐾','Companions',`${have}/${roster.length} found${act?' · '+escapeText(nameOf(act))+' on screen':''}`],['houses','🏠','Houses',hi?`${hi.owned}/${hi.total} owned · ${hi.residents} living`:'Where they live']].map(([k,ico,t,sm])=>`<button type="button" class="st-shop-btn home-tab ${homeTab===k?'is-on':''}" data-hometab="${k}" aria-pressed="${homeTab===k}"><span>${ico}</span><b>${t}</b><small>${sm}</small></button>`).join('')}</div>`;
   root.innerHTML=homeTab==='houses'?`<div class="pets-scroll"><div class="section-head home-title"><h2>Home</h2></div>${tabs}
    <div id="homeMount"></div></div>`:`<div class="pets-scroll"><div class="section-head home-title"><h2>Home</h2></div>${tabs}
    ${act?'':now}
+   ${team}
+   <h3 class="team-h">Collection · ${have}/${roster.length}</h3>
    <p class="mini-muted pets-legend"><i class="pet-ava-tag is-screen"></i> On screen <i class="pet-ava-tag is-home"></i> Lives in a house</p>
    <div class="pets-avatars">${groups.map(g=>`<div class="pets-ava-row"><span class="pets-ava-family">${escapeText(g.f.name)}</span><div class="pets-ava-list">${g.list.map(ava).join('')}</div></div>`).join('')}</div>
    <details class="pets-help"><summary>How companions and houses work</summary><ul>
@@ -6294,7 +6352,7 @@ function createCompanionSystem(ctx){
     <li><strong>Furniture:</strong> tap the floor or the wall to place pieces, press and hold to drag them, tap one to rotate or put it away. Training pieces speed up their stat, food pieces make meals fill more, fun pieces lift mood faster, books and globes bring more finds while you are away.</li>
     <li><strong>While you are away:</strong> residents find elements you could already craft. One or two are free; one ad keeps them all.</li>
    </ul></details>
-   ${slot?`<h3 class="pets-family">Second slot</h3>${slot}`:''}</div>`;
+   </div>`;
   root.querySelectorAll('[data-hometab]').forEach(b=>b.onclick=()=>{homeTab=b.dataset.hometab;renderTab();});
   // V145: on-screen companions open their mood / wear / send-home card in a sheet
   root.querySelectorAll('[data-onscreen]').forEach(b=>b.onclick=()=>{const id=b.dataset.onscreen;const html=id===state.active?now:slot;
@@ -6306,6 +6364,9 @@ function createCompanionSystem(ctx){
   const d=$('petDismiss');if(d)d.onclick=()=>setActive(null);
   root.querySelectorAll('[data-wardrobe]').forEach(b=>b.onclick=e=>{e.stopPropagation();ctx.openWardrobe?.(b.dataset.wardrobe);});
   const bc=$('buddyChange');if(bc)bc.onclick=pickBuddy;const bd=$('buddyDismiss');if(bd)bd.onclick=()=>setBuddy(null);
+  root.querySelectorAll('[data-s2open]').forEach(b=>b.onclick=()=>{showModal(`<div class="modal-tag">DUO SLOT</div>${slot}<button type="button" class="modal-button secondary" id="s2Close">Close</button>`);$('s2Close').onclick=closeModal;
+   const sb2=$('slot2Buy');if(sb2)sb2.onclick=async()=>{sb2.disabled=true;try{await ctx.buySlot2?.();}finally{closeModal();refreshViews();if(slot2()&&!state.buddy)pickBuddy();}};
+   const sa2=$('slot2Ad');if(sa2)sa2.onclick=async()=>{sa2.disabled=true;try{await ctx.watchSlot2Ad?.();}finally{closeModal();refreshViews();if(slot2()&&!state.buddy)pickBuddy();}};});
   const sb=$('slot2Buy');if(sb)sb.onclick=async()=>{sb.disabled=true;try{await ctx.buySlot2?.();}finally{refreshViews();if(slot2()&&!state.buddy)pickBuddy();}};
   const sa=$('slot2Ad');if(sa)sa.onclick=async()=>{sa.disabled=true;try{await ctx.watchSlot2Ad?.();}finally{refreshViews();if(slot2()&&!state.buddy)pickBuddy();}};
   try{ctx.renderExtra?.(root);}catch(e){console.warn('home',e);}
@@ -8120,11 +8181,18 @@ function saveShiny(){try{localStorage.setItem(SHINY_KEY,JSON.stringify({v:1,ids:
 function shinyChance(){return adFree()?0.05:0.01;}
 function rollShiny(id){if(shiny.has(id))return false;if(Math.random()>=shinyChance())return false;shiny.add(id);saveShiny();return true;}
 function shinyTrivia(item){return item?.trivia||item?.wit||wittyDiscovery(item)||item?.summary||'';}
-function shinyCard(item){return `<p class="shiny-trivia"><span aria-hidden="true">✦</span> ${escapeText(publicText(shinyTrivia(item)))}</p>`;}
+function shinyCard(item){if(!String(shinyTrivia(item)||'').trim())return '';return `<p class="shiny-trivia"><span aria-hidden="true">✦</span> ${escapeText(publicText(shinyTrivia(item)))}</p>`;}
+/* V196: a shiny find must feel special and say what it is good for */
+function shinyPerks(item){const comp=companions.isCompanion(item.id);return `<div class="shiny-stamp">✦ SHINY ✦</div><ul class="shiny-perks"><li><span>🍽️</span><div>Feed it to a companion: <b>double growth</b> from that meal</div></li>${comp?'<li><span>🐾</span><div>Shiny companion: <b>every stat is one grade better</b></div></li>':''}<li><span>✨</span><div>It sparkles in your collection · <b>${shiny.size.toLocaleString('en-US')}</b> shiny found · ${Math.round(shinyChance()*100)}% chance per combination</div></li></ul>`;}
+function shinyDress(){try{const card=$('modal').querySelector('.modal-card');if(card)card.classList.add('is-shiny-card');const mc=$('modalContent');const art=mc.querySelector('.modal-art');if(art&&!art.parentElement.classList.contains('shiny-burst')){const w=document.createElement('div');w.className='shiny-burst';art.replaceWith(w);w.append(art);}
+  if(!window.matchMedia?.('(prefers-reduced-motion: reduce)')?.matches){const fx=document.createElement('div');fx.className='shiny-fx';for(let i=0;i<14;i++){const s=document.createElement('i');s.textContent=i%3?'✦':'★';s.style.cssText=`left:${4+Math.random()*92}%;animation-delay:${(Math.random()*2.4).toFixed(2)}s;font-size:${12+Math.round(Math.random()*12)}px`;fx.append(s);}mc.prepend(fx);}
+  shinyFanfare();try{navigator.vibrate?.([20,40,20,40,60]);}catch{}}catch{}}
+function shinyFanfare(){if(!soundEnabled)return;const ctx=acquireSoundEngine();if(!ctx||ctx.state==='closed')return;const now=ctx.currentTime+0.12;
+ [[783.99,0],[987.77,.09],[1174.66,.18],[1567.98,.27],[1975.53,.36],[2349.32,.47]].forEach(([hz,at],i)=>{try{const o=ctx.createOscillator(),g=ctx.createGain();o.type=i%2?'triangle':'sine';o.frequency.setValueAtTime(hz,now+at);g.gain.setValueAtTime(.0001,now+at);g.gain.exponentialRampToValueAtTime(.07,now+at+.015);g.gain.exponentialRampToValueAtTime(.0001,now+at+(i===5?.5:.16));o.connect(g);g.connect(ctx.destination);o.start(now+at);o.stop(now+at+.55);}catch{}});}
 function showShinyFound(id){const it=byId.get(id);if(!it)return;
- showModal(`<div class="modal-tag shiny-tag">✦ SHINY ELEMENT</div><div class="modal-art is-shiny">${staticArt(it)}</div><h2>Shiny ${escapeText(uiName(it))}</h2>${shinyCard(it)}<div class="modal-milestone">${shiny.size.toLocaleString('en-US')} shiny ${shiny.size===1?'element':'elements'} · ${Math.round(shinyChance()*100)}% chance per combination</div>`);
+ showModal(`<div class="modal-tag shiny-tag">✦ SHINY ELEMENT</div><div class="modal-art is-shiny">${staticArt(it)}</div><h2>Shiny ${escapeText(uiName(it))}</h2>${shinyPerks(it)}${shinyCard(it)}`);shinyDress();
 }
-const APP_VERSION='1.0.95';
+const APP_VERSION='1.0.96';
 // V83: status line + Google consent (UMP) privacy options, required for EEA players.
 async function refreshAdStatus(){
  const el=$('settingsAdStatus'),bridge=getRewardBridge();
@@ -8717,6 +8785,7 @@ function pulseSelectedElement(id){
 // With the left lock active this gives continuous experimentation with one fixed ingredient.
 function insertDirect(id){
  if(!byId.has(id)||!unlocked.has(id))return;
+ if(!$('modal').hidden)return;
  pulseSelectedElement(id);
  if(tab!=='Play')switchTab('Play');
  place(slots[0]===null?0:1,id);
@@ -8957,7 +9026,7 @@ async function combine(){
  }catch(e){toast('Server unavailable · Offline progress preserved','error');console.warn(e);}
 }
 let modalBack=null;
-function showModal(content){cancelCraftMorph();modalBack=null;settleTimedHint(false);$('modal').removeAttribute('aria-labelledby');$('modal').dataset.dismiss='any';$('modalContent').innerHTML=content;$('modal').hidden=false;}
+function showModal(content){cancelCraftMorph();try{$('modal').querySelector('.modal-card')?.classList.remove('is-shiny-card');}catch{}modalBack=null;settleTimedHint(false);$('modal').removeAttribute('aria-labelledby');$('modal').dataset.dismiss='any';$('modalContent').innerHTML=content;$('modal').hidden=false;}
 function closeModal(){
  if(modalBack){const f=modalBack;modalBack=null;f();return;}
  cancelCraftMorph();settleTimedHint(false);
@@ -9027,8 +9096,8 @@ function openGoalSheet(){const g=goalInfo();showModal(`<div class="modal-tag">RE
 let pendingLoop=null;
 function showDiscovery(id,a,b,scene=null,isShiny=false,loop=null){loop=loop||pendingLoop;pendingLoop=null;
  const it=byId.get(id),isFirst=worldFirsts.has(id),earned=[...unlocked].filter(x=>!STARTERS.has(x)).length,isComp=companions.isCompanion(id);
- showModal(`<div class="modal-tag ${isShiny?'shiny-tag':isFirst?'world-first-tag':isComp?'companion-tag':''}">${isShiny?'✦ SHINY DISCOVERY':isFirst?'★ WORLD FIRST':isComp?'NEW COMPANION':'✦ NEW DISCOVERY'}</div><div class="modal-art${isShiny?' is-shiny':''}${isComp?' is-companion':''}">${isComp&&COMPANION_SPRITES_V86[id]?COMPANION_SPRITES_V86[id]:staticArt(it)}</div><h2>${isShiny?'Shiny ':''}${escapeText(uiName(it))}</h2><p>${escapeText(uiName(byId.get(a)))} + ${escapeText(uiName(byId.get(b)))}</p>${isShiny?shinyCard(it):(wittyDiscovery(it)||it.summary)?`<p class="discovery-wit">${escapeText(publicText(wittyDiscovery(it)||it.summary))}</p>`:""}${companionCallout(id)}${homeCallout(id)}${loopHtml(loop)}<div class="modal-milestone">${earned.toLocaleString('en-US')} personal discoveries</div>`);
- $('continueBtn')?.remove();if(loop&&(loop.comboCoins||loop.goalCoins||loop.hit100||loop.combo>=3))confettiIn($('modalContent'));$('modal').dataset.dismiss='x-only';
+ showModal(`<div class="modal-tag ${isShiny?'shiny-tag':isFirst?'world-first-tag':isComp?'companion-tag':''}">${isShiny?'✦ SHINY DISCOVERY':isFirst?'★ WORLD FIRST':isComp?'NEW COMPANION':'✦ NEW DISCOVERY'}</div><div class="modal-art${isShiny?' is-shiny':''}${isComp?' is-companion':''}">${isComp&&COMPANION_SPRITES_V86[id]?COMPANION_SPRITES_V86[id]:staticArt(it)}</div><h2>${isShiny?'Shiny ':''}${escapeText(uiName(it))}</h2><p>${escapeText(uiName(byId.get(a)))} + ${escapeText(uiName(byId.get(b)))}</p>${isShiny?shinyPerks(it)+shinyCard(it):(wittyDiscovery(it)||it.summary)?`<p class="discovery-wit">${escapeText(publicText(wittyDiscovery(it)||it.summary))}</p>`:""}${companionCallout(id)}${homeCallout(id)}${loopHtml(loop)}<div class="modal-milestone">${earned.toLocaleString('en-US')} personal discoveries</div>`);
+ $('continueBtn')?.remove();if(loop&&(loop.comboCoins||loop.goalCoins||loop.hit100||loop.combo>=3))confettiIn($('modalContent'));if(isShiny)shinyDress();$('modal').dataset.dismiss='x-only';
  playCraftMotion(scene,'new',it);
  if(isComp){const go=$('meetCompanion');if(go)go.onclick=()=>{closeModal();switchTab('Pets');};}
 }
@@ -9492,7 +9561,7 @@ function adCoinsLeft(){const d=dailyKey();if(wallet.adDay!==d){wallet.adDay=d;wa
 function claimDaily(){if(wallet.daily===dailyKey())return 0;const st=nextStreak(),c=dailyCoins(st);wallet.streak=st;wallet.daily=dailyKey();addCoins(c);SFX.prize?.();toast(`+${c} daily coins!`,'new');return c;}
 function openCoinShop(back){const daily=wallet.daily!==dailyKey();const left=adCoinsLeft();const ad=rewardedAvailable()&&left>0;const again=()=>openCoinShop(back);
  const row=(ico,t,sm)=>`<li><span>${ico}</span><div><b>${t}</b><small>${sm}</small></div></li>`;
- showModal(`<div class="modal-tag">COMPANION COINS</div><h2>Get coins</h2><p class="mini-muted">You have 🪙 <b data-coins>${wallet.coins.toLocaleString('en-US')}</b></p><h3 class="st-sub">Free</h3>
+ showModal(`<div class="cp-bank-head"><small>COMPANION COINS</small><b>🪙 <span data-coins>${wallet.coins.toLocaleString('en-US')}</span></b><span>Spend them in the Market, on minigames and on your companions</span></div><h2>Get coins</h2><h3 class="st-sub">Free</h3>
   <button type="button" class="modal-button" id="cpDaily" ${daily?'':'disabled'}>${daily?`🎁 Daily gift · +${dailyCoins(nextStreak())}`:'🎁 Daily gift claimed · back tomorrow'}</button>
   ${rewardedAvailable()?`<button type="button" class="modal-button secondary" id="cpAd" ${ad?'':'disabled'}>▶ Watch an ad · +${AD_COINS} <small>(${left} left today)</small></button>`:''}
   <ul class="cp-ways">${row('⚗️','Discover elements',`+${DISCOVERY_COINS} each · +${DISCOVERY_MILESTONE_COINS} every ${DISCOVERY_MILESTONE}`)}${row('🏁','Races and Karate','Best on your first gold of each level')}${row('🎮','Minigames and Microgames','Up to 40 a game · 150 a day')}${row('🔍','Companion finds',`+${COMPANION_FIND_COINS} each`)}</ul>
