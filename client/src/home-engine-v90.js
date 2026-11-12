@@ -50,6 +50,11 @@ export function findPath(L,blocked,from,to){const key=(x,y)=>y*L.cols+x;const sx
  if(sx===tx&&sy===ty)return [{x:tx,y:ty}];const prev=new Map([[key(sx,sy),null]]);const q=[[sx,sy]];const free=(x,y)=>x>=0&&y>=0&&x<L.cols&&y<L.rows&&(!blocked.has(key(x,y))||(x===tx&&y===ty));
  while(q.length){const [x,y]=q.shift();if(x===tx&&y===ty)break;for(const [dx,dy] of [[1,0],[-1,0],[0,1],[0,-1],[1,1],[1,-1],[-1,1],[-1,-1]]){const nx=x+dx,ny=y+dy;if(!free(nx,ny)||prev.has(key(nx,ny)))continue;if(dx&&dy&&(!free(x+dx,y)||!free(x,y+dy)))continue;prev.set(key(nx,ny),key(x,y));q.push([nx,ny]);}}
  if(!prev.has(key(tx,ty)))return null;const out=[];let k=key(tx,ty);while(k!=null){out.unshift({x:k%L.cols,y:Math.floor(k/L.cols)});k=prev.get(k);}return out.slice(1);}
+/** V180: furniture is alive even when nobody uses it — fire flickers, lamps glow, water shimmers, plants sway, screens flicker, clocks tick. */
+export function ambientOf(id,name=''){const t=(id+' '+name).toLowerCase();
+ if(/fireplace|campfire|candle|torch|stove|oven|brazier|furnace/.test(t))return 'fire';if(/lamp|lantern|chandelier|light|lava/.test(t))return 'glow';
+ if(/pool|tub|aquarium|fountain|pond|hot-spring|basin|water-bowl|water bowl/.test(t))return 'water';if(/plant|flower|fern|bonsai|tree|cactus|ivy|bush|vase/.test(t))return 'sway';
+ if(/television|computer|arcade|monitor|console|pinball|radio|jukebox/.test(t))return 'screen';if(/clock|metronome|pendulum/.test(t))return 'tick';if(/curtain|flag|banner|kite|windsock|hammock/.test(t))return 'breeze';return '';}
 export function motionOf(id,name='',effect=''){const t=(id+' '+name).toLowerCase();
  if(/running-wheel|hamster wheel/.test(t))return 'wheel';if(/treadmill/.test(t))return 'treadmill';if(/bicycle|bike/.test(t))return 'bike';
  if(/trampoline/.test(t))return 'tramp';if(/punching/.test(t))return 'bag';if(/seesaw|rocking/.test(t))return 'rock';if(/swing|hammock|glider-perch/.test(t))return 'swing';
@@ -122,7 +127,8 @@ export function createHomeSystem(ctx){
   const layer=layerOf(RS,f.id),[w,h]=footprint(objects,f),art=pieceArt(f);const mv=attr==='data-piece'&&moving&&moving.index===i;
   const band=layer==='object'?BAND:0;
   const style=layer==='wall'?`--x:${f.x};--w:${w}`:`--x:${f.x};--y:${f.y};--w:${w};--h:${h};--band:${band};--z:${layer==='floor'?1:10+(f.y+h)*2}`;
-  return `<button type="button" class="home-piece is-${layer} ${art.flip?'is-flip':''} ${mv?'is-moving':''}" ${attr}="${i}" ${attr==='data-piece'?'':'tabindex="-1"'} style="${style}" aria-label="${escapeText(uiName(byId.get(f.id)))}">${art.html}<i class="home-hit" aria-hidden="true"></i></button>`;}
+  const amb=ambientOf(f.id,uiName(byId.get(f.id))||'');
+  return `<button type="button" class="home-piece is-${layer} ${art.flip?'is-flip':''} ${mv?'is-moving':''} ${amb?'a-'+amb:''}" ${attr}="${i}" ${attr==='data-piece'?'':'tabindex="-1"'} style="${style}" aria-label="${escapeText(uiName(byId.get(f.id)))}">${art.html}<i class="home-hit" aria-hidden="true"></i></button>`;}
  // ---------- V143: add-ons are rooms of their own, built from the game's room sprites ----------
  const YARD_ROWS=3;
  /** Outdoor yard: garden pieces and/or the pool, laid out for the house's width. */

@@ -113,3 +113,10 @@ test('V177: ultra-rare drops', async () => {
   for (const x of M.ULTRA) { const ess = M.MARKET.find(m => m.id === x.ess); assert.ok(ess && ess.hidden && ess.look); const r = E.lookAfterMeal(undefined, ess.look, '', '', 3); assert.ok(r.tint, x.id + ' essence tints'); }
   assert.ok(!M.MARKET.filter(m => m.hidden).some(m => !m.id.startsWith('ess-')));
 });
+test('V180: ambient furniture kinds', async () => {
+  const H = await import('../src/home-engine-v90.js');
+  assert.equal(H.ambientOf('organic89:fireplace', 'Fireplace'), 'fire');
+  assert.equal(H.ambientOf('organic89:paddling-pool', 'Paddling pool'), 'water');
+  assert.equal(H.ambientOf('organic89:curtain', 'Curtain'), 'breeze');
+  assert.equal(H.ambientOf('organic89:bed', 'Bed'), '');
+});

@@ -90,6 +90,10 @@ Preserve 200-per-batch policy and do not start another content release on top of
 
 - **Art redraw wave 3 (V85, done): 3,991 icons** — every remaining older element. All 6,012 pre-V83 elements now use the 2026 art direction (`ART_REDRAW`), plus 200 V83 and 200 V85 originals. Six near-duplicates found by the audit were redrawn; 36 reviewed false alarms are in `tools/art-redraw-reviewed-pairs.json` (the audit now also honours them for V83 comparisons).
 
+## V180 — Ambient furniture
+- ambientOf(id,name) → fire / glow / water / sway / screen / tick / breeze; pieceHtml adds `a-<kind>`; CSS overlays animate the piece even when nobody uses it (lamps and fires glow stronger in the evening/night).
+- Still pending (owner said go ahead, in this order): UI redundancy review, ultra races + Supreme look, +~1,365 elements to reach ~8,000, release prep. Open question to owner: rename "Alchemy 10K" → "Alchemy 8K"?
+
 ## V179 — Coin packs back
 - Owner correction: "+ Coins" may stay real money. Real-money purchases = Remove ads + coin packs (ids coins_100…coins_15000, amounts 600/1,300/3,500/8,000/17,000/45,000/100,000, first purchase ×2). No pack-exclusive items: the four special colours stay coin-priced. The "Get coins" sheet shows Free (daily gift, ad +20 ×5/day, ways to earn) then Coin packs.
 
