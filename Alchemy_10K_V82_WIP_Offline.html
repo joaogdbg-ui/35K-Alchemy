@@ -2214,6 +2214,22 @@ body.ar-playing>*:not(.ar-stage){display:none!important}
 .home-life em{font-style:normal;font-weight:900;font-size:12px;color:#fff;background:var(--good);border-radius:999px;padding:1px 8px;opacity:0}.home-life em.is-pop{animation:home-gain 2.4s ease-out 1}
 .home-life.is-add{border-style:dashed;background:transparent}
 .home-life{box-sizing:border-box;max-width:100%;min-width:0}.home-life-list{min-width:0}
+/* V180: ambient furniture life */
+.home-piece.a-fire::after{content:"";position:absolute;left:10%;right:10%;top:10%;bottom:0;border-radius:50%;background:radial-gradient(ellipse at 50% 65%,rgba(255,190,90,.55),rgba(255,140,60,.18) 45%,transparent 70%);mix-blend-mode:screen;pointer-events:none;animation:amb-fire .9s ease-in-out infinite alternate}
+@keyframes amb-fire{0%{opacity:.55;transform:scale(.94)}40%{opacity:.9}100%{opacity:.7;transform:scale(1.06)}}
+.home-piece.a-fire svg{animation:amb-flick 1.3s steps(3) infinite}@keyframes amb-flick{50%{filter:brightness(1.07) drop-shadow(0 4px 0 rgba(60,40,20,.18))}}
+.home-piece.a-glow::after{content:"";position:absolute;inset:-20% -25% -5%;border-radius:50%;background:radial-gradient(circle at 50% 35%,rgba(255,236,170,.4),transparent 62%);mix-blend-mode:screen;pointer-events:none;opacity:.35;animation:amb-glow 3.2s ease-in-out infinite alternate}
+@keyframes amb-glow{to{opacity:.6}}
+.home-room[data-tod="night"] .home-piece.a-glow::after,.home-room[data-tod="evening"] .home-piece.a-glow::after{opacity:1;animation:none}.home-room[data-tod="night"] .home-piece.a-fire::after{inset:-25% -30% -10%;left:auto;right:auto;top:auto;bottom:auto;inset:-25% -30% -10%}
+.home-piece.a-water::after{content:"";position:absolute;left:18%;right:18%;top:28%;bottom:24%;border-radius:50%;background:linear-gradient(110deg,transparent 30%,rgba(255,255,255,.55) 45%,transparent 60%) 0 0/260% 100%;mix-blend-mode:soft-light;pointer-events:none;animation:amb-water 3.6s linear infinite}
+@keyframes amb-water{from{background-position:120% 0}to{background-position:-60% 0}}
+.home-piece.a-sway svg{transform-origin:50% 100%;animation:amb-sway 3.4s ease-in-out infinite alternate}@keyframes amb-sway{from{transform:rotate(-2.2deg)}to{transform:rotate(2.2deg)}}
+.home-piece.a-breeze svg{transform-origin:50% 0;animation:amb-breeze 2.8s ease-in-out infinite alternate}@keyframes amb-breeze{from{transform:skewX(-2.5deg)}to{transform:skewX(2.5deg)}}
+.home-piece.a-screen::after{content:"";position:absolute;left:22%;right:22%;top:18%;height:38%;border-radius:6px;background:linear-gradient(180deg,rgba(150,220,255,.5),rgba(190,160,255,.35));mix-blend-mode:screen;pointer-events:none;animation:amb-screen 2.2s steps(4) infinite}
+@keyframes amb-screen{0%{opacity:.25}25%{opacity:.6}50%{opacity:.35}75%{opacity:.7}100%{opacity:.3}}
+.home-piece.a-tick svg{transform-origin:50% 20%;animation:amb-tick 1s steps(2) infinite}@keyframes amb-tick{50%{transform:rotate(1.6deg)}}
+.home-piece.is-in-use.a-sway svg,.home-piece.is-moving svg{animation:none}
+@media (prefers-reduced-motion:reduce){.home-piece::after,.home-piece svg{animation:none!important}}
 
 </style>
 </head>
@@ -2612,6 +2628,11 @@ function findPath(L,blocked,from,to){const key=(x,y)=>y*L.cols+x;const sx=Math.r
  if(sx===tx&&sy===ty)return [{x:tx,y:ty}];const prev=new Map([[key(sx,sy),null]]);const q=[[sx,sy]];const free=(x,y)=>x>=0&&y>=0&&x<L.cols&&y<L.rows&&(!blocked.has(key(x,y))||(x===tx&&y===ty));
  while(q.length){const [x,y]=q.shift();if(x===tx&&y===ty)break;for(const [dx,dy] of [[1,0],[-1,0],[0,1],[0,-1],[1,1],[1,-1],[-1,1],[-1,-1]]){const nx=x+dx,ny=y+dy;if(!free(nx,ny)||prev.has(key(nx,ny)))continue;if(dx&&dy&&(!free(x+dx,y)||!free(x,y+dy)))continue;prev.set(key(nx,ny),key(x,y));q.push([nx,ny]);}}
  if(!prev.has(key(tx,ty)))return null;const out=[];let k=key(tx,ty);while(k!=null){out.unshift({x:k%L.cols,y:Math.floor(k/L.cols)});k=prev.get(k);}return out.slice(1);}
+/** V180: furniture is alive even when nobody uses it — fire flickers, lamps glow, water shimmers, plants sway, screens flicker, clocks tick. */
+function ambientOf(id,name=''){const t=(id+' '+name).toLowerCase();
+ if(/fireplace|campfire|candle|torch|stove|oven|brazier|furnace/.test(t))return 'fire';if(/lamp|lantern|chandelier|light|lava/.test(t))return 'glow';
+ if(/pool|tub|aquarium|fountain|pond|hot-spring|basin|water-bowl|water bowl/.test(t))return 'water';if(/plant|flower|fern|bonsai|tree|cactus|ivy|bush|vase/.test(t))return 'sway';
+ if(/television|computer|arcade|monitor|console|pinball|radio|jukebox/.test(t))return 'screen';if(/clock|metronome|pendulum/.test(t))return 'tick';if(/curtain|flag|banner|kite|windsock|hammock/.test(t))return 'breeze';return '';}
 function motionOf(id,name='',effect=''){const t=(id+' '+name).toLowerCase();
  if(/running-wheel|hamster wheel/.test(t))return 'wheel';if(/treadmill/.test(t))return 'treadmill';if(/bicycle|bike/.test(t))return 'bike';
  if(/trampoline/.test(t))return 'tramp';if(/punching/.test(t))return 'bag';if(/seesaw|rocking/.test(t))return 'rock';if(/swing|hammock|glider-perch/.test(t))return 'swing';
@@ -2684,7 +2705,8 @@ function createHomeSystem(ctx){
   const layer=layerOf(RS,f.id),[w,h]=footprint(objects,f),art=pieceArt(f);const mv=attr==='data-piece'&&moving&&moving.index===i;
   const band=layer==='object'?BAND:0;
   const style=layer==='wall'?`--x:${f.x};--w:${w}`:`--x:${f.x};--y:${f.y};--w:${w};--h:${h};--band:${band};--z:${layer==='floor'?1:10+(f.y+h)*2}`;
-  return `<button type="button" class="home-piece is-${layer} ${art.flip?'is-flip':''} ${mv?'is-moving':''}" ${attr}="${i}" ${attr==='data-piece'?'':'tabindex="-1"'} style="${style}" aria-label="${escapeText(uiName(byId.get(f.id)))}">${art.html}<i class="home-hit" aria-hidden="true"></i></button>`;}
+  const amb=ambientOf(f.id,uiName(byId.get(f.id))||'');
+  return `<button type="button" class="home-piece is-${layer} ${art.flip?'is-flip':''} ${mv?'is-moving':''} ${amb?'a-'+amb:''}" ${attr}="${i}" ${attr==='data-piece'?'':'tabindex="-1"'} style="${style}" aria-label="${escapeText(uiName(byId.get(f.id)))}">${art.html}<i class="home-hit" aria-hidden="true"></i></button>`;}
  // ---------- V143: add-ons are rooms of their own, built from the game's room sprites ----------
  const YARD_ROWS=3;
  /** Outdoor yard: garden pieces and/or the pool, laid out for the house's width. */
@@ -7388,7 +7410,7 @@ function shinyCard(item){return `<p class="shiny-trivia"><span aria-hidden="true
 function showShinyFound(id){const it=byId.get(id);if(!it)return;
  showModal(`<div class="modal-tag shiny-tag">✦ SHINY ELEMENT</div><div class="modal-art is-shiny">${staticArt(it)}</div><h2>Shiny ${escapeText(uiName(it))}</h2>${shinyCard(it)}<div class="modal-milestone">${shiny.size.toLocaleString('en-US')} shiny ${shiny.size===1?'element':'elements'} · ${Math.round(shinyChance()*100)}% chance per combination</div>`);
 }
-const APP_VERSION='1.0.79';
+const APP_VERSION='1.0.80';
 // V83: status line + Google consent (UMP) privacy options, required for EEA players.
 async function refreshAdStatus(){
  const el=$('settingsAdStatus'),bridge=getRewardBridge();

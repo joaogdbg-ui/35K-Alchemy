@@ -2205,3 +2205,19 @@ body.ar-playing>*:not(.ar-stage){display:none!important}
 .home-life em{font-style:normal;font-weight:900;font-size:12px;color:#fff;background:var(--good);border-radius:999px;padding:1px 8px;opacity:0}.home-life em.is-pop{animation:home-gain 2.4s ease-out 1}
 .home-life.is-add{border-style:dashed;background:transparent}
 .home-life{box-sizing:border-box;max-width:100%;min-width:0}.home-life-list{min-width:0}
+/* V180: ambient furniture life */
+.home-piece.a-fire::after{content:"";position:absolute;left:10%;right:10%;top:10%;bottom:0;border-radius:50%;background:radial-gradient(ellipse at 50% 65%,rgba(255,190,90,.55),rgba(255,140,60,.18) 45%,transparent 70%);mix-blend-mode:screen;pointer-events:none;animation:amb-fire .9s ease-in-out infinite alternate}
+@keyframes amb-fire{0%{opacity:.55;transform:scale(.94)}40%{opacity:.9}100%{opacity:.7;transform:scale(1.06)}}
+.home-piece.a-fire svg{animation:amb-flick 1.3s steps(3) infinite}@keyframes amb-flick{50%{filter:brightness(1.07) drop-shadow(0 4px 0 rgba(60,40,20,.18))}}
+.home-piece.a-glow::after{content:"";position:absolute;inset:-20% -25% -5%;border-radius:50%;background:radial-gradient(circle at 50% 35%,rgba(255,236,170,.4),transparent 62%);mix-blend-mode:screen;pointer-events:none;opacity:.35;animation:amb-glow 3.2s ease-in-out infinite alternate}
+@keyframes amb-glow{to{opacity:.6}}
+.home-room[data-tod="night"] .home-piece.a-glow::after,.home-room[data-tod="evening"] .home-piece.a-glow::after{opacity:1;animation:none}.home-room[data-tod="night"] .home-piece.a-fire::after{inset:-25% -30% -10%;left:auto;right:auto;top:auto;bottom:auto;inset:-25% -30% -10%}
+.home-piece.a-water::after{content:"";position:absolute;left:18%;right:18%;top:28%;bottom:24%;border-radius:50%;background:linear-gradient(110deg,transparent 30%,rgba(255,255,255,.55) 45%,transparent 60%) 0 0/260% 100%;mix-blend-mode:soft-light;pointer-events:none;animation:amb-water 3.6s linear infinite}
+@keyframes amb-water{from{background-position:120% 0}to{background-position:-60% 0}}
+.home-piece.a-sway svg{transform-origin:50% 100%;animation:amb-sway 3.4s ease-in-out infinite alternate}@keyframes amb-sway{from{transform:rotate(-2.2deg)}to{transform:rotate(2.2deg)}}
+.home-piece.a-breeze svg{transform-origin:50% 0;animation:amb-breeze 2.8s ease-in-out infinite alternate}@keyframes amb-breeze{from{transform:skewX(-2.5deg)}to{transform:skewX(2.5deg)}}
+.home-piece.a-screen::after{content:"";position:absolute;left:22%;right:22%;top:18%;height:38%;border-radius:6px;background:linear-gradient(180deg,rgba(150,220,255,.5),rgba(190,160,255,.35));mix-blend-mode:screen;pointer-events:none;animation:amb-screen 2.2s steps(4) infinite}
+@keyframes amb-screen{0%{opacity:.25}25%{opacity:.6}50%{opacity:.35}75%{opacity:.7}100%{opacity:.3}}
+.home-piece.a-tick svg{transform-origin:50% 20%;animation:amb-tick 1s steps(2) infinite}@keyframes amb-tick{50%{transform:rotate(1.6deg)}}
+.home-piece.is-in-use.a-sway svg,.home-piece.is-moving svg{animation:none}
+@media (prefers-reduced-motion:reduce){.home-piece::after,.home-piece svg{animation:none!important}}
