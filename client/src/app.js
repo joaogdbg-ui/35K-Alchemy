@@ -168,7 +168,7 @@ try{localStorage.setItem(FAMILY_SAVES_KEY,JSON.stringify(familyProfiles));}catch
 setIconCatalog(ITEMS);
 const byId=new Map(ITEMS.map(item=>[item.id,item]));
 const pairKey=(a,b)=>[a,b].sort().join('|');
-const CATALOG_GOAL=8000; // V181: Alchemy 8K target (was 10K); historical V24 target stays archived.
+const CATALOG_GOAL=7000; // V183: Alchemy 7K target (was 8K, 10K); historical V24 target stays archived.
 const categoryNames={gamecraft:'Game creation',nature:'Nature',material:'Materials',life:'Life',science:'Science',culture:'Culture',concept:'Ideas',technology:'Technology',accessory:'Accessories',brand:'Brands',console:'Consoles',portable:'Handhelds',computer:'Computers',arcade:'Arcades',board:'Board Games',genre:'Genres',game:'Video Games',fantasy:'Fantasy',film:'Films',music:'Music',politician:'People',anime:'Anime & Manga',manga:'Manga',character:'Characters',film:'Films & TV',music:'Music',power:'Powers',object:'Objects',series:'Series'};
 let unlocked = new Set(['legacy:0','legacy:1','legacy:2','legacy:3']);
 let known = new Set(), recent=[], last=null, slots=[null,null],leftLocked=false,playFilter='all',playFamily='all',playQuery='',tab='Play',autoTimer=null,toastTimer=null;
@@ -454,7 +454,7 @@ async function watchSlot2Ad(){if(classicDiscoveredCount()<SLOT2_MIN_ELEMENTS||sl
  if(slot2Unlocked()){toast('Second companion slot unlocked!','new');companions.start();}else toast(`Second slot · ${slot2.ads}/${SLOT2_ADS} ads`,'repeat');return true;}
 async function refreshBilling(){const b=billingBridge();if(!b)return;try{applyBillingStatus(await b.getStatus());}catch(e){console.warn('Billing status unavailable',e);}}
 function openRemoveAds(){
- if(adFree()){showModal(`<div class="modal-tag">REMOVE ADS</div><h2>Ads removed</h2><p>Thank you for supporting Alchemy 8K! Batch, Batch all and starter packs are free, you keep a bank of ${HINT_BANK_MAX} hints that refills one every 15 minutes, and Shiny elements appear 5× more often.</p><p class="mini-muted">Optional ads remain only if you want extra hints when your bank is empty.</p><button type="button" class="modal-button secondary" id="removeAdsClose">Close</button>`);$('removeAdsClose').onclick=closeModal;return;}
+ if(adFree()){showModal(`<div class="modal-tag">REMOVE ADS</div><h2>Ads removed</h2><p>Thank you for supporting Alchemy 7K! Batch, Batch all and starter packs are free, you keep a bank of ${HINT_BANK_MAX} hints that refills one every 15 minutes, and Shiny elements appear 5× more often.</p><p class="mini-muted">Optional ads remain only if you want extra hints when your bank is empty.</p><button type="button" class="modal-button secondary" id="removeAdsClose">Close</button>`);$('removeAdsClose').onclick=closeModal;return;}
  const b=billingBridge();
  showModal(`<div class="modal-tag">REMOVE ADS</div><h2>Play without ads · ${escapeText(billingPrice)}</h2><ul class="perk-list"><li>No ads for Batch, Batch all or starter packs</li><li>${HINT_BANK_MAX} hints included, +1 free hint every 15 minutes</li><li>Shiny chance 5% instead of 1%</li><li>Optional ads only for extra hints</li></ul><button type="button" class="modal-button" id="buyNoAds" ${b?'':'disabled'}>Buy · ${escapeText(billingPrice)}</button><button type="button" class="modal-button secondary" id="restoreNoAds" ${b?'':'disabled'}>Restore purchase</button><p class="mini-muted">${b?'One-time purchase through Google Play.':'Purchases need the Android app from Google Play.'}</p>`);
  if(!b)return;
@@ -502,7 +502,7 @@ function shinyCard(item){return `<p class="shiny-trivia"><span aria-hidden="true
 function showShinyFound(id){const it=byId.get(id);if(!it)return;
  showModal(`<div class="modal-tag shiny-tag">✦ SHINY ELEMENT</div><div class="modal-art is-shiny">${staticArt(it)}</div><h2>Shiny ${escapeText(uiName(it))}</h2>${shinyCard(it)}<div class="modal-milestone">${shiny.size.toLocaleString('en-US')} shiny ${shiny.size===1?'element':'elements'} · ${Math.round(shinyChance()*100)}% chance per combination</div>`);
 }
-const APP_VERSION='1.0.82';
+const APP_VERSION='1.0.83';
 // V83: status line + Google consent (UMP) privacy options, required for EEA players.
 async function refreshAdStatus(){
  const el=$('settingsAdStatus'),bridge=getRewardBridge();
@@ -1982,7 +1982,7 @@ function backupJson(){
 // native AlchemyBackup plugin (Drive, Files, e-mail...). Browsers download it.
 function backupBridge(){const cap=window.Capacitor;if(cap?.getPlatform?.()!=='android')return null;const b=cap.Plugins?.AlchemyBackup;return b&&typeof b.shareFile==='function'?b:null;}
 async function exportProgress(){
- const json=backupJson(),filename='Alchemy_8K_Backup_'+new Date().toISOString().slice(0,10)+'.json';
+ const json=backupJson(),filename='Alchemy_7K_Backup_'+new Date().toISOString().slice(0,10)+'.json';
  const bridge=backupBridge();
  if(bridge){try{await bridge.shareFile({filename,content:json});toast('Choose where to save your backup');return;}catch(e){console.warn('Backup share failed',e);}}
  if(!window.Capacitor){
@@ -2157,7 +2157,7 @@ function settings(){
     <div class="settings-divider"></div>
     <details><summary>Where is progress saved?</summary><p>Progress is stored locally. Clearing app data or uninstalling the game may erase it. Cloud recovery is not available yet.</p></details>
    </div>
-   <div class="settings-about">Alchemy 8K <span>v${APP_VERSION} · ${rewardedAvailable()?'Test ads build':'Offline test build'}</span></div>
+   <div class="settings-about">Alchemy 7K <span>v${APP_VERSION} · ${rewardedAvailable()?'Test ads build':'Offline test build'}</span></div>
   </section>
  </div>`);
  $('modal').setAttribute('aria-labelledby','settingsHeading');
