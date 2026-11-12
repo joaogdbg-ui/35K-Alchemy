@@ -38,7 +38,8 @@ export const COIN_PACK={id:'coins_100',coins:200,price:'€1.00'};
 /** V137: bigger packs are better value (bonus vs the 100-coin pack). */
 /** V150: coins doubled for the same euros (product ids keep their original names). */
 /** V174: packs give much more (≈3 days of play for €1); the 4 biggest also give a pack-exclusive colour. Product ids unchanged. */
-export const COIN_PACKS=[{id:'coins_100',coins:600,price:'€1.00',bonus:0},{id:'coins_210',coins:1300,price:'€2.00',bonus:8},{id:'coins_550',coins:3500,price:'€5.00',bonus:17},{id:'coins_1200',coins:8000,price:'€10.00',bonus:33,tag:'Popular',gift:'dye-gold'},{id:'coins_2600',coins:17000,price:'€20.00',bonus:42,gift:'dye-aurora'},{id:'coins_7000',coins:45000,price:'€50.00',bonus:50,gift:'dye-shadow'},{id:'coins_15000',coins:100000,price:'€100.00',bonus:67,tag:'Best value',gift:'dye-rainbow'}];
+/** V178: coin packs removed — Remove ads is the only real-money purchase. Kept empty so old purchase tokens are simply ignored. */
+export const COIN_PACKS=[];
 /** V174: the very first coin pack bought gives double coins. */
 export const FIRST_BUY_MULT=2;
 /** V174: companion colours — a coin sink (cosmetic). Exclusive ones come only with the big coin packs. */
@@ -49,10 +50,10 @@ export const DYES=[
  {id:'dye-sunset',name:'Sunset',price:1200,tint:'sunset',match:/\b(sunset|orange|peach|mango|carrot|pumpkin|autumn|evening|apricot|brick|rust)\b/},
  {id:'dye-snow',name:'Snow',price:1500,tint:'snow',match:/\b(white|milk|paper|cotton|salt|sugar|cream|ghost|marshmallow|flour|snowman|bandage)\b/},
  {id:'dye-cocoa',name:'Cocoa',price:2000,tint:'cocoa',match:/\b(chocolate|coffee|cocoa|wood|bread|toast|brown|caramel|clay|leather|cookie|barrel)\b/},
- {id:'dye-gold',name:'Gold',exclusive:'coins_1200',tint:'gold',match:/\b(gold|coin|treasure|crown|money|trophy|medal|king|queen|bank)\b/},
- {id:'dye-aurora',name:'Aurora',exclusive:'coins_2600',tint:'aurora',match:/\b(aurora|galaxy|nebula|space|star|planet|comet|rocket|satellite|universe)\b/},
- {id:'dye-shadow',name:'Shadow',exclusive:'coins_7000',tint:'onyx',match:/\b(shadow|night|dark|black|coal|oil|ink|smoke|bat|void|cave)\b/},
- {id:'dye-rainbow',name:'Rainbow',exclusive:'coins_15000',tint:'rainbow',match:/\b(rainbow|unicorn|prism|party|confetti|colou?r|paint|candy|firework|balloon)\b/}];
+ {id:'dye-gold',name:'Gold',price:3000,tint:'gold',match:/\b(gold|coin|treasure|crown|money|trophy|medal|king|queen|bank)\b/},
+ {id:'dye-aurora',name:'Aurora',price:4000,tint:'aurora',match:/\b(aurora|galaxy|nebula|space|star|planet|comet|rocket|satellite|universe)\b/},
+ {id:'dye-shadow',name:'Shadow',price:5000,tint:'onyx',match:/\b(shadow|night|dark|black|coal|oil|ink|smoke|bat|void|cave)\b/},
+ {id:'dye-rainbow',name:'Rainbow',price:6000,tint:'rainbow',match:/\b(rainbow|unicorn|prism|party|confetti|colou?r|paint|candy|firework|balloon)\b/}];
 /** V177: ultra-rare looks and colours. Championship wins can drop the first six; minigames have a 0.01% chance of the unique two;
  * the supreme look is for winning an ultra race (next update). An unlock gives free essences; more essences cost coins (hidden food items). */
 export const ULTRA=[
@@ -83,7 +84,7 @@ export function assignDyes(names,hasLook){const free=names.filter(n=>!hasLook(n)
  for(const d of DYES){let have=[...map.values()].filter(v=>v===d.id).length;while(have<DYE_MIN&&k<rest.length){map.set(rest[k++],d.id);have++;}}
  return map;}
 /** V149: shown in the Market and the coin shop — nothing is pay-only. */
-export const FAIR_PLAY_NOTE='Everything that helps you play can be found in Alchemy or earned by playing (races, Karate, daily coins). Only four cosmetic colours come with the big coin packs.';
+export const FAIR_PLAY_NOTE='Everything is bought with Companion Coins, and coins are only earned by playing. The only real-money purchase is Remove ads.';
 export const MARKET=[
  // food: given straight to the companion on screen
  // V137: food is placed on the main screen; drag it onto a companion

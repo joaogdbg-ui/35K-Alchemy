@@ -2170,3 +2170,6 @@ body.ar-playing>*:not(.ar-stage){display:none!important}
 /* V177: ultra rare */
 .mk-tile.is-ultra{background:linear-gradient(160deg,#fff5d6,#f3dfc8 60%,#e9d5ff)}.mk-tile.is-ultra .lk-ico{font-size:26px;background:#fff8ec}
 .g-prize.is-ultra{background:linear-gradient(135deg,#fff5d6,#e9d5ff);border:2px solid #d08a4c;animation:arBump 1s ease-in-out 3}.g-prize.is-ultra>span{font-size:30px;color:#d08a4c}
+/* V178 */
+.cp-ways{list-style:none;margin:10px 0;padding:0;display:grid;gap:6px}.cp-ways li{display:flex;gap:10px;align-items:center;padding:8px 12px;border-radius:14px;background:var(--surface-2)}.cp-ways span{font-size:22px}.cp-ways b{display:block}.cp-ways small{color:var(--ink-2)}
+.mk-buy.has-gift{animation:arBump 1.2s ease-in-out infinite}
