@@ -2619,6 +2619,42 @@ body[data-tab="Games"] .companion-layer{display:none}
 .cp-bank-head b span{font-size:inherit;font-weight:inherit;color:inherit}
 .cp-bank-head>span{display:block}
 
+/* ===== V198: game skin for the list tools (sort, family filter, stat and looks sheets) ===== */
+.tool-chip{height:36px;border:2px solid #E3D6BE;background:linear-gradient(#fff,#FBF3E2);box-shadow:0 3px 0 #E3D6BE;font-weight:800;border-radius:14px;transition:transform .1s}
+.tool-chip:active{transform:translateY(2px);box-shadow:0 1px 0 #E3D6BE}
+.tool-chip.is-on{border-color:#E8843C;box-shadow:0 3px 0 #E8843C;background:linear-gradient(#FFF6EA,#FFE3C2)}
+.tool-chip i{width:22px;height:22px;border-radius:8px}
+.sort-choices{gap:10px}
+.sort-option{position:relative;min-height:62px;padding:10px 14px 10px 62px;border-radius:18px;border:2px solid #E3D6BE;background:linear-gradient(#fff,#FBF3E2);box-shadow:0 4px 0 #E3D6BE;transition:transform .1s}
+.sort-option:active{transform:translateY(3px);box-shadow:0 1px 0 #E3D6BE}
+.sort-option::before{content:"🔤";position:absolute;left:12px;top:50%;translate:0 -50%;width:40px;height:40px;display:grid;place-items:center;font-size:22px;border-radius:12px;background:#F4EBD6}
+.sort-option:nth-child(2)::before{content:"🕰️"}.sort-option:nth-child(3)::before{content:"✨"}.sort-option:nth-child(4)::before{content:"⭐"}
+.sort-option[aria-pressed="true"]{border-color:#33444B;background:#4F6269;box-shadow:0 4px 0 #33444B;color:#fff}
+.sort-option[aria-pressed="true"]::before{background:#FFE9B8}
+.sort-option[aria-pressed="true"] .sort-option-content small{color:#DCE6EA}
+.sort-option-content strong{font-size:15px;font-weight:900}.sort-option-content small{font-size:12px}
+.sort-choice-mark{width:28px;height:28px;display:grid;place-items:center;border-radius:50%;background:#6FB26A;color:#fff;font-size:15px}
+.sort-section-title{display:block;width:max-content;margin:16px 0 8px;padding:3px 12px;border-radius:999px;background:#4F6269;color:#FFE9B8;letter-spacing:.12em}
+.sort-segment{gap:8px}
+.sort-segment button{min-height:44px;border-radius:14px;border:2px solid #E3D6BE;background:#fff;box-shadow:0 3px 0 #E3D6BE;font-size:13px;font-weight:900;transition:transform .1s}
+.sort-segment button:active{transform:translateY(2px);box-shadow:none}
+.sort-segment button[aria-pressed="true"]{border-color:#E8843C;background:linear-gradient(#FFF6EA,#FFE3C2);box-shadow:0 3px 0 #E8843C;color:#7A3A12}
+.sort-hint{padding:8px 10px;border-radius:12px;background:#F7EFE0;font-size:12px!important}
+.batch-family-choice{border:2px solid #E3D6BE!important;border-radius:18px!important;background:linear-gradient(#fff,#FBF3E2)!important;box-shadow:0 4px 0 #E3D6BE;transition:transform .1s}
+.batch-family-choice:active{transform:translateY(3px);box-shadow:0 1px 0 #E3D6BE}
+.batch-family-choice[aria-pressed="true"],.batch-family-choice.is-on,.batch-family-choice.is-active{border-color:#33444B!important;background:#4F6269!important;box-shadow:0 4px 0 #33444B;color:#fff!important}
+.batch-family-choice[aria-pressed="true"] small,.batch-family-choice.is-on small,.batch-family-choice.is-active small{color:#DCE6EA!important}
+.stat-tiles .stat-tile{border:2px solid #E3D6BE;border-radius:18px;background:linear-gradient(#fff,#FBF3E2);box-shadow:0 4px 0 #E3D6BE;transition:transform .1s}
+.stat-tiles .stat-tile:active{transform:translateY(3px);box-shadow:0 1px 0 #E3D6BE}
+.stat-tiles .stat-tile.is-on,.stat-tiles .stat-tile[aria-pressed="true"]{border-color:#E8843C;box-shadow:0 4px 0 #E8843C;background:linear-gradient(#FFF6EA,#FFE3C2)}
+.stat-mode{gap:8px}
+.stat-mode button{min-height:42px;border-radius:14px!important;border:2px solid #E3D6BE!important;background:#fff!important;box-shadow:0 3px 0 #E3D6BE;font-weight:900!important}
+.stat-mode button[aria-pressed="true"]{border-color:#33444B!important;background:#4F6269!important;box-shadow:0 3px 0 #33444B;color:#FFE9B8!important}
+.inline-search{border:2px solid #E3D6BE!important;border-radius:16px!important;background:#fff!important}
+.sort-option:not([aria-pressed="true"]) .sort-choice-mark{visibility:hidden}
+.lk-mystery,.lk-row,.lk-opt{border:2px solid #E3D6BE!important;border-radius:18px!important;background:linear-gradient(#fff,#FBF3E2)!important;box-shadow:0 4px 0 #E3D6BE}
+.lk-mystery.is-on,.lk-row.is-on,.lk-opt.is-on{border-color:#E8843C!important;box-shadow:0 4px 0 #E8843C;background:linear-gradient(#FFF6EA,#FFE3C2)!important}
+
 </style>
 </head>
 <body>
@@ -8196,7 +8232,7 @@ function shinyFanfare(){if(!soundEnabled)return;const ctx=acquireSoundEngine();i
 function showShinyFound(id){const it=byId.get(id);if(!it)return;
  showModal(`<div class="modal-tag shiny-tag">✦ SHINY ELEMENT</div><div class="modal-art is-shiny">${staticArt(it)}</div><h2>Shiny ${escapeText(uiName(it))}</h2>${shinyPerks(it)}${shinyCard(it)}`);shinyDress();
 }
-const APP_VERSION='1.0.97';
+const APP_VERSION='1.0.98';
 // V83: status line + Google consent (UMP) privacy options, required for EEA players.
 async function refreshAdStatus(){
  const el=$('settingsAdStatus'),bridge=getRewardBridge();
