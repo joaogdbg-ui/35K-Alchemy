@@ -90,6 +90,15 @@ Preserve 200-per-batch policy and do not start another content release on top of
 
 - **Art redraw wave 3 (V85, done): 3,991 icons** — every remaining older element. All 6,012 pre-V83 elements now use the 2026 art direction (`ART_REDRAW`), plus 200 V83 and 200 V85 originals. Six near-duplicates found by the audit were redrawn; 36 reviewed false alarms are in `tools/art-redraw-reviewed-pairs.json` (the audit now also honours them for V83 comparisons).
 
+## V193 — Corridas: ecrã de resultado corrigido, saída com aviso, mundo próprio por companion, Settings com skin
+
+- **Bug corrigido**: `finishRace`/`finishKarate` usavam `PK` (só definido em `startRace`/`startKarate`) → ReferenceError: o ecrã de resultado nunca aparecia e as moedas da prova não eram pagas. Agora `PK` é lido dentro de cada função.
+- **Sair com aviso**: o ✕ em corridas, karaté, minijogos e microjogos abre "Leave the game?" (`askQuit` em games-v93.js; equivalente no `stage` do arcade). A corrida fica em pausa enquanto o aviso está aberto; karaté e minijogos não pausam.
+- **Mundos por companion** (games-theme-v151.js): `COMPANION_WORLDS` (40 entradas: nome, mapa de cores g/b/w/s/n, 2 adereços, cor das partículas), `PROP_LIB` (~60 adereços SVG) e `companionArt(base,cid)`. Nas corridas normais o percurso e os obstáculos são os mesmos, mas texturas, céu, adereços (mais densos, ×1.35) e partículas são os do companion que corre; o nome do mundo aparece por baixo do título. As theme races mantêm o tema próprio.
+- **Settings** com a skin do jogo (secções, interruptores, segmentos, cartão Remove ads, títulos em pílula).
+- build-standalone: tuplo games-theme exporta `companionArt` e `COMPANION_WORLDS`.
+- `APP_VERSION` 1.0.93.
+
 ## V192 — "Game skin" em todo o jogo + cartões Today
 
 - Bloco CSS "V192: game skin" no fim de styles.css: a linguagem do Market (contornos de 2 px, sombra inferior 3D, gradientes quentes, botões que afundam ao toque) aplicada à barra de topo, mesa de combinação, botões Packs/Hint, faixa de objetivo, cartões de elementos, barra de separadores (ativo escuro e elevado), botões e etiquetas dos modais, Home (separadores, casas, lugares, cartões) e Stadium (cartaz com bandeirinhas e relva, quatro cartões grandes coloridos, hub Play colorido).
