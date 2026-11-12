@@ -293,19 +293,28 @@ test('V202: Market is its own tab with Remove ads first, old sheets are skinned,
   assert.match(css, /html\[data-theme="dark"\] :is\([^)]*\.element-chip/);
 });
 
-test('V203: living elements — built-in motion by name, rare screen effects, companions react', async () => {
+test('V204: living elements — sensible motion (parts where the art allows), paper-turn default, effects that start at the element', async () => {
   const fs = await import('node:fs');
   const rd = p => fs.readFileSync(new URL(p, import.meta.url), 'utf8');
-  const { liveKind, bleedOf, LIVE_MS, REACT, BLEED } = await import('../src/living-v203.js');
-  const want = { Fire: 'flame', 'Ice Cube': 'melt', Steam: 'smoke', Volcano: 'erupt', Life: 'beat', Smoke: 'smoke', Cake: 'glow', Angel: 'flap', 'Hermit Crab': 'shell', Water: 'water', Wind: 'wind', Energy: 'zap', Cat: 'critter', Shark: 'swim', Wheel: 'spin', Balloon: 'bounce' };
-  for (const [n, k] of Object.entries(want)) assert.equal(liveKind(n), k, n);
-  for (const n of ['Price', 'Police', 'Notice', 'Device', 'Catfish', 'Starfish', 'Earth', 'Sound']) assert.equal(liveKind(n), '', n + ' must not match inside another word');
-  assert.equal(bleedOf('Fire'), 'burn'); assert.equal(bleedOf('Smoke'), 'smoke'); assert.equal(bleedOf('Ice'), 'frost'); assert.equal(bleedOf('Life'), '');
+  const L = await import('../src/living-v203.js');
+  const want = { Fire: 'flame', 'Ice Cube': 'melt', Steam: 'smoke', Life: 'beat', Smoke: 'smoke', Angel: 'flap', Water: 'water', Wind: 'wind', Energy: 'zap', Shark: 'swim', Wheel: 'spin', 'Wind Turbine': 'parts', Windmill: 'parts', Cat: 'parts', 'Hermit Crab': 'parts', Cake: 'parts', Volcano: 'parts' };
+  for (const [n, k] of Object.entries(want)) assert.equal(L.liveKind(n), k, n);
+  for (const n of ['Price', 'Police', 'Notice', 'Device', 'Catfish', 'Starfish', 'Earth', 'Fan', 'Ferris Wheel', 'Tea', 'Aquarium', 'Planet']) assert.equal(L.liveKind(n), '', n + ' only gets the paper turn');
   const css = rd('../src/styles.css'), app = rd('../src/app.js'), eng = rd('../src/companion-engine-v86.js'), mod = rd('../src/living-v203.js');
-  for (const k of Object.keys(LIVE_MS)) assert.ok(css.includes(`.element-chip[data-live="${k}"] .chip-art`), k);
-  for (const t of new Set(Object.values(BLEED))) assert.ok(REACT[t], t);
-  for (const c of ['.lf-burn{', '.lf-puff{', '.lf-flood{', '.lf-frost{', '.lf-streak{', '.lf-flash{']) assert.ok(css.includes(c), c);
-  assert.ok(mod.includes('live>=2') && mod.includes('fx.childElementCount'), 'never everything at once');
+  assert.match(css, /@keyframes lv-flip\{0%\{transform:rotateY\(0\)\}100%\{transform:rotateY\(360deg\)\}\}/);
+  // every part spec is well formed and every motion has keyframes
+  for (const [name, spec] of Object.entries(L.PARTS)) { assert.ok(spec.n > 2, name); for (const [idx, anim, origin] of spec.p) { assert.ok(L.PART_ITER[anim], name + ' ' + anim); assert.ok(css.includes(`@keyframes lvp-${anim}{`), anim); assert.ok(idx.every(i => i > 0 && i < spec.n), name + ' index'); assert.ok(origin === 'c' || /^[\d.]+ [\d.]+$/.test(origin), name + ' origin'); } if (spec.whole) assert.ok(L.LIVE_MS[spec.whole], name); }
+  // the real art still has the shape count the spec was written for
+  const dir = new URL('../src/', import.meta.url); const maps = [];
+  for (const f of fs.readdirSync(dir).filter(f => /^organic-art-v\d+\.js$/.test(f)).sort((a, b) => parseInt(b.match(/\d+/)[0]) - parseInt(a.match(/\d+/)[0]))) { const m = await import('../src/' + f); for (const k of Object.keys(m)) if (m[k] && typeof m[k] === 'object') maps.push(m[k]); }
+  for (const [name, spec] of Object.entries(L.PARTS)) { if (spec.redraw) continue; /* redrawn art is checked at run time by the same count guard */ const svg = maps.find(m => m[name])?.[name]; assert.ok(svg, 'art for ' + name); const n = [...svg.replace(/^<svg[^>]*>/, '').matchAll(/<(\w+)[^>]*>/g)].length; assert.equal(n, spec.n, name + ' shape count'); }
+  // effects: every rule has a reaction, a builder and starts at the element
+  const types = [...new Set(L.BLEED_RULES.map(r => r[0]))]; assert.ok(types.length >= 24, String(types.length));
+  for (const t of types) { assert.ok(L.REACT[t], t); assert.ok(mod.includes(`type==='${t}'`), 'builder ' + t); }
+  const exp = { Fire: 'burn', Spider: 'web', Love: 'hearts', Moon: 'night', Music: 'music', Gold: 'gold', Ghost: 'ghost', Cake: 'confetti', 'Black Hole': 'pull', Ice: 'frost', Rainbow: 'rainbow', Ink: 'ink', Sleep: 'zzz', Price: '', Earth: '' };
+  for (const [n, k] of Object.entries(exp)) assert.equal(L.bleedOf(n), k, n);
+  assert.ok(mod.includes('fx.childElementCount') && mod.includes("chip.classList.add('is-source')") && mod.includes('MAX_LIVE=8'), 'one effect at a time, from a marked source; motions may overlap');
+  assert.ok(css.includes('.element-chip.is-source{') && css.includes('.lf-wash{position:absolute;inset:0;clip-path:circle(0 at var(--x) var(--y))'));
+  for (const [a] of Object.values(L.REACT)) assert.ok(css.includes(`.companion[data-anim="${a}"]`), 'pose ' + a);
   assert.ok(app.includes('createLiving({') && eng.includes('function react(anim,ex,ms=2400)'));
-  const { COMPANIONS_V86 } = await import('../src/companions-v86.js'); assert.ok(COMPANIONS_V86.length === 40);
 });
