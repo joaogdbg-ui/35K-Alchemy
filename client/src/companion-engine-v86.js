@@ -48,6 +48,13 @@ const FAMILY_GRADES={
 };
 const MOVE_GRADES={fly:{fly:5,run:-1},roll:{run:1},hop:{stamina:1},waddle:{swim:2,run:-1},walk:{}};
 const NAME_GRADES={Frog:{swim:5},Otter:{swim:5},Penguin:{swim:5},Fox:{run:5},Smilodon:{run:5},Triceratops:{power:5,hp:5},'Woolly Mammoth':{hp:5},'Giant Robot':{power:5},Giant:{power:5},Golem:{power:4},Ghost:{fly:4,hp:0},Phoenix:{fly:5,hp:4},Griffin:{fly:5},Pegasus:{fly:5,run:5},Pterosaur:{fly:5},Hedgehog:{hp:3,run:3},Owl:{fly:5},Ninja:{run:5},Hero:{power:3,hp:3},Werewolf:{run:4,power:4},Singer:{stamina:4},Panda:{hp:4,run:0},Flamenco:{stamina:4,run:3},Tango:{stamina:4},'Rio Carnival':{stamina:5},'Day of the Dead':{hp:1,stamina:5},Chef:{hp:4},Explorer:{stamina:5,swim:3},Beekeeper:{stamina:3},Archaeologist:{power:3},Photographer:{run:3},Wizard:{fly:3,power:2},'Pixel Dragon':{fly:4,power:3},'Arcade Golem':{power:5,run:0},'Pixel Dinosaur Sprite':{run:4},Robot:{power:4,swim:0},'Pixel Artist':{stamina:3},Stegosaurus:{hp:5,power:4},Sphinx:{power:3,hp:4},Cerberus:{power:5,run:3},Moai:{hp:5,run:0}};
+/** V199: chemistry between two companions — friends, neutral, rivals or sworn enemies. Pure and symmetric. */
+const REL_NEMESIS=[['legacy:118','legacy:1277'],['organic82:cerberus','organic82:pegasus'],['organic83:phoenix','pack:penguin'],['organic42:photographer','pack:ghost'],['organic40:fox','organic40:hedgehog'],['legacy:609','pack:wizard'],['organic82:smilodon','organic82:woolly-mammoth'],['legacy:566','organic85:day-of-the-dead']];
+const REL_BEST=[['organic38:frog','organic42:otter'],['pack:panda','pack:penguin'],['organic37:beekeeper','organic37:chef'],['organic85:flamenco','organic85:tango'],['legacy:123','legacy:609'],['organic40:owl','pack:wizard'],['organic82:stegosaurus','organic82:triceratops'],['organic41:archaeologist','organic41:explorer']];
+export const REL_INFO={friends:{icon:'💚',label:'Best friends',note:'They team up at the mixer and sometimes find a new element together.'},neutral:{icon:'🤝',label:'Get along',note:'They play together now and then.'},rivals:{icon:'😤',label:'Rivals',note:'They bicker and spar a lot.'},nemesis:{icon:'💥',label:'Sworn enemies',note:'Their fights end with one of them knocked out — tap it to bring it back.'}};
+export function relationOf(a,b,sameFamily=false){if(!a||!b||a===b)return 'neutral';const [x,y]=[String(a),String(b)].sort();const has=L=>L.some(([p,q])=>p===x&&q===y);
+ if(has(REL_NEMESIS))return 'nemesis';if(has(REL_BEST))return 'friends';let h=2166136261;for(const ch of x+'|'+y){h^=ch.charCodeAt(0);h=Math.imul(h,16777619)>>>0;}const r=h%100;
+ return sameFamily?(r<45?'friends':r<85?'neutral':r<98?'rivals':'nemesis'):(r<25?'friends':r<70?'neutral':r<94?'rivals':'nemesis');}
 export function companionGrades(meta,isShiny){
  const base=FAMILY_GRADES[meta.family]||FAMILY_GRADES.nature,mv=MOVE_GRADES[meta.move]||{},nm=NAME_GRADES[meta.name]||{};
  const out={};
@@ -361,7 +368,7 @@ export function createCompanionSystem(ctx){
   document.body.append(layerBack,layerFront);
   sprite=document.createElement('button');sprite.type='button';sprite.className='companion';sprite.id='companionSprite';sprite.setAttribute('aria-label','Your companion');
   sprite.innerHTML='<span class="companion-shadow" aria-hidden="true"></span><span class="companion-art" aria-hidden="true"></span><span class="companion-fx" aria-hidden="true"></span><span class="companion-emote" aria-hidden="true" hidden></span>';
-  sprite.addEventListener('click',e=>{e.stopPropagation();if(stroke.done){stroke.done=false;return;}sfx.boop();openCard(state.active);});
+  sprite.addEventListener('click',e=>{e.stopPropagation();if(stroke.done){stroke.done=false;return;}if(reviveIfKo('main'))return;sfx.boop();openCard(state.active);});
   // Stroking: rub a finger across the companion (like petting a Chao) → hearts, happy wiggle, mood.
   sprite.addEventListener('pointerdown',e=>{stroke={x:e.clientX,y:e.clientY,dist:0,on:false,done:false,id:e.pointerId,last:0};});
   sprite.addEventListener('pointermove',e=>{if(stroke.id!==e.pointerId||stroke.x==null)return;stroke.dist+=Math.hypot(e.clientX-stroke.x,e.clientY-stroke.y);stroke.x=e.clientX;stroke.y=e.clientY;if(!stroke.on&&stroke.dist>26){stroke.on=true;startPetting();}if(stroke.on&&now()-stroke.last>420){stroke.last=now();sfx.purr();petTick();}});
@@ -458,7 +465,8 @@ export function createCompanionSystem(ctx){
   {const sk=skillsOf(meta.id);if(sk.length&&now()-lastSkill>25000&&Math.random()<0.06+0.02*Math.max(...sk.map(k=>skillLevel(meta.id,k)))){lastSkill=now();await performSkill(sk[Math.floor(Math.random()*sk.length)]);timer=setTimeout(loop,800);return;}}
   if(rail.kind==='top'&&now()-lastVisit>45000&&Math.random()<0.07){lastVisit=now();if(await visitorScene()){timer=setTimeout(loop,900);return;}}
   if(ctx.toy?.()&&rail.kind==='top'&&now()-lastToy>30000&&Math.random()<0.07){lastToy=now();if(await playToy()){timer=setTimeout(loop,800);return;}}
-  if(duoActive()&&bud&&!bud.sprite.hidden&&rail.kind==='top'&&(duoRequest||(now()-lastDuo>18000&&Math.random()<0.2))){const k=duoRequest;duoRequest=null;await duoPlay(k);timer=setTimeout(loop,900);return;}
+  if(ko.main){timer=setTimeout(loop,900);return;}
+  if(duoActive()&&bud&&!bud.sprite.hidden&&!ko.bud&&rail.kind==='top'&&(duoRequest||(now()-lastDuo>18000&&Math.random()<0.2))){const k=duoRequest;duoRequest=null;await duoPlay(k);timer=setTimeout(loop,900);return;}
   const roll=Math.random();
   {const pws=powersOf(pet(meta.id).look);if(pws.length&&rail.kind!=='side'&&Math.random()<0.1){await usePower(pws[Math.floor(Math.random()*pws.length)]);timer=setTimeout(loop,700);return;}}
   try{
@@ -634,7 +642,7 @@ export function createCompanionSystem(ctx){
   blinkTimer=setInterval(()=>{if(!sleeping&&sprite.dataset.anim==='idle'){sprite.classList.add('is-blinking');setTimeout(()=>sprite.classList.remove('is-blinking'),170);}},3000+Math.random()*1800);
   timer=setTimeout(loop,700);scheduleGift();scheduleSelfFeed();if(buddyMeta())startBuddy();else stopBuddy();rewear();}
  function stop(){stopBuddy();clearTimeout(timer);clearTimeout(giftTimer);clearTimeout(selfFeedTimer);if(statWin)statWin.hidden=true;clearInterval(blinkTimer);if(cancelMove)cancelMove();if(sprite){sprite.hidden=true;}if(layerFront)layerFront.querySelectorAll('.companion-gift').forEach(g=>g.remove());}
- function setActive(id){if(id&&!isDiscovered(id))return false;if(id&&id===state.buddy)state.buddy=state.active||null;state.active=id||null;if(id)state.firstFreeUsed=true;save();if(state.active){pet(state.active);start();}else stop();refreshViews();return true;}
+ function setActive(id){try{ko.main=false;ko.bud=false;sprite?.classList.remove('is-ko');bud?.sprite.classList.remove('is-ko');}catch{}if(id&&!isDiscovered(id))return false;if(id&&id===state.buddy)state.buddy=state.active||null;state.active=id||null;if(id)state.firstFreeUsed=true;save();if(state.active){pet(state.active);start();}else stop();refreshViews();return true;}
  /** Player choice: the very first companion is free; every later switch goes through the app (rewarded ad + 5-min grace). Sending home is free. */
  let choosing=false;
  async function choose(id){
@@ -660,13 +668,17 @@ export function createCompanionSystem(ctx){
  const slot2=()=>{try{return !!ctx.slot2Unlocked?.();}catch{return false;}};
  const buddyMeta=()=>{const id=state.buddy;if(!id||id===state.active||!activeMeta()||!isDiscovered(id)||!slot2())return null;return metaById.get(id)||null;};
  const duoActive=()=>!!buddyMeta();
+ const famOf=id=>metaById.get(id)?.family;const relation=(a,b)=>relationOf(a,b,!!a&&!!b&&famOf(a)===famOf(b));
+ const ko={main:false,bud:false};
+ function setKo(who,on){ko[who]=on;const el=who==='main'?sprite:bud?.sprite;if(!el)return;el.classList.toggle('is-ko',on);if(on){el.dataset.anim='tumble';emoteOn(el,'spiral',600000);}else{el.dataset.anim='jump';const e=el.querySelector('.companion-emote');if(e)e.hidden=true;emoteOn(el,'heart',1400);sfx.happy?.();setTimeout(()=>{if(el.dataset.anim==='jump')el.dataset.anim='idle';},700);}}
+ function reviveIfKo(who){if(!ko[who])return false;setKo(who,false);const id=who==='main'?state.active:state.buddy;try{toast(`${nameOf(metaById.get(id))} is back on its feet!`,'new');}catch{}return true;}
  let bud=null,budTimer=null,duoBusy=false,duoAbort=false,lastDuo=0,duoRequest=null;
  function ensureBud(){ensureLayer();if(bud)return bud;
   const s=document.createElement('button');s.type='button';s.className='companion is-buddy';s.id='companionBuddy';s.setAttribute('aria-label','Second companion — tap to make it the main one');
   s.innerHTML='<span class="companion-shadow" aria-hidden="true"></span><span class="companion-art" aria-hidden="true"></span><span class="companion-fx" aria-hidden="true"></span><span class="companion-emote" aria-hidden="true" hidden></span>';
   // V130: the second companion can be fed and petted too — it takes the main role in place (no jump), then the normal flow runs
   let bs={};
-  s.addEventListener('click',e=>{e.stopPropagation();if(bs.done){bs.done=false;return;}if(duoBusy)return;sfx.boop();swapInPlace();openCard(state.active);});
+  s.addEventListener('click',e=>{e.stopPropagation();if(bs.done){bs.done=false;return;}if(reviveIfKo('bud'))return;if(duoBusy)return;sfx.boop();swapInPlace();openCard(state.active);});
   s.addEventListener('pointerdown',e=>{bs={x:e.clientX,y:e.clientY,dist:0,on:false,done:false,id:e.pointerId,last:0};try{s.setPointerCapture(e.pointerId);}catch{}});
   s.addEventListener('pointermove',e=>{if(bs.id!==e.pointerId||bs.x==null)return;bs.dist+=Math.hypot(e.clientX-bs.x,e.clientY-bs.y);bs.x=e.clientX;bs.y=e.clientY;
    if(!bs.on&&bs.dist>26){bs.on=true;duoAbort=true;swapInPlace();startPetting();}if(bs.on&&now()-bs.last>420){bs.last=now();sfx.purr();petTick();}});
@@ -703,7 +715,7 @@ export function createCompanionSystem(ctx){
  function stopBuddy(){clearTimeout(budTimer);if(bud){if(bud.cancel)bud.cancel();bud.sprite.hidden=true;}}
  async function budLoop(){
   if(destroyed||!bud||!buddyMeta()){stopBuddy();return;}
-  if(duoBusy||document.hidden){budTimer=setTimeout(budLoop,800);return;}
+  if(duoBusy||document.hidden||ko.bud){budTimer=setTimeout(budLoop,800);return;}
   if(sleeping){bud.sprite.dataset.anim='sleep';budTimer=setTimeout(budLoop,1500);return;}
   const rs=rails();if(!bud.rail||!rs.some(r=>r.kind===bud.rail.kind&&r.i===bud.rail.i)){const r=pickRail();if(!r){budTimer=setTimeout(budLoop,1200);return;}bud.rail=r;bLayer(r.layer);bPlace(clampX(r,bud.pos.x),r.y);}
   else bud.rail=rs.find(r=>r.kind===bud.rail.kind&&r.i===bud.rail.i)||bud.rail;
@@ -729,7 +741,7 @@ export function createCompanionSystem(ctx){
   for(const id of [state.active,state.buddy]){const p=pet(id);settleMood(p);}sprite.dataset.mood=moodLabel(pet(state.active).mood).toLowerCase();
   rewear();refreshViews();return true;}
  function swapDuo(){const b=state.buddy;if(!b||!buddyMeta())return;state.buddy=state.active;state.active=b;save();start();startBuddy();refreshViews();}
- function setBuddy(id){if(id&&(!isDiscovered(id)||id===state.active||!slot2()))return false;state.buddy=id||null;if(id)pet(id);save();if(state.buddy)startBuddy();else stopBuddy();refreshViews();return true;}
+ function setBuddy(id){try{ko.main=false;ko.bud=false;sprite?.classList.remove('is-ko');bud?.sprite.classList.remove('is-ko');}catch{}if(id&&(!isDiscovered(id)||id===state.active||!slot2()))return false;state.buddy=id||null;if(id)pet(id);save();if(state.buddy)startBuddy();else stopBuddy();refreshViews();return true;}
  // --- choreography helpers: same interface for both actors ---
  const A={m:{el:()=>sprite,p:()=>pos,go:o=>travel(o),face(d){pos.face=d;sprite.dataset.face=d>0?'right':'left';},anim(a){sprite.dataset.anim=a;},layer:w=>setLayer(w),jump:(r,x)=>jumpTo(r,x)},
   b:{el:()=>bud.sprite,p:()=>bud.pos,go:o=>bTravel(o),face(d){bud.pos.face=d;bud.sprite.dataset.face=d>0?'right':'left';},anim(a){bud.sprite.dataset.anim=a;},layer:w=>bLayer(w),jump:(r,x)=>bJumpTo(r,x)}};
@@ -804,12 +816,33 @@ export function createCompanionSystem(ctx){
    sfx.whoosh();await arcFly(ball,at,b1,{ms:420,arc:40});sfx.bounce();const b2=[b1[0]-dir*55,b1[1]];await arcFly(ball,b1,b2,{ms:320,arc:22});sfx.bounce();ball.classList.add('is-gone');
    miss.anim('shake');emoteOn(miss.el(),'spiral',1100);const win=miss===A.m?A.b:A.m;win.anim('duo-cheer');sfx.cheer();await w8(1100);
   }finally{setTimeout(()=>ball.remove(),400);}}
+ // V199: best friends team up at the mixer — each throws an element into a slot; the app combines them (a real discovery)
+ async function coop(){const r=await meet(120);if(!r)return;A.m.anim('duo-search');A.b.anim('duo-search');sfx.peek?.();await w8(900);
+  let f=null;try{f=ctx.coopFind?.()||null;}catch{}
+  if(!f){A.m.anim('duo-laugh');A.b.anim('duo-laugh');sfx.giggle?.();await w8(900);return;}
+  emoteOn(sprite,'burst',1200);emoteOn(bud.sprite,'burst',1200);sfx.found?.();await w8(500);
+  const lr=layerFront.getBoundingClientRect();const tgt=i=>{const el=$('slot'+i);if(!el)return null;const q=el.getBoundingClientRect();return [q.left-lr.left+q.width/2-11,q.top-lr.top+q.height/2-11];};
+  const t0=tgt(0),t1=tgt(1);if(!t0||!t1)return;
+  const fa=flyer(f.a,'duo-throwable'),fb=flyer(f.b,'duo-throwable');const ha=handOf(A.m,10),hb=handOf(A.b,10);fa.style.transform=`translate3d(${ha[0]}px,${ha[1]}px,0)`;fb.style.transform=`translate3d(${hb[0]}px,${hb[1]}px,0)`;
+  A.m.anim('duo-windup');A.b.anim('duo-windup');await w8(380);A.m.anim('duo-throw');A.b.anim('duo-throw');sfx.whoosh?.();
+  await Promise.all([arcFly(fa,ha,t0,{ms:700,arc:90}),arcFly(fb,hb,t1,{ms:760,arc:110})]);fa.remove();fb.remove();
+  try{ctx.coopCraft?.(f);}catch{}
+  faceEach(A.m,A.b);A.m.anim('duo-cheer');A.b.anim('duo-cheer');sfx.cheer?.();emoteOn(sprite,'heart',1400);emoteOn(bud.sprite,'heart',1400);await w8(1200);}
+ // V199: sworn enemies — a real brawl; the loser is knocked out until the player taps it
+ async function brawl(){const r=await meet(46);if(!r)return;sfx.fight?.();A.m.anim('duo-guard');A.b.anim('duo-guard');emoteOn(sprite,'burst',900);emoteOn(bud.sprite,'burst',900);await w8(600);
+  let att=Math.random()<0.5?A.m:A.b;for(let i=0;i<6;i++){const def=att===A.m?A.b:A.m;att.anim(i%2?'duo-kick':'duo-punch');sfx.swish?.();await w8(150);def.anim('duo-hit');sfx.hit?.();fxOn(def.el(),'impact',400);await w8(260);att=def;}
+  const loser=Math.random()<0.5?A.m:A.b,winner=loser===A.m?A.b:A.m;winner.anim('duo-charge');sfx.charge?.();await w8(420);winner.anim('duo-punch');sfx.hit?.();fxOn(loser.el(),'impact',600);
+  const who=loser===A.m?'main':'bud';setKo(who,true);const lid=who==='main'?state.active:state.buddy;const lp=pet(lid);settleMood(lp);lp.mood=Math.max(0,lp.mood-10);lp.moodAt=now();
+  winner.anim('duo-cheer');await wait(900);winner.anim('idle');try{toast(`${nameOf(metaById.get(lid))} was knocked out — tap it to revive it`,'repeat');}catch{}}
  const DUO_GAMES=[spar,throwing,tag,hideSeek,ballGame];
+ const DUO_BY_REL={friends:[tag,hideSeek,ballGame,coop,coop,coop],neutral:[spar,throwing,tag,hideSeek,ballGame],rivals:[spar,spar,throwing,throwing,tag],nemesis:[brawl,brawl,spar,throwing]};
  async function duoPlay(kind=null){if(duoBusy||!duoActive()||!bud||bud.sprite.hidden||sleeping||petting)return false;
   duoBusy=true;busy=true;duoAbort=false;if(bud.cancel)bud.cancel();if(cancelMove)cancelMove();lastDuo=now();
-  const game=kind&&kind!=='any'?DUO_GAMES.find(g=>g.name===kind)||DUO_GAMES[0]:DUO_GAMES[Math.floor(Math.random()*DUO_GAMES.length)];
+  if(ko.main||ko.bud){duoBusy=false;busy=false;return false;}
+  const pool=DUO_BY_REL[relation(state.active,state.buddy)]||DUO_GAMES;
+  const game=kind&&kind!=='any'?[...DUO_GAMES,coop,brawl].find(g=>g.name===kind)||DUO_GAMES[0]:pool[Math.floor(Math.random()*pool.length)];
   try{await game();}catch(e){if(e?.message!=='duo-abort')console.warn('duo',e);}
-  finally{if(sprite.dataset.anim?.startsWith('duo-')||sprite.dataset.anim==='tumble'||sprite.dataset.anim==='shake')sprite.dataset.anim='idle';if(bud){bud.sprite.dataset.anim='idle';}
+  finally{if(!ko.main&&(sprite.dataset.anim?.startsWith('duo-')||sprite.dataset.anim==='tumble'||sprite.dataset.anim==='shake'))sprite.dataset.anim='idle';if(bud&&!ko.bud){bud.sprite.dataset.anim='idle';}
    // happy play time lifts both moods a little
    for(const id of [state.active,state.buddy]){if(!id)continue;const p=pet(id);settleMood(p);p.mood=Math.min(100,p.mood+3);p.moodAt=now();}save();
    layerFront?.querySelectorAll('.duo-flyer').forEach(f=>f.remove());duoBusy=false;busy=false;}
@@ -1074,7 +1107,8 @@ export function createCompanionSystem(ctx){
    const seat=(m,pp)=>`<button type="button" class="team-slot is-on" data-onscreen="${m.id}"><span class="team-art">${sprites[m.id]||''}</span><b>${escapeText(nameOf(m))}</b><small>Lv ${totalLevel(m.id)} · ${moodLabel(pp.mood)}</small></button>`;
    const second=bm2?seat(bm2,pet(bm2.id)):info2?.unlocked?`<button type="button" class="team-slot is-free" id="buddyChange"><span class="team-art">+</span><b>Add a partner</b><small>Duo slot is open</small></button>`
     :info2?`<button type="button" class="team-slot is-locked" data-s2open="1"><span class="team-art">🔒</span><b>Duo slot</b><small>${escapeText(info2.price)} · or ${info2.elements.toLocaleString('en-US')}/${info2.minElements.toLocaleString('en-US')} elements</small><i class="team-bar"><em style="width:${Math.min(100,100*info2.elements/info2.minElements).toFixed(1)}%"></em></i></button>`:'';
-   team=`<section class="team"><div class="team-top"><strong>Your team</strong><small>${bm2?`Duo mode · all growth ×${DUO_GROWTH}`:'On screen with you'}</small></div><div class="team-row">${seat(act,pa)}${second?`<span class="team-plus">+</span>${second}`:''}</div>${!bm2&&info2&&!info2.unlocked?`<p class="team-note">Unlock the <b>Duo slot</b> for a second companion on screen: duo games, growth ×${DUO_GROWTH} and more finds.</p>`:''}</section>`;}
+   const rl=bm2?REL_INFO[relation(act.id,bm2.id)]:null;
+   team=`<section class="team"><div class="team-top"><strong>Your team</strong><small>${bm2?`Duo mode · all growth ×${DUO_GROWTH}`:'On screen with you'}</small></div><div class="team-row">${seat(act,pa)}${second?`<span class="team-plus">+</span>${second}`:''}</div>${rl?`<p class="team-rel is-${relation(act.id,bm2.id)}"><b>${rl.icon} ${rl.label}</b> ${rl.note}</p>`:''}${!bm2&&info2&&!info2.unlocked?`<p class="team-note">Unlock the <b>Duo slot</b> for a second companion on screen: duo games, growth ×${DUO_GROWTH} and more finds.</p>`:''}</section>`;}
   // V151: Companions / Houses as big tiles, like the Stadium hub
   const hi=(()=>{try{return ctx.homeInfo?.()||null;}catch{return null;}})();
   const tabs=`<div class="st-shop is-hub home-tabs" role="tablist">${[['companions','🐾','Companions',`${have}/${roster.length} found${act?' · '+escapeText(nameOf(act))+' on screen':''}`],['houses','🏠','Houses',hi?`${hi.owned}/${hi.total} owned · ${hi.residents} living`:'Where they live']].map(([k,ico,t,sm])=>`<button type="button" class="st-shop-btn home-tab ${homeTab===k?'is-on':''}" data-hometab="${k}" aria-pressed="${homeTab===k}"><span>${ico}</span><b>${t}</b><small>${sm}</small></button>`).join('')}</div>`;
@@ -1115,7 +1149,7 @@ export function createCompanionSystem(ctx){
  }
  function pickBuddy(){const list=unlocked().filter(c=>c.id!==state.active);
   if(!list.length){showModal(`<div class="modal-tag">SECOND SLOT</div><h2>No other companion yet</h2><p>Discover another companion element to fill the second slot.</p>`);return;}
-  showModal(`<div class="modal-tag">SECOND SLOT</div><h2>Who plays with ${escapeText(nameOf(activeMeta()))}?</h2><div class="buddy-pick">${list.map(c=>`<button type="button" data-buddy="${c.id}" data-companion="${c.id}"><span class="buddy-art">${sprites[c.id]||''}</span>${escapeText(nameOf(c))}<small>Lv ${totalLevel(c.id)}</small></button>`).join('')}</div>`);
+  showModal(`<div class="modal-tag">SECOND SLOT</div><h2>Who plays with ${escapeText(nameOf(activeMeta()))}?</h2><div class="buddy-pick">${list.map(c=>`<button type="button" data-buddy="${c.id}" data-companion="${c.id}"><span class="buddy-art">${sprites[c.id]||''}</span>${escapeText(nameOf(c))}<small>Lv ${totalLevel(c.id)}</small><em class="buddy-rel is-${relation(state.active,c.id)}">${REL_INFO[relation(state.active,c.id)].icon} ${REL_INFO[relation(state.active,c.id)].label}</em></button>`).join('')}</div><p class="mini-muted">💚 friends find elements together · 😤 rivals spar · 💥 enemies knock each other out</p>`);
   try{ctx.wear?.($('modalContent'));}catch{}
   $('modalContent').querySelectorAll('[data-buddy]').forEach(b=>b.onclick=()=>{closeModal();setBuddy(b.dataset.buddy);sfx.happy();});}
  function rename(id){const meta=metaById.get(id);if(!meta||!isDiscovered(id))return;const p=pet(id);
@@ -1190,7 +1224,7 @@ export function createCompanionSystem(ctx){
   return {cid,known,name:nameOf(meta),taste,fresh,cooldownMin:fresh?0:Math.max(1,Math.ceil((FEED_COOLDOWN_MS-(now()-last))/60000)),stats,depth,depthMult:feedDepthMult(depth),looks:lookEffects(item.name||uiName(item),familyFor(item),item.category,depth,true)};}
  function tasted(itemId){return !!state.tasted?.[itemId]||Object.values(state.pets||{}).some(q=>q?.fed?.[itemId]);}
  function looksOf(itemId){const item=byId.get(itemId);if(!item)return null;return lookEffects(item.name||uiName(item),familyFor(item),item.category,ctx.depthOf?.(item.id));}
- return {visitorScene,fullLeft,makeRoom,feedStatsOf:itemId=>{const it=byId.get(itemId);return it?(FAMILY_FEEDS[familyFor(it)]||['stamina','hp']):[];},activeStats:()=>{const m=activeMeta();return m?{name:nameOf(m),family:m.family,stats:pet(m.id).stats}:null;},duoActive,applyRivalLook:(svg,id,look)=>applyLookSvg(svg,look,id+'-rival'),setBuddy,swapDuo,requestDuo:k=>{duoRequest=k||'any';},duoPlay,buddy:()=>buddyMeta()?.id||null,duoPair:()=>duoActive()?[state.active,state.buddy]:[],tasted,looksOf,mealPreview,lookOf,applyLook:(svg,id)=>{applyLookSvg(svg,lookOf(id),id);applyWearSvg(svg,id);},wearOf:id=>({...(state.pets[id]?.wear||{})}),setWear,takeOff,marketFeed,learn,skillsOf,skillLevel,themeCompletion,playToy,placeToy,performSkill,start,stop,setActive,statsHtml,info,gameReward,choose,homeEffect,syncSeen,markSeen,isCompanion,freeChoiceLeft,emote,feed,hitTest,onDiscovery,renderTab,openCard,get active(){return activeMeta();},state:()=>state,unlocked,refreshViews,
+ return {requestDuo:k=>{duoRequest=k||'any';lastDuo=0;},koState:()=>({...ko}),relation,relInfo:r=>REL_INFO[r],visitorScene,fullLeft,makeRoom,feedStatsOf:itemId=>{const it=byId.get(itemId);return it?(FAMILY_FEEDS[familyFor(it)]||['stamina','hp']):[];},activeStats:()=>{const m=activeMeta();return m?{name:nameOf(m),family:m.family,stats:pet(m.id).stats}:null;},duoActive,applyRivalLook:(svg,id,look)=>applyLookSvg(svg,look,id+'-rival'),setBuddy,swapDuo,requestDuo:k=>{duoRequest=k||'any';},duoPlay,buddy:()=>buddyMeta()?.id||null,duoPair:()=>duoActive()?[state.active,state.buddy]:[],tasted,looksOf,mealPreview,lookOf,applyLook:(svg,id)=>{applyLookSvg(svg,lookOf(id),id);applyWearSvg(svg,id);},wearOf:id=>({...(state.pets[id]?.wear||{})}),setWear,takeOff,marketFeed,learn,skillsOf,skillLevel,themeCompletion,playToy,placeToy,performSkill,start,stop,setActive,statsHtml,info,gameReward,choose,homeEffect,syncSeen,markSeen,isCompanion,freeChoiceLeft,emote,feed,hitTest,onDiscovery,renderTab,openCard,get active(){return activeMeta();},state:()=>state,unlocked,refreshViews,
   onViewChange(){if(activeMeta()&&sprite&&!sprite.hidden)setTimeout(()=>{if(cancelMove)cancelMove();const r=pickRail();if(r){rail=r;setLayer(r.layer);place(clampX(r,pos.x),r.y);sprite.dataset.anim='idle';}},80);},
   importState(raw){if(raw&&raw.pets){state=normalize(raw);save();syncSeen();}},grades:companionGrades};
 }

@@ -121,7 +121,7 @@ import { HOME_OBJECTS_V89 } from './home-objects-v89.js';
 import { createHomeSystem, HOME_STORAGE_KEY, pieceQuality, starsText } from './home-engine-v90.js';
 import { ROOM_SPRITES_V90 } from './room-sprites-v90.js';
 import { createGamesSystem, GAMES_STORAGE_KEY, SKILL_PERKS, perkOf } from './games-v93.js';
-import { themedArt, recolorSvg, companionArt, COMPANION_WORLDS } from './games-theme-v151.js';
+import { themedArt, recolorSvg, companionArt, COMPANION_WORLDS, worldSky, worldMid } from './games-theme-v151.js';
 import { createArcade, arcadeProgress, ARCADE_STEP } from './arcade-v158.js';
 import { RACE_PRIZES, PRIZE_BY_ID, BELTS, beltSvg, wearBelt, personalPrize, personalPrizeId, parsePersonalPrize } from './prizes-v94.js';
 import { STADIUM_ART_V95 } from './stadium-art-v95.js';
@@ -514,7 +514,7 @@ function shinyFanfare(){if(!soundEnabled)return;const ctx=acquireSoundEngine();i
 function showShinyFound(id){const it=byId.get(id);if(!it)return;
  showModal(`<div class="modal-tag shiny-tag">✦ SHINY ELEMENT</div><div class="modal-art is-shiny">${staticArt(it)}</div><h2>Shiny ${escapeText(uiName(it))}</h2>${shinyPerks(it)}${shinyCard(it)}`);shinyDress();
 }
-const APP_VERSION='1.0.98';
+const APP_VERSION='1.0.99';
 // V83: status line + Google consent (UMP) privacy options, required for EEA players.
 async function refreshAdStatus(){
  const el=$('settingsAdStatus'),bridge=getRewardBridge();
@@ -1732,7 +1732,13 @@ async function requestCompanionActivation(meta){
  closeModal();toast('Companion changed · switching again is free for 5 minutes','repeat');return true;
 }
 function setPetsBadge(n){const b=$('petsBadge');if(b)b.hidden=!(n>0);}
-const companions=createCompanionSystem({roster:COMPANIONS_V86,sprites:COMPANION_SPRITES_V86,$,escapeText,byId,uiName,staticArt,familyFor,
+/* V199: best-friend companions on screen can combine two elements the player owns into one not found yet (max 6 a day, 8 min apart). */
+const COOP_KEY='alchemy7k_coop_v199',COOP_PER_DAY=6,COOP_GAP_MS=8*60*1000;
+function coopFind(){try{if(tab!=='Play'||!$('modal').hidden||currentMode!=='classic'||slots[0]||slots[1]||batchState)return null;let st={};try{st=JSON.parse(localStorage.getItem(COOP_KEY)||'{}');}catch{}
+  const d=dailyKey();if(st.day!==d)st={day:d,n:0,at:0};if(st.n>=COOP_PER_DAY||Date.now()-(st.at||0)<COOP_GAP_MS)return null;
+  const c=idleCandidates();if(!c.length)return null;const [id,a,b]=c[Math.floor(Math.random()*c.length)];st.n++;st.at=Date.now();try{localStorage.setItem(COOP_KEY,JSON.stringify(st));}catch{}return {id,a,b};}catch{return null;}}
+function coopCraft(f){try{if(!f||tab!=='Play'||!$('modal').hidden)return;toast('Your companions mixed something together!','new');selectForHint(f.a,f.b);}catch{}}
+const companions=createCompanionSystem({coopFind:()=>coopFind(),coopCraft:f=>coopCraft(f),roster:COMPANIONS_V86,sprites:COMPANION_SPRITES_V86,$,escapeText,byId,uiName,staticArt,familyFor,
  requestActivation:requestCompanionActivation,onFull:x=>openFullSheet(x),onBadge:setPetsBadge,onMeal:()=>{try{rerenderCollections();}catch{}},accessories:ACCESSORIES,openWardrobe:id=>openWardrobe(id),toy:()=>wallet.toy,slot2Unlocked:()=>slot2Unlocked(),slot2Info:()=>slot2Info(),buySlot2:()=>buySlot2(),watchSlot2Ad:()=>watchSlot2Ad(),randomElement:()=>{const a=[...unlocked];return a.length?a[Math.floor(Math.random()*a.length)]:null;},renderExtra:()=>homes.render($('homeMount')),wear:root=>wearAll(root),
  growthFor:(id,kind)=>homes.growthFor(id,kind)*alchemyGrowth(),houseLine:id=>[homes.houseLine(id),`Alchemy bonus ×${alchemyGrowth()} · ${classicDiscoveredCount().toLocaleString('en-US')} elements found in Classic`].filter(Boolean).join('<br>'),alchemyGrowth,residentOf:id=>homes.residentOf(id),homeChoices:id=>homes.homeChoices(id),homeInfo:()=>homes.homeInfo(),moveIn:(id,h)=>homes.moveIn(id,h),moveOut:id=>homes.moveOut(id),
  isDiscovered:companionOwned,starterCompanion:STARTER_COMPANION,sfx:SFX,depthOf:id=>routeDepth.get(id),isShiny:id=>shiny.has(id),elementIsUseful,getSlots:()=>slots,isLeftLocked:()=>leftLocked,toast,showModal,closeModal,
@@ -1757,9 +1763,10 @@ const homeDiscovered=id=>PRIZE_BY_ID[id]||parsePersonalPrize(id)?games.hasPrize(
 function classicDiscoveredCount(){try{const list=currentMode==='classic'?[...unlocked]:(classicSnapshot?.unlocked||[]);return Math.max(0,list.filter(id=>!['legacy:0','legacy:1','legacy:2','legacy:3'].includes(id)).length);}catch{return 0;}}
 function alchemyGrowth(){return Math.round((1+Math.min(1,classicDiscoveredCount()/4000))*100)/100;}
 function wearAll(root){if(!root)return;const els=root.querySelectorAll?.('[data-companion], .pet-ava[data-card], .pet-card[data-pet], .home-res[data-res], .pets-now-art[data-card]')||[];for(const el of els){const id=el.dataset.companion||el.dataset.card||el.dataset.pet||el.dataset.res;const svg=el.querySelector('svg');if(!svg)continue;try{const rl=el.dataset.rival&&!companions.lookOf(id)?games.rivalLookOf?.(id):null;if(rl)companions.applyRivalLook(svg,id,rl);else companions.applyLook(svg,id);}catch{}const belt=games.beltOf(id);if(belt)wearBelt(svg,belt);}}
+try{if(window.__m)window.__companions=companions;}catch{}
 const homes=createHomeSystem({$,escapeText,byId:homeById,uiName:homeUiName,staticArt:homeStaticArt,isDiscovered:homeDiscovered,objects:HOME_OBJECTS,sprites:COMPANION_SPRITES_V86,roster:COMPANIONS_V86,
  roomSprites:ROOM_SPRITES,depthOf:id=>routeDepth.get(id),alchemy:()=>({mult:alchemyGrowth(),finds:classicDiscoveredCount()}),wear:wearAll,applyEffect:(cid,eff)=>companions.homeEffect(cid,eff),
- audio:()=>soundEnabled?acquireSoundEngine():null,companionName:id=>companions.state().pets[id]?.nick||uiName(byId.get(id)),statsHtml:id=>companions.statsHtml(id),showModal,closeModal,toast,reducedMotion:()=>Boolean(window.matchMedia?.('(prefers-reduced-motion: reduce)')?.matches)});
+ audio:()=>soundEnabled?acquireSoundEngine():null,relation:(x,y)=>companions.relation(x,y),relInfo:r=>companions.relInfo(r),companionName:id=>companions.state().pets[id]?.nick||uiName(byId.get(id)),statsHtml:id=>companions.statsHtml(id),showModal,closeModal,toast,reducedMotion:()=>Boolean(window.matchMedia?.('(prefers-reduced-motion: reduce)')?.matches)});
 // V91 idle discoveries: while the game is closed, companions living in houses find elements the
 // player could already craft right now (both ingredients owned, result not yet found). Rate grows
 // with residents, their total level and the discovery furniture; capped by time (8 h) and size.
@@ -2022,7 +2029,7 @@ function openWardrobe(cid){const info=companions.info(cid);if(!info)return;const
 
 
 // V158: Arcade minigames (one per 250 new elements)
-const arcade=createArcade({hasHouse:()=>{try{return [...unlocked,...(classicSnapshot?.unlocked||[])].some(id=>HOME_OBJECTS[id]?.kind==='house');}catch{return false;}},coins:()=>wallet.coins,spendCoins:n=>spendCoins(n),rollMiniUnique:()=>grantUltra(rollUltra('mini',wallet.ultra,Math.random,MINI_UNIQUE_CHANCE)),$,escapeText,art:STADIUM_ART_V95,showAd:async kind=>{const b=getRewardBridge();if(!b)return true;const r=await b.showRewarded({kind});return r?.earned===true;},pauseWorld:()=>{document.body.classList.add('ar-playing');try{companions.stop();}catch{}},resumeWorld:()=>{document.body.classList.remove('ar-playing');try{companions.start();}catch{}},showModal,closeModal,toast,staticArt,sfx:SFX,item:id=>byId.get(id),itemName:id=>uiName(byId.get(id)),
+const arcade=createArcade({worldArt:cid=>{try{const s=worldSky(cid),m=worldMid(cid,COMPANION_WORLDS[cid]?.props);return s&&m?{sky:s,mid:m,name:COMPANION_WORLDS[cid].name}:null;}catch{return null;}},hasHouse:()=>{try{return [...unlocked,...(classicSnapshot?.unlocked||[])].some(id=>HOME_OBJECTS[id]?.kind==='house');}catch{return false;}},coins:()=>wallet.coins,spendCoins:n=>spendCoins(n),rollMiniUnique:()=>grantUltra(rollUltra('mini',wallet.ultra,Math.random,MINI_UNIQUE_CHANCE)),$,escapeText,art:STADIUM_ART_V95,showAd:async kind=>{const b=getRewardBridge();if(!b)return true;const r=await b.showRewarded({kind});return r?.earned===true;},pauseWorld:()=>{document.body.classList.add('ar-playing');try{companions.stop();}catch{}},resumeWorld:()=>{document.body.classList.remove('ar-playing');try{companions.start();}catch{}},showModal,closeModal,toast,staticArt,sfx:SFX,item:id=>byId.get(id),itemName:id=>uiName(byId.get(id)),
  unlocked:()=>[...unlocked].filter(id=>byId.has(id)&&!STARTERS.has(id)),
  knownRecipes:()=>{const out=[];for(const [k,r] of recipes){if(!unlocked.has(r)||STARTERS.has(r))continue;const [a,b]=k.split('|');if(unlocked.has(a)&&unlocked.has(b)&&a!==r&&b!==r)out.push([a,b,r]);if(out.length>600)break;}return out;},
  count:()=>classicDiscoveredCount(),activeId:()=>companions.active?.id||null,sprite:id=>COMPANION_SPRITES_V86[id]||'',wear:root=>{try{wearAll(root);}catch{}},

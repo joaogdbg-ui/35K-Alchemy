@@ -226,3 +226,17 @@ test('V196: team bar, shiny celebration and shelf guard are wired', async () => 
   assert.match(app, /function shinyPerks/); assert.match(app, /function shinyFanfare/); assert.match(app, /cp-bank-head/);
   assert.match(eng, /class="team"/); assert.match(eng, /data-s2open/);
 });
+test('V199: companion chemistry is symmetric, deterministic and varied', async () => {
+  const { relationOf, REL_INFO } = await import('../src/companion-engine-v86.js');
+  const { COMPANIONS_V86 } = await import('../src/companions-v86.js');
+  const count = { friends: 0, neutral: 0, rivals: 0, nemesis: 0 };
+  for (const a of COMPANIONS_V86) for (const b of COMPANIONS_V86) {
+    if (a.id >= b.id) continue; const s = a.family === b.family;
+    const r = relationOf(a.id, b.id, s); assert.equal(r, relationOf(b.id, a.id, s)); assert.ok(REL_INFO[r]); count[r]++;
+  }
+  assert.equal(relationOf('legacy:118', 'legacy:1277', true), 'nemesis');
+  assert.equal(relationOf('organic38:frog', 'organic42:otter', true), 'friends');
+  assert.equal(relationOf('x', 'x'), 'neutral');
+  const total = Object.values(count).reduce((n, v) => n + v, 0);
+  assert.ok(count.friends > total * 0.15 && count.rivals > total * 0.1 && count.nemesis >= 8 && count.nemesis < total * 0.12 && count.neutral > total * 0.3, JSON.stringify(count));
+});

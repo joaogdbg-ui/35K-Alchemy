@@ -90,6 +90,16 @@ Preserve 200-per-batch policy and do not start another content release on top of
 
 - **Art redraw wave 3 (V85, done): 3,991 icons** — every remaining older element. All 6,012 pre-V83 elements now use the 2026 art direction (`ART_REDRAW`), plus 200 V83 and 200 V85 originals. Six near-duplicates found by the audit were redrawn; 36 reviewed false alarms are in `tools/art-redraw-reviewed-pairs.json` (the audit now also honours them for V83 comparisons).
 
+## V199 — Química entre companions (Duo e casas)
+
+- `relationOf(a,b,sameFamily)` (companion-engine, puro e simétrico): `friends` / `neutral` / `rivals` / `nemesis`, com pares fixos (`REL_BEST`, `REL_NEMESIS`: p.ex. Frog+Otter amigos; Hero×Werewolf, Pegasus×Cerberus, Phoenix×Penguin inimigos) e o resto por hash (mesma família é mais amigável). `REL_INFO` tem ícone, nome e nota.
+- **Duo no ecrã**: os jogos saem de `DUO_BY_REL`. Amigos jogam `coop`: cada um atira um elemento para um slot e a app combina (`ctx.coopFind` escolhe um par que o jogador já pode fazer e dá resultado novo; `ctx.coopCraft` usa `selectForHint`) — descoberta real, máx. 6/dia, 8 min de intervalo, só no Alchemy/Classic com slots vazios. Inimigos fazem `brawl`: o que perde fica KO (`setKo`, classe `is-ko`, balão TAP!), −10 de humor, e só volta quando se toca nele (`reviveIfKo`). Enquanto há KO não há jogos Duo.
+- **Casas**: ao encontrarem-se, amigos festejam (humor de ambos), rivais discutem, inimigos lutam e um fica KO até levar um toque (`knockOut`/`revive` no `wanderZone`). A ficha do residente lista a relação com cada colega de casa.
+- **UI**: barra "Your team" mostra a relação do par; o seletor do parceiro mostra a relação de cada candidato.
+- **Minijogos/microjogos**: o fundo do palco usa o céu e a faixa do mundo do companion ativo (`ctx.worldArt`).
+- Gancho de teste: `window.__companions` quando existe `window.__m`; `requestDuo(kind)`, `koState()`.
+- `APP_VERSION` 1.0.99.
+
 ## V198 — Skin nos menus da lista de elementos
 
 - Só CSS (bloco "V198"): chips Sort/Families/Stat/Looks, folha Sort (opções com ícone, selecionada escura com visto verde, segmentos Show e List size, títulos em pílula), filtro de famílias, filtro de stats, filtro de looks e caixa de pesquisa no estilo do jogo.

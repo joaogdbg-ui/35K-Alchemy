@@ -311,7 +311,7 @@ export function createHomeSystem(ctx){
  }
  function tapResident(mount,hid,cid){
   const g=HOUSE_GROWTH[objects[hid].capacity]||1;
-  showModal(`<div class="modal-tag">RESIDENT</div><div class="home-res-head"><span class="home-res-big">${sprites[cid]||''}</span><div><h2>${escapeText(companionName(cid))}</h2><small>Lives in ${escapeText(uiName(byId.get(hid)))} · grows ×${g} faster</small></div></div><p class="home-persona">${(p=>`${p.emoji} ${p.style==='lazy'?'Easy-going':p.style==='hyper'?'Full of energy':'Steady'} · loves <b>${EFFECT_LABEL[p.fav]||p.fav}</b> furniture · not keen on <b>${EFFECT_LABEL[p.shy]||p.shy}</b></p>`)(personalityOf(cid))}${statsHtml?.(cid)||''}<button type="button" class="modal-button secondary" id="homeEvict">Move out</button><button type="button" class="modal-button secondary" id="homeClose">Close</button>`);
+  showModal(`<div class="modal-tag">RESIDENT</div><div class="home-res-head"><span class="home-res-big">${sprites[cid]||''}</span><div><h2>${escapeText(companionName(cid))}</h2><small>Lives in ${escapeText(uiName(byId.get(hid)))} · grows ×${g} faster</small></div></div><p class="home-persona">${(p=>`${p.emoji} ${p.style==='lazy'?'Easy-going':p.style==='hyper'?'Full of energy':'Steady'} · loves <b>${EFFECT_LABEL[p.fav]||p.fav}</b> furniture · not keen on <b>${EFFECT_LABEL[p.shy]||p.shy}</b></p>`)(personalityOf(cid))}${(()=>{try{const mates=house(hid).residents.filter(x=>x!==cid&&isDiscovered(x));if(!mates.length||!ctx.relation)return '';return `<ul class="home-rels">${mates.map(x=>{const r=ctx.relation(cid,x),inf=ctx.relInfo?.(r)||{icon:'',label:r};return `<li class="is-${r}"><span>${inf.icon}</span><b>${escapeText(companionName(x))}</b><small>${inf.label}</small></li>`;}).join('')}</ul>`;}catch{return '';}})()}${statsHtml?.(cid)||''}<button type="button" class="modal-button secondary" id="homeEvict">Move out</button><button type="button" class="modal-button secondary" id="homeClose">Close</button>`);
   $('homeClose').onclick=closeModal;$('homeEvict').onclick=()=>{const h=house(hid);h.residents=h.residents.filter(x=>x!==cid);save();closeModal();render(mount);};
  }
 
@@ -355,8 +355,11 @@ export function createHomeSystem(ctx){
       // V152: going north the companion stays in front of what it is walking past until it gets there
       if(north&&zOld){const zNew=Number(w.el.style.getPropertyValue('--z'));w.el.style.setProperty('--z',Math.max(zOld,zNew));w.legs.push(setTimeout(()=>{if(Number(w.el.style.getPropertyValue('--z'))>zNew&&!w.el.classList.contains('is-using'))w.el.style.setProperty('--z',zNew);},ms));}},at));t+=ms;cur=pt;}
    return t;};
+  const knockOut=w=>{w.ko=true;w.busyUntil=Infinity;if(w.taken){taken.delete(w.taken);w.taken=null;}w.el.className='companion home-walker is-ko';w.el.dataset.anim='idle';bubble(w,'💫',600000);act(w,'Knocked out — tap to revive');};
+  const revive=w=>{w.ko=false;w.busyUntil=Date.now()+900;w.el.classList.remove('is-ko');w.el.dataset.anim='jump';bubble(w,'❤',1200);act(w,'Back on its feet');voiceAt=0;voice(w.cid,'happy');setTimeout(()=>{if(w.el.dataset.anim==='jump')w.el.dataset.anim='idle';},700);};
+  for(const w of walkers){const pb=w.el.querySelector('.home-pet');if(pb){const old=pb.onclick;pb.onclick=e=>{if(w.ko){e.stopPropagation();revive(w);return;}old?.(e);};}}
   const tick=()=>{if(!document.body.contains(box))return stopWander();const now=Date.now();
-   for(const w of walkers){if(now<w.busyUntil)continue;
+   for(const w of walkers){if(w.ko||now<w.busyUntil)continue;
     if(w.taken){taken.delete(w.taken);w.taken=null;}
     w.el.className='companion home-walker';w.el.dataset.anim='idle';
     const free=usable.filter(f=>!taken.has(f));let f=null;
@@ -378,7 +381,13 @@ export function createHomeSystem(ctx){
     w.t=setTimeout(()=>{
      if(!f){w.el.dataset.anim='idle';const m=w.meet;w.meet=null;
       if(!m&&Math.random()<0.5){w.el.classList.add('q-'+w.per.quirk);bubble(w,w.per.emoji,1200);act(w,QUIRK_TEXT[w.per.quirk]);voice(w.cid,'hi');return;}
-      if(m&&Math.abs(m.p.x-w.p.x)+Math.abs(m.p.y-w.p.y)<=1.5){const face=m.p.x>=w.p.x?1:-1;w.p.face=face;w.el.dataset.face=face>0?'right':'left';w.el.dataset.anim='duo-cheer';bubble(w,'❤',1400);act(w,'Chatting with a housemate');
+      if(m&&!m.ko&&Math.abs(m.p.x-w.p.x)+Math.abs(m.p.y-w.p.y)<=1.5){const face=m.p.x>=w.p.x?1:-1;w.p.face=face;w.el.dataset.face=face>0?'right':'left';
+       // V199: chemistry — friends cheer (and both feel better), rivals bicker, sworn enemies fight until one is knocked out (tap it to revive)
+       const rel=(()=>{try{return ctx.relation?.(w.cid,m.cid)||'neutral';}catch{return 'neutral';}})();const mName=companionName(m.cid);
+       if(rel==='rivals'){w.el.dataset.anim='shake';bubble(w,'😤',1400);act(w,`Bickering with ${mName}`);voice(w.cid,'no');if(m.el.dataset.anim==='idle'){m.el.dataset.face=face>0?'left':'right';m.el.dataset.anim='shake';bubble(m,'💢',1400);setTimeout(()=>{if(m.el.dataset.anim==='shake')m.el.dataset.anim='idle';},1200);}setTimeout(()=>{if(w.el.dataset.anim==='shake')w.el.dataset.anim='idle';},1200);return;}
+       if(rel==='nemesis'&&m.el.dataset.anim==='idle'){m.el.dataset.face=face>0?'left':'right';w.el.dataset.anim='knock';m.el.dataset.anim='knock';bubble(w,'💥',1500);bubble(m,'💥',1500);act(w,`Fighting ${mName}!`);act(m,`Fighting ${companionName(w.cid)}!`);voice(w.cid,'no');w.busyUntil=Date.now()+2600;m.busyUntil=Date.now()+2600;
+        setTimeout(()=>{const lose=Math.random()<0.5?w:m,win=lose===w?m:w;knockOut(lose);win.el.dataset.anim='jump';bubble(win,'😼',1300);act(win,`Won a fight with ${companionName(lose.cid)}`);setTimeout(()=>{if(win.el.dataset.anim==='jump')win.el.dataset.anim='idle';},800);},1500);return;}
+       w.el.dataset.anim='duo-cheer';bubble(w,rel==='friends'?'💚':'❤',1400);act(w,rel==='friends'?`Having fun with best friend ${mName}`:'Chatting with a housemate');if(rel==='friends'){voice(w.cid,'happy');if(train&&applyEffect?.(w.cid,'mood'))gainPop(w,'mood');if(train)applyEffect?.(m.cid,'mood');}
        if(m.el.dataset.anim==='idle'){m.el.dataset.face=face>0?'left':'right';m.el.dataset.anim='duo-laugh';bubble(m,'🎶',1400);setTimeout(()=>{if(m.el.dataset.anim==='duo-laugh')m.el.dataset.anim='idle';},1400);}
        setTimeout(()=>{if(w.el.dataset.anim==='duo-cheer')w.el.dataset.anim='idle';},1400);}
       return;}
