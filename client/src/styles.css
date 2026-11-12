@@ -2605,3 +2605,7 @@ body[data-tab="Games"] .companion-layer{display:none}
 .cp-pack em{background:#6FB26A!important;color:#fff!important;border-radius:12px!important;box-shadow:0 3px 0 #4F8A4C;padding:5px 16px!important;font-size:14px!important}
 .cp-pack b{font-size:24px}
 .cp-first{border:2px solid #B8601F;border-radius:16px!important}
+
+/* V197 */
+.cp-bank-head b span{font-size:inherit;font-weight:inherit;color:inherit}
+.cp-bank-head>span{display:block}

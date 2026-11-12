@@ -90,6 +90,11 @@ Preserve 200-per-batch policy and do not start another content release on top of
 
 - **Art redraw wave 3 (V85, done): 3,991 icons** — every remaining older element. All 6,012 pre-V83 elements now use the 2026 art direction (`ART_REDRAW`), plus 200 V83 and 200 V85 originals. Six near-duplicates found by the audit were redrawn; 36 reviewed false alarms are in `tools/art-redraw-reviewed-pairs.json` (the audit now also honours them for V83 comparisons).
 
+## V197 — Correção do saldo no banco de moedas
+
+- O número do saldo no cabeçalho de "Get coins" herdava o tamanho pequeno; corrigido. A linha "Discover elements" menciona os objetivos de 25 e os combos.
+- `APP_VERSION` 1.0.97.
+
 ## V196 — Equipa no topo do Home, banco de moedas, shiny especial, toques durante a descoberta
 
 - **Home → Companions**: barra "Your team" no topo (`.team`, companion-engine `renderTab`): companion no ecrã + lugar Duo (parceiro, "Add a partner" ou 🔒 com preço e progresso; tocar abre a folha DUO SLOT com compra/anúncios). O cartão "Second slot" do fundo saiu. Título "Collection · n/40" antes da grelha.
