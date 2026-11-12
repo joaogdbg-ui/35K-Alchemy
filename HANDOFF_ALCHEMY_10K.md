@@ -90,6 +90,14 @@ Preserve 200-per-batch policy and do not start another content release on top of
 
 - **Art redraw wave 3 (V85, done): 3,991 icons** — every remaining older element. All 6,012 pre-V83 elements now use the 2026 art direction (`ART_REDRAW`), plus 200 V83 and 200 V85 originals. Six near-duplicates found by the audit were redrawn; 36 reviewed false alarms are in `tools/art-redraw-reviewed-pairs.json` (the audit now also honours them for V83 comparisons).
 
+## V189 — Ciclo de descoberta (objetivos curtos, combos, celebração)
+
+- **Faixa de objetivo** no ecrã principal (`#goalStrip`, criada por `syncGoalStrip()` a seguir ao `.craft-card`, só no Classic): "N to go · Reward at X elements · +moedas" com barra; toca → folha REWARDS. Objetivo a cada `GOAL_STEP=20` elementos (+`GOAL_COINS=5`); aos múltiplos de 100 mantém-se o prémio antigo de +50.
+- **Combo** por tempo: descobertas novas com menos de 45 s entre si (`COMBO_WINDOW_MS`); não quebra com repetidos. Prémios `comboReward`: ×3 → +3, ×5 → +5, cada ×10 → +10. Chip 🔥 com barra a esvaziar; melhor combo guardado em `alchemy7k_combo_v189`. Batch não conta.
+- **Celebração**: popup de descoberta mostra combo, objetivo atingido e progresso (`loopHtml`), confetti (`confettiIn`) em combos ≥3/objetivos, e o som sobe de tom com o combo (`soundForResult`).
+- Economia: +25 moedas por 100 elementos nos objetivos, mais os combos (máx. típico ~+18 por 10 seguidas).
+- `APP_VERSION` 1.0.89.
+
 ## V188 — Vida dos companions, UI da casa e microjogos
 
 - **Personalidades** (`personalityOf(cid)` em home-engine-v90.js, puro e determinístico por id): mobília favorita (`fav`, pesa ×3 e uso +35%, "Loves the X ♥"), mobília de que não gosta (`shy`, pesa ×0.35; 60% das vezes recusa com 🙅 "Not a fan of the X"), ritmo (`lazy`/`steady`/`hyper` → verbos próprios `STYLE_VERB`, passada e duração; hyper salta na cama em vez de dormir), gesto próprio (`HOME_QUIRKS`: spin, hop, wiggle, nod, stretch, shiver, bow, sway; classes `q-*`) e **voz** (`companionVoice`: tom, onda e melodia por companion; festas, favorito, recusa; máx. 1 voz/0,9 s; respeita o som desligado via `ctx.audio`).

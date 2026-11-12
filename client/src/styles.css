@@ -2312,3 +2312,28 @@ body.ar-playing>*:not(.ar-stage){display:none!important}
 body[data-tab="Pets"] .companion-layer{display:none}
 /* V188: bigger microgame pieces */
 .ar-micro.is-v188 .ar-bubble{scale:1.3}.ar-micro.is-v188 .ar-toss{scale:1.35}.ar-micro.is-v188 .ar-card2{scale:1.2}.ar-micro.is-v188 .ar-dial{scale:1.15}.ar-micro.is-v188 .ar-boulder{scale:1.25}
+
+/* V189: goal strip, combo chip, discovery loop box, confetti */
+.goal-strip{display:flex;align-items:center;gap:10px;width:100%;margin:8px 0 0;padding:7px 12px;border-radius:16px;border:1px solid var(--line);background:var(--surface);color:var(--ink);text-align:left}
+.goal-strip[hidden]{display:none}
+.goal-ico{font-size:22px;line-height:1}.goal-strip.is-near .goal-ico{animation:goal-wob .8s ease-in-out infinite}
+.goal-main{flex:1;min-width:0;display:grid;grid-template-columns:auto 1fr;column-gap:8px;align-items:baseline}
+.goal-main b{font-size:14px;font-weight:900;white-space:nowrap}.goal-main small{font-size:11.5px;color:var(--ink-2);white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.goal-bar{grid-column:1/-1;display:block;height:6px;margin-top:4px;border-radius:4px;background:var(--surface-2);overflow:hidden}.goal-bar em{display:block;height:100%;border-radius:4px;background:linear-gradient(90deg,#8fbf68,#ffd166);transition:width .5s}
+.goal-strip.is-big .goal-bar em{background:linear-gradient(90deg,#ffd166,#e8a35f)}
+.goal-combo{position:relative;flex:none;padding:4px 10px 6px;border-radius:12px;background:#E8703C;color:#fff;font-weight:900;font-size:14px;overflow:hidden;animation:goal-pop .35s ease}
+.goal-combo i{position:absolute;left:0;bottom:0;height:3px;width:100%;background:#FFE08A;transform-origin:0 50%;animation:combo-drain linear forwards}
+@keyframes combo-drain{to{transform:scaleX(0)}}
+@keyframes goal-pop{0%{transform:scale(.6)}70%{transform:scale(1.15)}100%{transform:none}}
+@keyframes goal-wob{50%{transform:rotate(-12deg) scale(1.15)}}
+.goal-strip.is-pulse{animation:goal-pulse .5s ease}
+@keyframes goal-pulse{40%{transform:scale(1.03);box-shadow:0 0 0 4px rgba(255,209,102,.5)}}
+.loop-box{display:grid;gap:6px;margin:10px 0 2px;text-align:left}
+.loop-row{display:flex;justify-content:space-between;align-items:center;gap:8px;padding:7px 12px;border-radius:12px;font-size:14px}
+.loop-row.is-combo{background:#FBE3D6;color:#8A3A1C}.loop-row.is-goal{background:#FFF1C9;color:#6B4A0E}.loop-row span{font-weight:900;white-space:nowrap}
+.loop-next span{display:flex;justify-content:space-between;gap:8px;font-size:12.5px;color:var(--ink-2);font-weight:700}.loop-next b{color:var(--ink)}
+.loop-next i{display:block;height:7px;margin-top:4px;border-radius:4px;background:var(--surface-2);overflow:hidden}.loop-next em{display:block;height:100%;background:linear-gradient(90deg,#8fbf68,#ffd166);border-radius:4px}
+.loop-confetti{position:absolute;inset:0;pointer-events:none;overflow:hidden;z-index:3}
+.loop-confetti i{position:absolute;top:-12px;width:8px;height:12px;border-radius:2px;animation:loop-fall 1.7s ease-in forwards}
+@keyframes loop-fall{to{transform:translate(var(--dx),420px) rotate(var(--r));opacity:0}}
+@media(max-height:680px) and (max-width:849px){.goal-strip{padding:4px 10px;margin-top:5px}.goal-ico{font-size:18px}}
