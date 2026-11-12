@@ -90,6 +90,9 @@ Preserve 200-per-batch policy and do not start another content release on top of
 
 - **Art redraw wave 3 (V85, done): 3,991 icons** — every remaining older element. All 6,012 pre-V83 elements now use the 2026 art direction (`ART_REDRAW`), plus 200 V83 and 200 V85 originals. Six near-duplicates found by the audit were redrawn; 36 reviewed false alarms are in `tools/art-redraw-reviewed-pairs.json` (the audit now also honours them for V83 comparisons).
 
+## V179 — Coin packs back
+- Owner correction: "+ Coins" may stay real money. Real-money purchases = Remove ads + coin packs (ids coins_100…coins_15000, amounts 600/1,300/3,500/8,000/17,000/45,000/100,000, first purchase ×2). No pack-exclusive items: the four special colours stay coin-priced. The "Get coins" sheet shows Free (daily gift, ad +20 ×5/day, ways to earn) then Coin packs.
+
 ## V178 — Coins-only shop + living home (first pass)
 - Owner decision (12/11): the ONLY real-money purchase is Remove ads (`no_ads`). COIN_PACKS is now empty (old tokens ignored); first-buy bonus and pack-exclusive colours removed — Gold/Aurora/Shadow/Rainbow colours now cost 3,000–6,000 coins. Play products coins_* are NOT needed any more.
 - "Earn coins" sheet replaces the coin shop: daily gift (claimDaily, the duplicate daily button in the Market was removed; the coin bar button shows "🎁 Daily gift" when available), optional rewarded ad +20 coins up to 5 a day (kind 'coins', wallet.adDay/adN), and the list of ways to earn.

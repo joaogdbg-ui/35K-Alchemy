@@ -55,9 +55,9 @@ test('V173: coin economy', async () => {
   // total from discovery over 10k elements stays well under the biggest coin pack
   assert.ok(10000 * M.DISCOVERY_COINS + 100 * M.DISCOVERY_MILESTONE_COINS <= 30000);
 });
-test('V178: no coin packs — only Remove ads costs real money', async () => {
+test('V179: coin packs are back; colours are never pack-exclusive', async () => {
   const M = await import('../src/market-v136.js');
-  assert.equal(M.COIN_PACKS.length, 0);
+  assert.equal(M.COIN_PACKS.length, 7); assert.equal(M.COIN_PACKS[0].coins, 600); assert.ok(M.COIN_PACKS.every(p => !p.gift));
   assert.ok(M.DYES.every(d => !d.exclusive && d.price >= 600), 'every colour has a coin price');
   assert.ok(M.MARKET_TABS.some(t => t[0] === 'dye'));
 });

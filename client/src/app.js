@@ -502,7 +502,7 @@ function shinyCard(item){return `<p class="shiny-trivia"><span aria-hidden="true
 function showShinyFound(id){const it=byId.get(id);if(!it)return;
  showModal(`<div class="modal-tag shiny-tag">✦ SHINY ELEMENT</div><div class="modal-art is-shiny">${staticArt(it)}</div><h2>Shiny ${escapeText(uiName(it))}</h2>${shinyCard(it)}<div class="modal-milestone">${shiny.size.toLocaleString('en-US')} shiny ${shiny.size===1?'element':'elements'} · ${Math.round(shinyChance()*100)}% chance per combination</div>`);
 }
-const APP_VERSION='1.0.78';
+const APP_VERSION='1.0.79';
 // V83: status line + Google consent (UMP) privacy options, required for EEA players.
 async function refreshAdStatus(){
  const el=$('settingsAdStatus'),bridge=getRewardBridge();
@@ -1810,7 +1810,7 @@ function grantElement(id){if(!byId.has(id)||unlocked.has(id))return false;unlock
 setTimeout(()=>{try{for(const it of MARKET){if(it.kind==='furniture'||it.kind==='house'||!it.element||!byId.has(it.element)||unlocked.has(it.element))continue;
  const has=it.kind==='acc'?(wallet.acc[it.acc]||0)>0:it.kind==='toy'?wallet.toys.includes(it.toy):(wallet.bag[it.id]||0)>0;
  if(has)grantElement(it.element);}}catch{}},2500);
-const coinBar=()=>`<div class="mk-wallet"><span class="mk-coins">🪙 <b data-coins>${wallet.coins.toLocaleString('en-US')}</b></span><button type="button" class="mk-buy ${wallet.daily!==dailyKey()?'has-gift':''}" id="mkBuyCoins"><b>${wallet.daily!==dailyKey()?'🎁 Daily gift':'Earn coins'}</b></button></div>`;
+const coinBar=()=>`<div class="mk-wallet"><span class="mk-coins">🪙 <b data-coins>${wallet.coins.toLocaleString('en-US')}</b></span><button type="button" class="mk-buy ${wallet.daily!==dailyKey()?'has-gift':''}" id="mkBuyCoins"><b>${wallet.daily!==dailyKey()?'🎁 Daily gift':'+ Coins'}</b></button></div>`;
 function wireCoinBar(back){const b=$('mkBuyCoins');if(b)b.onclick=()=>openCoinShop(back);}
 // V137: coin packs — bigger packs give more coins per euro
 // V152: a full companion (20 elements) can eat again after 1 h, or now with an ad or 100 coins
@@ -1830,11 +1830,13 @@ function adCoinsLeft(){const d=dailyKey();if(wallet.adDay!==d){wallet.adDay=d;wa
 function claimDaily(){if(wallet.daily===dailyKey())return 0;const st=nextStreak(),c=dailyCoins(st);wallet.streak=st;wallet.daily=dailyKey();addCoins(c);SFX.prize?.();toast(`+${c} daily coins!`,'new');return c;}
 function openCoinShop(back){const daily=wallet.daily!==dailyKey();const left=adCoinsLeft();const ad=rewardedAvailable()&&left>0;const again=()=>openCoinShop(back);
  const row=(ico,t,sm)=>`<li><span>${ico}</span><div><b>${t}</b><small>${sm}</small></div></li>`;
- showModal(`<div class="modal-tag">COMPANION COINS</div><h2>Earn coins</h2><p class="mini-muted">You have 🪙 <b data-coins>${wallet.coins.toLocaleString('en-US')}</b> · coins are never sold for real money.</p>
+ showModal(`<div class="modal-tag">COMPANION COINS</div><h2>Get coins</h2><p class="mini-muted">You have 🪙 <b data-coins>${wallet.coins.toLocaleString('en-US')}</b></p><h3 class="st-sub">Free</h3>
   <button type="button" class="modal-button" id="cpDaily" ${daily?'':'disabled'}>${daily?`🎁 Daily gift · +${dailyCoins(nextStreak())}`:'🎁 Daily gift claimed · back tomorrow'}</button>
   ${rewardedAvailable()?`<button type="button" class="modal-button secondary" id="cpAd" ${ad?'':'disabled'}>▶ Watch an ad · +${AD_COINS} <small>(${left} left today)</small></button>`:''}
   <ul class="cp-ways">${row('⚗️','Discover elements',`+${DISCOVERY_COINS} each · +${DISCOVERY_MILESTONE_COINS} every ${DISCOVERY_MILESTONE}`)}${row('🏁','Races and Karate','Best on your first gold of each level')}${row('🎮','Minigames and Microgames','Up to 40 a game · 150 a day')}${row('🔍','Companion finds',`+${COMPANION_FIND_COINS} each`)}</ul>
+  <h3 class="st-sub">Coin packs</h3>${wallet.firstBuy?'':'<div class="cp-first">🎉 <b>First purchase: double coins!</b></div>'}<div class="cp-list">${COIN_PACKS.map(p=>`<button type="button" class="cp-pack ${p.tag?'is-hot':''}" data-pack="${p.id}">${p.tag?`<span class="cp-tag">${p.tag}</span>`:''}<span class="cp-pile">${'🪙'.repeat(1+COIN_PACKS.indexOf(p))}</span><b>${(p.coins*(wallet.firstBuy?1:FIRST_BUY_MULT)).toLocaleString('en-US')}</b><small>${wallet.firstBuy?'':`<s>${p.coins.toLocaleString('en-US')}</s> `}${p.bonus?`+${p.bonus}% bonus`:'coins'}</small><em>${escapeText(packPrices[p.id]||p.price)}</em></button>`).join('')}</div><p class="mini-muted">${escapeText(FAIR_PLAY_NOTE)}</p>
   ${back?'<button type="button" class="modal-button secondary" id="cpBack">Back</button>':'<button type="button" class="modal-button secondary" id="cpBack">Close</button>'}`);
+ $('modalContent').querySelectorAll('[data-pack]').forEach(b=>b.onclick=async()=>{b.disabled=true;await buyCoins(b.dataset.pack);b.disabled=false;syncCoinLabels();again();});
  $('cpDaily').onclick=()=>{if(claimDaily())again();};
  const a=$('cpAd');if(a)a.onclick=async()=>{a.disabled=true;let r=null;try{r=await getRewardBridge().showRewarded({kind:'coins'});}catch{}if(r?.earned!==true){toast('Ad not completed','repeat');again();return;}adCoinsLeft();wallet.adN=(wallet.adN||0)+1;addCoins(AD_COINS);toast(`+${AD_COINS} coins`,'new');again();};
  modalBack=back||null;$('cpBack').onclick=()=>{modalBack=null;back?back():closeModal();};}
@@ -1860,7 +1862,7 @@ const accOwned=a=>wallet.acc[a]||0;
 function accInUse(a,except=null){let n=0;for(const [cid,p] of Object.entries(companions.state().pets||{})){if(cid===except)continue;if(Object.values(p?.wear||{}).includes(a))n++;}return n;}
 function confirmBuy({art,name,desc,price,label='Buy'},onBuy,onBack){const short=wallet.coins<price;
  showModal(`<div class="modal-tag">CONFIRM</div><div class="cf-art">${art}</div><h2>${escapeText(name)}</h2>${desc?`<p class="mini-muted">${escapeText(desc)}</p>`:''}<div class="cf-sum"><span>Price</span><b>🪙 ${price.toLocaleString('en-US')}</b><span>You have</span><b class="${short?'is-short':''}">🪙 ${wallet.coins.toLocaleString('en-US')}</b>${short?'':`<span>After</span><b>🪙 ${(wallet.coins-price).toLocaleString('en-US')}</b>`}</div>
-  ${short?`<button type="button" class="modal-button" id="cfCoins">How to earn coins</button>`:`<button type="button" class="modal-button" id="cfBuy">${escapeText(label)} · 🪙 ${price.toLocaleString('en-US')}</button>`}<button type="button" class="modal-button secondary" id="cfBack">Cancel</button>`);
+  ${short?`<button type="button" class="modal-button" id="cfCoins">Get more coins</button>`:`<button type="button" class="modal-button" id="cfBuy">${escapeText(label)} · 🪙 ${price.toLocaleString('en-US')}</button>`}<button type="button" class="modal-button secondary" id="cfBack">Cancel</button>`);
  modalBack=onBack;$('cfBack').onclick=()=>{modalBack=null;onBack();};
  const c=$('cfCoins');if(c)c.onclick=()=>openCoinShop(()=>confirmBuy({art,name,desc,price,label},onBuy,onBack));
  const b=$('cfBuy');if(b)b.onclick=()=>{if(!spendCoins(price)){toast('Not enough coins','repeat');return;}modalBack=null;SFX.unlock?.();onBuy();};}
