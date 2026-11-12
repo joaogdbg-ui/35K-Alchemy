@@ -515,7 +515,7 @@ function shinyFanfare(){if(!soundEnabled)return;const ctx=acquireSoundEngine();i
 function showShinyFound(id){const it=byId.get(id);if(!it)return;
  showModal(`<div class="modal-tag shiny-tag">✦ SHINY ELEMENT</div><div class="modal-art is-shiny">${staticArt(it)}</div><h2>Shiny ${escapeText(uiName(it))}</h2>${shinyPerks(it)}${shinyCard(it)}`);shinyDress();
 }
-const APP_VERSION='1.1.03';
+const APP_VERSION='1.1.04';
 // V83: status line + Google consent (UMP) privacy options, required for EEA players.
 async function refreshAdStatus(){
  const el=$('settingsAdStatus'),bridge=getRewardBridge();
@@ -1768,7 +1768,7 @@ function wearAll(root){if(!root)return;const els=root.querySelectorAll?.('[data-
 try{if(window.__m)window.__companions=companions;}catch{}
 // V203: living elements — one element at a time moves by itself; rarely its effect spills onto the screen
 const living=createLiving({audio:()=>soundEnabled?acquireSoundEngine():null,nameOf:id=>byId.get(id)?.name||'',canRun:()=>tab==='Play'&&$('modal').hidden&&!document.hidden&&!document.body.classList.contains('keyboard-open'),react:(anim,ex,ms)=>companions.react?.(anim,ex,ms)});
-setTimeout(()=>{try{living.start();}catch{}},2500);try{if(window.__m)window.__living=living;}catch{}
+setTimeout(()=>{try{living.start();}catch{}},2500);try{if(window.__m){window.__living=living;window.__idOf=n=>{for(const it of byId.values())if(String(it.name).toLowerCase()===n)return it.id;return null;};}}catch{}
 const homes=createHomeSystem({$,escapeText,byId:homeById,uiName:homeUiName,staticArt:homeStaticArt,isDiscovered:homeDiscovered,objects:HOME_OBJECTS,sprites:COMPANION_SPRITES_V86,roster:COMPANIONS_V86,
  roomSprites:ROOM_SPRITES,depthOf:id=>routeDepth.get(id),alchemy:()=>({mult:alchemyGrowth(),finds:classicDiscoveredCount()}),wear:wearAll,applyEffect:(cid,eff)=>companions.homeEffect(cid,eff),
  audio:()=>soundEnabled?acquireSoundEngine():null,relation:(x,y)=>companions.relation(x,y),relInfo:r=>companions.relInfo(r),poseRig:el=>companions.poseRig(el),companionName:id=>companions.state().pets[id]?.nick||uiName(byId.get(id)),statsHtml:id=>companions.statsHtml(id),showModal,closeModal,toast,reducedMotion:()=>Boolean(window.matchMedia?.('(prefers-reduced-motion: reduce)')?.matches)});
