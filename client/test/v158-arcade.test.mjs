@@ -291,6 +291,13 @@ test('V202: Market is its own tab with Remove ads first, old sheets are skinned,
   for (const c of ['.mk-noads{', '.home-pick{grid-template-columns:54px', '.cf-sum{max-width:none', '.cs-panel{border:2px solid']) assert.ok(css.includes(c), c);
   assert.ok(css.includes('/* DARK-SKIN:start') && css.trimEnd().endsWith('/* DARK-SKIN:end */'), 'generated dark block stays last');
   assert.match(css, /html\[data-theme="dark"\] :is\([^)]*\.element-chip/);
+  // V208: the dark theme is really dark — light cards are repainted with dark surfaces and light text
+  const dark = css.slice(css.indexOf('/* DARK-SKIN:start'));
+  const chipRule = dark.split('\n').find(l => /:is\([^)]*\.element-chip[,)]/.test(l) && /background/.test(l));
+  assert.ok(chipRule, 'element chips repainted');
+  const hexes = (chipRule.match(/background[^;]*/)[0].match(/#[0-9A-F]{6}/gi) || []);
+  assert.ok(hexes.length && hexes.every(h => { const n = parseInt(h.slice(1), 16); return ((n >> 16) + ((n >> 8) & 255) + (n & 255)) / 3 < 90; }), 'dark surfaces: ' + hexes);
+  assert.ok(/--ink:#ECEFF1/.test(chipRule), 'light text inside');
 });
 
 test('V204: living elements — sensible motion (parts where the art allows), paper-turn default, effects that start at the element', async () => {
