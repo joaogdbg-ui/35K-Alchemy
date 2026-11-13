@@ -6356,6 +6356,32 @@ function poseRig(art,tries=0){if(!art)return;const limbs=[...art.querySelectorAl
   let up=d(-90);if(Math.abs(up)>120){if(left&&up<0)up+=360;if(!left&&up>0)up-=360;}if(Math.abs(d(-90))<62)up=0;const cl=v=>Math.max(-55,Math.min(55,v));
   set('--up',up);set('--fwd',d(0));set('--back',d(180));set('--down',d(90));set('--in',cl(d(left?35:145)));set('--out',d(left?200:-20));}
  if(miss&&tries<6)setTimeout(()=>poseRig(art,tries+1),350);}
+// V209: worn items are drawn ON TOP of the sprite (they used to hide behind eyes, hair, helmets and big heads) in a
+// wrapper that moves with the head or the body, and are sized/placed from the real head: side-view animals wear
+// scarves at the neck end, not across the back; tiny eye gaps no longer shrink glasses to nothing.
+function fitWearSvg(svg,wear,ACC){if(!svg)return;svg.querySelectorAll('[data-acc="wear"]').forEach(n=>n.remove());if(!wear)return;
+ const bb=el=>{try{const b=el.getBBox();return b.width?b:null;}catch{return null;}};
+ const headEl=svg.querySelector('[data-part="head"]'),bodyEl=svg.querySelector('[data-part="body"]');const head=headEl||bodyEl,body=bodyEl||headEl;if(!head)return;
+ const extras=[...svg.querySelectorAll('[data-acc="look"]')];extras.forEach(n=>n.style.display='none');const hb=bb(head),bdb=bb(body);extras.forEach(n=>n.style.display='');if(!hb||!bdb)return;
+ const NS='http://www.w3.org/2000/svg';
+ // a top-most group that copies the part's pivot, so every head/body animation and expression carries the item along
+ const follow=part=>{const g=document.createElementNS(NS,'g');g.setAttribute('data-acc','wear');if(part&&part.dataset.part){g.setAttribute('data-part',part.dataset.part);if(part.dataset.pivot)g.setAttribute('data-pivot',part.dataset.pivot);g.style.transformOrigin=part.style.transformOrigin;g.style.transformBox=part.style.transformBox;}svg.append(g);return g;};
+ const hcx=hb.x+hb.width/2,bcx=bdb.x+bdb.width/2,squat=bdb.width>bdb.height*1.2,side=headEl&&bodyEl&&Math.abs(hcx-bcx)>bdb.width*(squat?0.08:0.2);   // head off to one end = side view
+ // a companion that already wears something (wizard hat, helmet drawn outside the head part): hats go on top of it
+ let top=hb.y;if(headEl)for(const g of svg.querySelectorAll('[data-part="extra"]>*,[data-part="body"]>*')){if(g.closest('[data-acc]'))continue;const b=bb(g);if(!b)continue;const cx=b.x+b.width/2;if(cx>hb.x&&cx<hb.x+hb.width&&b.y<top-1&&b.y+b.height>=hb.y-2&&b.y+b.height<hb.y+hb.height*0.7&&b.width<hb.width*1.9)top=Math.min(top,b.y);}
+ for(const aid of Object.values(wear)){const a=ACC[aid];if(!a)continue;
+  if(a.slot==='head'){follow(headEl).innerHTML=`<g transform="translate(${hcx.toFixed(1)} ${(top+hb.height*0.12).toFixed(1)})">${a.draw(Math.max(hb.width,13))}</g>`;}
+  else if(a.slot==='face'){const el=svg.querySelector('[data-part="eye-l"]'),er=svg.querySelector('[data-part="eye-r"]');const l=el&&bb(el),r=er&&bb(er);
+   const cx=l&&r?(l.x+l.width/2+r.x+r.width/2)/2:hcx,cy=l&&r?(l.y+l.height/2+r.y+r.height/2)/2:hb.y+hb.height*0.45;
+   const gap=l&&r?Math.abs((r.x+r.width/2)-(l.x+l.width/2)):0;const sw=Math.max(hb.width*0.72,gap*2.6,15);
+   follow(headEl).innerHTML=`<g transform="translate(${cx.toFixed(1)} ${cy.toFixed(1)})">${a.draw(sw)}</g>`;}
+  else if(a.slot==='neck'){const w=Math.max(14,Math.min(bdb.width*0.9,hb.width*1.05));
+   const x=side?hcx+(bcx-hcx)*Math.min(0.5,hb.width*0.45/Math.abs(bcx-hcx)):bcx;const y=headEl&&bodyEl?Math.max(bdb.y,Math.min(hb.y+hb.height*0.86,bdb.y+bdb.height*0.5)):bdb.y+bdb.height*0.55;
+   if(a.back){// the cape flares out past the body so it shows from the front, trails behind a side-view animal, and its collar is tied in front
+    const g=document.createElementNS(NS,'g');g.setAttribute('data-acc','wear');const cw=side?bdb.width*0.75:Math.max(bdb.width*1.3,hb.width*1.2),ch=Math.max(10,Math.min(bdb.y+bdb.height-y-1,cw*1.15)),away=side?(bcx>hcx?1:-1):0;
+     g.innerHTML=`<g transform="translate(${(side?x+away*cw*0.42:bcx).toFixed(1)} ${y.toFixed(1)}) skewX(${(-away*24)}) scale(1 ${(ch/(cw*0.95)).toFixed(2)})">${a.draw(cw)}</g>`;(bodyEl||svg).insertBefore(g,(bodyEl||svg).firstChild);
+     follow(bodyEl).innerHTML=`<g transform="translate(${x.toFixed(1)} ${y.toFixed(1)})"><path d="M${(-w*0.3).toFixed(1)} 0Q0 ${(w*0.13).toFixed(1)} ${(w*0.3).toFixed(1)} 0" fill="none" stroke="#5f7482" stroke-width="${(w*0.11).toFixed(1)}" stroke-linecap="round"/><path d="M${(-w*0.3).toFixed(1)} 0Q0 ${(w*0.13).toFixed(1)} ${(w*0.3).toFixed(1)} 0" fill="none" stroke="#c8303a" stroke-width="${(w*0.065).toFixed(1)}" stroke-linecap="round"/><circle cy="${(w*0.07).toFixed(1)}" r="${(w*0.05).toFixed(1)}" fill="#f3c24a" stroke="#5f7482" stroke-width="${(w*0.02).toFixed(1)}"/></g>`;}
+   else follow(bodyEl).innerHTML=`<g transform="translate(${x.toFixed(1)} ${y.toFixed(1)})">${a.draw(w)}</g>`;}}}
 function createCompanionSystem(ctx){
  const {roster,sprites,$,escapeText,byId,uiName,staticArt,familyFor,isDiscovered,isShiny,elementIsUseful,getSlots,isLeftLocked,toast,showModal,closeModal,reducedMotion,FAMILIES}=ctx;
  const requestActivation=ctx.requestActivation||(async()=>true);
@@ -6886,17 +6912,7 @@ function createCompanionSystem(ctx){
 
  // ---------- V136: accessories, market food, school skills, on-screen toys ----------
  const ACC=ctx.accessories||{};
- function applyWearSvg(svg,id){if(!svg)return;svg.querySelectorAll('[data-acc="wear"]').forEach(n=>n.remove());const w=state.pets[id]?.wear;if(!w)return;
-  const bb=el=>{try{const b=el.getBBox();return b.width?b:null;}catch{return null;}};
-  const head=svg.querySelector('[data-part="head"]')||svg.querySelector('[data-part="body"]'),body=svg.querySelector('[data-part="body"]')||head;
-  // V146: halos, horns and other look extras are hidden while measuring, so a hat sits on the head, not on top of a halo
-  const extras=[...svg.querySelectorAll('[data-acc="look"]')];extras.forEach(n=>n.style.display='none');const hb=head&&bb(head),bdb=body&&bb(body);extras.forEach(n=>n.style.display='');
-  const put=(parent,html,before=false)=>{const g=document.createElementNS('http://www.w3.org/2000/svg','g');g.setAttribute('data-acc','wear');g.innerHTML=html;before?parent.insertBefore(g,parent.firstChild):parent.append(g);};
-  for(const [slot,aid] of Object.entries(w)){const a=ACC[aid];if(!a)continue;
-   if(a.slot==='head'&&hb)put(head,`<g transform="translate(${(hb.x+hb.width/2).toFixed(1)} ${(hb.y+hb.height*0.12).toFixed(1)})">${a.draw(hb.width)}</g>`);
-   else if(a.slot==='face'&&hb){const el=svg.querySelector('[data-part="eye-l"]'),er=svg.querySelector('[data-part="eye-r"]');const l=el&&bb(el),r=er&&bb(er);const cx=l&&r?(l.x+l.width/2+r.x+r.width/2)/2:hb.x+hb.width/2,cy=l&&r?(l.y+l.height/2+r.y+r.height/2)/2:hb.y+hb.height*0.45;
-    const sw=l&&r?Math.max(hb.width*0.6,Math.abs((r.x+r.width/2)-(l.x+l.width/2))*2.4):hb.width;put(head,`<g transform="translate(${cx.toFixed(1)} ${cy.toFixed(1)})">${a.draw(sw)}</g>`);}
-   else if(a.slot==='neck'&&bdb){const y=hb?Math.max(bdb.y,hb.y+hb.height*0.88):bdb.y;put(a.back?svg.querySelector('[data-part="body"]')||svg:body,`<g transform="translate(${(bdb.x+bdb.width/2).toFixed(1)} ${y.toFixed(1)})">${a.draw(bdb.width*0.9)}</g>`,!!a.back);}}}
+ function applyWearSvg(svg,id){fitWearSvg(svg,state.pets[id]?.wear,ACC);}
  function setWear(id,aid){const a=ACC[aid];if(!isDiscovered(id))return false;const p=pet(id);p.wear=p.wear||{};if(!aid)return false;
   if(a){if(p.wear[a.slot]===aid)delete p.wear[a.slot];else p.wear[a.slot]=aid;}save();rewear();refreshViews();return true;}
  function takeOff(id,slot){const p=pet(id);if(p.wear){if(slot)delete p.wear[slot];else p.wear={};}save();rewear();refreshViews();}
@@ -9450,7 +9466,7 @@ function shinyFanfare(){if(!soundEnabled)return;const ctx=acquireSoundEngine();i
 function showShinyFound(id){const it=byId.get(id);if(!it)return;
  showModal(`<div class="modal-tag shiny-tag">✦ SHINY ELEMENT</div><div class="modal-art is-shiny">${staticArt(it)}</div><h2>Shiny ${escapeText(uiName(it))}</h2>${shinyPerks(it)}${shinyCard(it)}`);shinyDress();
 }
-const APP_VERSION='1.1.08';
+const APP_VERSION='1.1.09';
 // V83: status line + Google consent (UMP) privacy options, required for EEA players.
 async function refreshAdStatus(){
  const el=$('settingsAdStatus'),bridge=getRewardBridge();
