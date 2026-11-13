@@ -90,6 +90,12 @@ Preserve 200-per-batch policy and do not start another content release on top of
 
 - **Art redraw wave 3 (V85, done): 3,991 icons** — every remaining older element. All 6,012 pre-V83 elements now use the 2026 art direction (`ART_REDRAW`), plus 200 V83 and 200 V85 originals. Six near-duplicates found by the audit were redrawn; 36 reviewed false alarms are in `tools/art-redraw-reviewed-pairs.json` (the audit now also honours them for V83 comparisons).
 
+## V206 — Cenas no ecrã
+- 12 cenas novas (47 efeitos no total), todas a partir do chip e com a própria arte do elemento como ator (`artOf(chip)` → `.lf-actor`, animado com `element.animate`): **fog** (nevoeiro no ecrã todo), **storm** (nuvens, chuva e 2 raios), **explosion** (bola de fogo, onda, chips empurrados `lv-blown`), **giant** (baleia/elefante/dinossauro crescem até ocupar o ecrã), **school** (peixes a saltar fora de água), **shipwreck** (navio navega, bate no iceberg e afunda), **moonshot** (foguetão até à lua, bandeira), **gunshot** (3 tiros que estalam o vidro), **abduct** (OVNI leva outro chip no raio), **lava** (escorre do vulcão), **visitor** (elemento que é companion sai do mosaico, vai ter com o companion do ecrã e reagem pela relação: amigos/rivais/neutros), e **slash** agora corta o ecrã (`lf-cut`).
+- `bleedFor(chip)`: companion fora do ecrã → `visitor`; senão regra pelo nome; senão família. ctx novo: isCompanion, companionSprite, onScreen, relationTo.
+- `react()` do motor mantém a pose (re-afirma de 120 em 120 ms até ao fim).
+- Script: `/tmp/v160/lv6.py`.
+
 ## V205 — Movimento que não pára, efeitos mais frequentes e mais variados
 - O movimento pertence ao **id do elemento** (`active` Map), não ao nó: um MutationObserver em `#inventoryVirtual` chama `carry()` quando a lista é redesenhada (deslizar, tocar, combinar) e repinta o movimento a meio do ciclo (`--lv-delay` negativo; partes com atraso negativo). O chip de origem de um efeito também é remarcado.
 - Mais frequente: novo movimento a cada 0,32–0,8 s, até 12 em simultâneo.
