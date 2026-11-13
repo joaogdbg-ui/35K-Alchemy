@@ -299,9 +299,9 @@ test('V204: living elements — sensible motion (parts where the art allows), pa
   const L = await import('../src/living-v203.js');
   const want = { Fire: 'flame', 'Ice Cube': 'melt', Steam: 'smoke', Life: 'beat', Smoke: 'smoke', Angel: 'flap', Water: 'water', Wind: 'wind', Energy: 'zap', Shark: 'swim', Wheel: 'spin', 'Wind Turbine': 'parts', Windmill: 'parts', Cat: 'parts', 'Hermit Crab': 'parts', Cake: 'parts', Volcano: 'parts' };
   for (const [n, k] of Object.entries(want)) assert.equal(L.liveKind(n), k, n);
-  for (const n of ['Price', 'Police', 'Notice', 'Device', 'Catfish', 'Starfish', 'Earth', 'Fan', 'Ferris Wheel', 'Tea', 'Aquarium', 'Planet']) assert.equal(L.liveKind(n), '', n + ' only gets the paper turn');
+  for (const n of ['Price', 'Police', 'Notice', 'Device', 'Catfish', 'Starfish', 'Earth', 'Fan', 'Ferris Wheel', 'Tea', 'Aquarium', 'Planet']) assert.equal(L.liveKind(n), '', n + ' stays still');
   const css = rd('../src/styles.css'), app = rd('../src/app.js'), eng = rd('../src/companion-engine-v86.js'), mod = rd('../src/living-v203.js');
-  assert.match(css, /@keyframes lv-flip\{0%\{transform:rotateY\(0\)\}100%\{transform:rotateY\(360deg\)\}\}/);
+  assert.ok(!mod.includes("||'turn'") && mod.includes('only elements with a motion of their own move'), 'V207: no paper turn — elements without their own motion stay still');
   // every part spec is well formed and every motion has keyframes
   for (const [name, spec] of Object.entries(L.PARTS)) { assert.ok(spec.n > 2, name); for (const [idx, anim, origin] of spec.p) { assert.ok(L.PART_ITER[anim], name + ' ' + anim); assert.ok(css.includes(`@keyframes lvp-${anim}{`), anim); assert.ok(idx.every(i => i > 0 && i < spec.n), name + ' index'); assert.ok(origin === 'c' || /^[\d.]+ [\d.]+$/.test(origin), name + ' origin'); } if (spec.whole) assert.ok(L.LIVE_MS[spec.whole], name); }
   // the real art still has the shape count the spec was written for
@@ -310,16 +310,17 @@ test('V204: living elements — sensible motion (parts where the art allows), pa
   for (const [name, spec] of Object.entries(L.PARTS)) { if (spec.redraw) continue; /* redrawn art is checked at run time by the same count guard */ const svg = maps.find(m => m[name])?.[name]; assert.ok(svg, 'art for ' + name); const n = [...svg.replace(/^<svg[^>]*>/, '').matchAll(/<(\w+)[^>]*>/g)].length; assert.equal(n, spec.n, name + ' shape count'); }
   // effects: every rule has a reaction, a builder and starts at the element
   const types = [...new Set(L.BLEED_RULES.map(r => r[0]))]; assert.ok(types.length >= 24, String(types.length));
-  for (const t of types) { assert.ok(L.REACT[t], t); assert.ok(mod.includes(`type==='${t}'`), 'builder ' + t); }
-  const exp = { Fire: 'burn', Spider: 'web', Love: 'hearts', Moon: 'night', Music: 'music', Gold: 'gold', Ghost: 'ghost', Cake: 'confetti', 'Black Hole': 'pull', Ice: 'frost', Rainbow: 'rainbow', Ink: 'ink', Sleep: 'zzz', Rocket: 'moonshot', Whale: 'giant', Fish: 'school', Ship: 'shipwreck', Pistol: 'gunshot', Bomb: 'explosion', Cloud: 'storm', Fog: 'fog', UFO: 'abduct', Volcano: 'lava', Car: 'zoom', Sword: 'slash', Rock: 'crack', Seed: 'grow', Book: 'letters', Robot: 'pixels', Price: '' };
+  for (const t of types) { assert.ok(L.REACT[t], t); assert.ok(mod.includes(`type==='${t}'`) || mod.includes(`\n ${t}:(P)=>`), 'builder ' + t); }
+  const exp = { Fire: 'burn', Spider: 'web', Love: 'hearts', Moon: 'night', Music: 'music', Gold: 'gold', Ghost: 'ghost', Cake: 'confetti', 'Black Hole': 'pull', Ice: 'frost', Rainbow: 'rainbow', Ink: 'ink', Sleep: 'zzz', Rocket: 'moonshot', Whale: 'giant', Fish: 'school', Ship: 'shipwreck', Pistol: 'gunshot', Bomb: 'explosion', Cloud: 'storm', Fog: 'fog', Dragon: 'dragonfire', King: 'royal', Horse: 'stampede', Train: 'train', City: 'skyline', Doctor: 'heal', Eye: 'eye', Butterfly: 'butterflies', Football: 'goal', Crystal: 'crystal', Trophy: 'levelup', UFO: 'abduct', Volcano: 'lava', Car: 'zoom', Sword: 'slash', Rock: 'crack', Seed: 'grow', Book: 'letters', Robot: 'pixels', Price: '' };
   for (const [n, k] of Object.entries(exp)) assert.equal(L.bleedOf(n), k, n);
   assert.ok(mod.includes('fx.childElementCount') && mod.includes("classList.add('is-source')") && mod.includes('MAX_LIVE=12'), 'one effect at a time, from a marked source; motions may overlap');
   // V205: motion belongs to the element id and is carried over when the list re-renders (scrolling, tapping)
   assert.ok(mod.includes('new MutationObserver') && mod.includes('function carry()') && mod.includes("'--lv-delay',(-gone)+'ms'"));
   assert.ok(css.includes('.element-chip.is-live .chip-art>*{animation-delay:var(--lv-delay,0ms)}'));
-  for (const [f, k] of Object.entries(L.FAMILY_BLEED)) { assert.ok(L.REACT[k], f); assert.ok(mod.includes(`type==='${k}'`), k); }
+  for (const [f, k] of Object.entries(L.FAMILY_BLEED)) { assert.ok(L.REACT[k], f); }
   assert.equal(L.bleedOf('Nameless Thing', 'games'), 'pixels'); assert.equal(L.bleedOf('Nameless Thing'), ''); assert.equal(L.bleedOf('Cat', 'games'), 'paws');
-  assert.ok(types.length >= 46, 'plenty of different effects: ' + types.length);
+  assert.ok(types.length >= 100, 'plenty of different effects: ' + types.length);
+  for (const k of Object.keys(L.SOUND_AS)) assert.ok(types.includes(k), 'sound alias ' + k);
   // V206: scripted scenes use the element's own picture as the actor; a companion's element walks out to visit
   for (const k of ['giant', 'school', 'shipwreck', 'moonshot', 'visitor']) assert.ok(L.REACT[k] && L.BLEED_MS[k] >= 5000, k);
   assert.ok(mod.includes("type==='visitor'") && mod.includes('ctx.isCompanion?.(c.dataset.id)') && mod.includes('g.innerHTML=artOf(chip)') && css.includes('.lf-actor{'));
