@@ -3067,12 +3067,122 @@ body.lv-glitch .shelf,body.lv-glitch .craft-card{animation:lv-glitch .9s steps(2
 @keyframes lf-lavaflow{0%{transform:scaleY(0);opacity:1}55%{transform:scaleY(1);opacity:1}80%{transform:scaleY(1);opacity:1;filter:none}100%{transform:scaleY(1);opacity:0;filter:brightness(.4)}}
 .lf-cut{position:absolute;width:260vmax;height:16px;margin:-8px 0 0 -130vmax;rotate:var(--r);background:linear-gradient(#11151A,#2B323A 50%,#11151A);box-shadow:0 0 0 2px rgba(255,255,255,.7);animation:lf-cut 1.7s cubic-bezier(.3,0,.3,1) .45s 1 both}
 @keyframes lf-cut{0%{scale:1 0}25%,62%{scale:1 1}100%{scale:1 0}}
+/* ===== V207: 55 more scenes from shared building blocks ===== */
+.lf-fall{position:absolute;top:-30px;opacity:0;font-style:normal;line-height:1;animation:lf-fall 2.6s linear 1 both}
+@keyframes lf-fall{0%{transform:translate(0,0) rotate(0);opacity:0}8%{opacity:1}85%{opacity:1}100%{transform:translate(var(--sw,0),105vh) rotate(var(--r,0deg));opacity:0}}
+.lf-glyph.is-gold{color:#F2B21C;text-shadow:0 2px 0 #9A6B00}.lf-glyph.is-card{color:#26323A;font-size:30px;background:#fff;border-radius:6px;padding:2px 5px;box-shadow:0 2px 0 rgba(0,0,0,.2)}
+.lf-glyph.is-pastel{color:#F28FAD;font-size:24px;text-shadow:0 0 6px #fff}.lf-glyph.is-rune{color:#B39DDB;text-shadow:0 0 8px #7E57C2;font-size:28px}
+.lf-glyph.is-skull{color:#EDE7F6;font-size:30px;text-shadow:0 0 8px #4A148C}.lf-glyph.is-heal{color:#4CAF50;font-size:26px;text-shadow:0 0 6px #fff}
+.lf-glyph.is-ochre{color:#9C4A1A;font-size:34px;text-shadow:none;opacity:.85}.lf-glyph.is-mix{font-size:26px;color:#7E57C2}
+.lf-banner{position:absolute;left:50%;top:38%;translate:-50% -50%;white-space:nowrap;font:900 44px/1 system-ui,sans-serif;font-style:normal;letter-spacing:.04em;color:#fff;-webkit-text-stroke:2px #26323A;text-shadow:0 5px 0 #26323A;animation:lf-banner 2.6s cubic-bezier(.2,1.5,.4,1) 1 both}
+.lf-banner.is-gold{color:#FFD166;-webkit-text-stroke:2px #8A5A00;text-shadow:0 5px 0 #8A5A00}
+.lf-banner.is-danger{color:#FFD166;background:repeating-linear-gradient(-45deg,#1E242B 0 16px,#D9584A 16px 32px);padding:10px 60vw;-webkit-text-stroke:2px #1E242B;text-shadow:none;animation-name:lf-bannerflash}
+@keyframes lf-banner{0%{scale:0;opacity:0}18%{scale:1.15;opacity:1}28%,78%{scale:1;opacity:1}100%{scale:1.4;opacity:0}}
+@keyframes lf-bannerflash{0%{opacity:0}10%,30%,50%,70%{opacity:1}20%,40%,60%{opacity:.35}90%{opacity:1}100%{opacity:0}}
+.lf-stamp{position:absolute;opacity:0;rotate:var(--r);font-style:normal;animation:lf-stamp 2.6s ease-out 1 both}
+@keyframes lf-stamp{0%{opacity:0;scale:2}12%{opacity:1;scale:1}80%{opacity:1}100%{opacity:0}}
+.lf-block{position:absolute;top:-34px;width:28px;height:28px;border-radius:5px;border:2px solid rgba(0,0,0,.25);box-shadow:inset 0 3px 0 rgba(255,255,255,.4);animation:lf-block 3.6s cubic-bezier(.5,0,.8,.4) 1 both}
+@keyframes lf-block{0%{transform:translateY(0)}22%,74%{transform:translateY(calc(var(--to) + 34px))}80%{filter:brightness(2)}100%{transform:translateY(calc(var(--to) + 34px));opacity:0;filter:brightness(2)}}
+.lf-dot{position:absolute;width:10px;height:10px;margin:-5px;border-radius:50%;background:#FFD166;box-shadow:0 0 0 2px #8A5A00}
+@keyframes lf-dotin{from{scale:0}to{scale:1}}@keyframes lf-dotout{to{opacity:0}}
+.lf-chomp{position:absolute;width:44px;height:44px;margin:-22px;border-radius:50%;background:conic-gradient(from 90deg,transparent 0 35deg,#FFD166 35deg 325deg,transparent 325deg);filter:drop-shadow(0 0 0 #8A5A00);animation:lf-chompmouth .28s ease-in-out infinite alternate;z-index:3}
+@keyframes lf-chompmouth{from{background:conic-gradient(from 90deg,transparent 0 35deg,#FFD166 35deg 325deg,transparent 325deg)}to{background:conic-gradient(from 90deg,transparent 0 3deg,#FFD166 3deg 357deg,transparent 357deg)}}
+.lf-actor.is-ghostie{width:40px;height:44px;margin:-22px -20px;border-radius:20px 20px 6px 6px;background:radial-gradient(circle at 34% 40%,#fff 0 14%,transparent 15%),radial-gradient(circle at 66% 40%,#fff 0 14%,transparent 15%),#E8566E}
+.lf-laser{position:absolute;width:200vmax;height:5px;margin-top:-2px;transform-origin:0 50%;border-radius:3px;box-shadow:0 0 10px 3px currentColor;opacity:0;animation:lf-laser 1.1s ease-in-out 1 both}
+@keyframes lf-laser{0%{rotate:var(--r0);opacity:0;scale:0 1}15%{opacity:1;scale:1 1}85%{opacity:1}100%{rotate:var(--r1);opacity:0}}
+.lf-portal{position:absolute;width:70px;height:92px;margin:-46px -35px;border-radius:50%;background:radial-gradient(ellipse,#1B1035 0 40%,#7E57C2 55%,#B39DDB 66%,transparent 72%);box-shadow:0 0 18px 4px rgba(126,87,194,.7);animation:lf-portal 4.2s ease-in-out 1 both}
+.lf-portal.is-out{background:radial-gradient(ellipse,#06262B 0 40%,#26A69A 55%,#80CBC4 66%,transparent 72%);box-shadow:0 0 18px 4px rgba(38,166,154,.7);animation-delay:.9s;animation-duration:3s}
+@keyframes lf-portal{0%{transform:scale(0) rotate(0)}12%{transform:scale(1.1) rotate(120deg)}86%{transform:scale(1) rotate(900deg);opacity:1}100%{transform:scale(0) rotate(1080deg);opacity:0}}
+.lf-speed{position:absolute;width:10px;height:10px;margin:-5px;border-radius:50%;background:repeating-conic-gradient(rgba(38,50,58,.85) 0 2deg,transparent 2deg 9deg);-webkit-mask:radial-gradient(circle,transparent 0 16%,#000 30%);mask:radial-gradient(circle,transparent 0 16%,#000 30%);animation:lf-speed 1.9s steps(6) 1 both}
+@keyframes lf-speed{0%{transform:scale(160) rotate(0);opacity:0}10%{opacity:1}25%{transform:scale(160) rotate(4deg)}50%{transform:scale(170) rotate(-3deg)}75%{transform:scale(160) rotate(5deg);opacity:1}100%{transform:scale(175) rotate(0);opacity:0}}
+.lf-aura{position:absolute;width:80px;height:110px;margin:-74px -40px;border-radius:50% 50% 40% 40%;background:radial-gradient(ellipse at 50% 70%,rgba(255,245,180,.95),rgba(255,209,102,.8) 40%,rgba(255,170,40,.35) 62%,transparent 72%);filter:url(#lvFlame);animation:lf-aura 4s ease-in-out 1 both}
+@keyframes lf-aura{0%{transform:scale(.3);opacity:0}15%{transform:scale(1.6);opacity:1}50%{transform:scale(2.6,3.2)}80%{transform:scale(2.2,2.8);opacity:1}100%{transform:scale(1);opacity:0}}
+.lf-streakup{width:3px;height:26px;margin:-13px -1px;border-radius:3px;background:linear-gradient(#FFF3C4,rgba(255,209,102,0))}
+.lf-wash.is-pink{background:rgba(255,205,222,.4)}.lf-wash.is-scan{background:repeating-linear-gradient(0deg,rgba(111,178,106,.18) 0 2px,transparent 2px 6px);animation-duration:3.4s}
+.lf-wash.is-blue{background:linear-gradient(rgba(120,150,200,.28),rgba(80,110,170,.4))}
+.lf-wash.is-sunset{background:linear-gradient(rgba(90,60,130,.55),rgba(240,120,90,.55) 55%,rgba(255,190,90,.65))}
+.lf-wash.is-arcane{background:radial-gradient(circle at var(--x) var(--y),rgba(126,87,194,.5),rgba(40,20,80,.35))}
+.lf-wash.is-potion{background:radial-gradient(circle at var(--x) var(--y),rgba(140,210,90,.5),rgba(60,140,80,.3));filter:url(#lvSmoke)}
+.lf-wash.is-curse{background:radial-gradient(circle at var(--x) var(--y),rgba(74,20,140,.6),rgba(20,8,40,.7))}
+.lf-wash.is-heal{background:radial-gradient(circle at var(--x) var(--y),rgba(190,240,190,.65),rgba(150,220,160,.25))}
+.lf-wash.is-hell{background:linear-gradient(rgba(60,10,10,.55),rgba(170,30,20,.5))}
+.lf-wash.is-amber{background:radial-gradient(circle at var(--x) var(--y),rgba(255,190,60,.6),rgba(210,130,20,.45))}
+.lf-wash.is-danger{background:rgba(190,40,40,.28);animation-duration:2.8s}
+.lf-wash.is-heat{background:linear-gradient(rgba(255,170,60,.3),rgba(255,120,40,.18))}
+.lf-reticle{position:absolute;translate:-50% -50%;border:3px solid #6FB26A;border-radius:10px;box-shadow:0 0 0 2px rgba(0,0,0,.25),0 0 10px #6FB26A;-webkit-mask:conic-gradient(#000 0 20deg,transparent 20deg 70deg,#000 70deg 110deg,transparent 110deg 160deg,#000 160deg 200deg,transparent 200deg 250deg,#000 250deg 290deg,transparent 290deg 340deg,#000 340deg);mask:conic-gradient(#000 0 20deg,transparent 20deg 70deg,#000 70deg 110deg,transparent 110deg 160deg,#000 160deg 200deg,transparent 200deg 250deg,#000 250deg 290deg,transparent 290deg 340deg,#000 340deg);opacity:0;animation:lf-reticle 2.4s ease-out 1 both}
+@keyframes lf-reticle{0%{opacity:0;scale:3;rotate:90deg}22%{opacity:1;scale:1;rotate:0deg}30%,40%{border-color:#E8566E}70%{opacity:1;scale:1}100%{opacity:0;scale:1.2}}
+.lf-actor.is-star{font-size:34px;color:#CFD8DC;text-shadow:0 0 0 #26323A,0 2px 0 #26323A;display:grid;place-items:center}.lf-actor.is-star b{font-weight:900}
+.lf-tear{width:10px;height:15px;border-radius:50% 50% 50% 50%/65% 65% 35% 35%;background:linear-gradient(#DFF3FF,#6DB6E8);border:1px solid #4A90C2}
+.lf-actor.is-flap>*{animation:lv-flapfast .3s ease-in-out infinite alternate}@keyframes lv-flapfast{to{transform:scaleY(.7) translateY(-4px)}}
+.lf-aurora{position:absolute;left:-10%;right:-10%;height:120px;border-radius:50%;background:linear-gradient(90deg,transparent,hsla(var(--h),80%,65%,.75),hsla(calc(var(--h) + 60),80%,70%,.6),transparent);filter:blur(10px) url(#lvWater);opacity:0;animation:lf-auroraw 4s ease-in-out 1 both}
+@keyframes lf-auroraw{0%{opacity:0;transform:translateX(-20%) scaleY(.4)}25%{opacity:1}50%{transform:translateX(10%) scaleY(1.3)}80%{opacity:1}100%{opacity:0;transform:translateX(25%) scaleY(.6)}}
+.lf-sun{position:absolute;top:22%;width:120px;height:120px;margin-left:-60px;border-radius:50%;background:radial-gradient(circle,#FFF3C4,#FFB347 60%,#F0703C);box-shadow:0 0 50px 14px rgba(255,170,80,.7);animation:lf-sunset 4.2s ease-in 1 both}
+@keyframes lf-sunset{0%{transform:translateY(-10vh) scale(.5);opacity:0}15%{opacity:1;transform:translateY(0) scale(1)}100%{transform:translateY(70vh) scale(1.3);opacity:.9}}
+.lf-mush{position:absolute;bottom:60px;width:34px;height:40px;margin-left:-17px;transform-origin:50% 100%;scale:0;background:radial-gradient(circle at 30% 26%,#fff 0 9%,transparent 10%),radial-gradient(circle at 66% 20%,#fff 0 7%,transparent 8%),radial-gradient(ellipse at 50% 0,#D9584A 0 62%,transparent 63%) top/100% 62% no-repeat,linear-gradient(#F4E4C6,#E1CBB0) 50% 100%/38% 60% no-repeat;border-radius:50% 50% 8px 8px;animation:lf-mush 3.8s cubic-bezier(.3,1.6,.5,1) 1 both}
+@keyframes lf-mush{0%{scale:0}16%{scale:var(--sz)}84%{scale:var(--sz);opacity:1}100%{scale:var(--sz);opacity:0}}
+.lf-spore{width:6px;height:6px;margin:-3px;border-radius:50%;background:#F4E4C6;box-shadow:0 0 5px #fff}
+.lf-puff.is-dust{background:radial-gradient(circle,rgba(190,160,120,.9),rgba(190,160,120,.4) 45%,transparent 72%)}
+.lf-tsunami{position:absolute;left:0;top:14%;bottom:0;width:150vw;background:linear-gradient(90deg,rgba(60,140,205,0),rgba(60,140,205,.75) 30%,rgba(120,195,240,.9) 78%,#fff 92%,rgba(255,255,255,0));border-radius:0 60% 40% 0/0 100% 30% 0;filter:url(#lvWater);animation:lf-tsunami 3.6s cubic-bezier(.4,0,.5,1) .4s 1 both}
+@keyframes lf-tsunami{0%{transform:translateX(-155vw)}100%{transform:translateX(110vw)}}
+.lf-actor.is-twist>*{animation:lvp-twist .5s linear infinite}
+.lf-mound{position:absolute;width:30px;height:16px;margin:-8px -15px;border-radius:50% 50% 0 0;background:radial-gradient(ellipse at 50% 100%,#8A5A3A,#6B4A32);border:2px solid #4F3524;border-bottom:0;scale:0;transform-origin:50% 100%;animation:lf-mush 3s cubic-bezier(.3,1.6,.5,1) 1 both;--sz:1}
+.lf-actor.is-glow{width:10px;height:10px;margin:-5px;filter:none}.lf-actor.is-glow b{display:block;width:10px;height:10px;border-radius:50%;background:#EEFF9A;box-shadow:0 0 12px 5px rgba(220,255,120,.85);animation:lvp-blinko .9s ease-in-out infinite}
+.lf-firebreath{position:absolute;left:-10%;width:120%;height:60vh;background:linear-gradient(rgba(255,240,170,.95),rgba(255,150,40,.85) 25%,rgba(230,70,20,.55) 60%,rgba(230,70,20,0));clip-path:polygon(0 0,100% 0,82% 100%,18% 100%);filter:url(#lvFlame);transform-origin:50% 0;animation:lf-firebreath 2.9s ease-in-out 1 both}
+@keyframes lf-firebreath{0%{transform:scaleY(0);opacity:0}15%{transform:scaleY(1);opacity:1}80%{transform:scaleY(1);opacity:1}100%{transform:scaleY(.4);opacity:0}}
+.lf-rune{position:absolute;width:150px;height:150px;margin:-75px;border-radius:50%;border:4px double #B39DDB;box-shadow:0 0 16px 3px rgba(126,87,194,.8),inset 0 0 16px 3px rgba(126,87,194,.6);background:repeating-conic-gradient(rgba(179,157,219,.5) 0 4deg,transparent 4deg 30deg);-webkit-mask:radial-gradient(circle,transparent 0 52%,#000 54%);mask:radial-gradient(circle,transparent 0 52%,#000 54%);animation:lf-runespin 4.2s ease-in-out 1 both}
+.lf-rune.is-inner{width:96px;height:96px;margin:-48px;animation-direction:reverse;border-style:dashed}
+@keyframes lf-runespin{0%{transform:scale(0) rotate(0);opacity:0}15%{transform:scale(1.2) rotate(90deg);opacity:1}80%{transform:scale(2) rotate(540deg);opacity:1}100%{transform:scale(2.4) rotate(700deg);opacity:0}}
+.lf-bubble.is-green{border-color:rgba(200,255,170,.95);background:radial-gradient(circle at 32% 30%,rgba(255,255,255,.95) 0 14%,rgba(130,210,90,.45) 16% 100%)}
+.element-chip.lv-wobble{animation:lv-wobble 1.6s ease-in-out 1}@keyframes lv-wobble{0%,100%{transform:none;filter:none}25%{transform:skewX(8deg) scale(1.04,.94);filter:hue-rotate(60deg)}50%{transform:skewX(-8deg) scale(.95,1.06);filter:hue-rotate(110deg)}75%{transform:skewX(4deg);filter:hue-rotate(40deg)}}
+.lf-shard{position:absolute;width:16px;height:var(--len);margin:0 -8px;transform-origin:50% 0;rotate:var(--a);clip-path:polygon(50% 100%,100% 22%,50% 0,0 22%);scale:1 0;animation:lf-shard 3.8s cubic-bezier(.2,1.4,.4,1) 1 both}
+@keyframes lf-shard{0%{scale:1 0}14%{scale:1 1}82%{scale:1 1;opacity:1}100%{scale:1 1;opacity:0}}
+.lf-dome{position:absolute;width:120px;height:120px;margin:-60px;border-radius:50%;border:4px solid rgba(120,190,255,.95);background:repeating-linear-gradient(60deg,rgba(120,190,255,.22) 0 2px,transparent 2px 16px),repeating-linear-gradient(-60deg,rgba(120,190,255,.22) 0 2px,transparent 2px 16px),radial-gradient(circle,rgba(150,210,255,.1),rgba(120,190,255,.35));box-shadow:0 0 22px 5px rgba(120,190,255,.6);animation:lf-dome 4.2s cubic-bezier(.2,1.4,.4,1) 1 both}
+@keyframes lf-dome{0%{transform:scale(0);opacity:0}16%{transform:scale(4.2);opacity:1}30%,70%{transform:scale(4);opacity:1}50%{transform:scale(4.15)}100%{transform:scale(4.6);opacity:0}}
+.lf-ring.is-blue{border-color:rgba(120,190,255,.95)}
+.lf-spot{position:absolute;width:10px;height:10px;margin:-5px;border-radius:50%;box-shadow:0 0 0 70px rgba(255,248,210,.42),0 0 60px 90px rgba(255,248,210,.3);animation:lf-banner 4s ease-in-out 1 both}
+.lf-flash.is-snap{animation:lf-snap .35s ease-out 1 both}@keyframes lf-snap{0%{opacity:.95}100%{opacity:0}}
+.lf-polaroid{width:64px;height:74px;margin:-37px -32px;background:linear-gradient(#3A4750,#566773) 6px 6px/52px 46px no-repeat,#fff;border-radius:4px;box-shadow:0 4px 0 rgba(0,0,0,.25)}
+.lf-note{width:34px;height:18px;border-radius:3px;background:#8BC48A;border:2px solid #4C8748;color:#2E5B2B;font:900 12px/14px system-ui;text-align:center}
+.lf-siren{position:absolute;inset:0;animation:lf-siren 3.8s steps(1) 1 both}
+@keyframes lf-siren{0%,20%,40%,60%,80%{background:linear-gradient(90deg,rgba(220,50,50,.45),transparent 60%)}10%,30%,50%,70%,90%{background:linear-gradient(-90deg,rgba(50,110,230,.45),transparent 60%)}100%{background:none}}
+.lf-tape{position:absolute;left:-30%;width:160%;rotate:var(--r);padding:7px 0;background:repeating-linear-gradient(-45deg,#FFD166 0 22px,#26323A 22px 30px);color:#26323A;font:900 15px/1 system-ui;font-style:normal;letter-spacing:.12em;text-align:center;white-space:nowrap;box-shadow:0 4px 0 rgba(0,0,0,.25);animation:lf-tape 4s cubic-bezier(.2,.9,.3,1) 1 both}
+@keyframes lf-tape{0%{translate:-100% 0}14%,84%{translate:0 0;opacity:1}100%{translate:100% 0;opacity:0}}
+.lf-carpet{position:absolute;width:74px;margin-left:-37px;background:linear-gradient(90deg,#F2B21C 0 6px,#C8322F 6px calc(100% - 6px),#F2B21C calc(100% - 6px));transform-origin:50% 0;animation:lf-firebreath 4.2s ease-out 1 both;clip-path:none;filter:none}
+.lf-godray{position:absolute;top:0;width:120px;margin-left:-60px;background:linear-gradient(rgba(255,248,210,.95),rgba(255,236,170,.35));clip-path:polygon(38% 0,62% 0,100% 100%,0 100%);animation:lf-beam 4s ease-in-out 1 both;transform-origin:50% 0}
+.lf-hellfire{position:absolute;left:-5%;right:-5%;bottom:0;height:34vh;background:linear-gradient(rgba(255,200,80,0),rgba(255,140,40,.8) 40%,rgba(200,40,20,.95));filter:url(#lvFlame);transform-origin:50% 100%;animation:lf-hellfire 4.2s ease-in-out 1 both}
+@keyframes lf-hellfire{0%{transform:scaleY(0)}18%{transform:scaleY(1.1)}50%{transform:scaleY(.85)}78%{transform:scaleY(1)}100%{transform:scaleY(0)}}
+.element-chip.lv-stone{animation:lv-stone 2.6s ease-in-out 1}@keyframes lv-stone{0%,100%{filter:none;transform:none}18%,78%{filter:grayscale(1) contrast(.8) brightness(.85);transform:scale(.97)}}
+.element-chip.lv-amber{animation:lv-amber 2.6s ease-in-out 1}@keyframes lv-amber{0%,100%{filter:none}18%,78%{filter:sepia(1) saturate(3) hue-rotate(-12deg) brightness(.95)}}
+.lf-eye{position:absolute;left:50%;top:42%;width:300px;height:170px;margin:-85px -150px;border-radius:50%;background:radial-gradient(circle at var(--ix,50%) 50%,#0E1116 0 12%,#3F8FBF 13% 27%,#1C4D6B 28% 30%,#FBFAF5 31%);border:6px solid #26323A;box-shadow:0 0 40px 10px rgba(0,0,0,.35);animation:lf-eyeopen 4.8s ease-in-out 1 both,lf-eyelook 4.8s ease-in-out 1 both}
+@keyframes lf-eyeopen{0%{clip-path:ellipse(50% 0 at 50% 50%)}14%,52%{clip-path:ellipse(50% 50% at 50% 50%)}56%{clip-path:ellipse(50% 4% at 50% 50%)}60%,86%{clip-path:ellipse(50% 50% at 50% 50%)}100%{clip-path:ellipse(50% 0 at 50% 50%)}}
+@property --ix{syntax:'<percentage>';inherits:false;initial-value:50%}
+@keyframes lf-eyelook{0%,14%{--ix:50%}28%{--ix:28%}44%{--ix:72%}62%{--ix:40%}80%,100%{--ix:50%}}
+.lf-actor.is-shadow{filter:brightness(0) blur(1.5px);opacity:.42}
+.lf-meteor{position:absolute;width:150px;height:6px;margin:-3px 0 0 -150px;transform-origin:100% 50%;rotate:38deg;border-radius:6px;background:linear-gradient(90deg,rgba(255,209,102,0),#FFD166 70%,#fff);box-shadow:0 0 12px 3px rgba(255,170,60,.8);animation:lf-meteor .55s ease-in 1 both}
+@keyframes lf-meteor{0%{transform:translateX(-120vmax);opacity:1}92%{opacity:1}100%{transform:translateX(0);opacity:0}}
+.lf-boom.is-small{width:44px;height:44px;margin:-22px;animation-duration:.9s}
+.lf-lantern{width:26px;height:34px;margin:-17px -13px;border-radius:8px 8px 12px 12px;background:linear-gradient(#FFE082,#FF8A3C);border:2px solid #B3541E;box-shadow:0 0 16px 5px rgba(255,170,70,.75);animation-duration:3.6s}
+.lf-lines.is-route path{stroke:#D9584A;stroke-width:4;stroke-dasharray:.02 .02;stroke-dashoffset:0;animation:lf-routein 5s linear 1 both}
+@keyframes lf-routein{0%{clip-path:circle(0 at var(--x) var(--y));opacity:1}70%{clip-path:circle(150vmax at var(--x) var(--y));opacity:1}90%{opacity:1}100%{clip-path:circle(150vmax at var(--x) var(--y));opacity:0}}
+.lf-pin{position:absolute;width:18px;height:18px;margin:-22px -9px;border-radius:50% 50% 50% 0;rotate:-45deg;background:#D9584A;border:2px solid #8E2F26;scale:0;animation:lf-mush 3.6s cubic-bezier(.3,1.6,.5,1) 1 both;--sz:1;transform-origin:50% 100%}
+.lf-bunting{position:absolute;left:0;right:0;display:flex;justify-content:space-around;border-top:3px solid #7E6450;transform-origin:50% 0;animation:lf-buntingin 4.2s cubic-bezier(.3,1.5,.5,1) 1 both}
+.lf-bunting i{width:26px;height:30px;clip-path:polygon(0 0,100% 0,50% 100%);translate:0 var(--d);animation:lvp-wiggle .9s ease-in-out infinite}
+@keyframes lf-buntingin{0%{transform:translateY(-140px)}14%,84%{transform:none;opacity:1}100%{transform:translateY(-140px);opacity:0}}
+.lf-skyline{position:absolute;left:0;right:0;bottom:56px;display:flex;align-items:flex-end;gap:3px;padding:0 2px}
+.lf-skyline i{flex:1;background:repeating-linear-gradient(90deg,transparent 0 6px,rgba(255,221,120,.9) 6px 11px,transparent 11px 17px) 0 0/100% 100%,repeating-linear-gradient(0deg,#1E2A38 0 9px,transparent 9px 18px),#1E2A38;background-blend-mode:normal;border-radius:4px 4px 0 0;border:2px solid #0F1722;border-bottom:0;transform-origin:50% 100%;animation:lf-hellfire 4.4s cubic-bezier(.3,1.3,.5,1) 1 both}
+.lf-rails{position:absolute;left:0;right:0;height:10px;background:repeating-linear-gradient(90deg,#6B4A32 0 8px,transparent 8px 22px);border-top:3px solid #5A6670;border-bottom:3px solid #5A6670;animation:lf-banner 4.6s ease-out 1 both;scale:1!important}
+.lf-actor.is-wagon{filter:saturate(.5) brightness(.9) drop-shadow(0 4px 0 rgba(0,0,0,.18))}
+.lf-balloon{width:26px;height:32px;margin:-16px -13px;border-radius:50% 50% 50% 50%/45% 45% 55% 55%;background:radial-gradient(circle at 34% 28%,rgba(255,255,255,.8) 0 12%,transparent 13%),#E8566E;animation-duration:3.4s}
+.lf-balloon::after{content:"";position:absolute;left:50%;top:100%;width:1px;height:26px;background:#7E6450}
+.lf-balloon:nth-child(3n){background-color:#5AAED2}.lf-balloon:nth-child(3n+1){background-color:#FFD166}.lf-balloon:nth-child(4n){background-color:#6FB26A}
+body.lv-mirage .shelf{filter:url(#lvWater);transition:filter .3s}
 /* DARK-SKIN:start (generated by tools/gen-dark-skin.py) */
 html[data-theme="dark"] :is(.discover-entry.recipe,.fx-stars,.companion[data-anim="quirk-flash"] .companion-layer,.st-course-ico[data-focus="swim"],.st-course-ico[data-focus="fly"],.st-course-ico[data-focus="run"],.st-course-ico[data-focus="power"],.st-course-ico[data-focus="stamina"],.st-course-ico[data-focus="all"],.st-course-ico[data-focus="karate"],.st-prize.is-won,.st-strip .is-fly,.st-level.is-gold,.g-stage,.g-stage.is-race .g-stage-body,.g-cloud,.g-seg.is-run,.g-seg.is-fly,.g-fx.is-splash.is-big,.g-stage.is-karate,.g-dojo,.g-fx.is-spark,.g-fx.is-stars,.g-prize,.g-progress,.g-progress b.is-glide,.is-fairy b,.fx-spark,.bx-card.is-all .bx-pips i.on,.g-themefx.is-glade i,.g-themefx.is-heaven i,.companion-fx .fx-splash,.companion-fx .fx-sparkle,.companion-fx .fx-zap,.companion-fx .fx-feathers,.screen-snowball,.ar-burst i,.ar-burst.is-star i,.ar-burst.is-gold i,.ar-burst.is-magic i){--ink:#26323A;--ink-2:#44545C;--muted:#66747C;--line:#D9CBB0;--line-2:#C9B998;--surface-2:#F3ECDD;--surface-3:#E9DFCB;color:#26323A}
 html[data-theme="dark"] :is(.ar-face,.ar-card.is-done .ar-face,.ar-card.is-wrong .ar-face,.ar-foe-card,.ar-ring,.ar-pick,.ar-rec-target,.ar-bub,.ar-cauldron.is-boil .ar-bub,.ar-cauldron.is-smoke .ar-bub,.ar-rec-opt.is-ok,.ar-rec-opt.is-bad,.ar-trail,.ar-hitline,.ar-board,.ar-pal,.ar-ball.companion,.ar-mfuse,.ar-mbar,.ar-dial,.ar-find-t,.ar-spot2,.ar-card2,.ar-window,.mk-tile.is-ultra,.mk-tile.is-ultra .lk-ico,.g-prize.is-ultra,.home-say,.ar-mtrack,.ar-mtrack b,.ar-marea[class*="sc-"],.ar-marea.sc-desk,.ar-marea.sc-window,.ar-marea.sc-garden,.goal-combo i,.mk-stall,.mk-shop .mk-wallet,.mk-deal .mk-art,.mk-shop .mk-tile,.mk-shop .mk-tile.is-ultra){--ink:#26323A;--ink-2:#44545C;--muted:#66747C;--line:#D9CBB0;--line-2:#C9B998;--surface-2:#F3ECDD;--surface-3:#E9DFCB;color:#26323A}
 html[data-theme="dark"] :is(.craft-card,.craft-slot,.goal-strip,.element-chip,.tabbar,.modal-button.secondary,.home-chip,.home-chip.is-active,.home-seat,.home-life,#viewGames .st-shop.is-hub .st-shop-btn,.st-shop.st-games-hub .st-shop-btn,#stGames,#stSchool,#stPrizes,#stMarket,#stArcade,#stMicro,#stRaces,.ar-grid .st-shop-btn,.td-card i,.td-card.is-gift.is-ready,.settings-section,.settings-sound-toggle,.settings-theme-choices button,.settings-link:active,.settings-divider,.bx-noads,.settings-page .stat-tile,.settings-save-grid button,.backup-grid button,.st-grid .st-tile,.wl-star,.wl-shoot,.g-themefx.fx-snow i,.g-themefx.fx-confetti i:nth-child(3n+1),.team,.team-art,.team-slot.is-free,.team-slot.is-locked){--ink:#26323A;--ink-2:#44545C;--muted:#66747C;--line:#D9CBB0;--line-2:#C9B998;--surface-2:#F3ECDD;--surface-3:#E9DFCB;color:#26323A}
-html[data-theme="dark"] :is(.team-slot.is-locked .team-art,.team-bar,.cp-bank-head,.cp-ways li,.shiny-perks li,.cp-pack,.cp-pack.is-hot,.tool-chip,.tool-chip.is-on,.sort-option,.sort-segment button,.sort-hint,.batch-family-choice,.stat-tiles .stat-tile,.stat-tiles .stat-tile.is-on,.stat-tiles .stat-tile[aria-pressed="true"],.stat-mode button,.inline-search,.lk-mystery,.lk-row,.lk-opt,.lk-mystery.is-on,.lk-row.is-on,.lk-opt.is-on,.team-rel,.team-rel.is-neutral,.team-rel.is-rivals,.team-rel.is-nemesis,.home-rels li,.home-rels li.is-neutral,.home-rels li.is-rivals,.home-rels li.is-nemesis,.mk-noads.is-owned,.lf-ember,.lf-flash,.lf-slash,.lf-berg,.lf-moon,.lf-flagpole){--ink:#26323A;--ink-2:#44545C;--muted:#66747C;--line:#D9CBB0;--line-2:#C9B998;--surface-2:#F3ECDD;--surface-3:#E9DFCB;color:#26323A}
-html[data-theme="dark"] :is(.modal-tag.shiny-tag,.shiny-trivia,.shiny-chip[aria-pressed="true"],.g-tag em,.g-pod.is-1 b,.g-pow,.mp-line b.mp-lux,.coin-pop,.ar-stage,.ar-rec-opt,.ar-jcount,.loop-row.is-combo,.loop-row.is-goal,.mk-say,.mk-deal,.mk-shop .mk-price.is-short,.coin-chip,.compass-mini,.compass-mini.packs-mini,.st-change,.td-card,.g-confirm-box,.team-slot,.team-slot.is-free .team-art,.sort-segment button[aria-pressed="true"],.buddy-rel,.buddy-rel.is-neutral,.buddy-rel.is-rivals,.buddy-rel.is-nemesis,.mk-noads){--ink:#26323A;--ink-2:#44545C;--muted:#66747C;--line:#D9CBB0;--line-2:#C9B998;--surface-2:#F3ECDD;--surface-3:#E9DFCB}
+html[data-theme="dark"] :is(.team-slot.is-locked .team-art,.team-bar,.cp-bank-head,.cp-ways li,.shiny-perks li,.cp-pack,.cp-pack.is-hot,.tool-chip,.tool-chip.is-on,.sort-option,.sort-segment button,.sort-hint,.batch-family-choice,.stat-tiles .stat-tile,.stat-tiles .stat-tile.is-on,.stat-tiles .stat-tile[aria-pressed="true"],.stat-mode button,.inline-search,.lk-mystery,.lk-row,.lk-opt,.lk-mystery.is-on,.lk-row.is-on,.lk-opt.is-on,.team-rel,.team-rel.is-neutral,.team-rel.is-rivals,.team-rel.is-nemesis,.home-rels li,.home-rels li.is-neutral,.home-rels li.is-rivals,.home-rels li.is-nemesis,.mk-noads.is-owned,.lf-ember,.lf-flash,.lf-slash,.lf-berg,.lf-moon,.lf-flagpole,.lf-dot){--ink:#26323A;--ink-2:#44545C;--muted:#66747C;--line:#D9CBB0;--line-2:#C9B998;--surface-2:#F3ECDD;--surface-3:#E9DFCB;color:#26323A}
+html[data-theme="dark"] :is(.lf-chomp,.lf-spore,.lf-actor.is-glow b,.lf-balloon:nth-child(3n+1)){--ink:#26323A;--ink-2:#44545C;--muted:#66747C;--line:#D9CBB0;--line-2:#C9B998;--surface-2:#F3ECDD;--surface-3:#E9DFCB;color:#26323A}
+html[data-theme="dark"] :is(.modal-tag.shiny-tag,.shiny-trivia,.shiny-chip[aria-pressed="true"],.g-tag em,.g-pod.is-1 b,.g-pow,.mp-line b.mp-lux,.coin-pop,.ar-stage,.ar-rec-opt,.ar-jcount,.loop-row.is-combo,.loop-row.is-goal,.mk-say,.mk-deal,.mk-shop .mk-price.is-short,.coin-chip,.compass-mini,.compass-mini.packs-mini,.st-change,.td-card,.g-confirm-box,.team-slot,.team-slot.is-free .team-art,.sort-segment button[aria-pressed="true"],.buddy-rel,.buddy-rel.is-neutral,.buddy-rel.is-rivals,.buddy-rel.is-nemesis,.mk-noads,.lf-glyph.is-card){--ink:#26323A;--ink-2:#44545C;--muted:#66747C;--line:#D9CBB0;--line-2:#C9B998;--surface-2:#F3ECDD;--surface-3:#E9DFCB}
 /* DARK-SKIN:end */
 
 </style>
@@ -7084,6 +7194,61 @@ const BLEED_RULES=[
  ['fog',W('fog|mist|haze|smog|vapor|vapour|humidity|sauna|steam room')],
  ['abduct',W('ufo|alien|flying saucer|martian|extraterrestrial|mothership')],
  ['lava',W('volcano|lava|magma|eruption|lava lamp|molten rock')],
+ ['bonus',W('coin block|question block|bonus|power-up|powerup|1-up|extra life|high score|combo|pickup|loot')],
+ ['levelup',W('level up|experience|xp|upgrade|trophy|medal|victory|champion|winner|achievement|gold medal|award|prize|rank up|promotion|graduation|diploma')],
+ ['boss',W('boss|final boss|villain|game over|defeat|nemesis|overlord|dark lord|supervillain|mini boss|raid boss|tyrant')],
+ ['tetris',W('tetris|block|puzzle|lego|building blocks|jigsaw|rubik cube|tile|domino|brick breaker|cube')],
+ ['chomp',W('pac-man|pacman|maze|pellet|dot|arcade cabinet|arcade machine|labyrinth|snake game|chomper')],
+ ['laser',W('laser|laser beam|space invaders|starfighter|turret|ray gun|death ray|laser tag|photon|phaser|lightsaber duel')],
+ ['dice',W('dice|die|luck|board game|card|poker|lottery|playing card|gamble|chance|bingo|roulette wheel|deck of cards|tarot')],
+ ['portal',W('portal|teleport|teleporter|warp|wormhole|gate|stargate|dimension|multiverse|doorway|rift')],
+ ['speedlines',W('dash|sprint|anime|manga|shonen|power dash|sonic boom|flash step|rush|charge|tackle|punch|kick|martial arts|karate|kung fu|boxer|fighter')],
+ ['aura',W('aura|ki|chakra|rage|fury|super saiyan|spirit bomb|energy ball|power|transformation|awakening|limit break|berserk|ultra instinct|bankai')],
+ ['kawaii',W('kawaii|idol|mascot|plush|teddy bear|doll|cute|chibi|magical girl|plushie|stuffed animal|sticker|charm|cosplay')],
+ ['lockon',W('mecha|gundam|transformer|cyborg|android|drone strike|radar|target|crosshair|scanner|sonar|satellite dish|terminator|battle robot')],
+ ['shuriken',W('shuriken|kunai|throwing star|ninja star|dart|darts|boomerang|chakram|throwing knife')],
+ ['tears',W('sadness|cry|tear|tears|sorrow|drama|tragedy|heartbreak|goodbye|loneliness|grief|onion ring|weeping willow|melancholy|blues')],
+ ['butterflies',W('butterfly|moth|caterpillar|cocoon|chrysalis|monarch butterfly')],
+ ['bees',W('bee|hive|beehive|honeycomb|wasp|hornet|bumblebee|swarm|mosquito|fly|gnat|locust')],
+ ['flock',W('flock|migration|goose|seagull|swallow|crane|stork|pelican|flamingo|geese|sparrow|pigeon')],
+ ['aurora',W('aurora|northern lights|aurora borealis|polar lights|southern lights|nebula|cosmos|galaxy|milky way')],
+ ['sunset',W('sunset|dusk|evening|horizon|twilight|golden hour|afterglow')],
+ ['mushrooms',W('mushroom|fungus|spore|toadstool|truffle|mold|mould|mycelium|shiitake|fairy ring')],
+ ['stampede',W('horse|bison|buffalo|cow|herd|zebra|wildebeest|sheep|goat|deer|antelope|pig|stampede|cattle|reindeer|llama|alpaca|ostrich|bull|ox|yak|camel|donkey|pony')],
+ ['tsunami',W('tsunami|tidal wave|surf|surfer|big wave|surfboard|breaker|swell')],
+ ['twister',W('tornado|cyclone|twister|whirlwind|dust devil|waterspout|sandstorm devil')],
+ ['dig',W('mole|worm|earthworm|ant|shovel|tunnel|burrow|gopher|badger|groundhog|digger|excavator|anthill|termite|prairie dog')],
+ ['fireflies',W('firefly|glowworm|lightning bug|will-o-wisp|wisp|glow stick|fairy lights|bioluminescence')],
+ ['dragonfire',W('dragon|wyvern|drake|hydra|fire dragon|dragon breath|wyrm|chimera')],
+ ['spellcircle',W('spell|rune|ritual|summon|sorcery|enchantment|pentagram|witch|warlock|mage|necromancer|incantation|sorcerer|druid|shaman|grimoire|spellbook|hex')],
+ ['potion',W('potion|elixir|cauldron|alchemy|brew|poison|antidote|philosopher stone|tonic|venom|toxin|acid')],
+ ['crystal',W('crystal|gem|ruby|emerald|sapphire|amethyst|quartz|jewel|opal|topaz|geode crystal|prism shard|obsidian|pearl')],
+ ['curse',W('curse|skull|death|reaper|doom|bones|plague|black magic|voodoo|omen|banshee|lich|undead|mummy|tomb|coffin|crypt')],
+ ['shield',W('shield|barrier|armor|armour|helmet|fortress|castle|guard|force field|bunker|paladin|defender|bulwark|rampart|moat')],
+ ['applause',W('actor|actress|stage|theater|theatre|show|performance|celebrity|comedian|magician|clap|audience|applause|spotlight|talent show|movie star|dancer|ballet|circus act')],
+ ['camera',W('camera|photo|photographer|selfie|paparazzi|picture|photograph|snapshot|polaroid|film|movie|cinema|director|video')],
+ ['moneyrain',W('money|cash|dollar|salary|millionaire|billionaire|paycheck|wallet|banknote|stock market|investor|tax refund|rich|wealth|fortune')],
+ ['heal',W('doctor|nurse|medicine|hospital|pill|bandage|health|healing|heal|vaccine|first aid|medic|pharmacy|herbal tea|remedy|cure|vitamin|surgeon|therapy')],
+ ['police',W('police|siren|ambulance|fire truck|emergency|detective|thief|robber|burglar|alarm system|police car|firefighter|rescue|prison|jail')],
+ ['construction',W('builder|construction|crane|bulldozer|worker|engineer|tool|wrench|saw|drill|scaffold|blueprint|architect|cement|road work|plumber|carpenter|mechanic|toolbox')],
+ ['royal',W('king|queen|crown|royal|prince|princess|emperor|empress|throne|palace|kingdom|monarch|pharaoh|sultan|duke|coronation|royalty|scepter')],
+ ['goal',W('football|soccer|goal|basketball|tennis|baseball|athlete|stadium|olympics|volleyball|rugby|hockey|golf|cricket|sport|world cup|striker|goalkeeper|referee|ping pong')],
+ ['lightbeam',W('god|goddess|heaven|halo|divine|holy|temple|olympus|saint|blessing|miracle|prayer|paradise|deity|cathedral|church|shrine|nirvana|enlightenment|buddha')],
+ ['underworld',W('hell|underworld|hades|demon|devil|cerberus|tartarus|abyss|imp|succubus|infernal|brimstone|oni|lucifer|satan|hellhound')],
+ ['stone',W('medusa|gorgon|basilisk|petrify|stone gaze|cockatrice|gargoyle|golem stone|fossilize|statue garden')],
+ ['pandora',W('pandora|mystery box|loot box|gift box|chest|treasure chest|surprise|gacha|blind box|easter egg|pinata box|magic hat|top hat')],
+ ['eye',W('eye|cyclops|eyeball|vision|spy|watcher|all-seeing eye|illuminati|third eye|beholder|surveillance|big brother|stalker|peeping tom|telescope|binoculars')],
+ ['shadow',W('pterosaur|pterodactyl|raptor|velociraptor|eagle|hawk|falcon|vulture|condor|roc|thunderbird|airship|blimp|zeppelin|bomber|stealth bomber')],
+ ['cavepaint',W('cave|cave painting|caveman|tribe|stone age|neanderthal|hunter-gatherer|cavewoman|petroglyph|flint|bonfire dance|totem|primitive tool|club')],
+ ['meteors',W('meteor shower|extinction|asteroid belt|shooting stars|comet tail|bolide|impact|armageddon|apocalypse|doomsday')],
+ ['amber',W('amber|tar pit|resin|sap|fossil amber|mosquito in amber|beeswax|caramel|molasses|glue')],
+ ['lanterns',W('lantern|lantern festival|paper lantern|lunar new year|chinese new year|diwali|sky lantern|candlelight|vigil|festival of lights')],
+ ['route',W('travel|tourist|map|globe|passport|journey|vacation|suitcase|voyage|expedition|explorer|road trip|adventure|backpacker|world tour|navigation|gps|airline|airport')],
+ ['bunting',W('flag|country|nation|embassy|fair|fete|village fair|street party|independence day|national day|bunting|garland|banner|pennant')],
+ ['skyline',W('city|skyline|tower|skyscraper|metropolis|new york|paris|tokyo|london|downtown|capital|megacity|building|apartment|office|town|village|neighborhood')],
+ ['train',W('train|locomotive|subway|tram|railway|steam train|bullet train|metro|freight train|monorail|railroad|express')],
+ ['balloons',W('balloon|party balloon|balloon animal|helium|water balloon|bubble tea')],
+ ['mirage',W('mirage|oasis|heat|heatwave|drought|desert sun|sahara|scorching|hot day|sauna heat|fever')],
  ['web',W('spider|web|cobweb|spiderweb|tarantula')],
  ['paws',W('cat|dog|wolf|fox|bear|lion|tiger|rabbit|bunny|puppy|kitten|panda|raccoon|squirrel|mouse|rat|hamster|leopard|cheetah|werewolf|cub|pet|paw')],
  ['feathers',W('bird|chicken|duck|eagle|angel|parrot|goose|swan|pigeon|dove|crow|raven|rooster|turkey|peacock|pegasus|griffin|pillow fight|feather|hen|penguin')],
@@ -7129,9 +7294,10 @@ function bleedOf(name='',family=''){const n=String(name).toLowerCase();for(const
 // how the companions take it: [pose, expression]
 const REACT={burn:['scared','wow'],smoke:['sniff','dizzy'],flood:['hopwalk','happy'],frost:['scared','sad'],snow:['scared','sad'],gust:['push','angry'],quake:['scared','wow'],bolt:['scared','wow'],
  hearts:['wave','love'],bubbles:['jump','happy'],night:['sleep','sleepy'],zzz:['sleep','sleepy'],sunrise:['stretch','happy'],music:['duo-cheer','happy'],bloom:['sniff','happy'],confetti:['celebrate','happy'],sparks:['celebrate','wow'],
- gold:['celebrate','wow'],ink:['sulk','sad'],fog:['peek','wow'],storm:['scared','wow'],explosion:['tumble','dizzy'],giant:['scared','wow'],school:['jump','happy'],shipwreck:['scared','sad'],moonshot:['wave','wow'],gunshot:['duo-cover','wow'],abduct:['scared','wow'],lava:['scared','wow'],visitor:['wave','happy'],paws:['stalk','wow'],feathers:['jump','happy'],zoom:['jump','wow'],slash:['duo-guard','angry'],crack:['scared','wow'],grow:['sniff','happy'],leaves:['sniff','happy'],splat:['sulk','sad'],yum:['eat','happy'],letters:['point','wow'],rewind:['shake','dizzy'],pixels:['shake','wow'],web:['scared','wow'],pull:['tumble','dizzy'],ghost:['duo-cover','wow'],rainbow:['wave','wow'],sand:['shake','dizzy'],stink:['refuse','sad']};
+ gold:['celebrate','wow'],ink:['sulk','sad'],bonus:['jump','happy'],levelup:['celebrate','happy'],boss:['scared','wow'],tetris:['point','wow'],chomp:['scared','wow'],laser:['duo-cover','wow'],dice:['point','wow'],portal:['peek','wow'],speedlines:['push','angry'],aura:['stomp','angry'],kawaii:['wave','love'],lockon:['scared','wow'],shuriken:['duo-guard','angry'],tears:['sulk','sad'],butterflies:['jump','happy'],bees:['scared','wow'],flock:['wave','wow'],aurora:['peek','wow'],sunset:['stretch','happy'],mushrooms:['sniff','wow'],stampede:['scared','wow'],tsunami:['scared','wow'],twister:['tumble','dizzy'],dig:['sniff','wow'],fireflies:['peek','happy'],dragonfire:['duo-cover','wow'],spellcircle:['peek','wow'],potion:['shake','dizzy'],crystal:['peek','wow'],curse:['scared','sad'],shield:['duo-guard','smug'],applause:['celebrate','happy'],camera:['wave','smug'],moneyrain:['celebrate','wow'],heal:['celebrate','love'],police:['scared','wow'],construction:['point','wow'],royal:['duo-bow','happy'],goal:['celebrate','happy'],lightbeam:['peek','wow'],underworld:['scared','wow'],stone:['sulk','sleepy'],pandora:['peek','wow'],eye:['duo-cover','wow'],shadow:['duo-cover','wow'],cavepaint:['point','happy'],meteors:['scared','wow'],amber:['sulk','sleepy'],lanterns:['peek','happy'],route:['wave','happy'],bunting:['celebrate','happy'],skyline:['peek','wow'],train:['jump','wow'],balloons:['jump','happy'],mirage:['shake','dizzy'],fog:['peek','wow'],storm:['scared','wow'],explosion:['tumble','dizzy'],giant:['scared','wow'],school:['jump','happy'],shipwreck:['scared','sad'],moonshot:['wave','wow'],gunshot:['duo-cover','wow'],abduct:['scared','wow'],lava:['scared','wow'],visitor:['wave','happy'],paws:['stalk','wow'],feathers:['jump','happy'],zoom:['jump','wow'],slash:['duo-guard','angry'],crack:['scared','wow'],grow:['sniff','happy'],leaves:['sniff','happy'],splat:['sulk','sad'],yum:['eat','happy'],letters:['point','wow'],rewind:['shake','dizzy'],pixels:['shake','wow'],web:['scared','wow'],pull:['tumble','dizzy'],ghost:['duo-cover','wow'],rainbow:['wave','wow'],sand:['shake','dizzy'],stink:['refuse','sad']};
 const LIVE_MS={flame:3200,smoke:3600,water:3200,melt:4200,beat:2400,erupt:3000,glow:3000,zap:1800,flap:2600,swim:2800,critter:2600,spin:2600,wind:3200,quake:1500,bounce:2200,shell:3800,hover:3000,parts:3400,turn:2000};
-const BLEED_MS={quake:2000,bolt:2000,pull:2600,slash:2200,pixels:2400,rewind:2600,zoom:2600,fog:6200,storm:5800,explosion:3400,giant:5400,school:5400,shipwreck:6400,moonshot:5600,visitor:6000,gunshot:4400,abduct:5600,lava:4800};
+const SOUND_AS={bonus:'gold',levelup:'sunrise',boss:'quake',tetris:'pixels',chomp:'pixels',laser:'zap',dice:'letters',portal:'pull',speedlines:'zoom',aura:'burn',kawaii:'bloom',lockon:'pixels',shuriken:'slash',tears:'melt',butterflies:'flap',bees:'flap',flock:'flap',aurora:'rainbow',sunset:'night',mushrooms:'bounce',stampede:'paws',tsunami:'flood',twister:'gust',dig:'paws',fireflies:'glow',dragonfire:'burn',spellcircle:'ghost',potion:'bubbles',crystal:'frost',curse:'ghost',shield:'glow',applause:'confetti',camera:'slash',moneyrain:'gold',heal:'sunrise',police:'abduct',construction:'crack',royal:'music',goal:'bounce',lightbeam:'sunrise',underworld:'lava',stone:'crack',pandora:'sparks',eye:'ghost',shadow:'giant',cavepaint:'paws',meteors:'explosion',amber:'splat',lanterns:'night',route:'zoom',bunting:'confetti',skyline:'night',train:'zoom',balloons:'bubbles',mirage:'sand'};
+const BLEED_MS={chomp:5200,stampede:5000,tsunami:4600,twister:5200,dragonfire:5200,shadow:4200,route:5400,train:4800,eye:5200,goal:5200,butterflies:5600,bees:5600,flock:5000,portal:4600,quake:2000,bolt:2000,pull:2600,slash:2200,pixels:2400,rewind:2600,zoom:2600,fog:6200,storm:5800,explosion:3400,giant:5400,school:5400,shipwreck:6400,moonshot:5600,visitor:6000,gunshot:4400,abduct:5600,lava:4800};
 const DEFS=`<svg xmlns="http://www.w3.org/2000/svg" width="0" height="0" style="position:absolute" aria-hidden="true"><defs>
 <filter id="lvFlame" x="-25%" y="-35%" width="150%" height="160%"><feTurbulence type="fractalNoise" baseFrequency=".03 .11" numOctaves="2" seed="3"><animate attributeName="baseFrequency" dur="1.1s" values=".03 .11;.05 .17;.02 .09;.03 .11" repeatCount="indefinite"/></feTurbulence><feDisplacementMap in="SourceGraphic" scale="9" xChannelSelector="R" yChannelSelector="G"/></filter>
 <filter id="lvSmoke" x="-30%" y="-40%" width="160%" height="170%"><feTurbulence type="fractalNoise" baseFrequency=".02 .035" numOctaves="2" seed="8"><animate attributeName="baseFrequency" dur="3.4s" values=".02 .035;.035 .02;.02 .035" repeatCount="indefinite"/></feTurbulence><feDisplacementMap in="SourceGraphic" scale="11" xChannelSelector="G" yChannelSelector="R"/></filter>
@@ -7148,7 +7314,7 @@ function createLiving(ctx){
  const nameOf=c=>ctx.nameOf(c.dataset.id)||'';
  // ---------- sound: small synthesised cues ----------
  function noise(ac,dur){const n=Math.floor(ac.sampleRate*dur),b=ac.createBuffer(1,n,ac.sampleRate),d=b.getChannelData(0);for(let i=0;i<n;i++)d[i]=Math.random()*2-1;const s=ac.createBufferSource();s.buffer=b;return s;}
- function sound(kind,loud=1){const now=Date.now();if(now-lastSound<(loud>1?600:6000))return;const ac=ctx.audio?.();if(!ac||ac.state==='closed')return;lastSound=now;
+ function sound(kind,loud=1){const now=Date.now();if(now-lastSound<(loud>1?600:6000))return;const ac=ctx.audio?.();if(!ac||ac.state==='closed')return;lastSound=now;kind=SOUND_AS[kind]||kind;
   try{const t=ac.currentTime+0.02,out=ac.createGain();out.gain.value=0.05*loud;out.connect(ac.destination);
    const tone=(f0,f1,d,type='sine',v=1,at=0)=>{const o=ac.createOscillator(),g=ac.createGain();o.type=type;o.frequency.setValueAtTime(f0,t+at);o.frequency.exponentialRampToValueAtTime(Math.max(20,f1),t+at+d);g.gain.setValueAtTime(0.0001,t+at);g.gain.exponentialRampToValueAtTime(v,t+at+0.02);g.gain.exponentialRampToValueAtTime(0.0001,t+at+d);o.connect(g);g.connect(out);o.start(t+at);o.stop(t+at+d+0.05);};
    const hiss=(d,type,f0,f1,q=1,v=1,at=0)=>{const s=noise(ac,d),f=ac.createBiquadFilter(),g=ac.createGain();f.type=type;f.Q.value=q;f.frequency.setValueAtTime(f0,t+at);f.frequency.exponentialRampToValueAtTime(f1,t+at+d);g.gain.setValueAtTime(0.0001,t+at);g.gain.exponentialRampToValueAtTime(v,t+at+d*0.25);g.gain.exponentialRampToValueAtTime(0.0001,t+at+d);s.connect(f);f.connect(g);g.connect(out);s.start(t+at);s.stop(t+at+d+0.05);};
@@ -7210,23 +7376,82 @@ function createLiving(ctx){
   return ()=>{for(const g of done){g.style.animation='';g.style.transformBox='';g.style.transformOrigin='';}for(const w of wraps){try{w.replaceWith(...w.childNodes);}catch{}}};}
  // paint (or re-paint after the list re-rendered) the motion of one element, `gone` ms into its loop
  function paint(chip,st,gone=0){const art=chip.querySelector('.chip-art');if(!art)return;let kind=st.kind;st.undo=null;
-  if(kind==='parts'){const spec=PARTS[nameOf(chip).toLowerCase()];st.undo=spec?applyParts(art,spec,st.ms,gone):null;if(!st.undo){kind=st.kind=ruleKind(nameOf(chip))||'turn';}else kind=spec.whole||'parts';}
+  if(kind==='parts'){const spec=PARTS[nameOf(chip).toLowerCase()];st.undo=spec?applyParts(art,spec,st.ms,gone):null;if(!st.undo){kind=st.kind=ruleKind(nameOf(chip))||'';if(!kind)return;}else kind=spec.whole||'parts';}
   chip.dataset.live=kind;chip.classList.add('is-live');art.style.setProperty('--lv-ms',st.ms+'ms');art.style.setProperty('--lv-delay',(-gone)+'ms');if(source===chip.dataset.id)chip.classList.add('is-source');}
- function play(chip,kind,ms,quiet){const id=chip.dataset.id;if(active.has(id))return false;const st={kind,ms,t0:Date.now(),undo:null};active.set(id,st);paint(chip,st,0);
-  if(!quiet&&st.kind!=='turn'&&Math.random()<0.3)sound(st.kind);
+ function play(chip,kind,ms,quiet){const id=chip.dataset.id;if(active.has(id))return false;const st={kind,ms,t0:Date.now(),undo:null};active.set(id,st);paint(chip,st,0);if(!st.kind){active.delete(id);return false;}
+  if(!quiet&&Math.random()<0.3)sound(st.kind);
   setTimeout(()=>{active.delete(id);const c=find(id);if(c){c.classList.remove('is-live');delete c.dataset.live;}try{st.undo?.();}catch{}},ms+60);return true;}
  // scrolling or tapping re-renders the list: carry every running motion over to the new nodes, mid-loop
  function carry(){for(const [id,st] of active){const c=find(id);if(c&&!c.classList.contains('is-live')){const gone=Date.now()-st.t0;if(gone<st.ms-80)paint(c,st,gone);}}if(source){const c=find(source);if(c)c.classList.add('is-source');}}
  function watch(){const root=doc.getElementById('inventoryVirtual');if(!root||!window.MutationObserver)return;let q=false;new MutationObserver(()=>{if(q)return;q=true;requestAnimationFrame(()=>{q=false;try{carry();}catch{}});}).observe(root,{childList:true,subtree:false});}
  function tick(){clearTimeout(timer);timer=setTimeout(tick,rnd(320,800));if(!ctx.canRun?.()||reduced()||active.size>=MAX_LIVE)return;
-  const chips=visible().filter(c=>!active.has(c.dataset.id));if(!chips.length)return;const withKind=chips.filter(c=>liveKind(nameOf(c)));
-  const pool=withKind.length&&Math.random()<0.6?withKind:chips;const chip=pool[Math.floor(Math.random()*pool.length)];const kind=liveKind(nameOf(chip))||'turn';play(chip,kind,LIVE_MS[kind]||2400);}
+  // only elements with a motion of their own move; the rest stay still
+  const pool=visible().filter(c=>!active.has(c.dataset.id)&&liveKind(nameOf(c)));if(!pool.length)return;const chip=pool[Math.floor(Math.random()*pool.length)];const kind=liveKind(nameOf(chip));play(chip,kind,LIVE_MS[kind]||2400);}
  // ---------- one effect at a time spills onto the screen, clearly from its element ----------
  const artOf=chip=>chip.querySelector('.chip-art')?.innerHTML||'';
+// V207: scenes described with the shared building blocks (P): rise, fall, burst, wash, banner, stamp, actor, swarm, herd, chips, quake, later
+ const SCENES={
+ bonus:(P)=>{P.rise('lf-glyph is-gold',12,['+1','+5','★','+1'],60);P.burst('lf-coin',10);},
+ levelup:(P)=>{P.banner('LEVEL UP!','is-gold');P.burst('lf-spark',26,null,['#FFD166','#FFF3C4','#6FB26A']);P.rise('lf-glyph is-gold',8,['▲','★'],80);},
+ boss:(P)=>{P.wash('is-danger');P.banner('WARNING','is-danger');P.quake(400,900);},
+ tetris:(P)=>{const cols=['#E8566E','#5AAED2','#FFD166','#6FB26A','#B39DDB','#E8843C'],n=Math.floor(P.W/30);for(let r=0;r<3;r++)for(let i=0;i<n;i++){const b=P.el('lf-block',`left:${i*30+(P.W-n*30)/2}px;--to:${P.H-70-r*30}px;background:${cols[(i+r*2)%cols.length]};animation-delay:${0.3+r*0.5+P.rnd(0,0.45)}s`);P.fx.append(b);}P.later(2700,()=>P.fx.append(P.el('lf-flash is-soft')));},
+ chomp:(P)=>{const row=P.y,dir=P.x<P.W/2?1:-1;for(let i=1;i<10;i++)P.fx.append(P.el('lf-dot',`left:${P.x+dir*i*36}px;top:${row}px;animation:lf-dotin .3s ease-out ${i*0.04}s 1 both,lf-dotout .01s linear ${Math.round(400+(i*36)/(P.W+80)*3800)}ms 1 forwards`));const c=P.el('lf-chomp',`left:${P.x}px;top:${row}px;--zs:${dir}`);P.fx.append(c);c.animate([{transform:`translateX(0) scaleX(${dir})`},{transform:`translateX(${dir*(P.W+80)}px) scaleX(${dir})`}],{duration:3800,delay:400,fill:'both'});P.actor('',[{transform:`translateX(${-dir*80}px)`,opacity:0,offset:0},{opacity:1,offset:0.2},{transform:`translateX(${dir*(P.W)}px)`,opacity:1,offset:1}],{cls:'is-ghostie',css:`left:${P.x}px;top:${row}px;`,delay:1500,dur:3200});},
+ laser:(P)=>{for(let i=0;i<5;i++)P.fx.append(P.el('lf-laser',P.at()+`--r0:${P.rnd(-170,170)}deg;--r1:${P.rnd(-170,170)}deg;animation-delay:${0.2+i*0.45}s;background:${['#E8566E','#5AAED2','#6FB26A'][i%3]}`));P.fx.append(P.el('lf-flash is-soft'));},
+ dice:(P)=>P.burst('lf-glyph is-card',18,['⚀','⚃','⚅','♠','♥','♦','♣','⚁']),
+ portal:(P)=>{const tx=P.W-P.x+P.rnd(-30,30),ty=Math.min(P.H-160,P.y+P.rnd(160,320));P.fx.append(P.el('lf-portal',P.at()));P.fx.append(P.el('lf-portal is-out',`left:${tx}px;top:${ty}px`));P.actor(P.art(),[{transform:'scale(1) rotate(0)',opacity:1,offset:0},{transform:'scale(.1) rotate(360deg)',opacity:0,offset:0.22},{transform:`translate(${tx-P.x}px,${ty-P.y}px) scale(.1) rotate(360deg)`,opacity:0,offset:0.3},{transform:`translate(${tx-P.x}px,${ty-P.y}px) scale(1.8) rotate(720deg)`,opacity:1,offset:0.5},{transform:`translate(${tx-P.x}px,${ty-P.y}px) scale(1.8) rotate(720deg)`,opacity:1,offset:0.7},{transform:`translate(${tx-P.x}px,${ty-P.y}px) scale(.1) rotate(1080deg)`,opacity:0,offset:0.85},{transform:'scale(1) rotate(1080deg)',opacity:1,offset:1}]);},
+ speedlines:(P)=>{P.fx.append(P.el('lf-speed',P.at()));P.quake(300,500);P.chips('lv-gusted',1300,1.2);},
+ aura:(P)=>{P.fx.append(P.el('lf-aura',P.at()));P.rise('lf-streakup',16,null,70);P.quake(500,1400);},
+ kawaii:(P)=>{P.burst('lf-glyph is-pastel',24,['✿','♥','★','✦','❀']);P.wash('is-pink');},
+ lockon:(P)=>{visible().filter(c=>c!==P.chip).sort(()=>Math.random()-0.5).slice(0,4).forEach((c,i)=>{const b=c.getBoundingClientRect();P.fx.append(P.el('lf-reticle',`left:${b.left+b.width/2}px;top:${b.top+b.height/2}px;width:${b.width+14}px;height:${b.height+14}px;animation-delay:${0.3+i*0.5}s`));});P.wash('is-scan');},
+ shuriken:(P)=>{for(let i=0;i<6;i++){const a=P.rnd(0,6.28),d=Math.max(P.W,P.H);P.actor('<b>✦</b>',[{transform:'translate(0,0) rotate(0) scale(.6)',offset:0},{transform:`translate(${Math.cos(a)*d*0.45}px,${Math.sin(a)*d*0.45}px) rotate(900deg) scale(1.6)`,offset:0.35},{transform:`translate(${Math.cos(a)*d*0.45}px,${Math.sin(a)*d*0.45}px) rotate(900deg) scale(1.6)`,opacity:1,offset:0.85},{transform:`translate(${Math.cos(a)*d*0.45}px,${Math.sin(a)*d*0.45}px) rotate(900deg) scale(1.6)`,opacity:0,offset:1}],{cls:'is-star',delay:200+i*160,dur:2600,ease:'cubic-bezier(.1,.7,.2,1)'});}},
+ tears:(P)=>{P.wash('is-blue');P.fall('lf-tear',26);},
+ butterflies:(P)=>P.swarm(9,P.art()),
+ bees:(P)=>P.swarm(12,P.art()),
+ flock:(P)=>{const dir=P.x<P.W/2?1:-1;for(let i=0;i<7;i++){const row=Math.ceil(i/2),side=i%2?1:-1,oy=120+row*26*side*(i?1:0)+60,ox=-row*34;P.actor(P.art(),[{transform:`translate(${dir>0?-80+ox:P.W+80-ox}px,${oy}px) scale(1.2) scaleX(${dir})`,offset:0},{transform:`translate(${P.W/2+ox*dir}px,${oy-30}px) scale(1.2) scaleX(${dir})`,offset:0.5},{transform:`translate(${dir>0?P.W+120+ox:-120-ox}px,${oy+10}px) scale(1.2) scaleX(${dir})`,offset:1}],{cls:'is-small is-flap',css:'left:0;top:0;',delay:500,dur:3600});}P.actor(P.art(),[{transform:'translate(0,0) scale(1)',opacity:1,offset:0},{transform:`translate(${(P.x<P.W/2?-1:1)*40}px,${190-P.y}px) scale(1.2)`,opacity:0,offset:1}],{dur:700});},
+ aurora:(P)=>{P.wash('is-night');for(let i=0;i<3;i++)P.fx.append(P.el('lf-aurora',`top:${60+i*70}px;animation-delay:${0.5+i*0.3}s;--h:${[150,190,280][i]}`));},
+ sunset:(P)=>{P.wash('is-sunset');P.fx.append(P.el('lf-sun',`left:${P.W/2}px`));},
+ mushrooms:(P)=>{for(let i=0;i<9;i++)P.fx.append(P.el('lf-mush',`left:${P.rnd(4,92)}%;--sz:${P.rnd(0.7,1.5)};animation-delay:${0.3+i*0.22}s`));P.rise('lf-spore',14,null,120);},
+ stampede:(P)=>{P.herd(7,P.art(),P.x<P.W/2?1:-1);P.quake(500,2600);for(let i=0;i<8;i++)P.fx.append(P.el('lf-puff is-dust',`left:${P.rnd(0,P.W)}px;top:${P.H-110}px;--dx:${P.rnd(-40,40)}px;--s:${P.rnd(1.6,2.6)};animation-delay:${0.6+i*0.3}s`));},
+ tsunami:(P)=>{P.fx.append(P.el('lf-tsunami'));P.chips('lv-blown',1700,2.4);visible().forEach(c=>{c.style.setProperty('--gx','46px');c.style.setProperty('--gy','-6px');});P.quake(900,900);},
+ twister:(P)=>{const dir=P.x<P.W/2?1:-1,fr=[];for(let k=0;k<=8;k++)fr.push({transform:`translate(${dir*k*(P.W/8)}px,${Math.sin(k*1.3)*60+60}px) scale(${2.6+Math.sin(k)*0.4}) rotate(${Math.sin(k*2)*10}deg)`,offset:k/8});P.actor(P.art(),fr,{cls:'is-twist',dur:P.ms-700,delay:300});P.chips('lv-rewind',1500,3.2);},
+ dig:(P)=>{const dir=P.x<P.W/2?1:-1;for(let i=0;i<9;i++)P.fx.append(P.el('lf-mound',`left:${P.x+dir*(20+i*34)}px;top:${P.y+16+Math.sin(i*1.1)*26}px;animation-delay:${0.3+i*0.28}s`));},
+ fireflies:(P)=>{P.wash('is-dim');P.swarm(14,'<b></b>','is-glow');},
+ dragonfire:(P)=>{const dir=P.x<P.W/2?1:-1,yy=150-P.y;P.actor(P.art(),[{transform:'translate(0,0) scale(1)',offset:0},{transform:`translate(${(dir>0?40:P.W-40)-P.x}px,${yy}px) scale(2.6) scaleX(${dir})`,offset:0.2},{transform:`translate(${(dir>0?P.W-60:60)-P.x}px,${yy+10}px) scale(2.6) scaleX(${dir})`,offset:0.75},{transform:`translate(${(dir>0?P.W+90:-90)-P.x}px,${yy-60}px) scale(2.2) scaleX(${dir})`,offset:1}]);P.later(P.ms*0.2,()=>{P.fx.append(P.el('lf-firebreath',`--zs:${dir};top:190px`));for(let i=0;i<8;i++)P.fx.append(P.el('lf-ember',`left:${P.rnd(20,P.W-20)}px;top:${P.rnd(230,P.H-200)}px;animation-delay:${P.rnd(0.2,2)}s`));});},
+ spellcircle:(P)=>{P.fx.append(P.el('lf-rune',P.at()));P.fx.append(P.el('lf-rune is-inner',P.at()));P.rise('lf-glyph is-rune',10,['ᚠ','ᚱ','ᛟ','ᛉ','✶'],90);P.wash('is-arcane');},
+ potion:(P)=>{P.wash('is-potion');P.rise('lf-bubble is-green',18,null,110);P.chips('lv-wobble',1600,2);},
+ crystal:(P)=>{for(let i=0;i<14;i++){const a=i*(6.283/14)+P.rnd(-0.15,0.15);P.fx.append(P.el('lf-shard',P.at()+`--a:${a*57.3+90}deg;--len:${P.rnd(60,150)}px;animation-delay:${0.25+i*0.07}s;background:linear-gradient(${['#B39DDB,#EDE7F6','#80DEEA,#E0F7FA','#F8BBD0,#FCE4EC'][i%3]})`));}P.burst('lf-spark',12,null,['#fff','#E1BEE7','#B2EBF2']);},
+ curse:(P)=>{P.wash('is-curse');P.rise('lf-glyph is-skull',11,['☠','✝','☠'],90);},
+ shield:(P)=>{P.fx.append(P.el('lf-dome',P.at()));for(let i=0;i<2;i++)P.fx.append(P.el('lf-ring is-blue',`animation-delay:${0.4+i*0.5}s`));},
+ applause:(P)=>{P.wash('is-dim');P.fx.append(P.el('lf-spot',P.at()));P.rise('lf-glyph is-gold',14,['👏','★','👏'],110);},
+ camera:(P)=>{for(const d of [300,800,1500])P.later(d,()=>P.fx.append(P.el('lf-flash is-snap')));P.stamp('lf-polaroid',5);},
+ moneyrain:(P)=>P.fall('lf-note',26,['$','$','€']),
+ heal:(P)=>{P.wash('is-heal');P.rise('lf-glyph is-heal',14,['✚','♥','✚'],100);},
+ police:(P)=>{P.fx.append(P.el('lf-siren'));P.chips('lv-gusted',1300,1);},
+ construction:(P)=>{for(const [r,t] of [[-12,28],[9,62]])P.fx.append(P.el('lf-tape',`top:${t}%;--r:${r}deg`,'CAUTION  ·  CAUTION  ·  CAUTION  ·  CAUTION  ·  CAUTION'));for(let i=0;i<6;i++)P.fx.append(P.el('lf-puff is-dust',P.at(P.rnd(-30,30),10)+`--dx:${P.rnd(-60,60)}px;--s:${P.rnd(1.6,2.8)};animation-delay:${0.3+i*0.2}s`));P.quake(600,700);},
+ royal:(P)=>{P.fx.append(P.el('lf-carpet',`left:${P.x}px;top:${P.y+20}px;height:${P.H-P.y}px`));P.rise('lf-glyph is-gold',10,['♛','♚','✦'],70);},
+ goal:(P)=>{const fr=[{transform:'translate(0,0) scale(1)',offset:0}];let px=P.x,py=P.y,vx=P.rnd(140,220)*(P.x<P.W/2?1:-1),vy=-180;for(let k=1;k<=9;k++){px+=vx;py+=vy;if(px<24||px>P.W-24){vx=-vx;px=Math.max(24,Math.min(P.W-24,px));}if(py<110||py>P.H-110){vy=-vy;py=Math.max(110,Math.min(P.H-110,py));}fr.push({transform:`translate(${px-P.x}px,${py-P.y}px) scale(1.5) rotate(${k*200}deg)`,offset:k/10});}fr.push({transform:'translate(0,0) scale(1) rotate(2160deg)',offset:1});P.actor(P.art(),fr);P.later(P.ms*0.55,()=>{P.banner('GOAL!','is-gold');P.burst('lf-confetti',20,null,['#E8843C','#6FB26A','#FFD166','#5AAED2']);});},
+ lightbeam:(P)=>{P.wash('is-sun');P.fx.append(P.el('lf-godray',`left:${P.x}px;height:${P.y+10}px`));P.burst('lf-petal is-feather',10,null,['#FFFFFF','#FFF8E1']);},
+ underworld:(P)=>{P.wash('is-hell');P.fx.append(P.el('lf-hellfire'));P.rise('lf-glyph is-skull',6,['☠'],120);P.quake(300,1200);},
+ stone:(P)=>P.chips('lv-stone',2600,4),
+ pandora:(P)=>P.burst('lf-glyph is-mix',26,['☠','★','♥','♪','?','✦','❄','☂']),
+ eye:(P)=>{P.wash('is-dim');P.fx.append(P.el('lf-eye'));},
+ shadow:(P)=>{const dir=P.x<P.W/2?1:-1;P.actor(P.art(),[{transform:`translate(${dir>0?-200:P.W+200}px,${P.H*0.2}px) scale(9) scaleX(${dir})`,offset:0},{transform:`translate(${P.W/2}px,${P.H*0.45}px) scale(11) scaleX(${dir})`,offset:0.5},{transform:`translate(${dir>0?P.W+260:-260}px,${P.H*0.65}px) scale(9) scaleX(${dir})`,offset:1}],{cls:'is-shadow',css:'left:0;top:0;',delay:500,dur:2800});P.wash('is-dim');},
+ cavepaint:(P)=>{P.wash('is-sepia');P.stamp('lf-glyph is-ochre',12,['✋','𐀪','☀','➶','✋','🦌']);},
+ meteors:(P)=>{for(let i=0;i<7;i++){const tx=P.rnd(40,P.W-40),ty=P.rnd(200,P.H-160);P.fx.append(P.el('lf-meteor',`left:${tx}px;top:${ty}px;animation-delay:${0.3+i*0.42}s`));P.later(300+i*420+520,()=>{P.fx.append(P.el('lf-boom is-small',`left:${tx}px;top:${ty}px`));});}P.quake(900,2600);},
+ amber:(P)=>{P.wash('is-amber');P.chips('lv-amber',2600,3);},
+ lanterns:(P)=>{P.wash('is-night');P.rise('lf-lantern',14,null,130);},
+ route:(P)=>{const pts=[[P.x,P.y]];for(let k=1;k<=4;k++)pts.push([P.rnd(40,P.W-40),P.rnd(130,P.H-150)]);const d='M'+pts.map(q=>q.map(v=>v.toFixed(0)).join(' ')).join(' L');const b=P.el('lf-lines is-route');b.innerHTML=`<svg xmlns="http://www.w3.org/2000/svg" width="100%" height="100%" fill="none"><path d="${d}" pathLength="1"/></svg>`;P.fx.append(b);pts.slice(1).forEach((q,i)=>P.fx.append(P.el('lf-pin',`left:${q[0]}px;top:${q[1]}px;animation-delay:${0.9+i*0.8}s`)));P.actor(P.art(),pts.map((q,i)=>({transform:`translate(${q[0]-P.x}px,${q[1]-P.y}px) scale(${i?1.5:1})`,offset:i/(pts.length)})).concat([{transform:'translate(0,0) scale(1)',offset:1}]),{ease:'ease-in-out'});},
+ bunting:(P)=>{for(let r=0;r<2;r++){const g=P.el('lf-bunting',`top:${70+r*90}px;animation-delay:${0.3+r*0.35}s`);g.innerHTML=Array.from({length:11},(_,i)=>`<i style="background:${['#E8566E','#FFD166','#6FB26A','#5AAED2','#B39DDB'][(i+r)%5]};--d:${Math.sin(i/10*3.14)*34}px"></i>`).join('');P.fx.append(g);}P.fall('lf-confetti',14,null,['#E8843C','#6FB26A','#FFD166','#5AAED2']);},
+ skyline:(P)=>{P.wash('is-night');const g=P.el('lf-skyline');let h='';for(let i=0;i<9;i++){const bh=P.rnd(90,260);h+=`<i style="height:${bh}px;animation-delay:${0.4+i*0.14}s;--w:${Math.floor(P.rnd(2,5))}"></i>`;}g.innerHTML=h;P.fx.append(g);},
+ train:(P)=>{const dir=P.x<P.W/2?1:-1,yy=P.H-190;P.fx.append(P.el('lf-rails',`top:${yy+26}px`));for(let i=0;i<4;i++)P.actor(P.art(),[{transform:`translate(${dir>0?-70-i*58:P.W+70+i*58}px,${yy}px) scale(${i?1.25:1.6}) scaleX(${dir})`,offset:0},{transform:`translate(${dir>0?P.W+260-i*58:-260+i*58}px,${yy}px) scale(${i?1.25:1.6}) scaleX(${dir})`,offset:1}],{css:'left:0;top:0;',delay:600,dur:3000,cls:i?'is-wagon':''});for(let i=0;i<7;i++)P.fx.append(P.el('lf-puff',`left:${dir>0?i*(P.W/7):P.W-i*(P.W/7)}px;top:${yy-20}px;--dx:${-dir*30}px;--s:2;animation-delay:${0.9+i*0.34}s`));P.quake(700,2400);},
+ balloons:(P)=>P.rise('lf-balloon',14,null,130),
+ mirage:(P)=>{P.wash('is-heat');doc.body.classList.add('lv-mirage');setTimeout(()=>doc.body.classList.remove('lv-mirage'),3600);},
+};
+
  const el=(cls,css,txt)=>{const d=doc.createElement('i');d.className=cls;if(css)d.style.cssText=css;if(txt)d.textContent=txt;return d;};
  function bleed(chip,type){ensure();const fx=doc.getElementById('livingFx');if(!fx||fx.childElementCount||!REACT[type])return false;const r=chip.getBoundingClientRect(),x=r.left+24,y=r.top+r.height/2;const ms=BLEED_MS[type]||4400;
   fx.style.setProperty('--x',x+'px');fx.style.setProperty('--y',y+'px');
-  const kind=liveKind(nameOf(chip))||'turn';source=chip.dataset.id;if(!play(chip,kind,Math.max(ms,LIVE_MS[kind]||0),true))chip.classList.add('is-source');lastSound=0;sound(type,2);lastBleed=type;
+  const kind=liveKind(nameOf(chip));source=chip.dataset.id;if(!kind||!play(chip,kind,Math.max(ms,LIVE_MS[kind]||0),true))chip.classList.add('is-source');lastSound=0;sound(type,2);lastBleed=type;
   // the source is unmistakable: the chip lifts and two rings leave it
   for(let i=0;i<2;i++)fx.append(el('lf-ring',`animation-delay:${i*0.28}s`));
   const at=(dx=0,dy=0)=>`left:${x+dx}px;top:${y+dy}px;`;
@@ -7303,6 +7528,18 @@ function createLiving(ctx){
    setTimeout(()=>{if(!fx.childElementCount||!tb)return;const mx=tb.left+tb.width/2,my=tb.top;const g=rel==='friends'?['❤','♥']:rel==='rivals'||rel==='nemesis'?['💢','!']:['♪','!'];for(let i=0;i<5;i++)fx.append(el('lf-rise lf-glyph '+(rel==='friends'?'is-heart':'is-note'),`left:${mx+rnd(-20,20)}px;top:${my}px;--dx:${rnd(-30,30)}px;--s:1;animation-delay:${i*0.15}s;animation-duration:1.6s`,g[i%g.length]));
     try{const [a,e]=rel==='friends'?['celebrate','love']:rel==='rivals'||rel==='nemesis'?['stomp','angry']:['wave','happy'];ctx.react?.(a,e,1700);}catch{}},(ms-300)*0.36);}
   else if(type==='rewind'){wash('is-sepia');visible().forEach((c,i)=>{setTimeout(()=>{c.classList.add('lv-rewind');setTimeout(()=>c.classList.remove('lv-rewind'),1500);},300+i*25);});}
+  else if(SCENES[type]){const W=innerWidth,H=innerHeight;
+   const P={x,y,W,H,ms,chip,fx,el,at,rise,burst,wash,rnd,art:()=>artOf(chip),
+    fall:(cls,n,txts,cols,dur=2.6)=>{for(let i=0;i<n;i++)fx.append(el('lf-fall '+cls,`left:${rnd(2,96)}%;--r:${rnd(-200,200)}deg;--sw:${rnd(-40,40)}px;animation-duration:${rnd(dur*0.8,dur*1.2)}s;animation-delay:${0.3+rnd(0,1.8)}s;${cols?'background:'+cols[i%cols.length]:''}`,txts?txts[i%txts.length]:''));},
+    banner:(txt,cls='')=>fx.append(el('lf-banner '+cls,'',txt)),
+    stamp:(cls,n,txts,box)=>{for(let i=0;i<n;i++)fx.append(el('lf-stamp '+cls,`left:${rnd(box?box[0]:20,box?box[2]:W-40)}px;top:${rnd(box?box[1]:120,box?box[3]:H-140)}px;--r:${rnd(-25,25)}deg;animation-delay:${0.3+i*(2.4/n)}s`,txts?txts[i%txts.length]:''));},
+    actor:(html,frames,opt={})=>{const a=el('lf-actor '+(opt.cls||''));a.innerHTML=html;a.style.cssText=opt.css||at();fx.append(a);a.animate(frames,{duration:opt.dur||ms-300,delay:opt.delay||0,easing:opt.ease||'linear',fill:'both'});return a;},
+    swarm:(n,html,cls='is-small')=>{for(let i=0;i<n;i++){const fr=[{transform:'translate(0,0) scale(.5)',offset:0}];for(let k=1;k<=5;k++)fr.push({transform:`translate(${rnd(20,W-20)-x}px,${rnd(90,H-120)-y}px) scale(${rnd(0.8,1.3)}) rotate(${rnd(-25,25)}deg)`,offset:k/6.5});fr.push({transform:'translate(0,0) scale(.5)',offset:1});P.actor(html,fr,{cls,delay:i*90,ease:'ease-in-out'});}},
+    herd:(n,html,dir=1)=>{for(let i=0;i<n;i++){const y0=H-rnd(120,230),fr=[];for(let k=0;k<=10;k++)fr.push({transform:`translate(${dir>0?-60+k*(W+120)/10:W+60-k*(W+120)/10}px,${y0-(k%2?14:0)}px) scale(${1.5+i%3*0.2}) scaleX(${dir})`,offset:k/10});P.actor(html,fr,{css:'left:0;top:0;',delay:300+i*230,dur:2600});}},
+    chips:(cls,dur,gap=3)=>visible().forEach(c=>{const b=c.getBoundingClientRect();setTimeout(()=>{c.classList.add(cls);setTimeout(()=>c.classList.remove(cls),dur);},250+Math.hypot(b.left-x,b.top-y)*gap);}),
+    quake:(d=200,len=1000)=>setTimeout(()=>{doc.body.classList.add('lv-quake');setTimeout(()=>doc.body.classList.remove('lv-quake'),len);},d),
+    later:(d,f)=>setTimeout(()=>{if(fx.childElementCount)try{f();}catch{}},d)};
+   SCENES[type](P);}
   if(type!=='visitor')try{const [a,e]=REACT[type];setTimeout(()=>ctx.react?.(a,e,Math.min(ms-500,3200)),500);}catch{}
   try{if(type==='quake')navigator.vibrate?.([30,40,30,40,60]);else if(type==='bolt')navigator.vibrate?.(25);}catch{}
   setTimeout(()=>{fx.replaceChildren();const c=find(source);if(c)c.classList.remove('is-source');chip.classList.remove('is-source');source=null;},ms+300);return true;}
@@ -7313,7 +7550,7 @@ function createLiving(ctx){
   const c=visible().filter(c=>bleedFor(c));if(!c.length)return;const named=c.filter(x=>bleedOf(nameOf(x))||bleedFor(x)==='visitor');const base=named.length&&Math.random()<0.8?named:c;const fresh=base.filter(x=>bleedFor(x)!==lastBleed);const pool=fresh.length?fresh:base;const chip=pool[Math.floor(Math.random()*pool.length)];bleed(chip,bleedFor(chip));}
  const find=id=>[...doc.querySelectorAll('#viewPlay .element-chip')].find(x=>x.dataset.id===id);
  return {start(){if(started)return;started=true;ensure();watch();timer=setTimeout(tick,2000);bleedTimer=setTimeout(bleedTick,rnd(12000,20000));},activeCount:()=>active.size,
-  /** test hooks */ playId(id,kind){ensure();const c=find(id);const k=kind||liveKind(ctx.nameOf(id))||'turn';return c?play(c,k,LIVE_MS[k]||2400):false;},
+  /** test hooks */ playId(id,kind){ensure();const c=find(id);const k=kind||liveKind(ctx.nameOf(id));return c&&k?play(c,k,LIVE_MS[k]||2400):false;},
   bleedId(id,type){ensure();const c=find(id);return c?bleed(c,type||bleedFor(c)):false;},sound};
 }
 
@@ -9055,7 +9292,7 @@ function shinyFanfare(){if(!soundEnabled)return;const ctx=acquireSoundEngine();i
 function showShinyFound(id){const it=byId.get(id);if(!it)return;
  showModal(`<div class="modal-tag shiny-tag">✦ SHINY ELEMENT</div><div class="modal-art is-shiny">${staticArt(it)}</div><h2>Shiny ${escapeText(uiName(it))}</h2>${shinyPerks(it)}${shinyCard(it)}`);shinyDress();
 }
-const APP_VERSION='1.1.06';
+const APP_VERSION='1.1.07';
 // V83: status line + Google consent (UMP) privacy options, required for EEA players.
 async function refreshAdStatus(){
  const el=$('settingsAdStatus'),bridge=getRewardBridge();

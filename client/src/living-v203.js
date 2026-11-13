@@ -82,6 +82,61 @@ export const BLEED_RULES=[
  ['fog',W('fog|mist|haze|smog|vapor|vapour|humidity|sauna|steam room')],
  ['abduct',W('ufo|alien|flying saucer|martian|extraterrestrial|mothership')],
  ['lava',W('volcano|lava|magma|eruption|lava lamp|molten rock')],
+ ['bonus',W('coin block|question block|bonus|power-up|powerup|1-up|extra life|high score|combo|pickup|loot')],
+ ['levelup',W('level up|experience|xp|upgrade|trophy|medal|victory|champion|winner|achievement|gold medal|award|prize|rank up|promotion|graduation|diploma')],
+ ['boss',W('boss|final boss|villain|game over|defeat|nemesis|overlord|dark lord|supervillain|mini boss|raid boss|tyrant')],
+ ['tetris',W('tetris|block|puzzle|lego|building blocks|jigsaw|rubik cube|tile|domino|brick breaker|cube')],
+ ['chomp',W('pac-man|pacman|maze|pellet|dot|arcade cabinet|arcade machine|labyrinth|snake game|chomper')],
+ ['laser',W('laser|laser beam|space invaders|starfighter|turret|ray gun|death ray|laser tag|photon|phaser|lightsaber duel')],
+ ['dice',W('dice|die|luck|board game|card|poker|lottery|playing card|gamble|chance|bingo|roulette wheel|deck of cards|tarot')],
+ ['portal',W('portal|teleport|teleporter|warp|wormhole|gate|stargate|dimension|multiverse|doorway|rift')],
+ ['speedlines',W('dash|sprint|anime|manga|shonen|power dash|sonic boom|flash step|rush|charge|tackle|punch|kick|martial arts|karate|kung fu|boxer|fighter')],
+ ['aura',W('aura|ki|chakra|rage|fury|super saiyan|spirit bomb|energy ball|power|transformation|awakening|limit break|berserk|ultra instinct|bankai')],
+ ['kawaii',W('kawaii|idol|mascot|plush|teddy bear|doll|cute|chibi|magical girl|plushie|stuffed animal|sticker|charm|cosplay')],
+ ['lockon',W('mecha|gundam|transformer|cyborg|android|drone strike|radar|target|crosshair|scanner|sonar|satellite dish|terminator|battle robot')],
+ ['shuriken',W('shuriken|kunai|throwing star|ninja star|dart|darts|boomerang|chakram|throwing knife')],
+ ['tears',W('sadness|cry|tear|tears|sorrow|drama|tragedy|heartbreak|goodbye|loneliness|grief|onion ring|weeping willow|melancholy|blues')],
+ ['butterflies',W('butterfly|moth|caterpillar|cocoon|chrysalis|monarch butterfly')],
+ ['bees',W('bee|hive|beehive|honeycomb|wasp|hornet|bumblebee|swarm|mosquito|fly|gnat|locust')],
+ ['flock',W('flock|migration|goose|seagull|swallow|crane|stork|pelican|flamingo|geese|sparrow|pigeon')],
+ ['aurora',W('aurora|northern lights|aurora borealis|polar lights|southern lights|nebula|cosmos|galaxy|milky way')],
+ ['sunset',W('sunset|dusk|evening|horizon|twilight|golden hour|afterglow')],
+ ['mushrooms',W('mushroom|fungus|spore|toadstool|truffle|mold|mould|mycelium|shiitake|fairy ring')],
+ ['stampede',W('horse|bison|buffalo|cow|herd|zebra|wildebeest|sheep|goat|deer|antelope|pig|stampede|cattle|reindeer|llama|alpaca|ostrich|bull|ox|yak|camel|donkey|pony')],
+ ['tsunami',W('tsunami|tidal wave|surf|surfer|big wave|surfboard|breaker|swell')],
+ ['twister',W('tornado|cyclone|twister|whirlwind|dust devil|waterspout|sandstorm devil')],
+ ['dig',W('mole|worm|earthworm|ant|shovel|tunnel|burrow|gopher|badger|groundhog|digger|excavator|anthill|termite|prairie dog')],
+ ['fireflies',W('firefly|glowworm|lightning bug|will-o-wisp|wisp|glow stick|fairy lights|bioluminescence')],
+ ['dragonfire',W('dragon|wyvern|drake|hydra|fire dragon|dragon breath|wyrm|chimera')],
+ ['spellcircle',W('spell|rune|ritual|summon|sorcery|enchantment|pentagram|witch|warlock|mage|necromancer|incantation|sorcerer|druid|shaman|grimoire|spellbook|hex')],
+ ['potion',W('potion|elixir|cauldron|alchemy|brew|poison|antidote|philosopher stone|tonic|venom|toxin|acid')],
+ ['crystal',W('crystal|gem|ruby|emerald|sapphire|amethyst|quartz|jewel|opal|topaz|geode crystal|prism shard|obsidian|pearl')],
+ ['curse',W('curse|skull|death|reaper|doom|bones|plague|black magic|voodoo|omen|banshee|lich|undead|mummy|tomb|coffin|crypt')],
+ ['shield',W('shield|barrier|armor|armour|helmet|fortress|castle|guard|force field|bunker|paladin|defender|bulwark|rampart|moat')],
+ ['applause',W('actor|actress|stage|theater|theatre|show|performance|celebrity|comedian|magician|clap|audience|applause|spotlight|talent show|movie star|dancer|ballet|circus act')],
+ ['camera',W('camera|photo|photographer|selfie|paparazzi|picture|photograph|snapshot|polaroid|film|movie|cinema|director|video')],
+ ['moneyrain',W('money|cash|dollar|salary|millionaire|billionaire|paycheck|wallet|banknote|stock market|investor|tax refund|rich|wealth|fortune')],
+ ['heal',W('doctor|nurse|medicine|hospital|pill|bandage|health|healing|heal|vaccine|first aid|medic|pharmacy|herbal tea|remedy|cure|vitamin|surgeon|therapy')],
+ ['police',W('police|siren|ambulance|fire truck|emergency|detective|thief|robber|burglar|alarm system|police car|firefighter|rescue|prison|jail')],
+ ['construction',W('builder|construction|crane|bulldozer|worker|engineer|tool|wrench|saw|drill|scaffold|blueprint|architect|cement|road work|plumber|carpenter|mechanic|toolbox')],
+ ['royal',W('king|queen|crown|royal|prince|princess|emperor|empress|throne|palace|kingdom|monarch|pharaoh|sultan|duke|coronation|royalty|scepter')],
+ ['goal',W('football|soccer|goal|basketball|tennis|baseball|athlete|stadium|olympics|volleyball|rugby|hockey|golf|cricket|sport|world cup|striker|goalkeeper|referee|ping pong')],
+ ['lightbeam',W('god|goddess|heaven|halo|divine|holy|temple|olympus|saint|blessing|miracle|prayer|paradise|deity|cathedral|church|shrine|nirvana|enlightenment|buddha')],
+ ['underworld',W('hell|underworld|hades|demon|devil|cerberus|tartarus|abyss|imp|succubus|infernal|brimstone|oni|lucifer|satan|hellhound')],
+ ['stone',W('medusa|gorgon|basilisk|petrify|stone gaze|cockatrice|gargoyle|golem stone|fossilize|statue garden')],
+ ['pandora',W('pandora|mystery box|loot box|gift box|chest|treasure chest|surprise|gacha|blind box|easter egg|pinata box|magic hat|top hat')],
+ ['eye',W('eye|cyclops|eyeball|vision|spy|watcher|all-seeing eye|illuminati|third eye|beholder|surveillance|big brother|stalker|peeping tom|telescope|binoculars')],
+ ['shadow',W('pterosaur|pterodactyl|raptor|velociraptor|eagle|hawk|falcon|vulture|condor|roc|thunderbird|airship|blimp|zeppelin|bomber|stealth bomber')],
+ ['cavepaint',W('cave|cave painting|caveman|tribe|stone age|neanderthal|hunter-gatherer|cavewoman|petroglyph|flint|bonfire dance|totem|primitive tool|club')],
+ ['meteors',W('meteor shower|extinction|asteroid belt|shooting stars|comet tail|bolide|impact|armageddon|apocalypse|doomsday')],
+ ['amber',W('amber|tar pit|resin|sap|fossil amber|mosquito in amber|beeswax|caramel|molasses|glue')],
+ ['lanterns',W('lantern|lantern festival|paper lantern|lunar new year|chinese new year|diwali|sky lantern|candlelight|vigil|festival of lights')],
+ ['route',W('travel|tourist|map|globe|passport|journey|vacation|suitcase|voyage|expedition|explorer|road trip|adventure|backpacker|world tour|navigation|gps|airline|airport')],
+ ['bunting',W('flag|country|nation|embassy|fair|fete|village fair|street party|independence day|national day|bunting|garland|banner|pennant')],
+ ['skyline',W('city|skyline|tower|skyscraper|metropolis|new york|paris|tokyo|london|downtown|capital|megacity|building|apartment|office|town|village|neighborhood')],
+ ['train',W('train|locomotive|subway|tram|railway|steam train|bullet train|metro|freight train|monorail|railroad|express')],
+ ['balloons',W('balloon|party balloon|balloon animal|helium|water balloon|bubble tea')],
+ ['mirage',W('mirage|oasis|heat|heatwave|drought|desert sun|sahara|scorching|hot day|sauna heat|fever')],
  ['web',W('spider|web|cobweb|spiderweb|tarantula')],
  ['paws',W('cat|dog|wolf|fox|bear|lion|tiger|rabbit|bunny|puppy|kitten|panda|raccoon|squirrel|mouse|rat|hamster|leopard|cheetah|werewolf|cub|pet|paw')],
  ['feathers',W('bird|chicken|duck|eagle|angel|parrot|goose|swan|pigeon|dove|crow|raven|rooster|turkey|peacock|pegasus|griffin|pillow fight|feather|hen|penguin')],
@@ -127,9 +182,10 @@ export function bleedOf(name='',family=''){const n=String(name).toLowerCase();fo
 // how the companions take it: [pose, expression]
 export const REACT={burn:['scared','wow'],smoke:['sniff','dizzy'],flood:['hopwalk','happy'],frost:['scared','sad'],snow:['scared','sad'],gust:['push','angry'],quake:['scared','wow'],bolt:['scared','wow'],
  hearts:['wave','love'],bubbles:['jump','happy'],night:['sleep','sleepy'],zzz:['sleep','sleepy'],sunrise:['stretch','happy'],music:['duo-cheer','happy'],bloom:['sniff','happy'],confetti:['celebrate','happy'],sparks:['celebrate','wow'],
- gold:['celebrate','wow'],ink:['sulk','sad'],fog:['peek','wow'],storm:['scared','wow'],explosion:['tumble','dizzy'],giant:['scared','wow'],school:['jump','happy'],shipwreck:['scared','sad'],moonshot:['wave','wow'],gunshot:['duo-cover','wow'],abduct:['scared','wow'],lava:['scared','wow'],visitor:['wave','happy'],paws:['stalk','wow'],feathers:['jump','happy'],zoom:['jump','wow'],slash:['duo-guard','angry'],crack:['scared','wow'],grow:['sniff','happy'],leaves:['sniff','happy'],splat:['sulk','sad'],yum:['eat','happy'],letters:['point','wow'],rewind:['shake','dizzy'],pixels:['shake','wow'],web:['scared','wow'],pull:['tumble','dizzy'],ghost:['duo-cover','wow'],rainbow:['wave','wow'],sand:['shake','dizzy'],stink:['refuse','sad']};
+ gold:['celebrate','wow'],ink:['sulk','sad'],bonus:['jump','happy'],levelup:['celebrate','happy'],boss:['scared','wow'],tetris:['point','wow'],chomp:['scared','wow'],laser:['duo-cover','wow'],dice:['point','wow'],portal:['peek','wow'],speedlines:['push','angry'],aura:['stomp','angry'],kawaii:['wave','love'],lockon:['scared','wow'],shuriken:['duo-guard','angry'],tears:['sulk','sad'],butterflies:['jump','happy'],bees:['scared','wow'],flock:['wave','wow'],aurora:['peek','wow'],sunset:['stretch','happy'],mushrooms:['sniff','wow'],stampede:['scared','wow'],tsunami:['scared','wow'],twister:['tumble','dizzy'],dig:['sniff','wow'],fireflies:['peek','happy'],dragonfire:['duo-cover','wow'],spellcircle:['peek','wow'],potion:['shake','dizzy'],crystal:['peek','wow'],curse:['scared','sad'],shield:['duo-guard','smug'],applause:['celebrate','happy'],camera:['wave','smug'],moneyrain:['celebrate','wow'],heal:['celebrate','love'],police:['scared','wow'],construction:['point','wow'],royal:['duo-bow','happy'],goal:['celebrate','happy'],lightbeam:['peek','wow'],underworld:['scared','wow'],stone:['sulk','sleepy'],pandora:['peek','wow'],eye:['duo-cover','wow'],shadow:['duo-cover','wow'],cavepaint:['point','happy'],meteors:['scared','wow'],amber:['sulk','sleepy'],lanterns:['peek','happy'],route:['wave','happy'],bunting:['celebrate','happy'],skyline:['peek','wow'],train:['jump','wow'],balloons:['jump','happy'],mirage:['shake','dizzy'],fog:['peek','wow'],storm:['scared','wow'],explosion:['tumble','dizzy'],giant:['scared','wow'],school:['jump','happy'],shipwreck:['scared','sad'],moonshot:['wave','wow'],gunshot:['duo-cover','wow'],abduct:['scared','wow'],lava:['scared','wow'],visitor:['wave','happy'],paws:['stalk','wow'],feathers:['jump','happy'],zoom:['jump','wow'],slash:['duo-guard','angry'],crack:['scared','wow'],grow:['sniff','happy'],leaves:['sniff','happy'],splat:['sulk','sad'],yum:['eat','happy'],letters:['point','wow'],rewind:['shake','dizzy'],pixels:['shake','wow'],web:['scared','wow'],pull:['tumble','dizzy'],ghost:['duo-cover','wow'],rainbow:['wave','wow'],sand:['shake','dizzy'],stink:['refuse','sad']};
 export const LIVE_MS={flame:3200,smoke:3600,water:3200,melt:4200,beat:2400,erupt:3000,glow:3000,zap:1800,flap:2600,swim:2800,critter:2600,spin:2600,wind:3200,quake:1500,bounce:2200,shell:3800,hover:3000,parts:3400,turn:2000};
-export const BLEED_MS={quake:2000,bolt:2000,pull:2600,slash:2200,pixels:2400,rewind:2600,zoom:2600,fog:6200,storm:5800,explosion:3400,giant:5400,school:5400,shipwreck:6400,moonshot:5600,visitor:6000,gunshot:4400,abduct:5600,lava:4800};
+export const SOUND_AS={bonus:'gold',levelup:'sunrise',boss:'quake',tetris:'pixels',chomp:'pixels',laser:'zap',dice:'letters',portal:'pull',speedlines:'zoom',aura:'burn',kawaii:'bloom',lockon:'pixels',shuriken:'slash',tears:'melt',butterflies:'flap',bees:'flap',flock:'flap',aurora:'rainbow',sunset:'night',mushrooms:'bounce',stampede:'paws',tsunami:'flood',twister:'gust',dig:'paws',fireflies:'glow',dragonfire:'burn',spellcircle:'ghost',potion:'bubbles',crystal:'frost',curse:'ghost',shield:'glow',applause:'confetti',camera:'slash',moneyrain:'gold',heal:'sunrise',police:'abduct',construction:'crack',royal:'music',goal:'bounce',lightbeam:'sunrise',underworld:'lava',stone:'crack',pandora:'sparks',eye:'ghost',shadow:'giant',cavepaint:'paws',meteors:'explosion',amber:'splat',lanterns:'night',route:'zoom',bunting:'confetti',skyline:'night',train:'zoom',balloons:'bubbles',mirage:'sand'};
+export const BLEED_MS={chomp:5200,stampede:5000,tsunami:4600,twister:5200,dragonfire:5200,shadow:4200,route:5400,train:4800,eye:5200,goal:5200,butterflies:5600,bees:5600,flock:5000,portal:4600,quake:2000,bolt:2000,pull:2600,slash:2200,pixels:2400,rewind:2600,zoom:2600,fog:6200,storm:5800,explosion:3400,giant:5400,school:5400,shipwreck:6400,moonshot:5600,visitor:6000,gunshot:4400,abduct:5600,lava:4800};
 const DEFS=`<svg xmlns="http://www.w3.org/2000/svg" width="0" height="0" style="position:absolute" aria-hidden="true"><defs>
 <filter id="lvFlame" x="-25%" y="-35%" width="150%" height="160%"><feTurbulence type="fractalNoise" baseFrequency=".03 .11" numOctaves="2" seed="3"><animate attributeName="baseFrequency" dur="1.1s" values=".03 .11;.05 .17;.02 .09;.03 .11" repeatCount="indefinite"/></feTurbulence><feDisplacementMap in="SourceGraphic" scale="9" xChannelSelector="R" yChannelSelector="G"/></filter>
 <filter id="lvSmoke" x="-30%" y="-40%" width="160%" height="170%"><feTurbulence type="fractalNoise" baseFrequency=".02 .035" numOctaves="2" seed="8"><animate attributeName="baseFrequency" dur="3.4s" values=".02 .035;.035 .02;.02 .035" repeatCount="indefinite"/></feTurbulence><feDisplacementMap in="SourceGraphic" scale="11" xChannelSelector="G" yChannelSelector="R"/></filter>
@@ -146,7 +202,7 @@ export function createLiving(ctx){
  const nameOf=c=>ctx.nameOf(c.dataset.id)||'';
  // ---------- sound: small synthesised cues ----------
  function noise(ac,dur){const n=Math.floor(ac.sampleRate*dur),b=ac.createBuffer(1,n,ac.sampleRate),d=b.getChannelData(0);for(let i=0;i<n;i++)d[i]=Math.random()*2-1;const s=ac.createBufferSource();s.buffer=b;return s;}
- function sound(kind,loud=1){const now=Date.now();if(now-lastSound<(loud>1?600:6000))return;const ac=ctx.audio?.();if(!ac||ac.state==='closed')return;lastSound=now;
+ function sound(kind,loud=1){const now=Date.now();if(now-lastSound<(loud>1?600:6000))return;const ac=ctx.audio?.();if(!ac||ac.state==='closed')return;lastSound=now;kind=SOUND_AS[kind]||kind;
   try{const t=ac.currentTime+0.02,out=ac.createGain();out.gain.value=0.05*loud;out.connect(ac.destination);
    const tone=(f0,f1,d,type='sine',v=1,at=0)=>{const o=ac.createOscillator(),g=ac.createGain();o.type=type;o.frequency.setValueAtTime(f0,t+at);o.frequency.exponentialRampToValueAtTime(Math.max(20,f1),t+at+d);g.gain.setValueAtTime(0.0001,t+at);g.gain.exponentialRampToValueAtTime(v,t+at+0.02);g.gain.exponentialRampToValueAtTime(0.0001,t+at+d);o.connect(g);g.connect(out);o.start(t+at);o.stop(t+at+d+0.05);};
    const hiss=(d,type,f0,f1,q=1,v=1,at=0)=>{const s=noise(ac,d),f=ac.createBiquadFilter(),g=ac.createGain();f.type=type;f.Q.value=q;f.frequency.setValueAtTime(f0,t+at);f.frequency.exponentialRampToValueAtTime(f1,t+at+d);g.gain.setValueAtTime(0.0001,t+at);g.gain.exponentialRampToValueAtTime(v,t+at+d*0.25);g.gain.exponentialRampToValueAtTime(0.0001,t+at+d);s.connect(f);f.connect(g);g.connect(out);s.start(t+at);s.stop(t+at+d+0.05);};
@@ -208,23 +264,82 @@ export function createLiving(ctx){
   return ()=>{for(const g of done){g.style.animation='';g.style.transformBox='';g.style.transformOrigin='';}for(const w of wraps){try{w.replaceWith(...w.childNodes);}catch{}}};}
  // paint (or re-paint after the list re-rendered) the motion of one element, `gone` ms into its loop
  function paint(chip,st,gone=0){const art=chip.querySelector('.chip-art');if(!art)return;let kind=st.kind;st.undo=null;
-  if(kind==='parts'){const spec=PARTS[nameOf(chip).toLowerCase()];st.undo=spec?applyParts(art,spec,st.ms,gone):null;if(!st.undo){kind=st.kind=ruleKind(nameOf(chip))||'turn';}else kind=spec.whole||'parts';}
+  if(kind==='parts'){const spec=PARTS[nameOf(chip).toLowerCase()];st.undo=spec?applyParts(art,spec,st.ms,gone):null;if(!st.undo){kind=st.kind=ruleKind(nameOf(chip))||'';if(!kind)return;}else kind=spec.whole||'parts';}
   chip.dataset.live=kind;chip.classList.add('is-live');art.style.setProperty('--lv-ms',st.ms+'ms');art.style.setProperty('--lv-delay',(-gone)+'ms');if(source===chip.dataset.id)chip.classList.add('is-source');}
- function play(chip,kind,ms,quiet){const id=chip.dataset.id;if(active.has(id))return false;const st={kind,ms,t0:Date.now(),undo:null};active.set(id,st);paint(chip,st,0);
-  if(!quiet&&st.kind!=='turn'&&Math.random()<0.3)sound(st.kind);
+ function play(chip,kind,ms,quiet){const id=chip.dataset.id;if(active.has(id))return false;const st={kind,ms,t0:Date.now(),undo:null};active.set(id,st);paint(chip,st,0);if(!st.kind){active.delete(id);return false;}
+  if(!quiet&&Math.random()<0.3)sound(st.kind);
   setTimeout(()=>{active.delete(id);const c=find(id);if(c){c.classList.remove('is-live');delete c.dataset.live;}try{st.undo?.();}catch{}},ms+60);return true;}
  // scrolling or tapping re-renders the list: carry every running motion over to the new nodes, mid-loop
  function carry(){for(const [id,st] of active){const c=find(id);if(c&&!c.classList.contains('is-live')){const gone=Date.now()-st.t0;if(gone<st.ms-80)paint(c,st,gone);}}if(source){const c=find(source);if(c)c.classList.add('is-source');}}
  function watch(){const root=doc.getElementById('inventoryVirtual');if(!root||!window.MutationObserver)return;let q=false;new MutationObserver(()=>{if(q)return;q=true;requestAnimationFrame(()=>{q=false;try{carry();}catch{}});}).observe(root,{childList:true,subtree:false});}
  function tick(){clearTimeout(timer);timer=setTimeout(tick,rnd(320,800));if(!ctx.canRun?.()||reduced()||active.size>=MAX_LIVE)return;
-  const chips=visible().filter(c=>!active.has(c.dataset.id));if(!chips.length)return;const withKind=chips.filter(c=>liveKind(nameOf(c)));
-  const pool=withKind.length&&Math.random()<0.6?withKind:chips;const chip=pool[Math.floor(Math.random()*pool.length)];const kind=liveKind(nameOf(chip))||'turn';play(chip,kind,LIVE_MS[kind]||2400);}
+  // only elements with a motion of their own move; the rest stay still
+  const pool=visible().filter(c=>!active.has(c.dataset.id)&&liveKind(nameOf(c)));if(!pool.length)return;const chip=pool[Math.floor(Math.random()*pool.length)];const kind=liveKind(nameOf(chip));play(chip,kind,LIVE_MS[kind]||2400);}
  // ---------- one effect at a time spills onto the screen, clearly from its element ----------
  const artOf=chip=>chip.querySelector('.chip-art')?.innerHTML||'';
+// V207: scenes described with the shared building blocks (P): rise, fall, burst, wash, banner, stamp, actor, swarm, herd, chips, quake, later
+ const SCENES={
+ bonus:(P)=>{P.rise('lf-glyph is-gold',12,['+1','+5','★','+1'],60);P.burst('lf-coin',10);},
+ levelup:(P)=>{P.banner('LEVEL UP!','is-gold');P.burst('lf-spark',26,null,['#FFD166','#FFF3C4','#6FB26A']);P.rise('lf-glyph is-gold',8,['▲','★'],80);},
+ boss:(P)=>{P.wash('is-danger');P.banner('WARNING','is-danger');P.quake(400,900);},
+ tetris:(P)=>{const cols=['#E8566E','#5AAED2','#FFD166','#6FB26A','#B39DDB','#E8843C'],n=Math.floor(P.W/30);for(let r=0;r<3;r++)for(let i=0;i<n;i++){const b=P.el('lf-block',`left:${i*30+(P.W-n*30)/2}px;--to:${P.H-70-r*30}px;background:${cols[(i+r*2)%cols.length]};animation-delay:${0.3+r*0.5+P.rnd(0,0.45)}s`);P.fx.append(b);}P.later(2700,()=>P.fx.append(P.el('lf-flash is-soft')));},
+ chomp:(P)=>{const row=P.y,dir=P.x<P.W/2?1:-1;for(let i=1;i<10;i++)P.fx.append(P.el('lf-dot',`left:${P.x+dir*i*36}px;top:${row}px;animation:lf-dotin .3s ease-out ${i*0.04}s 1 both,lf-dotout .01s linear ${Math.round(400+(i*36)/(P.W+80)*3800)}ms 1 forwards`));const c=P.el('lf-chomp',`left:${P.x}px;top:${row}px;--zs:${dir}`);P.fx.append(c);c.animate([{transform:`translateX(0) scaleX(${dir})`},{transform:`translateX(${dir*(P.W+80)}px) scaleX(${dir})`}],{duration:3800,delay:400,fill:'both'});P.actor('',[{transform:`translateX(${-dir*80}px)`,opacity:0,offset:0},{opacity:1,offset:0.2},{transform:`translateX(${dir*(P.W)}px)`,opacity:1,offset:1}],{cls:'is-ghostie',css:`left:${P.x}px;top:${row}px;`,delay:1500,dur:3200});},
+ laser:(P)=>{for(let i=0;i<5;i++)P.fx.append(P.el('lf-laser',P.at()+`--r0:${P.rnd(-170,170)}deg;--r1:${P.rnd(-170,170)}deg;animation-delay:${0.2+i*0.45}s;background:${['#E8566E','#5AAED2','#6FB26A'][i%3]}`));P.fx.append(P.el('lf-flash is-soft'));},
+ dice:(P)=>P.burst('lf-glyph is-card',18,['⚀','⚃','⚅','♠','♥','♦','♣','⚁']),
+ portal:(P)=>{const tx=P.W-P.x+P.rnd(-30,30),ty=Math.min(P.H-160,P.y+P.rnd(160,320));P.fx.append(P.el('lf-portal',P.at()));P.fx.append(P.el('lf-portal is-out',`left:${tx}px;top:${ty}px`));P.actor(P.art(),[{transform:'scale(1) rotate(0)',opacity:1,offset:0},{transform:'scale(.1) rotate(360deg)',opacity:0,offset:0.22},{transform:`translate(${tx-P.x}px,${ty-P.y}px) scale(.1) rotate(360deg)`,opacity:0,offset:0.3},{transform:`translate(${tx-P.x}px,${ty-P.y}px) scale(1.8) rotate(720deg)`,opacity:1,offset:0.5},{transform:`translate(${tx-P.x}px,${ty-P.y}px) scale(1.8) rotate(720deg)`,opacity:1,offset:0.7},{transform:`translate(${tx-P.x}px,${ty-P.y}px) scale(.1) rotate(1080deg)`,opacity:0,offset:0.85},{transform:'scale(1) rotate(1080deg)',opacity:1,offset:1}]);},
+ speedlines:(P)=>{P.fx.append(P.el('lf-speed',P.at()));P.quake(300,500);P.chips('lv-gusted',1300,1.2);},
+ aura:(P)=>{P.fx.append(P.el('lf-aura',P.at()));P.rise('lf-streakup',16,null,70);P.quake(500,1400);},
+ kawaii:(P)=>{P.burst('lf-glyph is-pastel',24,['✿','♥','★','✦','❀']);P.wash('is-pink');},
+ lockon:(P)=>{visible().filter(c=>c!==P.chip).sort(()=>Math.random()-0.5).slice(0,4).forEach((c,i)=>{const b=c.getBoundingClientRect();P.fx.append(P.el('lf-reticle',`left:${b.left+b.width/2}px;top:${b.top+b.height/2}px;width:${b.width+14}px;height:${b.height+14}px;animation-delay:${0.3+i*0.5}s`));});P.wash('is-scan');},
+ shuriken:(P)=>{for(let i=0;i<6;i++){const a=P.rnd(0,6.28),d=Math.max(P.W,P.H);P.actor('<b>✦</b>',[{transform:'translate(0,0) rotate(0) scale(.6)',offset:0},{transform:`translate(${Math.cos(a)*d*0.45}px,${Math.sin(a)*d*0.45}px) rotate(900deg) scale(1.6)`,offset:0.35},{transform:`translate(${Math.cos(a)*d*0.45}px,${Math.sin(a)*d*0.45}px) rotate(900deg) scale(1.6)`,opacity:1,offset:0.85},{transform:`translate(${Math.cos(a)*d*0.45}px,${Math.sin(a)*d*0.45}px) rotate(900deg) scale(1.6)`,opacity:0,offset:1}],{cls:'is-star',delay:200+i*160,dur:2600,ease:'cubic-bezier(.1,.7,.2,1)'});}},
+ tears:(P)=>{P.wash('is-blue');P.fall('lf-tear',26);},
+ butterflies:(P)=>P.swarm(9,P.art()),
+ bees:(P)=>P.swarm(12,P.art()),
+ flock:(P)=>{const dir=P.x<P.W/2?1:-1;for(let i=0;i<7;i++){const row=Math.ceil(i/2),side=i%2?1:-1,oy=120+row*26*side*(i?1:0)+60,ox=-row*34;P.actor(P.art(),[{transform:`translate(${dir>0?-80+ox:P.W+80-ox}px,${oy}px) scale(1.2) scaleX(${dir})`,offset:0},{transform:`translate(${P.W/2+ox*dir}px,${oy-30}px) scale(1.2) scaleX(${dir})`,offset:0.5},{transform:`translate(${dir>0?P.W+120+ox:-120-ox}px,${oy+10}px) scale(1.2) scaleX(${dir})`,offset:1}],{cls:'is-small is-flap',css:'left:0;top:0;',delay:500,dur:3600});}P.actor(P.art(),[{transform:'translate(0,0) scale(1)',opacity:1,offset:0},{transform:`translate(${(P.x<P.W/2?-1:1)*40}px,${190-P.y}px) scale(1.2)`,opacity:0,offset:1}],{dur:700});},
+ aurora:(P)=>{P.wash('is-night');for(let i=0;i<3;i++)P.fx.append(P.el('lf-aurora',`top:${60+i*70}px;animation-delay:${0.5+i*0.3}s;--h:${[150,190,280][i]}`));},
+ sunset:(P)=>{P.wash('is-sunset');P.fx.append(P.el('lf-sun',`left:${P.W/2}px`));},
+ mushrooms:(P)=>{for(let i=0;i<9;i++)P.fx.append(P.el('lf-mush',`left:${P.rnd(4,92)}%;--sz:${P.rnd(0.7,1.5)};animation-delay:${0.3+i*0.22}s`));P.rise('lf-spore',14,null,120);},
+ stampede:(P)=>{P.herd(7,P.art(),P.x<P.W/2?1:-1);P.quake(500,2600);for(let i=0;i<8;i++)P.fx.append(P.el('lf-puff is-dust',`left:${P.rnd(0,P.W)}px;top:${P.H-110}px;--dx:${P.rnd(-40,40)}px;--s:${P.rnd(1.6,2.6)};animation-delay:${0.6+i*0.3}s`));},
+ tsunami:(P)=>{P.fx.append(P.el('lf-tsunami'));P.chips('lv-blown',1700,2.4);visible().forEach(c=>{c.style.setProperty('--gx','46px');c.style.setProperty('--gy','-6px');});P.quake(900,900);},
+ twister:(P)=>{const dir=P.x<P.W/2?1:-1,fr=[];for(let k=0;k<=8;k++)fr.push({transform:`translate(${dir*k*(P.W/8)}px,${Math.sin(k*1.3)*60+60}px) scale(${2.6+Math.sin(k)*0.4}) rotate(${Math.sin(k*2)*10}deg)`,offset:k/8});P.actor(P.art(),fr,{cls:'is-twist',dur:P.ms-700,delay:300});P.chips('lv-rewind',1500,3.2);},
+ dig:(P)=>{const dir=P.x<P.W/2?1:-1;for(let i=0;i<9;i++)P.fx.append(P.el('lf-mound',`left:${P.x+dir*(20+i*34)}px;top:${P.y+16+Math.sin(i*1.1)*26}px;animation-delay:${0.3+i*0.28}s`));},
+ fireflies:(P)=>{P.wash('is-dim');P.swarm(14,'<b></b>','is-glow');},
+ dragonfire:(P)=>{const dir=P.x<P.W/2?1:-1,yy=150-P.y;P.actor(P.art(),[{transform:'translate(0,0) scale(1)',offset:0},{transform:`translate(${(dir>0?40:P.W-40)-P.x}px,${yy}px) scale(2.6) scaleX(${dir})`,offset:0.2},{transform:`translate(${(dir>0?P.W-60:60)-P.x}px,${yy+10}px) scale(2.6) scaleX(${dir})`,offset:0.75},{transform:`translate(${(dir>0?P.W+90:-90)-P.x}px,${yy-60}px) scale(2.2) scaleX(${dir})`,offset:1}]);P.later(P.ms*0.2,()=>{P.fx.append(P.el('lf-firebreath',`--zs:${dir};top:190px`));for(let i=0;i<8;i++)P.fx.append(P.el('lf-ember',`left:${P.rnd(20,P.W-20)}px;top:${P.rnd(230,P.H-200)}px;animation-delay:${P.rnd(0.2,2)}s`));});},
+ spellcircle:(P)=>{P.fx.append(P.el('lf-rune',P.at()));P.fx.append(P.el('lf-rune is-inner',P.at()));P.rise('lf-glyph is-rune',10,['ᚠ','ᚱ','ᛟ','ᛉ','✶'],90);P.wash('is-arcane');},
+ potion:(P)=>{P.wash('is-potion');P.rise('lf-bubble is-green',18,null,110);P.chips('lv-wobble',1600,2);},
+ crystal:(P)=>{for(let i=0;i<14;i++){const a=i*(6.283/14)+P.rnd(-0.15,0.15);P.fx.append(P.el('lf-shard',P.at()+`--a:${a*57.3+90}deg;--len:${P.rnd(60,150)}px;animation-delay:${0.25+i*0.07}s;background:linear-gradient(${['#B39DDB,#EDE7F6','#80DEEA,#E0F7FA','#F8BBD0,#FCE4EC'][i%3]})`));}P.burst('lf-spark',12,null,['#fff','#E1BEE7','#B2EBF2']);},
+ curse:(P)=>{P.wash('is-curse');P.rise('lf-glyph is-skull',11,['☠','✝','☠'],90);},
+ shield:(P)=>{P.fx.append(P.el('lf-dome',P.at()));for(let i=0;i<2;i++)P.fx.append(P.el('lf-ring is-blue',`animation-delay:${0.4+i*0.5}s`));},
+ applause:(P)=>{P.wash('is-dim');P.fx.append(P.el('lf-spot',P.at()));P.rise('lf-glyph is-gold',14,['👏','★','👏'],110);},
+ camera:(P)=>{for(const d of [300,800,1500])P.later(d,()=>P.fx.append(P.el('lf-flash is-snap')));P.stamp('lf-polaroid',5);},
+ moneyrain:(P)=>P.fall('lf-note',26,['$','$','€']),
+ heal:(P)=>{P.wash('is-heal');P.rise('lf-glyph is-heal',14,['✚','♥','✚'],100);},
+ police:(P)=>{P.fx.append(P.el('lf-siren'));P.chips('lv-gusted',1300,1);},
+ construction:(P)=>{for(const [r,t] of [[-12,28],[9,62]])P.fx.append(P.el('lf-tape',`top:${t}%;--r:${r}deg`,'CAUTION  ·  CAUTION  ·  CAUTION  ·  CAUTION  ·  CAUTION'));for(let i=0;i<6;i++)P.fx.append(P.el('lf-puff is-dust',P.at(P.rnd(-30,30),10)+`--dx:${P.rnd(-60,60)}px;--s:${P.rnd(1.6,2.8)};animation-delay:${0.3+i*0.2}s`));P.quake(600,700);},
+ royal:(P)=>{P.fx.append(P.el('lf-carpet',`left:${P.x}px;top:${P.y+20}px;height:${P.H-P.y}px`));P.rise('lf-glyph is-gold',10,['♛','♚','✦'],70);},
+ goal:(P)=>{const fr=[{transform:'translate(0,0) scale(1)',offset:0}];let px=P.x,py=P.y,vx=P.rnd(140,220)*(P.x<P.W/2?1:-1),vy=-180;for(let k=1;k<=9;k++){px+=vx;py+=vy;if(px<24||px>P.W-24){vx=-vx;px=Math.max(24,Math.min(P.W-24,px));}if(py<110||py>P.H-110){vy=-vy;py=Math.max(110,Math.min(P.H-110,py));}fr.push({transform:`translate(${px-P.x}px,${py-P.y}px) scale(1.5) rotate(${k*200}deg)`,offset:k/10});}fr.push({transform:'translate(0,0) scale(1) rotate(2160deg)',offset:1});P.actor(P.art(),fr);P.later(P.ms*0.55,()=>{P.banner('GOAL!','is-gold');P.burst('lf-confetti',20,null,['#E8843C','#6FB26A','#FFD166','#5AAED2']);});},
+ lightbeam:(P)=>{P.wash('is-sun');P.fx.append(P.el('lf-godray',`left:${P.x}px;height:${P.y+10}px`));P.burst('lf-petal is-feather',10,null,['#FFFFFF','#FFF8E1']);},
+ underworld:(P)=>{P.wash('is-hell');P.fx.append(P.el('lf-hellfire'));P.rise('lf-glyph is-skull',6,['☠'],120);P.quake(300,1200);},
+ stone:(P)=>P.chips('lv-stone',2600,4),
+ pandora:(P)=>P.burst('lf-glyph is-mix',26,['☠','★','♥','♪','?','✦','❄','☂']),
+ eye:(P)=>{P.wash('is-dim');P.fx.append(P.el('lf-eye'));},
+ shadow:(P)=>{const dir=P.x<P.W/2?1:-1;P.actor(P.art(),[{transform:`translate(${dir>0?-200:P.W+200}px,${P.H*0.2}px) scale(9) scaleX(${dir})`,offset:0},{transform:`translate(${P.W/2}px,${P.H*0.45}px) scale(11) scaleX(${dir})`,offset:0.5},{transform:`translate(${dir>0?P.W+260:-260}px,${P.H*0.65}px) scale(9) scaleX(${dir})`,offset:1}],{cls:'is-shadow',css:'left:0;top:0;',delay:500,dur:2800});P.wash('is-dim');},
+ cavepaint:(P)=>{P.wash('is-sepia');P.stamp('lf-glyph is-ochre',12,['✋','𐀪','☀','➶','✋','🦌']);},
+ meteors:(P)=>{for(let i=0;i<7;i++){const tx=P.rnd(40,P.W-40),ty=P.rnd(200,P.H-160);P.fx.append(P.el('lf-meteor',`left:${tx}px;top:${ty}px;animation-delay:${0.3+i*0.42}s`));P.later(300+i*420+520,()=>{P.fx.append(P.el('lf-boom is-small',`left:${tx}px;top:${ty}px`));});}P.quake(900,2600);},
+ amber:(P)=>{P.wash('is-amber');P.chips('lv-amber',2600,3);},
+ lanterns:(P)=>{P.wash('is-night');P.rise('lf-lantern',14,null,130);},
+ route:(P)=>{const pts=[[P.x,P.y]];for(let k=1;k<=4;k++)pts.push([P.rnd(40,P.W-40),P.rnd(130,P.H-150)]);const d='M'+pts.map(q=>q.map(v=>v.toFixed(0)).join(' ')).join(' L');const b=P.el('lf-lines is-route');b.innerHTML=`<svg xmlns="http://www.w3.org/2000/svg" width="100%" height="100%" fill="none"><path d="${d}" pathLength="1"/></svg>`;P.fx.append(b);pts.slice(1).forEach((q,i)=>P.fx.append(P.el('lf-pin',`left:${q[0]}px;top:${q[1]}px;animation-delay:${0.9+i*0.8}s`)));P.actor(P.art(),pts.map((q,i)=>({transform:`translate(${q[0]-P.x}px,${q[1]-P.y}px) scale(${i?1.5:1})`,offset:i/(pts.length)})).concat([{transform:'translate(0,0) scale(1)',offset:1}]),{ease:'ease-in-out'});},
+ bunting:(P)=>{for(let r=0;r<2;r++){const g=P.el('lf-bunting',`top:${70+r*90}px;animation-delay:${0.3+r*0.35}s`);g.innerHTML=Array.from({length:11},(_,i)=>`<i style="background:${['#E8566E','#FFD166','#6FB26A','#5AAED2','#B39DDB'][(i+r)%5]};--d:${Math.sin(i/10*3.14)*34}px"></i>`).join('');P.fx.append(g);}P.fall('lf-confetti',14,null,['#E8843C','#6FB26A','#FFD166','#5AAED2']);},
+ skyline:(P)=>{P.wash('is-night');const g=P.el('lf-skyline');let h='';for(let i=0;i<9;i++){const bh=P.rnd(90,260);h+=`<i style="height:${bh}px;animation-delay:${0.4+i*0.14}s;--w:${Math.floor(P.rnd(2,5))}"></i>`;}g.innerHTML=h;P.fx.append(g);},
+ train:(P)=>{const dir=P.x<P.W/2?1:-1,yy=P.H-190;P.fx.append(P.el('lf-rails',`top:${yy+26}px`));for(let i=0;i<4;i++)P.actor(P.art(),[{transform:`translate(${dir>0?-70-i*58:P.W+70+i*58}px,${yy}px) scale(${i?1.25:1.6}) scaleX(${dir})`,offset:0},{transform:`translate(${dir>0?P.W+260-i*58:-260+i*58}px,${yy}px) scale(${i?1.25:1.6}) scaleX(${dir})`,offset:1}],{css:'left:0;top:0;',delay:600,dur:3000,cls:i?'is-wagon':''});for(let i=0;i<7;i++)P.fx.append(P.el('lf-puff',`left:${dir>0?i*(P.W/7):P.W-i*(P.W/7)}px;top:${yy-20}px;--dx:${-dir*30}px;--s:2;animation-delay:${0.9+i*0.34}s`));P.quake(700,2400);},
+ balloons:(P)=>P.rise('lf-balloon',14,null,130),
+ mirage:(P)=>{P.wash('is-heat');doc.body.classList.add('lv-mirage');setTimeout(()=>doc.body.classList.remove('lv-mirage'),3600);},
+};
+
  const el=(cls,css,txt)=>{const d=doc.createElement('i');d.className=cls;if(css)d.style.cssText=css;if(txt)d.textContent=txt;return d;};
  function bleed(chip,type){ensure();const fx=doc.getElementById('livingFx');if(!fx||fx.childElementCount||!REACT[type])return false;const r=chip.getBoundingClientRect(),x=r.left+24,y=r.top+r.height/2;const ms=BLEED_MS[type]||4400;
   fx.style.setProperty('--x',x+'px');fx.style.setProperty('--y',y+'px');
-  const kind=liveKind(nameOf(chip))||'turn';source=chip.dataset.id;if(!play(chip,kind,Math.max(ms,LIVE_MS[kind]||0),true))chip.classList.add('is-source');lastSound=0;sound(type,2);lastBleed=type;
+  const kind=liveKind(nameOf(chip));source=chip.dataset.id;if(!kind||!play(chip,kind,Math.max(ms,LIVE_MS[kind]||0),true))chip.classList.add('is-source');lastSound=0;sound(type,2);lastBleed=type;
   // the source is unmistakable: the chip lifts and two rings leave it
   for(let i=0;i<2;i++)fx.append(el('lf-ring',`animation-delay:${i*0.28}s`));
   const at=(dx=0,dy=0)=>`left:${x+dx}px;top:${y+dy}px;`;
@@ -301,6 +416,18 @@ export function createLiving(ctx){
    setTimeout(()=>{if(!fx.childElementCount||!tb)return;const mx=tb.left+tb.width/2,my=tb.top;const g=rel==='friends'?['❤','♥']:rel==='rivals'||rel==='nemesis'?['💢','!']:['♪','!'];for(let i=0;i<5;i++)fx.append(el('lf-rise lf-glyph '+(rel==='friends'?'is-heart':'is-note'),`left:${mx+rnd(-20,20)}px;top:${my}px;--dx:${rnd(-30,30)}px;--s:1;animation-delay:${i*0.15}s;animation-duration:1.6s`,g[i%g.length]));
     try{const [a,e]=rel==='friends'?['celebrate','love']:rel==='rivals'||rel==='nemesis'?['stomp','angry']:['wave','happy'];ctx.react?.(a,e,1700);}catch{}},(ms-300)*0.36);}
   else if(type==='rewind'){wash('is-sepia');visible().forEach((c,i)=>{setTimeout(()=>{c.classList.add('lv-rewind');setTimeout(()=>c.classList.remove('lv-rewind'),1500);},300+i*25);});}
+  else if(SCENES[type]){const W=innerWidth,H=innerHeight;
+   const P={x,y,W,H,ms,chip,fx,el,at,rise,burst,wash,rnd,art:()=>artOf(chip),
+    fall:(cls,n,txts,cols,dur=2.6)=>{for(let i=0;i<n;i++)fx.append(el('lf-fall '+cls,`left:${rnd(2,96)}%;--r:${rnd(-200,200)}deg;--sw:${rnd(-40,40)}px;animation-duration:${rnd(dur*0.8,dur*1.2)}s;animation-delay:${0.3+rnd(0,1.8)}s;${cols?'background:'+cols[i%cols.length]:''}`,txts?txts[i%txts.length]:''));},
+    banner:(txt,cls='')=>fx.append(el('lf-banner '+cls,'',txt)),
+    stamp:(cls,n,txts,box)=>{for(let i=0;i<n;i++)fx.append(el('lf-stamp '+cls,`left:${rnd(box?box[0]:20,box?box[2]:W-40)}px;top:${rnd(box?box[1]:120,box?box[3]:H-140)}px;--r:${rnd(-25,25)}deg;animation-delay:${0.3+i*(2.4/n)}s`,txts?txts[i%txts.length]:''));},
+    actor:(html,frames,opt={})=>{const a=el('lf-actor '+(opt.cls||''));a.innerHTML=html;a.style.cssText=opt.css||at();fx.append(a);a.animate(frames,{duration:opt.dur||ms-300,delay:opt.delay||0,easing:opt.ease||'linear',fill:'both'});return a;},
+    swarm:(n,html,cls='is-small')=>{for(let i=0;i<n;i++){const fr=[{transform:'translate(0,0) scale(.5)',offset:0}];for(let k=1;k<=5;k++)fr.push({transform:`translate(${rnd(20,W-20)-x}px,${rnd(90,H-120)-y}px) scale(${rnd(0.8,1.3)}) rotate(${rnd(-25,25)}deg)`,offset:k/6.5});fr.push({transform:'translate(0,0) scale(.5)',offset:1});P.actor(html,fr,{cls,delay:i*90,ease:'ease-in-out'});}},
+    herd:(n,html,dir=1)=>{for(let i=0;i<n;i++){const y0=H-rnd(120,230),fr=[];for(let k=0;k<=10;k++)fr.push({transform:`translate(${dir>0?-60+k*(W+120)/10:W+60-k*(W+120)/10}px,${y0-(k%2?14:0)}px) scale(${1.5+i%3*0.2}) scaleX(${dir})`,offset:k/10});P.actor(html,fr,{css:'left:0;top:0;',delay:300+i*230,dur:2600});}},
+    chips:(cls,dur,gap=3)=>visible().forEach(c=>{const b=c.getBoundingClientRect();setTimeout(()=>{c.classList.add(cls);setTimeout(()=>c.classList.remove(cls),dur);},250+Math.hypot(b.left-x,b.top-y)*gap);}),
+    quake:(d=200,len=1000)=>setTimeout(()=>{doc.body.classList.add('lv-quake');setTimeout(()=>doc.body.classList.remove('lv-quake'),len);},d),
+    later:(d,f)=>setTimeout(()=>{if(fx.childElementCount)try{f();}catch{}},d)};
+   SCENES[type](P);}
   if(type!=='visitor')try{const [a,e]=REACT[type];setTimeout(()=>ctx.react?.(a,e,Math.min(ms-500,3200)),500);}catch{}
   try{if(type==='quake')navigator.vibrate?.([30,40,30,40,60]);else if(type==='bolt')navigator.vibrate?.(25);}catch{}
   setTimeout(()=>{fx.replaceChildren();const c=find(source);if(c)c.classList.remove('is-source');chip.classList.remove('is-source');source=null;},ms+300);return true;}
@@ -311,6 +438,6 @@ export function createLiving(ctx){
   const c=visible().filter(c=>bleedFor(c));if(!c.length)return;const named=c.filter(x=>bleedOf(nameOf(x))||bleedFor(x)==='visitor');const base=named.length&&Math.random()<0.8?named:c;const fresh=base.filter(x=>bleedFor(x)!==lastBleed);const pool=fresh.length?fresh:base;const chip=pool[Math.floor(Math.random()*pool.length)];bleed(chip,bleedFor(chip));}
  const find=id=>[...doc.querySelectorAll('#viewPlay .element-chip')].find(x=>x.dataset.id===id);
  return {start(){if(started)return;started=true;ensure();watch();timer=setTimeout(tick,2000);bleedTimer=setTimeout(bleedTick,rnd(12000,20000));},activeCount:()=>active.size,
-  /** test hooks */ playId(id,kind){ensure();const c=find(id);const k=kind||liveKind(ctx.nameOf(id))||'turn';return c?play(c,k,LIVE_MS[k]||2400):false;},
+  /** test hooks */ playId(id,kind){ensure();const c=find(id);const k=kind||liveKind(ctx.nameOf(id));return c&&k?play(c,k,LIVE_MS[k]||2400):false;},
   bleedId(id,type){ensure();const c=find(id);return c?bleed(c,type||bleedFor(c)):false;},sound};
 }
