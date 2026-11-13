@@ -335,3 +335,29 @@ test('V204: living elements — sensible motion (parts where the art allows), pa
   for (const [a] of Object.values(L.REACT)) assert.ok(css.includes(`.companion[data-anim="${a}"]`), 'pose ' + a);
   assert.ok(app.includes('createLiving({') && eng.includes('function react(anim,ex,ms=2400)'));
 });
+
+test('V209: worn items sit on top of the sprite, follow the head/body and are sized from the real head', async () => {
+  const fs = await import('node:fs');
+  const eng = fs.readFileSync(new URL('../src/companion-engine-v86.js', import.meta.url), 'utf8');
+  const { fitWearSvg } = await import('../src/companion-engine-v86.js');
+  assert.equal(typeof fitWearSvg, 'function');
+  assert.ok(eng.includes('function applyWearSvg(svg,id){fitWearSvg(svg,state.pets[id]?.wear,ACC);}'));
+  // a tiny fake svg: head off to the right of a long body (side-view animal), eyes close together
+  const mk = (part, box) => ({ dataset: { part, pivot: '50 50' }, style: {}, getBBox: () => box, closest: () => null });
+  const head = mk('head', { x: 70, y: 30, width: 20, height: 20 }), body = mk('body', { x: 10, y: 40, width: 70, height: 30 });
+  const eyeL = mk('eye-l', { x: 80, y: 36, width: 3, height: 3 }), eyeR = mk('eye-r', { x: 84, y: 36, width: 3, height: 3 });
+  const added = [];
+  const svg = { querySelector: s => s.includes('eye-l') ? eyeL : s.includes('eye-r') ? eyeR : s.includes('head') ? head : s.includes('body') ? body : null, querySelectorAll: () => [], append: g => added.push(g) };
+  body.insertBefore = g => added.push(g); body.firstChild = null;
+  globalThis.document = { createElementNS: () => { const a = {}; return { setAttribute: (k, v) => { a[k] = v; }, attrs: a, style: {}, innerHTML: '' }; } };
+  const ACC = { glasses: { slot: 'face', draw: s => `W${s}` }, scarf: { slot: 'neck', draw: s => `W${s}` }, hat: { slot: 'head', draw: s => `W${s}` } };
+  try {
+    fitWearSvg(svg, { a: 'glasses', b: 'scarf', c: 'hat' }, ACC);
+  } finally { delete globalThis.document; }
+  assert.equal(added.length, 3);
+  const [g, sc, hat] = added;
+  assert.equal(g.attrs['data-part'], 'head'); assert.equal(sc.attrs['data-part'], 'body'); assert.equal(hat.attrs['data-acc'], 'wear');
+  assert.ok(+g.innerHTML.match(/W([\d.]+)/)[1] >= 14, 'glasses are never shrunk to nothing by a small eye gap');
+  const sx = +sc.innerHTML.match(/translate\(([\d.]+)/)[1]; assert.ok(sx > 60 && sx < 82, 'scarf sits at the neck end of a side-view animal, not mid-back: ' + sx);
+  assert.ok(+sc.innerHTML.match(/W([\d.]+)/)[1] <= 21.1, 'scarf sized from the head, not the long body');
+});

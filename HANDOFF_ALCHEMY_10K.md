@@ -90,6 +90,11 @@ Preserve 200-per-batch policy and do not start another content release on top of
 
 - **Art redraw wave 3 (V85, done): 3,991 icons** — every remaining older element. All 6,012 pre-V83 elements now use the 2026 art direction (`ART_REDRAW`), plus 200 V83 and 200 V85 originals. Six near-duplicates found by the audit were redrawn; 36 reviewed false alarms are in `tools/art-redraw-reviewed-pairs.json` (the audit now also honours them for V83 comparisons).
 
+## V209 — Peças de vestir visíveis em todos os companions
+- `fitWearSvg(svg, wear, ACC)` (exportada do motor; `applyWearSvg` só a chama). Antes as peças iam para dentro do grupo da cabeça/corpo e ficavam tapadas por olhos, cabelo, capacetes e cabeças grandes, ou minúsculas quando os olhos estão juntos (vista de lado).
+- Agora: cabeça/cara/pescoço são desenhadas **por cima de tudo**, num `<g data-acc="wear" data-part="head|body">` no fim do svg que copia pivot/origem da parte (segue animações e expressões). Óculos: largura mínima 72% da cabeça. Chapéus: sobem para cima do que o companion já usa (peças em `extra`/`body` por cima da cabeça, ex. chapéu do Wizard). Pescoço: largura pela cabeça (não pelo corpo comprido) e, em animais de lado (cabeça numa ponta), fica junto ao pescoço. Capa: alarga para fora do corpo, cai para trás nos de lado e tem gola com fecho à frente.
+- Folha de verificação: `/tmp/v209/shot.py "mode=new&acc=a,b,c" new` (40 companions × peças; precisa de `/tmp/v209/wear.html`).
+
 ## V208 — Modo escuro a sério
 - `tools/gen-dark-skin.py` reescrito: em vez de manter cartões claros com texto escuro, **repinta** no tema escuro tudo o que tem fundo claro fixo (hex com luminância ≥ .7, e `rgba(255,255,255,.8x/.9x)`): mantém o tom com pouca saturação e luminância ~.17–.22, bordas claras → ~.30, sombras 3D claras → quase preto, texto escuro → claro, e define `--ink/--muted/--line…` claros dentro. Segunda passagem: texto escuro em regras filhas desses componentes (mesma classe raiz) passa a claro, exceto quando a regra tem fundo de destaque próprio. Mantém `!important` quando o original o tem. Ignora efeitos/companions/jogos (`SKIP`).
 - Acertos manuais antes do bloco gerado: preço do Remove ads (`.bx-noads-price`, `.mk-noads em`).
