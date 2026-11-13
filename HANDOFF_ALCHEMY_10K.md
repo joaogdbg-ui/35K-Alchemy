@@ -90,6 +90,11 @@ Preserve 200-per-batch policy and do not start another content release on top of
 
 - **Art redraw wave 3 (V85, done): 3,991 icons** — every remaining older element. All 6,012 pre-V83 elements now use the 2026 art direction (`ART_REDRAW`), plus 200 V83 and 200 V85 originals. Six near-duplicates found by the audit were redrawn; 36 reviewed false alarms are in `tools/art-redraw-reviewed-pairs.json` (the audit now also honours them for V83 comparisons).
 
+## V208 — Modo escuro a sério
+- `tools/gen-dark-skin.py` reescrito: em vez de manter cartões claros com texto escuro, **repinta** no tema escuro tudo o que tem fundo claro fixo (hex com luminância ≥ .7, e `rgba(255,255,255,.8x/.9x)`): mantém o tom com pouca saturação e luminância ~.17–.22, bordas claras → ~.30, sombras 3D claras → quase preto, texto escuro → claro, e define `--ink/--muted/--line…` claros dentro. Segunda passagem: texto escuro em regras filhas desses componentes (mesma classe raiz) passa a claro, exceto quando a regra tem fundo de destaque próprio. Mantém `!important` quando o original o tem. Ignora efeitos/companions/jogos (`SKIP`).
+- Acertos manuais antes do bloco gerado: preço do Remove ads (`.bx-noads-price`, `.mk-noads em`).
+- Correr o script depois de qualquer CSS novo com fundos claros (o bloco tem de ficar no fim; há teste).
+
 ## V207 — Sem virar de papel; 102 efeitos de ecrã
 - **Removido o virar sobre si** (dono não gostou): elementos sem movimento próprio ficam parados; `tick` só escolhe chips com `liveKind`.
 - **55 efeitos novos** (102 no total) descritos numa tabela `SCENES` dentro de `createLiving`, cada um com os blocos partilhados `P`: rise, fall, burst, wash, banner, stamp, actor (clone da arte com `element.animate`), swarm, herd, chips (classe nos chips por distância), quake, later. Por família — jogos: bonus, levelup, boss, tetris, chomp, laser, dice, portal, lockon; anime: speedlines, aura, kawaii, shuriken, tears; natureza: butterflies, bees, flock, aurora, sunset, mushrooms, stampede, tsunami, twister, dig, fireflies, mirage; fantasia: dragonfire, spellcircle, potion, crystal, curse, shield, pandora; pessoas: applause, camera, moneyrain, heal, police, construction, royal, goal; mitologia: lightbeam, underworld, stone, eye; pré-história: shadow, cavepaint, meteors, amber; mundo: lanterns, route, bunting, skyline, train, balloons.
